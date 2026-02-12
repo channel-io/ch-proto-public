@@ -14,7 +14,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The id.
    */
   java.lang.String getId();
@@ -25,7 +25,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
@@ -38,7 +38,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
@@ -49,7 +49,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   com.google.protobuf.ByteString
@@ -64,7 +64,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:validation:MaxLength=30
    * </pre>
    *
-   * <code>string name = 3 [json_name = "name"];</code>
+   * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
    * @return The name.
    */
   java.lang.String getName();
@@ -77,7 +77,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:validation:MaxLength=30
    * </pre>
    *
-   * <code>string name = 3 [json_name = "name"];</code>
+   * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
@@ -86,36 +86,22 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Bot description.
-   * Editable only from Desk.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * </pre>
    *
-   * <code>optional string description = 4 [json_name = "description"];</code>
-   * @return Whether the description field is set.
-   */
-  boolean hasDescription();
-  /**
-   * <pre>
-   * Bot description.
-   * Editable only from Desk.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MaxLength=180
-   * </pre>
-   *
-   * <code>optional string description = 4 [json_name = "description"];</code>
+   * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
    * @return The description.
    */
   java.lang.String getDescription();
   /**
    * <pre>
    * Bot description.
-   * Editable only from Desk.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * </pre>
    *
-   * <code>optional string description = 4 [json_name = "description"];</code>
+   * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
    * @return The bytes for description.
    */
   com.google.protobuf.ByteString
@@ -124,7 +110,7 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Internationalized name and description map.
-   * Keyed by locale. Editable only from Desk.
+   * Keyed by locale.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -134,7 +120,7 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Internationalized name and description map.
-   * Keyed by locale. Editable only from Desk.
+   * Keyed by locale.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -151,7 +137,7 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Internationalized name and description map.
-   * Keyed by locale. Editable only from Desk.
+   * Keyed by locale.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -162,7 +148,7 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Internationalized name and description map.
-   * Keyed by locale. Editable only from Desk.
+   * Keyed by locale.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -175,7 +161,7 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Internationalized name and description map.
-   * Keyed by locale. Editable only from Desk.
+   * Keyed by locale.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -193,19 +179,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:example="#3B82F6"
    * </pre>
    *
-   * <code>optional string color = 6 [json_name = "color"];</code>
-   * @return Whether the color field is set.
-   */
-  boolean hasColor();
-  /**
-   * <pre>
-   * Bot color in hex format.
-   * Randomly assigned if not specified on creation.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="#3B82F6"
-   * </pre>
-   *
-   * <code>optional string color = 6 [json_name = "color"];</code>
+   * <code>string color = 6 [json_name = "color"];</code>
    * @return The color.
    */
   java.lang.String getColor();
@@ -217,7 +191,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:example="#3B82F6"
    * </pre>
    *
-   * <code>optional string color = 6 [json_name = "color"];</code>
+   * <code>string color = 6 [json_name = "color"];</code>
    * @return The bytes for color.
    */
   com.google.protobuf.ByteString
@@ -229,17 +203,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>optional string avatar_url = 7 [json_name = "avatarUrl"];</code>
-   * @return Whether the avatarUrl field is set.
-   */
-  boolean hasAvatarUrl();
-  /**
-   * <pre>
-   * Bot avatar image URL.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>optional string avatar_url = 7 [json_name = "avatarUrl"];</code>
+   * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
    * @return The avatarUrl.
    */
   java.lang.String getAvatarUrl();
@@ -249,7 +213,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>optional string avatar_url = 7 [json_name = "avatarUrl"];</code>
+   * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
    * @return The bytes for avatarUrl.
    */
   com.google.protobuf.ByteString
@@ -261,7 +225,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
@@ -271,7 +235,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
@@ -281,7 +245,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 }

@@ -80,31 +80,29 @@ public final class Bot {
       "xt\"U\n\rGetBotRequest\022\035\n\006bot_id\030\001 \001(\tB\006\272H\003" +
       "\310\001\001R\005botId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\t" +
       "channelId\"4\n\014GetBotResult\022$\n\003bot\030\001 \001(\0132\022" +
-      ".coreapi.model.BotR\003bot\"\244\005\n\020UpsertBotReq" +
+      ".coreapi.model.BotR\003bot\"\354\004\n\020UpsertBotReq" +
       "uest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchanne" +
       "lId\022\302\001\n\004name\030\002 \001(\tB\255\001\272H\251\001\272\001K\n\rstring.max" +
       "Len\022(value must be no more than 30 chara" +
       "cters\032\020size(this) <= 30\272\001E\n\rstring.minLe" +
       "n\022#value must be at least 1 characters\032\017" +
       "size(this) >= 1\310\001\001r\0162\014^[^@#$%:/]+$R\004name" +
-      "\022z\n\013description\030\003 \001(\tBS\272HP\272\001M\n\rstring.ma" +
+      "\022u\n\013description\030\003 \001(\tBS\272HP\272\001M\n\rstring.ma" +
       "xLen\022)value must be no more than 180 cha" +
-      "racters\032\021size(this) <= 180H\000R\013descriptio" +
-      "n\210\001\001\022c\n\022name_desc_i18n_map\030\004 \003(\01326.corea" +
-      "pi.service.UpsertBotRequest.NameDescI18n" +
-      "MapEntryR\017nameDescI18nMap\022\031\n\005color\030\005 \001(\t" +
-      "H\001R\005color\210\001\001\022\"\n\navatar_url\030\006 \001(\tH\002R\tavat" +
-      "arUrl\210\001\001\032[\n\024NameDescI18nMapEntry\022\020\n\003key\030" +
-      "\001 \001(\tR\003key\022-\n\005value\030\002 \001(\0132\027.coreapi.mode" +
-      "l.NameDescR\005value:\0028\001B\016\n\014_descriptionB\010\n" +
-      "\006_colorB\r\n\013_avatar_url\"7\n\017UpsertBotResul" +
-      "t\022$\n\003bot\030\001 \001(\0132\022.coreapi.model.BotR\003bot\"" +
-      "X\n\020DeleteBotRequest\022\035\n\006bot_id\030\001 \001(\tB\006\272H\003" +
-      "\310\001\001R\005botId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\t" +
-      "channelId\"\021\n\017DeleteBotResultBb\n$io.chann" +
-      "el.api.proto.coreapi.serviceP\001Z8github.c" +
-      "om/channel-io/ch-proto-public/coreapi/go" +
-      "/serviceb\006proto3"
+      "racters\032\021size(this) <= 180R\013description\022" +
+      "c\n\022name_desc_i18n_map\030\004 \003(\01326.coreapi.se" +
+      "rvice.UpsertBotRequest.NameDescI18nMapEn" +
+      "tryR\017nameDescI18nMap\022\024\n\005color\030\005 \001(\tR\005col" +
+      "or\022\035\n\navatar_url\030\006 \001(\tR\tavatarUrl\032[\n\024Nam" +
+      "eDescI18nMapEntry\022\020\n\003key\030\001 \001(\tR\003key\022-\n\005v" +
+      "alue\030\002 \001(\0132\027.coreapi.model.NameDescR\005val" +
+      "ue:\0028\001\"7\n\017UpsertBotResult\022$\n\003bot\030\001 \001(\0132\022" +
+      ".coreapi.model.BotR\003bot\"X\n\020DeleteBotRequ" +
+      "est\022\035\n\006bot_id\030\001 \001(\tB\006\272H\003\310\001\001R\005botId\022%\n\nch" +
+      "annel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"\021\n\017Del" +
+      "eteBotResultBb\n$io.channel.api.proto.cor" +
+      "eapi.serviceP\001Z8github.com/channel-io/ch" +
+      "-proto-public/coreapi/go/serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -143,7 +141,7 @@ public final class Bot {
     internal_static_coreapi_service_UpsertBotRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_UpsertBotRequest_descriptor,
-        new java.lang.String[] { "ChannelId", "Name", "Description", "NameDescI18NMap", "Color", "AvatarUrl", "Description", "Color", "AvatarUrl", });
+        new java.lang.String[] { "ChannelId", "Name", "Description", "NameDescI18NMap", "Color", "AvatarUrl", });
     internal_static_coreapi_service_UpsertBotRequest_NameDescI18nMapEntry_descriptor =
       internal_static_coreapi_service_UpsertBotRequest_descriptor.getNestedTypes().get(0);
     internal_static_coreapi_service_UpsertBotRequest_NameDescI18nMapEntry_fieldAccessorTable = new

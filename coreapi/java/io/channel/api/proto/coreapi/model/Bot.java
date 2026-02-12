@@ -80,15 +80,15 @@ private static final long serialVersionUID = 0L;
           }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
+
             description_ = s;
             break;
           }
           case 42: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               nameDescI18NMap_ = com.google.protobuf.MapField.newMapField(
                   NameDescI18NMapDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
+              mutable_bitField0_ |= 0x00000001;
             }
             com.google.protobuf.MapEntry<java.lang.String, io.channel.api.proto.coreapi.model.NameDesc>
             nameDescI18NMap__ = input.readMessage(
@@ -99,13 +99,13 @@ private static final long serialVersionUID = 0L;
           }
           case 50: {
             java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
+
             color_ = s;
             break;
           }
           case 58: {
             java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
+
             avatarUrl_ = s;
             break;
           }
@@ -166,7 +166,6 @@ private static final long serialVersionUID = 0L;
             io.channel.api.proto.coreapi.model.Bot.class, io.channel.api.proto.coreapi.model.Bot.Builder.class);
   }
 
-  private int bitField0_;
   public static final int ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object id_;
   /**
@@ -176,7 +175,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The id.
    */
   @java.lang.Override
@@ -199,7 +198,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The bytes for id.
    */
   @java.lang.Override
@@ -226,7 +225,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   @java.lang.Override
@@ -249,7 +248,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   @java.lang.Override
@@ -278,7 +277,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MaxLength=30
    * </pre>
    *
-   * <code>string name = 3 [json_name = "name"];</code>
+   * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
    * @return The name.
    */
   @java.lang.Override
@@ -303,7 +302,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MaxLength=30
    * </pre>
    *
-   * <code>string name = 3 [json_name = "name"];</code>
+   * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
    * @return The bytes for name.
    */
   @java.lang.Override
@@ -326,27 +325,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot description.
-   * Editable only from Desk.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * </pre>
    *
-   * <code>optional string description = 4 [json_name = "description"];</code>
-   * @return Whether the description field is set.
-   */
-  @java.lang.Override
-  public boolean hasDescription() {
-    return ((bitField0_ & 0x00000001) != 0);
-  }
-  /**
-   * <pre>
-   * Bot description.
-   * Editable only from Desk.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MaxLength=180
-   * </pre>
-   *
-   * <code>optional string description = 4 [json_name = "description"];</code>
+   * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
    * @return The description.
    */
   @java.lang.Override
@@ -365,12 +348,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot description.
-   * Editable only from Desk.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * </pre>
    *
-   * <code>optional string description = 4 [json_name = "description"];</code>
+   * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
    * @return The bytes for description.
    */
   @java.lang.Override
@@ -417,7 +399,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description map.
-   * Keyed by locale. Editable only from Desk.
+   * Keyed by locale.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -441,7 +423,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description map.
-   * Keyed by locale. Editable only from Desk.
+   * Keyed by locale.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -455,7 +437,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description map.
-   * Keyed by locale. Editable only from Desk.
+   * Keyed by locale.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -474,7 +456,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description map.
-   * Keyed by locale. Editable only from Desk.
+   * Keyed by locale.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -503,22 +485,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="#3B82F6"
    * </pre>
    *
-   * <code>optional string color = 6 [json_name = "color"];</code>
-   * @return Whether the color field is set.
-   */
-  @java.lang.Override
-  public boolean hasColor() {
-    return ((bitField0_ & 0x00000002) != 0);
-  }
-  /**
-   * <pre>
-   * Bot color in hex format.
-   * Randomly assigned if not specified on creation.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="#3B82F6"
-   * </pre>
-   *
-   * <code>optional string color = 6 [json_name = "color"];</code>
+   * <code>string color = 6 [json_name = "color"];</code>
    * @return The color.
    */
   @java.lang.Override
@@ -542,7 +509,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="#3B82F6"
    * </pre>
    *
-   * <code>optional string color = 6 [json_name = "color"];</code>
+   * <code>string color = 6 [json_name = "color"];</code>
    * @return The bytes for color.
    */
   @java.lang.Override
@@ -568,20 +535,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>optional string avatar_url = 7 [json_name = "avatarUrl"];</code>
-   * @return Whether the avatarUrl field is set.
-   */
-  @java.lang.Override
-  public boolean hasAvatarUrl() {
-    return ((bitField0_ & 0x00000004) != 0);
-  }
-  /**
-   * <pre>
-   * Bot avatar image URL.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>optional string avatar_url = 7 [json_name = "avatarUrl"];</code>
+   * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
    * @return The avatarUrl.
    */
   @java.lang.Override
@@ -603,7 +557,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>optional string avatar_url = 7 [json_name = "avatarUrl"];</code>
+   * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
    * @return The bytes for avatarUrl.
    */
   @java.lang.Override
@@ -629,7 +583,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the createdAt field is set.
    */
   @java.lang.Override
@@ -642,7 +596,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return The createdAt.
    */
   @java.lang.Override
@@ -655,7 +609,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
@@ -685,7 +639,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
     }
     com.google.protobuf.GeneratedMessageV3
@@ -694,10 +648,10 @@ private static final long serialVersionUID = 0L;
         internalGetNameDescI18NMap(),
         NameDescI18NMapDefaultEntryHolder.defaultEntry,
         5);
-    if (((bitField0_ & 0x00000002) != 0)) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(color_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, color_);
     }
-    if (((bitField0_ & 0x00000004) != 0)) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(avatarUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, avatarUrl_);
     }
     if (createdAt_ != null) {
@@ -721,7 +675,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
     }
     for (java.util.Map.Entry<java.lang.String, io.channel.api.proto.coreapi.model.NameDesc> entry
@@ -734,10 +688,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, nameDescI18NMap__);
     }
-    if (((bitField0_ & 0x00000002) != 0)) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(color_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, color_);
     }
-    if (((bitField0_ & 0x00000004) != 0)) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(avatarUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, avatarUrl_);
     }
     if (createdAt_ != null) {
@@ -765,23 +719,14 @@ private static final long serialVersionUID = 0L;
         .equals(other.getChannelId())) return false;
     if (!getName()
         .equals(other.getName())) return false;
-    if (hasDescription() != other.hasDescription()) return false;
-    if (hasDescription()) {
-      if (!getDescription()
-          .equals(other.getDescription())) return false;
-    }
+    if (!getDescription()
+        .equals(other.getDescription())) return false;
     if (!internalGetNameDescI18NMap().equals(
         other.internalGetNameDescI18NMap())) return false;
-    if (hasColor() != other.hasColor()) return false;
-    if (hasColor()) {
-      if (!getColor()
-          .equals(other.getColor())) return false;
-    }
-    if (hasAvatarUrl() != other.hasAvatarUrl()) return false;
-    if (hasAvatarUrl()) {
-      if (!getAvatarUrl()
-          .equals(other.getAvatarUrl())) return false;
-    }
+    if (!getColor()
+        .equals(other.getColor())) return false;
+    if (!getAvatarUrl()
+        .equals(other.getAvatarUrl())) return false;
     if (hasCreatedAt() != other.hasCreatedAt()) return false;
     if (hasCreatedAt()) {
       if (!getCreatedAt()
@@ -804,22 +749,16 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getChannelId().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
-    if (hasDescription()) {
-      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getDescription().hashCode();
-    }
+    hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+    hash = (53 * hash) + getDescription().hashCode();
     if (!internalGetNameDescI18NMap().getMap().isEmpty()) {
       hash = (37 * hash) + NAME_DESC_I18N_MAP_FIELD_NUMBER;
       hash = (53 * hash) + internalGetNameDescI18NMap().hashCode();
     }
-    if (hasColor()) {
-      hash = (37 * hash) + COLOR_FIELD_NUMBER;
-      hash = (53 * hash) + getColor().hashCode();
-    }
-    if (hasAvatarUrl()) {
-      hash = (37 * hash) + AVATAR_URL_FIELD_NUMBER;
-      hash = (53 * hash) + getAvatarUrl().hashCode();
-    }
+    hash = (37 * hash) + COLOR_FIELD_NUMBER;
+    hash = (53 * hash) + getColor().hashCode();
+    hash = (37 * hash) + AVATAR_URL_FIELD_NUMBER;
+    hash = (53 * hash) + getAvatarUrl().hashCode();
     if (hasCreatedAt()) {
       hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getCreatedAt().hashCode();
@@ -991,12 +930,12 @@ private static final long serialVersionUID = 0L;
       name_ = "";
 
       description_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
+
       internalGetMutableNameDescI18NMap().clear();
       color_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
+
       avatarUrl_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
+
       if (createdAtBuilder_ == null) {
         createdAt_ = null;
       } else {
@@ -1030,30 +969,19 @@ private static final long serialVersionUID = 0L;
     public io.channel.api.proto.coreapi.model.Bot buildPartial() {
       io.channel.api.proto.coreapi.model.Bot result = new io.channel.api.proto.coreapi.model.Bot(this);
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
       result.id_ = id_;
       result.channelId_ = channelId_;
       result.name_ = name_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
       result.description_ = description_;
       result.nameDescI18NMap_ = internalGetNameDescI18NMap();
       result.nameDescI18NMap_.makeImmutable();
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        to_bitField0_ |= 0x00000002;
-      }
       result.color_ = color_;
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        to_bitField0_ |= 0x00000004;
-      }
       result.avatarUrl_ = avatarUrl_;
       if (createdAtBuilder_ == null) {
         result.createdAt_ = createdAt_;
       } else {
         result.createdAt_ = createdAtBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -1114,20 +1042,17 @@ private static final long serialVersionUID = 0L;
         name_ = other.name_;
         onChanged();
       }
-      if (other.hasDescription()) {
-        bitField0_ |= 0x00000001;
+      if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
         onChanged();
       }
       internalGetMutableNameDescI18NMap().mergeFrom(
           other.internalGetNameDescI18NMap());
-      if (other.hasColor()) {
-        bitField0_ |= 0x00000004;
+      if (!other.getColor().isEmpty()) {
         color_ = other.color_;
         onChanged();
       }
-      if (other.hasAvatarUrl()) {
-        bitField0_ |= 0x00000008;
+      if (!other.getAvatarUrl().isEmpty()) {
         avatarUrl_ = other.avatarUrl_;
         onChanged();
       }
@@ -1172,7 +1097,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return The id.
      */
     public java.lang.String getId() {
@@ -1194,7 +1119,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
@@ -1217,7 +1142,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -1238,7 +1163,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -1254,7 +1179,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -1278,7 +1203,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The channelId.
      */
     public java.lang.String getChannelId() {
@@ -1300,7 +1225,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for channelId.
      */
     public com.google.protobuf.ByteString
@@ -1323,7 +1248,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The channelId to set.
      * @return This builder for chaining.
      */
@@ -1344,7 +1269,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChannelId() {
@@ -1360,7 +1285,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for channelId to set.
      * @return This builder for chaining.
      */
@@ -1386,7 +1311,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MaxLength=30
      * </pre>
      *
-     * <code>string name = 3 [json_name = "name"];</code>
+     * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -1410,7 +1335,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MaxLength=30
      * </pre>
      *
-     * <code>string name = 3 [json_name = "name"];</code>
+     * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -1435,7 +1360,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MaxLength=30
      * </pre>
      *
-     * <code>string name = 3 [json_name = "name"];</code>
+     * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
      * @param value The name to set.
      * @return This builder for chaining.
      */
@@ -1458,7 +1383,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MaxLength=30
      * </pre>
      *
-     * <code>string name = 3 [json_name = "name"];</code>
+     * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
@@ -1476,7 +1401,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MaxLength=30
      * </pre>
      *
-     * <code>string name = 3 [json_name = "name"];</code>
+     * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
@@ -1496,26 +1421,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot description.
-     * Editable only from Desk.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * </pre>
      *
-     * <code>optional string description = 4 [json_name = "description"];</code>
-     * @return Whether the description field is set.
-     */
-    public boolean hasDescription() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <pre>
-     * Bot description.
-     * Editable only from Desk.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MaxLength=180
-     * </pre>
-     *
-     * <code>optional string description = 4 [json_name = "description"];</code>
+     * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
      * @return The description.
      */
     public java.lang.String getDescription() {
@@ -1533,12 +1443,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot description.
-     * Editable only from Desk.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * </pre>
      *
-     * <code>optional string description = 4 [json_name = "description"];</code>
+     * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
      * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
@@ -1557,12 +1466,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot description.
-     * Editable only from Desk.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * </pre>
      *
-     * <code>optional string description = 4 [json_name = "description"];</code>
+     * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
      * @param value The description to set.
      * @return This builder for chaining.
      */
@@ -1571,7 +1479,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  
       description_ = value;
       onChanged();
       return this;
@@ -1579,16 +1487,15 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot description.
-     * Editable only from Desk.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * </pre>
      *
-     * <code>optional string description = 4 [json_name = "description"];</code>
+     * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       description_ = getDefaultInstance().getDescription();
       onChanged();
       return this;
@@ -1596,12 +1503,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot description.
-     * Editable only from Desk.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * </pre>
      *
-     * <code>optional string description = 4 [json_name = "description"];</code>
+     * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for description to set.
      * @return This builder for chaining.
      */
@@ -1611,7 +1517,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      
       description_ = value;
       onChanged();
       return this;
@@ -1646,7 +1552,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description map.
-     * Keyed by locale. Editable only from Desk.
+     * Keyed by locale.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1670,7 +1576,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description map.
-     * Keyed by locale. Editable only from Desk.
+     * Keyed by locale.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1684,7 +1590,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description map.
-     * Keyed by locale. Editable only from Desk.
+     * Keyed by locale.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1703,7 +1609,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description map.
-     * Keyed by locale. Editable only from Desk.
+     * Keyed by locale.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1730,7 +1636,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description map.
-     * Keyed by locale. Editable only from Desk.
+     * Keyed by locale.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1755,7 +1661,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description map.
-     * Keyed by locale. Editable only from Desk.
+     * Keyed by locale.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1776,7 +1682,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description map.
-     * Keyed by locale. Editable only from Desk.
+     * Keyed by locale.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1799,21 +1705,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="#3B82F6"
      * </pre>
      *
-     * <code>optional string color = 6 [json_name = "color"];</code>
-     * @return Whether the color field is set.
-     */
-    public boolean hasColor() {
-      return ((bitField0_ & 0x00000004) != 0);
-    }
-    /**
-     * <pre>
-     * Bot color in hex format.
-     * Randomly assigned if not specified on creation.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="#3B82F6"
-     * </pre>
-     *
-     * <code>optional string color = 6 [json_name = "color"];</code>
+     * <code>string color = 6 [json_name = "color"];</code>
      * @return The color.
      */
     public java.lang.String getColor() {
@@ -1836,7 +1728,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="#3B82F6"
      * </pre>
      *
-     * <code>optional string color = 6 [json_name = "color"];</code>
+     * <code>string color = 6 [json_name = "color"];</code>
      * @return The bytes for color.
      */
     public com.google.protobuf.ByteString
@@ -1860,7 +1752,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="#3B82F6"
      * </pre>
      *
-     * <code>optional string color = 6 [json_name = "color"];</code>
+     * <code>string color = 6 [json_name = "color"];</code>
      * @param value The color to set.
      * @return This builder for chaining.
      */
@@ -1869,7 +1761,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  
       color_ = value;
       onChanged();
       return this;
@@ -1882,11 +1774,11 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="#3B82F6"
      * </pre>
      *
-     * <code>optional string color = 6 [json_name = "color"];</code>
+     * <code>string color = 6 [json_name = "color"];</code>
      * @return This builder for chaining.
      */
     public Builder clearColor() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      
       color_ = getDefaultInstance().getColor();
       onChanged();
       return this;
@@ -1899,7 +1791,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="#3B82F6"
      * </pre>
      *
-     * <code>optional string color = 6 [json_name = "color"];</code>
+     * <code>string color = 6 [json_name = "color"];</code>
      * @param value The bytes for color to set.
      * @return This builder for chaining.
      */
@@ -1909,7 +1801,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      
       color_ = value;
       onChanged();
       return this;
@@ -1922,19 +1814,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>optional string avatar_url = 7 [json_name = "avatarUrl"];</code>
-     * @return Whether the avatarUrl field is set.
-     */
-    public boolean hasAvatarUrl() {
-      return ((bitField0_ & 0x00000008) != 0);
-    }
-    /**
-     * <pre>
-     * Bot avatar image URL.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>optional string avatar_url = 7 [json_name = "avatarUrl"];</code>
+     * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
      * @return The avatarUrl.
      */
     public java.lang.String getAvatarUrl() {
@@ -1955,7 +1835,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>optional string avatar_url = 7 [json_name = "avatarUrl"];</code>
+     * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
      * @return The bytes for avatarUrl.
      */
     public com.google.protobuf.ByteString
@@ -1977,7 +1857,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>optional string avatar_url = 7 [json_name = "avatarUrl"];</code>
+     * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
      * @param value The avatarUrl to set.
      * @return This builder for chaining.
      */
@@ -1986,7 +1866,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  
       avatarUrl_ = value;
       onChanged();
       return this;
@@ -1997,11 +1877,11 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>optional string avatar_url = 7 [json_name = "avatarUrl"];</code>
+     * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
      * @return This builder for chaining.
      */
     public Builder clearAvatarUrl() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      
       avatarUrl_ = getDefaultInstance().getAvatarUrl();
       onChanged();
       return this;
@@ -2012,7 +1892,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>optional string avatar_url = 7 [json_name = "avatarUrl"];</code>
+     * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
      * @param value The bytes for avatarUrl to set.
      * @return This builder for chaining.
      */
@@ -2022,7 +1902,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      
       avatarUrl_ = value;
       onChanged();
       return this;
@@ -2037,7 +1917,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      * @return Whether the createdAt field is set.
      */
     public boolean hasCreatedAt() {
@@ -2049,7 +1929,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      * @return The createdAt.
      */
     public com.google.protobuf.Timestamp getCreatedAt() {
@@ -2065,7 +1945,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -2086,7 +1966,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setCreatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -2105,7 +1985,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -2128,7 +2008,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearCreatedAt() {
       if (createdAtBuilder_ == null) {
@@ -2147,7 +2027,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
       
@@ -2160,7 +2040,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       if (createdAtBuilder_ != null) {
@@ -2176,7 +2056,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 

@@ -36,54 +36,7 @@ option java_package = "io.channel.api.proto.coreapi.service";
 
 ## buf.validate 사용
 
-요청 메시지의 필드 검증에는 `buf.validate`를 사용한다.
-model의 kubebuilder marker와 달리, service에서는 런타임 검증을 위해 `buf.validate`를 쓴다.
-
-### required 필드
-
-```protobuf
-string channel_id = 1 [(buf.validate.field).required = true];
-```
-
-### CEL 표현식
-
-복합 검증 로직은 CEL(Common Expression Language)로 작성한다.
-
-```protobuf
-string name = 2 [
-  (buf.validate.field).cel = {
-    id: "string.maxLen"
-    message: "value must be no more than 30 characters"
-    expression: "size(this) <= 30"
-  },
-  (buf.validate.field).cel = {
-    id: "string.minLen"
-    message: "value must be at least 1 characters"
-    expression: "size(this) >= 1"
-  },
-  (buf.validate.field).required = true
-];
-```
-
-### 정규식 패턴
-
-```protobuf
-string name = 2 [
-  (buf.validate.field).string.pattern = "^[^@#$%:/]+$"
-];
-```
-
-### optional + 검증
-
-nullable 필드에도 검증을 붙일 수 있다. 값이 존재할 때만 검증된다.
-
-```protobuf
-optional string description = 3 [(buf.validate.field).cel = {
-  id: "string.maxLen"
-  message: "value must be no more than 180 characters"
-  expression: "size(this) <= 180"
-}];
-```
+`protovalidate.md` 참조. 요청 메시지의 필드 검증에 `buf.validate`를 사용한다.
 
 ### 중첩 메시지 참조
 
@@ -97,7 +50,7 @@ coreapi.common.Pagination pagination = 1;
 
 ### 요청 메시지
 
-API 엔드포인트의 동작을 설명한다. 이 주석이 OpenAPI description으로 변환된다.
+API 엔드포인트의 동작을 설명한다.
 
 ```protobuf
 // Retrieves a bot list.

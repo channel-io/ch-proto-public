@@ -257,13 +257,13 @@ type UpsertBotRequest struct {
 	// Leading and trailing whitespace is automatically trimmed.
 	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	// Bot description. Maximum 180 characters.
-	Description *string `protobuf:"bytes,3,opt,name=description,proto3,oneof" json:"description,omitempty"`
+	Description string `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
 	// Internationalized name and description map. Keyed by locale.
 	NameDescI18NMap map[string]*model.NameDesc `protobuf:"bytes,4,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Bot color in hex format. Randomly assigned if not specified.
-	Color *string `protobuf:"bytes,5,opt,name=color,proto3,oneof" json:"color,omitempty"`
+	Color string `protobuf:"bytes,5,opt,name=color,proto3" json:"color,omitempty"`
 	// Bot avatar image URL.
-	AvatarUrl     *string `protobuf:"bytes,6,opt,name=avatar_url,json=avatarUrl,proto3,oneof" json:"avatar_url,omitempty"`
+	AvatarUrl     string `protobuf:"bytes,6,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -313,8 +313,8 @@ func (x *UpsertBotRequest) GetName() string {
 }
 
 func (x *UpsertBotRequest) GetDescription() string {
-	if x != nil && x.Description != nil {
-		return *x.Description
+	if x != nil {
+		return x.Description
 	}
 	return ""
 }
@@ -327,15 +327,15 @@ func (x *UpsertBotRequest) GetNameDescI18NMap() map[string]*model.NameDesc {
 }
 
 func (x *UpsertBotRequest) GetColor() string {
-	if x != nil && x.Color != nil {
-		return *x.Color
+	if x != nil {
+		return x.Color
 	}
 	return ""
 }
 
 func (x *UpsertBotRequest) GetAvatarUrl() string {
-	if x != nil && x.AvatarUrl != nil {
-		return *x.AvatarUrl
+	if x != nil {
+		return x.AvatarUrl
 	}
 	return ""
 }
@@ -499,25 +499,22 @@ const file_coreapi_service_bot_proto_rawDesc = "" +
 	"\n" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"4\n" +
 	"\fGetBotResult\x12$\n" +
-	"\x03bot\x18\x01 \x01(\v2\x12.coreapi.model.BotR\x03bot\"\xa4\x05\n" +
+	"\x03bot\x18\x01 \x01(\v2\x12.coreapi.model.BotR\x03bot\"\xec\x04\n" +
 	"\x10UpsertBotRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xc2\x01\n" +
 	"\x04name\x18\x02 \x01(\tB\xad\x01\xbaH\xa9\x01\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xba\x01E\n" +
-	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xc8\x01\x01r\x0e2\f^[^@#$%:/]+$R\x04name\x12z\n" +
+	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xc8\x01\x01r\x0e2\f^[^@#$%:/]+$R\x04name\x12u\n" +
 	"\vdescription\x18\x03 \x01(\tBS\xbaHP\xba\x01M\n" +
-	"\rstring.maxLen\x12)value must be no more than 180 characters\x1a\x11size(this) <= 180H\x00R\vdescription\x88\x01\x01\x12c\n" +
-	"\x12name_desc_i18n_map\x18\x04 \x03(\v26.coreapi.service.UpsertBotRequest.NameDescI18nMapEntryR\x0fnameDescI18nMap\x12\x19\n" +
-	"\x05color\x18\x05 \x01(\tH\x01R\x05color\x88\x01\x01\x12\"\n" +
+	"\rstring.maxLen\x12)value must be no more than 180 characters\x1a\x11size(this) <= 180R\vdescription\x12c\n" +
+	"\x12name_desc_i18n_map\x18\x04 \x03(\v26.coreapi.service.UpsertBotRequest.NameDescI18nMapEntryR\x0fnameDescI18nMap\x12\x14\n" +
+	"\x05color\x18\x05 \x01(\tR\x05color\x12\x1d\n" +
 	"\n" +
-	"avatar_url\x18\x06 \x01(\tH\x02R\tavatarUrl\x88\x01\x01\x1a[\n" +
+	"avatar_url\x18\x06 \x01(\tR\tavatarUrl\x1a[\n" +
 	"\x14NameDescI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12-\n" +
-	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01B\x0e\n" +
-	"\f_descriptionB\b\n" +
-	"\x06_colorB\r\n" +
-	"\v_avatar_url\"7\n" +
+	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01\"7\n" +
 	"\x0fUpsertBotResult\x12$\n" +
 	"\x03bot\x18\x01 \x01(\v2\x12.coreapi.model.BotR\x03bot\"X\n" +
 	"\x10DeleteBotRequest\x12\x1d\n" +
@@ -573,7 +570,6 @@ func file_coreapi_service_bot_proto_init() {
 	if File_coreapi_service_bot_proto != nil {
 		return
 	}
-	file_coreapi_service_bot_proto_msgTypes[4].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

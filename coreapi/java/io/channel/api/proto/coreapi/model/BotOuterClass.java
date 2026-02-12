@@ -34,26 +34,37 @@ public final class BotOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\027coreapi/model/bot.proto\022\rcoreapi.model" +
-      "\032\035coreapi/model/name_desc.proto\032\037google/" +
-      "protobuf/timestamp.proto\"\305\003\n\003Bot\022\016\n\002id\030\001" +
-      " \001(\tR\002id\022\035\n\nchannel_id\030\002 \001(\tR\tchannelId\022" +
-      "\022\n\004name\030\003 \001(\tR\004name\022%\n\013description\030\004 \001(\t" +
-      "H\000R\013description\210\001\001\022T\n\022name_desc_i18n_map" +
-      "\030\005 \003(\0132\'.coreapi.model.Bot.NameDescI18nM" +
-      "apEntryR\017nameDescI18nMap\022\031\n\005color\030\006 \001(\tH" +
-      "\001R\005color\210\001\001\022\"\n\navatar_url\030\007 \001(\tH\002R\tavata" +
-      "rUrl\210\001\001\0229\n\ncreated_at\030\010 \001(\0132\032.google.pro" +
-      "tobuf.TimestampR\tcreatedAt\032[\n\024NameDescI1" +
-      "8nMapEntry\022\020\n\003key\030\001 \001(\tR\003key\022-\n\005value\030\002 " +
-      "\001(\0132\027.coreapi.model.NameDescR\005value:\0028\001B" +
-      "\016\n\014_descriptionB\010\n\006_colorB\r\n\013_avatar_url" +
-      "B^\n\"io.channel.api.proto.coreapi.modelP\001" +
-      "Z6github.com/channel-io/ch-proto-public/" +
-      "coreapi/go/modelb\006proto3"
+      "\032\033buf/validate/validate.proto\032\035coreapi/m" +
+      "odel/name_desc.proto\032\037google/protobuf/ti" +
+      "mestamp.proto\"\253\006\n\003Bot\022^\n\002id\030\001 \001(\tBN\272HK\272\001" +
+      "E\n\rstring.minLen\022#value must be at least" +
+      " 1 characters\032\017size(this) >= 1\310\001\001R\002id\022m\n" +
+      "\nchannel_id\030\002 \001(\tBN\272HK\272\001E\n\rstring.minLen" +
+      "\022#value must be at least 1 characters\032\017s" +
+      "ize(this) >= 1\310\001\001R\tchannelId\022\262\001\n\004name\030\003 " +
+      "\001(\tB\235\001\272H\231\001\272\001E\n\rstring.minLen\022#value must" +
+      " be at least 1 characters\032\017size(this) >=" +
+      " 1\272\001K\n\rstring.maxLen\022(value must be no m" +
+      "ore than 30 characters\032\020size(this) <= 30" +
+      "\310\001\001R\004name\022u\n\013description\030\004 \001(\tBS\272HP\272\001M\n\r" +
+      "string.maxLen\022)value must be no more tha" +
+      "n 180 characters\032\021size(this) <= 180R\013des" +
+      "cription\022T\n\022name_desc_i18n_map\030\005 \003(\0132\'.c" +
+      "oreapi.model.Bot.NameDescI18nMapEntryR\017n" +
+      "ameDescI18nMap\022\024\n\005color\030\006 \001(\tR\005color\022\035\n\n" +
+      "avatar_url\030\007 \001(\tR\tavatarUrl\022A\n\ncreated_a" +
+      "t\030\010 \001(\0132\032.google.protobuf.TimestampB\006\272H\003" +
+      "\310\001\001R\tcreatedAt\032[\n\024NameDescI18nMapEntry\022\020" +
+      "\n\003key\030\001 \001(\tR\003key\022-\n\005value\030\002 \001(\0132\027.coreap" +
+      "i.model.NameDescR\005value:\0028\001B^\n\"io.channe" +
+      "l.api.proto.coreapi.modelP\001Z6github.com/" +
+      "channel-io/ch-proto-public/coreapi/go/mo" +
+      "delb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          build.buf.validate.ValidateProto.getDescriptor(),
           io.channel.api.proto.coreapi.model.NameDescOuterClass.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
@@ -62,13 +73,19 @@ public final class BotOuterClass {
     internal_static_coreapi_model_Bot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Bot_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "Name", "Description", "NameDescI18NMap", "Color", "AvatarUrl", "CreatedAt", "Description", "Color", "AvatarUrl", });
+        new java.lang.String[] { "Id", "ChannelId", "Name", "Description", "NameDescI18NMap", "Color", "AvatarUrl", "CreatedAt", });
     internal_static_coreapi_model_Bot_NameDescI18nMapEntry_descriptor =
       internal_static_coreapi_model_Bot_descriptor.getNestedTypes().get(0);
     internal_static_coreapi_model_Bot_NameDescI18nMapEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Bot_NameDescI18nMapEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
+    com.google.protobuf.ExtensionRegistry registry =
+        com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(build.buf.validate.ValidateProto.field);
+    com.google.protobuf.Descriptors.FileDescriptor
+        .internalUpdateFileDescriptor(descriptor, registry);
+    build.buf.validate.ValidateProto.getDescriptor();
     io.channel.api.proto.coreapi.model.NameDescOuterClass.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }

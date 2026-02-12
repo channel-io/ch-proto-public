@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package coreapi.model;
 
+import "buf/validate/validate.proto";
 import "coreapi/model/name_desc.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -16,13 +17,27 @@ message Bot {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  string id = 1;
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 characters"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 
   // Channel ID this bot belongs to.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  string channel_id = 2;
+  string channel_id = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 characters"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 
   // Bot display name.
   // Unique within the channel.
@@ -30,17 +45,32 @@ message Bot {
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
-  string name = 3;
+  string name = 3 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 characters"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "size(this) <= 30"
+    },
+    (buf.validate.field).required = true
+  ];
 
   // Bot description.
-  // Editable only from Desk.
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxLength=180
-  optional string description = 4;
+  string description = 4 [(buf.validate.field).cel = {
+    id: "string.maxLen"
+    message: "value must be no more than 180 characters"
+    expression: "size(this) <= 180"
+  }];
 
   // Internationalized name and description map.
-  // Keyed by locale. Editable only from Desk.
+  // Keyed by locale.
   //
   // +kubebuilder:validation:Nullable
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 5;
@@ -50,15 +80,15 @@ message Bot {
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:example="#3B82F6"
-  optional string color = 6;
+  string color = 6;
 
   // Bot avatar image URL.
   //
   // +kubebuilder:validation:Nullable
-  optional string avatar_url = 7;
+  string avatar_url = 7;
 
   // Bot creation timestamp.
   //
   // +kubebuilder:validation:Required
-  google.protobuf.Timestamp created_at = 8;
+  google.protobuf.Timestamp created_at = 8 [(buf.validate.field).required = true];
 }

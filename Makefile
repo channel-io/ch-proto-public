@@ -17,6 +17,7 @@ generate:
 
 lint:
 	buf lint
+	./scripts/lint-model-validate.sh
 
 clean:
 	go mod tidy

@@ -54,16 +54,7 @@ public interface UpsertBotRequestOrBuilder extends
    * Bot description. Maximum 180 characters.
    * </pre>
    *
-   * <code>optional string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
-   * @return Whether the description field is set.
-   */
-  boolean hasDescription();
-  /**
-   * <pre>
-   * Bot description. Maximum 180 characters.
-   * </pre>
-   *
-   * <code>optional string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
    * @return The description.
    */
   java.lang.String getDescription();
@@ -72,7 +63,7 @@ public interface UpsertBotRequestOrBuilder extends
    * Bot description. Maximum 180 characters.
    * </pre>
    *
-   * <code>optional string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
    * @return The bytes for description.
    */
   com.google.protobuf.ByteString
@@ -137,16 +128,7 @@ public interface UpsertBotRequestOrBuilder extends
    * Bot color in hex format. Randomly assigned if not specified.
    * </pre>
    *
-   * <code>optional string color = 5 [json_name = "color"];</code>
-   * @return Whether the color field is set.
-   */
-  boolean hasColor();
-  /**
-   * <pre>
-   * Bot color in hex format. Randomly assigned if not specified.
-   * </pre>
-   *
-   * <code>optional string color = 5 [json_name = "color"];</code>
+   * <code>string color = 5 [json_name = "color"];</code>
    * @return The color.
    */
   java.lang.String getColor();
@@ -155,7 +137,7 @@ public interface UpsertBotRequestOrBuilder extends
    * Bot color in hex format. Randomly assigned if not specified.
    * </pre>
    *
-   * <code>optional string color = 5 [json_name = "color"];</code>
+   * <code>string color = 5 [json_name = "color"];</code>
    * @return The bytes for color.
    */
   com.google.protobuf.ByteString
@@ -166,16 +148,7 @@ public interface UpsertBotRequestOrBuilder extends
    * Bot avatar image URL.
    * </pre>
    *
-   * <code>optional string avatar_url = 6 [json_name = "avatarUrl"];</code>
-   * @return Whether the avatarUrl field is set.
-   */
-  boolean hasAvatarUrl();
-  /**
-   * <pre>
-   * Bot avatar image URL.
-   * </pre>
-   *
-   * <code>optional string avatar_url = 6 [json_name = "avatarUrl"];</code>
+   * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
    * @return The avatarUrl.
    */
   java.lang.String getAvatarUrl();
@@ -184,7 +157,7 @@ public interface UpsertBotRequestOrBuilder extends
    * Bot avatar image URL.
    * </pre>
    *
-   * <code>optional string avatar_url = 6 [json_name = "avatarUrl"];</code>
+   * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
    * @return The bytes for avatarUrl.
    */
   com.google.protobuf.ByteString

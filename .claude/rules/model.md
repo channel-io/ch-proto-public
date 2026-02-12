@@ -18,6 +18,8 @@ syntax = "proto3";
 
 package coreapi.model;
 
+import "buf/validate/validate.proto";
+
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.coreapi.model";
@@ -46,14 +48,26 @@ option java_package = "io.channel.api.proto.coreapi.model";
 // +kubebuilder:validation:Required           ← marker
 // +kubebuilder:validation:MinLength=1        ← marker
 // +kubebuilder:validation:MaxLength=30       ← marker
-string name = 3;
+string name = 3 [                             ← buf.validate
+  (buf.validate.field).cel = {
+    id: "string.minLen"
+    message: "value must be at least 1 characters"
+    expression: "size(this) >= 1"
+  },
+  (buf.validate.field).cel = {
+    id: "string.maxLen"
+    message: "value must be no more than 30 characters"
+    expression: "size(this) <= 30"
+  },
+  (buf.validate.field).required = true
+];
 ```
 
 ### Required / Nullable 표현
 
 - Required → `+kubebuilder:validation:Required`
-- Nullable → `optional` 키워드 + `+kubebuilder:validation:Nullable`
-- `map` 타입은 `optional` 불가 → `+kubebuilder:validation:Nullable` marker만 사용
+- Nullable → `+kubebuilder:validation:Nullable` marker만 사용
+- `optional`/`required` 키워드는 사용하지 않는다 (proto3 기본 동작에 맡긴다)
 
 ## kubebuilder marker 목록
 
@@ -72,6 +86,10 @@ string name = 3;
 | `+kubebuilder:validation:Format="fmt"` | `format: fmt` |
 | `+kubebuilder:example="value"` | `example: value` |
 | `+kubebuilder:default="value"` | `default: value` |
+
+## buf.validate 사용
+
+`protovalidate.md` 참조. model proto에서는 kubebuilder marker와 buf.validate를 함께 작성한다.
 
 ## 타입 사용
 

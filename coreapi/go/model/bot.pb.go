@@ -7,6 +7,7 @@
 package model
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -44,13 +45,12 @@ type Bot struct {
 	// +kubebuilder:validation:MaxLength=30
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Bot description.
-	// Editable only from Desk.
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=180
-	Description *string `protobuf:"bytes,4,opt,name=description,proto3,oneof" json:"description,omitempty"`
+	Description string `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
 	// Internationalized name and description map.
-	// Keyed by locale. Editable only from Desk.
+	// Keyed by locale.
 	//
 	// +kubebuilder:validation:Nullable
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,5,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
@@ -59,11 +59,11 @@ type Bot struct {
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="#3B82F6"
-	Color *string `protobuf:"bytes,6,opt,name=color,proto3,oneof" json:"color,omitempty"`
+	Color string `protobuf:"bytes,6,opt,name=color,proto3" json:"color,omitempty"`
 	// Bot avatar image URL.
 	//
 	// +kubebuilder:validation:Nullable
-	AvatarUrl *string `protobuf:"bytes,7,opt,name=avatar_url,json=avatarUrl,proto3,oneof" json:"avatar_url,omitempty"`
+	AvatarUrl string `protobuf:"bytes,7,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	// Bot creation timestamp.
 	//
 	// +kubebuilder:validation:Required
@@ -124,8 +124,8 @@ func (x *Bot) GetName() string {
 }
 
 func (x *Bot) GetDescription() string {
-	if x != nil && x.Description != nil {
-		return *x.Description
+	if x != nil {
+		return x.Description
 	}
 	return ""
 }
@@ -138,15 +138,15 @@ func (x *Bot) GetNameDescI18NMap() map[string]*NameDesc {
 }
 
 func (x *Bot) GetColor() string {
-	if x != nil && x.Color != nil {
-		return *x.Color
+	if x != nil {
+		return x.Color
 	}
 	return ""
 }
 
 func (x *Bot) GetAvatarUrl() string {
-	if x != nil && x.AvatarUrl != nil {
-		return *x.AvatarUrl
+	if x != nil {
+		return x.AvatarUrl
 	}
 	return ""
 }
@@ -162,25 +162,27 @@ var File_coreapi_model_bot_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_bot_proto_rawDesc = "" +
 	"\n" +
-	"\x17coreapi/model/bot.proto\x12\rcoreapi.model\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc5\x03\n" +
-	"\x03Bot\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
+	"\x17coreapi/model/bot.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xab\x06\n" +
+	"\x03Bot\x12^\n" +
+	"\x02id\x18\x01 \x01(\tBN\xbaHK\xba\x01E\n" +
+	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12m\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tR\tchannelId\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name\x12%\n" +
-	"\vdescription\x18\x04 \x01(\tH\x00R\vdescription\x88\x01\x01\x12T\n" +
-	"\x12name_desc_i18n_map\x18\x05 \x03(\v2'.coreapi.model.Bot.NameDescI18nMapEntryR\x0fnameDescI18nMap\x12\x19\n" +
-	"\x05color\x18\x06 \x01(\tH\x01R\x05color\x88\x01\x01\x12\"\n" +
+	"channel_id\x18\x02 \x01(\tBN\xbaHK\xba\x01E\n" +
+	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\xb2\x01\n" +
+	"\x04name\x18\x03 \x01(\tB\x9d\x01\xbaH\x99\x01\xba\x01E\n" +
+	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xba\x01K\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01R\x04name\x12u\n" +
+	"\vdescription\x18\x04 \x01(\tBS\xbaHP\xba\x01M\n" +
+	"\rstring.maxLen\x12)value must be no more than 180 characters\x1a\x11size(this) <= 180R\vdescription\x12T\n" +
+	"\x12name_desc_i18n_map\x18\x05 \x03(\v2'.coreapi.model.Bot.NameDescI18nMapEntryR\x0fnameDescI18nMap\x12\x14\n" +
+	"\x05color\x18\x06 \x01(\tR\x05color\x12\x1d\n" +
 	"\n" +
-	"avatar_url\x18\a \x01(\tH\x02R\tavatarUrl\x88\x01\x01\x129\n" +
+	"avatar_url\x18\a \x01(\tR\tavatarUrl\x12A\n" +
 	"\n" +
-	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x1a[\n" +
+	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x1a[\n" +
 	"\x14NameDescI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12-\n" +
-	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01B\x0e\n" +
-	"\f_descriptionB\b\n" +
-	"\x06_colorB\r\n" +
-	"\v_avatar_urlB^\n" +
+	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01B^\n" +
 	"\"io.channel.api.proto.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -219,7 +221,6 @@ func file_coreapi_model_bot_proto_init() {
 		return
 	}
 	file_coreapi_model_name_desc_proto_init()
-	file_coreapi_model_bot_proto_msgTypes[0].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

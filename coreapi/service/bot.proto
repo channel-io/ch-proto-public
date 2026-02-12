@@ -80,7 +80,7 @@ message UpsertBotRequest {
   ];
 
   // Bot description. Maximum 180 characters.
-  optional string description = 3 [(buf.validate.field).cel = {
+  string description = 3 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 180 characters"
     expression: "size(this) <= 180"
@@ -90,10 +90,10 @@ message UpsertBotRequest {
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 4;
 
   // Bot color in hex format. Randomly assigned if not specified.
-  optional string color = 5;
+  string color = 5;
 
   // Bot avatar image URL.
-  optional string avatar_url = 6;
+  string avatar_url = 6;
 }
 
 // Response for bot upsert.
