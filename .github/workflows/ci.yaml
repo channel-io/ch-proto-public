@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: bufbuild/buf-action@v1
+        with:
+          setup_only: true
+
+      - name: buf lint
+        run: buf lint
+
+      - name: buf format
+        run: buf format --diff --exit-code
+
+      - name: kubebuilder-protovalidate sync
+        run: ./scripts/lint-model-validate.sh
+
+  breaking:
+    name: Breaking change detection
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: bufbuild/buf-action@v1
+        with:
+          setup_only: true
+
+      - name: buf breaking
+        run: buf breaking --against '.git#branch=${{ github.base_ref }}'
+
+  generate:
+    name: Generated code sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - uses: bufbuild/buf-action@v1
+        with:
+          setup_only: true
+
+      - name: Generate Go code
+        run: buf generate --template buf.gen.ci.yaml
+
+      - name: Check generated Go code is up to date
+        run: |
+          if ! git diff --exit-code coreapi/go/; then
+            echo ""
+            echo "Generated Go code is out of date."
+            echo "Run 'make generate' and commit the result."
+            exit 1
+          fi
