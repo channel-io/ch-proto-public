@@ -25,7 +25,7 @@ message Bot {
   string channel_id = 2;
 
   // Bot display name.
-  // Unique within the channel. Maximum 30 characters.
+  // Unique within the channel.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -33,22 +33,28 @@ message Bot {
   string name = 3;
 
   // Bot description.
-  // Maximum 180 characters. Editable only from Desk.
+  // Editable only from Desk.
   //
+  // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxLength=180
   optional string description = 4;
 
   // Internationalized name and description map.
   // Keyed by locale. Editable only from Desk.
+  //
+  // +kubebuilder:validation:Nullable
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 5;
 
-  // Bot color in hex format (e.g. "#3B82F6").
+  // Bot color in hex format.
   // Randomly assigned if not specified on creation.
   //
+  // +kubebuilder:validation:Nullable
   // +kubebuilder:example="#3B82F6"
   optional string color = 6;
 
   // Bot avatar image URL.
+  //
+  // +kubebuilder:validation:Nullable
   optional string avatar_url = 7;
 
   // Bot creation timestamp.

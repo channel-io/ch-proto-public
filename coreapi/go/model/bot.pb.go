@@ -37,26 +37,32 @@ type Bot struct {
 	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Bot display name.
-	// Unique within the channel. Maximum 30 characters.
+	// Unique within the channel.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Bot description.
-	// Maximum 180 characters. Editable only from Desk.
+	// Editable only from Desk.
 	//
+	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=180
 	Description *string `protobuf:"bytes,4,opt,name=description,proto3,oneof" json:"description,omitempty"`
 	// Internationalized name and description map.
 	// Keyed by locale. Editable only from Desk.
+	//
+	// +kubebuilder:validation:Nullable
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,5,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Bot color in hex format (e.g. "#3B82F6").
+	// Bot color in hex format.
 	// Randomly assigned if not specified on creation.
 	//
+	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="#3B82F6"
 	Color *string `protobuf:"bytes,6,opt,name=color,proto3,oneof" json:"color,omitempty"`
 	// Bot avatar image URL.
+	//
+	// +kubebuilder:validation:Nullable
 	AvatarUrl *string `protobuf:"bytes,7,opt,name=avatar_url,json=avatarUrl,proto3,oneof" json:"avatar_url,omitempty"`
 	// Bot creation timestamp.
 	//

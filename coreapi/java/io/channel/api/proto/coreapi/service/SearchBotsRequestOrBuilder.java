@@ -8,26 +8,46 @@ public interface SearchBotsRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * Pagination parameters (sort order, cursor, limit).
+   * </pre>
+   *
    * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
    * @return Whether the pagination field is set.
    */
   boolean hasPagination();
   /**
+   * <pre>
+   * Pagination parameters (sort order, cursor, limit).
+   * </pre>
+   *
    * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
    * @return The pagination.
    */
   io.channel.api.proto.coreapi.common.Pagination getPagination();
   /**
+   * <pre>
+   * Pagination parameters (sort order, cursor, limit).
+   * </pre>
+   *
    * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
    */
   io.channel.api.proto.coreapi.common.PaginationOrBuilder getPaginationOrBuilder();
 
   /**
+   * <pre>
+   * Channel ID to search bots in.
+   * </pre>
+   *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
   /**
+   * <pre>
+   * Channel ID to search bots in.
+   * </pre>
+   *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */

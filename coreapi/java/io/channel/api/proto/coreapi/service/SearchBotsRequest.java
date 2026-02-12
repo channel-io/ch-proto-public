@@ -117,6 +117,10 @@ private static final long serialVersionUID = 0L;
   public static final int PAGINATION_FIELD_NUMBER = 1;
   private io.channel.api.proto.coreapi.common.Pagination pagination_;
   /**
+   * <pre>
+   * Pagination parameters (sort order, cursor, limit).
+   * </pre>
+   *
    * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
    * @return Whether the pagination field is set.
    */
@@ -125,6 +129,10 @@ private static final long serialVersionUID = 0L;
     return pagination_ != null;
   }
   /**
+   * <pre>
+   * Pagination parameters (sort order, cursor, limit).
+   * </pre>
+   *
    * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
    * @return The pagination.
    */
@@ -133,6 +141,10 @@ private static final long serialVersionUID = 0L;
     return pagination_ == null ? io.channel.api.proto.coreapi.common.Pagination.getDefaultInstance() : pagination_;
   }
   /**
+   * <pre>
+   * Pagination parameters (sort order, cursor, limit).
+   * </pre>
+   *
    * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
    */
   @java.lang.Override
@@ -143,6 +155,10 @@ private static final long serialVersionUID = 0L;
   public static final int CHANNEL_ID_FIELD_NUMBER = 2;
   private volatile java.lang.Object channelId_;
   /**
+   * <pre>
+   * Channel ID to search bots in.
+   * </pre>
+   *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
@@ -160,6 +176,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * Channel ID to search bots in.
+   * </pre>
+   *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
@@ -528,6 +548,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         io.channel.api.proto.coreapi.common.Pagination, io.channel.api.proto.coreapi.common.Pagination.Builder, io.channel.api.proto.coreapi.common.PaginationOrBuilder> paginationBuilder_;
     /**
+     * <pre>
+     * Pagination parameters (sort order, cursor, limit).
+     * </pre>
+     *
      * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
      * @return Whether the pagination field is set.
      */
@@ -535,6 +559,10 @@ private static final long serialVersionUID = 0L;
       return paginationBuilder_ != null || pagination_ != null;
     }
     /**
+     * <pre>
+     * Pagination parameters (sort order, cursor, limit).
+     * </pre>
+     *
      * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
      * @return The pagination.
      */
@@ -546,6 +574,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Pagination parameters (sort order, cursor, limit).
+     * </pre>
+     *
      * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
      */
     public Builder setPagination(io.channel.api.proto.coreapi.common.Pagination value) {
@@ -562,6 +594,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Pagination parameters (sort order, cursor, limit).
+     * </pre>
+     *
      * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
      */
     public Builder setPagination(
@@ -576,6 +612,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Pagination parameters (sort order, cursor, limit).
+     * </pre>
+     *
      * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
      */
     public Builder mergePagination(io.channel.api.proto.coreapi.common.Pagination value) {
@@ -594,6 +634,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Pagination parameters (sort order, cursor, limit).
+     * </pre>
+     *
      * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
      */
     public Builder clearPagination() {
@@ -608,6 +652,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Pagination parameters (sort order, cursor, limit).
+     * </pre>
+     *
      * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
      */
     public io.channel.api.proto.coreapi.common.Pagination.Builder getPaginationBuilder() {
@@ -616,6 +664,10 @@ private static final long serialVersionUID = 0L;
       return getPaginationFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     * Pagination parameters (sort order, cursor, limit).
+     * </pre>
+     *
      * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
      */
     public io.channel.api.proto.coreapi.common.PaginationOrBuilder getPaginationOrBuilder() {
@@ -627,6 +679,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Pagination parameters (sort order, cursor, limit).
+     * </pre>
+     *
      * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -645,6 +701,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object channelId_ = "";
     /**
+     * <pre>
+     * Channel ID to search bots in.
+     * </pre>
+     *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The channelId.
      */
@@ -661,6 +721,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Channel ID to search bots in.
+     * </pre>
+     *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for channelId.
      */
@@ -678,6 +742,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Channel ID to search bots in.
+     * </pre>
+     *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The channelId to set.
      * @return This builder for chaining.
@@ -693,6 +761,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Channel ID to search bots in.
+     * </pre>
+     *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
@@ -703,6 +775,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Channel ID to search bots in.
+     * </pre>
+     *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for channelId to set.
      * @return This builder for chaining.

@@ -8,11 +8,19 @@ public interface NameDescOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * Display name.
+   * </pre>
+   *
    * <code>string name = 1 [json_name = "name"];</code>
    * @return The name.
    */
   java.lang.String getName();
   /**
+   * <pre>
+   * Display name.
+   * </pre>
+   *
    * <code>string name = 1 [json_name = "name"];</code>
    * @return The bytes for name.
    */
@@ -20,11 +28,19 @@ public interface NameDescOrBuilder extends
       getNameBytes();
 
   /**
+   * <pre>
+   * Description text.
+   * </pre>
+   *
    * <code>string description = 2 [json_name = "description"];</code>
    * @return The description.
    */
   java.lang.String getDescription();
   /**
+   * <pre>
+   * Description text.
+   * </pre>
+   *
    * <code>string description = 2 [json_name = "description"];</code>
    * @return The bytes for description.
    */

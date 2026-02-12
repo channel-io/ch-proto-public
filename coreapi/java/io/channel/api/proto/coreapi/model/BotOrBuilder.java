@@ -58,7 +58,7 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Bot display name.
-   * Unique within the channel. Maximum 30 characters.
+   * Unique within the channel.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
@@ -71,7 +71,7 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Bot display name.
-   * Unique within the channel. Maximum 30 characters.
+   * Unique within the channel.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
@@ -86,7 +86,8 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Bot description.
-   * Maximum 180 characters. Editable only from Desk.
+   * Editable only from Desk.
+   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * </pre>
    *
@@ -97,7 +98,8 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Bot description.
-   * Maximum 180 characters. Editable only from Desk.
+   * Editable only from Desk.
+   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * </pre>
    *
@@ -108,7 +110,8 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Bot description.
-   * Maximum 180 characters. Editable only from Desk.
+   * Editable only from Desk.
+   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * </pre>
    *
@@ -122,6 +125,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Internationalized name and description map.
    * Keyed by locale. Editable only from Desk.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -131,6 +135,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Internationalized name and description map.
    * Keyed by locale. Editable only from Desk.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -147,6 +152,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Internationalized name and description map.
    * Keyed by locale. Editable only from Desk.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -157,6 +163,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Internationalized name and description map.
    * Keyed by locale. Editable only from Desk.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -169,6 +176,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Internationalized name and description map.
    * Keyed by locale. Editable only from Desk.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -179,8 +187,9 @@ public interface BotOrBuilder extends
 
   /**
    * <pre>
-   * Bot color in hex format (e.g. "#3B82F6").
+   * Bot color in hex format.
    * Randomly assigned if not specified on creation.
+   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="#3B82F6"
    * </pre>
    *
@@ -190,8 +199,9 @@ public interface BotOrBuilder extends
   boolean hasColor();
   /**
    * <pre>
-   * Bot color in hex format (e.g. "#3B82F6").
+   * Bot color in hex format.
    * Randomly assigned if not specified on creation.
+   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="#3B82F6"
    * </pre>
    *
@@ -201,8 +211,9 @@ public interface BotOrBuilder extends
   java.lang.String getColor();
   /**
    * <pre>
-   * Bot color in hex format (e.g. "#3B82F6").
+   * Bot color in hex format.
    * Randomly assigned if not specified on creation.
+   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="#3B82F6"
    * </pre>
    *
@@ -215,6 +226,7 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Bot avatar image URL.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>optional string avatar_url = 7 [json_name = "avatarUrl"];</code>
@@ -224,6 +236,7 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Bot avatar image URL.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>optional string avatar_url = 7 [json_name = "avatarUrl"];</code>
@@ -233,6 +246,7 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Bot avatar image URL.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>optional string avatar_url = 7 [json_name = "avatarUrl"];</code>

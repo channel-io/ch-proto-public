@@ -103,6 +103,10 @@ private static final long serialVersionUID = 0L;
   public static final int BOT_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object botId_;
   /**
+   * <pre>
+   * Bot ID to delete.
+   * </pre>
+   *
    * <code>string bot_id = 1 [json_name = "botId", (.buf.validate.field) = { ... }</code>
    * @return The botId.
    */
@@ -120,6 +124,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * Bot ID to delete.
+   * </pre>
+   *
    * <code>string bot_id = 1 [json_name = "botId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for botId.
    */
@@ -141,6 +149,10 @@ private static final long serialVersionUID = 0L;
   public static final int CHANNEL_ID_FIELD_NUMBER = 2;
   private volatile java.lang.Object channelId_;
   /**
+   * <pre>
+   * Channel ID the bot belongs to.
+   * </pre>
+   *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
@@ -158,6 +170,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * Channel ID the bot belongs to.
+   * </pre>
+   *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
@@ -503,6 +519,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object botId_ = "";
     /**
+     * <pre>
+     * Bot ID to delete.
+     * </pre>
+     *
      * <code>string bot_id = 1 [json_name = "botId", (.buf.validate.field) = { ... }</code>
      * @return The botId.
      */
@@ -519,6 +539,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Bot ID to delete.
+     * </pre>
+     *
      * <code>string bot_id = 1 [json_name = "botId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for botId.
      */
@@ -536,6 +560,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Bot ID to delete.
+     * </pre>
+     *
      * <code>string bot_id = 1 [json_name = "botId", (.buf.validate.field) = { ... }</code>
      * @param value The botId to set.
      * @return This builder for chaining.
@@ -551,6 +579,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Bot ID to delete.
+     * </pre>
+     *
      * <code>string bot_id = 1 [json_name = "botId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
@@ -561,6 +593,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Bot ID to delete.
+     * </pre>
+     *
      * <code>string bot_id = 1 [json_name = "botId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for botId to set.
      * @return This builder for chaining.
@@ -579,6 +615,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object channelId_ = "";
     /**
+     * <pre>
+     * Channel ID the bot belongs to.
+     * </pre>
+     *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The channelId.
      */
@@ -595,6 +635,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Channel ID the bot belongs to.
+     * </pre>
+     *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for channelId.
      */
@@ -612,6 +656,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Channel ID the bot belongs to.
+     * </pre>
+     *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The channelId to set.
      * @return This builder for chaining.
@@ -627,6 +675,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Channel ID the bot belongs to.
+     * </pre>
+     *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
@@ -637,6 +689,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Channel ID the bot belongs to.
+     * </pre>
+     *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for channelId to set.
      * @return This builder for chaining.

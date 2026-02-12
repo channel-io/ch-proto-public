@@ -4,6 +4,10 @@
 package io.channel.api.proto.coreapi.model;
 
 /**
+ * <pre>
+ * Localized name and description pair for internationalization.
+ * </pre>
+ *
  * Protobuf type {@code coreapi.model.NameDesc}
  */
 public final class NameDesc extends
@@ -97,6 +101,10 @@ private static final long serialVersionUID = 0L;
   public static final int NAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object name_;
   /**
+   * <pre>
+   * Display name.
+   * </pre>
+   *
    * <code>string name = 1 [json_name = "name"];</code>
    * @return The name.
    */
@@ -114,6 +122,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * Display name.
+   * </pre>
+   *
    * <code>string name = 1 [json_name = "name"];</code>
    * @return The bytes for name.
    */
@@ -135,6 +147,10 @@ private static final long serialVersionUID = 0L;
   public static final int DESCRIPTION_FIELD_NUMBER = 2;
   private volatile java.lang.Object description_;
   /**
+   * <pre>
+   * Description text.
+   * </pre>
+   *
    * <code>string description = 2 [json_name = "description"];</code>
    * @return The description.
    */
@@ -152,6 +168,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * Description text.
+   * </pre>
+   *
    * <code>string description = 2 [json_name = "description"];</code>
    * @return The bytes for description.
    */
@@ -335,6 +355,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * Localized name and description pair for internationalization.
+   * </pre>
+   *
    * Protobuf type {@code coreapi.model.NameDesc}
    */
   public static final class Builder extends
@@ -491,6 +515,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object name_ = "";
     /**
+     * <pre>
+     * Display name.
+     * </pre>
+     *
      * <code>string name = 1 [json_name = "name"];</code>
      * @return The name.
      */
@@ -507,6 +535,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Display name.
+     * </pre>
+     *
      * <code>string name = 1 [json_name = "name"];</code>
      * @return The bytes for name.
      */
@@ -524,6 +556,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Display name.
+     * </pre>
+     *
      * <code>string name = 1 [json_name = "name"];</code>
      * @param value The name to set.
      * @return This builder for chaining.
@@ -539,6 +575,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Display name.
+     * </pre>
+     *
      * <code>string name = 1 [json_name = "name"];</code>
      * @return This builder for chaining.
      */
@@ -549,6 +589,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Display name.
+     * </pre>
+     *
      * <code>string name = 1 [json_name = "name"];</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
@@ -567,6 +611,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object description_ = "";
     /**
+     * <pre>
+     * Description text.
+     * </pre>
+     *
      * <code>string description = 2 [json_name = "description"];</code>
      * @return The description.
      */
@@ -583,6 +631,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Description text.
+     * </pre>
+     *
      * <code>string description = 2 [json_name = "description"];</code>
      * @return The bytes for description.
      */
@@ -600,6 +652,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Description text.
+     * </pre>
+     *
      * <code>string description = 2 [json_name = "description"];</code>
      * @param value The description to set.
      * @return This builder for chaining.
@@ -615,6 +671,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Description text.
+     * </pre>
+     *
      * <code>string description = 2 [json_name = "description"];</code>
      * @return This builder for chaining.
      */
@@ -625,6 +685,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Description text.
+     * </pre>
+     *
      * <code>string description = 2 [json_name = "description"];</code>
      * @param value The bytes for description to set.
      * @return This builder for chaining.

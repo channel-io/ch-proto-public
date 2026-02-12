@@ -8,11 +8,19 @@ public interface DeleteBotRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * Bot ID to delete.
+   * </pre>
+   *
    * <code>string bot_id = 1 [json_name = "botId", (.buf.validate.field) = { ... }</code>
    * @return The botId.
    */
   java.lang.String getBotId();
   /**
+   * <pre>
+   * Bot ID to delete.
+   * </pre>
+   *
    * <code>string bot_id = 1 [json_name = "botId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for botId.
    */
@@ -20,11 +28,19 @@ public interface DeleteBotRequestOrBuilder extends
       getBotIdBytes();
 
   /**
+   * <pre>
+   * Channel ID the bot belongs to.
+   * </pre>
+   *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
   /**
+   * <pre>
+   * Channel ID the bot belongs to.
+   * </pre>
+   *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */

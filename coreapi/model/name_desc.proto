@@ -6,7 +6,11 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.coreapi.model";
 
+// Localized name and description pair for internationalization.
 message NameDesc {
+  // Display name.
   string name = 1;
+
+  // Description text.
   string description = 2;
 }

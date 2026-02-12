@@ -25,7 +25,10 @@ option java_package = "io.channel.api.proto.coreapi.service";
 // AI bots (ALF) are excluded from the result.
 // Results are sorted by createdAt in descending order.
 message SearchBotsRequest {
+  // Pagination parameters (sort order, cursor, limit).
   coreapi.common.Pagination pagination = 1;
+
+  // Channel ID to search bots in.
   string channel_id = 2 [(buf.validate.field).required = true];
 }
 
@@ -39,7 +42,10 @@ message SearchBotsResult {
 
 // Retrieves a single bot.
 message GetBotRequest {
+  // Bot ID to retrieve.
   string bot_id = 1 [(buf.validate.field).required = true];
+
+  // Channel ID the bot belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
 }
 
@@ -100,7 +106,10 @@ message UpsertBotResult {
 // Returns 404 if the bot does not exist.
 // Returns 422 if attempting to delete an AI bot (ALF).
 message DeleteBotRequest {
+  // Bot ID to delete.
   string bot_id = 1 [(buf.validate.field).required = true];
+
+  // Channel ID the bot belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
 }
 
