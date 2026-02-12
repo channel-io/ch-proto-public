@@ -4,7 +4,7 @@ package coreapi.common;
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/common";
 option java_multiple_files = true;
-option java_package = "io.channel.api.proto.coreapi.common";
+option java_package = "io.channel.api.proto.pub.coreapi.common";
 
 enum SortOrder {
   SORT_ORDER_UNSPECIFIED = 0;

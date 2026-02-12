@@ -182,8 +182,8 @@ const file_coreapi_model_bot_proto_rawDesc = "" +
 	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x1a[\n" +
 	"\x14NameDescI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12-\n" +
-	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01B^\n" +
-	"\"io.channel.api.proto.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
+	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01Bb\n" +
+	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
 	file_coreapi_model_bot_proto_rawDescOnce sync.Once

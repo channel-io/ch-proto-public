@@ -521,8 +521,8 @@ const file_coreapi_service_bot_proto_rawDesc = "" +
 	"\x06bot_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x05botId\x12%\n" +
 	"\n" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"\x11\n" +
-	"\x0fDeleteBotResultBb\n" +
-	"$io.channel.api.proto.coreapi.serviceP\x01Z8github.com/channel-io/ch-proto-public/coreapi/go/serviceb\x06proto3"
+	"\x0fDeleteBotResultBf\n" +
+	"(io.channel.api.proto.pub.coreapi.serviceP\x01Z8github.com/channel-io/ch-proto-public/coreapi/go/serviceb\x06proto3"
 
 var (
 	file_coreapi_service_bot_proto_rawDescOnce sync.Once

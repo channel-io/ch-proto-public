@@ -82,8 +82,8 @@ const file_coreapi_common_sort_order_proto_rawDesc = "" +
 	"\x16SORT_ORDER_UNSPECIFIED\x10\x00\x12\x12\n" +
 	"\x0eSORT_ORDER_ASC\x10\x01\x12\x13\n" +
 	"\x0fSORT_ORDER_DESC\x10\x02\x12\x13\n" +
-	"\x0fSORT_ORDER_BOTH\x10\x03B`\n" +
-	"#io.channel.api.proto.coreapi.commonP\x01Z7github.com/channel-io/ch-proto-public/coreapi/go/commonb\x06proto3"
+	"\x0fSORT_ORDER_BOTH\x10\x03Bd\n" +
+	"'io.channel.api.proto.pub.coreapi.commonP\x01Z7github.com/channel-io/ch-proto-public/coreapi/go/commonb\x06proto3"
 
 var (
 	file_coreapi_common_sort_order_proto_rawDescOnce sync.Once

@@ -83,8 +83,8 @@ const file_coreapi_model_name_desc_proto_rawDesc = "" +
 	"\x1dcoreapi/model/name_desc.proto\x12\rcoreapi.model\"@\n" +
 	"\bNameDesc\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
-	"\vdescription\x18\x02 \x01(\tR\vdescriptionB^\n" +
-	"\"io.channel.api.proto.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
+	"\vdescription\x18\x02 \x01(\tR\vdescriptionBb\n" +
+	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
 	file_coreapi_model_name_desc_proto_rawDescOnce sync.Once

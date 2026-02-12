@@ -93,8 +93,8 @@ const file_coreapi_common_pagination_proto_rawDesc = "" +
 	"sort_order\x18\x01 \x01(\x0e2\x19.coreapi.common.SortOrderB\x06\xbaH\x03\xc8\x01\x01R\tsortOrder\x12\x14\n" +
 	"\x05since\x18\x02 \x01(\tR\x05since\x12g\n" +
 	"\x05limit\x18\x03 \x01(\x05BQ\xbaHN\xba\x01K\n" +
-	"\x0euint32.between\x12\x1flimit must be between 1 and 500\x1a\x18this >= 1 && this <= 500R\x05limitB`\n" +
-	"#io.channel.api.proto.coreapi.commonP\x01Z7github.com/channel-io/ch-proto-public/coreapi/go/commonb\x06proto3"
+	"\x0euint32.between\x12\x1flimit must be between 1 and 500\x1a\x18this >= 1 && this <= 500R\x05limitBd\n" +
+	"'io.channel.api.proto.pub.coreapi.commonP\x01Z7github.com/channel-io/ch-proto-public/coreapi/go/commonb\x06proto3"
 
 var (
 	file_coreapi_common_pagination_proto_rawDescOnce sync.Once
