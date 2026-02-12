@@ -5,8 +5,8 @@ all: install generate
 install:
 	@echo "Installing dependencies ..."
 	go mod download
-	GOPRIVATE=github.com/channel-io go install github.com/channel-io/go-lib/pkg/protoc-gen-java-canonical-enum-namings@v0.8.4
-	GOPRIVATE=github.com/channel-io go install github.com/channel-io/go-lib/pkg/protoc-gen-java-set-or-clear@v0.8.4
+	go install ./tools/protoc-gen-java-canonical-enum-namings
+	go install ./tools/protoc-gen-java-set-or-clear
 	ln -sf $${GRPC_JAVA_PATH}/protoc-gen-grpc-java $${GOPATH}/bin/protoc-gen-grpc-java
 	@echo ""
 

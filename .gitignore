@@ -3,3 +3,7 @@
 .DS_Store
 logs/
 reference/
+
+# build artifacts
+protoc-gen-java-canonical-enum-namings
+protoc-gen-java-set-or-clear

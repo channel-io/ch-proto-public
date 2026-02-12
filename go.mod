@@ -1,8 +1,16 @@
 module github.com/channel-io/ch-proto-public
 
-go 1.25
+go 1.25.0
 
 require (
 	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.11-20260209202127-80ab13bee0bf.1
 	google.golang.org/protobuf v1.36.11
+)
+
+require (
+	github.com/golang/protobuf v1.5.4 // indirect
+	github.com/iancoleman/strcase v0.3.0 // indirect
+	github.com/samber/lo v1.52.0 // indirect
+	golang.org/x/exp v0.0.0-20260211191109-2735e65f0518 // indirect
+	golang.org/x/text v0.22.0 // indirect
 )
