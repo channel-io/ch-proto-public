@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package coreapi.common;
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/common";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.coreapi.common";
+
+enum SortOrder {
+  SORT_ORDER_UNSPECIFIED = 0;
+  SORT_ORDER_ASC = 1;
+  SORT_ORDER_DESC = 2;
+  SORT_ORDER_BOTH = 3;
+}

@@ -1,0 +1,108 @@
+syntax = "proto3";
+
+package coreapi.service;
+
+import "buf/validate/validate.proto";
+import "coreapi/common/pagination.proto";
+import "coreapi/model/bot.proto";
+import "coreapi/model/name_desc.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.coreapi.service";
+
+// Retrieves a bot list.
+//
+// The number of bots retrieved in this endpoint is restricted by the limit query parameter,
+// and is capped to values in the closed interval [1, 500].
+// Pagination is supported through the since query parameter along with the next value
+// contained in the root object of the JSON response.
+// Successive queries to this endpoint using the previous next value
+// as the since parameter will ultimately retrieve all bots.
+// If the since parameter is left empty,
+// the list retrieved will start with the bot of highest ID.
+//
+// AI bots (ALF) are excluded from the result.
+// Results are sorted by createdAt in descending order.
+message SearchBotsRequest {
+  coreapi.common.Pagination pagination = 1;
+  string channel_id = 2 [(buf.validate.field).required = true];
+}
+
+// Response for bot list retrieval.
+message SearchBotsResult {
+  repeated coreapi.model.Bot bots = 1;
+
+  // Pagination cursor. Pass this value as the `since` parameter in the next request.
+  string next = 2;
+}
+
+// Retrieves a single bot.
+message GetBotRequest {
+  string bot_id = 1 [(buf.validate.field).required = true];
+  string channel_id = 2 [(buf.validate.field).required = true];
+}
+
+// Response for single bot retrieval.
+message GetBotResult {
+  coreapi.model.Bot bot = 1;
+}
+
+// Upserts a bot. Creates a new bot to the channel if the bot with given name
+// does not exist in the channel, otherwise updates the existing bot.
+//
+// Forbidden names (case-insensitive): "ALF", "알프", "アルフ"
+message UpsertBotRequest {
+  // Channel ID. Acts as part of the upsert key together with name.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Bot name. Must be unique within the channel.
+  // Leading and trailing whitespace is automatically trimmed.
+  string name = 2 [
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "size(this) <= 30"
+    },
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 characters"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).string.pattern = "^[^@#$%:/]+$",
+    (buf.validate.field).required = true
+  ];
+
+  // Bot description. Maximum 180 characters.
+  optional string description = 3 [(buf.validate.field).cel = {
+    id: "string.maxLen"
+    message: "value must be no more than 180 characters"
+    expression: "size(this) <= 180"
+  }];
+
+  // Internationalized name and description map. Keyed by locale.
+  map<string, coreapi.model.NameDesc> name_desc_i18n_map = 4;
+
+  // Bot color in hex format. Randomly assigned if not specified.
+  optional string color = 5;
+
+  // Bot avatar image URL.
+  optional string avatar_url = 6;
+}
+
+// Response for bot upsert.
+message UpsertBotResult {
+  coreapi.model.Bot bot = 1;
+}
+
+// Deletes a bot.
+//
+// Returns 404 if the bot does not exist.
+// Returns 422 if attempting to delete an AI bot (ALF).
+message DeleteBotRequest {
+  string bot_id = 1 [(buf.validate.field).required = true];
+  string channel_id = 2 [(buf.validate.field).required = true];
+}
+
+// Response for bot deletion. Empty on success (204 No Content).
+message DeleteBotResult {}

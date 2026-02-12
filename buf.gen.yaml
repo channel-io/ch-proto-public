@@ -1,0 +1,21 @@
+version: v2
+plugins:
+  # Go
+  - remote: buf.build/protocolbuffers/go
+    out: .
+    opt: module=github.com/channel-io/ch-proto-public
+  - remote: buf.build/grpc/go
+    out: .
+    opt: module=github.com/channel-io/ch-proto-public
+
+  # Java (built-in + gRPC)
+  - protoc_builtin: java
+    out: coreapi/java
+  - local: protoc-gen-grpc-java
+    out: coreapi/java
+
+  # Java custom plugins (local)
+  - local: protoc-gen-java-set-or-clear
+    out: coreapi/java
+  - local: protoc-gen-java-canonical-enum-namings
+    out: coreapi/java

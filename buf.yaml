@@ -1,0 +1,11 @@
+version: v2
+lint:
+  except:
+    - PACKAGE_VERSION_SUFFIX
+modules:
+  - path: .
+    excludes:
+      - shared/v1/validation
+      - reference
+deps:
+  - buf.build/bufbuild/protovalidate

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.coreapi.model";
+
+message NameDesc {
+  string name = 1;
+  string description = 2;
+}

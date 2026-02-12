@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package coreapi.common;
+
+import "buf/validate/validate.proto";
+import "coreapi/common/sort_order.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/common";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.coreapi.common";
+
+message Pagination {
+  SortOrder sort_order = 1 [(buf.validate.field).required = true];
+  string since = 2;
+  int32 limit = 3 [(buf.validate.field).cel = {
+    id: "uint32.between"
+    message: "limit must be between 1 and 500"
+    expression: "this >= 1 && this <= 500"
+  }];
+}
