@@ -1,0 +1,3 @@
+[submodule "shared/v1/validation"]
+	path = shared/v1/validation
+	url = https://github.com/bufbuild/protovalidate.git

@@ -1,0 +1,4 @@
+# Hide generated files from protoc
+**/*.java linguist-generated=true
+**/*.ts linguist-generated=true
+**/*.pb.go linguist-generated=true
