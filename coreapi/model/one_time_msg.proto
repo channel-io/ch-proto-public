@@ -1,0 +1,231 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+import "buf/validate/validate.proto";
+import "coreapi/model/app_segment.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// Delivery medium type for messages.
+enum MediumType {
+  MEDIUM_TYPE_UNSPECIFIED = 0;
+  MEDIUM_TYPE_NATIVE = 1;
+  MEDIUM_TYPE_APP = 2;
+  MEDIUM_TYPE_EMAIL = 3;
+  MEDIUM_TYPE_PHONE = 4;
+}
+
+// Lifecycle state of a one-time message.
+enum OneTimeMsgState {
+  ONE_TIME_MSG_STATE_UNSPECIFIED = 0;
+  ONE_TIME_MSG_STATE_DRAFT = 1;
+  ONE_TIME_MSG_STATE_ACTIVE = 2;
+  ONE_TIME_MSG_STATE_SENT = 3;
+  ONE_TIME_MSG_STATE_STOPPED = 4;
+}
+
+// Delivery timing mode for a one-time message.
+enum OneTimeMsgSendMode {
+  ONE_TIME_MSG_SEND_MODE_UNSPECIFIED = 0;
+  ONE_TIME_MSG_SEND_MODE_IMMEDIATELY = 1;
+  ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_SENDER_TIME = 2;
+  ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_RECEIVER_TIME = 3;
+}
+
+// OneTimeMsg represents a one-time message that is sent to targeted users once.
+message OneTimeMsg {
+  // Unique one-time message identifier.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 characters"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Channel ID this one-time message belongs to.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string channel_id = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 characters"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Display name of the one-time message.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:validation:MaxLength=128
+  string name = 3 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 characters"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 128 characters"
+      expression: "size(this) <= 128"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Current lifecycle state.
+  //
+  // +kubebuilder:validation:Required
+  OneTimeMsgState state = 4 [(buf.validate.field).required = true];
+
+  // Delivery timing mode.
+  // Automatically inferred from start_at and local_start_at if not explicitly set.
+  //
+  // +kubebuilder:validation:Nullable
+  OneTimeMsgSendMode send_mode = 5;
+
+  // Channel operation ID for business hours scheduling.
+  //
+  // +kubebuilder:validation:Nullable
+  string channel_operation_id = 6;
+
+  // Delivery medium type.
+  // May be unset for draft messages.
+  //
+  // +kubebuilder:validation:Nullable
+  MediumType medium_type = 7;
+
+  // Identifier of the specific medium instance.
+  // Required for APP medium type.
+  //
+  // +kubebuilder:validation:Nullable
+  string medium_id = 8;
+
+  // Key for selecting the message topic template within the medium.
+  //
+  // +kubebuilder:validation:Nullable
+  string medium_topic_build_key = 9;
+
+  // Labels for categorizing the message topic within the medium.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string medium_topic_build_labels = 10;
+
+  // Delivery configuration specific to the chosen medium type.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct settings = 12;
+
+  // User targeting query for audience filtering.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct user_query = 13;
+
+  // Conversion tracking windows keyed by feature name.
+  // Defaults to 1 day for views and 7 days for clicks.
+  //
+  // +kubebuilder:validation:Nullable
+  map<string, google.protobuf.Duration> conversion_windows = 14;
+
+  // Name of the event tracked as a conversion goal.
+  //
+  // +kubebuilder:validation:Nullable
+  string goal_event_name = 15;
+
+  // Filtering query for the goal event.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct goal_event_query = 16;
+
+  // Duration window for goal event tracking.
+  // Valid range is 1 to 30 days. Defaults to 7 days.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Duration goal_event_duration = 17;
+
+  // Whether this message contains advertising content.
+  //
+  // +kubebuilder:validation:Nullable
+  bool advertising = 18;
+
+  // Whether to send via XMS (SMS/LMS/MMS) to offline users.
+  //
+  // +kubebuilder:validation:Nullable
+  bool send_to_offline_xms = 19;
+
+  // Whether to send via email to offline users.
+  //
+  // +kubebuilder:validation:Nullable
+  bool send_to_offline_email = 20;
+
+  // Scheduled send time in UTC.
+  // Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp start_at = 21;
+
+  // Scheduled send time in receiver's local timezone.
+  // ISO 8601 date-time without timezone offset.
+  // Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
+  //
+  // +kubebuilder:validation:Nullable
+  string local_start_at = 22;
+
+  // Draft snapshot of the message saved before activation.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct draft = 23;
+
+  // One-time message creation timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp created_at = 24 [(buf.validate.field).required = true];
+
+  // One-time message last update timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp updated_at = 25 [(buf.validate.field).required = true];
+
+  // Total number of messages sent.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 sent = 26;
+
+  // Total number of message views.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 view = 27;
+
+  // Total number of goal conversions achieved.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 goal = 28;
+
+  // Total number of message link clicks.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 click = 29;
+
+  // Duration after which the user chat created by this message expires.
+  // Defaults to 31 days.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Duration user_chat_expire_duration = 30;
+
+  // App segments for user targeting.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.AppSegment app_segments = 31;
+}
