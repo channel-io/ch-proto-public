@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+import "buf/validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// Interaction state used to filter one-time message user records.
+// Determines which delivery or engagement metric is used for sorting and filtering.
+enum OneTimeMsgUserState {
+  ONE_TIME_MSG_USER_STATE_UNSPECIFIED = 0;
+  ONE_TIME_MSG_USER_STATE_SENT = 1;
+  ONE_TIME_MSG_USER_STATE_VIEW = 2;
+  ONE_TIME_MSG_USER_STATE_GOAL = 3;
+  ONE_TIME_MSG_USER_STATE_CLICK = 4;
+}
+
+// OneTimeMsgUser represents a user who received a one-time message.
+// Tracks delivery, view, click, and goal conversion timestamps.
+message OneTimeMsgUser {
+  // One-time message ID this user record belongs to.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string one_time_msg_id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 characters"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // ID of the user who received the one-time message.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string user_id = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 characters"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Timestamp when the message was delivered to the user.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp sent = 3;
+
+  // Timestamp when the user viewed the message.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp view = 4;
+
+  // Timestamp when the user clicked a link in the message.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp click = 5;
+
+  // Timestamp when the user achieved the conversion goal.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp goal = 6;
+
+  // Revenue amount attributed to this user from the message.
+  // Decimal number represented as a string for precision.
+  //
+  // +kubebuilder:validation:Nullable
+  string revenue = 7;
+}
