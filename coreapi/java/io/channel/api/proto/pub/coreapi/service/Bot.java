@@ -80,30 +80,30 @@ public final class Bot {
       "xt\"U\n\rGetBotRequest\022\035\n\006bot_id\030\001 \001(\tB\006\272H\003" +
       "\310\001\001R\005botId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\t" +
       "channelId\"4\n\014GetBotResult\022$\n\003bot\030\001 \001(\0132\022" +
-      ".coreapi.model.BotR\003bot\"\354\004\n\020UpsertBotReq" +
+      ".coreapi.model.BotR\003bot\"\353\004\n\020UpsertBotReq" +
       "uest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchanne" +
-      "lId\022\302\001\n\004name\030\002 \001(\tB\255\001\272H\251\001\272\001K\n\rstring.max" +
+      "lId\022\301\001\n\004name\030\002 \001(\tB\254\001\272H\250\001\272\001K\n\rstring.max" +
       "Len\022(value must be no more than 30 chara" +
-      "cters\032\020size(this) <= 30\272\001E\n\rstring.minLe" +
-      "n\022#value must be at least 1 characters\032\017" +
-      "size(this) >= 1\310\001\001r\0162\014^[^@#$%:/]+$R\004name" +
-      "\022u\n\013description\030\003 \001(\tBS\272HP\272\001M\n\rstring.ma" +
-      "xLen\022)value must be no more than 180 cha" +
-      "racters\032\021size(this) <= 180R\013description\022" +
-      "c\n\022name_desc_i18n_map\030\004 \003(\01326.coreapi.se" +
-      "rvice.UpsertBotRequest.NameDescI18nMapEn" +
-      "tryR\017nameDescI18nMap\022\024\n\005color\030\005 \001(\tR\005col" +
-      "or\022\035\n\navatar_url\030\006 \001(\tR\tavatarUrl\032[\n\024Nam" +
-      "eDescI18nMapEntry\022\020\n\003key\030\001 \001(\tR\003key\022-\n\005v" +
-      "alue\030\002 \001(\0132\027.coreapi.model.NameDescR\005val" +
-      "ue:\0028\001\"7\n\017UpsertBotResult\022$\n\003bot\030\001 \001(\0132\022" +
-      ".coreapi.model.BotR\003bot\"X\n\020DeleteBotRequ" +
-      "est\022\035\n\006bot_id\030\001 \001(\tB\006\272H\003\310\001\001R\005botId\022%\n\nch" +
-      "annel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"\021\n\017Del" +
-      "eteBotResultBf\n(io.channel.api.proto.pub" +
-      ".coreapi.serviceP\001Z8github.com/channel-i" +
-      "o/ch-proto-public/coreapi/go/serviceb\006pr" +
-      "oto3"
+      "cters\032\020size(this) <= 30\272\001D\n\rstring.minLe" +
+      "n\022\"value must be at least 1 character\032\017s" +
+      "ize(this) >= 1\310\001\001r\0162\014^[^@#$%:/]+$R\004name\022" +
+      "u\n\013description\030\003 \001(\tBS\272HP\272\001M\n\rstring.max" +
+      "Len\022)value must be no more than 180 char" +
+      "acters\032\021size(this) <= 180R\013description\022c" +
+      "\n\022name_desc_i18n_map\030\004 \003(\01326.coreapi.ser" +
+      "vice.UpsertBotRequest.NameDescI18nMapEnt" +
+      "ryR\017nameDescI18nMap\022\024\n\005color\030\005 \001(\tR\005colo" +
+      "r\022\035\n\navatar_url\030\006 \001(\tR\tavatarUrl\032[\n\024Name" +
+      "DescI18nMapEntry\022\020\n\003key\030\001 \001(\tR\003key\022-\n\005va" +
+      "lue\030\002 \001(\0132\027.coreapi.model.NameDescR\005valu" +
+      "e:\0028\001\"7\n\017UpsertBotResult\022$\n\003bot\030\001 \001(\0132\022." +
+      "coreapi.model.BotR\003bot\"X\n\020DeleteBotReque" +
+      "st\022\035\n\006bot_id\030\001 \001(\tB\006\272H\003\310\001\001R\005botId\022%\n\ncha" +
+      "nnel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"\021\n\017Dele" +
+      "teBotResultBf\n(io.channel.api.proto.pub." +
+      "coreapi.serviceP\001Z8github.com/channel-io" +
+      "/ch-proto-public/coreapi/go/serviceb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -22,19 +22,13 @@ import "buf/validate/validate.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
-option java_package = "io.channel.api.proto.coreapi.model";
+option java_package = "io.channel.api.proto.pub.coreapi.model";
 ```
 
 ## 주석 작성
 
 주석은 **description 영역**과 **marker 영역** 두 블록으로 나뉜다. 빈 주석 줄(`//`)로 격리한다.
-
-### description 영역 (→ OpenAPI `description`)
-
-- 모든 message와 필드에 한 줄 이상 작성
-- 영문으로 작성
-- 필드가 무엇인지, marker로 표현할 수 없는 비즈니스 맥락만 설명 (편집 권한, 동작 조건 등)
-- **marker로 표현 가능한 정보는 절대 중복하지 않는다** (글자수, 필수 여부, nullable, 패턴 등)
+description 콘텐츠 작성 기준은 `description.md`를 따른다.
 
 ### marker 영역 (→ OpenAPI validation/메타데이터)
 
@@ -51,7 +45,7 @@ option java_package = "io.channel.api.proto.coreapi.model";
 string name = 3 [                             ← buf.validate
   (buf.validate.field).cel = {
     id: "string.minLen"
-    message: "value must be at least 1 characters"
+    message: "value must be at least 1 character"
     expression: "size(this) >= 1"
   },
   (buf.validate.field).cel = {

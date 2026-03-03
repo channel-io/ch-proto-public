@@ -13,9 +13,13 @@ ch-proto-public/
 │   ├── service/         # 서비스 요청/응답 메시지
 │   ├── go/              # [generated] Go 코드
 │   └── java/            # [generated] Java 코드
+├── tools/               # 커스텀 protoc 플러그인
+├── scripts/             # lint 등 유틸리티 스크립트
 ├── shared/v1/validation/ # buf.validate 벤더 (수정 금지)
+├── .github/             # CI 워크플로우
 ├── buf.yaml             # buf 모듈 설정 (lint, deps)
 ├── buf.gen.yaml         # buf 코드 생성 플러그인 설정
+├── buf.gen.ci.yaml      # CI 전용 buf 코드 생성 설정
 ├── buf.lock             # buf 의존성 잠금 (자동 생성)
 ├── Makefile             # 빌드 명령어
 └── go.mod               # Go 모듈
@@ -44,7 +48,7 @@ make lint      # buf lint 실행
 ```protobuf
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/{domain}";
 option java_multiple_files = true;
-option java_package = "io.channel.api.proto.coreapi.{domain}";
+option java_package = "io.channel.api.proto.pub.coreapi.{domain}";
 ```
 
 ### 파일 분류
@@ -58,7 +62,6 @@ option java_package = "io.channel.api.proto.coreapi.{domain}";
 ## 의존성
 
 - `buf.build/bufbuild/protovalidate` — `buf.validate` 필드 검증
-- `google/protobuf/timestamp.proto` — 타임스탬프 타입
 
 ## 주의 사항
 

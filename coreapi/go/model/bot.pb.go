@@ -162,15 +162,15 @@ var File_coreapi_model_bot_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_bot_proto_rawDesc = "" +
 	"\n" +
-	"\x17coreapi/model/bot.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xab\x06\n" +
-	"\x03Bot\x12^\n" +
-	"\x02id\x18\x01 \x01(\tBN\xbaHK\xba\x01E\n" +
-	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12m\n" +
+	"\x17coreapi/model/bot.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa8\x06\n" +
+	"\x03Bot\x12]\n" +
+	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tBN\xbaHK\xba\x01E\n" +
-	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\xb2\x01\n" +
-	"\x04name\x18\x03 \x01(\tB\x9d\x01\xbaH\x99\x01\xba\x01E\n" +
-	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xba\x01K\n" +
+	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\xb1\x01\n" +
+	"\x04name\x18\x03 \x01(\tB\x9c\x01\xbaH\x98\x01\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01R\x04name\x12u\n" +
 	"\vdescription\x18\x04 \x01(\tBS\xbaHP\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 180 characters\x1a\x11size(this) <= 180R\vdescription\x12T\n" +

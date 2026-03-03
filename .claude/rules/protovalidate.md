@@ -27,7 +27,7 @@ string channel_id = 1 [(buf.validate.field).required = true];
 string name = 2 [
   (buf.validate.field).cel = {
     id: "string.minLen"
-    message: "value must be at least 1 characters"
+    message: "value must be at least 1 character"
     expression: "size(this) >= 1"
   },
   (buf.validate.field).cel = {
@@ -61,7 +61,7 @@ string color = 5;
 
 ## kubebuilder marker와의 관계
 
-model proto에서는 kubebuilder marker(OpenAPI 문서 생성용)와 buf.validate(런타임 검증용)를 **함께** 작성한다.
+proto에서는 kubebuilder marker(OpenAPI 문서 생성용)와 buf.validate(런타임 검증용)를 **함께** 작성한다.
 검증 가능한 항목은 양쪽 모두에 표현해야 한다.
 
 | kubebuilder marker | buf.validate 대응 |

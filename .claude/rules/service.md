@@ -13,7 +13,7 @@ import "buf/validate/validate.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
-option java_package = "io.channel.api.proto.coreapi.service";
+option java_package = "io.channel.api.proto.pub.coreapi.service";
 ```
 
 ## 메시지 네이밍 규칙
@@ -59,6 +59,8 @@ API 엔드포인트의 동작을 설명한다.
 // and is capped to values in the closed interval [1, 500].
 // ...
 message SearchBotsRequest {
+  // ...
+}
 ```
 
 포함할 내용:
@@ -74,6 +76,8 @@ message SearchBotsRequest {
 ```protobuf
 // Response for bot list retrieval.
 message SearchBotsResult {
+  // ...
+}
 ```
 
 ### 삭제 응답
@@ -90,10 +94,23 @@ message DeleteBotResult {}
 | 조회 유형 | 필드 패턴 |
 |----------|----------|
 | 단건 조회 | `coreapi.model.Bot bot = 1;` |
-| 목록 조회 | `repeated coreapi.model.Bot bots = 1;` + `string next = 2;` (커서) |
+| 목록 조회 | `repeated coreapi.model.T items = 1;` + `string next_cursor = 2;` + `bool has_next = 3;` |
 | 생성/수정 | `coreapi.model.Bot bot = 1;` (생성/수정된 결과) |
 | 삭제 | 빈 메시지 `{}` |
 
+## 응답 필드의 kubebuilder marker
+
+응답 메시지 필드에도 OpenAPI 문서 정확성을 위해 kubebuilder marker를 사용할 수 있다.
+대표적으로 `next_cursor`에 `+kubebuilder:validation:Nullable`을 사용한다.
+
+```protobuf
+// Opaque cursor for the next page.
+// Use has_next to determine whether another page exists.
+//
+// +kubebuilder:validation:Nullable
+string next_cursor = 2;
+```
+
 ## 참고 예시
 
-현재 `coreapi/service/bot.proto`가 이 규칙을 따르는 레퍼런스 구현이다.
+현재 `coreapi/service/one_time_msg.proto`가 v6 페이지네이션 표준을 따르는 레퍼런스 구현이다.
