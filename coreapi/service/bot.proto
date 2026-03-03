@@ -3,7 +3,6 @@ syntax = "proto3";
 package coreapi.service;
 
 import "buf/validate/validate.proto";
-import "coreapi/common/pagination.proto";
 import "coreapi/model/bot.proto";
 import "coreapi/model/name_desc.proto";
 
@@ -13,31 +12,42 @@ option java_package = "io.channel.api.proto.pub.coreapi.service";
 
 // Retrieves a bot list.
 //
-// The number of bots retrieved in this endpoint is restricted by the limit query parameter,
+// The number of bots retrieved is restricted by the limit parameter,
 // and is capped to values in the closed interval [1, 500].
-// Pagination is supported through the since query parameter along with the next value
-// contained in the root object of the JSON response.
-// Successive queries to this endpoint using the previous next value
-// as the since parameter will ultimately retrieve all bots.
-// If the since parameter is left empty,
-// the list retrieved will start with the bot of highest ID.
+// Pagination is cursor-based. Pass the nextCursor value from the previous response
+// as the cursor parameter to retrieve the next page.
+// If the cursor parameter is left empty, the list starts with the
+// most recently created bot.
 //
 // AI bots (ALF) are excluded from the result.
 // Results are sorted by createdAt in descending order.
 message SearchBotsRequest {
-  // Pagination parameters (sort order, cursor, limit).
-  coreapi.common.Pagination pagination = 1;
-
   // Channel ID to search bots in.
-  string channel_id = 2 [(buf.validate.field).required = true];
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Opaque pagination cursor from a previous response.
+  string cursor = 2;
+
+  // Maximum number of results to return. Defaults to 25 if unset.
+  int32 limit = 3 [(buf.validate.field).cel = {
+    id: "int32.between"
+    message: "limit must be between 1 and 500"
+    expression: "this == 0 || (this >= 1 && this <= 500)"
+  }];
 }
 
 // Response for bot list retrieval.
 message SearchBotsResult {
   repeated coreapi.model.Bot bots = 1;
 
-  // Pagination cursor. Pass this value as the `since` parameter in the next request.
-  string next = 2;
+  // Opaque cursor for the next page.
+  // Use has_next to determine whether another page exists.
+  //
+  // +kubebuilder:validation:Nullable
+  string next_cursor = 2;
+
+  // Whether a next page of results exists.
+  bool has_next = 3;
 }
 
 // Retrieves a single bot.

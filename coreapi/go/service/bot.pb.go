@@ -8,7 +8,6 @@ package service
 
 import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
-	common "github.com/channel-io/ch-proto-public/coreapi/go/common"
 	model "github.com/channel-io/ch-proto-public/coreapi/go/model"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -26,23 +25,23 @@ const (
 
 // Retrieves a bot list.
 //
-// The number of bots retrieved in this endpoint is restricted by the limit query parameter,
+// The number of bots retrieved is restricted by the limit parameter,
 // and is capped to values in the closed interval [1, 500].
-// Pagination is supported through the since query parameter along with the next value
-// contained in the root object of the JSON response.
-// Successive queries to this endpoint using the previous next value
-// as the since parameter will ultimately retrieve all bots.
-// If the since parameter is left empty,
-// the list retrieved will start with the bot of highest ID.
+// Pagination is cursor-based. Pass the nextCursor value from the previous response
+// as the cursor parameter to retrieve the next page.
+// If the cursor parameter is left empty, the list starts with the
+// most recently created bot.
 //
 // AI bots (ALF) are excluded from the result.
 // Results are sorted by createdAt in descending order.
 type SearchBotsRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Pagination parameters (sort order, cursor, limit).
-	Pagination *common.Pagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
 	// Channel ID to search bots in.
-	ChannelId     string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Opaque pagination cursor from a previous response.
+	Cursor string `protobuf:"bytes,2,opt,name=cursor,proto3" json:"cursor,omitempty"`
+	// Maximum number of results to return. Defaults to 25 if unset.
+	Limit         int32 `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -77,13 +76,6 @@ func (*SearchBotsRequest) Descriptor() ([]byte, []int) {
 	return file_coreapi_service_bot_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *SearchBotsRequest) GetPagination() *common.Pagination {
-	if x != nil {
-		return x.Pagination
-	}
-	return nil
-}
-
 func (x *SearchBotsRequest) GetChannelId() string {
 	if x != nil {
 		return x.ChannelId
@@ -91,12 +83,31 @@ func (x *SearchBotsRequest) GetChannelId() string {
 	return ""
 }
 
+func (x *SearchBotsRequest) GetCursor() string {
+	if x != nil {
+		return x.Cursor
+	}
+	return ""
+}
+
+func (x *SearchBotsRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
 // Response for bot list retrieval.
 type SearchBotsResult struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	Bots  []*model.Bot           `protobuf:"bytes,1,rep,name=bots,proto3" json:"bots,omitempty"`
-	// Pagination cursor. Pass this value as the `since` parameter in the next request.
-	Next          string `protobuf:"bytes,2,opt,name=next,proto3" json:"next,omitempty"`
+	// Opaque cursor for the next page.
+	// Use has_next to determine whether another page exists.
+	//
+	// +kubebuilder:validation:Nullable
+	NextCursor string `protobuf:"bytes,2,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
+	// Whether a next page of results exists.
+	HasNext       bool `protobuf:"varint,3,opt,name=has_next,json=hasNext,proto3" json:"has_next,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -138,11 +149,18 @@ func (x *SearchBotsResult) GetBots() []*model.Bot {
 	return nil
 }
 
-func (x *SearchBotsResult) GetNext() string {
+func (x *SearchBotsResult) GetNextCursor() string {
 	if x != nil {
-		return x.Next
+		return x.NextCursor
 	}
 	return ""
+}
+
+func (x *SearchBotsResult) GetHasNext() bool {
+	if x != nil {
+		return x.HasNext
+	}
+	return false
 }
 
 // Retrieves a single bot.
@@ -484,16 +502,18 @@ var File_coreapi_service_bot_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_bot_proto_rawDesc = "" +
 	"\n" +
-	"\x19coreapi/service/bot.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/pagination.proto\x1a\x17coreapi/model/bot.proto\x1a\x1dcoreapi/model/name_desc.proto\"v\n" +
-	"\x11SearchBotsRequest\x12:\n" +
+	"\x19coreapi/service/bot.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x17coreapi/model/bot.proto\x1a\x1dcoreapi/model/name_desc.proto\"\xc9\x01\n" +
+	"\x11SearchBotsRequest\x12%\n" +
 	"\n" +
-	"pagination\x18\x01 \x01(\v2\x1a.coreapi.common.PaginationR\n" +
-	"pagination\x12%\n" +
-	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"N\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x16\n" +
+	"\x06cursor\x18\x02 \x01(\tR\x06cursor\x12u\n" +
+	"\x05limit\x18\x03 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
+	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\"v\n" +
 	"\x10SearchBotsResult\x12&\n" +
-	"\x04bots\x18\x01 \x03(\v2\x12.coreapi.model.BotR\x04bots\x12\x12\n" +
-	"\x04next\x18\x02 \x01(\tR\x04next\"U\n" +
+	"\x04bots\x18\x01 \x03(\v2\x12.coreapi.model.BotR\x04bots\x12\x1f\n" +
+	"\vnext_cursor\x18\x02 \x01(\tR\n" +
+	"nextCursor\x12\x19\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"U\n" +
 	"\rGetBotRequest\x12\x1d\n" +
 	"\x06bot_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x05botId\x12%\n" +
 	"\n" +
@@ -547,22 +567,20 @@ var file_coreapi_service_bot_proto_goTypes = []any{
 	(*DeleteBotRequest)(nil),  // 6: coreapi.service.DeleteBotRequest
 	(*DeleteBotResult)(nil),   // 7: coreapi.service.DeleteBotResult
 	nil,                       // 8: coreapi.service.UpsertBotRequest.NameDescI18nMapEntry
-	(*common.Pagination)(nil), // 9: coreapi.common.Pagination
-	(*model.Bot)(nil),         // 10: coreapi.model.Bot
-	(*model.NameDesc)(nil),    // 11: coreapi.model.NameDesc
+	(*model.Bot)(nil),         // 9: coreapi.model.Bot
+	(*model.NameDesc)(nil),    // 10: coreapi.model.NameDesc
 }
 var file_coreapi_service_bot_proto_depIdxs = []int32{
-	9,  // 0: coreapi.service.SearchBotsRequest.pagination:type_name -> coreapi.common.Pagination
-	10, // 1: coreapi.service.SearchBotsResult.bots:type_name -> coreapi.model.Bot
-	10, // 2: coreapi.service.GetBotResult.bot:type_name -> coreapi.model.Bot
-	8,  // 3: coreapi.service.UpsertBotRequest.name_desc_i18n_map:type_name -> coreapi.service.UpsertBotRequest.NameDescI18nMapEntry
-	10, // 4: coreapi.service.UpsertBotResult.bot:type_name -> coreapi.model.Bot
-	11, // 5: coreapi.service.UpsertBotRequest.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
-	6,  // [6:6] is the sub-list for method output_type
-	6,  // [6:6] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+	9,  // 0: coreapi.service.SearchBotsResult.bots:type_name -> coreapi.model.Bot
+	9,  // 1: coreapi.service.GetBotResult.bot:type_name -> coreapi.model.Bot
+	8,  // 2: coreapi.service.UpsertBotRequest.name_desc_i18n_map:type_name -> coreapi.service.UpsertBotRequest.NameDescI18nMapEntry
+	9,  // 3: coreapi.service.UpsertBotResult.bot:type_name -> coreapi.model.Bot
+	10, // 4: coreapi.service.UpsertBotRequest.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
+	5,  // [5:5] is the sub-list for method output_type
+	5,  // [5:5] is the sub-list for method input_type
+	5,  // [5:5] is the sub-list for extension type_name
+	5,  // [5:5] is the sub-list for extension extendee
+	0,  // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_bot_proto_init() }

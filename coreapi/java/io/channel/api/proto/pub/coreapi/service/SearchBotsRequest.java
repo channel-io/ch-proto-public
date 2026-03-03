@@ -6,14 +6,12 @@ package io.channel.api.proto.pub.coreapi.service;
 /**
  * <pre>
  * Retrieves a bot list.
- * The number of bots retrieved in this endpoint is restricted by the limit query parameter,
+ * The number of bots retrieved is restricted by the limit parameter,
  * and is capped to values in the closed interval [1, 500].
- * Pagination is supported through the since query parameter along with the next value
- * contained in the root object of the JSON response.
- * Successive queries to this endpoint using the previous next value
- * as the since parameter will ultimately retrieve all bots.
- * If the since parameter is left empty,
- * the list retrieved will start with the bot of highest ID.
+ * Pagination is cursor-based. Pass the nextCursor value from the previous response
+ * as the cursor parameter to retrieve the next page.
+ * If the cursor parameter is left empty, the list starts with the
+ * most recently created bot.
  * AI bots (ALF) are excluded from the result.
  * Results are sorted by createdAt in descending order.
  * </pre>
@@ -31,6 +29,7 @@ private static final long serialVersionUID = 0L;
   }
   private SearchBotsRequest() {
     channelId_ = "";
+    cursor_ = "";
   }
 
   @java.lang.Override
@@ -64,22 +63,20 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            io.channel.api.proto.pub.coreapi.common.Pagination.Builder subBuilder = null;
-            if (pagination_ != null) {
-              subBuilder = pagination_.toBuilder();
-            }
-            pagination_ = input.readMessage(io.channel.api.proto.pub.coreapi.common.Pagination.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(pagination_);
-              pagination_ = subBuilder.buildPartial();
-            }
+            java.lang.String s = input.readStringRequireUtf8();
 
+            channelId_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            channelId_ = s;
+            cursor_ = s;
+            break;
+          }
+          case 24: {
+
+            limit_ = input.readInt32();
             break;
           }
           default: {
@@ -114,52 +111,14 @@ private static final long serialVersionUID = 0L;
             io.channel.api.proto.pub.coreapi.service.SearchBotsRequest.class, io.channel.api.proto.pub.coreapi.service.SearchBotsRequest.Builder.class);
   }
 
-  public static final int PAGINATION_FIELD_NUMBER = 1;
-  private io.channel.api.proto.pub.coreapi.common.Pagination pagination_;
-  /**
-   * <pre>
-   * Pagination parameters (sort order, cursor, limit).
-   * </pre>
-   *
-   * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
-   * @return Whether the pagination field is set.
-   */
-  @java.lang.Override
-  public boolean hasPagination() {
-    return pagination_ != null;
-  }
-  /**
-   * <pre>
-   * Pagination parameters (sort order, cursor, limit).
-   * </pre>
-   *
-   * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
-   * @return The pagination.
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.common.Pagination getPagination() {
-    return pagination_ == null ? io.channel.api.proto.pub.coreapi.common.Pagination.getDefaultInstance() : pagination_;
-  }
-  /**
-   * <pre>
-   * Pagination parameters (sort order, cursor, limit).
-   * </pre>
-   *
-   * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.common.PaginationOrBuilder getPaginationOrBuilder() {
-    return getPagination();
-  }
-
-  public static final int CHANNEL_ID_FIELD_NUMBER = 2;
+  public static final int CHANNEL_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object channelId_;
   /**
    * <pre>
    * Channel ID to search bots in.
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   @java.lang.Override
@@ -180,7 +139,7 @@ private static final long serialVersionUID = 0L;
    * Channel ID to search bots in.
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   @java.lang.Override
@@ -198,6 +157,67 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int CURSOR_FIELD_NUMBER = 2;
+  private volatile java.lang.Object cursor_;
+  /**
+   * <pre>
+   * Opaque pagination cursor from a previous response.
+   * </pre>
+   *
+   * <code>string cursor = 2 [json_name = "cursor"];</code>
+   * @return The cursor.
+   */
+  @java.lang.Override
+  public java.lang.String getCursor() {
+    java.lang.Object ref = cursor_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      cursor_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Opaque pagination cursor from a previous response.
+   * </pre>
+   *
+   * <code>string cursor = 2 [json_name = "cursor"];</code>
+   * @return The bytes for cursor.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCursorBytes() {
+    java.lang.Object ref = cursor_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      cursor_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int LIMIT_FIELD_NUMBER = 3;
+  private int limit_;
+  /**
+   * <pre>
+   * Maximum number of results to return. Defaults to 25 if unset.
+   * </pre>
+   *
+   * <code>int32 limit = 3 [json_name = "limit", (.buf.validate.field) = { ... }</code>
+   * @return The limit.
+   */
+  @java.lang.Override
+  public int getLimit() {
+    return limit_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -212,11 +232,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (pagination_ != null) {
-      output.writeMessage(1, getPagination());
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, channelId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cursor_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, cursor_);
+    }
+    if (limit_ != 0) {
+      output.writeInt32(3, limit_);
     }
     unknownFields.writeTo(output);
   }
@@ -227,12 +250,15 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (pagination_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getPagination());
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, channelId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cursor_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, cursor_);
+    }
+    if (limit_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, limit_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -249,13 +275,12 @@ private static final long serialVersionUID = 0L;
     }
     io.channel.api.proto.pub.coreapi.service.SearchBotsRequest other = (io.channel.api.proto.pub.coreapi.service.SearchBotsRequest) obj;
 
-    if (hasPagination() != other.hasPagination()) return false;
-    if (hasPagination()) {
-      if (!getPagination()
-          .equals(other.getPagination())) return false;
-    }
     if (!getChannelId()
         .equals(other.getChannelId())) return false;
+    if (!getCursor()
+        .equals(other.getCursor())) return false;
+    if (getLimit()
+        != other.getLimit()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -267,12 +292,12 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasPagination()) {
-      hash = (37 * hash) + PAGINATION_FIELD_NUMBER;
-      hash = (53 * hash) + getPagination().hashCode();
-    }
     hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChannelId().hashCode();
+    hash = (37 * hash) + CURSOR_FIELD_NUMBER;
+    hash = (53 * hash) + getCursor().hashCode();
+    hash = (37 * hash) + LIMIT_FIELD_NUMBER;
+    hash = (53 * hash) + getLimit();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -371,14 +396,12 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Retrieves a bot list.
-   * The number of bots retrieved in this endpoint is restricted by the limit query parameter,
+   * The number of bots retrieved is restricted by the limit parameter,
    * and is capped to values in the closed interval [1, 500].
-   * Pagination is supported through the since query parameter along with the next value
-   * contained in the root object of the JSON response.
-   * Successive queries to this endpoint using the previous next value
-   * as the since parameter will ultimately retrieve all bots.
-   * If the since parameter is left empty,
-   * the list retrieved will start with the bot of highest ID.
+   * Pagination is cursor-based. Pass the nextCursor value from the previous response
+   * as the cursor parameter to retrieve the next page.
+   * If the cursor parameter is left empty, the list starts with the
+   * most recently created bot.
    * AI bots (ALF) are excluded from the result.
    * Results are sorted by createdAt in descending order.
    * </pre>
@@ -420,13 +443,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (paginationBuilder_ == null) {
-        pagination_ = null;
-      } else {
-        pagination_ = null;
-        paginationBuilder_ = null;
-      }
       channelId_ = "";
+
+      cursor_ = "";
+
+      limit_ = 0;
 
       return this;
     }
@@ -454,12 +475,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.channel.api.proto.pub.coreapi.service.SearchBotsRequest buildPartial() {
       io.channel.api.proto.pub.coreapi.service.SearchBotsRequest result = new io.channel.api.proto.pub.coreapi.service.SearchBotsRequest(this);
-      if (paginationBuilder_ == null) {
-        result.pagination_ = pagination_;
-      } else {
-        result.pagination_ = paginationBuilder_.build();
-      }
       result.channelId_ = channelId_;
+      result.cursor_ = cursor_;
+      result.limit_ = limit_;
       onBuilt();
       return result;
     }
@@ -508,12 +526,16 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(io.channel.api.proto.pub.coreapi.service.SearchBotsRequest other) {
       if (other == io.channel.api.proto.pub.coreapi.service.SearchBotsRequest.getDefaultInstance()) return this;
-      if (other.hasPagination()) {
-        mergePagination(other.getPagination());
-      }
       if (!other.getChannelId().isEmpty()) {
         channelId_ = other.channelId_;
         onChanged();
+      }
+      if (!other.getCursor().isEmpty()) {
+        cursor_ = other.cursor_;
+        onChanged();
+      }
+      if (other.getLimit() != 0) {
+        setLimit(other.getLimit());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -544,168 +566,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private io.channel.api.proto.pub.coreapi.common.Pagination pagination_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.common.Pagination, io.channel.api.proto.pub.coreapi.common.Pagination.Builder, io.channel.api.proto.pub.coreapi.common.PaginationOrBuilder> paginationBuilder_;
-    /**
-     * <pre>
-     * Pagination parameters (sort order, cursor, limit).
-     * </pre>
-     *
-     * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
-     * @return Whether the pagination field is set.
-     */
-    public boolean hasPagination() {
-      return paginationBuilder_ != null || pagination_ != null;
-    }
-    /**
-     * <pre>
-     * Pagination parameters (sort order, cursor, limit).
-     * </pre>
-     *
-     * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
-     * @return The pagination.
-     */
-    public io.channel.api.proto.pub.coreapi.common.Pagination getPagination() {
-      if (paginationBuilder_ == null) {
-        return pagination_ == null ? io.channel.api.proto.pub.coreapi.common.Pagination.getDefaultInstance() : pagination_;
-      } else {
-        return paginationBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Pagination parameters (sort order, cursor, limit).
-     * </pre>
-     *
-     * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
-     */
-    public Builder setPagination(io.channel.api.proto.pub.coreapi.common.Pagination value) {
-      if (paginationBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        pagination_ = value;
-        onChanged();
-      } else {
-        paginationBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Pagination parameters (sort order, cursor, limit).
-     * </pre>
-     *
-     * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
-     */
-    public Builder setPagination(
-        io.channel.api.proto.pub.coreapi.common.Pagination.Builder builderForValue) {
-      if (paginationBuilder_ == null) {
-        pagination_ = builderForValue.build();
-        onChanged();
-      } else {
-        paginationBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Pagination parameters (sort order, cursor, limit).
-     * </pre>
-     *
-     * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
-     */
-    public Builder mergePagination(io.channel.api.proto.pub.coreapi.common.Pagination value) {
-      if (paginationBuilder_ == null) {
-        if (pagination_ != null) {
-          pagination_ =
-            io.channel.api.proto.pub.coreapi.common.Pagination.newBuilder(pagination_).mergeFrom(value).buildPartial();
-        } else {
-          pagination_ = value;
-        }
-        onChanged();
-      } else {
-        paginationBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Pagination parameters (sort order, cursor, limit).
-     * </pre>
-     *
-     * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
-     */
-    public Builder clearPagination() {
-      if (paginationBuilder_ == null) {
-        pagination_ = null;
-        onChanged();
-      } else {
-        pagination_ = null;
-        paginationBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Pagination parameters (sort order, cursor, limit).
-     * </pre>
-     *
-     * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.common.Pagination.Builder getPaginationBuilder() {
-      
-      onChanged();
-      return getPaginationFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Pagination parameters (sort order, cursor, limit).
-     * </pre>
-     *
-     * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.common.PaginationOrBuilder getPaginationOrBuilder() {
-      if (paginationBuilder_ != null) {
-        return paginationBuilder_.getMessageOrBuilder();
-      } else {
-        return pagination_ == null ?
-            io.channel.api.proto.pub.coreapi.common.Pagination.getDefaultInstance() : pagination_;
-      }
-    }
-    /**
-     * <pre>
-     * Pagination parameters (sort order, cursor, limit).
-     * </pre>
-     *
-     * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.common.Pagination, io.channel.api.proto.pub.coreapi.common.Pagination.Builder, io.channel.api.proto.pub.coreapi.common.PaginationOrBuilder> 
-        getPaginationFieldBuilder() {
-      if (paginationBuilder_ == null) {
-        paginationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            io.channel.api.proto.pub.coreapi.common.Pagination, io.channel.api.proto.pub.coreapi.common.Pagination.Builder, io.channel.api.proto.pub.coreapi.common.PaginationOrBuilder>(
-                getPagination(),
-                getParentForChildren(),
-                isClean());
-        pagination_ = null;
-      }
-      return paginationBuilder_;
-    }
-
     private java.lang.Object channelId_ = "";
     /**
      * <pre>
      * Channel ID to search bots in.
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The channelId.
      */
     public java.lang.String getChannelId() {
@@ -725,7 +592,7 @@ private static final long serialVersionUID = 0L;
      * Channel ID to search bots in.
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for channelId.
      */
     public com.google.protobuf.ByteString
@@ -746,7 +613,7 @@ private static final long serialVersionUID = 0L;
      * Channel ID to search bots in.
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The channelId to set.
      * @return This builder for chaining.
      */
@@ -765,7 +632,7 @@ private static final long serialVersionUID = 0L;
      * Channel ID to search bots in.
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChannelId() {
@@ -779,7 +646,7 @@ private static final long serialVersionUID = 0L;
      * Channel ID to search bots in.
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for channelId to set.
      * @return This builder for chaining.
      */
@@ -791,6 +658,145 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       channelId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object cursor_ = "";
+    /**
+     * <pre>
+     * Opaque pagination cursor from a previous response.
+     * </pre>
+     *
+     * <code>string cursor = 2 [json_name = "cursor"];</code>
+     * @return The cursor.
+     */
+    public java.lang.String getCursor() {
+      java.lang.Object ref = cursor_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cursor_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Opaque pagination cursor from a previous response.
+     * </pre>
+     *
+     * <code>string cursor = 2 [json_name = "cursor"];</code>
+     * @return The bytes for cursor.
+     */
+    public com.google.protobuf.ByteString
+        getCursorBytes() {
+      java.lang.Object ref = cursor_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cursor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Opaque pagination cursor from a previous response.
+     * </pre>
+     *
+     * <code>string cursor = 2 [json_name = "cursor"];</code>
+     * @param value The cursor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCursor(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      cursor_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Opaque pagination cursor from a previous response.
+     * </pre>
+     *
+     * <code>string cursor = 2 [json_name = "cursor"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCursor() {
+      
+      cursor_ = getDefaultInstance().getCursor();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Opaque pagination cursor from a previous response.
+     * </pre>
+     *
+     * <code>string cursor = 2 [json_name = "cursor"];</code>
+     * @param value The bytes for cursor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCursorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      cursor_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int limit_ ;
+    /**
+     * <pre>
+     * Maximum number of results to return. Defaults to 25 if unset.
+     * </pre>
+     *
+     * <code>int32 limit = 3 [json_name = "limit", (.buf.validate.field) = { ... }</code>
+     * @return The limit.
+     */
+    @java.lang.Override
+    public int getLimit() {
+      return limit_;
+    }
+    /**
+     * <pre>
+     * Maximum number of results to return. Defaults to 25 if unset.
+     * </pre>
+     *
+     * <code>int32 limit = 3 [json_name = "limit", (.buf.validate.field) = { ... }</code>
+     * @param value The limit to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLimit(int value) {
+      
+      limit_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Maximum number of results to return. Defaults to 25 if unset.
+     * </pre>
+     *
+     * <code>int32 limit = 3 [json_name = "limit", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLimit() {
+      
+      limit_ = 0;
       onChanged();
       return this;
     }
@@ -809,29 +815,6 @@ private static final long serialVersionUID = 0L;
 
     /* Generated by protoc-gen-java-set-or-clear */
     
-    /**
-     * @param value The pagination to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearPagination(io.channel.api.proto.pub.coreapi.common.Pagination value) {
-    	if (value == null)
-    		return clearPagination();
-    	else
-    		return setPagination(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearPagination(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.common.Pagination> mapFunc) {
-    	if (value == null)
-    		return clearPagination();
-    	else
-    		return setPagination(mapFunc.apply(value));
-    }
-    	
     /**
      * @param value The channel_id to set.
      * @return This builder for chaining.
@@ -853,6 +836,52 @@ private static final long serialVersionUID = 0L;
     		return clearChannelId();
     	else
     		return setChannelId(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The cursor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearCursor(java.lang.String value) {
+    	if (value == null)
+    		return clearCursor();
+    	else
+    		return setCursor(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearCursor(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearCursor();
+    	else
+    		return setCursor(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The limit to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearLimit(java.lang.Integer value) {
+    	if (value == null)
+    		return clearLimit();
+    	else
+    		return setLimit(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearLimit(T value, java.util.function.Function<T, java.lang.Integer> mapFunc) {
+    	if (value == null)
+    		return clearLimit();
+    	else
+    		return setLimit(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.SearchBotsRequest)

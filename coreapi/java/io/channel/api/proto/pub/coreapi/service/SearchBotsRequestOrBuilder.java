@@ -9,37 +9,10 @@ public interface SearchBotsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Pagination parameters (sort order, cursor, limit).
-   * </pre>
-   *
-   * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
-   * @return Whether the pagination field is set.
-   */
-  boolean hasPagination();
-  /**
-   * <pre>
-   * Pagination parameters (sort order, cursor, limit).
-   * </pre>
-   *
-   * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
-   * @return The pagination.
-   */
-  io.channel.api.proto.pub.coreapi.common.Pagination getPagination();
-  /**
-   * <pre>
-   * Pagination parameters (sort order, cursor, limit).
-   * </pre>
-   *
-   * <code>.coreapi.common.Pagination pagination = 1 [json_name = "pagination"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.common.PaginationOrBuilder getPaginationOrBuilder();
-
-  /**
-   * <pre>
    * Channel ID to search bots in.
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
@@ -48,9 +21,39 @@ public interface SearchBotsRequestOrBuilder extends
    * Channel ID to search bots in.
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   com.google.protobuf.ByteString
       getChannelIdBytes();
+
+  /**
+   * <pre>
+   * Opaque pagination cursor from a previous response.
+   * </pre>
+   *
+   * <code>string cursor = 2 [json_name = "cursor"];</code>
+   * @return The cursor.
+   */
+  java.lang.String getCursor();
+  /**
+   * <pre>
+   * Opaque pagination cursor from a previous response.
+   * </pre>
+   *
+   * <code>string cursor = 2 [json_name = "cursor"];</code>
+   * @return The bytes for cursor.
+   */
+  com.google.protobuf.ByteString
+      getCursorBytes();
+
+  /**
+   * <pre>
+   * Maximum number of results to return. Defaults to 25 if unset.
+   * </pre>
+   *
+   * <code>int32 limit = 3 [json_name = "limit", (.buf.validate.field) = { ... }</code>
+   * @return The limit.
+   */
+  int getLimit();
 }

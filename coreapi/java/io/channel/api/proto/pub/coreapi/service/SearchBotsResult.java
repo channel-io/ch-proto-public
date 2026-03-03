@@ -21,7 +21,7 @@ private static final long serialVersionUID = 0L;
   }
   private SearchBotsResult() {
     bots_ = java.util.Collections.emptyList();
-    next_ = "";
+    nextCursor_ = "";
   }
 
   @java.lang.Override
@@ -67,7 +67,12 @@ private static final long serialVersionUID = 0L;
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            next_ = s;
+            nextCursor_ = s;
+            break;
+          }
+          case 24: {
+
+            hasNext_ = input.readBool();
             break;
           }
           default: {
@@ -145,50 +150,69 @@ private static final long serialVersionUID = 0L;
     return bots_.get(index);
   }
 
-  public static final int NEXT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object next_;
+  public static final int NEXT_CURSOR_FIELD_NUMBER = 2;
+  private volatile java.lang.Object nextCursor_;
   /**
    * <pre>
-   * Pagination cursor. Pass this value as the `since` parameter in the next request.
+   * Opaque cursor for the next page.
+   * Use has_next to determine whether another page exists.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string next = 2 [json_name = "next"];</code>
-   * @return The next.
+   * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
+   * @return The nextCursor.
    */
   @java.lang.Override
-  public java.lang.String getNext() {
-    java.lang.Object ref = next_;
+  public java.lang.String getNextCursor() {
+    java.lang.Object ref = nextCursor_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      next_ = s;
+      nextCursor_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * Pagination cursor. Pass this value as the `since` parameter in the next request.
+   * Opaque cursor for the next page.
+   * Use has_next to determine whether another page exists.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string next = 2 [json_name = "next"];</code>
-   * @return The bytes for next.
+   * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
+   * @return The bytes for nextCursor.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getNextBytes() {
-    java.lang.Object ref = next_;
+      getNextCursorBytes() {
+    java.lang.Object ref = nextCursor_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      next_ = b;
+      nextCursor_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int HAS_NEXT_FIELD_NUMBER = 3;
+  private boolean hasNext_;
+  /**
+   * <pre>
+   * Whether a next page of results exists.
+   * </pre>
+   *
+   * <code>bool has_next = 3 [json_name = "hasNext"];</code>
+   * @return The hasNext.
+   */
+  @java.lang.Override
+  public boolean getHasNext() {
+    return hasNext_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -208,8 +232,11 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < bots_.size(); i++) {
       output.writeMessage(1, bots_.get(i));
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(next_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, next_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextCursor_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nextCursor_);
+    }
+    if (hasNext_ != false) {
+      output.writeBool(3, hasNext_);
     }
     unknownFields.writeTo(output);
   }
@@ -224,8 +251,12 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, bots_.get(i));
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(next_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, next_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextCursor_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nextCursor_);
+    }
+    if (hasNext_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(3, hasNext_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -244,8 +275,10 @@ private static final long serialVersionUID = 0L;
 
     if (!getBotsList()
         .equals(other.getBotsList())) return false;
-    if (!getNext()
-        .equals(other.getNext())) return false;
+    if (!getNextCursor()
+        .equals(other.getNextCursor())) return false;
+    if (getHasNext()
+        != other.getHasNext()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -261,8 +294,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BOTS_FIELD_NUMBER;
       hash = (53 * hash) + getBotsList().hashCode();
     }
-    hash = (37 * hash) + NEXT_FIELD_NUMBER;
-    hash = (53 * hash) + getNext().hashCode();
+    hash = (37 * hash) + NEXT_CURSOR_FIELD_NUMBER;
+    hash = (53 * hash) + getNextCursor().hashCode();
+    hash = (37 * hash) + HAS_NEXT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getHasNext());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -407,7 +443,9 @@ private static final long serialVersionUID = 0L;
       } else {
         botsBuilder_.clear();
       }
-      next_ = "";
+      nextCursor_ = "";
+
+      hasNext_ = false;
 
       return this;
     }
@@ -445,7 +483,8 @@ private static final long serialVersionUID = 0L;
       } else {
         result.bots_ = botsBuilder_.build();
       }
-      result.next_ = next_;
+      result.nextCursor_ = nextCursor_;
+      result.hasNext_ = hasNext_;
       onBuilt();
       return result;
     }
@@ -520,9 +559,12 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      if (!other.getNext().isEmpty()) {
-        next_ = other.next_;
+      if (!other.getNextCursor().isEmpty()) {
+        nextCursor_ = other.nextCursor_;
         onChanged();
+      }
+      if (other.getHasNext() != false) {
+        setHasNext(other.getHasNext());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -794,22 +836,24 @@ private static final long serialVersionUID = 0L;
       return botsBuilder_;
     }
 
-    private java.lang.Object next_ = "";
+    private java.lang.Object nextCursor_ = "";
     /**
      * <pre>
-     * Pagination cursor. Pass this value as the `since` parameter in the next request.
+     * Opaque cursor for the next page.
+     * Use has_next to determine whether another page exists.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string next = 2 [json_name = "next"];</code>
-     * @return The next.
+     * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
+     * @return The nextCursor.
      */
-    public java.lang.String getNext() {
-      java.lang.Object ref = next_;
+    public java.lang.String getNextCursor() {
+      java.lang.Object ref = nextCursor_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        next_ = s;
+        nextCursor_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -817,20 +861,22 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Pagination cursor. Pass this value as the `since` parameter in the next request.
+     * Opaque cursor for the next page.
+     * Use has_next to determine whether another page exists.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string next = 2 [json_name = "next"];</code>
-     * @return The bytes for next.
+     * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
+     * @return The bytes for nextCursor.
      */
     public com.google.protobuf.ByteString
-        getNextBytes() {
-      java.lang.Object ref = next_;
+        getNextCursorBytes() {
+      java.lang.Object ref = nextCursor_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        next_ = b;
+        nextCursor_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -838,54 +884,103 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Pagination cursor. Pass this value as the `since` parameter in the next request.
+     * Opaque cursor for the next page.
+     * Use has_next to determine whether another page exists.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string next = 2 [json_name = "next"];</code>
-     * @param value The next to set.
+     * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
+     * @param value The nextCursor to set.
      * @return This builder for chaining.
      */
-    public Builder setNext(
+    public Builder setNextCursor(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      next_ = value;
+      nextCursor_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Pagination cursor. Pass this value as the `since` parameter in the next request.
+     * Opaque cursor for the next page.
+     * Use has_next to determine whether another page exists.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string next = 2 [json_name = "next"];</code>
+     * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearNext() {
+    public Builder clearNextCursor() {
       
-      next_ = getDefaultInstance().getNext();
+      nextCursor_ = getDefaultInstance().getNextCursor();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Pagination cursor. Pass this value as the `since` parameter in the next request.
+     * Opaque cursor for the next page.
+     * Use has_next to determine whether another page exists.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string next = 2 [json_name = "next"];</code>
-     * @param value The bytes for next to set.
+     * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
+     * @param value The bytes for nextCursor to set.
      * @return This builder for chaining.
      */
-    public Builder setNextBytes(
+    public Builder setNextCursorBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      next_ = value;
+      nextCursor_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean hasNext_ ;
+    /**
+     * <pre>
+     * Whether a next page of results exists.
+     * </pre>
+     *
+     * <code>bool has_next = 3 [json_name = "hasNext"];</code>
+     * @return The hasNext.
+     */
+    @java.lang.Override
+    public boolean getHasNext() {
+      return hasNext_;
+    }
+    /**
+     * <pre>
+     * Whether a next page of results exists.
+     * </pre>
+     *
+     * <code>bool has_next = 3 [json_name = "hasNext"];</code>
+     * @param value The hasNext to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHasNext(boolean value) {
+      
+      hasNext_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether a next page of results exists.
+     * </pre>
+     *
+     * <code>bool has_next = 3 [json_name = "hasNext"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHasNext() {
+      
+      hasNext_ = false;
       onChanged();
       return this;
     }
@@ -930,14 +1025,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The next to set.
+     * @param value The next_cursor to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearNext(java.lang.String value) {
+    public Builder setOrClearNextCursor(java.lang.String value) {
     	if (value == null)
-    		return clearNext();
+    		return clearNextCursor();
     	else
-    		return setNext(value);
+    		return setNextCursor(value);
     }
     	
     /**
@@ -945,11 +1040,34 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearNext(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearNextCursor(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
     	if (value == null)
-    		return clearNext();
+    		return clearNextCursor();
     	else
-    		return setNext(mapFunc.apply(value));
+    		return setNextCursor(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The has_next to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearHasNext(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearHasNext();
+    	else
+    		return setHasNext(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearHasNext(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearHasNext();
+    	else
+    		return setHasNext(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.SearchBotsResult)

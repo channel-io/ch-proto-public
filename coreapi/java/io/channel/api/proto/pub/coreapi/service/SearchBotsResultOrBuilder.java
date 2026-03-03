@@ -33,21 +33,35 @@ public interface SearchBotsResultOrBuilder extends
 
   /**
    * <pre>
-   * Pagination cursor. Pass this value as the `since` parameter in the next request.
+   * Opaque cursor for the next page.
+   * Use has_next to determine whether another page exists.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string next = 2 [json_name = "next"];</code>
-   * @return The next.
+   * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
+   * @return The nextCursor.
    */
-  java.lang.String getNext();
+  java.lang.String getNextCursor();
   /**
    * <pre>
-   * Pagination cursor. Pass this value as the `since` parameter in the next request.
+   * Opaque cursor for the next page.
+   * Use has_next to determine whether another page exists.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string next = 2 [json_name = "next"];</code>
-   * @return The bytes for next.
+   * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
+   * @return The bytes for nextCursor.
    */
   com.google.protobuf.ByteString
-      getNextBytes();
+      getNextCursorBytes();
+
+  /**
+   * <pre>
+   * Whether a next page of results exists.
+   * </pre>
+   *
+   * <code>bool has_next = 3 [json_name = "hasNext"];</code>
+   * @return The hasNext.
+   */
+  boolean getHasNext();
 }
