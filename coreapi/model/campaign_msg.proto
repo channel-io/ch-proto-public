@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+import "buf/validate/validate.proto";
+import "coreapi/model/medium_type.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// CampaignMsg represents a message template within a campaign.
+// Each campaign can have multiple messages.
+message CampaignMsg {
+  // Unique campaign message identifier.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Campaign ID this message belongs to.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string campaign_id = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Channel ID this campaign message belongs to.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string channel_id = 3 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Display name of the campaign message.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string name = 4 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Delivery medium type.
+  //
+  // +kubebuilder:validation:Nullable
+  MediumType medium_type = 5;
+
+  // Identifier of the specific medium instance.
+  //
+  // +kubebuilder:validation:Nullable
+  string medium_id = 6;
+
+  // Delivery configuration specific to the chosen medium type.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct settings = 7;
+
+  // Campaign message creation timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp created_at = 8 [(buf.validate.field).required = true];
+
+  // Campaign message last update timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp updated_at = 9 [(buf.validate.field).required = true];
+
+  // Total number of messages sent.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 sent = 10;
+
+  // Total number of message views.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 view = 11;
+
+  // Total number of goal conversions achieved.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 goal = 12;
+
+  // Total number of message link clicks.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 click = 13;
+}

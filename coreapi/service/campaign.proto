@@ -1,0 +1,148 @@
+syntax = "proto3";
+
+package coreapi.service;
+
+import "buf/validate/validate.proto";
+import "coreapi/common/sort_order.proto";
+import "coreapi/model/campaign.proto";
+import "coreapi/model/campaign_msg.proto";
+import "coreapi/model/campaign_user.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.service";
+
+// Retrieves a list of campaigns.
+//
+// The number of campaigns retrieved is restricted by the limit parameter,
+// and is capped to values in the closed interval [1, 500].
+// Pagination is cursor-based. Pass the nextCursor value from the previous response
+// as the cursor parameter to retrieve the next page.
+// If the cursor parameter is left empty, the list starts with the
+// first campaign in descending order of updatedAt.
+//
+// The states parameter filters by campaign lifecycle state.
+// If left empty, all campaigns are returned regardless of state.
+message SearchCampaignsRequest {
+  // Channel ID to search campaigns in.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Opaque pagination cursor from a previous response.
+  string cursor = 2;
+
+  // Maximum number of results to return. Defaults to 25 if unset.
+  int32 limit = 3 [(buf.validate.field).cel = {
+    id: "int32.between"
+    message: "limit must be between 1 and 500"
+    expression: "this == 0 || (this >= 1 && this <= 500)"
+  }];
+
+  // Filter by campaign lifecycle states.
+  // If empty, all states are included.
+  repeated coreapi.model.CampaignState states = 4;
+}
+
+// Response for campaign list retrieval.
+message SearchCampaignsResult {
+  repeated coreapi.model.Campaign campaigns = 1;
+
+  // Campaign messages associated with the returned campaigns.
+  repeated coreapi.model.CampaignMsg campaign_msgs = 2;
+
+  // Opaque cursor for the next page.
+  // Use has_next to determine whether another page exists.
+  //
+  // +kubebuilder:validation:Nullable
+  string next_cursor = 3;
+
+  // Whether a next page of results exists.
+  bool has_next = 4;
+}
+
+// Retrieves a single campaign with its associated messages.
+message GetCampaignRequest {
+  // Campaign ID to retrieve.
+  string id = 1 [(buf.validate.field).required = true];
+
+  // Channel ID the campaign belongs to.
+  string channel_id = 2 [(buf.validate.field).required = true];
+}
+
+// Response for single campaign retrieval.
+message GetCampaignResult {
+  coreapi.model.Campaign campaign = 1;
+
+  // Messages associated with this campaign.
+  repeated coreapi.model.CampaignMsg campaign_msgs = 2;
+}
+
+// Retrieves a list of users who received a campaign message.
+//
+// The number of users retrieved is restricted by the limit parameter,
+// and is capped to values in the closed interval [1, 500].
+// Pagination is cursor-based. Pass the nextCursor value from the previous response
+// as the cursor parameter to retrieve the next page.
+// If the cursor parameter is left empty, the list starts with the
+// first user ordered by the specified state and sort order.
+//
+// The state parameter determines which interaction metric is used for
+// sorting and filtering. Must be one of: sent, view, goal, click.
+//
+// Users updated more than a year ago are not retrieved.
+//
+// The campaign user is a target of the unify process.
+// The data will be unified if the user logs in afterwards.
+message SearchCampaignUsersRequest {
+  // Channel ID the campaign belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Campaign ID to retrieve users for.
+  string campaign_id = 2 [(buf.validate.field).required = true];
+
+  // Interaction state to filter and sort users by.
+  coreapi.model.CampaignUserState state = 3 [(buf.validate.field).required = true];
+
+  // Opaque pagination cursor from a previous response.
+  string cursor = 4;
+
+  // Maximum number of results to return. Defaults to 25 if unset.
+  int32 limit = 5 [(buf.validate.field).cel = {
+    id: "int32.between"
+    message: "limit must be between 1 and 500"
+    expression: "this == 0 || (this >= 1 && this <= 500)"
+  }];
+
+  // Sort order for results. Defaults to descending if unset.
+  coreapi.common.SortOrder sort_order = 6;
+}
+
+// Response for campaign user list retrieval.
+message SearchCampaignUsersResult {
+  repeated coreapi.model.CampaignUser campaign_users = 1;
+
+  // Opaque cursor for the next page.
+  // Use has_next to determine whether another page exists.
+  //
+  // +kubebuilder:validation:Nullable
+  string next_cursor = 2;
+
+  // Whether a next page of results exists.
+  bool has_next = 3;
+}
+
+// Retrieves a single campaign user by campaignId and userId.
+message GetCampaignUserRequest {
+  // Campaign ID the user record belongs to.
+  string campaign_id = 1 [(buf.validate.field).required = true];
+
+  // User ID to retrieve.
+  string user_id = 2 [(buf.validate.field).required = true];
+
+  // Channel ID the campaign belongs to.
+  string channel_id = 3 [(buf.validate.field).required = true];
+}
+
+// Response for single campaign user retrieval.
+message GetCampaignUserResult {
+  coreapi.model.CampaignUser campaign_user = 1;
+}

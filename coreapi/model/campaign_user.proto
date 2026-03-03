@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+import "buf/validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// Interaction state used to filter campaign user records.
+// Determines which delivery or engagement metric is used for sorting and filtering.
+enum CampaignUserState {
+  CAMPAIGN_USER_STATE_UNSPECIFIED = 0;
+  CAMPAIGN_USER_STATE_SENT = 1;
+  CAMPAIGN_USER_STATE_VIEW = 2;
+  CAMPAIGN_USER_STATE_GOAL = 3;
+  CAMPAIGN_USER_STATE_CLICK = 4;
+}
+
+// CampaignUser represents a user who received a campaign message.
+// Tracks delivery, view, click, and goal conversion timestamps.
+message CampaignUser {
+  // Campaign ID this user record belongs to.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string campaign_id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // ID of the user who received the campaign message.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string user_id = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // ID of the campaign message that was sent to the user.
+  //
+  // +kubebuilder:validation:Nullable
+  string msg_id = 3;
+
+  // ID of the user chat created by this campaign message.
+  //
+  // +kubebuilder:validation:Nullable
+  string user_chat_id = 4;
+
+  // Timestamp when the message was delivered to the user.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp sent = 5;
+
+  // Timestamp when the user viewed the message.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp view = 6;
+
+  // Timestamp when the user clicked a link in the message.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp click = 7;
+
+  // Timestamp when the user achieved the conversion goal.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp goal = 8;
+
+  // Revenue amount attributed to this user from the campaign.
+  // Decimal number represented as a string for precision.
+  //
+  // +kubebuilder:validation:Nullable
+  string revenue = 9;
+}

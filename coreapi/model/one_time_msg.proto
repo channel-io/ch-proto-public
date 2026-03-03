@@ -4,6 +4,7 @@ package coreapi.model;
 
 import "buf/validate/validate.proto";
 import "coreapi/model/app_segment.proto";
+import "coreapi/model/medium_type.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
@@ -11,15 +12,6 @@ import "google/protobuf/timestamp.proto";
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
-
-// Delivery medium type for messages.
-enum MediumType {
-  MEDIUM_TYPE_UNSPECIFIED = 0;
-  MEDIUM_TYPE_NATIVE = 1;
-  MEDIUM_TYPE_APP = 2;
-  MEDIUM_TYPE_EMAIL = 3;
-  MEDIUM_TYPE_PHONE = 4;
-}
 
 // Lifecycle state of a one-time message.
 enum OneTimeMsgState {

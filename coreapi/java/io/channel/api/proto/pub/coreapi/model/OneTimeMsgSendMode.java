@@ -107,7 +107,7 @@ public enum OneTimeMsgSendMode
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return io.channel.api.proto.pub.coreapi.model.OneTimeMsgOuterClass.getDescriptor().getEnumTypes().get(2);
+    return io.channel.api.proto.pub.coreapi.model.OneTimeMsgOuterClass.getDescriptor().getEnumTypes().get(1);
   }
 
   private static final OneTimeMsgSendMode[] VALUES = values();

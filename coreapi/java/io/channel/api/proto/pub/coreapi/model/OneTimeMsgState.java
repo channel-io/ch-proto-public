@@ -116,7 +116,7 @@ public enum OneTimeMsgState
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return io.channel.api.proto.pub.coreapi.model.OneTimeMsgOuterClass.getDescriptor().getEnumTypes().get(1);
+    return io.channel.api.proto.pub.coreapi.model.OneTimeMsgOuterClass.getDescriptor().getEnumTypes().get(0);
   }
 
   private static final OneTimeMsgState[] VALUES = values();

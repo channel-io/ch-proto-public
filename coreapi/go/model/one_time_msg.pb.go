@@ -25,62 +25,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Delivery medium type for messages.
-type MediumType int32
-
-const (
-	MediumType_MEDIUM_TYPE_UNSPECIFIED MediumType = 0
-	MediumType_MEDIUM_TYPE_NATIVE      MediumType = 1
-	MediumType_MEDIUM_TYPE_APP         MediumType = 2
-	MediumType_MEDIUM_TYPE_EMAIL       MediumType = 3
-	MediumType_MEDIUM_TYPE_PHONE       MediumType = 4
-)
-
-// Enum value maps for MediumType.
-var (
-	MediumType_name = map[int32]string{
-		0: "MEDIUM_TYPE_UNSPECIFIED",
-		1: "MEDIUM_TYPE_NATIVE",
-		2: "MEDIUM_TYPE_APP",
-		3: "MEDIUM_TYPE_EMAIL",
-		4: "MEDIUM_TYPE_PHONE",
-	}
-	MediumType_value = map[string]int32{
-		"MEDIUM_TYPE_UNSPECIFIED": 0,
-		"MEDIUM_TYPE_NATIVE":      1,
-		"MEDIUM_TYPE_APP":         2,
-		"MEDIUM_TYPE_EMAIL":       3,
-		"MEDIUM_TYPE_PHONE":       4,
-	}
-)
-
-func (x MediumType) Enum() *MediumType {
-	p := new(MediumType)
-	*p = x
-	return p
-}
-
-func (x MediumType) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (MediumType) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_one_time_msg_proto_enumTypes[0].Descriptor()
-}
-
-func (MediumType) Type() protoreflect.EnumType {
-	return &file_coreapi_model_one_time_msg_proto_enumTypes[0]
-}
-
-func (x MediumType) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use MediumType.Descriptor instead.
-func (MediumType) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_one_time_msg_proto_rawDescGZIP(), []int{0}
-}
-
 // Lifecycle state of a one-time message.
 type OneTimeMsgState int32
 
@@ -121,11 +65,11 @@ func (x OneTimeMsgState) String() string {
 }
 
 func (OneTimeMsgState) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_one_time_msg_proto_enumTypes[1].Descriptor()
+	return file_coreapi_model_one_time_msg_proto_enumTypes[0].Descriptor()
 }
 
 func (OneTimeMsgState) Type() protoreflect.EnumType {
-	return &file_coreapi_model_one_time_msg_proto_enumTypes[1]
+	return &file_coreapi_model_one_time_msg_proto_enumTypes[0]
 }
 
 func (x OneTimeMsgState) Number() protoreflect.EnumNumber {
@@ -134,7 +78,7 @@ func (x OneTimeMsgState) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use OneTimeMsgState.Descriptor instead.
 func (OneTimeMsgState) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_one_time_msg_proto_rawDescGZIP(), []int{1}
+	return file_coreapi_model_one_time_msg_proto_rawDescGZIP(), []int{0}
 }
 
 // Delivery timing mode for a one-time message.
@@ -174,11 +118,11 @@ func (x OneTimeMsgSendMode) String() string {
 }
 
 func (OneTimeMsgSendMode) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_one_time_msg_proto_enumTypes[2].Descriptor()
+	return file_coreapi_model_one_time_msg_proto_enumTypes[1].Descriptor()
 }
 
 func (OneTimeMsgSendMode) Type() protoreflect.EnumType {
-	return &file_coreapi_model_one_time_msg_proto_enumTypes[2]
+	return &file_coreapi_model_one_time_msg_proto_enumTypes[1]
 }
 
 func (x OneTimeMsgSendMode) Number() protoreflect.EnumNumber {
@@ -187,7 +131,7 @@ func (x OneTimeMsgSendMode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use OneTimeMsgSendMode.Descriptor instead.
 func (OneTimeMsgSendMode) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_one_time_msg_proto_rawDescGZIP(), []int{2}
+	return file_coreapi_model_one_time_msg_proto_rawDescGZIP(), []int{1}
 }
 
 // OneTimeMsg represents a one-time message that is sent to targeted users once.
@@ -574,7 +518,7 @@ var File_coreapi_model_one_time_msg_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_one_time_msg_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/one_time_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x82\x10\n" +
+	" coreapi/model/one_time_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x82\x10\n" +
 	"\n" +
 	"OneTimeMsg\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
@@ -620,14 +564,7 @@ const file_coreapi_model_one_time_msg_proto_rawDesc = "" +
 	"\fapp_segments\x18\x1f \x03(\v2\x19.coreapi.model.AppSegmentR\vappSegments\x1a_\n" +
 	"\x16ConversionWindowsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12/\n" +
-	"\x05value\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x05value:\x028\x01*\x84\x01\n" +
-	"\n" +
-	"MediumType\x12\x1b\n" +
-	"\x17MEDIUM_TYPE_UNSPECIFIED\x10\x00\x12\x16\n" +
-	"\x12MEDIUM_TYPE_NATIVE\x10\x01\x12\x13\n" +
-	"\x0fMEDIUM_TYPE_APP\x10\x02\x12\x15\n" +
-	"\x11MEDIUM_TYPE_EMAIL\x10\x03\x12\x15\n" +
-	"\x11MEDIUM_TYPE_PHONE\x10\x04*\xaf\x01\n" +
+	"\x05value\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x05value:\x028\x01*\xaf\x01\n" +
 	"\x0fOneTimeMsgState\x12\"\n" +
 	"\x1eONE_TIME_MSG_STATE_UNSPECIFIED\x10\x00\x12\x1c\n" +
 	"\x18ONE_TIME_MSG_STATE_DRAFT\x10\x01\x12\x1d\n" +
@@ -653,26 +590,26 @@ func file_coreapi_model_one_time_msg_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_one_time_msg_proto_rawDescData
 }
 
-var file_coreapi_model_one_time_msg_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
+var file_coreapi_model_one_time_msg_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_coreapi_model_one_time_msg_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_coreapi_model_one_time_msg_proto_goTypes = []any{
-	(MediumType)(0),               // 0: coreapi.model.MediumType
-	(OneTimeMsgState)(0),          // 1: coreapi.model.OneTimeMsgState
-	(OneTimeMsgSendMode)(0),       // 2: coreapi.model.OneTimeMsgSendMode
-	(*OneTimeMsg)(nil),            // 3: coreapi.model.OneTimeMsg
-	nil,                           // 4: coreapi.model.OneTimeMsg.ConversionWindowsEntry
+	(OneTimeMsgState)(0),          // 0: coreapi.model.OneTimeMsgState
+	(OneTimeMsgSendMode)(0),       // 1: coreapi.model.OneTimeMsgSendMode
+	(*OneTimeMsg)(nil),            // 2: coreapi.model.OneTimeMsg
+	nil,                           // 3: coreapi.model.OneTimeMsg.ConversionWindowsEntry
+	(MediumType)(0),               // 4: coreapi.model.MediumType
 	(*structpb.Struct)(nil),       // 5: google.protobuf.Struct
 	(*durationpb.Duration)(nil),   // 6: google.protobuf.Duration
 	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
 	(*AppSegment)(nil),            // 8: coreapi.model.AppSegment
 }
 var file_coreapi_model_one_time_msg_proto_depIdxs = []int32{
-	1,  // 0: coreapi.model.OneTimeMsg.state:type_name -> coreapi.model.OneTimeMsgState
-	2,  // 1: coreapi.model.OneTimeMsg.send_mode:type_name -> coreapi.model.OneTimeMsgSendMode
-	0,  // 2: coreapi.model.OneTimeMsg.medium_type:type_name -> coreapi.model.MediumType
+	0,  // 0: coreapi.model.OneTimeMsg.state:type_name -> coreapi.model.OneTimeMsgState
+	1,  // 1: coreapi.model.OneTimeMsg.send_mode:type_name -> coreapi.model.OneTimeMsgSendMode
+	4,  // 2: coreapi.model.OneTimeMsg.medium_type:type_name -> coreapi.model.MediumType
 	5,  // 3: coreapi.model.OneTimeMsg.settings:type_name -> google.protobuf.Struct
 	5,  // 4: coreapi.model.OneTimeMsg.user_query:type_name -> google.protobuf.Struct
-	4,  // 5: coreapi.model.OneTimeMsg.conversion_windows:type_name -> coreapi.model.OneTimeMsg.ConversionWindowsEntry
+	3,  // 5: coreapi.model.OneTimeMsg.conversion_windows:type_name -> coreapi.model.OneTimeMsg.ConversionWindowsEntry
 	5,  // 6: coreapi.model.OneTimeMsg.goal_event_query:type_name -> google.protobuf.Struct
 	6,  // 7: coreapi.model.OneTimeMsg.goal_event_duration:type_name -> google.protobuf.Duration
 	7,  // 8: coreapi.model.OneTimeMsg.start_at:type_name -> google.protobuf.Timestamp
@@ -695,12 +632,13 @@ func file_coreapi_model_one_time_msg_proto_init() {
 		return
 	}
 	file_coreapi_model_app_segment_proto_init()
+	file_coreapi_model_medium_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_one_time_msg_proto_rawDesc), len(file_coreapi_model_one_time_msg_proto_rawDesc)),
-			NumEnums:      3,
+			NumEnums:      2,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
