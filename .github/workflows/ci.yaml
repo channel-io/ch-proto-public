@@ -29,7 +29,7 @@ jobs:
   breaking:
     name: Breaking change detection
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && !contains(github.event.pull_request.labels.*.name, 'skip-breaking')
     steps:
       - uses: actions/checkout@v4
 
