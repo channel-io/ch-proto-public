@@ -574,16 +574,16 @@ var File_coreapi_model_one_time_msg_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_one_time_msg_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/one_time_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xec\x0e\n" +
+	" coreapi/model/one_time_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x82\x10\n" +
 	"\n" +
-	"OneTimeMsg\x12^\n" +
-	"\x02id\x18\x01 \x01(\tBN\xbaHK\xba\x01E\n" +
-	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12m\n" +
+	"OneTimeMsg\x12]\n" +
+	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tBN\xbaHK\xba\x01E\n" +
-	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\xb4\x01\n" +
-	"\x04name\x18\x03 \x01(\tB\x9f\x01\xbaH\x9b\x01\xba\x01E\n" +
-	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xba\x01M\n" +
+	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\xb3\x01\n" +
+	"\x04name\x18\x03 \x01(\tB\x9e\x01\xbaH\x9a\x01\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128\xc8\x01\x01R\x04name\x12<\n" +
 	"\x05state\x18\x04 \x01(\x0e2\x1e.coreapi.model.OneTimeMsgStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12>\n" +
 	"\tsend_mode\x18\x05 \x01(\x0e2!.coreapi.model.OneTimeMsgSendModeR\bsendMode\x120\n" +
@@ -599,8 +599,9 @@ const file_coreapi_model_one_time_msg_proto_rawDesc = "" +
 	"user_query\x18\r \x01(\v2\x17.google.protobuf.StructR\tuserQuery\x12_\n" +
 	"\x12conversion_windows\x18\x0e \x03(\v20.coreapi.model.OneTimeMsg.ConversionWindowsEntryR\x11conversionWindows\x12&\n" +
 	"\x0fgoal_event_name\x18\x0f \x01(\tR\rgoalEventName\x12A\n" +
-	"\x10goal_event_query\x18\x10 \x01(\v2\x17.google.protobuf.StructR\x0egoalEventQuery\x12I\n" +
-	"\x13goal_event_duration\x18\x11 \x01(\v2\x19.google.protobuf.DurationR\x11goalEventDuration\x12 \n" +
+	"\x10goal_event_query\x18\x10 \x01(\v2\x17.google.protobuf.StructR\x0egoalEventQuery\x12\xe1\x01\n" +
+	"\x13goal_event_duration\x18\x11 \x01(\v2\x19.google.protobuf.DurationB\x95\x01\xbaH\x91\x01\xba\x01\x8d\x01\n" +
+	"\x0eduration.range\x12#value must be between 1 and 30 days\x1aVthis == duration('0s') || (this >= duration('86400s') && this <= duration('2592000s'))R\x11goalEventDuration\x12 \n" +
 	"\vadvertising\x18\x12 \x01(\bR\vadvertising\x12-\n" +
 	"\x13send_to_offline_xms\x18\x13 \x01(\bR\x10sendToOfflineXms\x121\n" +
 	"\x15send_to_offline_email\x18\x14 \x01(\bR\x12sendToOfflineEmail\x125\n" +

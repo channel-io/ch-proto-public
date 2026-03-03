@@ -444,7 +444,7 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
    * @return Whether the goalEventDuration field is set.
    */
   boolean hasGoalEventDuration();
@@ -455,7 +455,7 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
    * @return The goalEventDuration.
    */
   com.google.protobuf.Duration getGoalEventDuration();
@@ -466,7 +466,7 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.DurationOrBuilder getGoalEventDurationOrBuilder();
 

@@ -29,7 +29,7 @@ message OneTimeMsgUser {
   string one_time_msg_id = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
-      message: "value must be at least 1 characters"
+      message: "value must be at least 1 character"
       expression: "size(this) >= 1"
     },
     (buf.validate.field).required = true
@@ -42,7 +42,7 @@ message OneTimeMsgUser {
   string user_id = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"
-      message: "value must be at least 1 characters"
+      message: "value must be at least 1 character"
       expression: "size(this) >= 1"
     },
     (buf.validate.field).required = true

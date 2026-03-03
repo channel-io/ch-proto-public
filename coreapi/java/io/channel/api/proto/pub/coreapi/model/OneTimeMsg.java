@@ -1094,7 +1094,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
    * @return Whether the goalEventDuration field is set.
    */
   @java.lang.Override
@@ -1108,7 +1108,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
    * @return The goalEventDuration.
    */
   @java.lang.Override
@@ -1122,7 +1122,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getGoalEventDurationOrBuilder() {
@@ -4383,7 +4383,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
      * @return Whether the goalEventDuration field is set.
      */
     public boolean hasGoalEventDuration() {
@@ -4396,7 +4396,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
      * @return The goalEventDuration.
      */
     public com.google.protobuf.Duration getGoalEventDuration() {
@@ -4413,7 +4413,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
      */
     public Builder setGoalEventDuration(com.google.protobuf.Duration value) {
       if (goalEventDurationBuilder_ == null) {
@@ -4435,7 +4435,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
      */
     public Builder setGoalEventDuration(
         com.google.protobuf.Duration.Builder builderForValue) {
@@ -4455,7 +4455,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeGoalEventDuration(com.google.protobuf.Duration value) {
       if (goalEventDurationBuilder_ == null) {
@@ -4479,7 +4479,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearGoalEventDuration() {
       if (goalEventDurationBuilder_ == null) {
@@ -4499,7 +4499,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Duration.Builder getGoalEventDurationBuilder() {
       
@@ -4513,7 +4513,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.DurationOrBuilder getGoalEventDurationOrBuilder() {
       if (goalEventDurationBuilder_ != null) {
@@ -4530,7 +4530,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 

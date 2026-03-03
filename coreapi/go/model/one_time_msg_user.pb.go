@@ -202,12 +202,12 @@ var File_coreapi_model_one_time_msg_user_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_one_time_msg_user_proto_rawDesc = "" +
 	"\n" +
-	"%coreapi/model/one_time_msg_user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xcc\x03\n" +
-	"\x0eOneTimeMsgUser\x12u\n" +
-	"\x0fone_time_msg_id\x18\x01 \x01(\tBN\xbaHK\xba\x01E\n" +
-	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xc8\x01\x01R\foneTimeMsgId\x12g\n" +
-	"\auser_id\x18\x02 \x01(\tBN\xbaHK\xba\x01E\n" +
-	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x06userId\x12.\n" +
+	"%coreapi/model/one_time_msg_user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xca\x03\n" +
+	"\x0eOneTimeMsgUser\x12t\n" +
+	"\x0fone_time_msg_id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\foneTimeMsgId\x12f\n" +
+	"\auser_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x06userId\x12.\n" +
 	"\x04sent\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\x04sent\x12.\n" +
 	"\x04view\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\x04view\x120\n" +
 	"\x05click\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\x05click\x12.\n" +

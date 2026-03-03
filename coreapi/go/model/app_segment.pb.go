@@ -99,16 +99,16 @@ var File_coreapi_model_app_segment_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_app_segment_proto_rawDesc = "" +
 	"\n" +
-	"\x1fcoreapi/model/app_segment.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\xd5\x02\n" +
+	"\x1fcoreapi/model/app_segment.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\xd2\x02\n" +
 	"\n" +
-	"AppSegment\x12e\n" +
-	"\x06app_id\x18\x01 \x01(\tBN\xbaHK\xba\x01E\n" +
-	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x05appId\x12q\n" +
-	"\fextension_id\x18\x02 \x01(\tBN\xbaHK\xba\x01E\n" +
-	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xc8\x01\x01R\vextensionId\x12m\n" +
+	"AppSegment\x12d\n" +
+	"\x06app_id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x05appId\x12p\n" +
+	"\fextension_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\vextensionId\x12l\n" +
 	"\n" +
-	"segment_id\x18\x03 \x01(\tBN\xbaHK\xba\x01E\n" +
-	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tsegmentIdBb\n" +
+	"segment_id\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tsegmentIdBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (

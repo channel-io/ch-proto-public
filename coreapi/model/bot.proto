@@ -20,7 +20,7 @@ message Bot {
   string id = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
-      message: "value must be at least 1 characters"
+      message: "value must be at least 1 character"
       expression: "size(this) >= 1"
     },
     (buf.validate.field).required = true
@@ -33,7 +33,7 @@ message Bot {
   string channel_id = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"
-      message: "value must be at least 1 characters"
+      message: "value must be at least 1 character"
       expression: "size(this) >= 1"
     },
     (buf.validate.field).required = true
@@ -48,7 +48,7 @@ message Bot {
   string name = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"
-      message: "value must be at least 1 characters"
+      message: "value must be at least 1 character"
       expression: "size(this) >= 1"
     },
     (buf.validate.field).cel = {

@@ -499,13 +499,13 @@ const file_coreapi_service_bot_proto_rawDesc = "" +
 	"\n" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"4\n" +
 	"\fGetBotResult\x12$\n" +
-	"\x03bot\x18\x01 \x01(\v2\x12.coreapi.model.BotR\x03bot\"\xec\x04\n" +
+	"\x03bot\x18\x01 \x01(\v2\x12.coreapi.model.BotR\x03bot\"\xeb\x04\n" +
 	"\x10UpsertBotRequest\x12%\n" +
 	"\n" +
-	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xc2\x01\n" +
-	"\x04name\x18\x02 \x01(\tB\xad\x01\xbaH\xa9\x01\xba\x01K\n" +
-	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xba\x01E\n" +
-	"\rstring.minLen\x12#value must be at least 1 characters\x1a\x0fsize(this) >= 1\xc8\x01\x01r\x0e2\f^[^@#$%:/]+$R\x04name\x12u\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xc1\x01\n" +
+	"\x04name\x18\x02 \x01(\tB\xac\x01\xbaH\xa8\x01\xba\x01K\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01r\x0e2\f^[^@#$%:/]+$R\x04name\x12u\n" +
 	"\vdescription\x18\x03 \x01(\tBS\xbaHP\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 180 characters\x1a\x11size(this) <= 180R\vdescription\x12c\n" +
 	"\x12name_desc_i18n_map\x18\x04 \x03(\v26.coreapi.service.UpsertBotRequest.NameDescI18nMapEntryR\x0fnameDescI18nMap\x12\x14\n" +

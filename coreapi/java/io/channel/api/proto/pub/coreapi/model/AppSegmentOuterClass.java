@@ -29,19 +29,19 @@ public final class AppSegmentOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\037coreapi/model/app_segment.proto\022\rcorea" +
-      "pi.model\032\033buf/validate/validate.proto\"\325\002" +
-      "\n\nAppSegment\022e\n\006app_id\030\001 \001(\tBN\272HK\272\001E\n\rst" +
-      "ring.minLen\022#value must be at least 1 ch" +
-      "aracters\032\017size(this) >= 1\310\001\001R\005appId\022q\n\014e" +
-      "xtension_id\030\002 \001(\tBN\272HK\272\001E\n\rstring.minLen" +
-      "\022#value must be at least 1 characters\032\017s" +
-      "ize(this) >= 1\310\001\001R\013extensionId\022m\n\nsegmen" +
-      "t_id\030\003 \001(\tBN\272HK\272\001E\n\rstring.minLen\022#value" +
-      " must be at least 1 characters\032\017size(thi" +
-      "s) >= 1\310\001\001R\tsegmentIdBb\n&io.channel.api." +
-      "proto.pub.coreapi.modelP\001Z6github.com/ch" +
-      "annel-io/ch-proto-public/coreapi/go/mode" +
-      "lb\006proto3"
+      "pi.model\032\033buf/validate/validate.proto\"\322\002" +
+      "\n\nAppSegment\022d\n\006app_id\030\001 \001(\tBM\272HJ\272\001D\n\rst" +
+      "ring.minLen\022\"value must be at least 1 ch" +
+      "aracter\032\017size(this) >= 1\310\001\001R\005appId\022p\n\014ex" +
+      "tension_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022" +
+      "\"value must be at least 1 character\032\017siz" +
+      "e(this) >= 1\310\001\001R\013extensionId\022l\n\nsegment_" +
+      "id\030\003 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value m" +
+      "ust be at least 1 character\032\017size(this) " +
+      ">= 1\310\001\001R\tsegmentIdBb\n&io.channel.api.pro" +
+      "to.pub.coreapi.modelP\001Z6github.com/chann" +
+      "el-io/ch-proto-public/coreapi/go/modelb\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
