@@ -1,0 +1,107 @@
+syntax = "proto3";
+
+package coreapi.service;
+
+import "buf/validate/validate.proto";
+import "coreapi/common/sort_order.proto";
+import "coreapi/model/event.proto";
+import "google/protobuf/struct.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.service";
+
+// Retrieves a list of events for a user.
+//
+// The number of events retrieved is restricted by the limit parameter,
+// and is capped to values in the closed interval [1, 500].
+// Pagination is cursor-based. Pass the nextCursor value from the previous response
+// as the cursor parameter to retrieve the next page.
+// If the cursor parameter is left empty, the list starts with the
+// most recent event in descending order of creation time.
+//
+// Results are sorted by createdAt in the specified sort order.
+// Defaults to descending if unset.
+message SearchEventsRequest {
+  // Channel ID to search events in.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // User ID to search events for.
+  string user_id = 2 [(buf.validate.field).required = true];
+
+  // Opaque pagination cursor from a previous response.
+  string cursor = 3;
+
+  // Maximum number of results to return. Defaults to 25 if unset.
+  int32 limit = 4 [(buf.validate.field).cel = {
+    id: "int32.between"
+    message: "limit must be between 1 and 500"
+    expression: "this == 0 || (this >= 1 && this <= 500)"
+  }];
+
+  // Sort order for results. Defaults to descending if unset.
+  coreapi.common.SortOrder sort_order = 5;
+}
+
+// Response for event list retrieval.
+message SearchEventsResult {
+  repeated coreapi.model.Event events = 1;
+
+  // Opaque cursor for the next page.
+  // Use has_next to determine whether another page exists.
+  //
+  // +kubebuilder:validation:Nullable
+  string next_cursor = 2;
+
+  // Whether a next page of results exists.
+  bool has_next = 3;
+}
+
+// Creates an event for a user.
+message CreateEventRequest {
+  // Channel ID the event belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // User ID to create the event for.
+  string user_id = 2 [(buf.validate.field).required = true];
+
+  // Event name identifying the type of action.
+  string name = 3 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 64 characters"
+      expression: "size(this) <= 64"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Custom properties to associate with the event.
+  google.protobuf.Struct property = 4;
+}
+
+// Response for event creation.
+message CreateEventResult {
+  coreapi.model.Event event = 1;
+}
+
+// Deletes an event.
+//
+// Returns 404 if the event does not exist.
+message DeleteEventRequest {
+  // Channel ID the event belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // User ID the event belongs to.
+  string user_id = 2 [(buf.validate.field).required = true];
+
+  // Event ID to delete.
+  string event_id = 3 [(buf.validate.field).required = true];
+}
+
+// Response for event deletion. Empty on success (204 No Content).
+message DeleteEventResult {}
