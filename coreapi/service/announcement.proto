@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+package coreapi.service;
+
+import "buf/validate/validate.proto";
+import "coreapi/model/message_content.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.service";
+
+// Sends an announcement message to all managers in the channel.
+//
+// The message is delivered as a direct chat message from a bot.
+// If botName is not specified, the default channel bot is used.
+// Returns the number of managers the message was sent to.
+message AnnounceToAllRequest {
+  // Channel ID to send the announcement in.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Message content to announce.
+  coreapi.model.MessageContent message = 2 [(buf.validate.field).required = true];
+
+  // Display name of the bot sending the announcement.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:validation:Pattern="^[^@#$%:/\\]+$"
+  string bot_name = 3 [
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "size(this) <= 30"
+    },
+    (buf.validate.field).string.pattern = "^$|^[^@#$%:/\\\\]+$"
+  ];
+}
+
+// Response for announcing to all managers.
+message AnnounceToAllResult {
+  // Number of managers the announcement was sent to.
+  int32 sent = 1;
+}
+
+// Sends an announcement message to a specific set of managers in the channel.
+//
+// The message is delivered as a direct chat message from a bot.
+// If botName is not specified, the default channel bot is used.
+// Returns the number of managers the message was sent to.
+// Managers that do not exist or do not belong to the channel are silently skipped.
+message AnnounceRequest {
+  // Channel ID to send the announcement in.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Message content to announce.
+  coreapi.model.MessageContent message = 2 [(buf.validate.field).required = true];
+
+  // Display name of the bot sending the announcement.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:validation:Pattern="^[^@#$%:/\\]+$"
+  string bot_name = 3 [
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "size(this) <= 30"
+    },
+    (buf.validate.field).string.pattern = "^$|^[^@#$%:/\\\\]+$"
+  ];
+
+  // IDs of the managers to receive the announcement.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinItems=1
+  repeated string manager_ids = 4 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+}
+
+// Response for announcing to specific managers.
+message AnnounceResult {
+  // Number of managers the announcement was sent to.
+  int32 sent = 1;
+}
