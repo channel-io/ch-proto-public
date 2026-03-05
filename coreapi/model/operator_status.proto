@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+import "buf/validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// Operator status type representing the current activity state.
+enum OperatorStatusType {
+  OPERATOR_STATUS_TYPE_UNSPECIFIED = 0;
+  OPERATOR_STATUS_TYPE_WAITING = 1;
+  OPERATOR_STATUS_TYPE_CHAT = 2;
+  OPERATOR_STATUS_TYPE_CALL = 3;
+  OPERATOR_STATUS_TYPE_POST_CALL = 4;
+  OPERATOR_STATUS_TYPE_MEET = 5;
+  OPERATOR_STATUS_TYPE_EAT = 6;
+  OPERATOR_STATUS_TYPE_REST = 7;
+  OPERATOR_STATUS_TYPE_IN_MEETING = 8;
+  OPERATOR_STATUS_TYPE_EDUCATION = 9;
+  OPERATOR_STATUS_TYPE_OTHER_WORK = 10;
+  OPERATOR_STATUS_TYPE_OFF = 11;
+  OPERATOR_STATUS_TYPE_VACATION = 12;
+}
+
+// OperatorStatus represents the operational status of a manager.
+message OperatorStatus {
+  // Unique operator status identifier.
+  // Same as the manager ID.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // ID of the manager this status belongs to.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string manager_id = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Channel ID this operator status belongs to.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string channel_id = 3 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Current activity type of the operator.
+  //
+  // +kubebuilder:validation:Nullable
+  OperatorStatusType operator_status_type = 4;
+
+  // Whether the operator is enabled for assignment.
+  //
+  // +kubebuilder:validation:Nullable
+  bool enable = 5;
+
+  // Operator status creation timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp created_at = 6 [(buf.validate.field).required = true];
+
+  // Operator status last update timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp updated_at = 7 [(buf.validate.field).required = true];
+
+  // Timestamp when the operator status type was last changed.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp type_updated_at = 8;
+}

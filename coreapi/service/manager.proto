@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package coreapi.service;
+
+import "buf/validate/validate.proto";
+import "coreapi/model/manager.proto";
+import "coreapi/model/online.proto";
+import "coreapi/model/operator_status.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.service";
+
+// Retrieves a list of managers.
+//
+// The number of managers retrieved is restricted by the limit parameter,
+// and is capped to values in the closed interval [1, 500].
+// Pagination is cursor-based. Pass the nextCursor value from the previous response
+// as the cursor parameter to retrieve the next page.
+// If the cursor parameter is left empty, the list starts with the
+// first manager in ascending order of ID.
+//
+// Removed managers are excluded from the result.
+message SearchManagersRequest {
+  // Channel ID to search managers in.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Opaque pagination cursor from a previous response.
+  string cursor = 2;
+
+  // Maximum number of results to return. Defaults to 25 if unset.
+  int32 limit = 3 [(buf.validate.field).cel = {
+    id: "int32.between"
+    message: "limit must be between 1 and 500"
+    expression: "this == 0 || (this >= 1 && this <= 500)"
+  }];
+}
+
+// Response for manager list retrieval.
+message SearchManagersResult {
+  repeated coreapi.model.Manager managers = 1;
+
+  // Online presence records for the listed managers.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.Online onlines = 2;
+
+  // Operator statuses for the listed managers.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.OperatorStatus operator_statuses = 3;
+
+  // Opaque cursor for the next page.
+  // Use has_next to determine whether another page exists.
+  //
+  // +kubebuilder:validation:Nullable
+  string next_cursor = 4;
+
+  // Whether a next page of results exists.
+  bool has_next = 5;
+}
+
+// Retrieves a single manager.
+message GetManagerRequest {
+  // Manager ID to retrieve.
+  string manager_id = 1 [(buf.validate.field).required = true];
+
+  // Channel ID the manager belongs to.
+  string channel_id = 2 [(buf.validate.field).required = true];
+}
+
+// Response for single manager retrieval.
+message GetManagerResult {
+  coreapi.model.Manager manager = 1;
+
+  // Online presence of the manager.
+  coreapi.model.Online online = 2;
+
+  // Operator status of the manager.
+  coreapi.model.OperatorStatus operator_status = 3;
+}

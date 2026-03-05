@@ -1,0 +1,221 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+import "buf/validate/validate.proto";
+import "coreapi/model/name_desc.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// Manager represents an operator or administrator in a channel.
+message Manager {
+  // Unique manager identifier.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Channel ID this manager belongs to.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string channel_id = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Account ID linked to this manager.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string account_id = 3 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Manager display name.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:validation:Pattern="^[^@#$%:/\\]+$"
+  string name = 4 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "size(this) <= 30"
+    },
+    (buf.validate.field).string.pattern = "^[^@#$%:/\\\\]+$",
+    (buf.validate.field).required = true
+  ];
+
+  // Manager description.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxLength=180
+  string description = 5 [(buf.validate.field).cel = {
+    id: "string.maxLen"
+    message: "value must be no more than 180 characters"
+    expression: "size(this) <= 180"
+  }];
+
+  // Whether to display the description to front (end-user) visitors.
+  //
+  // +kubebuilder:validation:Nullable
+  bool show_description_to_front = 6;
+
+  // Internationalized name and description map.
+  // Keyed by locale.
+  //
+  // +kubebuilder:validation:Nullable
+  map<string, coreapi.model.NameDesc> name_desc_i18n_map = 7;
+
+  // Manager avatar image URL.
+  //
+  // +kubebuilder:validation:Nullable
+  string avatar_url = 8;
+
+  // Whether this manager is displayed as the channel identity.
+  //
+  // +kubebuilder:validation:Nullable
+  bool display_as_channel = 9;
+
+  // Role ID assigned to this manager.
+  //
+  // +kubebuilder:validation:Nullable
+  string role_id = 10;
+
+  // Maximum number of user chats that can be auto-assigned.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:Minimum=0
+  // +kubebuilder:validation:Maximum=200
+  int32 auto_assign_capacity = 11 [(buf.validate.field).cel = {
+    id: "int32.between"
+    message: "auto_assign_capacity must be between 0 and 200"
+    expression: "this >= 0 && this <= 200"
+  }];
+
+  // Status emoji displayed alongside the manager name.
+  //
+  // +kubebuilder:validation:Nullable
+  string status_emoji = 12;
+
+  // Status text displayed alongside the manager name.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxLength=128
+  string status_text = 13 [(buf.validate.field).cel = {
+    id: "string.maxLen"
+    message: "value must be no more than 128 characters"
+    expression: "size(this) <= 128"
+  }];
+
+  // Timestamp when the status automatically clears.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp status_clear_at = 14;
+
+  // Whether do-not-disturb mode is active for this manager.
+  //
+  // +kubebuilder:validation:Nullable
+  bool do_not_disturb = 15;
+
+  // Timestamp when do-not-disturb mode automatically clears.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp do_not_disturb_clear_at = 16;
+
+  // Whether account-level do-not-disturb mode is active.
+  //
+  // +kubebuilder:validation:Nullable
+  bool account_do_not_disturb = 17;
+
+  // Timestamp when account-level do-not-disturb mode automatically clears.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp account_do_not_disturb_clear_at = 18;
+
+  // Whether the user chat log panel is folded by default.
+  //
+  // +kubebuilder:validation:Nullable
+  bool default_user_chat_log_folded = 19;
+
+  // Whether to enable indexing of reacted messages.
+  //
+  // +kubebuilder:validation:Nullable
+  bool enable_reacted_message_index = 20;
+
+  // Whether to enable indexing of team-mentioned messages.
+  //
+  // +kubebuilder:validation:Nullable
+  bool enable_team_mentioned_message_index = 21;
+
+  // Whether to receive meet alerts in the PC inbox.
+  //
+  // +kubebuilder:validation:Nullable
+  bool pc_inbox_meet_alert = 22;
+
+  // Whether to receive meet alerts on mobile inbox.
+  //
+  // +kubebuilder:validation:Nullable
+  bool mobile_inbox_meet_alert = 23;
+
+  // Whether to receive meet alerts in PC team chat.
+  //
+  // +kubebuilder:validation:Nullable
+  bool pc_team_chat_meet_alert = 24;
+
+  // Whether to receive meet alerts in mobile team chat.
+  //
+  // +kubebuilder:validation:Nullable
+  bool mobile_team_chat_meet_alert = 25;
+
+  // Whether to receive meet alerts via phone.
+  //
+  // +kubebuilder:validation:Nullable
+  bool phone_inbox_meet_alert = 26;
+
+  // Whether this manager has been soft-deleted.
+  //
+  // +kubebuilder:validation:Nullable
+  bool removed = 27;
+
+  // Manager creation timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp created_at = 28 [(buf.validate.field).required = true];
+
+  // Manager last update timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp updated_at = 29 [(buf.validate.field).required = true];
+
+  // Timestamp when the manager was soft-deleted.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp removed_at = 30;
+}
