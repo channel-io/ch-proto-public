@@ -1,0 +1,120 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+import "buf/validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// Webhook event scope determining which events trigger the webhook.
+enum WebhookScope {
+  WEBHOOK_SCOPE_UNSPECIFIED = 0;
+  WEBHOOK_SCOPE_USER_CHAT_OPENED = 1;
+  WEBHOOK_SCOPE_MESSAGE_CREATED_USER_CHAT = 2;
+  WEBHOOK_SCOPE_MESSAGE_CREATED_TEAM_CHAT = 3;
+  WEBHOOK_SCOPE_LEAD_UPSERTED_CONTACT = 4;
+  WEBHOOK_SCOPE_LEAD_UPSERTED_SUBSCRIPTION = 5;
+  WEBHOOK_SCOPE_LEAD_DELETED = 6;
+  WEBHOOK_SCOPE_MEMBER_UPSERTED_CONTACT = 7;
+  WEBHOOK_SCOPE_MEMBER_UPSERTED_SUBSCRIPTION = 8;
+  WEBHOOK_SCOPE_MEMBER_DELETED = 9;
+}
+
+// Webhook represents a channel's webhook endpoint configuration.
+message Webhook {
+  // Unique webhook identifier.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Channel ID this webhook belongs to.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string channel_id = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Webhook display name.
+  // Unique within the channel.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string name = 3 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Destination URL that receives webhook payloads.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string url = 4 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Auto-generated HMAC token for verifying webhook payloads.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string token = 5 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Webhook creation timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp created_at = 6 [(buf.validate.field).required = true];
+
+  // Event scopes that trigger this webhook.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinItems=1
+  repeated WebhookScope scopes = 7 [(buf.validate.field).required = true];
+
+  // API version for webhook payloads.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:Enum={"v4","v5"}
+  string api_version = 8 [(buf.validate.field).required = true];
+
+  // Timestamp when the webhook was last blocked due to consecutive failures.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp last_blocked_at = 9;
+
+  // Whether the webhook is currently blocked due to excessive delivery failures.
+  //
+  // +kubebuilder:validation:Nullable
+  bool blocked = 10;
+}
