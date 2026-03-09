@@ -1,0 +1,227 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+import "buf/validate/validate.proto";
+import "coreapi/model/name_desc.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// Lifecycle state of a channel.
+enum ChannelState {
+  CHANNEL_STATE_UNSPECIFIED = 0;
+  CHANNEL_STATE_WAITING = 1;
+  CHANNEL_STATE_ACTIVE = 2;
+  CHANNEL_STATE_RESTRICTED = 3;
+  CHANNEL_STATE_PRE_INDEBTED = 4;
+  CHANNEL_STATE_INDEBTED = 5;
+  CHANNEL_STATE_BANNED = 6;
+  CHANNEL_STATE_REMOVED = 7;
+}
+
+// Away behavior when the channel is outside of operating hours.
+enum ChannelAwayOption {
+  CHANNEL_AWAY_OPTION_UNSPECIFIED = 0;
+  CHANNEL_AWAY_OPTION_ACTIVE = 1;
+  CHANNEL_AWAY_OPTION_DISABLED = 2;
+  CHANNEL_AWAY_OPTION_HIDDEN = 3;
+}
+
+// Expected response speed indicator.
+enum ResponseDelayType {
+  RESPONSE_DELAY_TYPE_UNSPECIFIED = 0;
+  RESPONSE_DELAY_TYPE_INSTANT = 1;
+  RESPONSE_DELAY_TYPE_NORMAL = 2;
+  RESPONSE_DELAY_TYPE_DELAYED = 3;
+}
+
+// Channel represents a workspace that connects businesses with their customers.
+message Channel {
+  // Unique channel identifier.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Channel display name.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:validation:MaxLength=30
+  string name = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "size(this) <= 30"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Channel description.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxLength=180
+  string description = 3 [(buf.validate.field).cel = {
+    id: "string.maxLen"
+    message: "value must be no more than 180 characters"
+    expression: "size(this) <= 180"
+  }];
+
+  // Internationalized name and description map.
+  // Keyed by locale.
+  //
+  // +kubebuilder:validation:Nullable
+  map<string, coreapi.model.NameDesc> name_desc_i18n_map = 4;
+
+  // Channel avatar image URL.
+  //
+  // +kubebuilder:validation:Nullable
+  string avatar_url = 5;
+
+  // Channel theme color in hex format.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="#3B82F6"
+  string color = 6;
+
+  // Bot display name shown to end users in conversations.
+  //
+  // +kubebuilder:validation:Nullable
+  string bot_name = 7;
+
+  // ISO 3166-1 alpha-2 country code.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="KR"
+  string country = 8;
+
+  // Custom domain for the channel.
+  //
+  // +kubebuilder:validation:Nullable
+  string domain = 9;
+
+  // System-assigned default domain.
+  //
+  // +kubebuilder:validation:Nullable
+  string default_domain = 10;
+
+  // Resolved domain for the channel.
+  // Returns the custom domain if set, otherwise the system-generated default.
+  //
+  // +kubebuilder:validation:Nullable
+  string system_domain = 11;
+
+  // Channel homepage URL.
+  //
+  // +kubebuilder:validation:Nullable
+  string homepage_url = 12;
+
+  // Channel phone number in E.164 format.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="+821012345678"
+  string phone_number = 13;
+
+  // IANA timezone identifier.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="Asia/Seoul"
+  string time_zone = 14;
+
+  // UTC offset in ISO 8601 format, derived from the timezone.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="+09:00"
+  string utc_offset = 15;
+
+  // Current lifecycle state of the channel.
+  //
+  // +kubebuilder:validation:Required
+  ChannelState state = 16 [(buf.validate.field).required = true];
+
+  // Expected response delay indicator.
+  //
+  // +kubebuilder:validation:Nullable
+  ResponseDelayType expected_response_delay = 17;
+
+  // Behavior when the channel is outside of operating hours.
+  //
+  // +kubebuilder:validation:Nullable
+  ChannelAwayOption away_option = 18;
+
+  // Whether the channel is currently within operating hours.
+  //
+  // +kubebuilder:validation:Nullable
+  bool in_operation = 19;
+
+  // Whether the channel is currently accepting conversations.
+  // A channel is working when it is not blocked and within operating hours.
+  //
+  // +kubebuilder:validation:Nullable
+  bool working = 20;
+
+  // Whether to display individual operator profiles to end users.
+  //
+  // +kubebuilder:validation:Nullable
+  bool show_operator_profile = 21;
+
+  // Whether to hide the new chat button from end users.
+  //
+  // +kubebuilder:validation:Nullable
+  bool disable_new_chat_button = 22;
+
+  // Whether SMS/text follow-up is enabled for missed conversations.
+  //
+  // +kubebuilder:validation:Nullable
+  bool follow_up_texting = 23;
+
+  // Whether email follow-up is enabled for missed conversations.
+  //
+  // +kubebuilder:validation:Nullable
+  bool follow_up_email = 24;
+
+  // Whether to ask for the user's name in follow-up forms.
+  //
+  // +kubebuilder:validation:Nullable
+  bool follow_up_ask_name = 25;
+
+  // Whether follow-up contact information is mandatory before starting a conversation.
+  //
+  // +kubebuilder:validation:Nullable
+  bool follow_up_mandatory = 26;
+
+  // Whether the messenger widget is hidden from end users.
+  //
+  // +kubebuilder:validation:Nullable
+  bool hide_app_messenger = 27;
+
+  // Default plugin identifier for this channel.
+  //
+  // +kubebuilder:validation:Nullable
+  string default_plugin_id = 28;
+
+  // Channel creation timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp created_at = 29 [(buf.validate.field).required = true];
+
+  // Channel last update timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp updated_at = 30 [(buf.validate.field).required = true];
+}

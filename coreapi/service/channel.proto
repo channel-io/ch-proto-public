@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package coreapi.service;
+
+import "buf/validate/validate.proto";
+import "coreapi/model/channel.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.service";
+
+// Retrieves a single channel.
+message GetChannelRequest {
+  // Channel ID to retrieve.
+  string channel_id = 1 [(buf.validate.field).required = true];
+}
+
+// Response for single channel retrieval.
+message GetChannelResult {
+  coreapi.model.Channel channel = 1;
+}
