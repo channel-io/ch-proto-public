@@ -1,0 +1,134 @@
+syntax = "proto3";
+
+package coreapi.service;
+
+import "buf/validate/validate.proto";
+import "coreapi/model/webhook.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.service";
+
+// Retrieves a list of webhooks.
+//
+// The number of webhooks retrieved is restricted by the limit parameter,
+// and is capped to values in the closed interval [1, 500].
+// Pagination is cursor-based. Pass the nextCursor value from the previous response
+// as the cursor parameter to retrieve the next page.
+// If the cursor parameter is left empty, the list starts with the
+// most recently created webhook.
+//
+// Results are sorted by createdAt in descending order.
+message SearchWebhooksRequest {
+  // Channel ID to search webhooks in.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Opaque pagination cursor from a previous response.
+  string cursor = 2;
+
+  // Maximum number of results to return. Defaults to 25 if unset.
+  int32 limit = 3 [(buf.validate.field).cel = {
+    id: "int32.between"
+    message: "limit must be between 1 and 500"
+    expression: "this == 0 || (this >= 1 && this <= 500)"
+  }];
+}
+
+// Response for webhook list retrieval.
+message SearchWebhooksResult {
+  repeated coreapi.model.Webhook webhooks = 1;
+
+  // Opaque cursor for the next page.
+  // Use has_next to determine whether another page exists.
+  //
+  // +kubebuilder:validation:Nullable
+  string next_cursor = 2;
+
+  // Whether a next page of results exists.
+  bool has_next = 3;
+}
+
+// Retrieves a single webhook.
+message GetWebhookRequest {
+  // Webhook ID to retrieve.
+  string webhook_id = 1 [(buf.validate.field).required = true];
+
+  // Channel ID the webhook belongs to.
+  string channel_id = 2 [(buf.validate.field).required = true];
+}
+
+// Response for single webhook retrieval.
+message GetWebhookResult {
+  coreapi.model.Webhook webhook = 1;
+}
+
+// Creates a new webhook.
+//
+// A channel can have up to 10 webhooks.
+// Returns 422 if the limit is exceeded.
+message CreateWebhookRequest {
+  // Channel ID to create the webhook in.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Webhook display name. Must be unique within the channel.
+  string name = 2 [(buf.validate.field).required = true];
+
+  // Destination URL that receives webhook payloads.
+  string url = 3 [(buf.validate.field).required = true];
+
+  // Event scopes that trigger this webhook.
+  repeated coreapi.model.WebhookScope scopes = 4 [(buf.validate.field).required = true];
+
+  // API version for webhook payloads.
+  //
+  // +kubebuilder:validation:Enum={"v4","v5"}
+  string api_version = 5 [(buf.validate.field).required = true];
+}
+
+// Response for webhook creation.
+message CreateWebhookResult {
+  coreapi.model.Webhook webhook = 1;
+}
+
+// Updates a webhook partially.
+// Only specified fields are modified; omitted fields remain unchanged.
+message PatchWebhookRequest {
+  // Webhook ID to update.
+  string webhook_id = 1 [(buf.validate.field).required = true];
+
+  // Channel ID the webhook belongs to.
+  string channel_id = 2 [(buf.validate.field).required = true];
+
+  // Webhook display name. Must be unique within the channel.
+  string name = 3;
+
+  // Destination URL that receives webhook payloads.
+  string url = 4;
+
+  // Event scopes that trigger this webhook.
+  repeated coreapi.model.WebhookScope scopes = 5;
+
+  // API version for webhook payloads.
+  //
+  // +kubebuilder:validation:Enum={"v4","v5"}
+  string api_version = 6;
+}
+
+// Response for webhook update.
+message PatchWebhookResult {
+  coreapi.model.Webhook webhook = 1;
+}
+
+// Deletes a webhook.
+//
+// Returns 404 if the webhook does not exist.
+message DeleteWebhookRequest {
+  // Webhook ID to delete.
+  string webhook_id = 1 [(buf.validate.field).required = true];
+
+  // Channel ID the webhook belongs to.
+  string channel_id = 2 [(buf.validate.field).required = true];
+}
+
+// Response for webhook deletion. Empty on success (204 No Content).
+message DeleteWebhookResult {}
