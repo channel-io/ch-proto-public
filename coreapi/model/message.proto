@@ -1,0 +1,323 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+import "buf/validate/validate.proto";
+import "coreapi/model/message_content.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// Lifecycle state of a message.
+enum MessageState {
+  MESSAGE_STATE_UNSPECIFIED = 0;
+  MESSAGE_STATE_SENDING = 1;
+  MESSAGE_STATE_SENT = 2;
+  MESSAGE_STATE_FAILED = 3;
+  MESSAGE_STATE_REMOVED = 4;
+}
+
+// Rendering type that determines how a client should display the message.
+enum MessageWritingType {
+  MESSAGE_WRITING_TYPE_UNSPECIFIED = 0;
+  MESSAGE_WRITING_TYPE_STANDARD = 1;
+  MESSAGE_WRITING_TYPE_CUSTOM = 2;
+  MESSAGE_WRITING_TYPE_EMAIL = 3;
+}
+
+// Action type for system log messages.
+enum LogAction {
+  LOG_ACTION_UNSPECIFIED = 0;
+  LOG_ACTION_CHANGE_NAME = 1;
+  LOG_ACTION_CHANGE_SCOPE = 2;
+  LOG_ACTION_CLOSE = 3;
+  LOG_ACTION_AUTO_CLOSE = 4;
+  LOG_ACTION_CREATE = 5;
+  LOG_ACTION_INVITE = 6;
+  LOG_ACTION_JOIN = 7;
+  LOG_ACTION_ASSIGN = 8;
+  LOG_ACTION_AUTO_ASSIGN = 9;
+  LOG_ACTION_UNASSIGN = 10;
+  LOG_ACTION_LEAVE = 11;
+  LOG_ACTION_OPEN = 12;
+  LOG_ACTION_AUTO_OPEN = 13;
+  LOG_ACTION_ENQUEUE = 14;
+  LOG_ACTION_MISS = 15;
+  LOG_ACTION_REMOVE = 16;
+  LOG_ACTION_SNOOZE = 17;
+  LOG_ACTION_ADD_TAGS = 18;
+  LOG_ACTION_REMOVE_TAGS = 19;
+  LOG_ACTION_ASSIGN_TEAM = 20;
+  LOG_ACTION_UNASSIGN_TEAM = 21;
+  LOG_ACTION_JOIN_MEET = 22;
+  LOG_ACTION_LEAVE_MEET = 23;
+  LOG_ACTION_INVITE_MEET = 24;
+  LOG_ACTION_MISS_MEET = 25;
+  LOG_ACTION_CALLBACK_MEET = 26;
+  LOG_ACTION_TRY_CONNECT_CALL = 27;
+  LOG_ACTION_PROCESS_BY_MISS = 28;
+  LOG_ACTION_PROCESS_BRANCH = 29;
+  LOG_ACTION_SEND_XMS = 30;
+  LOG_ACTION_ADD_USER_TAGS = 31;
+  LOG_ACTION_REMOVE_USER_TAGS = 32;
+  LOG_ACTION_UPDATE_PRIORITY = 33;
+  LOG_ACTION_START_WORKFLOW = 34;
+  LOG_ACTION_END_WORKFLOW = 35;
+  LOG_ACTION_INTERRUPT_WORKFLOW = 36;
+  LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT = 37;
+  LOG_ACTION_TRY_OPEN_WITH_ALF = 38;
+  LOG_ACTION_START_TASK = 39;
+  LOG_ACTION_APPLY_RULES = 40;
+  LOG_ACTION_CANCEL_ALF_BY_USER = 41;
+  LOG_ACTION_FALLBACK_CALL = 42;
+}
+
+// MessageLog represents a system-generated log entry within a message.
+// Log messages record chat lifecycle events such as opening, closing, and assignments.
+message MessageLog {
+  // Type of action that generated this log.
+  //
+  // +kubebuilder:validation:Required
+  LogAction action = 1 [(buf.validate.field).required = true];
+
+  // Context values associated with the action.
+  // Interpretation depends on the action type.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string values = 2;
+
+  // Entity type that triggered the action.
+  //
+  // +kubebuilder:validation:Nullable
+  string trigger_type = 3;
+
+  // Entity identifier that triggered the action.
+  //
+  // +kubebuilder:validation:Nullable
+  string trigger_id = 4;
+}
+
+// MessageReaction represents emoji reactions on a message.
+message MessageReaction {
+  // Emoji identifier.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string emoji_name = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Ordered list of person keys who reacted with this emoji.
+  // Each key is in the format "{personType}-{personId}".
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string person_keys = 2;
+}
+
+// MessageThread represents thread metadata on a root message.
+message MessageThread {
+  // Unique thread identifier.
+  // Composite key in the format "{chatType}-{chatId}-{rootMessageId}".
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Manager IDs assigned to this thread.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string manager_ids = 2;
+
+  // Ordered list of manager IDs who have replied in this thread.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string replied_manager_ids = 3;
+
+  // Total number of replies in this thread.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 reply_count = 4;
+}
+
+// Message represents a single message within a chat.
+message Message {
+  // Unique message identifier.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Channel ID this message belongs to.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string channel_id = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Chat type containing this message (e.g. "userChat", "group").
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string chat_type = 3 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Chat ID containing this message.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string chat_id = 4 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Entity type of the message author (e.g. "manager", "bot", "user").
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string person_type = 5 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Entity ID of the message author.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string person_id = 6 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Client-generated request identifier for idempotency.
+  //
+  // +kubebuilder:validation:Nullable
+  string request_id = 7;
+
+  // Language code of the message content.
+  //
+  // +kubebuilder:validation:Nullable
+  string language = 8;
+
+  // Message creation timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp created_at = 9 [(buf.validate.field).required = true];
+
+  // Message last update timestamp.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp updated_at = 10;
+
+  // Timestamp when the message was last edited.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp edited_at = 11;
+
+  // Structured content blocks of the message.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.Block blocks = 12;
+
+  // Plain text representation of the message.
+  //
+  // +kubebuilder:validation:Nullable
+  string plain_text = 13;
+
+  // Interactive buttons attached to the message.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxItems=2
+  repeated coreapi.model.MessageButton buttons = 14 [(buf.validate.field).repeated = {max_items: 2}];
+
+  // File attachments included in the message.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.MessageFile files = 15;
+
+  // Web page link preview attached to the message.
+  //
+  // +kubebuilder:validation:Nullable
+  coreapi.model.MessageWebPage web_page = 16;
+
+  // Interactive form attached to the message.
+  // The structure depends on the form type.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct form = 17;
+
+  // Option flags that modify message delivery and display behavior.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.MessageOption options = 18;
+
+  // Current lifecycle state of the message.
+  //
+  // +kubebuilder:validation:Nullable
+  MessageState state = 19;
+
+  // Rendering type that determines how a client should display the message.
+  //
+  // +kubebuilder:validation:Nullable
+  MessageWritingType writing_type = 20;
+
+  // System log data for log-type messages.
+  //
+  // +kubebuilder:validation:Nullable
+  MessageLog log = 21;
+
+  // Emoji reactions on this message.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated MessageReaction reactions = 22;
+
+  // Thread metadata if this message is a thread root.
+  //
+  // +kubebuilder:validation:Nullable
+  MessageThread thread = 23;
+}
