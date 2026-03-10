@@ -28,6 +28,7 @@ private static final long serialVersionUID = 0L;
     chatId_ = "";
     messageId_ = "";
     botName_ = "";
+    requestId_ = "";
   }
 
   @java.lang.Override
@@ -106,6 +107,12 @@ private static final long serialVersionUID = 0L;
           case 56: {
 
             broadcast_ = input.readBool();
+            break;
+          }
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            requestId_ = s;
             break;
           }
           default: {
@@ -432,6 +439,54 @@ private static final long serialVersionUID = 0L;
     return broadcast_;
   }
 
+  public static final int REQUEST_ID_FIELD_NUMBER = 8;
+  private volatile java.lang.Object requestId_;
+  /**
+   * <pre>
+   * Client-generated request identifier for idempotency.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string request_id = 8 [json_name = "requestId"];</code>
+   * @return The requestId.
+   */
+  @java.lang.Override
+  public java.lang.String getRequestId() {
+    java.lang.Object ref = requestId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      requestId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Client-generated request identifier for idempotency.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string request_id = 8 [json_name = "requestId"];</code>
+   * @return The bytes for requestId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getRequestIdBytes() {
+    java.lang.Object ref = requestId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      requestId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -467,6 +522,9 @@ private static final long serialVersionUID = 0L;
     if (broadcast_ != false) {
       output.writeBool(7, broadcast_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, requestId_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -498,6 +556,9 @@ private static final long serialVersionUID = 0L;
     if (broadcast_ != false) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(7, broadcast_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, requestId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -531,6 +592,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getBotName())) return false;
     if (getBroadcast()
         != other.getBroadcast()) return false;
+    if (!getRequestId()
+        .equals(other.getRequestId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -559,6 +622,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + BROADCAST_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getBroadcast());
+    hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getRequestId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -717,6 +782,8 @@ private static final long serialVersionUID = 0L;
 
       broadcast_ = false;
 
+      requestId_ = "";
+
       return this;
     }
 
@@ -754,6 +821,7 @@ private static final long serialVersionUID = 0L;
       }
       result.botName_ = botName_;
       result.broadcast_ = broadcast_;
+      result.requestId_ = requestId_;
       onBuilt();
       return result;
     }
@@ -827,6 +895,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getBroadcast() != false) {
         setBroadcast(other.getBroadcast());
+      }
+      if (!other.getRequestId().isEmpty()) {
+        requestId_ = other.requestId_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1557,6 +1629,107 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+
+    private java.lang.Object requestId_ = "";
+    /**
+     * <pre>
+     * Client-generated request identifier for idempotency.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string request_id = 8 [json_name = "requestId"];</code>
+     * @return The requestId.
+     */
+    public java.lang.String getRequestId() {
+      java.lang.Object ref = requestId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        requestId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Client-generated request identifier for idempotency.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string request_id = 8 [json_name = "requestId"];</code>
+     * @return The bytes for requestId.
+     */
+    public com.google.protobuf.ByteString
+        getRequestIdBytes() {
+      java.lang.Object ref = requestId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        requestId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Client-generated request identifier for idempotency.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string request_id = 8 [json_name = "requestId"];</code>
+     * @param value The requestId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRequestId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      requestId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Client-generated request identifier for idempotency.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string request_id = 8 [json_name = "requestId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRequestId() {
+      
+      requestId_ = getDefaultInstance().getRequestId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Client-generated request identifier for idempotency.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string request_id = 8 [json_name = "requestId"];</code>
+     * @param value The bytes for requestId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRequestIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      requestId_ = value;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1731,6 +1904,29 @@ private static final long serialVersionUID = 0L;
     		return clearBroadcast();
     	else
     		return setBroadcast(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The request_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearRequestId(java.lang.String value) {
+    	if (value == null)
+    		return clearRequestId();
+    	else
+    		return setRequestId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearRequestId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearRequestId();
+    	else
+    		return setRequestId(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.CreateChatThreadMessageRequest)

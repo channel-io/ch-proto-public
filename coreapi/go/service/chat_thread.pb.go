@@ -518,7 +518,11 @@ type CreateChatThreadMessageRequest struct {
 	// Whether to also post this message to the main chat stream.
 	//
 	// +kubebuilder:validation:Nullable
-	Broadcast     bool `protobuf:"varint,7,opt,name=broadcast,proto3" json:"broadcast,omitempty"`
+	Broadcast bool `protobuf:"varint,7,opt,name=broadcast,proto3" json:"broadcast,omitempty"`
+	// Client-generated request identifier for idempotency.
+	//
+	// +kubebuilder:validation:Nullable
+	RequestId     string `protobuf:"bytes,8,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -600,6 +604,13 @@ func (x *CreateChatThreadMessageRequest) GetBroadcast() bool {
 		return x.Broadcast
 	}
 	return false
+}
+
+func (x *CreateChatThreadMessageRequest) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
 }
 
 // Response for thread message creation.
@@ -690,7 +701,7 @@ const file_coreapi_service_chat_thread_proto_rawDesc = "" +
 	"\bmessages\x18\x01 \x03(\v2\x16.coreapi.model.MessageR\bmessages\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\x91\x03\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xb0\x03\n" +
 	"\x1eCreateChatThreadMessageRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12#\n" +
@@ -701,7 +712,9 @@ const file_coreapi_service_chat_thread_proto_rawDesc = "" +
 	"\acontent\x18\x05 \x01(\v2\x1d.coreapi.model.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12|\n" +
 	"\bbot_name\x18\x06 \x01(\tBa\xbaH^\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30r\x0e2\f^[^@#$%:/]+$R\abotName\x12\x1c\n" +
-	"\tbroadcast\x18\a \x01(\bR\tbroadcast\"Q\n" +
+	"\tbroadcast\x18\a \x01(\bR\tbroadcast\x12\x1d\n" +
+	"\n" +
+	"request_id\x18\b \x01(\tR\trequestId\"Q\n" +
 	"\x1dCreateChatThreadMessageResult\x120\n" +
 	"\amessage\x18\x01 \x01(\v2\x16.coreapi.model.MessageR\amessageBf\n" +
 	"(io.channel.api.proto.pub.coreapi.serviceP\x01Z8github.com/channel-io/ch-proto-public/coreapi/go/serviceb\x06proto3"

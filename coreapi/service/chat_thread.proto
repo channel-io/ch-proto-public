@@ -176,6 +176,11 @@ message CreateChatThreadMessageRequest {
   //
   // +kubebuilder:validation:Nullable
   bool broadcast = 7;
+
+  // Client-generated request identifier for idempotency.
+  //
+  // +kubebuilder:validation:Nullable
+  string request_id = 8;
 }
 
 // Response for thread message creation.

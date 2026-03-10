@@ -99,7 +99,7 @@ public final class ChatThread {
       "MessagesResult\0222\n\010messages\030\001 \003(\0132\026.corea" +
       "pi.model.MessageR\010messages\022\037\n\013next_curso" +
       "r\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001(\010R\007h" +
-      "asNext\"\221\003\n\036CreateChatThreadMessageReques" +
+      "asNext\"\260\003\n\036CreateChatThreadMessageReques" +
       "t\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId" +
       "\022#\n\tchat_type\030\002 \001(\tB\006\272H\003\310\001\001R\010chatType\022\037\n" +
       "\007chat_id\030\003 \001(\tB\006\272H\003\310\001\001R\006chatId\022%\n\nmessag" +
@@ -109,12 +109,12 @@ public final class ChatThread {
       "\n\rstring.maxLen\022(value must be no more t" +
       "han 30 characters\032\020size(this) <= 30r\0162\014^" +
       "[^@#$%:/]+$R\007botName\022\034\n\tbroadcast\030\007 \001(\010R" +
-      "\tbroadcast\"Q\n\035CreateChatThreadMessageRes" +
-      "ult\0220\n\007message\030\001 \001(\0132\026.coreapi.model.Mes" +
-      "sageR\007messageBf\n(io.channel.api.proto.pu" +
-      "b.coreapi.serviceP\001Z8github.com/channel-" +
-      "io/ch-proto-public/coreapi/go/serviceb\006p" +
-      "roto3"
+      "\tbroadcast\022\035\n\nrequest_id\030\010 \001(\tR\trequestI" +
+      "d\"Q\n\035CreateChatThreadMessageResult\0220\n\007me" +
+      "ssage\030\001 \001(\0132\026.coreapi.model.MessageR\007mes" +
+      "sageBf\n(io.channel.api.proto.pub.coreapi" +
+      ".serviceP\001Z8github.com/channel-io/ch-pro" +
+      "to-public/coreapi/go/serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -167,7 +167,7 @@ public final class ChatThread {
     internal_static_coreapi_service_CreateChatThreadMessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_CreateChatThreadMessageRequest_descriptor,
-        new java.lang.String[] { "ChannelId", "ChatType", "ChatId", "MessageId", "Content", "BotName", "Broadcast", });
+        new java.lang.String[] { "ChannelId", "ChatType", "ChatId", "MessageId", "Content", "BotName", "Broadcast", "RequestId", });
     internal_static_coreapi_service_CreateChatThreadMessageResult_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_coreapi_service_CreateChatThreadMessageResult_fieldAccessorTable = new

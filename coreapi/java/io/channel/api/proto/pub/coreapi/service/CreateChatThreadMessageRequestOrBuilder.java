@@ -152,4 +152,26 @@ public interface CreateChatThreadMessageRequestOrBuilder extends
    * @return The broadcast.
    */
   boolean getBroadcast();
+
+  /**
+   * <pre>
+   * Client-generated request identifier for idempotency.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string request_id = 8 [json_name = "requestId"];</code>
+   * @return The requestId.
+   */
+  java.lang.String getRequestId();
+  /**
+   * <pre>
+   * Client-generated request identifier for idempotency.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string request_id = 8 [json_name = "requestId"];</code>
+   * @return The bytes for requestId.
+   */
+  com.google.protobuf.ByteString
+      getRequestIdBytes();
 }
