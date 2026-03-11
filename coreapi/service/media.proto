@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package coreapi.service;
+
+import "buf/validate/validate.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.service";
+
+// Retrieves a pre-signed URL for downloading a file attached to a chat.
+//
+// The file must belong to the specified chat.
+// Returns 404 if the file does not exist.
+message GetSignedFileUrlRequest {
+  // Channel ID the chat belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Chat type containing the file (e.g. "userChat", "group").
+  string chat_type = 2 [(buf.validate.field).required = true];
+
+  // Chat ID containing the file.
+  string chat_id = 3 [(buf.validate.field).required = true];
+
+  // File key to generate a signed URL for.
+  string key = 4 [(buf.validate.field).required = true];
+}
+
+// Response for signed file URL retrieval.
+message GetSignedFileUrlResult {
+  // Pre-signed URL for downloading the file.
+  string url = 1;
+}
