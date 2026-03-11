@@ -1,0 +1,107 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+import "buf/validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// Visibility scope of a group.
+enum GroupScope {
+  GROUP_SCOPE_UNSPECIFIED = 0;
+  GROUP_SCOPE_ALL = 1;
+  GROUP_SCOPE_PUBLIC = 2;
+  GROUP_SCOPE_PRIVATE = 3;
+}
+
+// Group represents a team chat room where managers collaborate.
+message Group {
+  // Unique group identifier.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Channel ID this group belongs to.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string channel_id = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Group display name.
+  // Unique within the channel (case-insensitive).
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=2
+  // +kubebuilder:validation:MaxLength=30
+  string title = 3 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 2 characters"
+      expression: "size(this) >= 2"
+    },
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "size(this) <= 30"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Visibility scope of the group.
+  //
+  // +kubebuilder:validation:Required
+  GroupScope scope = 4 [(buf.validate.field).required = true];
+
+  // Manager IDs who are members of this group.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string manager_ids = 5;
+
+  // Group icon identifier.
+  //
+  // +kubebuilder:validation:Nullable
+  string icon = 6;
+
+  // ID of the ongoing meet session in this group.
+  //
+  // +kubebuilder:validation:Nullable
+  string live_meet_id = 7;
+
+  // Group description.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxLength=200
+  string description = 8 [(buf.validate.field).cel = {
+    id: "string.maxLen"
+    message: "value must be no more than 200 characters"
+    expression: "size(this) <= 200"
+  }];
+
+  // Group creation timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp created_at = 9 [(buf.validate.field).required = true];
+
+  // Group last update timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp updated_at = 10 [(buf.validate.field).required = true];
+}

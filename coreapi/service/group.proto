@@ -1,0 +1,249 @@
+syntax = "proto3";
+
+package coreapi.service;
+
+import "buf/validate/validate.proto";
+import "coreapi/model/group.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.service";
+
+// Retrieves a list of non-private groups in a channel.
+//
+// The number of groups retrieved is restricted by the limit parameter,
+// and is capped to values in the closed interval [1, 500].
+// Pagination is cursor-based. Pass the nextCursor value from the previous response
+// as the cursor parameter to retrieve the next page.
+// If the cursor parameter is left empty, the list starts from the beginning.
+//
+// Results are sorted by group name in ascending order.
+// Private groups are excluded from the result.
+message SearchGroupsRequest {
+  // Channel ID to search groups in.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Opaque pagination cursor from a previous response.
+  string cursor = 2;
+
+  // Maximum number of results to return. Defaults to 25 if unset.
+  int32 limit = 3 [(buf.validate.field).cel = {
+    id: "int32.between"
+    message: "limit must be between 1 and 500"
+    expression: "this == 0 || (this >= 1 && this <= 500)"
+  }];
+}
+
+// Response for group list retrieval.
+message SearchGroupsResult {
+  repeated coreapi.model.Group groups = 1;
+
+  // Opaque cursor for the next page.
+  // Use has_next to determine whether another page exists.
+  //
+  // +kubebuilder:validation:Nullable
+  string next_cursor = 2;
+
+  // Whether a next page of results exists.
+  bool has_next = 3;
+}
+
+// Retrieves a single group by ID.
+//
+// Returns 404 if the group does not exist.
+message GetGroupRequest {
+  // Channel ID the group belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Group ID to retrieve.
+  string group_id = 2 [(buf.validate.field).required = true];
+}
+
+// Response for single group retrieval.
+message GetGroupResult {
+  coreapi.model.Group group = 1;
+}
+
+// Retrieves a single group by name.
+//
+// Returns 404 if the group does not exist.
+message GetGroupByNameRequest {
+  // Channel ID the group belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Group name to retrieve.
+  string group_name = 2 [(buf.validate.field).required = true];
+}
+
+// Response for single group retrieval by name.
+message GetGroupByNameResult {
+  coreapi.model.Group group = 1;
+}
+
+// Updates a group by ID.
+//
+// Only the following fields can be updated: title, scope, icon, description.
+// The bot specified by bot_name performs the action.
+//
+// Returns 404 if the group does not exist.
+message UpdateGroupRequest {
+  // Channel ID the group belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Group ID to update.
+  string group_id = 2 [(buf.validate.field).required = true];
+
+  // Name of the bot performing the update.
+  // If a bot with this name does not exist in the channel, one is created automatically.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:validation:Pattern="^[^@#$%:/]+$"
+  string bot_name = 3 [
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "this == '' || size(this) <= 30"
+    },
+    (buf.validate.field).string.pattern = "^[^@#$%:/]+$"
+  ];
+
+  // Group display name.
+  // Unique within the channel (case-insensitive).
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MinLength=2
+  // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:validation:Pattern="[\\p{L}\\p{N}\\-_()]+"
+  string title = 4 [
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "this == '' || size(this) <= 30"
+    },
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 2 characters"
+      expression: "this == '' || size(this) >= 2"
+    },
+    (buf.validate.field).cel = {
+      id: "string.pattern"
+      message: "value must contain only letters, numbers, hyphens, underscores, or parentheses"
+      expression: "this == '' || this.matches('^[\\\\p{L}\\\\p{N}\\\\-_()]+$')"
+    }
+  ];
+
+  // Visibility scope of the group.
+  //
+  // +kubebuilder:validation:Nullable
+  coreapi.model.GroupScope scope = 5;
+
+  // Group icon identifier.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:Pattern="\\S+"
+  string icon = 6 [(buf.validate.field).cel = {
+    id: "string.pattern"
+    message: "value must not contain whitespace"
+    expression: "this == '' || this.matches('^\\\\S+$')"
+  }];
+
+  // Group description.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxLength=200
+  string description = 7 [(buf.validate.field).cel = {
+    id: "string.maxLen"
+    message: "value must be no more than 200 characters"
+    expression: "size(this) <= 200"
+  }];
+}
+
+// Response for group update.
+message UpdateGroupResult {
+  coreapi.model.Group group = 1;
+}
+
+// Updates a group by name.
+//
+// Only the following fields can be updated: title, scope, icon, description.
+// The bot specified by bot_name performs the action.
+//
+// Returns 404 if the group does not exist.
+message UpdateGroupByNameRequest {
+  // Channel ID the group belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Group name to update.
+  string group_name = 2 [(buf.validate.field).required = true];
+
+  // Name of the bot performing the update.
+  // If a bot with this name does not exist in the channel, one is created automatically.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:validation:Pattern="^[^@#$%:/]+$"
+  string bot_name = 3 [
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "this == '' || size(this) <= 30"
+    },
+    (buf.validate.field).string.pattern = "^[^@#$%:/]+$"
+  ];
+
+  // Group display name.
+  // Unique within the channel (case-insensitive).
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MinLength=2
+  // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:validation:Pattern="[\\p{L}\\p{N}\\-_()]+"
+  string title = 4 [
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "this == '' || size(this) <= 30"
+    },
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 2 characters"
+      expression: "this == '' || size(this) >= 2"
+    },
+    (buf.validate.field).cel = {
+      id: "string.pattern"
+      message: "value must contain only letters, numbers, hyphens, underscores, or parentheses"
+      expression: "this == '' || this.matches('^[\\\\p{L}\\\\p{N}\\\\-_()]+$')"
+    }
+  ];
+
+  // Visibility scope of the group.
+  //
+  // +kubebuilder:validation:Nullable
+  coreapi.model.GroupScope scope = 5;
+
+  // Group icon identifier.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:Pattern="\\S+"
+  string icon = 6 [(buf.validate.field).cel = {
+    id: "string.pattern"
+    message: "value must not contain whitespace"
+    expression: "this == '' || this.matches('^\\\\S+$')"
+  }];
+
+  // Group description.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxLength=200
+  string description = 7 [(buf.validate.field).cel = {
+    id: "string.maxLen"
+    message: "value must be no more than 200 characters"
+    expression: "size(this) <= 200"
+  }];
+}
+
+// Response for group update by name.
+message UpdateGroupByNameResult {
+  coreapi.model.Group group = 1;
+}
