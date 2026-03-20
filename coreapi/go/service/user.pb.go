@@ -26,6 +26,112 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Retrieves multiple users by their IDs.
+//
+// Users that do not exist are silently skipped.
+type BatchGetUsersRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Channel ID the users belong to.
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// User IDs to retrieve.
+	//
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinItems=1
+	// +kubebuilder:validation:MaxItems=50
+	UserIds       []string `protobuf:"bytes,2,rep,name=user_ids,json=userIds,proto3" json:"user_ids,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BatchGetUsersRequest) Reset() {
+	*x = BatchGetUsersRequest{}
+	mi := &file_coreapi_service_user_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BatchGetUsersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchGetUsersRequest) ProtoMessage() {}
+
+func (x *BatchGetUsersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_user_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchGetUsersRequest.ProtoReflect.Descriptor instead.
+func (*BatchGetUsersRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *BatchGetUsersRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *BatchGetUsersRequest) GetUserIds() []string {
+	if x != nil {
+		return x.UserIds
+	}
+	return nil
+}
+
+// Response for batch user retrieval.
+type BatchGetUsersResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Users         []*model.User          `protobuf:"bytes,1,rep,name=users,proto3" json:"users,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BatchGetUsersResult) Reset() {
+	*x = BatchGetUsersResult{}
+	mi := &file_coreapi_service_user_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BatchGetUsersResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchGetUsersResult) ProtoMessage() {}
+
+func (x *BatchGetUsersResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_user_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchGetUsersResult.ProtoReflect.Descriptor instead.
+func (*BatchGetUsersResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *BatchGetUsersResult) GetUsers() []*model.User {
+	if x != nil {
+		return x.Users
+	}
+	return nil
+}
+
 // Retrieves a single user.
 type GetUserRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -39,7 +145,7 @@ type GetUserRequest struct {
 
 func (x *GetUserRequest) Reset() {
 	*x = GetUserRequest{}
-	mi := &file_coreapi_service_user_proto_msgTypes[0]
+	mi := &file_coreapi_service_user_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -51,7 +157,7 @@ func (x *GetUserRequest) String() string {
 func (*GetUserRequest) ProtoMessage() {}
 
 func (x *GetUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[0]
+	mi := &file_coreapi_service_user_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -64,7 +170,7 @@ func (x *GetUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserRequest.ProtoReflect.Descriptor instead.
 func (*GetUserRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{0}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GetUserRequest) GetUserId() string {
@@ -91,7 +197,7 @@ type GetUserResult struct {
 
 func (x *GetUserResult) Reset() {
 	*x = GetUserResult{}
-	mi := &file_coreapi_service_user_proto_msgTypes[1]
+	mi := &file_coreapi_service_user_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -103,7 +209,7 @@ func (x *GetUserResult) String() string {
 func (*GetUserResult) ProtoMessage() {}
 
 func (x *GetUserResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[1]
+	mi := &file_coreapi_service_user_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -116,7 +222,7 @@ func (x *GetUserResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserResult.ProtoReflect.Descriptor instead.
 func (*GetUserResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{1}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetUserResult) GetUser() *model.User {
@@ -142,7 +248,7 @@ type GetUserByMemberIdRequest struct {
 
 func (x *GetUserByMemberIdRequest) Reset() {
 	*x = GetUserByMemberIdRequest{}
-	mi := &file_coreapi_service_user_proto_msgTypes[2]
+	mi := &file_coreapi_service_user_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -154,7 +260,7 @@ func (x *GetUserByMemberIdRequest) String() string {
 func (*GetUserByMemberIdRequest) ProtoMessage() {}
 
 func (x *GetUserByMemberIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[2]
+	mi := &file_coreapi_service_user_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -167,7 +273,7 @@ func (x *GetUserByMemberIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserByMemberIdRequest.ProtoReflect.Descriptor instead.
 func (*GetUserByMemberIdRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{2}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetUserByMemberIdRequest) GetMemberId() string {
@@ -194,7 +300,7 @@ type GetUserByMemberIdResult struct {
 
 func (x *GetUserByMemberIdResult) Reset() {
 	*x = GetUserByMemberIdResult{}
-	mi := &file_coreapi_service_user_proto_msgTypes[3]
+	mi := &file_coreapi_service_user_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -206,7 +312,7 @@ func (x *GetUserByMemberIdResult) String() string {
 func (*GetUserByMemberIdResult) ProtoMessage() {}
 
 func (x *GetUserByMemberIdResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[3]
+	mi := &file_coreapi_service_user_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -219,7 +325,7 @@ func (x *GetUserByMemberIdResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserByMemberIdResult.ProtoReflect.Descriptor instead.
 func (*GetUserByMemberIdResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{3}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetUserByMemberIdResult) GetUser() *model.User {
@@ -244,7 +350,7 @@ type DeleteUserRequest struct {
 
 func (x *DeleteUserRequest) Reset() {
 	*x = DeleteUserRequest{}
-	mi := &file_coreapi_service_user_proto_msgTypes[4]
+	mi := &file_coreapi_service_user_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -256,7 +362,7 @@ func (x *DeleteUserRequest) String() string {
 func (*DeleteUserRequest) ProtoMessage() {}
 
 func (x *DeleteUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[4]
+	mi := &file_coreapi_service_user_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -269,7 +375,7 @@ func (x *DeleteUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteUserRequest.ProtoReflect.Descriptor instead.
 func (*DeleteUserRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{4}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *DeleteUserRequest) GetUserId() string {
@@ -295,7 +401,7 @@ type DeleteUserResult struct {
 
 func (x *DeleteUserResult) Reset() {
 	*x = DeleteUserResult{}
-	mi := &file_coreapi_service_user_proto_msgTypes[5]
+	mi := &file_coreapi_service_user_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -307,7 +413,7 @@ func (x *DeleteUserResult) String() string {
 func (*DeleteUserResult) ProtoMessage() {}
 
 func (x *DeleteUserResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[5]
+	mi := &file_coreapi_service_user_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -320,7 +426,7 @@ func (x *DeleteUserResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteUserResult.ProtoReflect.Descriptor instead.
 func (*DeleteUserResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{5}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{7}
 }
 
 // Deletes a user by external member identifier.
@@ -341,7 +447,7 @@ type DeleteUserByMemberIdRequest struct {
 
 func (x *DeleteUserByMemberIdRequest) Reset() {
 	*x = DeleteUserByMemberIdRequest{}
-	mi := &file_coreapi_service_user_proto_msgTypes[6]
+	mi := &file_coreapi_service_user_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -353,7 +459,7 @@ func (x *DeleteUserByMemberIdRequest) String() string {
 func (*DeleteUserByMemberIdRequest) ProtoMessage() {}
 
 func (x *DeleteUserByMemberIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[6]
+	mi := &file_coreapi_service_user_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -366,7 +472,7 @@ func (x *DeleteUserByMemberIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteUserByMemberIdRequest.ProtoReflect.Descriptor instead.
 func (*DeleteUserByMemberIdRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{6}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *DeleteUserByMemberIdRequest) GetMemberId() string {
@@ -392,7 +498,7 @@ type DeleteUserByMemberIdResult struct {
 
 func (x *DeleteUserByMemberIdResult) Reset() {
 	*x = DeleteUserByMemberIdResult{}
-	mi := &file_coreapi_service_user_proto_msgTypes[7]
+	mi := &file_coreapi_service_user_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -404,7 +510,7 @@ func (x *DeleteUserByMemberIdResult) String() string {
 func (*DeleteUserByMemberIdResult) ProtoMessage() {}
 
 func (x *DeleteUserByMemberIdResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[7]
+	mi := &file_coreapi_service_user_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -417,7 +523,7 @@ func (x *DeleteUserByMemberIdResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteUserByMemberIdResult.ProtoReflect.Descriptor instead.
 func (*DeleteUserByMemberIdResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{7}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{9}
 }
 
 // Blocks a user.
@@ -434,7 +540,7 @@ type BlockUserRequest struct {
 
 func (x *BlockUserRequest) Reset() {
 	*x = BlockUserRequest{}
-	mi := &file_coreapi_service_user_proto_msgTypes[8]
+	mi := &file_coreapi_service_user_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -446,7 +552,7 @@ func (x *BlockUserRequest) String() string {
 func (*BlockUserRequest) ProtoMessage() {}
 
 func (x *BlockUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[8]
+	mi := &file_coreapi_service_user_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -459,7 +565,7 @@ func (x *BlockUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BlockUserRequest.ProtoReflect.Descriptor instead.
 func (*BlockUserRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{8}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *BlockUserRequest) GetUserId() string {
@@ -486,7 +592,7 @@ type BlockUserResult struct {
 
 func (x *BlockUserResult) Reset() {
 	*x = BlockUserResult{}
-	mi := &file_coreapi_service_user_proto_msgTypes[9]
+	mi := &file_coreapi_service_user_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -498,7 +604,7 @@ func (x *BlockUserResult) String() string {
 func (*BlockUserResult) ProtoMessage() {}
 
 func (x *BlockUserResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[9]
+	mi := &file_coreapi_service_user_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -511,7 +617,7 @@ func (x *BlockUserResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BlockUserResult.ProtoReflect.Descriptor instead.
 func (*BlockUserResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{9}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *BlockUserResult) GetUser() *model.User {
@@ -534,7 +640,7 @@ type UnblockUserRequest struct {
 
 func (x *UnblockUserRequest) Reset() {
 	*x = UnblockUserRequest{}
-	mi := &file_coreapi_service_user_proto_msgTypes[10]
+	mi := &file_coreapi_service_user_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -546,7 +652,7 @@ func (x *UnblockUserRequest) String() string {
 func (*UnblockUserRequest) ProtoMessage() {}
 
 func (x *UnblockUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[10]
+	mi := &file_coreapi_service_user_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -559,7 +665,7 @@ func (x *UnblockUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnblockUserRequest.ProtoReflect.Descriptor instead.
 func (*UnblockUserRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{10}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *UnblockUserRequest) GetUserId() string {
@@ -586,7 +692,7 @@ type UnblockUserResult struct {
 
 func (x *UnblockUserResult) Reset() {
 	*x = UnblockUserResult{}
-	mi := &file_coreapi_service_user_proto_msgTypes[11]
+	mi := &file_coreapi_service_user_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -598,7 +704,7 @@ func (x *UnblockUserResult) String() string {
 func (*UnblockUserResult) ProtoMessage() {}
 
 func (x *UnblockUserResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[11]
+	mi := &file_coreapi_service_user_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -611,7 +717,7 @@ func (x *UnblockUserResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnblockUserResult.ProtoReflect.Descriptor instead.
 func (*UnblockUserResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{11}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *UnblockUserResult) GetUser() *model.User {
@@ -652,7 +758,7 @@ type PatchUserRequest struct {
 
 func (x *PatchUserRequest) Reset() {
 	*x = PatchUserRequest{}
-	mi := &file_coreapi_service_user_proto_msgTypes[12]
+	mi := &file_coreapi_service_user_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -664,7 +770,7 @@ func (x *PatchUserRequest) String() string {
 func (*PatchUserRequest) ProtoMessage() {}
 
 func (x *PatchUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[12]
+	mi := &file_coreapi_service_user_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -677,7 +783,7 @@ func (x *PatchUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PatchUserRequest.ProtoReflect.Descriptor instead.
 func (*PatchUserRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{12}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *PatchUserRequest) GetUserId() string {
@@ -760,7 +866,7 @@ type PatchUserResult struct {
 
 func (x *PatchUserResult) Reset() {
 	*x = PatchUserResult{}
-	mi := &file_coreapi_service_user_proto_msgTypes[13]
+	mi := &file_coreapi_service_user_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -772,7 +878,7 @@ func (x *PatchUserResult) String() string {
 func (*PatchUserResult) ProtoMessage() {}
 
 func (x *PatchUserResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[13]
+	mi := &file_coreapi_service_user_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -785,7 +891,7 @@ func (x *PatchUserResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PatchUserResult.ProtoReflect.Descriptor instead.
 func (*PatchUserResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{13}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *PatchUserResult) GetUser() *model.User {
@@ -829,7 +935,7 @@ type UpsertUserByMemberIdRequest struct {
 
 func (x *UpsertUserByMemberIdRequest) Reset() {
 	*x = UpsertUserByMemberIdRequest{}
-	mi := &file_coreapi_service_user_proto_msgTypes[14]
+	mi := &file_coreapi_service_user_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -841,7 +947,7 @@ func (x *UpsertUserByMemberIdRequest) String() string {
 func (*UpsertUserByMemberIdRequest) ProtoMessage() {}
 
 func (x *UpsertUserByMemberIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[14]
+	mi := &file_coreapi_service_user_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -854,7 +960,7 @@ func (x *UpsertUserByMemberIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpsertUserByMemberIdRequest.ProtoReflect.Descriptor instead.
 func (*UpsertUserByMemberIdRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{14}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *UpsertUserByMemberIdRequest) GetMemberId() string {
@@ -937,7 +1043,7 @@ type UpsertUserByMemberIdResult struct {
 
 func (x *UpsertUserByMemberIdResult) Reset() {
 	*x = UpsertUserByMemberIdResult{}
-	mi := &file_coreapi_service_user_proto_msgTypes[15]
+	mi := &file_coreapi_service_user_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -949,7 +1055,7 @@ func (x *UpsertUserByMemberIdResult) String() string {
 func (*UpsertUserByMemberIdResult) ProtoMessage() {}
 
 func (x *UpsertUserByMemberIdResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[15]
+	mi := &file_coreapi_service_user_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -962,7 +1068,7 @@ func (x *UpsertUserByMemberIdResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpsertUserByMemberIdResult.ProtoReflect.Descriptor instead.
 func (*UpsertUserByMemberIdResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{15}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *UpsertUserByMemberIdResult) GetUser() *model.User {
@@ -985,7 +1091,7 @@ type CreateLeadRequest struct {
 
 func (x *CreateLeadRequest) Reset() {
 	*x = CreateLeadRequest{}
-	mi := &file_coreapi_service_user_proto_msgTypes[16]
+	mi := &file_coreapi_service_user_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -997,7 +1103,7 @@ func (x *CreateLeadRequest) String() string {
 func (*CreateLeadRequest) ProtoMessage() {}
 
 func (x *CreateLeadRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[16]
+	mi := &file_coreapi_service_user_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1010,7 +1116,7 @@ func (x *CreateLeadRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateLeadRequest.ProtoReflect.Descriptor instead.
 func (*CreateLeadRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{16}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *CreateLeadRequest) GetChannelId() string {
@@ -1037,7 +1143,7 @@ type CreateLeadResult struct {
 
 func (x *CreateLeadResult) Reset() {
 	*x = CreateLeadResult{}
-	mi := &file_coreapi_service_user_proto_msgTypes[17]
+	mi := &file_coreapi_service_user_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1049,7 +1155,7 @@ func (x *CreateLeadResult) String() string {
 func (*CreateLeadResult) ProtoMessage() {}
 
 func (x *CreateLeadResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[17]
+	mi := &file_coreapi_service_user_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1062,7 +1168,7 @@ func (x *CreateLeadResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateLeadResult.ProtoReflect.Descriptor instead.
 func (*CreateLeadResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{17}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *CreateLeadResult) GetUser() *model.User {
@@ -1095,7 +1201,7 @@ type IssueSessionJwtRequest struct {
 
 func (x *IssueSessionJwtRequest) Reset() {
 	*x = IssueSessionJwtRequest{}
-	mi := &file_coreapi_service_user_proto_msgTypes[18]
+	mi := &file_coreapi_service_user_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1107,7 +1213,7 @@ func (x *IssueSessionJwtRequest) String() string {
 func (*IssueSessionJwtRequest) ProtoMessage() {}
 
 func (x *IssueSessionJwtRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[18]
+	mi := &file_coreapi_service_user_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1120,7 +1226,7 @@ func (x *IssueSessionJwtRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IssueSessionJwtRequest.ProtoReflect.Descriptor instead.
 func (*IssueSessionJwtRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{18}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *IssueSessionJwtRequest) GetMemberId() string {
@@ -1157,7 +1263,7 @@ type IssueSessionJwtResult struct {
 
 func (x *IssueSessionJwtResult) Reset() {
 	*x = IssueSessionJwtResult{}
-	mi := &file_coreapi_service_user_proto_msgTypes[19]
+	mi := &file_coreapi_service_user_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1169,7 +1275,7 @@ func (x *IssueSessionJwtResult) String() string {
 func (*IssueSessionJwtResult) ProtoMessage() {}
 
 func (x *IssueSessionJwtResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[19]
+	mi := &file_coreapi_service_user_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1182,7 +1288,7 @@ func (x *IssueSessionJwtResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IssueSessionJwtResult.ProtoReflect.Descriptor instead.
 func (*IssueSessionJwtResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{19}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *IssueSessionJwtResult) GetSessionJwt() string {
@@ -1212,7 +1318,7 @@ type IssueUserTokenRequest struct {
 
 func (x *IssueUserTokenRequest) Reset() {
 	*x = IssueUserTokenRequest{}
-	mi := &file_coreapi_service_user_proto_msgTypes[20]
+	mi := &file_coreapi_service_user_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1224,7 +1330,7 @@ func (x *IssueUserTokenRequest) String() string {
 func (*IssueUserTokenRequest) ProtoMessage() {}
 
 func (x *IssueUserTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[20]
+	mi := &file_coreapi_service_user_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1237,7 +1343,7 @@ func (x *IssueUserTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IssueUserTokenRequest.ProtoReflect.Descriptor instead.
 func (*IssueUserTokenRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{20}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *IssueUserTokenRequest) GetUserId() string {
@@ -1267,7 +1373,7 @@ type IssueUserTokenResult struct {
 
 func (x *IssueUserTokenResult) Reset() {
 	*x = IssueUserTokenResult{}
-	mi := &file_coreapi_service_user_proto_msgTypes[21]
+	mi := &file_coreapi_service_user_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1279,7 +1385,7 @@ func (x *IssueUserTokenResult) String() string {
 func (*IssueUserTokenResult) ProtoMessage() {}
 
 func (x *IssueUserTokenResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[21]
+	mi := &file_coreapi_service_user_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1292,7 +1398,7 @@ func (x *IssueUserTokenResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IssueUserTokenResult.ProtoReflect.Descriptor instead.
 func (*IssueUserTokenResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{21}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *IssueUserTokenResult) GetToken() string {
@@ -1325,7 +1431,7 @@ type IssueUserTokenByMemberIdRequest struct {
 
 func (x *IssueUserTokenByMemberIdRequest) Reset() {
 	*x = IssueUserTokenByMemberIdRequest{}
-	mi := &file_coreapi_service_user_proto_msgTypes[22]
+	mi := &file_coreapi_service_user_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1337,7 +1443,7 @@ func (x *IssueUserTokenByMemberIdRequest) String() string {
 func (*IssueUserTokenByMemberIdRequest) ProtoMessage() {}
 
 func (x *IssueUserTokenByMemberIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[22]
+	mi := &file_coreapi_service_user_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1350,7 +1456,7 @@ func (x *IssueUserTokenByMemberIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IssueUserTokenByMemberIdRequest.ProtoReflect.Descriptor instead.
 func (*IssueUserTokenByMemberIdRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{22}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *IssueUserTokenByMemberIdRequest) GetMemberId() string {
@@ -1380,7 +1486,7 @@ type IssueUserTokenByMemberIdResult struct {
 
 func (x *IssueUserTokenByMemberIdResult) Reset() {
 	*x = IssueUserTokenByMemberIdResult{}
-	mi := &file_coreapi_service_user_proto_msgTypes[23]
+	mi := &file_coreapi_service_user_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1392,7 +1498,7 @@ func (x *IssueUserTokenByMemberIdResult) String() string {
 func (*IssueUserTokenByMemberIdResult) ProtoMessage() {}
 
 func (x *IssueUserTokenByMemberIdResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[23]
+	mi := &file_coreapi_service_user_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1405,7 +1511,7 @@ func (x *IssueUserTokenByMemberIdResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IssueUserTokenByMemberIdResult.ProtoReflect.Descriptor instead.
 func (*IssueUserTokenByMemberIdResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{23}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *IssueUserTokenByMemberIdResult) GetToken() string {
@@ -1436,7 +1542,7 @@ type TouchUserRequest struct {
 
 func (x *TouchUserRequest) Reset() {
 	*x = TouchUserRequest{}
-	mi := &file_coreapi_service_user_proto_msgTypes[24]
+	mi := &file_coreapi_service_user_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1448,7 +1554,7 @@ func (x *TouchUserRequest) String() string {
 func (*TouchUserRequest) ProtoMessage() {}
 
 func (x *TouchUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[24]
+	mi := &file_coreapi_service_user_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1461,7 +1567,7 @@ func (x *TouchUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TouchUserRequest.ProtoReflect.Descriptor instead.
 func (*TouchUserRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{24}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *TouchUserRequest) GetUserId() string {
@@ -1488,7 +1594,7 @@ type TouchUserResult struct {
 
 func (x *TouchUserResult) Reset() {
 	*x = TouchUserResult{}
-	mi := &file_coreapi_service_user_proto_msgTypes[25]
+	mi := &file_coreapi_service_user_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1500,7 +1606,7 @@ func (x *TouchUserResult) String() string {
 func (*TouchUserResult) ProtoMessage() {}
 
 func (x *TouchUserResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_proto_msgTypes[25]
+	mi := &file_coreapi_service_user_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1513,7 +1619,7 @@ func (x *TouchUserResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TouchUserResult.ProtoReflect.Descriptor instead.
 func (*TouchUserResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_proto_rawDescGZIP(), []int{25}
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *TouchUserResult) GetUser() *model.User {
@@ -1527,7 +1633,15 @@ var File_coreapi_service_user_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_user_proto_rawDesc = "" +
 	"\n" +
-	"\x1acoreapi/service/user.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x18coreapi/model/user.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"X\n" +
+	"\x1acoreapi/service/user.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x18coreapi/model/user.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf8\x01\n" +
+	"\x14BatchGetUsersRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xb8\x01\n" +
+	"\buser_ids\x18\x02 \x03(\tB\x9c\x01\xbaH\x98\x01\xba\x01F\n" +
+	"\x11repeated.minItems\x12 at least one user ID is required\x1a\x0fsize(this) >= 1\xba\x01I\n" +
+	"\x11repeated.maxItems\x12\"value must contain no more than 50\x1a\x10size(this) <= 50\xc8\x01\x01R\auserIds\"@\n" +
+	"\x13BatchGetUsersResult\x12)\n" +
+	"\x05users\x18\x01 \x03(\v2\x13.coreapi.model.UserR\x05users\"X\n" +
 	"\x0eGetUserRequest\x12\x1f\n" +
 	"\auser_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\x12%\n" +
 	"\n" +
@@ -1653,62 +1767,65 @@ func file_coreapi_service_user_proto_rawDescGZIP() []byte {
 	return file_coreapi_service_user_proto_rawDescData
 }
 
-var file_coreapi_service_user_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
+var file_coreapi_service_user_proto_msgTypes = make([]protoimpl.MessageInfo, 28)
 var file_coreapi_service_user_proto_goTypes = []any{
-	(*GetUserRequest)(nil),                  // 0: coreapi.service.GetUserRequest
-	(*GetUserResult)(nil),                   // 1: coreapi.service.GetUserResult
-	(*GetUserByMemberIdRequest)(nil),        // 2: coreapi.service.GetUserByMemberIdRequest
-	(*GetUserByMemberIdResult)(nil),         // 3: coreapi.service.GetUserByMemberIdResult
-	(*DeleteUserRequest)(nil),               // 4: coreapi.service.DeleteUserRequest
-	(*DeleteUserResult)(nil),                // 5: coreapi.service.DeleteUserResult
-	(*DeleteUserByMemberIdRequest)(nil),     // 6: coreapi.service.DeleteUserByMemberIdRequest
-	(*DeleteUserByMemberIdResult)(nil),      // 7: coreapi.service.DeleteUserByMemberIdResult
-	(*BlockUserRequest)(nil),                // 8: coreapi.service.BlockUserRequest
-	(*BlockUserResult)(nil),                 // 9: coreapi.service.BlockUserResult
-	(*UnblockUserRequest)(nil),              // 10: coreapi.service.UnblockUserRequest
-	(*UnblockUserResult)(nil),               // 11: coreapi.service.UnblockUserResult
-	(*PatchUserRequest)(nil),                // 12: coreapi.service.PatchUserRequest
-	(*PatchUserResult)(nil),                 // 13: coreapi.service.PatchUserResult
-	(*UpsertUserByMemberIdRequest)(nil),     // 14: coreapi.service.UpsertUserByMemberIdRequest
-	(*UpsertUserByMemberIdResult)(nil),      // 15: coreapi.service.UpsertUserByMemberIdResult
-	(*CreateLeadRequest)(nil),               // 16: coreapi.service.CreateLeadRequest
-	(*CreateLeadResult)(nil),                // 17: coreapi.service.CreateLeadResult
-	(*IssueSessionJwtRequest)(nil),          // 18: coreapi.service.IssueSessionJwtRequest
-	(*IssueSessionJwtResult)(nil),           // 19: coreapi.service.IssueSessionJwtResult
-	(*IssueUserTokenRequest)(nil),           // 20: coreapi.service.IssueUserTokenRequest
-	(*IssueUserTokenResult)(nil),            // 21: coreapi.service.IssueUserTokenResult
-	(*IssueUserTokenByMemberIdRequest)(nil), // 22: coreapi.service.IssueUserTokenByMemberIdRequest
-	(*IssueUserTokenByMemberIdResult)(nil),  // 23: coreapi.service.IssueUserTokenByMemberIdResult
-	(*TouchUserRequest)(nil),                // 24: coreapi.service.TouchUserRequest
-	(*TouchUserResult)(nil),                 // 25: coreapi.service.TouchUserResult
-	(*model.User)(nil),                      // 26: coreapi.model.User
-	(*structpb.Struct)(nil),                 // 27: google.protobuf.Struct
-	(*durationpb.Duration)(nil),             // 28: google.protobuf.Duration
-	(*timestamppb.Timestamp)(nil),           // 29: google.protobuf.Timestamp
+	(*BatchGetUsersRequest)(nil),            // 0: coreapi.service.BatchGetUsersRequest
+	(*BatchGetUsersResult)(nil),             // 1: coreapi.service.BatchGetUsersResult
+	(*GetUserRequest)(nil),                  // 2: coreapi.service.GetUserRequest
+	(*GetUserResult)(nil),                   // 3: coreapi.service.GetUserResult
+	(*GetUserByMemberIdRequest)(nil),        // 4: coreapi.service.GetUserByMemberIdRequest
+	(*GetUserByMemberIdResult)(nil),         // 5: coreapi.service.GetUserByMemberIdResult
+	(*DeleteUserRequest)(nil),               // 6: coreapi.service.DeleteUserRequest
+	(*DeleteUserResult)(nil),                // 7: coreapi.service.DeleteUserResult
+	(*DeleteUserByMemberIdRequest)(nil),     // 8: coreapi.service.DeleteUserByMemberIdRequest
+	(*DeleteUserByMemberIdResult)(nil),      // 9: coreapi.service.DeleteUserByMemberIdResult
+	(*BlockUserRequest)(nil),                // 10: coreapi.service.BlockUserRequest
+	(*BlockUserResult)(nil),                 // 11: coreapi.service.BlockUserResult
+	(*UnblockUserRequest)(nil),              // 12: coreapi.service.UnblockUserRequest
+	(*UnblockUserResult)(nil),               // 13: coreapi.service.UnblockUserResult
+	(*PatchUserRequest)(nil),                // 14: coreapi.service.PatchUserRequest
+	(*PatchUserResult)(nil),                 // 15: coreapi.service.PatchUserResult
+	(*UpsertUserByMemberIdRequest)(nil),     // 16: coreapi.service.UpsertUserByMemberIdRequest
+	(*UpsertUserByMemberIdResult)(nil),      // 17: coreapi.service.UpsertUserByMemberIdResult
+	(*CreateLeadRequest)(nil),               // 18: coreapi.service.CreateLeadRequest
+	(*CreateLeadResult)(nil),                // 19: coreapi.service.CreateLeadResult
+	(*IssueSessionJwtRequest)(nil),          // 20: coreapi.service.IssueSessionJwtRequest
+	(*IssueSessionJwtResult)(nil),           // 21: coreapi.service.IssueSessionJwtResult
+	(*IssueUserTokenRequest)(nil),           // 22: coreapi.service.IssueUserTokenRequest
+	(*IssueUserTokenResult)(nil),            // 23: coreapi.service.IssueUserTokenResult
+	(*IssueUserTokenByMemberIdRequest)(nil), // 24: coreapi.service.IssueUserTokenByMemberIdRequest
+	(*IssueUserTokenByMemberIdResult)(nil),  // 25: coreapi.service.IssueUserTokenByMemberIdResult
+	(*TouchUserRequest)(nil),                // 26: coreapi.service.TouchUserRequest
+	(*TouchUserResult)(nil),                 // 27: coreapi.service.TouchUserResult
+	(*model.User)(nil),                      // 28: coreapi.model.User
+	(*structpb.Struct)(nil),                 // 29: google.protobuf.Struct
+	(*durationpb.Duration)(nil),             // 30: google.protobuf.Duration
+	(*timestamppb.Timestamp)(nil),           // 31: google.protobuf.Timestamp
 }
 var file_coreapi_service_user_proto_depIdxs = []int32{
-	26, // 0: coreapi.service.GetUserResult.user:type_name -> coreapi.model.User
-	26, // 1: coreapi.service.GetUserByMemberIdResult.user:type_name -> coreapi.model.User
-	26, // 2: coreapi.service.BlockUserResult.user:type_name -> coreapi.model.User
-	26, // 3: coreapi.service.UnblockUserResult.user:type_name -> coreapi.model.User
-	27, // 4: coreapi.service.PatchUserRequest.profile:type_name -> google.protobuf.Struct
-	27, // 5: coreapi.service.PatchUserRequest.profile_once:type_name -> google.protobuf.Struct
-	26, // 6: coreapi.service.PatchUserResult.user:type_name -> coreapi.model.User
-	27, // 7: coreapi.service.UpsertUserByMemberIdRequest.profile:type_name -> google.protobuf.Struct
-	27, // 8: coreapi.service.UpsertUserByMemberIdRequest.profile_once:type_name -> google.protobuf.Struct
-	26, // 9: coreapi.service.UpsertUserByMemberIdResult.user:type_name -> coreapi.model.User
-	27, // 10: coreapi.service.CreateLeadRequest.profile:type_name -> google.protobuf.Struct
-	26, // 11: coreapi.service.CreateLeadResult.user:type_name -> coreapi.model.User
-	28, // 12: coreapi.service.IssueSessionJwtRequest.expiration:type_name -> google.protobuf.Duration
-	29, // 13: coreapi.service.IssueSessionJwtResult.expires_at:type_name -> google.protobuf.Timestamp
-	29, // 14: coreapi.service.IssueUserTokenResult.disable_at:type_name -> google.protobuf.Timestamp
-	29, // 15: coreapi.service.IssueUserTokenByMemberIdResult.disable_at:type_name -> google.protobuf.Timestamp
-	26, // 16: coreapi.service.TouchUserResult.user:type_name -> coreapi.model.User
-	17, // [17:17] is the sub-list for method output_type
-	17, // [17:17] is the sub-list for method input_type
-	17, // [17:17] is the sub-list for extension type_name
-	17, // [17:17] is the sub-list for extension extendee
-	0,  // [0:17] is the sub-list for field type_name
+	28, // 0: coreapi.service.BatchGetUsersResult.users:type_name -> coreapi.model.User
+	28, // 1: coreapi.service.GetUserResult.user:type_name -> coreapi.model.User
+	28, // 2: coreapi.service.GetUserByMemberIdResult.user:type_name -> coreapi.model.User
+	28, // 3: coreapi.service.BlockUserResult.user:type_name -> coreapi.model.User
+	28, // 4: coreapi.service.UnblockUserResult.user:type_name -> coreapi.model.User
+	29, // 5: coreapi.service.PatchUserRequest.profile:type_name -> google.protobuf.Struct
+	29, // 6: coreapi.service.PatchUserRequest.profile_once:type_name -> google.protobuf.Struct
+	28, // 7: coreapi.service.PatchUserResult.user:type_name -> coreapi.model.User
+	29, // 8: coreapi.service.UpsertUserByMemberIdRequest.profile:type_name -> google.protobuf.Struct
+	29, // 9: coreapi.service.UpsertUserByMemberIdRequest.profile_once:type_name -> google.protobuf.Struct
+	28, // 10: coreapi.service.UpsertUserByMemberIdResult.user:type_name -> coreapi.model.User
+	29, // 11: coreapi.service.CreateLeadRequest.profile:type_name -> google.protobuf.Struct
+	28, // 12: coreapi.service.CreateLeadResult.user:type_name -> coreapi.model.User
+	30, // 13: coreapi.service.IssueSessionJwtRequest.expiration:type_name -> google.protobuf.Duration
+	31, // 14: coreapi.service.IssueSessionJwtResult.expires_at:type_name -> google.protobuf.Timestamp
+	31, // 15: coreapi.service.IssueUserTokenResult.disable_at:type_name -> google.protobuf.Timestamp
+	31, // 16: coreapi.service.IssueUserTokenByMemberIdResult.disable_at:type_name -> google.protobuf.Timestamp
+	28, // 17: coreapi.service.TouchUserResult.user:type_name -> coreapi.model.User
+	18, // [18:18] is the sub-list for method output_type
+	18, // [18:18] is the sub-list for method input_type
+	18, // [18:18] is the sub-list for extension type_name
+	18, // [18:18] is the sub-list for extension extendee
+	0,  // [0:18] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_user_proto_init() }
@@ -1722,7 +1839,7 @@ func file_coreapi_service_user_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_user_proto_rawDesc), len(file_coreapi_service_user_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   26,
+			NumMessages:   28,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

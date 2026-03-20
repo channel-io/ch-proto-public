@@ -163,6 +163,112 @@ func (x *SearchBotsResult) GetHasNext() bool {
 	return false
 }
 
+// Retrieves multiple bots by their IDs.
+//
+// Bots that do not exist are silently skipped.
+type BatchGetBotsRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Channel ID the bots belong to.
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Bot IDs to retrieve.
+	//
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinItems=1
+	// +kubebuilder:validation:MaxItems=50
+	BotIds        []string `protobuf:"bytes,2,rep,name=bot_ids,json=botIds,proto3" json:"bot_ids,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BatchGetBotsRequest) Reset() {
+	*x = BatchGetBotsRequest{}
+	mi := &file_coreapi_service_bot_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BatchGetBotsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchGetBotsRequest) ProtoMessage() {}
+
+func (x *BatchGetBotsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_bot_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchGetBotsRequest.ProtoReflect.Descriptor instead.
+func (*BatchGetBotsRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_bot_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *BatchGetBotsRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *BatchGetBotsRequest) GetBotIds() []string {
+	if x != nil {
+		return x.BotIds
+	}
+	return nil
+}
+
+// Response for batch bot retrieval.
+type BatchGetBotsResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Bots          []*model.Bot           `protobuf:"bytes,1,rep,name=bots,proto3" json:"bots,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BatchGetBotsResult) Reset() {
+	*x = BatchGetBotsResult{}
+	mi := &file_coreapi_service_bot_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BatchGetBotsResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchGetBotsResult) ProtoMessage() {}
+
+func (x *BatchGetBotsResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_bot_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchGetBotsResult.ProtoReflect.Descriptor instead.
+func (*BatchGetBotsResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_bot_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *BatchGetBotsResult) GetBots() []*model.Bot {
+	if x != nil {
+		return x.Bots
+	}
+	return nil
+}
+
 // Retrieves a single bot.
 type GetBotRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -176,7 +282,7 @@ type GetBotRequest struct {
 
 func (x *GetBotRequest) Reset() {
 	*x = GetBotRequest{}
-	mi := &file_coreapi_service_bot_proto_msgTypes[2]
+	mi := &file_coreapi_service_bot_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -188,7 +294,7 @@ func (x *GetBotRequest) String() string {
 func (*GetBotRequest) ProtoMessage() {}
 
 func (x *GetBotRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_bot_proto_msgTypes[2]
+	mi := &file_coreapi_service_bot_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -201,7 +307,7 @@ func (x *GetBotRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBotRequest.ProtoReflect.Descriptor instead.
 func (*GetBotRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_bot_proto_rawDescGZIP(), []int{2}
+	return file_coreapi_service_bot_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetBotRequest) GetBotId() string {
@@ -228,7 +334,7 @@ type GetBotResult struct {
 
 func (x *GetBotResult) Reset() {
 	*x = GetBotResult{}
-	mi := &file_coreapi_service_bot_proto_msgTypes[3]
+	mi := &file_coreapi_service_bot_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -240,7 +346,7 @@ func (x *GetBotResult) String() string {
 func (*GetBotResult) ProtoMessage() {}
 
 func (x *GetBotResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_bot_proto_msgTypes[3]
+	mi := &file_coreapi_service_bot_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -253,7 +359,7 @@ func (x *GetBotResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBotResult.ProtoReflect.Descriptor instead.
 func (*GetBotResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_bot_proto_rawDescGZIP(), []int{3}
+	return file_coreapi_service_bot_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetBotResult) GetBot() *model.Bot {
@@ -288,7 +394,7 @@ type UpsertBotRequest struct {
 
 func (x *UpsertBotRequest) Reset() {
 	*x = UpsertBotRequest{}
-	mi := &file_coreapi_service_bot_proto_msgTypes[4]
+	mi := &file_coreapi_service_bot_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -300,7 +406,7 @@ func (x *UpsertBotRequest) String() string {
 func (*UpsertBotRequest) ProtoMessage() {}
 
 func (x *UpsertBotRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_bot_proto_msgTypes[4]
+	mi := &file_coreapi_service_bot_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -313,7 +419,7 @@ func (x *UpsertBotRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpsertBotRequest.ProtoReflect.Descriptor instead.
 func (*UpsertBotRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_bot_proto_rawDescGZIP(), []int{4}
+	return file_coreapi_service_bot_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *UpsertBotRequest) GetChannelId() string {
@@ -368,7 +474,7 @@ type UpsertBotResult struct {
 
 func (x *UpsertBotResult) Reset() {
 	*x = UpsertBotResult{}
-	mi := &file_coreapi_service_bot_proto_msgTypes[5]
+	mi := &file_coreapi_service_bot_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -380,7 +486,7 @@ func (x *UpsertBotResult) String() string {
 func (*UpsertBotResult) ProtoMessage() {}
 
 func (x *UpsertBotResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_bot_proto_msgTypes[5]
+	mi := &file_coreapi_service_bot_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -393,7 +499,7 @@ func (x *UpsertBotResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpsertBotResult.ProtoReflect.Descriptor instead.
 func (*UpsertBotResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_bot_proto_rawDescGZIP(), []int{5}
+	return file_coreapi_service_bot_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *UpsertBotResult) GetBot() *model.Bot {
@@ -419,7 +525,7 @@ type DeleteBotRequest struct {
 
 func (x *DeleteBotRequest) Reset() {
 	*x = DeleteBotRequest{}
-	mi := &file_coreapi_service_bot_proto_msgTypes[6]
+	mi := &file_coreapi_service_bot_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -431,7 +537,7 @@ func (x *DeleteBotRequest) String() string {
 func (*DeleteBotRequest) ProtoMessage() {}
 
 func (x *DeleteBotRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_bot_proto_msgTypes[6]
+	mi := &file_coreapi_service_bot_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -444,7 +550,7 @@ func (x *DeleteBotRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteBotRequest.ProtoReflect.Descriptor instead.
 func (*DeleteBotRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_bot_proto_rawDescGZIP(), []int{6}
+	return file_coreapi_service_bot_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *DeleteBotRequest) GetBotId() string {
@@ -470,7 +576,7 @@ type DeleteBotResult struct {
 
 func (x *DeleteBotResult) Reset() {
 	*x = DeleteBotResult{}
-	mi := &file_coreapi_service_bot_proto_msgTypes[7]
+	mi := &file_coreapi_service_bot_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -482,7 +588,7 @@ func (x *DeleteBotResult) String() string {
 func (*DeleteBotResult) ProtoMessage() {}
 
 func (x *DeleteBotResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_bot_proto_msgTypes[7]
+	mi := &file_coreapi_service_bot_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -495,7 +601,7 @@ func (x *DeleteBotResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteBotResult.ProtoReflect.Descriptor instead.
 func (*DeleteBotResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_bot_proto_rawDescGZIP(), []int{7}
+	return file_coreapi_service_bot_proto_rawDescGZIP(), []int{9}
 }
 
 var File_coreapi_service_bot_proto protoreflect.FileDescriptor
@@ -513,7 +619,15 @@ const file_coreapi_service_bot_proto_rawDesc = "" +
 	"\x04bots\x18\x01 \x03(\v2\x12.coreapi.model.BotR\x04bots\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"U\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xf4\x01\n" +
+	"\x13BatchGetBotsRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xb5\x01\n" +
+	"\abot_ids\x18\x02 \x03(\tB\x9b\x01\xbaH\x97\x01\xba\x01E\n" +
+	"\x11repeated.minItems\x12\x1fat least one bot ID is required\x1a\x0fsize(this) >= 1\xba\x01I\n" +
+	"\x11repeated.maxItems\x12\"value must contain no more than 50\x1a\x10size(this) <= 50\xc8\x01\x01R\x06botIds\"<\n" +
+	"\x12BatchGetBotsResult\x12&\n" +
+	"\x04bots\x18\x01 \x03(\v2\x12.coreapi.model.BotR\x04bots\"U\n" +
 	"\rGetBotRequest\x12\x1d\n" +
 	"\x06bot_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x05botId\x12%\n" +
 	"\n" +
@@ -556,31 +670,34 @@ func file_coreapi_service_bot_proto_rawDescGZIP() []byte {
 	return file_coreapi_service_bot_proto_rawDescData
 }
 
-var file_coreapi_service_bot_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_coreapi_service_bot_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_coreapi_service_bot_proto_goTypes = []any{
-	(*SearchBotsRequest)(nil), // 0: coreapi.service.SearchBotsRequest
-	(*SearchBotsResult)(nil),  // 1: coreapi.service.SearchBotsResult
-	(*GetBotRequest)(nil),     // 2: coreapi.service.GetBotRequest
-	(*GetBotResult)(nil),      // 3: coreapi.service.GetBotResult
-	(*UpsertBotRequest)(nil),  // 4: coreapi.service.UpsertBotRequest
-	(*UpsertBotResult)(nil),   // 5: coreapi.service.UpsertBotResult
-	(*DeleteBotRequest)(nil),  // 6: coreapi.service.DeleteBotRequest
-	(*DeleteBotResult)(nil),   // 7: coreapi.service.DeleteBotResult
-	nil,                       // 8: coreapi.service.UpsertBotRequest.NameDescI18nMapEntry
-	(*model.Bot)(nil),         // 9: coreapi.model.Bot
-	(*model.NameDesc)(nil),    // 10: coreapi.model.NameDesc
+	(*SearchBotsRequest)(nil),   // 0: coreapi.service.SearchBotsRequest
+	(*SearchBotsResult)(nil),    // 1: coreapi.service.SearchBotsResult
+	(*BatchGetBotsRequest)(nil), // 2: coreapi.service.BatchGetBotsRequest
+	(*BatchGetBotsResult)(nil),  // 3: coreapi.service.BatchGetBotsResult
+	(*GetBotRequest)(nil),       // 4: coreapi.service.GetBotRequest
+	(*GetBotResult)(nil),        // 5: coreapi.service.GetBotResult
+	(*UpsertBotRequest)(nil),    // 6: coreapi.service.UpsertBotRequest
+	(*UpsertBotResult)(nil),     // 7: coreapi.service.UpsertBotResult
+	(*DeleteBotRequest)(nil),    // 8: coreapi.service.DeleteBotRequest
+	(*DeleteBotResult)(nil),     // 9: coreapi.service.DeleteBotResult
+	nil,                         // 10: coreapi.service.UpsertBotRequest.NameDescI18nMapEntry
+	(*model.Bot)(nil),           // 11: coreapi.model.Bot
+	(*model.NameDesc)(nil),      // 12: coreapi.model.NameDesc
 }
 var file_coreapi_service_bot_proto_depIdxs = []int32{
-	9,  // 0: coreapi.service.SearchBotsResult.bots:type_name -> coreapi.model.Bot
-	9,  // 1: coreapi.service.GetBotResult.bot:type_name -> coreapi.model.Bot
-	8,  // 2: coreapi.service.UpsertBotRequest.name_desc_i18n_map:type_name -> coreapi.service.UpsertBotRequest.NameDescI18nMapEntry
-	9,  // 3: coreapi.service.UpsertBotResult.bot:type_name -> coreapi.model.Bot
-	10, // 4: coreapi.service.UpsertBotRequest.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
-	5,  // [5:5] is the sub-list for method output_type
-	5,  // [5:5] is the sub-list for method input_type
-	5,  // [5:5] is the sub-list for extension type_name
-	5,  // [5:5] is the sub-list for extension extendee
-	0,  // [0:5] is the sub-list for field type_name
+	11, // 0: coreapi.service.SearchBotsResult.bots:type_name -> coreapi.model.Bot
+	11, // 1: coreapi.service.BatchGetBotsResult.bots:type_name -> coreapi.model.Bot
+	11, // 2: coreapi.service.GetBotResult.bot:type_name -> coreapi.model.Bot
+	10, // 3: coreapi.service.UpsertBotRequest.name_desc_i18n_map:type_name -> coreapi.service.UpsertBotRequest.NameDescI18nMapEntry
+	11, // 4: coreapi.service.UpsertBotResult.bot:type_name -> coreapi.model.Bot
+	12, // 5: coreapi.service.UpsertBotRequest.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
+	6,  // [6:6] is the sub-list for method output_type
+	6,  // [6:6] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_bot_proto_init() }
@@ -594,7 +711,7 @@ func file_coreapi_service_bot_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_bot_proto_rawDesc), len(file_coreapi_service_bot_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   9,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
