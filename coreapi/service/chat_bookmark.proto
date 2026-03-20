@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package coreapi.service;
+
+import "buf/validate/validate.proto";
+import "coreapi/model/chat_bookmark.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.service";
+
+// Retrieves a chat bookmark for the requesting participant in a specific chat.
+message GetChatBookmarkRequest {
+  // Channel ID the chat belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Chat type to retrieve the bookmark for (e.g. "group", "userChat").
+  string chat_type = 2 [(buf.validate.field).required = true];
+
+  // Chat ID to retrieve the bookmark for.
+  string chat_id = 3 [(buf.validate.field).required = true];
+}
+
+// Response for chat bookmark retrieval.
+message GetChatBookmarkResult {
+  coreapi.model.ChatBookmark chat_bookmark = 1;
+}
