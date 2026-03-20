@@ -25,6 +25,16 @@ public final class Manager {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_coreapi_service_SearchManagersResult_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_BatchGetManagersRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_BatchGetManagersRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_BatchGetManagersResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_BatchGetManagersResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_coreapi_service_GetManagerRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -59,17 +69,25 @@ public final class Manager {
       "atuses\030\003 \003(\0132\035.coreapi.model.OperatorSta" +
       "tusR\020operatorStatuses\022\037\n\013next_cursor\030\004 \001" +
       "(\tR\nnextCursor\022\031\n\010has_next\030\005 \001(\010R\007hasNex" +
-      "t\"a\n\021GetManagerRequest\022%\n\nmanager_id\030\001 \001" +
-      "(\tB\006\272H\003\310\001\001R\tmanagerId\022%\n\nchannel_id\030\002 \001(" +
-      "\tB\006\272H\003\310\001\001R\tchannelId\"\273\001\n\020GetManagerResul" +
-      "t\0220\n\007manager\030\001 \001(\0132\026.coreapi.model.Manag" +
-      "erR\007manager\022-\n\006online\030\002 \001(\0132\025.coreapi.mo" +
-      "del.OnlineR\006online\022F\n\017operator_status\030\003 " +
-      "\001(\0132\035.coreapi.model.OperatorStatusR\016oper" +
-      "atorStatusBf\n(io.channel.api.proto.pub.c" +
-      "oreapi.serviceP\001Z8github.com/channel-io/" +
-      "ch-proto-public/coreapi/go/serviceb\006prot" +
-      "o3"
+      "t\"\204\002\n\027BatchGetManagersRequest\022%\n\nchannel" +
+      "_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\301\001\n\013manager" +
+      "_ids\030\002 \003(\tB\237\001\272H\233\001\272\001I\n\021repeated.minItems\022" +
+      "#at least one manager ID is required\032\017si" +
+      "ze(this) >= 1\272\001I\n\021repeated.maxItems\022\"val" +
+      "ue must contain no more than 50\032\020size(th" +
+      "is) <= 50\310\001\001R\nmanagerIds\"L\n\026BatchGetMana" +
+      "gersResult\0222\n\010managers\030\001 \003(\0132\026.coreapi.m" +
+      "odel.ManagerR\010managers\"a\n\021GetManagerRequ" +
+      "est\022%\n\nmanager_id\030\001 \001(\tB\006\272H\003\310\001\001R\tmanager" +
+      "Id\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelI" +
+      "d\"\273\001\n\020GetManagerResult\0220\n\007manager\030\001 \001(\0132" +
+      "\026.coreapi.model.ManagerR\007manager\022-\n\006onli" +
+      "ne\030\002 \001(\0132\025.coreapi.model.OnlineR\006online\022" +
+      "F\n\017operator_status\030\003 \001(\0132\035.coreapi.model" +
+      ".OperatorStatusR\016operatorStatusBf\n(io.ch" +
+      "annel.api.proto.pub.coreapi.serviceP\001Z8g" +
+      "ithub.com/channel-io/ch-proto-public/cor" +
+      "eapi/go/serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -91,14 +109,26 @@ public final class Manager {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_SearchManagersResult_descriptor,
         new java.lang.String[] { "Managers", "Onlines", "OperatorStatuses", "NextCursor", "HasNext", });
-    internal_static_coreapi_service_GetManagerRequest_descriptor =
+    internal_static_coreapi_service_BatchGetManagersRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_coreapi_service_BatchGetManagersRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_BatchGetManagersRequest_descriptor,
+        new java.lang.String[] { "ChannelId", "ManagerIds", });
+    internal_static_coreapi_service_BatchGetManagersResult_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_coreapi_service_BatchGetManagersResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_BatchGetManagersResult_descriptor,
+        new java.lang.String[] { "Managers", });
+    internal_static_coreapi_service_GetManagerRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_coreapi_service_GetManagerRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_GetManagerRequest_descriptor,
         new java.lang.String[] { "ManagerId", "ChannelId", });
     internal_static_coreapi_service_GetManagerResult_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_coreapi_service_GetManagerResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_GetManagerResult_descriptor,
