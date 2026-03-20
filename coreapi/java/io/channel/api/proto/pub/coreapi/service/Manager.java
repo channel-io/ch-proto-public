@@ -25,6 +25,16 @@ public final class Manager {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_coreapi_service_SearchManagersResult_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_BatchGetManagersRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_BatchGetManagersRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_BatchGetManagersResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_BatchGetManagersResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_coreapi_service_GetManagerRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -45,39 +55,37 @@ public final class Manager {
     java.lang.String[] descriptorData = {
       "\n\035coreapi/service/manager.proto\022\017coreapi" +
       ".service\032\033buf/validate/validate.proto\032\033c" +
-      "oreapi/model/manager.proto\032\032coreapi/mode" +
-      "l/online.proto\032#coreapi/model/operator_s" +
-      "tatus.proto\"\315\001\n\025SearchManagersRequest\022%\n" +
-      "\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\026\n\006" +
-      "cursor\030\002 \001(\tR\006cursor\022u\n\005limit\030\003 \001(\005B_\272H\\" +
-      "\272\001Y\n\rint32.between\022\037limit must be betwee" +
-      "n 1 and 500\032\'this == 0 || (this >= 1 && " +
-      "this <= 500)R\005limit\"\203\002\n\024SearchManagersRe" +
-      "sult\0222\n\010managers\030\001 \003(\0132\026.coreapi.model.M" +
-      "anagerR\010managers\022/\n\007onlines\030\002 \003(\0132\025.core" +
-      "api.model.OnlineR\007onlines\022J\n\021operator_st" +
-      "atuses\030\003 \003(\0132\035.coreapi.model.OperatorSta" +
-      "tusR\020operatorStatuses\022\037\n\013next_cursor\030\004 \001" +
-      "(\tR\nnextCursor\022\031\n\010has_next\030\005 \001(\010R\007hasNex" +
-      "t\"a\n\021GetManagerRequest\022%\n\nmanager_id\030\001 \001" +
-      "(\tB\006\272H\003\310\001\001R\tmanagerId\022%\n\nchannel_id\030\002 \001(" +
-      "\tB\006\272H\003\310\001\001R\tchannelId\"\273\001\n\020GetManagerResul" +
-      "t\0220\n\007manager\030\001 \001(\0132\026.coreapi.model.Manag" +
-      "erR\007manager\022-\n\006online\030\002 \001(\0132\025.coreapi.mo" +
-      "del.OnlineR\006online\022F\n\017operator_status\030\003 " +
-      "\001(\0132\035.coreapi.model.OperatorStatusR\016oper" +
-      "atorStatusBf\n(io.channel.api.proto.pub.c" +
-      "oreapi.serviceP\001Z8github.com/channel-io/" +
-      "ch-proto-public/coreapi/go/serviceb\006prot" +
-      "o3"
+      "oreapi/model/manager.proto\"\315\001\n\025SearchMan" +
+      "agersRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001" +
+      "R\tchannelId\022\026\n\006cursor\030\002 \001(\tR\006cursor\022u\n\005l" +
+      "imit\030\003 \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037limit" +
+      " must be between 1 and 500\032\'this == 0 ||" +
+      " (this >= 1 && this <= 500)R\005limit\"\206\001\n\024S" +
+      "earchManagersResult\0222\n\010managers\030\001 \003(\0132\026." +
+      "coreapi.model.ManagerR\010managers\022\037\n\013next_" +
+      "cursor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001" +
+      "(\010R\007hasNext\"\204\002\n\027BatchGetManagersRequest\022" +
+      "%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\301" +
+      "\001\n\013manager_ids\030\002 \003(\tB\237\001\272H\233\001\272\001I\n\021repeated" +
+      ".minItems\022#at least one manager ID is re" +
+      "quired\032\017size(this) >= 1\272\001I\n\021repeated.max" +
+      "Items\022\"value must contain no more than 5" +
+      "0\032\020size(this) <= 50\310\001\001R\nmanagerIds\"L\n\026Ba" +
+      "tchGetManagersResult\0222\n\010managers\030\001 \003(\0132\026" +
+      ".coreapi.model.ManagerR\010managers\"a\n\021GetM" +
+      "anagerRequest\022%\n\nmanager_id\030\001 \001(\tB\006\272H\003\310\001" +
+      "\001R\tmanagerId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001" +
+      "R\tchannelId\"D\n\020GetManagerResult\0220\n\007manag" +
+      "er\030\001 \001(\0132\026.coreapi.model.ManagerR\007manage" +
+      "rBf\n(io.channel.api.proto.pub.coreapi.se" +
+      "rviceP\001Z8github.com/channel-io/ch-proto-" +
+      "public/coreapi/go/serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
           io.channel.api.proto.pub.coreapi.model.ManagerOuterClass.getDescriptor(),
-          io.channel.api.proto.pub.coreapi.model.OnlineOuterClass.getDescriptor(),
-          io.channel.api.proto.pub.coreapi.model.OperatorStatusOuterClass.getDescriptor(),
         });
     internal_static_coreapi_service_SearchManagersRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -90,19 +98,31 @@ public final class Manager {
     internal_static_coreapi_service_SearchManagersResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_SearchManagersResult_descriptor,
-        new java.lang.String[] { "Managers", "Onlines", "OperatorStatuses", "NextCursor", "HasNext", });
-    internal_static_coreapi_service_GetManagerRequest_descriptor =
+        new java.lang.String[] { "Managers", "NextCursor", "HasNext", });
+    internal_static_coreapi_service_BatchGetManagersRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_coreapi_service_BatchGetManagersRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_BatchGetManagersRequest_descriptor,
+        new java.lang.String[] { "ChannelId", "ManagerIds", });
+    internal_static_coreapi_service_BatchGetManagersResult_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_coreapi_service_BatchGetManagersResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_BatchGetManagersResult_descriptor,
+        new java.lang.String[] { "Managers", });
+    internal_static_coreapi_service_GetManagerRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_coreapi_service_GetManagerRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_GetManagerRequest_descriptor,
         new java.lang.String[] { "ManagerId", "ChannelId", });
     internal_static_coreapi_service_GetManagerResult_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_coreapi_service_GetManagerResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_GetManagerResult_descriptor,
-        new java.lang.String[] { "Manager", "Online", "OperatorStatus", });
+        new java.lang.String[] { "Manager", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);
@@ -110,8 +130,6 @@ public final class Manager {
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
     io.channel.api.proto.pub.coreapi.model.ManagerOuterClass.getDescriptor();
-    io.channel.api.proto.pub.coreapi.model.OnlineOuterClass.getDescriptor();
-    io.channel.api.proto.pub.coreapi.model.OperatorStatusOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

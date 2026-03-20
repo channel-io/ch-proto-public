@@ -100,21 +100,13 @@ func (x *SearchManagersRequest) GetLimit() int32 {
 type SearchManagersResult struct {
 	state    protoimpl.MessageState `protogen:"open.v1"`
 	Managers []*model.Manager       `protobuf:"bytes,1,rep,name=managers,proto3" json:"managers,omitempty"`
-	// Online presence records for the listed managers.
-	//
-	// +kubebuilder:validation:Nullable
-	Onlines []*model.Online `protobuf:"bytes,2,rep,name=onlines,proto3" json:"onlines,omitempty"`
-	// Operator statuses for the listed managers.
-	//
-	// +kubebuilder:validation:Nullable
-	OperatorStatuses []*model.OperatorStatus `protobuf:"bytes,3,rep,name=operator_statuses,json=operatorStatuses,proto3" json:"operator_statuses,omitempty"`
 	// Opaque cursor for the next page.
 	// Use has_next to determine whether another page exists.
 	//
 	// +kubebuilder:validation:Nullable
-	NextCursor string `protobuf:"bytes,4,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
+	NextCursor string `protobuf:"bytes,2,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
 	// Whether a next page of results exists.
-	HasNext       bool `protobuf:"varint,5,opt,name=has_next,json=hasNext,proto3" json:"has_next,omitempty"`
+	HasNext       bool `protobuf:"varint,3,opt,name=has_next,json=hasNext,proto3" json:"has_next,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -156,20 +148,6 @@ func (x *SearchManagersResult) GetManagers() []*model.Manager {
 	return nil
 }
 
-func (x *SearchManagersResult) GetOnlines() []*model.Online {
-	if x != nil {
-		return x.Onlines
-	}
-	return nil
-}
-
-func (x *SearchManagersResult) GetOperatorStatuses() []*model.OperatorStatus {
-	if x != nil {
-		return x.OperatorStatuses
-	}
-	return nil
-}
-
 func (x *SearchManagersResult) GetNextCursor() string {
 	if x != nil {
 		return x.NextCursor
@@ -182,6 +160,112 @@ func (x *SearchManagersResult) GetHasNext() bool {
 		return x.HasNext
 	}
 	return false
+}
+
+// Retrieves multiple managers by their IDs.
+//
+// Managers that do not exist or have been removed are silently skipped.
+type BatchGetManagersRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Channel ID the managers belong to.
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Manager IDs to retrieve.
+	//
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinItems=1
+	// +kubebuilder:validation:MaxItems=50
+	ManagerIds    []string `protobuf:"bytes,2,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BatchGetManagersRequest) Reset() {
+	*x = BatchGetManagersRequest{}
+	mi := &file_coreapi_service_manager_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BatchGetManagersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchGetManagersRequest) ProtoMessage() {}
+
+func (x *BatchGetManagersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_manager_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchGetManagersRequest.ProtoReflect.Descriptor instead.
+func (*BatchGetManagersRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_manager_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *BatchGetManagersRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *BatchGetManagersRequest) GetManagerIds() []string {
+	if x != nil {
+		return x.ManagerIds
+	}
+	return nil
+}
+
+// Response for batch manager retrieval.
+type BatchGetManagersResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Managers      []*model.Manager       `protobuf:"bytes,1,rep,name=managers,proto3" json:"managers,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BatchGetManagersResult) Reset() {
+	*x = BatchGetManagersResult{}
+	mi := &file_coreapi_service_manager_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BatchGetManagersResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchGetManagersResult) ProtoMessage() {}
+
+func (x *BatchGetManagersResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_manager_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchGetManagersResult.ProtoReflect.Descriptor instead.
+func (*BatchGetManagersResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_manager_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *BatchGetManagersResult) GetManagers() []*model.Manager {
+	if x != nil {
+		return x.Managers
+	}
+	return nil
 }
 
 // Retrieves a single manager.
@@ -197,7 +281,7 @@ type GetManagerRequest struct {
 
 func (x *GetManagerRequest) Reset() {
 	*x = GetManagerRequest{}
-	mi := &file_coreapi_service_manager_proto_msgTypes[2]
+	mi := &file_coreapi_service_manager_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -209,7 +293,7 @@ func (x *GetManagerRequest) String() string {
 func (*GetManagerRequest) ProtoMessage() {}
 
 func (x *GetManagerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_manager_proto_msgTypes[2]
+	mi := &file_coreapi_service_manager_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -222,7 +306,7 @@ func (x *GetManagerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetManagerRequest.ProtoReflect.Descriptor instead.
 func (*GetManagerRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_manager_proto_rawDescGZIP(), []int{2}
+	return file_coreapi_service_manager_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetManagerRequest) GetManagerId() string {
@@ -241,19 +325,15 @@ func (x *GetManagerRequest) GetChannelId() string {
 
 // Response for single manager retrieval.
 type GetManagerResult struct {
-	state   protoimpl.MessageState `protogen:"open.v1"`
-	Manager *model.Manager         `protobuf:"bytes,1,opt,name=manager,proto3" json:"manager,omitempty"`
-	// Online presence of the manager.
-	Online *model.Online `protobuf:"bytes,2,opt,name=online,proto3" json:"online,omitempty"`
-	// Operator status of the manager.
-	OperatorStatus *model.OperatorStatus `protobuf:"bytes,3,opt,name=operator_status,json=operatorStatus,proto3" json:"operator_status,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Manager       *model.Manager         `protobuf:"bytes,1,opt,name=manager,proto3" json:"manager,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetManagerResult) Reset() {
 	*x = GetManagerResult{}
-	mi := &file_coreapi_service_manager_proto_msgTypes[3]
+	mi := &file_coreapi_service_manager_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -265,7 +345,7 @@ func (x *GetManagerResult) String() string {
 func (*GetManagerResult) ProtoMessage() {}
 
 func (x *GetManagerResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_manager_proto_msgTypes[3]
+	mi := &file_coreapi_service_manager_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -278,7 +358,7 @@ func (x *GetManagerResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetManagerResult.ProtoReflect.Descriptor instead.
 func (*GetManagerResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_manager_proto_rawDescGZIP(), []int{3}
+	return file_coreapi_service_manager_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetManagerResult) GetManager() *model.Manager {
@@ -288,47 +368,38 @@ func (x *GetManagerResult) GetManager() *model.Manager {
 	return nil
 }
 
-func (x *GetManagerResult) GetOnline() *model.Online {
-	if x != nil {
-		return x.Online
-	}
-	return nil
-}
-
-func (x *GetManagerResult) GetOperatorStatus() *model.OperatorStatus {
-	if x != nil {
-		return x.OperatorStatus
-	}
-	return nil
-}
-
 var File_coreapi_service_manager_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_manager_proto_rawDesc = "" +
 	"\n" +
-	"\x1dcoreapi/service/manager.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1bcoreapi/model/manager.proto\x1a\x1acoreapi/model/online.proto\x1a#coreapi/model/operator_status.proto\"\xcd\x01\n" +
+	"\x1dcoreapi/service/manager.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1bcoreapi/model/manager.proto\"\xcd\x01\n" +
 	"\x15SearchManagersRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x16\n" +
 	"\x06cursor\x18\x02 \x01(\tR\x06cursor\x12u\n" +
 	"\x05limit\x18\x03 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
-	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\"\x83\x02\n" +
+	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\"\x86\x01\n" +
 	"\x14SearchManagersResult\x122\n" +
-	"\bmanagers\x18\x01 \x03(\v2\x16.coreapi.model.ManagerR\bmanagers\x12/\n" +
-	"\aonlines\x18\x02 \x03(\v2\x15.coreapi.model.OnlineR\aonlines\x12J\n" +
-	"\x11operator_statuses\x18\x03 \x03(\v2\x1d.coreapi.model.OperatorStatusR\x10operatorStatuses\x12\x1f\n" +
-	"\vnext_cursor\x18\x04 \x01(\tR\n" +
+	"\bmanagers\x18\x01 \x03(\v2\x16.coreapi.model.ManagerR\bmanagers\x12\x1f\n" +
+	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x05 \x01(\bR\ahasNext\"a\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\x84\x02\n" +
+	"\x17BatchGetManagersRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xc1\x01\n" +
+	"\vmanager_ids\x18\x02 \x03(\tB\x9f\x01\xbaH\x9b\x01\xba\x01I\n" +
+	"\x11repeated.minItems\x12#at least one manager ID is required\x1a\x0fsize(this) >= 1\xba\x01I\n" +
+	"\x11repeated.maxItems\x12\"value must contain no more than 50\x1a\x10size(this) <= 50\xc8\x01\x01R\n" +
+	"managerIds\"L\n" +
+	"\x16BatchGetManagersResult\x122\n" +
+	"\bmanagers\x18\x01 \x03(\v2\x16.coreapi.model.ManagerR\bmanagers\"a\n" +
 	"\x11GetManagerRequest\x12%\n" +
 	"\n" +
 	"manager_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tmanagerId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"\xbb\x01\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"D\n" +
 	"\x10GetManagerResult\x120\n" +
-	"\amanager\x18\x01 \x01(\v2\x16.coreapi.model.ManagerR\amanager\x12-\n" +
-	"\x06online\x18\x02 \x01(\v2\x15.coreapi.model.OnlineR\x06online\x12F\n" +
-	"\x0foperator_status\x18\x03 \x01(\v2\x1d.coreapi.model.OperatorStatusR\x0eoperatorStatusBf\n" +
+	"\amanager\x18\x01 \x01(\v2\x16.coreapi.model.ManagerR\amanagerBf\n" +
 	"(io.channel.api.proto.pub.coreapi.serviceP\x01Z8github.com/channel-io/ch-proto-public/coreapi/go/serviceb\x06proto3"
 
 var (
@@ -343,28 +414,25 @@ func file_coreapi_service_manager_proto_rawDescGZIP() []byte {
 	return file_coreapi_service_manager_proto_rawDescData
 }
 
-var file_coreapi_service_manager_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_coreapi_service_manager_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_coreapi_service_manager_proto_goTypes = []any{
-	(*SearchManagersRequest)(nil), // 0: coreapi.service.SearchManagersRequest
-	(*SearchManagersResult)(nil),  // 1: coreapi.service.SearchManagersResult
-	(*GetManagerRequest)(nil),     // 2: coreapi.service.GetManagerRequest
-	(*GetManagerResult)(nil),      // 3: coreapi.service.GetManagerResult
-	(*model.Manager)(nil),         // 4: coreapi.model.Manager
-	(*model.Online)(nil),          // 5: coreapi.model.Online
-	(*model.OperatorStatus)(nil),  // 6: coreapi.model.OperatorStatus
+	(*SearchManagersRequest)(nil),   // 0: coreapi.service.SearchManagersRequest
+	(*SearchManagersResult)(nil),    // 1: coreapi.service.SearchManagersResult
+	(*BatchGetManagersRequest)(nil), // 2: coreapi.service.BatchGetManagersRequest
+	(*BatchGetManagersResult)(nil),  // 3: coreapi.service.BatchGetManagersResult
+	(*GetManagerRequest)(nil),       // 4: coreapi.service.GetManagerRequest
+	(*GetManagerResult)(nil),        // 5: coreapi.service.GetManagerResult
+	(*model.Manager)(nil),           // 6: coreapi.model.Manager
 }
 var file_coreapi_service_manager_proto_depIdxs = []int32{
-	4, // 0: coreapi.service.SearchManagersResult.managers:type_name -> coreapi.model.Manager
-	5, // 1: coreapi.service.SearchManagersResult.onlines:type_name -> coreapi.model.Online
-	6, // 2: coreapi.service.SearchManagersResult.operator_statuses:type_name -> coreapi.model.OperatorStatus
-	4, // 3: coreapi.service.GetManagerResult.manager:type_name -> coreapi.model.Manager
-	5, // 4: coreapi.service.GetManagerResult.online:type_name -> coreapi.model.Online
-	6, // 5: coreapi.service.GetManagerResult.operator_status:type_name -> coreapi.model.OperatorStatus
-	6, // [6:6] is the sub-list for method output_type
-	6, // [6:6] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	6, // 0: coreapi.service.SearchManagersResult.managers:type_name -> coreapi.model.Manager
+	6, // 1: coreapi.service.BatchGetManagersResult.managers:type_name -> coreapi.model.Manager
+	6, // 2: coreapi.service.GetManagerResult.manager:type_name -> coreapi.model.Manager
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_manager_proto_init() }
@@ -378,7 +446,7 @@ func file_coreapi_service_manager_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_manager_proto_rawDesc), len(file_coreapi_service_manager_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

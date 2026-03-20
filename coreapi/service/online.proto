@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package coreapi.service;
+
+import "buf/validate/validate.proto";
+import "coreapi/model/online.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.service";
+
+// Retrieves online presence for multiple persons.
+//
+// Persons that are not online are excluded from the result.
+message BatchGetOnlinesRequest {
+  // Channel ID to check online status in.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Person type to check (e.g. "manager", "user").
+  string person_type = 2 [(buf.validate.field).required = true];
+
+  // Person IDs to check online status for.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinItems=1
+  // +kubebuilder:validation:MaxItems=50
+  repeated string person_ids = 3 [
+    (buf.validate.field).cel = {
+      id: "repeated.minItems"
+      message: "at least one person ID is required"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).cel = {
+      id: "repeated.maxItems"
+      message: "value must contain no more than 50"
+      expression: "size(this) <= 50"
+    },
+    (buf.validate.field).required = true
+  ];
+}
+
+// Response for batch online presence retrieval.
+message BatchGetOnlinesResult {
+  repeated coreapi.model.Online onlines = 1;
+}

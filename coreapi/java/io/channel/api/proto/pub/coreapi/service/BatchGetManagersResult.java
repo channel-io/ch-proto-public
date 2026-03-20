@@ -5,30 +5,29 @@ package io.channel.api.proto.pub.coreapi.service;
 
 /**
  * <pre>
- * Response for manager list retrieval.
+ * Response for batch manager retrieval.
  * </pre>
  *
- * Protobuf type {@code coreapi.service.SearchManagersResult}
+ * Protobuf type {@code coreapi.service.BatchGetManagersResult}
  */
-public final class SearchManagersResult extends
+public final class BatchGetManagersResult extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:coreapi.service.SearchManagersResult)
-    SearchManagersResultOrBuilder {
+    // @@protoc_insertion_point(message_implements:coreapi.service.BatchGetManagersResult)
+    BatchGetManagersResultOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use SearchManagersResult.newBuilder() to construct.
-  private SearchManagersResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use BatchGetManagersResult.newBuilder() to construct.
+  private BatchGetManagersResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private SearchManagersResult() {
+  private BatchGetManagersResult() {
     managers_ = java.util.Collections.emptyList();
-    nextCursor_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new SearchManagersResult();
+    return new BatchGetManagersResult();
   }
 
   @java.lang.Override
@@ -36,7 +35,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SearchManagersResult(
+  private BatchGetManagersResult(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -64,17 +63,6 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(io.channel.api.proto.pub.coreapi.model.Manager.parser(), extensionRegistry));
             break;
           }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            nextCursor_ = s;
-            break;
-          }
-          case 24: {
-
-            hasNext_ = input.readBool();
-            break;
-          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -99,15 +87,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.channel.api.proto.pub.coreapi.service.Manager.internal_static_coreapi_service_SearchManagersResult_descriptor;
+    return io.channel.api.proto.pub.coreapi.service.Manager.internal_static_coreapi_service_BatchGetManagersResult_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.channel.api.proto.pub.coreapi.service.Manager.internal_static_coreapi_service_SearchManagersResult_fieldAccessorTable
+    return io.channel.api.proto.pub.coreapi.service.Manager.internal_static_coreapi_service_BatchGetManagersResult_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            io.channel.api.proto.pub.coreapi.service.SearchManagersResult.class, io.channel.api.proto.pub.coreapi.service.SearchManagersResult.Builder.class);
+            io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult.class, io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult.Builder.class);
   }
 
   public static final int MANAGERS_FIELD_NUMBER = 1;
@@ -150,71 +138,6 @@ private static final long serialVersionUID = 0L;
     return managers_.get(index);
   }
 
-  public static final int NEXT_CURSOR_FIELD_NUMBER = 2;
-  private volatile java.lang.Object nextCursor_;
-  /**
-   * <pre>
-   * Opaque cursor for the next page.
-   * Use has_next to determine whether another page exists.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
-   * @return The nextCursor.
-   */
-  @java.lang.Override
-  public java.lang.String getNextCursor() {
-    java.lang.Object ref = nextCursor_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      nextCursor_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Opaque cursor for the next page.
-   * Use has_next to determine whether another page exists.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
-   * @return The bytes for nextCursor.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getNextCursorBytes() {
-    java.lang.Object ref = nextCursor_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      nextCursor_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int HAS_NEXT_FIELD_NUMBER = 3;
-  private boolean hasNext_;
-  /**
-   * <pre>
-   * Whether a next page of results exists.
-   * </pre>
-   *
-   * <code>bool has_next = 3 [json_name = "hasNext"];</code>
-   * @return The hasNext.
-   */
-  @java.lang.Override
-  public boolean getHasNext() {
-    return hasNext_;
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -232,12 +155,6 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < managers_.size(); i++) {
       output.writeMessage(1, managers_.get(i));
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextCursor_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nextCursor_);
-    }
-    if (hasNext_ != false) {
-      output.writeBool(3, hasNext_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -251,13 +168,6 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, managers_.get(i));
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextCursor_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nextCursor_);
-    }
-    if (hasNext_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, hasNext_);
-    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -268,17 +178,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof io.channel.api.proto.pub.coreapi.service.SearchManagersResult)) {
+    if (!(obj instanceof io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult)) {
       return super.equals(obj);
     }
-    io.channel.api.proto.pub.coreapi.service.SearchManagersResult other = (io.channel.api.proto.pub.coreapi.service.SearchManagersResult) obj;
+    io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult other = (io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult) obj;
 
     if (!getManagersList()
         .equals(other.getManagersList())) return false;
-    if (!getNextCursor()
-        .equals(other.getNextCursor())) return false;
-    if (getHasNext()
-        != other.getHasNext()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -294,79 +200,74 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MANAGERS_FIELD_NUMBER;
       hash = (53 * hash) + getManagersList().hashCode();
     }
-    hash = (37 * hash) + NEXT_CURSOR_FIELD_NUMBER;
-    hash = (53 * hash) + getNextCursor().hashCode();
-    hash = (37 * hash) + HAS_NEXT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getHasNext());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static io.channel.api.proto.pub.coreapi.service.SearchManagersResult parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchManagersResult parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchManagersResult parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchManagersResult parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchManagersResult parseFrom(byte[] data)
+  public static io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchManagersResult parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchManagersResult parseFrom(java.io.InputStream input)
+  public static io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchManagersResult parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchManagersResult parseDelimitedFrom(java.io.InputStream input)
+  public static io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchManagersResult parseDelimitedFrom(
+  public static io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchManagersResult parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchManagersResult parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -379,7 +280,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(io.channel.api.proto.pub.coreapi.service.SearchManagersResult prototype) {
+  public static Builder newBuilder(io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -396,29 +297,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Response for manager list retrieval.
+   * Response for batch manager retrieval.
    * </pre>
    *
-   * Protobuf type {@code coreapi.service.SearchManagersResult}
+   * Protobuf type {@code coreapi.service.BatchGetManagersResult}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:coreapi.service.SearchManagersResult)
-      io.channel.api.proto.pub.coreapi.service.SearchManagersResultOrBuilder {
+      // @@protoc_insertion_point(builder_implements:coreapi.service.BatchGetManagersResult)
+      io.channel.api.proto.pub.coreapi.service.BatchGetManagersResultOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.channel.api.proto.pub.coreapi.service.Manager.internal_static_coreapi_service_SearchManagersResult_descriptor;
+      return io.channel.api.proto.pub.coreapi.service.Manager.internal_static_coreapi_service_BatchGetManagersResult_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.channel.api.proto.pub.coreapi.service.Manager.internal_static_coreapi_service_SearchManagersResult_fieldAccessorTable
+      return io.channel.api.proto.pub.coreapi.service.Manager.internal_static_coreapi_service_BatchGetManagersResult_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.channel.api.proto.pub.coreapi.service.SearchManagersResult.class, io.channel.api.proto.pub.coreapi.service.SearchManagersResult.Builder.class);
+              io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult.class, io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult.Builder.class);
     }
 
-    // Construct using io.channel.api.proto.pub.coreapi.service.SearchManagersResult.newBuilder()
+    // Construct using io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -443,27 +344,23 @@ private static final long serialVersionUID = 0L;
       } else {
         managersBuilder_.clear();
       }
-      nextCursor_ = "";
-
-      hasNext_ = false;
-
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.channel.api.proto.pub.coreapi.service.Manager.internal_static_coreapi_service_SearchManagersResult_descriptor;
+      return io.channel.api.proto.pub.coreapi.service.Manager.internal_static_coreapi_service_BatchGetManagersResult_descriptor;
     }
 
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.service.SearchManagersResult getDefaultInstanceForType() {
-      return io.channel.api.proto.pub.coreapi.service.SearchManagersResult.getDefaultInstance();
+    public io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult getDefaultInstanceForType() {
+      return io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult.getDefaultInstance();
     }
 
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.service.SearchManagersResult build() {
-      io.channel.api.proto.pub.coreapi.service.SearchManagersResult result = buildPartial();
+    public io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult build() {
+      io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -471,8 +368,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.service.SearchManagersResult buildPartial() {
-      io.channel.api.proto.pub.coreapi.service.SearchManagersResult result = new io.channel.api.proto.pub.coreapi.service.SearchManagersResult(this);
+    public io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult buildPartial() {
+      io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult result = new io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult(this);
       int from_bitField0_ = bitField0_;
       if (managersBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
@@ -483,8 +380,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.managers_ = managersBuilder_.build();
       }
-      result.nextCursor_ = nextCursor_;
-      result.hasNext_ = hasNext_;
       onBuilt();
       return result;
     }
@@ -523,16 +418,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof io.channel.api.proto.pub.coreapi.service.SearchManagersResult) {
-        return mergeFrom((io.channel.api.proto.pub.coreapi.service.SearchManagersResult)other);
+      if (other instanceof io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult) {
+        return mergeFrom((io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(io.channel.api.proto.pub.coreapi.service.SearchManagersResult other) {
-      if (other == io.channel.api.proto.pub.coreapi.service.SearchManagersResult.getDefaultInstance()) return this;
+    public Builder mergeFrom(io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult other) {
+      if (other == io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult.getDefaultInstance()) return this;
       if (managersBuilder_ == null) {
         if (!other.managers_.isEmpty()) {
           if (managers_.isEmpty()) {
@@ -559,13 +454,6 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      if (!other.getNextCursor().isEmpty()) {
-        nextCursor_ = other.nextCursor_;
-        onChanged();
-      }
-      if (other.getHasNext() != false) {
-        setHasNext(other.getHasNext());
-      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -581,11 +469,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.channel.api.proto.pub.coreapi.service.SearchManagersResult parsedMessage = null;
+      io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.channel.api.proto.pub.coreapi.service.SearchManagersResult) e.getUnfinishedMessage();
+        parsedMessage = (io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -835,155 +723,6 @@ private static final long serialVersionUID = 0L;
       }
       return managersBuilder_;
     }
-
-    private java.lang.Object nextCursor_ = "";
-    /**
-     * <pre>
-     * Opaque cursor for the next page.
-     * Use has_next to determine whether another page exists.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
-     * @return The nextCursor.
-     */
-    public java.lang.String getNextCursor() {
-      java.lang.Object ref = nextCursor_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        nextCursor_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Opaque cursor for the next page.
-     * Use has_next to determine whether another page exists.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
-     * @return The bytes for nextCursor.
-     */
-    public com.google.protobuf.ByteString
-        getNextCursorBytes() {
-      java.lang.Object ref = nextCursor_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        nextCursor_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Opaque cursor for the next page.
-     * Use has_next to determine whether another page exists.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
-     * @param value The nextCursor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setNextCursor(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      nextCursor_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Opaque cursor for the next page.
-     * Use has_next to determine whether another page exists.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearNextCursor() {
-      
-      nextCursor_ = getDefaultInstance().getNextCursor();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Opaque cursor for the next page.
-     * Use has_next to determine whether another page exists.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
-     * @param value The bytes for nextCursor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setNextCursorBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      nextCursor_ = value;
-      onChanged();
-      return this;
-    }
-
-    private boolean hasNext_ ;
-    /**
-     * <pre>
-     * Whether a next page of results exists.
-     * </pre>
-     *
-     * <code>bool has_next = 3 [json_name = "hasNext"];</code>
-     * @return The hasNext.
-     */
-    @java.lang.Override
-    public boolean getHasNext() {
-      return hasNext_;
-    }
-    /**
-     * <pre>
-     * Whether a next page of results exists.
-     * </pre>
-     *
-     * <code>bool has_next = 3 [json_name = "hasNext"];</code>
-     * @param value The hasNext to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHasNext(boolean value) {
-      
-      hasNext_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether a next page of results exists.
-     * </pre>
-     *
-     * <code>bool has_next = 3 [json_name = "hasNext"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearHasNext() {
-      
-      hasNext_ = false;
-      onChanged();
-      return this;
-    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1024,87 +763,41 @@ private static final long serialVersionUID = 0L;
     	}
     }
     	
-    /**
-     * @param value The next_cursor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearNextCursor(java.lang.String value) {
-    	if (value == null)
-    		return clearNextCursor();
-    	else
-    		return setNextCursor(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearNextCursor(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearNextCursor();
-    	else
-    		return setNextCursor(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The has_next to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearHasNext(java.lang.Boolean value) {
-    	if (value == null)
-    		return clearHasNext();
-    	else
-    		return setHasNext(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearHasNext(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
-    	if (value == null)
-    		return clearHasNext();
-    	else
-    		return setHasNext(mapFunc.apply(value));
-    }
-    	
-    // @@protoc_insertion_point(builder_scope:coreapi.service.SearchManagersResult)
+    // @@protoc_insertion_point(builder_scope:coreapi.service.BatchGetManagersResult)
   }
 
-  // @@protoc_insertion_point(class_scope:coreapi.service.SearchManagersResult)
-  private static final io.channel.api.proto.pub.coreapi.service.SearchManagersResult DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:coreapi.service.BatchGetManagersResult)
+  private static final io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new io.channel.api.proto.pub.coreapi.service.SearchManagersResult();
+    DEFAULT_INSTANCE = new io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult();
   }
 
-  public static io.channel.api.proto.pub.coreapi.service.SearchManagersResult getDefaultInstance() {
+  public static io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<SearchManagersResult>
-      PARSER = new com.google.protobuf.AbstractParser<SearchManagersResult>() {
+  private static final com.google.protobuf.Parser<BatchGetManagersResult>
+      PARSER = new com.google.protobuf.AbstractParser<BatchGetManagersResult>() {
     @java.lang.Override
-    public SearchManagersResult parsePartialFrom(
+    public BatchGetManagersResult parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SearchManagersResult(input, extensionRegistry);
+      return new BatchGetManagersResult(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<SearchManagersResult> parser() {
+  public static com.google.protobuf.Parser<BatchGetManagersResult> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<SearchManagersResult> getParserForType() {
+  public com.google.protobuf.Parser<BatchGetManagersResult> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.service.SearchManagersResult getDefaultInstanceForType() {
+  public io.channel.api.proto.pub.coreapi.service.BatchGetManagersResult getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

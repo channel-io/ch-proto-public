@@ -3,7 +3,6 @@ syntax = "proto3";
 package coreapi.service;
 
 import "buf/validate/validate.proto";
-import "coreapi/model/online.proto";
 import "coreapi/model/user.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/struct.proto";
@@ -25,9 +24,6 @@ message GetUserRequest {
 // Response for single user retrieval.
 message GetUserResult {
   coreapi.model.User user = 1;
-
-  // Online presence of the user.
-  coreapi.model.Online online = 2;
 }
 
 // Retrieves a single user by external member identifier.
@@ -53,9 +49,6 @@ message GetUserByMemberIdRequest {
 // Response for single user retrieval by member identifier.
 message GetUserByMemberIdResult {
   coreapi.model.User user = 1;
-
-  // Online presence of the user.
-  coreapi.model.Online online = 2;
 }
 
 // Deletes a user.
@@ -110,9 +103,6 @@ message BlockUserRequest {
 // Response for user block.
 message BlockUserResult {
   coreapi.model.User user = 1;
-
-  // Online presence of the user.
-  coreapi.model.Online online = 2;
 }
 
 // Unblocks a previously blocked user.
@@ -127,9 +117,6 @@ message UnblockUserRequest {
 // Response for user unblock.
 message UnblockUserResult {
   coreapi.model.User user = 1;
-
-  // Online presence of the user.
-  coreapi.model.Online online = 2;
 }
 
 // Updates a user partially.
@@ -170,9 +157,6 @@ message PatchUserRequest {
 // Response for user update.
 message PatchUserResult {
   coreapi.model.User user = 1;
-
-  // Online presence of the user.
-  coreapi.model.Online online = 2;
 }
 
 // Creates or updates a user by external member identifier.
@@ -224,9 +208,6 @@ message UpsertUserByMemberIdRequest {
 // Response for user upsert by member identifier.
 message UpsertUserByMemberIdResult {
   coreapi.model.User user = 1;
-
-  // Online presence of the user.
-  coreapi.model.Online online = 2;
 }
 
 // Creates a new lead user with the given profile.
@@ -241,9 +222,6 @@ message CreateLeadRequest {
 // Response for lead creation.
 message CreateLeadResult {
   coreapi.model.User user = 1;
-
-  // Online presence of the user.
-  coreapi.model.Online online = 2;
 }
 
 // Issues a session JWT for member authentication.
@@ -354,7 +332,4 @@ message TouchUserRequest {
 // Response for user touch.
 message TouchUserResult {
   coreapi.model.User user = 1;
-
-  // Online presence of the user.
-  coreapi.model.Online online = 2;
 }

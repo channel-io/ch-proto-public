@@ -33,100 +33,12 @@ public interface SearchMeetMessagesResultOrBuilder extends
 
   /**
    * <pre>
-   * Users who authored messages in the meet session.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.User users = 2 [json_name = "users"];</code>
-   */
-  java.util.List<io.channel.api.proto.pub.coreapi.model.User> 
-      getUsersList();
-  /**
-   * <pre>
-   * Users who authored messages in the meet session.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.User users = 2 [json_name = "users"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.User getUsers(int index);
-  /**
-   * <pre>
-   * Users who authored messages in the meet session.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.User users = 2 [json_name = "users"];</code>
-   */
-  int getUsersCount();
-  /**
-   * <pre>
-   * Users who authored messages in the meet session.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.User users = 2 [json_name = "users"];</code>
-   */
-  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.UserOrBuilder> 
-      getUsersOrBuilderList();
-  /**
-   * <pre>
-   * Users who authored messages in the meet session.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.User users = 2 [json_name = "users"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.UserOrBuilder getUsersOrBuilder(
-      int index);
-
-  /**
-   * <pre>
-   * Managers who authored messages in the meet session.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Manager managers = 3 [json_name = "managers"];</code>
-   */
-  java.util.List<io.channel.api.proto.pub.coreapi.model.Manager> 
-      getManagersList();
-  /**
-   * <pre>
-   * Managers who authored messages in the meet session.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Manager managers = 3 [json_name = "managers"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.Manager getManagers(int index);
-  /**
-   * <pre>
-   * Managers who authored messages in the meet session.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Manager managers = 3 [json_name = "managers"];</code>
-   */
-  int getManagersCount();
-  /**
-   * <pre>
-   * Managers who authored messages in the meet session.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Manager managers = 3 [json_name = "managers"];</code>
-   */
-  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.ManagerOrBuilder> 
-      getManagersOrBuilderList();
-  /**
-   * <pre>
-   * Managers who authored messages in the meet session.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Manager managers = 3 [json_name = "managers"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.ManagerOrBuilder getManagersOrBuilder(
-      int index);
-
-  /**
-   * <pre>
    * Opaque cursor for the next page.
    * Use has_next to determine whether another page exists.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string next_cursor = 4 [json_name = "nextCursor"];</code>
+   * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
    * @return The nextCursor.
    */
   java.lang.String getNextCursor();
@@ -137,7 +49,7 @@ public interface SearchMeetMessagesResultOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string next_cursor = 4 [json_name = "nextCursor"];</code>
+   * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
    * @return The bytes for nextCursor.
    */
   com.google.protobuf.ByteString
@@ -148,7 +60,7 @@ public interface SearchMeetMessagesResultOrBuilder extends
    * Whether a next page of results exists.
    * </pre>
    *
-   * <code>bool has_next = 5 [json_name = "hasNext"];</code>
+   * <code>bool has_next = 3 [json_name = "hasNext"];</code>
    * @return The hasNext.
    */
   boolean getHasNext();

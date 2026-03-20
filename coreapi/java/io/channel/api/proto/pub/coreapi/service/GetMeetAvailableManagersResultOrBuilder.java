@@ -8,26 +8,43 @@ public interface GetMeetAvailableManagersResultOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .coreapi.model.Manager managers = 1 [json_name = "managers"];</code>
+   * <pre>
+   * IDs of managers currently available for meet calls.
+   * </pre>
+   *
+   * <code>repeated string manager_ids = 1 [json_name = "managerIds"];</code>
+   * @return A list containing the managerIds.
    */
-  java.util.List<io.channel.api.proto.pub.coreapi.model.Manager> 
-      getManagersList();
+  java.util.List<java.lang.String>
+      getManagerIdsList();
   /**
-   * <code>repeated .coreapi.model.Manager managers = 1 [json_name = "managers"];</code>
+   * <pre>
+   * IDs of managers currently available for meet calls.
+   * </pre>
+   *
+   * <code>repeated string manager_ids = 1 [json_name = "managerIds"];</code>
+   * @return The count of managerIds.
    */
-  io.channel.api.proto.pub.coreapi.model.Manager getManagers(int index);
+  int getManagerIdsCount();
   /**
-   * <code>repeated .coreapi.model.Manager managers = 1 [json_name = "managers"];</code>
+   * <pre>
+   * IDs of managers currently available for meet calls.
+   * </pre>
+   *
+   * <code>repeated string manager_ids = 1 [json_name = "managerIds"];</code>
+   * @param index The index of the element to return.
+   * @return The managerIds at the given index.
    */
-  int getManagersCount();
+  java.lang.String getManagerIds(int index);
   /**
-   * <code>repeated .coreapi.model.Manager managers = 1 [json_name = "managers"];</code>
+   * <pre>
+   * IDs of managers currently available for meet calls.
+   * </pre>
+   *
+   * <code>repeated string manager_ids = 1 [json_name = "managerIds"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the managerIds at the given index.
    */
-  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.ManagerOrBuilder> 
-      getManagersOrBuilderList();
-  /**
-   * <code>repeated .coreapi.model.Manager managers = 1 [json_name = "managers"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.ManagerOrBuilder getManagersOrBuilder(
-      int index);
+  com.google.protobuf.ByteString
+      getManagerIdsBytes(int index);
 }

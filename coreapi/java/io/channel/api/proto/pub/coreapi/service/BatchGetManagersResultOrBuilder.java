@@ -3,8 +3,8 @@
 
 package io.channel.api.proto.pub.coreapi.service;
 
-public interface SearchManagersResultOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:coreapi.service.SearchManagersResult)
+public interface BatchGetManagersResultOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:coreapi.service.BatchGetManagersResult)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -30,38 +30,4 @@ public interface SearchManagersResultOrBuilder extends
    */
   io.channel.api.proto.pub.coreapi.model.ManagerOrBuilder getManagersOrBuilder(
       int index);
-
-  /**
-   * <pre>
-   * Opaque cursor for the next page.
-   * Use has_next to determine whether another page exists.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
-   * @return The nextCursor.
-   */
-  java.lang.String getNextCursor();
-  /**
-   * <pre>
-   * Opaque cursor for the next page.
-   * Use has_next to determine whether another page exists.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
-   * @return The bytes for nextCursor.
-   */
-  com.google.protobuf.ByteString
-      getNextCursorBytes();
-
-  /**
-   * <pre>
-   * Whether a next page of results exists.
-   * </pre>
-   *
-   * <code>bool has_next = 3 [json_name = "hasNext"];</code>
-   * @return The hasNext.
-   */
-  boolean getHasNext();
 }

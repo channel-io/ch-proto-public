@@ -188,8 +188,9 @@ func (x *GetMeetAvailableManagersRequest) GetChannelId() string {
 
 // Response for meet available managers retrieval.
 type GetMeetAvailableManagersResult struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Managers      []*model.Manager       `protobuf:"bytes,1,rep,name=managers,proto3" json:"managers,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// IDs of managers currently available for meet calls.
+	ManagerIds    []string `protobuf:"bytes,1,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -224,9 +225,9 @@ func (*GetMeetAvailableManagersResult) Descriptor() ([]byte, []int) {
 	return file_coreapi_service_meet_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetMeetAvailableManagersResult) GetManagers() []*model.Manager {
+func (x *GetMeetAvailableManagersResult) GetManagerIds() []string {
 	if x != nil {
-		return x.Managers
+		return x.ManagerIds
 	}
 	return nil
 }
@@ -461,17 +462,13 @@ func (x *SearchMeetMessagesRequest) GetLimit() int32 {
 type SearchMeetMessagesResult struct {
 	state    protoimpl.MessageState `protogen:"open.v1"`
 	Messages []*model.MeetMessage   `protobuf:"bytes,1,rep,name=messages,proto3" json:"messages,omitempty"`
-	// Users who authored messages in the meet session.
-	Users []*model.User `protobuf:"bytes,2,rep,name=users,proto3" json:"users,omitempty"`
-	// Managers who authored messages in the meet session.
-	Managers []*model.Manager `protobuf:"bytes,3,rep,name=managers,proto3" json:"managers,omitempty"`
 	// Opaque cursor for the next page.
 	// Use has_next to determine whether another page exists.
 	//
 	// +kubebuilder:validation:Nullable
-	NextCursor string `protobuf:"bytes,4,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
+	NextCursor string `protobuf:"bytes,2,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
 	// Whether a next page of results exists.
-	HasNext       bool `protobuf:"varint,5,opt,name=has_next,json=hasNext,proto3" json:"has_next,omitempty"`
+	HasNext       bool `protobuf:"varint,3,opt,name=has_next,json=hasNext,proto3" json:"has_next,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -509,20 +506,6 @@ func (*SearchMeetMessagesResult) Descriptor() ([]byte, []int) {
 func (x *SearchMeetMessagesResult) GetMessages() []*model.MeetMessage {
 	if x != nil {
 		return x.Messages
-	}
-	return nil
-}
-
-func (x *SearchMeetMessagesResult) GetUsers() []*model.User {
-	if x != nil {
-		return x.Users
-	}
-	return nil
-}
-
-func (x *SearchMeetMessagesResult) GetManagers() []*model.Manager {
-	if x != nil {
-		return x.Managers
 	}
 	return nil
 }
@@ -653,7 +636,7 @@ var File_coreapi_service_meet_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_meet_proto_rawDesc = "" +
 	"\n" +
-	"\x1acoreapi/service/meet.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a\x1bcoreapi/model/manager.proto\x1a\x18coreapi/model/meet.proto\x1a\x18coreapi/model/user.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xaa\x01\n" +
+	"\x1acoreapi/service/meet.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a\x18coreapi/model/meet.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xaa\x01\n" +
 	"\x15SearchCallLogsRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x126\n" +
@@ -663,9 +646,10 @@ const file_coreapi_service_meet_proto_rawDesc = "" +
 	"\tcall_logs\x18\x01 \x03(\v2\x16.coreapi.model.CallLogR\bcallLogs\"H\n" +
 	"\x1fGetMeetAvailableManagersRequest\x12%\n" +
 	"\n" +
-	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"T\n" +
-	"\x1eGetMeetAvailableManagersResult\x122\n" +
-	"\bmanagers\x18\x01 \x03(\v2\x16.coreapi.model.ManagerR\bmanagers\"\xad\x01\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"A\n" +
+	"\x1eGetMeetAvailableManagersResult\x12\x1f\n" +
+	"\vmanager_ids\x18\x01 \x03(\tR\n" +
+	"managerIds\"\xad\x01\n" +
 	"\x18GetCallWrapUpTimeRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x126\n" +
@@ -686,14 +670,12 @@ const file_coreapi_service_meet_proto_rawDesc = "" +
 	"sort_order\x18\x03 \x01(\x0e2\x19.coreapi.common.SortOrderR\tsortOrder\x12\x16\n" +
 	"\x06cursor\x18\x04 \x01(\tR\x06cursor\x12u\n" +
 	"\x05limit\x18\x05 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
-	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\"\xed\x01\n" +
+	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\"\x8e\x01\n" +
 	"\x18SearchMeetMessagesResult\x126\n" +
-	"\bmessages\x18\x01 \x03(\v2\x1a.coreapi.model.MeetMessageR\bmessages\x12)\n" +
-	"\x05users\x18\x02 \x03(\v2\x13.coreapi.model.UserR\x05users\x122\n" +
-	"\bmanagers\x18\x03 \x03(\v2\x16.coreapi.model.ManagerR\bmanagers\x12\x1f\n" +
-	"\vnext_cursor\x18\x04 \x01(\tR\n" +
+	"\bmessages\x18\x01 \x03(\v2\x1a.coreapi.model.MeetMessageR\bmessages\x12\x1f\n" +
+	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x05 \x01(\bR\ahasNext\"g\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"g\n" +
 	"\x17GetMeetRecordingRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12%\n" +
@@ -731,28 +713,23 @@ var file_coreapi_service_meet_proto_goTypes = []any{
 	nil,                                     // 10: coreapi.service.GetCallWrapUpTimeResult.ManagersEntry
 	(*timestamppb.Timestamp)(nil),           // 11: google.protobuf.Timestamp
 	(*model.CallLog)(nil),                   // 12: coreapi.model.CallLog
-	(*model.Manager)(nil),                   // 13: coreapi.model.Manager
-	(common.SortOrder)(0),                   // 14: coreapi.common.SortOrder
-	(*model.MeetMessage)(nil),               // 15: coreapi.model.MeetMessage
-	(*model.User)(nil),                      // 16: coreapi.model.User
+	(common.SortOrder)(0),                   // 13: coreapi.common.SortOrder
+	(*model.MeetMessage)(nil),               // 14: coreapi.model.MeetMessage
 }
 var file_coreapi_service_meet_proto_depIdxs = []int32{
 	11, // 0: coreapi.service.SearchCallLogsRequest.from:type_name -> google.protobuf.Timestamp
 	11, // 1: coreapi.service.SearchCallLogsRequest.to:type_name -> google.protobuf.Timestamp
 	12, // 2: coreapi.service.SearchCallLogsResult.call_logs:type_name -> coreapi.model.CallLog
-	13, // 3: coreapi.service.GetMeetAvailableManagersResult.managers:type_name -> coreapi.model.Manager
-	11, // 4: coreapi.service.GetCallWrapUpTimeRequest.from:type_name -> google.protobuf.Timestamp
-	11, // 5: coreapi.service.GetCallWrapUpTimeRequest.to:type_name -> google.protobuf.Timestamp
-	10, // 6: coreapi.service.GetCallWrapUpTimeResult.managers:type_name -> coreapi.service.GetCallWrapUpTimeResult.ManagersEntry
-	14, // 7: coreapi.service.SearchMeetMessagesRequest.sort_order:type_name -> coreapi.common.SortOrder
-	15, // 8: coreapi.service.SearchMeetMessagesResult.messages:type_name -> coreapi.model.MeetMessage
-	16, // 9: coreapi.service.SearchMeetMessagesResult.users:type_name -> coreapi.model.User
-	13, // 10: coreapi.service.SearchMeetMessagesResult.managers:type_name -> coreapi.model.Manager
-	11, // [11:11] is the sub-list for method output_type
-	11, // [11:11] is the sub-list for method input_type
-	11, // [11:11] is the sub-list for extension type_name
-	11, // [11:11] is the sub-list for extension extendee
-	0,  // [0:11] is the sub-list for field type_name
+	11, // 3: coreapi.service.GetCallWrapUpTimeRequest.from:type_name -> google.protobuf.Timestamp
+	11, // 4: coreapi.service.GetCallWrapUpTimeRequest.to:type_name -> google.protobuf.Timestamp
+	10, // 5: coreapi.service.GetCallWrapUpTimeResult.managers:type_name -> coreapi.service.GetCallWrapUpTimeResult.ManagersEntry
+	13, // 6: coreapi.service.SearchMeetMessagesRequest.sort_order:type_name -> coreapi.common.SortOrder
+	14, // 7: coreapi.service.SearchMeetMessagesResult.messages:type_name -> coreapi.model.MeetMessage
+	8,  // [8:8] is the sub-list for method output_type
+	8,  // [8:8] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_meet_proto_init() }
