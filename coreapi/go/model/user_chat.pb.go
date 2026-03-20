@@ -249,7 +249,12 @@ type UserChat struct {
 	// User chat last update timestamp.
 	//
 	// +kubebuilder:validation:Required
-	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,39,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,39,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// Chat tag names attached to this user chat.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MaxItems=8
+	Tags          []string `protobuf:"bytes,40,rep,name=tags,proto3" json:"tags,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -557,11 +562,18 @@ func (x *UserChat) GetUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
+func (x *UserChat) GetTags() []string {
+	if x != nil {
+		return x.Tags
+	}
+	return nil
+}
+
 var File_coreapi_model_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfc\x10\n" +
+	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x90\x11\n" +
 	"\bUserChat\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -611,7 +623,8 @@ const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18& \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
-	"updated_at\x18' \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt*\xda\x01\n" +
+	"updated_at\x18' \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12\x12\n" +
+	"\x04tags\x18( \x03(\tR\x04tags*\xda\x01\n" +
 	"\rUserChatState\x12\x1f\n" +
 	"\x1bUSER_CHAT_STATE_UNSPECIFIED\x10\x00\x12\x1a\n" +
 	"\x16USER_CHAT_STATE_OPENED\x10\x01\x12\x1a\n" +
