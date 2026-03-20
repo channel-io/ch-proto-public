@@ -12,6 +12,38 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.service";
 
+// Retrieves multiple users by their IDs.
+//
+// Users that do not exist are silently skipped.
+message BatchGetUsersRequest {
+  // Channel ID the users belong to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // User IDs to retrieve.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinItems=1
+  // +kubebuilder:validation:MaxItems=50
+  repeated string user_ids = 2 [
+    (buf.validate.field).cel = {
+      id: "repeated.minItems"
+      message: "at least one user ID is required"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).cel = {
+      id: "repeated.maxItems"
+      message: "value must contain no more than 50"
+      expression: "size(this) <= 50"
+    },
+    (buf.validate.field).required = true
+  ];
+}
+
+// Response for batch user retrieval.
+message BatchGetUsersResult {
+  repeated coreapi.model.User users = 1;
+}
+
 // Retrieves a single user.
 message GetUserRequest {
   // User ID to retrieve.

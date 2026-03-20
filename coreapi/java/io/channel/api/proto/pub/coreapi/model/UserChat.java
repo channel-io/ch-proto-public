@@ -33,6 +33,7 @@ private static final long serialVersionUID = 0L;
     liveMeetId_ = "";
     firstAssigneeIdAfterOpen_ = "";
     frontMessageId_ = "";
+    tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -55,6 +56,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -393,6 +395,15 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 322: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              tags_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            tags_.add(s);
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -408,6 +419,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        tags_ = tags_.getUnmodifiableView();
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -1832,6 +1846,65 @@ private static final long serialVersionUID = 0L;
     return getUpdatedAt();
   }
 
+  public static final int TAGS_FIELD_NUMBER = 40;
+  private com.google.protobuf.LazyStringList tags_;
+  /**
+   * <pre>
+   * Chat tag names attached to this user chat.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=8
+   * </pre>
+   *
+   * <code>repeated string tags = 40 [json_name = "tags"];</code>
+   * @return A list containing the tags.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getTagsList() {
+    return tags_;
+  }
+  /**
+   * <pre>
+   * Chat tag names attached to this user chat.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=8
+   * </pre>
+   *
+   * <code>repeated string tags = 40 [json_name = "tags"];</code>
+   * @return The count of tags.
+   */
+  public int getTagsCount() {
+    return tags_.size();
+  }
+  /**
+   * <pre>
+   * Chat tag names attached to this user chat.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=8
+   * </pre>
+   *
+   * <code>repeated string tags = 40 [json_name = "tags"];</code>
+   * @param index The index of the element to return.
+   * @return The tags at the given index.
+   */
+  public java.lang.String getTags(int index) {
+    return tags_.get(index);
+  }
+  /**
+   * <pre>
+   * Chat tag names attached to this user chat.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=8
+   * </pre>
+   *
+   * <code>repeated string tags = 40 [json_name = "tags"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the tags at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getTagsBytes(int index) {
+    return tags_.getByteString(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1962,6 +2035,9 @@ private static final long serialVersionUID = 0L;
     }
     if (updatedAt_ != null) {
       output.writeMessage(39, getUpdatedAt());
+    }
+    for (int i = 0; i < tags_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 40, tags_.getRaw(i));
     }
     unknownFields.writeTo(output);
   }
@@ -2116,6 +2192,14 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(39, getUpdatedAt());
     }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < tags_.size(); i++) {
+        dataSize += computeStringSizeNoTag(tags_.getRaw(i));
+      }
+      size += dataSize;
+      size += 2 * getTagsList().size();
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -2253,6 +2337,8 @@ private static final long serialVersionUID = 0L;
       if (!getUpdatedAt()
           .equals(other.getUpdatedAt())) return false;
     }
+    if (!getTagsList()
+        .equals(other.getTagsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -2380,6 +2466,10 @@ private static final long serialVersionUID = 0L;
     if (hasUpdatedAt()) {
       hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getUpdatedAt().hashCode();
+    }
+    if (getTagsCount() > 0) {
+      hash = (37 * hash) + TAGS_FIELD_NUMBER;
+      hash = (53 * hash) + getTagsList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -2656,6 +2746,8 @@ private static final long serialVersionUID = 0L;
         updatedAt_ = null;
         updatedAtBuilder_ = null;
       }
+      tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -2682,6 +2774,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.channel.api.proto.pub.coreapi.model.UserChat buildPartial() {
       io.channel.api.proto.pub.coreapi.model.UserChat result = new io.channel.api.proto.pub.coreapi.model.UserChat(this);
+      int from_bitField0_ = bitField0_;
       result.id_ = id_;
       result.channelId_ = channelId_;
       result.state_ = state_;
@@ -2781,6 +2874,11 @@ private static final long serialVersionUID = 0L;
       } else {
         result.updatedAt_ = updatedAtBuilder_.build();
       }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        tags_ = tags_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      }
+      result.tags_ = tags_;
       onBuilt();
       return result;
     }
@@ -2958,6 +3056,16 @@ private static final long serialVersionUID = 0L;
       if (other.hasUpdatedAt()) {
         mergeUpdatedAt(other.getUpdatedAt());
       }
+      if (!other.tags_.isEmpty()) {
+        if (tags_.isEmpty()) {
+          tags_ = other.tags_;
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          ensureTagsIsMutable();
+          tags_.addAll(other.tags_);
+        }
+        onChanged();
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -2986,6 +3094,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object id_ = "";
     /**
@@ -7272,6 +7381,170 @@ private static final long serialVersionUID = 0L;
       }
       return updatedAtBuilder_;
     }
+
+    private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureTagsIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+    /**
+     * <pre>
+     * Chat tag names attached to this user chat.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=8
+     * </pre>
+     *
+     * <code>repeated string tags = 40 [json_name = "tags"];</code>
+     * @return A list containing the tags.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTagsList() {
+      return tags_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * Chat tag names attached to this user chat.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=8
+     * </pre>
+     *
+     * <code>repeated string tags = 40 [json_name = "tags"];</code>
+     * @return The count of tags.
+     */
+    public int getTagsCount() {
+      return tags_.size();
+    }
+    /**
+     * <pre>
+     * Chat tag names attached to this user chat.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=8
+     * </pre>
+     *
+     * <code>repeated string tags = 40 [json_name = "tags"];</code>
+     * @param index The index of the element to return.
+     * @return The tags at the given index.
+     */
+    public java.lang.String getTags(int index) {
+      return tags_.get(index);
+    }
+    /**
+     * <pre>
+     * Chat tag names attached to this user chat.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=8
+     * </pre>
+     *
+     * <code>repeated string tags = 40 [json_name = "tags"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tags at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getTagsBytes(int index) {
+      return tags_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * Chat tag names attached to this user chat.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=8
+     * </pre>
+     *
+     * <code>repeated string tags = 40 [json_name = "tags"];</code>
+     * @param index The index to set the value at.
+     * @param value The tags to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTags(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagsIsMutable();
+      tags_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat tag names attached to this user chat.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=8
+     * </pre>
+     *
+     * <code>repeated string tags = 40 [json_name = "tags"];</code>
+     * @param value The tags to add.
+     * @return This builder for chaining.
+     */
+    public Builder addTags(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagsIsMutable();
+      tags_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat tag names attached to this user chat.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=8
+     * </pre>
+     *
+     * <code>repeated string tags = 40 [json_name = "tags"];</code>
+     * @param values The tags to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllTags(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureTagsIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, tags_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat tag names attached to this user chat.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=8
+     * </pre>
+     *
+     * <code>repeated string tags = 40 [json_name = "tags"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTags() {
+      tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat tag names attached to this user chat.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=8
+     * </pre>
+     *
+     * <code>repeated string tags = 40 [json_name = "tags"];</code>
+     * @param value The bytes of the tags to add.
+     * @return This builder for chaining.
+     */
+    public Builder addTagsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureTagsIsMutable();
+      tags_.add(value);
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -8182,6 +8455,31 @@ private static final long serialVersionUID = 0L;
     		return clearUpdatedAt();
     	else
     		return setUpdatedAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param values The tags to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllOrClearTags(java.lang.Iterable<java.lang.String> values) {
+    	if (values == null)
+    		return clearTags();
+    	else
+    		return addAllTags(values);
+    }
+    	
+    /**
+     * @param values The values to map.
+     * @param mapFunc The function to map the values into each proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapAllOrClearTags(java.lang.Iterable<T> values, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (values == null)
+    		return clearTags();
+    	else {
+    		values.forEach(value -> addTags(mapFunc.apply(value)));
+    		return this;
+    	}
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.UserChat)

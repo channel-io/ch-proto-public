@@ -873,4 +873,53 @@ public interface UserChatOrBuilder extends
    * <code>.google.protobuf.Timestamp updated_at = 39 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Chat tag names attached to this user chat.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=8
+   * </pre>
+   *
+   * <code>repeated string tags = 40 [json_name = "tags"];</code>
+   * @return A list containing the tags.
+   */
+  java.util.List<java.lang.String>
+      getTagsList();
+  /**
+   * <pre>
+   * Chat tag names attached to this user chat.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=8
+   * </pre>
+   *
+   * <code>repeated string tags = 40 [json_name = "tags"];</code>
+   * @return The count of tags.
+   */
+  int getTagsCount();
+  /**
+   * <pre>
+   * Chat tag names attached to this user chat.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=8
+   * </pre>
+   *
+   * <code>repeated string tags = 40 [json_name = "tags"];</code>
+   * @param index The index of the element to return.
+   * @return The tags at the given index.
+   */
+  java.lang.String getTags(int index);
+  /**
+   * <pre>
+   * Chat tag names attached to this user chat.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=8
+   * </pre>
+   *
+   * <code>repeated string tags = 40 [json_name = "tags"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the tags at the given index.
+   */
+  com.google.protobuf.ByteString
+      getTagsBytes(int index);
 }

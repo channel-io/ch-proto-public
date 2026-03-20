@@ -240,4 +240,10 @@ message UserChat {
   //
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp updated_at = 39 [(buf.validate.field).required = true];
+
+  // Chat tag names attached to this user chat.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxItems=8
+  repeated string tags = 40;
 }

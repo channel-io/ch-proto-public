@@ -50,6 +50,38 @@ message SearchBotsResult {
   bool has_next = 3;
 }
 
+// Retrieves multiple bots by their IDs.
+//
+// Bots that do not exist are silently skipped.
+message BatchGetBotsRequest {
+  // Channel ID the bots belong to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Bot IDs to retrieve.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinItems=1
+  // +kubebuilder:validation:MaxItems=50
+  repeated string bot_ids = 2 [
+    (buf.validate.field).cel = {
+      id: "repeated.minItems"
+      message: "at least one bot ID is required"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).cel = {
+      id: "repeated.maxItems"
+      message: "value must contain no more than 50"
+      expression: "size(this) <= 50"
+    },
+    (buf.validate.field).required = true
+  ];
+}
+
+// Response for batch bot retrieval.
+message BatchGetBotsResult {
+  repeated coreapi.model.Bot bots = 1;
+}
+
 // Retrieves a single bot.
 message GetBotRequest {
   // Bot ID to retrieve.

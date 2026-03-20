@@ -163,6 +163,112 @@ func (x *SearchChatTagsResult) GetHasNext() bool {
 	return false
 }
 
+// Retrieves multiple chat tags by their keys (lowercase names).
+//
+// Keys that do not match any chat tag are silently skipped.
+type BatchGetChatTagsByKeysRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Channel ID the chat tags belong to.
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Chat tag keys (lowercase names) to retrieve.
+	//
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinItems=1
+	// +kubebuilder:validation:MaxItems=50
+	Keys          []string `protobuf:"bytes,2,rep,name=keys,proto3" json:"keys,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BatchGetChatTagsByKeysRequest) Reset() {
+	*x = BatchGetChatTagsByKeysRequest{}
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BatchGetChatTagsByKeysRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchGetChatTagsByKeysRequest) ProtoMessage() {}
+
+func (x *BatchGetChatTagsByKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchGetChatTagsByKeysRequest.ProtoReflect.Descriptor instead.
+func (*BatchGetChatTagsByKeysRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *BatchGetChatTagsByKeysRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *BatchGetChatTagsByKeysRequest) GetKeys() []string {
+	if x != nil {
+		return x.Keys
+	}
+	return nil
+}
+
+// Response for batch chat tag retrieval by keys.
+type BatchGetChatTagsByKeysResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChatTags      []*model.ChatTag       `protobuf:"bytes,1,rep,name=chat_tags,json=chatTags,proto3" json:"chat_tags,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BatchGetChatTagsByKeysResult) Reset() {
+	*x = BatchGetChatTagsByKeysResult{}
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BatchGetChatTagsByKeysResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchGetChatTagsByKeysResult) ProtoMessage() {}
+
+func (x *BatchGetChatTagsByKeysResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchGetChatTagsByKeysResult.ProtoReflect.Descriptor instead.
+func (*BatchGetChatTagsByKeysResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *BatchGetChatTagsByKeysResult) GetChatTags() []*model.ChatTag {
+	if x != nil {
+		return x.ChatTags
+	}
+	return nil
+}
+
 // Retrieves a single chat tag.
 type GetChatTagRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -176,7 +282,7 @@ type GetChatTagRequest struct {
 
 func (x *GetChatTagRequest) Reset() {
 	*x = GetChatTagRequest{}
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[2]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -188,7 +294,7 @@ func (x *GetChatTagRequest) String() string {
 func (*GetChatTagRequest) ProtoMessage() {}
 
 func (x *GetChatTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[2]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -201,7 +307,7 @@ func (x *GetChatTagRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetChatTagRequest.ProtoReflect.Descriptor instead.
 func (*GetChatTagRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{2}
+	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetChatTagRequest) GetId() string {
@@ -228,7 +334,7 @@ type GetChatTagResult struct {
 
 func (x *GetChatTagResult) Reset() {
 	*x = GetChatTagResult{}
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[3]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -240,7 +346,7 @@ func (x *GetChatTagResult) String() string {
 func (*GetChatTagResult) ProtoMessage() {}
 
 func (x *GetChatTagResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[3]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -253,7 +359,7 @@ func (x *GetChatTagResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetChatTagResult.ProtoReflect.Descriptor instead.
 func (*GetChatTagResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{3}
+	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetChatTagResult) GetChatTag() *model.ChatTag {
@@ -286,7 +392,7 @@ type CreateChatTagRequest struct {
 
 func (x *CreateChatTagRequest) Reset() {
 	*x = CreateChatTagRequest{}
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[4]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -298,7 +404,7 @@ func (x *CreateChatTagRequest) String() string {
 func (*CreateChatTagRequest) ProtoMessage() {}
 
 func (x *CreateChatTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[4]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -311,7 +417,7 @@ func (x *CreateChatTagRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateChatTagRequest.ProtoReflect.Descriptor instead.
 func (*CreateChatTagRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{4}
+	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CreateChatTagRequest) GetChannelId() string {
@@ -352,7 +458,7 @@ type CreateChatTagResult struct {
 
 func (x *CreateChatTagResult) Reset() {
 	*x = CreateChatTagResult{}
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[5]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -364,7 +470,7 @@ func (x *CreateChatTagResult) String() string {
 func (*CreateChatTagResult) ProtoMessage() {}
 
 func (x *CreateChatTagResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[5]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -377,7 +483,7 @@ func (x *CreateChatTagResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateChatTagResult.ProtoReflect.Descriptor instead.
 func (*CreateChatTagResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{5}
+	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CreateChatTagResult) GetChatTag() *model.ChatTag {
@@ -409,7 +515,7 @@ type UpdateChatTagRequest struct {
 
 func (x *UpdateChatTagRequest) Reset() {
 	*x = UpdateChatTagRequest{}
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[6]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -421,7 +527,7 @@ func (x *UpdateChatTagRequest) String() string {
 func (*UpdateChatTagRequest) ProtoMessage() {}
 
 func (x *UpdateChatTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[6]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -434,7 +540,7 @@ func (x *UpdateChatTagRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateChatTagRequest.ProtoReflect.Descriptor instead.
 func (*UpdateChatTagRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{6}
+	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *UpdateChatTagRequest) GetId() string {
@@ -475,7 +581,7 @@ type UpdateChatTagResult struct {
 
 func (x *UpdateChatTagResult) Reset() {
 	*x = UpdateChatTagResult{}
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[7]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -487,7 +593,7 @@ func (x *UpdateChatTagResult) String() string {
 func (*UpdateChatTagResult) ProtoMessage() {}
 
 func (x *UpdateChatTagResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[7]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -500,7 +606,7 @@ func (x *UpdateChatTagResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateChatTagResult.ProtoReflect.Descriptor instead.
 func (*UpdateChatTagResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{7}
+	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *UpdateChatTagResult) GetChatTag() *model.ChatTag {
@@ -528,7 +634,7 @@ type DeleteChatTagRequest struct {
 
 func (x *DeleteChatTagRequest) Reset() {
 	*x = DeleteChatTagRequest{}
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[8]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -540,7 +646,7 @@ func (x *DeleteChatTagRequest) String() string {
 func (*DeleteChatTagRequest) ProtoMessage() {}
 
 func (x *DeleteChatTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[8]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -553,7 +659,7 @@ func (x *DeleteChatTagRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteChatTagRequest.ProtoReflect.Descriptor instead.
 func (*DeleteChatTagRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{8}
+	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *DeleteChatTagRequest) GetId() string {
@@ -579,7 +685,7 @@ type DeleteChatTagResult struct {
 
 func (x *DeleteChatTagResult) Reset() {
 	*x = DeleteChatTagResult{}
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[9]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -591,7 +697,7 @@ func (x *DeleteChatTagResult) String() string {
 func (*DeleteChatTagResult) ProtoMessage() {}
 
 func (x *DeleteChatTagResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_chat_tag_proto_msgTypes[9]
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -604,7 +710,7 @@ func (x *DeleteChatTagResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteChatTagResult.ProtoReflect.Descriptor instead.
 func (*DeleteChatTagResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{9}
+	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{11}
 }
 
 var File_coreapi_service_chat_tag_proto protoreflect.FileDescriptor
@@ -622,7 +728,15 @@ const file_coreapi_service_chat_tag_proto_rawDesc = "" +
 	"\tchat_tags\x18\x01 \x03(\v2\x16.coreapi.model.ChatTagR\bchatTags\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"R\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xf6\x01\n" +
+	"\x1dBatchGetChatTagsByKeysRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xad\x01\n" +
+	"\x04keys\x18\x02 \x03(\tB\x98\x01\xbaH\x94\x01\xba\x01B\n" +
+	"\x11repeated.minItems\x12\x1cat least one key is required\x1a\x0fsize(this) >= 1\xba\x01I\n" +
+	"\x11repeated.maxItems\x12\"value must contain no more than 50\x1a\x10size(this) <= 50\xc8\x01\x01R\x04keys\"S\n" +
+	"\x1cBatchGetChatTagsByKeysResult\x123\n" +
+	"\tchat_tags\x18\x01 \x03(\v2\x16.coreapi.model.ChatTagR\bchatTags\"R\n" +
 	"\x11GetChatTagRequest\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
@@ -668,33 +782,36 @@ func file_coreapi_service_chat_tag_proto_rawDescGZIP() []byte {
 	return file_coreapi_service_chat_tag_proto_rawDescData
 }
 
-var file_coreapi_service_chat_tag_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_coreapi_service_chat_tag_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
 var file_coreapi_service_chat_tag_proto_goTypes = []any{
-	(*SearchChatTagsRequest)(nil),  // 0: coreapi.service.SearchChatTagsRequest
-	(*SearchChatTagsResult)(nil),   // 1: coreapi.service.SearchChatTagsResult
-	(*GetChatTagRequest)(nil),      // 2: coreapi.service.GetChatTagRequest
-	(*GetChatTagResult)(nil),       // 3: coreapi.service.GetChatTagResult
-	(*CreateChatTagRequest)(nil),   // 4: coreapi.service.CreateChatTagRequest
-	(*CreateChatTagResult)(nil),    // 5: coreapi.service.CreateChatTagResult
-	(*UpdateChatTagRequest)(nil),   // 6: coreapi.service.UpdateChatTagRequest
-	(*UpdateChatTagResult)(nil),    // 7: coreapi.service.UpdateChatTagResult
-	(*DeleteChatTagRequest)(nil),   // 8: coreapi.service.DeleteChatTagRequest
-	(*DeleteChatTagResult)(nil),    // 9: coreapi.service.DeleteChatTagResult
-	(*model.ChatTag)(nil),          // 10: coreapi.model.ChatTag
-	(model.ChatTagColorVariant)(0), // 11: coreapi.model.ChatTagColorVariant
+	(*SearchChatTagsRequest)(nil),         // 0: coreapi.service.SearchChatTagsRequest
+	(*SearchChatTagsResult)(nil),          // 1: coreapi.service.SearchChatTagsResult
+	(*BatchGetChatTagsByKeysRequest)(nil), // 2: coreapi.service.BatchGetChatTagsByKeysRequest
+	(*BatchGetChatTagsByKeysResult)(nil),  // 3: coreapi.service.BatchGetChatTagsByKeysResult
+	(*GetChatTagRequest)(nil),             // 4: coreapi.service.GetChatTagRequest
+	(*GetChatTagResult)(nil),              // 5: coreapi.service.GetChatTagResult
+	(*CreateChatTagRequest)(nil),          // 6: coreapi.service.CreateChatTagRequest
+	(*CreateChatTagResult)(nil),           // 7: coreapi.service.CreateChatTagResult
+	(*UpdateChatTagRequest)(nil),          // 8: coreapi.service.UpdateChatTagRequest
+	(*UpdateChatTagResult)(nil),           // 9: coreapi.service.UpdateChatTagResult
+	(*DeleteChatTagRequest)(nil),          // 10: coreapi.service.DeleteChatTagRequest
+	(*DeleteChatTagResult)(nil),           // 11: coreapi.service.DeleteChatTagResult
+	(*model.ChatTag)(nil),                 // 12: coreapi.model.ChatTag
+	(model.ChatTagColorVariant)(0),        // 13: coreapi.model.ChatTagColorVariant
 }
 var file_coreapi_service_chat_tag_proto_depIdxs = []int32{
-	10, // 0: coreapi.service.SearchChatTagsResult.chat_tags:type_name -> coreapi.model.ChatTag
-	10, // 1: coreapi.service.GetChatTagResult.chat_tag:type_name -> coreapi.model.ChatTag
-	11, // 2: coreapi.service.CreateChatTagRequest.color_variant:type_name -> coreapi.model.ChatTagColorVariant
-	10, // 3: coreapi.service.CreateChatTagResult.chat_tag:type_name -> coreapi.model.ChatTag
-	11, // 4: coreapi.service.UpdateChatTagRequest.color_variant:type_name -> coreapi.model.ChatTagColorVariant
-	10, // 5: coreapi.service.UpdateChatTagResult.chat_tag:type_name -> coreapi.model.ChatTag
-	6,  // [6:6] is the sub-list for method output_type
-	6,  // [6:6] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+	12, // 0: coreapi.service.SearchChatTagsResult.chat_tags:type_name -> coreapi.model.ChatTag
+	12, // 1: coreapi.service.BatchGetChatTagsByKeysResult.chat_tags:type_name -> coreapi.model.ChatTag
+	12, // 2: coreapi.service.GetChatTagResult.chat_tag:type_name -> coreapi.model.ChatTag
+	13, // 3: coreapi.service.CreateChatTagRequest.color_variant:type_name -> coreapi.model.ChatTagColorVariant
+	12, // 4: coreapi.service.CreateChatTagResult.chat_tag:type_name -> coreapi.model.ChatTag
+	13, // 5: coreapi.service.UpdateChatTagRequest.color_variant:type_name -> coreapi.model.ChatTagColorVariant
+	12, // 6: coreapi.service.UpdateChatTagResult.chat_tag:type_name -> coreapi.model.ChatTag
+	7,  // [7:7] is the sub-list for method output_type
+	7,  // [7:7] is the sub-list for method input_type
+	7,  // [7:7] is the sub-list for extension type_name
+	7,  // [7:7] is the sub-list for extension extendee
+	0,  // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_chat_tag_proto_init() }
@@ -708,7 +825,7 @@ func file_coreapi_service_chat_tag_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_chat_tag_proto_rawDesc), len(file_coreapi_service_chat_tag_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   12,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

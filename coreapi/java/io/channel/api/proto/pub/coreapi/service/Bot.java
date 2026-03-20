@@ -25,6 +25,16 @@ public final class Bot {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_coreapi_service_SearchBotsResult_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_BatchGetBotsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_BatchGetBotsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_BatchGetBotsResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_BatchGetBotsResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_coreapi_service_GetBotRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -79,33 +89,41 @@ public final class Bot {
       "= 500)R\005limit\"v\n\020SearchBotsResult\022&\n\004bot" +
       "s\030\001 \003(\0132\022.coreapi.model.BotR\004bots\022\037\n\013nex" +
       "t_cursor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003" +
-      " \001(\010R\007hasNext\"U\n\rGetBotRequest\022\035\n\006bot_id" +
-      "\030\001 \001(\tB\006\272H\003\310\001\001R\005botId\022%\n\nchannel_id\030\002 \001(" +
-      "\tB\006\272H\003\310\001\001R\tchannelId\"4\n\014GetBotResult\022$\n\003" +
-      "bot\030\001 \001(\0132\022.coreapi.model.BotR\003bot\"\353\004\n\020U" +
-      "psertBotRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003" +
-      "\310\001\001R\tchannelId\022\301\001\n\004name\030\002 \001(\tB\254\001\272H\250\001\272\001K\n" +
-      "\rstring.maxLen\022(value must be no more th" +
-      "an 30 characters\032\020size(this) <= 30\272\001D\n\rs" +
-      "tring.minLen\022\"value must be at least 1 c" +
-      "haracter\032\017size(this) >= 1\310\001\001r\0162\014^[^@#$%:" +
-      "/]+$R\004name\022u\n\013description\030\003 \001(\tBS\272HP\272\001M\n" +
-      "\rstring.maxLen\022)value must be no more th" +
-      "an 180 characters\032\021size(this) <= 180R\013de" +
-      "scription\022c\n\022name_desc_i18n_map\030\004 \003(\01326." +
-      "coreapi.service.UpsertBotRequest.NameDes" +
-      "cI18nMapEntryR\017nameDescI18nMap\022\024\n\005color\030" +
-      "\005 \001(\tR\005color\022\035\n\navatar_url\030\006 \001(\tR\tavatar" +
-      "Url\032[\n\024NameDescI18nMapEntry\022\020\n\003key\030\001 \001(\t" +
-      "R\003key\022-\n\005value\030\002 \001(\0132\027.coreapi.model.Nam" +
-      "eDescR\005value:\0028\001\"7\n\017UpsertBotResult\022$\n\003b" +
-      "ot\030\001 \001(\0132\022.coreapi.model.BotR\003bot\"X\n\020Del" +
-      "eteBotRequest\022\035\n\006bot_id\030\001 \001(\tB\006\272H\003\310\001\001R\005b" +
-      "otId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchanne" +
-      "lId\"\021\n\017DeleteBotResultBf\n(io.channel.api" +
-      ".proto.pub.coreapi.serviceP\001Z8github.com" +
-      "/channel-io/ch-proto-public/coreapi/go/s" +
-      "erviceb\006proto3"
+      " \001(\010R\007hasNext\"\364\001\n\023BatchGetBotsRequest\022%\n" +
+      "\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\265\001\n" +
+      "\007bot_ids\030\002 \003(\tB\233\001\272H\227\001\272\001E\n\021repeated.minIt" +
+      "ems\022\037at least one bot ID is required\032\017si" +
+      "ze(this) >= 1\272\001I\n\021repeated.maxItems\022\"val" +
+      "ue must contain no more than 50\032\020size(th" +
+      "is) <= 50\310\001\001R\006botIds\"<\n\022BatchGetBotsResu" +
+      "lt\022&\n\004bots\030\001 \003(\0132\022.coreapi.model.BotR\004bo" +
+      "ts\"U\n\rGetBotRequest\022\035\n\006bot_id\030\001 \001(\tB\006\272H\003" +
+      "\310\001\001R\005botId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\t" +
+      "channelId\"4\n\014GetBotResult\022$\n\003bot\030\001 \001(\0132\022" +
+      ".coreapi.model.BotR\003bot\"\353\004\n\020UpsertBotReq" +
+      "uest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchanne" +
+      "lId\022\301\001\n\004name\030\002 \001(\tB\254\001\272H\250\001\272\001K\n\rstring.max" +
+      "Len\022(value must be no more than 30 chara" +
+      "cters\032\020size(this) <= 30\272\001D\n\rstring.minLe" +
+      "n\022\"value must be at least 1 character\032\017s" +
+      "ize(this) >= 1\310\001\001r\0162\014^[^@#$%:/]+$R\004name\022" +
+      "u\n\013description\030\003 \001(\tBS\272HP\272\001M\n\rstring.max" +
+      "Len\022)value must be no more than 180 char" +
+      "acters\032\021size(this) <= 180R\013description\022c" +
+      "\n\022name_desc_i18n_map\030\004 \003(\01326.coreapi.ser" +
+      "vice.UpsertBotRequest.NameDescI18nMapEnt" +
+      "ryR\017nameDescI18nMap\022\024\n\005color\030\005 \001(\tR\005colo" +
+      "r\022\035\n\navatar_url\030\006 \001(\tR\tavatarUrl\032[\n\024Name" +
+      "DescI18nMapEntry\022\020\n\003key\030\001 \001(\tR\003key\022-\n\005va" +
+      "lue\030\002 \001(\0132\027.coreapi.model.NameDescR\005valu" +
+      "e:\0028\001\"7\n\017UpsertBotResult\022$\n\003bot\030\001 \001(\0132\022." +
+      "coreapi.model.BotR\003bot\"X\n\020DeleteBotReque" +
+      "st\022\035\n\006bot_id\030\001 \001(\tB\006\272H\003\310\001\001R\005botId\022%\n\ncha" +
+      "nnel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"\021\n\017Dele" +
+      "teBotResultBf\n(io.channel.api.proto.pub." +
+      "coreapi.serviceP\001Z8github.com/channel-io" +
+      "/ch-proto-public/coreapi/go/serviceb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -126,20 +144,32 @@ public final class Bot {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_SearchBotsResult_descriptor,
         new java.lang.String[] { "Bots", "NextCursor", "HasNext", });
-    internal_static_coreapi_service_GetBotRequest_descriptor =
+    internal_static_coreapi_service_BatchGetBotsRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_coreapi_service_BatchGetBotsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_BatchGetBotsRequest_descriptor,
+        new java.lang.String[] { "ChannelId", "BotIds", });
+    internal_static_coreapi_service_BatchGetBotsResult_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_coreapi_service_BatchGetBotsResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_BatchGetBotsResult_descriptor,
+        new java.lang.String[] { "Bots", });
+    internal_static_coreapi_service_GetBotRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_coreapi_service_GetBotRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_GetBotRequest_descriptor,
         new java.lang.String[] { "BotId", "ChannelId", });
     internal_static_coreapi_service_GetBotResult_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_coreapi_service_GetBotResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_GetBotResult_descriptor,
         new java.lang.String[] { "Bot", });
     internal_static_coreapi_service_UpsertBotRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_coreapi_service_UpsertBotRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_UpsertBotRequest_descriptor,
@@ -151,19 +181,19 @@ public final class Bot {
         internal_static_coreapi_service_UpsertBotRequest_NameDescI18nMapEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_coreapi_service_UpsertBotResult_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_coreapi_service_UpsertBotResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_UpsertBotResult_descriptor,
         new java.lang.String[] { "Bot", });
     internal_static_coreapi_service_DeleteBotRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_coreapi_service_DeleteBotRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_DeleteBotRequest_descriptor,
         new java.lang.String[] { "BotId", "ChannelId", });
     internal_static_coreapi_service_DeleteBotResult_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_coreapi_service_DeleteBotResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_DeleteBotResult_descriptor,
