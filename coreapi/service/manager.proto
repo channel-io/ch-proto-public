@@ -60,6 +60,38 @@ message SearchManagersResult {
   bool has_next = 5;
 }
 
+// Retrieves multiple managers by their IDs.
+//
+// Managers that do not exist or have been removed are silently skipped.
+message BatchGetManagersRequest {
+  // Channel ID the managers belong to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Manager IDs to retrieve.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinItems=1
+  // +kubebuilder:validation:MaxItems=50
+  repeated string manager_ids = 2 [
+    (buf.validate.field).cel = {
+      id: "repeated.minItems"
+      message: "at least one manager ID is required"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).cel = {
+      id: "repeated.maxItems"
+      message: "value must contain no more than 50"
+      expression: "size(this) <= 50"
+    },
+    (buf.validate.field).required = true
+  ];
+}
+
+// Response for batch manager retrieval.
+message BatchGetManagersResult {
+  repeated coreapi.model.Manager managers = 1;
+}
+
 // Retrieves a single manager.
 message GetManagerRequest {
   // Manager ID to retrieve.

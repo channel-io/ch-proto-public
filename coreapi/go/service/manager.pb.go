@@ -184,6 +184,112 @@ func (x *SearchManagersResult) GetHasNext() bool {
 	return false
 }
 
+// Retrieves multiple managers by their IDs.
+//
+// Managers that do not exist or have been removed are silently skipped.
+type BatchGetManagersRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Channel ID the managers belong to.
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Manager IDs to retrieve.
+	//
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinItems=1
+	// +kubebuilder:validation:MaxItems=50
+	ManagerIds    []string `protobuf:"bytes,2,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BatchGetManagersRequest) Reset() {
+	*x = BatchGetManagersRequest{}
+	mi := &file_coreapi_service_manager_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BatchGetManagersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchGetManagersRequest) ProtoMessage() {}
+
+func (x *BatchGetManagersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_manager_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchGetManagersRequest.ProtoReflect.Descriptor instead.
+func (*BatchGetManagersRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_manager_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *BatchGetManagersRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *BatchGetManagersRequest) GetManagerIds() []string {
+	if x != nil {
+		return x.ManagerIds
+	}
+	return nil
+}
+
+// Response for batch manager retrieval.
+type BatchGetManagersResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Managers      []*model.Manager       `protobuf:"bytes,1,rep,name=managers,proto3" json:"managers,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BatchGetManagersResult) Reset() {
+	*x = BatchGetManagersResult{}
+	mi := &file_coreapi_service_manager_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BatchGetManagersResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchGetManagersResult) ProtoMessage() {}
+
+func (x *BatchGetManagersResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_manager_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchGetManagersResult.ProtoReflect.Descriptor instead.
+func (*BatchGetManagersResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_manager_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *BatchGetManagersResult) GetManagers() []*model.Manager {
+	if x != nil {
+		return x.Managers
+	}
+	return nil
+}
+
 // Retrieves a single manager.
 type GetManagerRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -197,7 +303,7 @@ type GetManagerRequest struct {
 
 func (x *GetManagerRequest) Reset() {
 	*x = GetManagerRequest{}
-	mi := &file_coreapi_service_manager_proto_msgTypes[2]
+	mi := &file_coreapi_service_manager_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -209,7 +315,7 @@ func (x *GetManagerRequest) String() string {
 func (*GetManagerRequest) ProtoMessage() {}
 
 func (x *GetManagerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_manager_proto_msgTypes[2]
+	mi := &file_coreapi_service_manager_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -222,7 +328,7 @@ func (x *GetManagerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetManagerRequest.ProtoReflect.Descriptor instead.
 func (*GetManagerRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_manager_proto_rawDescGZIP(), []int{2}
+	return file_coreapi_service_manager_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetManagerRequest) GetManagerId() string {
@@ -253,7 +359,7 @@ type GetManagerResult struct {
 
 func (x *GetManagerResult) Reset() {
 	*x = GetManagerResult{}
-	mi := &file_coreapi_service_manager_proto_msgTypes[3]
+	mi := &file_coreapi_service_manager_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -265,7 +371,7 @@ func (x *GetManagerResult) String() string {
 func (*GetManagerResult) ProtoMessage() {}
 
 func (x *GetManagerResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_manager_proto_msgTypes[3]
+	mi := &file_coreapi_service_manager_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -278,7 +384,7 @@ func (x *GetManagerResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetManagerResult.ProtoReflect.Descriptor instead.
 func (*GetManagerResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_manager_proto_rawDescGZIP(), []int{3}
+	return file_coreapi_service_manager_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetManagerResult) GetManager() *model.Manager {
@@ -319,7 +425,16 @@ const file_coreapi_service_manager_proto_rawDesc = "" +
 	"\x11operator_statuses\x18\x03 \x03(\v2\x1d.coreapi.model.OperatorStatusR\x10operatorStatuses\x12\x1f\n" +
 	"\vnext_cursor\x18\x04 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x05 \x01(\bR\ahasNext\"a\n" +
+	"\bhas_next\x18\x05 \x01(\bR\ahasNext\"\x84\x02\n" +
+	"\x17BatchGetManagersRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xc1\x01\n" +
+	"\vmanager_ids\x18\x02 \x03(\tB\x9f\x01\xbaH\x9b\x01\xba\x01I\n" +
+	"\x11repeated.minItems\x12#at least one manager ID is required\x1a\x0fsize(this) >= 1\xba\x01I\n" +
+	"\x11repeated.maxItems\x12\"value must contain no more than 50\x1a\x10size(this) <= 50\xc8\x01\x01R\n" +
+	"managerIds\"L\n" +
+	"\x16BatchGetManagersResult\x122\n" +
+	"\bmanagers\x18\x01 \x03(\v2\x16.coreapi.model.ManagerR\bmanagers\"a\n" +
 	"\x11GetManagerRequest\x12%\n" +
 	"\n" +
 	"manager_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tmanagerId\x12%\n" +
@@ -343,28 +458,31 @@ func file_coreapi_service_manager_proto_rawDescGZIP() []byte {
 	return file_coreapi_service_manager_proto_rawDescData
 }
 
-var file_coreapi_service_manager_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_coreapi_service_manager_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_coreapi_service_manager_proto_goTypes = []any{
-	(*SearchManagersRequest)(nil), // 0: coreapi.service.SearchManagersRequest
-	(*SearchManagersResult)(nil),  // 1: coreapi.service.SearchManagersResult
-	(*GetManagerRequest)(nil),     // 2: coreapi.service.GetManagerRequest
-	(*GetManagerResult)(nil),      // 3: coreapi.service.GetManagerResult
-	(*model.Manager)(nil),         // 4: coreapi.model.Manager
-	(*model.Online)(nil),          // 5: coreapi.model.Online
-	(*model.OperatorStatus)(nil),  // 6: coreapi.model.OperatorStatus
+	(*SearchManagersRequest)(nil),   // 0: coreapi.service.SearchManagersRequest
+	(*SearchManagersResult)(nil),    // 1: coreapi.service.SearchManagersResult
+	(*BatchGetManagersRequest)(nil), // 2: coreapi.service.BatchGetManagersRequest
+	(*BatchGetManagersResult)(nil),  // 3: coreapi.service.BatchGetManagersResult
+	(*GetManagerRequest)(nil),       // 4: coreapi.service.GetManagerRequest
+	(*GetManagerResult)(nil),        // 5: coreapi.service.GetManagerResult
+	(*model.Manager)(nil),           // 6: coreapi.model.Manager
+	(*model.Online)(nil),            // 7: coreapi.model.Online
+	(*model.OperatorStatus)(nil),    // 8: coreapi.model.OperatorStatus
 }
 var file_coreapi_service_manager_proto_depIdxs = []int32{
-	4, // 0: coreapi.service.SearchManagersResult.managers:type_name -> coreapi.model.Manager
-	5, // 1: coreapi.service.SearchManagersResult.onlines:type_name -> coreapi.model.Online
-	6, // 2: coreapi.service.SearchManagersResult.operator_statuses:type_name -> coreapi.model.OperatorStatus
-	4, // 3: coreapi.service.GetManagerResult.manager:type_name -> coreapi.model.Manager
-	5, // 4: coreapi.service.GetManagerResult.online:type_name -> coreapi.model.Online
-	6, // 5: coreapi.service.GetManagerResult.operator_status:type_name -> coreapi.model.OperatorStatus
-	6, // [6:6] is the sub-list for method output_type
-	6, // [6:6] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	6, // 0: coreapi.service.SearchManagersResult.managers:type_name -> coreapi.model.Manager
+	7, // 1: coreapi.service.SearchManagersResult.onlines:type_name -> coreapi.model.Online
+	8, // 2: coreapi.service.SearchManagersResult.operator_statuses:type_name -> coreapi.model.OperatorStatus
+	6, // 3: coreapi.service.BatchGetManagersResult.managers:type_name -> coreapi.model.Manager
+	6, // 4: coreapi.service.GetManagerResult.manager:type_name -> coreapi.model.Manager
+	7, // 5: coreapi.service.GetManagerResult.online:type_name -> coreapi.model.Online
+	8, // 6: coreapi.service.GetManagerResult.operator_status:type_name -> coreapi.model.OperatorStatus
+	7, // [7:7] is the sub-list for method output_type
+	7, // [7:7] is the sub-list for method input_type
+	7, // [7:7] is the sub-list for extension type_name
+	7, // [7:7] is the sub-list for extension extendee
+	0, // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_manager_proto_init() }
@@ -378,7 +496,7 @@ func file_coreapi_service_manager_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_manager_proto_rawDesc), len(file_coreapi_service_manager_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
