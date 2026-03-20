@@ -4,8 +4,6 @@ package coreapi.service;
 
 import "buf/validate/validate.proto";
 import "coreapi/model/manager.proto";
-import "coreapi/model/online.proto";
-import "coreapi/model/operator_status.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
@@ -40,24 +38,14 @@ message SearchManagersRequest {
 message SearchManagersResult {
   repeated coreapi.model.Manager managers = 1;
 
-  // Online presence records for the listed managers.
-  //
-  // +kubebuilder:validation:Nullable
-  repeated coreapi.model.Online onlines = 2;
-
-  // Operator statuses for the listed managers.
-  //
-  // +kubebuilder:validation:Nullable
-  repeated coreapi.model.OperatorStatus operator_statuses = 3;
-
   // Opaque cursor for the next page.
   // Use has_next to determine whether another page exists.
   //
   // +kubebuilder:validation:Nullable
-  string next_cursor = 4;
+  string next_cursor = 2;
 
   // Whether a next page of results exists.
-  bool has_next = 5;
+  bool has_next = 3;
 }
 
 // Retrieves multiple managers by their IDs.
@@ -104,10 +92,4 @@ message GetManagerRequest {
 // Response for single manager retrieval.
 message GetManagerResult {
   coreapi.model.Manager manager = 1;
-
-  // Online presence of the manager.
-  coreapi.model.Online online = 2;
-
-  // Operator status of the manager.
-  coreapi.model.OperatorStatus operator_status = 3;
 }

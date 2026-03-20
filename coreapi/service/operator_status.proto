@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package coreapi.service;
+
+import "buf/validate/validate.proto";
+import "coreapi/model/operator_status.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.service";
+
+// Retrieves operator statuses for multiple managers.
+//
+// Managers without an operator status are excluded from the result.
+message BatchGetOperatorStatusesRequest {
+  // Channel ID the managers belong to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Manager IDs to retrieve operator statuses for.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinItems=1
+  // +kubebuilder:validation:MaxItems=50
+  repeated string manager_ids = 2 [
+    (buf.validate.field).cel = {
+      id: "repeated.minItems"
+      message: "at least one manager ID is required"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).cel = {
+      id: "repeated.maxItems"
+      message: "value must contain no more than 50"
+      expression: "size(this) <= 50"
+    },
+    (buf.validate.field).required = true
+  ];
+}
+
+// Response for batch operator status retrieval.
+message BatchGetOperatorStatusesResult {
+  repeated coreapi.model.OperatorStatus operator_statuses = 1;
+}

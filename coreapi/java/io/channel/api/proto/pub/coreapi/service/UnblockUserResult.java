@@ -65,19 +65,6 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 18: {
-            io.channel.api.proto.pub.coreapi.model.Online.Builder subBuilder = null;
-            if (online_ != null) {
-              subBuilder = online_.toBuilder();
-            }
-            online_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.Online.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(online_);
-              online_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -136,44 +123,6 @@ private static final long serialVersionUID = 0L;
     return getUser();
   }
 
-  public static final int ONLINE_FIELD_NUMBER = 2;
-  private io.channel.api.proto.pub.coreapi.model.Online online_;
-  /**
-   * <pre>
-   * Online presence of the user.
-   * </pre>
-   *
-   * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-   * @return Whether the online field is set.
-   */
-  @java.lang.Override
-  public boolean hasOnline() {
-    return online_ != null;
-  }
-  /**
-   * <pre>
-   * Online presence of the user.
-   * </pre>
-   *
-   * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-   * @return The online.
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.Online getOnline() {
-    return online_ == null ? io.channel.api.proto.pub.coreapi.model.Online.getDefaultInstance() : online_;
-  }
-  /**
-   * <pre>
-   * Online presence of the user.
-   * </pre>
-   *
-   * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder getOnlineOrBuilder() {
-    return getOnline();
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -191,9 +140,6 @@ private static final long serialVersionUID = 0L;
     if (user_ != null) {
       output.writeMessage(1, getUser());
     }
-    if (online_ != null) {
-      output.writeMessage(2, getOnline());
-    }
     unknownFields.writeTo(output);
   }
 
@@ -206,10 +152,6 @@ private static final long serialVersionUID = 0L;
     if (user_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getUser());
-    }
-    if (online_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getOnline());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -231,11 +173,6 @@ private static final long serialVersionUID = 0L;
       if (!getUser()
           .equals(other.getUser())) return false;
     }
-    if (hasOnline() != other.hasOnline()) return false;
-    if (hasOnline()) {
-      if (!getOnline()
-          .equals(other.getOnline())) return false;
-    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -250,10 +187,6 @@ private static final long serialVersionUID = 0L;
     if (hasUser()) {
       hash = (37 * hash) + USER_FIELD_NUMBER;
       hash = (53 * hash) + getUser().hashCode();
-    }
-    if (hasOnline()) {
-      hash = (37 * hash) + ONLINE_FIELD_NUMBER;
-      hash = (53 * hash) + getOnline().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -398,12 +331,6 @@ private static final long serialVersionUID = 0L;
         user_ = null;
         userBuilder_ = null;
       }
-      if (onlineBuilder_ == null) {
-        online_ = null;
-      } else {
-        online_ = null;
-        onlineBuilder_ = null;
-      }
       return this;
     }
 
@@ -434,11 +361,6 @@ private static final long serialVersionUID = 0L;
         result.user_ = user_;
       } else {
         result.user_ = userBuilder_.build();
-      }
-      if (onlineBuilder_ == null) {
-        result.online_ = online_;
-      } else {
-        result.online_ = onlineBuilder_.build();
       }
       onBuilt();
       return result;
@@ -490,9 +412,6 @@ private static final long serialVersionUID = 0L;
       if (other == io.channel.api.proto.pub.coreapi.service.UnblockUserResult.getDefaultInstance()) return this;
       if (other.hasUser()) {
         mergeUser(other.getUser());
-      }
-      if (other.hasOnline()) {
-        mergeOnline(other.getOnline());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -641,161 +560,6 @@ private static final long serialVersionUID = 0L;
       }
       return userBuilder_;
     }
-
-    private io.channel.api.proto.pub.coreapi.model.Online online_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.Online, io.channel.api.proto.pub.coreapi.model.Online.Builder, io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder> onlineBuilder_;
-    /**
-     * <pre>
-     * Online presence of the user.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     * @return Whether the online field is set.
-     */
-    public boolean hasOnline() {
-      return onlineBuilder_ != null || online_ != null;
-    }
-    /**
-     * <pre>
-     * Online presence of the user.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     * @return The online.
-     */
-    public io.channel.api.proto.pub.coreapi.model.Online getOnline() {
-      if (onlineBuilder_ == null) {
-        return online_ == null ? io.channel.api.proto.pub.coreapi.model.Online.getDefaultInstance() : online_;
-      } else {
-        return onlineBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Online presence of the user.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     */
-    public Builder setOnline(io.channel.api.proto.pub.coreapi.model.Online value) {
-      if (onlineBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        online_ = value;
-        onChanged();
-      } else {
-        onlineBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence of the user.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     */
-    public Builder setOnline(
-        io.channel.api.proto.pub.coreapi.model.Online.Builder builderForValue) {
-      if (onlineBuilder_ == null) {
-        online_ = builderForValue.build();
-        onChanged();
-      } else {
-        onlineBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence of the user.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     */
-    public Builder mergeOnline(io.channel.api.proto.pub.coreapi.model.Online value) {
-      if (onlineBuilder_ == null) {
-        if (online_ != null) {
-          online_ =
-            io.channel.api.proto.pub.coreapi.model.Online.newBuilder(online_).mergeFrom(value).buildPartial();
-        } else {
-          online_ = value;
-        }
-        onChanged();
-      } else {
-        onlineBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence of the user.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     */
-    public Builder clearOnline() {
-      if (onlineBuilder_ == null) {
-        online_ = null;
-        onChanged();
-      } else {
-        online_ = null;
-        onlineBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence of the user.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.Online.Builder getOnlineBuilder() {
-      
-      onChanged();
-      return getOnlineFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Online presence of the user.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder getOnlineOrBuilder() {
-      if (onlineBuilder_ != null) {
-        return onlineBuilder_.getMessageOrBuilder();
-      } else {
-        return online_ == null ?
-            io.channel.api.proto.pub.coreapi.model.Online.getDefaultInstance() : online_;
-      }
-    }
-    /**
-     * <pre>
-     * Online presence of the user.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.Online, io.channel.api.proto.pub.coreapi.model.Online.Builder, io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder> 
-        getOnlineFieldBuilder() {
-      if (onlineBuilder_ == null) {
-        onlineBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            io.channel.api.proto.pub.coreapi.model.Online, io.channel.api.proto.pub.coreapi.model.Online.Builder, io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder>(
-                getOnline(),
-                getParentForChildren(),
-                isClean());
-        online_ = null;
-      }
-      return onlineBuilder_;
-    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -832,29 +596,6 @@ private static final long serialVersionUID = 0L;
     		return clearUser();
     	else
     		return setUser(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The online to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearOnline(io.channel.api.proto.pub.coreapi.model.Online value) {
-    	if (value == null)
-    		return clearOnline();
-    	else
-    		return setOnline(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearOnline(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.Online> mapFunc) {
-    	if (value == null)
-    		return clearOnline();
-    	else
-    		return setOnline(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.UnblockUserResult)

@@ -4,9 +4,7 @@ package coreapi.service;
 
 import "buf/validate/validate.proto";
 import "coreapi/common/sort_order.proto";
-import "coreapi/model/manager.proto";
 import "coreapi/model/meet.proto";
-import "coreapi/model/user.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
@@ -44,7 +42,8 @@ message GetMeetAvailableManagersRequest {
 
 // Response for meet available managers retrieval.
 message GetMeetAvailableManagersResult {
-  repeated coreapi.model.Manager managers = 1;
+  // IDs of managers currently available for meet calls.
+  repeated string manager_ids = 1;
 }
 
 // Retrieves the average wrap-up time for calls within a specified time range.
@@ -119,20 +118,14 @@ message SearchMeetMessagesRequest {
 message SearchMeetMessagesResult {
   repeated coreapi.model.MeetMessage messages = 1;
 
-  // Users who authored messages in the meet session.
-  repeated coreapi.model.User users = 2;
-
-  // Managers who authored messages in the meet session.
-  repeated coreapi.model.Manager managers = 3;
-
   // Opaque cursor for the next page.
   // Use has_next to determine whether another page exists.
   //
   // +kubebuilder:validation:Nullable
-  string next_cursor = 4;
+  string next_cursor = 2;
 
   // Whether a next page of results exists.
-  bool has_next = 5;
+  bool has_next = 3;
 }
 
 // Retrieves the recording of a call meet session.

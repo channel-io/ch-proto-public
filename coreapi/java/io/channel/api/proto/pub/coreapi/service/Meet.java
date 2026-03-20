@@ -80,59 +80,53 @@ public final class Meet {
     java.lang.String[] descriptorData = {
       "\n\032coreapi/service/meet.proto\022\017coreapi.se" +
       "rvice\032\033buf/validate/validate.proto\032\037core" +
-      "api/common/sort_order.proto\032\033coreapi/mod" +
-      "el/manager.proto\032\030coreapi/model/meet.pro" +
-      "to\032\030coreapi/model/user.proto\032\037google/pro" +
-      "tobuf/timestamp.proto\"\252\001\n\025SearchCallLogs" +
-      "Request\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tcha" +
-      "nnelId\0226\n\004from\030\002 \001(\0132\032.google.protobuf.T" +
-      "imestampB\006\272H\003\310\001\001R\004from\0222\n\002to\030\003 \001(\0132\032.goo" +
-      "gle.protobuf.TimestampB\006\272H\003\310\001\001R\002to\"K\n\024Se" +
-      "archCallLogsResult\0223\n\tcall_logs\030\001 \003(\0132\026." +
-      "coreapi.model.CallLogR\010callLogs\"H\n\037GetMe" +
-      "etAvailableManagersRequest\022%\n\nchannel_id" +
-      "\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\"T\n\036GetMeetAvai" +
-      "lableManagersResult\0222\n\010managers\030\001 \003(\0132\026." +
-      "coreapi.model.ManagerR\010managers\"\255\001\n\030GetC" +
-      "allWrapUpTimeRequest\022%\n\nchannel_id\030\001 \001(\t" +
-      "B\006\272H\003\310\001\001R\tchannelId\0226\n\004from\030\002 \001(\0132\032.goog" +
-      "le.protobuf.TimestampB\006\272H\003\310\001\001R\004from\0222\n\002t" +
-      "o\030\003 \001(\0132\032.google.protobuf.TimestampB\006\272H\003" +
-      "\310\001\001R\002to\"\304\001\n\027GetCallWrapUpTimeResult\022\030\n\007c" +
-      "hannel\030\001 \001(\003R\007channel\022R\n\010managers\030\002 \003(\0132" +
-      "6.coreapi.service.GetCallWrapUpTimeResul" +
-      "t.ManagersEntryR\010managers\032;\n\rManagersEnt" +
-      "ry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\003R\005val" +
-      "ue:\0028\001\"\262\002\n\031SearchMeetMessagesRequest\022%\n\n" +
-      "channel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022%\n\nm" +
-      "essage_id\030\002 \001(\tB\006\272H\003\310\001\001R\tmessageId\0228\n\nso" +
-      "rt_order\030\003 \001(\0162\031.coreapi.common.SortOrde" +
-      "rR\tsortOrder\022\026\n\006cursor\030\004 \001(\tR\006cursor\022u\n\005" +
-      "limit\030\005 \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037limi" +
-      "t must be between 1 and 500\032\'this == 0 |" +
-      "| (this >= 1 && this <= 500)R\005limit\"\355\001\n\030" +
-      "SearchMeetMessagesResult\0226\n\010messages\030\001 \003" +
-      "(\0132\032.coreapi.model.MeetMessageR\010messages" +
-      "\022)\n\005users\030\002 \003(\0132\023.coreapi.model.UserR\005us" +
-      "ers\0222\n\010managers\030\003 \003(\0132\026.coreapi.model.Ma" +
-      "nagerR\010managers\022\037\n\013next_cursor\030\004 \001(\tR\nne" +
-      "xtCursor\022\031\n\010has_next\030\005 \001(\010R\007hasNext\"g\n\027G" +
-      "etMeetRecordingRequest\022%\n\nchannel_id\030\001 \001" +
-      "(\tB\006\272H\003\310\001\001R\tchannelId\022%\n\nmessage_id\030\002 \001(" +
-      "\tB\006\272H\003\310\001\001R\tmessageId\"?\n\026GetMeetRecording" +
-      "Result\022%\n\nsigned_url\030\001 \001(\tB\006\272H\003\310\001\001R\tsign" +
-      "edUrlBf\n(io.channel.api.proto.pub.coreap" +
-      "i.serviceP\001Z8github.com/channel-io/ch-pr" +
-      "oto-public/coreapi/go/serviceb\006proto3"
+      "api/common/sort_order.proto\032\030coreapi/mod" +
+      "el/meet.proto\032\037google/protobuf/timestamp" +
+      ".proto\"\252\001\n\025SearchCallLogsRequest\022%\n\nchan" +
+      "nel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\0226\n\004from\030" +
+      "\002 \001(\0132\032.google.protobuf.TimestampB\006\272H\003\310\001" +
+      "\001R\004from\0222\n\002to\030\003 \001(\0132\032.google.protobuf.Ti" +
+      "mestampB\006\272H\003\310\001\001R\002to\"K\n\024SearchCallLogsRes" +
+      "ult\0223\n\tcall_logs\030\001 \003(\0132\026.coreapi.model.C" +
+      "allLogR\010callLogs\"H\n\037GetMeetAvailableMana" +
+      "gersRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R" +
+      "\tchannelId\"A\n\036GetMeetAvailableManagersRe" +
+      "sult\022\037\n\013manager_ids\030\001 \003(\tR\nmanagerIds\"\255\001" +
+      "\n\030GetCallWrapUpTimeRequest\022%\n\nchannel_id" +
+      "\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\0226\n\004from\030\002 \001(\0132" +
+      "\032.google.protobuf.TimestampB\006\272H\003\310\001\001R\004fro" +
+      "m\0222\n\002to\030\003 \001(\0132\032.google.protobuf.Timestam" +
+      "pB\006\272H\003\310\001\001R\002to\"\304\001\n\027GetCallWrapUpTimeResul" +
+      "t\022\030\n\007channel\030\001 \001(\003R\007channel\022R\n\010managers\030" +
+      "\002 \003(\01326.coreapi.service.GetCallWrapUpTim" +
+      "eResult.ManagersEntryR\010managers\032;\n\rManag" +
+      "ersEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(" +
+      "\003R\005value:\0028\001\"\262\002\n\031SearchMeetMessagesReque" +
+      "st\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelI" +
+      "d\022%\n\nmessage_id\030\002 \001(\tB\006\272H\003\310\001\001R\tmessageId" +
+      "\0228\n\nsort_order\030\003 \001(\0162\031.coreapi.common.So" +
+      "rtOrderR\tsortOrder\022\026\n\006cursor\030\004 \001(\tR\006curs" +
+      "or\022u\n\005limit\030\005 \001(\005B_\272H\\\272\001Y\n\rint32.between" +
+      "\022\037limit must be between 1 and 500\032\'this " +
+      "== 0 || (this >= 1 && this <= 500)R\005limi" +
+      "t\"\216\001\n\030SearchMeetMessagesResult\0226\n\010messag" +
+      "es\030\001 \003(\0132\032.coreapi.model.MeetMessageR\010me" +
+      "ssages\022\037\n\013next_cursor\030\002 \001(\tR\nnextCursor\022" +
+      "\031\n\010has_next\030\003 \001(\010R\007hasNext\"g\n\027GetMeetRec" +
+      "ordingRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001" +
+      "\001R\tchannelId\022%\n\nmessage_id\030\002 \001(\tB\006\272H\003\310\001\001" +
+      "R\tmessageId\"?\n\026GetMeetRecordingResult\022%\n" +
+      "\nsigned_url\030\001 \001(\tB\006\272H\003\310\001\001R\tsignedUrlBf\n(" +
+      "io.channel.api.proto.pub.coreapi.service" +
+      "P\001Z8github.com/channel-io/ch-proto-publi" +
+      "c/coreapi/go/serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
           io.channel.api.proto.pub.coreapi.common.SortOrderOuterClass.getDescriptor(),
-          io.channel.api.proto.pub.coreapi.model.ManagerOuterClass.getDescriptor(),
           io.channel.api.proto.pub.coreapi.model.Meet.getDescriptor(),
-          io.channel.api.proto.pub.coreapi.model.UserOuterClass.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_coreapi_service_SearchCallLogsRequest_descriptor =
@@ -158,7 +152,7 @@ public final class Meet {
     internal_static_coreapi_service_GetMeetAvailableManagersResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_GetMeetAvailableManagersResult_descriptor,
-        new java.lang.String[] { "Managers", });
+        new java.lang.String[] { "ManagerIds", });
     internal_static_coreapi_service_GetCallWrapUpTimeRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_coreapi_service_GetCallWrapUpTimeRequest_fieldAccessorTable = new
@@ -188,7 +182,7 @@ public final class Meet {
     internal_static_coreapi_service_SearchMeetMessagesResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_SearchMeetMessagesResult_descriptor,
-        new java.lang.String[] { "Messages", "Users", "Managers", "NextCursor", "HasNext", });
+        new java.lang.String[] { "Messages", "NextCursor", "HasNext", });
     internal_static_coreapi_service_GetMeetRecordingRequest_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_coreapi_service_GetMeetRecordingRequest_fieldAccessorTable = new
@@ -208,9 +202,7 @@ public final class Meet {
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
     io.channel.api.proto.pub.coreapi.common.SortOrderOuterClass.getDescriptor();
-    io.channel.api.proto.pub.coreapi.model.ManagerOuterClass.getDescriptor();
     io.channel.api.proto.pub.coreapi.model.Meet.getDescriptor();
-    io.channel.api.proto.pub.coreapi.model.UserOuterClass.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

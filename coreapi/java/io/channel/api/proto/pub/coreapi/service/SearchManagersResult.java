@@ -21,8 +21,6 @@ private static final long serialVersionUID = 0L;
   }
   private SearchManagersResult() {
     managers_ = java.util.Collections.emptyList();
-    onlines_ = java.util.Collections.emptyList();
-    operatorStatuses_ = java.util.Collections.emptyList();
     nextCursor_ = "";
   }
 
@@ -67,30 +65,12 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              onlines_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.Online>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            onlines_.add(
-                input.readMessage(io.channel.api.proto.pub.coreapi.model.Online.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              operatorStatuses_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.OperatorStatus>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            operatorStatuses_.add(
-                input.readMessage(io.channel.api.proto.pub.coreapi.model.OperatorStatus.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
             nextCursor_ = s;
             break;
           }
-          case 40: {
+          case 24: {
 
             hasNext_ = input.readBool();
             break;
@@ -112,12 +92,6 @@ private static final long serialVersionUID = 0L;
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
         managers_ = java.util.Collections.unmodifiableList(managers_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        onlines_ = java.util.Collections.unmodifiableList(onlines_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        operatorStatuses_ = java.util.Collections.unmodifiableList(operatorStatuses_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -176,137 +150,7 @@ private static final long serialVersionUID = 0L;
     return managers_.get(index);
   }
 
-  public static final int ONLINES_FIELD_NUMBER = 2;
-  private java.util.List<io.channel.api.proto.pub.coreapi.model.Online> onlines_;
-  /**
-   * <pre>
-   * Online presence records for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-   */
-  @java.lang.Override
-  public java.util.List<io.channel.api.proto.pub.coreapi.model.Online> getOnlinesList() {
-    return onlines_;
-  }
-  /**
-   * <pre>
-   * Online presence records for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-   */
-  @java.lang.Override
-  public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder> 
-      getOnlinesOrBuilderList() {
-    return onlines_;
-  }
-  /**
-   * <pre>
-   * Online presence records for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-   */
-  @java.lang.Override
-  public int getOnlinesCount() {
-    return onlines_.size();
-  }
-  /**
-   * <pre>
-   * Online presence records for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.Online getOnlines(int index) {
-    return onlines_.get(index);
-  }
-  /**
-   * <pre>
-   * Online presence records for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder getOnlinesOrBuilder(
-      int index) {
-    return onlines_.get(index);
-  }
-
-  public static final int OPERATOR_STATUSES_FIELD_NUMBER = 3;
-  private java.util.List<io.channel.api.proto.pub.coreapi.model.OperatorStatus> operatorStatuses_;
-  /**
-   * <pre>
-   * Operator statuses for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-   */
-  @java.lang.Override
-  public java.util.List<io.channel.api.proto.pub.coreapi.model.OperatorStatus> getOperatorStatusesList() {
-    return operatorStatuses_;
-  }
-  /**
-   * <pre>
-   * Operator statuses for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-   */
-  @java.lang.Override
-  public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder> 
-      getOperatorStatusesOrBuilderList() {
-    return operatorStatuses_;
-  }
-  /**
-   * <pre>
-   * Operator statuses for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-   */
-  @java.lang.Override
-  public int getOperatorStatusesCount() {
-    return operatorStatuses_.size();
-  }
-  /**
-   * <pre>
-   * Operator statuses for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.OperatorStatus getOperatorStatuses(int index) {
-    return operatorStatuses_.get(index);
-  }
-  /**
-   * <pre>
-   * Operator statuses for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder getOperatorStatusesOrBuilder(
-      int index) {
-    return operatorStatuses_.get(index);
-  }
-
-  public static final int NEXT_CURSOR_FIELD_NUMBER = 4;
+  public static final int NEXT_CURSOR_FIELD_NUMBER = 2;
   private volatile java.lang.Object nextCursor_;
   /**
    * <pre>
@@ -315,7 +159,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string next_cursor = 4 [json_name = "nextCursor"];</code>
+   * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
    * @return The nextCursor.
    */
   @java.lang.Override
@@ -338,7 +182,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string next_cursor = 4 [json_name = "nextCursor"];</code>
+   * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
    * @return The bytes for nextCursor.
    */
   @java.lang.Override
@@ -356,14 +200,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int HAS_NEXT_FIELD_NUMBER = 5;
+  public static final int HAS_NEXT_FIELD_NUMBER = 3;
   private boolean hasNext_;
   /**
    * <pre>
    * Whether a next page of results exists.
    * </pre>
    *
-   * <code>bool has_next = 5 [json_name = "hasNext"];</code>
+   * <code>bool has_next = 3 [json_name = "hasNext"];</code>
    * @return The hasNext.
    */
   @java.lang.Override
@@ -388,17 +232,11 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < managers_.size(); i++) {
       output.writeMessage(1, managers_.get(i));
     }
-    for (int i = 0; i < onlines_.size(); i++) {
-      output.writeMessage(2, onlines_.get(i));
-    }
-    for (int i = 0; i < operatorStatuses_.size(); i++) {
-      output.writeMessage(3, operatorStatuses_.get(i));
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextCursor_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, nextCursor_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nextCursor_);
     }
     if (hasNext_ != false) {
-      output.writeBool(5, hasNext_);
+      output.writeBool(3, hasNext_);
     }
     unknownFields.writeTo(output);
   }
@@ -413,20 +251,12 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, managers_.get(i));
     }
-    for (int i = 0; i < onlines_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, onlines_.get(i));
-    }
-    for (int i = 0; i < operatorStatuses_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, operatorStatuses_.get(i));
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextCursor_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, nextCursor_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nextCursor_);
     }
     if (hasNext_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(5, hasNext_);
+        .computeBoolSize(3, hasNext_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -445,10 +275,6 @@ private static final long serialVersionUID = 0L;
 
     if (!getManagersList()
         .equals(other.getManagersList())) return false;
-    if (!getOnlinesList()
-        .equals(other.getOnlinesList())) return false;
-    if (!getOperatorStatusesList()
-        .equals(other.getOperatorStatusesList())) return false;
     if (!getNextCursor()
         .equals(other.getNextCursor())) return false;
     if (getHasNext()
@@ -467,14 +293,6 @@ private static final long serialVersionUID = 0L;
     if (getManagersCount() > 0) {
       hash = (37 * hash) + MANAGERS_FIELD_NUMBER;
       hash = (53 * hash) + getManagersList().hashCode();
-    }
-    if (getOnlinesCount() > 0) {
-      hash = (37 * hash) + ONLINES_FIELD_NUMBER;
-      hash = (53 * hash) + getOnlinesList().hashCode();
-    }
-    if (getOperatorStatusesCount() > 0) {
-      hash = (37 * hash) + OPERATOR_STATUSES_FIELD_NUMBER;
-      hash = (53 * hash) + getOperatorStatusesList().hashCode();
     }
     hash = (37 * hash) + NEXT_CURSOR_FIELD_NUMBER;
     hash = (53 * hash) + getNextCursor().hashCode();
@@ -614,8 +432,6 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
         getManagersFieldBuilder();
-        getOnlinesFieldBuilder();
-        getOperatorStatusesFieldBuilder();
       }
     }
     @java.lang.Override
@@ -626,18 +442,6 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
         managersBuilder_.clear();
-      }
-      if (onlinesBuilder_ == null) {
-        onlines_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      } else {
-        onlinesBuilder_.clear();
-      }
-      if (operatorStatusesBuilder_ == null) {
-        operatorStatuses_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
-      } else {
-        operatorStatusesBuilder_.clear();
       }
       nextCursor_ = "";
 
@@ -678,24 +482,6 @@ private static final long serialVersionUID = 0L;
         result.managers_ = managers_;
       } else {
         result.managers_ = managersBuilder_.build();
-      }
-      if (onlinesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
-          onlines_ = java.util.Collections.unmodifiableList(onlines_);
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.onlines_ = onlines_;
-      } else {
-        result.onlines_ = onlinesBuilder_.build();
-      }
-      if (operatorStatusesBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
-          operatorStatuses_ = java.util.Collections.unmodifiableList(operatorStatuses_);
-          bitField0_ = (bitField0_ & ~0x00000004);
-        }
-        result.operatorStatuses_ = operatorStatuses_;
-      } else {
-        result.operatorStatuses_ = operatorStatusesBuilder_.build();
       }
       result.nextCursor_ = nextCursor_;
       result.hasNext_ = hasNext_;
@@ -770,58 +556,6 @@ private static final long serialVersionUID = 0L;
                  getManagersFieldBuilder() : null;
           } else {
             managersBuilder_.addAllMessages(other.managers_);
-          }
-        }
-      }
-      if (onlinesBuilder_ == null) {
-        if (!other.onlines_.isEmpty()) {
-          if (onlines_.isEmpty()) {
-            onlines_ = other.onlines_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-          } else {
-            ensureOnlinesIsMutable();
-            onlines_.addAll(other.onlines_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.onlines_.isEmpty()) {
-          if (onlinesBuilder_.isEmpty()) {
-            onlinesBuilder_.dispose();
-            onlinesBuilder_ = null;
-            onlines_ = other.onlines_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-            onlinesBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getOnlinesFieldBuilder() : null;
-          } else {
-            onlinesBuilder_.addAllMessages(other.onlines_);
-          }
-        }
-      }
-      if (operatorStatusesBuilder_ == null) {
-        if (!other.operatorStatuses_.isEmpty()) {
-          if (operatorStatuses_.isEmpty()) {
-            operatorStatuses_ = other.operatorStatuses_;
-            bitField0_ = (bitField0_ & ~0x00000004);
-          } else {
-            ensureOperatorStatusesIsMutable();
-            operatorStatuses_.addAll(other.operatorStatuses_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.operatorStatuses_.isEmpty()) {
-          if (operatorStatusesBuilder_.isEmpty()) {
-            operatorStatusesBuilder_.dispose();
-            operatorStatusesBuilder_ = null;
-            operatorStatuses_ = other.operatorStatuses_;
-            bitField0_ = (bitField0_ & ~0x00000004);
-            operatorStatusesBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getOperatorStatusesFieldBuilder() : null;
-          } else {
-            operatorStatusesBuilder_.addAllMessages(other.operatorStatuses_);
           }
         }
       }
@@ -1102,666 +836,6 @@ private static final long serialVersionUID = 0L;
       return managersBuilder_;
     }
 
-    private java.util.List<io.channel.api.proto.pub.coreapi.model.Online> onlines_ =
-      java.util.Collections.emptyList();
-    private void ensureOnlinesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
-        onlines_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.Online>(onlines_);
-        bitField0_ |= 0x00000002;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.Online, io.channel.api.proto.pub.coreapi.model.Online.Builder, io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder> onlinesBuilder_;
-
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public java.util.List<io.channel.api.proto.pub.coreapi.model.Online> getOnlinesList() {
-      if (onlinesBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(onlines_);
-      } else {
-        return onlinesBuilder_.getMessageList();
-      }
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public int getOnlinesCount() {
-      if (onlinesBuilder_ == null) {
-        return onlines_.size();
-      } else {
-        return onlinesBuilder_.getCount();
-      }
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.Online getOnlines(int index) {
-      if (onlinesBuilder_ == null) {
-        return onlines_.get(index);
-      } else {
-        return onlinesBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public Builder setOnlines(
-        int index, io.channel.api.proto.pub.coreapi.model.Online value) {
-      if (onlinesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureOnlinesIsMutable();
-        onlines_.set(index, value);
-        onChanged();
-      } else {
-        onlinesBuilder_.setMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public Builder setOnlines(
-        int index, io.channel.api.proto.pub.coreapi.model.Online.Builder builderForValue) {
-      if (onlinesBuilder_ == null) {
-        ensureOnlinesIsMutable();
-        onlines_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        onlinesBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public Builder addOnlines(io.channel.api.proto.pub.coreapi.model.Online value) {
-      if (onlinesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureOnlinesIsMutable();
-        onlines_.add(value);
-        onChanged();
-      } else {
-        onlinesBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public Builder addOnlines(
-        int index, io.channel.api.proto.pub.coreapi.model.Online value) {
-      if (onlinesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureOnlinesIsMutable();
-        onlines_.add(index, value);
-        onChanged();
-      } else {
-        onlinesBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public Builder addOnlines(
-        io.channel.api.proto.pub.coreapi.model.Online.Builder builderForValue) {
-      if (onlinesBuilder_ == null) {
-        ensureOnlinesIsMutable();
-        onlines_.add(builderForValue.build());
-        onChanged();
-      } else {
-        onlinesBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public Builder addOnlines(
-        int index, io.channel.api.proto.pub.coreapi.model.Online.Builder builderForValue) {
-      if (onlinesBuilder_ == null) {
-        ensureOnlinesIsMutable();
-        onlines_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        onlinesBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public Builder addAllOnlines(
-        java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.Online> values) {
-      if (onlinesBuilder_ == null) {
-        ensureOnlinesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, onlines_);
-        onChanged();
-      } else {
-        onlinesBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public Builder clearOnlines() {
-      if (onlinesBuilder_ == null) {
-        onlines_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-      } else {
-        onlinesBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public Builder removeOnlines(int index) {
-      if (onlinesBuilder_ == null) {
-        ensureOnlinesIsMutable();
-        onlines_.remove(index);
-        onChanged();
-      } else {
-        onlinesBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.Online.Builder getOnlinesBuilder(
-        int index) {
-      return getOnlinesFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder getOnlinesOrBuilder(
-        int index) {
-      if (onlinesBuilder_ == null) {
-        return onlines_.get(index);  } else {
-        return onlinesBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder> 
-         getOnlinesOrBuilderList() {
-      if (onlinesBuilder_ != null) {
-        return onlinesBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(onlines_);
-      }
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.Online.Builder addOnlinesBuilder() {
-      return getOnlinesFieldBuilder().addBuilder(
-          io.channel.api.proto.pub.coreapi.model.Online.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.Online.Builder addOnlinesBuilder(
-        int index) {
-      return getOnlinesFieldBuilder().addBuilder(
-          index, io.channel.api.proto.pub.coreapi.model.Online.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Online presence records for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-     */
-    public java.util.List<io.channel.api.proto.pub.coreapi.model.Online.Builder> 
-         getOnlinesBuilderList() {
-      return getOnlinesFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.Online, io.channel.api.proto.pub.coreapi.model.Online.Builder, io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder> 
-        getOnlinesFieldBuilder() {
-      if (onlinesBuilder_ == null) {
-        onlinesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            io.channel.api.proto.pub.coreapi.model.Online, io.channel.api.proto.pub.coreapi.model.Online.Builder, io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder>(
-                onlines_,
-                ((bitField0_ & 0x00000002) != 0),
-                getParentForChildren(),
-                isClean());
-        onlines_ = null;
-      }
-      return onlinesBuilder_;
-    }
-
-    private java.util.List<io.channel.api.proto.pub.coreapi.model.OperatorStatus> operatorStatuses_ =
-      java.util.Collections.emptyList();
-    private void ensureOperatorStatusesIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
-        operatorStatuses_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.OperatorStatus>(operatorStatuses_);
-        bitField0_ |= 0x00000004;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.OperatorStatus, io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder, io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder> operatorStatusesBuilder_;
-
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public java.util.List<io.channel.api.proto.pub.coreapi.model.OperatorStatus> getOperatorStatusesList() {
-      if (operatorStatusesBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(operatorStatuses_);
-      } else {
-        return operatorStatusesBuilder_.getMessageList();
-      }
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public int getOperatorStatusesCount() {
-      if (operatorStatusesBuilder_ == null) {
-        return operatorStatuses_.size();
-      } else {
-        return operatorStatusesBuilder_.getCount();
-      }
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.OperatorStatus getOperatorStatuses(int index) {
-      if (operatorStatusesBuilder_ == null) {
-        return operatorStatuses_.get(index);
-      } else {
-        return operatorStatusesBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public Builder setOperatorStatuses(
-        int index, io.channel.api.proto.pub.coreapi.model.OperatorStatus value) {
-      if (operatorStatusesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureOperatorStatusesIsMutable();
-        operatorStatuses_.set(index, value);
-        onChanged();
-      } else {
-        operatorStatusesBuilder_.setMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public Builder setOperatorStatuses(
-        int index, io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder builderForValue) {
-      if (operatorStatusesBuilder_ == null) {
-        ensureOperatorStatusesIsMutable();
-        operatorStatuses_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        operatorStatusesBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public Builder addOperatorStatuses(io.channel.api.proto.pub.coreapi.model.OperatorStatus value) {
-      if (operatorStatusesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureOperatorStatusesIsMutable();
-        operatorStatuses_.add(value);
-        onChanged();
-      } else {
-        operatorStatusesBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public Builder addOperatorStatuses(
-        int index, io.channel.api.proto.pub.coreapi.model.OperatorStatus value) {
-      if (operatorStatusesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureOperatorStatusesIsMutable();
-        operatorStatuses_.add(index, value);
-        onChanged();
-      } else {
-        operatorStatusesBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public Builder addOperatorStatuses(
-        io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder builderForValue) {
-      if (operatorStatusesBuilder_ == null) {
-        ensureOperatorStatusesIsMutable();
-        operatorStatuses_.add(builderForValue.build());
-        onChanged();
-      } else {
-        operatorStatusesBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public Builder addOperatorStatuses(
-        int index, io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder builderForValue) {
-      if (operatorStatusesBuilder_ == null) {
-        ensureOperatorStatusesIsMutable();
-        operatorStatuses_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        operatorStatusesBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public Builder addAllOperatorStatuses(
-        java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.OperatorStatus> values) {
-      if (operatorStatusesBuilder_ == null) {
-        ensureOperatorStatusesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, operatorStatuses_);
-        onChanged();
-      } else {
-        operatorStatusesBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public Builder clearOperatorStatuses() {
-      if (operatorStatusesBuilder_ == null) {
-        operatorStatuses_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
-        onChanged();
-      } else {
-        operatorStatusesBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public Builder removeOperatorStatuses(int index) {
-      if (operatorStatusesBuilder_ == null) {
-        ensureOperatorStatusesIsMutable();
-        operatorStatuses_.remove(index);
-        onChanged();
-      } else {
-        operatorStatusesBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder getOperatorStatusesBuilder(
-        int index) {
-      return getOperatorStatusesFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder getOperatorStatusesOrBuilder(
-        int index) {
-      if (operatorStatusesBuilder_ == null) {
-        return operatorStatuses_.get(index);  } else {
-        return operatorStatusesBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder> 
-         getOperatorStatusesOrBuilderList() {
-      if (operatorStatusesBuilder_ != null) {
-        return operatorStatusesBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(operatorStatuses_);
-      }
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder addOperatorStatusesBuilder() {
-      return getOperatorStatusesFieldBuilder().addBuilder(
-          io.channel.api.proto.pub.coreapi.model.OperatorStatus.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder addOperatorStatusesBuilder(
-        int index) {
-      return getOperatorStatusesFieldBuilder().addBuilder(
-          index, io.channel.api.proto.pub.coreapi.model.OperatorStatus.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Operator statuses for the listed managers.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-     */
-    public java.util.List<io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder> 
-         getOperatorStatusesBuilderList() {
-      return getOperatorStatusesFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.OperatorStatus, io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder, io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder> 
-        getOperatorStatusesFieldBuilder() {
-      if (operatorStatusesBuilder_ == null) {
-        operatorStatusesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            io.channel.api.proto.pub.coreapi.model.OperatorStatus, io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder, io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder>(
-                operatorStatuses_,
-                ((bitField0_ & 0x00000004) != 0),
-                getParentForChildren(),
-                isClean());
-        operatorStatuses_ = null;
-      }
-      return operatorStatusesBuilder_;
-    }
-
     private java.lang.Object nextCursor_ = "";
     /**
      * <pre>
@@ -1770,7 +844,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string next_cursor = 4 [json_name = "nextCursor"];</code>
+     * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
      * @return The nextCursor.
      */
     public java.lang.String getNextCursor() {
@@ -1792,7 +866,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string next_cursor = 4 [json_name = "nextCursor"];</code>
+     * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
      * @return The bytes for nextCursor.
      */
     public com.google.protobuf.ByteString
@@ -1815,7 +889,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string next_cursor = 4 [json_name = "nextCursor"];</code>
+     * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
      * @param value The nextCursor to set.
      * @return This builder for chaining.
      */
@@ -1836,7 +910,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string next_cursor = 4 [json_name = "nextCursor"];</code>
+     * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
      * @return This builder for chaining.
      */
     public Builder clearNextCursor() {
@@ -1852,7 +926,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string next_cursor = 4 [json_name = "nextCursor"];</code>
+     * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
      * @param value The bytes for nextCursor to set.
      * @return This builder for chaining.
      */
@@ -1874,7 +948,7 @@ private static final long serialVersionUID = 0L;
      * Whether a next page of results exists.
      * </pre>
      *
-     * <code>bool has_next = 5 [json_name = "hasNext"];</code>
+     * <code>bool has_next = 3 [json_name = "hasNext"];</code>
      * @return The hasNext.
      */
     @java.lang.Override
@@ -1886,7 +960,7 @@ private static final long serialVersionUID = 0L;
      * Whether a next page of results exists.
      * </pre>
      *
-     * <code>bool has_next = 5 [json_name = "hasNext"];</code>
+     * <code>bool has_next = 3 [json_name = "hasNext"];</code>
      * @param value The hasNext to set.
      * @return This builder for chaining.
      */
@@ -1901,7 +975,7 @@ private static final long serialVersionUID = 0L;
      * Whether a next page of results exists.
      * </pre>
      *
-     * <code>bool has_next = 5 [json_name = "hasNext"];</code>
+     * <code>bool has_next = 3 [json_name = "hasNext"];</code>
      * @return This builder for chaining.
      */
     public Builder clearHasNext() {
@@ -1946,56 +1020,6 @@ private static final long serialVersionUID = 0L;
     		return clearManagers();
     	else {
     		values.forEach(value -> addManagers(mapFunc.apply(value)));
-    		return this;
-    	}
-    }
-    	
-    /**
-     * @param values The onlines to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllOrClearOnlines(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.Online> values) {
-    	if (values == null)
-    		return clearOnlines();
-    	else
-    		return addAllOnlines(values);
-    }
-    	
-    /**
-     * @param values The values to map.
-     * @param mapFunc The function to map the values into each proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapAllOrClearOnlines(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.Online> mapFunc) {
-    	if (values == null)
-    		return clearOnlines();
-    	else {
-    		values.forEach(value -> addOnlines(mapFunc.apply(value)));
-    		return this;
-    	}
-    }
-    	
-    /**
-     * @param values The operator_statuses to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllOrClearOperatorStatuses(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.OperatorStatus> values) {
-    	if (values == null)
-    		return clearOperatorStatuses();
-    	else
-    		return addAllOperatorStatuses(values);
-    }
-    	
-    /**
-     * @param values The values to map.
-     * @param mapFunc The function to map the values into each proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapAllOrClearOperatorStatuses(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.OperatorStatus> mapFunc) {
-    	if (values == null)
-    		return clearOperatorStatuses();
-    	else {
-    		values.forEach(value -> addOperatorStatuses(mapFunc.apply(value)));
     		return this;
     	}
     }

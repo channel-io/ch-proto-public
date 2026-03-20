@@ -65,32 +65,6 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 18: {
-            io.channel.api.proto.pub.coreapi.model.Online.Builder subBuilder = null;
-            if (online_ != null) {
-              subBuilder = online_.toBuilder();
-            }
-            online_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.Online.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(online_);
-              online_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder subBuilder = null;
-            if (operatorStatus_ != null) {
-              subBuilder = operatorStatus_.toBuilder();
-            }
-            operatorStatus_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.OperatorStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(operatorStatus_);
-              operatorStatus_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -149,82 +123,6 @@ private static final long serialVersionUID = 0L;
     return getManager();
   }
 
-  public static final int ONLINE_FIELD_NUMBER = 2;
-  private io.channel.api.proto.pub.coreapi.model.Online online_;
-  /**
-   * <pre>
-   * Online presence of the manager.
-   * </pre>
-   *
-   * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-   * @return Whether the online field is set.
-   */
-  @java.lang.Override
-  public boolean hasOnline() {
-    return online_ != null;
-  }
-  /**
-   * <pre>
-   * Online presence of the manager.
-   * </pre>
-   *
-   * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-   * @return The online.
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.Online getOnline() {
-    return online_ == null ? io.channel.api.proto.pub.coreapi.model.Online.getDefaultInstance() : online_;
-  }
-  /**
-   * <pre>
-   * Online presence of the manager.
-   * </pre>
-   *
-   * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder getOnlineOrBuilder() {
-    return getOnline();
-  }
-
-  public static final int OPERATOR_STATUS_FIELD_NUMBER = 3;
-  private io.channel.api.proto.pub.coreapi.model.OperatorStatus operatorStatus_;
-  /**
-   * <pre>
-   * Operator status of the manager.
-   * </pre>
-   *
-   * <code>.coreapi.model.OperatorStatus operator_status = 3 [json_name = "operatorStatus"];</code>
-   * @return Whether the operatorStatus field is set.
-   */
-  @java.lang.Override
-  public boolean hasOperatorStatus() {
-    return operatorStatus_ != null;
-  }
-  /**
-   * <pre>
-   * Operator status of the manager.
-   * </pre>
-   *
-   * <code>.coreapi.model.OperatorStatus operator_status = 3 [json_name = "operatorStatus"];</code>
-   * @return The operatorStatus.
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.OperatorStatus getOperatorStatus() {
-    return operatorStatus_ == null ? io.channel.api.proto.pub.coreapi.model.OperatorStatus.getDefaultInstance() : operatorStatus_;
-  }
-  /**
-   * <pre>
-   * Operator status of the manager.
-   * </pre>
-   *
-   * <code>.coreapi.model.OperatorStatus operator_status = 3 [json_name = "operatorStatus"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder getOperatorStatusOrBuilder() {
-    return getOperatorStatus();
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -242,12 +140,6 @@ private static final long serialVersionUID = 0L;
     if (manager_ != null) {
       output.writeMessage(1, getManager());
     }
-    if (online_ != null) {
-      output.writeMessage(2, getOnline());
-    }
-    if (operatorStatus_ != null) {
-      output.writeMessage(3, getOperatorStatus());
-    }
     unknownFields.writeTo(output);
   }
 
@@ -260,14 +152,6 @@ private static final long serialVersionUID = 0L;
     if (manager_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getManager());
-    }
-    if (online_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getOnline());
-    }
-    if (operatorStatus_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getOperatorStatus());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -289,16 +173,6 @@ private static final long serialVersionUID = 0L;
       if (!getManager()
           .equals(other.getManager())) return false;
     }
-    if (hasOnline() != other.hasOnline()) return false;
-    if (hasOnline()) {
-      if (!getOnline()
-          .equals(other.getOnline())) return false;
-    }
-    if (hasOperatorStatus() != other.hasOperatorStatus()) return false;
-    if (hasOperatorStatus()) {
-      if (!getOperatorStatus()
-          .equals(other.getOperatorStatus())) return false;
-    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -313,14 +187,6 @@ private static final long serialVersionUID = 0L;
     if (hasManager()) {
       hash = (37 * hash) + MANAGER_FIELD_NUMBER;
       hash = (53 * hash) + getManager().hashCode();
-    }
-    if (hasOnline()) {
-      hash = (37 * hash) + ONLINE_FIELD_NUMBER;
-      hash = (53 * hash) + getOnline().hashCode();
-    }
-    if (hasOperatorStatus()) {
-      hash = (37 * hash) + OPERATOR_STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + getOperatorStatus().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -465,18 +331,6 @@ private static final long serialVersionUID = 0L;
         manager_ = null;
         managerBuilder_ = null;
       }
-      if (onlineBuilder_ == null) {
-        online_ = null;
-      } else {
-        online_ = null;
-        onlineBuilder_ = null;
-      }
-      if (operatorStatusBuilder_ == null) {
-        operatorStatus_ = null;
-      } else {
-        operatorStatus_ = null;
-        operatorStatusBuilder_ = null;
-      }
       return this;
     }
 
@@ -507,16 +361,6 @@ private static final long serialVersionUID = 0L;
         result.manager_ = manager_;
       } else {
         result.manager_ = managerBuilder_.build();
-      }
-      if (onlineBuilder_ == null) {
-        result.online_ = online_;
-      } else {
-        result.online_ = onlineBuilder_.build();
-      }
-      if (operatorStatusBuilder_ == null) {
-        result.operatorStatus_ = operatorStatus_;
-      } else {
-        result.operatorStatus_ = operatorStatusBuilder_.build();
       }
       onBuilt();
       return result;
@@ -568,12 +412,6 @@ private static final long serialVersionUID = 0L;
       if (other == io.channel.api.proto.pub.coreapi.service.GetManagerResult.getDefaultInstance()) return this;
       if (other.hasManager()) {
         mergeManager(other.getManager());
-      }
-      if (other.hasOnline()) {
-        mergeOnline(other.getOnline());
-      }
-      if (other.hasOperatorStatus()) {
-        mergeOperatorStatus(other.getOperatorStatus());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -722,316 +560,6 @@ private static final long serialVersionUID = 0L;
       }
       return managerBuilder_;
     }
-
-    private io.channel.api.proto.pub.coreapi.model.Online online_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.Online, io.channel.api.proto.pub.coreapi.model.Online.Builder, io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder> onlineBuilder_;
-    /**
-     * <pre>
-     * Online presence of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     * @return Whether the online field is set.
-     */
-    public boolean hasOnline() {
-      return onlineBuilder_ != null || online_ != null;
-    }
-    /**
-     * <pre>
-     * Online presence of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     * @return The online.
-     */
-    public io.channel.api.proto.pub.coreapi.model.Online getOnline() {
-      if (onlineBuilder_ == null) {
-        return online_ == null ? io.channel.api.proto.pub.coreapi.model.Online.getDefaultInstance() : online_;
-      } else {
-        return onlineBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Online presence of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     */
-    public Builder setOnline(io.channel.api.proto.pub.coreapi.model.Online value) {
-      if (onlineBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        online_ = value;
-        onChanged();
-      } else {
-        onlineBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     */
-    public Builder setOnline(
-        io.channel.api.proto.pub.coreapi.model.Online.Builder builderForValue) {
-      if (onlineBuilder_ == null) {
-        online_ = builderForValue.build();
-        onChanged();
-      } else {
-        onlineBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     */
-    public Builder mergeOnline(io.channel.api.proto.pub.coreapi.model.Online value) {
-      if (onlineBuilder_ == null) {
-        if (online_ != null) {
-          online_ =
-            io.channel.api.proto.pub.coreapi.model.Online.newBuilder(online_).mergeFrom(value).buildPartial();
-        } else {
-          online_ = value;
-        }
-        onChanged();
-      } else {
-        onlineBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     */
-    public Builder clearOnline() {
-      if (onlineBuilder_ == null) {
-        online_ = null;
-        onChanged();
-      } else {
-        online_ = null;
-        onlineBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Online presence of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.Online.Builder getOnlineBuilder() {
-      
-      onChanged();
-      return getOnlineFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Online presence of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder getOnlineOrBuilder() {
-      if (onlineBuilder_ != null) {
-        return onlineBuilder_.getMessageOrBuilder();
-      } else {
-        return online_ == null ?
-            io.channel.api.proto.pub.coreapi.model.Online.getDefaultInstance() : online_;
-      }
-    }
-    /**
-     * <pre>
-     * Online presence of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.Online, io.channel.api.proto.pub.coreapi.model.Online.Builder, io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder> 
-        getOnlineFieldBuilder() {
-      if (onlineBuilder_ == null) {
-        onlineBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            io.channel.api.proto.pub.coreapi.model.Online, io.channel.api.proto.pub.coreapi.model.Online.Builder, io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder>(
-                getOnline(),
-                getParentForChildren(),
-                isClean());
-        online_ = null;
-      }
-      return onlineBuilder_;
-    }
-
-    private io.channel.api.proto.pub.coreapi.model.OperatorStatus operatorStatus_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.OperatorStatus, io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder, io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder> operatorStatusBuilder_;
-    /**
-     * <pre>
-     * Operator status of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.OperatorStatus operator_status = 3 [json_name = "operatorStatus"];</code>
-     * @return Whether the operatorStatus field is set.
-     */
-    public boolean hasOperatorStatus() {
-      return operatorStatusBuilder_ != null || operatorStatus_ != null;
-    }
-    /**
-     * <pre>
-     * Operator status of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.OperatorStatus operator_status = 3 [json_name = "operatorStatus"];</code>
-     * @return The operatorStatus.
-     */
-    public io.channel.api.proto.pub.coreapi.model.OperatorStatus getOperatorStatus() {
-      if (operatorStatusBuilder_ == null) {
-        return operatorStatus_ == null ? io.channel.api.proto.pub.coreapi.model.OperatorStatus.getDefaultInstance() : operatorStatus_;
-      } else {
-        return operatorStatusBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Operator status of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.OperatorStatus operator_status = 3 [json_name = "operatorStatus"];</code>
-     */
-    public Builder setOperatorStatus(io.channel.api.proto.pub.coreapi.model.OperatorStatus value) {
-      if (operatorStatusBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        operatorStatus_ = value;
-        onChanged();
-      } else {
-        operatorStatusBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Operator status of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.OperatorStatus operator_status = 3 [json_name = "operatorStatus"];</code>
-     */
-    public Builder setOperatorStatus(
-        io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder builderForValue) {
-      if (operatorStatusBuilder_ == null) {
-        operatorStatus_ = builderForValue.build();
-        onChanged();
-      } else {
-        operatorStatusBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Operator status of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.OperatorStatus operator_status = 3 [json_name = "operatorStatus"];</code>
-     */
-    public Builder mergeOperatorStatus(io.channel.api.proto.pub.coreapi.model.OperatorStatus value) {
-      if (operatorStatusBuilder_ == null) {
-        if (operatorStatus_ != null) {
-          operatorStatus_ =
-            io.channel.api.proto.pub.coreapi.model.OperatorStatus.newBuilder(operatorStatus_).mergeFrom(value).buildPartial();
-        } else {
-          operatorStatus_ = value;
-        }
-        onChanged();
-      } else {
-        operatorStatusBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Operator status of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.OperatorStatus operator_status = 3 [json_name = "operatorStatus"];</code>
-     */
-    public Builder clearOperatorStatus() {
-      if (operatorStatusBuilder_ == null) {
-        operatorStatus_ = null;
-        onChanged();
-      } else {
-        operatorStatus_ = null;
-        operatorStatusBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Operator status of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.OperatorStatus operator_status = 3 [json_name = "operatorStatus"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder getOperatorStatusBuilder() {
-      
-      onChanged();
-      return getOperatorStatusFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Operator status of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.OperatorStatus operator_status = 3 [json_name = "operatorStatus"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder getOperatorStatusOrBuilder() {
-      if (operatorStatusBuilder_ != null) {
-        return operatorStatusBuilder_.getMessageOrBuilder();
-      } else {
-        return operatorStatus_ == null ?
-            io.channel.api.proto.pub.coreapi.model.OperatorStatus.getDefaultInstance() : operatorStatus_;
-      }
-    }
-    /**
-     * <pre>
-     * Operator status of the manager.
-     * </pre>
-     *
-     * <code>.coreapi.model.OperatorStatus operator_status = 3 [json_name = "operatorStatus"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.OperatorStatus, io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder, io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder> 
-        getOperatorStatusFieldBuilder() {
-      if (operatorStatusBuilder_ == null) {
-        operatorStatusBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            io.channel.api.proto.pub.coreapi.model.OperatorStatus, io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder, io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder>(
-                getOperatorStatus(),
-                getParentForChildren(),
-                isClean());
-        operatorStatus_ = null;
-      }
-      return operatorStatusBuilder_;
-    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1068,52 +596,6 @@ private static final long serialVersionUID = 0L;
     		return clearManager();
     	else
     		return setManager(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The online to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearOnline(io.channel.api.proto.pub.coreapi.model.Online value) {
-    	if (value == null)
-    		return clearOnline();
-    	else
-    		return setOnline(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearOnline(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.Online> mapFunc) {
-    	if (value == null)
-    		return clearOnline();
-    	else
-    		return setOnline(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The operator_status to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearOperatorStatus(io.channel.api.proto.pub.coreapi.model.OperatorStatus value) {
-    	if (value == null)
-    		return clearOperatorStatus();
-    	else
-    		return setOperatorStatus(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearOperatorStatus(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.OperatorStatus> mapFunc) {
-    	if (value == null)
-    		return clearOperatorStatus();
-    	else
-    		return setOperatorStatus(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.GetManagerResult)

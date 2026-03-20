@@ -83,10 +83,8 @@ func (x *GetUserRequest) GetChannelId() string {
 
 // Response for single user retrieval.
 type GetUserResult struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	User  *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
-	// Online presence of the user.
-	Online        *model.Online `protobuf:"bytes,2,opt,name=online,proto3" json:"online,omitempty"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -124,13 +122,6 @@ func (*GetUserResult) Descriptor() ([]byte, []int) {
 func (x *GetUserResult) GetUser() *model.User {
 	if x != nil {
 		return x.User
-	}
-	return nil
-}
-
-func (x *GetUserResult) GetOnline() *model.Online {
-	if x != nil {
-		return x.Online
 	}
 	return nil
 }
@@ -195,10 +186,8 @@ func (x *GetUserByMemberIdRequest) GetChannelId() string {
 
 // Response for single user retrieval by member identifier.
 type GetUserByMemberIdResult struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	User  *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
-	// Online presence of the user.
-	Online        *model.Online `protobuf:"bytes,2,opt,name=online,proto3" json:"online,omitempty"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -236,13 +225,6 @@ func (*GetUserByMemberIdResult) Descriptor() ([]byte, []int) {
 func (x *GetUserByMemberIdResult) GetUser() *model.User {
 	if x != nil {
 		return x.User
-	}
-	return nil
-}
-
-func (x *GetUserByMemberIdResult) GetOnline() *model.Online {
-	if x != nil {
-		return x.Online
 	}
 	return nil
 }
@@ -496,10 +478,8 @@ func (x *BlockUserRequest) GetChannelId() string {
 
 // Response for user block.
 type BlockUserResult struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	User  *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
-	// Online presence of the user.
-	Online        *model.Online `protobuf:"bytes,2,opt,name=online,proto3" json:"online,omitempty"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -537,13 +517,6 @@ func (*BlockUserResult) Descriptor() ([]byte, []int) {
 func (x *BlockUserResult) GetUser() *model.User {
 	if x != nil {
 		return x.User
-	}
-	return nil
-}
-
-func (x *BlockUserResult) GetOnline() *model.Online {
-	if x != nil {
-		return x.Online
 	}
 	return nil
 }
@@ -605,10 +578,8 @@ func (x *UnblockUserRequest) GetChannelId() string {
 
 // Response for user unblock.
 type UnblockUserResult struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	User  *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
-	// Online presence of the user.
-	Online        *model.Online `protobuf:"bytes,2,opt,name=online,proto3" json:"online,omitempty"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -646,13 +617,6 @@ func (*UnblockUserResult) Descriptor() ([]byte, []int) {
 func (x *UnblockUserResult) GetUser() *model.User {
 	if x != nil {
 		return x.User
-	}
-	return nil
-}
-
-func (x *UnblockUserResult) GetOnline() *model.Online {
-	if x != nil {
-		return x.Online
 	}
 	return nil
 }
@@ -788,10 +752,8 @@ func (x *PatchUserRequest) GetLanguage() string {
 
 // Response for user update.
 type PatchUserResult struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	User  *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
-	// Online presence of the user.
-	Online        *model.Online `protobuf:"bytes,2,opt,name=online,proto3" json:"online,omitempty"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -829,13 +791,6 @@ func (*PatchUserResult) Descriptor() ([]byte, []int) {
 func (x *PatchUserResult) GetUser() *model.User {
 	if x != nil {
 		return x.User
-	}
-	return nil
-}
-
-func (x *PatchUserResult) GetOnline() *model.Online {
-	if x != nil {
-		return x.Online
 	}
 	return nil
 }
@@ -974,10 +929,8 @@ func (x *UpsertUserByMemberIdRequest) GetLanguage() string {
 
 // Response for user upsert by member identifier.
 type UpsertUserByMemberIdResult struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	User  *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
-	// Online presence of the user.
-	Online        *model.Online `protobuf:"bytes,2,opt,name=online,proto3" json:"online,omitempty"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1015,13 +968,6 @@ func (*UpsertUserByMemberIdResult) Descriptor() ([]byte, []int) {
 func (x *UpsertUserByMemberIdResult) GetUser() *model.User {
 	if x != nil {
 		return x.User
-	}
-	return nil
-}
-
-func (x *UpsertUserByMemberIdResult) GetOnline() *model.Online {
-	if x != nil {
-		return x.Online
 	}
 	return nil
 }
@@ -1083,10 +1029,8 @@ func (x *CreateLeadRequest) GetProfile() *structpb.Struct {
 
 // Response for lead creation.
 type CreateLeadResult struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	User  *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
-	// Online presence of the user.
-	Online        *model.Online `protobuf:"bytes,2,opt,name=online,proto3" json:"online,omitempty"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1124,13 +1068,6 @@ func (*CreateLeadResult) Descriptor() ([]byte, []int) {
 func (x *CreateLeadResult) GetUser() *model.User {
 	if x != nil {
 		return x.User
-	}
-	return nil
-}
-
-func (x *CreateLeadResult) GetOnline() *model.Online {
-	if x != nil {
-		return x.Online
 	}
 	return nil
 }
@@ -1543,10 +1480,8 @@ func (x *TouchUserRequest) GetChannelId() string {
 
 // Response for user touch.
 type TouchUserResult struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	User  *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
-	// Online presence of the user.
-	Online        *model.Online `protobuf:"bytes,2,opt,name=online,proto3" json:"online,omitempty"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1588,33 +1523,24 @@ func (x *TouchUserResult) GetUser() *model.User {
 	return nil
 }
 
-func (x *TouchUserResult) GetOnline() *model.Online {
-	if x != nil {
-		return x.Online
-	}
-	return nil
-}
-
 var File_coreapi_service_user_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_user_proto_rawDesc = "" +
 	"\n" +
-	"\x1acoreapi/service/user.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1acoreapi/model/online.proto\x1a\x18coreapi/model/user.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"X\n" +
+	"\x1acoreapi/service/user.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x18coreapi/model/user.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"X\n" +
 	"\x0eGetUserRequest\x12\x1f\n" +
 	"\auser_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"g\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"8\n" +
 	"\rGetUserResult\x12'\n" +
-	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\x12-\n" +
-	"\x06online\x18\x02 \x01(\v2\x15.coreapi.model.OnlineR\x06online\"\xbd\x01\n" +
+	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"\xbd\x01\n" +
 	"\x18GetUserByMemberIdRequest\x12z\n" +
 	"\tmember_id\x18\x01 \x01(\tB]\xbaHZ\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 64 characters\x1a\x10size(this) <= 64\xc8\x01\x01r\a2\x05^\\S*$R\bmemberId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"q\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"B\n" +
 	"\x17GetUserByMemberIdResult\x12'\n" +
-	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\x12-\n" +
-	"\x06online\x18\x02 \x01(\v2\x15.coreapi.model.OnlineR\x06online\"[\n" +
+	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"[\n" +
 	"\x11DeleteUserRequest\x12\x1f\n" +
 	"\auser_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\x12%\n" +
 	"\n" +
@@ -1629,17 +1555,15 @@ const file_coreapi_service_user_proto_rawDesc = "" +
 	"\x10BlockUserRequest\x12\x1f\n" +
 	"\auser_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"i\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\":\n" +
 	"\x0fBlockUserResult\x12'\n" +
-	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\x12-\n" +
-	"\x06online\x18\x02 \x01(\v2\x15.coreapi.model.OnlineR\x06online\"\\\n" +
+	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"\\\n" +
 	"\x12UnblockUserRequest\x12\x1f\n" +
 	"\auser_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"k\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"<\n" +
 	"\x11UnblockUserResult\x12'\n" +
-	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\x12-\n" +
-	"\x06online\x18\x02 \x01(\v2\x15.coreapi.model.OnlineR\x06online\"\xa3\x03\n" +
+	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"\xa3\x03\n" +
 	"\x10PatchUserRequest\x12\x1f\n" +
 	"\auser_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\x12%\n" +
 	"\n" +
@@ -1652,10 +1576,9 @@ const file_coreapi_service_user_proto_rawDesc = "" +
 	"\x13unsubscribe_texting\x18\b \x01(\bR\x12unsubscribeTexting\x120\n" +
 	"\x14unsubscribe_app_push\x18\t \x01(\bR\x12unsubscribeAppPush\x12\x1a\n" +
 	"\blanguage\x18\n" +
-	" \x01(\tR\blanguage\"i\n" +
+	" \x01(\tR\blanguage\":\n" +
 	"\x0fPatchUserResult\x12'\n" +
-	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\x12-\n" +
-	"\x06online\x18\x02 \x01(\v2\x15.coreapi.model.OnlineR\x06online\"\x89\x04\n" +
+	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"\x89\x04\n" +
 	"\x1bUpsertUserByMemberIdRequest\x12z\n" +
 	"\tmember_id\x18\x01 \x01(\tB]\xbaHZ\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 64 characters\x1a\x10size(this) <= 64\xc8\x01\x01r\a2\x05^\\S*$R\bmemberId\x12%\n" +
@@ -1669,17 +1592,15 @@ const file_coreapi_service_user_proto_rawDesc = "" +
 	"\x13unsubscribe_texting\x18\b \x01(\bR\x12unsubscribeTexting\x120\n" +
 	"\x14unsubscribe_app_push\x18\t \x01(\bR\x12unsubscribeAppPush\x12\x1a\n" +
 	"\blanguage\x18\n" +
-	" \x01(\tR\blanguage\"t\n" +
+	" \x01(\tR\blanguage\"E\n" +
 	"\x1aUpsertUserByMemberIdResult\x12'\n" +
-	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\x12-\n" +
-	"\x06online\x18\x02 \x01(\v2\x15.coreapi.model.OnlineR\x06online\"u\n" +
+	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"u\n" +
 	"\x11CreateLeadRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x129\n" +
-	"\aprofile\x18\x02 \x01(\v2\x17.google.protobuf.StructB\x06\xbaH\x03\xc8\x01\x01R\aprofile\"j\n" +
+	"\aprofile\x18\x02 \x01(\v2\x17.google.protobuf.StructB\x06\xbaH\x03\xc8\x01\x01R\aprofile\";\n" +
 	"\x10CreateLeadResult\x12'\n" +
-	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\x12-\n" +
-	"\x06online\x18\x02 \x01(\v2\x15.coreapi.model.OnlineR\x06online\"\xda\x03\n" +
+	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"\xda\x03\n" +
 	"\x16IssueSessionJwtRequest\x12z\n" +
 	"\tmember_id\x18\x01 \x01(\tB]\xbaHZ\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 64 characters\x1a\x10size(this) <= 64\xc8\x01\x01r\a2\x05^\\S*$R\bmemberId\x12%\n" +
@@ -1715,10 +1636,9 @@ const file_coreapi_service_user_proto_rawDesc = "" +
 	"\x10TouchUserRequest\x12\x1f\n" +
 	"\auser_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"i\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\":\n" +
 	"\x0fTouchUserResult\x12'\n" +
-	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\x12-\n" +
-	"\x06online\x18\x02 \x01(\v2\x15.coreapi.model.OnlineR\x06onlineBf\n" +
+	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04userBf\n" +
 	"(io.channel.api.proto.pub.coreapi.serviceP\x01Z8github.com/channel-io/ch-proto-public/coreapi/go/serviceb\x06proto3"
 
 var (
@@ -1762,42 +1682,33 @@ var file_coreapi_service_user_proto_goTypes = []any{
 	(*TouchUserRequest)(nil),                // 24: coreapi.service.TouchUserRequest
 	(*TouchUserResult)(nil),                 // 25: coreapi.service.TouchUserResult
 	(*model.User)(nil),                      // 26: coreapi.model.User
-	(*model.Online)(nil),                    // 27: coreapi.model.Online
-	(*structpb.Struct)(nil),                 // 28: google.protobuf.Struct
-	(*durationpb.Duration)(nil),             // 29: google.protobuf.Duration
-	(*timestamppb.Timestamp)(nil),           // 30: google.protobuf.Timestamp
+	(*structpb.Struct)(nil),                 // 27: google.protobuf.Struct
+	(*durationpb.Duration)(nil),             // 28: google.protobuf.Duration
+	(*timestamppb.Timestamp)(nil),           // 29: google.protobuf.Timestamp
 }
 var file_coreapi_service_user_proto_depIdxs = []int32{
 	26, // 0: coreapi.service.GetUserResult.user:type_name -> coreapi.model.User
-	27, // 1: coreapi.service.GetUserResult.online:type_name -> coreapi.model.Online
-	26, // 2: coreapi.service.GetUserByMemberIdResult.user:type_name -> coreapi.model.User
-	27, // 3: coreapi.service.GetUserByMemberIdResult.online:type_name -> coreapi.model.Online
-	26, // 4: coreapi.service.BlockUserResult.user:type_name -> coreapi.model.User
-	27, // 5: coreapi.service.BlockUserResult.online:type_name -> coreapi.model.Online
-	26, // 6: coreapi.service.UnblockUserResult.user:type_name -> coreapi.model.User
-	27, // 7: coreapi.service.UnblockUserResult.online:type_name -> coreapi.model.Online
-	28, // 8: coreapi.service.PatchUserRequest.profile:type_name -> google.protobuf.Struct
-	28, // 9: coreapi.service.PatchUserRequest.profile_once:type_name -> google.protobuf.Struct
-	26, // 10: coreapi.service.PatchUserResult.user:type_name -> coreapi.model.User
-	27, // 11: coreapi.service.PatchUserResult.online:type_name -> coreapi.model.Online
-	28, // 12: coreapi.service.UpsertUserByMemberIdRequest.profile:type_name -> google.protobuf.Struct
-	28, // 13: coreapi.service.UpsertUserByMemberIdRequest.profile_once:type_name -> google.protobuf.Struct
-	26, // 14: coreapi.service.UpsertUserByMemberIdResult.user:type_name -> coreapi.model.User
-	27, // 15: coreapi.service.UpsertUserByMemberIdResult.online:type_name -> coreapi.model.Online
-	28, // 16: coreapi.service.CreateLeadRequest.profile:type_name -> google.protobuf.Struct
-	26, // 17: coreapi.service.CreateLeadResult.user:type_name -> coreapi.model.User
-	27, // 18: coreapi.service.CreateLeadResult.online:type_name -> coreapi.model.Online
-	29, // 19: coreapi.service.IssueSessionJwtRequest.expiration:type_name -> google.protobuf.Duration
-	30, // 20: coreapi.service.IssueSessionJwtResult.expires_at:type_name -> google.protobuf.Timestamp
-	30, // 21: coreapi.service.IssueUserTokenResult.disable_at:type_name -> google.protobuf.Timestamp
-	30, // 22: coreapi.service.IssueUserTokenByMemberIdResult.disable_at:type_name -> google.protobuf.Timestamp
-	26, // 23: coreapi.service.TouchUserResult.user:type_name -> coreapi.model.User
-	27, // 24: coreapi.service.TouchUserResult.online:type_name -> coreapi.model.Online
-	25, // [25:25] is the sub-list for method output_type
-	25, // [25:25] is the sub-list for method input_type
-	25, // [25:25] is the sub-list for extension type_name
-	25, // [25:25] is the sub-list for extension extendee
-	0,  // [0:25] is the sub-list for field type_name
+	26, // 1: coreapi.service.GetUserByMemberIdResult.user:type_name -> coreapi.model.User
+	26, // 2: coreapi.service.BlockUserResult.user:type_name -> coreapi.model.User
+	26, // 3: coreapi.service.UnblockUserResult.user:type_name -> coreapi.model.User
+	27, // 4: coreapi.service.PatchUserRequest.profile:type_name -> google.protobuf.Struct
+	27, // 5: coreapi.service.PatchUserRequest.profile_once:type_name -> google.protobuf.Struct
+	26, // 6: coreapi.service.PatchUserResult.user:type_name -> coreapi.model.User
+	27, // 7: coreapi.service.UpsertUserByMemberIdRequest.profile:type_name -> google.protobuf.Struct
+	27, // 8: coreapi.service.UpsertUserByMemberIdRequest.profile_once:type_name -> google.protobuf.Struct
+	26, // 9: coreapi.service.UpsertUserByMemberIdResult.user:type_name -> coreapi.model.User
+	27, // 10: coreapi.service.CreateLeadRequest.profile:type_name -> google.protobuf.Struct
+	26, // 11: coreapi.service.CreateLeadResult.user:type_name -> coreapi.model.User
+	28, // 12: coreapi.service.IssueSessionJwtRequest.expiration:type_name -> google.protobuf.Duration
+	29, // 13: coreapi.service.IssueSessionJwtResult.expires_at:type_name -> google.protobuf.Timestamp
+	29, // 14: coreapi.service.IssueUserTokenResult.disable_at:type_name -> google.protobuf.Timestamp
+	29, // 15: coreapi.service.IssueUserTokenByMemberIdResult.disable_at:type_name -> google.protobuf.Timestamp
+	26, // 16: coreapi.service.TouchUserResult.user:type_name -> coreapi.model.User
+	17, // [17:17] is the sub-list for method output_type
+	17, // [17:17] is the sub-list for method input_type
+	17, // [17:17] is the sub-list for extension type_name
+	17, // [17:17] is the sub-list for extension extendee
+	0,  // [0:17] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_user_proto_init() }

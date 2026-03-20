@@ -33,110 +33,12 @@ public interface SearchManagersResultOrBuilder extends
 
   /**
    * <pre>
-   * Online presence records for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-   */
-  java.util.List<io.channel.api.proto.pub.coreapi.model.Online> 
-      getOnlinesList();
-  /**
-   * <pre>
-   * Online presence records for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.Online getOnlines(int index);
-  /**
-   * <pre>
-   * Online presence records for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-   */
-  int getOnlinesCount();
-  /**
-   * <pre>
-   * Online presence records for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-   */
-  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder> 
-      getOnlinesOrBuilderList();
-  /**
-   * <pre>
-   * Online presence records for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder getOnlinesOrBuilder(
-      int index);
-
-  /**
-   * <pre>
-   * Operator statuses for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-   */
-  java.util.List<io.channel.api.proto.pub.coreapi.model.OperatorStatus> 
-      getOperatorStatusesList();
-  /**
-   * <pre>
-   * Operator statuses for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.OperatorStatus getOperatorStatuses(int index);
-  /**
-   * <pre>
-   * Operator statuses for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-   */
-  int getOperatorStatusesCount();
-  /**
-   * <pre>
-   * Operator statuses for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-   */
-  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder> 
-      getOperatorStatusesOrBuilderList();
-  /**
-   * <pre>
-   * Operator statuses for the listed managers.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder getOperatorStatusesOrBuilder(
-      int index);
-
-  /**
-   * <pre>
    * Opaque cursor for the next page.
    * Use has_next to determine whether another page exists.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string next_cursor = 4 [json_name = "nextCursor"];</code>
+   * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
    * @return The nextCursor.
    */
   java.lang.String getNextCursor();
@@ -147,7 +49,7 @@ public interface SearchManagersResultOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string next_cursor = 4 [json_name = "nextCursor"];</code>
+   * <code>string next_cursor = 2 [json_name = "nextCursor"];</code>
    * @return The bytes for nextCursor.
    */
   com.google.protobuf.ByteString
@@ -158,7 +60,7 @@ public interface SearchManagersResultOrBuilder extends
    * Whether a next page of results exists.
    * </pre>
    *
-   * <code>bool has_next = 5 [json_name = "hasNext"];</code>
+   * <code>bool has_next = 3 [json_name = "hasNext"];</code>
    * @return The hasNext.
    */
   boolean getHasNext();
