@@ -56,8 +56,16 @@ option java_package = "io.channel.api.proto.pub.coreapi.{domain}";
 | 디렉토리 | 용도 | 예시 |
 |----------|------|------|
 | `coreapi/common/` | 여러 도메인에서 공유하는 타입 | `Pagination`, `SortOrder` |
-| `coreapi/model/` | 도메인 엔티티 모델 | `Bot`, `NameDesc` |
-| `coreapi/service/` | API 요청/응답 메시지 | `SearchBotsRequest`, `UpsertBotRequest` |
+| `coreapi/model/` | 도메인 엔티티 모델 | `Bot`, `NameDesc`, `Online`, `OperatorStatus` |
+| `coreapi/service/` | API 요청/응답 메시지 (독립 리소스 단위) | `group.proto`, `manager.proto`, `user_chat.proto` |
+
+### service 파일 구성 원칙
+
+- **독립 리소스 = 별도 파일**: `bot.proto`, `user.proto`, `manager.proto`, `group.proto`, `user_chat.proto` 등
+- **종속 엔티티 오퍼레이션 = 상위 리소스 파일에 포함**: 메시지, 세션, 스레드, 파일URL, 북마크 등은 Group/UserChat 파일 안에 정의
+- **종속 엔티티를 별도 service 파일로 분리하지 않는다** (예: `chat_message.proto` 금지)
+- **bool expand 패턴**: 별도 조회가 필요한 종속 엔티티는 `include_` 플래그로 선택적 포함 (예: `include_online`, `include_operator_status`)
+- 상세 규칙: `.claude/rules/service.md` 참조
 
 ## 의존성
 
