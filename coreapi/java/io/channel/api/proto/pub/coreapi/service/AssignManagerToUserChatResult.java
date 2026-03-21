@@ -4,10 +4,6 @@
 package io.channel.api.proto.pub.coreapi.service;
 
 /**
- * <pre>
- * Response for assigning a manager to a user chat.
- * </pre>
- *
  * Protobuf type {@code coreapi.service.AssignManagerToUserChatResult}
  */
 public final class AssignManagerToUserChatResult extends
@@ -284,10 +280,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * Response for assigning a manager to a user chat.
-   * </pre>
-   *
    * Protobuf type {@code coreapi.service.AssignManagerToUserChatResult}
    */
   public static final class Builder extends

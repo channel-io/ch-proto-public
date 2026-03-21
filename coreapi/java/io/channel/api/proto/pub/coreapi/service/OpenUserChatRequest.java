@@ -111,10 +111,6 @@ private static final long serialVersionUID = 0L;
   public static final int USER_CHAT_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object userChatId_;
   /**
-   * <pre>
-   * User chat ID to open.
-   * </pre>
-   *
    * <code>string user_chat_id = 1 [json_name = "userChatId", (.buf.validate.field) = { ... }</code>
    * @return The userChatId.
    */
@@ -132,10 +128,6 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <pre>
-   * User chat ID to open.
-   * </pre>
-   *
    * <code>string user_chat_id = 1 [json_name = "userChatId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for userChatId.
    */
@@ -157,10 +149,6 @@ private static final long serialVersionUID = 0L;
   public static final int CHANNEL_ID_FIELD_NUMBER = 2;
   private volatile java.lang.Object channelId_;
   /**
-   * <pre>
-   * Channel ID the user chat belongs to.
-   * </pre>
-   *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
@@ -178,10 +166,6 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <pre>
-   * Channel ID the user chat belongs to.
-   * </pre>
-   *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
@@ -204,8 +188,6 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object botName_;
   /**
    * <pre>
-   * Name of the bot that opens the user chat.
-   * Creates a new bot if one with this name does not exist.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
@@ -230,8 +212,6 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Name of the bot that opens the user chat.
-   * Creates a new bot if one with this name does not exist.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
@@ -601,10 +581,6 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object userChatId_ = "";
     /**
-     * <pre>
-     * User chat ID to open.
-     * </pre>
-     *
      * <code>string user_chat_id = 1 [json_name = "userChatId", (.buf.validate.field) = { ... }</code>
      * @return The userChatId.
      */
@@ -621,10 +597,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * User chat ID to open.
-     * </pre>
-     *
      * <code>string user_chat_id = 1 [json_name = "userChatId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for userChatId.
      */
@@ -642,10 +614,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * User chat ID to open.
-     * </pre>
-     *
      * <code>string user_chat_id = 1 [json_name = "userChatId", (.buf.validate.field) = { ... }</code>
      * @param value The userChatId to set.
      * @return This builder for chaining.
@@ -661,10 +629,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * User chat ID to open.
-     * </pre>
-     *
      * <code>string user_chat_id = 1 [json_name = "userChatId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
@@ -675,10 +639,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * User chat ID to open.
-     * </pre>
-     *
      * <code>string user_chat_id = 1 [json_name = "userChatId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for userChatId to set.
      * @return This builder for chaining.
@@ -697,10 +657,6 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object channelId_ = "";
     /**
-     * <pre>
-     * Channel ID the user chat belongs to.
-     * </pre>
-     *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The channelId.
      */
@@ -717,10 +673,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * Channel ID the user chat belongs to.
-     * </pre>
-     *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for channelId.
      */
@@ -738,10 +690,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * Channel ID the user chat belongs to.
-     * </pre>
-     *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The channelId to set.
      * @return This builder for chaining.
@@ -757,10 +705,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * Channel ID the user chat belongs to.
-     * </pre>
-     *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
@@ -771,10 +715,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * Channel ID the user chat belongs to.
-     * </pre>
-     *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for channelId to set.
      * @return This builder for chaining.
@@ -794,8 +734,6 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object botName_ = "";
     /**
      * <pre>
-     * Name of the bot that opens the user chat.
-     * Creates a new bot if one with this name does not exist.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
@@ -819,8 +757,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the bot that opens the user chat.
-     * Creates a new bot if one with this name does not exist.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
@@ -845,8 +781,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the bot that opens the user chat.
-     * Creates a new bot if one with this name does not exist.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
@@ -869,8 +803,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the bot that opens the user chat.
-     * Creates a new bot if one with this name does not exist.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
@@ -888,8 +820,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the bot that opens the user chat.
-     * Creates a new bot if one with this name does not exist.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30

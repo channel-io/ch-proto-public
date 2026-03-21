@@ -21,6 +21,7 @@ private static final long serialVersionUID = 0L;
   }
   private BatchGetUsersResult() {
     users_ = java.util.Collections.emptyList();
+    onlines_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -63,6 +64,15 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(io.channel.api.proto.pub.coreapi.model.User.parser(), extensionRegistry));
             break;
           }
+          case 18: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              onlines_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.Online>();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            onlines_.add(
+                input.readMessage(io.channel.api.proto.pub.coreapi.model.Online.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -80,6 +90,9 @@ private static final long serialVersionUID = 0L;
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
         users_ = java.util.Collections.unmodifiableList(users_);
+      }
+      if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        onlines_ = java.util.Collections.unmodifiableList(onlines_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -138,6 +151,71 @@ private static final long serialVersionUID = 0L;
     return users_.get(index);
   }
 
+  public static final int ONLINES_FIELD_NUMBER = 2;
+  private java.util.List<io.channel.api.proto.pub.coreapi.model.Online> onlines_;
+  /**
+   * <pre>
+   * Online presence for each user. Populated when include_online is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<io.channel.api.proto.pub.coreapi.model.Online> getOnlinesList() {
+    return onlines_;
+  }
+  /**
+   * <pre>
+   * Online presence for each user. Populated when include_online is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder> 
+      getOnlinesOrBuilderList() {
+    return onlines_;
+  }
+  /**
+   * <pre>
+   * Online presence for each user. Populated when include_online is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+   */
+  @java.lang.Override
+  public int getOnlinesCount() {
+    return onlines_.size();
+  }
+  /**
+   * <pre>
+   * Online presence for each user. Populated when include_online is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.Online getOnlines(int index) {
+    return onlines_.get(index);
+  }
+  /**
+   * <pre>
+   * Online presence for each user. Populated when include_online is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder getOnlinesOrBuilder(
+      int index) {
+    return onlines_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -155,6 +233,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < users_.size(); i++) {
       output.writeMessage(1, users_.get(i));
     }
+    for (int i = 0; i < onlines_.size(); i++) {
+      output.writeMessage(2, onlines_.get(i));
+    }
     unknownFields.writeTo(output);
   }
 
@@ -167,6 +248,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < users_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, users_.get(i));
+    }
+    for (int i = 0; i < onlines_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, onlines_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -185,6 +270,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getUsersList()
         .equals(other.getUsersList())) return false;
+    if (!getOnlinesList()
+        .equals(other.getOnlinesList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -199,6 +286,10 @@ private static final long serialVersionUID = 0L;
     if (getUsersCount() > 0) {
       hash = (37 * hash) + USERS_FIELD_NUMBER;
       hash = (53 * hash) + getUsersList().hashCode();
+    }
+    if (getOnlinesCount() > 0) {
+      hash = (37 * hash) + ONLINES_FIELD_NUMBER;
+      hash = (53 * hash) + getOnlinesList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -333,6 +424,7 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
         getUsersFieldBuilder();
+        getOnlinesFieldBuilder();
       }
     }
     @java.lang.Override
@@ -343,6 +435,12 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
         usersBuilder_.clear();
+      }
+      if (onlinesBuilder_ == null) {
+        onlines_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      } else {
+        onlinesBuilder_.clear();
       }
       return this;
     }
@@ -379,6 +477,15 @@ private static final long serialVersionUID = 0L;
         result.users_ = users_;
       } else {
         result.users_ = usersBuilder_.build();
+      }
+      if (onlinesBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          onlines_ = java.util.Collections.unmodifiableList(onlines_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.onlines_ = onlines_;
+      } else {
+        result.onlines_ = onlinesBuilder_.build();
       }
       onBuilt();
       return result;
@@ -451,6 +558,32 @@ private static final long serialVersionUID = 0L;
                  getUsersFieldBuilder() : null;
           } else {
             usersBuilder_.addAllMessages(other.users_);
+          }
+        }
+      }
+      if (onlinesBuilder_ == null) {
+        if (!other.onlines_.isEmpty()) {
+          if (onlines_.isEmpty()) {
+            onlines_ = other.onlines_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureOnlinesIsMutable();
+            onlines_.addAll(other.onlines_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.onlines_.isEmpty()) {
+          if (onlinesBuilder_.isEmpty()) {
+            onlinesBuilder_.dispose();
+            onlinesBuilder_ = null;
+            onlines_ = other.onlines_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+            onlinesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getOnlinesFieldBuilder() : null;
+          } else {
+            onlinesBuilder_.addAllMessages(other.onlines_);
           }
         }
       }
@@ -723,6 +856,336 @@ private static final long serialVersionUID = 0L;
       }
       return usersBuilder_;
     }
+
+    private java.util.List<io.channel.api.proto.pub.coreapi.model.Online> onlines_ =
+      java.util.Collections.emptyList();
+    private void ensureOnlinesIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        onlines_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.Online>(onlines_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.Online, io.channel.api.proto.pub.coreapi.model.Online.Builder, io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder> onlinesBuilder_;
+
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public java.util.List<io.channel.api.proto.pub.coreapi.model.Online> getOnlinesList() {
+      if (onlinesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(onlines_);
+      } else {
+        return onlinesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public int getOnlinesCount() {
+      if (onlinesBuilder_ == null) {
+        return onlines_.size();
+      } else {
+        return onlinesBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.Online getOnlines(int index) {
+      if (onlinesBuilder_ == null) {
+        return onlines_.get(index);
+      } else {
+        return onlinesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public Builder setOnlines(
+        int index, io.channel.api.proto.pub.coreapi.model.Online value) {
+      if (onlinesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOnlinesIsMutable();
+        onlines_.set(index, value);
+        onChanged();
+      } else {
+        onlinesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public Builder setOnlines(
+        int index, io.channel.api.proto.pub.coreapi.model.Online.Builder builderForValue) {
+      if (onlinesBuilder_ == null) {
+        ensureOnlinesIsMutable();
+        onlines_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        onlinesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public Builder addOnlines(io.channel.api.proto.pub.coreapi.model.Online value) {
+      if (onlinesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOnlinesIsMutable();
+        onlines_.add(value);
+        onChanged();
+      } else {
+        onlinesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public Builder addOnlines(
+        int index, io.channel.api.proto.pub.coreapi.model.Online value) {
+      if (onlinesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOnlinesIsMutable();
+        onlines_.add(index, value);
+        onChanged();
+      } else {
+        onlinesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public Builder addOnlines(
+        io.channel.api.proto.pub.coreapi.model.Online.Builder builderForValue) {
+      if (onlinesBuilder_ == null) {
+        ensureOnlinesIsMutable();
+        onlines_.add(builderForValue.build());
+        onChanged();
+      } else {
+        onlinesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public Builder addOnlines(
+        int index, io.channel.api.proto.pub.coreapi.model.Online.Builder builderForValue) {
+      if (onlinesBuilder_ == null) {
+        ensureOnlinesIsMutable();
+        onlines_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        onlinesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public Builder addAllOnlines(
+        java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.Online> values) {
+      if (onlinesBuilder_ == null) {
+        ensureOnlinesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, onlines_);
+        onChanged();
+      } else {
+        onlinesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public Builder clearOnlines() {
+      if (onlinesBuilder_ == null) {
+        onlines_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+      } else {
+        onlinesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public Builder removeOnlines(int index) {
+      if (onlinesBuilder_ == null) {
+        ensureOnlinesIsMutable();
+        onlines_.remove(index);
+        onChanged();
+      } else {
+        onlinesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.Online.Builder getOnlinesBuilder(
+        int index) {
+      return getOnlinesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder getOnlinesOrBuilder(
+        int index) {
+      if (onlinesBuilder_ == null) {
+        return onlines_.get(index);  } else {
+        return onlinesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder> 
+         getOnlinesOrBuilderList() {
+      if (onlinesBuilder_ != null) {
+        return onlinesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(onlines_);
+      }
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.Online.Builder addOnlinesBuilder() {
+      return getOnlinesFieldBuilder().addBuilder(
+          io.channel.api.proto.pub.coreapi.model.Online.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.Online.Builder addOnlinesBuilder(
+        int index) {
+      return getOnlinesFieldBuilder().addBuilder(
+          index, io.channel.api.proto.pub.coreapi.model.Online.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Online presence for each user. Populated when include_online is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+     */
+    public java.util.List<io.channel.api.proto.pub.coreapi.model.Online.Builder> 
+         getOnlinesBuilderList() {
+      return getOnlinesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.Online, io.channel.api.proto.pub.coreapi.model.Online.Builder, io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder> 
+        getOnlinesFieldBuilder() {
+      if (onlinesBuilder_ == null) {
+        onlinesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.model.Online, io.channel.api.proto.pub.coreapi.model.Online.Builder, io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder>(
+                onlines_,
+                ((bitField0_ & 0x00000002) != 0),
+                getParentForChildren(),
+                isClean());
+        onlines_ = null;
+      }
+      return onlinesBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -759,6 +1222,31 @@ private static final long serialVersionUID = 0L;
     		return clearUsers();
     	else {
     		values.forEach(value -> addUsers(mapFunc.apply(value)));
+    		return this;
+    	}
+    }
+    	
+    /**
+     * @param values The onlines to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllOrClearOnlines(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.Online> values) {
+    	if (values == null)
+    		return clearOnlines();
+    	else
+    		return addAllOnlines(values);
+    }
+    	
+    /**
+     * @param values The values to map.
+     * @param mapFunc The function to map the values into each proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapAllOrClearOnlines(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.Online> mapFunc) {
+    	if (values == null)
+    		return clearOnlines();
+    	else {
+    		values.forEach(value -> addOnlines(mapFunc.apply(value)));
     		return this;
     	}
     }

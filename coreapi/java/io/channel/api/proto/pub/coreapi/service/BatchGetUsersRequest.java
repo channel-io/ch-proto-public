@@ -71,6 +71,11 @@ private static final long serialVersionUID = 0L;
             userIds_.add(s);
             break;
           }
+          case 24: {
+
+            includeOnline_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -215,6 +220,21 @@ private static final long serialVersionUID = 0L;
     return userIds_.getByteString(index);
   }
 
+  public static final int INCLUDE_ONLINE_FIELD_NUMBER = 3;
+  private boolean includeOnline_;
+  /**
+   * <pre>
+   * Whether to include online presence for each user.
+   * </pre>
+   *
+   * <code>bool include_online = 3 [json_name = "includeOnline"];</code>
+   * @return The includeOnline.
+   */
+  @java.lang.Override
+  public boolean getIncludeOnline() {
+    return includeOnline_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -234,6 +254,9 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < userIds_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userIds_.getRaw(i));
+    }
+    if (includeOnline_ != false) {
+      output.writeBool(3, includeOnline_);
     }
     unknownFields.writeTo(output);
   }
@@ -255,6 +278,10 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getUserIdsList().size();
     }
+    if (includeOnline_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(3, includeOnline_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -274,6 +301,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getChannelId())) return false;
     if (!getUserIdsList()
         .equals(other.getUserIdsList())) return false;
+    if (getIncludeOnline()
+        != other.getIncludeOnline()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -291,6 +320,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + USER_IDS_FIELD_NUMBER;
       hash = (53 * hash) + getUserIdsList().hashCode();
     }
+    hash = (37 * hash) + INCLUDE_ONLINE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIncludeOnline());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -433,6 +465,8 @@ private static final long serialVersionUID = 0L;
 
       userIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
+      includeOnline_ = false;
+
       return this;
     }
 
@@ -466,6 +500,7 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.userIds_ = userIds_;
+      result.includeOnline_ = includeOnline_;
       onBuilt();
       return result;
     }
@@ -527,6 +562,9 @@ private static final long serialVersionUID = 0L;
           userIds_.addAll(other.userIds_);
         }
         onChanged();
+      }
+      if (other.getIncludeOnline() != false) {
+        setIncludeOnline(other.getIncludeOnline());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -826,6 +864,49 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+
+    private boolean includeOnline_ ;
+    /**
+     * <pre>
+     * Whether to include online presence for each user.
+     * </pre>
+     *
+     * <code>bool include_online = 3 [json_name = "includeOnline"];</code>
+     * @return The includeOnline.
+     */
+    @java.lang.Override
+    public boolean getIncludeOnline() {
+      return includeOnline_;
+    }
+    /**
+     * <pre>
+     * Whether to include online presence for each user.
+     * </pre>
+     *
+     * <code>bool include_online = 3 [json_name = "includeOnline"];</code>
+     * @param value The includeOnline to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIncludeOnline(boolean value) {
+      
+      includeOnline_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether to include online presence for each user.
+     * </pre>
+     *
+     * <code>bool include_online = 3 [json_name = "includeOnline"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIncludeOnline() {
+      
+      includeOnline_ = false;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -887,6 +968,29 @@ private static final long serialVersionUID = 0L;
     		values.forEach(value -> addUserIds(mapFunc.apply(value)));
     		return this;
     	}
+    }
+    	
+    /**
+     * @param value The include_online to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearIncludeOnline(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearIncludeOnline();
+    	else
+    		return setIncludeOnline(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearIncludeOnline(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearIncludeOnline();
+    	else
+    		return setIncludeOnline(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.BatchGetUsersRequest)

@@ -8,19 +8,11 @@ public interface InviteManagersToUserChatRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <pre>
-   * User chat ID to invite managers to.
-   * </pre>
-   *
    * <code>string user_chat_id = 1 [json_name = "userChatId", (.buf.validate.field) = { ... }</code>
    * @return The userChatId.
    */
   java.lang.String getUserChatId();
   /**
-   * <pre>
-   * User chat ID to invite managers to.
-   * </pre>
-   *
    * <code>string user_chat_id = 1 [json_name = "userChatId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for userChatId.
    */
@@ -28,19 +20,11 @@ public interface InviteManagersToUserChatRequestOrBuilder extends
       getUserChatIdBytes();
 
   /**
-   * <pre>
-   * Channel ID the user chat belongs to.
-   * </pre>
-   *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
   /**
-   * <pre>
-   * Channel ID the user chat belongs to.
-   * </pre>
-   *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
@@ -49,8 +33,6 @@ public interface InviteManagersToUserChatRequestOrBuilder extends
 
   /**
    * <pre>
-   * Name of the bot that invites the managers.
-   * Creates a new bot if one with this name does not exist.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
@@ -63,8 +45,6 @@ public interface InviteManagersToUserChatRequestOrBuilder extends
   java.lang.String getBotName();
   /**
    * <pre>
-   * Name of the bot that invites the managers.
-   * Creates a new bot if one with this name does not exist.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
@@ -79,7 +59,6 @@ public interface InviteManagersToUserChatRequestOrBuilder extends
 
   /**
    * <pre>
-   * IDs of the managers to invite.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
    * </pre>
@@ -91,7 +70,6 @@ public interface InviteManagersToUserChatRequestOrBuilder extends
       getManagerIdsList();
   /**
    * <pre>
-   * IDs of the managers to invite.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
    * </pre>
@@ -102,7 +80,6 @@ public interface InviteManagersToUserChatRequestOrBuilder extends
   int getManagerIdsCount();
   /**
    * <pre>
-   * IDs of the managers to invite.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
    * </pre>
@@ -114,7 +91,6 @@ public interface InviteManagersToUserChatRequestOrBuilder extends
   java.lang.String getManagerIds(int index);
   /**
    * <pre>
-   * IDs of the managers to invite.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
    * </pre>

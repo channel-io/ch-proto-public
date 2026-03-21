@@ -21,4 +21,31 @@ public interface GetUserResultOrBuilder extends
    * <code>.coreapi.model.User user = 1 [json_name = "user"];</code>
    */
   io.channel.api.proto.pub.coreapi.model.UserOrBuilder getUserOrBuilder();
+
+  /**
+   * <pre>
+   * Online presence. Populated when include_online is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
+   * @return Whether the online field is set.
+   */
+  boolean hasOnline();
+  /**
+   * <pre>
+   * Online presence. Populated when include_online is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
+   * @return The online.
+   */
+  io.channel.api.proto.pub.coreapi.model.Online getOnline();
+  /**
+   * <pre>
+   * Online presence. Populated when include_online is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder getOnlineOrBuilder();
 }

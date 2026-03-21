@@ -56,4 +56,24 @@ public interface SearchManagersRequestOrBuilder extends
    * @return The limit.
    */
   int getLimit();
+
+  /**
+   * <pre>
+   * Whether to include online presence for each manager.
+   * </pre>
+   *
+   * <code>bool include_online = 4 [json_name = "includeOnline"];</code>
+   * @return The includeOnline.
+   */
+  boolean getIncludeOnline();
+
+  /**
+   * <pre>
+   * Whether to include operator status for each manager.
+   * </pre>
+   *
+   * <code>bool include_operator_status = 5 [json_name = "includeOperatorStatus"];</code>
+   * @return The includeOperatorStatus.
+   */
+  boolean getIncludeOperatorStatus();
 }

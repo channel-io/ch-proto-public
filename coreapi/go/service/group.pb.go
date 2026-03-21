@@ -8,6 +8,7 @@ package service
 
 import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
+	common "github.com/channel-io/ch-proto-public/coreapi/go/common"
 	model "github.com/channel-io/ch-proto-public/coreapi/go/model"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -170,9 +171,13 @@ type GetGroupRequest struct {
 	// Channel ID the group belongs to.
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Group ID to retrieve.
-	GroupId       string `protobuf:"bytes,2,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	GroupId string `protobuf:"bytes,2,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
+	// Whether to include the requesting manager's chat bookmark.
+	IncludeBookmark bool `protobuf:"varint,3,opt,name=include_bookmark,json=includeBookmark,proto3" json:"include_bookmark,omitempty"`
+	// Whether to include the requesting manager's chat session.
+	IncludeSession bool `protobuf:"varint,4,opt,name=include_session,json=includeSession,proto3" json:"include_session,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *GetGroupRequest) Reset() {
@@ -219,10 +224,28 @@ func (x *GetGroupRequest) GetGroupId() string {
 	return ""
 }
 
+func (x *GetGroupRequest) GetIncludeBookmark() bool {
+	if x != nil {
+		return x.IncludeBookmark
+	}
+	return false
+}
+
+func (x *GetGroupRequest) GetIncludeSession() bool {
+	if x != nil {
+		return x.IncludeSession
+	}
+	return false
+}
+
 // Response for single group retrieval.
 type GetGroupResult struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Group         *model.Group           `protobuf:"bytes,1,opt,name=group,proto3" json:"group,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	Group *model.Group           `protobuf:"bytes,1,opt,name=group,proto3" json:"group,omitempty"`
+	// Chat bookmark. Populated when include_bookmark is true.
+	Bookmark *model.ChatBookmark `protobuf:"bytes,2,opt,name=bookmark,proto3" json:"bookmark,omitempty"`
+	// Chat session. Populated when include_session is true.
+	Session       *model.ChatSession `protobuf:"bytes,3,opt,name=session,proto3" json:"session,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -264,6 +287,20 @@ func (x *GetGroupResult) GetGroup() *model.Group {
 	return nil
 }
 
+func (x *GetGroupResult) GetBookmark() *model.ChatBookmark {
+	if x != nil {
+		return x.Bookmark
+	}
+	return nil
+}
+
+func (x *GetGroupResult) GetSession() *model.ChatSession {
+	if x != nil {
+		return x.Session
+	}
+	return nil
+}
+
 // Retrieves a single group by name.
 //
 // Returns 404 if the group does not exist.
@@ -272,9 +309,13 @@ type GetGroupByNameRequest struct {
 	// Channel ID the group belongs to.
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Group name to retrieve.
-	GroupName     string `protobuf:"bytes,2,opt,name=group_name,json=groupName,proto3" json:"group_name,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	GroupName string `protobuf:"bytes,2,opt,name=group_name,json=groupName,proto3" json:"group_name,omitempty"`
+	// Whether to include the requesting manager's chat bookmark.
+	IncludeBookmark bool `protobuf:"varint,3,opt,name=include_bookmark,json=includeBookmark,proto3" json:"include_bookmark,omitempty"`
+	// Whether to include the requesting manager's chat session.
+	IncludeSession bool `protobuf:"varint,4,opt,name=include_session,json=includeSession,proto3" json:"include_session,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *GetGroupByNameRequest) Reset() {
@@ -321,10 +362,28 @@ func (x *GetGroupByNameRequest) GetGroupName() string {
 	return ""
 }
 
+func (x *GetGroupByNameRequest) GetIncludeBookmark() bool {
+	if x != nil {
+		return x.IncludeBookmark
+	}
+	return false
+}
+
+func (x *GetGroupByNameRequest) GetIncludeSession() bool {
+	if x != nil {
+		return x.IncludeSession
+	}
+	return false
+}
+
 // Response for single group retrieval by name.
 type GetGroupByNameResult struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Group         *model.Group           `protobuf:"bytes,1,opt,name=group,proto3" json:"group,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	Group *model.Group           `protobuf:"bytes,1,opt,name=group,proto3" json:"group,omitempty"`
+	// Chat bookmark. Populated when include_bookmark is true.
+	Bookmark *model.ChatBookmark `protobuf:"bytes,2,opt,name=bookmark,proto3" json:"bookmark,omitempty"`
+	// Chat session. Populated when include_session is true.
+	Session       *model.ChatSession `protobuf:"bytes,3,opt,name=session,proto3" json:"session,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -362,6 +421,20 @@ func (*GetGroupByNameResult) Descriptor() ([]byte, []int) {
 func (x *GetGroupByNameResult) GetGroup() *model.Group {
 	if x != nil {
 		return x.Group
+	}
+	return nil
+}
+
+func (x *GetGroupByNameResult) GetBookmark() *model.ChatBookmark {
+	if x != nil {
+		return x.Bookmark
+	}
+	return nil
+}
+
+func (x *GetGroupByNameResult) GetSession() *model.ChatSession {
+	if x != nil {
+		return x.Session
 	}
 	return nil
 }
@@ -704,11 +777,1054 @@ func (x *UpdateGroupByNameResult) GetGroup() *model.Group {
 	return nil
 }
 
+// Retrieves a list of chat sessions for a group.
+//
+// Returns all participant sessions without pagination.
+type SearchGroupSessionsRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Channel ID to search sessions in.
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Group ID to search sessions for.
+	GroupId       string `protobuf:"bytes,2,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SearchGroupSessionsRequest) Reset() {
+	*x = SearchGroupSessionsRequest{}
+	mi := &file_coreapi_service_group_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SearchGroupSessionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchGroupSessionsRequest) ProtoMessage() {}
+
+func (x *SearchGroupSessionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchGroupSessionsRequest.ProtoReflect.Descriptor instead.
+func (*SearchGroupSessionsRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *SearchGroupSessionsRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *SearchGroupSessionsRequest) GetGroupId() string {
+	if x != nil {
+		return x.GroupId
+	}
+	return ""
+}
+
+// Response for group session list retrieval.
+type SearchGroupSessionsResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChatSessions  []*model.ChatSession   `protobuf:"bytes,1,rep,name=chat_sessions,json=chatSessions,proto3" json:"chat_sessions,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SearchGroupSessionsResult) Reset() {
+	*x = SearchGroupSessionsResult{}
+	mi := &file_coreapi_service_group_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SearchGroupSessionsResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchGroupSessionsResult) ProtoMessage() {}
+
+func (x *SearchGroupSessionsResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchGroupSessionsResult.ProtoReflect.Descriptor instead.
+func (*SearchGroupSessionsResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *SearchGroupSessionsResult) GetChatSessions() []*model.ChatSession {
+	if x != nil {
+		return x.ChatSessions
+	}
+	return nil
+}
+
+// Retrieves a list of messages in a group.
+//
+// The number of messages retrieved is restricted by the limit parameter,
+// and is capped to values in the closed interval [1, 500].
+// Pagination is cursor-based. Pass the nextCursor value from the previous response
+// as the cursor parameter to retrieve the next page.
+// If the cursor parameter is left empty, the list starts with the
+// first message as specified by the sort order.
+//
+// Results are sorted by message creation time in the specified sort order.
+// Defaults to descending order if sort_order is not specified.
+type SearchGroupMessagesRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Channel ID the group belongs to.
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Group ID containing the messages.
+	GroupId string `protobuf:"bytes,2,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
+	// Sort order for results. Defaults to descending if unset.
+	SortOrder common.SortOrder `protobuf:"varint,3,opt,name=sort_order,json=sortOrder,proto3,enum=coreapi.common.SortOrder" json:"sort_order,omitempty"`
+	// Opaque pagination cursor from a previous response.
+	Cursor string `protobuf:"bytes,4,opt,name=cursor,proto3" json:"cursor,omitempty"`
+	// Maximum number of results to return. Defaults to 25 if unset.
+	Limit         int32 `protobuf:"varint,5,opt,name=limit,proto3" json:"limit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SearchGroupMessagesRequest) Reset() {
+	*x = SearchGroupMessagesRequest{}
+	mi := &file_coreapi_service_group_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SearchGroupMessagesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchGroupMessagesRequest) ProtoMessage() {}
+
+func (x *SearchGroupMessagesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchGroupMessagesRequest.ProtoReflect.Descriptor instead.
+func (*SearchGroupMessagesRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *SearchGroupMessagesRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *SearchGroupMessagesRequest) GetGroupId() string {
+	if x != nil {
+		return x.GroupId
+	}
+	return ""
+}
+
+func (x *SearchGroupMessagesRequest) GetSortOrder() common.SortOrder {
+	if x != nil {
+		return x.SortOrder
+	}
+	return common.SortOrder(0)
+}
+
+func (x *SearchGroupMessagesRequest) GetCursor() string {
+	if x != nil {
+		return x.Cursor
+	}
+	return ""
+}
+
+func (x *SearchGroupMessagesRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+// Response for group message list retrieval.
+type SearchGroupMessagesResult struct {
+	state    protoimpl.MessageState `protogen:"open.v1"`
+	Messages []*model.Message       `protobuf:"bytes,1,rep,name=messages,proto3" json:"messages,omitempty"`
+	// Opaque cursor for the next page.
+	//
+	// +kubebuilder:validation:Nullable
+	NextCursor string `protobuf:"bytes,2,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
+	// Whether a next page of results exists.
+	HasNext       bool `protobuf:"varint,3,opt,name=has_next,json=hasNext,proto3" json:"has_next,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SearchGroupMessagesResult) Reset() {
+	*x = SearchGroupMessagesResult{}
+	mi := &file_coreapi_service_group_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SearchGroupMessagesResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchGroupMessagesResult) ProtoMessage() {}
+
+func (x *SearchGroupMessagesResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchGroupMessagesResult.ProtoReflect.Descriptor instead.
+func (*SearchGroupMessagesResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *SearchGroupMessagesResult) GetMessages() []*model.Message {
+	if x != nil {
+		return x.Messages
+	}
+	return nil
+}
+
+func (x *SearchGroupMessagesResult) GetNextCursor() string {
+	if x != nil {
+		return x.NextCursor
+	}
+	return ""
+}
+
+func (x *SearchGroupMessagesResult) GetHasNext() bool {
+	if x != nil {
+		return x.HasNext
+	}
+	return false
+}
+
+// Sends a new message to a group.
+//
+// The message is sent by the bot specified by bot_name.
+// If bot_name is not specified, the channel's default bot is used.
+type CreateGroupMessageRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Channel ID the group belongs to.
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Group ID to send the message to.
+	GroupId string `protobuf:"bytes,2,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
+	// Message content to send.
+	//
+	// +kubebuilder:validation:Required
+	Content *model.MessageContent `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
+	// Name of the bot sending the message.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MaxLength=30
+	// +kubebuilder:validation:Pattern="^[^@#$%:/]+$"
+	BotName string `protobuf:"bytes,4,opt,name=bot_name,json=botName,proto3" json:"bot_name,omitempty"`
+	// Client-generated request identifier for idempotency.
+	//
+	// +kubebuilder:validation:Nullable
+	RequestId     string `protobuf:"bytes,5,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateGroupMessageRequest) Reset() {
+	*x = CreateGroupMessageRequest{}
+	mi := &file_coreapi_service_group_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateGroupMessageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateGroupMessageRequest) ProtoMessage() {}
+
+func (x *CreateGroupMessageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateGroupMessageRequest.ProtoReflect.Descriptor instead.
+func (*CreateGroupMessageRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *CreateGroupMessageRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *CreateGroupMessageRequest) GetGroupId() string {
+	if x != nil {
+		return x.GroupId
+	}
+	return ""
+}
+
+func (x *CreateGroupMessageRequest) GetContent() *model.MessageContent {
+	if x != nil {
+		return x.Content
+	}
+	return nil
+}
+
+func (x *CreateGroupMessageRequest) GetBotName() string {
+	if x != nil {
+		return x.BotName
+	}
+	return ""
+}
+
+func (x *CreateGroupMessageRequest) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+// Response for group message creation.
+type CreateGroupMessageResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       *model.Message         `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateGroupMessageResult) Reset() {
+	*x = CreateGroupMessageResult{}
+	mi := &file_coreapi_service_group_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateGroupMessageResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateGroupMessageResult) ProtoMessage() {}
+
+func (x *CreateGroupMessageResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateGroupMessageResult.ProtoReflect.Descriptor instead.
+func (*CreateGroupMessageResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *CreateGroupMessageResult) GetMessage() *model.Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+// Retrieves a pre-signed URL for downloading a file attached to a group chat.
+//
+// Returns 404 if the file does not exist.
+type GetGroupFileUrlRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Channel ID the group belongs to.
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Group ID containing the file.
+	GroupId string `protobuf:"bytes,2,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
+	// File key to generate a signed URL for.
+	Key           string `protobuf:"bytes,3,opt,name=key,proto3" json:"key,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGroupFileUrlRequest) Reset() {
+	*x = GetGroupFileUrlRequest{}
+	mi := &file_coreapi_service_group_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGroupFileUrlRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGroupFileUrlRequest) ProtoMessage() {}
+
+func (x *GetGroupFileUrlRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGroupFileUrlRequest.ProtoReflect.Descriptor instead.
+func (*GetGroupFileUrlRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *GetGroupFileUrlRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *GetGroupFileUrlRequest) GetGroupId() string {
+	if x != nil {
+		return x.GroupId
+	}
+	return ""
+}
+
+func (x *GetGroupFileUrlRequest) GetKey() string {
+	if x != nil {
+		return x.Key
+	}
+	return ""
+}
+
+// Response for group file URL retrieval.
+type GetGroupFileUrlResult struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Pre-signed URL for downloading the file.
+	Url           string `protobuf:"bytes,1,opt,name=url,proto3" json:"url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGroupFileUrlResult) Reset() {
+	*x = GetGroupFileUrlResult{}
+	mi := &file_coreapi_service_group_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGroupFileUrlResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGroupFileUrlResult) ProtoMessage() {}
+
+func (x *GetGroupFileUrlResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGroupFileUrlResult.ProtoReflect.Descriptor instead.
+func (*GetGroupFileUrlResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetGroupFileUrlResult) GetUrl() string {
+	if x != nil {
+		return x.Url
+	}
+	return ""
+}
+
+// Retrieves a thread of a given message in a group.
+//
+// Returns 404 if the message does not exist or does not have a thread.
+type GetGroupThreadRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Channel ID the group belongs to.
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Group ID containing the message.
+	GroupId string `protobuf:"bytes,2,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
+	// Root message ID of the thread.
+	MessageId     string `protobuf:"bytes,3,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGroupThreadRequest) Reset() {
+	*x = GetGroupThreadRequest{}
+	mi := &file_coreapi_service_group_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGroupThreadRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGroupThreadRequest) ProtoMessage() {}
+
+func (x *GetGroupThreadRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGroupThreadRequest.ProtoReflect.Descriptor instead.
+func (*GetGroupThreadRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *GetGroupThreadRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *GetGroupThreadRequest) GetGroupId() string {
+	if x != nil {
+		return x.GroupId
+	}
+	return ""
+}
+
+func (x *GetGroupThreadRequest) GetMessageId() string {
+	if x != nil {
+		return x.MessageId
+	}
+	return ""
+}
+
+// Response for group thread retrieval.
+type GetGroupThreadResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       *model.Message         `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGroupThreadResult) Reset() {
+	*x = GetGroupThreadResult{}
+	mi := &file_coreapi_service_group_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGroupThreadResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGroupThreadResult) ProtoMessage() {}
+
+func (x *GetGroupThreadResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGroupThreadResult.ProtoReflect.Descriptor instead.
+func (*GetGroupThreadResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetGroupThreadResult) GetMessage() *model.Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+// Creates a thread on a message in a group.
+//
+// Returns 404 if the message does not exist.
+// Returns 422 if the message already has a thread.
+type CreateGroupThreadRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Channel ID the group belongs to.
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Group ID containing the message.
+	GroupId string `protobuf:"bytes,2,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
+	// Message ID to create a thread on.
+	MessageId     string `protobuf:"bytes,3,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateGroupThreadRequest) Reset() {
+	*x = CreateGroupThreadRequest{}
+	mi := &file_coreapi_service_group_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateGroupThreadRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateGroupThreadRequest) ProtoMessage() {}
+
+func (x *CreateGroupThreadRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateGroupThreadRequest.ProtoReflect.Descriptor instead.
+func (*CreateGroupThreadRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *CreateGroupThreadRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *CreateGroupThreadRequest) GetGroupId() string {
+	if x != nil {
+		return x.GroupId
+	}
+	return ""
+}
+
+func (x *CreateGroupThreadRequest) GetMessageId() string {
+	if x != nil {
+		return x.MessageId
+	}
+	return ""
+}
+
+// Response for group thread creation.
+type CreateGroupThreadResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       *model.Message         `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateGroupThreadResult) Reset() {
+	*x = CreateGroupThreadResult{}
+	mi := &file_coreapi_service_group_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateGroupThreadResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateGroupThreadResult) ProtoMessage() {}
+
+func (x *CreateGroupThreadResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateGroupThreadResult.ProtoReflect.Descriptor instead.
+func (*CreateGroupThreadResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *CreateGroupThreadResult) GetMessage() *model.Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+// Retrieves a list of messages in a group thread.
+//
+// Pagination is cursor-based.
+// Defaults to descending order if sort_order is not specified.
+type SearchGroupThreadMessagesRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Channel ID the group belongs to.
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Group ID containing the thread.
+	GroupId string `protobuf:"bytes,2,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
+	// Root message ID of the thread.
+	MessageId string `protobuf:"bytes,3,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty"`
+	// Sort order for results. Defaults to descending if unset.
+	SortOrder common.SortOrder `protobuf:"varint,4,opt,name=sort_order,json=sortOrder,proto3,enum=coreapi.common.SortOrder" json:"sort_order,omitempty"`
+	// Opaque pagination cursor from a previous response.
+	Cursor string `protobuf:"bytes,5,opt,name=cursor,proto3" json:"cursor,omitempty"`
+	// Maximum number of results to return. Defaults to 25 if unset.
+	Limit         int32 `protobuf:"varint,6,opt,name=limit,proto3" json:"limit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SearchGroupThreadMessagesRequest) Reset() {
+	*x = SearchGroupThreadMessagesRequest{}
+	mi := &file_coreapi_service_group_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SearchGroupThreadMessagesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchGroupThreadMessagesRequest) ProtoMessage() {}
+
+func (x *SearchGroupThreadMessagesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchGroupThreadMessagesRequest.ProtoReflect.Descriptor instead.
+func (*SearchGroupThreadMessagesRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *SearchGroupThreadMessagesRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *SearchGroupThreadMessagesRequest) GetGroupId() string {
+	if x != nil {
+		return x.GroupId
+	}
+	return ""
+}
+
+func (x *SearchGroupThreadMessagesRequest) GetMessageId() string {
+	if x != nil {
+		return x.MessageId
+	}
+	return ""
+}
+
+func (x *SearchGroupThreadMessagesRequest) GetSortOrder() common.SortOrder {
+	if x != nil {
+		return x.SortOrder
+	}
+	return common.SortOrder(0)
+}
+
+func (x *SearchGroupThreadMessagesRequest) GetCursor() string {
+	if x != nil {
+		return x.Cursor
+	}
+	return ""
+}
+
+func (x *SearchGroupThreadMessagesRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+// Response for group thread message list retrieval.
+type SearchGroupThreadMessagesResult struct {
+	state    protoimpl.MessageState `protogen:"open.v1"`
+	Messages []*model.Message       `protobuf:"bytes,1,rep,name=messages,proto3" json:"messages,omitempty"`
+	// +kubebuilder:validation:Nullable
+	NextCursor    string `protobuf:"bytes,2,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
+	HasNext       bool   `protobuf:"varint,3,opt,name=has_next,json=hasNext,proto3" json:"has_next,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SearchGroupThreadMessagesResult) Reset() {
+	*x = SearchGroupThreadMessagesResult{}
+	mi := &file_coreapi_service_group_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SearchGroupThreadMessagesResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchGroupThreadMessagesResult) ProtoMessage() {}
+
+func (x *SearchGroupThreadMessagesResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchGroupThreadMessagesResult.ProtoReflect.Descriptor instead.
+func (*SearchGroupThreadMessagesResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *SearchGroupThreadMessagesResult) GetMessages() []*model.Message {
+	if x != nil {
+		return x.Messages
+	}
+	return nil
+}
+
+func (x *SearchGroupThreadMessagesResult) GetNextCursor() string {
+	if x != nil {
+		return x.NextCursor
+	}
+	return ""
+}
+
+func (x *SearchGroupThreadMessagesResult) GetHasNext() bool {
+	if x != nil {
+		return x.HasNext
+	}
+	return false
+}
+
+// Creates a message in a group thread.
+//
+// Returns 404 if the thread does not exist.
+type CreateGroupThreadMessageRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Channel ID the group belongs to.
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Group ID containing the thread.
+	GroupId string `protobuf:"bytes,2,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
+	// Root message ID of the thread.
+	MessageId string `protobuf:"bytes,3,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty"`
+	// Message content to send.
+	Content *model.MessageContent `protobuf:"bytes,4,opt,name=content,proto3" json:"content,omitempty"`
+	// Bot name to use as the message author.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MaxLength=30
+	// +kubebuilder:validation:Pattern="^[^@#$%:/]+$"
+	BotName string `protobuf:"bytes,5,opt,name=bot_name,json=botName,proto3" json:"bot_name,omitempty"`
+	// Whether to also post this message to the main chat stream.
+	//
+	// +kubebuilder:validation:Nullable
+	Broadcast bool `protobuf:"varint,6,opt,name=broadcast,proto3" json:"broadcast,omitempty"`
+	// Client-generated request identifier for idempotency.
+	//
+	// +kubebuilder:validation:Nullable
+	RequestId     string `protobuf:"bytes,7,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateGroupThreadMessageRequest) Reset() {
+	*x = CreateGroupThreadMessageRequest{}
+	mi := &file_coreapi_service_group_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateGroupThreadMessageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateGroupThreadMessageRequest) ProtoMessage() {}
+
+func (x *CreateGroupThreadMessageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateGroupThreadMessageRequest.ProtoReflect.Descriptor instead.
+func (*CreateGroupThreadMessageRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *CreateGroupThreadMessageRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *CreateGroupThreadMessageRequest) GetGroupId() string {
+	if x != nil {
+		return x.GroupId
+	}
+	return ""
+}
+
+func (x *CreateGroupThreadMessageRequest) GetMessageId() string {
+	if x != nil {
+		return x.MessageId
+	}
+	return ""
+}
+
+func (x *CreateGroupThreadMessageRequest) GetContent() *model.MessageContent {
+	if x != nil {
+		return x.Content
+	}
+	return nil
+}
+
+func (x *CreateGroupThreadMessageRequest) GetBotName() string {
+	if x != nil {
+		return x.BotName
+	}
+	return ""
+}
+
+func (x *CreateGroupThreadMessageRequest) GetBroadcast() bool {
+	if x != nil {
+		return x.Broadcast
+	}
+	return false
+}
+
+func (x *CreateGroupThreadMessageRequest) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+// Response for group thread message creation.
+type CreateGroupThreadMessageResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       *model.Message         `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateGroupThreadMessageResult) Reset() {
+	*x = CreateGroupThreadMessageResult{}
+	mi := &file_coreapi_service_group_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateGroupThreadMessageResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateGroupThreadMessageResult) ProtoMessage() {}
+
+func (x *CreateGroupThreadMessageResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_group_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateGroupThreadMessageResult.ProtoReflect.Descriptor instead.
+func (*CreateGroupThreadMessageResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_group_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *CreateGroupThreadMessageResult) GetMessage() *model.Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
 var File_coreapi_service_group_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_group_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/service/group.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x19coreapi/model/group.proto\"\xcb\x01\n" +
+	"\x1bcoreapi/service/group.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x19coreapi/model/group.proto\x1a\x1bcoreapi/model/message.proto\x1a#coreapi/model/message_content.proto\"\xcb\x01\n" +
 	"\x13SearchGroupsRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x16\n" +
@@ -719,20 +1835,28 @@ const file_coreapi_service_group_proto_rawDesc = "" +
 	"\x06groups\x18\x01 \x03(\v2\x14.coreapi.model.GroupR\x06groups\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"[\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xaf\x01\n" +
 	"\x0fGetGroupRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12!\n" +
-	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\"<\n" +
+	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\x12)\n" +
+	"\x10include_bookmark\x18\x03 \x01(\bR\x0fincludeBookmark\x12'\n" +
+	"\x0finclude_session\x18\x04 \x01(\bR\x0eincludeSession\"\xab\x01\n" +
 	"\x0eGetGroupResult\x12*\n" +
-	"\x05group\x18\x01 \x01(\v2\x14.coreapi.model.GroupR\x05group\"e\n" +
+	"\x05group\x18\x01 \x01(\v2\x14.coreapi.model.GroupR\x05group\x127\n" +
+	"\bbookmark\x18\x02 \x01(\v2\x1b.coreapi.model.ChatBookmarkR\bbookmark\x124\n" +
+	"\asession\x18\x03 \x01(\v2\x1a.coreapi.model.ChatSessionR\asession\"\xb9\x01\n" +
 	"\x15GetGroupByNameRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12%\n" +
 	"\n" +
-	"group_name\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tgroupName\"B\n" +
+	"group_name\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tgroupName\x12)\n" +
+	"\x10include_bookmark\x18\x03 \x01(\bR\x0fincludeBookmark\x12'\n" +
+	"\x0finclude_session\x18\x04 \x01(\bR\x0eincludeSession\"\xb1\x01\n" +
 	"\x14GetGroupByNameResult\x12*\n" +
-	"\x05group\x18\x01 \x01(\v2\x14.coreapi.model.GroupR\x05group\"\xf3\x06\n" +
+	"\x05group\x18\x01 \x01(\v2\x14.coreapi.model.GroupR\x05group\x127\n" +
+	"\bbookmark\x18\x02 \x01(\v2\x1b.coreapi.model.ChatBookmarkR\bbookmark\x124\n" +
+	"\asession\x18\x03 \x01(\v2\x1a.coreapi.model.ChatSessionR\asession\"\xf3\x06\n" +
 	"\x12UpdateGroupRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12!\n" +
@@ -767,7 +1891,91 @@ const file_coreapi_service_group_proto_rawDesc = "" +
 	"\vdescription\x18\a \x01(\tBS\xbaHP\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 200 characters\x1a\x11size(this) <= 200R\vdescription\"E\n" +
 	"\x17UpdateGroupByNameResult\x12*\n" +
-	"\x05group\x18\x01 \x01(\v2\x14.coreapi.model.GroupR\x05groupBf\n" +
+	"\x05group\x18\x01 \x01(\v2\x14.coreapi.model.GroupR\x05group\"f\n" +
+	"\x1aSearchGroupSessionsRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12!\n" +
+	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\"\\\n" +
+	"\x19SearchGroupSessionsResult\x12?\n" +
+	"\rchat_sessions\x18\x01 \x03(\v2\x1a.coreapi.model.ChatSessionR\fchatSessions\"\xaf\x02\n" +
+	"\x1aSearchGroupMessagesRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12!\n" +
+	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\x128\n" +
+	"\n" +
+	"sort_order\x18\x03 \x01(\x0e2\x19.coreapi.common.SortOrderR\tsortOrder\x12\x16\n" +
+	"\x06cursor\x18\x04 \x01(\tR\x06cursor\x12u\n" +
+	"\x05limit\x18\x05 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
+	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\"\x8b\x01\n" +
+	"\x19SearchGroupMessagesResult\x122\n" +
+	"\bmessages\x18\x01 \x03(\v2\x16.coreapi.model.MessageR\bmessages\x12\x1f\n" +
+	"\vnext_cursor\x18\x02 \x01(\tR\n" +
+	"nextCursor\x12\x19\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xd2\x02\n" +
+	"\x19CreateGroupMessageRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12!\n" +
+	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\x12?\n" +
+	"\acontent\x18\x03 \x01(\v2\x1d.coreapi.model.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12\x8a\x01\n" +
+	"\bbot_name\x18\x04 \x01(\tBo\xbaHl\xba\x01Y\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x1ethis == '' || size(this) <= 30r\x0e2\f^[^@#$%:/]+$R\abotName\x12\x1d\n" +
+	"\n" +
+	"request_id\x18\x05 \x01(\tR\trequestId\"L\n" +
+	"\x18CreateGroupMessageResult\x120\n" +
+	"\amessage\x18\x01 \x01(\v2\x16.coreapi.model.MessageR\amessage\"|\n" +
+	"\x16GetGroupFileUrlRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12!\n" +
+	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\x12\x18\n" +
+	"\x03key\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x03key\")\n" +
+	"\x15GetGroupFileUrlResult\x12\x10\n" +
+	"\x03url\x18\x01 \x01(\tR\x03url\"\x88\x01\n" +
+	"\x15GetGroupThreadRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12!\n" +
+	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\x12%\n" +
+	"\n" +
+	"message_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tmessageId\"H\n" +
+	"\x14GetGroupThreadResult\x120\n" +
+	"\amessage\x18\x01 \x01(\v2\x16.coreapi.model.MessageR\amessage\"\x8b\x01\n" +
+	"\x18CreateGroupThreadRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12!\n" +
+	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\x12%\n" +
+	"\n" +
+	"message_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tmessageId\"K\n" +
+	"\x17CreateGroupThreadResult\x120\n" +
+	"\amessage\x18\x01 \x01(\v2\x16.coreapi.model.MessageR\amessage\"\xdc\x02\n" +
+	" SearchGroupThreadMessagesRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12!\n" +
+	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\x12%\n" +
+	"\n" +
+	"message_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tmessageId\x128\n" +
+	"\n" +
+	"sort_order\x18\x04 \x01(\x0e2\x19.coreapi.common.SortOrderR\tsortOrder\x12\x16\n" +
+	"\x06cursor\x18\x05 \x01(\tR\x06cursor\x12u\n" +
+	"\x05limit\x18\x06 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
+	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\"\x91\x01\n" +
+	"\x1fSearchGroupThreadMessagesResult\x122\n" +
+	"\bmessages\x18\x01 \x03(\v2\x16.coreapi.model.MessageR\bmessages\x12\x1f\n" +
+	"\vnext_cursor\x18\x02 \x01(\tR\n" +
+	"nextCursor\x12\x19\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\x8e\x03\n" +
+	"\x1fCreateGroupThreadMessageRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12!\n" +
+	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\x12%\n" +
+	"\n" +
+	"message_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tmessageId\x12?\n" +
+	"\acontent\x18\x04 \x01(\v2\x1d.coreapi.model.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12|\n" +
+	"\bbot_name\x18\x05 \x01(\tBa\xbaH^\xba\x01K\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30r\x0e2\f^[^@#$%:/]+$R\abotName\x12\x1c\n" +
+	"\tbroadcast\x18\x06 \x01(\bR\tbroadcast\x12\x1d\n" +
+	"\n" +
+	"request_id\x18\a \x01(\tR\trequestId\"R\n" +
+	"\x1eCreateGroupThreadMessageResult\x120\n" +
+	"\amessage\x18\x01 \x01(\v2\x16.coreapi.model.MessageR\amessageBf\n" +
 	"(io.channel.api.proto.pub.coreapi.serviceP\x01Z8github.com/channel-io/ch-proto-public/coreapi/go/serviceb\x06proto3"
 
 var (
@@ -782,34 +1990,70 @@ func file_coreapi_service_group_proto_rawDescGZIP() []byte {
 	return file_coreapi_service_group_proto_rawDescData
 }
 
-var file_coreapi_service_group_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_coreapi_service_group_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
 var file_coreapi_service_group_proto_goTypes = []any{
-	(*SearchGroupsRequest)(nil),      // 0: coreapi.service.SearchGroupsRequest
-	(*SearchGroupsResult)(nil),       // 1: coreapi.service.SearchGroupsResult
-	(*GetGroupRequest)(nil),          // 2: coreapi.service.GetGroupRequest
-	(*GetGroupResult)(nil),           // 3: coreapi.service.GetGroupResult
-	(*GetGroupByNameRequest)(nil),    // 4: coreapi.service.GetGroupByNameRequest
-	(*GetGroupByNameResult)(nil),     // 5: coreapi.service.GetGroupByNameResult
-	(*UpdateGroupRequest)(nil),       // 6: coreapi.service.UpdateGroupRequest
-	(*UpdateGroupResult)(nil),        // 7: coreapi.service.UpdateGroupResult
-	(*UpdateGroupByNameRequest)(nil), // 8: coreapi.service.UpdateGroupByNameRequest
-	(*UpdateGroupByNameResult)(nil),  // 9: coreapi.service.UpdateGroupByNameResult
-	(*model.Group)(nil),              // 10: coreapi.model.Group
-	(model.GroupScope)(0),            // 11: coreapi.model.GroupScope
+	(*SearchGroupsRequest)(nil),              // 0: coreapi.service.SearchGroupsRequest
+	(*SearchGroupsResult)(nil),               // 1: coreapi.service.SearchGroupsResult
+	(*GetGroupRequest)(nil),                  // 2: coreapi.service.GetGroupRequest
+	(*GetGroupResult)(nil),                   // 3: coreapi.service.GetGroupResult
+	(*GetGroupByNameRequest)(nil),            // 4: coreapi.service.GetGroupByNameRequest
+	(*GetGroupByNameResult)(nil),             // 5: coreapi.service.GetGroupByNameResult
+	(*UpdateGroupRequest)(nil),               // 6: coreapi.service.UpdateGroupRequest
+	(*UpdateGroupResult)(nil),                // 7: coreapi.service.UpdateGroupResult
+	(*UpdateGroupByNameRequest)(nil),         // 8: coreapi.service.UpdateGroupByNameRequest
+	(*UpdateGroupByNameResult)(nil),          // 9: coreapi.service.UpdateGroupByNameResult
+	(*SearchGroupSessionsRequest)(nil),       // 10: coreapi.service.SearchGroupSessionsRequest
+	(*SearchGroupSessionsResult)(nil),        // 11: coreapi.service.SearchGroupSessionsResult
+	(*SearchGroupMessagesRequest)(nil),       // 12: coreapi.service.SearchGroupMessagesRequest
+	(*SearchGroupMessagesResult)(nil),        // 13: coreapi.service.SearchGroupMessagesResult
+	(*CreateGroupMessageRequest)(nil),        // 14: coreapi.service.CreateGroupMessageRequest
+	(*CreateGroupMessageResult)(nil),         // 15: coreapi.service.CreateGroupMessageResult
+	(*GetGroupFileUrlRequest)(nil),           // 16: coreapi.service.GetGroupFileUrlRequest
+	(*GetGroupFileUrlResult)(nil),            // 17: coreapi.service.GetGroupFileUrlResult
+	(*GetGroupThreadRequest)(nil),            // 18: coreapi.service.GetGroupThreadRequest
+	(*GetGroupThreadResult)(nil),             // 19: coreapi.service.GetGroupThreadResult
+	(*CreateGroupThreadRequest)(nil),         // 20: coreapi.service.CreateGroupThreadRequest
+	(*CreateGroupThreadResult)(nil),          // 21: coreapi.service.CreateGroupThreadResult
+	(*SearchGroupThreadMessagesRequest)(nil), // 22: coreapi.service.SearchGroupThreadMessagesRequest
+	(*SearchGroupThreadMessagesResult)(nil),  // 23: coreapi.service.SearchGroupThreadMessagesResult
+	(*CreateGroupThreadMessageRequest)(nil),  // 24: coreapi.service.CreateGroupThreadMessageRequest
+	(*CreateGroupThreadMessageResult)(nil),   // 25: coreapi.service.CreateGroupThreadMessageResult
+	(*model.Group)(nil),                      // 26: coreapi.model.Group
+	(*model.ChatBookmark)(nil),               // 27: coreapi.model.ChatBookmark
+	(*model.ChatSession)(nil),                // 28: coreapi.model.ChatSession
+	(model.GroupScope)(0),                    // 29: coreapi.model.GroupScope
+	(common.SortOrder)(0),                    // 30: coreapi.common.SortOrder
+	(*model.Message)(nil),                    // 31: coreapi.model.Message
+	(*model.MessageContent)(nil),             // 32: coreapi.model.MessageContent
 }
 var file_coreapi_service_group_proto_depIdxs = []int32{
-	10, // 0: coreapi.service.SearchGroupsResult.groups:type_name -> coreapi.model.Group
-	10, // 1: coreapi.service.GetGroupResult.group:type_name -> coreapi.model.Group
-	10, // 2: coreapi.service.GetGroupByNameResult.group:type_name -> coreapi.model.Group
-	11, // 3: coreapi.service.UpdateGroupRequest.scope:type_name -> coreapi.model.GroupScope
-	10, // 4: coreapi.service.UpdateGroupResult.group:type_name -> coreapi.model.Group
-	11, // 5: coreapi.service.UpdateGroupByNameRequest.scope:type_name -> coreapi.model.GroupScope
-	10, // 6: coreapi.service.UpdateGroupByNameResult.group:type_name -> coreapi.model.Group
-	7,  // [7:7] is the sub-list for method output_type
-	7,  // [7:7] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	26, // 0: coreapi.service.SearchGroupsResult.groups:type_name -> coreapi.model.Group
+	26, // 1: coreapi.service.GetGroupResult.group:type_name -> coreapi.model.Group
+	27, // 2: coreapi.service.GetGroupResult.bookmark:type_name -> coreapi.model.ChatBookmark
+	28, // 3: coreapi.service.GetGroupResult.session:type_name -> coreapi.model.ChatSession
+	26, // 4: coreapi.service.GetGroupByNameResult.group:type_name -> coreapi.model.Group
+	27, // 5: coreapi.service.GetGroupByNameResult.bookmark:type_name -> coreapi.model.ChatBookmark
+	28, // 6: coreapi.service.GetGroupByNameResult.session:type_name -> coreapi.model.ChatSession
+	29, // 7: coreapi.service.UpdateGroupRequest.scope:type_name -> coreapi.model.GroupScope
+	26, // 8: coreapi.service.UpdateGroupResult.group:type_name -> coreapi.model.Group
+	29, // 9: coreapi.service.UpdateGroupByNameRequest.scope:type_name -> coreapi.model.GroupScope
+	26, // 10: coreapi.service.UpdateGroupByNameResult.group:type_name -> coreapi.model.Group
+	28, // 11: coreapi.service.SearchGroupSessionsResult.chat_sessions:type_name -> coreapi.model.ChatSession
+	30, // 12: coreapi.service.SearchGroupMessagesRequest.sort_order:type_name -> coreapi.common.SortOrder
+	31, // 13: coreapi.service.SearchGroupMessagesResult.messages:type_name -> coreapi.model.Message
+	32, // 14: coreapi.service.CreateGroupMessageRequest.content:type_name -> coreapi.model.MessageContent
+	31, // 15: coreapi.service.CreateGroupMessageResult.message:type_name -> coreapi.model.Message
+	31, // 16: coreapi.service.GetGroupThreadResult.message:type_name -> coreapi.model.Message
+	31, // 17: coreapi.service.CreateGroupThreadResult.message:type_name -> coreapi.model.Message
+	30, // 18: coreapi.service.SearchGroupThreadMessagesRequest.sort_order:type_name -> coreapi.common.SortOrder
+	31, // 19: coreapi.service.SearchGroupThreadMessagesResult.messages:type_name -> coreapi.model.Message
+	32, // 20: coreapi.service.CreateGroupThreadMessageRequest.content:type_name -> coreapi.model.MessageContent
+	31, // 21: coreapi.service.CreateGroupThreadMessageResult.message:type_name -> coreapi.model.Message
+	22, // [22:22] is the sub-list for method output_type
+	22, // [22:22] is the sub-list for method input_type
+	22, // [22:22] is the sub-list for extension type_name
+	22, // [22:22] is the sub-list for extension extendee
+	0,  // [0:22] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_group_proto_init() }
@@ -823,7 +2067,7 @@ func file_coreapi_service_group_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_group_proto_rawDesc), len(file_coreapi_service_group_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   26,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

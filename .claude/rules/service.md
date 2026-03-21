@@ -2,6 +2,56 @@
 
 `coreapi/service/` 하위에 API 요청/응답 메시지를 정의할 때 따르는 규칙.
 
+## 파일 구성 원칙: 리소스 바운더리
+
+service proto 파일은 **독립 리소스 단위**로 구성한다.
+종속 엔티티의 오퍼레이션은 상위 리소스 파일에 포함한다.
+
+### 판별 기준: "이 엔티티가 상위 엔티티 없이 독립 존재할 수 있는가?"
+- **Yes (독립)** → 별도 service 파일: `bot.proto`, `user.proto`, `manager.proto`, `group.proto`, `user_chat.proto` 등
+- **No (종속)** → 상위 리소스 파일에 포함: ChatSession, ChatBookmark, Message, Thread, FileUrl 등은 Group/UserChat에 포함
+
+### 현재 파일 구성
+| 파일 | 포함하는 오퍼레이션 |
+|------|-------------------|
+| `group.proto` | Group CRUD + 세션 + 메시지 + 스레드 + 파일URL |
+| `user_chat.proto` | UserChat CRUD + 상태변경 + 세션 + 메시지 + 파일URL |
+| `manager.proto` | Manager CRUD + Online(expand) + OperatorStatus(expand) |
+| `user.proto` | User CRUD + Online(expand) |
+| `meet.proto` | Meet 전용 오퍼레이션 (call logs, STT messages, recording) |
+| `announcement.proto` | 시스템 레벨 브로드캐스트 (독립 액션) |
+
+### 금지
+- 종속 엔티티를 별도 service 파일로 분리하지 않는다 (예: `chat_message.proto`, `chat_session.proto` 금지)
+- `chat_type` 파라미터로 Group/UserChat을 구분하는 범용 메시지를 만들지 않는다. 상위 리소스별로 전용 메시지를 정의한다.
+
+## bool expand 패턴
+
+추가 조회(별도 저장소/네트워크)가 필요한 종속 엔티티는 Request에 `include_` bool 플래그를 두고, Result에 해당 필드를 선택적으로 채운다.
+
+```protobuf
+message GetManagerRequest {
+  string manager_id = 1;
+  string channel_id = 2;
+  bool include_online = 3;            // expand: 별도 네트워크 조회
+  bool include_operator_status = 4;   // expand: 별도 DB 조회
+}
+
+message GetManagerResult {
+  coreapi.model.Manager manager = 1;
+  coreapi.model.Online online = 2;                 // include_online=true 시 채워짐
+  coreapi.model.OperatorStatus operator_status = 3; // include_operator_status=true 시 채워짐
+}
+```
+
+### expand 대상 판별
+- **같은 트랜잭션으로 가져올 수 있는 종속 엔티티** → Result에 항상 포함 (expand 불필요)
+- **별도 저장소/네트워크 조회가 필요한 종속 엔티티** → `include_` 플래그로 선택적 포함
+
+### expand는 종속 엔티티만
+core API의 expand는 해당 리소스 바운더리 안의 종속 엔티티만 대상으로 한다.
+독립 엔티티 간 조합(예: Group 조회 시 Manager 목록 포함)은 core API가 아닌 open API 핸들러에서 여러 core API를 호출하여 구성한다.
+
 ## 파일 헤더
 
 ```protobuf
@@ -113,4 +163,6 @@ string next_cursor = 2;
 
 ## 참고 예시
 
-현재 `coreapi/service/one_time_msg.proto`가 v6 페이지네이션 표준을 따르는 레퍼런스 구현이다.
+- `coreapi/service/manager.proto` — bool expand 패턴 (include_online, include_operator_status) 레퍼런스
+- `coreapi/service/group.proto` — 종속 오퍼레이션(세션, 메시지, 스레드, 파일) 통합 레퍼런스
+- `coreapi/service/one_time_msg.proto` — v6 페이지네이션 표준 레퍼런스

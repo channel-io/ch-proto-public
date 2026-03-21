@@ -21,4 +21,58 @@ public interface GetManagerResultOrBuilder extends
    * <code>.coreapi.model.Manager manager = 1 [json_name = "manager"];</code>
    */
   io.channel.api.proto.pub.coreapi.model.ManagerOrBuilder getManagerOrBuilder();
+
+  /**
+   * <pre>
+   * Online presence. Populated when include_online is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
+   * @return Whether the online field is set.
+   */
+  boolean hasOnline();
+  /**
+   * <pre>
+   * Online presence. Populated when include_online is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
+   * @return The online.
+   */
+  io.channel.api.proto.pub.coreapi.model.Online getOnline();
+  /**
+   * <pre>
+   * Online presence. Populated when include_online is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.Online online = 2 [json_name = "online"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder getOnlineOrBuilder();
+
+  /**
+   * <pre>
+   * Operator status. Populated when include_operator_status is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.OperatorStatus operator_status = 3 [json_name = "operatorStatus"];</code>
+   * @return Whether the operatorStatus field is set.
+   */
+  boolean hasOperatorStatus();
+  /**
+   * <pre>
+   * Operator status. Populated when include_operator_status is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.OperatorStatus operator_status = 3 [json_name = "operatorStatus"];</code>
+   * @return The operatorStatus.
+   */
+  io.channel.api.proto.pub.coreapi.model.OperatorStatus getOperatorStatus();
+  /**
+   * <pre>
+   * Operator status. Populated when include_operator_status is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.OperatorStatus operator_status = 3 [json_name = "operatorStatus"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder getOperatorStatusOrBuilder();
 }

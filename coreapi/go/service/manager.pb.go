@@ -40,9 +40,13 @@ type SearchManagersRequest struct {
 	// Opaque pagination cursor from a previous response.
 	Cursor string `protobuf:"bytes,2,opt,name=cursor,proto3" json:"cursor,omitempty"`
 	// Maximum number of results to return. Defaults to 25 if unset.
-	Limit         int32 `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	Limit int32 `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
+	// Whether to include online presence for each manager.
+	IncludeOnline bool `protobuf:"varint,4,opt,name=include_online,json=includeOnline,proto3" json:"include_online,omitempty"`
+	// Whether to include operator status for each manager.
+	IncludeOperatorStatus bool `protobuf:"varint,5,opt,name=include_operator_status,json=includeOperatorStatus,proto3" json:"include_operator_status,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *SearchManagersRequest) Reset() {
@@ -96,6 +100,20 @@ func (x *SearchManagersRequest) GetLimit() int32 {
 	return 0
 }
 
+func (x *SearchManagersRequest) GetIncludeOnline() bool {
+	if x != nil {
+		return x.IncludeOnline
+	}
+	return false
+}
+
+func (x *SearchManagersRequest) GetIncludeOperatorStatus() bool {
+	if x != nil {
+		return x.IncludeOperatorStatus
+	}
+	return false
+}
+
 // Response for manager list retrieval.
 type SearchManagersResult struct {
 	state    protoimpl.MessageState `protogen:"open.v1"`
@@ -106,9 +124,17 @@ type SearchManagersResult struct {
 	// +kubebuilder:validation:Nullable
 	NextCursor string `protobuf:"bytes,2,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
 	// Whether a next page of results exists.
-	HasNext       bool `protobuf:"varint,3,opt,name=has_next,json=hasNext,proto3" json:"has_next,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	HasNext bool `protobuf:"varint,3,opt,name=has_next,json=hasNext,proto3" json:"has_next,omitempty"`
+	// Online presence for each manager. Populated when include_online is true.
+	//
+	// +kubebuilder:validation:Nullable
+	Onlines []*model.Online `protobuf:"bytes,4,rep,name=onlines,proto3" json:"onlines,omitempty"`
+	// Operator status for each manager. Populated when include_operator_status is true.
+	//
+	// +kubebuilder:validation:Nullable
+	OperatorStatuses []*model.OperatorStatus `protobuf:"bytes,5,rep,name=operator_statuses,json=operatorStatuses,proto3" json:"operator_statuses,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *SearchManagersResult) Reset() {
@@ -162,6 +188,20 @@ func (x *SearchManagersResult) GetHasNext() bool {
 	return false
 }
 
+func (x *SearchManagersResult) GetOnlines() []*model.Online {
+	if x != nil {
+		return x.Onlines
+	}
+	return nil
+}
+
+func (x *SearchManagersResult) GetOperatorStatuses() []*model.OperatorStatus {
+	if x != nil {
+		return x.OperatorStatuses
+	}
+	return nil
+}
+
 // Retrieves multiple managers by their IDs.
 //
 // Managers that do not exist or have been removed are silently skipped.
@@ -174,9 +214,13 @@ type BatchGetManagersRequest struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinItems=1
 	// +kubebuilder:validation:MaxItems=50
-	ManagerIds    []string `protobuf:"bytes,2,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	ManagerIds []string `protobuf:"bytes,2,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
+	// Whether to include online presence for each manager.
+	IncludeOnline bool `protobuf:"varint,3,opt,name=include_online,json=includeOnline,proto3" json:"include_online,omitempty"`
+	// Whether to include operator status for each manager.
+	IncludeOperatorStatus bool `protobuf:"varint,4,opt,name=include_operator_status,json=includeOperatorStatus,proto3" json:"include_operator_status,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *BatchGetManagersRequest) Reset() {
@@ -223,12 +267,34 @@ func (x *BatchGetManagersRequest) GetManagerIds() []string {
 	return nil
 }
 
+func (x *BatchGetManagersRequest) GetIncludeOnline() bool {
+	if x != nil {
+		return x.IncludeOnline
+	}
+	return false
+}
+
+func (x *BatchGetManagersRequest) GetIncludeOperatorStatus() bool {
+	if x != nil {
+		return x.IncludeOperatorStatus
+	}
+	return false
+}
+
 // Response for batch manager retrieval.
 type BatchGetManagersResult struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Managers      []*model.Manager       `protobuf:"bytes,1,rep,name=managers,proto3" json:"managers,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state    protoimpl.MessageState `protogen:"open.v1"`
+	Managers []*model.Manager       `protobuf:"bytes,1,rep,name=managers,proto3" json:"managers,omitempty"`
+	// Online presence for each manager. Populated when include_online is true.
+	//
+	// +kubebuilder:validation:Nullable
+	Onlines []*model.Online `protobuf:"bytes,2,rep,name=onlines,proto3" json:"onlines,omitempty"`
+	// Operator status for each manager. Populated when include_operator_status is true.
+	//
+	// +kubebuilder:validation:Nullable
+	OperatorStatuses []*model.OperatorStatus `protobuf:"bytes,3,rep,name=operator_statuses,json=operatorStatuses,proto3" json:"operator_statuses,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *BatchGetManagersResult) Reset() {
@@ -268,15 +334,33 @@ func (x *BatchGetManagersResult) GetManagers() []*model.Manager {
 	return nil
 }
 
+func (x *BatchGetManagersResult) GetOnlines() []*model.Online {
+	if x != nil {
+		return x.Onlines
+	}
+	return nil
+}
+
+func (x *BatchGetManagersResult) GetOperatorStatuses() []*model.OperatorStatus {
+	if x != nil {
+		return x.OperatorStatuses
+	}
+	return nil
+}
+
 // Retrieves a single manager.
 type GetManagerRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Manager ID to retrieve.
 	ManagerId string `protobuf:"bytes,1,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	// Channel ID the manager belongs to.
-	ChannelId     string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Whether to include online presence.
+	IncludeOnline bool `protobuf:"varint,3,opt,name=include_online,json=includeOnline,proto3" json:"include_online,omitempty"`
+	// Whether to include operator status.
+	IncludeOperatorStatus bool `protobuf:"varint,4,opt,name=include_operator_status,json=includeOperatorStatus,proto3" json:"include_operator_status,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *GetManagerRequest) Reset() {
@@ -323,12 +407,30 @@ func (x *GetManagerRequest) GetChannelId() string {
 	return ""
 }
 
+func (x *GetManagerRequest) GetIncludeOnline() bool {
+	if x != nil {
+		return x.IncludeOnline
+	}
+	return false
+}
+
+func (x *GetManagerRequest) GetIncludeOperatorStatus() bool {
+	if x != nil {
+		return x.IncludeOperatorStatus
+	}
+	return false
+}
+
 // Response for single manager retrieval.
 type GetManagerResult struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Manager       *model.Manager         `protobuf:"bytes,1,opt,name=manager,proto3" json:"manager,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state   protoimpl.MessageState `protogen:"open.v1"`
+	Manager *model.Manager         `protobuf:"bytes,1,opt,name=manager,proto3" json:"manager,omitempty"`
+	// Online presence. Populated when include_online is true.
+	Online *model.Online `protobuf:"bytes,2,opt,name=online,proto3" json:"online,omitempty"`
+	// Operator status. Populated when include_operator_status is true.
+	OperatorStatus *model.OperatorStatus `protobuf:"bytes,3,opt,name=operator_status,json=operatorStatus,proto3" json:"operator_status,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *GetManagerResult) Reset() {
@@ -368,38 +470,64 @@ func (x *GetManagerResult) GetManager() *model.Manager {
 	return nil
 }
 
+func (x *GetManagerResult) GetOnline() *model.Online {
+	if x != nil {
+		return x.Online
+	}
+	return nil
+}
+
+func (x *GetManagerResult) GetOperatorStatus() *model.OperatorStatus {
+	if x != nil {
+		return x.OperatorStatus
+	}
+	return nil
+}
+
 var File_coreapi_service_manager_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_manager_proto_rawDesc = "" +
 	"\n" +
-	"\x1dcoreapi/service/manager.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1bcoreapi/model/manager.proto\"\xcd\x01\n" +
+	"\x1dcoreapi/service/manager.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1bcoreapi/model/manager.proto\x1a\x1acoreapi/model/online.proto\x1a#coreapi/model/operator_status.proto\"\xac\x02\n" +
 	"\x15SearchManagersRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x16\n" +
 	"\x06cursor\x18\x02 \x01(\tR\x06cursor\x12u\n" +
 	"\x05limit\x18\x03 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
-	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\"\x86\x01\n" +
+	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\x12%\n" +
+	"\x0einclude_online\x18\x04 \x01(\bR\rincludeOnline\x126\n" +
+	"\x17include_operator_status\x18\x05 \x01(\bR\x15includeOperatorStatus\"\x83\x02\n" +
 	"\x14SearchManagersResult\x122\n" +
 	"\bmanagers\x18\x01 \x03(\v2\x16.coreapi.model.ManagerR\bmanagers\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\x84\x02\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\x12/\n" +
+	"\aonlines\x18\x04 \x03(\v2\x15.coreapi.model.OnlineR\aonlines\x12J\n" +
+	"\x11operator_statuses\x18\x05 \x03(\v2\x1d.coreapi.model.OperatorStatusR\x10operatorStatuses\"\xe3\x02\n" +
 	"\x17BatchGetManagersRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xc1\x01\n" +
 	"\vmanager_ids\x18\x02 \x03(\tB\x9f\x01\xbaH\x9b\x01\xba\x01I\n" +
 	"\x11repeated.minItems\x12#at least one manager ID is required\x1a\x0fsize(this) >= 1\xba\x01I\n" +
 	"\x11repeated.maxItems\x12\"value must contain no more than 50\x1a\x10size(this) <= 50\xc8\x01\x01R\n" +
-	"managerIds\"L\n" +
+	"managerIds\x12%\n" +
+	"\x0einclude_online\x18\x03 \x01(\bR\rincludeOnline\x126\n" +
+	"\x17include_operator_status\x18\x04 \x01(\bR\x15includeOperatorStatus\"\xc9\x01\n" +
 	"\x16BatchGetManagersResult\x122\n" +
-	"\bmanagers\x18\x01 \x03(\v2\x16.coreapi.model.ManagerR\bmanagers\"a\n" +
+	"\bmanagers\x18\x01 \x03(\v2\x16.coreapi.model.ManagerR\bmanagers\x12/\n" +
+	"\aonlines\x18\x02 \x03(\v2\x15.coreapi.model.OnlineR\aonlines\x12J\n" +
+	"\x11operator_statuses\x18\x03 \x03(\v2\x1d.coreapi.model.OperatorStatusR\x10operatorStatuses\"\xc0\x01\n" +
 	"\x11GetManagerRequest\x12%\n" +
 	"\n" +
 	"manager_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tmanagerId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"D\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12%\n" +
+	"\x0einclude_online\x18\x03 \x01(\bR\rincludeOnline\x126\n" +
+	"\x17include_operator_status\x18\x04 \x01(\bR\x15includeOperatorStatus\"\xbb\x01\n" +
 	"\x10GetManagerResult\x120\n" +
-	"\amanager\x18\x01 \x01(\v2\x16.coreapi.model.ManagerR\amanagerBf\n" +
+	"\amanager\x18\x01 \x01(\v2\x16.coreapi.model.ManagerR\amanager\x12-\n" +
+	"\x06online\x18\x02 \x01(\v2\x15.coreapi.model.OnlineR\x06online\x12F\n" +
+	"\x0foperator_status\x18\x03 \x01(\v2\x1d.coreapi.model.OperatorStatusR\x0eoperatorStatusBf\n" +
 	"(io.channel.api.proto.pub.coreapi.serviceP\x01Z8github.com/channel-io/ch-proto-public/coreapi/go/serviceb\x06proto3"
 
 var (
@@ -423,16 +551,24 @@ var file_coreapi_service_manager_proto_goTypes = []any{
 	(*GetManagerRequest)(nil),       // 4: coreapi.service.GetManagerRequest
 	(*GetManagerResult)(nil),        // 5: coreapi.service.GetManagerResult
 	(*model.Manager)(nil),           // 6: coreapi.model.Manager
+	(*model.Online)(nil),            // 7: coreapi.model.Online
+	(*model.OperatorStatus)(nil),    // 8: coreapi.model.OperatorStatus
 }
 var file_coreapi_service_manager_proto_depIdxs = []int32{
 	6, // 0: coreapi.service.SearchManagersResult.managers:type_name -> coreapi.model.Manager
-	6, // 1: coreapi.service.BatchGetManagersResult.managers:type_name -> coreapi.model.Manager
-	6, // 2: coreapi.service.GetManagerResult.manager:type_name -> coreapi.model.Manager
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	7, // 1: coreapi.service.SearchManagersResult.onlines:type_name -> coreapi.model.Online
+	8, // 2: coreapi.service.SearchManagersResult.operator_statuses:type_name -> coreapi.model.OperatorStatus
+	6, // 3: coreapi.service.BatchGetManagersResult.managers:type_name -> coreapi.model.Manager
+	7, // 4: coreapi.service.BatchGetManagersResult.onlines:type_name -> coreapi.model.Online
+	8, // 5: coreapi.service.BatchGetManagersResult.operator_statuses:type_name -> coreapi.model.OperatorStatus
+	6, // 6: coreapi.service.GetManagerResult.manager:type_name -> coreapi.model.Manager
+	7, // 7: coreapi.service.GetManagerResult.online:type_name -> coreapi.model.Online
+	8, // 8: coreapi.service.GetManagerResult.operator_status:type_name -> coreapi.model.OperatorStatus
+	9, // [9:9] is the sub-list for method output_type
+	9, // [9:9] is the sub-list for method input_type
+	9, // [9:9] is the sub-list for extension type_name
+	9, // [9:9] is the sub-list for extension extendee
+	0, // [0:9] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_manager_proto_init() }

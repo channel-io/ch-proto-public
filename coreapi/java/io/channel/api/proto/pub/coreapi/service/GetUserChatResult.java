@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GetUserChatResult() {
+    sessions_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -42,6 +43,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -65,6 +67,28 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 18: {
+            io.channel.api.proto.pub.coreapi.model.ChatBookmark.Builder subBuilder = null;
+            if (bookmark_ != null) {
+              subBuilder = bookmark_.toBuilder();
+            }
+            bookmark_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.ChatBookmark.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(bookmark_);
+              bookmark_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 26: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              sessions_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.ChatSession>();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            sessions_.add(
+                input.readMessage(io.channel.api.proto.pub.coreapi.model.ChatSession.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -80,6 +104,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        sessions_ = java.util.Collections.unmodifiableList(sessions_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -123,6 +150,109 @@ private static final long serialVersionUID = 0L;
     return getUserChat();
   }
 
+  public static final int BOOKMARK_FIELD_NUMBER = 2;
+  private io.channel.api.proto.pub.coreapi.model.ChatBookmark bookmark_;
+  /**
+   * <pre>
+   * Chat bookmark. Populated when include_bookmark is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+   * @return Whether the bookmark field is set.
+   */
+  @java.lang.Override
+  public boolean hasBookmark() {
+    return bookmark_ != null;
+  }
+  /**
+   * <pre>
+   * Chat bookmark. Populated when include_bookmark is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+   * @return The bookmark.
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.ChatBookmark getBookmark() {
+    return bookmark_ == null ? io.channel.api.proto.pub.coreapi.model.ChatBookmark.getDefaultInstance() : bookmark_;
+  }
+  /**
+   * <pre>
+   * Chat bookmark. Populated when include_bookmark is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.ChatBookmarkOrBuilder getBookmarkOrBuilder() {
+    return getBookmark();
+  }
+
+  public static final int SESSIONS_FIELD_NUMBER = 3;
+  private java.util.List<io.channel.api.proto.pub.coreapi.model.ChatSession> sessions_;
+  /**
+   * <pre>
+   * Chat sessions. Populated when include_sessions is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<io.channel.api.proto.pub.coreapi.model.ChatSession> getSessionsList() {
+    return sessions_;
+  }
+  /**
+   * <pre>
+   * Chat sessions. Populated when include_sessions is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.ChatSessionOrBuilder> 
+      getSessionsOrBuilderList() {
+    return sessions_;
+  }
+  /**
+   * <pre>
+   * Chat sessions. Populated when include_sessions is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+   */
+  @java.lang.Override
+  public int getSessionsCount() {
+    return sessions_.size();
+  }
+  /**
+   * <pre>
+   * Chat sessions. Populated when include_sessions is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.ChatSession getSessions(int index) {
+    return sessions_.get(index);
+  }
+  /**
+   * <pre>
+   * Chat sessions. Populated when include_sessions is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.ChatSessionOrBuilder getSessionsOrBuilder(
+      int index) {
+    return sessions_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -140,6 +270,12 @@ private static final long serialVersionUID = 0L;
     if (userChat_ != null) {
       output.writeMessage(1, getUserChat());
     }
+    if (bookmark_ != null) {
+      output.writeMessage(2, getBookmark());
+    }
+    for (int i = 0; i < sessions_.size(); i++) {
+      output.writeMessage(3, sessions_.get(i));
+    }
     unknownFields.writeTo(output);
   }
 
@@ -152,6 +288,14 @@ private static final long serialVersionUID = 0L;
     if (userChat_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getUserChat());
+    }
+    if (bookmark_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getBookmark());
+    }
+    for (int i = 0; i < sessions_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, sessions_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -173,6 +317,13 @@ private static final long serialVersionUID = 0L;
       if (!getUserChat()
           .equals(other.getUserChat())) return false;
     }
+    if (hasBookmark() != other.hasBookmark()) return false;
+    if (hasBookmark()) {
+      if (!getBookmark()
+          .equals(other.getBookmark())) return false;
+    }
+    if (!getSessionsList()
+        .equals(other.getSessionsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -187,6 +338,14 @@ private static final long serialVersionUID = 0L;
     if (hasUserChat()) {
       hash = (37 * hash) + USER_CHAT_FIELD_NUMBER;
       hash = (53 * hash) + getUserChat().hashCode();
+    }
+    if (hasBookmark()) {
+      hash = (37 * hash) + BOOKMARK_FIELD_NUMBER;
+      hash = (53 * hash) + getBookmark().hashCode();
+    }
+    if (getSessionsCount() > 0) {
+      hash = (37 * hash) + SESSIONS_FIELD_NUMBER;
+      hash = (53 * hash) + getSessionsList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -320,6 +479,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getSessionsFieldBuilder();
       }
     }
     @java.lang.Override
@@ -330,6 +490,18 @@ private static final long serialVersionUID = 0L;
       } else {
         userChat_ = null;
         userChatBuilder_ = null;
+      }
+      if (bookmarkBuilder_ == null) {
+        bookmark_ = null;
+      } else {
+        bookmark_ = null;
+        bookmarkBuilder_ = null;
+      }
+      if (sessionsBuilder_ == null) {
+        sessions_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      } else {
+        sessionsBuilder_.clear();
       }
       return this;
     }
@@ -357,10 +529,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.channel.api.proto.pub.coreapi.service.GetUserChatResult buildPartial() {
       io.channel.api.proto.pub.coreapi.service.GetUserChatResult result = new io.channel.api.proto.pub.coreapi.service.GetUserChatResult(this);
+      int from_bitField0_ = bitField0_;
       if (userChatBuilder_ == null) {
         result.userChat_ = userChat_;
       } else {
         result.userChat_ = userChatBuilder_.build();
+      }
+      if (bookmarkBuilder_ == null) {
+        result.bookmark_ = bookmark_;
+      } else {
+        result.bookmark_ = bookmarkBuilder_.build();
+      }
+      if (sessionsBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          sessions_ = java.util.Collections.unmodifiableList(sessions_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.sessions_ = sessions_;
+      } else {
+        result.sessions_ = sessionsBuilder_.build();
       }
       onBuilt();
       return result;
@@ -413,6 +600,35 @@ private static final long serialVersionUID = 0L;
       if (other.hasUserChat()) {
         mergeUserChat(other.getUserChat());
       }
+      if (other.hasBookmark()) {
+        mergeBookmark(other.getBookmark());
+      }
+      if (sessionsBuilder_ == null) {
+        if (!other.sessions_.isEmpty()) {
+          if (sessions_.isEmpty()) {
+            sessions_ = other.sessions_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureSessionsIsMutable();
+            sessions_.addAll(other.sessions_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.sessions_.isEmpty()) {
+          if (sessionsBuilder_.isEmpty()) {
+            sessionsBuilder_.dispose();
+            sessionsBuilder_ = null;
+            sessions_ = other.sessions_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            sessionsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getSessionsFieldBuilder() : null;
+          } else {
+            sessionsBuilder_.addAllMessages(other.sessions_);
+          }
+        }
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -441,6 +657,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private io.channel.api.proto.pub.coreapi.model.UserChat userChat_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -560,6 +777,491 @@ private static final long serialVersionUID = 0L;
       }
       return userChatBuilder_;
     }
+
+    private io.channel.api.proto.pub.coreapi.model.ChatBookmark bookmark_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.ChatBookmark, io.channel.api.proto.pub.coreapi.model.ChatBookmark.Builder, io.channel.api.proto.pub.coreapi.model.ChatBookmarkOrBuilder> bookmarkBuilder_;
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     * @return Whether the bookmark field is set.
+     */
+    public boolean hasBookmark() {
+      return bookmarkBuilder_ != null || bookmark_ != null;
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     * @return The bookmark.
+     */
+    public io.channel.api.proto.pub.coreapi.model.ChatBookmark getBookmark() {
+      if (bookmarkBuilder_ == null) {
+        return bookmark_ == null ? io.channel.api.proto.pub.coreapi.model.ChatBookmark.getDefaultInstance() : bookmark_;
+      } else {
+        return bookmarkBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     */
+    public Builder setBookmark(io.channel.api.proto.pub.coreapi.model.ChatBookmark value) {
+      if (bookmarkBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bookmark_ = value;
+        onChanged();
+      } else {
+        bookmarkBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     */
+    public Builder setBookmark(
+        io.channel.api.proto.pub.coreapi.model.ChatBookmark.Builder builderForValue) {
+      if (bookmarkBuilder_ == null) {
+        bookmark_ = builderForValue.build();
+        onChanged();
+      } else {
+        bookmarkBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     */
+    public Builder mergeBookmark(io.channel.api.proto.pub.coreapi.model.ChatBookmark value) {
+      if (bookmarkBuilder_ == null) {
+        if (bookmark_ != null) {
+          bookmark_ =
+            io.channel.api.proto.pub.coreapi.model.ChatBookmark.newBuilder(bookmark_).mergeFrom(value).buildPartial();
+        } else {
+          bookmark_ = value;
+        }
+        onChanged();
+      } else {
+        bookmarkBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     */
+    public Builder clearBookmark() {
+      if (bookmarkBuilder_ == null) {
+        bookmark_ = null;
+        onChanged();
+      } else {
+        bookmark_ = null;
+        bookmarkBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.ChatBookmark.Builder getBookmarkBuilder() {
+      
+      onChanged();
+      return getBookmarkFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.ChatBookmarkOrBuilder getBookmarkOrBuilder() {
+      if (bookmarkBuilder_ != null) {
+        return bookmarkBuilder_.getMessageOrBuilder();
+      } else {
+        return bookmark_ == null ?
+            io.channel.api.proto.pub.coreapi.model.ChatBookmark.getDefaultInstance() : bookmark_;
+      }
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.ChatBookmark, io.channel.api.proto.pub.coreapi.model.ChatBookmark.Builder, io.channel.api.proto.pub.coreapi.model.ChatBookmarkOrBuilder> 
+        getBookmarkFieldBuilder() {
+      if (bookmarkBuilder_ == null) {
+        bookmarkBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.model.ChatBookmark, io.channel.api.proto.pub.coreapi.model.ChatBookmark.Builder, io.channel.api.proto.pub.coreapi.model.ChatBookmarkOrBuilder>(
+                getBookmark(),
+                getParentForChildren(),
+                isClean());
+        bookmark_ = null;
+      }
+      return bookmarkBuilder_;
+    }
+
+    private java.util.List<io.channel.api.proto.pub.coreapi.model.ChatSession> sessions_ =
+      java.util.Collections.emptyList();
+    private void ensureSessionsIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        sessions_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.ChatSession>(sessions_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.ChatSession, io.channel.api.proto.pub.coreapi.model.ChatSession.Builder, io.channel.api.proto.pub.coreapi.model.ChatSessionOrBuilder> sessionsBuilder_;
+
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public java.util.List<io.channel.api.proto.pub.coreapi.model.ChatSession> getSessionsList() {
+      if (sessionsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(sessions_);
+      } else {
+        return sessionsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public int getSessionsCount() {
+      if (sessionsBuilder_ == null) {
+        return sessions_.size();
+      } else {
+        return sessionsBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.ChatSession getSessions(int index) {
+      if (sessionsBuilder_ == null) {
+        return sessions_.get(index);
+      } else {
+        return sessionsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public Builder setSessions(
+        int index, io.channel.api.proto.pub.coreapi.model.ChatSession value) {
+      if (sessionsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSessionsIsMutable();
+        sessions_.set(index, value);
+        onChanged();
+      } else {
+        sessionsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public Builder setSessions(
+        int index, io.channel.api.proto.pub.coreapi.model.ChatSession.Builder builderForValue) {
+      if (sessionsBuilder_ == null) {
+        ensureSessionsIsMutable();
+        sessions_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        sessionsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public Builder addSessions(io.channel.api.proto.pub.coreapi.model.ChatSession value) {
+      if (sessionsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSessionsIsMutable();
+        sessions_.add(value);
+        onChanged();
+      } else {
+        sessionsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public Builder addSessions(
+        int index, io.channel.api.proto.pub.coreapi.model.ChatSession value) {
+      if (sessionsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSessionsIsMutable();
+        sessions_.add(index, value);
+        onChanged();
+      } else {
+        sessionsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public Builder addSessions(
+        io.channel.api.proto.pub.coreapi.model.ChatSession.Builder builderForValue) {
+      if (sessionsBuilder_ == null) {
+        ensureSessionsIsMutable();
+        sessions_.add(builderForValue.build());
+        onChanged();
+      } else {
+        sessionsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public Builder addSessions(
+        int index, io.channel.api.proto.pub.coreapi.model.ChatSession.Builder builderForValue) {
+      if (sessionsBuilder_ == null) {
+        ensureSessionsIsMutable();
+        sessions_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        sessionsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public Builder addAllSessions(
+        java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.ChatSession> values) {
+      if (sessionsBuilder_ == null) {
+        ensureSessionsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, sessions_);
+        onChanged();
+      } else {
+        sessionsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public Builder clearSessions() {
+      if (sessionsBuilder_ == null) {
+        sessions_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        sessionsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public Builder removeSessions(int index) {
+      if (sessionsBuilder_ == null) {
+        ensureSessionsIsMutable();
+        sessions_.remove(index);
+        onChanged();
+      } else {
+        sessionsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.ChatSession.Builder getSessionsBuilder(
+        int index) {
+      return getSessionsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.ChatSessionOrBuilder getSessionsOrBuilder(
+        int index) {
+      if (sessionsBuilder_ == null) {
+        return sessions_.get(index);  } else {
+        return sessionsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.ChatSessionOrBuilder> 
+         getSessionsOrBuilderList() {
+      if (sessionsBuilder_ != null) {
+        return sessionsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(sessions_);
+      }
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.ChatSession.Builder addSessionsBuilder() {
+      return getSessionsFieldBuilder().addBuilder(
+          io.channel.api.proto.pub.coreapi.model.ChatSession.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.ChatSession.Builder addSessionsBuilder(
+        int index) {
+      return getSessionsFieldBuilder().addBuilder(
+          index, io.channel.api.proto.pub.coreapi.model.ChatSession.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Chat sessions. Populated when include_sessions is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+     */
+    public java.util.List<io.channel.api.proto.pub.coreapi.model.ChatSession.Builder> 
+         getSessionsBuilderList() {
+      return getSessionsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.ChatSession, io.channel.api.proto.pub.coreapi.model.ChatSession.Builder, io.channel.api.proto.pub.coreapi.model.ChatSessionOrBuilder> 
+        getSessionsFieldBuilder() {
+      if (sessionsBuilder_ == null) {
+        sessionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.model.ChatSession, io.channel.api.proto.pub.coreapi.model.ChatSession.Builder, io.channel.api.proto.pub.coreapi.model.ChatSessionOrBuilder>(
+                sessions_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        sessions_ = null;
+      }
+      return sessionsBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -596,6 +1298,54 @@ private static final long serialVersionUID = 0L;
     		return clearUserChat();
     	else
     		return setUserChat(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The bookmark to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearBookmark(io.channel.api.proto.pub.coreapi.model.ChatBookmark value) {
+    	if (value == null)
+    		return clearBookmark();
+    	else
+    		return setBookmark(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearBookmark(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ChatBookmark> mapFunc) {
+    	if (value == null)
+    		return clearBookmark();
+    	else
+    		return setBookmark(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param values The sessions to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllOrClearSessions(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.ChatSession> values) {
+    	if (values == null)
+    		return clearSessions();
+    	else
+    		return addAllSessions(values);
+    }
+    	
+    /**
+     * @param values The values to map.
+     * @param mapFunc The function to map the values into each proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapAllOrClearSessions(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.ChatSession> mapFunc) {
+    	if (values == null)
+    		return clearSessions();
+    	else {
+    		values.forEach(value -> addSessions(mapFunc.apply(value)));
+    		return this;
+    	}
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.GetUserChatResult)

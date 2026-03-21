@@ -66,6 +66,16 @@ private static final long serialVersionUID = 0L;
             channelId_ = s;
             break;
           }
+          case 24: {
+
+            includeBookmark_ = input.readBool();
+            break;
+          }
+          case 32: {
+
+            includeSessions_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -190,6 +200,36 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int INCLUDE_BOOKMARK_FIELD_NUMBER = 3;
+  private boolean includeBookmark_;
+  /**
+   * <pre>
+   * Whether to include the chat bookmark.
+   * </pre>
+   *
+   * <code>bool include_bookmark = 3 [json_name = "includeBookmark"];</code>
+   * @return The includeBookmark.
+   */
+  @java.lang.Override
+  public boolean getIncludeBookmark() {
+    return includeBookmark_;
+  }
+
+  public static final int INCLUDE_SESSIONS_FIELD_NUMBER = 4;
+  private boolean includeSessions_;
+  /**
+   * <pre>
+   * Whether to include chat sessions (manager + user).
+   * </pre>
+   *
+   * <code>bool include_sessions = 4 [json_name = "includeSessions"];</code>
+   * @return The includeSessions.
+   */
+  @java.lang.Override
+  public boolean getIncludeSessions() {
+    return includeSessions_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -210,6 +250,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
     }
+    if (includeBookmark_ != false) {
+      output.writeBool(3, includeBookmark_);
+    }
+    if (includeSessions_ != false) {
+      output.writeBool(4, includeSessions_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -224,6 +270,14 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
+    }
+    if (includeBookmark_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(3, includeBookmark_);
+    }
+    if (includeSessions_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(4, includeSessions_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -244,6 +298,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUserChatId())) return false;
     if (!getChannelId()
         .equals(other.getChannelId())) return false;
+    if (getIncludeBookmark()
+        != other.getIncludeBookmark()) return false;
+    if (getIncludeSessions()
+        != other.getIncludeSessions()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -259,6 +317,12 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getUserChatId().hashCode();
     hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChannelId().hashCode();
+    hash = (37 * hash) + INCLUDE_BOOKMARK_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIncludeBookmark());
+    hash = (37 * hash) + INCLUDE_SESSIONS_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIncludeSessions());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -400,6 +464,10 @@ private static final long serialVersionUID = 0L;
 
       channelId_ = "";
 
+      includeBookmark_ = false;
+
+      includeSessions_ = false;
+
       return this;
     }
 
@@ -428,6 +496,8 @@ private static final long serialVersionUID = 0L;
       io.channel.api.proto.pub.coreapi.service.GetUserChatRequest result = new io.channel.api.proto.pub.coreapi.service.GetUserChatRequest(this);
       result.userChatId_ = userChatId_;
       result.channelId_ = channelId_;
+      result.includeBookmark_ = includeBookmark_;
+      result.includeSessions_ = includeSessions_;
       onBuilt();
       return result;
     }
@@ -483,6 +553,12 @@ private static final long serialVersionUID = 0L;
       if (!other.getChannelId().isEmpty()) {
         channelId_ = other.channelId_;
         onChanged();
+      }
+      if (other.getIncludeBookmark() != false) {
+        setIncludeBookmark(other.getIncludeBookmark());
+      }
+      if (other.getIncludeSessions() != false) {
+        setIncludeSessions(other.getIncludeSessions());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -704,6 +780,92 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+
+    private boolean includeBookmark_ ;
+    /**
+     * <pre>
+     * Whether to include the chat bookmark.
+     * </pre>
+     *
+     * <code>bool include_bookmark = 3 [json_name = "includeBookmark"];</code>
+     * @return The includeBookmark.
+     */
+    @java.lang.Override
+    public boolean getIncludeBookmark() {
+      return includeBookmark_;
+    }
+    /**
+     * <pre>
+     * Whether to include the chat bookmark.
+     * </pre>
+     *
+     * <code>bool include_bookmark = 3 [json_name = "includeBookmark"];</code>
+     * @param value The includeBookmark to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIncludeBookmark(boolean value) {
+      
+      includeBookmark_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether to include the chat bookmark.
+     * </pre>
+     *
+     * <code>bool include_bookmark = 3 [json_name = "includeBookmark"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIncludeBookmark() {
+      
+      includeBookmark_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean includeSessions_ ;
+    /**
+     * <pre>
+     * Whether to include chat sessions (manager + user).
+     * </pre>
+     *
+     * <code>bool include_sessions = 4 [json_name = "includeSessions"];</code>
+     * @return The includeSessions.
+     */
+    @java.lang.Override
+    public boolean getIncludeSessions() {
+      return includeSessions_;
+    }
+    /**
+     * <pre>
+     * Whether to include chat sessions (manager + user).
+     * </pre>
+     *
+     * <code>bool include_sessions = 4 [json_name = "includeSessions"];</code>
+     * @param value The includeSessions to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIncludeSessions(boolean value) {
+      
+      includeSessions_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether to include chat sessions (manager + user).
+     * </pre>
+     *
+     * <code>bool include_sessions = 4 [json_name = "includeSessions"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIncludeSessions() {
+      
+      includeSessions_ = false;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -763,6 +925,52 @@ private static final long serialVersionUID = 0L;
     		return clearChannelId();
     	else
     		return setChannelId(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The include_bookmark to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearIncludeBookmark(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearIncludeBookmark();
+    	else
+    		return setIncludeBookmark(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearIncludeBookmark(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearIncludeBookmark();
+    	else
+    		return setIncludeBookmark(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The include_sessions to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearIncludeSessions(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearIncludeSessions();
+    	else
+    		return setIncludeSessions(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearIncludeSessions(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearIncludeSessions();
+    	else
+    		return setIncludeSessions(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.GetUserChatRequest)

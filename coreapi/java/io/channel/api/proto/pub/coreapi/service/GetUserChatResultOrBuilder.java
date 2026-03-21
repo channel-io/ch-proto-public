@@ -21,4 +21,80 @@ public interface GetUserChatResultOrBuilder extends
    * <code>.coreapi.model.UserChat user_chat = 1 [json_name = "userChat"];</code>
    */
   io.channel.api.proto.pub.coreapi.model.UserChatOrBuilder getUserChatOrBuilder();
+
+  /**
+   * <pre>
+   * Chat bookmark. Populated when include_bookmark is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+   * @return Whether the bookmark field is set.
+   */
+  boolean hasBookmark();
+  /**
+   * <pre>
+   * Chat bookmark. Populated when include_bookmark is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+   * @return The bookmark.
+   */
+  io.channel.api.proto.pub.coreapi.model.ChatBookmark getBookmark();
+  /**
+   * <pre>
+   * Chat bookmark. Populated when include_bookmark is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.ChatBookmarkOrBuilder getBookmarkOrBuilder();
+
+  /**
+   * <pre>
+   * Chat sessions. Populated when include_sessions is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+   */
+  java.util.List<io.channel.api.proto.pub.coreapi.model.ChatSession> 
+      getSessionsList();
+  /**
+   * <pre>
+   * Chat sessions. Populated when include_sessions is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.ChatSession getSessions(int index);
+  /**
+   * <pre>
+   * Chat sessions. Populated when include_sessions is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+   */
+  int getSessionsCount();
+  /**
+   * <pre>
+   * Chat sessions. Populated when include_sessions is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+   */
+  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.ChatSessionOrBuilder> 
+      getSessionsOrBuilderList();
+  /**
+   * <pre>
+   * Chat sessions. Populated when include_sessions is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.ChatSession sessions = 3 [json_name = "sessions"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.ChatSessionOrBuilder getSessionsOrBuilder(
+      int index);
 }

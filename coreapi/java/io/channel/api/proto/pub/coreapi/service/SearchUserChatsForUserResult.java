@@ -155,7 +155,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Opaque cursor for the next page.
-   * Use has_next to determine whether another page exists.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -178,7 +177,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Opaque cursor for the next page.
-   * Use has_next to determine whether another page exists.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -840,7 +838,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque cursor for the next page.
-     * Use has_next to determine whether another page exists.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -862,7 +859,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque cursor for the next page.
-     * Use has_next to determine whether another page exists.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -885,7 +881,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque cursor for the next page.
-     * Use has_next to determine whether another page exists.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -906,7 +901,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque cursor for the next page.
-     * Use has_next to determine whether another page exists.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -922,7 +916,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque cursor for the next page.
-     * Use has_next to determine whether another page exists.
      * +kubebuilder:validation:Nullable
      * </pre>
      *

@@ -4,10 +4,6 @@
 package io.channel.api.proto.pub.coreapi.service;
 
 /**
- * <pre>
- * Response for closing a user chat.
- * </pre>
- *
  * Protobuf type {@code coreapi.service.CloseUserChatResult}
  */
 public final class CloseUserChatResult extends
@@ -284,10 +280,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * Response for closing a user chat.
-   * </pre>
-   *
    * Protobuf type {@code coreapi.service.CloseUserChatResult}
    */
   public static final class Builder extends

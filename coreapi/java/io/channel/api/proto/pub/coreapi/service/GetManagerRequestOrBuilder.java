@@ -46,4 +46,24 @@ public interface GetManagerRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getChannelIdBytes();
+
+  /**
+   * <pre>
+   * Whether to include online presence.
+   * </pre>
+   *
+   * <code>bool include_online = 3 [json_name = "includeOnline"];</code>
+   * @return The includeOnline.
+   */
+  boolean getIncludeOnline();
+
+  /**
+   * <pre>
+   * Whether to include operator status.
+   * </pre>
+   *
+   * <code>bool include_operator_status = 4 [json_name = "includeOperatorStatus"];</code>
+   * @return The includeOperatorStatus.
+   */
+  boolean getIncludeOperatorStatus();
 }

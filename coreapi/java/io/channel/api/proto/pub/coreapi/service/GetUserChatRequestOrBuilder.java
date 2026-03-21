@@ -46,4 +46,24 @@ public interface GetUserChatRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getChannelIdBytes();
+
+  /**
+   * <pre>
+   * Whether to include the chat bookmark.
+   * </pre>
+   *
+   * <code>bool include_bookmark = 3 [json_name = "includeBookmark"];</code>
+   * @return The includeBookmark.
+   */
+  boolean getIncludeBookmark();
+
+  /**
+   * <pre>
+   * Whether to include chat sessions (manager + user).
+   * </pre>
+   *
+   * <code>bool include_sessions = 4 [json_name = "includeSessions"];</code>
+   * @return The includeSessions.
+   */
+  boolean getIncludeSessions();
 }

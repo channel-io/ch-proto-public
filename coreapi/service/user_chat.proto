@@ -4,12 +4,20 @@ package coreapi.service;
 
 import "buf/validate/validate.proto";
 import "coreapi/common/sort_order.proto";
+import "coreapi/model/chat_bookmark.proto";
+import "coreapi/model/chat_session.proto";
+import "coreapi/model/message.proto";
+import "coreapi/model/message_content.proto";
 import "coreapi/model/user_chat.proto";
 import "google/protobuf/duration.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.service";
+
+// ============================================================
+// UserChat CRUD + State Changes
+// ============================================================
 
 // Retrieves a list of managed user chats.
 //
@@ -90,7 +98,6 @@ message SearchUserChatsForUserResult {
   repeated coreapi.model.UserChat user_chats = 1;
 
   // Opaque cursor for the next page.
-  // Use has_next to determine whether another page exists.
   //
   // +kubebuilder:validation:Nullable
   string next_cursor = 2;
@@ -106,11 +113,25 @@ message GetUserChatRequest {
 
   // Channel ID the user chat belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
+
+  // Whether to include the chat bookmark.
+  bool include_bookmark = 3;
+
+  // Whether to include chat sessions (manager + user).
+  bool include_sessions = 4;
 }
 
 // Response for single user chat retrieval.
 message GetUserChatResult {
   coreapi.model.UserChat user_chat = 1;
+
+  // Chat bookmark. Populated when include_bookmark is true.
+  coreapi.model.ChatBookmark bookmark = 2;
+
+  // Chat sessions. Populated when include_sessions is true.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.ChatSession sessions = 3;
 }
 
 // Creates a new user chat for a user.
@@ -173,15 +194,9 @@ message DeleteUserChatResult {}
 // The bot specified by bot_name performs the action.
 // Returns 404 if the user chat does not exist.
 message OpenUserChatRequest {
-  // User chat ID to open.
   string user_chat_id = 1 [(buf.validate.field).required = true];
-
-  // Channel ID the user chat belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
 
-  // Name of the bot that opens the user chat.
-  // Creates a new bot if one with this name does not exist.
-  //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
@@ -202,26 +217,15 @@ message OpenUserChatRequest {
   ];
 }
 
-// Response for opening a user chat.
 message OpenUserChatResult {
   coreapi.model.UserChat user_chat = 1;
 }
 
 // Closes a user chat.
-//
-// Transitions the user chat state to closed.
-// The bot specified by bot_name performs the action.
-// Returns 404 if the user chat does not exist.
 message CloseUserChatRequest {
-  // User chat ID to close.
   string user_chat_id = 1 [(buf.validate.field).required = true];
-
-  // Channel ID the user chat belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
 
-  // Name of the bot that closes the user chat.
-  // Creates a new bot if one with this name does not exist.
-  //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
@@ -242,26 +246,15 @@ message CloseUserChatRequest {
   ];
 }
 
-// Response for closing a user chat.
 message CloseUserChatResult {
   coreapi.model.UserChat user_chat = 1;
 }
 
 // Snoozes a user chat.
-//
-// Transitions the user chat state to snoozed for the specified duration.
-// The bot specified by bot_name performs the action.
-// Returns 404 if the user chat does not exist.
 message SnoozeUserChatRequest {
-  // User chat ID to snooze.
   string user_chat_id = 1 [(buf.validate.field).required = true];
-
-  // Channel ID the user chat belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
 
-  // Name of the bot that snoozes the user chat.
-  // Creates a new bot if one with this name does not exist.
-  //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
@@ -281,9 +274,6 @@ message SnoozeUserChatRequest {
     (buf.validate.field).required = true
   ];
 
-  // Duration to snooze the user chat.
-  // Must be at least 1 minute.
-  //
   // +kubebuilder:validation:Required
   google.protobuf.Duration duration = 4 [
     (buf.validate.field).cel = {
@@ -295,25 +285,15 @@ message SnoozeUserChatRequest {
   ];
 }
 
-// Response for snoozing a user chat.
 message SnoozeUserChatResult {
   coreapi.model.UserChat user_chat = 1;
 }
 
 // Invites managers to a user chat.
-//
-// The bot specified by bot_name performs the action.
-// Returns 404 if the user chat does not exist.
 message InviteManagersToUserChatRequest {
-  // User chat ID to invite managers to.
   string user_chat_id = 1 [(buf.validate.field).required = true];
-
-  // Channel ID the user chat belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
 
-  // Name of the bot that invites the managers.
-  // Creates a new bot if one with this name does not exist.
-  //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
@@ -333,8 +313,6 @@ message InviteManagersToUserChatRequest {
     (buf.validate.field).required = true
   ];
 
-  // IDs of the managers to invite.
-  //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinItems=1
   repeated string manager_ids = 4 [
@@ -347,25 +325,15 @@ message InviteManagersToUserChatRequest {
   ];
 }
 
-// Response for inviting managers to a user chat.
 message InviteManagersToUserChatResult {
   coreapi.model.UserChat user_chat = 1;
 }
 
 // Assigns a manager to a user chat.
-//
-// The bot specified by bot_name performs the action.
-// Returns 404 if the user chat or manager does not exist.
 message AssignManagerToUserChatRequest {
-  // User chat ID to assign the manager to.
   string user_chat_id = 1 [(buf.validate.field).required = true];
-
-  // Channel ID the user chat belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
 
-  // Name of the bot that assigns the manager.
-  // Creates a new bot if one with this name does not exist.
-  //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
@@ -385,11 +353,94 @@ message AssignManagerToUserChatRequest {
     (buf.validate.field).required = true
   ];
 
-  // ID of the manager to assign.
   string manager_id = 4 [(buf.validate.field).required = true];
 }
 
-// Response for assigning a manager to a user chat.
 message AssignManagerToUserChatResult {
   coreapi.model.UserChat user_chat = 1;
+}
+
+// ============================================================
+// UserChat Sessions (chat_session 종속)
+// ============================================================
+
+// Retrieves a list of chat sessions for a user chat.
+message SearchUserChatSessionsRequest {
+  string channel_id = 1 [(buf.validate.field).required = true];
+  string user_chat_id = 2 [(buf.validate.field).required = true];
+}
+
+message SearchUserChatSessionsResult {
+  repeated coreapi.model.ChatSession chat_sessions = 1;
+}
+
+// ============================================================
+// UserChat Messages (chat_message 종속)
+// ============================================================
+
+// Retrieves a list of messages in a user chat.
+message SearchUserChatMessagesRequest {
+  string channel_id = 1 [(buf.validate.field).required = true];
+  string user_chat_id = 2 [(buf.validate.field).required = true];
+
+  coreapi.common.SortOrder sort_order = 3;
+  string cursor = 4;
+
+  int32 limit = 5 [(buf.validate.field).cel = {
+    id: "int32.between"
+    message: "limit must be between 1 and 500"
+    expression: "this == 0 || (this >= 1 && this <= 500)"
+  }];
+}
+
+message SearchUserChatMessagesResult {
+  repeated coreapi.model.Message messages = 1;
+
+  // +kubebuilder:validation:Nullable
+  string next_cursor = 2;
+
+  bool has_next = 3;
+}
+
+// Sends a new message to a user chat.
+message CreateUserChatMessageRequest {
+  string channel_id = 1 [(buf.validate.field).required = true];
+  string user_chat_id = 2 [(buf.validate.field).required = true];
+
+  // +kubebuilder:validation:Required
+  coreapi.model.MessageContent content = 3 [(buf.validate.field).required = true];
+
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:validation:Pattern="^[^@#$%:/]+$"
+  string bot_name = 4 [
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "this == '' || size(this) <= 30"
+    },
+    (buf.validate.field).string.pattern = "^[^@#$%:/]+$"
+  ];
+
+  // +kubebuilder:validation:Nullable
+  string request_id = 5;
+}
+
+message CreateUserChatMessageResult {
+  coreapi.model.Message message = 1;
+}
+
+// ============================================================
+// UserChat File URL (media 종속)
+// ============================================================
+
+// Retrieves a pre-signed URL for downloading a file attached to a user chat.
+message GetUserChatFileUrlRequest {
+  string channel_id = 1 [(buf.validate.field).required = true];
+  string user_chat_id = 2 [(buf.validate.field).required = true];
+  string key = 3 [(buf.validate.field).required = true];
+}
+
+message GetUserChatFileUrlResult {
+  string url = 1;
 }

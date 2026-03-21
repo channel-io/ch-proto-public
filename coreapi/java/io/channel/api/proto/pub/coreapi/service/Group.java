@@ -64,6 +64,86 @@ public final class Group {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_coreapi_service_UpdateGroupByNameResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_SearchGroupSessionsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_SearchGroupSessionsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_SearchGroupSessionsResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_SearchGroupSessionsResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_SearchGroupMessagesRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_SearchGroupMessagesRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_SearchGroupMessagesResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_SearchGroupMessagesResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_CreateGroupMessageRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_CreateGroupMessageRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_CreateGroupMessageResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_CreateGroupMessageResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_GetGroupFileUrlRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_GetGroupFileUrlRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_GetGroupFileUrlResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_GetGroupFileUrlResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_GetGroupThreadRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_GetGroupThreadRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_GetGroupThreadResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_GetGroupThreadResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_CreateGroupThreadRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_CreateGroupThreadRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_CreateGroupThreadResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_CreateGroupThreadResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_SearchGroupThreadMessagesRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_SearchGroupThreadMessagesRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_SearchGroupThreadMessagesResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_SearchGroupThreadMessagesResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_CreateGroupThreadMessageRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_CreateGroupThreadMessageRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_CreateGroupThreadMessageResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_CreateGroupThreadMessageResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -74,81 +154,167 @@ public final class Group {
   static {
     java.lang.String[] descriptorData = {
       "\n\033coreapi/service/group.proto\022\017coreapi.s" +
-      "ervice\032\033buf/validate/validate.proto\032\031cor" +
-      "eapi/model/group.proto\"\313\001\n\023SearchGroupsR" +
-      "equest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchan" +
-      "nelId\022\026\n\006cursor\030\002 \001(\tR\006cursor\022u\n\005limit\030\003" +
-      " \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037limit must " +
-      "be between 1 and 500\032\'this == 0 || (this" +
-      " >= 1 && this <= 500)R\005limit\"~\n\022SearchGr" +
-      "oupsResult\022,\n\006groups\030\001 \003(\0132\024.coreapi.mod" +
-      "el.GroupR\006groups\022\037\n\013next_cursor\030\002 \001(\tR\nn" +
-      "extCursor\022\031\n\010has_next\030\003 \001(\010R\007hasNext\"[\n\017" +
-      "GetGroupRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003" +
-      "\310\001\001R\tchannelId\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001" +
-      "R\007groupId\"<\n\016GetGroupResult\022*\n\005group\030\001 \001" +
-      "(\0132\024.coreapi.model.GroupR\005group\"e\n\025GetGr" +
-      "oupByNameRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H" +
-      "\003\310\001\001R\tchannelId\022%\n\ngroup_name\030\002 \001(\tB\006\272H\003" +
-      "\310\001\001R\tgroupName\"B\n\024GetGroupByNameResult\022*" +
-      "\n\005group\030\001 \001(\0132\024.coreapi.model.GroupR\005gro" +
-      "up\"\363\006\n\022UpdateGroupRequest\022%\n\nchannel_id\030" +
-      "\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_id\030\002 \001" +
-      "(\tB\006\272H\003\310\001\001R\007groupId\022\212\001\n\010bot_name\030\003 \001(\tBo" +
-      "\272Hl\272\001Y\n\rstring.maxLen\022(value must be no " +
-      "more than 30 characters\032\036this == \'\' || s" +
-      "ize(this) <= 30r\0162\014^[^@#$%:/]+$R\007botName" +
-      "\022\350\002\n\005title\030\004 \001(\tB\321\002\272H\315\002\272\001Y\n\rstring.maxLe" +
-      "n\022(value must be no more than 30 charact" +
-      "ers\032\036this == \'\' || size(this) <= 30\272\001S\n\r" +
-      "string.minLen\022#value must be at least 2 " +
-      "characters\032\035this == \'\' || size(this) >= " +
-      "2\272\001\227\001\n\016string.pattern\022Nvalue must contai" +
-      "n only letters, numbers, hyphens, unders" +
-      "cores, or parentheses\0325this == \'\' || thi" +
-      "s.matches(\'^[\\\\p{L}\\\\p{N}\\\\-_()]+$\')R\005ti" +
-      "tle\022/\n\005scope\030\005 \001(\0162\031.coreapi.model.Group" +
-      "ScopeR\005scope\022s\n\004icon\030\006 \001(\tB_\272H\\\272\001Y\n\016stri" +
-      "ng.pattern\022!value must not contain white" +
-      "space\032$this == \'\' || this.matches(\'^\\\\S+" +
-      "$\')R\004icon\022u\n\013description\030\007 \001(\tBS\272HP\272\001M\n\r" +
-      "string.maxLen\022)value must be no more tha" +
-      "n 200 characters\032\021size(this) <= 200R\013des" +
-      "cription\"?\n\021UpdateGroupResult\022*\n\005group\030\001" +
-      " \001(\0132\024.coreapi.model.GroupR\005group\"\375\006\n\030Up" +
-      "dateGroupByNameRequest\022%\n\nchannel_id\030\001 \001" +
+      "ervice\032\033buf/validate/validate.proto\032\037cor" +
+      "eapi/common/sort_order.proto\032!coreapi/mo" +
+      "del/chat_bookmark.proto\032 coreapi/model/c" +
+      "hat_session.proto\032\031coreapi/model/group.p" +
+      "roto\032\033coreapi/model/message.proto\032#corea" +
+      "pi/model/message_content.proto\"\313\001\n\023Searc" +
+      "hGroupsRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310" +
+      "\001\001R\tchannelId\022\026\n\006cursor\030\002 \001(\tR\006cursor\022u\n" +
+      "\005limit\030\003 \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037lim" +
+      "it must be between 1 and 500\032\'this == 0 " +
+      "|| (this >= 1 && this <= 500)R\005limit\"~\n\022" +
+      "SearchGroupsResult\022,\n\006groups\030\001 \003(\0132\024.cor" +
+      "eapi.model.GroupR\006groups\022\037\n\013next_cursor\030" +
+      "\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001(\010R\007has" +
+      "Next\"\257\001\n\017GetGroupRequest\022%\n\nchannel_id\030\001" +
+      " \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_id\030\002 \001(" +
+      "\tB\006\272H\003\310\001\001R\007groupId\022)\n\020include_bookmark\030\003" +
+      " \001(\010R\017includeBookmark\022\'\n\017include_session" +
+      "\030\004 \001(\010R\016includeSession\"\253\001\n\016GetGroupResul" +
+      "t\022*\n\005group\030\001 \001(\0132\024.coreapi.model.GroupR\005" +
+      "group\0227\n\010bookmark\030\002 \001(\0132\033.coreapi.model." +
+      "ChatBookmarkR\010bookmark\0224\n\007session\030\003 \001(\0132" +
+      "\032.coreapi.model.ChatSessionR\007session\"\271\001\n" +
+      "\025GetGroupByNameRequest\022%\n\nchannel_id\030\001 \001" +
       "(\tB\006\272H\003\310\001\001R\tchannelId\022%\n\ngroup_name\030\002 \001(" +
-      "\tB\006\272H\003\310\001\001R\tgroupName\022\212\001\n\010bot_name\030\003 \001(\tB" +
-      "o\272Hl\272\001Y\n\rstring.maxLen\022(value must be no" +
-      " more than 30 characters\032\036this == \'\' || " +
-      "size(this) <= 30r\0162\014^[^@#$%:/]+$R\007botNam" +
-      "e\022\350\002\n\005title\030\004 \001(\tB\321\002\272H\315\002\272\001Y\n\rstring.maxL" +
-      "en\022(value must be no more than 30 charac" +
-      "ters\032\036this == \'\' || size(this) <= 30\272\001S\n" +
-      "\rstring.minLen\022#value must be at least 2" +
-      " characters\032\035this == \'\' || size(this) >=" +
-      " 2\272\001\227\001\n\016string.pattern\022Nvalue must conta" +
-      "in only letters, numbers, hyphens, under" +
-      "scores, or parentheses\0325this == \'\' || th" +
-      "is.matches(\'^[\\\\p{L}\\\\p{N}\\\\-_()]+$\')R\005t" +
-      "itle\022/\n\005scope\030\005 \001(\0162\031.coreapi.model.Grou" +
-      "pScopeR\005scope\022s\n\004icon\030\006 \001(\tB_\272H\\\272\001Y\n\016str" +
-      "ing.pattern\022!value must not contain whit" +
-      "espace\032$this == \'\' || this.matches(\'^\\\\S" +
-      "+$\')R\004icon\022u\n\013description\030\007 \001(\tBS\272HP\272\001M\n" +
-      "\rstring.maxLen\022)value must be no more th" +
-      "an 200 characters\032\021size(this) <= 200R\013de" +
-      "scription\"E\n\027UpdateGroupByNameResult\022*\n\005" +
-      "group\030\001 \001(\0132\024.coreapi.model.GroupR\005group" +
-      "Bf\n(io.channel.api.proto.pub.coreapi.ser" +
-      "viceP\001Z8github.com/channel-io/ch-proto-p" +
-      "ublic/coreapi/go/serviceb\006proto3"
+      "\tB\006\272H\003\310\001\001R\tgroupName\022)\n\020include_bookmark" +
+      "\030\003 \001(\010R\017includeBookmark\022\'\n\017include_sessi" +
+      "on\030\004 \001(\010R\016includeSession\"\261\001\n\024GetGroupByN" +
+      "ameResult\022*\n\005group\030\001 \001(\0132\024.coreapi.model" +
+      ".GroupR\005group\0227\n\010bookmark\030\002 \001(\0132\033.coreap" +
+      "i.model.ChatBookmarkR\010bookmark\0224\n\007sessio" +
+      "n\030\003 \001(\0132\032.coreapi.model.ChatSessionR\007ses" +
+      "sion\"\363\006\n\022UpdateGroupRequest\022%\n\nchannel_i" +
+      "d\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_id\030\002" +
+      " \001(\tB\006\272H\003\310\001\001R\007groupId\022\212\001\n\010bot_name\030\003 \001(\t" +
+      "Bo\272Hl\272\001Y\n\rstring.maxLen\022(value must be n" +
+      "o more than 30 characters\032\036this == \'\' ||" +
+      " size(this) <= 30r\0162\014^[^@#$%:/]+$R\007botNa" +
+      "me\022\350\002\n\005title\030\004 \001(\tB\321\002\272H\315\002\272\001Y\n\rstring.max" +
+      "Len\022(value must be no more than 30 chara" +
+      "cters\032\036this == \'\' || size(this) <= 30\272\001S" +
+      "\n\rstring.minLen\022#value must be at least " +
+      "2 characters\032\035this == \'\' || size(this) >" +
+      "= 2\272\001\227\001\n\016string.pattern\022Nvalue must cont" +
+      "ain only letters, numbers, hyphens, unde" +
+      "rscores, or parentheses\0325this == \'\' || t" +
+      "his.matches(\'^[\\\\p{L}\\\\p{N}\\\\-_()]+$\')R\005" +
+      "title\022/\n\005scope\030\005 \001(\0162\031.coreapi.model.Gro" +
+      "upScopeR\005scope\022s\n\004icon\030\006 \001(\tB_\272H\\\272\001Y\n\016st" +
+      "ring.pattern\022!value must not contain whi" +
+      "tespace\032$this == \'\' || this.matches(\'^\\\\" +
+      "S+$\')R\004icon\022u\n\013description\030\007 \001(\tBS\272HP\272\001M" +
+      "\n\rstring.maxLen\022)value must be no more t" +
+      "han 200 characters\032\021size(this) <= 200R\013d" +
+      "escription\"?\n\021UpdateGroupResult\022*\n\005group" +
+      "\030\001 \001(\0132\024.coreapi.model.GroupR\005group\"\375\006\n\030" +
+      "UpdateGroupByNameRequest\022%\n\nchannel_id\030\001" +
+      " \001(\tB\006\272H\003\310\001\001R\tchannelId\022%\n\ngroup_name\030\002 " +
+      "\001(\tB\006\272H\003\310\001\001R\tgroupName\022\212\001\n\010bot_name\030\003 \001(" +
+      "\tBo\272Hl\272\001Y\n\rstring.maxLen\022(value must be " +
+      "no more than 30 characters\032\036this == \'\' |" +
+      "| size(this) <= 30r\0162\014^[^@#$%:/]+$R\007botN" +
+      "ame\022\350\002\n\005title\030\004 \001(\tB\321\002\272H\315\002\272\001Y\n\rstring.ma" +
+      "xLen\022(value must be no more than 30 char" +
+      "acters\032\036this == \'\' || size(this) <= 30\272\001" +
+      "S\n\rstring.minLen\022#value must be at least" +
+      " 2 characters\032\035this == \'\' || size(this) " +
+      ">= 2\272\001\227\001\n\016string.pattern\022Nvalue must con" +
+      "tain only letters, numbers, hyphens, und" +
+      "erscores, or parentheses\0325this == \'\' || " +
+      "this.matches(\'^[\\\\p{L}\\\\p{N}\\\\-_()]+$\')R" +
+      "\005title\022/\n\005scope\030\005 \001(\0162\031.coreapi.model.Gr" +
+      "oupScopeR\005scope\022s\n\004icon\030\006 \001(\tB_\272H\\\272\001Y\n\016s" +
+      "tring.pattern\022!value must not contain wh" +
+      "itespace\032$this == \'\' || this.matches(\'^\\" +
+      "\\S+$\')R\004icon\022u\n\013description\030\007 \001(\tBS\272HP\272\001" +
+      "M\n\rstring.maxLen\022)value must be no more " +
+      "than 200 characters\032\021size(this) <= 200R\013" +
+      "description\"E\n\027UpdateGroupByNameResult\022*" +
+      "\n\005group\030\001 \001(\0132\024.coreapi.model.GroupR\005gro" +
+      "up\"f\n\032SearchGroupSessionsRequest\022%\n\nchan" +
+      "nel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group" +
+      "_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\"\\\n\031SearchGrou" +
+      "pSessionsResult\022?\n\rchat_sessions\030\001 \003(\0132\032" +
+      ".coreapi.model.ChatSessionR\014chatSessions" +
+      "\"\257\002\n\032SearchGroupMessagesRequest\022%\n\nchann" +
+      "el_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_" +
+      "id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\0228\n\nsort_order\030" +
+      "\003 \001(\0162\031.coreapi.common.SortOrderR\tsortOr" +
+      "der\022\026\n\006cursor\030\004 \001(\tR\006cursor\022u\n\005limit\030\005 \001" +
+      "(\005B_\272H\\\272\001Y\n\rint32.between\022\037limit must be" +
+      " between 1 and 500\032\'this == 0 || (this >" +
+      "= 1 && this <= 500)R\005limit\"\213\001\n\031SearchGro" +
+      "upMessagesResult\0222\n\010messages\030\001 \003(\0132\026.cor" +
+      "eapi.model.MessageR\010messages\022\037\n\013next_cur" +
+      "sor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001(\010R" +
+      "\007hasNext\"\322\002\n\031CreateGroupMessageRequest\022%" +
+      "\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n" +
+      "\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\022?\n\007cont" +
+      "ent\030\003 \001(\0132\035.coreapi.model.MessageContent" +
+      "B\006\272H\003\310\001\001R\007content\022\212\001\n\010bot_name\030\004 \001(\tBo\272H" +
+      "l\272\001Y\n\rstring.maxLen\022(value must be no mo" +
+      "re than 30 characters\032\036this == \'\' || siz" +
+      "e(this) <= 30r\0162\014^[^@#$%:/]+$R\007botName\022\035" +
+      "\n\nrequest_id\030\005 \001(\tR\trequestId\"L\n\030CreateG" +
+      "roupMessageResult\0220\n\007message\030\001 \001(\0132\026.cor" +
+      "eapi.model.MessageR\007message\"|\n\026GetGroupF" +
+      "ileUrlRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001" +
+      "\001R\tchannelId\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007" +
+      "groupId\022\030\n\003key\030\003 \001(\tB\006\272H\003\310\001\001R\003key\")\n\025Get" +
+      "GroupFileUrlResult\022\020\n\003url\030\001 \001(\tR\003url\"\210\001\n" +
+      "\025GetGroupThreadRequest\022%\n\nchannel_id\030\001 \001" +
+      "(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_id\030\002 \001(\tB" +
+      "\006\272H\003\310\001\001R\007groupId\022%\n\nmessage_id\030\003 \001(\tB\006\272H" +
+      "\003\310\001\001R\tmessageId\"H\n\024GetGroupThreadResult\022" +
+      "0\n\007message\030\001 \001(\0132\026.coreapi.model.Message" +
+      "R\007message\"\213\001\n\030CreateGroupThreadRequest\022%" +
+      "\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n" +
+      "\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\022%\n\nmess" +
+      "age_id\030\003 \001(\tB\006\272H\003\310\001\001R\tmessageId\"K\n\027Creat" +
+      "eGroupThreadResult\0220\n\007message\030\001 \001(\0132\026.co" +
+      "reapi.model.MessageR\007message\"\334\002\n SearchG" +
+      "roupThreadMessagesRequest\022%\n\nchannel_id\030" +
+      "\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_id\030\002 \001" +
+      "(\tB\006\272H\003\310\001\001R\007groupId\022%\n\nmessage_id\030\003 \001(\tB" +
+      "\006\272H\003\310\001\001R\tmessageId\0228\n\nsort_order\030\004 \001(\0162\031" +
+      ".coreapi.common.SortOrderR\tsortOrder\022\026\n\006" +
+      "cursor\030\005 \001(\tR\006cursor\022u\n\005limit\030\006 \001(\005B_\272H\\" +
+      "\272\001Y\n\rint32.between\022\037limit must be betwee" +
+      "n 1 and 500\032\'this == 0 || (this >= 1 && " +
+      "this <= 500)R\005limit\"\221\001\n\037SearchGroupThrea" +
+      "dMessagesResult\0222\n\010messages\030\001 \003(\0132\026.core" +
+      "api.model.MessageR\010messages\022\037\n\013next_curs" +
+      "or\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001(\010R\007" +
+      "hasNext\"\216\003\n\037CreateGroupThreadMessageRequ" +
+      "est\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannel" +
+      "Id\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\022%\n" +
+      "\nmessage_id\030\003 \001(\tB\006\272H\003\310\001\001R\tmessageId\022?\n\007" +
+      "content\030\004 \001(\0132\035.coreapi.model.MessageCon" +
+      "tentB\006\272H\003\310\001\001R\007content\022|\n\010bot_name\030\005 \001(\tB" +
+      "a\272H^\272\001K\n\rstring.maxLen\022(value must be no" +
+      " more than 30 characters\032\020size(this) <= " +
+      "30r\0162\014^[^@#$%:/]+$R\007botName\022\034\n\tbroadcast" +
+      "\030\006 \001(\010R\tbroadcast\022\035\n\nrequest_id\030\007 \001(\tR\tr" +
+      "equestId\"R\n\036CreateGroupThreadMessageResu" +
+      "lt\0220\n\007message\030\001 \001(\0132\026.coreapi.model.Mess" +
+      "ageR\007messageBf\n(io.channel.api.proto.pub" +
+      ".coreapi.serviceP\001Z8github.com/channel-i" +
+      "o/ch-proto-public/coreapi/go/serviceb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.common.SortOrderOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.ChatBookmarkOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.ChatSessionOuterClass.getDescriptor(),
           io.channel.api.proto.pub.coreapi.model.GroupOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.MessageOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.MessageContentOuterClass.getDescriptor(),
         });
     internal_static_coreapi_service_SearchGroupsRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -167,25 +333,25 @@ public final class Group {
     internal_static_coreapi_service_GetGroupRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_GetGroupRequest_descriptor,
-        new java.lang.String[] { "ChannelId", "GroupId", });
+        new java.lang.String[] { "ChannelId", "GroupId", "IncludeBookmark", "IncludeSession", });
     internal_static_coreapi_service_GetGroupResult_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_coreapi_service_GetGroupResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_GetGroupResult_descriptor,
-        new java.lang.String[] { "Group", });
+        new java.lang.String[] { "Group", "Bookmark", "Session", });
     internal_static_coreapi_service_GetGroupByNameRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_coreapi_service_GetGroupByNameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_GetGroupByNameRequest_descriptor,
-        new java.lang.String[] { "ChannelId", "GroupName", });
+        new java.lang.String[] { "ChannelId", "GroupName", "IncludeBookmark", "IncludeSession", });
     internal_static_coreapi_service_GetGroupByNameResult_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_coreapi_service_GetGroupByNameResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_GetGroupByNameResult_descriptor,
-        new java.lang.String[] { "Group", });
+        new java.lang.String[] { "Group", "Bookmark", "Session", });
     internal_static_coreapi_service_UpdateGroupRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_coreapi_service_UpdateGroupRequest_fieldAccessorTable = new
@@ -210,13 +376,114 @@ public final class Group {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_UpdateGroupByNameResult_descriptor,
         new java.lang.String[] { "Group", });
+    internal_static_coreapi_service_SearchGroupSessionsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_coreapi_service_SearchGroupSessionsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_SearchGroupSessionsRequest_descriptor,
+        new java.lang.String[] { "ChannelId", "GroupId", });
+    internal_static_coreapi_service_SearchGroupSessionsResult_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_coreapi_service_SearchGroupSessionsResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_SearchGroupSessionsResult_descriptor,
+        new java.lang.String[] { "ChatSessions", });
+    internal_static_coreapi_service_SearchGroupMessagesRequest_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_coreapi_service_SearchGroupMessagesRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_SearchGroupMessagesRequest_descriptor,
+        new java.lang.String[] { "ChannelId", "GroupId", "SortOrder", "Cursor", "Limit", });
+    internal_static_coreapi_service_SearchGroupMessagesResult_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_coreapi_service_SearchGroupMessagesResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_SearchGroupMessagesResult_descriptor,
+        new java.lang.String[] { "Messages", "NextCursor", "HasNext", });
+    internal_static_coreapi_service_CreateGroupMessageRequest_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_coreapi_service_CreateGroupMessageRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_CreateGroupMessageRequest_descriptor,
+        new java.lang.String[] { "ChannelId", "GroupId", "Content", "BotName", "RequestId", });
+    internal_static_coreapi_service_CreateGroupMessageResult_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_coreapi_service_CreateGroupMessageResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_CreateGroupMessageResult_descriptor,
+        new java.lang.String[] { "Message", });
+    internal_static_coreapi_service_GetGroupFileUrlRequest_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_coreapi_service_GetGroupFileUrlRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_GetGroupFileUrlRequest_descriptor,
+        new java.lang.String[] { "ChannelId", "GroupId", "Key", });
+    internal_static_coreapi_service_GetGroupFileUrlResult_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_coreapi_service_GetGroupFileUrlResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_GetGroupFileUrlResult_descriptor,
+        new java.lang.String[] { "Url", });
+    internal_static_coreapi_service_GetGroupThreadRequest_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_coreapi_service_GetGroupThreadRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_GetGroupThreadRequest_descriptor,
+        new java.lang.String[] { "ChannelId", "GroupId", "MessageId", });
+    internal_static_coreapi_service_GetGroupThreadResult_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_coreapi_service_GetGroupThreadResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_GetGroupThreadResult_descriptor,
+        new java.lang.String[] { "Message", });
+    internal_static_coreapi_service_CreateGroupThreadRequest_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_coreapi_service_CreateGroupThreadRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_CreateGroupThreadRequest_descriptor,
+        new java.lang.String[] { "ChannelId", "GroupId", "MessageId", });
+    internal_static_coreapi_service_CreateGroupThreadResult_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_coreapi_service_CreateGroupThreadResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_CreateGroupThreadResult_descriptor,
+        new java.lang.String[] { "Message", });
+    internal_static_coreapi_service_SearchGroupThreadMessagesRequest_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_coreapi_service_SearchGroupThreadMessagesRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_SearchGroupThreadMessagesRequest_descriptor,
+        new java.lang.String[] { "ChannelId", "GroupId", "MessageId", "SortOrder", "Cursor", "Limit", });
+    internal_static_coreapi_service_SearchGroupThreadMessagesResult_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_coreapi_service_SearchGroupThreadMessagesResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_SearchGroupThreadMessagesResult_descriptor,
+        new java.lang.String[] { "Messages", "NextCursor", "HasNext", });
+    internal_static_coreapi_service_CreateGroupThreadMessageRequest_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_coreapi_service_CreateGroupThreadMessageRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_CreateGroupThreadMessageRequest_descriptor,
+        new java.lang.String[] { "ChannelId", "GroupId", "MessageId", "Content", "BotName", "Broadcast", "RequestId", });
+    internal_static_coreapi_service_CreateGroupThreadMessageResult_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_coreapi_service_CreateGroupThreadMessageResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_CreateGroupThreadMessageResult_descriptor,
+        new java.lang.String[] { "Message", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
+    io.channel.api.proto.pub.coreapi.common.SortOrderOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.ChatBookmarkOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.ChatSessionOuterClass.getDescriptor();
     io.channel.api.proto.pub.coreapi.model.GroupOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.MessageOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.MessageContentOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
