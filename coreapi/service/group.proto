@@ -3,11 +3,20 @@ syntax = "proto3";
 package coreapi.service;
 
 import "buf/validate/validate.proto";
+import "coreapi/common/sort_order.proto";
+import "coreapi/model/chat_bookmark.proto";
+import "coreapi/model/chat_session.proto";
 import "coreapi/model/group.proto";
+import "coreapi/model/message.proto";
+import "coreapi/model/message_content.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.service";
+
+// ============================================================
+// Group CRUD
+// ============================================================
 
 // Retrieves a list of non-private groups in a channel.
 //
@@ -57,11 +66,23 @@ message GetGroupRequest {
 
   // Group ID to retrieve.
   string group_id = 2 [(buf.validate.field).required = true];
+
+  // Whether to include the requesting manager's chat bookmark.
+  bool include_bookmark = 3;
+
+  // Whether to include the requesting manager's chat session.
+  bool include_session = 4;
 }
 
 // Response for single group retrieval.
 message GetGroupResult {
   coreapi.model.Group group = 1;
+
+  // Chat bookmark. Populated when include_bookmark is true.
+  coreapi.model.ChatBookmark bookmark = 2;
+
+  // Chat session. Populated when include_session is true.
+  coreapi.model.ChatSession session = 3;
 }
 
 // Retrieves a single group by name.
@@ -73,11 +94,23 @@ message GetGroupByNameRequest {
 
   // Group name to retrieve.
   string group_name = 2 [(buf.validate.field).required = true];
+
+  // Whether to include the requesting manager's chat bookmark.
+  bool include_bookmark = 3;
+
+  // Whether to include the requesting manager's chat session.
+  bool include_session = 4;
 }
 
 // Response for single group retrieval by name.
 message GetGroupByNameResult {
   coreapi.model.Group group = 1;
+
+  // Chat bookmark. Populated when include_bookmark is true.
+  coreapi.model.ChatBookmark bookmark = 2;
+
+  // Chat session. Populated when include_session is true.
+  coreapi.model.ChatSession session = 3;
 }
 
 // Updates a group by ID.
@@ -246,4 +279,265 @@ message UpdateGroupByNameRequest {
 // Response for group update by name.
 message UpdateGroupByNameResult {
   coreapi.model.Group group = 1;
+}
+
+// ============================================================
+// Group Sessions (chat_session 종속)
+// ============================================================
+
+// Retrieves a list of chat sessions for a group.
+//
+// Returns all participant sessions without pagination.
+message SearchGroupSessionsRequest {
+  // Channel ID to search sessions in.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Group ID to search sessions for.
+  string group_id = 2 [(buf.validate.field).required = true];
+}
+
+// Response for group session list retrieval.
+message SearchGroupSessionsResult {
+  repeated coreapi.model.ChatSession chat_sessions = 1;
+}
+
+// ============================================================
+// Group Messages (chat_message 종속)
+// ============================================================
+
+// Retrieves a list of messages in a group.
+//
+// The number of messages retrieved is restricted by the limit parameter,
+// and is capped to values in the closed interval [1, 500].
+// Pagination is cursor-based. Pass the nextCursor value from the previous response
+// as the cursor parameter to retrieve the next page.
+// If the cursor parameter is left empty, the list starts with the
+// first message as specified by the sort order.
+//
+// Results are sorted by message creation time in the specified sort order.
+// Defaults to descending order if sort_order is not specified.
+message SearchGroupMessagesRequest {
+  // Channel ID the group belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Group ID containing the messages.
+  string group_id = 2 [(buf.validate.field).required = true];
+
+  // Sort order for results. Defaults to descending if unset.
+  coreapi.common.SortOrder sort_order = 3;
+
+  // Opaque pagination cursor from a previous response.
+  string cursor = 4;
+
+  // Maximum number of results to return. Defaults to 25 if unset.
+  int32 limit = 5 [(buf.validate.field).cel = {
+    id: "int32.between"
+    message: "limit must be between 1 and 500"
+    expression: "this == 0 || (this >= 1 && this <= 500)"
+  }];
+}
+
+// Response for group message list retrieval.
+message SearchGroupMessagesResult {
+  repeated coreapi.model.Message messages = 1;
+
+  // Opaque cursor for the next page.
+  //
+  // +kubebuilder:validation:Nullable
+  string next_cursor = 2;
+
+  // Whether a next page of results exists.
+  bool has_next = 3;
+}
+
+// Sends a new message to a group.
+//
+// The message is sent by the bot specified by bot_name.
+// If bot_name is not specified, the channel's default bot is used.
+message CreateGroupMessageRequest {
+  // Channel ID the group belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Group ID to send the message to.
+  string group_id = 2 [(buf.validate.field).required = true];
+
+  // Message content to send.
+  //
+  // +kubebuilder:validation:Required
+  coreapi.model.MessageContent content = 3 [(buf.validate.field).required = true];
+
+  // Name of the bot sending the message.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:validation:Pattern="^[^@#$%:/]+$"
+  string bot_name = 4 [
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "this == '' || size(this) <= 30"
+    },
+    (buf.validate.field).string.pattern = "^[^@#$%:/]+$"
+  ];
+
+  // Client-generated request identifier for idempotency.
+  //
+  // +kubebuilder:validation:Nullable
+  string request_id = 5;
+}
+
+// Response for group message creation.
+message CreateGroupMessageResult {
+  coreapi.model.Message message = 1;
+}
+
+// ============================================================
+// Group File URL (media 종속)
+// ============================================================
+
+// Retrieves a pre-signed URL for downloading a file attached to a group chat.
+//
+// Returns 404 if the file does not exist.
+message GetGroupFileUrlRequest {
+  // Channel ID the group belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Group ID containing the file.
+  string group_id = 2 [(buf.validate.field).required = true];
+
+  // File key to generate a signed URL for.
+  string key = 3 [(buf.validate.field).required = true];
+}
+
+// Response for group file URL retrieval.
+message GetGroupFileUrlResult {
+  // Pre-signed URL for downloading the file.
+  string url = 1;
+}
+
+// ============================================================
+// Group Threads (chat_thread 종속)
+// ============================================================
+
+// Retrieves a thread of a given message in a group.
+//
+// Returns 404 if the message does not exist or does not have a thread.
+message GetGroupThreadRequest {
+  // Channel ID the group belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Group ID containing the message.
+  string group_id = 2 [(buf.validate.field).required = true];
+
+  // Root message ID of the thread.
+  string message_id = 3 [(buf.validate.field).required = true];
+}
+
+// Response for group thread retrieval.
+message GetGroupThreadResult {
+  coreapi.model.Message message = 1;
+}
+
+// Creates a thread on a message in a group.
+//
+// Returns 404 if the message does not exist.
+// Returns 422 if the message already has a thread.
+message CreateGroupThreadRequest {
+  // Channel ID the group belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Group ID containing the message.
+  string group_id = 2 [(buf.validate.field).required = true];
+
+  // Message ID to create a thread on.
+  string message_id = 3 [(buf.validate.field).required = true];
+}
+
+// Response for group thread creation.
+message CreateGroupThreadResult {
+  coreapi.model.Message message = 1;
+}
+
+// Retrieves a list of messages in a group thread.
+//
+// Pagination is cursor-based.
+// Defaults to descending order if sort_order is not specified.
+message SearchGroupThreadMessagesRequest {
+  // Channel ID the group belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Group ID containing the thread.
+  string group_id = 2 [(buf.validate.field).required = true];
+
+  // Root message ID of the thread.
+  string message_id = 3 [(buf.validate.field).required = true];
+
+  // Sort order for results. Defaults to descending if unset.
+  coreapi.common.SortOrder sort_order = 4;
+
+  // Opaque pagination cursor from a previous response.
+  string cursor = 5;
+
+  // Maximum number of results to return. Defaults to 25 if unset.
+  int32 limit = 6 [(buf.validate.field).cel = {
+    id: "int32.between"
+    message: "limit must be between 1 and 500"
+    expression: "this == 0 || (this >= 1 && this <= 500)"
+  }];
+}
+
+// Response for group thread message list retrieval.
+message SearchGroupThreadMessagesResult {
+  repeated coreapi.model.Message messages = 1;
+
+  // +kubebuilder:validation:Nullable
+  string next_cursor = 2;
+
+  bool has_next = 3;
+}
+
+// Creates a message in a group thread.
+//
+// Returns 404 if the thread does not exist.
+message CreateGroupThreadMessageRequest {
+  // Channel ID the group belongs to.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Group ID containing the thread.
+  string group_id = 2 [(buf.validate.field).required = true];
+
+  // Root message ID of the thread.
+  string message_id = 3 [(buf.validate.field).required = true];
+
+  // Message content to send.
+  coreapi.model.MessageContent content = 4 [(buf.validate.field).required = true];
+
+  // Bot name to use as the message author.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:validation:Pattern="^[^@#$%:/]+$"
+  string bot_name = 5 [
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "size(this) <= 30"
+    },
+    (buf.validate.field).string.pattern = "^[^@#$%:/]+$"
+  ];
+
+  // Whether to also post this message to the main chat stream.
+  //
+  // +kubebuilder:validation:Nullable
+  bool broadcast = 6;
+
+  // Client-generated request identifier for idempotency.
+  //
+  // +kubebuilder:validation:Nullable
+  string request_id = 7;
+}
+
+// Response for group thread message creation.
+message CreateGroupThreadMessageResult {
+  coreapi.model.Message message = 1;
 }

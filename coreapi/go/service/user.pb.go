@@ -38,7 +38,9 @@ type BatchGetUsersRequest struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinItems=1
 	// +kubebuilder:validation:MaxItems=50
-	UserIds       []string `protobuf:"bytes,2,rep,name=user_ids,json=userIds,proto3" json:"user_ids,omitempty"`
+	UserIds []string `protobuf:"bytes,2,rep,name=user_ids,json=userIds,proto3" json:"user_ids,omitempty"`
+	// Whether to include online presence for each user.
+	IncludeOnline bool `protobuf:"varint,3,opt,name=include_online,json=includeOnline,proto3" json:"include_online,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -87,10 +89,21 @@ func (x *BatchGetUsersRequest) GetUserIds() []string {
 	return nil
 }
 
+func (x *BatchGetUsersRequest) GetIncludeOnline() bool {
+	if x != nil {
+		return x.IncludeOnline
+	}
+	return false
+}
+
 // Response for batch user retrieval.
 type BatchGetUsersResult struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Users         []*model.User          `protobuf:"bytes,1,rep,name=users,proto3" json:"users,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	Users []*model.User          `protobuf:"bytes,1,rep,name=users,proto3" json:"users,omitempty"`
+	// Online presence for each user. Populated when include_online is true.
+	//
+	// +kubebuilder:validation:Nullable
+	Onlines       []*model.Online `protobuf:"bytes,2,rep,name=onlines,proto3" json:"onlines,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -132,13 +145,22 @@ func (x *BatchGetUsersResult) GetUsers() []*model.User {
 	return nil
 }
 
+func (x *BatchGetUsersResult) GetOnlines() []*model.Online {
+	if x != nil {
+		return x.Onlines
+	}
+	return nil
+}
+
 // Retrieves a single user.
 type GetUserRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// User ID to retrieve.
 	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	// Channel ID the user belongs to.
-	ChannelId     string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Whether to include online presence.
+	IncludeOnline bool `protobuf:"varint,3,opt,name=include_online,json=includeOnline,proto3" json:"include_online,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -187,10 +209,19 @@ func (x *GetUserRequest) GetChannelId() string {
 	return ""
 }
 
+func (x *GetUserRequest) GetIncludeOnline() bool {
+	if x != nil {
+		return x.IncludeOnline
+	}
+	return false
+}
+
 // Response for single user retrieval.
 type GetUserResult struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	User          *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	User  *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	// Online presence. Populated when include_online is true.
+	Online        *model.Online `protobuf:"bytes,2,opt,name=online,proto3" json:"online,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -232,6 +263,13 @@ func (x *GetUserResult) GetUser() *model.User {
 	return nil
 }
 
+func (x *GetUserResult) GetOnline() *model.Online {
+	if x != nil {
+		return x.Online
+	}
+	return nil
+}
+
 // Retrieves a single user by external member identifier.
 type GetUserByMemberIdRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -241,7 +279,9 @@ type GetUserByMemberIdRequest struct {
 	// +kubebuilder:validation:Pattern="\\S*"
 	MemberId string `protobuf:"bytes,1,opt,name=member_id,json=memberId,proto3" json:"member_id,omitempty"`
 	// Channel ID the user belongs to.
-	ChannelId     string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Whether to include online presence.
+	IncludeOnline bool `protobuf:"varint,3,opt,name=include_online,json=includeOnline,proto3" json:"include_online,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -290,10 +330,19 @@ func (x *GetUserByMemberIdRequest) GetChannelId() string {
 	return ""
 }
 
+func (x *GetUserByMemberIdRequest) GetIncludeOnline() bool {
+	if x != nil {
+		return x.IncludeOnline
+	}
+	return false
+}
+
 // Response for single user retrieval by member identifier.
 type GetUserByMemberIdResult struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	User          *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	User  *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	// Online presence. Populated when include_online is true.
+	Online        *model.Online `protobuf:"bytes,2,opt,name=online,proto3" json:"online,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -331,6 +380,13 @@ func (*GetUserByMemberIdResult) Descriptor() ([]byte, []int) {
 func (x *GetUserByMemberIdResult) GetUser() *model.User {
 	if x != nil {
 		return x.User
+	}
+	return nil
+}
+
+func (x *GetUserByMemberIdResult) GetOnline() *model.Online {
+	if x != nil {
+		return x.Online
 	}
 	return nil
 }
@@ -1633,28 +1689,34 @@ var File_coreapi_service_user_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_user_proto_rawDesc = "" +
 	"\n" +
-	"\x1acoreapi/service/user.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x18coreapi/model/user.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf8\x01\n" +
+	"\x1acoreapi/service/user.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1acoreapi/model/online.proto\x1a\x18coreapi/model/user.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9f\x02\n" +
 	"\x14BatchGetUsersRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xb8\x01\n" +
 	"\buser_ids\x18\x02 \x03(\tB\x9c\x01\xbaH\x98\x01\xba\x01F\n" +
 	"\x11repeated.minItems\x12 at least one user ID is required\x1a\x0fsize(this) >= 1\xba\x01I\n" +
-	"\x11repeated.maxItems\x12\"value must contain no more than 50\x1a\x10size(this) <= 50\xc8\x01\x01R\auserIds\"@\n" +
+	"\x11repeated.maxItems\x12\"value must contain no more than 50\x1a\x10size(this) <= 50\xc8\x01\x01R\auserIds\x12%\n" +
+	"\x0einclude_online\x18\x03 \x01(\bR\rincludeOnline\"q\n" +
 	"\x13BatchGetUsersResult\x12)\n" +
-	"\x05users\x18\x01 \x03(\v2\x13.coreapi.model.UserR\x05users\"X\n" +
+	"\x05users\x18\x01 \x03(\v2\x13.coreapi.model.UserR\x05users\x12/\n" +
+	"\aonlines\x18\x02 \x03(\v2\x15.coreapi.model.OnlineR\aonlines\"\x7f\n" +
 	"\x0eGetUserRequest\x12\x1f\n" +
 	"\auser_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"8\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12%\n" +
+	"\x0einclude_online\x18\x03 \x01(\bR\rincludeOnline\"g\n" +
 	"\rGetUserResult\x12'\n" +
-	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"\xbd\x01\n" +
+	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\x12-\n" +
+	"\x06online\x18\x02 \x01(\v2\x15.coreapi.model.OnlineR\x06online\"\xe4\x01\n" +
 	"\x18GetUserByMemberIdRequest\x12z\n" +
 	"\tmember_id\x18\x01 \x01(\tB]\xbaHZ\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 64 characters\x1a\x10size(this) <= 64\xc8\x01\x01r\a2\x05^\\S*$R\bmemberId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"B\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12%\n" +
+	"\x0einclude_online\x18\x03 \x01(\bR\rincludeOnline\"q\n" +
 	"\x17GetUserByMemberIdResult\x12'\n" +
-	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"[\n" +
+	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\x12-\n" +
+	"\x06online\x18\x02 \x01(\v2\x15.coreapi.model.OnlineR\x06online\"[\n" +
 	"\x11DeleteUserRequest\x12\x1f\n" +
 	"\auser_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\x12%\n" +
 	"\n" +
@@ -1798,34 +1860,38 @@ var file_coreapi_service_user_proto_goTypes = []any{
 	(*TouchUserRequest)(nil),                // 26: coreapi.service.TouchUserRequest
 	(*TouchUserResult)(nil),                 // 27: coreapi.service.TouchUserResult
 	(*model.User)(nil),                      // 28: coreapi.model.User
-	(*structpb.Struct)(nil),                 // 29: google.protobuf.Struct
-	(*durationpb.Duration)(nil),             // 30: google.protobuf.Duration
-	(*timestamppb.Timestamp)(nil),           // 31: google.protobuf.Timestamp
+	(*model.Online)(nil),                    // 29: coreapi.model.Online
+	(*structpb.Struct)(nil),                 // 30: google.protobuf.Struct
+	(*durationpb.Duration)(nil),             // 31: google.protobuf.Duration
+	(*timestamppb.Timestamp)(nil),           // 32: google.protobuf.Timestamp
 }
 var file_coreapi_service_user_proto_depIdxs = []int32{
 	28, // 0: coreapi.service.BatchGetUsersResult.users:type_name -> coreapi.model.User
-	28, // 1: coreapi.service.GetUserResult.user:type_name -> coreapi.model.User
-	28, // 2: coreapi.service.GetUserByMemberIdResult.user:type_name -> coreapi.model.User
-	28, // 3: coreapi.service.BlockUserResult.user:type_name -> coreapi.model.User
-	28, // 4: coreapi.service.UnblockUserResult.user:type_name -> coreapi.model.User
-	29, // 5: coreapi.service.PatchUserRequest.profile:type_name -> google.protobuf.Struct
-	29, // 6: coreapi.service.PatchUserRequest.profile_once:type_name -> google.protobuf.Struct
-	28, // 7: coreapi.service.PatchUserResult.user:type_name -> coreapi.model.User
-	29, // 8: coreapi.service.UpsertUserByMemberIdRequest.profile:type_name -> google.protobuf.Struct
-	29, // 9: coreapi.service.UpsertUserByMemberIdRequest.profile_once:type_name -> google.protobuf.Struct
-	28, // 10: coreapi.service.UpsertUserByMemberIdResult.user:type_name -> coreapi.model.User
-	29, // 11: coreapi.service.CreateLeadRequest.profile:type_name -> google.protobuf.Struct
-	28, // 12: coreapi.service.CreateLeadResult.user:type_name -> coreapi.model.User
-	30, // 13: coreapi.service.IssueSessionJwtRequest.expiration:type_name -> google.protobuf.Duration
-	31, // 14: coreapi.service.IssueSessionJwtResult.expires_at:type_name -> google.protobuf.Timestamp
-	31, // 15: coreapi.service.IssueUserTokenResult.disable_at:type_name -> google.protobuf.Timestamp
-	31, // 16: coreapi.service.IssueUserTokenByMemberIdResult.disable_at:type_name -> google.protobuf.Timestamp
-	28, // 17: coreapi.service.TouchUserResult.user:type_name -> coreapi.model.User
-	18, // [18:18] is the sub-list for method output_type
-	18, // [18:18] is the sub-list for method input_type
-	18, // [18:18] is the sub-list for extension type_name
-	18, // [18:18] is the sub-list for extension extendee
-	0,  // [0:18] is the sub-list for field type_name
+	29, // 1: coreapi.service.BatchGetUsersResult.onlines:type_name -> coreapi.model.Online
+	28, // 2: coreapi.service.GetUserResult.user:type_name -> coreapi.model.User
+	29, // 3: coreapi.service.GetUserResult.online:type_name -> coreapi.model.Online
+	28, // 4: coreapi.service.GetUserByMemberIdResult.user:type_name -> coreapi.model.User
+	29, // 5: coreapi.service.GetUserByMemberIdResult.online:type_name -> coreapi.model.Online
+	28, // 6: coreapi.service.BlockUserResult.user:type_name -> coreapi.model.User
+	28, // 7: coreapi.service.UnblockUserResult.user:type_name -> coreapi.model.User
+	30, // 8: coreapi.service.PatchUserRequest.profile:type_name -> google.protobuf.Struct
+	30, // 9: coreapi.service.PatchUserRequest.profile_once:type_name -> google.protobuf.Struct
+	28, // 10: coreapi.service.PatchUserResult.user:type_name -> coreapi.model.User
+	30, // 11: coreapi.service.UpsertUserByMemberIdRequest.profile:type_name -> google.protobuf.Struct
+	30, // 12: coreapi.service.UpsertUserByMemberIdRequest.profile_once:type_name -> google.protobuf.Struct
+	28, // 13: coreapi.service.UpsertUserByMemberIdResult.user:type_name -> coreapi.model.User
+	30, // 14: coreapi.service.CreateLeadRequest.profile:type_name -> google.protobuf.Struct
+	28, // 15: coreapi.service.CreateLeadResult.user:type_name -> coreapi.model.User
+	31, // 16: coreapi.service.IssueSessionJwtRequest.expiration:type_name -> google.protobuf.Duration
+	32, // 17: coreapi.service.IssueSessionJwtResult.expires_at:type_name -> google.protobuf.Timestamp
+	32, // 18: coreapi.service.IssueUserTokenResult.disable_at:type_name -> google.protobuf.Timestamp
+	32, // 19: coreapi.service.IssueUserTokenByMemberIdResult.disable_at:type_name -> google.protobuf.Timestamp
+	28, // 20: coreapi.service.TouchUserResult.user:type_name -> coreapi.model.User
+	21, // [21:21] is the sub-list for method output_type
+	21, // [21:21] is the sub-list for method input_type
+	21, // [21:21] is the sub-list for extension type_name
+	21, // [21:21] is the sub-list for extension extendee
+	0,  // [0:21] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_user_proto_init() }

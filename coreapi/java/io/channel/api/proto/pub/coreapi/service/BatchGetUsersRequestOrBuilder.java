@@ -79,4 +79,14 @@ public interface BatchGetUsersRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getUserIdsBytes(int index);
+
+  /**
+   * <pre>
+   * Whether to include online presence for each user.
+   * </pre>
+   *
+   * <code>bool include_online = 3 [json_name = "includeOnline"];</code>
+   * @return The includeOnline.
+   */
+  boolean getIncludeOnline();
 }

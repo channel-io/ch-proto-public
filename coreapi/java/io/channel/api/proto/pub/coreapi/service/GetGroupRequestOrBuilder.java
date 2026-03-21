@@ -46,4 +46,24 @@ public interface GetGroupRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getGroupIdBytes();
+
+  /**
+   * <pre>
+   * Whether to include the requesting manager's chat bookmark.
+   * </pre>
+   *
+   * <code>bool include_bookmark = 3 [json_name = "includeBookmark"];</code>
+   * @return The includeBookmark.
+   */
+  boolean getIncludeBookmark();
+
+  /**
+   * <pre>
+   * Whether to include the requesting manager's chat session.
+   * </pre>
+   *
+   * <code>bool include_session = 4 [json_name = "includeSession"];</code>
+   * @return The includeSession.
+   */
+  boolean getIncludeSession();
 }

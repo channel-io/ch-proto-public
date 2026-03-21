@@ -71,6 +71,16 @@ private static final long serialVersionUID = 0L;
             managerIds_.add(s);
             break;
           }
+          case 24: {
+
+            includeOnline_ = input.readBool();
+            break;
+          }
+          case 32: {
+
+            includeOperatorStatus_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -215,6 +225,36 @@ private static final long serialVersionUID = 0L;
     return managerIds_.getByteString(index);
   }
 
+  public static final int INCLUDE_ONLINE_FIELD_NUMBER = 3;
+  private boolean includeOnline_;
+  /**
+   * <pre>
+   * Whether to include online presence for each manager.
+   * </pre>
+   *
+   * <code>bool include_online = 3 [json_name = "includeOnline"];</code>
+   * @return The includeOnline.
+   */
+  @java.lang.Override
+  public boolean getIncludeOnline() {
+    return includeOnline_;
+  }
+
+  public static final int INCLUDE_OPERATOR_STATUS_FIELD_NUMBER = 4;
+  private boolean includeOperatorStatus_;
+  /**
+   * <pre>
+   * Whether to include operator status for each manager.
+   * </pre>
+   *
+   * <code>bool include_operator_status = 4 [json_name = "includeOperatorStatus"];</code>
+   * @return The includeOperatorStatus.
+   */
+  @java.lang.Override
+  public boolean getIncludeOperatorStatus() {
+    return includeOperatorStatus_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -234,6 +274,12 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < managerIds_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, managerIds_.getRaw(i));
+    }
+    if (includeOnline_ != false) {
+      output.writeBool(3, includeOnline_);
+    }
+    if (includeOperatorStatus_ != false) {
+      output.writeBool(4, includeOperatorStatus_);
     }
     unknownFields.writeTo(output);
   }
@@ -255,6 +301,14 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getManagerIdsList().size();
     }
+    if (includeOnline_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(3, includeOnline_);
+    }
+    if (includeOperatorStatus_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(4, includeOperatorStatus_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -274,6 +328,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getChannelId())) return false;
     if (!getManagerIdsList()
         .equals(other.getManagerIdsList())) return false;
+    if (getIncludeOnline()
+        != other.getIncludeOnline()) return false;
+    if (getIncludeOperatorStatus()
+        != other.getIncludeOperatorStatus()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -291,6 +349,12 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MANAGER_IDS_FIELD_NUMBER;
       hash = (53 * hash) + getManagerIdsList().hashCode();
     }
+    hash = (37 * hash) + INCLUDE_ONLINE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIncludeOnline());
+    hash = (37 * hash) + INCLUDE_OPERATOR_STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIncludeOperatorStatus());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -433,6 +497,10 @@ private static final long serialVersionUID = 0L;
 
       managerIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
+      includeOnline_ = false;
+
+      includeOperatorStatus_ = false;
+
       return this;
     }
 
@@ -466,6 +534,8 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.managerIds_ = managerIds_;
+      result.includeOnline_ = includeOnline_;
+      result.includeOperatorStatus_ = includeOperatorStatus_;
       onBuilt();
       return result;
     }
@@ -527,6 +597,12 @@ private static final long serialVersionUID = 0L;
           managerIds_.addAll(other.managerIds_);
         }
         onChanged();
+      }
+      if (other.getIncludeOnline() != false) {
+        setIncludeOnline(other.getIncludeOnline());
+      }
+      if (other.getIncludeOperatorStatus() != false) {
+        setIncludeOperatorStatus(other.getIncludeOperatorStatus());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -826,6 +902,92 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+
+    private boolean includeOnline_ ;
+    /**
+     * <pre>
+     * Whether to include online presence for each manager.
+     * </pre>
+     *
+     * <code>bool include_online = 3 [json_name = "includeOnline"];</code>
+     * @return The includeOnline.
+     */
+    @java.lang.Override
+    public boolean getIncludeOnline() {
+      return includeOnline_;
+    }
+    /**
+     * <pre>
+     * Whether to include online presence for each manager.
+     * </pre>
+     *
+     * <code>bool include_online = 3 [json_name = "includeOnline"];</code>
+     * @param value The includeOnline to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIncludeOnline(boolean value) {
+      
+      includeOnline_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether to include online presence for each manager.
+     * </pre>
+     *
+     * <code>bool include_online = 3 [json_name = "includeOnline"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIncludeOnline() {
+      
+      includeOnline_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean includeOperatorStatus_ ;
+    /**
+     * <pre>
+     * Whether to include operator status for each manager.
+     * </pre>
+     *
+     * <code>bool include_operator_status = 4 [json_name = "includeOperatorStatus"];</code>
+     * @return The includeOperatorStatus.
+     */
+    @java.lang.Override
+    public boolean getIncludeOperatorStatus() {
+      return includeOperatorStatus_;
+    }
+    /**
+     * <pre>
+     * Whether to include operator status for each manager.
+     * </pre>
+     *
+     * <code>bool include_operator_status = 4 [json_name = "includeOperatorStatus"];</code>
+     * @param value The includeOperatorStatus to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIncludeOperatorStatus(boolean value) {
+      
+      includeOperatorStatus_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether to include operator status for each manager.
+     * </pre>
+     *
+     * <code>bool include_operator_status = 4 [json_name = "includeOperatorStatus"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIncludeOperatorStatus() {
+      
+      includeOperatorStatus_ = false;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -887,6 +1049,52 @@ private static final long serialVersionUID = 0L;
     		values.forEach(value -> addManagerIds(mapFunc.apply(value)));
     		return this;
     	}
+    }
+    	
+    /**
+     * @param value The include_online to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearIncludeOnline(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearIncludeOnline();
+    	else
+    		return setIncludeOnline(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearIncludeOnline(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearIncludeOnline();
+    	else
+    		return setIncludeOnline(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The include_operator_status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearIncludeOperatorStatus(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearIncludeOperatorStatus();
+    	else
+    		return setIncludeOperatorStatus(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearIncludeOperatorStatus(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearIncludeOperatorStatus();
+    	else
+    		return setIncludeOperatorStatus(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.BatchGetManagersRequest)

@@ -21,4 +21,58 @@ public interface GetGroupByNameResultOrBuilder extends
    * <code>.coreapi.model.Group group = 1 [json_name = "group"];</code>
    */
   io.channel.api.proto.pub.coreapi.model.GroupOrBuilder getGroupOrBuilder();
+
+  /**
+   * <pre>
+   * Chat bookmark. Populated when include_bookmark is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+   * @return Whether the bookmark field is set.
+   */
+  boolean hasBookmark();
+  /**
+   * <pre>
+   * Chat bookmark. Populated when include_bookmark is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+   * @return The bookmark.
+   */
+  io.channel.api.proto.pub.coreapi.model.ChatBookmark getBookmark();
+  /**
+   * <pre>
+   * Chat bookmark. Populated when include_bookmark is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.ChatBookmarkOrBuilder getBookmarkOrBuilder();
+
+  /**
+   * <pre>
+   * Chat session. Populated when include_session is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatSession session = 3 [json_name = "session"];</code>
+   * @return Whether the session field is set.
+   */
+  boolean hasSession();
+  /**
+   * <pre>
+   * Chat session. Populated when include_session is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatSession session = 3 [json_name = "session"];</code>
+   * @return The session.
+   */
+  io.channel.api.proto.pub.coreapi.model.ChatSession getSession();
+  /**
+   * <pre>
+   * Chat session. Populated when include_session is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatSession session = 3 [json_name = "session"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.ChatSessionOrBuilder getSessionOrBuilder();
 }

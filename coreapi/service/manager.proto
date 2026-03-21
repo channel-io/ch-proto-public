@@ -4,6 +4,8 @@ package coreapi.service;
 
 import "buf/validate/validate.proto";
 import "coreapi/model/manager.proto";
+import "coreapi/model/online.proto";
+import "coreapi/model/operator_status.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
@@ -32,6 +34,12 @@ message SearchManagersRequest {
     message: "limit must be between 1 and 500"
     expression: "this == 0 || (this >= 1 && this <= 500)"
   }];
+
+  // Whether to include online presence for each manager.
+  bool include_online = 4;
+
+  // Whether to include operator status for each manager.
+  bool include_operator_status = 5;
 }
 
 // Response for manager list retrieval.
@@ -46,6 +54,16 @@ message SearchManagersResult {
 
   // Whether a next page of results exists.
   bool has_next = 3;
+
+  // Online presence for each manager. Populated when include_online is true.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.Online onlines = 4;
+
+  // Operator status for each manager. Populated when include_operator_status is true.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.OperatorStatus operator_statuses = 5;
 }
 
 // Retrieves multiple managers by their IDs.
@@ -73,11 +91,27 @@ message BatchGetManagersRequest {
     },
     (buf.validate.field).required = true
   ];
+
+  // Whether to include online presence for each manager.
+  bool include_online = 3;
+
+  // Whether to include operator status for each manager.
+  bool include_operator_status = 4;
 }
 
 // Response for batch manager retrieval.
 message BatchGetManagersResult {
   repeated coreapi.model.Manager managers = 1;
+
+  // Online presence for each manager. Populated when include_online is true.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.Online onlines = 2;
+
+  // Operator status for each manager. Populated when include_operator_status is true.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.OperatorStatus operator_statuses = 3;
 }
 
 // Retrieves a single manager.
@@ -87,9 +121,21 @@ message GetManagerRequest {
 
   // Channel ID the manager belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
+
+  // Whether to include online presence.
+  bool include_online = 3;
+
+  // Whether to include operator status.
+  bool include_operator_status = 4;
 }
 
 // Response for single manager retrieval.
 message GetManagerResult {
   coreapi.model.Manager manager = 1;
+
+  // Online presence. Populated when include_online is true.
+  coreapi.model.Online online = 2;
+
+  // Operator status. Populated when include_operator_status is true.
+  coreapi.model.OperatorStatus operator_status = 3;
 }

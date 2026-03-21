@@ -30,4 +30,53 @@ public interface BatchGetUsersResultOrBuilder extends
    */
   io.channel.api.proto.pub.coreapi.model.UserOrBuilder getUsersOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * Online presence for each user. Populated when include_online is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+   */
+  java.util.List<io.channel.api.proto.pub.coreapi.model.Online> 
+      getOnlinesList();
+  /**
+   * <pre>
+   * Online presence for each user. Populated when include_online is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.Online getOnlines(int index);
+  /**
+   * <pre>
+   * Online presence for each user. Populated when include_online is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+   */
+  int getOnlinesCount();
+  /**
+   * <pre>
+   * Online presence for each user. Populated when include_online is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+   */
+  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder> 
+      getOnlinesOrBuilderList();
+  /**
+   * <pre>
+   * Online presence for each user. Populated when include_online is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder getOnlinesOrBuilder(
+      int index);
 }

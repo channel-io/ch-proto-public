@@ -276,7 +276,6 @@ type SearchUserChatsForUserResult struct {
 	state     protoimpl.MessageState `protogen:"open.v1"`
 	UserChats []*model.UserChat      `protobuf:"bytes,1,rep,name=user_chats,json=userChats,proto3" json:"user_chats,omitempty"`
 	// Opaque cursor for the next page.
-	// Use has_next to determine whether another page exists.
 	//
 	// +kubebuilder:validation:Nullable
 	NextCursor string `protobuf:"bytes,2,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
@@ -343,9 +342,13 @@ type GetUserChatRequest struct {
 	// User chat ID to retrieve.
 	UserChatId string `protobuf:"bytes,1,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
 	// Channel ID the user chat belongs to.
-	ChannelId     string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Whether to include the chat bookmark.
+	IncludeBookmark bool `protobuf:"varint,3,opt,name=include_bookmark,json=includeBookmark,proto3" json:"include_bookmark,omitempty"`
+	// Whether to include chat sessions (manager + user).
+	IncludeSessions bool `protobuf:"varint,4,opt,name=include_sessions,json=includeSessions,proto3" json:"include_sessions,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *GetUserChatRequest) Reset() {
@@ -392,10 +395,30 @@ func (x *GetUserChatRequest) GetChannelId() string {
 	return ""
 }
 
+func (x *GetUserChatRequest) GetIncludeBookmark() bool {
+	if x != nil {
+		return x.IncludeBookmark
+	}
+	return false
+}
+
+func (x *GetUserChatRequest) GetIncludeSessions() bool {
+	if x != nil {
+		return x.IncludeSessions
+	}
+	return false
+}
+
 // Response for single user chat retrieval.
 type GetUserChatResult struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserChat      *model.UserChat        `protobuf:"bytes,1,opt,name=user_chat,json=userChat,proto3" json:"user_chat,omitempty"`
+	state    protoimpl.MessageState `protogen:"open.v1"`
+	UserChat *model.UserChat        `protobuf:"bytes,1,opt,name=user_chat,json=userChat,proto3" json:"user_chat,omitempty"`
+	// Chat bookmark. Populated when include_bookmark is true.
+	Bookmark *model.ChatBookmark `protobuf:"bytes,2,opt,name=bookmark,proto3" json:"bookmark,omitempty"`
+	// Chat sessions. Populated when include_sessions is true.
+	//
+	// +kubebuilder:validation:Nullable
+	Sessions      []*model.ChatSession `protobuf:"bytes,3,rep,name=sessions,proto3" json:"sessions,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -433,6 +456,20 @@ func (*GetUserChatResult) Descriptor() ([]byte, []int) {
 func (x *GetUserChatResult) GetUserChat() *model.UserChat {
 	if x != nil {
 		return x.UserChat
+	}
+	return nil
+}
+
+func (x *GetUserChatResult) GetBookmark() *model.ChatBookmark {
+	if x != nil {
+		return x.Bookmark
+	}
+	return nil
+}
+
+func (x *GetUserChatResult) GetSessions() []*model.ChatSession {
+	if x != nil {
+		return x.Sessions
 	}
 	return nil
 }
@@ -751,14 +788,9 @@ func (*DeleteUserChatResult) Descriptor() ([]byte, []int) {
 // The bot specified by bot_name performs the action.
 // Returns 404 if the user chat does not exist.
 type OpenUserChatRequest struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// User chat ID to open.
-	UserChatId string `protobuf:"bytes,1,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
-	// Channel ID the user chat belongs to.
-	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Name of the bot that opens the user chat.
-	// Creates a new bot if one with this name does not exist.
-	//
+	state      protoimpl.MessageState `protogen:"open.v1"`
+	UserChatId string                 `protobuf:"bytes,1,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
+	ChannelId  string                 `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
@@ -819,7 +851,6 @@ func (x *OpenUserChatRequest) GetBotName() string {
 	return ""
 }
 
-// Response for opening a user chat.
 type OpenUserChatResult struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserChat      *model.UserChat        `protobuf:"bytes,1,opt,name=user_chat,json=userChat,proto3" json:"user_chat,omitempty"`
@@ -865,19 +896,10 @@ func (x *OpenUserChatResult) GetUserChat() *model.UserChat {
 }
 
 // Closes a user chat.
-//
-// Transitions the user chat state to closed.
-// The bot specified by bot_name performs the action.
-// Returns 404 if the user chat does not exist.
 type CloseUserChatRequest struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// User chat ID to close.
-	UserChatId string `protobuf:"bytes,1,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
-	// Channel ID the user chat belongs to.
-	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Name of the bot that closes the user chat.
-	// Creates a new bot if one with this name does not exist.
-	//
+	state      protoimpl.MessageState `protogen:"open.v1"`
+	UserChatId string                 `protobuf:"bytes,1,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
+	ChannelId  string                 `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
@@ -938,7 +960,6 @@ func (x *CloseUserChatRequest) GetBotName() string {
 	return ""
 }
 
-// Response for closing a user chat.
 type CloseUserChatResult struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserChat      *model.UserChat        `protobuf:"bytes,1,opt,name=user_chat,json=userChat,proto3" json:"user_chat,omitempty"`
@@ -984,27 +1005,15 @@ func (x *CloseUserChatResult) GetUserChat() *model.UserChat {
 }
 
 // Snoozes a user chat.
-//
-// Transitions the user chat state to snoozed for the specified duration.
-// The bot specified by bot_name performs the action.
-// Returns 404 if the user chat does not exist.
 type SnoozeUserChatRequest struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// User chat ID to snooze.
-	UserChatId string `protobuf:"bytes,1,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
-	// Channel ID the user chat belongs to.
-	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Name of the bot that snoozes the user chat.
-	// Creates a new bot if one with this name does not exist.
-	//
+	state      protoimpl.MessageState `protogen:"open.v1"`
+	UserChatId string                 `protobuf:"bytes,1,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
+	ChannelId  string                 `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:validation:Pattern="^[^@#$%:/]+$"
 	BotName string `protobuf:"bytes,3,opt,name=bot_name,json=botName,proto3" json:"bot_name,omitempty"`
-	// Duration to snooze the user chat.
-	// Must be at least 1 minute.
-	//
 	// +kubebuilder:validation:Required
 	Duration      *durationpb.Duration `protobuf:"bytes,4,opt,name=duration,proto3" json:"duration,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -1069,7 +1078,6 @@ func (x *SnoozeUserChatRequest) GetDuration() *durationpb.Duration {
 	return nil
 }
 
-// Response for snoozing a user chat.
 type SnoozeUserChatResult struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserChat      *model.UserChat        `protobuf:"bytes,1,opt,name=user_chat,json=userChat,proto3" json:"user_chat,omitempty"`
@@ -1115,25 +1123,15 @@ func (x *SnoozeUserChatResult) GetUserChat() *model.UserChat {
 }
 
 // Invites managers to a user chat.
-//
-// The bot specified by bot_name performs the action.
-// Returns 404 if the user chat does not exist.
 type InviteManagersToUserChatRequest struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// User chat ID to invite managers to.
-	UserChatId string `protobuf:"bytes,1,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
-	// Channel ID the user chat belongs to.
-	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Name of the bot that invites the managers.
-	// Creates a new bot if one with this name does not exist.
-	//
+	state      protoimpl.MessageState `protogen:"open.v1"`
+	UserChatId string                 `protobuf:"bytes,1,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
+	ChannelId  string                 `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:validation:Pattern="^[^@#$%:/]+$"
 	BotName string `protobuf:"bytes,3,opt,name=bot_name,json=botName,proto3" json:"bot_name,omitempty"`
-	// IDs of the managers to invite.
-	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinItems=1
 	ManagerIds    []string `protobuf:"bytes,4,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
@@ -1199,7 +1197,6 @@ func (x *InviteManagersToUserChatRequest) GetManagerIds() []string {
 	return nil
 }
 
-// Response for inviting managers to a user chat.
 type InviteManagersToUserChatResult struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserChat      *model.UserChat        `protobuf:"bytes,1,opt,name=user_chat,json=userChat,proto3" json:"user_chat,omitempty"`
@@ -1245,24 +1242,15 @@ func (x *InviteManagersToUserChatResult) GetUserChat() *model.UserChat {
 }
 
 // Assigns a manager to a user chat.
-//
-// The bot specified by bot_name performs the action.
-// Returns 404 if the user chat or manager does not exist.
 type AssignManagerToUserChatRequest struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// User chat ID to assign the manager to.
-	UserChatId string `protobuf:"bytes,1,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
-	// Channel ID the user chat belongs to.
-	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Name of the bot that assigns the manager.
-	// Creates a new bot if one with this name does not exist.
-	//
+	state      protoimpl.MessageState `protogen:"open.v1"`
+	UserChatId string                 `protobuf:"bytes,1,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
+	ChannelId  string                 `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:validation:Pattern="^[^@#$%:/]+$"
-	BotName string `protobuf:"bytes,3,opt,name=bot_name,json=botName,proto3" json:"bot_name,omitempty"`
-	// ID of the manager to assign.
+	BotName       string `protobuf:"bytes,3,opt,name=bot_name,json=botName,proto3" json:"bot_name,omitempty"`
 	ManagerId     string `protobuf:"bytes,4,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1326,7 +1314,6 @@ func (x *AssignManagerToUserChatRequest) GetManagerId() string {
 	return ""
 }
 
-// Response for assigning a manager to a user chat.
 type AssignManagerToUserChatResult struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserChat      *model.UserChat        `protobuf:"bytes,1,opt,name=user_chat,json=userChat,proto3" json:"user_chat,omitempty"`
@@ -1371,11 +1358,477 @@ func (x *AssignManagerToUserChatResult) GetUserChat() *model.UserChat {
 	return nil
 }
 
+// Retrieves a list of chat sessions for a user chat.
+type SearchUserChatSessionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChannelId     string                 `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	UserChatId    string                 `protobuf:"bytes,2,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SearchUserChatSessionsRequest) Reset() {
+	*x = SearchUserChatSessionsRequest{}
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SearchUserChatSessionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchUserChatSessionsRequest) ProtoMessage() {}
+
+func (x *SearchUserChatSessionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchUserChatSessionsRequest.ProtoReflect.Descriptor instead.
+func (*SearchUserChatSessionsRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *SearchUserChatSessionsRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *SearchUserChatSessionsRequest) GetUserChatId() string {
+	if x != nil {
+		return x.UserChatId
+	}
+	return ""
+}
+
+type SearchUserChatSessionsResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChatSessions  []*model.ChatSession   `protobuf:"bytes,1,rep,name=chat_sessions,json=chatSessions,proto3" json:"chat_sessions,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SearchUserChatSessionsResult) Reset() {
+	*x = SearchUserChatSessionsResult{}
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SearchUserChatSessionsResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchUserChatSessionsResult) ProtoMessage() {}
+
+func (x *SearchUserChatSessionsResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchUserChatSessionsResult.ProtoReflect.Descriptor instead.
+func (*SearchUserChatSessionsResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *SearchUserChatSessionsResult) GetChatSessions() []*model.ChatSession {
+	if x != nil {
+		return x.ChatSessions
+	}
+	return nil
+}
+
+// Retrieves a list of messages in a user chat.
+type SearchUserChatMessagesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChannelId     string                 `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	UserChatId    string                 `protobuf:"bytes,2,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
+	SortOrder     common.SortOrder       `protobuf:"varint,3,opt,name=sort_order,json=sortOrder,proto3,enum=coreapi.common.SortOrder" json:"sort_order,omitempty"`
+	Cursor        string                 `protobuf:"bytes,4,opt,name=cursor,proto3" json:"cursor,omitempty"`
+	Limit         int32                  `protobuf:"varint,5,opt,name=limit,proto3" json:"limit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SearchUserChatMessagesRequest) Reset() {
+	*x = SearchUserChatMessagesRequest{}
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SearchUserChatMessagesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchUserChatMessagesRequest) ProtoMessage() {}
+
+func (x *SearchUserChatMessagesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchUserChatMessagesRequest.ProtoReflect.Descriptor instead.
+func (*SearchUserChatMessagesRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *SearchUserChatMessagesRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *SearchUserChatMessagesRequest) GetUserChatId() string {
+	if x != nil {
+		return x.UserChatId
+	}
+	return ""
+}
+
+func (x *SearchUserChatMessagesRequest) GetSortOrder() common.SortOrder {
+	if x != nil {
+		return x.SortOrder
+	}
+	return common.SortOrder(0)
+}
+
+func (x *SearchUserChatMessagesRequest) GetCursor() string {
+	if x != nil {
+		return x.Cursor
+	}
+	return ""
+}
+
+func (x *SearchUserChatMessagesRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+type SearchUserChatMessagesResult struct {
+	state    protoimpl.MessageState `protogen:"open.v1"`
+	Messages []*model.Message       `protobuf:"bytes,1,rep,name=messages,proto3" json:"messages,omitempty"`
+	// +kubebuilder:validation:Nullable
+	NextCursor    string `protobuf:"bytes,2,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
+	HasNext       bool   `protobuf:"varint,3,opt,name=has_next,json=hasNext,proto3" json:"has_next,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SearchUserChatMessagesResult) Reset() {
+	*x = SearchUserChatMessagesResult{}
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SearchUserChatMessagesResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchUserChatMessagesResult) ProtoMessage() {}
+
+func (x *SearchUserChatMessagesResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchUserChatMessagesResult.ProtoReflect.Descriptor instead.
+func (*SearchUserChatMessagesResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *SearchUserChatMessagesResult) GetMessages() []*model.Message {
+	if x != nil {
+		return x.Messages
+	}
+	return nil
+}
+
+func (x *SearchUserChatMessagesResult) GetNextCursor() string {
+	if x != nil {
+		return x.NextCursor
+	}
+	return ""
+}
+
+func (x *SearchUserChatMessagesResult) GetHasNext() bool {
+	if x != nil {
+		return x.HasNext
+	}
+	return false
+}
+
+// Sends a new message to a user chat.
+type CreateUserChatMessageRequest struct {
+	state      protoimpl.MessageState `protogen:"open.v1"`
+	ChannelId  string                 `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	UserChatId string                 `protobuf:"bytes,2,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
+	// +kubebuilder:validation:Required
+	Content *model.MessageContent `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MaxLength=30
+	// +kubebuilder:validation:Pattern="^[^@#$%:/]+$"
+	BotName string `protobuf:"bytes,4,opt,name=bot_name,json=botName,proto3" json:"bot_name,omitempty"`
+	// +kubebuilder:validation:Nullable
+	RequestId     string `protobuf:"bytes,5,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateUserChatMessageRequest) Reset() {
+	*x = CreateUserChatMessageRequest{}
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateUserChatMessageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateUserChatMessageRequest) ProtoMessage() {}
+
+func (x *CreateUserChatMessageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateUserChatMessageRequest.ProtoReflect.Descriptor instead.
+func (*CreateUserChatMessageRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *CreateUserChatMessageRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *CreateUserChatMessageRequest) GetUserChatId() string {
+	if x != nil {
+		return x.UserChatId
+	}
+	return ""
+}
+
+func (x *CreateUserChatMessageRequest) GetContent() *model.MessageContent {
+	if x != nil {
+		return x.Content
+	}
+	return nil
+}
+
+func (x *CreateUserChatMessageRequest) GetBotName() string {
+	if x != nil {
+		return x.BotName
+	}
+	return ""
+}
+
+func (x *CreateUserChatMessageRequest) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+type CreateUserChatMessageResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       *model.Message         `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateUserChatMessageResult) Reset() {
+	*x = CreateUserChatMessageResult{}
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateUserChatMessageResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateUserChatMessageResult) ProtoMessage() {}
+
+func (x *CreateUserChatMessageResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateUserChatMessageResult.ProtoReflect.Descriptor instead.
+func (*CreateUserChatMessageResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *CreateUserChatMessageResult) GetMessage() *model.Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+// Retrieves a pre-signed URL for downloading a file attached to a user chat.
+type GetUserChatFileUrlRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChannelId     string                 `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	UserChatId    string                 `protobuf:"bytes,2,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
+	Key           string                 `protobuf:"bytes,3,opt,name=key,proto3" json:"key,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserChatFileUrlRequest) Reset() {
+	*x = GetUserChatFileUrlRequest{}
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserChatFileUrlRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserChatFileUrlRequest) ProtoMessage() {}
+
+func (x *GetUserChatFileUrlRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserChatFileUrlRequest.ProtoReflect.Descriptor instead.
+func (*GetUserChatFileUrlRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GetUserChatFileUrlRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *GetUserChatFileUrlRequest) GetUserChatId() string {
+	if x != nil {
+		return x.UserChatId
+	}
+	return ""
+}
+
+func (x *GetUserChatFileUrlRequest) GetKey() string {
+	if x != nil {
+		return x.Key
+	}
+	return ""
+}
+
+type GetUserChatFileUrlResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Url           string                 `protobuf:"bytes,1,opt,name=url,proto3" json:"url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserChatFileUrlResult) Reset() {
+	*x = GetUserChatFileUrlResult{}
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserChatFileUrlResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserChatFileUrlResult) ProtoMessage() {}
+
+func (x *GetUserChatFileUrlResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserChatFileUrlResult.ProtoReflect.Descriptor instead.
+func (*GetUserChatFileUrlResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetUserChatFileUrlResult) GetUrl() string {
+	if x != nil {
+		return x.Url
+	}
+	return ""
+}
+
 var File_coreapi_service_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1fcoreapi/service/user_chat.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1egoogle/protobuf/duration.proto\"\xbc\x02\n" +
+	"\x1fcoreapi/service/user_chat.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x1bcoreapi/model/message.proto\x1a#coreapi/model/message_content.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1egoogle/protobuf/duration.proto\"\xbc\x02\n" +
 	"\x16SearchUserChatsRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x122\n" +
@@ -1405,14 +1858,18 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"user_chats\x18\x01 \x03(\v2\x17.coreapi.model.UserChatR\tuserChats\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"e\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xbb\x01\n" +
 	"\x12GetUserChatRequest\x12(\n" +
 	"\fuser_chat_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"userChatId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"I\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12)\n" +
+	"\x10include_bookmark\x18\x03 \x01(\bR\x0fincludeBookmark\x12)\n" +
+	"\x10include_sessions\x18\x04 \x01(\bR\x0fincludeSessions\"\xba\x01\n" +
 	"\x11GetUserChatResult\x124\n" +
-	"\tuser_chat\x18\x01 \x01(\v2\x17.coreapi.model.UserChatR\buserChat\"_\n" +
+	"\tuser_chat\x18\x01 \x01(\v2\x17.coreapi.model.UserChatR\buserChat\x127\n" +
+	"\bbookmark\x18\x02 \x01(\v2\x1b.coreapi.model.ChatBookmarkR\bbookmark\x126\n" +
+	"\bsessions\x18\x03 \x03(\v2\x1a.coreapi.model.ChatSessionR\bsessions\"_\n" +
 	"\x15CreateUserChatRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x1f\n" +
@@ -1490,7 +1947,49 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\n" +
 	"manager_id\x18\x04 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tmanagerId\"U\n" +
 	"\x1dAssignManagerToUserChatResult\x124\n" +
-	"\tuser_chat\x18\x01 \x01(\v2\x17.coreapi.model.UserChatR\buserChatBf\n" +
+	"\tuser_chat\x18\x01 \x01(\v2\x17.coreapi.model.UserChatR\buserChat\"p\n" +
+	"\x1dSearchUserChatSessionsRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12(\n" +
+	"\fuser_chat_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"userChatId\"_\n" +
+	"\x1cSearchUserChatSessionsResult\x12?\n" +
+	"\rchat_sessions\x18\x01 \x03(\v2\x1a.coreapi.model.ChatSessionR\fchatSessions\"\xb9\x02\n" +
+	"\x1dSearchUserChatMessagesRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12(\n" +
+	"\fuser_chat_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"userChatId\x128\n" +
+	"\n" +
+	"sort_order\x18\x03 \x01(\x0e2\x19.coreapi.common.SortOrderR\tsortOrder\x12\x16\n" +
+	"\x06cursor\x18\x04 \x01(\tR\x06cursor\x12u\n" +
+	"\x05limit\x18\x05 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
+	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\"\x8e\x01\n" +
+	"\x1cSearchUserChatMessagesResult\x122\n" +
+	"\bmessages\x18\x01 \x03(\v2\x16.coreapi.model.MessageR\bmessages\x12\x1f\n" +
+	"\vnext_cursor\x18\x02 \x01(\tR\n" +
+	"nextCursor\x12\x19\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xdc\x02\n" +
+	"\x1cCreateUserChatMessageRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12(\n" +
+	"\fuser_chat_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"userChatId\x12?\n" +
+	"\acontent\x18\x03 \x01(\v2\x1d.coreapi.model.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12\x8a\x01\n" +
+	"\bbot_name\x18\x04 \x01(\tBo\xbaHl\xba\x01Y\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x1ethis == '' || size(this) <= 30r\x0e2\f^[^@#$%:/]+$R\abotName\x12\x1d\n" +
+	"\n" +
+	"request_id\x18\x05 \x01(\tR\trequestId\"O\n" +
+	"\x1bCreateUserChatMessageResult\x120\n" +
+	"\amessage\x18\x01 \x01(\v2\x16.coreapi.model.MessageR\amessage\"\x86\x01\n" +
+	"\x19GetUserChatFileUrlRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12(\n" +
+	"\fuser_chat_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"userChatId\x12\x18\n" +
+	"\x03key\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x03key\",\n" +
+	"\x18GetUserChatFileUrlResult\x12\x10\n" +
+	"\x03url\x18\x01 \x01(\tR\x03urlBf\n" +
 	"(io.channel.api.proto.pub.coreapi.serviceP\x01Z8github.com/channel-io/ch-proto-public/coreapi/go/serviceb\x06proto3"
 
 var (
@@ -1505,7 +2004,7 @@ func file_coreapi_service_user_chat_proto_rawDescGZIP() []byte {
 	return file_coreapi_service_user_chat_proto_rawDescData
 }
 
-var file_coreapi_service_user_chat_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
+var file_coreapi_service_user_chat_proto_msgTypes = make([]protoimpl.MessageInfo, 30)
 var file_coreapi_service_user_chat_proto_goTypes = []any{
 	(*SearchUserChatsRequest)(nil),          // 0: coreapi.service.SearchUserChatsRequest
 	(*SearchUserChatsResult)(nil),           // 1: coreapi.service.SearchUserChatsResult
@@ -1529,31 +2028,50 @@ var file_coreapi_service_user_chat_proto_goTypes = []any{
 	(*InviteManagersToUserChatResult)(nil),  // 19: coreapi.service.InviteManagersToUserChatResult
 	(*AssignManagerToUserChatRequest)(nil),  // 20: coreapi.service.AssignManagerToUserChatRequest
 	(*AssignManagerToUserChatResult)(nil),   // 21: coreapi.service.AssignManagerToUserChatResult
-	(model.UserChatState)(0),                // 22: coreapi.model.UserChatState
-	(common.SortOrder)(0),                   // 23: coreapi.common.SortOrder
-	(*model.UserChat)(nil),                  // 24: coreapi.model.UserChat
-	(*durationpb.Duration)(nil),             // 25: google.protobuf.Duration
+	(*SearchUserChatSessionsRequest)(nil),   // 22: coreapi.service.SearchUserChatSessionsRequest
+	(*SearchUserChatSessionsResult)(nil),    // 23: coreapi.service.SearchUserChatSessionsResult
+	(*SearchUserChatMessagesRequest)(nil),   // 24: coreapi.service.SearchUserChatMessagesRequest
+	(*SearchUserChatMessagesResult)(nil),    // 25: coreapi.service.SearchUserChatMessagesResult
+	(*CreateUserChatMessageRequest)(nil),    // 26: coreapi.service.CreateUserChatMessageRequest
+	(*CreateUserChatMessageResult)(nil),     // 27: coreapi.service.CreateUserChatMessageResult
+	(*GetUserChatFileUrlRequest)(nil),       // 28: coreapi.service.GetUserChatFileUrlRequest
+	(*GetUserChatFileUrlResult)(nil),        // 29: coreapi.service.GetUserChatFileUrlResult
+	(model.UserChatState)(0),                // 30: coreapi.model.UserChatState
+	(common.SortOrder)(0),                   // 31: coreapi.common.SortOrder
+	(*model.UserChat)(nil),                  // 32: coreapi.model.UserChat
+	(*model.ChatBookmark)(nil),              // 33: coreapi.model.ChatBookmark
+	(*model.ChatSession)(nil),               // 34: coreapi.model.ChatSession
+	(*durationpb.Duration)(nil),             // 35: google.protobuf.Duration
+	(*model.Message)(nil),                   // 36: coreapi.model.Message
+	(*model.MessageContent)(nil),            // 37: coreapi.model.MessageContent
 }
 var file_coreapi_service_user_chat_proto_depIdxs = []int32{
-	22, // 0: coreapi.service.SearchUserChatsRequest.state:type_name -> coreapi.model.UserChatState
-	23, // 1: coreapi.service.SearchUserChatsRequest.sort_order:type_name -> coreapi.common.SortOrder
-	24, // 2: coreapi.service.SearchUserChatsResult.user_chats:type_name -> coreapi.model.UserChat
-	23, // 3: coreapi.service.SearchUserChatsForUserRequest.sort_order:type_name -> coreapi.common.SortOrder
-	24, // 4: coreapi.service.SearchUserChatsForUserResult.user_chats:type_name -> coreapi.model.UserChat
-	24, // 5: coreapi.service.GetUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	24, // 6: coreapi.service.CreateUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	24, // 7: coreapi.service.UpdateUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	24, // 8: coreapi.service.OpenUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	24, // 9: coreapi.service.CloseUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	25, // 10: coreapi.service.SnoozeUserChatRequest.duration:type_name -> google.protobuf.Duration
-	24, // 11: coreapi.service.SnoozeUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	24, // 12: coreapi.service.InviteManagersToUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	24, // 13: coreapi.service.AssignManagerToUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	14, // [14:14] is the sub-list for method output_type
-	14, // [14:14] is the sub-list for method input_type
-	14, // [14:14] is the sub-list for extension type_name
-	14, // [14:14] is the sub-list for extension extendee
-	0,  // [0:14] is the sub-list for field type_name
+	30, // 0: coreapi.service.SearchUserChatsRequest.state:type_name -> coreapi.model.UserChatState
+	31, // 1: coreapi.service.SearchUserChatsRequest.sort_order:type_name -> coreapi.common.SortOrder
+	32, // 2: coreapi.service.SearchUserChatsResult.user_chats:type_name -> coreapi.model.UserChat
+	31, // 3: coreapi.service.SearchUserChatsForUserRequest.sort_order:type_name -> coreapi.common.SortOrder
+	32, // 4: coreapi.service.SearchUserChatsForUserResult.user_chats:type_name -> coreapi.model.UserChat
+	32, // 5: coreapi.service.GetUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	33, // 6: coreapi.service.GetUserChatResult.bookmark:type_name -> coreapi.model.ChatBookmark
+	34, // 7: coreapi.service.GetUserChatResult.sessions:type_name -> coreapi.model.ChatSession
+	32, // 8: coreapi.service.CreateUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	32, // 9: coreapi.service.UpdateUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	32, // 10: coreapi.service.OpenUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	32, // 11: coreapi.service.CloseUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	35, // 12: coreapi.service.SnoozeUserChatRequest.duration:type_name -> google.protobuf.Duration
+	32, // 13: coreapi.service.SnoozeUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	32, // 14: coreapi.service.InviteManagersToUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	32, // 15: coreapi.service.AssignManagerToUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	34, // 16: coreapi.service.SearchUserChatSessionsResult.chat_sessions:type_name -> coreapi.model.ChatSession
+	31, // 17: coreapi.service.SearchUserChatMessagesRequest.sort_order:type_name -> coreapi.common.SortOrder
+	36, // 18: coreapi.service.SearchUserChatMessagesResult.messages:type_name -> coreapi.model.Message
+	37, // 19: coreapi.service.CreateUserChatMessageRequest.content:type_name -> coreapi.model.MessageContent
+	36, // 20: coreapi.service.CreateUserChatMessageResult.message:type_name -> coreapi.model.Message
+	21, // [21:21] is the sub-list for method output_type
+	21, // [21:21] is the sub-list for method input_type
+	21, // [21:21] is the sub-list for extension type_name
+	21, // [21:21] is the sub-list for extension extendee
+	0,  // [0:21] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_user_chat_proto_init() }
@@ -1567,7 +2085,7 @@ func file_coreapi_service_user_chat_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_user_chat_proto_rawDesc), len(file_coreapi_service_user_chat_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   22,
+			NumMessages:   30,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

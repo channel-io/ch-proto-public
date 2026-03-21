@@ -3,6 +3,7 @@ syntax = "proto3";
 package coreapi.service;
 
 import "buf/validate/validate.proto";
+import "coreapi/model/online.proto";
 import "coreapi/model/user.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/struct.proto";
@@ -37,11 +38,19 @@ message BatchGetUsersRequest {
     },
     (buf.validate.field).required = true
   ];
+
+  // Whether to include online presence for each user.
+  bool include_online = 3;
 }
 
 // Response for batch user retrieval.
 message BatchGetUsersResult {
   repeated coreapi.model.User users = 1;
+
+  // Online presence for each user. Populated when include_online is true.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.Online onlines = 2;
 }
 
 // Retrieves a single user.
@@ -51,11 +60,17 @@ message GetUserRequest {
 
   // Channel ID the user belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
+
+  // Whether to include online presence.
+  bool include_online = 3;
 }
 
 // Response for single user retrieval.
 message GetUserResult {
   coreapi.model.User user = 1;
+
+  // Online presence. Populated when include_online is true.
+  coreapi.model.Online online = 2;
 }
 
 // Retrieves a single user by external member identifier.
@@ -76,11 +91,17 @@ message GetUserByMemberIdRequest {
 
   // Channel ID the user belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
+
+  // Whether to include online presence.
+  bool include_online = 3;
 }
 
 // Response for single user retrieval by member identifier.
 message GetUserByMemberIdResult {
   coreapi.model.User user = 1;
+
+  // Online presence. Populated when include_online is true.
+  coreapi.model.Online online = 2;
 }
 
 // Deletes a user.

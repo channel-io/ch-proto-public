@@ -34,7 +34,6 @@ public interface SearchUserChatsForUserResultOrBuilder extends
   /**
    * <pre>
    * Opaque cursor for the next page.
-   * Use has_next to determine whether another page exists.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -45,7 +44,6 @@ public interface SearchUserChatsForUserResultOrBuilder extends
   /**
    * <pre>
    * Opaque cursor for the next page.
-   * Use has_next to determine whether another page exists.
    * +kubebuilder:validation:Nullable
    * </pre>
    *

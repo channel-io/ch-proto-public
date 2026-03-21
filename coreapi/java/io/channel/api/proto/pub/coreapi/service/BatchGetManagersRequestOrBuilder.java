@@ -79,4 +79,24 @@ public interface BatchGetManagersRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getManagerIdsBytes(int index);
+
+  /**
+   * <pre>
+   * Whether to include online presence for each manager.
+   * </pre>
+   *
+   * <code>bool include_online = 3 [json_name = "includeOnline"];</code>
+   * @return The includeOnline.
+   */
+  boolean getIncludeOnline();
+
+  /**
+   * <pre>
+   * Whether to include operator status for each manager.
+   * </pre>
+   *
+   * <code>bool include_operator_status = 4 [json_name = "includeOperatorStatus"];</code>
+   * @return The includeOperatorStatus.
+   */
+  boolean getIncludeOperatorStatus();
 }

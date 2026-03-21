@@ -65,6 +65,32 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 18: {
+            io.channel.api.proto.pub.coreapi.model.ChatBookmark.Builder subBuilder = null;
+            if (bookmark_ != null) {
+              subBuilder = bookmark_.toBuilder();
+            }
+            bookmark_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.ChatBookmark.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(bookmark_);
+              bookmark_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 26: {
+            io.channel.api.proto.pub.coreapi.model.ChatSession.Builder subBuilder = null;
+            if (session_ != null) {
+              subBuilder = session_.toBuilder();
+            }
+            session_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.ChatSession.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(session_);
+              session_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -123,6 +149,82 @@ private static final long serialVersionUID = 0L;
     return getGroup();
   }
 
+  public static final int BOOKMARK_FIELD_NUMBER = 2;
+  private io.channel.api.proto.pub.coreapi.model.ChatBookmark bookmark_;
+  /**
+   * <pre>
+   * Chat bookmark. Populated when include_bookmark is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+   * @return Whether the bookmark field is set.
+   */
+  @java.lang.Override
+  public boolean hasBookmark() {
+    return bookmark_ != null;
+  }
+  /**
+   * <pre>
+   * Chat bookmark. Populated when include_bookmark is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+   * @return The bookmark.
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.ChatBookmark getBookmark() {
+    return bookmark_ == null ? io.channel.api.proto.pub.coreapi.model.ChatBookmark.getDefaultInstance() : bookmark_;
+  }
+  /**
+   * <pre>
+   * Chat bookmark. Populated when include_bookmark is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.ChatBookmarkOrBuilder getBookmarkOrBuilder() {
+    return getBookmark();
+  }
+
+  public static final int SESSION_FIELD_NUMBER = 3;
+  private io.channel.api.proto.pub.coreapi.model.ChatSession session_;
+  /**
+   * <pre>
+   * Chat session. Populated when include_session is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatSession session = 3 [json_name = "session"];</code>
+   * @return Whether the session field is set.
+   */
+  @java.lang.Override
+  public boolean hasSession() {
+    return session_ != null;
+  }
+  /**
+   * <pre>
+   * Chat session. Populated when include_session is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatSession session = 3 [json_name = "session"];</code>
+   * @return The session.
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.ChatSession getSession() {
+    return session_ == null ? io.channel.api.proto.pub.coreapi.model.ChatSession.getDefaultInstance() : session_;
+  }
+  /**
+   * <pre>
+   * Chat session. Populated when include_session is true.
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatSession session = 3 [json_name = "session"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.ChatSessionOrBuilder getSessionOrBuilder() {
+    return getSession();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -140,6 +242,12 @@ private static final long serialVersionUID = 0L;
     if (group_ != null) {
       output.writeMessage(1, getGroup());
     }
+    if (bookmark_ != null) {
+      output.writeMessage(2, getBookmark());
+    }
+    if (session_ != null) {
+      output.writeMessage(3, getSession());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -152,6 +260,14 @@ private static final long serialVersionUID = 0L;
     if (group_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getGroup());
+    }
+    if (bookmark_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getBookmark());
+    }
+    if (session_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getSession());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -173,6 +289,16 @@ private static final long serialVersionUID = 0L;
       if (!getGroup()
           .equals(other.getGroup())) return false;
     }
+    if (hasBookmark() != other.hasBookmark()) return false;
+    if (hasBookmark()) {
+      if (!getBookmark()
+          .equals(other.getBookmark())) return false;
+    }
+    if (hasSession() != other.hasSession()) return false;
+    if (hasSession()) {
+      if (!getSession()
+          .equals(other.getSession())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -187,6 +313,14 @@ private static final long serialVersionUID = 0L;
     if (hasGroup()) {
       hash = (37 * hash) + GROUP_FIELD_NUMBER;
       hash = (53 * hash) + getGroup().hashCode();
+    }
+    if (hasBookmark()) {
+      hash = (37 * hash) + BOOKMARK_FIELD_NUMBER;
+      hash = (53 * hash) + getBookmark().hashCode();
+    }
+    if (hasSession()) {
+      hash = (37 * hash) + SESSION_FIELD_NUMBER;
+      hash = (53 * hash) + getSession().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -331,6 +465,18 @@ private static final long serialVersionUID = 0L;
         group_ = null;
         groupBuilder_ = null;
       }
+      if (bookmarkBuilder_ == null) {
+        bookmark_ = null;
+      } else {
+        bookmark_ = null;
+        bookmarkBuilder_ = null;
+      }
+      if (sessionBuilder_ == null) {
+        session_ = null;
+      } else {
+        session_ = null;
+        sessionBuilder_ = null;
+      }
       return this;
     }
 
@@ -361,6 +507,16 @@ private static final long serialVersionUID = 0L;
         result.group_ = group_;
       } else {
         result.group_ = groupBuilder_.build();
+      }
+      if (bookmarkBuilder_ == null) {
+        result.bookmark_ = bookmark_;
+      } else {
+        result.bookmark_ = bookmarkBuilder_.build();
+      }
+      if (sessionBuilder_ == null) {
+        result.session_ = session_;
+      } else {
+        result.session_ = sessionBuilder_.build();
       }
       onBuilt();
       return result;
@@ -412,6 +568,12 @@ private static final long serialVersionUID = 0L;
       if (other == io.channel.api.proto.pub.coreapi.service.GetGroupResult.getDefaultInstance()) return this;
       if (other.hasGroup()) {
         mergeGroup(other.getGroup());
+      }
+      if (other.hasBookmark()) {
+        mergeBookmark(other.getBookmark());
+      }
+      if (other.hasSession()) {
+        mergeSession(other.getSession());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -560,6 +722,316 @@ private static final long serialVersionUID = 0L;
       }
       return groupBuilder_;
     }
+
+    private io.channel.api.proto.pub.coreapi.model.ChatBookmark bookmark_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.ChatBookmark, io.channel.api.proto.pub.coreapi.model.ChatBookmark.Builder, io.channel.api.proto.pub.coreapi.model.ChatBookmarkOrBuilder> bookmarkBuilder_;
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     * @return Whether the bookmark field is set.
+     */
+    public boolean hasBookmark() {
+      return bookmarkBuilder_ != null || bookmark_ != null;
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     * @return The bookmark.
+     */
+    public io.channel.api.proto.pub.coreapi.model.ChatBookmark getBookmark() {
+      if (bookmarkBuilder_ == null) {
+        return bookmark_ == null ? io.channel.api.proto.pub.coreapi.model.ChatBookmark.getDefaultInstance() : bookmark_;
+      } else {
+        return bookmarkBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     */
+    public Builder setBookmark(io.channel.api.proto.pub.coreapi.model.ChatBookmark value) {
+      if (bookmarkBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bookmark_ = value;
+        onChanged();
+      } else {
+        bookmarkBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     */
+    public Builder setBookmark(
+        io.channel.api.proto.pub.coreapi.model.ChatBookmark.Builder builderForValue) {
+      if (bookmarkBuilder_ == null) {
+        bookmark_ = builderForValue.build();
+        onChanged();
+      } else {
+        bookmarkBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     */
+    public Builder mergeBookmark(io.channel.api.proto.pub.coreapi.model.ChatBookmark value) {
+      if (bookmarkBuilder_ == null) {
+        if (bookmark_ != null) {
+          bookmark_ =
+            io.channel.api.proto.pub.coreapi.model.ChatBookmark.newBuilder(bookmark_).mergeFrom(value).buildPartial();
+        } else {
+          bookmark_ = value;
+        }
+        onChanged();
+      } else {
+        bookmarkBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     */
+    public Builder clearBookmark() {
+      if (bookmarkBuilder_ == null) {
+        bookmark_ = null;
+        onChanged();
+      } else {
+        bookmark_ = null;
+        bookmarkBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.ChatBookmark.Builder getBookmarkBuilder() {
+      
+      onChanged();
+      return getBookmarkFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.ChatBookmarkOrBuilder getBookmarkOrBuilder() {
+      if (bookmarkBuilder_ != null) {
+        return bookmarkBuilder_.getMessageOrBuilder();
+      } else {
+        return bookmark_ == null ?
+            io.channel.api.proto.pub.coreapi.model.ChatBookmark.getDefaultInstance() : bookmark_;
+      }
+    }
+    /**
+     * <pre>
+     * Chat bookmark. Populated when include_bookmark is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatBookmark bookmark = 2 [json_name = "bookmark"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.ChatBookmark, io.channel.api.proto.pub.coreapi.model.ChatBookmark.Builder, io.channel.api.proto.pub.coreapi.model.ChatBookmarkOrBuilder> 
+        getBookmarkFieldBuilder() {
+      if (bookmarkBuilder_ == null) {
+        bookmarkBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.model.ChatBookmark, io.channel.api.proto.pub.coreapi.model.ChatBookmark.Builder, io.channel.api.proto.pub.coreapi.model.ChatBookmarkOrBuilder>(
+                getBookmark(),
+                getParentForChildren(),
+                isClean());
+        bookmark_ = null;
+      }
+      return bookmarkBuilder_;
+    }
+
+    private io.channel.api.proto.pub.coreapi.model.ChatSession session_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.ChatSession, io.channel.api.proto.pub.coreapi.model.ChatSession.Builder, io.channel.api.proto.pub.coreapi.model.ChatSessionOrBuilder> sessionBuilder_;
+    /**
+     * <pre>
+     * Chat session. Populated when include_session is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatSession session = 3 [json_name = "session"];</code>
+     * @return Whether the session field is set.
+     */
+    public boolean hasSession() {
+      return sessionBuilder_ != null || session_ != null;
+    }
+    /**
+     * <pre>
+     * Chat session. Populated when include_session is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatSession session = 3 [json_name = "session"];</code>
+     * @return The session.
+     */
+    public io.channel.api.proto.pub.coreapi.model.ChatSession getSession() {
+      if (sessionBuilder_ == null) {
+        return session_ == null ? io.channel.api.proto.pub.coreapi.model.ChatSession.getDefaultInstance() : session_;
+      } else {
+        return sessionBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Chat session. Populated when include_session is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatSession session = 3 [json_name = "session"];</code>
+     */
+    public Builder setSession(io.channel.api.proto.pub.coreapi.model.ChatSession value) {
+      if (sessionBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        session_ = value;
+        onChanged();
+      } else {
+        sessionBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat session. Populated when include_session is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatSession session = 3 [json_name = "session"];</code>
+     */
+    public Builder setSession(
+        io.channel.api.proto.pub.coreapi.model.ChatSession.Builder builderForValue) {
+      if (sessionBuilder_ == null) {
+        session_ = builderForValue.build();
+        onChanged();
+      } else {
+        sessionBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat session. Populated when include_session is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatSession session = 3 [json_name = "session"];</code>
+     */
+    public Builder mergeSession(io.channel.api.proto.pub.coreapi.model.ChatSession value) {
+      if (sessionBuilder_ == null) {
+        if (session_ != null) {
+          session_ =
+            io.channel.api.proto.pub.coreapi.model.ChatSession.newBuilder(session_).mergeFrom(value).buildPartial();
+        } else {
+          session_ = value;
+        }
+        onChanged();
+      } else {
+        sessionBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat session. Populated when include_session is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatSession session = 3 [json_name = "session"];</code>
+     */
+    public Builder clearSession() {
+      if (sessionBuilder_ == null) {
+        session_ = null;
+        onChanged();
+      } else {
+        session_ = null;
+        sessionBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat session. Populated when include_session is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatSession session = 3 [json_name = "session"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.ChatSession.Builder getSessionBuilder() {
+      
+      onChanged();
+      return getSessionFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Chat session. Populated when include_session is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatSession session = 3 [json_name = "session"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.ChatSessionOrBuilder getSessionOrBuilder() {
+      if (sessionBuilder_ != null) {
+        return sessionBuilder_.getMessageOrBuilder();
+      } else {
+        return session_ == null ?
+            io.channel.api.proto.pub.coreapi.model.ChatSession.getDefaultInstance() : session_;
+      }
+    }
+    /**
+     * <pre>
+     * Chat session. Populated when include_session is true.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatSession session = 3 [json_name = "session"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.ChatSession, io.channel.api.proto.pub.coreapi.model.ChatSession.Builder, io.channel.api.proto.pub.coreapi.model.ChatSessionOrBuilder> 
+        getSessionFieldBuilder() {
+      if (sessionBuilder_ == null) {
+        sessionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.model.ChatSession, io.channel.api.proto.pub.coreapi.model.ChatSession.Builder, io.channel.api.proto.pub.coreapi.model.ChatSessionOrBuilder>(
+                getSession(),
+                getParentForChildren(),
+                isClean());
+        session_ = null;
+      }
+      return sessionBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -596,6 +1068,52 @@ private static final long serialVersionUID = 0L;
     		return clearGroup();
     	else
     		return setGroup(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The bookmark to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearBookmark(io.channel.api.proto.pub.coreapi.model.ChatBookmark value) {
+    	if (value == null)
+    		return clearBookmark();
+    	else
+    		return setBookmark(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearBookmark(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ChatBookmark> mapFunc) {
+    	if (value == null)
+    		return clearBookmark();
+    	else
+    		return setBookmark(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The session to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearSession(io.channel.api.proto.pub.coreapi.model.ChatSession value) {
+    	if (value == null)
+    		return clearSession();
+    	else
+    		return setSession(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearSession(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ChatSession> mapFunc) {
+    	if (value == null)
+    		return clearSession();
+    	else
+    		return setSession(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.GetGroupResult)

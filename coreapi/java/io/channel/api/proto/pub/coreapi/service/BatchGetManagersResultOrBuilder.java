@@ -30,4 +30,102 @@ public interface BatchGetManagersResultOrBuilder extends
    */
   io.channel.api.proto.pub.coreapi.model.ManagerOrBuilder getManagersOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * Online presence for each manager. Populated when include_online is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+   */
+  java.util.List<io.channel.api.proto.pub.coreapi.model.Online> 
+      getOnlinesList();
+  /**
+   * <pre>
+   * Online presence for each manager. Populated when include_online is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.Online getOnlines(int index);
+  /**
+   * <pre>
+   * Online presence for each manager. Populated when include_online is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+   */
+  int getOnlinesCount();
+  /**
+   * <pre>
+   * Online presence for each manager. Populated when include_online is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+   */
+  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder> 
+      getOnlinesOrBuilderList();
+  /**
+   * <pre>
+   * Online presence for each manager. Populated when include_online is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Online onlines = 2 [json_name = "onlines"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.OnlineOrBuilder getOnlinesOrBuilder(
+      int index);
+
+  /**
+   * <pre>
+   * Operator status for each manager. Populated when include_operator_status is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
+   */
+  java.util.List<io.channel.api.proto.pub.coreapi.model.OperatorStatus> 
+      getOperatorStatusesList();
+  /**
+   * <pre>
+   * Operator status for each manager. Populated when include_operator_status is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.OperatorStatus getOperatorStatuses(int index);
+  /**
+   * <pre>
+   * Operator status for each manager. Populated when include_operator_status is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
+   */
+  int getOperatorStatusesCount();
+  /**
+   * <pre>
+   * Operator status for each manager. Populated when include_operator_status is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
+   */
+  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder> 
+      getOperatorStatusesOrBuilderList();
+  /**
+   * <pre>
+   * Operator status for each manager. Populated when include_operator_status is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.OperatorStatus operator_statuses = 3 [json_name = "operatorStatuses"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.OperatorStatusOrBuilder getOperatorStatusesOrBuilder(
+      int index);
 }
