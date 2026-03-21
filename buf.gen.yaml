@@ -19,3 +19,8 @@ plugins:
     out: coreapi/java
   - local: protoc-gen-java-canonical-enum-namings
     out: coreapi/java
+
+  # Go custom plugins (local)
+  - local: protoc-gen-go-enum-openapi-names
+    out: .
+    opt: module=github.com/channel-io/ch-proto-public
