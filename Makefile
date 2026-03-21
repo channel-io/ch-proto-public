@@ -13,6 +13,7 @@ install:
 
 generate:
 	rm -rf coreapi/java
+	rm -rf coreapi/go
 	buf generate
 	@echo "Code generation complete."
 
