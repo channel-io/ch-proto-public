@@ -7,7 +7,7 @@ install:
 	go mod download
 	go install ./tools/protoc-gen-java-canonical-enum-namings
 	go install ./tools/protoc-gen-java-set-or-clear
-	go install ./tools/protoc-gen-go-enum-openapi-names
+	go install ./tools/protoc-gen-go-canonical-enum-namings
 	ln -sf $${GRPC_JAVA_PATH}/protoc-gen-grpc-java $${GOPATH}/bin/protoc-gen-grpc-java
 	@echo ""
 
