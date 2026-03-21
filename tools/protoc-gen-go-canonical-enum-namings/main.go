@@ -131,8 +131,8 @@ func process(req *plugin.CodeGeneratorRequest, resp *plugin.CodeGeneratorRespons
 		parts := strings.Split(goPackageFull, "/")
 		goPackage := parts[len(parts)-1]
 
-		// Output path: same as protoc-gen-go output, with _enum_openapi.go suffix
-		// e.g. coreapi/go/model/group_enum_openapi.go
+		// Output path: same as protoc-gen-go output, with _enum_canonical.go suffix
+		// e.g. coreapi/go/model/group_enum_canonical.go
 		protoFileName := *protoFile.Name
 		// coreapi/model/group.proto → group
 		baseName := strings.TrimSuffix(protoFileName[strings.LastIndex(protoFileName, "/")+1:], ".proto")
@@ -153,7 +153,7 @@ func process(req *plugin.CodeGeneratorRequest, resp *plugin.CodeGeneratorRespons
 			outDir = goPackage
 		}
 
-		outPath := fmt.Sprintf("%s/%s_enum_openapi.go", outDir, baseName)
+		outPath := fmt.Sprintf("%s/%s_enum_canonical.go", outDir, baseName)
 
 		content, err := generateGoFile(protoFile, enums, goPackage)
 		if err != nil {
