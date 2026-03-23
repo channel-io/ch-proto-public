@@ -83,11 +83,6 @@ message Bot {
   // +kubebuilder:example="#3B82F6"
   string color = 6;
 
-  // Bot avatar image reference.
-  //
-  // +kubebuilder:validation:Nullable
-  coreapi.model.TinyFile avatar = 9;
-
   // Bot avatar image URL.
   //
   // +kubebuilder:validation:Nullable
@@ -97,4 +92,9 @@ message Bot {
   //
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp created_at = 8 [(buf.validate.field).required = true];
+
+  // Bot avatar image reference.
+  //
+  // +kubebuilder:validation:Nullable
+  coreapi.model.TinyFile avatar = 9;
 }

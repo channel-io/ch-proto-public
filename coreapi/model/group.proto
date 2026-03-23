@@ -80,11 +80,6 @@ message Group {
   // +kubebuilder:validation:Nullable
   string icon = 6;
 
-  // ID of the ongoing meet session in this group.
-  //
-  // +kubebuilder:validation:Nullable
-  string live_meet_id = 7;
-
   // Group description.
   //
   // +kubebuilder:validation:Nullable

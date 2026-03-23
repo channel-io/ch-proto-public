@@ -264,7 +264,7 @@ message UserChat {
   // Timestamp when the chat expires.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp expires_at = 51;
+  google.protobuf.Timestamp expire_at = 51;
 
   // Chat data version number.
   //

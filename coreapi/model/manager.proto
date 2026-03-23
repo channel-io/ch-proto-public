@@ -210,12 +210,12 @@ message Manager {
   // Operator performance score.
   //
   // +kubebuilder:validation:Nullable
-  double operator_score = 41;
+  float operator_score = 41;
 
   // User engagement score.
   //
   // +kubebuilder:validation:Nullable
-  double touch_score = 42;
+  float touch_score = 42;
 
   // Manager avatar image reference.
   //
