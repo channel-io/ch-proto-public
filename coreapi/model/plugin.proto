@@ -217,7 +217,4 @@ message Plugin {
   // +kubebuilder:validation:Nullable
   bool valid_label_button_text_i18n_map = 31;
 
-  // Reserved field numbers for removed fields.
-  reserved 5, 9, 10, 11, 15;
-  reserved "appearance", "button_type", "icon_button", "custom_image_url", "desk_hide_button";
 }

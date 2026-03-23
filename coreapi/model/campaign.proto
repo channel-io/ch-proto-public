@@ -338,7 +338,4 @@ message Campaign {
   // +kubebuilder:validation:Nullable
   string manager_id = 39;
 
-  // Reserved field numbers for removed fields.
-  reserved 5, 6, 8, 15, 16, 20, 26;
-  reserved "medium_type", "medium_id", "app_segments", "filter_hpc", "conversion_windows", "goal_hpc", "channel_operation_id";
 }

@@ -20,14 +20,6 @@ enum MessageState {
   MESSAGE_STATE_REMOVED = 4;
 }
 
-// Rendering type that determines how a client should display the message.
-enum MessageWritingType {
-  MESSAGE_WRITING_TYPE_UNSPECIFIED = 0;
-  MESSAGE_WRITING_TYPE_STANDARD = 1;
-  MESSAGE_WRITING_TYPE_CUSTOM = 2;
-  MESSAGE_WRITING_TYPE_EMAIL = 3;
-}
-
 // Action type for system log messages.
 enum LogAction {
   LOG_ACTION_UNSPECIFIED = 0;
@@ -120,38 +112,6 @@ message MessageReaction {
   //
   // +kubebuilder:validation:Nullable
   repeated string person_keys = 2;
-}
-
-// MessageThread represents thread metadata on a root message.
-message MessageThread {
-  // Unique thread identifier.
-  // Composite key in the format "{chatType}-{chatId}-{rootMessageId}".
-  //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 1 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
-
-  // Manager IDs assigned to this thread.
-  //
-  // +kubebuilder:validation:Nullable
-  repeated string manager_ids = 2;
-
-  // Ordered list of manager IDs who have replied in this thread.
-  //
-  // +kubebuilder:validation:Nullable
-  repeated string replied_manager_ids = 3;
-
-  // Total number of replies in this thread.
-  //
-  // +kubebuilder:validation:Nullable
-  int32 reply_count = 4;
 }
 
 // Message represents a single message within a chat.
@@ -254,11 +214,6 @@ message Message {
   // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp updated_at = 10;
 
-  // Timestamp when the message was last edited.
-  //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp edited_at = 11;
-
   // Structured content blocks of the message.
   //
   // +kubebuilder:validation:Nullable
@@ -301,11 +256,6 @@ message Message {
   // +kubebuilder:validation:Nullable
   MessageState state = 19;
 
-  // Rendering type that determines how a client should display the message.
-  //
-  // +kubebuilder:validation:Nullable
-  MessageWritingType writing_type = 20;
-
   // System log data for log-type messages.
   //
   // +kubebuilder:validation:Nullable
@@ -316,8 +266,48 @@ message Message {
   // +kubebuilder:validation:Nullable
   repeated MessageReaction reactions = 22;
 
-  // Thread metadata if this message is a thread root.
+  // Composite key for the chat this message belongs to.
   //
   // +kubebuilder:validation:Nullable
-  MessageThread thread = 23;
+  string chat_key = 24;
+
+  // Key of the main conversation thread.
+  //
+  // +kubebuilder:validation:Nullable
+  string main_key = 25;
+
+  // Key of the sub-thread this message belongs to.
+  //
+  // +kubebuilder:validation:Nullable
+  string thread_key = 26;
+
+  // Message data version number.
+  //
+  // +kubebuilder:validation:Nullable
+  int64 version = 27;
+
+  // Marketing campaign metadata associated with this message.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct marketing = 28;
+
+  // Support bot metadata associated with this message.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct support_bot = 29;
+
+  // Whether this message is a thread reply.
+  //
+  // +kubebuilder:validation:Nullable
+  bool thread_msg = 30;
+
+  // Whether this message was broadcasted.
+  //
+  // +kubebuilder:validation:Nullable
+  bool broadcasted_msg = 31;
+
+  // ID of the parent message this is a reply to.
+  //
+  // +kubebuilder:validation:Nullable
+  string root_message_id = 32;
 }
