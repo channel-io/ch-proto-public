@@ -101,6 +101,11 @@ message ChatTag {
     expression: "size(this) <= 128"
   }];
 
+  // Manager IDs following this chat tag for notifications.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string follower_ids = 8;
+
   // Chat tag creation timestamp.
   //
   // +kubebuilder:validation:Required

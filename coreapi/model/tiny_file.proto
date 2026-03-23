@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// Compact file reference for avatar and image assets.
+message TinyFile {
+  // Storage bucket identifier.
+  string bucket = 1;
+
+  // Storage object key.
+  string key = 2;
+
+  // Image width in pixels.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 width = 3;
+
+  // Image height in pixels.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 height = 4;
+}

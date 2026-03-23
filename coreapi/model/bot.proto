@@ -4,6 +4,7 @@ package coreapi.model;
 
 import "buf/validate/validate.proto";
 import "coreapi/model/name_desc.proto";
+import "coreapi/model/tiny_file.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
@@ -81,6 +82,11 @@ message Bot {
   // +kubebuilder:validation:Nullable
   // +kubebuilder:example="#3B82F6"
   string color = 6;
+
+  // Bot avatar image reference.
+  //
+  // +kubebuilder:validation:Nullable
+  coreapi.model.TinyFile avatar = 9;
 
   // Bot avatar image URL.
   //

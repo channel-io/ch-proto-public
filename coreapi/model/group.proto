@@ -104,4 +104,9 @@ message Group {
   //
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp updated_at = 10 [(buf.validate.field).required = true];
+
+  // Whether this group is currently active.
+  //
+  // +kubebuilder:validation:Nullable
+  bool active = 11;
 }
