@@ -168,5 +168,4 @@ message OneTimeMsg {
   //
   // +kubebuilder:validation:Nullable
   string send_medium = 32;
-
 }

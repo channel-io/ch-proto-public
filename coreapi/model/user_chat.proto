@@ -270,5 +270,4 @@ message UserChat {
   //
   // +kubebuilder:validation:Nullable
   int64 version = 52;
-
 }

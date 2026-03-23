@@ -216,5 +216,4 @@ message Plugin {
   //
   // +kubebuilder:validation:Nullable
   bool valid_label_button_text_i18n_map = 31;
-
 }

@@ -337,5 +337,4 @@ message Campaign {
   //
   // +kubebuilder:validation:Nullable
   string manager_id = 39;
-
 }
