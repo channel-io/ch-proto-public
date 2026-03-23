@@ -118,11 +118,6 @@ message Channel {
   // +kubebuilder:validation:Nullable
   string domain = 9;
 
-  // System-assigned default domain.
-  //
-  // +kubebuilder:validation:Nullable
-  string default_domain = 10;
-
   // Resolved domain for the channel.
   // Returns the custom domain if set, otherwise the system-generated default.
   //
@@ -178,16 +173,6 @@ message Channel {
   // +kubebuilder:validation:Nullable
   bool working = 20;
 
-  // Whether to display individual operator profiles to end users.
-  //
-  // +kubebuilder:validation:Nullable
-  bool show_operator_profile = 21;
-
-  // Whether to hide the new chat button from end users.
-  //
-  // +kubebuilder:validation:Nullable
-  bool disable_new_chat_button = 22;
-
   // Whether SMS/text follow-up is enabled for missed conversations.
   //
   // +kubebuilder:validation:Nullable
@@ -223,34 +208,6 @@ message Channel {
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp created_at = 29 [(buf.validate.field).required = true];
 
-  // Channel last update timestamp.
-  //
-  // +kubebuilder:validation:Required
-  google.protobuf.Timestamp updated_at = 30 [(buf.validate.field).required = true];
-
-  /// Visual / theme
-
-  // Cover image URL for the channel profile.
-  //
-  // +kubebuilder:validation:Nullable
-  string cover_image_url = 31;
-
-  // Cover image dominant color in hex format.
-  //
-  // +kubebuilder:validation:Nullable
-  string cover_image_color = 32;
-
-  // Whether the cover image has a bright tone.
-  //
-  // +kubebuilder:validation:Nullable
-  bool cover_image_bright = 33;
-
-  // Icon color for the channel plugin widget in hex format.
-  // Derived from the theme color for optimal contrast.
-  //
-  // +kubebuilder:validation:Nullable
-  string plugin_icon_color = 34;
-
   // Border color derived from the theme color in hex format.
   //
   // +kubebuilder:validation:Nullable
@@ -265,11 +222,6 @@ message Channel {
   //
   // +kubebuilder:validation:Nullable
   string text_color = 37;
-
-  // Theme color brightness value normalized to 0.0–1.0 range.
-  //
-  // +kubebuilder:validation:Nullable
-  float brightness = 38;
 
   // First character of the channel name, used as an avatar fallback.
   //
@@ -295,16 +247,6 @@ message Channel {
   // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp next_operating_at = 42;
 
-  // Timestamp when the next operating period starts.
-  //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp next_working_time = 43;
-
-  // Timestamp when the next away period starts.
-  //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp next_away_time = 44;
-
   // Whether replying is blocked after the conversation is closed.
   //
   // +kubebuilder:validation:Nullable
@@ -326,4 +268,79 @@ message Channel {
   //
   // +kubebuilder:validation:Nullable
   map<string, google.protobuf.Struct> welcome_message_i18n_map = 48;
+
+  // URL for retrieving user information.
+  //
+  // +kubebuilder:validation:Nullable
+  string user_info_url = 49;
+
+  // Traffic source tracking data.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct traffic_source = 50;
+
+  // Billing account identifier.
+  //
+  // +kubebuilder:validation:Nullable
+  string bill_account_id = 51;
+
+  // Business grade rating.
+  //
+  // +kubebuilder:validation:Nullable
+  string biz_grade = 52;
+
+  // Source survey tracking data.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct source_survey = 53;
+
+  // Business industry category.
+  //
+  // +kubebuilder:validation:Nullable
+  string biz_category = 54;
+
+  // Number of team members in the channel.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 staffs = 55;
+
+  // Commerce app integration identifier.
+  //
+  // +kubebuilder:validation:Nullable
+  string app_commerce_id = 56;
+
+  // Type of commerce platform integrated.
+  //
+  // +kubebuilder:validation:Nullable
+  string app_commerce_type = 57;
+
+  // Whether member hash authentication is enabled.
+  //
+  // +kubebuilder:validation:Nullable
+  bool enable_member_hash = 58;
+
+  // Default email domain identifier.
+  //
+  // +kubebuilder:validation:Nullable
+  string default_email_domain_id = 59;
+
+  // Whether multi-factor authentication is enabled.
+  //
+  // +kubebuilder:validation:Nullable
+  bool enable_mfa = 60;
+
+  // Whether the channel account is blocked.
+  //
+  // +kubebuilder:validation:Nullable
+  bool blocked = 61;
+
+  // Whether the theme has a bright color.
+  //
+  // +kubebuilder:validation:Nullable
+  bool bright = 62;
+
+  // Whether follow-up feature is active.
+  //
+  // +kubebuilder:validation:Nullable
+  bool using_follow_up = 63;
 }

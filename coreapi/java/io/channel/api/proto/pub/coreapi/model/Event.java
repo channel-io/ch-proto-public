@@ -107,6 +107,24 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 58: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (expireAt_ != null) {
+              subBuilder = expireAt_.toBuilder();
+            }
+            expireAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(expireAt_);
+              expireAt_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 64: {
+
+            version_ = input.readInt64();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -423,6 +441,63 @@ private static final long serialVersionUID = 0L;
     return getCreatedAt();
   }
 
+  public static final int EXPIRE_AT_FIELD_NUMBER = 7;
+  private com.google.protobuf.Timestamp expireAt_;
+  /**
+   * <pre>
+   * Event expiration timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
+   * @return Whether the expireAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasExpireAt() {
+    return expireAt_ != null;
+  }
+  /**
+   * <pre>
+   * Event expiration timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
+   * @return The expireAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getExpireAt() {
+    return expireAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expireAt_;
+  }
+  /**
+   * <pre>
+   * Event expiration timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getExpireAtOrBuilder() {
+    return getExpireAt();
+  }
+
+  public static final int VERSION_FIELD_NUMBER = 8;
+  private long version_;
+  /**
+   * <pre>
+   * Event data version number.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int64 version = 8 [json_name = "version"];</code>
+   * @return The version.
+   */
+  @java.lang.Override
+  public long getVersion() {
+    return version_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -455,6 +530,12 @@ private static final long serialVersionUID = 0L;
     if (createdAt_ != null) {
       output.writeMessage(6, getCreatedAt());
     }
+    if (expireAt_ != null) {
+      output.writeMessage(7, getExpireAt());
+    }
+    if (version_ != 0L) {
+      output.writeInt64(8, version_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -483,6 +564,14 @@ private static final long serialVersionUID = 0L;
     if (createdAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getCreatedAt());
+    }
+    if (expireAt_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, getExpireAt());
+    }
+    if (version_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(8, version_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -517,6 +606,13 @@ private static final long serialVersionUID = 0L;
       if (!getCreatedAt()
           .equals(other.getCreatedAt())) return false;
     }
+    if (hasExpireAt() != other.hasExpireAt()) return false;
+    if (hasExpireAt()) {
+      if (!getExpireAt()
+          .equals(other.getExpireAt())) return false;
+    }
+    if (getVersion()
+        != other.getVersion()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -544,6 +640,13 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getCreatedAt().hashCode();
     }
+    if (hasExpireAt()) {
+      hash = (37 * hash) + EXPIRE_AT_FIELD_NUMBER;
+      hash = (53 * hash) + getExpireAt().hashCode();
+    }
+    hash = (37 * hash) + VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getVersion());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -702,6 +805,14 @@ private static final long serialVersionUID = 0L;
         createdAt_ = null;
         createdAtBuilder_ = null;
       }
+      if (expireAtBuilder_ == null) {
+        expireAt_ = null;
+      } else {
+        expireAt_ = null;
+        expireAtBuilder_ = null;
+      }
+      version_ = 0L;
+
       return this;
     }
 
@@ -742,6 +853,12 @@ private static final long serialVersionUID = 0L;
       } else {
         result.createdAt_ = createdAtBuilder_.build();
       }
+      if (expireAtBuilder_ == null) {
+        result.expireAt_ = expireAt_;
+      } else {
+        result.expireAt_ = expireAtBuilder_.build();
+      }
+      result.version_ = version_;
       onBuilt();
       return result;
     }
@@ -811,6 +928,12 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasCreatedAt()) {
         mergeCreatedAt(other.getCreatedAt());
+      }
+      if (other.hasExpireAt()) {
+        mergeExpireAt(other.getExpireAt());
+      }
+      if (other.getVersion() != 0L) {
+        setVersion(other.getVersion());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1597,6 +1720,216 @@ private static final long serialVersionUID = 0L;
       }
       return createdAtBuilder_;
     }
+
+    private com.google.protobuf.Timestamp expireAt_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> expireAtBuilder_;
+    /**
+     * <pre>
+     * Event expiration timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
+     * @return Whether the expireAt field is set.
+     */
+    public boolean hasExpireAt() {
+      return expireAtBuilder_ != null || expireAt_ != null;
+    }
+    /**
+     * <pre>
+     * Event expiration timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
+     * @return The expireAt.
+     */
+    public com.google.protobuf.Timestamp getExpireAt() {
+      if (expireAtBuilder_ == null) {
+        return expireAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expireAt_;
+      } else {
+        return expireAtBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Event expiration timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
+     */
+    public Builder setExpireAt(com.google.protobuf.Timestamp value) {
+      if (expireAtBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expireAt_ = value;
+        onChanged();
+      } else {
+        expireAtBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Event expiration timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
+     */
+    public Builder setExpireAt(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (expireAtBuilder_ == null) {
+        expireAt_ = builderForValue.build();
+        onChanged();
+      } else {
+        expireAtBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Event expiration timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
+     */
+    public Builder mergeExpireAt(com.google.protobuf.Timestamp value) {
+      if (expireAtBuilder_ == null) {
+        if (expireAt_ != null) {
+          expireAt_ =
+            com.google.protobuf.Timestamp.newBuilder(expireAt_).mergeFrom(value).buildPartial();
+        } else {
+          expireAt_ = value;
+        }
+        onChanged();
+      } else {
+        expireAtBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Event expiration timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
+     */
+    public Builder clearExpireAt() {
+      if (expireAtBuilder_ == null) {
+        expireAt_ = null;
+        onChanged();
+      } else {
+        expireAt_ = null;
+        expireAtBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Event expiration timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getExpireAtBuilder() {
+      
+      onChanged();
+      return getExpireAtFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Event expiration timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getExpireAtOrBuilder() {
+      if (expireAtBuilder_ != null) {
+        return expireAtBuilder_.getMessageOrBuilder();
+      } else {
+        return expireAt_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : expireAt_;
+      }
+    }
+    /**
+     * <pre>
+     * Event expiration timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getExpireAtFieldBuilder() {
+      if (expireAtBuilder_ == null) {
+        expireAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getExpireAt(),
+                getParentForChildren(),
+                isClean());
+        expireAt_ = null;
+      }
+      return expireAtBuilder_;
+    }
+
+    private long version_ ;
+    /**
+     * <pre>
+     * Event data version number.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int64 version = 8 [json_name = "version"];</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public long getVersion() {
+      return version_;
+    }
+    /**
+     * <pre>
+     * Event data version number.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int64 version = 8 [json_name = "version"];</code>
+     * @param value The version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVersion(long value) {
+      
+      version_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Event data version number.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int64 version = 8 [json_name = "version"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVersion() {
+      
+      version_ = 0L;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1748,6 +2081,52 @@ private static final long serialVersionUID = 0L;
     		return clearCreatedAt();
     	else
     		return setCreatedAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The expire_at to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearExpireAt(com.google.protobuf.Timestamp value) {
+    	if (value == null)
+    		return clearExpireAt();
+    	else
+    		return setExpireAt(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearExpireAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    	if (value == null)
+    		return clearExpireAt();
+    	else
+    		return setExpireAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearVersion(java.lang.Long value) {
+    	if (value == null)
+    		return clearVersion();
+    	else
+    		return setVersion(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
+    	if (value == null)
+    		return clearVersion();
+    	else
+    		return setVersion(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Event)

@@ -34,31 +34,3 @@ func OneTimeMsgStateForString(value string) OneTimeMsgState {
 	}
 }
 
-// GetString returns the canonical string for OneTimeMsgSendMode.
-func (x OneTimeMsgSendMode) GetString() string {
-	switch x {
-	case OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_IMMEDIATELY:
-		return "immediately"
-	case OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_RECEIVER_TIME:
-		return "reservedWithReceiverTime"
-	case OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_SENDER_TIME:
-		return "reservedWithSenderTime"
-	default:
-		return ""
-	}
-}
-
-// OneTimeMsgSendModeForString returns the OneTimeMsgSendMode enum for the given canonical string.
-func OneTimeMsgSendModeForString(value string) OneTimeMsgSendMode {
-	switch value {
-	case "immediately":
-		return OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_IMMEDIATELY
-	case "reservedWithReceiverTime":
-		return OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_RECEIVER_TIME
-	case "reservedWithSenderTime":
-		return OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_SENDER_TIME
-	default:
-		return OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_UNSPECIFIED
-	}
-}
-

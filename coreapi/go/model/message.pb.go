@@ -80,59 +80,6 @@ func (MessageState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_proto_rawDescGZIP(), []int{0}
 }
 
-// Rendering type that determines how a client should display the message.
-type MessageWritingType int32
-
-const (
-	MessageWritingType_MESSAGE_WRITING_TYPE_UNSPECIFIED MessageWritingType = 0
-	MessageWritingType_MESSAGE_WRITING_TYPE_STANDARD    MessageWritingType = 1
-	MessageWritingType_MESSAGE_WRITING_TYPE_CUSTOM      MessageWritingType = 2
-	MessageWritingType_MESSAGE_WRITING_TYPE_EMAIL       MessageWritingType = 3
-)
-
-// Enum value maps for MessageWritingType.
-var (
-	MessageWritingType_name = map[int32]string{
-		0: "MESSAGE_WRITING_TYPE_UNSPECIFIED",
-		1: "MESSAGE_WRITING_TYPE_STANDARD",
-		2: "MESSAGE_WRITING_TYPE_CUSTOM",
-		3: "MESSAGE_WRITING_TYPE_EMAIL",
-	}
-	MessageWritingType_value = map[string]int32{
-		"MESSAGE_WRITING_TYPE_UNSPECIFIED": 0,
-		"MESSAGE_WRITING_TYPE_STANDARD":    1,
-		"MESSAGE_WRITING_TYPE_CUSTOM":      2,
-		"MESSAGE_WRITING_TYPE_EMAIL":       3,
-	}
-)
-
-func (x MessageWritingType) Enum() *MessageWritingType {
-	p := new(MessageWritingType)
-	*p = x
-	return p
-}
-
-func (x MessageWritingType) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (MessageWritingType) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_message_proto_enumTypes[1].Descriptor()
-}
-
-func (MessageWritingType) Type() protoreflect.EnumType {
-	return &file_coreapi_model_message_proto_enumTypes[1]
-}
-
-func (x MessageWritingType) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use MessageWritingType.Descriptor instead.
-func (MessageWritingType) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_message_proto_rawDescGZIP(), []int{1}
-}
-
 // Action type for system log messages.
 type LogAction int32
 
@@ -287,11 +234,11 @@ func (x LogAction) String() string {
 }
 
 func (LogAction) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_message_proto_enumTypes[2].Descriptor()
+	return file_coreapi_model_message_proto_enumTypes[1].Descriptor()
 }
 
 func (LogAction) Type() protoreflect.EnumType {
-	return &file_coreapi_model_message_proto_enumTypes[2]
+	return &file_coreapi_model_message_proto_enumTypes[1]
 }
 
 func (x LogAction) Number() protoreflect.EnumNumber {
@@ -300,7 +247,7 @@ func (x LogAction) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use LogAction.Descriptor instead.
 func (LogAction) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_message_proto_rawDescGZIP(), []int{2}
+	return file_coreapi_model_message_proto_rawDescGZIP(), []int{1}
 }
 
 // MessageLog represents a system-generated log entry within a message.
@@ -447,89 +394,6 @@ func (x *MessageReaction) GetPersonKeys() []string {
 	return nil
 }
 
-// MessageThread represents thread metadata on a root message.
-type MessageThread struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Unique thread identifier.
-	// Composite key in the format "{chatType}-{chatId}-{rootMessageId}".
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Manager IDs assigned to this thread.
-	//
-	// +kubebuilder:validation:Nullable
-	ManagerIds []string `protobuf:"bytes,2,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
-	// Ordered list of manager IDs who have replied in this thread.
-	//
-	// +kubebuilder:validation:Nullable
-	RepliedManagerIds []string `protobuf:"bytes,3,rep,name=replied_manager_ids,json=repliedManagerIds,proto3" json:"replied_manager_ids,omitempty"`
-	// Total number of replies in this thread.
-	//
-	// +kubebuilder:validation:Nullable
-	ReplyCount    int32 `protobuf:"varint,4,opt,name=reply_count,json=replyCount,proto3" json:"reply_count,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *MessageThread) Reset() {
-	*x = MessageThread{}
-	mi := &file_coreapi_model_message_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MessageThread) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MessageThread) ProtoMessage() {}
-
-func (x *MessageThread) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_message_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MessageThread.ProtoReflect.Descriptor instead.
-func (*MessageThread) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_message_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *MessageThread) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-func (x *MessageThread) GetManagerIds() []string {
-	if x != nil {
-		return x.ManagerIds
-	}
-	return nil
-}
-
-func (x *MessageThread) GetRepliedManagerIds() []string {
-	if x != nil {
-		return x.RepliedManagerIds
-	}
-	return nil
-}
-
-func (x *MessageThread) GetReplyCount() int32 {
-	if x != nil {
-		return x.ReplyCount
-	}
-	return 0
-}
-
 // Message represents a single message within a chat.
 type Message struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -579,10 +443,6 @@ type Message struct {
 	//
 	// +kubebuilder:validation:Nullable
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Timestamp when the message was last edited.
-	//
-	// +kubebuilder:validation:Nullable
-	EditedAt *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=edited_at,json=editedAt,proto3" json:"edited_at,omitempty"`
 	// Structured content blocks of the message.
 	//
 	// +kubebuilder:validation:Nullable
@@ -617,10 +477,6 @@ type Message struct {
 	//
 	// +kubebuilder:validation:Nullable
 	State MessageState `protobuf:"varint,19,opt,name=state,proto3,enum=coreapi.model.MessageState" json:"state,omitempty"`
-	// Rendering type that determines how a client should display the message.
-	//
-	// +kubebuilder:validation:Nullable
-	WritingType MessageWritingType `protobuf:"varint,20,opt,name=writing_type,json=writingType,proto3,enum=coreapi.model.MessageWritingType" json:"writing_type,omitempty"`
 	// System log data for log-type messages.
 	//
 	// +kubebuilder:validation:Nullable
@@ -629,17 +485,49 @@ type Message struct {
 	//
 	// +kubebuilder:validation:Nullable
 	Reactions []*MessageReaction `protobuf:"bytes,22,rep,name=reactions,proto3" json:"reactions,omitempty"`
-	// Thread metadata if this message is a thread root.
+	// Composite key for the chat this message belongs to.
 	//
 	// +kubebuilder:validation:Nullable
-	Thread        *MessageThread `protobuf:"bytes,23,opt,name=thread,proto3" json:"thread,omitempty"`
+	ChatKey string `protobuf:"bytes,24,opt,name=chat_key,json=chatKey,proto3" json:"chat_key,omitempty"`
+	// Key of the main conversation thread.
+	//
+	// +kubebuilder:validation:Nullable
+	MainKey string `protobuf:"bytes,25,opt,name=main_key,json=mainKey,proto3" json:"main_key,omitempty"`
+	// Key of the sub-thread this message belongs to.
+	//
+	// +kubebuilder:validation:Nullable
+	ThreadKey string `protobuf:"bytes,26,opt,name=thread_key,json=threadKey,proto3" json:"thread_key,omitempty"`
+	// Message data version number.
+	//
+	// +kubebuilder:validation:Nullable
+	Version int64 `protobuf:"varint,27,opt,name=version,proto3" json:"version,omitempty"`
+	// Marketing campaign metadata associated with this message.
+	//
+	// +kubebuilder:validation:Nullable
+	Marketing *structpb.Struct `protobuf:"bytes,28,opt,name=marketing,proto3" json:"marketing,omitempty"`
+	// Support bot metadata associated with this message.
+	//
+	// +kubebuilder:validation:Nullable
+	SupportBot *structpb.Struct `protobuf:"bytes,29,opt,name=support_bot,json=supportBot,proto3" json:"support_bot,omitempty"`
+	// Whether this message is a thread reply.
+	//
+	// +kubebuilder:validation:Nullable
+	ThreadMsg bool `protobuf:"varint,30,opt,name=thread_msg,json=threadMsg,proto3" json:"thread_msg,omitempty"`
+	// Whether this message was broadcasted.
+	//
+	// +kubebuilder:validation:Nullable
+	BroadcastedMsg bool `protobuf:"varint,31,opt,name=broadcasted_msg,json=broadcastedMsg,proto3" json:"broadcasted_msg,omitempty"`
+	// ID of the parent message this is a reply to.
+	//
+	// +kubebuilder:validation:Nullable
+	RootMessageId string `protobuf:"bytes,32,opt,name=root_message_id,json=rootMessageId,proto3" json:"root_message_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Message) Reset() {
 	*x = Message{}
-	mi := &file_coreapi_model_message_proto_msgTypes[3]
+	mi := &file_coreapi_model_message_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -651,7 +539,7 @@ func (x *Message) String() string {
 func (*Message) ProtoMessage() {}
 
 func (x *Message) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_message_proto_msgTypes[3]
+	mi := &file_coreapi_model_message_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -664,7 +552,7 @@ func (x *Message) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Message.ProtoReflect.Descriptor instead.
 func (*Message) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_message_proto_rawDescGZIP(), []int{3}
+	return file_coreapi_model_message_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Message) GetId() string {
@@ -737,13 +625,6 @@ func (x *Message) GetUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Message) GetEditedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.EditedAt
-	}
-	return nil
-}
-
 func (x *Message) GetBlocks() []*Block {
 	if x != nil {
 		return x.Blocks
@@ -800,13 +681,6 @@ func (x *Message) GetState() MessageState {
 	return MessageState_MESSAGE_STATE_UNSPECIFIED
 }
 
-func (x *Message) GetWritingType() MessageWritingType {
-	if x != nil {
-		return x.WritingType
-	}
-	return MessageWritingType_MESSAGE_WRITING_TYPE_UNSPECIFIED
-}
-
 func (x *Message) GetLog() *MessageLog {
 	if x != nil {
 		return x.Log
@@ -821,11 +695,67 @@ func (x *Message) GetReactions() []*MessageReaction {
 	return nil
 }
 
-func (x *Message) GetThread() *MessageThread {
+func (x *Message) GetChatKey() string {
 	if x != nil {
-		return x.Thread
+		return x.ChatKey
+	}
+	return ""
+}
+
+func (x *Message) GetMainKey() string {
+	if x != nil {
+		return x.MainKey
+	}
+	return ""
+}
+
+func (x *Message) GetThreadKey() string {
+	if x != nil {
+		return x.ThreadKey
+	}
+	return ""
+}
+
+func (x *Message) GetVersion() int64 {
+	if x != nil {
+		return x.Version
+	}
+	return 0
+}
+
+func (x *Message) GetMarketing() *structpb.Struct {
+	if x != nil {
+		return x.Marketing
 	}
 	return nil
+}
+
+func (x *Message) GetSupportBot() *structpb.Struct {
+	if x != nil {
+		return x.SupportBot
+	}
+	return nil
+}
+
+func (x *Message) GetThreadMsg() bool {
+	if x != nil {
+		return x.ThreadMsg
+	}
+	return false
+}
+
+func (x *Message) GetBroadcastedMsg() bool {
+	if x != nil {
+		return x.BroadcastedMsg
+	}
+	return false
+}
+
+func (x *Message) GetRootMessageId() string {
+	if x != nil {
+		return x.RootMessageId
+	}
+	return ""
 }
 
 var File_coreapi_model_message_proto protoreflect.FileDescriptor
@@ -845,15 +775,7 @@ const file_coreapi_model_message_proto_rawDesc = "" +
 	"emoji_name\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\temojiName\x12\x1f\n" +
 	"\vperson_keys\x18\x02 \x03(\tR\n" +
-	"personKeys\"\xe0\x01\n" +
-	"\rMessageThread\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12\x1f\n" +
-	"\vmanager_ids\x18\x02 \x03(\tR\n" +
-	"managerIds\x12.\n" +
-	"\x13replied_manager_ids\x18\x03 \x03(\tR\x11repliedManagerIds\x12\x1f\n" +
-	"\vreply_count\x18\x04 \x01(\x05R\n" +
-	"replyCount\"\xf2\v\n" +
+	"personKeys\"\x8d\r\n" +
 	"\aMessage\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -876,8 +798,7 @@ const file_coreapi_model_message_proto_rawDesc = "" +
 	"created_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x129\n" +
 	"\n" +
 	"updated_at\x18\n" +
-	" \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x127\n" +
-	"\tedited_at\x18\v \x01(\v2\x1a.google.protobuf.TimestampR\beditedAt\x12,\n" +
+	" \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12,\n" +
 	"\x06blocks\x18\f \x03(\v2\x14.coreapi.model.BlockR\x06blocks\x12\x1d\n" +
 	"\n" +
 	"plain_text\x18\r \x01(\tR\tplainText\x12@\n" +
@@ -886,22 +807,27 @@ const file_coreapi_model_message_proto_rawDesc = "" +
 	"\bweb_page\x18\x10 \x01(\v2\x1d.coreapi.model.MessageWebPageR\awebPage\x12+\n" +
 	"\x04form\x18\x11 \x01(\v2\x17.google.protobuf.StructR\x04form\x126\n" +
 	"\aoptions\x18\x12 \x03(\x0e2\x1c.coreapi.model.MessageOptionR\aoptions\x121\n" +
-	"\x05state\x18\x13 \x01(\x0e2\x1b.coreapi.model.MessageStateR\x05state\x12D\n" +
-	"\fwriting_type\x18\x14 \x01(\x0e2!.coreapi.model.MessageWritingTypeR\vwritingType\x12+\n" +
+	"\x05state\x18\x13 \x01(\x0e2\x1b.coreapi.model.MessageStateR\x05state\x12+\n" +
 	"\x03log\x18\x15 \x01(\v2\x19.coreapi.model.MessageLogR\x03log\x12<\n" +
-	"\treactions\x18\x16 \x03(\v2\x1e.coreapi.model.MessageReactionR\treactions\x124\n" +
-	"\x06thread\x18\x17 \x01(\v2\x1c.coreapi.model.MessageThreadR\x06thread*\x95\x01\n" +
+	"\treactions\x18\x16 \x03(\v2\x1e.coreapi.model.MessageReactionR\treactions\x12\x19\n" +
+	"\bchat_key\x18\x18 \x01(\tR\achatKey\x12\x19\n" +
+	"\bmain_key\x18\x19 \x01(\tR\amainKey\x12\x1d\n" +
+	"\n" +
+	"thread_key\x18\x1a \x01(\tR\tthreadKey\x12\x18\n" +
+	"\aversion\x18\x1b \x01(\x03R\aversion\x125\n" +
+	"\tmarketing\x18\x1c \x01(\v2\x17.google.protobuf.StructR\tmarketing\x128\n" +
+	"\vsupport_bot\x18\x1d \x01(\v2\x17.google.protobuf.StructR\n" +
+	"supportBot\x12\x1d\n" +
+	"\n" +
+	"thread_msg\x18\x1e \x01(\bR\tthreadMsg\x12'\n" +
+	"\x0fbroadcasted_msg\x18\x1f \x01(\bR\x0ebroadcastedMsg\x12&\n" +
+	"\x0froot_message_id\x18  \x01(\tR\rrootMessageId*\x95\x01\n" +
 	"\fMessageState\x12\x1d\n" +
 	"\x19MESSAGE_STATE_UNSPECIFIED\x10\x00\x12\x19\n" +
 	"\x15MESSAGE_STATE_SENDING\x10\x01\x12\x16\n" +
 	"\x12MESSAGE_STATE_SENT\x10\x02\x12\x18\n" +
 	"\x14MESSAGE_STATE_FAILED\x10\x03\x12\x19\n" +
-	"\x15MESSAGE_STATE_REMOVED\x10\x04*\x9e\x01\n" +
-	"\x12MessageWritingType\x12$\n" +
-	" MESSAGE_WRITING_TYPE_UNSPECIFIED\x10\x00\x12!\n" +
-	"\x1dMESSAGE_WRITING_TYPE_STANDARD\x10\x01\x12\x1f\n" +
-	"\x1bMESSAGE_WRITING_TYPE_CUSTOM\x10\x02\x12\x1e\n" +
-	"\x1aMESSAGE_WRITING_TYPE_EMAIL\x10\x03*\xb3\t\n" +
+	"\x15MESSAGE_STATE_REMOVED\x10\x04*\xb3\t\n" +
 	"\tLogAction\x12\x1a\n" +
 	"\x16LOG_ACTION_UNSPECIFIED\x10\x00\x12\x1a\n" +
 	"\x16LOG_ACTION_CHANGE_NAME\x10\x01\x12\x1b\n" +
@@ -961,45 +887,42 @@ func file_coreapi_model_message_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_message_proto_rawDescData
 }
 
-var file_coreapi_model_message_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_coreapi_model_message_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_coreapi_model_message_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_coreapi_model_message_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_coreapi_model_message_proto_goTypes = []any{
 	(MessageState)(0),             // 0: coreapi.model.MessageState
-	(MessageWritingType)(0),       // 1: coreapi.model.MessageWritingType
-	(LogAction)(0),                // 2: coreapi.model.LogAction
-	(*MessageLog)(nil),            // 3: coreapi.model.MessageLog
-	(*MessageReaction)(nil),       // 4: coreapi.model.MessageReaction
-	(*MessageThread)(nil),         // 5: coreapi.model.MessageThread
-	(*Message)(nil),               // 6: coreapi.model.Message
-	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
-	(*Block)(nil),                 // 8: coreapi.model.Block
-	(*MessageButton)(nil),         // 9: coreapi.model.MessageButton
-	(*MessageFile)(nil),           // 10: coreapi.model.MessageFile
-	(*MessageWebPage)(nil),        // 11: coreapi.model.MessageWebPage
-	(*structpb.Struct)(nil),       // 12: google.protobuf.Struct
-	(MessageOption)(0),            // 13: coreapi.model.MessageOption
+	(LogAction)(0),                // 1: coreapi.model.LogAction
+	(*MessageLog)(nil),            // 2: coreapi.model.MessageLog
+	(*MessageReaction)(nil),       // 3: coreapi.model.MessageReaction
+	(*Message)(nil),               // 4: coreapi.model.Message
+	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
+	(*Block)(nil),                 // 6: coreapi.model.Block
+	(*MessageButton)(nil),         // 7: coreapi.model.MessageButton
+	(*MessageFile)(nil),           // 8: coreapi.model.MessageFile
+	(*MessageWebPage)(nil),        // 9: coreapi.model.MessageWebPage
+	(*structpb.Struct)(nil),       // 10: google.protobuf.Struct
+	(MessageOption)(0),            // 11: coreapi.model.MessageOption
 }
 var file_coreapi_model_message_proto_depIdxs = []int32{
-	2,  // 0: coreapi.model.MessageLog.action:type_name -> coreapi.model.LogAction
-	7,  // 1: coreapi.model.Message.created_at:type_name -> google.protobuf.Timestamp
-	7,  // 2: coreapi.model.Message.updated_at:type_name -> google.protobuf.Timestamp
-	7,  // 3: coreapi.model.Message.edited_at:type_name -> google.protobuf.Timestamp
-	8,  // 4: coreapi.model.Message.blocks:type_name -> coreapi.model.Block
-	9,  // 5: coreapi.model.Message.buttons:type_name -> coreapi.model.MessageButton
-	10, // 6: coreapi.model.Message.files:type_name -> coreapi.model.MessageFile
-	11, // 7: coreapi.model.Message.web_page:type_name -> coreapi.model.MessageWebPage
-	12, // 8: coreapi.model.Message.form:type_name -> google.protobuf.Struct
-	13, // 9: coreapi.model.Message.options:type_name -> coreapi.model.MessageOption
-	0,  // 10: coreapi.model.Message.state:type_name -> coreapi.model.MessageState
-	1,  // 11: coreapi.model.Message.writing_type:type_name -> coreapi.model.MessageWritingType
-	3,  // 12: coreapi.model.Message.log:type_name -> coreapi.model.MessageLog
-	4,  // 13: coreapi.model.Message.reactions:type_name -> coreapi.model.MessageReaction
-	5,  // 14: coreapi.model.Message.thread:type_name -> coreapi.model.MessageThread
-	15, // [15:15] is the sub-list for method output_type
-	15, // [15:15] is the sub-list for method input_type
-	15, // [15:15] is the sub-list for extension type_name
-	15, // [15:15] is the sub-list for extension extendee
-	0,  // [0:15] is the sub-list for field type_name
+	1,  // 0: coreapi.model.MessageLog.action:type_name -> coreapi.model.LogAction
+	5,  // 1: coreapi.model.Message.created_at:type_name -> google.protobuf.Timestamp
+	5,  // 2: coreapi.model.Message.updated_at:type_name -> google.protobuf.Timestamp
+	6,  // 3: coreapi.model.Message.blocks:type_name -> coreapi.model.Block
+	7,  // 4: coreapi.model.Message.buttons:type_name -> coreapi.model.MessageButton
+	8,  // 5: coreapi.model.Message.files:type_name -> coreapi.model.MessageFile
+	9,  // 6: coreapi.model.Message.web_page:type_name -> coreapi.model.MessageWebPage
+	10, // 7: coreapi.model.Message.form:type_name -> google.protobuf.Struct
+	11, // 8: coreapi.model.Message.options:type_name -> coreapi.model.MessageOption
+	0,  // 9: coreapi.model.Message.state:type_name -> coreapi.model.MessageState
+	2,  // 10: coreapi.model.Message.log:type_name -> coreapi.model.MessageLog
+	3,  // 11: coreapi.model.Message.reactions:type_name -> coreapi.model.MessageReaction
+	10, // 12: coreapi.model.Message.marketing:type_name -> google.protobuf.Struct
+	10, // 13: coreapi.model.Message.support_bot:type_name -> google.protobuf.Struct
+	14, // [14:14] is the sub-list for method output_type
+	14, // [14:14] is the sub-list for method input_type
+	14, // [14:14] is the sub-list for extension type_name
+	14, // [14:14] is the sub-list for extension extendee
+	0,  // [0:14] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_message_proto_init() }
@@ -1013,8 +936,8 @@ func file_coreapi_model_message_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_message_proto_rawDesc), len(file_coreapi_model_message_proto_rawDesc)),
-			NumEnums:      3,
-			NumMessages:   4,
+			NumEnums:      2,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

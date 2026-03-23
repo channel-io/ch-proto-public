@@ -54,7 +54,7 @@ public final class UserOuterClass {
       "name\030\006 \001(\tR\007sdkName\022\037\n\013sdk_version\030\007 \001(\t" +
       "R\nsdkVersion\022%\n\016sessions_count\030\010 \001(\005R\rse" +
       "ssionsCount\022<\n\014last_seen_at\030\t \001(\0132\032.goog" +
-      "le.protobuf.TimestampR\nlastSeenAt\"\232\020\n\004Us" +
+      "le.protobuf.TimestampR\nlastSeenAt\"\206\017\n\004Us" +
       "er\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"v" +
       "alue must be at least 1 character\032\017size(" +
       "this) >= 1\310\001\001R\002id\022l\n\nchannel_id\030\002 \001(\tBM\272" +
@@ -97,22 +97,18 @@ public final class UserOuterClass {
       "be_texting\030) \001(\010R\022unsubscribeTexting\022_\n\036" +
       "unsubscribe_texting_updated_at\030* \001(\0132\032.g" +
       "oogle.protobuf.TimestampR\033unsubscribeTex" +
-      "tingUpdatedAt\0220\n\024unsubscribe_app_push\030+ " +
-      "\001(\010R\022unsubscribeAppPush\022`\n\037unsubscribe_a" +
-      "pp_push_updated_at\030, \001(\0132\032.google.protob" +
-      "uf.TimestampR\033unsubscribeAppPushUpdatedA" +
-      "t\022\032\n\010language\030- \001(\tR\010language\022\'\n\017system_" +
-      "language\030. \001(\tR\016systemLanguage\022\030\n\007versio" +
-      "n\030/ \001(\003R\007version\022A\n\ncreated_at\0300 \001(\0132\032.g" +
-      "oogle.protobuf.TimestampB\006\272H\003\310\001\001R\tcreate" +
-      "dAt\022A\n\nupdated_at\0301 \001(\0132\032.google.protobu" +
-      "f.TimestampB\006\272H\003\310\001\001R\tupdatedAt*f\n\010UserTy" +
-      "pe\022\031\n\025USER_TYPE_UNSPECIFIED\020\000\022\024\n\020USER_TY" +
-      "PE_MEMBER\020\001\022\022\n\016USER_TYPE_LEAD\020\002\022\025\n\021USER_" +
-      "TYPE_UNIFIED\020\003Bb\n&io.channel.api.proto.p" +
-      "ub.coreapi.modelP\001Z6github.com/channel-i" +
-      "o/ch-proto-public/coreapi/go/modelb\006prot" +
-      "o3"
+      "tingUpdatedAt\022\032\n\010language\030- \001(\tR\010languag" +
+      "e\022\'\n\017system_language\030. \001(\tR\016systemLangua" +
+      "ge\022\030\n\007version\030/ \001(\003R\007version\022A\n\ncreated_" +
+      "at\0300 \001(\0132\032.google.protobuf.TimestampB\006\272H" +
+      "\003\310\001\001R\tcreatedAt\022A\n\nupdated_at\0301 \001(\0132\032.go" +
+      "ogle.protobuf.TimestampB\006\272H\003\310\001\001R\tupdated" +
+      "At*f\n\010UserType\022\031\n\025USER_TYPE_UNSPECIFIED\020" +
+      "\000\022\024\n\020USER_TYPE_MEMBER\020\001\022\022\n\016USER_TYPE_LEA" +
+      "D\020\002\022\025\n\021USER_TYPE_UNIFIED\020\003Bb\n&io.channel" +
+      ".api.proto.pub.coreapi.modelP\001Z6github.c" +
+      "om/channel-io/ch-proto-public/coreapi/go" +
+      "/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -138,7 +134,7 @@ public final class UserOuterClass {
     internal_static_coreapi_model_User_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_User_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "MemberId", "VeilId", "UnifiedId", "Type", "Profile", "Name", "AvatarUrl", "Named", "Tags", "UserImportTags", "Alert", "Unread", "PopUpChatId", "MainChatId", "Country", "TimeZone", "Province", "City", "Latitude", "Longitude", "Web", "Mobile", "SessionsCount", "LastSeenAt", "HasChat", "HasPushToken", "Email", "MobileNumber", "LandlineNumber", "MobileNumberQualified", "EmailQualified", "Blocked", "BlockedKey", "ManagedKey", "Member", "Constrainted", "UnsubscribeEmail", "UnsubscribeEmailUpdatedAt", "UnsubscribeTexting", "UnsubscribeTextingUpdatedAt", "UnsubscribeAppPush", "UnsubscribeAppPushUpdatedAt", "Language", "SystemLanguage", "Version", "CreatedAt", "UpdatedAt", });
+        new java.lang.String[] { "Id", "ChannelId", "MemberId", "VeilId", "UnifiedId", "Type", "Profile", "Name", "AvatarUrl", "Named", "Tags", "UserImportTags", "Alert", "Unread", "PopUpChatId", "MainChatId", "Country", "TimeZone", "Province", "City", "Latitude", "Longitude", "Web", "Mobile", "SessionsCount", "LastSeenAt", "HasChat", "HasPushToken", "Email", "MobileNumber", "LandlineNumber", "MobileNumberQualified", "EmailQualified", "Blocked", "BlockedKey", "ManagedKey", "Member", "Constrainted", "UnsubscribeEmail", "UnsubscribeEmailUpdatedAt", "UnsubscribeTexting", "UnsubscribeTextingUpdatedAt", "Language", "SystemLanguage", "Version", "CreatedAt", "UpdatedAt", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);

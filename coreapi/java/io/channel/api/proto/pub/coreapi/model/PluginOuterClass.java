@@ -34,99 +34,73 @@ public final class PluginOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\032coreapi/model/plugin.proto\022\rcoreapi.mo" +
-      "del\032\033buf/validate/validate.proto\032\037google" +
-      "/protobuf/timestamp.proto\"\340\016\n\006Plugin\022]\n\002" +
-      "id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value m" +
-      "ust be at least 1 character\032\017size(this) " +
-      ">= 1\310\001\001R\002id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272\001D\n" +
-      "\rstring.minLen\022\"value must be at least 1" +
-      " character\032\017size(this) >= 1\310\001\001R\tchannelI" +
-      "d\022\261\001\n\004name\030\003 \001(\tB\234\001\272H\230\001\272\001D\n\rstring.minLe" +
-      "n\022\"value must be at least 1 character\032\017s" +
-      "ize(this) >= 1\272\001K\n\rstring.maxLen\022(value " +
-      "must be no more than 30 characters\032\020size" +
-      "(this) <= 30\310\001\001R\004name\0228\n\005state\030\004 \001(\0162\032.c" +
-      "oreapi.model.PluginStateB\006\272H\003\310\001\001R\005state\022" +
-      "G\n\nappearance\030\005 \001(\0162\037.coreapi.model.Plug" +
-      "inAppearanceB\006\272H\003\310\001\001R\nappearance\022!\n\014labe" +
-      "l_button\030\006 \001(\010R\013labelButton\022\236\001\n\021label_bu" +
-      "tton_text\030\007 \001(\tBr\272Ho\272\001l\n\nstring.len\022)val" +
-      "ue must be between 4 and 30 characters\0323" +
-      "this == \'\' || (size(this) >= 4 && size(t" +
-      "his) <= 30)R\017labelButtonText\022m\n\032label_bu" +
-      "tton_text_i18n_map\030\010 \003(\01321.coreapi.model" +
-      ".Plugin.LabelButtonTextI18nMapEntryR\026lab" +
-      "elButtonTextI18nMap\022H\n\013button_type\030\t \001(\016" +
-      "2\037.coreapi.model.PluginButtonTypeB\006\272H\003\310\001" +
-      "\001R\nbuttonType\022@\n\013icon_button\030\n \001(\0162\037.cor" +
-      "eapi.model.PluginIconButtonR\niconButton\022" +
-      "(\n\020custom_image_url\030\013 \001(\tR\016customImageUr" +
-      "l\022$\n\016desk_image_url\030\014 \001(\tR\014deskImageUrl\022" +
-      "\"\n\rdesk_margin_x\030\r \001(\005R\013deskMarginX\022\"\n\rd" +
-      "esk_margin_y\030\016 \001(\005R\013deskMarginY\022(\n\020desk_" +
-      "hide_button\030\017 \001(\010R\016deskHideButton\022B\n\rdes" +
-      "k_position\030\020 \001(\0162\035.coreapi.model.PluginP" +
-      "ositionR\014deskPosition\022(\n\020mobile_image_ur" +
-      "l\030\021 \001(\tR\016mobileImageUrl\022&\n\017mobile_margin" +
-      "_x\030\022 \001(\005R\rmobileMarginX\022&\n\017mobile_margin" +
-      "_y\030\023 \001(\005R\rmobileMarginY\022F\n\017mobile_positi" +
-      "on\030\024 \001(\0162\035.coreapi.model.PluginPositionR" +
-      "\016mobilePosition\022,\n\022mobile_hide_button\030\025 " +
-      "\001(\010R\020mobileHideButton\022Y\n\026mobile_bubble_p" +
-      "osition\030\026 \001(\0162#.coreapi.model.PluginBubb" +
-      "lePositionR\024mobileBubblePosition\022\207\001\n\010run" +
-      "_rate\030\027 \001(\002Bl\272Hi\272\0012\n\tfloat.gte\022\030value mu" +
-      "st be at least 0\032\013this >= 0.0\272\0011\n\tfloat." +
-      "lte\022\027value must be at most 1\032\013this <= 1." +
-      "0R\007runRate\022*\n\021facebook_pixel_id\030\030 \001(\tR\017f" +
-      "acebookPixelId\022A\n\ncreated_at\030\031 \001(\0132\032.goo" +
-      "gle.protobuf.TimestampB\006\272H\003\310\001\001R\tcreatedA" +
-      "t\032I\n\033LabelButtonTextI18nMapEntry\022\020\n\003key\030" +
-      "\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001*^\n\013" +
-      "PluginState\022\034\n\030PLUGIN_STATE_UNSPECIFIED\020" +
-      "\000\022\030\n\024PLUGIN_STATE_WAITING\020\001\022\027\n\023PLUGIN_ST" +
-      "ATE_ACTIVE\020\002*\214\001\n\020PluginAppearance\022!\n\035PLU" +
-      "GIN_APPEARANCE_UNSPECIFIED\020\000\022\033\n\027PLUGIN_A" +
-      "PPEARANCE_LIGHT\020\001\022\032\n\026PLUGIN_APPEARANCE_D" +
-      "ARK\020\002\022\034\n\030PLUGIN_APPEARANCE_SYSTEM\020\003*f\n\016P" +
-      "luginPosition\022\037\n\033PLUGIN_POSITION_UNSPECI" +
-      "FIED\020\000\022\030\n\024PLUGIN_POSITION_LEFT\020\001\022\031\n\025PLUG" +
-      "IN_POSITION_RIGHT\020\002*\201\001\n\024PluginBubblePosi" +
-      "tion\022&\n\"PLUGIN_BUBBLE_POSITION_UNSPECIFI" +
-      "ED\020\000\022\036\n\032PLUGIN_BUBBLE_POSITION_TOP\020\001\022!\n\035" +
-      "PLUGIN_BUBBLE_POSITION_BOTTOM\020\002*\236\001\n\020Plug" +
-      "inButtonType\022\"\n\036PLUGIN_BUTTON_TYPE_UNSPE" +
-      "CIFIED\020\000\022\035\n\031PLUGIN_BUTTON_TYPE_LEGACY\020\001\022" +
-      "#\n\037PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE\020\002\022\"\n\036" +
-      "PLUGIN_BUTTON_TYPE_ICON_BUTTON\020\003*\224\006\n\020Plu" +
-      "ginIconButton\022\"\n\036PLUGIN_ICON_BUTTON_UNSP" +
-      "ECIFIED\020\000\022\036\n\032PLUGIN_ICON_BUTTON_CHANNEL\020" +
-      "\001\022%\n!PLUGIN_ICON_BUTTON_CHANNEL_FILLED\020\002" +
-      "\022&\n\"PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT\020\003" +
-      "\022-\n)PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_F" +
-      "ILLED\020\004\022)\n%PLUGIN_ICON_BUTTON_CHAT_BUBBL" +
-      "E_FILLED\020\005\022,\n(PLUGIN_ICON_BUTTON_CHAT_LI" +
-      "GHTNING_FILLED\020\006\022$\n PLUGIN_ICON_BUTTON_C" +
-      "HAT_PROGRESS\020\007\022+\n\'PLUGIN_ICON_BUTTON_CHA" +
-      "T_PROGRESS_FILLED\020\010\022$\n PLUGIN_ICON_BUTTO" +
-      "N_CHAT_QUESTION\020\t\022+\n\'PLUGIN_ICON_BUTTON_" +
-      "CHAT_QUESTION_FILLED\020\n\022\036\n\032PLUGIN_ICON_BU" +
-      "TTON_COMMENT\020\013\022%\n!PLUGIN_ICON_BUTTON_COM" +
-      "MENT_FILLED\020\014\022$\n PLUGIN_ICON_BUTTON_COMM" +
-      "UNICATION\020\r\022\036\n\032PLUGIN_ICON_BUTTON_HEADSE" +
-      "T\020\016\022\"\n\036PLUGIN_ICON_BUTTON_HELP_FILLED\020\017\022" +
-      "#\n\037PLUGIN_ICON_BUTTON_SEND_FORWARD\020\020\022*\n&" +
-      "PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED\020\021" +
-      "\022\032\n\026PLUGIN_ICON_BUTTON_SMS\020\022\022!\n\035PLUGIN_I" +
-      "CON_BUTTON_SMS_FILLED\020\023Bb\n&io.channel.ap" +
-      "i.proto.pub.coreapi.modelP\001Z6github.com/" +
-      "channel-io/ch-proto-public/coreapi/go/mo" +
-      "delb\006proto3"
+      "del\032\033buf/validate/validate.proto\032\035coreap" +
+      "i/model/tiny_file.proto\032\037google/protobuf" +
+      "/timestamp.proto\"\340\016\n\006Plugin\022]\n\002id\030\001 \001(\tB" +
+      "M\272HJ\272\001D\n\rstring.minLen\022\"value must be at" +
+      " least 1 character\032\017size(this) >= 1\310\001\001R\002" +
+      "id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.m" +
+      "inLen\022\"value must be at least 1 characte" +
+      "r\032\017size(this) >= 1\310\001\001R\tchannelId\022\261\001\n\004nam" +
+      "e\030\003 \001(\tB\234\001\272H\230\001\272\001D\n\rstring.minLen\022\"value " +
+      "must be at least 1 character\032\017size(this)" +
+      " >= 1\272\001K\n\rstring.maxLen\022(value must be n" +
+      "o more than 30 characters\032\020size(this) <=" +
+      " 30\310\001\001R\004name\0228\n\005state\030\004 \001(\0162\032.coreapi.mo" +
+      "del.PluginStateB\006\272H\003\310\001\001R\005state\022!\n\014label_" +
+      "button\030\006 \001(\010R\013labelButton\022\236\001\n\021label_butt" +
+      "on_text\030\007 \001(\tBr\272Ho\272\001l\n\nstring.len\022)value" +
+      " must be between 4 and 30 characters\0323th" +
+      "is == \'\' || (size(this) >= 4 && size(thi" +
+      "s) <= 30)R\017labelButtonText\022m\n\032label_butt" +
+      "on_text_i18n_map\030\010 \003(\01321.coreapi.model.P" +
+      "lugin.LabelButtonTextI18nMapEntryR\026label" +
+      "ButtonTextI18nMap\022$\n\016desk_image_url\030\014 \001(" +
+      "\tR\014deskImageUrl\022\"\n\rdesk_margin_x\030\r \001(\005R\013" +
+      "deskMarginX\022\"\n\rdesk_margin_y\030\016 \001(\005R\013desk" +
+      "MarginY\022B\n\rdesk_position\030\020 \001(\0162\035.coreapi" +
+      ".model.PluginPositionR\014deskPosition\022(\n\020m" +
+      "obile_image_url\030\021 \001(\tR\016mobileImageUrl\022&\n" +
+      "\017mobile_margin_x\030\022 \001(\005R\rmobileMarginX\022&\n" +
+      "\017mobile_margin_y\030\023 \001(\005R\rmobileMarginY\022F\n" +
+      "\017mobile_position\030\024 \001(\0162\035.coreapi.model.P" +
+      "luginPositionR\016mobilePosition\022,\n\022mobile_" +
+      "hide_button\030\025 \001(\010R\020mobileHideButton\022Y\n\026m" +
+      "obile_bubble_position\030\026 \001(\0162#.coreapi.mo" +
+      "del.PluginBubblePositionR\024mobileBubblePo" +
+      "sition\022\207\001\n\010run_rate\030\027 \001(\002Bl\272Hi\272\0012\n\tfloat" +
+      ".gte\022\030value must be at least 0\032\013this >= " +
+      "0.0\272\0011\n\tfloat.lte\022\027value must be at most" +
+      " 1\032\013this <= 1.0R\007runRate\022*\n\021facebook_pix" +
+      "el_id\030\030 \001(\tR\017facebookPixelId\022A\n\ncreated_" +
+      "at\030\031 \001(\0132\032.google.protobuf.TimestampB\006\272H" +
+      "\003\310\001\001R\tcreatedAt\022\020\n\003key\030\032 \001(\tR\003key\0226\n\ndes" +
+      "k_image\030\033 \001(\0132\027.coreapi.model.TinyFileR\t" +
+      "deskImage\022:\n\014mobile_image\030\034 \001(\0132\027.coreap" +
+      "i.model.TinyFileR\013mobileImage\022#\n\rurl_whi" +
+      "telist\030\035 \003(\tR\014urlWhitelist\0225\n\027valid_labe" +
+      "l_button_text\030\036 \001(\010R\024validLabelButtonTex" +
+      "t\022E\n valid_label_button_text_i18n_map\030\037 " +
+      "\001(\010R\033validLabelButtonTextI18nMap\032I\n\033Labe" +
+      "lButtonTextI18nMapEntry\022\020\n\003key\030\001 \001(\tR\003ke" +
+      "y\022\024\n\005value\030\002 \001(\tR\005value:\0028\001*^\n\013PluginSta" +
+      "te\022\034\n\030PLUGIN_STATE_UNSPECIFIED\020\000\022\030\n\024PLUG" +
+      "IN_STATE_WAITING\020\001\022\027\n\023PLUGIN_STATE_ACTIV" +
+      "E\020\002*f\n\016PluginPosition\022\037\n\033PLUGIN_POSITION" +
+      "_UNSPECIFIED\020\000\022\030\n\024PLUGIN_POSITION_LEFT\020\001" +
+      "\022\031\n\025PLUGIN_POSITION_RIGHT\020\002*\201\001\n\024PluginBu" +
+      "bblePosition\022&\n\"PLUGIN_BUBBLE_POSITION_U" +
+      "NSPECIFIED\020\000\022\036\n\032PLUGIN_BUBBLE_POSITION_T" +
+      "OP\020\001\022!\n\035PLUGIN_BUBBLE_POSITION_BOTTOM\020\002B" +
+      "b\n&io.channel.api.proto.pub.coreapi.mode" +
+      "lP\001Z6github.com/channel-io/ch-proto-publ" +
+      "ic/coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.TinyFileOuterClass.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_coreapi_model_Plugin_descriptor =
@@ -134,7 +108,7 @@ public final class PluginOuterClass {
     internal_static_coreapi_model_Plugin_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Plugin_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "Name", "State", "Appearance", "LabelButton", "LabelButtonText", "LabelButtonTextI18NMap", "ButtonType", "IconButton", "CustomImageUrl", "DeskImageUrl", "DeskMarginX", "DeskMarginY", "DeskHideButton", "DeskPosition", "MobileImageUrl", "MobileMarginX", "MobileMarginY", "MobilePosition", "MobileHideButton", "MobileBubblePosition", "RunRate", "FacebookPixelId", "CreatedAt", });
+        new java.lang.String[] { "Id", "ChannelId", "Name", "State", "LabelButton", "LabelButtonText", "LabelButtonTextI18NMap", "DeskImageUrl", "DeskMarginX", "DeskMarginY", "DeskPosition", "MobileImageUrl", "MobileMarginX", "MobileMarginY", "MobilePosition", "MobileHideButton", "MobileBubblePosition", "RunRate", "FacebookPixelId", "CreatedAt", "Key", "DeskImage", "MobileImage", "UrlWhitelist", "ValidLabelButtonText", "ValidLabelButtonTextI18NMap", });
     internal_static_coreapi_model_Plugin_LabelButtonTextI18nMapEntry_descriptor =
       internal_static_coreapi_model_Plugin_descriptor.getNestedTypes().get(0);
     internal_static_coreapi_model_Plugin_LabelButtonTextI18nMapEntry_fieldAccessorTable = new
@@ -147,6 +121,7 @@ public final class PluginOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.TinyFileOuterClass.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

@@ -73,59 +73,6 @@ func (PluginState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{0}
 }
 
-// Visual theme of the plugin widget.
-type PluginAppearance int32
-
-const (
-	PluginAppearance_PLUGIN_APPEARANCE_UNSPECIFIED PluginAppearance = 0
-	PluginAppearance_PLUGIN_APPEARANCE_LIGHT       PluginAppearance = 1
-	PluginAppearance_PLUGIN_APPEARANCE_DARK        PluginAppearance = 2
-	PluginAppearance_PLUGIN_APPEARANCE_SYSTEM      PluginAppearance = 3
-)
-
-// Enum value maps for PluginAppearance.
-var (
-	PluginAppearance_name = map[int32]string{
-		0: "PLUGIN_APPEARANCE_UNSPECIFIED",
-		1: "PLUGIN_APPEARANCE_LIGHT",
-		2: "PLUGIN_APPEARANCE_DARK",
-		3: "PLUGIN_APPEARANCE_SYSTEM",
-	}
-	PluginAppearance_value = map[string]int32{
-		"PLUGIN_APPEARANCE_UNSPECIFIED": 0,
-		"PLUGIN_APPEARANCE_LIGHT":       1,
-		"PLUGIN_APPEARANCE_DARK":        2,
-		"PLUGIN_APPEARANCE_SYSTEM":      3,
-	}
-)
-
-func (x PluginAppearance) Enum() *PluginAppearance {
-	p := new(PluginAppearance)
-	*p = x
-	return p
-}
-
-func (x PluginAppearance) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (PluginAppearance) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_plugin_proto_enumTypes[1].Descriptor()
-}
-
-func (PluginAppearance) Type() protoreflect.EnumType {
-	return &file_coreapi_model_plugin_proto_enumTypes[1]
-}
-
-func (x PluginAppearance) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use PluginAppearance.Descriptor instead.
-func (PluginAppearance) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{1}
-}
-
 // Horizontal position of the plugin widget.
 type PluginPosition int32
 
@@ -160,11 +107,11 @@ func (x PluginPosition) String() string {
 }
 
 func (PluginPosition) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_plugin_proto_enumTypes[2].Descriptor()
+	return file_coreapi_model_plugin_proto_enumTypes[1].Descriptor()
 }
 
 func (PluginPosition) Type() protoreflect.EnumType {
-	return &file_coreapi_model_plugin_proto_enumTypes[2]
+	return &file_coreapi_model_plugin_proto_enumTypes[1]
 }
 
 func (x PluginPosition) Number() protoreflect.EnumNumber {
@@ -173,7 +120,7 @@ func (x PluginPosition) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PluginPosition.Descriptor instead.
 func (PluginPosition) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{2}
+	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{1}
 }
 
 // Vertical position of the mobile chat bubble.
@@ -210,11 +157,11 @@ func (x PluginBubblePosition) String() string {
 }
 
 func (PluginBubblePosition) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_plugin_proto_enumTypes[3].Descriptor()
+	return file_coreapi_model_plugin_proto_enumTypes[2].Descriptor()
 }
 
 func (PluginBubblePosition) Type() protoreflect.EnumType {
-	return &file_coreapi_model_plugin_proto_enumTypes[3]
+	return &file_coreapi_model_plugin_proto_enumTypes[2]
 }
 
 func (x PluginBubblePosition) Number() protoreflect.EnumNumber {
@@ -223,161 +170,7 @@ func (x PluginBubblePosition) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PluginBubblePosition.Descriptor instead.
 func (PluginBubblePosition) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{3}
-}
-
-// Type of the plugin launcher button.
-type PluginButtonType int32
-
-const (
-	PluginButtonType_PLUGIN_BUTTON_TYPE_UNSPECIFIED  PluginButtonType = 0
-	PluginButtonType_PLUGIN_BUTTON_TYPE_LEGACY       PluginButtonType = 1
-	PluginButtonType_PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE PluginButtonType = 2
-	PluginButtonType_PLUGIN_BUTTON_TYPE_ICON_BUTTON  PluginButtonType = 3
-)
-
-// Enum value maps for PluginButtonType.
-var (
-	PluginButtonType_name = map[int32]string{
-		0: "PLUGIN_BUTTON_TYPE_UNSPECIFIED",
-		1: "PLUGIN_BUTTON_TYPE_LEGACY",
-		2: "PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE",
-		3: "PLUGIN_BUTTON_TYPE_ICON_BUTTON",
-	}
-	PluginButtonType_value = map[string]int32{
-		"PLUGIN_BUTTON_TYPE_UNSPECIFIED":  0,
-		"PLUGIN_BUTTON_TYPE_LEGACY":       1,
-		"PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE": 2,
-		"PLUGIN_BUTTON_TYPE_ICON_BUTTON":  3,
-	}
-)
-
-func (x PluginButtonType) Enum() *PluginButtonType {
-	p := new(PluginButtonType)
-	*p = x
-	return p
-}
-
-func (x PluginButtonType) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (PluginButtonType) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_plugin_proto_enumTypes[4].Descriptor()
-}
-
-func (PluginButtonType) Type() protoreflect.EnumType {
-	return &file_coreapi_model_plugin_proto_enumTypes[4]
-}
-
-func (x PluginButtonType) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use PluginButtonType.Descriptor instead.
-func (PluginButtonType) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{4}
-}
-
-// Predefined icon for the plugin launcher button.
-type PluginIconButton int32
-
-const (
-	PluginIconButton_PLUGIN_ICON_BUTTON_UNSPECIFIED            PluginIconButton = 0
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHANNEL                PluginIconButton = 1
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHANNEL_FILLED         PluginIconButton = 2
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT        PluginIconButton = 3
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_FILLED PluginIconButton = 4
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_BUBBLE_FILLED     PluginIconButton = 5
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_LIGHTNING_FILLED  PluginIconButton = 6
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_PROGRESS          PluginIconButton = 7
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED   PluginIconButton = 8
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_QUESTION          PluginIconButton = 9
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED   PluginIconButton = 10
-	PluginIconButton_PLUGIN_ICON_BUTTON_COMMENT                PluginIconButton = 11
-	PluginIconButton_PLUGIN_ICON_BUTTON_COMMENT_FILLED         PluginIconButton = 12
-	PluginIconButton_PLUGIN_ICON_BUTTON_COMMUNICATION          PluginIconButton = 13
-	PluginIconButton_PLUGIN_ICON_BUTTON_HEADSET                PluginIconButton = 14
-	PluginIconButton_PLUGIN_ICON_BUTTON_HELP_FILLED            PluginIconButton = 15
-	PluginIconButton_PLUGIN_ICON_BUTTON_SEND_FORWARD           PluginIconButton = 16
-	PluginIconButton_PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED    PluginIconButton = 17
-	PluginIconButton_PLUGIN_ICON_BUTTON_SMS                    PluginIconButton = 18
-	PluginIconButton_PLUGIN_ICON_BUTTON_SMS_FILLED             PluginIconButton = 19
-)
-
-// Enum value maps for PluginIconButton.
-var (
-	PluginIconButton_name = map[int32]string{
-		0:  "PLUGIN_ICON_BUTTON_UNSPECIFIED",
-		1:  "PLUGIN_ICON_BUTTON_CHANNEL",
-		2:  "PLUGIN_ICON_BUTTON_CHANNEL_FILLED",
-		3:  "PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT",
-		4:  "PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_FILLED",
-		5:  "PLUGIN_ICON_BUTTON_CHAT_BUBBLE_FILLED",
-		6:  "PLUGIN_ICON_BUTTON_CHAT_LIGHTNING_FILLED",
-		7:  "PLUGIN_ICON_BUTTON_CHAT_PROGRESS",
-		8:  "PLUGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED",
-		9:  "PLUGIN_ICON_BUTTON_CHAT_QUESTION",
-		10: "PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED",
-		11: "PLUGIN_ICON_BUTTON_COMMENT",
-		12: "PLUGIN_ICON_BUTTON_COMMENT_FILLED",
-		13: "PLUGIN_ICON_BUTTON_COMMUNICATION",
-		14: "PLUGIN_ICON_BUTTON_HEADSET",
-		15: "PLUGIN_ICON_BUTTON_HELP_FILLED",
-		16: "PLUGIN_ICON_BUTTON_SEND_FORWARD",
-		17: "PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED",
-		18: "PLUGIN_ICON_BUTTON_SMS",
-		19: "PLUGIN_ICON_BUTTON_SMS_FILLED",
-	}
-	PluginIconButton_value = map[string]int32{
-		"PLUGIN_ICON_BUTTON_UNSPECIFIED":            0,
-		"PLUGIN_ICON_BUTTON_CHANNEL":                1,
-		"PLUGIN_ICON_BUTTON_CHANNEL_FILLED":         2,
-		"PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT":        3,
-		"PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_FILLED": 4,
-		"PLUGIN_ICON_BUTTON_CHAT_BUBBLE_FILLED":     5,
-		"PLUGIN_ICON_BUTTON_CHAT_LIGHTNING_FILLED":  6,
-		"PLUGIN_ICON_BUTTON_CHAT_PROGRESS":          7,
-		"PLUGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED":   8,
-		"PLUGIN_ICON_BUTTON_CHAT_QUESTION":          9,
-		"PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED":   10,
-		"PLUGIN_ICON_BUTTON_COMMENT":                11,
-		"PLUGIN_ICON_BUTTON_COMMENT_FILLED":         12,
-		"PLUGIN_ICON_BUTTON_COMMUNICATION":          13,
-		"PLUGIN_ICON_BUTTON_HEADSET":                14,
-		"PLUGIN_ICON_BUTTON_HELP_FILLED":            15,
-		"PLUGIN_ICON_BUTTON_SEND_FORWARD":           16,
-		"PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED":    17,
-		"PLUGIN_ICON_BUTTON_SMS":                    18,
-		"PLUGIN_ICON_BUTTON_SMS_FILLED":             19,
-	}
-)
-
-func (x PluginIconButton) Enum() *PluginIconButton {
-	p := new(PluginIconButton)
-	*p = x
-	return p
-}
-
-func (x PluginIconButton) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (PluginIconButton) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_plugin_proto_enumTypes[5].Descriptor()
-}
-
-func (PluginIconButton) Type() protoreflect.EnumType {
-	return &file_coreapi_model_plugin_proto_enumTypes[5]
-}
-
-func (x PluginIconButton) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use PluginIconButton.Descriptor instead.
-func (PluginIconButton) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{5}
+	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{2}
 }
 
 // Plugin represents a channel's web chat widget configuration.
@@ -405,10 +198,6 @@ type Plugin struct {
 	//
 	// +kubebuilder:validation:Required
 	State PluginState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.PluginState" json:"state,omitempty"`
-	// Visual theme of the widget.
-	//
-	// +kubebuilder:validation:Required
-	Appearance PluginAppearance `protobuf:"varint,5,opt,name=appearance,proto3,enum=coreapi.model.PluginAppearance" json:"appearance,omitempty"`
 	// Whether the label button is displayed on the widget.
 	//
 	// +kubebuilder:validation:Nullable
@@ -424,19 +213,6 @@ type Plugin struct {
 	//
 	// +kubebuilder:validation:Nullable
 	LabelButtonTextI18NMap map[string]string `protobuf:"bytes,8,rep,name=label_button_text_i18n_map,json=labelButtonTextI18nMap,proto3" json:"label_button_text_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Type of the launcher button.
-	//
-	// +kubebuilder:validation:Required
-	ButtonType PluginButtonType `protobuf:"varint,9,opt,name=button_type,json=buttonType,proto3,enum=coreapi.model.PluginButtonType" json:"button_type,omitempty"`
-	// Predefined icon for the launcher button.
-	// Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-	//
-	// +kubebuilder:validation:Nullable
-	IconButton PluginIconButton `protobuf:"varint,10,opt,name=icon_button,json=iconButton,proto3,enum=coreapi.model.PluginIconButton" json:"icon_button,omitempty"`
-	// URL of the custom launcher button image.
-	//
-	// +kubebuilder:validation:Nullable
-	CustomImageUrl string `protobuf:"bytes,11,opt,name=custom_image_url,json=customImageUrl,proto3" json:"custom_image_url,omitempty"`
 	// URL of the desktop launcher button image.
 	//
 	// +kubebuilder:validation:Nullable
@@ -449,10 +225,6 @@ type Plugin struct {
 	//
 	// +kubebuilder:validation:Nullable
 	DeskMarginY int32 `protobuf:"varint,14,opt,name=desk_margin_y,json=deskMarginY,proto3" json:"desk_margin_y,omitempty"`
-	// Whether the launcher button is hidden on desktop.
-	//
-	// +kubebuilder:validation:Nullable
-	DeskHideButton bool `protobuf:"varint,15,opt,name=desk_hide_button,json=deskHideButton,proto3" json:"desk_hide_button,omitempty"`
 	// Horizontal position of the widget on desktop.
 	//
 	// +kubebuilder:validation:Nullable
@@ -494,9 +266,35 @@ type Plugin struct {
 	// Plugin creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Unique plugin key in UUID format.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Format="uuid"
+	Key string `protobuf:"bytes,26,opt,name=key,proto3" json:"key,omitempty"`
+	// Desktop launcher button image reference.
+	//
+	// +kubebuilder:validation:Nullable
+	DeskImage *TinyFile `protobuf:"bytes,27,opt,name=desk_image,json=deskImage,proto3" json:"desk_image,omitempty"`
+	// Mobile launcher button image reference.
+	//
+	// +kubebuilder:validation:Nullable
+	MobileImage *TinyFile `protobuf:"bytes,28,opt,name=mobile_image,json=mobileImage,proto3" json:"mobile_image,omitempty"`
+	// Allowed URL patterns for the plugin widget.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MaxItems=5
+	UrlWhitelist []string `protobuf:"bytes,29,rep,name=url_whitelist,json=urlWhitelist,proto3" json:"url_whitelist,omitempty"`
+	// Whether the label button text is valid.
+	//
+	// +kubebuilder:validation:Nullable
+	ValidLabelButtonText bool `protobuf:"varint,30,opt,name=valid_label_button_text,json=validLabelButtonText,proto3" json:"valid_label_button_text,omitempty"`
+	// Whether the internationalized label button text map is valid.
+	//
+	// +kubebuilder:validation:Nullable
+	ValidLabelButtonTextI18NMap bool `protobuf:"varint,31,opt,name=valid_label_button_text_i18n_map,json=validLabelButtonTextI18nMap,proto3" json:"valid_label_button_text_i18n_map,omitempty"`
+	unknownFields               protoimpl.UnknownFields
+	sizeCache                   protoimpl.SizeCache
 }
 
 func (x *Plugin) Reset() {
@@ -557,13 +355,6 @@ func (x *Plugin) GetState() PluginState {
 	return PluginState_PLUGIN_STATE_UNSPECIFIED
 }
 
-func (x *Plugin) GetAppearance() PluginAppearance {
-	if x != nil {
-		return x.Appearance
-	}
-	return PluginAppearance_PLUGIN_APPEARANCE_UNSPECIFIED
-}
-
 func (x *Plugin) GetLabelButton() bool {
 	if x != nil {
 		return x.LabelButton
@@ -585,27 +376,6 @@ func (x *Plugin) GetLabelButtonTextI18NMap() map[string]string {
 	return nil
 }
 
-func (x *Plugin) GetButtonType() PluginButtonType {
-	if x != nil {
-		return x.ButtonType
-	}
-	return PluginButtonType_PLUGIN_BUTTON_TYPE_UNSPECIFIED
-}
-
-func (x *Plugin) GetIconButton() PluginIconButton {
-	if x != nil {
-		return x.IconButton
-	}
-	return PluginIconButton_PLUGIN_ICON_BUTTON_UNSPECIFIED
-}
-
-func (x *Plugin) GetCustomImageUrl() string {
-	if x != nil {
-		return x.CustomImageUrl
-	}
-	return ""
-}
-
 func (x *Plugin) GetDeskImageUrl() string {
 	if x != nil {
 		return x.DeskImageUrl
@@ -625,13 +395,6 @@ func (x *Plugin) GetDeskMarginY() int32 {
 		return x.DeskMarginY
 	}
 	return 0
-}
-
-func (x *Plugin) GetDeskHideButton() bool {
-	if x != nil {
-		return x.DeskHideButton
-	}
-	return false
 }
 
 func (x *Plugin) GetDeskPosition() PluginPosition {
@@ -704,11 +467,53 @@ func (x *Plugin) GetCreatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
+func (x *Plugin) GetKey() string {
+	if x != nil {
+		return x.Key
+	}
+	return ""
+}
+
+func (x *Plugin) GetDeskImage() *TinyFile {
+	if x != nil {
+		return x.DeskImage
+	}
+	return nil
+}
+
+func (x *Plugin) GetMobileImage() *TinyFile {
+	if x != nil {
+		return x.MobileImage
+	}
+	return nil
+}
+
+func (x *Plugin) GetUrlWhitelist() []string {
+	if x != nil {
+		return x.UrlWhitelist
+	}
+	return nil
+}
+
+func (x *Plugin) GetValidLabelButtonText() bool {
+	if x != nil {
+		return x.ValidLabelButtonText
+	}
+	return false
+}
+
+func (x *Plugin) GetValidLabelButtonTextI18NMap() bool {
+	if x != nil {
+		return x.ValidLabelButtonTextI18NMap
+	}
+	return false
+}
+
 var File_coreapi_model_plugin_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_plugin_proto_rawDesc = "" +
 	"\n" +
-	"\x1acoreapi/model/plugin.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe0\x0e\n" +
+	"\x1acoreapi/model/plugin.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/tiny_file.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe0\x0e\n" +
 	"\x06Plugin\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -718,25 +523,15 @@ const file_coreapi_model_plugin_proto_rawDesc = "" +
 	"\x04name\x18\x03 \x01(\tB\x9c\x01\xbaH\x98\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01R\x04name\x128\n" +
-	"\x05state\x18\x04 \x01(\x0e2\x1a.coreapi.model.PluginStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12G\n" +
-	"\n" +
-	"appearance\x18\x05 \x01(\x0e2\x1f.coreapi.model.PluginAppearanceB\x06\xbaH\x03\xc8\x01\x01R\n" +
-	"appearance\x12!\n" +
+	"\x05state\x18\x04 \x01(\x0e2\x1a.coreapi.model.PluginStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12!\n" +
 	"\flabel_button\x18\x06 \x01(\bR\vlabelButton\x12\x9e\x01\n" +
 	"\x11label_button_text\x18\a \x01(\tBr\xbaHo\xba\x01l\n" +
 	"\n" +
 	"string.len\x12)value must be between 4 and 30 characters\x1a3this == '' || (size(this) >= 4 && size(this) <= 30)R\x0flabelButtonText\x12m\n" +
-	"\x1alabel_button_text_i18n_map\x18\b \x03(\v21.coreapi.model.Plugin.LabelButtonTextI18nMapEntryR\x16labelButtonTextI18nMap\x12H\n" +
-	"\vbutton_type\x18\t \x01(\x0e2\x1f.coreapi.model.PluginButtonTypeB\x06\xbaH\x03\xc8\x01\x01R\n" +
-	"buttonType\x12@\n" +
-	"\vicon_button\x18\n" +
-	" \x01(\x0e2\x1f.coreapi.model.PluginIconButtonR\n" +
-	"iconButton\x12(\n" +
-	"\x10custom_image_url\x18\v \x01(\tR\x0ecustomImageUrl\x12$\n" +
+	"\x1alabel_button_text_i18n_map\x18\b \x03(\v21.coreapi.model.Plugin.LabelButtonTextI18nMapEntryR\x16labelButtonTextI18nMap\x12$\n" +
 	"\x0edesk_image_url\x18\f \x01(\tR\fdeskImageUrl\x12\"\n" +
 	"\rdesk_margin_x\x18\r \x01(\x05R\vdeskMarginX\x12\"\n" +
-	"\rdesk_margin_y\x18\x0e \x01(\x05R\vdeskMarginY\x12(\n" +
-	"\x10desk_hide_button\x18\x0f \x01(\bR\x0edeskHideButton\x12B\n" +
+	"\rdesk_margin_y\x18\x0e \x01(\x05R\vdeskMarginY\x12B\n" +
 	"\rdesk_position\x18\x10 \x01(\x0e2\x1d.coreapi.model.PluginPositionR\fdeskPosition\x12(\n" +
 	"\x10mobile_image_url\x18\x11 \x01(\tR\x0emobileImageUrl\x12&\n" +
 	"\x0fmobile_margin_x\x18\x12 \x01(\x05R\rmobileMarginX\x12&\n" +
@@ -749,19 +544,21 @@ const file_coreapi_model_plugin_proto_rawDesc = "" +
 	"\tfloat.lte\x12\x17value must be at most 1\x1a\vthis <= 1.0R\arunRate\x12*\n" +
 	"\x11facebook_pixel_id\x18\x18 \x01(\tR\x0ffacebookPixelId\x12A\n" +
 	"\n" +
-	"created_at\x18\x19 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x1aI\n" +
+	"created_at\x18\x19 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12\x10\n" +
+	"\x03key\x18\x1a \x01(\tR\x03key\x126\n" +
+	"\n" +
+	"desk_image\x18\x1b \x01(\v2\x17.coreapi.model.TinyFileR\tdeskImage\x12:\n" +
+	"\fmobile_image\x18\x1c \x01(\v2\x17.coreapi.model.TinyFileR\vmobileImage\x12#\n" +
+	"\rurl_whitelist\x18\x1d \x03(\tR\furlWhitelist\x125\n" +
+	"\x17valid_label_button_text\x18\x1e \x01(\bR\x14validLabelButtonText\x12E\n" +
+	" valid_label_button_text_i18n_map\x18\x1f \x01(\bR\x1bvalidLabelButtonTextI18nMap\x1aI\n" +
 	"\x1bLabelButtonTextI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01*^\n" +
 	"\vPluginState\x12\x1c\n" +
 	"\x18PLUGIN_STATE_UNSPECIFIED\x10\x00\x12\x18\n" +
 	"\x14PLUGIN_STATE_WAITING\x10\x01\x12\x17\n" +
-	"\x13PLUGIN_STATE_ACTIVE\x10\x02*\x8c\x01\n" +
-	"\x10PluginAppearance\x12!\n" +
-	"\x1dPLUGIN_APPEARANCE_UNSPECIFIED\x10\x00\x12\x1b\n" +
-	"\x17PLUGIN_APPEARANCE_LIGHT\x10\x01\x12\x1a\n" +
-	"\x16PLUGIN_APPEARANCE_DARK\x10\x02\x12\x1c\n" +
-	"\x18PLUGIN_APPEARANCE_SYSTEM\x10\x03*f\n" +
+	"\x13PLUGIN_STATE_ACTIVE\x10\x02*f\n" +
 	"\x0ePluginPosition\x12\x1f\n" +
 	"\x1bPLUGIN_POSITION_UNSPECIFIED\x10\x00\x12\x18\n" +
 	"\x14PLUGIN_POSITION_LEFT\x10\x01\x12\x19\n" +
@@ -769,34 +566,7 @@ const file_coreapi_model_plugin_proto_rawDesc = "" +
 	"\x14PluginBubblePosition\x12&\n" +
 	"\"PLUGIN_BUBBLE_POSITION_UNSPECIFIED\x10\x00\x12\x1e\n" +
 	"\x1aPLUGIN_BUBBLE_POSITION_TOP\x10\x01\x12!\n" +
-	"\x1dPLUGIN_BUBBLE_POSITION_BOTTOM\x10\x02*\x9e\x01\n" +
-	"\x10PluginButtonType\x12\"\n" +
-	"\x1ePLUGIN_BUTTON_TYPE_UNSPECIFIED\x10\x00\x12\x1d\n" +
-	"\x19PLUGIN_BUTTON_TYPE_LEGACY\x10\x01\x12#\n" +
-	"\x1fPLUGIN_BUTTON_TYPE_CUSTOM_IMAGE\x10\x02\x12\"\n" +
-	"\x1ePLUGIN_BUTTON_TYPE_ICON_BUTTON\x10\x03*\x94\x06\n" +
-	"\x10PluginIconButton\x12\"\n" +
-	"\x1ePLUGIN_ICON_BUTTON_UNSPECIFIED\x10\x00\x12\x1e\n" +
-	"\x1aPLUGIN_ICON_BUTTON_CHANNEL\x10\x01\x12%\n" +
-	"!PLUGIN_ICON_BUTTON_CHANNEL_FILLED\x10\x02\x12&\n" +
-	"\"PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT\x10\x03\x12-\n" +
-	")PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_FILLED\x10\x04\x12)\n" +
-	"%PLUGIN_ICON_BUTTON_CHAT_BUBBLE_FILLED\x10\x05\x12,\n" +
-	"(PLUGIN_ICON_BUTTON_CHAT_LIGHTNING_FILLED\x10\x06\x12$\n" +
-	" PLUGIN_ICON_BUTTON_CHAT_PROGRESS\x10\a\x12+\n" +
-	"'PLUGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED\x10\b\x12$\n" +
-	" PLUGIN_ICON_BUTTON_CHAT_QUESTION\x10\t\x12+\n" +
-	"'PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED\x10\n" +
-	"\x12\x1e\n" +
-	"\x1aPLUGIN_ICON_BUTTON_COMMENT\x10\v\x12%\n" +
-	"!PLUGIN_ICON_BUTTON_COMMENT_FILLED\x10\f\x12$\n" +
-	" PLUGIN_ICON_BUTTON_COMMUNICATION\x10\r\x12\x1e\n" +
-	"\x1aPLUGIN_ICON_BUTTON_HEADSET\x10\x0e\x12\"\n" +
-	"\x1ePLUGIN_ICON_BUTTON_HELP_FILLED\x10\x0f\x12#\n" +
-	"\x1fPLUGIN_ICON_BUTTON_SEND_FORWARD\x10\x10\x12*\n" +
-	"&PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED\x10\x11\x12\x1a\n" +
-	"\x16PLUGIN_ICON_BUTTON_SMS\x10\x12\x12!\n" +
-	"\x1dPLUGIN_ICON_BUTTON_SMS_FILLED\x10\x13Bb\n" +
+	"\x1dPLUGIN_BUBBLE_POSITION_BOTTOM\x10\x02Bb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -811,34 +581,31 @@ func file_coreapi_model_plugin_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_plugin_proto_rawDescData
 }
 
-var file_coreapi_model_plugin_proto_enumTypes = make([]protoimpl.EnumInfo, 6)
+var file_coreapi_model_plugin_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_coreapi_model_plugin_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_coreapi_model_plugin_proto_goTypes = []any{
 	(PluginState)(0),              // 0: coreapi.model.PluginState
-	(PluginAppearance)(0),         // 1: coreapi.model.PluginAppearance
-	(PluginPosition)(0),           // 2: coreapi.model.PluginPosition
-	(PluginBubblePosition)(0),     // 3: coreapi.model.PluginBubblePosition
-	(PluginButtonType)(0),         // 4: coreapi.model.PluginButtonType
-	(PluginIconButton)(0),         // 5: coreapi.model.PluginIconButton
-	(*Plugin)(nil),                // 6: coreapi.model.Plugin
-	nil,                           // 7: coreapi.model.Plugin.LabelButtonTextI18nMapEntry
-	(*timestamppb.Timestamp)(nil), // 8: google.protobuf.Timestamp
+	(PluginPosition)(0),           // 1: coreapi.model.PluginPosition
+	(PluginBubblePosition)(0),     // 2: coreapi.model.PluginBubblePosition
+	(*Plugin)(nil),                // 3: coreapi.model.Plugin
+	nil,                           // 4: coreapi.model.Plugin.LabelButtonTextI18nMapEntry
+	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
+	(*TinyFile)(nil),              // 6: coreapi.model.TinyFile
 }
 var file_coreapi_model_plugin_proto_depIdxs = []int32{
 	0, // 0: coreapi.model.Plugin.state:type_name -> coreapi.model.PluginState
-	1, // 1: coreapi.model.Plugin.appearance:type_name -> coreapi.model.PluginAppearance
-	7, // 2: coreapi.model.Plugin.label_button_text_i18n_map:type_name -> coreapi.model.Plugin.LabelButtonTextI18nMapEntry
-	4, // 3: coreapi.model.Plugin.button_type:type_name -> coreapi.model.PluginButtonType
-	5, // 4: coreapi.model.Plugin.icon_button:type_name -> coreapi.model.PluginIconButton
-	2, // 5: coreapi.model.Plugin.desk_position:type_name -> coreapi.model.PluginPosition
-	2, // 6: coreapi.model.Plugin.mobile_position:type_name -> coreapi.model.PluginPosition
-	3, // 7: coreapi.model.Plugin.mobile_bubble_position:type_name -> coreapi.model.PluginBubblePosition
-	8, // 8: coreapi.model.Plugin.created_at:type_name -> google.protobuf.Timestamp
-	9, // [9:9] is the sub-list for method output_type
-	9, // [9:9] is the sub-list for method input_type
-	9, // [9:9] is the sub-list for extension type_name
-	9, // [9:9] is the sub-list for extension extendee
-	0, // [0:9] is the sub-list for field type_name
+	4, // 1: coreapi.model.Plugin.label_button_text_i18n_map:type_name -> coreapi.model.Plugin.LabelButtonTextI18nMapEntry
+	1, // 2: coreapi.model.Plugin.desk_position:type_name -> coreapi.model.PluginPosition
+	1, // 3: coreapi.model.Plugin.mobile_position:type_name -> coreapi.model.PluginPosition
+	2, // 4: coreapi.model.Plugin.mobile_bubble_position:type_name -> coreapi.model.PluginBubblePosition
+	5, // 5: coreapi.model.Plugin.created_at:type_name -> google.protobuf.Timestamp
+	6, // 6: coreapi.model.Plugin.desk_image:type_name -> coreapi.model.TinyFile
+	6, // 7: coreapi.model.Plugin.mobile_image:type_name -> coreapi.model.TinyFile
+	8, // [8:8] is the sub-list for method output_type
+	8, // [8:8] is the sub-list for method input_type
+	8, // [8:8] is the sub-list for extension type_name
+	8, // [8:8] is the sub-list for extension extendee
+	0, // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_plugin_proto_init() }
@@ -846,12 +613,13 @@ func file_coreapi_model_plugin_proto_init() {
 	if File_coreapi_model_plugin_proto != nil {
 		return
 	}
+	file_coreapi_model_tiny_file_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_plugin_proto_rawDesc), len(file_coreapi_model_plugin_proto_rawDesc)),
-			NumEnums:      6,
+			NumEnums:      3,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,

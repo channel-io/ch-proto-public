@@ -100,28 +100,6 @@ public interface UserChatOrBuilder extends
 
   /**
    * <pre>
-   * External reference ID of the user.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string xer_id = 5 [json_name = "xerId"];</code>
-   * @return The xerId.
-   */
-  java.lang.String getXerId();
-  /**
-   * <pre>
-   * External reference ID of the user.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string xer_id = 5 [json_name = "xerId"];</code>
-   * @return The bytes for xerId.
-   */
-  com.google.protobuf.ByteString
-      getXerIdBytes();
-
-  /**
-   * <pre>
    * ID of the manager currently assigned to this chat.
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -212,52 +190,6 @@ public interface UserChatOrBuilder extends
 
   /**
    * <pre>
-   * Reason why the chat was missed.
-   * Present only when state is MISSED.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string missed_reason = 10 [json_name = "missedReason"];</code>
-   * @return The missedReason.
-   */
-  java.lang.String getMissedReason();
-  /**
-   * <pre>
-   * Reason why the chat was missed.
-   * Present only when state is MISSED.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string missed_reason = 10 [json_name = "missedReason"];</code>
-   * @return The bytes for missedReason.
-   */
-  com.google.protobuf.ByteString
-      getMissedReasonBytes();
-
-  /**
-   * <pre>
-   * ID of the active meet session associated with this chat.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string live_meet_id = 11 [json_name = "liveMeetId"];</code>
-   * @return The liveMeetId.
-   */
-  java.lang.String getLiveMeetId();
-  /**
-   * <pre>
-   * ID of the active meet session associated with this chat.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string live_meet_id = 11 [json_name = "liveMeetId"];</code>
-   * @return The bytes for liveMeetId.
-   */
-  com.google.protobuf.ByteString
-      getLiveMeetIdBytes();
-
-  /**
-   * <pre>
    * Automated handling state of this chat.
    * Varies by handling type (workflow, ALF, support bot, etc.).
    * +kubebuilder:validation:Nullable
@@ -321,36 +253,6 @@ public interface UserChatOrBuilder extends
 
   /**
    * <pre>
-   * Custom profile data associated with this chat.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct profile = 14 [json_name = "profile"];</code>
-   * @return Whether the profile field is set.
-   */
-  boolean hasProfile();
-  /**
-   * <pre>
-   * Custom profile data associated with this chat.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct profile = 14 [json_name = "profile"];</code>
-   * @return The profile.
-   */
-  com.google.protobuf.Struct getProfile();
-  /**
-   * <pre>
-   * Custom profile data associated with this chat.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct profile = 14 [json_name = "profile"];</code>
-   */
-  com.google.protobuf.StructOrBuilder getProfileOrBuilder();
-
-  /**
-   * <pre>
    * Timestamp when the chat was first opened.
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -408,66 +310,6 @@ public interface UserChatOrBuilder extends
    * <code>.google.protobuf.Timestamp opened_at = 16 [json_name = "openedAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getOpenedAtOrBuilder();
-
-  /**
-   * <pre>
-   * Timestamp when the chat first entered the queue.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_queued_at = 17 [json_name = "firstQueuedAt"];</code>
-   * @return Whether the firstQueuedAt field is set.
-   */
-  boolean hasFirstQueuedAt();
-  /**
-   * <pre>
-   * Timestamp when the chat first entered the queue.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_queued_at = 17 [json_name = "firstQueuedAt"];</code>
-   * @return The firstQueuedAt.
-   */
-  com.google.protobuf.Timestamp getFirstQueuedAt();
-  /**
-   * <pre>
-   * Timestamp when the chat first entered the queue.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_queued_at = 17 [json_name = "firstQueuedAt"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getFirstQueuedAtOrBuilder();
-
-  /**
-   * <pre>
-   * Timestamp when the chat most recently entered the queue.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp queued_at = 18 [json_name = "queuedAt"];</code>
-   * @return Whether the queuedAt field is set.
-   */
-  boolean hasQueuedAt();
-  /**
-   * <pre>
-   * Timestamp when the chat most recently entered the queue.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp queued_at = 18 [json_name = "queuedAt"];</code>
-   * @return The queuedAt.
-   */
-  com.google.protobuf.Timestamp getQueuedAt();
-  /**
-   * <pre>
-   * Timestamp when the chat most recently entered the queue.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp queued_at = 18 [json_name = "queuedAt"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getQueuedAtOrBuilder();
 
   /**
    * <pre>
@@ -558,36 +400,6 @@ public interface UserChatOrBuilder extends
    * <code>.google.protobuf.Timestamp closed_at = 21 [json_name = "closedAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getClosedAtOrBuilder();
-
-  /**
-   * <pre>
-   * Timestamp when a manager first replied.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at = 22 [json_name = "firstRepliedAt"];</code>
-   * @return Whether the firstRepliedAt field is set.
-   */
-  boolean hasFirstRepliedAt();
-  /**
-   * <pre>
-   * Timestamp when a manager first replied.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at = 22 [json_name = "firstRepliedAt"];</code>
-   * @return The firstRepliedAt.
-   */
-  com.google.protobuf.Timestamp getFirstRepliedAt();
-  /**
-   * <pre>
-   * Timestamp when a manager first replied.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at = 22 [json_name = "firstRepliedAt"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getFirstRepliedAtOrBuilder();
 
   /**
    * <pre>
@@ -922,4 +734,309 @@ public interface UserChatOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTagsBytes(int index);
+
+  /**
+   * <pre>
+   * Whether this chat is in managed state.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool managed = 41 [json_name = "managed"];</code>
+   * @return The managed.
+   */
+  boolean getManaged();
+
+  /**
+   * <pre>
+   * Display name of this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string name = 42 [json_name = "name"];</code>
+   * @return The name.
+   */
+  java.lang.String getName();
+  /**
+   * <pre>
+   * Display name of this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string name = 42 [json_name = "name"];</code>
+   * @return The bytes for name.
+   */
+  com.google.protobuf.ByteString
+      getNameBytes();
+
+  /**
+   * <pre>
+   * IDs of managers participating in this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+   * @return A list containing the managerIds.
+   */
+  java.util.List<java.lang.String>
+      getManagerIdsList();
+  /**
+   * <pre>
+   * IDs of managers participating in this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+   * @return The count of managerIds.
+   */
+  int getManagerIdsCount();
+  /**
+   * <pre>
+   * IDs of managers participating in this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+   * @param index The index of the element to return.
+   * @return The managerIds at the given index.
+   */
+  java.lang.String getManagerIds(int index);
+  /**
+   * <pre>
+   * IDs of managers participating in this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the managerIds at the given index.
+   */
+  com.google.protobuf.ByteString
+      getManagerIdsBytes(int index);
+
+  /**
+   * <pre>
+   * Name of the event tracked as a conversion goal.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string goal_event_name = 44 [json_name = "goalEventName"];</code>
+   * @return The goalEventName.
+   */
+  java.lang.String getGoalEventName();
+  /**
+   * <pre>
+   * Name of the event tracked as a conversion goal.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string goal_event_name = 44 [json_name = "goalEventName"];</code>
+   * @return The bytes for goalEventName.
+   */
+  com.google.protobuf.ByteString
+      getGoalEventNameBytes();
+
+  /**
+   * <pre>
+   * Filtering query for the goal event.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct goal_event_query = 45 [json_name = "goalEventQuery"];</code>
+   * @return Whether the goalEventQuery field is set.
+   */
+  boolean hasGoalEventQuery();
+  /**
+   * <pre>
+   * Filtering query for the goal event.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct goal_event_query = 45 [json_name = "goalEventQuery"];</code>
+   * @return The goalEventQuery.
+   */
+  com.google.protobuf.Struct getGoalEventQuery();
+  /**
+   * <pre>
+   * Filtering query for the goal event.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct goal_event_query = 45 [json_name = "goalEventQuery"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getGoalEventQueryOrBuilder();
+
+  /**
+   * <pre>
+   * Timestamp when the goal was last checked.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp goal_checked_at = 46 [json_name = "goalCheckedAt"];</code>
+   * @return Whether the goalCheckedAt field is set.
+   */
+  boolean hasGoalCheckedAt();
+  /**
+   * <pre>
+   * Timestamp when the goal was last checked.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp goal_checked_at = 46 [json_name = "goalCheckedAt"];</code>
+   * @return The goalCheckedAt.
+   */
+  com.google.protobuf.Timestamp getGoalCheckedAt();
+  /**
+   * <pre>
+   * Timestamp when the goal was last checked.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp goal_checked_at = 46 [json_name = "goalCheckedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getGoalCheckedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Current goal achievement state.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string goal_state = 47 [json_name = "goalState"];</code>
+   * @return The goalState.
+   */
+  java.lang.String getGoalState();
+  /**
+   * <pre>
+   * Current goal achievement state.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string goal_state = 47 [json_name = "goalState"];</code>
+   * @return The bytes for goalState.
+   */
+  com.google.protobuf.ByteString
+      getGoalStateBytes();
+
+  /**
+   * <pre>
+   * ID of the most recent desk-facing message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string desk_message_id = 48 [json_name = "deskMessageId"];</code>
+   * @return The deskMessageId.
+   */
+  java.lang.String getDeskMessageId();
+  /**
+   * <pre>
+   * ID of the most recent desk-facing message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string desk_message_id = 48 [json_name = "deskMessageId"];</code>
+   * @return The bytes for deskMessageId.
+   */
+  com.google.protobuf.ByteString
+      getDeskMessageIdBytes();
+
+  /**
+   * <pre>
+   * Timestamp when the desk-facing content was last updated.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp desk_updated_at = 49 [json_name = "deskUpdatedAt"];</code>
+   * @return Whether the deskUpdatedAt field is set.
+   */
+  boolean hasDeskUpdatedAt();
+  /**
+   * <pre>
+   * Timestamp when the desk-facing content was last updated.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp desk_updated_at = 49 [json_name = "deskUpdatedAt"];</code>
+   * @return The deskUpdatedAt.
+   */
+  com.google.protobuf.Timestamp getDeskUpdatedAt();
+  /**
+   * <pre>
+   * Timestamp when the desk-facing content was last updated.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp desk_updated_at = 49 [json_name = "deskUpdatedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getDeskUpdatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Timestamp when the chat was snoozed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp snoozed_at = 50 [json_name = "snoozedAt"];</code>
+   * @return Whether the snoozedAt field is set.
+   */
+  boolean hasSnoozedAt();
+  /**
+   * <pre>
+   * Timestamp when the chat was snoozed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp snoozed_at = 50 [json_name = "snoozedAt"];</code>
+   * @return The snoozedAt.
+   */
+  com.google.protobuf.Timestamp getSnoozedAt();
+  /**
+   * <pre>
+   * Timestamp when the chat was snoozed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp snoozed_at = 50 [json_name = "snoozedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getSnoozedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Timestamp when the chat expires.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+   * @return Whether the expireAt field is set.
+   */
+  boolean hasExpireAt();
+  /**
+   * <pre>
+   * Timestamp when the chat expires.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+   * @return The expireAt.
+   */
+  com.google.protobuf.Timestamp getExpireAt();
+  /**
+   * <pre>
+   * Timestamp when the chat expires.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getExpireAtOrBuilder();
+
+  /**
+   * <pre>
+   * Chat data version number.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int64 version = 52 [json_name = "version"];</code>
+   * @return The version.
+   */
+  long getVersion();
 }

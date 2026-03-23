@@ -24,15 +24,8 @@ private static final long serialVersionUID = 0L;
     channelId_ = "";
     name_ = "";
     state_ = 0;
-    sendMode_ = 0;
-    channelOperationId_ = "";
-    mediumType_ = 0;
-    mediumId_ = "";
-    mediumTopicBuildKey_ = "";
-    mediumTopicBuildLabels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     goalEventName_ = "";
-    localStartAt_ = "";
-    appSegments_ = java.util.Collections.emptyList();
+    sendMedium_ = "";
   }
 
   @java.lang.Override
@@ -55,7 +48,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -90,45 +82,6 @@ private static final long serialVersionUID = 0L;
             state_ = rawValue;
             break;
           }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            sendMode_ = rawValue;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            channelOperationId_ = s;
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            mediumType_ = rawValue;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            mediumId_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            mediumTopicBuildKey_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              mediumTopicBuildLabels_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            mediumTopicBuildLabels_.add(s);
-            break;
-          }
           case 98: {
             com.google.protobuf.Struct.Builder subBuilder = null;
             if (settings_ != null) {
@@ -153,19 +106,6 @@ private static final long serialVersionUID = 0L;
               userQuery_ = subBuilder.buildPartial();
             }
 
-            break;
-          }
-          case 114: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              conversionWindows_ = com.google.protobuf.MapField.newMapField(
-                  ConversionWindowsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Duration>
-            conversionWindows__ = input.readMessage(
-                ConversionWindowsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            conversionWindows_.getMutableMap().put(
-                conversionWindows__.getKey(), conversionWindows__.getValue());
             break;
           }
           case 122: {
@@ -226,12 +166,6 @@ private static final long serialVersionUID = 0L;
               startAt_ = subBuilder.buildPartial();
             }
 
-            break;
-          }
-          case 178: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            localStartAt_ = s;
             break;
           }
           case 186: {
@@ -306,13 +240,10 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 250: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              appSegments_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.AppSegment>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            appSegments_.add(
-                input.readMessage(io.channel.api.proto.pub.coreapi.model.AppSegment.parser(), extensionRegistry));
+          case 258: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            sendMedium_ = s;
             break;
           }
           default: {
@@ -330,12 +261,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        mediumTopicBuildLabels_ = mediumTopicBuildLabels_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        appSegments_ = java.util.Collections.unmodifiableList(appSegments_);
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -345,18 +270,6 @@ private static final long serialVersionUID = 0L;
     return io.channel.api.proto.pub.coreapi.model.OneTimeMsgOuterClass.internal_static_coreapi_model_OneTimeMsg_descriptor;
   }
 
-  @SuppressWarnings({"rawtypes"})
-  @java.lang.Override
-  protected com.google.protobuf.MapField internalGetMapField(
-      int number) {
-    switch (number) {
-      case 14:
-        return internalGetConversionWindows();
-      default:
-        throw new RuntimeException(
-            "Invalid map field number: " + number);
-    }
-  }
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -546,269 +459,6 @@ private static final long serialVersionUID = 0L;
     return result == null ? io.channel.api.proto.pub.coreapi.model.OneTimeMsgState.UNRECOGNIZED : result;
   }
 
-  public static final int SEND_MODE_FIELD_NUMBER = 5;
-  private int sendMode_;
-  /**
-   * <pre>
-   * Delivery timing mode.
-   * Automatically inferred from start_at and local_start_at if not explicitly set.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.OneTimeMsgSendMode send_mode = 5 [json_name = "sendMode"];</code>
-   * @return The enum numeric value on the wire for sendMode.
-   */
-  @java.lang.Override public int getSendModeValue() {
-    return sendMode_;
-  }
-  /**
-   * <pre>
-   * Delivery timing mode.
-   * Automatically inferred from start_at and local_start_at if not explicitly set.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.OneTimeMsgSendMode send_mode = 5 [json_name = "sendMode"];</code>
-   * @return The sendMode.
-   */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.OneTimeMsgSendMode getSendMode() {
-    @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.OneTimeMsgSendMode result = io.channel.api.proto.pub.coreapi.model.OneTimeMsgSendMode.valueOf(sendMode_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.OneTimeMsgSendMode.UNRECOGNIZED : result;
-  }
-
-  public static final int CHANNEL_OPERATION_ID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object channelOperationId_;
-  /**
-   * <pre>
-   * Channel operation ID for business hours scheduling.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
-   * @return The channelOperationId.
-   */
-  @java.lang.Override
-  public java.lang.String getChannelOperationId() {
-    java.lang.Object ref = channelOperationId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      channelOperationId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Channel operation ID for business hours scheduling.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
-   * @return The bytes for channelOperationId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getChannelOperationIdBytes() {
-    java.lang.Object ref = channelOperationId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      channelOperationId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int MEDIUM_TYPE_FIELD_NUMBER = 7;
-  private int mediumType_;
-  /**
-   * <pre>
-   * Delivery medium type.
-   * May be unset for draft messages.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MediumType medium_type = 7 [json_name = "mediumType"];</code>
-   * @return The enum numeric value on the wire for mediumType.
-   */
-  @java.lang.Override public int getMediumTypeValue() {
-    return mediumType_;
-  }
-  /**
-   * <pre>
-   * Delivery medium type.
-   * May be unset for draft messages.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MediumType medium_type = 7 [json_name = "mediumType"];</code>
-   * @return The mediumType.
-   */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.MediumType getMediumType() {
-    @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.MediumType result = io.channel.api.proto.pub.coreapi.model.MediumType.valueOf(mediumType_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.MediumType.UNRECOGNIZED : result;
-  }
-
-  public static final int MEDIUM_ID_FIELD_NUMBER = 8;
-  private volatile java.lang.Object mediumId_;
-  /**
-   * <pre>
-   * Identifier of the specific medium instance.
-   * Required for APP medium type.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string medium_id = 8 [json_name = "mediumId"];</code>
-   * @return The mediumId.
-   */
-  @java.lang.Override
-  public java.lang.String getMediumId() {
-    java.lang.Object ref = mediumId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      mediumId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Identifier of the specific medium instance.
-   * Required for APP medium type.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string medium_id = 8 [json_name = "mediumId"];</code>
-   * @return The bytes for mediumId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getMediumIdBytes() {
-    java.lang.Object ref = mediumId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      mediumId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int MEDIUM_TOPIC_BUILD_KEY_FIELD_NUMBER = 9;
-  private volatile java.lang.Object mediumTopicBuildKey_;
-  /**
-   * <pre>
-   * Key for selecting the message topic template within the medium.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string medium_topic_build_key = 9 [json_name = "mediumTopicBuildKey"];</code>
-   * @return The mediumTopicBuildKey.
-   */
-  @java.lang.Override
-  public java.lang.String getMediumTopicBuildKey() {
-    java.lang.Object ref = mediumTopicBuildKey_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      mediumTopicBuildKey_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Key for selecting the message topic template within the medium.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string medium_topic_build_key = 9 [json_name = "mediumTopicBuildKey"];</code>
-   * @return The bytes for mediumTopicBuildKey.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getMediumTopicBuildKeyBytes() {
-    java.lang.Object ref = mediumTopicBuildKey_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      mediumTopicBuildKey_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int MEDIUM_TOPIC_BUILD_LABELS_FIELD_NUMBER = 10;
-  private com.google.protobuf.LazyStringList mediumTopicBuildLabels_;
-  /**
-   * <pre>
-   * Labels for categorizing the message topic within the medium.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-   * @return A list containing the mediumTopicBuildLabels.
-   */
-  public com.google.protobuf.ProtocolStringList
-      getMediumTopicBuildLabelsList() {
-    return mediumTopicBuildLabels_;
-  }
-  /**
-   * <pre>
-   * Labels for categorizing the message topic within the medium.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-   * @return The count of mediumTopicBuildLabels.
-   */
-  public int getMediumTopicBuildLabelsCount() {
-    return mediumTopicBuildLabels_.size();
-  }
-  /**
-   * <pre>
-   * Labels for categorizing the message topic within the medium.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-   * @param index The index of the element to return.
-   * @return The mediumTopicBuildLabels at the given index.
-   */
-  public java.lang.String getMediumTopicBuildLabels(int index) {
-    return mediumTopicBuildLabels_.get(index);
-  }
-  /**
-   * <pre>
-   * Labels for categorizing the message topic within the medium.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the mediumTopicBuildLabels at the given index.
-   */
-  public com.google.protobuf.ByteString
-      getMediumTopicBuildLabelsBytes(int index) {
-    return mediumTopicBuildLabels_.getByteString(index);
-  }
-
   public static final int SETTINGS_FIELD_NUMBER = 12;
   private com.google.protobuf.Struct settings_;
   /**
@@ -889,111 +539,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getUserQueryOrBuilder() {
     return getUserQuery();
-  }
-
-  public static final int CONVERSION_WINDOWS_FIELD_NUMBER = 14;
-  private static final class ConversionWindowsDefaultEntryHolder {
-    static final com.google.protobuf.MapEntry<
-        java.lang.String, com.google.protobuf.Duration> defaultEntry =
-            com.google.protobuf.MapEntry
-            .<java.lang.String, com.google.protobuf.Duration>newDefaultInstance(
-                io.channel.api.proto.pub.coreapi.model.OneTimeMsgOuterClass.internal_static_coreapi_model_OneTimeMsg_ConversionWindowsEntry_descriptor, 
-                com.google.protobuf.WireFormat.FieldType.STRING,
-                "",
-                com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                com.google.protobuf.Duration.getDefaultInstance());
-  }
-  private com.google.protobuf.MapField<
-      java.lang.String, com.google.protobuf.Duration> conversionWindows_;
-  private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Duration>
-  internalGetConversionWindows() {
-    if (conversionWindows_ == null) {
-      return com.google.protobuf.MapField.emptyMapField(
-          ConversionWindowsDefaultEntryHolder.defaultEntry);
-    }
-    return conversionWindows_;
-  }
-
-  public int getConversionWindowsCount() {
-    return internalGetConversionWindows().getMap().size();
-  }
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * Defaults to 1 day for views and 7 days for clicks.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-   */
-
-  @java.lang.Override
-  public boolean containsConversionWindows(
-      java.lang.String key) {
-    if (key == null) { throw new NullPointerException("map key"); }
-    return internalGetConversionWindows().getMap().containsKey(key);
-  }
-  /**
-   * Use {@link #getConversionWindowsMap()} instead.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated
-  public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindows() {
-    return getConversionWindowsMap();
-  }
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * Defaults to 1 day for views and 7 days for clicks.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-   */
-  @java.lang.Override
-
-  public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindowsMap() {
-    return internalGetConversionWindows().getMap();
-  }
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * Defaults to 1 day for views and 7 days for clicks.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-   */
-  @java.lang.Override
-
-  public com.google.protobuf.Duration getConversionWindowsOrDefault(
-      java.lang.String key,
-      com.google.protobuf.Duration defaultValue) {
-    if (key == null) { throw new NullPointerException("map key"); }
-    java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
-        internalGetConversionWindows().getMap();
-    return map.containsKey(key) ? map.get(key) : defaultValue;
-  }
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * Defaults to 1 day for views and 7 days for clicks.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-   */
-  @java.lang.Override
-
-  public com.google.protobuf.Duration getConversionWindowsOrThrow(
-      java.lang.String key) {
-    if (key == null) { throw new NullPointerException("map key"); }
-    java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
-        internalGetConversionWindows().getMap();
-    if (!map.containsKey(key)) {
-      throw new java.lang.IllegalArgumentException();
-    }
-    return map.get(key);
   }
 
   public static final int GOAL_EVENT_NAME_FIELD_NUMBER = 15;
@@ -1219,58 +764,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStartAtOrBuilder() {
     return getStartAt();
-  }
-
-  public static final int LOCAL_START_AT_FIELD_NUMBER = 22;
-  private volatile java.lang.Object localStartAt_;
-  /**
-   * <pre>
-   * Scheduled send time in receiver's local timezone.
-   * ISO 8601 date-time without timezone offset.
-   * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
-   * @return The localStartAt.
-   */
-  @java.lang.Override
-  public java.lang.String getLocalStartAt() {
-    java.lang.Object ref = localStartAt_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      localStartAt_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Scheduled send time in receiver's local timezone.
-   * ISO 8601 date-time without timezone offset.
-   * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
-   * @return The bytes for localStartAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getLocalStartAtBytes() {
-    java.lang.Object ref = localStartAt_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      localStartAt_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
   }
 
   public static final int DRAFT_FIELD_NUMBER = 23;
@@ -1504,69 +997,52 @@ private static final long serialVersionUID = 0L;
     return getUserChatExpireDuration();
   }
 
-  public static final int APP_SEGMENTS_FIELD_NUMBER = 31;
-  private java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> appSegments_;
+  public static final int SEND_MEDIUM_FIELD_NUMBER = 32;
+  private volatile java.lang.Object sendMedium_;
   /**
    * <pre>
-   * App segments for user targeting.
+   * Delivery medium type identifier.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
+   * <code>string send_medium = 32 [json_name = "sendMedium"];</code>
+   * @return The sendMedium.
    */
   @java.lang.Override
-  public java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> getAppSegmentsList() {
-    return appSegments_;
+  public java.lang.String getSendMedium() {
+    java.lang.Object ref = sendMedium_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      sendMedium_ = s;
+      return s;
+    }
   }
   /**
    * <pre>
-   * App segments for user targeting.
+   * Delivery medium type identifier.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
+   * <code>string send_medium = 32 [json_name = "sendMedium"];</code>
+   * @return The bytes for sendMedium.
    */
   @java.lang.Override
-  public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> 
-      getAppSegmentsOrBuilderList() {
-    return appSegments_;
-  }
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-   */
-  @java.lang.Override
-  public int getAppSegmentsCount() {
-    return appSegments_.size();
-  }
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.AppSegment getAppSegments(int index) {
-    return appSegments_.get(index);
-  }
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder getAppSegmentsOrBuilder(
-      int index) {
-    return appSegments_.get(index);
+  public com.google.protobuf.ByteString
+      getSendMediumBytes() {
+    java.lang.Object ref = sendMedium_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      sendMedium_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1595,36 +1071,12 @@ private static final long serialVersionUID = 0L;
     if (state_ != io.channel.api.proto.pub.coreapi.model.OneTimeMsgState.ONE_TIME_MSG_STATE_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, state_);
     }
-    if (sendMode_ != io.channel.api.proto.pub.coreapi.model.OneTimeMsgSendMode.ONE_TIME_MSG_SEND_MODE_UNSPECIFIED.getNumber()) {
-      output.writeEnum(5, sendMode_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelOperationId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, channelOperationId_);
-    }
-    if (mediumType_ != io.channel.api.proto.pub.coreapi.model.MediumType.MEDIUM_TYPE_UNSPECIFIED.getNumber()) {
-      output.writeEnum(7, mediumType_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediumId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, mediumId_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediumTopicBuildKey_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, mediumTopicBuildKey_);
-    }
-    for (int i = 0; i < mediumTopicBuildLabels_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, mediumTopicBuildLabels_.getRaw(i));
-    }
     if (settings_ != null) {
       output.writeMessage(12, getSettings());
     }
     if (userQuery_ != null) {
       output.writeMessage(13, getUserQuery());
     }
-    com.google.protobuf.GeneratedMessageV3
-      .serializeStringMapTo(
-        output,
-        internalGetConversionWindows(),
-        ConversionWindowsDefaultEntryHolder.defaultEntry,
-        14);
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(goalEventName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 15, goalEventName_);
     }
@@ -1645,9 +1097,6 @@ private static final long serialVersionUID = 0L;
     }
     if (startAt_ != null) {
       output.writeMessage(21, getStartAt());
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(localStartAt_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 22, localStartAt_);
     }
     if (draft_ != null) {
       output.writeMessage(23, getDraft());
@@ -1673,8 +1122,8 @@ private static final long serialVersionUID = 0L;
     if (userChatExpireDuration_ != null) {
       output.writeMessage(30, getUserChatExpireDuration());
     }
-    for (int i = 0; i < appSegments_.size(); i++) {
-      output.writeMessage(31, appSegments_.get(i));
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sendMedium_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 32, sendMedium_);
     }
     unknownFields.writeTo(output);
   }
@@ -1698,31 +1147,6 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, state_);
     }
-    if (sendMode_ != io.channel.api.proto.pub.coreapi.model.OneTimeMsgSendMode.ONE_TIME_MSG_SEND_MODE_UNSPECIFIED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(5, sendMode_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelOperationId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, channelOperationId_);
-    }
-    if (mediumType_ != io.channel.api.proto.pub.coreapi.model.MediumType.MEDIUM_TYPE_UNSPECIFIED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(7, mediumType_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediumId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, mediumId_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediumTopicBuildKey_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, mediumTopicBuildKey_);
-    }
-    {
-      int dataSize = 0;
-      for (int i = 0; i < mediumTopicBuildLabels_.size(); i++) {
-        dataSize += computeStringSizeNoTag(mediumTopicBuildLabels_.getRaw(i));
-      }
-      size += dataSize;
-      size += 1 * getMediumTopicBuildLabelsList().size();
-    }
     if (settings_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, getSettings());
@@ -1730,16 +1154,6 @@ private static final long serialVersionUID = 0L;
     if (userQuery_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, getUserQuery());
-    }
-    for (java.util.Map.Entry<java.lang.String, com.google.protobuf.Duration> entry
-         : internalGetConversionWindows().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Duration>
-      conversionWindows__ = ConversionWindowsDefaultEntryHolder.defaultEntry.newBuilderForType()
-          .setKey(entry.getKey())
-          .setValue(entry.getValue())
-          .build();
-      size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(14, conversionWindows__);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(goalEventName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, goalEventName_);
@@ -1767,9 +1181,6 @@ private static final long serialVersionUID = 0L;
     if (startAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(21, getStartAt());
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(localStartAt_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(22, localStartAt_);
     }
     if (draft_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -1803,9 +1214,8 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(30, getUserChatExpireDuration());
     }
-    for (int i = 0; i < appSegments_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(31, appSegments_.get(i));
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sendMedium_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(32, sendMedium_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -1829,16 +1239,6 @@ private static final long serialVersionUID = 0L;
     if (!getName()
         .equals(other.getName())) return false;
     if (state_ != other.state_) return false;
-    if (sendMode_ != other.sendMode_) return false;
-    if (!getChannelOperationId()
-        .equals(other.getChannelOperationId())) return false;
-    if (mediumType_ != other.mediumType_) return false;
-    if (!getMediumId()
-        .equals(other.getMediumId())) return false;
-    if (!getMediumTopicBuildKey()
-        .equals(other.getMediumTopicBuildKey())) return false;
-    if (!getMediumTopicBuildLabelsList()
-        .equals(other.getMediumTopicBuildLabelsList())) return false;
     if (hasSettings() != other.hasSettings()) return false;
     if (hasSettings()) {
       if (!getSettings()
@@ -1849,8 +1249,6 @@ private static final long serialVersionUID = 0L;
       if (!getUserQuery()
           .equals(other.getUserQuery())) return false;
     }
-    if (!internalGetConversionWindows().equals(
-        other.internalGetConversionWindows())) return false;
     if (!getGoalEventName()
         .equals(other.getGoalEventName())) return false;
     if (hasGoalEventQuery() != other.hasGoalEventQuery()) return false;
@@ -1874,8 +1272,6 @@ private static final long serialVersionUID = 0L;
       if (!getStartAt()
           .equals(other.getStartAt())) return false;
     }
-    if (!getLocalStartAt()
-        .equals(other.getLocalStartAt())) return false;
     if (hasDraft() != other.hasDraft()) return false;
     if (hasDraft()) {
       if (!getDraft()
@@ -1904,8 +1300,8 @@ private static final long serialVersionUID = 0L;
       if (!getUserChatExpireDuration()
           .equals(other.getUserChatExpireDuration())) return false;
     }
-    if (!getAppSegmentsList()
-        .equals(other.getAppSegmentsList())) return false;
+    if (!getSendMedium()
+        .equals(other.getSendMedium())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1925,20 +1321,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + STATE_FIELD_NUMBER;
     hash = (53 * hash) + state_;
-    hash = (37 * hash) + SEND_MODE_FIELD_NUMBER;
-    hash = (53 * hash) + sendMode_;
-    hash = (37 * hash) + CHANNEL_OPERATION_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getChannelOperationId().hashCode();
-    hash = (37 * hash) + MEDIUM_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + mediumType_;
-    hash = (37 * hash) + MEDIUM_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getMediumId().hashCode();
-    hash = (37 * hash) + MEDIUM_TOPIC_BUILD_KEY_FIELD_NUMBER;
-    hash = (53 * hash) + getMediumTopicBuildKey().hashCode();
-    if (getMediumTopicBuildLabelsCount() > 0) {
-      hash = (37 * hash) + MEDIUM_TOPIC_BUILD_LABELS_FIELD_NUMBER;
-      hash = (53 * hash) + getMediumTopicBuildLabelsList().hashCode();
-    }
     if (hasSettings()) {
       hash = (37 * hash) + SETTINGS_FIELD_NUMBER;
       hash = (53 * hash) + getSettings().hashCode();
@@ -1946,10 +1328,6 @@ private static final long serialVersionUID = 0L;
     if (hasUserQuery()) {
       hash = (37 * hash) + USER_QUERY_FIELD_NUMBER;
       hash = (53 * hash) + getUserQuery().hashCode();
-    }
-    if (!internalGetConversionWindows().getMap().isEmpty()) {
-      hash = (37 * hash) + CONVERSION_WINDOWS_FIELD_NUMBER;
-      hash = (53 * hash) + internalGetConversionWindows().hashCode();
     }
     hash = (37 * hash) + GOAL_EVENT_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getGoalEventName().hashCode();
@@ -1974,8 +1352,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + START_AT_FIELD_NUMBER;
       hash = (53 * hash) + getStartAt().hashCode();
     }
-    hash = (37 * hash) + LOCAL_START_AT_FIELD_NUMBER;
-    hash = (53 * hash) + getLocalStartAt().hashCode();
     if (hasDraft()) {
       hash = (37 * hash) + DRAFT_FIELD_NUMBER;
       hash = (53 * hash) + getDraft().hashCode();
@@ -2000,10 +1376,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + USER_CHAT_EXPIRE_DURATION_FIELD_NUMBER;
       hash = (53 * hash) + getUserChatExpireDuration().hashCode();
     }
-    if (getAppSegmentsCount() > 0) {
-      hash = (37 * hash) + APP_SEGMENTS_FIELD_NUMBER;
-      hash = (53 * hash) + getAppSegmentsList().hashCode();
-    }
+    hash = (37 * hash) + SEND_MEDIUM_FIELD_NUMBER;
+    hash = (53 * hash) + getSendMedium().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -2115,28 +1489,6 @@ private static final long serialVersionUID = 0L;
       return io.channel.api.proto.pub.coreapi.model.OneTimeMsgOuterClass.internal_static_coreapi_model_OneTimeMsg_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 14:
-          return internalGetConversionWindows();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
-    @SuppressWarnings({"rawtypes"})
-    protected com.google.protobuf.MapField internalGetMutableMapField(
-        int number) {
-      switch (number) {
-        case 14:
-          return internalGetMutableConversionWindows();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -2158,7 +1510,6 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getAppSegmentsFieldBuilder();
       }
     }
     @java.lang.Override
@@ -2172,18 +1523,6 @@ private static final long serialVersionUID = 0L;
 
       state_ = 0;
 
-      sendMode_ = 0;
-
-      channelOperationId_ = "";
-
-      mediumType_ = 0;
-
-      mediumId_ = "";
-
-      mediumTopicBuildKey_ = "";
-
-      mediumTopicBuildLabels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
       if (settingsBuilder_ == null) {
         settings_ = null;
       } else {
@@ -2196,7 +1535,6 @@ private static final long serialVersionUID = 0L;
         userQuery_ = null;
         userQueryBuilder_ = null;
       }
-      internalGetMutableConversionWindows().clear();
       goalEventName_ = "";
 
       if (goalEventQueryBuilder_ == null) {
@@ -2223,8 +1561,6 @@ private static final long serialVersionUID = 0L;
         startAt_ = null;
         startAtBuilder_ = null;
       }
-      localStartAt_ = "";
-
       if (draftBuilder_ == null) {
         draft_ = null;
       } else {
@@ -2257,12 +1593,8 @@ private static final long serialVersionUID = 0L;
         userChatExpireDuration_ = null;
         userChatExpireDurationBuilder_ = null;
       }
-      if (appSegmentsBuilder_ == null) {
-        appSegments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
-      } else {
-        appSegmentsBuilder_.clear();
-      }
+      sendMedium_ = "";
+
       return this;
     }
 
@@ -2289,21 +1621,10 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.channel.api.proto.pub.coreapi.model.OneTimeMsg buildPartial() {
       io.channel.api.proto.pub.coreapi.model.OneTimeMsg result = new io.channel.api.proto.pub.coreapi.model.OneTimeMsg(this);
-      int from_bitField0_ = bitField0_;
       result.id_ = id_;
       result.channelId_ = channelId_;
       result.name_ = name_;
       result.state_ = state_;
-      result.sendMode_ = sendMode_;
-      result.channelOperationId_ = channelOperationId_;
-      result.mediumType_ = mediumType_;
-      result.mediumId_ = mediumId_;
-      result.mediumTopicBuildKey_ = mediumTopicBuildKey_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        mediumTopicBuildLabels_ = mediumTopicBuildLabels_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.mediumTopicBuildLabels_ = mediumTopicBuildLabels_;
       if (settingsBuilder_ == null) {
         result.settings_ = settings_;
       } else {
@@ -2314,8 +1635,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.userQuery_ = userQueryBuilder_.build();
       }
-      result.conversionWindows_ = internalGetConversionWindows();
-      result.conversionWindows_.makeImmutable();
       result.goalEventName_ = goalEventName_;
       if (goalEventQueryBuilder_ == null) {
         result.goalEventQuery_ = goalEventQuery_;
@@ -2335,7 +1654,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.startAt_ = startAtBuilder_.build();
       }
-      result.localStartAt_ = localStartAt_;
       if (draftBuilder_ == null) {
         result.draft_ = draft_;
       } else {
@@ -2360,15 +1678,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.userChatExpireDuration_ = userChatExpireDurationBuilder_.build();
       }
-      if (appSegmentsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
-          appSegments_ = java.util.Collections.unmodifiableList(appSegments_);
-          bitField0_ = (bitField0_ & ~0x00000004);
-        }
-        result.appSegments_ = appSegments_;
-      } else {
-        result.appSegments_ = appSegmentsBuilder_.build();
-      }
+      result.sendMedium_ = sendMedium_;
       onBuilt();
       return result;
     }
@@ -2432,42 +1742,12 @@ private static final long serialVersionUID = 0L;
       if (other.state_ != 0) {
         setStateValue(other.getStateValue());
       }
-      if (other.sendMode_ != 0) {
-        setSendModeValue(other.getSendModeValue());
-      }
-      if (!other.getChannelOperationId().isEmpty()) {
-        channelOperationId_ = other.channelOperationId_;
-        onChanged();
-      }
-      if (other.mediumType_ != 0) {
-        setMediumTypeValue(other.getMediumTypeValue());
-      }
-      if (!other.getMediumId().isEmpty()) {
-        mediumId_ = other.mediumId_;
-        onChanged();
-      }
-      if (!other.getMediumTopicBuildKey().isEmpty()) {
-        mediumTopicBuildKey_ = other.mediumTopicBuildKey_;
-        onChanged();
-      }
-      if (!other.mediumTopicBuildLabels_.isEmpty()) {
-        if (mediumTopicBuildLabels_.isEmpty()) {
-          mediumTopicBuildLabels_ = other.mediumTopicBuildLabels_;
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          ensureMediumTopicBuildLabelsIsMutable();
-          mediumTopicBuildLabels_.addAll(other.mediumTopicBuildLabels_);
-        }
-        onChanged();
-      }
       if (other.hasSettings()) {
         mergeSettings(other.getSettings());
       }
       if (other.hasUserQuery()) {
         mergeUserQuery(other.getUserQuery());
       }
-      internalGetMutableConversionWindows().mergeFrom(
-          other.internalGetConversionWindows());
       if (!other.getGoalEventName().isEmpty()) {
         goalEventName_ = other.goalEventName_;
         onChanged();
@@ -2489,10 +1769,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasStartAt()) {
         mergeStartAt(other.getStartAt());
-      }
-      if (!other.getLocalStartAt().isEmpty()) {
-        localStartAt_ = other.localStartAt_;
-        onChanged();
       }
       if (other.hasDraft()) {
         mergeDraft(other.getDraft());
@@ -2518,31 +1794,9 @@ private static final long serialVersionUID = 0L;
       if (other.hasUserChatExpireDuration()) {
         mergeUserChatExpireDuration(other.getUserChatExpireDuration());
       }
-      if (appSegmentsBuilder_ == null) {
-        if (!other.appSegments_.isEmpty()) {
-          if (appSegments_.isEmpty()) {
-            appSegments_ = other.appSegments_;
-            bitField0_ = (bitField0_ & ~0x00000004);
-          } else {
-            ensureAppSegmentsIsMutable();
-            appSegments_.addAll(other.appSegments_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.appSegments_.isEmpty()) {
-          if (appSegmentsBuilder_.isEmpty()) {
-            appSegmentsBuilder_.dispose();
-            appSegmentsBuilder_ = null;
-            appSegments_ = other.appSegments_;
-            bitField0_ = (bitField0_ & ~0x00000004);
-            appSegmentsBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getAppSegmentsFieldBuilder() : null;
-          } else {
-            appSegmentsBuilder_.addAllMessages(other.appSegments_);
-          }
-        }
+      if (!other.getSendMedium().isEmpty()) {
+        sendMedium_ = other.sendMedium_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2572,7 +1826,6 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
     private java.lang.Object id_ = "";
     /**
@@ -2976,637 +2229,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int sendMode_ = 0;
-    /**
-     * <pre>
-     * Delivery timing mode.
-     * Automatically inferred from start_at and local_start_at if not explicitly set.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.OneTimeMsgSendMode send_mode = 5 [json_name = "sendMode"];</code>
-     * @return The enum numeric value on the wire for sendMode.
-     */
-    @java.lang.Override public int getSendModeValue() {
-      return sendMode_;
-    }
-    /**
-     * <pre>
-     * Delivery timing mode.
-     * Automatically inferred from start_at and local_start_at if not explicitly set.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.OneTimeMsgSendMode send_mode = 5 [json_name = "sendMode"];</code>
-     * @param value The enum numeric value on the wire for sendMode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSendModeValue(int value) {
-      
-      sendMode_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Delivery timing mode.
-     * Automatically inferred from start_at and local_start_at if not explicitly set.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.OneTimeMsgSendMode send_mode = 5 [json_name = "sendMode"];</code>
-     * @return The sendMode.
-     */
-    @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.OneTimeMsgSendMode getSendMode() {
-      @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.OneTimeMsgSendMode result = io.channel.api.proto.pub.coreapi.model.OneTimeMsgSendMode.valueOf(sendMode_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.OneTimeMsgSendMode.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Delivery timing mode.
-     * Automatically inferred from start_at and local_start_at if not explicitly set.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.OneTimeMsgSendMode send_mode = 5 [json_name = "sendMode"];</code>
-     * @param value The sendMode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSendMode(io.channel.api.proto.pub.coreapi.model.OneTimeMsgSendMode value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      sendMode_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Delivery timing mode.
-     * Automatically inferred from start_at and local_start_at if not explicitly set.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.OneTimeMsgSendMode send_mode = 5 [json_name = "sendMode"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSendMode() {
-      
-      sendMode_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object channelOperationId_ = "";
-    /**
-     * <pre>
-     * Channel operation ID for business hours scheduling.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
-     * @return The channelOperationId.
-     */
-    public java.lang.String getChannelOperationId() {
-      java.lang.Object ref = channelOperationId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        channelOperationId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel operation ID for business hours scheduling.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
-     * @return The bytes for channelOperationId.
-     */
-    public com.google.protobuf.ByteString
-        getChannelOperationIdBytes() {
-      java.lang.Object ref = channelOperationId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        channelOperationId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel operation ID for business hours scheduling.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
-     * @param value The channelOperationId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChannelOperationId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      channelOperationId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel operation ID for business hours scheduling.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearChannelOperationId() {
-      
-      channelOperationId_ = getDefaultInstance().getChannelOperationId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel operation ID for business hours scheduling.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
-     * @param value The bytes for channelOperationId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChannelOperationIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      channelOperationId_ = value;
-      onChanged();
-      return this;
-    }
-
-    private int mediumType_ = 0;
-    /**
-     * <pre>
-     * Delivery medium type.
-     * May be unset for draft messages.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MediumType medium_type = 7 [json_name = "mediumType"];</code>
-     * @return The enum numeric value on the wire for mediumType.
-     */
-    @java.lang.Override public int getMediumTypeValue() {
-      return mediumType_;
-    }
-    /**
-     * <pre>
-     * Delivery medium type.
-     * May be unset for draft messages.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MediumType medium_type = 7 [json_name = "mediumType"];</code>
-     * @param value The enum numeric value on the wire for mediumType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMediumTypeValue(int value) {
-      
-      mediumType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Delivery medium type.
-     * May be unset for draft messages.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MediumType medium_type = 7 [json_name = "mediumType"];</code>
-     * @return The mediumType.
-     */
-    @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.MediumType getMediumType() {
-      @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.MediumType result = io.channel.api.proto.pub.coreapi.model.MediumType.valueOf(mediumType_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.MediumType.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Delivery medium type.
-     * May be unset for draft messages.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MediumType medium_type = 7 [json_name = "mediumType"];</code>
-     * @param value The mediumType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMediumType(io.channel.api.proto.pub.coreapi.model.MediumType value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      mediumType_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Delivery medium type.
-     * May be unset for draft messages.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MediumType medium_type = 7 [json_name = "mediumType"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMediumType() {
-      
-      mediumType_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object mediumId_ = "";
-    /**
-     * <pre>
-     * Identifier of the specific medium instance.
-     * Required for APP medium type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string medium_id = 8 [json_name = "mediumId"];</code>
-     * @return The mediumId.
-     */
-    public java.lang.String getMediumId() {
-      java.lang.Object ref = mediumId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        mediumId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Identifier of the specific medium instance.
-     * Required for APP medium type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string medium_id = 8 [json_name = "mediumId"];</code>
-     * @return The bytes for mediumId.
-     */
-    public com.google.protobuf.ByteString
-        getMediumIdBytes() {
-      java.lang.Object ref = mediumId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        mediumId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Identifier of the specific medium instance.
-     * Required for APP medium type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string medium_id = 8 [json_name = "mediumId"];</code>
-     * @param value The mediumId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMediumId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      mediumId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Identifier of the specific medium instance.
-     * Required for APP medium type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string medium_id = 8 [json_name = "mediumId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMediumId() {
-      
-      mediumId_ = getDefaultInstance().getMediumId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Identifier of the specific medium instance.
-     * Required for APP medium type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string medium_id = 8 [json_name = "mediumId"];</code>
-     * @param value The bytes for mediumId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMediumIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      mediumId_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object mediumTopicBuildKey_ = "";
-    /**
-     * <pre>
-     * Key for selecting the message topic template within the medium.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string medium_topic_build_key = 9 [json_name = "mediumTopicBuildKey"];</code>
-     * @return The mediumTopicBuildKey.
-     */
-    public java.lang.String getMediumTopicBuildKey() {
-      java.lang.Object ref = mediumTopicBuildKey_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        mediumTopicBuildKey_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Key for selecting the message topic template within the medium.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string medium_topic_build_key = 9 [json_name = "mediumTopicBuildKey"];</code>
-     * @return The bytes for mediumTopicBuildKey.
-     */
-    public com.google.protobuf.ByteString
-        getMediumTopicBuildKeyBytes() {
-      java.lang.Object ref = mediumTopicBuildKey_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        mediumTopicBuildKey_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Key for selecting the message topic template within the medium.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string medium_topic_build_key = 9 [json_name = "mediumTopicBuildKey"];</code>
-     * @param value The mediumTopicBuildKey to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMediumTopicBuildKey(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      mediumTopicBuildKey_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Key for selecting the message topic template within the medium.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string medium_topic_build_key = 9 [json_name = "mediumTopicBuildKey"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMediumTopicBuildKey() {
-      
-      mediumTopicBuildKey_ = getDefaultInstance().getMediumTopicBuildKey();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Key for selecting the message topic template within the medium.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string medium_topic_build_key = 9 [json_name = "mediumTopicBuildKey"];</code>
-     * @param value The bytes for mediumTopicBuildKey to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMediumTopicBuildKeyBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      mediumTopicBuildKey_ = value;
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.LazyStringList mediumTopicBuildLabels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    private void ensureMediumTopicBuildLabelsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        mediumTopicBuildLabels_ = new com.google.protobuf.LazyStringArrayList(mediumTopicBuildLabels_);
-        bitField0_ |= 0x00000001;
-       }
-    }
-    /**
-     * <pre>
-     * Labels for categorizing the message topic within the medium.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-     * @return A list containing the mediumTopicBuildLabels.
-     */
-    public com.google.protobuf.ProtocolStringList
-        getMediumTopicBuildLabelsList() {
-      return mediumTopicBuildLabels_.getUnmodifiableView();
-    }
-    /**
-     * <pre>
-     * Labels for categorizing the message topic within the medium.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-     * @return The count of mediumTopicBuildLabels.
-     */
-    public int getMediumTopicBuildLabelsCount() {
-      return mediumTopicBuildLabels_.size();
-    }
-    /**
-     * <pre>
-     * Labels for categorizing the message topic within the medium.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-     * @param index The index of the element to return.
-     * @return The mediumTopicBuildLabels at the given index.
-     */
-    public java.lang.String getMediumTopicBuildLabels(int index) {
-      return mediumTopicBuildLabels_.get(index);
-    }
-    /**
-     * <pre>
-     * Labels for categorizing the message topic within the medium.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the mediumTopicBuildLabels at the given index.
-     */
-    public com.google.protobuf.ByteString
-        getMediumTopicBuildLabelsBytes(int index) {
-      return mediumTopicBuildLabels_.getByteString(index);
-    }
-    /**
-     * <pre>
-     * Labels for categorizing the message topic within the medium.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-     * @param index The index to set the value at.
-     * @param value The mediumTopicBuildLabels to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMediumTopicBuildLabels(
-        int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMediumTopicBuildLabelsIsMutable();
-      mediumTopicBuildLabels_.set(index, value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Labels for categorizing the message topic within the medium.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-     * @param value The mediumTopicBuildLabels to add.
-     * @return This builder for chaining.
-     */
-    public Builder addMediumTopicBuildLabels(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMediumTopicBuildLabelsIsMutable();
-      mediumTopicBuildLabels_.add(value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Labels for categorizing the message topic within the medium.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-     * @param values The mediumTopicBuildLabels to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllMediumTopicBuildLabels(
-        java.lang.Iterable<java.lang.String> values) {
-      ensureMediumTopicBuildLabelsIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, mediumTopicBuildLabels_);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Labels for categorizing the message topic within the medium.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMediumTopicBuildLabels() {
-      mediumTopicBuildLabels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Labels for categorizing the message topic within the medium.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-     * @param value The bytes of the mediumTopicBuildLabels to add.
-     * @return This builder for chaining.
-     */
-    public Builder addMediumTopicBuildLabelsBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      ensureMediumTopicBuildLabelsIsMutable();
-      mediumTopicBuildLabels_.add(value);
-      onChanged();
-      return this;
-    }
-
     private com.google.protobuf.Struct settings_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> settingsBuilder_;
@@ -3933,179 +2555,6 @@ private static final long serialVersionUID = 0L;
         userQuery_ = null;
       }
       return userQueryBuilder_;
-    }
-
-    private com.google.protobuf.MapField<
-        java.lang.String, com.google.protobuf.Duration> conversionWindows_;
-    private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Duration>
-    internalGetConversionWindows() {
-      if (conversionWindows_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            ConversionWindowsDefaultEntryHolder.defaultEntry);
-      }
-      return conversionWindows_;
-    }
-    private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Duration>
-    internalGetMutableConversionWindows() {
-      onChanged();;
-      if (conversionWindows_ == null) {
-        conversionWindows_ = com.google.protobuf.MapField.newMapField(
-            ConversionWindowsDefaultEntryHolder.defaultEntry);
-      }
-      if (!conversionWindows_.isMutable()) {
-        conversionWindows_ = conversionWindows_.copy();
-      }
-      return conversionWindows_;
-    }
-
-    public int getConversionWindowsCount() {
-      return internalGetConversionWindows().getMap().size();
-    }
-    /**
-     * <pre>
-     * Conversion tracking windows keyed by feature name.
-     * Defaults to 1 day for views and 7 days for clicks.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-     */
-
-    @java.lang.Override
-    public boolean containsConversionWindows(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      return internalGetConversionWindows().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getConversionWindowsMap()} instead.
-     */
-    @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindows() {
-      return getConversionWindowsMap();
-    }
-    /**
-     * <pre>
-     * Conversion tracking windows keyed by feature name.
-     * Defaults to 1 day for views and 7 days for clicks.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-     */
-    @java.lang.Override
-
-    public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindowsMap() {
-      return internalGetConversionWindows().getMap();
-    }
-    /**
-     * <pre>
-     * Conversion tracking windows keyed by feature name.
-     * Defaults to 1 day for views and 7 days for clicks.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-     */
-    @java.lang.Override
-
-    public com.google.protobuf.Duration getConversionWindowsOrDefault(
-        java.lang.String key,
-        com.google.protobuf.Duration defaultValue) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
-          internalGetConversionWindows().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * Conversion tracking windows keyed by feature name.
-     * Defaults to 1 day for views and 7 days for clicks.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-     */
-    @java.lang.Override
-
-    public com.google.protobuf.Duration getConversionWindowsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
-          internalGetConversionWindows().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public Builder clearConversionWindows() {
-      internalGetMutableConversionWindows().getMutableMap()
-          .clear();
-      return this;
-    }
-    /**
-     * <pre>
-     * Conversion tracking windows keyed by feature name.
-     * Defaults to 1 day for views and 7 days for clicks.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-     */
-
-    public Builder removeConversionWindows(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      internalGetMutableConversionWindows().getMutableMap()
-          .remove(key);
-      return this;
-    }
-    /**
-     * Use alternate mutation accessors instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, com.google.protobuf.Duration>
-    getMutableConversionWindows() {
-      return internalGetMutableConversionWindows().getMutableMap();
-    }
-    /**
-     * <pre>
-     * Conversion tracking windows keyed by feature name.
-     * Defaults to 1 day for views and 7 days for clicks.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-     */
-    public Builder putConversionWindows(
-        java.lang.String key,
-        com.google.protobuf.Duration value) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
-      internalGetMutableConversionWindows().getMutableMap()
-          .put(key, value);
-      return this;
-    }
-    /**
-     * <pre>
-     * Conversion tracking windows keyed by feature name.
-     * Defaults to 1 day for views and 7 days for clicks.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-     */
-
-    public Builder putAllConversionWindows(
-        java.util.Map<java.lang.String, com.google.protobuf.Duration> values) {
-      internalGetMutableConversionWindows().getMutableMap()
-          .putAll(values);
-      return this;
     }
 
     private java.lang.Object goalEventName_ = "";
@@ -4855,117 +3304,6 @@ private static final long serialVersionUID = 0L;
         startAt_ = null;
       }
       return startAtBuilder_;
-    }
-
-    private java.lang.Object localStartAt_ = "";
-    /**
-     * <pre>
-     * Scheduled send time in receiver's local timezone.
-     * ISO 8601 date-time without timezone offset.
-     * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
-     * @return The localStartAt.
-     */
-    public java.lang.String getLocalStartAt() {
-      java.lang.Object ref = localStartAt_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        localStartAt_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Scheduled send time in receiver's local timezone.
-     * ISO 8601 date-time without timezone offset.
-     * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
-     * @return The bytes for localStartAt.
-     */
-    public com.google.protobuf.ByteString
-        getLocalStartAtBytes() {
-      java.lang.Object ref = localStartAt_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        localStartAt_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Scheduled send time in receiver's local timezone.
-     * ISO 8601 date-time without timezone offset.
-     * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
-     * @param value The localStartAt to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLocalStartAt(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      localStartAt_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Scheduled send time in receiver's local timezone.
-     * ISO 8601 date-time without timezone offset.
-     * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearLocalStartAt() {
-      
-      localStartAt_ = getDefaultInstance().getLocalStartAt();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Scheduled send time in receiver's local timezone.
-     * ISO 8601 date-time without timezone offset.
-     * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
-     * @param value The bytes for localStartAt to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLocalStartAtBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      localStartAt_ = value;
-      onChanged();
-      return this;
     }
 
     private com.google.protobuf.Struct draft_;
@@ -5817,334 +4155,105 @@ private static final long serialVersionUID = 0L;
       return userChatExpireDurationBuilder_;
     }
 
-    private java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> appSegments_ =
-      java.util.Collections.emptyList();
-    private void ensureAppSegmentsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
-        appSegments_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.AppSegment>(appSegments_);
-        bitField0_ |= 0x00000004;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.AppSegment, io.channel.api.proto.pub.coreapi.model.AppSegment.Builder, io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> appSegmentsBuilder_;
-
+    private java.lang.Object sendMedium_ = "";
     /**
      * <pre>
-     * App segments for user targeting.
+     * Delivery medium type identifier.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
+     * <code>string send_medium = 32 [json_name = "sendMedium"];</code>
+     * @return The sendMedium.
      */
-    public java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> getAppSegmentsList() {
-      if (appSegmentsBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(appSegments_);
+    public java.lang.String getSendMedium() {
+      java.lang.Object ref = sendMedium_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sendMedium_ = s;
+        return s;
       } else {
-        return appSegmentsBuilder_.getMessageList();
+        return (java.lang.String) ref;
       }
     }
     /**
      * <pre>
-     * App segments for user targeting.
+     * Delivery medium type identifier.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
+     * <code>string send_medium = 32 [json_name = "sendMedium"];</code>
+     * @return The bytes for sendMedium.
      */
-    public int getAppSegmentsCount() {
-      if (appSegmentsBuilder_ == null) {
-        return appSegments_.size();
+    public com.google.protobuf.ByteString
+        getSendMediumBytes() {
+      java.lang.Object ref = sendMedium_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sendMedium_ = b;
+        return b;
       } else {
-        return appSegmentsBuilder_.getCount();
+        return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
      * <pre>
-     * App segments for user targeting.
+     * Delivery medium type identifier.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
+     * <code>string send_medium = 32 [json_name = "sendMedium"];</code>
+     * @param value The sendMedium to set.
+     * @return This builder for chaining.
      */
-    public io.channel.api.proto.pub.coreapi.model.AppSegment getAppSegments(int index) {
-      if (appSegmentsBuilder_ == null) {
-        return appSegments_.get(index);
-      } else {
-        return appSegmentsBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-     */
-    public Builder setAppSegments(
-        int index, io.channel.api.proto.pub.coreapi.model.AppSegment value) {
-      if (appSegmentsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureAppSegmentsIsMutable();
-        appSegments_.set(index, value);
-        onChanged();
-      } else {
-        appSegmentsBuilder_.setMessage(index, value);
-      }
+    public Builder setSendMedium(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      sendMedium_ = value;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * App segments for user targeting.
+     * Delivery medium type identifier.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
+     * <code>string send_medium = 32 [json_name = "sendMedium"];</code>
+     * @return This builder for chaining.
      */
-    public Builder setAppSegments(
-        int index, io.channel.api.proto.pub.coreapi.model.AppSegment.Builder builderForValue) {
-      if (appSegmentsBuilder_ == null) {
-        ensureAppSegmentsIsMutable();
-        appSegments_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        appSegmentsBuilder_.setMessage(index, builderForValue.build());
-      }
+    public Builder clearSendMedium() {
+      
+      sendMedium_ = getDefaultInstance().getSendMedium();
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * App segments for user targeting.
+     * Delivery medium type identifier.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
+     * <code>string send_medium = 32 [json_name = "sendMedium"];</code>
+     * @param value The bytes for sendMedium to set.
+     * @return This builder for chaining.
      */
-    public Builder addAppSegments(io.channel.api.proto.pub.coreapi.model.AppSegment value) {
-      if (appSegmentsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureAppSegmentsIsMutable();
-        appSegments_.add(value);
-        onChanged();
-      } else {
-        appSegmentsBuilder_.addMessage(value);
-      }
+    public Builder setSendMediumBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      sendMedium_ = value;
+      onChanged();
       return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-     */
-    public Builder addAppSegments(
-        int index, io.channel.api.proto.pub.coreapi.model.AppSegment value) {
-      if (appSegmentsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureAppSegmentsIsMutable();
-        appSegments_.add(index, value);
-        onChanged();
-      } else {
-        appSegmentsBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-     */
-    public Builder addAppSegments(
-        io.channel.api.proto.pub.coreapi.model.AppSegment.Builder builderForValue) {
-      if (appSegmentsBuilder_ == null) {
-        ensureAppSegmentsIsMutable();
-        appSegments_.add(builderForValue.build());
-        onChanged();
-      } else {
-        appSegmentsBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-     */
-    public Builder addAppSegments(
-        int index, io.channel.api.proto.pub.coreapi.model.AppSegment.Builder builderForValue) {
-      if (appSegmentsBuilder_ == null) {
-        ensureAppSegmentsIsMutable();
-        appSegments_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        appSegmentsBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-     */
-    public Builder addAllAppSegments(
-        java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.AppSegment> values) {
-      if (appSegmentsBuilder_ == null) {
-        ensureAppSegmentsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, appSegments_);
-        onChanged();
-      } else {
-        appSegmentsBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-     */
-    public Builder clearAppSegments() {
-      if (appSegmentsBuilder_ == null) {
-        appSegments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
-        onChanged();
-      } else {
-        appSegmentsBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-     */
-    public Builder removeAppSegments(int index) {
-      if (appSegmentsBuilder_ == null) {
-        ensureAppSegmentsIsMutable();
-        appSegments_.remove(index);
-        onChanged();
-      } else {
-        appSegmentsBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.AppSegment.Builder getAppSegmentsBuilder(
-        int index) {
-      return getAppSegmentsFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder getAppSegmentsOrBuilder(
-        int index) {
-      if (appSegmentsBuilder_ == null) {
-        return appSegments_.get(index);  } else {
-        return appSegmentsBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-     */
-    public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> 
-         getAppSegmentsOrBuilderList() {
-      if (appSegmentsBuilder_ != null) {
-        return appSegmentsBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(appSegments_);
-      }
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.AppSegment.Builder addAppSegmentsBuilder() {
-      return getAppSegmentsFieldBuilder().addBuilder(
-          io.channel.api.proto.pub.coreapi.model.AppSegment.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.AppSegment.Builder addAppSegmentsBuilder(
-        int index) {
-      return getAppSegmentsFieldBuilder().addBuilder(
-          index, io.channel.api.proto.pub.coreapi.model.AppSegment.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-     */
-    public java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment.Builder> 
-         getAppSegmentsBuilderList() {
-      return getAppSegmentsFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.AppSegment, io.channel.api.proto.pub.coreapi.model.AppSegment.Builder, io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> 
-        getAppSegmentsFieldBuilder() {
-      if (appSegmentsBuilder_ == null) {
-        appSegmentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            io.channel.api.proto.pub.coreapi.model.AppSegment, io.channel.api.proto.pub.coreapi.model.AppSegment.Builder, io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder>(
-                appSegments_,
-                ((bitField0_ & 0x00000004) != 0),
-                getParentForChildren(),
-                isClean());
-        appSegments_ = null;
-      }
-      return appSegmentsBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -6254,146 +4363,6 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The send_mode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearSendMode(io.channel.api.proto.pub.coreapi.model.OneTimeMsgSendMode value) {
-    	if (value == null)
-    		return clearSendMode();
-    	else
-    		return setSendMode(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearSendMode(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.OneTimeMsgSendMode> mapFunc) {
-    	if (value == null)
-    		return clearSendMode();
-    	else
-    		return setSendMode(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The channel_operation_id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearChannelOperationId(java.lang.String value) {
-    	if (value == null)
-    		return clearChannelOperationId();
-    	else
-    		return setChannelOperationId(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearChannelOperationId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearChannelOperationId();
-    	else
-    		return setChannelOperationId(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The medium_type to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearMediumType(io.channel.api.proto.pub.coreapi.model.MediumType value) {
-    	if (value == null)
-    		return clearMediumType();
-    	else
-    		return setMediumType(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearMediumType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.MediumType> mapFunc) {
-    	if (value == null)
-    		return clearMediumType();
-    	else
-    		return setMediumType(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The medium_id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearMediumId(java.lang.String value) {
-    	if (value == null)
-    		return clearMediumId();
-    	else
-    		return setMediumId(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearMediumId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearMediumId();
-    	else
-    		return setMediumId(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The medium_topic_build_key to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearMediumTopicBuildKey(java.lang.String value) {
-    	if (value == null)
-    		return clearMediumTopicBuildKey();
-    	else
-    		return setMediumTopicBuildKey(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearMediumTopicBuildKey(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearMediumTopicBuildKey();
-    	else
-    		return setMediumTopicBuildKey(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param values The medium_topic_build_labels to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllOrClearMediumTopicBuildLabels(java.lang.Iterable<java.lang.String> values) {
-    	if (values == null)
-    		return clearMediumTopicBuildLabels();
-    	else
-    		return addAllMediumTopicBuildLabels(values);
-    }
-    	
-    /**
-     * @param values The values to map.
-     * @param mapFunc The function to map the values into each proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapAllOrClearMediumTopicBuildLabels(java.lang.Iterable<T> values, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (values == null)
-    		return clearMediumTopicBuildLabels();
-    	else {
-    		values.forEach(value -> addMediumTopicBuildLabels(mapFunc.apply(value)));
-    		return this;
-    	}
-    }
-    	
-    /**
      * @param value The settings to set.
      * @return This builder for chaining.
      */
@@ -6437,17 +4406,6 @@ private static final long serialVersionUID = 0L;
     		return clearUserQuery();
     	else
     		return setUserQuery(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param map The map to put.
-     * @return This builder for chaining.
-     */
-    public Builder putAllOrClearConversionWindows(java.util.Map<java.lang.String, com.google.protobuf.Duration> map) {
-    	if (map == null)
-    		return clearConversionWindows();
-    	else
-    		return putAllConversionWindows(map);
     }
     	
     /**
@@ -6609,29 +4567,6 @@ private static final long serialVersionUID = 0L;
     		return clearStartAt();
     	else
     		return setStartAt(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The local_start_at to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearLocalStartAt(java.lang.String value) {
-    	if (value == null)
-    		return clearLocalStartAt();
-    	else
-    		return setLocalStartAt(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearLocalStartAt(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearLocalStartAt();
-    	else
-    		return setLocalStartAt(mapFunc.apply(value));
     }
     	
     /**
@@ -6819,28 +4754,26 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param values The app_segments to add.
+     * @param value The send_medium to set.
      * @return This builder for chaining.
      */
-    public Builder addAllOrClearAppSegments(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.AppSegment> values) {
-    	if (values == null)
-    		return clearAppSegments();
+    public Builder setOrClearSendMedium(java.lang.String value) {
+    	if (value == null)
+    		return clearSendMedium();
     	else
-    		return addAllAppSegments(values);
+    		return setSendMedium(value);
     }
     	
     /**
-     * @param values The values to map.
-     * @param mapFunc The function to map the values into each proto message.
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapAllOrClearAppSegments(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.AppSegment> mapFunc) {
-    	if (values == null)
-    		return clearAppSegments();
-    	else {
-    		values.forEach(value -> addAppSegments(mapFunc.apply(value)));
-    		return this;
-    	}
+    public <T> Builder mapOrClearSendMedium(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearSendMedium();
+    	else
+    		return setSendMedium(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.OneTimeMsg)

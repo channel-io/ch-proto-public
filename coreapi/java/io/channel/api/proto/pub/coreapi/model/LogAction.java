@@ -458,7 +458,7 @@ public enum LogAction
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return io.channel.api.proto.pub.coreapi.model.MessageOuterClass.getDescriptor().getEnumTypes().get(2);
+    return io.channel.api.proto.pub.coreapi.model.MessageOuterClass.getDescriptor().getEnumTypes().get(1);
   }
 
   private static final LogAction[] VALUES = values();

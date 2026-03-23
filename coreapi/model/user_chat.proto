@@ -59,11 +59,6 @@ message UserChat {
   // +kubebuilder:validation:Nullable
   string user_id = 4;
 
-  // External reference ID of the user.
-  //
-  // +kubebuilder:validation:Nullable
-  string xer_id = 5;
-
   // ID of the manager currently assigned to this chat.
   //
   // +kubebuilder:validation:Nullable
@@ -89,17 +84,6 @@ message UserChat {
   // +kubebuilder:validation:Nullable
   string contact_medium_type = 9;
 
-  // Reason why the chat was missed.
-  // Present only when state is MISSED.
-  //
-  // +kubebuilder:validation:Nullable
-  string missed_reason = 10;
-
-  // ID of the active meet session associated with this chat.
-  //
-  // +kubebuilder:validation:Nullable
-  string live_meet_id = 11;
-
   // Automated handling state of this chat.
   // Varies by handling type (workflow, ALF, support bot, etc.).
   //
@@ -111,11 +95,6 @@ message UserChat {
   // +kubebuilder:validation:Nullable
   google.protobuf.Struct source = 13;
 
-  // Custom profile data associated with this chat.
-  //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Struct profile = 14;
-
   // Timestamp when the chat was first opened.
   //
   // +kubebuilder:validation:Nullable
@@ -125,16 +104,6 @@ message UserChat {
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp opened_at = 16;
-
-  // Timestamp when the chat first entered the queue.
-  //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp first_queued_at = 17;
-
-  // Timestamp when the chat most recently entered the queue.
-  //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp queued_at = 18;
 
   // Timestamp when the user first asked a question.
   //
@@ -150,11 +119,6 @@ message UserChat {
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp closed_at = 21;
-
-  // Timestamp when a manager first replied.
-  //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp first_replied_at = 22;
 
   // Timestamp when a manager first replied after the chat was opened.
   //
@@ -246,4 +210,64 @@ message UserChat {
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxItems=8
   repeated string tags = 40;
+
+  // Whether this chat is in managed state.
+  //
+  // +kubebuilder:validation:Nullable
+  bool managed = 41;
+
+  // Display name of this chat.
+  //
+  // +kubebuilder:validation:Nullable
+  string name = 42;
+
+  // IDs of managers participating in this chat.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string manager_ids = 43;
+
+  // Name of the event tracked as a conversion goal.
+  //
+  // +kubebuilder:validation:Nullable
+  string goal_event_name = 44;
+
+  // Filtering query for the goal event.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct goal_event_query = 45;
+
+  // Timestamp when the goal was last checked.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp goal_checked_at = 46;
+
+  // Current goal achievement state.
+  //
+  // +kubebuilder:validation:Nullable
+  string goal_state = 47;
+
+  // ID of the most recent desk-facing message.
+  //
+  // +kubebuilder:validation:Nullable
+  string desk_message_id = 48;
+
+  // Timestamp when the desk-facing content was last updated.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp desk_updated_at = 49;
+
+  // Timestamp when the chat was snoozed.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp snoozed_at = 50;
+
+  // Timestamp when the chat expires.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp expire_at = 51;
+
+  // Chat data version number.
+  //
+  // +kubebuilder:validation:Nullable
+  int64 version = 52;
 }

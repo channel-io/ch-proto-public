@@ -30,7 +30,7 @@ public final class GroupOuterClass {
     java.lang.String[] descriptorData = {
       "\n\031coreapi/model/group.proto\022\rcoreapi.mod" +
       "el\032\033buf/validate/validate.proto\032\037google/" +
-      "protobuf/timestamp.proto\"\230\006\n\005Group\022]\n\002id" +
+      "protobuf/timestamp.proto\"\216\006\n\005Group\022]\n\002id" +
       "\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value mus" +
       "t be at least 1 character\032\017size(this) >=" +
       " 1\310\001\001R\002id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272\001D\n\rs" +
@@ -43,19 +43,19 @@ public final class GroupOuterClass {
       "(this) <= 30\310\001\001R\005title\0227\n\005scope\030\004 \001(\0162\031." +
       "coreapi.model.GroupScopeB\006\272H\003\310\001\001R\005scope\022" +
       "\037\n\013manager_ids\030\005 \003(\tR\nmanagerIds\022\022\n\004icon" +
-      "\030\006 \001(\tR\004icon\022 \n\014live_meet_id\030\007 \001(\tR\nlive" +
-      "MeetId\022u\n\013description\030\010 \001(\tBS\272HP\272\001M\n\rstr" +
-      "ing.maxLen\022)value must be no more than 2" +
-      "00 characters\032\021size(this) <= 200R\013descri" +
-      "ption\022A\n\ncreated_at\030\t \001(\0132\032.google.proto" +
-      "buf.TimestampB\006\272H\003\310\001\001R\tcreatedAt\022A\n\nupda" +
-      "ted_at\030\n \001(\0132\032.google.protobuf.Timestamp" +
-      "B\006\272H\003\310\001\001R\tupdatedAt*o\n\nGroupScope\022\033\n\027GRO" +
-      "UP_SCOPE_UNSPECIFIED\020\000\022\023\n\017GROUP_SCOPE_AL" +
-      "L\020\001\022\026\n\022GROUP_SCOPE_PUBLIC\020\002\022\027\n\023GROUP_SCO" +
-      "PE_PRIVATE\020\003Bb\n&io.channel.api.proto.pub" +
-      ".coreapi.modelP\001Z6github.com/channel-io/" +
-      "ch-proto-public/coreapi/go/modelb\006proto3"
+      "\030\006 \001(\tR\004icon\022u\n\013description\030\010 \001(\tBS\272HP\272\001" +
+      "M\n\rstring.maxLen\022)value must be no more " +
+      "than 200 characters\032\021size(this) <= 200R\013" +
+      "description\022A\n\ncreated_at\030\t \001(\0132\032.google" +
+      ".protobuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt\022A" +
+      "\n\nupdated_at\030\n \001(\0132\032.google.protobuf.Tim" +
+      "estampB\006\272H\003\310\001\001R\tupdatedAt\022\026\n\006active\030\013 \001(" +
+      "\010R\006active*o\n\nGroupScope\022\033\n\027GROUP_SCOPE_U" +
+      "NSPECIFIED\020\000\022\023\n\017GROUP_SCOPE_ALL\020\001\022\026\n\022GRO" +
+      "UP_SCOPE_PUBLIC\020\002\022\027\n\023GROUP_SCOPE_PRIVATE" +
+      "\020\003Bb\n&io.channel.api.proto.pub.coreapi.m" +
+      "odelP\001Z6github.com/channel-io/ch-proto-p" +
+      "ublic/coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -68,7 +68,7 @@ public final class GroupOuterClass {
     internal_static_coreapi_model_Group_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Group_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "Title", "Scope", "ManagerIds", "Icon", "LiveMeetId", "Description", "CreatedAt", "UpdatedAt", });
+        new java.lang.String[] { "Id", "ChannelId", "Title", "Scope", "ManagerIds", "Icon", "Description", "CreatedAt", "UpdatedAt", "Active", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);

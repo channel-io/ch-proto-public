@@ -257,36 +257,6 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the message was last edited.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp edited_at = 11 [json_name = "editedAt"];</code>
-   * @return Whether the editedAt field is set.
-   */
-  boolean hasEditedAt();
-  /**
-   * <pre>
-   * Timestamp when the message was last edited.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp edited_at = 11 [json_name = "editedAt"];</code>
-   * @return The editedAt.
-   */
-  com.google.protobuf.Timestamp getEditedAt();
-  /**
-   * <pre>
-   * Timestamp when the message was last edited.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp edited_at = 11 [json_name = "editedAt"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getEditedAtOrBuilder();
-
-  /**
-   * <pre>
    * Structured content blocks of the message.
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -599,27 +569,6 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Rendering type that determines how a client should display the message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MessageWritingType writing_type = 20 [json_name = "writingType"];</code>
-   * @return The enum numeric value on the wire for writingType.
-   */
-  int getWritingTypeValue();
-  /**
-   * <pre>
-   * Rendering type that determines how a client should display the message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MessageWritingType writing_type = 20 [json_name = "writingType"];</code>
-   * @return The writingType.
-   */
-  io.channel.api.proto.pub.coreapi.model.MessageWritingType getWritingType();
-
-  /**
-   * <pre>
    * System log data for log-type messages.
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -699,31 +648,182 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Thread metadata if this message is a thread root.
+   * Composite key for the chat this message belongs to.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageThread thread = 23 [json_name = "thread"];</code>
-   * @return Whether the thread field is set.
+   * <code>string chat_key = 24 [json_name = "chatKey"];</code>
+   * @return The chatKey.
    */
-  boolean hasThread();
+  java.lang.String getChatKey();
   /**
    * <pre>
-   * Thread metadata if this message is a thread root.
+   * Composite key for the chat this message belongs to.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageThread thread = 23 [json_name = "thread"];</code>
-   * @return The thread.
+   * <code>string chat_key = 24 [json_name = "chatKey"];</code>
+   * @return The bytes for chatKey.
    */
-  io.channel.api.proto.pub.coreapi.model.MessageThread getThread();
+  com.google.protobuf.ByteString
+      getChatKeyBytes();
+
   /**
    * <pre>
-   * Thread metadata if this message is a thread root.
+   * Key of the main conversation thread.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageThread thread = 23 [json_name = "thread"];</code>
+   * <code>string main_key = 25 [json_name = "mainKey"];</code>
+   * @return The mainKey.
    */
-  io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder getThreadOrBuilder();
+  java.lang.String getMainKey();
+  /**
+   * <pre>
+   * Key of the main conversation thread.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string main_key = 25 [json_name = "mainKey"];</code>
+   * @return The bytes for mainKey.
+   */
+  com.google.protobuf.ByteString
+      getMainKeyBytes();
+
+  /**
+   * <pre>
+   * Key of the sub-thread this message belongs to.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string thread_key = 26 [json_name = "threadKey"];</code>
+   * @return The threadKey.
+   */
+  java.lang.String getThreadKey();
+  /**
+   * <pre>
+   * Key of the sub-thread this message belongs to.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string thread_key = 26 [json_name = "threadKey"];</code>
+   * @return The bytes for threadKey.
+   */
+  com.google.protobuf.ByteString
+      getThreadKeyBytes();
+
+  /**
+   * <pre>
+   * Message data version number.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int64 version = 27 [json_name = "version"];</code>
+   * @return The version.
+   */
+  long getVersion();
+
+  /**
+   * <pre>
+   * Marketing campaign metadata associated with this message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+   * @return Whether the marketing field is set.
+   */
+  boolean hasMarketing();
+  /**
+   * <pre>
+   * Marketing campaign metadata associated with this message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+   * @return The marketing.
+   */
+  com.google.protobuf.Struct getMarketing();
+  /**
+   * <pre>
+   * Marketing campaign metadata associated with this message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getMarketingOrBuilder();
+
+  /**
+   * <pre>
+   * Support bot metadata associated with this message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+   * @return Whether the supportBot field is set.
+   */
+  boolean hasSupportBot();
+  /**
+   * <pre>
+   * Support bot metadata associated with this message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+   * @return The supportBot.
+   */
+  com.google.protobuf.Struct getSupportBot();
+  /**
+   * <pre>
+   * Support bot metadata associated with this message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getSupportBotOrBuilder();
+
+  /**
+   * <pre>
+   * Whether this message is a thread reply.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool thread_msg = 30 [json_name = "threadMsg"];</code>
+   * @return The threadMsg.
+   */
+  boolean getThreadMsg();
+
+  /**
+   * <pre>
+   * Whether this message was broadcasted.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool broadcasted_msg = 31 [json_name = "broadcastedMsg"];</code>
+   * @return The broadcastedMsg.
+   */
+  boolean getBroadcastedMsg();
+
+  /**
+   * <pre>
+   * ID of the parent message this is a reply to.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string root_message_id = 32 [json_name = "rootMessageId"];</code>
+   * @return The rootMessageId.
+   */
+  java.lang.String getRootMessageId();
+  /**
+   * <pre>
+   * ID of the parent message this is a reply to.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string root_message_id = 32 [json_name = "rootMessageId"];</code>
+   * @return The bytes for rootMessageId.
+   */
+  com.google.protobuf.ByteString
+      getRootMessageIdBytes();
 }

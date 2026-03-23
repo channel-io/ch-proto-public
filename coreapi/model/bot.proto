@@ -4,6 +4,7 @@ package coreapi.model;
 
 import "buf/validate/validate.proto";
 import "coreapi/model/name_desc.proto";
+import "coreapi/model/tiny_file.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
@@ -91,4 +92,9 @@ message Bot {
   //
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp created_at = 8 [(buf.validate.field).required = true];
+
+  // Bot avatar image reference.
+  //
+  // +kubebuilder:validation:Nullable
+  coreapi.model.TinyFile avatar = 9;
 }

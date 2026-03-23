@@ -108,10 +108,6 @@ type Group struct {
 	//
 	// +kubebuilder:validation:Nullable
 	Icon string `protobuf:"bytes,6,opt,name=icon,proto3" json:"icon,omitempty"`
-	// ID of the ongoing meet session in this group.
-	//
-	// +kubebuilder:validation:Nullable
-	LiveMeetId string `protobuf:"bytes,7,opt,name=live_meet_id,json=liveMeetId,proto3" json:"live_meet_id,omitempty"`
 	// Group description.
 	//
 	// +kubebuilder:validation:Nullable
@@ -124,7 +120,11 @@ type Group struct {
 	// Group last update timestamp.
 	//
 	// +kubebuilder:validation:Required
-	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// Whether this group is currently active.
+	//
+	// +kubebuilder:validation:Nullable
+	Active        bool `protobuf:"varint,11,opt,name=active,proto3" json:"active,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -201,13 +201,6 @@ func (x *Group) GetIcon() string {
 	return ""
 }
 
-func (x *Group) GetLiveMeetId() string {
-	if x != nil {
-		return x.LiveMeetId
-	}
-	return ""
-}
-
 func (x *Group) GetDescription() string {
 	if x != nil {
 		return x.Description
@@ -229,11 +222,18 @@ func (x *Group) GetUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
+func (x *Group) GetActive() bool {
+	if x != nil {
+		return x.Active
+	}
+	return false
+}
+
 var File_coreapi_model_group_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_group_proto_rawDesc = "" +
 	"\n" +
-	"\x19coreapi/model/group.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x98\x06\n" +
+	"\x19coreapi/model/group.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8e\x06\n" +
 	"\x05Group\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -246,16 +246,15 @@ const file_coreapi_model_group_proto_rawDesc = "" +
 	"\x05scope\x18\x04 \x01(\x0e2\x19.coreapi.model.GroupScopeB\x06\xbaH\x03\xc8\x01\x01R\x05scope\x12\x1f\n" +
 	"\vmanager_ids\x18\x05 \x03(\tR\n" +
 	"managerIds\x12\x12\n" +
-	"\x04icon\x18\x06 \x01(\tR\x04icon\x12 \n" +
-	"\flive_meet_id\x18\a \x01(\tR\n" +
-	"liveMeetId\x12u\n" +
+	"\x04icon\x18\x06 \x01(\tR\x04icon\x12u\n" +
 	"\vdescription\x18\b \x01(\tBS\xbaHP\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 200 characters\x1a\x11size(this) <= 200R\vdescription\x12A\n" +
 	"\n" +
 	"created_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
 	"updated_at\x18\n" +
-	" \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt*o\n" +
+	" \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12\x16\n" +
+	"\x06active\x18\v \x01(\bR\x06active*o\n" +
 	"\n" +
 	"GroupScope\x12\x1b\n" +
 	"\x17GROUP_SCOPE_UNSPECIFIED\x10\x00\x12\x13\n" +

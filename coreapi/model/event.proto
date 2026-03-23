@@ -80,4 +80,14 @@ message Event {
   //
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp created_at = 6 [(buf.validate.field).required = true];
+
+  // Event expiration timestamp.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp expire_at = 7;
+
+  // Event data version number.
+  //
+  // +kubebuilder:validation:Nullable
+  int64 version = 8;
 }

@@ -26,17 +26,15 @@ private static final long serialVersionUID = 0L;
     channelId_ = "";
     name_ = "";
     state_ = 0;
-    appearance_ = 0;
     labelButtonText_ = "";
-    buttonType_ = 0;
-    iconButton_ = 0;
-    customImageUrl_ = "";
     deskImageUrl_ = "";
     deskPosition_ = 0;
     mobileImageUrl_ = "";
     mobilePosition_ = 0;
     mobileBubblePosition_ = 0;
     facebookPixelId_ = "";
+    key_ = "";
+    urlWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -94,12 +92,6 @@ private static final long serialVersionUID = 0L;
             state_ = rawValue;
             break;
           }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            appearance_ = rawValue;
-            break;
-          }
           case 48: {
 
             labelButton_ = input.readBool();
@@ -124,24 +116,6 @@ private static final long serialVersionUID = 0L;
                 labelButtonTextI18NMap__.getKey(), labelButtonTextI18NMap__.getValue());
             break;
           }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            buttonType_ = rawValue;
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-
-            iconButton_ = rawValue;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            customImageUrl_ = s;
-            break;
-          }
           case 98: {
             java.lang.String s = input.readStringRequireUtf8();
 
@@ -156,11 +130,6 @@ private static final long serialVersionUID = 0L;
           case 112: {
 
             deskMarginY_ = input.readInt32();
-            break;
-          }
-          case 120: {
-
-            deskHideButton_ = input.readBool();
             break;
           }
           case 128: {
@@ -226,6 +195,57 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 210: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            key_ = s;
+            break;
+          }
+          case 218: {
+            io.channel.api.proto.pub.coreapi.model.TinyFile.Builder subBuilder = null;
+            if (deskImage_ != null) {
+              subBuilder = deskImage_.toBuilder();
+            }
+            deskImage_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.TinyFile.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(deskImage_);
+              deskImage_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 226: {
+            io.channel.api.proto.pub.coreapi.model.TinyFile.Builder subBuilder = null;
+            if (mobileImage_ != null) {
+              subBuilder = mobileImage_.toBuilder();
+            }
+            mobileImage_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.TinyFile.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(mobileImage_);
+              mobileImage_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 234: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              urlWhitelist_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            urlWhitelist_.add(s);
+            break;
+          }
+          case 240: {
+
+            validLabelButtonText_ = input.readBool();
+            break;
+          }
+          case 248: {
+
+            validLabelButtonTextI18NMap_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -241,6 +261,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        urlWhitelist_ = urlWhitelist_.getUnmodifiableView();
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -451,35 +474,6 @@ private static final long serialVersionUID = 0L;
     return result == null ? io.channel.api.proto.pub.coreapi.model.PluginState.UNRECOGNIZED : result;
   }
 
-  public static final int APPEARANCE_FIELD_NUMBER = 5;
-  private int appearance_;
-  /**
-   * <pre>
-   * Visual theme of the widget.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginAppearance appearance = 5 [json_name = "appearance", (.buf.validate.field) = { ... }</code>
-   * @return The enum numeric value on the wire for appearance.
-   */
-  @java.lang.Override public int getAppearanceValue() {
-    return appearance_;
-  }
-  /**
-   * <pre>
-   * Visual theme of the widget.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginAppearance appearance = 5 [json_name = "appearance", (.buf.validate.field) = { ... }</code>
-   * @return The appearance.
-   */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.PluginAppearance getAppearance() {
-    @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.PluginAppearance result = io.channel.api.proto.pub.coreapi.model.PluginAppearance.valueOf(appearance_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.PluginAppearance.UNRECOGNIZED : result;
-  }
-
   public static final int LABEL_BUTTON_FIELD_NUMBER = 6;
   private boolean labelButton_;
   /**
@@ -653,114 +647,6 @@ private static final long serialVersionUID = 0L;
     return map.get(key);
   }
 
-  public static final int BUTTON_TYPE_FIELD_NUMBER = 9;
-  private int buttonType_;
-  /**
-   * <pre>
-   * Type of the launcher button.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginButtonType button_type = 9 [json_name = "buttonType", (.buf.validate.field) = { ... }</code>
-   * @return The enum numeric value on the wire for buttonType.
-   */
-  @java.lang.Override public int getButtonTypeValue() {
-    return buttonType_;
-  }
-  /**
-   * <pre>
-   * Type of the launcher button.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginButtonType button_type = 9 [json_name = "buttonType", (.buf.validate.field) = { ... }</code>
-   * @return The buttonType.
-   */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.PluginButtonType getButtonType() {
-    @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.PluginButtonType result = io.channel.api.proto.pub.coreapi.model.PluginButtonType.valueOf(buttonType_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.PluginButtonType.UNRECOGNIZED : result;
-  }
-
-  public static final int ICON_BUTTON_FIELD_NUMBER = 10;
-  private int iconButton_;
-  /**
-   * <pre>
-   * Predefined icon for the launcher button.
-   * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginIconButton icon_button = 10 [json_name = "iconButton"];</code>
-   * @return The enum numeric value on the wire for iconButton.
-   */
-  @java.lang.Override public int getIconButtonValue() {
-    return iconButton_;
-  }
-  /**
-   * <pre>
-   * Predefined icon for the launcher button.
-   * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginIconButton icon_button = 10 [json_name = "iconButton"];</code>
-   * @return The iconButton.
-   */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.PluginIconButton getIconButton() {
-    @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.PluginIconButton result = io.channel.api.proto.pub.coreapi.model.PluginIconButton.valueOf(iconButton_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.PluginIconButton.UNRECOGNIZED : result;
-  }
-
-  public static final int CUSTOM_IMAGE_URL_FIELD_NUMBER = 11;
-  private volatile java.lang.Object customImageUrl_;
-  /**
-   * <pre>
-   * URL of the custom launcher button image.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string custom_image_url = 11 [json_name = "customImageUrl"];</code>
-   * @return The customImageUrl.
-   */
-  @java.lang.Override
-  public java.lang.String getCustomImageUrl() {
-    java.lang.Object ref = customImageUrl_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      customImageUrl_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * URL of the custom launcher button image.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string custom_image_url = 11 [json_name = "customImageUrl"];</code>
-   * @return The bytes for customImageUrl.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getCustomImageUrlBytes() {
-    java.lang.Object ref = customImageUrl_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      customImageUrl_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   public static final int DESK_IMAGE_URL_FIELD_NUMBER = 12;
   private volatile java.lang.Object deskImageUrl_;
   /**
@@ -839,22 +725,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public int getDeskMarginY() {
     return deskMarginY_;
-  }
-
-  public static final int DESK_HIDE_BUTTON_FIELD_NUMBER = 15;
-  private boolean deskHideButton_;
-  /**
-   * <pre>
-   * Whether the launcher button is hidden on desktop.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool desk_hide_button = 15 [json_name = "deskHideButton"];</code>
-   * @return The deskHideButton.
-   */
-  @java.lang.Override
-  public boolean getDeskHideButton() {
-    return deskHideButton_;
   }
 
   public static final int DESK_POSITION_FIELD_NUMBER = 16;
@@ -1147,6 +1017,229 @@ private static final long serialVersionUID = 0L;
     return getCreatedAt();
   }
 
+  public static final int KEY_FIELD_NUMBER = 26;
+  private volatile java.lang.Object key_;
+  /**
+   * <pre>
+   * Unique plugin key in UUID format.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Format="uuid"
+   * </pre>
+   *
+   * <code>string key = 26 [json_name = "key"];</code>
+   * @return The key.
+   */
+  @java.lang.Override
+  public java.lang.String getKey() {
+    java.lang.Object ref = key_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      key_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Unique plugin key in UUID format.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Format="uuid"
+   * </pre>
+   *
+   * <code>string key = 26 [json_name = "key"];</code>
+   * @return The bytes for key.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getKeyBytes() {
+    java.lang.Object ref = key_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      key_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DESK_IMAGE_FIELD_NUMBER = 27;
+  private io.channel.api.proto.pub.coreapi.model.TinyFile deskImage_;
+  /**
+   * <pre>
+   * Desktop launcher button image reference.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.TinyFile desk_image = 27 [json_name = "deskImage"];</code>
+   * @return Whether the deskImage field is set.
+   */
+  @java.lang.Override
+  public boolean hasDeskImage() {
+    return deskImage_ != null;
+  }
+  /**
+   * <pre>
+   * Desktop launcher button image reference.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.TinyFile desk_image = 27 [json_name = "deskImage"];</code>
+   * @return The deskImage.
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.TinyFile getDeskImage() {
+    return deskImage_ == null ? io.channel.api.proto.pub.coreapi.model.TinyFile.getDefaultInstance() : deskImage_;
+  }
+  /**
+   * <pre>
+   * Desktop launcher button image reference.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.TinyFile desk_image = 27 [json_name = "deskImage"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder getDeskImageOrBuilder() {
+    return getDeskImage();
+  }
+
+  public static final int MOBILE_IMAGE_FIELD_NUMBER = 28;
+  private io.channel.api.proto.pub.coreapi.model.TinyFile mobileImage_;
+  /**
+   * <pre>
+   * Mobile launcher button image reference.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.TinyFile mobile_image = 28 [json_name = "mobileImage"];</code>
+   * @return Whether the mobileImage field is set.
+   */
+  @java.lang.Override
+  public boolean hasMobileImage() {
+    return mobileImage_ != null;
+  }
+  /**
+   * <pre>
+   * Mobile launcher button image reference.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.TinyFile mobile_image = 28 [json_name = "mobileImage"];</code>
+   * @return The mobileImage.
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.TinyFile getMobileImage() {
+    return mobileImage_ == null ? io.channel.api.proto.pub.coreapi.model.TinyFile.getDefaultInstance() : mobileImage_;
+  }
+  /**
+   * <pre>
+   * Mobile launcher button image reference.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.TinyFile mobile_image = 28 [json_name = "mobileImage"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder getMobileImageOrBuilder() {
+    return getMobileImage();
+  }
+
+  public static final int URL_WHITELIST_FIELD_NUMBER = 29;
+  private com.google.protobuf.LazyStringList urlWhitelist_;
+  /**
+   * <pre>
+   * Allowed URL patterns for the plugin widget.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=5
+   * </pre>
+   *
+   * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+   * @return A list containing the urlWhitelist.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getUrlWhitelistList() {
+    return urlWhitelist_;
+  }
+  /**
+   * <pre>
+   * Allowed URL patterns for the plugin widget.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=5
+   * </pre>
+   *
+   * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+   * @return The count of urlWhitelist.
+   */
+  public int getUrlWhitelistCount() {
+    return urlWhitelist_.size();
+  }
+  /**
+   * <pre>
+   * Allowed URL patterns for the plugin widget.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=5
+   * </pre>
+   *
+   * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+   * @param index The index of the element to return.
+   * @return The urlWhitelist at the given index.
+   */
+  public java.lang.String getUrlWhitelist(int index) {
+    return urlWhitelist_.get(index);
+  }
+  /**
+   * <pre>
+   * Allowed URL patterns for the plugin widget.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=5
+   * </pre>
+   *
+   * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the urlWhitelist at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getUrlWhitelistBytes(int index) {
+    return urlWhitelist_.getByteString(index);
+  }
+
+  public static final int VALID_LABEL_BUTTON_TEXT_FIELD_NUMBER = 30;
+  private boolean validLabelButtonText_;
+  /**
+   * <pre>
+   * Whether the label button text is valid.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool valid_label_button_text = 30 [json_name = "validLabelButtonText"];</code>
+   * @return The validLabelButtonText.
+   */
+  @java.lang.Override
+  public boolean getValidLabelButtonText() {
+    return validLabelButtonText_;
+  }
+
+  public static final int VALID_LABEL_BUTTON_TEXT_I18N_MAP_FIELD_NUMBER = 31;
+  private boolean validLabelButtonTextI18NMap_;
+  /**
+   * <pre>
+   * Whether the internationalized label button text map is valid.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool valid_label_button_text_i18n_map = 31 [json_name = "validLabelButtonTextI18nMap"];</code>
+   * @return The validLabelButtonTextI18nMap.
+   */
+  @java.lang.Override
+  public boolean getValidLabelButtonTextI18NMap() {
+    return validLabelButtonTextI18NMap_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1173,9 +1266,6 @@ private static final long serialVersionUID = 0L;
     if (state_ != io.channel.api.proto.pub.coreapi.model.PluginState.PLUGIN_STATE_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, state_);
     }
-    if (appearance_ != io.channel.api.proto.pub.coreapi.model.PluginAppearance.PLUGIN_APPEARANCE_UNSPECIFIED.getNumber()) {
-      output.writeEnum(5, appearance_);
-    }
     if (labelButton_ != false) {
       output.writeBool(6, labelButton_);
     }
@@ -1188,15 +1278,6 @@ private static final long serialVersionUID = 0L;
         internalGetLabelButtonTextI18NMap(),
         LabelButtonTextI18NMapDefaultEntryHolder.defaultEntry,
         8);
-    if (buttonType_ != io.channel.api.proto.pub.coreapi.model.PluginButtonType.PLUGIN_BUTTON_TYPE_UNSPECIFIED.getNumber()) {
-      output.writeEnum(9, buttonType_);
-    }
-    if (iconButton_ != io.channel.api.proto.pub.coreapi.model.PluginIconButton.PLUGIN_ICON_BUTTON_UNSPECIFIED.getNumber()) {
-      output.writeEnum(10, iconButton_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(customImageUrl_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, customImageUrl_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deskImageUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, deskImageUrl_);
     }
@@ -1205,9 +1286,6 @@ private static final long serialVersionUID = 0L;
     }
     if (deskMarginY_ != 0) {
       output.writeInt32(14, deskMarginY_);
-    }
-    if (deskHideButton_ != false) {
-      output.writeBool(15, deskHideButton_);
     }
     if (deskPosition_ != io.channel.api.proto.pub.coreapi.model.PluginPosition.PLUGIN_POSITION_UNSPECIFIED.getNumber()) {
       output.writeEnum(16, deskPosition_);
@@ -1239,6 +1317,24 @@ private static final long serialVersionUID = 0L;
     if (createdAt_ != null) {
       output.writeMessage(25, getCreatedAt());
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 26, key_);
+    }
+    if (deskImage_ != null) {
+      output.writeMessage(27, getDeskImage());
+    }
+    if (mobileImage_ != null) {
+      output.writeMessage(28, getMobileImage());
+    }
+    for (int i = 0; i < urlWhitelist_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 29, urlWhitelist_.getRaw(i));
+    }
+    if (validLabelButtonText_ != false) {
+      output.writeBool(30, validLabelButtonText_);
+    }
+    if (validLabelButtonTextI18NMap_ != false) {
+      output.writeBool(31, validLabelButtonTextI18NMap_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -1261,10 +1357,6 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, state_);
     }
-    if (appearance_ != io.channel.api.proto.pub.coreapi.model.PluginAppearance.PLUGIN_APPEARANCE_UNSPECIFIED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(5, appearance_);
-    }
     if (labelButton_ != false) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, labelButton_);
@@ -1282,17 +1374,6 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, labelButtonTextI18NMap__);
     }
-    if (buttonType_ != io.channel.api.proto.pub.coreapi.model.PluginButtonType.PLUGIN_BUTTON_TYPE_UNSPECIFIED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(9, buttonType_);
-    }
-    if (iconButton_ != io.channel.api.proto.pub.coreapi.model.PluginIconButton.PLUGIN_ICON_BUTTON_UNSPECIFIED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(10, iconButton_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(customImageUrl_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, customImageUrl_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deskImageUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, deskImageUrl_);
     }
@@ -1303,10 +1384,6 @@ private static final long serialVersionUID = 0L;
     if (deskMarginY_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(14, deskMarginY_);
-    }
-    if (deskHideButton_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(15, deskHideButton_);
     }
     if (deskPosition_ != io.channel.api.proto.pub.coreapi.model.PluginPosition.PLUGIN_POSITION_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
@@ -1346,6 +1423,33 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(25, getCreatedAt());
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(26, key_);
+    }
+    if (deskImage_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(27, getDeskImage());
+    }
+    if (mobileImage_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(28, getMobileImage());
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < urlWhitelist_.size(); i++) {
+        dataSize += computeStringSizeNoTag(urlWhitelist_.getRaw(i));
+      }
+      size += dataSize;
+      size += 2 * getUrlWhitelistList().size();
+    }
+    if (validLabelButtonText_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(30, validLabelButtonText_);
+    }
+    if (validLabelButtonTextI18NMap_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(31, validLabelButtonTextI18NMap_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1368,25 +1472,18 @@ private static final long serialVersionUID = 0L;
     if (!getName()
         .equals(other.getName())) return false;
     if (state_ != other.state_) return false;
-    if (appearance_ != other.appearance_) return false;
     if (getLabelButton()
         != other.getLabelButton()) return false;
     if (!getLabelButtonText()
         .equals(other.getLabelButtonText())) return false;
     if (!internalGetLabelButtonTextI18NMap().equals(
         other.internalGetLabelButtonTextI18NMap())) return false;
-    if (buttonType_ != other.buttonType_) return false;
-    if (iconButton_ != other.iconButton_) return false;
-    if (!getCustomImageUrl()
-        .equals(other.getCustomImageUrl())) return false;
     if (!getDeskImageUrl()
         .equals(other.getDeskImageUrl())) return false;
     if (getDeskMarginX()
         != other.getDeskMarginX()) return false;
     if (getDeskMarginY()
         != other.getDeskMarginY()) return false;
-    if (getDeskHideButton()
-        != other.getDeskHideButton()) return false;
     if (deskPosition_ != other.deskPosition_) return false;
     if (!getMobileImageUrl()
         .equals(other.getMobileImageUrl())) return false;
@@ -1408,6 +1505,24 @@ private static final long serialVersionUID = 0L;
       if (!getCreatedAt()
           .equals(other.getCreatedAt())) return false;
     }
+    if (!getKey()
+        .equals(other.getKey())) return false;
+    if (hasDeskImage() != other.hasDeskImage()) return false;
+    if (hasDeskImage()) {
+      if (!getDeskImage()
+          .equals(other.getDeskImage())) return false;
+    }
+    if (hasMobileImage() != other.hasMobileImage()) return false;
+    if (hasMobileImage()) {
+      if (!getMobileImage()
+          .equals(other.getMobileImage())) return false;
+    }
+    if (!getUrlWhitelistList()
+        .equals(other.getUrlWhitelistList())) return false;
+    if (getValidLabelButtonText()
+        != other.getValidLabelButtonText()) return false;
+    if (getValidLabelButtonTextI18NMap()
+        != other.getValidLabelButtonTextI18NMap()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1427,8 +1542,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + STATE_FIELD_NUMBER;
     hash = (53 * hash) + state_;
-    hash = (37 * hash) + APPEARANCE_FIELD_NUMBER;
-    hash = (53 * hash) + appearance_;
     hash = (37 * hash) + LABEL_BUTTON_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getLabelButton());
@@ -1438,21 +1551,12 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LABEL_BUTTON_TEXT_I18N_MAP_FIELD_NUMBER;
       hash = (53 * hash) + internalGetLabelButtonTextI18NMap().hashCode();
     }
-    hash = (37 * hash) + BUTTON_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + buttonType_;
-    hash = (37 * hash) + ICON_BUTTON_FIELD_NUMBER;
-    hash = (53 * hash) + iconButton_;
-    hash = (37 * hash) + CUSTOM_IMAGE_URL_FIELD_NUMBER;
-    hash = (53 * hash) + getCustomImageUrl().hashCode();
     hash = (37 * hash) + DESK_IMAGE_URL_FIELD_NUMBER;
     hash = (53 * hash) + getDeskImageUrl().hashCode();
     hash = (37 * hash) + DESK_MARGIN_X_FIELD_NUMBER;
     hash = (53 * hash) + getDeskMarginX();
     hash = (37 * hash) + DESK_MARGIN_Y_FIELD_NUMBER;
     hash = (53 * hash) + getDeskMarginY();
-    hash = (37 * hash) + DESK_HIDE_BUTTON_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getDeskHideButton());
     hash = (37 * hash) + DESK_POSITION_FIELD_NUMBER;
     hash = (53 * hash) + deskPosition_;
     hash = (37 * hash) + MOBILE_IMAGE_URL_FIELD_NUMBER;
@@ -1477,6 +1581,26 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getCreatedAt().hashCode();
     }
+    hash = (37 * hash) + KEY_FIELD_NUMBER;
+    hash = (53 * hash) + getKey().hashCode();
+    if (hasDeskImage()) {
+      hash = (37 * hash) + DESK_IMAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getDeskImage().hashCode();
+    }
+    if (hasMobileImage()) {
+      hash = (37 * hash) + MOBILE_IMAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMobileImage().hashCode();
+    }
+    if (getUrlWhitelistCount() > 0) {
+      hash = (37 * hash) + URL_WHITELIST_FIELD_NUMBER;
+      hash = (53 * hash) + getUrlWhitelistList().hashCode();
+    }
+    hash = (37 * hash) + VALID_LABEL_BUTTON_TEXT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getValidLabelButtonText());
+    hash = (37 * hash) + VALID_LABEL_BUTTON_TEXT_I18N_MAP_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getValidLabelButtonTextI18NMap());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1646,26 +1770,16 @@ private static final long serialVersionUID = 0L;
 
       state_ = 0;
 
-      appearance_ = 0;
-
       labelButton_ = false;
 
       labelButtonText_ = "";
 
       internalGetMutableLabelButtonTextI18NMap().clear();
-      buttonType_ = 0;
-
-      iconButton_ = 0;
-
-      customImageUrl_ = "";
-
       deskImageUrl_ = "";
 
       deskMarginX_ = 0;
 
       deskMarginY_ = 0;
-
-      deskHideButton_ = false;
 
       deskPosition_ = 0;
 
@@ -1691,6 +1805,26 @@ private static final long serialVersionUID = 0L;
         createdAt_ = null;
         createdAtBuilder_ = null;
       }
+      key_ = "";
+
+      if (deskImageBuilder_ == null) {
+        deskImage_ = null;
+      } else {
+        deskImage_ = null;
+        deskImageBuilder_ = null;
+      }
+      if (mobileImageBuilder_ == null) {
+        mobileImage_ = null;
+      } else {
+        mobileImage_ = null;
+        mobileImageBuilder_ = null;
+      }
+      urlWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      validLabelButtonText_ = false;
+
+      validLabelButtonTextI18NMap_ = false;
+
       return this;
     }
 
@@ -1722,18 +1856,13 @@ private static final long serialVersionUID = 0L;
       result.channelId_ = channelId_;
       result.name_ = name_;
       result.state_ = state_;
-      result.appearance_ = appearance_;
       result.labelButton_ = labelButton_;
       result.labelButtonText_ = labelButtonText_;
       result.labelButtonTextI18NMap_ = internalGetLabelButtonTextI18NMap();
       result.labelButtonTextI18NMap_.makeImmutable();
-      result.buttonType_ = buttonType_;
-      result.iconButton_ = iconButton_;
-      result.customImageUrl_ = customImageUrl_;
       result.deskImageUrl_ = deskImageUrl_;
       result.deskMarginX_ = deskMarginX_;
       result.deskMarginY_ = deskMarginY_;
-      result.deskHideButton_ = deskHideButton_;
       result.deskPosition_ = deskPosition_;
       result.mobileImageUrl_ = mobileImageUrl_;
       result.mobileMarginX_ = mobileMarginX_;
@@ -1748,6 +1877,24 @@ private static final long serialVersionUID = 0L;
       } else {
         result.createdAt_ = createdAtBuilder_.build();
       }
+      result.key_ = key_;
+      if (deskImageBuilder_ == null) {
+        result.deskImage_ = deskImage_;
+      } else {
+        result.deskImage_ = deskImageBuilder_.build();
+      }
+      if (mobileImageBuilder_ == null) {
+        result.mobileImage_ = mobileImage_;
+      } else {
+        result.mobileImage_ = mobileImageBuilder_.build();
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        urlWhitelist_ = urlWhitelist_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.urlWhitelist_ = urlWhitelist_;
+      result.validLabelButtonText_ = validLabelButtonText_;
+      result.validLabelButtonTextI18NMap_ = validLabelButtonTextI18NMap_;
       onBuilt();
       return result;
     }
@@ -1811,9 +1958,6 @@ private static final long serialVersionUID = 0L;
       if (other.state_ != 0) {
         setStateValue(other.getStateValue());
       }
-      if (other.appearance_ != 0) {
-        setAppearanceValue(other.getAppearanceValue());
-      }
       if (other.getLabelButton() != false) {
         setLabelButton(other.getLabelButton());
       }
@@ -1823,16 +1967,6 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabelButtonTextI18NMap().mergeFrom(
           other.internalGetLabelButtonTextI18NMap());
-      if (other.buttonType_ != 0) {
-        setButtonTypeValue(other.getButtonTypeValue());
-      }
-      if (other.iconButton_ != 0) {
-        setIconButtonValue(other.getIconButtonValue());
-      }
-      if (!other.getCustomImageUrl().isEmpty()) {
-        customImageUrl_ = other.customImageUrl_;
-        onChanged();
-      }
       if (!other.getDeskImageUrl().isEmpty()) {
         deskImageUrl_ = other.deskImageUrl_;
         onChanged();
@@ -1842,9 +1976,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getDeskMarginY() != 0) {
         setDeskMarginY(other.getDeskMarginY());
-      }
-      if (other.getDeskHideButton() != false) {
-        setDeskHideButton(other.getDeskHideButton());
       }
       if (other.deskPosition_ != 0) {
         setDeskPositionValue(other.getDeskPositionValue());
@@ -1877,6 +2008,32 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasCreatedAt()) {
         mergeCreatedAt(other.getCreatedAt());
+      }
+      if (!other.getKey().isEmpty()) {
+        key_ = other.key_;
+        onChanged();
+      }
+      if (other.hasDeskImage()) {
+        mergeDeskImage(other.getDeskImage());
+      }
+      if (other.hasMobileImage()) {
+        mergeMobileImage(other.getMobileImage());
+      }
+      if (!other.urlWhitelist_.isEmpty()) {
+        if (urlWhitelist_.isEmpty()) {
+          urlWhitelist_ = other.urlWhitelist_;
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          ensureUrlWhitelistIsMutable();
+          urlWhitelist_.addAll(other.urlWhitelist_);
+        }
+        onChanged();
+      }
+      if (other.getValidLabelButtonText() != false) {
+        setValidLabelButtonText(other.getValidLabelButtonText());
+      }
+      if (other.getValidLabelButtonTextI18NMap() != false) {
+        setValidLabelButtonTextI18NMap(other.getValidLabelButtonTextI18NMap());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2310,85 +2467,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int appearance_ = 0;
-    /**
-     * <pre>
-     * Visual theme of the widget.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginAppearance appearance = 5 [json_name = "appearance", (.buf.validate.field) = { ... }</code>
-     * @return The enum numeric value on the wire for appearance.
-     */
-    @java.lang.Override public int getAppearanceValue() {
-      return appearance_;
-    }
-    /**
-     * <pre>
-     * Visual theme of the widget.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginAppearance appearance = 5 [json_name = "appearance", (.buf.validate.field) = { ... }</code>
-     * @param value The enum numeric value on the wire for appearance to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAppearanceValue(int value) {
-      
-      appearance_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Visual theme of the widget.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginAppearance appearance = 5 [json_name = "appearance", (.buf.validate.field) = { ... }</code>
-     * @return The appearance.
-     */
-    @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.PluginAppearance getAppearance() {
-      @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.PluginAppearance result = io.channel.api.proto.pub.coreapi.model.PluginAppearance.valueOf(appearance_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.PluginAppearance.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Visual theme of the widget.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginAppearance appearance = 5 [json_name = "appearance", (.buf.validate.field) = { ... }</code>
-     * @param value The appearance to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAppearance(io.channel.api.proto.pub.coreapi.model.PluginAppearance value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      appearance_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Visual theme of the widget.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginAppearance appearance = 5 [json_name = "appearance", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearAppearance() {
-      
-      appearance_ = 0;
-      onChanged();
-      return this;
-    }
-
     private boolean labelButton_ ;
     /**
      * <pre>
@@ -2719,270 +2797,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int buttonType_ = 0;
-    /**
-     * <pre>
-     * Type of the launcher button.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginButtonType button_type = 9 [json_name = "buttonType", (.buf.validate.field) = { ... }</code>
-     * @return The enum numeric value on the wire for buttonType.
-     */
-    @java.lang.Override public int getButtonTypeValue() {
-      return buttonType_;
-    }
-    /**
-     * <pre>
-     * Type of the launcher button.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginButtonType button_type = 9 [json_name = "buttonType", (.buf.validate.field) = { ... }</code>
-     * @param value The enum numeric value on the wire for buttonType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setButtonTypeValue(int value) {
-      
-      buttonType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Type of the launcher button.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginButtonType button_type = 9 [json_name = "buttonType", (.buf.validate.field) = { ... }</code>
-     * @return The buttonType.
-     */
-    @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.PluginButtonType getButtonType() {
-      @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.PluginButtonType result = io.channel.api.proto.pub.coreapi.model.PluginButtonType.valueOf(buttonType_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.PluginButtonType.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Type of the launcher button.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginButtonType button_type = 9 [json_name = "buttonType", (.buf.validate.field) = { ... }</code>
-     * @param value The buttonType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setButtonType(io.channel.api.proto.pub.coreapi.model.PluginButtonType value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      buttonType_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Type of the launcher button.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginButtonType button_type = 9 [json_name = "buttonType", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearButtonType() {
-      
-      buttonType_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int iconButton_ = 0;
-    /**
-     * <pre>
-     * Predefined icon for the launcher button.
-     * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginIconButton icon_button = 10 [json_name = "iconButton"];</code>
-     * @return The enum numeric value on the wire for iconButton.
-     */
-    @java.lang.Override public int getIconButtonValue() {
-      return iconButton_;
-    }
-    /**
-     * <pre>
-     * Predefined icon for the launcher button.
-     * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginIconButton icon_button = 10 [json_name = "iconButton"];</code>
-     * @param value The enum numeric value on the wire for iconButton to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIconButtonValue(int value) {
-      
-      iconButton_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Predefined icon for the launcher button.
-     * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginIconButton icon_button = 10 [json_name = "iconButton"];</code>
-     * @return The iconButton.
-     */
-    @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.PluginIconButton getIconButton() {
-      @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.PluginIconButton result = io.channel.api.proto.pub.coreapi.model.PluginIconButton.valueOf(iconButton_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.PluginIconButton.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Predefined icon for the launcher button.
-     * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginIconButton icon_button = 10 [json_name = "iconButton"];</code>
-     * @param value The iconButton to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIconButton(io.channel.api.proto.pub.coreapi.model.PluginIconButton value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      iconButton_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Predefined icon for the launcher button.
-     * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginIconButton icon_button = 10 [json_name = "iconButton"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearIconButton() {
-      
-      iconButton_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object customImageUrl_ = "";
-    /**
-     * <pre>
-     * URL of the custom launcher button image.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string custom_image_url = 11 [json_name = "customImageUrl"];</code>
-     * @return The customImageUrl.
-     */
-    public java.lang.String getCustomImageUrl() {
-      java.lang.Object ref = customImageUrl_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        customImageUrl_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * URL of the custom launcher button image.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string custom_image_url = 11 [json_name = "customImageUrl"];</code>
-     * @return The bytes for customImageUrl.
-     */
-    public com.google.protobuf.ByteString
-        getCustomImageUrlBytes() {
-      java.lang.Object ref = customImageUrl_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        customImageUrl_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * URL of the custom launcher button image.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string custom_image_url = 11 [json_name = "customImageUrl"];</code>
-     * @param value The customImageUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCustomImageUrl(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      customImageUrl_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * URL of the custom launcher button image.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string custom_image_url = 11 [json_name = "customImageUrl"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCustomImageUrl() {
-      
-      customImageUrl_ = getDefaultInstance().getCustomImageUrl();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * URL of the custom launcher button image.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string custom_image_url = 11 [json_name = "customImageUrl"];</code>
-     * @param value The bytes for customImageUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCustomImageUrlBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      customImageUrl_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object deskImageUrl_ = "";
     /**
      * <pre>
@@ -3172,52 +2986,6 @@ private static final long serialVersionUID = 0L;
     public Builder clearDeskMarginY() {
       
       deskMarginY_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private boolean deskHideButton_ ;
-    /**
-     * <pre>
-     * Whether the launcher button is hidden on desktop.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool desk_hide_button = 15 [json_name = "deskHideButton"];</code>
-     * @return The deskHideButton.
-     */
-    @java.lang.Override
-    public boolean getDeskHideButton() {
-      return deskHideButton_;
-    }
-    /**
-     * <pre>
-     * Whether the launcher button is hidden on desktop.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool desk_hide_button = 15 [json_name = "deskHideButton"];</code>
-     * @param value The deskHideButton to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDeskHideButton(boolean value) {
-      
-      deskHideButton_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether the launcher button is hidden on desktop.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool desk_hide_button = 15 [json_name = "deskHideButton"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDeskHideButton() {
-      
-      deskHideButton_ = false;
       onChanged();
       return this;
     }
@@ -4014,6 +3782,696 @@ private static final long serialVersionUID = 0L;
       }
       return createdAtBuilder_;
     }
+
+    private java.lang.Object key_ = "";
+    /**
+     * <pre>
+     * Unique plugin key in UUID format.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Format="uuid"
+     * </pre>
+     *
+     * <code>string key = 26 [json_name = "key"];</code>
+     * @return The key.
+     */
+    public java.lang.String getKey() {
+      java.lang.Object ref = key_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        key_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Unique plugin key in UUID format.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Format="uuid"
+     * </pre>
+     *
+     * <code>string key = 26 [json_name = "key"];</code>
+     * @return The bytes for key.
+     */
+    public com.google.protobuf.ByteString
+        getKeyBytes() {
+      java.lang.Object ref = key_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        key_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Unique plugin key in UUID format.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Format="uuid"
+     * </pre>
+     *
+     * <code>string key = 26 [json_name = "key"];</code>
+     * @param value The key to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKey(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      key_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Unique plugin key in UUID format.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Format="uuid"
+     * </pre>
+     *
+     * <code>string key = 26 [json_name = "key"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearKey() {
+      
+      key_ = getDefaultInstance().getKey();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Unique plugin key in UUID format.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Format="uuid"
+     * </pre>
+     *
+     * <code>string key = 26 [json_name = "key"];</code>
+     * @param value The bytes for key to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKeyBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      key_ = value;
+      onChanged();
+      return this;
+    }
+
+    private io.channel.api.proto.pub.coreapi.model.TinyFile deskImage_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.TinyFile, io.channel.api.proto.pub.coreapi.model.TinyFile.Builder, io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder> deskImageBuilder_;
+    /**
+     * <pre>
+     * Desktop launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile desk_image = 27 [json_name = "deskImage"];</code>
+     * @return Whether the deskImage field is set.
+     */
+    public boolean hasDeskImage() {
+      return deskImageBuilder_ != null || deskImage_ != null;
+    }
+    /**
+     * <pre>
+     * Desktop launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile desk_image = 27 [json_name = "deskImage"];</code>
+     * @return The deskImage.
+     */
+    public io.channel.api.proto.pub.coreapi.model.TinyFile getDeskImage() {
+      if (deskImageBuilder_ == null) {
+        return deskImage_ == null ? io.channel.api.proto.pub.coreapi.model.TinyFile.getDefaultInstance() : deskImage_;
+      } else {
+        return deskImageBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Desktop launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile desk_image = 27 [json_name = "deskImage"];</code>
+     */
+    public Builder setDeskImage(io.channel.api.proto.pub.coreapi.model.TinyFile value) {
+      if (deskImageBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        deskImage_ = value;
+        onChanged();
+      } else {
+        deskImageBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Desktop launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile desk_image = 27 [json_name = "deskImage"];</code>
+     */
+    public Builder setDeskImage(
+        io.channel.api.proto.pub.coreapi.model.TinyFile.Builder builderForValue) {
+      if (deskImageBuilder_ == null) {
+        deskImage_ = builderForValue.build();
+        onChanged();
+      } else {
+        deskImageBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Desktop launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile desk_image = 27 [json_name = "deskImage"];</code>
+     */
+    public Builder mergeDeskImage(io.channel.api.proto.pub.coreapi.model.TinyFile value) {
+      if (deskImageBuilder_ == null) {
+        if (deskImage_ != null) {
+          deskImage_ =
+            io.channel.api.proto.pub.coreapi.model.TinyFile.newBuilder(deskImage_).mergeFrom(value).buildPartial();
+        } else {
+          deskImage_ = value;
+        }
+        onChanged();
+      } else {
+        deskImageBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Desktop launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile desk_image = 27 [json_name = "deskImage"];</code>
+     */
+    public Builder clearDeskImage() {
+      if (deskImageBuilder_ == null) {
+        deskImage_ = null;
+        onChanged();
+      } else {
+        deskImage_ = null;
+        deskImageBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Desktop launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile desk_image = 27 [json_name = "deskImage"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.TinyFile.Builder getDeskImageBuilder() {
+      
+      onChanged();
+      return getDeskImageFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Desktop launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile desk_image = 27 [json_name = "deskImage"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder getDeskImageOrBuilder() {
+      if (deskImageBuilder_ != null) {
+        return deskImageBuilder_.getMessageOrBuilder();
+      } else {
+        return deskImage_ == null ?
+            io.channel.api.proto.pub.coreapi.model.TinyFile.getDefaultInstance() : deskImage_;
+      }
+    }
+    /**
+     * <pre>
+     * Desktop launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile desk_image = 27 [json_name = "deskImage"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.TinyFile, io.channel.api.proto.pub.coreapi.model.TinyFile.Builder, io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder> 
+        getDeskImageFieldBuilder() {
+      if (deskImageBuilder_ == null) {
+        deskImageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.model.TinyFile, io.channel.api.proto.pub.coreapi.model.TinyFile.Builder, io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder>(
+                getDeskImage(),
+                getParentForChildren(),
+                isClean());
+        deskImage_ = null;
+      }
+      return deskImageBuilder_;
+    }
+
+    private io.channel.api.proto.pub.coreapi.model.TinyFile mobileImage_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.TinyFile, io.channel.api.proto.pub.coreapi.model.TinyFile.Builder, io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder> mobileImageBuilder_;
+    /**
+     * <pre>
+     * Mobile launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile mobile_image = 28 [json_name = "mobileImage"];</code>
+     * @return Whether the mobileImage field is set.
+     */
+    public boolean hasMobileImage() {
+      return mobileImageBuilder_ != null || mobileImage_ != null;
+    }
+    /**
+     * <pre>
+     * Mobile launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile mobile_image = 28 [json_name = "mobileImage"];</code>
+     * @return The mobileImage.
+     */
+    public io.channel.api.proto.pub.coreapi.model.TinyFile getMobileImage() {
+      if (mobileImageBuilder_ == null) {
+        return mobileImage_ == null ? io.channel.api.proto.pub.coreapi.model.TinyFile.getDefaultInstance() : mobileImage_;
+      } else {
+        return mobileImageBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Mobile launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile mobile_image = 28 [json_name = "mobileImage"];</code>
+     */
+    public Builder setMobileImage(io.channel.api.proto.pub.coreapi.model.TinyFile value) {
+      if (mobileImageBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        mobileImage_ = value;
+        onChanged();
+      } else {
+        mobileImageBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Mobile launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile mobile_image = 28 [json_name = "mobileImage"];</code>
+     */
+    public Builder setMobileImage(
+        io.channel.api.proto.pub.coreapi.model.TinyFile.Builder builderForValue) {
+      if (mobileImageBuilder_ == null) {
+        mobileImage_ = builderForValue.build();
+        onChanged();
+      } else {
+        mobileImageBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Mobile launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile mobile_image = 28 [json_name = "mobileImage"];</code>
+     */
+    public Builder mergeMobileImage(io.channel.api.proto.pub.coreapi.model.TinyFile value) {
+      if (mobileImageBuilder_ == null) {
+        if (mobileImage_ != null) {
+          mobileImage_ =
+            io.channel.api.proto.pub.coreapi.model.TinyFile.newBuilder(mobileImage_).mergeFrom(value).buildPartial();
+        } else {
+          mobileImage_ = value;
+        }
+        onChanged();
+      } else {
+        mobileImageBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Mobile launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile mobile_image = 28 [json_name = "mobileImage"];</code>
+     */
+    public Builder clearMobileImage() {
+      if (mobileImageBuilder_ == null) {
+        mobileImage_ = null;
+        onChanged();
+      } else {
+        mobileImage_ = null;
+        mobileImageBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Mobile launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile mobile_image = 28 [json_name = "mobileImage"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.TinyFile.Builder getMobileImageBuilder() {
+      
+      onChanged();
+      return getMobileImageFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Mobile launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile mobile_image = 28 [json_name = "mobileImage"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder getMobileImageOrBuilder() {
+      if (mobileImageBuilder_ != null) {
+        return mobileImageBuilder_.getMessageOrBuilder();
+      } else {
+        return mobileImage_ == null ?
+            io.channel.api.proto.pub.coreapi.model.TinyFile.getDefaultInstance() : mobileImage_;
+      }
+    }
+    /**
+     * <pre>
+     * Mobile launcher button image reference.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.TinyFile mobile_image = 28 [json_name = "mobileImage"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.TinyFile, io.channel.api.proto.pub.coreapi.model.TinyFile.Builder, io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder> 
+        getMobileImageFieldBuilder() {
+      if (mobileImageBuilder_ == null) {
+        mobileImageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.model.TinyFile, io.channel.api.proto.pub.coreapi.model.TinyFile.Builder, io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder>(
+                getMobileImage(),
+                getParentForChildren(),
+                isClean());
+        mobileImage_ = null;
+      }
+      return mobileImageBuilder_;
+    }
+
+    private com.google.protobuf.LazyStringList urlWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureUrlWhitelistIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        urlWhitelist_ = new com.google.protobuf.LazyStringArrayList(urlWhitelist_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+    /**
+     * <pre>
+     * Allowed URL patterns for the plugin widget.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=5
+     * </pre>
+     *
+     * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+     * @return A list containing the urlWhitelist.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getUrlWhitelistList() {
+      return urlWhitelist_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * Allowed URL patterns for the plugin widget.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=5
+     * </pre>
+     *
+     * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+     * @return The count of urlWhitelist.
+     */
+    public int getUrlWhitelistCount() {
+      return urlWhitelist_.size();
+    }
+    /**
+     * <pre>
+     * Allowed URL patterns for the plugin widget.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=5
+     * </pre>
+     *
+     * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+     * @param index The index of the element to return.
+     * @return The urlWhitelist at the given index.
+     */
+    public java.lang.String getUrlWhitelist(int index) {
+      return urlWhitelist_.get(index);
+    }
+    /**
+     * <pre>
+     * Allowed URL patterns for the plugin widget.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=5
+     * </pre>
+     *
+     * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the urlWhitelist at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getUrlWhitelistBytes(int index) {
+      return urlWhitelist_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * Allowed URL patterns for the plugin widget.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=5
+     * </pre>
+     *
+     * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+     * @param index The index to set the value at.
+     * @param value The urlWhitelist to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUrlWhitelist(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureUrlWhitelistIsMutable();
+      urlWhitelist_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Allowed URL patterns for the plugin widget.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=5
+     * </pre>
+     *
+     * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+     * @param value The urlWhitelist to add.
+     * @return This builder for chaining.
+     */
+    public Builder addUrlWhitelist(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureUrlWhitelistIsMutable();
+      urlWhitelist_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Allowed URL patterns for the plugin widget.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=5
+     * </pre>
+     *
+     * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+     * @param values The urlWhitelist to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllUrlWhitelist(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureUrlWhitelistIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, urlWhitelist_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Allowed URL patterns for the plugin widget.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=5
+     * </pre>
+     *
+     * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUrlWhitelist() {
+      urlWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Allowed URL patterns for the plugin widget.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=5
+     * </pre>
+     *
+     * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+     * @param value The bytes of the urlWhitelist to add.
+     * @return This builder for chaining.
+     */
+    public Builder addUrlWhitelistBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureUrlWhitelistIsMutable();
+      urlWhitelist_.add(value);
+      onChanged();
+      return this;
+    }
+
+    private boolean validLabelButtonText_ ;
+    /**
+     * <pre>
+     * Whether the label button text is valid.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool valid_label_button_text = 30 [json_name = "validLabelButtonText"];</code>
+     * @return The validLabelButtonText.
+     */
+    @java.lang.Override
+    public boolean getValidLabelButtonText() {
+      return validLabelButtonText_;
+    }
+    /**
+     * <pre>
+     * Whether the label button text is valid.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool valid_label_button_text = 30 [json_name = "validLabelButtonText"];</code>
+     * @param value The validLabelButtonText to set.
+     * @return This builder for chaining.
+     */
+    public Builder setValidLabelButtonText(boolean value) {
+      
+      validLabelButtonText_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the label button text is valid.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool valid_label_button_text = 30 [json_name = "validLabelButtonText"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearValidLabelButtonText() {
+      
+      validLabelButtonText_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean validLabelButtonTextI18NMap_ ;
+    /**
+     * <pre>
+     * Whether the internationalized label button text map is valid.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool valid_label_button_text_i18n_map = 31 [json_name = "validLabelButtonTextI18nMap"];</code>
+     * @return The validLabelButtonTextI18nMap.
+     */
+    @java.lang.Override
+    public boolean getValidLabelButtonTextI18NMap() {
+      return validLabelButtonTextI18NMap_;
+    }
+    /**
+     * <pre>
+     * Whether the internationalized label button text map is valid.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool valid_label_button_text_i18n_map = 31 [json_name = "validLabelButtonTextI18nMap"];</code>
+     * @param value The validLabelButtonTextI18nMap to set.
+     * @return This builder for chaining.
+     */
+    public Builder setValidLabelButtonTextI18NMap(boolean value) {
+      
+      validLabelButtonTextI18NMap_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the internationalized label button text map is valid.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool valid_label_button_text_i18n_map = 31 [json_name = "validLabelButtonTextI18nMap"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearValidLabelButtonTextI18NMap() {
+      
+      validLabelButtonTextI18NMap_ = false;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4122,29 +4580,6 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The appearance to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearAppearance(io.channel.api.proto.pub.coreapi.model.PluginAppearance value) {
-    	if (value == null)
-    		return clearAppearance();
-    	else
-    		return setAppearance(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearAppearance(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.PluginAppearance> mapFunc) {
-    	if (value == null)
-    		return clearAppearance();
-    	else
-    		return setAppearance(mapFunc.apply(value));
-    }
-    	
-    /**
      * @param value The label_button to set.
      * @return This builder for chaining.
      */
@@ -4199,75 +4634,6 @@ private static final long serialVersionUID = 0L;
     		return clearLabelButtonTextI18NMap();
     	else
     		return putAllLabelButtonTextI18NMap(map);
-    }
-    	
-    /**
-     * @param value The button_type to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearButtonType(io.channel.api.proto.pub.coreapi.model.PluginButtonType value) {
-    	if (value == null)
-    		return clearButtonType();
-    	else
-    		return setButtonType(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearButtonType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.PluginButtonType> mapFunc) {
-    	if (value == null)
-    		return clearButtonType();
-    	else
-    		return setButtonType(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The icon_button to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearIconButton(io.channel.api.proto.pub.coreapi.model.PluginIconButton value) {
-    	if (value == null)
-    		return clearIconButton();
-    	else
-    		return setIconButton(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearIconButton(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.PluginIconButton> mapFunc) {
-    	if (value == null)
-    		return clearIconButton();
-    	else
-    		return setIconButton(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The custom_image_url to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearCustomImageUrl(java.lang.String value) {
-    	if (value == null)
-    		return clearCustomImageUrl();
-    	else
-    		return setCustomImageUrl(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearCustomImageUrl(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearCustomImageUrl();
-    	else
-    		return setCustomImageUrl(mapFunc.apply(value));
     }
     	
     /**
@@ -4337,29 +4703,6 @@ private static final long serialVersionUID = 0L;
     		return clearDeskMarginY();
     	else
     		return setDeskMarginY(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The desk_hide_button to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearDeskHideButton(java.lang.Boolean value) {
-    	if (value == null)
-    		return clearDeskHideButton();
-    	else
-    		return setDeskHideButton(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearDeskHideButton(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
-    	if (value == null)
-    		return clearDeskHideButton();
-    	else
-    		return setDeskHideButton(mapFunc.apply(value));
     }
     	
     /**
@@ -4590,6 +4933,146 @@ private static final long serialVersionUID = 0L;
     		return clearCreatedAt();
     	else
     		return setCreatedAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The key to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearKey(java.lang.String value) {
+    	if (value == null)
+    		return clearKey();
+    	else
+    		return setKey(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearKey(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearKey();
+    	else
+    		return setKey(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The desk_image to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearDeskImage(io.channel.api.proto.pub.coreapi.model.TinyFile value) {
+    	if (value == null)
+    		return clearDeskImage();
+    	else
+    		return setDeskImage(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearDeskImage(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.TinyFile> mapFunc) {
+    	if (value == null)
+    		return clearDeskImage();
+    	else
+    		return setDeskImage(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The mobile_image to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearMobileImage(io.channel.api.proto.pub.coreapi.model.TinyFile value) {
+    	if (value == null)
+    		return clearMobileImage();
+    	else
+    		return setMobileImage(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearMobileImage(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.TinyFile> mapFunc) {
+    	if (value == null)
+    		return clearMobileImage();
+    	else
+    		return setMobileImage(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param values The url_whitelist to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllOrClearUrlWhitelist(java.lang.Iterable<java.lang.String> values) {
+    	if (values == null)
+    		return clearUrlWhitelist();
+    	else
+    		return addAllUrlWhitelist(values);
+    }
+    	
+    /**
+     * @param values The values to map.
+     * @param mapFunc The function to map the values into each proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapAllOrClearUrlWhitelist(java.lang.Iterable<T> values, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (values == null)
+    		return clearUrlWhitelist();
+    	else {
+    		values.forEach(value -> addUrlWhitelist(mapFunc.apply(value)));
+    		return this;
+    	}
+    }
+    	
+    /**
+     * @param value The valid_label_button_text to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearValidLabelButtonText(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearValidLabelButtonText();
+    	else
+    		return setValidLabelButtonText(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearValidLabelButtonText(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearValidLabelButtonText();
+    	else
+    		return setValidLabelButtonText(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The valid_label_button_text_i18n_map to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearValidLabelButtonTextI18NMap(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearValidLabelButtonTextI18NMap();
+    	else
+    		return setValidLabelButtonTextI18NMap(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearValidLabelButtonTextI18NMap(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearValidLabelButtonTextI18NMap();
+    	else
+    		return setValidLabelButtonTextI18NMap(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Plugin)

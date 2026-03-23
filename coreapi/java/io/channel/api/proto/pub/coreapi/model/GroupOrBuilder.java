@@ -173,28 +173,6 @@ public interface GroupOrBuilder extends
 
   /**
    * <pre>
-   * ID of the ongoing meet session in this group.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
-   * @return The liveMeetId.
-   */
-  java.lang.String getLiveMeetId();
-  /**
-   * <pre>
-   * ID of the ongoing meet session in this group.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
-   * @return The bytes for liveMeetId.
-   */
-  com.google.protobuf.ByteString
-      getLiveMeetIdBytes();
-
-  /**
-   * <pre>
    * Group description.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=200
@@ -276,4 +254,15 @@ public interface GroupOrBuilder extends
    * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Whether this group is currently active.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool active = 11 [json_name = "active"];</code>
+   * @return The active.
+   */
+  boolean getActive();
 }

@@ -80,11 +80,6 @@ message Group {
   // +kubebuilder:validation:Nullable
   string icon = 6;
 
-  // ID of the ongoing meet session in this group.
-  //
-  // +kubebuilder:validation:Nullable
-  string live_meet_id = 7;
-
   // Group description.
   //
   // +kubebuilder:validation:Nullable
@@ -104,4 +99,9 @@ message Group {
   //
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp updated_at = 10 [(buf.validate.field).required = true];
+
+  // Whether this group is currently active.
+  //
+  // +kubebuilder:validation:Nullable
+  bool active = 11;
 }

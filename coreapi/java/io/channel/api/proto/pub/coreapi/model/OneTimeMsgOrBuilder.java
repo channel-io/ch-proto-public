@@ -104,165 +104,6 @@ public interface OneTimeMsgOrBuilder extends
 
   /**
    * <pre>
-   * Delivery timing mode.
-   * Automatically inferred from start_at and local_start_at if not explicitly set.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.OneTimeMsgSendMode send_mode = 5 [json_name = "sendMode"];</code>
-   * @return The enum numeric value on the wire for sendMode.
-   */
-  int getSendModeValue();
-  /**
-   * <pre>
-   * Delivery timing mode.
-   * Automatically inferred from start_at and local_start_at if not explicitly set.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.OneTimeMsgSendMode send_mode = 5 [json_name = "sendMode"];</code>
-   * @return The sendMode.
-   */
-  io.channel.api.proto.pub.coreapi.model.OneTimeMsgSendMode getSendMode();
-
-  /**
-   * <pre>
-   * Channel operation ID for business hours scheduling.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
-   * @return The channelOperationId.
-   */
-  java.lang.String getChannelOperationId();
-  /**
-   * <pre>
-   * Channel operation ID for business hours scheduling.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
-   * @return The bytes for channelOperationId.
-   */
-  com.google.protobuf.ByteString
-      getChannelOperationIdBytes();
-
-  /**
-   * <pre>
-   * Delivery medium type.
-   * May be unset for draft messages.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MediumType medium_type = 7 [json_name = "mediumType"];</code>
-   * @return The enum numeric value on the wire for mediumType.
-   */
-  int getMediumTypeValue();
-  /**
-   * <pre>
-   * Delivery medium type.
-   * May be unset for draft messages.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MediumType medium_type = 7 [json_name = "mediumType"];</code>
-   * @return The mediumType.
-   */
-  io.channel.api.proto.pub.coreapi.model.MediumType getMediumType();
-
-  /**
-   * <pre>
-   * Identifier of the specific medium instance.
-   * Required for APP medium type.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string medium_id = 8 [json_name = "mediumId"];</code>
-   * @return The mediumId.
-   */
-  java.lang.String getMediumId();
-  /**
-   * <pre>
-   * Identifier of the specific medium instance.
-   * Required for APP medium type.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string medium_id = 8 [json_name = "mediumId"];</code>
-   * @return The bytes for mediumId.
-   */
-  com.google.protobuf.ByteString
-      getMediumIdBytes();
-
-  /**
-   * <pre>
-   * Key for selecting the message topic template within the medium.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string medium_topic_build_key = 9 [json_name = "mediumTopicBuildKey"];</code>
-   * @return The mediumTopicBuildKey.
-   */
-  java.lang.String getMediumTopicBuildKey();
-  /**
-   * <pre>
-   * Key for selecting the message topic template within the medium.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string medium_topic_build_key = 9 [json_name = "mediumTopicBuildKey"];</code>
-   * @return The bytes for mediumTopicBuildKey.
-   */
-  com.google.protobuf.ByteString
-      getMediumTopicBuildKeyBytes();
-
-  /**
-   * <pre>
-   * Labels for categorizing the message topic within the medium.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-   * @return A list containing the mediumTopicBuildLabels.
-   */
-  java.util.List<java.lang.String>
-      getMediumTopicBuildLabelsList();
-  /**
-   * <pre>
-   * Labels for categorizing the message topic within the medium.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-   * @return The count of mediumTopicBuildLabels.
-   */
-  int getMediumTopicBuildLabelsCount();
-  /**
-   * <pre>
-   * Labels for categorizing the message topic within the medium.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-   * @param index The index of the element to return.
-   * @return The mediumTopicBuildLabels at the given index.
-   */
-  java.lang.String getMediumTopicBuildLabels(int index);
-  /**
-   * <pre>
-   * Labels for categorizing the message topic within the medium.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the mediumTopicBuildLabels at the given index.
-   */
-  com.google.protobuf.ByteString
-      getMediumTopicBuildLabelsBytes(int index);
-
-  /**
-   * <pre>
    * Delivery configuration specific to the chosen medium type.
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -320,70 +161,6 @@ public interface OneTimeMsgOrBuilder extends
    * <code>.google.protobuf.Struct user_query = 13 [json_name = "userQuery"];</code>
    */
   com.google.protobuf.StructOrBuilder getUserQueryOrBuilder();
-
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * Defaults to 1 day for views and 7 days for clicks.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-   */
-  int getConversionWindowsCount();
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * Defaults to 1 day for views and 7 days for clicks.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-   */
-  boolean containsConversionWindows(
-      java.lang.String key);
-  /**
-   * Use {@link #getConversionWindowsMap()} instead.
-   */
-  @java.lang.Deprecated
-  java.util.Map<java.lang.String, com.google.protobuf.Duration>
-  getConversionWindows();
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * Defaults to 1 day for views and 7 days for clicks.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-   */
-  java.util.Map<java.lang.String, com.google.protobuf.Duration>
-  getConversionWindowsMap();
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * Defaults to 1 day for views and 7 days for clicks.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-   */
-
-  com.google.protobuf.Duration getConversionWindowsOrDefault(
-      java.lang.String key,
-      com.google.protobuf.Duration defaultValue);
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * Defaults to 1 day for views and 7 days for clicks.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
-   */
-
-  com.google.protobuf.Duration getConversionWindowsOrThrow(
-      java.lang.String key);
 
   /**
    * <pre>
@@ -535,32 +312,6 @@ public interface OneTimeMsgOrBuilder extends
    * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getStartAtOrBuilder();
-
-  /**
-   * <pre>
-   * Scheduled send time in receiver's local timezone.
-   * ISO 8601 date-time without timezone offset.
-   * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
-   * @return The localStartAt.
-   */
-  java.lang.String getLocalStartAt();
-  /**
-   * <pre>
-   * Scheduled send time in receiver's local timezone.
-   * ISO 8601 date-time without timezone offset.
-   * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
-   * @return The bytes for localStartAt.
-   */
-  com.google.protobuf.ByteString
-      getLocalStartAtBytes();
 
   /**
    * <pre>
@@ -731,50 +482,23 @@ public interface OneTimeMsgOrBuilder extends
 
   /**
    * <pre>
-   * App segments for user targeting.
+   * Delivery medium type identifier.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
+   * <code>string send_medium = 32 [json_name = "sendMedium"];</code>
+   * @return The sendMedium.
    */
-  java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> 
-      getAppSegmentsList();
+  java.lang.String getSendMedium();
   /**
    * <pre>
-   * App segments for user targeting.
+   * Delivery medium type identifier.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
+   * <code>string send_medium = 32 [json_name = "sendMedium"];</code>
+   * @return The bytes for sendMedium.
    */
-  io.channel.api.proto.pub.coreapi.model.AppSegment getAppSegments(int index);
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-   */
-  int getAppSegmentsCount();
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-   */
-  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> 
-      getAppSegmentsOrBuilderList();
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 31 [json_name = "appSegments"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder getAppSegmentsOrBuilder(
-      int index);
+  com.google.protobuf.ByteString
+      getSendMediumBytes();
 }

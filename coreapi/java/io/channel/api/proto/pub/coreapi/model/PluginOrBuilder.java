@@ -104,27 +104,6 @@ public interface PluginOrBuilder extends
 
   /**
    * <pre>
-   * Visual theme of the widget.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginAppearance appearance = 5 [json_name = "appearance", (.buf.validate.field) = { ... }</code>
-   * @return The enum numeric value on the wire for appearance.
-   */
-  int getAppearanceValue();
-  /**
-   * <pre>
-   * Visual theme of the widget.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginAppearance appearance = 5 [json_name = "appearance", (.buf.validate.field) = { ... }</code>
-   * @return The appearance.
-   */
-  io.channel.api.proto.pub.coreapi.model.PluginAppearance getAppearance();
-
-  /**
-   * <pre>
    * Whether the label button is displayed on the widget.
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -226,72 +205,6 @@ public interface PluginOrBuilder extends
 
   /**
    * <pre>
-   * Type of the launcher button.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginButtonType button_type = 9 [json_name = "buttonType", (.buf.validate.field) = { ... }</code>
-   * @return The enum numeric value on the wire for buttonType.
-   */
-  int getButtonTypeValue();
-  /**
-   * <pre>
-   * Type of the launcher button.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginButtonType button_type = 9 [json_name = "buttonType", (.buf.validate.field) = { ... }</code>
-   * @return The buttonType.
-   */
-  io.channel.api.proto.pub.coreapi.model.PluginButtonType getButtonType();
-
-  /**
-   * <pre>
-   * Predefined icon for the launcher button.
-   * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginIconButton icon_button = 10 [json_name = "iconButton"];</code>
-   * @return The enum numeric value on the wire for iconButton.
-   */
-  int getIconButtonValue();
-  /**
-   * <pre>
-   * Predefined icon for the launcher button.
-   * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginIconButton icon_button = 10 [json_name = "iconButton"];</code>
-   * @return The iconButton.
-   */
-  io.channel.api.proto.pub.coreapi.model.PluginIconButton getIconButton();
-
-  /**
-   * <pre>
-   * URL of the custom launcher button image.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string custom_image_url = 11 [json_name = "customImageUrl"];</code>
-   * @return The customImageUrl.
-   */
-  java.lang.String getCustomImageUrl();
-  /**
-   * <pre>
-   * URL of the custom launcher button image.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string custom_image_url = 11 [json_name = "customImageUrl"];</code>
-   * @return The bytes for customImageUrl.
-   */
-  com.google.protobuf.ByteString
-      getCustomImageUrlBytes();
-
-  /**
-   * <pre>
    * URL of the desktop launcher button image.
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -333,17 +246,6 @@ public interface PluginOrBuilder extends
    * @return The deskMarginY.
    */
   int getDeskMarginY();
-
-  /**
-   * <pre>
-   * Whether the launcher button is hidden on desktop.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool desk_hide_button = 15 [json_name = "deskHideButton"];</code>
-   * @return The deskHideButton.
-   */
-  boolean getDeskHideButton();
 
   /**
    * <pre>
@@ -527,4 +429,159 @@ public interface PluginOrBuilder extends
    * <code>.google.protobuf.Timestamp created_at = 25 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Unique plugin key in UUID format.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Format="uuid"
+   * </pre>
+   *
+   * <code>string key = 26 [json_name = "key"];</code>
+   * @return The key.
+   */
+  java.lang.String getKey();
+  /**
+   * <pre>
+   * Unique plugin key in UUID format.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Format="uuid"
+   * </pre>
+   *
+   * <code>string key = 26 [json_name = "key"];</code>
+   * @return The bytes for key.
+   */
+  com.google.protobuf.ByteString
+      getKeyBytes();
+
+  /**
+   * <pre>
+   * Desktop launcher button image reference.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.TinyFile desk_image = 27 [json_name = "deskImage"];</code>
+   * @return Whether the deskImage field is set.
+   */
+  boolean hasDeskImage();
+  /**
+   * <pre>
+   * Desktop launcher button image reference.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.TinyFile desk_image = 27 [json_name = "deskImage"];</code>
+   * @return The deskImage.
+   */
+  io.channel.api.proto.pub.coreapi.model.TinyFile getDeskImage();
+  /**
+   * <pre>
+   * Desktop launcher button image reference.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.TinyFile desk_image = 27 [json_name = "deskImage"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder getDeskImageOrBuilder();
+
+  /**
+   * <pre>
+   * Mobile launcher button image reference.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.TinyFile mobile_image = 28 [json_name = "mobileImage"];</code>
+   * @return Whether the mobileImage field is set.
+   */
+  boolean hasMobileImage();
+  /**
+   * <pre>
+   * Mobile launcher button image reference.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.TinyFile mobile_image = 28 [json_name = "mobileImage"];</code>
+   * @return The mobileImage.
+   */
+  io.channel.api.proto.pub.coreapi.model.TinyFile getMobileImage();
+  /**
+   * <pre>
+   * Mobile launcher button image reference.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.TinyFile mobile_image = 28 [json_name = "mobileImage"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder getMobileImageOrBuilder();
+
+  /**
+   * <pre>
+   * Allowed URL patterns for the plugin widget.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=5
+   * </pre>
+   *
+   * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+   * @return A list containing the urlWhitelist.
+   */
+  java.util.List<java.lang.String>
+      getUrlWhitelistList();
+  /**
+   * <pre>
+   * Allowed URL patterns for the plugin widget.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=5
+   * </pre>
+   *
+   * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+   * @return The count of urlWhitelist.
+   */
+  int getUrlWhitelistCount();
+  /**
+   * <pre>
+   * Allowed URL patterns for the plugin widget.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=5
+   * </pre>
+   *
+   * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+   * @param index The index of the element to return.
+   * @return The urlWhitelist at the given index.
+   */
+  java.lang.String getUrlWhitelist(int index);
+  /**
+   * <pre>
+   * Allowed URL patterns for the plugin widget.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=5
+   * </pre>
+   *
+   * <code>repeated string url_whitelist = 29 [json_name = "urlWhitelist"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the urlWhitelist at the given index.
+   */
+  com.google.protobuf.ByteString
+      getUrlWhitelistBytes(int index);
+
+  /**
+   * <pre>
+   * Whether the label button text is valid.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool valid_label_button_text = 30 [json_name = "validLabelButtonText"];</code>
+   * @return The validLabelButtonText.
+   */
+  boolean getValidLabelButtonText();
+
+  /**
+   * <pre>
+   * Whether the internationalized label button text map is valid.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool valid_label_button_text_i18n_map = 31 [json_name = "validLabelButtonTextI18nMap"];</code>
+   * @return The validLabelButtonTextI18nMap.
+   */
+  boolean getValidLabelButtonTextI18NMap();
 }

@@ -81,59 +81,6 @@ func (OneTimeMsgState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_one_time_msg_proto_rawDescGZIP(), []int{0}
 }
 
-// Delivery timing mode for a one-time message.
-type OneTimeMsgSendMode int32
-
-const (
-	OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_UNSPECIFIED                 OneTimeMsgSendMode = 0
-	OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_IMMEDIATELY                 OneTimeMsgSendMode = 1
-	OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_SENDER_TIME   OneTimeMsgSendMode = 2
-	OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_RECEIVER_TIME OneTimeMsgSendMode = 3
-)
-
-// Enum value maps for OneTimeMsgSendMode.
-var (
-	OneTimeMsgSendMode_name = map[int32]string{
-		0: "ONE_TIME_MSG_SEND_MODE_UNSPECIFIED",
-		1: "ONE_TIME_MSG_SEND_MODE_IMMEDIATELY",
-		2: "ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_SENDER_TIME",
-		3: "ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_RECEIVER_TIME",
-	}
-	OneTimeMsgSendMode_value = map[string]int32{
-		"ONE_TIME_MSG_SEND_MODE_UNSPECIFIED":                 0,
-		"ONE_TIME_MSG_SEND_MODE_IMMEDIATELY":                 1,
-		"ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_SENDER_TIME":   2,
-		"ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_RECEIVER_TIME": 3,
-	}
-)
-
-func (x OneTimeMsgSendMode) Enum() *OneTimeMsgSendMode {
-	p := new(OneTimeMsgSendMode)
-	*p = x
-	return p
-}
-
-func (x OneTimeMsgSendMode) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (OneTimeMsgSendMode) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_one_time_msg_proto_enumTypes[1].Descriptor()
-}
-
-func (OneTimeMsgSendMode) Type() protoreflect.EnumType {
-	return &file_coreapi_model_one_time_msg_proto_enumTypes[1]
-}
-
-func (x OneTimeMsgSendMode) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use OneTimeMsgSendMode.Descriptor instead.
-func (OneTimeMsgSendMode) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_one_time_msg_proto_rawDescGZIP(), []int{1}
-}
-
 // OneTimeMsg represents a one-time message that is sent to targeted users once.
 type OneTimeMsg struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -157,33 +104,6 @@ type OneTimeMsg struct {
 	//
 	// +kubebuilder:validation:Required
 	State OneTimeMsgState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.OneTimeMsgState" json:"state,omitempty"`
-	// Delivery timing mode.
-	// Automatically inferred from start_at and local_start_at if not explicitly set.
-	//
-	// +kubebuilder:validation:Nullable
-	SendMode OneTimeMsgSendMode `protobuf:"varint,5,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.OneTimeMsgSendMode" json:"send_mode,omitempty"`
-	// Channel operation ID for business hours scheduling.
-	//
-	// +kubebuilder:validation:Nullable
-	ChannelOperationId string `protobuf:"bytes,6,opt,name=channel_operation_id,json=channelOperationId,proto3" json:"channel_operation_id,omitempty"`
-	// Delivery medium type.
-	// May be unset for draft messages.
-	//
-	// +kubebuilder:validation:Nullable
-	MediumType MediumType `protobuf:"varint,7,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
-	// Identifier of the specific medium instance.
-	// Required for APP medium type.
-	//
-	// +kubebuilder:validation:Nullable
-	MediumId string `protobuf:"bytes,8,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
-	// Key for selecting the message topic template within the medium.
-	//
-	// +kubebuilder:validation:Nullable
-	MediumTopicBuildKey string `protobuf:"bytes,9,opt,name=medium_topic_build_key,json=mediumTopicBuildKey,proto3" json:"medium_topic_build_key,omitempty"`
-	// Labels for categorizing the message topic within the medium.
-	//
-	// +kubebuilder:validation:Nullable
-	MediumTopicBuildLabels []string `protobuf:"bytes,10,rep,name=medium_topic_build_labels,json=mediumTopicBuildLabels,proto3" json:"medium_topic_build_labels,omitempty"`
 	// Delivery configuration specific to the chosen medium type.
 	//
 	// +kubebuilder:validation:Nullable
@@ -192,11 +112,6 @@ type OneTimeMsg struct {
 	//
 	// +kubebuilder:validation:Nullable
 	UserQuery *structpb.Struct `protobuf:"bytes,13,opt,name=user_query,json=userQuery,proto3" json:"user_query,omitempty"`
-	// Conversion tracking windows keyed by feature name.
-	// Defaults to 1 day for views and 7 days for clicks.
-	//
-	// +kubebuilder:validation:Nullable
-	ConversionWindows map[string]*durationpb.Duration `protobuf:"bytes,14,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Name of the event tracked as a conversion goal.
 	//
 	// +kubebuilder:validation:Nullable
@@ -227,12 +142,6 @@ type OneTimeMsg struct {
 	//
 	// +kubebuilder:validation:Nullable
 	StartAt *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=start_at,json=startAt,proto3" json:"start_at,omitempty"`
-	// Scheduled send time in receiver's local timezone.
-	// ISO 8601 date-time without timezone offset.
-	// Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
-	//
-	// +kubebuilder:validation:Nullable
-	LocalStartAt string `protobuf:"bytes,22,opt,name=local_start_at,json=localStartAt,proto3" json:"local_start_at,omitempty"`
 	// Draft snapshot of the message saved before activation.
 	//
 	// +kubebuilder:validation:Nullable
@@ -266,10 +175,10 @@ type OneTimeMsg struct {
 	//
 	// +kubebuilder:validation:Nullable
 	UserChatExpireDuration *durationpb.Duration `protobuf:"bytes,30,opt,name=user_chat_expire_duration,json=userChatExpireDuration,proto3" json:"user_chat_expire_duration,omitempty"`
-	// App segments for user targeting.
+	// Delivery medium type identifier.
 	//
 	// +kubebuilder:validation:Nullable
-	AppSegments   []*AppSegment `protobuf:"bytes,31,rep,name=app_segments,json=appSegments,proto3" json:"app_segments,omitempty"`
+	SendMedium    string `protobuf:"bytes,32,opt,name=send_medium,json=sendMedium,proto3" json:"send_medium,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -332,48 +241,6 @@ func (x *OneTimeMsg) GetState() OneTimeMsgState {
 	return OneTimeMsgState_ONE_TIME_MSG_STATE_UNSPECIFIED
 }
 
-func (x *OneTimeMsg) GetSendMode() OneTimeMsgSendMode {
-	if x != nil {
-		return x.SendMode
-	}
-	return OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_UNSPECIFIED
-}
-
-func (x *OneTimeMsg) GetChannelOperationId() string {
-	if x != nil {
-		return x.ChannelOperationId
-	}
-	return ""
-}
-
-func (x *OneTimeMsg) GetMediumType() MediumType {
-	if x != nil {
-		return x.MediumType
-	}
-	return MediumType_MEDIUM_TYPE_UNSPECIFIED
-}
-
-func (x *OneTimeMsg) GetMediumId() string {
-	if x != nil {
-		return x.MediumId
-	}
-	return ""
-}
-
-func (x *OneTimeMsg) GetMediumTopicBuildKey() string {
-	if x != nil {
-		return x.MediumTopicBuildKey
-	}
-	return ""
-}
-
-func (x *OneTimeMsg) GetMediumTopicBuildLabels() []string {
-	if x != nil {
-		return x.MediumTopicBuildLabels
-	}
-	return nil
-}
-
 func (x *OneTimeMsg) GetSettings() *structpb.Struct {
 	if x != nil {
 		return x.Settings
@@ -384,13 +251,6 @@ func (x *OneTimeMsg) GetSettings() *structpb.Struct {
 func (x *OneTimeMsg) GetUserQuery() *structpb.Struct {
 	if x != nil {
 		return x.UserQuery
-	}
-	return nil
-}
-
-func (x *OneTimeMsg) GetConversionWindows() map[string]*durationpb.Duration {
-	if x != nil {
-		return x.ConversionWindows
 	}
 	return nil
 }
@@ -442,13 +302,6 @@ func (x *OneTimeMsg) GetStartAt() *timestamppb.Timestamp {
 		return x.StartAt
 	}
 	return nil
-}
-
-func (x *OneTimeMsg) GetLocalStartAt() string {
-	if x != nil {
-		return x.LocalStartAt
-	}
-	return ""
 }
 
 func (x *OneTimeMsg) GetDraft() *structpb.Struct {
@@ -507,18 +360,18 @@ func (x *OneTimeMsg) GetUserChatExpireDuration() *durationpb.Duration {
 	return nil
 }
 
-func (x *OneTimeMsg) GetAppSegments() []*AppSegment {
+func (x *OneTimeMsg) GetSendMedium() string {
 	if x != nil {
-		return x.AppSegments
+		return x.SendMedium
 	}
-	return nil
+	return ""
 }
 
 var File_coreapi_model_one_time_msg_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_one_time_msg_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/one_time_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x82\x10\n" +
+	" coreapi/model/one_time_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc2\v\n" +
 	"\n" +
 	"OneTimeMsg\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
@@ -529,19 +382,10 @@ const file_coreapi_model_one_time_msg_proto_rawDesc = "" +
 	"\x04name\x18\x03 \x01(\tB\x9e\x01\xbaH\x9a\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128\xc8\x01\x01R\x04name\x12<\n" +
-	"\x05state\x18\x04 \x01(\x0e2\x1e.coreapi.model.OneTimeMsgStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12>\n" +
-	"\tsend_mode\x18\x05 \x01(\x0e2!.coreapi.model.OneTimeMsgSendModeR\bsendMode\x120\n" +
-	"\x14channel_operation_id\x18\x06 \x01(\tR\x12channelOperationId\x12:\n" +
-	"\vmedium_type\x18\a \x01(\x0e2\x19.coreapi.model.MediumTypeR\n" +
-	"mediumType\x12\x1b\n" +
-	"\tmedium_id\x18\b \x01(\tR\bmediumId\x123\n" +
-	"\x16medium_topic_build_key\x18\t \x01(\tR\x13mediumTopicBuildKey\x129\n" +
-	"\x19medium_topic_build_labels\x18\n" +
-	" \x03(\tR\x16mediumTopicBuildLabels\x123\n" +
+	"\x05state\x18\x04 \x01(\x0e2\x1e.coreapi.model.OneTimeMsgStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x123\n" +
 	"\bsettings\x18\f \x01(\v2\x17.google.protobuf.StructR\bsettings\x126\n" +
 	"\n" +
-	"user_query\x18\r \x01(\v2\x17.google.protobuf.StructR\tuserQuery\x12_\n" +
-	"\x12conversion_windows\x18\x0e \x03(\v20.coreapi.model.OneTimeMsg.ConversionWindowsEntryR\x11conversionWindows\x12&\n" +
+	"user_query\x18\r \x01(\v2\x17.google.protobuf.StructR\tuserQuery\x12&\n" +
 	"\x0fgoal_event_name\x18\x0f \x01(\tR\rgoalEventName\x12A\n" +
 	"\x10goal_event_query\x18\x10 \x01(\v2\x17.google.protobuf.StructR\x0egoalEventQuery\x12\xe1\x01\n" +
 	"\x13goal_event_duration\x18\x11 \x01(\v2\x19.google.protobuf.DurationB\x95\x01\xbaH\x91\x01\xba\x01\x8d\x01\n" +
@@ -549,8 +393,7 @@ const file_coreapi_model_one_time_msg_proto_rawDesc = "" +
 	"\vadvertising\x18\x12 \x01(\bR\vadvertising\x12-\n" +
 	"\x13send_to_offline_xms\x18\x13 \x01(\bR\x10sendToOfflineXms\x121\n" +
 	"\x15send_to_offline_email\x18\x14 \x01(\bR\x12sendToOfflineEmail\x125\n" +
-	"\bstart_at\x18\x15 \x01(\v2\x1a.google.protobuf.TimestampR\astartAt\x12$\n" +
-	"\x0elocal_start_at\x18\x16 \x01(\tR\flocalStartAt\x12-\n" +
+	"\bstart_at\x18\x15 \x01(\v2\x1a.google.protobuf.TimestampR\astartAt\x12-\n" +
 	"\x05draft\x18\x17 \x01(\v2\x17.google.protobuf.StructR\x05draft\x12A\n" +
 	"\n" +
 	"created_at\x18\x18 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
@@ -560,22 +403,15 @@ const file_coreapi_model_one_time_msg_proto_rawDesc = "" +
 	"\x04view\x18\x1b \x01(\x05R\x04view\x12\x12\n" +
 	"\x04goal\x18\x1c \x01(\x05R\x04goal\x12\x14\n" +
 	"\x05click\x18\x1d \x01(\x05R\x05click\x12T\n" +
-	"\x19user_chat_expire_duration\x18\x1e \x01(\v2\x19.google.protobuf.DurationR\x16userChatExpireDuration\x12<\n" +
-	"\fapp_segments\x18\x1f \x03(\v2\x19.coreapi.model.AppSegmentR\vappSegments\x1a_\n" +
-	"\x16ConversionWindowsEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12/\n" +
-	"\x05value\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x05value:\x028\x01*\xaf\x01\n" +
+	"\x19user_chat_expire_duration\x18\x1e \x01(\v2\x19.google.protobuf.DurationR\x16userChatExpireDuration\x12\x1f\n" +
+	"\vsend_medium\x18  \x01(\tR\n" +
+	"sendMedium*\xaf\x01\n" +
 	"\x0fOneTimeMsgState\x12\"\n" +
 	"\x1eONE_TIME_MSG_STATE_UNSPECIFIED\x10\x00\x12\x1c\n" +
 	"\x18ONE_TIME_MSG_STATE_DRAFT\x10\x01\x12\x1d\n" +
 	"\x19ONE_TIME_MSG_STATE_ACTIVE\x10\x02\x12\x1b\n" +
 	"\x17ONE_TIME_MSG_STATE_SENT\x10\x03\x12\x1e\n" +
-	"\x1aONE_TIME_MSG_STATE_STOPPED\x10\x04*\xd2\x01\n" +
-	"\x12OneTimeMsgSendMode\x12&\n" +
-	"\"ONE_TIME_MSG_SEND_MODE_UNSPECIFIED\x10\x00\x12&\n" +
-	"\"ONE_TIME_MSG_SEND_MODE_IMMEDIATELY\x10\x01\x124\n" +
-	"0ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_SENDER_TIME\x10\x02\x126\n" +
-	"2ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_RECEIVER_TIME\x10\x03Bb\n" +
+	"\x1aONE_TIME_MSG_STATE_STOPPED\x10\x04Bb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -590,40 +426,31 @@ func file_coreapi_model_one_time_msg_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_one_time_msg_proto_rawDescData
 }
 
-var file_coreapi_model_one_time_msg_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_coreapi_model_one_time_msg_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_coreapi_model_one_time_msg_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_coreapi_model_one_time_msg_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_coreapi_model_one_time_msg_proto_goTypes = []any{
 	(OneTimeMsgState)(0),          // 0: coreapi.model.OneTimeMsgState
-	(OneTimeMsgSendMode)(0),       // 1: coreapi.model.OneTimeMsgSendMode
-	(*OneTimeMsg)(nil),            // 2: coreapi.model.OneTimeMsg
-	nil,                           // 3: coreapi.model.OneTimeMsg.ConversionWindowsEntry
-	(MediumType)(0),               // 4: coreapi.model.MediumType
-	(*structpb.Struct)(nil),       // 5: google.protobuf.Struct
-	(*durationpb.Duration)(nil),   // 6: google.protobuf.Duration
-	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
-	(*AppSegment)(nil),            // 8: coreapi.model.AppSegment
+	(*OneTimeMsg)(nil),            // 1: coreapi.model.OneTimeMsg
+	(*structpb.Struct)(nil),       // 2: google.protobuf.Struct
+	(*durationpb.Duration)(nil),   // 3: google.protobuf.Duration
+	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
 }
 var file_coreapi_model_one_time_msg_proto_depIdxs = []int32{
 	0,  // 0: coreapi.model.OneTimeMsg.state:type_name -> coreapi.model.OneTimeMsgState
-	1,  // 1: coreapi.model.OneTimeMsg.send_mode:type_name -> coreapi.model.OneTimeMsgSendMode
-	4,  // 2: coreapi.model.OneTimeMsg.medium_type:type_name -> coreapi.model.MediumType
-	5,  // 3: coreapi.model.OneTimeMsg.settings:type_name -> google.protobuf.Struct
-	5,  // 4: coreapi.model.OneTimeMsg.user_query:type_name -> google.protobuf.Struct
-	3,  // 5: coreapi.model.OneTimeMsg.conversion_windows:type_name -> coreapi.model.OneTimeMsg.ConversionWindowsEntry
-	5,  // 6: coreapi.model.OneTimeMsg.goal_event_query:type_name -> google.protobuf.Struct
-	6,  // 7: coreapi.model.OneTimeMsg.goal_event_duration:type_name -> google.protobuf.Duration
-	7,  // 8: coreapi.model.OneTimeMsg.start_at:type_name -> google.protobuf.Timestamp
-	5,  // 9: coreapi.model.OneTimeMsg.draft:type_name -> google.protobuf.Struct
-	7,  // 10: coreapi.model.OneTimeMsg.created_at:type_name -> google.protobuf.Timestamp
-	7,  // 11: coreapi.model.OneTimeMsg.updated_at:type_name -> google.protobuf.Timestamp
-	6,  // 12: coreapi.model.OneTimeMsg.user_chat_expire_duration:type_name -> google.protobuf.Duration
-	8,  // 13: coreapi.model.OneTimeMsg.app_segments:type_name -> coreapi.model.AppSegment
-	6,  // 14: coreapi.model.OneTimeMsg.ConversionWindowsEntry.value:type_name -> google.protobuf.Duration
-	15, // [15:15] is the sub-list for method output_type
-	15, // [15:15] is the sub-list for method input_type
-	15, // [15:15] is the sub-list for extension type_name
-	15, // [15:15] is the sub-list for extension extendee
-	0,  // [0:15] is the sub-list for field type_name
+	2,  // 1: coreapi.model.OneTimeMsg.settings:type_name -> google.protobuf.Struct
+	2,  // 2: coreapi.model.OneTimeMsg.user_query:type_name -> google.protobuf.Struct
+	2,  // 3: coreapi.model.OneTimeMsg.goal_event_query:type_name -> google.protobuf.Struct
+	3,  // 4: coreapi.model.OneTimeMsg.goal_event_duration:type_name -> google.protobuf.Duration
+	4,  // 5: coreapi.model.OneTimeMsg.start_at:type_name -> google.protobuf.Timestamp
+	2,  // 6: coreapi.model.OneTimeMsg.draft:type_name -> google.protobuf.Struct
+	4,  // 7: coreapi.model.OneTimeMsg.created_at:type_name -> google.protobuf.Timestamp
+	4,  // 8: coreapi.model.OneTimeMsg.updated_at:type_name -> google.protobuf.Timestamp
+	3,  // 9: coreapi.model.OneTimeMsg.user_chat_expire_duration:type_name -> google.protobuf.Duration
+	10, // [10:10] is the sub-list for method output_type
+	10, // [10:10] is the sub-list for method input_type
+	10, // [10:10] is the sub-list for extension type_name
+	10, // [10:10] is the sub-list for extension extendee
+	0,  // [0:10] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_one_time_msg_proto_init() }
@@ -631,15 +458,13 @@ func file_coreapi_model_one_time_msg_proto_init() {
 	if File_coreapi_model_one_time_msg_proto != nil {
 		return
 	}
-	file_coreapi_model_app_segment_proto_init()
-	file_coreapi_model_medium_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_one_time_msg_proto_rawDesc), len(file_coreapi_model_one_time_msg_proto_rawDesc)),
-			NumEnums:      2,
-			NumMessages:   2,
+			NumEnums:      1,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

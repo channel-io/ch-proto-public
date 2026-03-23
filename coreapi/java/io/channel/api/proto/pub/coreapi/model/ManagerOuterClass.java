@@ -34,76 +34,89 @@ public final class ManagerOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\033coreapi/model/manager.proto\022\rcoreapi.m" +
-      "odel\032\033buf/validate/validate.proto\032\035corea" +
-      "pi/model/name_desc.proto\032\037google/protobu" +
-      "f/timestamp.proto\"\221\022\n\007Manager\022]\n\002id\030\001 \001(" +
-      "\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must be " +
-      "at least 1 character\032\017size(this) >= 1\310\001\001" +
-      "R\002id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring" +
-      ".minLen\022\"value must be at least 1 charac" +
-      "ter\032\017size(this) >= 1\310\001\001R\tchannelId\022l\n\nac" +
-      "count_id\030\003 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"v" +
-      "alue must be at least 1 character\032\017size(" +
-      "this) >= 1\310\001\001R\taccountId\022\303\001\n\004name\030\004 \001(\tB" +
-      "\256\001\272H\252\001\272\001D\n\rstring.minLen\022\"value must be " +
-      "at least 1 character\032\017size(this) >= 1\272\001K" +
-      "\n\rstring.maxLen\022(value must be no more t" +
-      "han 30 characters\032\020size(this) <= 30\310\001\001r\020" +
-      "2\016^[^@#$%:/\\\\]+$R\004name\022u\n\013description\030\005 " +
-      "\001(\tBS\272HP\272\001M\n\rstring.maxLen\022)value must b" +
-      "e no more than 180 characters\032\021size(this" +
-      ") <= 180R\013description\0229\n\031show_descriptio" +
-      "n_to_front\030\006 \001(\010R\026showDescriptionToFront" +
-      "\022X\n\022name_desc_i18n_map\030\007 \003(\0132+.coreapi.m" +
-      "odel.Manager.NameDescI18nMapEntryR\017nameD" +
-      "escI18nMap\022\035\n\navatar_url\030\010 \001(\tR\tavatarUr" +
-      "l\022,\n\022display_as_channel\030\t \001(\010R\020displayAs" +
-      "Channel\022\027\n\007role_id\030\n \001(\tR\006roleId\022\221\001\n\024aut" +
-      "o_assign_capacity\030\013 \001(\005B_\272H\\\272\001Y\n\rint32.b" +
-      "etween\022.auto_assign_capacity must be bet" +
-      "ween 0 and 200\032\030this >= 0 && this <= 200" +
-      "R\022autoAssignCapacity\022!\n\014status_emoji\030\014 \001" +
-      "(\tR\013statusEmoji\022t\n\013status_text\030\r \001(\tBS\272H" +
-      "P\272\001M\n\rstring.maxLen\022)value must be no mo" +
-      "re than 128 characters\032\021size(this) <= 12" +
-      "8R\nstatusText\022B\n\017status_clear_at\030\016 \001(\0132\032" +
-      ".google.protobuf.TimestampR\rstatusClearA" +
-      "t\022$\n\016do_not_disturb\030\017 \001(\010R\014doNotDisturb\022" +
-      "P\n\027do_not_disturb_clear_at\030\020 \001(\0132\032.googl" +
-      "e.protobuf.TimestampR\023doNotDisturbClearA" +
-      "t\0223\n\026account_do_not_disturb\030\021 \001(\010R\023accou" +
-      "ntDoNotDisturb\022_\n\037account_do_not_disturb" +
-      "_clear_at\030\022 \001(\0132\032.google.protobuf.Timest" +
-      "ampR\032accountDoNotDisturbClearAt\022>\n\034defau" +
-      "lt_user_chat_log_folded\030\023 \001(\010R\030defaultUs" +
-      "erChatLogFolded\022?\n\034enable_reacted_messag" +
-      "e_index\030\024 \001(\010R\031enableReactedMessageIndex" +
-      "\022L\n#enable_team_mentioned_message_index\030" +
-      "\025 \001(\010R\037enableTeamMentionedMessageIndex\022-" +
-      "\n\023pc_inbox_meet_alert\030\026 \001(\010R\020pcInboxMeet" +
-      "Alert\0225\n\027mobile_inbox_meet_alert\030\027 \001(\010R\024" +
-      "mobileInboxMeetAlert\0224\n\027pc_team_chat_mee" +
-      "t_alert\030\030 \001(\010R\023pcTeamChatMeetAlert\022<\n\033mo" +
-      "bile_team_chat_meet_alert\030\031 \001(\010R\027mobileT" +
-      "eamChatMeetAlert\0223\n\026phone_inbox_meet_ale" +
-      "rt\030\032 \001(\010R\023phoneInboxMeetAlert\022\030\n\007removed" +
-      "\030\033 \001(\010R\007removed\022A\n\ncreated_at\030\034 \001(\0132\032.go" +
-      "ogle.protobuf.TimestampB\006\272H\003\310\001\001R\tcreated" +
-      "At\022A\n\nupdated_at\030\035 \001(\0132\032.google.protobuf" +
-      ".TimestampB\006\272H\003\310\001\001R\tupdatedAt\0229\n\nremoved" +
-      "_at\030\036 \001(\0132\032.google.protobuf.TimestampR\tr" +
-      "emovedAt\032[\n\024NameDescI18nMapEntry\022\020\n\003key\030" +
-      "\001 \001(\tR\003key\022-\n\005value\030\002 \001(\0132\027.coreapi.mode" +
-      "l.NameDescR\005value:\0028\001Bb\n&io.channel.api." +
-      "proto.pub.coreapi.modelP\001Z6github.com/ch" +
-      "annel-io/ch-proto-public/coreapi/go/mode" +
-      "lb\006proto3"
+      "odel\032\033buf/validate/validate.proto\032\034corea" +
+      "pi/model/campaign.proto\032\035coreapi/model/n" +
+      "ame_desc.proto\032\035coreapi/model/tiny_file." +
+      "proto\032\034google/protobuf/struct.proto\032\037goo" +
+      "gle/protobuf/timestamp.proto\"\303\024\n\007Manager" +
+      "\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"val" +
+      "ue must be at least 1 character\032\017size(th" +
+      "is) >= 1\310\001\001R\002id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ" +
+      "\272\001D\n\rstring.minLen\022\"value must be at lea" +
+      "st 1 character\032\017size(this) >= 1\310\001\001R\tchan" +
+      "nelId\022l\n\naccount_id\030\003 \001(\tBM\272HJ\272\001D\n\rstrin" +
+      "g.minLen\022\"value must be at least 1 chara" +
+      "cter\032\017size(this) >= 1\310\001\001R\taccountId\022\303\001\n\004" +
+      "name\030\004 \001(\tB\256\001\272H\252\001\272\001D\n\rstring.minLen\022\"val" +
+      "ue must be at least 1 character\032\017size(th" +
+      "is) >= 1\272\001K\n\rstring.maxLen\022(value must b" +
+      "e no more than 30 characters\032\020size(this)" +
+      " <= 30\310\001\001r\0202\016^[^@#$%:/\\\\]+$R\004name\022u\n\013des" +
+      "cription\030\005 \001(\tBS\272HP\272\001M\n\rstring.maxLen\022)v" +
+      "alue must be no more than 180 characters" +
+      "\032\021size(this) <= 180R\013description\0229\n\031show" +
+      "_description_to_front\030\006 \001(\010R\026showDescrip" +
+      "tionToFront\022X\n\022name_desc_i18n_map\030\007 \003(\0132" +
+      "+.coreapi.model.Manager.NameDescI18nMapE" +
+      "ntryR\017nameDescI18nMap\022\035\n\navatar_url\030\010 \001(" +
+      "\tR\tavatarUrl\022,\n\022display_as_channel\030\t \001(\010" +
+      "R\020displayAsChannel\022\221\001\n\024auto_assign_capac" +
+      "ity\030\013 \001(\005B_\272H\\\272\001Y\n\rint32.between\022.auto_a" +
+      "ssign_capacity must be between 0 and 200" +
+      "\032\030this >= 0 && this <= 200R\022autoAssignCa" +
+      "pacity\022!\n\014status_emoji\030\014 \001(\tR\013statusEmoj" +
+      "i\022t\n\013status_text\030\r \001(\tBS\272HP\272\001M\n\rstring.m" +
+      "axLen\022)value must be no more than 128 ch" +
+      "aracters\032\021size(this) <= 128R\nstatusText\022" +
+      "B\n\017status_clear_at\030\016 \001(\0132\032.google.protob" +
+      "uf.TimestampR\rstatusClearAt\022$\n\016do_not_di" +
+      "sturb\030\017 \001(\010R\014doNotDisturb\022P\n\027do_not_dist" +
+      "urb_clear_at\030\020 \001(\0132\032.google.protobuf.Tim" +
+      "estampR\023doNotDisturbClearAt\022\030\n\007removed\030\033" +
+      " \001(\010R\007removed\022A\n\ncreated_at\030\034 \001(\0132\032.goog" +
+      "le.protobuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt" +
+      "\0221\n\007profile\030\037 \001(\0132\027.google.protobuf.Stru" +
+      "ctR\007profile\022\024\n\005email\030  \001(\tR\005email\022-\n\023sho" +
+      "w_email_to_front\030! \001(\010R\020showEmailToFront" +
+      "\022#\n\rmobile_number\030\" \001(\tR\014mobileNumber\022<\n" +
+      "\033show_mobile_number_to_front\030# \001(\010R\027show" +
+      "MobileNumberToFront\022.\n\023default_group_wat" +
+      "ch\030$ \001(\tR\021defaultGroupWatch\0229\n\031default_d" +
+      "irect_chat_watch\030% \001(\tR\026defaultDirectCha" +
+      "tWatch\0225\n\027default_user_chat_watch\030& \001(\tR" +
+      "\024defaultUserChatWatch\022(\n\020chat_alert_soun" +
+      "d\030\' \001(\tR\016chatAlertSound\022?\n\034show_private_" +
+      "message_preview\030( \001(\010R\031showPrivateMessag" +
+      "ePreview\022%\n\016operator_score\030) \001(\002R\roperat" +
+      "orScore\022\037\n\013touch_score\030* \001(\002R\ntouchScore" +
+      "\022/\n\006avatar\030+ \001(\0132\027.coreapi.model.TinyFil" +
+      "eR\006avatar\0226\n\027operator_email_reminder\030, \001" +
+      "(\010R\025operatorEmailReminder\022\032\n\010operator\030- " +
+      "\001(\010R\010operator\022A\n\035default_all_mention_imp" +
+      "ortant\030. \001(\010R\032defaultAllMentionImportant" +
+      "\0224\n\026user_message_important\030/ \001(\010R\024userMe" +
+      "ssageImportant\022\035\n\nmanager_id\0300 \001(\tR\tmana" +
+      "gerId\022&\n\017email_for_front\0301 \001(\tR\remailFor" +
+      "Front\0225\n\027mobile_number_for_front\0302 \001(\tR\024" +
+      "mobileNumberForFront\022\022\n\004role\0303 \001(\tR\004role" +
+      "\022/\n\023operator_scheduling\0304 \001(\010R\022operatorS" +
+      "cheduling\022J\n\024operator_time_ranges\0305 \003(\0132" +
+      "\030.coreapi.model.TimeRangeR\022operatorTimeR" +
+      "anges\032[\n\024NameDescI18nMapEntry\022\020\n\003key\030\001 \001" +
+      "(\tR\003key\022-\n\005value\030\002 \001(\0132\027.coreapi.model.N" +
+      "ameDescR\005value:\0028\001Bb\n&io.channel.api.pro" +
+      "to.pub.coreapi.modelP\001Z6github.com/chann" +
+      "el-io/ch-proto-public/coreapi/go/modelb\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.CampaignOuterClass.getDescriptor(),
           io.channel.api.proto.pub.coreapi.model.NameDescOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.TinyFileOuterClass.getDescriptor(),
+          com.google.protobuf.StructProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_coreapi_model_Manager_descriptor =
@@ -111,7 +124,7 @@ public final class ManagerOuterClass {
     internal_static_coreapi_model_Manager_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Manager_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "AccountId", "Name", "Description", "ShowDescriptionToFront", "NameDescI18NMap", "AvatarUrl", "DisplayAsChannel", "RoleId", "AutoAssignCapacity", "StatusEmoji", "StatusText", "StatusClearAt", "DoNotDisturb", "DoNotDisturbClearAt", "AccountDoNotDisturb", "AccountDoNotDisturbClearAt", "DefaultUserChatLogFolded", "EnableReactedMessageIndex", "EnableTeamMentionedMessageIndex", "PcInboxMeetAlert", "MobileInboxMeetAlert", "PcTeamChatMeetAlert", "MobileTeamChatMeetAlert", "PhoneInboxMeetAlert", "Removed", "CreatedAt", "UpdatedAt", "RemovedAt", });
+        new java.lang.String[] { "Id", "ChannelId", "AccountId", "Name", "Description", "ShowDescriptionToFront", "NameDescI18NMap", "AvatarUrl", "DisplayAsChannel", "AutoAssignCapacity", "StatusEmoji", "StatusText", "StatusClearAt", "DoNotDisturb", "DoNotDisturbClearAt", "Removed", "CreatedAt", "Profile", "Email", "ShowEmailToFront", "MobileNumber", "ShowMobileNumberToFront", "DefaultGroupWatch", "DefaultDirectChatWatch", "DefaultUserChatWatch", "ChatAlertSound", "ShowPrivateMessagePreview", "OperatorScore", "TouchScore", "Avatar", "OperatorEmailReminder", "Operator", "DefaultAllMentionImportant", "UserMessageImportant", "ManagerId", "EmailForFront", "MobileNumberForFront", "Role", "OperatorScheduling", "OperatorTimeRanges", });
     internal_static_coreapi_model_Manager_NameDescI18nMapEntry_descriptor =
       internal_static_coreapi_model_Manager_descriptor.getNestedTypes().get(0);
     internal_static_coreapi_model_Manager_NameDescI18nMapEntry_fieldAccessorTable = new
@@ -124,7 +137,10 @@ public final class ManagerOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.CampaignOuterClass.getDescriptor();
     io.channel.api.proto.pub.coreapi.model.NameDescOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.TinyFileOuterClass.getDescriptor();
+    com.google.protobuf.StructProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

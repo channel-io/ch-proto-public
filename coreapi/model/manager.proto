@@ -3,7 +3,10 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
+import "coreapi/model/campaign.proto";
 import "coreapi/model/name_desc.proto";
+import "coreapi/model/tiny_file.proto";
+import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
@@ -103,11 +106,6 @@ message Manager {
   // +kubebuilder:validation:Nullable
   bool display_as_channel = 9;
 
-  // Role ID assigned to this manager.
-  //
-  // +kubebuilder:validation:Nullable
-  string role_id = 10;
-
   // Maximum number of user chats that can be auto-assigned.
   //
   // +kubebuilder:validation:Nullable
@@ -149,56 +147,6 @@ message Manager {
   // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp do_not_disturb_clear_at = 16;
 
-  // Whether account-level do-not-disturb mode is active.
-  //
-  // +kubebuilder:validation:Nullable
-  bool account_do_not_disturb = 17;
-
-  // Timestamp when account-level do-not-disturb mode automatically clears.
-  //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp account_do_not_disturb_clear_at = 18;
-
-  // Whether the user chat log panel is folded by default.
-  //
-  // +kubebuilder:validation:Nullable
-  bool default_user_chat_log_folded = 19;
-
-  // Whether to enable indexing of reacted messages.
-  //
-  // +kubebuilder:validation:Nullable
-  bool enable_reacted_message_index = 20;
-
-  // Whether to enable indexing of team-mentioned messages.
-  //
-  // +kubebuilder:validation:Nullable
-  bool enable_team_mentioned_message_index = 21;
-
-  // Whether to receive meet alerts in the PC inbox.
-  //
-  // +kubebuilder:validation:Nullable
-  bool pc_inbox_meet_alert = 22;
-
-  // Whether to receive meet alerts on mobile inbox.
-  //
-  // +kubebuilder:validation:Nullable
-  bool mobile_inbox_meet_alert = 23;
-
-  // Whether to receive meet alerts in PC team chat.
-  //
-  // +kubebuilder:validation:Nullable
-  bool pc_team_chat_meet_alert = 24;
-
-  // Whether to receive meet alerts in mobile team chat.
-  //
-  // +kubebuilder:validation:Nullable
-  bool mobile_team_chat_meet_alert = 25;
-
-  // Whether to receive meet alerts via phone.
-  //
-  // +kubebuilder:validation:Nullable
-  bool phone_inbox_meet_alert = 26;
-
   // Whether this manager has been soft-deleted.
   //
   // +kubebuilder:validation:Nullable
@@ -209,13 +157,118 @@ message Manager {
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp created_at = 28 [(buf.validate.field).required = true];
 
-  // Manager last update timestamp.
-  //
-  // +kubebuilder:validation:Required
-  google.protobuf.Timestamp updated_at = 29 [(buf.validate.field).required = true];
-
-  // Timestamp when the manager was soft-deleted.
+  // Custom key-value profile data.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp removed_at = 30;
+  google.protobuf.Struct profile = 31;
+
+  // Manager email address.
+  //
+  // +kubebuilder:validation:Nullable
+  string email = 32;
+
+  // Whether to display the email to end users.
+  //
+  // +kubebuilder:validation:Nullable
+  bool show_email_to_front = 33;
+
+  // Manager mobile phone number.
+  //
+  // +kubebuilder:validation:Nullable
+  string mobile_number = 34;
+
+  // Whether to display the mobile number to end users.
+  //
+  // +kubebuilder:validation:Nullable
+  bool show_mobile_number_to_front = 35;
+
+  // Default notification level for group chats.
+  //
+  // +kubebuilder:validation:Nullable
+  string default_group_watch = 36;
+
+  // Default notification level for direct chats.
+  //
+  // +kubebuilder:validation:Nullable
+  string default_direct_chat_watch = 37;
+
+  // Default notification level for user chats.
+  //
+  // +kubebuilder:validation:Nullable
+  string default_user_chat_watch = 38;
+
+  // Chat notification alert sound.
+  //
+  // +kubebuilder:validation:Nullable
+  string chat_alert_sound = 39;
+
+  // Whether to show private message previews in notifications.
+  //
+  // +kubebuilder:validation:Nullable
+  bool show_private_message_preview = 40;
+
+  // Operator performance score.
+  //
+  // +kubebuilder:validation:Nullable
+  float operator_score = 41;
+
+  // User engagement score.
+  //
+  // +kubebuilder:validation:Nullable
+  float touch_score = 42;
+
+  // Manager avatar image reference.
+  //
+  // +kubebuilder:validation:Nullable
+  coreapi.model.TinyFile avatar = 43;
+
+  // Whether email reminders are enabled for this operator.
+  //
+  // +kubebuilder:validation:Nullable
+  bool operator_email_reminder = 44;
+
+  // Whether this manager is an active operator.
+  //
+  // +kubebuilder:validation:Nullable
+  bool operator = 45;
+
+  // Whether @all mentions are marked as important.
+  //
+  // +kubebuilder:validation:Nullable
+  bool default_all_mention_important = 46;
+
+  // Whether user messages are marked as important.
+  //
+  // +kubebuilder:validation:Nullable
+  bool user_message_important = 47;
+
+  // Manager reference identifier.
+  //
+  // +kubebuilder:validation:Nullable
+  string manager_id = 48;
+
+  // Email address displayed to end users.
+  //
+  // +kubebuilder:validation:Nullable
+  string email_for_front = 49;
+
+  // Mobile number displayed to end users.
+  //
+  // +kubebuilder:validation:Nullable
+  string mobile_number_for_front = 50;
+
+  // Manager role.
+  //
+  // +kubebuilder:validation:Nullable
+  string role = 51;
+
+  // Whether operator scheduling is enabled.
+  //
+  // +kubebuilder:validation:Nullable
+  bool operator_scheduling = 52;
+
+  // Scheduled operating time ranges for this operator.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.TimeRange operator_time_ranges = 53;
 }
