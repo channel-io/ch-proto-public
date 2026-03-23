@@ -3,8 +3,6 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
-import "coreapi/model/app_segment.proto";
-import "coreapi/model/medium_type.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
@@ -180,27 +178,10 @@ message Campaign {
   // +kubebuilder:validation:Required
   CampaignState state = 4 [(buf.validate.field).required = true];
 
-  // Delivery medium type.
-  // May be unset for draft campaigns.
-  //
-  // +kubebuilder:validation:Nullable
-  MediumType medium_type = 5;
-
-  // Identifier of the specific medium instance.
-  // Required for APP medium type.
-  //
-  // +kubebuilder:validation:Nullable
-  string medium_id = 6;
-
   // User targeting query for audience filtering.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Struct user_query = 7;
-
-  // App segments for user targeting.
-  //
-  // +kubebuilder:validation:Nullable
-  repeated coreapi.model.AppSegment app_segments = 8;
 
   // Name of the event that triggers the campaign.
   // May be unset for draft campaigns.
@@ -239,17 +220,6 @@ message Campaign {
   // +kubebuilder:validation:Nullable
   CampaignFilterMatch filter_match = 14;
 
-  // Holding property constant for the additional event filter.
-  //
-  // +kubebuilder:validation:Nullable
-  HoldingPropertyConstant filter_hpc = 15;
-
-  // Conversion tracking windows keyed by feature name.
-  // Defaults to 1 day for views and 7 days for clicks.
-  //
-  // +kubebuilder:validation:Nullable
-  map<string, google.protobuf.Duration> conversion_windows = 16;
-
   // Name of the event tracked as a conversion goal.
   //
   // +kubebuilder:validation:Nullable
@@ -269,11 +239,6 @@ message Campaign {
     message: "value must be between 1 and 30 days"
     expression: "this == duration('0s') || (this >= duration('86400s') && this <= duration('2592000s'))"
   }];
-
-  // Holding property constant for the goal event.
-  //
-  // +kubebuilder:validation:Nullable
-  HoldingPropertyConstant goal_hpc = 20;
 
   // Whether this campaign contains advertising content.
   //
@@ -305,11 +270,6 @@ message Campaign {
   //
   // +kubebuilder:validation:Nullable
   CampaignSendMode send_mode = 25;
-
-  // Channel operation ID for business hours scheduling.
-  //
-  // +kubebuilder:validation:Nullable
-  string channel_operation_id = 26;
 
   // Custom time ranges for message delivery.
   // Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
@@ -362,4 +322,23 @@ message Campaign {
   //
   // +kubebuilder:validation:Nullable
   int32 click = 36;
+
+  // Deprecated delivery medium type identifier.
+  //
+  // +kubebuilder:validation:Nullable
+  string send_medium = 37;
+
+  // Duration after which user chat sessions expire.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Duration user_chat_expire_duration = 38;
+
+  // Manager ID responsible for this campaign.
+  //
+  // +kubebuilder:validation:Nullable
+  string manager_id = 39;
+
+  // Reserved field numbers for removed fields.
+  reserved 5, 6, 8, 15, 16, 20, 26;
+  reserved "medium_type", "medium_id", "app_segments", "filter_hpc", "conversion_windows", "goal_hpc", "channel_operation_id";
 }

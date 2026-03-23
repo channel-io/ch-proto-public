@@ -3,6 +3,7 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
+import "coreapi/model/tiny_file.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
@@ -14,14 +15,6 @@ enum PluginState {
   PLUGIN_STATE_UNSPECIFIED = 0;
   PLUGIN_STATE_WAITING = 1;
   PLUGIN_STATE_ACTIVE = 2;
-}
-
-// Visual theme of the plugin widget.
-enum PluginAppearance {
-  PLUGIN_APPEARANCE_UNSPECIFIED = 0;
-  PLUGIN_APPEARANCE_LIGHT = 1;
-  PLUGIN_APPEARANCE_DARK = 2;
-  PLUGIN_APPEARANCE_SYSTEM = 3;
 }
 
 // Horizontal position of the plugin widget.
@@ -36,38 +29,6 @@ enum PluginBubblePosition {
   PLUGIN_BUBBLE_POSITION_UNSPECIFIED = 0;
   PLUGIN_BUBBLE_POSITION_TOP = 1;
   PLUGIN_BUBBLE_POSITION_BOTTOM = 2;
-}
-
-// Type of the plugin launcher button.
-enum PluginButtonType {
-  PLUGIN_BUTTON_TYPE_UNSPECIFIED = 0;
-  PLUGIN_BUTTON_TYPE_LEGACY = 1;
-  PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE = 2;
-  PLUGIN_BUTTON_TYPE_ICON_BUTTON = 3;
-}
-
-// Predefined icon for the plugin launcher button.
-enum PluginIconButton {
-  PLUGIN_ICON_BUTTON_UNSPECIFIED = 0;
-  PLUGIN_ICON_BUTTON_CHANNEL = 1;
-  PLUGIN_ICON_BUTTON_CHANNEL_FILLED = 2;
-  PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT = 3;
-  PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_FILLED = 4;
-  PLUGIN_ICON_BUTTON_CHAT_BUBBLE_FILLED = 5;
-  PLUGIN_ICON_BUTTON_CHAT_LIGHTNING_FILLED = 6;
-  PLUGIN_ICON_BUTTON_CHAT_PROGRESS = 7;
-  PLUGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED = 8;
-  PLUGIN_ICON_BUTTON_CHAT_QUESTION = 9;
-  PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED = 10;
-  PLUGIN_ICON_BUTTON_COMMENT = 11;
-  PLUGIN_ICON_BUTTON_COMMENT_FILLED = 12;
-  PLUGIN_ICON_BUTTON_COMMUNICATION = 13;
-  PLUGIN_ICON_BUTTON_HEADSET = 14;
-  PLUGIN_ICON_BUTTON_HELP_FILLED = 15;
-  PLUGIN_ICON_BUTTON_SEND_FORWARD = 16;
-  PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED = 17;
-  PLUGIN_ICON_BUTTON_SMS = 18;
-  PLUGIN_ICON_BUTTON_SMS_FILLED = 19;
 }
 
 // Plugin represents a channel's web chat widget configuration.
@@ -124,11 +85,6 @@ message Plugin {
   // +kubebuilder:validation:Required
   PluginState state = 4 [(buf.validate.field).required = true];
 
-  // Visual theme of the widget.
-  //
-  // +kubebuilder:validation:Required
-  PluginAppearance appearance = 5 [(buf.validate.field).required = true];
-
   // Whether the label button is displayed on the widget.
   //
   // +kubebuilder:validation:Nullable
@@ -151,22 +107,6 @@ message Plugin {
   // +kubebuilder:validation:Nullable
   map<string, string> label_button_text_i18n_map = 8;
 
-  // Type of the launcher button.
-  //
-  // +kubebuilder:validation:Required
-  PluginButtonType button_type = 9 [(buf.validate.field).required = true];
-
-  // Predefined icon for the launcher button.
-  // Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-  //
-  // +kubebuilder:validation:Nullable
-  PluginIconButton icon_button = 10;
-
-  // URL of the custom launcher button image.
-  //
-  // +kubebuilder:validation:Nullable
-  string custom_image_url = 11;
-
   // URL of the desktop launcher button image.
   //
   // +kubebuilder:validation:Nullable
@@ -181,11 +121,6 @@ message Plugin {
   //
   // +kubebuilder:validation:Nullable
   int32 desk_margin_y = 14;
-
-  // Whether the launcher button is hidden on desktop.
-  //
-  // +kubebuilder:validation:Nullable
-  bool desk_hide_button = 15;
 
   // Horizontal position of the widget on desktop.
   //
@@ -249,4 +184,40 @@ message Plugin {
   //
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp created_at = 25 [(buf.validate.field).required = true];
+
+  // Unique plugin key in UUID format.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:Format="uuid"
+  string key = 26;
+
+  // Desktop launcher button image reference.
+  //
+  // +kubebuilder:validation:Nullable
+  coreapi.model.TinyFile desk_image = 27;
+
+  // Mobile launcher button image reference.
+  //
+  // +kubebuilder:validation:Nullable
+  coreapi.model.TinyFile mobile_image = 28;
+
+  // Allowed URL patterns for the plugin widget.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxItems=5
+  repeated string url_whitelist = 29;
+
+  // Whether the label button text is valid.
+  //
+  // +kubebuilder:validation:Nullable
+  bool valid_label_button_text = 30;
+
+  // Whether the internationalized label button text map is valid.
+  //
+  // +kubebuilder:validation:Nullable
+  bool valid_label_button_text_i18n_map = 31;
+
+  // Reserved field numbers for removed fields.
+  reserved 5, 9, 10, 11, 15;
+  reserved "appearance", "button_type", "icon_button", "custom_image_url", "desk_hide_button";
 }
