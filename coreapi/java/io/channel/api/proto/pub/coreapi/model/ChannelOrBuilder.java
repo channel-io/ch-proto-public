@@ -1333,4 +1333,34 @@ public interface ChannelOrBuilder extends
    * @return The showOperatorProfile.
    */
   boolean getShowOperatorProfile();
+
+  /**
+   * <pre>
+   * Channel last update timestamp.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * @return Whether the updatedAt field is set.
+   */
+  boolean hasUpdatedAt();
+  /**
+   * <pre>
+   * Channel last update timestamp.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * @return The updatedAt.
+   */
+  com.google.protobuf.Timestamp getUpdatedAt();
+  /**
+   * <pre>
+   * Channel last update timestamp.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
 }

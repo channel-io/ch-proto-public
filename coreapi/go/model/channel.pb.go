@@ -457,8 +457,12 @@ type Channel struct {
 	//
 	// +kubebuilder:validation:Nullable
 	ShowOperatorProfile bool `protobuf:"varint,72,opt,name=show_operator_profile,json=showOperatorProfile,proto3" json:"show_operator_profile,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	// Channel last update timestamp.
+	//
+	// +kubebuilder:validation:Required
+	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,73,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Channel) Reset() {
@@ -918,11 +922,18 @@ func (x *Channel) GetShowOperatorProfile() bool {
 	return false
 }
 
+func (x *Channel) GetUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return nil
+}
+
 var File_coreapi_model_channel_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_channel_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/channel.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/campaign.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf5\x19\n" +
+	"\x1bcoreapi/model/channel.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/campaign.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb8\x1a\n" +
 	"\aChannel\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12\xb1\x01\n" +
@@ -996,7 +1007,9 @@ const file_coreapi_model_channel_proto_rawDesc = "" +
 	"\x0enext_away_time\x18E \x01(\v2\x1a.google.protobuf.TimestampR\fnextAwayTime\x12F\n" +
 	"\x11next_working_time\x18F \x01(\v2\x1a.google.protobuf.TimestampR\x0fnextWorkingTime\x12*\n" +
 	"\x11plugin_icon_color\x18G \x01(\tR\x0fpluginIconColor\x122\n" +
-	"\x15show_operator_profile\x18H \x01(\bR\x13showOperatorProfile\x1a[\n" +
+	"\x15show_operator_profile\x18H \x01(\bR\x13showOperatorProfile\x12A\n" +
+	"\n" +
+	"updated_at\x18I \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x1a[\n" +
 	"\x14NameDescI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12-\n" +
 	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01\x1aa\n" +
@@ -1066,13 +1079,14 @@ var file_coreapi_model_channel_proto_depIdxs = []int32{
 	9,  // 11: coreapi.model.Channel.source_survey:type_name -> google.protobuf.Struct
 	6,  // 12: coreapi.model.Channel.next_away_time:type_name -> google.protobuf.Timestamp
 	6,  // 13: coreapi.model.Channel.next_working_time:type_name -> google.protobuf.Timestamp
-	10, // 14: coreapi.model.Channel.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
-	9,  // 15: coreapi.model.Channel.WelcomeMessageI18nMapEntry.value:type_name -> google.protobuf.Struct
-	16, // [16:16] is the sub-list for method output_type
-	16, // [16:16] is the sub-list for method input_type
-	16, // [16:16] is the sub-list for extension type_name
-	16, // [16:16] is the sub-list for extension extendee
-	0,  // [0:16] is the sub-list for field type_name
+	6,  // 14: coreapi.model.Channel.updated_at:type_name -> google.protobuf.Timestamp
+	10, // 15: coreapi.model.Channel.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
+	9,  // 16: coreapi.model.Channel.WelcomeMessageI18nMapEntry.value:type_name -> google.protobuf.Struct
+	17, // [17:17] is the sub-list for method output_type
+	17, // [17:17] is the sub-list for method input_type
+	17, // [17:17] is the sub-list for extension type_name
+	17, // [17:17] is the sub-list for extension extendee
+	0,  // [0:17] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_channel_proto_init() }

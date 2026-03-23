@@ -198,8 +198,12 @@ type Manager struct {
 	//
 	// +kubebuilder:validation:Nullable
 	OperatorTimeRanges []*TimeRange `protobuf:"bytes,53,rep,name=operator_time_ranges,json=operatorTimeRanges,proto3" json:"operator_time_ranges,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
+	// Manager last update timestamp.
+	//
+	// +kubebuilder:validation:Required
+	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,54,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Manager) Reset() {
@@ -512,11 +516,18 @@ func (x *Manager) GetOperatorTimeRanges() []*TimeRange {
 	return nil
 }
 
+func (x *Manager) GetUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return nil
+}
+
 var File_coreapi_model_manager_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_manager_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/manager.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/campaign.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1dcoreapi/model/tiny_file.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc3\x14\n" +
+	"\x1bcoreapi/model/manager.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/campaign.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1dcoreapi/model/tiny_file.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x86\x15\n" +
 	"\aManager\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -572,7 +583,9 @@ const file_coreapi_model_manager_proto_rawDesc = "" +
 	"\x17mobile_number_for_front\x182 \x01(\tR\x14mobileNumberForFront\x12\x12\n" +
 	"\x04role\x183 \x01(\tR\x04role\x12/\n" +
 	"\x13operator_scheduling\x184 \x01(\bR\x12operatorScheduling\x12J\n" +
-	"\x14operator_time_ranges\x185 \x03(\v2\x18.coreapi.model.TimeRangeR\x12operatorTimeRanges\x1a[\n" +
+	"\x14operator_time_ranges\x185 \x03(\v2\x18.coreapi.model.TimeRangeR\x12operatorTimeRanges\x12A\n" +
+	"\n" +
+	"updated_at\x186 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x1a[\n" +
 	"\x14NameDescI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12-\n" +
 	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01Bb\n" +
@@ -608,12 +621,13 @@ var file_coreapi_model_manager_proto_depIdxs = []int32{
 	3, // 4: coreapi.model.Manager.profile:type_name -> google.protobuf.Struct
 	4, // 5: coreapi.model.Manager.avatar:type_name -> coreapi.model.TinyFile
 	5, // 6: coreapi.model.Manager.operator_time_ranges:type_name -> coreapi.model.TimeRange
-	6, // 7: coreapi.model.Manager.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
-	8, // [8:8] is the sub-list for method output_type
-	8, // [8:8] is the sub-list for method input_type
-	8, // [8:8] is the sub-list for extension type_name
-	8, // [8:8] is the sub-list for extension extendee
-	0, // [0:8] is the sub-list for field type_name
+	2, // 7: coreapi.model.Manager.updated_at:type_name -> google.protobuf.Timestamp
+	6, // 8: coreapi.model.Manager.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
+	9, // [9:9] is the sub-list for method output_type
+	9, // [9:9] is the sub-list for method input_type
+	9, // [9:9] is the sub-list for extension type_name
+	9, // [9:9] is the sub-list for extension extendee
+	0, // [0:9] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_manager_proto_init() }
