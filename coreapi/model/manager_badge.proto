@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+import "buf/validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// ManagerBadge represents notification badge counters for a manager.
+// Tracks unread and alert counts across user chats, team chats, and threads.
+message ManagerBadge {
+  // Unique badge identifier.
+  // Same as the manager ID.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Number of team chat alerts.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 team_chat_alert = 2;
+
+  // Number of unread team chat messages.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 team_chat_unread = 3;
+
+  // Number of user chat alerts.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 user_chat_alert = 4;
+
+  // Number of unread user chat messages.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 user_chat_unread = 5;
+
+  // Number of team chat thread alerts.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 team_chat_thread_alert = 6;
+
+  // Number of unread team chat thread messages.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 team_chat_thread_unread = 7;
+
+  // Badge last update timestamp.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp updated_at = 8;
+
+  // Badge data version number.
+  //
+  // +kubebuilder:validation:Nullable
+  int64 version = 9;
+
+  // Total alert count across all chat types.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 alert = 10;
+
+  // Total unread count across all chat types.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 unread = 11;
+
+  // Manager ID this badge belongs to.
+  //
+  // +kubebuilder:validation:Nullable
+  string manager_id = 12;
+}
