@@ -342,6 +342,19 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(io.channel.api.proto.pub.coreapi.model.TimeRange.parser(), extensionRegistry));
             break;
           }
+          case 434: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (updatedAt_ != null) {
+              subBuilder = updatedAt_.toBuilder();
+            }
+            updatedAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(updatedAt_);
+              updatedAt_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -1886,6 +1899,47 @@ private static final long serialVersionUID = 0L;
     return operatorTimeRanges_.get(index);
   }
 
+  public static final int UPDATED_AT_FIELD_NUMBER = 54;
+  private com.google.protobuf.Timestamp updatedAt_;
+  /**
+   * <pre>
+   * Manager last update timestamp.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * @return Whether the updatedAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasUpdatedAt() {
+    return updatedAt_ != null;
+  }
+  /**
+   * <pre>
+   * Manager last update timestamp.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * @return The updatedAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getUpdatedAt() {
+    return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+  }
+  /**
+   * <pre>
+   * Manager last update timestamp.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
+    return getUpdatedAt();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -2022,6 +2076,9 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < operatorTimeRanges_.size(); i++) {
       output.writeMessage(53, operatorTimeRanges_.get(i));
+    }
+    if (updatedAt_ != null) {
+      output.writeMessage(54, getUpdatedAt());
     }
     unknownFields.writeTo(output);
   }
@@ -2180,6 +2237,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(53, operatorTimeRanges_.get(i));
     }
+    if (updatedAt_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(54, getUpdatedAt());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -2292,6 +2353,11 @@ private static final long serialVersionUID = 0L;
         != other.getOperatorScheduling()) return false;
     if (!getOperatorTimeRangesList()
         .equals(other.getOperatorTimeRangesList())) return false;
+    if (hasUpdatedAt() != other.hasUpdatedAt()) return false;
+    if (hasUpdatedAt()) {
+      if (!getUpdatedAt()
+          .equals(other.getUpdatedAt())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -2410,6 +2476,10 @@ private static final long serialVersionUID = 0L;
     if (getOperatorTimeRangesCount() > 0) {
       hash = (37 * hash) + OPERATOR_TIME_RANGES_FIELD_NUMBER;
       hash = (53 * hash) + getOperatorTimeRangesList().hashCode();
+    }
+    if (hasUpdatedAt()) {
+      hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
+      hash = (53 * hash) + getUpdatedAt().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -2674,6 +2744,12 @@ private static final long serialVersionUID = 0L;
       } else {
         operatorTimeRangesBuilder_.clear();
       }
+      if (updatedAtBuilder_ == null) {
+        updatedAt_ = null;
+      } else {
+        updatedAt_ = null;
+        updatedAtBuilder_ = null;
+      }
       return this;
     }
 
@@ -2769,6 +2845,11 @@ private static final long serialVersionUID = 0L;
         result.operatorTimeRanges_ = operatorTimeRanges_;
       } else {
         result.operatorTimeRanges_ = operatorTimeRangesBuilder_.build();
+      }
+      if (updatedAtBuilder_ == null) {
+        result.updatedAt_ = updatedAt_;
+      } else {
+        result.updatedAt_ = updatedAtBuilder_.build();
       }
       onBuilt();
       return result;
@@ -2977,6 +3058,9 @@ private static final long serialVersionUID = 0L;
             operatorTimeRangesBuilder_.addAllMessages(other.operatorTimeRanges_);
           }
         }
+      }
+      if (other.hasUpdatedAt()) {
+        mergeUpdatedAt(other.getUpdatedAt());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -6884,6 +6968,170 @@ private static final long serialVersionUID = 0L;
       }
       return operatorTimeRangesBuilder_;
     }
+
+    private com.google.protobuf.Timestamp updatedAt_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updatedAtBuilder_;
+    /**
+     * <pre>
+     * Manager last update timestamp.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * @return Whether the updatedAt field is set.
+     */
+    public boolean hasUpdatedAt() {
+      return updatedAtBuilder_ != null || updatedAt_ != null;
+    }
+    /**
+     * <pre>
+     * Manager last update timestamp.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * @return The updatedAt.
+     */
+    public com.google.protobuf.Timestamp getUpdatedAt() {
+      if (updatedAtBuilder_ == null) {
+        return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+      } else {
+        return updatedAtBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Manager last update timestamp.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
+      if (updatedAtBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        updatedAt_ = value;
+        onChanged();
+      } else {
+        updatedAtBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Manager last update timestamp.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder setUpdatedAt(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (updatedAtBuilder_ == null) {
+        updatedAt_ = builderForValue.build();
+        onChanged();
+      } else {
+        updatedAtBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Manager last update timestamp.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
+      if (updatedAtBuilder_ == null) {
+        if (updatedAt_ != null) {
+          updatedAt_ =
+            com.google.protobuf.Timestamp.newBuilder(updatedAt_).mergeFrom(value).buildPartial();
+        } else {
+          updatedAt_ = value;
+        }
+        onChanged();
+      } else {
+        updatedAtBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Manager last update timestamp.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder clearUpdatedAt() {
+      if (updatedAtBuilder_ == null) {
+        updatedAt_ = null;
+        onChanged();
+      } else {
+        updatedAt_ = null;
+        updatedAtBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Manager last update timestamp.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
+      
+      onChanged();
+      return getUpdatedAtFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Manager last update timestamp.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
+      if (updatedAtBuilder_ != null) {
+        return updatedAtBuilder_.getMessageOrBuilder();
+      } else {
+        return updatedAt_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+      }
+    }
+    /**
+     * <pre>
+     * Manager last update timestamp.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getUpdatedAtFieldBuilder() {
+      if (updatedAtBuilder_ == null) {
+        updatedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getUpdatedAt(),
+                getParentForChildren(),
+                isClean());
+        updatedAt_ = null;
+      }
+      return updatedAtBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7807,6 +8055,29 @@ private static final long serialVersionUID = 0L;
     		values.forEach(value -> addOperatorTimeRanges(mapFunc.apply(value)));
     		return this;
     	}
+    }
+    	
+    /**
+     * @param value The updated_at to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearUpdatedAt(com.google.protobuf.Timestamp value) {
+    	if (value == null)
+    		return clearUpdatedAt();
+    	else
+    		return setUpdatedAt(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearUpdatedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    	if (value == null)
+    		return clearUpdatedAt();
+    	else
+    		return setUpdatedAt(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Manager)

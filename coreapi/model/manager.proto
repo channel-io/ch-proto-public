@@ -271,4 +271,9 @@ message Manager {
   //
   // +kubebuilder:validation:Nullable
   repeated coreapi.model.TimeRange operator_time_ranges = 53;
+
+  // Manager last update timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp updated_at = 54 [(buf.validate.field).required = true];
 }

@@ -43,7 +43,7 @@ public final class ChannelOuterClass {
       "pi/model/campaign.proto\032\035coreapi/model/n" +
       "ame_desc.proto\032\036google/protobuf/duration" +
       ".proto\032\034google/protobuf/struct.proto\032\037go" +
-      "ogle/protobuf/timestamp.proto\"\365\031\n\007Channe" +
+      "ogle/protobuf/timestamp.proto\"\270\032\n\007Channe" +
       "l\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"va" +
       "lue must be at least 1 character\032\017size(t" +
       "his) >= 1\310\001\001R\002id\022\261\001\n\004name\030\002 \001(\tB\234\001\272H\230\001\272\001" +
@@ -121,29 +121,31 @@ public final class ChannelOuterClass {
       "rking_time\030F \001(\0132\032.google.protobuf.Times" +
       "tampR\017nextWorkingTime\022*\n\021plugin_icon_col" +
       "or\030G \001(\tR\017pluginIconColor\0222\n\025show_operat" +
-      "or_profile\030H \001(\010R\023showOperatorProfile\032[\n" +
-      "\024NameDescI18nMapEntry\022\020\n\003key\030\001 \001(\tR\003key\022" +
-      "-\n\005value\030\002 \001(\0132\027.coreapi.model.NameDescR" +
-      "\005value:\0028\001\032a\n\032WelcomeMessageI18nMapEntry" +
-      "\022\020\n\003key\030\001 \001(\tR\003key\022-\n\005value\030\002 \001(\0132\027.goog" +
-      "le.protobuf.StructR\005value:\0028\001*\361\001\n\014Channe" +
-      "lState\022\035\n\031CHANNEL_STATE_UNSPECIFIED\020\000\022\031\n" +
-      "\025CHANNEL_STATE_WAITING\020\001\022\030\n\024CHANNEL_STAT" +
-      "E_ACTIVE\020\002\022\034\n\030CHANNEL_STATE_RESTRICTED\020\003" +
-      "\022\036\n\032CHANNEL_STATE_PRE_INDEBTED\020\004\022\032\n\026CHAN" +
-      "NEL_STATE_INDEBTED\020\005\022\030\n\024CHANNEL_STATE_BA" +
-      "NNED\020\006\022\031\n\025CHANNEL_STATE_REMOVED\020\007*\232\001\n\021Ch" +
-      "annelAwayOption\022#\n\037CHANNEL_AWAY_OPTION_U" +
-      "NSPECIFIED\020\000\022\036\n\032CHANNEL_AWAY_OPTION_ACTI" +
-      "VE\020\001\022 \n\034CHANNEL_AWAY_OPTION_DISABLED\020\002\022\036" +
-      "\n\032CHANNEL_AWAY_OPTION_HIDDEN\020\003*\232\001\n\021Respo" +
-      "nseDelayType\022#\n\037RESPONSE_DELAY_TYPE_UNSP" +
-      "ECIFIED\020\000\022\037\n\033RESPONSE_DELAY_TYPE_INSTANT" +
-      "\020\001\022\036\n\032RESPONSE_DELAY_TYPE_NORMAL\020\002\022\037\n\033RE" +
-      "SPONSE_DELAY_TYPE_DELAYED\020\003Bb\n&io.channe" +
-      "l.api.proto.pub.coreapi.modelP\001Z6github." +
-      "com/channel-io/ch-proto-public/coreapi/g" +
-      "o/modelb\006proto3"
+      "or_profile\030H \001(\010R\023showOperatorProfile\022A\n" +
+      "\nupdated_at\030I \001(\0132\032.google.protobuf.Time" +
+      "stampB\006\272H\003\310\001\001R\tupdatedAt\032[\n\024NameDescI18n" +
+      "MapEntry\022\020\n\003key\030\001 \001(\tR\003key\022-\n\005value\030\002 \001(" +
+      "\0132\027.coreapi.model.NameDescR\005value:\0028\001\032a\n" +
+      "\032WelcomeMessageI18nMapEntry\022\020\n\003key\030\001 \001(\t" +
+      "R\003key\022-\n\005value\030\002 \001(\0132\027.google.protobuf.S" +
+      "tructR\005value:\0028\001*\361\001\n\014ChannelState\022\035\n\031CHA" +
+      "NNEL_STATE_UNSPECIFIED\020\000\022\031\n\025CHANNEL_STAT" +
+      "E_WAITING\020\001\022\030\n\024CHANNEL_STATE_ACTIVE\020\002\022\034\n" +
+      "\030CHANNEL_STATE_RESTRICTED\020\003\022\036\n\032CHANNEL_S" +
+      "TATE_PRE_INDEBTED\020\004\022\032\n\026CHANNEL_STATE_IND" +
+      "EBTED\020\005\022\030\n\024CHANNEL_STATE_BANNED\020\006\022\031\n\025CHA" +
+      "NNEL_STATE_REMOVED\020\007*\232\001\n\021ChannelAwayOpti" +
+      "on\022#\n\037CHANNEL_AWAY_OPTION_UNSPECIFIED\020\000\022" +
+      "\036\n\032CHANNEL_AWAY_OPTION_ACTIVE\020\001\022 \n\034CHANN" +
+      "EL_AWAY_OPTION_DISABLED\020\002\022\036\n\032CHANNEL_AWA" +
+      "Y_OPTION_HIDDEN\020\003*\232\001\n\021ResponseDelayType\022" +
+      "#\n\037RESPONSE_DELAY_TYPE_UNSPECIFIED\020\000\022\037\n\033" +
+      "RESPONSE_DELAY_TYPE_INSTANT\020\001\022\036\n\032RESPONS" +
+      "E_DELAY_TYPE_NORMAL\020\002\022\037\n\033RESPONSE_DELAY_" +
+      "TYPE_DELAYED\020\003Bb\n&io.channel.api.proto.p" +
+      "ub.coreapi.modelP\001Z6github.com/channel-i" +
+      "o/ch-proto-public/coreapi/go/modelb\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -160,7 +162,7 @@ public final class ChannelOuterClass {
     internal_static_coreapi_model_Channel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Channel_descriptor,
-        new java.lang.String[] { "Id", "Name", "Description", "NameDescI18NMap", "AvatarUrl", "Color", "BotName", "Country", "Domain", "SystemDomain", "HomepageUrl", "PhoneNumber", "TimeZone", "UtcOffset", "State", "ExpectedResponseDelay", "AwayOption", "InOperation", "Working", "FollowUpTexting", "FollowUpEmail", "FollowUpAskName", "FollowUpMandatory", "HideAppMessenger", "DefaultPluginId", "CreatedAt", "BorderColor", "GradientColor", "TextColor", "Initial", "OperationTimeScheduling", "OperationTimeRanges", "NextOperatingAt", "BlockReplyingAfterClosed", "BlockReplyingAfterClosedTime", "WelcomeMessage", "WelcomeMessageI18NMap", "UserInfoUrl", "TrafficSource", "BillAccountId", "BizGrade", "SourceSurvey", "BizCategory", "Staffs", "AppCommerceId", "AppCommerceType", "EnableMemberHash", "DefaultEmailDomainId", "EnableMfa", "Blocked", "Bright", "UsingFollowUp", "Brightness", "CoverImageBright", "CoverImageColor", "CoverImageUrl", "DisableNewChatButton", "NextAwayTime", "NextWorkingTime", "PluginIconColor", "ShowOperatorProfile", });
+        new java.lang.String[] { "Id", "Name", "Description", "NameDescI18NMap", "AvatarUrl", "Color", "BotName", "Country", "Domain", "SystemDomain", "HomepageUrl", "PhoneNumber", "TimeZone", "UtcOffset", "State", "ExpectedResponseDelay", "AwayOption", "InOperation", "Working", "FollowUpTexting", "FollowUpEmail", "FollowUpAskName", "FollowUpMandatory", "HideAppMessenger", "DefaultPluginId", "CreatedAt", "BorderColor", "GradientColor", "TextColor", "Initial", "OperationTimeScheduling", "OperationTimeRanges", "NextOperatingAt", "BlockReplyingAfterClosed", "BlockReplyingAfterClosedTime", "WelcomeMessage", "WelcomeMessageI18NMap", "UserInfoUrl", "TrafficSource", "BillAccountId", "BizGrade", "SourceSurvey", "BizCategory", "Staffs", "AppCommerceId", "AppCommerceType", "EnableMemberHash", "DefaultEmailDomainId", "EnableMfa", "Blocked", "Bright", "UsingFollowUp", "Brightness", "CoverImageBright", "CoverImageColor", "CoverImageUrl", "DisableNewChatButton", "NextAwayTime", "NextWorkingTime", "PluginIconColor", "ShowOperatorProfile", "UpdatedAt", });
     internal_static_coreapi_model_Channel_NameDescI18nMapEntry_descriptor =
       internal_static_coreapi_model_Channel_descriptor.getNestedTypes().get(0);
     internal_static_coreapi_model_Channel_NameDescI18nMapEntry_fieldAccessorTable = new

@@ -38,7 +38,7 @@ public final class ManagerOuterClass {
       "pi/model/campaign.proto\032\035coreapi/model/n" +
       "ame_desc.proto\032\035coreapi/model/tiny_file." +
       "proto\032\034google/protobuf/struct.proto\032\037goo" +
-      "gle/protobuf/timestamp.proto\"\303\024\n\007Manager" +
+      "gle/protobuf/timestamp.proto\"\206\025\n\007Manager" +
       "\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"val" +
       "ue must be at least 1 character\032\017size(th" +
       "is) >= 1\310\001\001R\002id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ" +
@@ -102,12 +102,13 @@ public final class ManagerOuterClass {
       "\022/\n\023operator_scheduling\0304 \001(\010R\022operatorS" +
       "cheduling\022J\n\024operator_time_ranges\0305 \003(\0132" +
       "\030.coreapi.model.TimeRangeR\022operatorTimeR" +
-      "anges\032[\n\024NameDescI18nMapEntry\022\020\n\003key\030\001 \001" +
-      "(\tR\003key\022-\n\005value\030\002 \001(\0132\027.coreapi.model.N" +
-      "ameDescR\005value:\0028\001Bb\n&io.channel.api.pro" +
-      "to.pub.coreapi.modelP\001Z6github.com/chann" +
-      "el-io/ch-proto-public/coreapi/go/modelb\006" +
-      "proto3"
+      "anges\022A\n\nupdated_at\0306 \001(\0132\032.google.proto" +
+      "buf.TimestampB\006\272H\003\310\001\001R\tupdatedAt\032[\n\024Name" +
+      "DescI18nMapEntry\022\020\n\003key\030\001 \001(\tR\003key\022-\n\005va" +
+      "lue\030\002 \001(\0132\027.coreapi.model.NameDescR\005valu" +
+      "e:\0028\001Bb\n&io.channel.api.proto.pub.coreap" +
+      "i.modelP\001Z6github.com/channel-io/ch-prot" +
+      "o-public/coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -124,7 +125,7 @@ public final class ManagerOuterClass {
     internal_static_coreapi_model_Manager_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Manager_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "AccountId", "Name", "Description", "ShowDescriptionToFront", "NameDescI18NMap", "AvatarUrl", "DisplayAsChannel", "AutoAssignCapacity", "StatusEmoji", "StatusText", "StatusClearAt", "DoNotDisturb", "DoNotDisturbClearAt", "Removed", "CreatedAt", "Profile", "Email", "ShowEmailToFront", "MobileNumber", "ShowMobileNumberToFront", "DefaultGroupWatch", "DefaultDirectChatWatch", "DefaultUserChatWatch", "ChatAlertSound", "ShowPrivateMessagePreview", "OperatorScore", "TouchScore", "Avatar", "OperatorEmailReminder", "Operator", "DefaultAllMentionImportant", "UserMessageImportant", "ManagerId", "EmailForFront", "MobileNumberForFront", "Role", "OperatorScheduling", "OperatorTimeRanges", });
+        new java.lang.String[] { "Id", "ChannelId", "AccountId", "Name", "Description", "ShowDescriptionToFront", "NameDescI18NMap", "AvatarUrl", "DisplayAsChannel", "AutoAssignCapacity", "StatusEmoji", "StatusText", "StatusClearAt", "DoNotDisturb", "DoNotDisturbClearAt", "Removed", "CreatedAt", "Profile", "Email", "ShowEmailToFront", "MobileNumber", "ShowMobileNumberToFront", "DefaultGroupWatch", "DefaultDirectChatWatch", "DefaultUserChatWatch", "ChatAlertSound", "ShowPrivateMessagePreview", "OperatorScore", "TouchScore", "Avatar", "OperatorEmailReminder", "Operator", "DefaultAllMentionImportant", "UserMessageImportant", "ManagerId", "EmailForFront", "MobileNumberForFront", "Role", "OperatorScheduling", "OperatorTimeRanges", "UpdatedAt", });
     internal_static_coreapi_model_Manager_NameDescI18nMapEntry_descriptor =
       internal_static_coreapi_model_Manager_descriptor.getNestedTypes().get(0);
     internal_static_coreapi_model_Manager_NameDescI18nMapEntry_fieldAccessorTable = new

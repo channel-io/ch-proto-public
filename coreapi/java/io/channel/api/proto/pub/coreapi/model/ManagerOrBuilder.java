@@ -848,4 +848,34 @@ public interface ManagerOrBuilder extends
    */
   io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder getOperatorTimeRangesOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * Manager last update timestamp.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * @return Whether the updatedAt field is set.
+   */
+  boolean hasUpdatedAt();
+  /**
+   * <pre>
+   * Manager last update timestamp.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * @return The updatedAt.
+   */
+  com.google.protobuf.Timestamp getUpdatedAt();
+  /**
+   * <pre>
+   * Manager last update timestamp.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
 }

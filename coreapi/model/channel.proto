@@ -388,4 +388,9 @@ message Channel {
   //
   // +kubebuilder:validation:Nullable
   bool show_operator_profile = 72;
+
+  // Channel last update timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp updated_at = 73 [(buf.validate.field).required = true];
 }
