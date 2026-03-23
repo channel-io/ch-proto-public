@@ -402,7 +402,12 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 402: {
+          case 400: {
+
+            unsubscribeAppPush_ = input.readBool();
+            break;
+          }
+          case 410: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (unsubscribeAppPushUpdatedAt_ != null) {
               subBuilder = unsubscribeAppPushUpdatedAt_.toBuilder();
@@ -2118,7 +2123,25 @@ private static final long serialVersionUID = 0L;
     return getUpdatedAt();
   }
 
-  public static final int UNSUBSCRIBE_APP_PUSH_UPDATED_AT_FIELD_NUMBER = 50;
+  public static final int UNSUBSCRIBE_APP_PUSH_FIELD_NUMBER = 50;
+  private boolean unsubscribeAppPush_;
+  /**
+   * <pre>
+   * Timestamp when app push subscription preference was last changed.
+   * +kubebuilder:validation:Nullable
+   * Whether the user opted out of app push notifications.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool unsubscribe_app_push = 50 [json_name = "unsubscribeAppPush"];</code>
+   * @return The unsubscribeAppPush.
+   */
+  @java.lang.Override
+  public boolean getUnsubscribeAppPush() {
+    return unsubscribeAppPush_;
+  }
+
+  public static final int UNSUBSCRIBE_APP_PUSH_UPDATED_AT_FIELD_NUMBER = 51;
   private com.google.protobuf.Timestamp unsubscribeAppPushUpdatedAt_;
   /**
    * <pre>
@@ -2126,7 +2149,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
    * @return Whether the unsubscribeAppPushUpdatedAt field is set.
    */
   @java.lang.Override
@@ -2139,7 +2162,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
    * @return The unsubscribeAppPushUpdatedAt.
    */
   @java.lang.Override
@@ -2152,7 +2175,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUnsubscribeAppPushUpdatedAtOrBuilder() {
@@ -2314,8 +2337,11 @@ private static final long serialVersionUID = 0L;
     if (updatedAt_ != null) {
       output.writeMessage(49, getUpdatedAt());
     }
+    if (unsubscribeAppPush_ != false) {
+      output.writeBool(50, unsubscribeAppPush_);
+    }
     if (unsubscribeAppPushUpdatedAt_ != null) {
-      output.writeMessage(50, getUnsubscribeAppPushUpdatedAt());
+      output.writeMessage(51, getUnsubscribeAppPushUpdatedAt());
     }
     unknownFields.writeTo(output);
   }
@@ -2503,9 +2529,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(49, getUpdatedAt());
     }
+    if (unsubscribeAppPush_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(50, unsubscribeAppPush_);
+    }
     if (unsubscribeAppPushUpdatedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(50, getUnsubscribeAppPushUpdatedAt());
+        .computeMessageSize(51, getUnsubscribeAppPushUpdatedAt());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -2641,6 +2671,8 @@ private static final long serialVersionUID = 0L;
       if (!getUpdatedAt()
           .equals(other.getUpdatedAt())) return false;
     }
+    if (getUnsubscribeAppPush()
+        != other.getUnsubscribeAppPush()) return false;
     if (hasUnsubscribeAppPushUpdatedAt() != other.hasUnsubscribeAppPushUpdatedAt()) return false;
     if (hasUnsubscribeAppPushUpdatedAt()) {
       if (!getUnsubscribeAppPushUpdatedAt()
@@ -2785,6 +2817,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getUpdatedAt().hashCode();
     }
+    hash = (37 * hash) + UNSUBSCRIBE_APP_PUSH_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getUnsubscribeAppPush());
     if (hasUnsubscribeAppPushUpdatedAt()) {
       hash = (37 * hash) + UNSUBSCRIBE_APP_PUSH_UPDATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getUnsubscribeAppPushUpdatedAt().hashCode();
@@ -3052,6 +3087,8 @@ private static final long serialVersionUID = 0L;
         updatedAt_ = null;
         updatedAtBuilder_ = null;
       }
+      unsubscribeAppPush_ = false;
+
       if (unsubscribeAppPushUpdatedAtBuilder_ == null) {
         unsubscribeAppPushUpdatedAt_ = null;
       } else {
@@ -3172,6 +3209,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.updatedAt_ = updatedAtBuilder_.build();
       }
+      result.unsubscribeAppPush_ = unsubscribeAppPush_;
       if (unsubscribeAppPushUpdatedAtBuilder_ == null) {
         result.unsubscribeAppPushUpdatedAt_ = unsubscribeAppPushUpdatedAt_;
       } else {
@@ -3398,6 +3436,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasUpdatedAt()) {
         mergeUpdatedAt(other.getUpdatedAt());
+      }
+      if (other.getUnsubscribeAppPush() != false) {
+        setUnsubscribeAppPush(other.getUnsubscribeAppPush());
       }
       if (other.hasUnsubscribeAppPushUpdatedAt()) {
         mergeUnsubscribeAppPushUpdatedAt(other.getUnsubscribeAppPushUpdatedAt());
@@ -7871,6 +7912,58 @@ private static final long serialVersionUID = 0L;
       return updatedAtBuilder_;
     }
 
+    private boolean unsubscribeAppPush_ ;
+    /**
+     * <pre>
+     * Timestamp when app push subscription preference was last changed.
+     * +kubebuilder:validation:Nullable
+     * Whether the user opted out of app push notifications.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool unsubscribe_app_push = 50 [json_name = "unsubscribeAppPush"];</code>
+     * @return The unsubscribeAppPush.
+     */
+    @java.lang.Override
+    public boolean getUnsubscribeAppPush() {
+      return unsubscribeAppPush_;
+    }
+    /**
+     * <pre>
+     * Timestamp when app push subscription preference was last changed.
+     * +kubebuilder:validation:Nullable
+     * Whether the user opted out of app push notifications.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool unsubscribe_app_push = 50 [json_name = "unsubscribeAppPush"];</code>
+     * @param value The unsubscribeAppPush to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUnsubscribeAppPush(boolean value) {
+      
+      unsubscribeAppPush_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when app push subscription preference was last changed.
+     * +kubebuilder:validation:Nullable
+     * Whether the user opted out of app push notifications.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool unsubscribe_app_push = 50 [json_name = "unsubscribeAppPush"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUnsubscribeAppPush() {
+      
+      unsubscribeAppPush_ = false;
+      onChanged();
+      return this;
+    }
+
     private com.google.protobuf.Timestamp unsubscribeAppPushUpdatedAt_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> unsubscribeAppPushUpdatedAtBuilder_;
@@ -7880,7 +7973,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
      * @return Whether the unsubscribeAppPushUpdatedAt field is set.
      */
     public boolean hasUnsubscribeAppPushUpdatedAt() {
@@ -7892,7 +7985,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
      * @return The unsubscribeAppPushUpdatedAt.
      */
     public com.google.protobuf.Timestamp getUnsubscribeAppPushUpdatedAt() {
@@ -7908,7 +8001,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
      */
     public Builder setUnsubscribeAppPushUpdatedAt(com.google.protobuf.Timestamp value) {
       if (unsubscribeAppPushUpdatedAtBuilder_ == null) {
@@ -7929,7 +8022,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
      */
     public Builder setUnsubscribeAppPushUpdatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -7948,7 +8041,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
      */
     public Builder mergeUnsubscribeAppPushUpdatedAt(com.google.protobuf.Timestamp value) {
       if (unsubscribeAppPushUpdatedAtBuilder_ == null) {
@@ -7971,7 +8064,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
      */
     public Builder clearUnsubscribeAppPushUpdatedAt() {
       if (unsubscribeAppPushUpdatedAtBuilder_ == null) {
@@ -7990,7 +8083,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUnsubscribeAppPushUpdatedAtBuilder() {
       
@@ -8003,7 +8096,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getUnsubscribeAppPushUpdatedAtOrBuilder() {
       if (unsubscribeAppPushUpdatedAtBuilder_ != null) {
@@ -8019,7 +8112,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+     * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -9132,6 +9225,29 @@ private static final long serialVersionUID = 0L;
     		return clearUpdatedAt();
     	else
     		return setUpdatedAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The unsubscribe_app_push to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearUnsubscribeAppPush(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearUnsubscribeAppPush();
+    	else
+    		return setUnsubscribeAppPush(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearUnsubscribeAppPush(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearUnsubscribeAppPush();
+    	else
+    		return setUnsubscribeAppPush(mapFunc.apply(value));
     }
     	
     /**

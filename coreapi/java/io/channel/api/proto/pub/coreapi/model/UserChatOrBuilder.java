@@ -1005,29 +1005,29 @@ public interface UserChatOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
-   * @return Whether the expireAt field is set.
+   * <code>.google.protobuf.Timestamp expires_at = 51 [json_name = "expiresAt"];</code>
+   * @return Whether the expiresAt field is set.
    */
-  boolean hasExpireAt();
+  boolean hasExpiresAt();
   /**
    * <pre>
    * Timestamp when the chat expires.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
-   * @return The expireAt.
+   * <code>.google.protobuf.Timestamp expires_at = 51 [json_name = "expiresAt"];</code>
+   * @return The expiresAt.
    */
-  com.google.protobuf.Timestamp getExpireAt();
+  com.google.protobuf.Timestamp getExpiresAt();
   /**
    * <pre>
    * Timestamp when the chat expires.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+   * <code>.google.protobuf.Timestamp expires_at = 51 [json_name = "expiresAt"];</code>
    */
-  com.google.protobuf.TimestampOrBuilder getExpireAtOrBuilder();
+  com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder();
 
   /**
    * <pre>

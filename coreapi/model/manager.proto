@@ -3,7 +3,6 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
-import "coreapi/model/campaign.proto";
 import "coreapi/model/name_desc.proto";
 import "coreapi/model/tiny_file.proto";
 import "google/protobuf/struct.proto";
@@ -257,20 +256,10 @@ message Manager {
   // +kubebuilder:validation:Nullable
   string mobile_number_for_front = 50;
 
-  // Manager role.
+  // Role ID assigned to this manager.
   //
   // +kubebuilder:validation:Nullable
-  string role = 51;
-
-  // Whether operator scheduling is enabled.
-  //
-  // +kubebuilder:validation:Nullable
-  bool operator_scheduling = 52;
-
-  // Scheduled operating time ranges for this operator.
-  //
-  // +kubebuilder:validation:Nullable
-  repeated coreapi.model.TimeRange operator_time_ranges = 53;
+  string role_id = 51;
 
   // Manager last update timestamp.
   //

@@ -37,8 +37,7 @@ private static final long serialVersionUID = 0L;
     managerId_ = "";
     emailForFront_ = "";
     mobileNumberForFront_ = "";
-    role_ = "";
-    operatorTimeRanges_ = java.util.Collections.emptyList();
+    roleId_ = "";
   }
 
   @java.lang.Override
@@ -325,21 +324,7 @@ private static final long serialVersionUID = 0L;
           case 410: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            role_ = s;
-            break;
-          }
-          case 416: {
-
-            operatorScheduling_ = input.readBool();
-            break;
-          }
-          case 426: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              operatorTimeRanges_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.TimeRange>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            operatorTimeRanges_.add(
-                input.readMessage(io.channel.api.proto.pub.coreapi.model.TimeRange.parser(), extensionRegistry));
+            roleId_ = s;
             break;
           }
           case 434: {
@@ -370,9 +355,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        operatorTimeRanges_ = java.util.Collections.unmodifiableList(operatorTimeRanges_);
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -1770,133 +1752,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ROLE_FIELD_NUMBER = 51;
-  private volatile java.lang.Object role_;
+  public static final int ROLE_ID_FIELD_NUMBER = 51;
+  private volatile java.lang.Object roleId_;
   /**
    * <pre>
-   * Manager role.
+   * Role ID assigned to this manager.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string role = 51 [json_name = "role"];</code>
-   * @return The role.
+   * <code>string role_id = 51 [json_name = "roleId"];</code>
+   * @return The roleId.
    */
   @java.lang.Override
-  public java.lang.String getRole() {
-    java.lang.Object ref = role_;
+  public java.lang.String getRoleId() {
+    java.lang.Object ref = roleId_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      role_ = s;
+      roleId_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * Manager role.
+   * Role ID assigned to this manager.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string role = 51 [json_name = "role"];</code>
-   * @return The bytes for role.
+   * <code>string role_id = 51 [json_name = "roleId"];</code>
+   * @return The bytes for roleId.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getRoleBytes() {
-    java.lang.Object ref = role_;
+      getRoleIdBytes() {
+    java.lang.Object ref = roleId_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      role_ = b;
+      roleId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
-  }
-
-  public static final int OPERATOR_SCHEDULING_FIELD_NUMBER = 52;
-  private boolean operatorScheduling_;
-  /**
-   * <pre>
-   * Whether operator scheduling is enabled.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool operator_scheduling = 52 [json_name = "operatorScheduling"];</code>
-   * @return The operatorScheduling.
-   */
-  @java.lang.Override
-  public boolean getOperatorScheduling() {
-    return operatorScheduling_;
-  }
-
-  public static final int OPERATOR_TIME_RANGES_FIELD_NUMBER = 53;
-  private java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> operatorTimeRanges_;
-  /**
-   * <pre>
-   * Scheduled operating time ranges for this operator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-   */
-  @java.lang.Override
-  public java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> getOperatorTimeRangesList() {
-    return operatorTimeRanges_;
-  }
-  /**
-   * <pre>
-   * Scheduled operating time ranges for this operator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-   */
-  @java.lang.Override
-  public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder> 
-      getOperatorTimeRangesOrBuilderList() {
-    return operatorTimeRanges_;
-  }
-  /**
-   * <pre>
-   * Scheduled operating time ranges for this operator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-   */
-  @java.lang.Override
-  public int getOperatorTimeRangesCount() {
-    return operatorTimeRanges_.size();
-  }
-  /**
-   * <pre>
-   * Scheduled operating time ranges for this operator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.TimeRange getOperatorTimeRanges(int index) {
-    return operatorTimeRanges_.get(index);
-  }
-  /**
-   * <pre>
-   * Scheduled operating time ranges for this operator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder getOperatorTimeRangesOrBuilder(
-      int index) {
-    return operatorTimeRanges_.get(index);
   }
 
   public static final int UPDATED_AT_FIELD_NUMBER = 54;
@@ -2068,14 +1969,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mobileNumberForFront_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 50, mobileNumberForFront_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(role_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 51, role_);
-    }
-    if (operatorScheduling_ != false) {
-      output.writeBool(52, operatorScheduling_);
-    }
-    for (int i = 0; i < operatorTimeRanges_.size(); i++) {
-      output.writeMessage(53, operatorTimeRanges_.get(i));
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(roleId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 51, roleId_);
     }
     if (updatedAt_ != null) {
       output.writeMessage(54, getUpdatedAt());
@@ -2226,16 +2121,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mobileNumberForFront_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(50, mobileNumberForFront_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(role_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(51, role_);
-    }
-    if (operatorScheduling_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(52, operatorScheduling_);
-    }
-    for (int i = 0; i < operatorTimeRanges_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(53, operatorTimeRanges_.get(i));
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(roleId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(51, roleId_);
     }
     if (updatedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -2347,12 +2234,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getEmailForFront())) return false;
     if (!getMobileNumberForFront()
         .equals(other.getMobileNumberForFront())) return false;
-    if (!getRole()
-        .equals(other.getRole())) return false;
-    if (getOperatorScheduling()
-        != other.getOperatorScheduling()) return false;
-    if (!getOperatorTimeRangesList()
-        .equals(other.getOperatorTimeRangesList())) return false;
+    if (!getRoleId()
+        .equals(other.getRoleId())) return false;
     if (hasUpdatedAt() != other.hasUpdatedAt()) return false;
     if (hasUpdatedAt()) {
       if (!getUpdatedAt()
@@ -2468,15 +2351,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getEmailForFront().hashCode();
     hash = (37 * hash) + MOBILE_NUMBER_FOR_FRONT_FIELD_NUMBER;
     hash = (53 * hash) + getMobileNumberForFront().hashCode();
-    hash = (37 * hash) + ROLE_FIELD_NUMBER;
-    hash = (53 * hash) + getRole().hashCode();
-    hash = (37 * hash) + OPERATOR_SCHEDULING_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getOperatorScheduling());
-    if (getOperatorTimeRangesCount() > 0) {
-      hash = (37 * hash) + OPERATOR_TIME_RANGES_FIELD_NUMBER;
-      hash = (53 * hash) + getOperatorTimeRangesList().hashCode();
-    }
+    hash = (37 * hash) + ROLE_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getRoleId().hashCode();
     if (hasUpdatedAt()) {
       hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getUpdatedAt().hashCode();
@@ -2635,7 +2511,6 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getOperatorTimeRangesFieldBuilder();
       }
     }
     @java.lang.Override
@@ -2734,16 +2609,8 @@ private static final long serialVersionUID = 0L;
 
       mobileNumberForFront_ = "";
 
-      role_ = "";
+      roleId_ = "";
 
-      operatorScheduling_ = false;
-
-      if (operatorTimeRangesBuilder_ == null) {
-        operatorTimeRanges_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      } else {
-        operatorTimeRangesBuilder_.clear();
-      }
       if (updatedAtBuilder_ == null) {
         updatedAt_ = null;
       } else {
@@ -2835,17 +2702,7 @@ private static final long serialVersionUID = 0L;
       result.managerId_ = managerId_;
       result.emailForFront_ = emailForFront_;
       result.mobileNumberForFront_ = mobileNumberForFront_;
-      result.role_ = role_;
-      result.operatorScheduling_ = operatorScheduling_;
-      if (operatorTimeRangesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
-          operatorTimeRanges_ = java.util.Collections.unmodifiableList(operatorTimeRanges_);
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.operatorTimeRanges_ = operatorTimeRanges_;
-      } else {
-        result.operatorTimeRanges_ = operatorTimeRangesBuilder_.build();
-      }
+      result.roleId_ = roleId_;
       if (updatedAtBuilder_ == null) {
         result.updatedAt_ = updatedAt_;
       } else {
@@ -3026,38 +2883,9 @@ private static final long serialVersionUID = 0L;
         mobileNumberForFront_ = other.mobileNumberForFront_;
         onChanged();
       }
-      if (!other.getRole().isEmpty()) {
-        role_ = other.role_;
+      if (!other.getRoleId().isEmpty()) {
+        roleId_ = other.roleId_;
         onChanged();
-      }
-      if (other.getOperatorScheduling() != false) {
-        setOperatorScheduling(other.getOperatorScheduling());
-      }
-      if (operatorTimeRangesBuilder_ == null) {
-        if (!other.operatorTimeRanges_.isEmpty()) {
-          if (operatorTimeRanges_.isEmpty()) {
-            operatorTimeRanges_ = other.operatorTimeRanges_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-          } else {
-            ensureOperatorTimeRangesIsMutable();
-            operatorTimeRanges_.addAll(other.operatorTimeRanges_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.operatorTimeRanges_.isEmpty()) {
-          if (operatorTimeRangesBuilder_.isEmpty()) {
-            operatorTimeRangesBuilder_.dispose();
-            operatorTimeRangesBuilder_ = null;
-            operatorTimeRanges_ = other.operatorTimeRanges_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-            operatorTimeRangesBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getOperatorTimeRangesFieldBuilder() : null;
-          } else {
-            operatorTimeRangesBuilder_.addAllMessages(other.operatorTimeRanges_);
-          }
-        }
       }
       if (other.hasUpdatedAt()) {
         mergeUpdatedAt(other.getUpdatedAt());
@@ -6492,23 +6320,23 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object role_ = "";
+    private java.lang.Object roleId_ = "";
     /**
      * <pre>
-     * Manager role.
+     * Role ID assigned to this manager.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string role = 51 [json_name = "role"];</code>
-     * @return The role.
+     * <code>string role_id = 51 [json_name = "roleId"];</code>
+     * @return The roleId.
      */
-    public java.lang.String getRole() {
-      java.lang.Object ref = role_;
+    public java.lang.String getRoleId() {
+      java.lang.Object ref = roleId_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        role_ = s;
+        roleId_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -6516,21 +6344,21 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager role.
+     * Role ID assigned to this manager.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string role = 51 [json_name = "role"];</code>
-     * @return The bytes for role.
+     * <code>string role_id = 51 [json_name = "roleId"];</code>
+     * @return The bytes for roleId.
      */
     public com.google.protobuf.ByteString
-        getRoleBytes() {
-      java.lang.Object ref = role_;
+        getRoleIdBytes() {
+      java.lang.Object ref = roleId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        role_ = b;
+        roleId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -6538,435 +6366,59 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager role.
+     * Role ID assigned to this manager.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string role = 51 [json_name = "role"];</code>
-     * @param value The role to set.
+     * <code>string role_id = 51 [json_name = "roleId"];</code>
+     * @param value The roleId to set.
      * @return This builder for chaining.
      */
-    public Builder setRole(
+    public Builder setRoleId(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      role_ = value;
+      roleId_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Manager role.
+     * Role ID assigned to this manager.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string role = 51 [json_name = "role"];</code>
+     * <code>string role_id = 51 [json_name = "roleId"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearRole() {
+    public Builder clearRoleId() {
       
-      role_ = getDefaultInstance().getRole();
+      roleId_ = getDefaultInstance().getRoleId();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Manager role.
+     * Role ID assigned to this manager.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string role = 51 [json_name = "role"];</code>
-     * @param value The bytes for role to set.
+     * <code>string role_id = 51 [json_name = "roleId"];</code>
+     * @param value The bytes for roleId to set.
      * @return This builder for chaining.
      */
-    public Builder setRoleBytes(
+    public Builder setRoleIdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      role_ = value;
+      roleId_ = value;
       onChanged();
       return this;
-    }
-
-    private boolean operatorScheduling_ ;
-    /**
-     * <pre>
-     * Whether operator scheduling is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool operator_scheduling = 52 [json_name = "operatorScheduling"];</code>
-     * @return The operatorScheduling.
-     */
-    @java.lang.Override
-    public boolean getOperatorScheduling() {
-      return operatorScheduling_;
-    }
-    /**
-     * <pre>
-     * Whether operator scheduling is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool operator_scheduling = 52 [json_name = "operatorScheduling"];</code>
-     * @param value The operatorScheduling to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOperatorScheduling(boolean value) {
-      
-      operatorScheduling_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether operator scheduling is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool operator_scheduling = 52 [json_name = "operatorScheduling"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearOperatorScheduling() {
-      
-      operatorScheduling_ = false;
-      onChanged();
-      return this;
-    }
-
-    private java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> operatorTimeRanges_ =
-      java.util.Collections.emptyList();
-    private void ensureOperatorTimeRangesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
-        operatorTimeRanges_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.TimeRange>(operatorTimeRanges_);
-        bitField0_ |= 0x00000002;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.TimeRange, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder, io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder> operatorTimeRangesBuilder_;
-
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> getOperatorTimeRangesList() {
-      if (operatorTimeRangesBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(operatorTimeRanges_);
-      } else {
-        return operatorTimeRangesBuilder_.getMessageList();
-      }
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public int getOperatorTimeRangesCount() {
-      if (operatorTimeRangesBuilder_ == null) {
-        return operatorTimeRanges_.size();
-      } else {
-        return operatorTimeRangesBuilder_.getCount();
-      }
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.TimeRange getOperatorTimeRanges(int index) {
-      if (operatorTimeRangesBuilder_ == null) {
-        return operatorTimeRanges_.get(index);
-      } else {
-        return operatorTimeRangesBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public Builder setOperatorTimeRanges(
-        int index, io.channel.api.proto.pub.coreapi.model.TimeRange value) {
-      if (operatorTimeRangesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureOperatorTimeRangesIsMutable();
-        operatorTimeRanges_.set(index, value);
-        onChanged();
-      } else {
-        operatorTimeRangesBuilder_.setMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public Builder setOperatorTimeRanges(
-        int index, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder builderForValue) {
-      if (operatorTimeRangesBuilder_ == null) {
-        ensureOperatorTimeRangesIsMutable();
-        operatorTimeRanges_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        operatorTimeRangesBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public Builder addOperatorTimeRanges(io.channel.api.proto.pub.coreapi.model.TimeRange value) {
-      if (operatorTimeRangesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureOperatorTimeRangesIsMutable();
-        operatorTimeRanges_.add(value);
-        onChanged();
-      } else {
-        operatorTimeRangesBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public Builder addOperatorTimeRanges(
-        int index, io.channel.api.proto.pub.coreapi.model.TimeRange value) {
-      if (operatorTimeRangesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureOperatorTimeRangesIsMutable();
-        operatorTimeRanges_.add(index, value);
-        onChanged();
-      } else {
-        operatorTimeRangesBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public Builder addOperatorTimeRanges(
-        io.channel.api.proto.pub.coreapi.model.TimeRange.Builder builderForValue) {
-      if (operatorTimeRangesBuilder_ == null) {
-        ensureOperatorTimeRangesIsMutable();
-        operatorTimeRanges_.add(builderForValue.build());
-        onChanged();
-      } else {
-        operatorTimeRangesBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public Builder addOperatorTimeRanges(
-        int index, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder builderForValue) {
-      if (operatorTimeRangesBuilder_ == null) {
-        ensureOperatorTimeRangesIsMutable();
-        operatorTimeRanges_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        operatorTimeRangesBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public Builder addAllOperatorTimeRanges(
-        java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.TimeRange> values) {
-      if (operatorTimeRangesBuilder_ == null) {
-        ensureOperatorTimeRangesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, operatorTimeRanges_);
-        onChanged();
-      } else {
-        operatorTimeRangesBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public Builder clearOperatorTimeRanges() {
-      if (operatorTimeRangesBuilder_ == null) {
-        operatorTimeRanges_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-      } else {
-        operatorTimeRangesBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public Builder removeOperatorTimeRanges(int index) {
-      if (operatorTimeRangesBuilder_ == null) {
-        ensureOperatorTimeRangesIsMutable();
-        operatorTimeRanges_.remove(index);
-        onChanged();
-      } else {
-        operatorTimeRangesBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.TimeRange.Builder getOperatorTimeRangesBuilder(
-        int index) {
-      return getOperatorTimeRangesFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder getOperatorTimeRangesOrBuilder(
-        int index) {
-      if (operatorTimeRangesBuilder_ == null) {
-        return operatorTimeRanges_.get(index);  } else {
-        return operatorTimeRangesBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder> 
-         getOperatorTimeRangesOrBuilderList() {
-      if (operatorTimeRangesBuilder_ != null) {
-        return operatorTimeRangesBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(operatorTimeRanges_);
-      }
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.TimeRange.Builder addOperatorTimeRangesBuilder() {
-      return getOperatorTimeRangesFieldBuilder().addBuilder(
-          io.channel.api.proto.pub.coreapi.model.TimeRange.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.TimeRange.Builder addOperatorTimeRangesBuilder(
-        int index) {
-      return getOperatorTimeRangesFieldBuilder().addBuilder(
-          index, io.channel.api.proto.pub.coreapi.model.TimeRange.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Scheduled operating time ranges for this operator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-     */
-    public java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange.Builder> 
-         getOperatorTimeRangesBuilderList() {
-      return getOperatorTimeRangesFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.TimeRange, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder, io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder> 
-        getOperatorTimeRangesFieldBuilder() {
-      if (operatorTimeRangesBuilder_ == null) {
-        operatorTimeRangesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            io.channel.api.proto.pub.coreapi.model.TimeRange, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder, io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder>(
-                operatorTimeRanges_,
-                ((bitField0_ & 0x00000002) != 0),
-                getParentForChildren(),
-                isClean());
-        operatorTimeRanges_ = null;
-      }
-      return operatorTimeRangesBuilder_;
     }
 
     private com.google.protobuf.Timestamp updatedAt_;
@@ -7987,14 +7439,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The role to set.
+     * @param value The role_id to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearRole(java.lang.String value) {
+    public Builder setOrClearRoleId(java.lang.String value) {
     	if (value == null)
-    		return clearRole();
+    		return clearRoleId();
     	else
-    		return setRole(value);
+    		return setRoleId(value);
     }
     	
     /**
@@ -8002,59 +7454,11 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearRole(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearRoleId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
     	if (value == null)
-    		return clearRole();
+    		return clearRoleId();
     	else
-    		return setRole(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The operator_scheduling to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearOperatorScheduling(java.lang.Boolean value) {
-    	if (value == null)
-    		return clearOperatorScheduling();
-    	else
-    		return setOperatorScheduling(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearOperatorScheduling(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
-    	if (value == null)
-    		return clearOperatorScheduling();
-    	else
-    		return setOperatorScheduling(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param values The operator_time_ranges to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllOrClearOperatorTimeRanges(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.TimeRange> values) {
-    	if (values == null)
-    		return clearOperatorTimeRanges();
-    	else
-    		return addAllOperatorTimeRanges(values);
-    }
-    	
-    /**
-     * @param values The values to map.
-     * @param mapFunc The function to map the values into each proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapAllOrClearOperatorTimeRanges(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.TimeRange> mapFunc) {
-    	if (values == null)
-    		return clearOperatorTimeRanges();
-    	else {
-    		values.forEach(value -> addOperatorTimeRanges(mapFunc.apply(value)));
-    		return this;
-    	}
+    		return setRoleId(mapFunc.apply(value));
     }
     	
     /**

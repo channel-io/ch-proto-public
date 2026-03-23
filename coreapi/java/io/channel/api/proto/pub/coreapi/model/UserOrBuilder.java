@@ -981,9 +981,22 @@ public interface UserOrBuilder extends
    * <pre>
    * Timestamp when app push subscription preference was last changed.
    * +kubebuilder:validation:Nullable
+   * Whether the user opted out of app push notifications.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+   * <code>bool unsubscribe_app_push = 50 [json_name = "unsubscribeAppPush"];</code>
+   * @return The unsubscribeAppPush.
+   */
+  boolean getUnsubscribeAppPush();
+
+  /**
+   * <pre>
+   * Timestamp when app push subscription preference was last changed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
    * @return Whether the unsubscribeAppPushUpdatedAt field is set.
    */
   boolean hasUnsubscribeAppPushUpdatedAt();
@@ -993,7 +1006,7 @@ public interface UserOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
    * @return The unsubscribeAppPushUpdatedAt.
    */
   com.google.protobuf.Timestamp getUnsubscribeAppPushUpdatedAt();
@@ -1003,7 +1016,7 @@ public interface UserOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getUnsubscribeAppPushUpdatedAtOrBuilder();
 }

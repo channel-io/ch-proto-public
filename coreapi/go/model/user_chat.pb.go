@@ -269,7 +269,7 @@ type UserChat struct {
 	// Timestamp when the chat expires.
 	//
 	// +kubebuilder:validation:Nullable
-	ExpireAt *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=expire_at,json=expireAt,proto3" json:"expire_at,omitempty"`
+	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
 	// Chat data version number.
 	//
 	// +kubebuilder:validation:Nullable
@@ -613,9 +613,9 @@ func (x *UserChat) GetSnoozedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *UserChat) GetExpireAt() *timestamppb.Timestamp {
+func (x *UserChat) GetExpiresAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.ExpireAt
+		return x.ExpiresAt
 	}
 	return nil
 }
@@ -638,7 +638,7 @@ var File_coreapi_model_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x86\x13\n" +
+	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x88\x13\n" +
 	"\bUserChat\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -693,8 +693,9 @@ const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\x0fdesk_message_id\x180 \x01(\tR\rdeskMessageId\x12B\n" +
 	"\x0fdesk_updated_at\x181 \x01(\v2\x1a.google.protobuf.TimestampR\rdeskUpdatedAt\x129\n" +
 	"\n" +
-	"snoozed_at\x182 \x01(\v2\x1a.google.protobuf.TimestampR\tsnoozedAt\x127\n" +
-	"\texpire_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\bexpireAt\x12\x18\n" +
+	"snoozed_at\x182 \x01(\v2\x1a.google.protobuf.TimestampR\tsnoozedAt\x129\n" +
+	"\n" +
+	"expires_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12\x18\n" +
 	"\aversion\x184 \x01(\x03R\aversion\x121\n" +
 	"\aprofile\x185 \x01(\v2\x17.google.protobuf.StructR\aprofile*\xda\x01\n" +
 	"\rUserChatState\x12\x1f\n" +
@@ -744,7 +745,7 @@ var file_coreapi_model_user_chat_proto_depIdxs = []int32{
 	3,  // 13: coreapi.model.UserChat.goal_checked_at:type_name -> google.protobuf.Timestamp
 	3,  // 14: coreapi.model.UserChat.desk_updated_at:type_name -> google.protobuf.Timestamp
 	3,  // 15: coreapi.model.UserChat.snoozed_at:type_name -> google.protobuf.Timestamp
-	3,  // 16: coreapi.model.UserChat.expire_at:type_name -> google.protobuf.Timestamp
+	3,  // 16: coreapi.model.UserChat.expires_at:type_name -> google.protobuf.Timestamp
 	2,  // 17: coreapi.model.UserChat.profile:type_name -> google.protobuf.Struct
 	18, // [18:18] is the sub-list for method output_type
 	18, // [18:18] is the sub-list for method input_type

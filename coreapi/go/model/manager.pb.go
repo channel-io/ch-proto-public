@@ -186,18 +186,10 @@ type Manager struct {
 	//
 	// +kubebuilder:validation:Nullable
 	MobileNumberForFront string `protobuf:"bytes,50,opt,name=mobile_number_for_front,json=mobileNumberForFront,proto3" json:"mobile_number_for_front,omitempty"`
-	// Manager role.
+	// Role ID assigned to this manager.
 	//
 	// +kubebuilder:validation:Nullable
-	Role string `protobuf:"bytes,51,opt,name=role,proto3" json:"role,omitempty"`
-	// Whether operator scheduling is enabled.
-	//
-	// +kubebuilder:validation:Nullable
-	OperatorScheduling bool `protobuf:"varint,52,opt,name=operator_scheduling,json=operatorScheduling,proto3" json:"operator_scheduling,omitempty"`
-	// Scheduled operating time ranges for this operator.
-	//
-	// +kubebuilder:validation:Nullable
-	OperatorTimeRanges []*TimeRange `protobuf:"bytes,53,rep,name=operator_time_ranges,json=operatorTimeRanges,proto3" json:"operator_time_ranges,omitempty"`
+	RoleId string `protobuf:"bytes,51,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
 	// Manager last update timestamp.
 	//
 	// +kubebuilder:validation:Required
@@ -495,25 +487,11 @@ func (x *Manager) GetMobileNumberForFront() string {
 	return ""
 }
 
-func (x *Manager) GetRole() string {
+func (x *Manager) GetRoleId() string {
 	if x != nil {
-		return x.Role
+		return x.RoleId
 	}
 	return ""
-}
-
-func (x *Manager) GetOperatorScheduling() bool {
-	if x != nil {
-		return x.OperatorScheduling
-	}
-	return false
-}
-
-func (x *Manager) GetOperatorTimeRanges() []*TimeRange {
-	if x != nil {
-		return x.OperatorTimeRanges
-	}
-	return nil
 }
 
 func (x *Manager) GetUpdatedAt() *timestamppb.Timestamp {
@@ -527,7 +505,7 @@ var File_coreapi_model_manager_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_manager_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/manager.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/campaign.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1dcoreapi/model/tiny_file.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x86\x15\n" +
+	"\x1bcoreapi/model/manager.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1dcoreapi/model/tiny_file.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8e\x14\n" +
 	"\aManager\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -580,10 +558,8 @@ const file_coreapi_model_manager_proto_rawDesc = "" +
 	"\n" +
 	"manager_id\x180 \x01(\tR\tmanagerId\x12&\n" +
 	"\x0femail_for_front\x181 \x01(\tR\remailForFront\x125\n" +
-	"\x17mobile_number_for_front\x182 \x01(\tR\x14mobileNumberForFront\x12\x12\n" +
-	"\x04role\x183 \x01(\tR\x04role\x12/\n" +
-	"\x13operator_scheduling\x184 \x01(\bR\x12operatorScheduling\x12J\n" +
-	"\x14operator_time_ranges\x185 \x03(\v2\x18.coreapi.model.TimeRangeR\x12operatorTimeRanges\x12A\n" +
+	"\x17mobile_number_for_front\x182 \x01(\tR\x14mobileNumberForFront\x12\x17\n" +
+	"\arole_id\x183 \x01(\tR\x06roleId\x12A\n" +
 	"\n" +
 	"updated_at\x186 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x1a[\n" +
 	"\x14NameDescI18nMapEntry\x12\x10\n" +
@@ -610,8 +586,7 @@ var file_coreapi_model_manager_proto_goTypes = []any{
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 	(*structpb.Struct)(nil),       // 3: google.protobuf.Struct
 	(*TinyFile)(nil),              // 4: coreapi.model.TinyFile
-	(*TimeRange)(nil),             // 5: coreapi.model.TimeRange
-	(*NameDesc)(nil),              // 6: coreapi.model.NameDesc
+	(*NameDesc)(nil),              // 5: coreapi.model.NameDesc
 }
 var file_coreapi_model_manager_proto_depIdxs = []int32{
 	1, // 0: coreapi.model.Manager.name_desc_i18n_map:type_name -> coreapi.model.Manager.NameDescI18nMapEntry
@@ -620,14 +595,13 @@ var file_coreapi_model_manager_proto_depIdxs = []int32{
 	2, // 3: coreapi.model.Manager.created_at:type_name -> google.protobuf.Timestamp
 	3, // 4: coreapi.model.Manager.profile:type_name -> google.protobuf.Struct
 	4, // 5: coreapi.model.Manager.avatar:type_name -> coreapi.model.TinyFile
-	5, // 6: coreapi.model.Manager.operator_time_ranges:type_name -> coreapi.model.TimeRange
-	2, // 7: coreapi.model.Manager.updated_at:type_name -> google.protobuf.Timestamp
-	6, // 8: coreapi.model.Manager.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
-	9, // [9:9] is the sub-list for method output_type
-	9, // [9:9] is the sub-list for method input_type
-	9, // [9:9] is the sub-list for extension type_name
-	9, // [9:9] is the sub-list for extension extendee
-	0, // [0:9] is the sub-list for field type_name
+	2, // 6: coreapi.model.Manager.updated_at:type_name -> google.protobuf.Timestamp
+	5, // 7: coreapi.model.Manager.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
+	8, // [8:8] is the sub-list for method output_type
+	8, // [8:8] is the sub-list for method input_type
+	8, // [8:8] is the sub-list for extension type_name
+	8, // [8:8] is the sub-list for extension extendee
+	0, // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_manager_proto_init() }
@@ -635,7 +609,6 @@ func file_coreapi_model_manager_proto_init() {
 	if File_coreapi_model_manager_proto != nil {
 		return
 	}
-	file_coreapi_model_campaign_proto_init()
 	file_coreapi_model_name_desc_proto_init()
 	file_coreapi_model_tiny_file_proto_init()
 	type x struct{}
