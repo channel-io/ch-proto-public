@@ -26,6 +26,34 @@ func PluginStateForString(value string) PluginState {
 	}
 }
 
+// GetString returns the canonical string for PluginAppearance.
+func (x PluginAppearance) GetString() string {
+	switch x {
+	case PluginAppearance_PLUGIN_APPEARANCE_DARK:
+		return "dark"
+	case PluginAppearance_PLUGIN_APPEARANCE_LIGHT:
+		return "light"
+	case PluginAppearance_PLUGIN_APPEARANCE_SYSTEM:
+		return "system"
+	default:
+		return ""
+	}
+}
+
+// PluginAppearanceForString returns the PluginAppearance enum for the given canonical string.
+func PluginAppearanceForString(value string) PluginAppearance {
+	switch value {
+	case "dark":
+		return PluginAppearance_PLUGIN_APPEARANCE_DARK
+	case "light":
+		return PluginAppearance_PLUGIN_APPEARANCE_LIGHT
+	case "system":
+		return PluginAppearance_PLUGIN_APPEARANCE_SYSTEM
+	default:
+		return PluginAppearance_PLUGIN_APPEARANCE_UNSPECIFIED
+	}
+}
+
 // GetString returns the canonical string for PluginPosition.
 func (x PluginPosition) GetString() string {
 	switch x {
@@ -47,6 +75,126 @@ func PluginPositionForString(value string) PluginPosition {
 		return PluginPosition_PLUGIN_POSITION_RIGHT
 	default:
 		return PluginPosition_PLUGIN_POSITION_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for PluginButtonType.
+func (x PluginButtonType) GetString() string {
+	switch x {
+	case PluginButtonType_PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE:
+		return "customImage"
+	case PluginButtonType_PLUGIN_BUTTON_TYPE_ICON_BUTTON:
+		return "iconButton"
+	case PluginButtonType_PLUGIN_BUTTON_TYPE_LEGACY:
+		return "legacy"
+	default:
+		return ""
+	}
+}
+
+// PluginButtonTypeForString returns the PluginButtonType enum for the given canonical string.
+func PluginButtonTypeForString(value string) PluginButtonType {
+	switch value {
+	case "customImage":
+		return PluginButtonType_PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE
+	case "iconButton":
+		return PluginButtonType_PLUGIN_BUTTON_TYPE_ICON_BUTTON
+	case "legacy":
+		return PluginButtonType_PLUGIN_BUTTON_TYPE_LEGACY
+	default:
+		return PluginButtonType_PLUGIN_BUTTON_TYPE_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for PluginIconButton.
+func (x PluginIconButton) GetString() string {
+	switch x {
+	case PluginIconButton_PLUGIN_ICON_BUTTON_CHANNEL:
+		return "channel"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_CHANNEL_FILLED:
+		return "channelFilled"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT:
+		return "chatBubbleAlt"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_FILLED:
+		return "chatBubbleAltFilled"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_BUBBLE_FILLED:
+		return "chatBubbleFilled"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_LIGHTNING_FILLED:
+		return "chatLightningFilled"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_PROGRESS:
+		return "chatProgress"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED:
+		return "chatProgressFilled"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_QUESTION:
+		return "chatQuestion"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED:
+		return "chatQuestionFilled"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_COMMENT:
+		return "comment"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_COMMENT_FILLED:
+		return "commentFilled"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_COMMUNICATION:
+		return "communication"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_HEADSET:
+		return "headset"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_HELP_FILLED:
+		return "helpFilled"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_SEND_FORWARD:
+		return "sendForward"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED:
+		return "sendForwardFilled"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_SMS:
+		return "sms"
+	case PluginIconButton_PLUGIN_ICON_BUTTON_SMS_FILLED:
+		return "smsFilled"
+	default:
+		return ""
+	}
+}
+
+// PluginIconButtonForString returns the PluginIconButton enum for the given canonical string.
+func PluginIconButtonForString(value string) PluginIconButton {
+	switch value {
+	case "channel":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_CHANNEL
+	case "channelFilled":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_CHANNEL_FILLED
+	case "chatBubbleAlt":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT
+	case "chatBubbleAltFilled":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_FILLED
+	case "chatBubbleFilled":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_BUBBLE_FILLED
+	case "chatLightningFilled":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_LIGHTNING_FILLED
+	case "chatProgress":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_PROGRESS
+	case "chatProgressFilled":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED
+	case "chatQuestion":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_QUESTION
+	case "chatQuestionFilled":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED
+	case "comment":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_COMMENT
+	case "commentFilled":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_COMMENT_FILLED
+	case "communication":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_COMMUNICATION
+	case "headset":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_HEADSET
+	case "helpFilled":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_HELP_FILLED
+	case "sendForward":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_SEND_FORWARD
+	case "sendForwardFilled":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED
+	case "sms":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_SMS
+	case "smsFilled":
+		return PluginIconButton_PLUGIN_ICON_BUTTON_SMS_FILLED
+	default:
+		return PluginIconButton_PLUGIN_ICON_BUTTON_UNSPECIFIED
 	}
 }
 

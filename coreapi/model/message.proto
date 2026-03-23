@@ -114,6 +114,37 @@ message MessageReaction {
   repeated string person_keys = 2;
 }
 
+// MessageThread represents thread metadata on a root message.
+message MessageThread {
+  // Unique thread identifier.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Manager IDs assigned to this thread.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string manager_ids = 2;
+
+  // Ordered list of manager IDs who have replied in this thread.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string replied_manager_ids = 3;
+
+  // Total number of replies in this thread.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 reply_count = 4;
+}
+
 // Message represents a single message within a chat.
 message Message {
   // Unique message identifier.
@@ -310,4 +341,9 @@ message Message {
   //
   // +kubebuilder:validation:Nullable
   string root_message_id = 32;
+
+  // Thread metadata if this message is a thread root.
+  //
+  // +kubebuilder:validation:Nullable
+  MessageThread thread = 33;
 }

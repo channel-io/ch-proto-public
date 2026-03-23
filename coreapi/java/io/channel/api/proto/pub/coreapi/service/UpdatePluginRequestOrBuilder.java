@@ -75,6 +75,27 @@ public interface UpdatePluginRequestOrBuilder extends
 
   /**
    * <pre>
+   * Visual theme of the widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginAppearance appearance = 4 [json_name = "appearance"];</code>
+   * @return The enum numeric value on the wire for appearance.
+   */
+  int getAppearanceValue();
+  /**
+   * <pre>
+   * Visual theme of the widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginAppearance appearance = 4 [json_name = "appearance"];</code>
+   * @return The appearance.
+   */
+  io.channel.api.proto.pub.coreapi.model.PluginAppearance getAppearance();
+
+  /**
+   * <pre>
    * Whether the label button is displayed on the widget.
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -173,6 +194,50 @@ public interface UpdatePluginRequestOrBuilder extends
 
   java.lang.String getLabelButtonTextI18NMapOrThrow(
       java.lang.String key);
+
+  /**
+   * <pre>
+   * Type of the launcher button.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginButtonType button_type = 8 [json_name = "buttonType"];</code>
+   * @return The enum numeric value on the wire for buttonType.
+   */
+  int getButtonTypeValue();
+  /**
+   * <pre>
+   * Type of the launcher button.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginButtonType button_type = 8 [json_name = "buttonType"];</code>
+   * @return The buttonType.
+   */
+  io.channel.api.proto.pub.coreapi.model.PluginButtonType getButtonType();
+
+  /**
+   * <pre>
+   * Predefined icon for the launcher button.
+   * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginIconButton icon_button = 9 [json_name = "iconButton"];</code>
+   * @return The enum numeric value on the wire for iconButton.
+   */
+  int getIconButtonValue();
+  /**
+   * <pre>
+   * Predefined icon for the launcher button.
+   * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginIconButton icon_button = 9 [json_name = "iconButton"];</code>
+   * @return The iconButton.
+   */
+  io.channel.api.proto.pub.coreapi.model.PluginIconButton getIconButton();
 
   /**
    * <pre>

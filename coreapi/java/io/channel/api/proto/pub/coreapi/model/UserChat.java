@@ -444,6 +444,19 @@ private static final long serialVersionUID = 0L;
             version_ = input.readInt64();
             break;
           }
+          case 426: {
+            com.google.protobuf.Struct.Builder subBuilder = null;
+            if (profile_ != null) {
+              subBuilder = profile_.toBuilder();
+            }
+            profile_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(profile_);
+              profile_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -2122,6 +2135,47 @@ private static final long serialVersionUID = 0L;
     return version_;
   }
 
+  public static final int PROFILE_FIELD_NUMBER = 53;
+  private com.google.protobuf.Struct profile_;
+  /**
+   * <pre>
+   * Custom profile data associated with this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct profile = 53 [json_name = "profile"];</code>
+   * @return Whether the profile field is set.
+   */
+  @java.lang.Override
+  public boolean hasProfile() {
+    return profile_ != null;
+  }
+  /**
+   * <pre>
+   * Custom profile data associated with this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct profile = 53 [json_name = "profile"];</code>
+   * @return The profile.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Struct getProfile() {
+    return profile_ == null ? com.google.protobuf.Struct.getDefaultInstance() : profile_;
+  }
+  /**
+   * <pre>
+   * Custom profile data associated with this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct profile = 53 [json_name = "profile"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StructOrBuilder getProfileOrBuilder() {
+    return getProfile();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -2270,6 +2324,9 @@ private static final long serialVersionUID = 0L;
     }
     if (version_ != 0L) {
       output.writeInt64(52, version_);
+    }
+    if (profile_ != null) {
+      output.writeMessage(53, getProfile());
     }
     unknownFields.writeTo(output);
   }
@@ -2455,6 +2512,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(52, version_);
     }
+    if (profile_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(53, getProfile());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -2607,6 +2668,11 @@ private static final long serialVersionUID = 0L;
     }
     if (getVersion()
         != other.getVersion()) return false;
+    if (hasProfile() != other.hasProfile()) return false;
+    if (hasProfile()) {
+      if (!getProfile()
+          .equals(other.getProfile())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -2755,6 +2821,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + VERSION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getVersion());
+    if (hasProfile()) {
+      hash = (37 * hash) + PROFILE_FIELD_NUMBER;
+      hash = (53 * hash) + getProfile().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -3046,6 +3116,12 @@ private static final long serialVersionUID = 0L;
       }
       version_ = 0L;
 
+      if (profileBuilder_ == null) {
+        profile_ = null;
+      } else {
+        profile_ = null;
+        profileBuilder_ = null;
+      }
       return this;
     }
 
@@ -3190,6 +3266,11 @@ private static final long serialVersionUID = 0L;
         result.expireAt_ = expireAtBuilder_.build();
       }
       result.version_ = version_;
+      if (profileBuilder_ == null) {
+        result.profile_ = profile_;
+      } else {
+        result.profile_ = profileBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -3399,6 +3480,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getVersion() != 0L) {
         setVersion(other.getVersion());
+      }
+      if (other.hasProfile()) {
+        mergeProfile(other.getProfile());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -8386,6 +8470,170 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+
+    private com.google.protobuf.Struct profile_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> profileBuilder_;
+    /**
+     * <pre>
+     * Custom profile data associated with this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile = 53 [json_name = "profile"];</code>
+     * @return Whether the profile field is set.
+     */
+    public boolean hasProfile() {
+      return profileBuilder_ != null || profile_ != null;
+    }
+    /**
+     * <pre>
+     * Custom profile data associated with this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile = 53 [json_name = "profile"];</code>
+     * @return The profile.
+     */
+    public com.google.protobuf.Struct getProfile() {
+      if (profileBuilder_ == null) {
+        return profile_ == null ? com.google.protobuf.Struct.getDefaultInstance() : profile_;
+      } else {
+        return profileBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Custom profile data associated with this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile = 53 [json_name = "profile"];</code>
+     */
+    public Builder setProfile(com.google.protobuf.Struct value) {
+      if (profileBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        profile_ = value;
+        onChanged();
+      } else {
+        profileBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Custom profile data associated with this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile = 53 [json_name = "profile"];</code>
+     */
+    public Builder setProfile(
+        com.google.protobuf.Struct.Builder builderForValue) {
+      if (profileBuilder_ == null) {
+        profile_ = builderForValue.build();
+        onChanged();
+      } else {
+        profileBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Custom profile data associated with this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile = 53 [json_name = "profile"];</code>
+     */
+    public Builder mergeProfile(com.google.protobuf.Struct value) {
+      if (profileBuilder_ == null) {
+        if (profile_ != null) {
+          profile_ =
+            com.google.protobuf.Struct.newBuilder(profile_).mergeFrom(value).buildPartial();
+        } else {
+          profile_ = value;
+        }
+        onChanged();
+      } else {
+        profileBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Custom profile data associated with this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile = 53 [json_name = "profile"];</code>
+     */
+    public Builder clearProfile() {
+      if (profileBuilder_ == null) {
+        profile_ = null;
+        onChanged();
+      } else {
+        profile_ = null;
+        profileBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Custom profile data associated with this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile = 53 [json_name = "profile"];</code>
+     */
+    public com.google.protobuf.Struct.Builder getProfileBuilder() {
+      
+      onChanged();
+      return getProfileFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Custom profile data associated with this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile = 53 [json_name = "profile"];</code>
+     */
+    public com.google.protobuf.StructOrBuilder getProfileOrBuilder() {
+      if (profileBuilder_ != null) {
+        return profileBuilder_.getMessageOrBuilder();
+      } else {
+        return profile_ == null ?
+            com.google.protobuf.Struct.getDefaultInstance() : profile_;
+      }
+    }
+    /**
+     * <pre>
+     * Custom profile data associated with this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile = 53 [json_name = "profile"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        getProfileFieldBuilder() {
+      if (profileBuilder_ == null) {
+        profileBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                getProfile(),
+                getParentForChildren(),
+                isClean());
+        profile_ = null;
+      }
+      return profileBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -9438,6 +9686,29 @@ private static final long serialVersionUID = 0L;
     		return clearVersion();
     	else
     		return setVersion(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The profile to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearProfile(com.google.protobuf.Struct value) {
+    	if (value == null)
+    		return clearProfile();
+    	else
+    		return setProfile(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearProfile(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+    	if (value == null)
+    		return clearProfile();
+    	else
+    		return setProfile(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.UserChat)

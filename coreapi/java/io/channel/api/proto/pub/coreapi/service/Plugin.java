@@ -73,42 +73,47 @@ public final class Plugin {
       "\001(\tB\006\272H\003\310\001\001R\010pluginId\022%\n\nchannel_id\030\002 \001(" +
       "\tB\006\272H\003\310\001\001R\tchannelId\"@\n\017GetPluginResult\022" +
       "-\n\006plugin\030\001 \001(\0132\025.coreapi.model.PluginR\006" +
-      "plugin\"\304\t\n\023UpdatePluginRequest\022#\n\tplugin" +
+      "plugin\"\211\013\n\023UpdatePluginRequest\022#\n\tplugin" +
       "_id\030\001 \001(\tB\006\272H\003\310\001\001R\010pluginId\022%\n\nchannel_i" +
       "d\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\022s\n\004name\030\003 \001(\t" +
       "B_\272H\\\272\001Y\n\rstring.maxLen\022(value must be n" +
       "o more than 30 characters\032\036this == \'\' ||" +
-      " size(this) <= 30R\004name\022!\n\014label_button\030" +
-      "\005 \001(\010R\013labelButton\022\236\001\n\021label_button_text" +
-      "\030\006 \001(\tBr\272Ho\272\001l\n\nstring.len\022)value must b" +
-      "e between 4 and 30 characters\0323this == \'" +
-      "\' || (size(this) >= 4 && size(this) <= 3" +
-      "0)R\017labelButtonText\022|\n\032label_button_text" +
-      "_i18n_map\030\007 \003(\0132@.coreapi.service.Update" +
-      "PluginRequest.LabelButtonTextI18nMapEntr" +
-      "yR\026labelButtonTextI18nMap\022\"\n\rdesk_margin" +
-      "_x\030\n \001(\005R\013deskMarginX\022\"\n\rdesk_margin_y\030\013" +
-      " \001(\005R\013deskMarginY\022(\n\020desk_hide_button\030\014 " +
-      "\001(\010R\016deskHideButton\022B\n\rdesk_position\030\r \001" +
-      "(\0162\035.coreapi.model.PluginPositionR\014deskP" +
-      "osition\022&\n\017mobile_margin_x\030\016 \001(\005R\rmobile" +
-      "MarginX\022&\n\017mobile_margin_y\030\017 \001(\005R\rmobile" +
-      "MarginY\022F\n\017mobile_position\030\020 \001(\0162\035.corea" +
-      "pi.model.PluginPositionR\016mobilePosition\022" +
-      ",\n\022mobile_hide_button\030\021 \001(\010R\020mobileHideB" +
-      "utton\022Y\n\026mobile_bubble_position\030\022 \001(\0162#." +
-      "coreapi.model.PluginBubblePositionR\024mobi" +
-      "leBubblePosition\022\207\001\n\010run_rate\030\023 \001(\002Bl\272Hi" +
-      "\272\0012\n\tfloat.gte\022\030value must be at least 0" +
-      "\032\013this >= 0.0\272\0011\n\tfloat.lte\022\027value must " +
-      "be at most 1\032\013this <= 1.0R\007runRate\032I\n\033La" +
-      "belButtonTextI18nMapEntry\022\020\n\003key\030\001 \001(\tR\003" +
-      "key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\"C\n\022UpdateP" +
-      "luginResult\022-\n\006plugin\030\001 \001(\0132\025.coreapi.mo" +
-      "del.PluginR\006pluginBf\n(io.channel.api.pro" +
-      "to.pub.coreapi.serviceP\001Z8github.com/cha" +
-      "nnel-io/ch-proto-public/coreapi/go/servi" +
-      "ceb\006proto3"
+      " size(this) <= 30R\004name\022?\n\nappearance\030\004 " +
+      "\001(\0162\037.coreapi.model.PluginAppearanceR\nap" +
+      "pearance\022!\n\014label_button\030\005 \001(\010R\013labelBut" +
+      "ton\022\236\001\n\021label_button_text\030\006 \001(\tBr\272Ho\272\001l\n" +
+      "\nstring.len\022)value must be between 4 and" +
+      " 30 characters\0323this == \'\' || (size(this" +
+      ") >= 4 && size(this) <= 30)R\017labelButton" +
+      "Text\022|\n\032label_button_text_i18n_map\030\007 \003(\013" +
+      "2@.coreapi.service.UpdatePluginRequest.L" +
+      "abelButtonTextI18nMapEntryR\026labelButtonT" +
+      "extI18nMap\022@\n\013button_type\030\010 \001(\0162\037.coreap" +
+      "i.model.PluginButtonTypeR\nbuttonType\022@\n\013" +
+      "icon_button\030\t \001(\0162\037.coreapi.model.Plugin" +
+      "IconButtonR\niconButton\022\"\n\rdesk_margin_x\030" +
+      "\n \001(\005R\013deskMarginX\022\"\n\rdesk_margin_y\030\013 \001(" +
+      "\005R\013deskMarginY\022(\n\020desk_hide_button\030\014 \001(\010" +
+      "R\016deskHideButton\022B\n\rdesk_position\030\r \001(\0162" +
+      "\035.coreapi.model.PluginPositionR\014deskPosi" +
+      "tion\022&\n\017mobile_margin_x\030\016 \001(\005R\rmobileMar" +
+      "ginX\022&\n\017mobile_margin_y\030\017 \001(\005R\rmobileMar" +
+      "ginY\022F\n\017mobile_position\030\020 \001(\0162\035.coreapi." +
+      "model.PluginPositionR\016mobilePosition\022,\n\022" +
+      "mobile_hide_button\030\021 \001(\010R\020mobileHideButt" +
+      "on\022Y\n\026mobile_bubble_position\030\022 \001(\0162#.cor" +
+      "eapi.model.PluginBubblePositionR\024mobileB" +
+      "ubblePosition\022\207\001\n\010run_rate\030\023 \001(\002Bl\272Hi\272\0012" +
+      "\n\tfloat.gte\022\030value must be at least 0\032\013t" +
+      "his >= 0.0\272\0011\n\tfloat.lte\022\027value must be " +
+      "at most 1\032\013this <= 1.0R\007runRate\032I\n\033Label" +
+      "ButtonTextI18nMapEntry\022\020\n\003key\030\001 \001(\tR\003key" +
+      "\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\"C\n\022UpdatePlug" +
+      "inResult\022-\n\006plugin\030\001 \001(\0132\025.coreapi.model" +
+      ".PluginR\006pluginBf\n(io.channel.api.proto." +
+      "pub.coreapi.serviceP\001Z8github.com/channe" +
+      "l-io/ch-proto-public/coreapi/go/serviceb" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -145,7 +150,7 @@ public final class Plugin {
     internal_static_coreapi_service_UpdatePluginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_UpdatePluginRequest_descriptor,
-        new java.lang.String[] { "PluginId", "ChannelId", "Name", "LabelButton", "LabelButtonText", "LabelButtonTextI18NMap", "DeskMarginX", "DeskMarginY", "DeskHideButton", "DeskPosition", "MobileMarginX", "MobileMarginY", "MobilePosition", "MobileHideButton", "MobileBubblePosition", "RunRate", });
+        new java.lang.String[] { "PluginId", "ChannelId", "Name", "Appearance", "LabelButton", "LabelButtonText", "LabelButtonTextI18NMap", "ButtonType", "IconButton", "DeskMarginX", "DeskMarginY", "DeskHideButton", "DeskPosition", "MobileMarginX", "MobileMarginY", "MobilePosition", "MobileHideButton", "MobileBubblePosition", "RunRate", });
     internal_static_coreapi_service_UpdatePluginRequest_LabelButtonTextI18nMapEntry_descriptor =
       internal_static_coreapi_service_UpdatePluginRequest_descriptor.getNestedTypes().get(0);
     internal_static_coreapi_service_UpdatePluginRequest_LabelButtonTextI18nMapEntry_fieldAccessorTable = new

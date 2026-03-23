@@ -792,4 +792,237 @@ public interface CampaignOrBuilder extends
    */
   com.google.protobuf.ByteString
       getManagerIdBytes();
+
+  /**
+   * <pre>
+   * Delivery medium type.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MediumType medium_type = 40 [json_name = "mediumType"];</code>
+   * @return The enum numeric value on the wire for mediumType.
+   */
+  int getMediumTypeValue();
+  /**
+   * <pre>
+   * Delivery medium type.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MediumType medium_type = 40 [json_name = "mediumType"];</code>
+   * @return The mediumType.
+   */
+  io.channel.api.proto.pub.coreapi.model.MediumType getMediumType();
+
+  /**
+   * <pre>
+   * Identifier of the specific medium instance.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string medium_id = 41 [json_name = "mediumId"];</code>
+   * @return The mediumId.
+   */
+  java.lang.String getMediumId();
+  /**
+   * <pre>
+   * Identifier of the specific medium instance.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string medium_id = 41 [json_name = "mediumId"];</code>
+   * @return The bytes for mediumId.
+   */
+  com.google.protobuf.ByteString
+      getMediumIdBytes();
+
+  /**
+   * <pre>
+   * App segments for user targeting.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
+   */
+  java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> 
+      getAppSegmentsList();
+  /**
+   * <pre>
+   * App segments for user targeting.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.AppSegment getAppSegments(int index);
+  /**
+   * <pre>
+   * App segments for user targeting.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
+   */
+  int getAppSegmentsCount();
+  /**
+   * <pre>
+   * App segments for user targeting.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
+   */
+  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> 
+      getAppSegmentsOrBuilderList();
+  /**
+   * <pre>
+   * App segments for user targeting.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder getAppSegmentsOrBuilder(
+      int index);
+
+  /**
+   * <pre>
+   * Channel operation ID for business hours scheduling.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string channel_operation_id = 43 [json_name = "channelOperationId"];</code>
+   * @return The channelOperationId.
+   */
+  java.lang.String getChannelOperationId();
+  /**
+   * <pre>
+   * Channel operation ID for business hours scheduling.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string channel_operation_id = 43 [json_name = "channelOperationId"];</code>
+   * @return The bytes for channelOperationId.
+   */
+  com.google.protobuf.ByteString
+      getChannelOperationIdBytes();
+
+  /**
+   * <pre>
+   * Conversion tracking windows keyed by feature name.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
+   */
+  int getConversionWindowsCount();
+  /**
+   * <pre>
+   * Conversion tracking windows keyed by feature name.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
+   */
+  boolean containsConversionWindows(
+      java.lang.String key);
+  /**
+   * Use {@link #getConversionWindowsMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, com.google.protobuf.Duration>
+  getConversionWindows();
+  /**
+   * <pre>
+   * Conversion tracking windows keyed by feature name.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
+   */
+  java.util.Map<java.lang.String, com.google.protobuf.Duration>
+  getConversionWindowsMap();
+  /**
+   * <pre>
+   * Conversion tracking windows keyed by feature name.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
+   */
+
+  com.google.protobuf.Duration getConversionWindowsOrDefault(
+      java.lang.String key,
+      com.google.protobuf.Duration defaultValue);
+  /**
+   * <pre>
+   * Conversion tracking windows keyed by feature name.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
+   */
+
+  com.google.protobuf.Duration getConversionWindowsOrThrow(
+      java.lang.String key);
+
+  /**
+   * <pre>
+   * Holding property constant for the additional event filter.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
+   * @return Whether the filterHpc field is set.
+   */
+  boolean hasFilterHpc();
+  /**
+   * <pre>
+   * Holding property constant for the additional event filter.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
+   * @return The filterHpc.
+   */
+  io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant getFilterHpc();
+  /**
+   * <pre>
+   * Holding property constant for the additional event filter.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder getFilterHpcOrBuilder();
+
+  /**
+   * <pre>
+   * Holding property constant for the goal event.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
+   * @return Whether the goalHpc field is set.
+   */
+  boolean hasGoalHpc();
+  /**
+   * <pre>
+   * Holding property constant for the goal event.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
+   * @return The goalHpc.
+   */
+  io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant getGoalHpc();
+  /**
+   * <pre>
+   * Holding property constant for the goal event.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder getGoalHpcOrBuilder();
 }

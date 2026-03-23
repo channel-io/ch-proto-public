@@ -976,4 +976,34 @@ public interface UserOrBuilder extends
    * <code>.google.protobuf.Timestamp updated_at = 49 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Timestamp when app push subscription preference was last changed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+   * @return Whether the unsubscribeAppPushUpdatedAt field is set.
+   */
+  boolean hasUnsubscribeAppPushUpdatedAt();
+  /**
+   * <pre>
+   * Timestamp when app push subscription preference was last changed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+   * @return The unsubscribeAppPushUpdatedAt.
+   */
+  com.google.protobuf.Timestamp getUnsubscribeAppPushUpdatedAt();
+  /**
+   * <pre>
+   * Timestamp when app push subscription preference was last changed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getUnsubscribeAppPushUpdatedAtOrBuilder();
 }

@@ -29,6 +29,11 @@ public final class CampaignOuterClass {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_coreapi_model_Campaign_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_model_Campaign_ConversionWindowsEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_model_Campaign_ConversionWindowsEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -39,115 +44,132 @@ public final class CampaignOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\034coreapi/model/campaign.proto\022\rcoreapi." +
-      "model\032\033buf/validate/validate.proto\032\036goog" +
-      "le/protobuf/duration.proto\032\034google/proto" +
-      "buf/struct.proto\032\037google/protobuf/timest" +
-      "amp.proto\"\217\002\n\tTimeRange\022:\n\014day_of_weeks\030" +
-      "\001 \003(\0162\030.coreapi.model.DayOfWeekR\ndayOfWe" +
-      "eks\022d\n\004from\030\002 \001(\005BP\272HM\272\001J\n\013int32.range\022 " +
-      "value must be between 0 and 1440\032\031this >" +
-      "= 0 && this <= 1440R\004from\022`\n\002to\030\003 \001(\005BP\272" +
-      "HM\272\001J\n\013int32.range\022 value must be betwee" +
-      "n 0 and 1440\032\031this >= 0 && this <= 1440R" +
-      "\002to\"\225\003\n\027HoldingPropertyConstant\022u\n\017base_" +
-      "event_name\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022" +
-      "\"value must be at least 1 character\032\017siz" +
-      "e(this) >= 1\310\001\001R\rbaseEventName\022s\n\016base_e" +
-      "vent_key\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"v" +
-      "alue must be at least 1 character\032\017size(" +
-      "this) >= 1\310\001\001R\014baseEventKey\0228\n\013event_que" +
-      "ry\030\003 \001(\0132\027.google.protobuf.StructR\nevent" +
-      "Query\022T\n\017base_event_type\030\004 \001(\0162$.coreapi" +
-      ".model.CampaignBaseEventTypeB\006\272H\003\310\001\001R\rba" +
-      "seEventType\"\347\021\n\010Campaign\022]\n\002id\030\001 \001(\tBM\272H" +
-      "J\272\001D\n\rstring.minLen\022\"value must be at le" +
-      "ast 1 character\032\017size(this) >= 1\310\001\001R\002id\022" +
-      "l\n\nchannel_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minL" +
-      "en\022\"value must be at least 1 character\032\017" +
-      "size(this) >= 1\310\001\001R\tchannelId\022\263\001\n\004name\030\003" +
-      " \001(\tB\236\001\272H\232\001\272\001D\n\rstring.minLen\022\"value mus" +
-      "t be at least 1 character\032\017size(this) >=" +
-      " 1\272\001M\n\rstring.maxLen\022)value must be no m" +
-      "ore than 128 characters\032\021size(this) <= 1" +
-      "28\310\001\001R\004name\022:\n\005state\030\004 \001(\0162\034.coreapi.mod" +
-      "el.CampaignStateB\006\272H\003\310\001\001R\005state\0226\n\nuser_" +
-      "query\030\007 \001(\0132\027.google.protobuf.StructR\tus" +
-      "erQuery\022,\n\022trigger_event_name\030\t \001(\tR\020tri" +
-      "ggerEventName\022G\n\023trigger_event_query\030\n \001" +
-      "(\0132\027.google.protobuf.StructR\021triggerEven" +
-      "tQuery\022\251\001\n\014waiting_time\030\013 \001(\0132\031.google.p" +
-      "rotobuf.DurationBk\272Hh\272\001e\n\014duration.max\022\035" +
-      "value must be at most 90 days\0326this == d" +
-      "uration(\'0s\') || this <= duration(\'77760" +
-      "00s\')R\013waitingTime\022*\n\021filter_event_name\030" +
-      "\014 \001(\tR\017filterEventName\022E\n\022filter_event_q" +
-      "uery\030\r \001(\0132\027.google.protobuf.StructR\020fil" +
-      "terEventQuery\022E\n\014filter_match\030\016 \001(\0162\".co" +
-      "reapi.model.CampaignFilterMatchR\013filterM" +
-      "atch\022&\n\017goal_event_name\030\021 \001(\tR\rgoalEvent" +
-      "Name\022A\n\020goal_event_query\030\022 \001(\0132\027.google." +
-      "protobuf.StructR\016goalEventQuery\022\341\001\n\023goal" +
-      "_event_duration\030\023 \001(\0132\031.google.protobuf." +
-      "DurationB\225\001\272H\221\001\272\001\215\001\n\016duration.range\022#val" +
-      "ue must be between 1 and 30 days\032Vthis =" +
-      "= duration(\'0s\') || (this >= duration(\'8" +
-      "6400s\') && this <= duration(\'2592000s\'))" +
-      "R\021goalEventDuration\022 \n\013advertising\030\025 \001(\010" +
-      "R\013advertising\022-\n\023send_to_offline_xms\030\026 \001" +
-      "(\010R\020sendToOfflineXms\0221\n\025send_to_offline_" +
-      "email\030\027 \001(\010R\022sendToOfflineEmail\022\252\001\n\010cool" +
-      "down\030\030 \001(\0132\031.google.protobuf.DurationBs\272" +
-      "Hp\272\001m\n\016duration.range\022#value must be bet" +
-      "ween 0 and 30 days\0326this >= duration(\'0s" +
-      "\') && this <= duration(\'2592000s\')R\010cool" +
-      "down\022<\n\tsend_mode\030\031 \001(\0162\037.coreapi.model." +
-      "CampaignSendModeR\010sendMode\022B\n\020send_time_" +
-      "ranges\030\033 \003(\0132\030.coreapi.model.TimeRangeR\016" +
-      "sendTimeRanges\0225\n\010start_at\030\034 \001(\0132\032.googl" +
-      "e.protobuf.TimestampR\007startAt\0221\n\006end_at\030" +
-      "\035 \001(\0132\032.google.protobuf.TimestampR\005endAt" +
-      "\022-\n\005draft\030\036 \001(\0132\027.google.protobuf.Struct" +
-      "R\005draft\022A\n\ncreated_at\030\037 \001(\0132\032.google.pro" +
-      "tobuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt\022A\n\nup" +
-      "dated_at\030  \001(\0132\032.google.protobuf.Timesta" +
-      "mpB\006\272H\003\310\001\001R\tupdatedAt\022\022\n\004sent\030! \001(\005R\004sen" +
-      "t\022\022\n\004view\030\" \001(\005R\004view\022\022\n\004goal\030# \001(\005R\004goa" +
-      "l\022\024\n\005click\030$ \001(\005R\005click\022\037\n\013send_medium\030%" +
-      " \001(\tR\nsendMedium\022T\n\031user_chat_expire_dur" +
-      "ation\030& \001(\0132\031.google.protobuf.DurationR\026" +
-      "userChatExpireDuration\022\035\n\nmanager_id\030\' \001" +
-      "(\tR\tmanagerId*\234\001\n\rCampaignState\022\036\n\032CAMPA" +
-      "IGN_STATE_UNSPECIFIED\020\000\022\030\n\024CAMPAIGN_STAT" +
-      "E_DRAFT\020\001\022\031\n\025CAMPAIGN_STATE_ACTIVE\020\002\022\032\n\026" +
-      "CAMPAIGN_STATE_STOPPED\020\003\022\032\n\026CAMPAIGN_STA" +
-      "TE_REMOVED\020\004*\232\002\n\020CampaignSendMode\022\"\n\036CAM" +
-      "PAIGN_SEND_MODE_UNSPECIFIED\020\000\022\035\n\031CAMPAIG" +
-      "N_SEND_MODE_ALWAYS\020\001\022\033\n\027CAMPAIGN_SEND_MO" +
-      "DE_AWAY\020\002\022#\n\037CAMPAIGN_SEND_MODE_IN_OPERA" +
-      "TION\020\003\022/\n+CAMPAIGN_SEND_MODE_CUSTOM_USIN" +
-      "G_SENDER_TIME\020\004\0221\n-CAMPAIGN_SEND_MODE_CU" +
-      "STOM_USING_RECEIVER_TIME\020\005\022\035\n\031CAMPAIGN_S" +
-      "END_MODE_CUSTOM\020\006*\204\001\n\023CampaignFilterMatc" +
-      "h\022%\n!CAMPAIGN_FILTER_MATCH_UNSPECIFIED\020\000" +
-      "\022\"\n\036CAMPAIGN_FILTER_MATCH_POSITIVE\020\001\022\"\n\036" +
-      "CAMPAIGN_FILTER_MATCH_NEGATIVE\020\002*\235\001\n\025Cam" +
-      "paignBaseEventType\022(\n$CAMPAIGN_BASE_EVEN" +
-      "T_TYPE_UNSPECIFIED\020\000\022*\n&CAMPAIGN_BASE_EV" +
-      "ENT_TYPE_TRIGGER_EVENT\020\001\022.\n*CAMPAIGN_BAS" +
-      "E_EVENT_TYPE_ADDITIONAL_FILTER\020\002*\273\001\n\tDay" +
-      "OfWeek\022\033\n\027DAY_OF_WEEK_UNSPECIFIED\020\000\022\023\n\017D" +
-      "AY_OF_WEEK_MON\020\001\022\023\n\017DAY_OF_WEEK_TUE\020\002\022\023\n" +
-      "\017DAY_OF_WEEK_WED\020\003\022\023\n\017DAY_OF_WEEK_THU\020\004\022" +
-      "\023\n\017DAY_OF_WEEK_FRI\020\005\022\023\n\017DAY_OF_WEEK_SAT\020" +
-      "\006\022\023\n\017DAY_OF_WEEK_SUN\020\007Bb\n&io.channel.api" +
-      ".proto.pub.coreapi.modelP\001Z6github.com/c" +
-      "hannel-io/ch-proto-public/coreapi/go/mod" +
-      "elb\006proto3"
+      "model\032\033buf/validate/validate.proto\032\037core" +
+      "api/model/app_segment.proto\032\037coreapi/mod" +
+      "el/medium_type.proto\032\036google/protobuf/du" +
+      "ration.proto\032\034google/protobuf/struct.pro" +
+      "to\032\037google/protobuf/timestamp.proto\"\217\002\n\t" +
+      "TimeRange\022:\n\014day_of_weeks\030\001 \003(\0162\030.coreap" +
+      "i.model.DayOfWeekR\ndayOfWeeks\022d\n\004from\030\002 " +
+      "\001(\005BP\272HM\272\001J\n\013int32.range\022 value must be " +
+      "between 0 and 1440\032\031this >= 0 && this <=" +
+      " 1440R\004from\022`\n\002to\030\003 \001(\005BP\272HM\272\001J\n\013int32.r" +
+      "ange\022 value must be between 0 and 1440\032\031" +
+      "this >= 0 && this <= 1440R\002to\"\225\003\n\027Holdin" +
+      "gPropertyConstant\022u\n\017base_event_name\030\001 \001" +
+      "(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must be" +
+      " at least 1 character\032\017size(this) >= 1\310\001" +
+      "\001R\rbaseEventName\022s\n\016base_event_key\030\002 \001(\t" +
+      "BM\272HJ\272\001D\n\rstring.minLen\022\"value must be a" +
+      "t least 1 character\032\017size(this) >= 1\310\001\001R" +
+      "\014baseEventKey\0228\n\013event_query\030\003 \001(\0132\027.goo" +
+      "gle.protobuf.StructR\neventQuery\022T\n\017base_" +
+      "event_type\030\004 \001(\0162$.coreapi.model.Campaig" +
+      "nBaseEventTypeB\006\272H\003\310\001\001R\rbaseEventType\"\372\025" +
+      "\n\010Campaign\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.m" +
+      "inLen\022\"value must be at least 1 characte" +
+      "r\032\017size(this) >= 1\310\001\001R\002id\022l\n\nchannel_id\030" +
+      "\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must" +
+      " be at least 1 character\032\017size(this) >= " +
+      "1\310\001\001R\tchannelId\022\263\001\n\004name\030\003 \001(\tB\236\001\272H\232\001\272\001D" +
+      "\n\rstring.minLen\022\"value must be at least " +
+      "1 character\032\017size(this) >= 1\272\001M\n\rstring." +
+      "maxLen\022)value must be no more than 128 c" +
+      "haracters\032\021size(this) <= 128\310\001\001R\004name\022:\n" +
+      "\005state\030\004 \001(\0162\034.coreapi.model.CampaignSta" +
+      "teB\006\272H\003\310\001\001R\005state\0226\n\nuser_query\030\007 \001(\0132\027." +
+      "google.protobuf.StructR\tuserQuery\022,\n\022tri" +
+      "gger_event_name\030\t \001(\tR\020triggerEventName\022" +
+      "G\n\023trigger_event_query\030\n \001(\0132\027.google.pr" +
+      "otobuf.StructR\021triggerEventQuery\022\251\001\n\014wai" +
+      "ting_time\030\013 \001(\0132\031.google.protobuf.Durati" +
+      "onBk\272Hh\272\001e\n\014duration.max\022\035value must be " +
+      "at most 90 days\0326this == duration(\'0s\') " +
+      "|| this <= duration(\'7776000s\')R\013waiting" +
+      "Time\022*\n\021filter_event_name\030\014 \001(\tR\017filterE" +
+      "ventName\022E\n\022filter_event_query\030\r \001(\0132\027.g" +
+      "oogle.protobuf.StructR\020filterEventQuery\022" +
+      "E\n\014filter_match\030\016 \001(\0162\".coreapi.model.Ca" +
+      "mpaignFilterMatchR\013filterMatch\022&\n\017goal_e" +
+      "vent_name\030\021 \001(\tR\rgoalEventName\022A\n\020goal_e" +
+      "vent_query\030\022 \001(\0132\027.google.protobuf.Struc" +
+      "tR\016goalEventQuery\022\341\001\n\023goal_event_duratio" +
+      "n\030\023 \001(\0132\031.google.protobuf.DurationB\225\001\272H\221" +
+      "\001\272\001\215\001\n\016duration.range\022#value must be bet" +
+      "ween 1 and 30 days\032Vthis == duration(\'0s" +
+      "\') || (this >= duration(\'86400s\') && thi" +
+      "s <= duration(\'2592000s\'))R\021goalEventDur" +
+      "ation\022 \n\013advertising\030\025 \001(\010R\013advertising\022" +
+      "-\n\023send_to_offline_xms\030\026 \001(\010R\020sendToOffl" +
+      "ineXms\0221\n\025send_to_offline_email\030\027 \001(\010R\022s" +
+      "endToOfflineEmail\022\252\001\n\010cooldown\030\030 \001(\0132\031.g" +
+      "oogle.protobuf.DurationBs\272Hp\272\001m\n\016duratio" +
+      "n.range\022#value must be between 0 and 30 " +
+      "days\0326this >= duration(\'0s\') && this <= " +
+      "duration(\'2592000s\')R\010cooldown\022<\n\tsend_m" +
+      "ode\030\031 \001(\0162\037.coreapi.model.CampaignSendMo" +
+      "deR\010sendMode\022B\n\020send_time_ranges\030\033 \003(\0132\030" +
+      ".coreapi.model.TimeRangeR\016sendTimeRanges" +
+      "\0225\n\010start_at\030\034 \001(\0132\032.google.protobuf.Tim" +
+      "estampR\007startAt\0221\n\006end_at\030\035 \001(\0132\032.google" +
+      ".protobuf.TimestampR\005endAt\022-\n\005draft\030\036 \001(" +
+      "\0132\027.google.protobuf.StructR\005draft\022A\n\ncre" +
+      "ated_at\030\037 \001(\0132\032.google.protobuf.Timestam" +
+      "pB\006\272H\003\310\001\001R\tcreatedAt\022A\n\nupdated_at\030  \001(\013" +
+      "2\032.google.protobuf.TimestampB\006\272H\003\310\001\001R\tup" +
+      "datedAt\022\022\n\004sent\030! \001(\005R\004sent\022\022\n\004view\030\" \001(" +
+      "\005R\004view\022\022\n\004goal\030# \001(\005R\004goal\022\024\n\005click\030$ \001" +
+      "(\005R\005click\022\037\n\013send_medium\030% \001(\tR\nsendMedi" +
+      "um\022T\n\031user_chat_expire_duration\030& \001(\0132\031." +
+      "google.protobuf.DurationR\026userChatExpire" +
+      "Duration\022\035\n\nmanager_id\030\' \001(\tR\tmanagerId\022" +
+      ":\n\013medium_type\030( \001(\0162\031.coreapi.model.Med" +
+      "iumTypeR\nmediumType\022\033\n\tmedium_id\030) \001(\tR\010" +
+      "mediumId\022<\n\014app_segments\030* \003(\0132\031.coreapi" +
+      ".model.AppSegmentR\013appSegments\0220\n\024channe" +
+      "l_operation_id\030+ \001(\tR\022channelOperationId" +
+      "\022]\n\022conversion_windows\030, \003(\0132..coreapi.m" +
+      "odel.Campaign.ConversionWindowsEntryR\021co" +
+      "nversionWindows\022E\n\nfilter_hpc\030- \001(\0132&.co" +
+      "reapi.model.HoldingPropertyConstantR\tfil" +
+      "terHpc\022A\n\010goal_hpc\030. \001(\0132&.coreapi.model" +
+      ".HoldingPropertyConstantR\007goalHpc\032_\n\026Con" +
+      "versionWindowsEntry\022\020\n\003key\030\001 \001(\tR\003key\022/\n" +
+      "\005value\030\002 \001(\0132\031.google.protobuf.DurationR" +
+      "\005value:\0028\001*\234\001\n\rCampaignState\022\036\n\032CAMPAIGN" +
+      "_STATE_UNSPECIFIED\020\000\022\030\n\024CAMPAIGN_STATE_D" +
+      "RAFT\020\001\022\031\n\025CAMPAIGN_STATE_ACTIVE\020\002\022\032\n\026CAM" +
+      "PAIGN_STATE_STOPPED\020\003\022\032\n\026CAMPAIGN_STATE_" +
+      "REMOVED\020\004*\232\002\n\020CampaignSendMode\022\"\n\036CAMPAI" +
+      "GN_SEND_MODE_UNSPECIFIED\020\000\022\035\n\031CAMPAIGN_S" +
+      "END_MODE_ALWAYS\020\001\022\033\n\027CAMPAIGN_SEND_MODE_" +
+      "AWAY\020\002\022#\n\037CAMPAIGN_SEND_MODE_IN_OPERATIO" +
+      "N\020\003\022/\n+CAMPAIGN_SEND_MODE_CUSTOM_USING_S" +
+      "ENDER_TIME\020\004\0221\n-CAMPAIGN_SEND_MODE_CUSTO" +
+      "M_USING_RECEIVER_TIME\020\005\022\035\n\031CAMPAIGN_SEND" +
+      "_MODE_CUSTOM\020\006*\204\001\n\023CampaignFilterMatch\022%" +
+      "\n!CAMPAIGN_FILTER_MATCH_UNSPECIFIED\020\000\022\"\n" +
+      "\036CAMPAIGN_FILTER_MATCH_POSITIVE\020\001\022\"\n\036CAM" +
+      "PAIGN_FILTER_MATCH_NEGATIVE\020\002*\235\001\n\025Campai" +
+      "gnBaseEventType\022(\n$CAMPAIGN_BASE_EVENT_T" +
+      "YPE_UNSPECIFIED\020\000\022*\n&CAMPAIGN_BASE_EVENT" +
+      "_TYPE_TRIGGER_EVENT\020\001\022.\n*CAMPAIGN_BASE_E" +
+      "VENT_TYPE_ADDITIONAL_FILTER\020\002*\273\001\n\tDayOfW" +
+      "eek\022\033\n\027DAY_OF_WEEK_UNSPECIFIED\020\000\022\023\n\017DAY_" +
+      "OF_WEEK_MON\020\001\022\023\n\017DAY_OF_WEEK_TUE\020\002\022\023\n\017DA" +
+      "Y_OF_WEEK_WED\020\003\022\023\n\017DAY_OF_WEEK_THU\020\004\022\023\n\017" +
+      "DAY_OF_WEEK_FRI\020\005\022\023\n\017DAY_OF_WEEK_SAT\020\006\022\023" +
+      "\n\017DAY_OF_WEEK_SUN\020\007Bb\n&io.channel.api.pr" +
+      "oto.pub.coreapi.modelP\001Z6github.com/chan" +
+      "nel-io/ch-proto-public/coreapi/go/modelb" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.AppSegmentOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.MediumTypeOuterClass.getDescriptor(),
           com.google.protobuf.DurationProto.getDescriptor(),
           com.google.protobuf.StructProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
@@ -169,13 +191,21 @@ public final class CampaignOuterClass {
     internal_static_coreapi_model_Campaign_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Campaign_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "Name", "State", "UserQuery", "TriggerEventName", "TriggerEventQuery", "WaitingTime", "FilterEventName", "FilterEventQuery", "FilterMatch", "GoalEventName", "GoalEventQuery", "GoalEventDuration", "Advertising", "SendToOfflineXms", "SendToOfflineEmail", "Cooldown", "SendMode", "SendTimeRanges", "StartAt", "EndAt", "Draft", "CreatedAt", "UpdatedAt", "Sent", "View", "Goal", "Click", "SendMedium", "UserChatExpireDuration", "ManagerId", });
+        new java.lang.String[] { "Id", "ChannelId", "Name", "State", "UserQuery", "TriggerEventName", "TriggerEventQuery", "WaitingTime", "FilterEventName", "FilterEventQuery", "FilterMatch", "GoalEventName", "GoalEventQuery", "GoalEventDuration", "Advertising", "SendToOfflineXms", "SendToOfflineEmail", "Cooldown", "SendMode", "SendTimeRanges", "StartAt", "EndAt", "Draft", "CreatedAt", "UpdatedAt", "Sent", "View", "Goal", "Click", "SendMedium", "UserChatExpireDuration", "ManagerId", "MediumType", "MediumId", "AppSegments", "ChannelOperationId", "ConversionWindows", "FilterHpc", "GoalHpc", });
+    internal_static_coreapi_model_Campaign_ConversionWindowsEntry_descriptor =
+      internal_static_coreapi_model_Campaign_descriptor.getNestedTypes().get(0);
+    internal_static_coreapi_model_Campaign_ConversionWindowsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_model_Campaign_ConversionWindowsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.AppSegmentOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.MediumTypeOuterClass.getDescriptor();
     com.google.protobuf.DurationProto.getDescriptor();
     com.google.protobuf.StructProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();

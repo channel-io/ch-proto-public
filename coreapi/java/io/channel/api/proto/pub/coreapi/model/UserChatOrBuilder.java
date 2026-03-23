@@ -1039,4 +1039,34 @@ public interface UserChatOrBuilder extends
    * @return The version.
    */
   long getVersion();
+
+  /**
+   * <pre>
+   * Custom profile data associated with this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct profile = 53 [json_name = "profile"];</code>
+   * @return Whether the profile field is set.
+   */
+  boolean hasProfile();
+  /**
+   * <pre>
+   * Custom profile data associated with this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct profile = 53 [json_name = "profile"];</code>
+   * @return The profile.
+   */
+  com.google.protobuf.Struct getProfile();
+  /**
+   * <pre>
+   * Custom profile data associated with this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct profile = 53 [json_name = "profile"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getProfileOrBuilder();
 }

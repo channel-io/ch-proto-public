@@ -321,6 +321,19 @@ private static final long serialVersionUID = 0L;
             rootMessageId_ = s;
             break;
           }
+          case 266: {
+            io.channel.api.proto.pub.coreapi.model.MessageThread.Builder subBuilder = null;
+            if (thread_ != null) {
+              subBuilder = thread_.toBuilder();
+            }
+            thread_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.MessageThread.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(thread_);
+              thread_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -1719,6 +1732,47 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int THREAD_FIELD_NUMBER = 33;
+  private io.channel.api.proto.pub.coreapi.model.MessageThread thread_;
+  /**
+   * <pre>
+   * Thread metadata if this message is a thread root.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+   * @return Whether the thread field is set.
+   */
+  @java.lang.Override
+  public boolean hasThread() {
+    return thread_ != null;
+  }
+  /**
+   * <pre>
+   * Thread metadata if this message is a thread root.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+   * @return The thread.
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.MessageThread getThread() {
+    return thread_ == null ? io.channel.api.proto.pub.coreapi.model.MessageThread.getDefaultInstance() : thread_;
+  }
+  /**
+   * <pre>
+   * Thread metadata if this message is a thread root.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder getThreadOrBuilder() {
+    return getThread();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1824,6 +1878,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rootMessageId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 32, rootMessageId_);
+    }
+    if (thread_ != null) {
+      output.writeMessage(33, getThread());
     }
     unknownFields.writeTo(output);
   }
@@ -1945,6 +2002,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rootMessageId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(32, rootMessageId_);
     }
+    if (thread_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(33, getThread());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -2037,6 +2098,11 @@ private static final long serialVersionUID = 0L;
         != other.getBroadcastedMsg()) return false;
     if (!getRootMessageId()
         .equals(other.getRootMessageId())) return false;
+    if (hasThread() != other.hasThread()) return false;
+    if (hasThread()) {
+      if (!getThread()
+          .equals(other.getThread())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -2133,6 +2199,10 @@ private static final long serialVersionUID = 0L;
         getBroadcastedMsg());
     hash = (37 * hash) + ROOT_MESSAGE_ID_FIELD_NUMBER;
     hash = (53 * hash) + getRootMessageId().hashCode();
+    if (hasThread()) {
+      hash = (37 * hash) + THREAD_FIELD_NUMBER;
+      hash = (53 * hash) + getThread().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -2376,6 +2446,12 @@ private static final long serialVersionUID = 0L;
 
       rootMessageId_ = "";
 
+      if (threadBuilder_ == null) {
+        thread_ = null;
+      } else {
+        thread_ = null;
+        threadBuilder_ = null;
+      }
       return this;
     }
 
@@ -2496,6 +2572,11 @@ private static final long serialVersionUID = 0L;
       result.threadMsg_ = threadMsg_;
       result.broadcastedMsg_ = broadcastedMsg_;
       result.rootMessageId_ = rootMessageId_;
+      if (threadBuilder_ == null) {
+        result.thread_ = thread_;
+      } else {
+        result.thread_ = threadBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -2742,6 +2823,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getRootMessageId().isEmpty()) {
         rootMessageId_ = other.rootMessageId_;
         onChanged();
+      }
+      if (other.hasThread()) {
+        mergeThread(other.getThread());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -7027,6 +7111,170 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+
+    private io.channel.api.proto.pub.coreapi.model.MessageThread thread_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.MessageThread, io.channel.api.proto.pub.coreapi.model.MessageThread.Builder, io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder> threadBuilder_;
+    /**
+     * <pre>
+     * Thread metadata if this message is a thread root.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+     * @return Whether the thread field is set.
+     */
+    public boolean hasThread() {
+      return threadBuilder_ != null || thread_ != null;
+    }
+    /**
+     * <pre>
+     * Thread metadata if this message is a thread root.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+     * @return The thread.
+     */
+    public io.channel.api.proto.pub.coreapi.model.MessageThread getThread() {
+      if (threadBuilder_ == null) {
+        return thread_ == null ? io.channel.api.proto.pub.coreapi.model.MessageThread.getDefaultInstance() : thread_;
+      } else {
+        return threadBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Thread metadata if this message is a thread root.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+     */
+    public Builder setThread(io.channel.api.proto.pub.coreapi.model.MessageThread value) {
+      if (threadBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        thread_ = value;
+        onChanged();
+      } else {
+        threadBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Thread metadata if this message is a thread root.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+     */
+    public Builder setThread(
+        io.channel.api.proto.pub.coreapi.model.MessageThread.Builder builderForValue) {
+      if (threadBuilder_ == null) {
+        thread_ = builderForValue.build();
+        onChanged();
+      } else {
+        threadBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Thread metadata if this message is a thread root.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+     */
+    public Builder mergeThread(io.channel.api.proto.pub.coreapi.model.MessageThread value) {
+      if (threadBuilder_ == null) {
+        if (thread_ != null) {
+          thread_ =
+            io.channel.api.proto.pub.coreapi.model.MessageThread.newBuilder(thread_).mergeFrom(value).buildPartial();
+        } else {
+          thread_ = value;
+        }
+        onChanged();
+      } else {
+        threadBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Thread metadata if this message is a thread root.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+     */
+    public Builder clearThread() {
+      if (threadBuilder_ == null) {
+        thread_ = null;
+        onChanged();
+      } else {
+        thread_ = null;
+        threadBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Thread metadata if this message is a thread root.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.MessageThread.Builder getThreadBuilder() {
+      
+      onChanged();
+      return getThreadFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Thread metadata if this message is a thread root.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder getThreadOrBuilder() {
+      if (threadBuilder_ != null) {
+        return threadBuilder_.getMessageOrBuilder();
+      } else {
+        return thread_ == null ?
+            io.channel.api.proto.pub.coreapi.model.MessageThread.getDefaultInstance() : thread_;
+      }
+    }
+    /**
+     * <pre>
+     * Thread metadata if this message is a thread root.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.MessageThread, io.channel.api.proto.pub.coreapi.model.MessageThread.Builder, io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder> 
+        getThreadFieldBuilder() {
+      if (threadBuilder_ == null) {
+        threadBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.model.MessageThread, io.channel.api.proto.pub.coreapi.model.MessageThread.Builder, io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder>(
+                getThread(),
+                getParentForChildren(),
+                isClean());
+        thread_ = null;
+      }
+      return threadBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7717,6 +7965,29 @@ private static final long serialVersionUID = 0L;
     		return clearRootMessageId();
     	else
     		return setRootMessageId(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The thread to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearThread(io.channel.api.proto.pub.coreapi.model.MessageThread value) {
+    	if (value == null)
+    		return clearThread();
+    	else
+    		return setThread(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearThread(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.MessageThread> mapFunc) {
+    	if (value == null)
+    		return clearThread();
+    	else
+    		return setThread(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Message)

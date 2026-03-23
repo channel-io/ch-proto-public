@@ -3,6 +3,8 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
+import "coreapi/model/app_segment.proto";
+import "coreapi/model/medium_type.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
@@ -337,4 +339,39 @@ message Campaign {
   //
   // +kubebuilder:validation:Nullable
   string manager_id = 39;
+
+  // Delivery medium type.
+  //
+  // +kubebuilder:validation:Nullable
+  MediumType medium_type = 40;
+
+  // Identifier of the specific medium instance.
+  //
+  // +kubebuilder:validation:Nullable
+  string medium_id = 41;
+
+  // App segments for user targeting.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.AppSegment app_segments = 42;
+
+  // Channel operation ID for business hours scheduling.
+  //
+  // +kubebuilder:validation:Nullable
+  string channel_operation_id = 43;
+
+  // Conversion tracking windows keyed by feature name.
+  //
+  // +kubebuilder:validation:Nullable
+  map<string, google.protobuf.Duration> conversion_windows = 44;
+
+  // Holding property constant for the additional event filter.
+  //
+  // +kubebuilder:validation:Nullable
+  HoldingPropertyConstant filter_hpc = 45;
+
+  // Holding property constant for the goal event.
+  //
+  // +kubebuilder:validation:Nullable
+  HoldingPropertyConstant goal_hpc = 46;
 }

@@ -394,6 +394,88 @@ func (x *MessageReaction) GetPersonKeys() []string {
 	return nil
 }
 
+// MessageThread represents thread metadata on a root message.
+type MessageThread struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Unique thread identifier.
+	//
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Manager IDs assigned to this thread.
+	//
+	// +kubebuilder:validation:Nullable
+	ManagerIds []string `protobuf:"bytes,2,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
+	// Ordered list of manager IDs who have replied in this thread.
+	//
+	// +kubebuilder:validation:Nullable
+	RepliedManagerIds []string `protobuf:"bytes,3,rep,name=replied_manager_ids,json=repliedManagerIds,proto3" json:"replied_manager_ids,omitempty"`
+	// Total number of replies in this thread.
+	//
+	// +kubebuilder:validation:Nullable
+	ReplyCount    int32 `protobuf:"varint,4,opt,name=reply_count,json=replyCount,proto3" json:"reply_count,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MessageThread) Reset() {
+	*x = MessageThread{}
+	mi := &file_coreapi_model_message_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MessageThread) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MessageThread) ProtoMessage() {}
+
+func (x *MessageThread) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_model_message_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MessageThread.ProtoReflect.Descriptor instead.
+func (*MessageThread) Descriptor() ([]byte, []int) {
+	return file_coreapi_model_message_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *MessageThread) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *MessageThread) GetManagerIds() []string {
+	if x != nil {
+		return x.ManagerIds
+	}
+	return nil
+}
+
+func (x *MessageThread) GetRepliedManagerIds() []string {
+	if x != nil {
+		return x.RepliedManagerIds
+	}
+	return nil
+}
+
+func (x *MessageThread) GetReplyCount() int32 {
+	if x != nil {
+		return x.ReplyCount
+	}
+	return 0
+}
+
 // Message represents a single message within a chat.
 type Message struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -521,13 +603,17 @@ type Message struct {
 	//
 	// +kubebuilder:validation:Nullable
 	RootMessageId string `protobuf:"bytes,32,opt,name=root_message_id,json=rootMessageId,proto3" json:"root_message_id,omitempty"`
+	// Thread metadata if this message is a thread root.
+	//
+	// +kubebuilder:validation:Nullable
+	Thread        *MessageThread `protobuf:"bytes,33,opt,name=thread,proto3" json:"thread,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Message) Reset() {
 	*x = Message{}
-	mi := &file_coreapi_model_message_proto_msgTypes[2]
+	mi := &file_coreapi_model_message_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -539,7 +625,7 @@ func (x *Message) String() string {
 func (*Message) ProtoMessage() {}
 
 func (x *Message) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_message_proto_msgTypes[2]
+	mi := &file_coreapi_model_message_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -552,7 +638,7 @@ func (x *Message) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Message.ProtoReflect.Descriptor instead.
 func (*Message) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_message_proto_rawDescGZIP(), []int{2}
+	return file_coreapi_model_message_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Message) GetId() string {
@@ -758,6 +844,13 @@ func (x *Message) GetRootMessageId() string {
 	return ""
 }
 
+func (x *Message) GetThread() *MessageThread {
+	if x != nil {
+		return x.Thread
+	}
+	return nil
+}
+
 var File_coreapi_model_message_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_message_proto_rawDesc = "" +
@@ -775,7 +868,15 @@ const file_coreapi_model_message_proto_rawDesc = "" +
 	"emoji_name\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\temojiName\x12\x1f\n" +
 	"\vperson_keys\x18\x02 \x03(\tR\n" +
-	"personKeys\"\x8d\r\n" +
+	"personKeys\"\xe0\x01\n" +
+	"\rMessageThread\x12]\n" +
+	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12\x1f\n" +
+	"\vmanager_ids\x18\x02 \x03(\tR\n" +
+	"managerIds\x12.\n" +
+	"\x13replied_manager_ids\x18\x03 \x03(\tR\x11repliedManagerIds\x12\x1f\n" +
+	"\vreply_count\x18\x04 \x01(\x05R\n" +
+	"replyCount\"\xc3\r\n" +
 	"\aMessage\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -821,7 +922,8 @@ const file_coreapi_model_message_proto_rawDesc = "" +
 	"\n" +
 	"thread_msg\x18\x1e \x01(\bR\tthreadMsg\x12'\n" +
 	"\x0fbroadcasted_msg\x18\x1f \x01(\bR\x0ebroadcastedMsg\x12&\n" +
-	"\x0froot_message_id\x18  \x01(\tR\rrootMessageId*\x95\x01\n" +
+	"\x0froot_message_id\x18  \x01(\tR\rrootMessageId\x124\n" +
+	"\x06thread\x18! \x01(\v2\x1c.coreapi.model.MessageThreadR\x06thread*\x95\x01\n" +
 	"\fMessageState\x12\x1d\n" +
 	"\x19MESSAGE_STATE_UNSPECIFIED\x10\x00\x12\x19\n" +
 	"\x15MESSAGE_STATE_SENDING\x10\x01\x12\x16\n" +
@@ -888,41 +990,43 @@ func file_coreapi_model_message_proto_rawDescGZIP() []byte {
 }
 
 var file_coreapi_model_message_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_coreapi_model_message_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_coreapi_model_message_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_coreapi_model_message_proto_goTypes = []any{
 	(MessageState)(0),             // 0: coreapi.model.MessageState
 	(LogAction)(0),                // 1: coreapi.model.LogAction
 	(*MessageLog)(nil),            // 2: coreapi.model.MessageLog
 	(*MessageReaction)(nil),       // 3: coreapi.model.MessageReaction
-	(*Message)(nil),               // 4: coreapi.model.Message
-	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
-	(*Block)(nil),                 // 6: coreapi.model.Block
-	(*MessageButton)(nil),         // 7: coreapi.model.MessageButton
-	(*MessageFile)(nil),           // 8: coreapi.model.MessageFile
-	(*MessageWebPage)(nil),        // 9: coreapi.model.MessageWebPage
-	(*structpb.Struct)(nil),       // 10: google.protobuf.Struct
-	(MessageOption)(0),            // 11: coreapi.model.MessageOption
+	(*MessageThread)(nil),         // 4: coreapi.model.MessageThread
+	(*Message)(nil),               // 5: coreapi.model.Message
+	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
+	(*Block)(nil),                 // 7: coreapi.model.Block
+	(*MessageButton)(nil),         // 8: coreapi.model.MessageButton
+	(*MessageFile)(nil),           // 9: coreapi.model.MessageFile
+	(*MessageWebPage)(nil),        // 10: coreapi.model.MessageWebPage
+	(*structpb.Struct)(nil),       // 11: google.protobuf.Struct
+	(MessageOption)(0),            // 12: coreapi.model.MessageOption
 }
 var file_coreapi_model_message_proto_depIdxs = []int32{
 	1,  // 0: coreapi.model.MessageLog.action:type_name -> coreapi.model.LogAction
-	5,  // 1: coreapi.model.Message.created_at:type_name -> google.protobuf.Timestamp
-	5,  // 2: coreapi.model.Message.updated_at:type_name -> google.protobuf.Timestamp
-	6,  // 3: coreapi.model.Message.blocks:type_name -> coreapi.model.Block
-	7,  // 4: coreapi.model.Message.buttons:type_name -> coreapi.model.MessageButton
-	8,  // 5: coreapi.model.Message.files:type_name -> coreapi.model.MessageFile
-	9,  // 6: coreapi.model.Message.web_page:type_name -> coreapi.model.MessageWebPage
-	10, // 7: coreapi.model.Message.form:type_name -> google.protobuf.Struct
-	11, // 8: coreapi.model.Message.options:type_name -> coreapi.model.MessageOption
+	6,  // 1: coreapi.model.Message.created_at:type_name -> google.protobuf.Timestamp
+	6,  // 2: coreapi.model.Message.updated_at:type_name -> google.protobuf.Timestamp
+	7,  // 3: coreapi.model.Message.blocks:type_name -> coreapi.model.Block
+	8,  // 4: coreapi.model.Message.buttons:type_name -> coreapi.model.MessageButton
+	9,  // 5: coreapi.model.Message.files:type_name -> coreapi.model.MessageFile
+	10, // 6: coreapi.model.Message.web_page:type_name -> coreapi.model.MessageWebPage
+	11, // 7: coreapi.model.Message.form:type_name -> google.protobuf.Struct
+	12, // 8: coreapi.model.Message.options:type_name -> coreapi.model.MessageOption
 	0,  // 9: coreapi.model.Message.state:type_name -> coreapi.model.MessageState
 	2,  // 10: coreapi.model.Message.log:type_name -> coreapi.model.MessageLog
 	3,  // 11: coreapi.model.Message.reactions:type_name -> coreapi.model.MessageReaction
-	10, // 12: coreapi.model.Message.marketing:type_name -> google.protobuf.Struct
-	10, // 13: coreapi.model.Message.support_bot:type_name -> google.protobuf.Struct
-	14, // [14:14] is the sub-list for method output_type
-	14, // [14:14] is the sub-list for method input_type
-	14, // [14:14] is the sub-list for extension type_name
-	14, // [14:14] is the sub-list for extension extendee
-	0,  // [0:14] is the sub-list for field type_name
+	11, // 12: coreapi.model.Message.marketing:type_name -> google.protobuf.Struct
+	11, // 13: coreapi.model.Message.support_bot:type_name -> google.protobuf.Struct
+	4,  // 14: coreapi.model.Message.thread:type_name -> coreapi.model.MessageThread
+	15, // [15:15] is the sub-list for method output_type
+	15, // [15:15] is the sub-list for method input_type
+	15, // [15:15] is the sub-list for extension type_name
+	15, // [15:15] is the sub-list for extension extendee
+	0,  // [0:15] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_message_proto_init() }
@@ -937,7 +1041,7 @@ func file_coreapi_model_message_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_message_proto_rawDesc), len(file_coreapi_model_message_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   3,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

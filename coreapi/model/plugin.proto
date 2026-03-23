@@ -17,11 +17,51 @@ enum PluginState {
   PLUGIN_STATE_ACTIVE = 2;
 }
 
+// Visual theme of the plugin widget.
+enum PluginAppearance {
+  PLUGIN_APPEARANCE_UNSPECIFIED = 0;
+  PLUGIN_APPEARANCE_LIGHT = 1;
+  PLUGIN_APPEARANCE_DARK = 2;
+  PLUGIN_APPEARANCE_SYSTEM = 3;
+}
+
 // Horizontal position of the plugin widget.
 enum PluginPosition {
   PLUGIN_POSITION_UNSPECIFIED = 0;
   PLUGIN_POSITION_LEFT = 1;
   PLUGIN_POSITION_RIGHT = 2;
+}
+
+// Type of the plugin launcher button.
+enum PluginButtonType {
+  PLUGIN_BUTTON_TYPE_UNSPECIFIED = 0;
+  PLUGIN_BUTTON_TYPE_LEGACY = 1;
+  PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE = 2;
+  PLUGIN_BUTTON_TYPE_ICON_BUTTON = 3;
+}
+
+// Predefined icon for the plugin launcher button.
+enum PluginIconButton {
+  PLUGIN_ICON_BUTTON_UNSPECIFIED = 0;
+  PLUGIN_ICON_BUTTON_CHANNEL = 1;
+  PLUGIN_ICON_BUTTON_CHANNEL_FILLED = 2;
+  PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT = 3;
+  PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_FILLED = 4;
+  PLUGIN_ICON_BUTTON_CHAT_BUBBLE_FILLED = 5;
+  PLUGIN_ICON_BUTTON_CHAT_LIGHTNING_FILLED = 6;
+  PLUGIN_ICON_BUTTON_CHAT_PROGRESS = 7;
+  PLUGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED = 8;
+  PLUGIN_ICON_BUTTON_CHAT_QUESTION = 9;
+  PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED = 10;
+  PLUGIN_ICON_BUTTON_COMMENT = 11;
+  PLUGIN_ICON_BUTTON_COMMENT_FILLED = 12;
+  PLUGIN_ICON_BUTTON_COMMUNICATION = 13;
+  PLUGIN_ICON_BUTTON_HEADSET = 14;
+  PLUGIN_ICON_BUTTON_HELP_FILLED = 15;
+  PLUGIN_ICON_BUTTON_SEND_FORWARD = 16;
+  PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED = 17;
+  PLUGIN_ICON_BUTTON_SMS = 18;
+  PLUGIN_ICON_BUTTON_SMS_FILLED = 19;
 }
 
 // Vertical position of the mobile chat bubble.
@@ -216,4 +256,30 @@ message Plugin {
   //
   // +kubebuilder:validation:Nullable
   bool valid_label_button_text_i18n_map = 31;
+
+  // Visual theme of the widget.
+  //
+  // +kubebuilder:validation:Nullable
+  PluginAppearance appearance = 32;
+
+  // Type of the launcher button.
+  //
+  // +kubebuilder:validation:Nullable
+  PluginButtonType button_type = 33;
+
+  // URL of the custom launcher button image.
+  //
+  // +kubebuilder:validation:Nullable
+  string custom_image_url = 34;
+
+  // Whether the launcher button is hidden on desktop.
+  //
+  // +kubebuilder:validation:Nullable
+  bool desk_hide_button = 35;
+
+  // Predefined icon for the launcher button.
+  // Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
+  //
+  // +kubebuilder:validation:Nullable
+  PluginIconButton icon_button = 36;
 }

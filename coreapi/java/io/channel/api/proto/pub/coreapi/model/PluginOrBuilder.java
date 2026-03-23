@@ -584,4 +584,102 @@ public interface PluginOrBuilder extends
    * @return The validLabelButtonTextI18nMap.
    */
   boolean getValidLabelButtonTextI18NMap();
+
+  /**
+   * <pre>
+   * Visual theme of the widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginAppearance appearance = 32 [json_name = "appearance"];</code>
+   * @return The enum numeric value on the wire for appearance.
+   */
+  int getAppearanceValue();
+  /**
+   * <pre>
+   * Visual theme of the widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginAppearance appearance = 32 [json_name = "appearance"];</code>
+   * @return The appearance.
+   */
+  io.channel.api.proto.pub.coreapi.model.PluginAppearance getAppearance();
+
+  /**
+   * <pre>
+   * Type of the launcher button.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginButtonType button_type = 33 [json_name = "buttonType"];</code>
+   * @return The enum numeric value on the wire for buttonType.
+   */
+  int getButtonTypeValue();
+  /**
+   * <pre>
+   * Type of the launcher button.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginButtonType button_type = 33 [json_name = "buttonType"];</code>
+   * @return The buttonType.
+   */
+  io.channel.api.proto.pub.coreapi.model.PluginButtonType getButtonType();
+
+  /**
+   * <pre>
+   * URL of the custom launcher button image.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string custom_image_url = 34 [json_name = "customImageUrl"];</code>
+   * @return The customImageUrl.
+   */
+  java.lang.String getCustomImageUrl();
+  /**
+   * <pre>
+   * URL of the custom launcher button image.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string custom_image_url = 34 [json_name = "customImageUrl"];</code>
+   * @return The bytes for customImageUrl.
+   */
+  com.google.protobuf.ByteString
+      getCustomImageUrlBytes();
+
+  /**
+   * <pre>
+   * Whether the launcher button is hidden on desktop.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool desk_hide_button = 35 [json_name = "deskHideButton"];</code>
+   * @return The deskHideButton.
+   */
+  boolean getDeskHideButton();
+
+  /**
+   * <pre>
+   * Predefined icon for the launcher button.
+   * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginIconButton icon_button = 36 [json_name = "iconButton"];</code>
+   * @return The enum numeric value on the wire for iconButton.
+   */
+  int getIconButtonValue();
+  /**
+   * <pre>
+   * Predefined icon for the launcher button.
+   * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginIconButton icon_button = 36 [json_name = "iconButton"];</code>
+   * @return The iconButton.
+   */
+  io.channel.api.proto.pub.coreapi.model.PluginIconButton getIconButton();
 }
