@@ -98,7 +98,7 @@ public enum PluginBubblePosition
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return io.channel.api.proto.pub.coreapi.model.PluginOuterClass.getDescriptor().getEnumTypes().get(2);
+    return io.channel.api.proto.pub.coreapi.model.PluginOuterClass.getDescriptor().getEnumTypes().get(5);
   }
 
   private static final PluginBubblePosition[] VALUES = values();

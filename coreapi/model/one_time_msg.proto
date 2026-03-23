@@ -3,6 +3,8 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
+import "coreapi/model/app_segment.proto";
+import "coreapi/model/medium_type.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
@@ -18,6 +20,14 @@ enum OneTimeMsgState {
   ONE_TIME_MSG_STATE_ACTIVE = 2;
   ONE_TIME_MSG_STATE_SENT = 3;
   ONE_TIME_MSG_STATE_STOPPED = 4;
+}
+
+// Delivery timing mode for a one-time message.
+enum OneTimeMsgSendMode {
+  ONE_TIME_MSG_SEND_MODE_UNSPECIFIED = 0;
+  ONE_TIME_MSG_SEND_MODE_IMMEDIATELY = 1;
+  ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_SENDER_TIME = 2;
+  ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_RECEIVER_TIME = 3;
 }
 
 // OneTimeMsg represents a one-time message that is sent to targeted users once.
@@ -168,4 +178,50 @@ message OneTimeMsg {
   //
   // +kubebuilder:validation:Nullable
   string send_medium = 32;
+
+  // Delivery timing mode.
+  //
+  // +kubebuilder:validation:Nullable
+  OneTimeMsgSendMode send_mode = 33;
+
+  // Channel operation ID for business hours scheduling.
+  //
+  // +kubebuilder:validation:Nullable
+  string channel_operation_id = 34;
+
+  // Delivery medium type.
+  //
+  // +kubebuilder:validation:Nullable
+  MediumType medium_type = 35;
+
+  // Identifier of the specific medium instance.
+  //
+  // +kubebuilder:validation:Nullable
+  string medium_id = 36;
+
+  // Key for selecting the message topic template within the medium.
+  //
+  // +kubebuilder:validation:Nullable
+  string medium_topic_build_key = 37;
+
+  // Labels for categorizing the message topic within the medium.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string medium_topic_build_labels = 38;
+
+  // Conversion tracking windows keyed by feature name.
+  //
+  // +kubebuilder:validation:Nullable
+  map<string, google.protobuf.Duration> conversion_windows = 39;
+
+  // Scheduled send time in receiver's local timezone.
+  // ISO 8601 date-time without timezone offset.
+  //
+  // +kubebuilder:validation:Nullable
+  string local_start_at = 40;
+
+  // App segments for user targeting.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.AppSegment app_segments = 41;
 }

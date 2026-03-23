@@ -36,7 +36,7 @@ public final class PluginOuterClass {
       "\n\032coreapi/model/plugin.proto\022\rcoreapi.mo" +
       "del\032\033buf/validate/validate.proto\032\035coreap" +
       "i/model/tiny_file.proto\032\037google/protobuf" +
-      "/timestamp.proto\"\340\016\n\006Plugin\022]\n\002id\030\001 \001(\tB" +
+      "/timestamp.proto\"\371\020\n\006Plugin\022]\n\002id\030\001 \001(\tB" +
       "M\272HJ\272\001D\n\rstring.minLen\022\"value must be at" +
       " least 1 character\032\017size(this) >= 1\310\001\001R\002" +
       "id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.m" +
@@ -81,20 +81,55 @@ public final class PluginOuterClass {
       "telist\030\035 \003(\tR\014urlWhitelist\0225\n\027valid_labe" +
       "l_button_text\030\036 \001(\010R\024validLabelButtonTex" +
       "t\022E\n valid_label_button_text_i18n_map\030\037 " +
-      "\001(\010R\033validLabelButtonTextI18nMap\032I\n\033Labe" +
-      "lButtonTextI18nMapEntry\022\020\n\003key\030\001 \001(\tR\003ke" +
-      "y\022\024\n\005value\030\002 \001(\tR\005value:\0028\001*^\n\013PluginSta" +
-      "te\022\034\n\030PLUGIN_STATE_UNSPECIFIED\020\000\022\030\n\024PLUG" +
-      "IN_STATE_WAITING\020\001\022\027\n\023PLUGIN_STATE_ACTIV" +
-      "E\020\002*f\n\016PluginPosition\022\037\n\033PLUGIN_POSITION" +
-      "_UNSPECIFIED\020\000\022\030\n\024PLUGIN_POSITION_LEFT\020\001" +
-      "\022\031\n\025PLUGIN_POSITION_RIGHT\020\002*\201\001\n\024PluginBu" +
-      "bblePosition\022&\n\"PLUGIN_BUBBLE_POSITION_U" +
-      "NSPECIFIED\020\000\022\036\n\032PLUGIN_BUBBLE_POSITION_T" +
-      "OP\020\001\022!\n\035PLUGIN_BUBBLE_POSITION_BOTTOM\020\002B" +
-      "b\n&io.channel.api.proto.pub.coreapi.mode" +
-      "lP\001Z6github.com/channel-io/ch-proto-publ" +
-      "ic/coreapi/go/modelb\006proto3"
+      "\001(\010R\033validLabelButtonTextI18nMap\022?\n\nappe" +
+      "arance\030  \001(\0162\037.coreapi.model.PluginAppea" +
+      "ranceR\nappearance\022@\n\013button_type\030! \001(\0162\037" +
+      ".coreapi.model.PluginButtonTypeR\nbuttonT" +
+      "ype\022(\n\020custom_image_url\030\" \001(\tR\016customIma" +
+      "geUrl\022(\n\020desk_hide_button\030# \001(\010R\016deskHid" +
+      "eButton\022@\n\013icon_button\030$ \001(\0162\037.coreapi.m" +
+      "odel.PluginIconButtonR\niconButton\032I\n\033Lab" +
+      "elButtonTextI18nMapEntry\022\020\n\003key\030\001 \001(\tR\003k" +
+      "ey\022\024\n\005value\030\002 \001(\tR\005value:\0028\001*^\n\013PluginSt" +
+      "ate\022\034\n\030PLUGIN_STATE_UNSPECIFIED\020\000\022\030\n\024PLU" +
+      "GIN_STATE_WAITING\020\001\022\027\n\023PLUGIN_STATE_ACTI" +
+      "VE\020\002*\214\001\n\020PluginAppearance\022!\n\035PLUGIN_APPE" +
+      "ARANCE_UNSPECIFIED\020\000\022\033\n\027PLUGIN_APPEARANC" +
+      "E_LIGHT\020\001\022\032\n\026PLUGIN_APPEARANCE_DARK\020\002\022\034\n" +
+      "\030PLUGIN_APPEARANCE_SYSTEM\020\003*f\n\016PluginPos" +
+      "ition\022\037\n\033PLUGIN_POSITION_UNSPECIFIED\020\000\022\030" +
+      "\n\024PLUGIN_POSITION_LEFT\020\001\022\031\n\025PLUGIN_POSIT" +
+      "ION_RIGHT\020\002*\236\001\n\020PluginButtonType\022\"\n\036PLUG" +
+      "IN_BUTTON_TYPE_UNSPECIFIED\020\000\022\035\n\031PLUGIN_B" +
+      "UTTON_TYPE_LEGACY\020\001\022#\n\037PLUGIN_BUTTON_TYP" +
+      "E_CUSTOM_IMAGE\020\002\022\"\n\036PLUGIN_BUTTON_TYPE_I" +
+      "CON_BUTTON\020\003*\224\006\n\020PluginIconButton\022\"\n\036PLU" +
+      "GIN_ICON_BUTTON_UNSPECIFIED\020\000\022\036\n\032PLUGIN_" +
+      "ICON_BUTTON_CHANNEL\020\001\022%\n!PLUGIN_ICON_BUT" +
+      "TON_CHANNEL_FILLED\020\002\022&\n\"PLUGIN_ICON_BUTT" +
+      "ON_CHAT_BUBBLE_ALT\020\003\022-\n)PLUGIN_ICON_BUTT" +
+      "ON_CHAT_BUBBLE_ALT_FILLED\020\004\022)\n%PLUGIN_IC" +
+      "ON_BUTTON_CHAT_BUBBLE_FILLED\020\005\022,\n(PLUGIN" +
+      "_ICON_BUTTON_CHAT_LIGHTNING_FILLED\020\006\022$\n " +
+      "PLUGIN_ICON_BUTTON_CHAT_PROGRESS\020\007\022+\n\'PL" +
+      "UGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED\020\010\022" +
+      "$\n PLUGIN_ICON_BUTTON_CHAT_QUESTION\020\t\022+\n" +
+      "\'PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED" +
+      "\020\n\022\036\n\032PLUGIN_ICON_BUTTON_COMMENT\020\013\022%\n!PL" +
+      "UGIN_ICON_BUTTON_COMMENT_FILLED\020\014\022$\n PLU" +
+      "GIN_ICON_BUTTON_COMMUNICATION\020\r\022\036\n\032PLUGI" +
+      "N_ICON_BUTTON_HEADSET\020\016\022\"\n\036PLUGIN_ICON_B" +
+      "UTTON_HELP_FILLED\020\017\022#\n\037PLUGIN_ICON_BUTTO" +
+      "N_SEND_FORWARD\020\020\022*\n&PLUGIN_ICON_BUTTON_S" +
+      "END_FORWARD_FILLED\020\021\022\032\n\026PLUGIN_ICON_BUTT" +
+      "ON_SMS\020\022\022!\n\035PLUGIN_ICON_BUTTON_SMS_FILLE" +
+      "D\020\023*\201\001\n\024PluginBubblePosition\022&\n\"PLUGIN_B" +
+      "UBBLE_POSITION_UNSPECIFIED\020\000\022\036\n\032PLUGIN_B" +
+      "UBBLE_POSITION_TOP\020\001\022!\n\035PLUGIN_BUBBLE_PO" +
+      "SITION_BOTTOM\020\002Bb\n&io.channel.api.proto." +
+      "pub.coreapi.modelP\001Z6github.com/channel-" +
+      "io/ch-proto-public/coreapi/go/modelb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -108,7 +143,7 @@ public final class PluginOuterClass {
     internal_static_coreapi_model_Plugin_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Plugin_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "Name", "State", "LabelButton", "LabelButtonText", "LabelButtonTextI18NMap", "DeskImageUrl", "DeskMarginX", "DeskMarginY", "DeskPosition", "MobileImageUrl", "MobileMarginX", "MobileMarginY", "MobilePosition", "MobileHideButton", "MobileBubblePosition", "RunRate", "FacebookPixelId", "CreatedAt", "Key", "DeskImage", "MobileImage", "UrlWhitelist", "ValidLabelButtonText", "ValidLabelButtonTextI18NMap", });
+        new java.lang.String[] { "Id", "ChannelId", "Name", "State", "LabelButton", "LabelButtonText", "LabelButtonTextI18NMap", "DeskImageUrl", "DeskMarginX", "DeskMarginY", "DeskPosition", "MobileImageUrl", "MobileMarginX", "MobileMarginY", "MobilePosition", "MobileHideButton", "MobileBubblePosition", "RunRate", "FacebookPixelId", "CreatedAt", "Key", "DeskImage", "MobileImage", "UrlWhitelist", "ValidLabelButtonText", "ValidLabelButtonTextI18NMap", "Appearance", "ButtonType", "CustomImageUrl", "DeskHideButton", "IconButton", });
     internal_static_coreapi_model_Plugin_LabelButtonTextI18nMapEntry_descriptor =
       internal_static_coreapi_model_Plugin_descriptor.getNestedTypes().get(0);
     internal_static_coreapi_model_Plugin_LabelButtonTextI18nMapEntry_fieldAccessorTable = new

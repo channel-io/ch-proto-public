@@ -359,4 +359,9 @@ message User {
   //
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp updated_at = 49 [(buf.validate.field).required = true];
+
+  // Timestamp when app push subscription preference was last changed.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp unsubscribe_app_push_updated_at = 50;
 }

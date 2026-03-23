@@ -826,4 +826,34 @@ public interface MessageOrBuilder extends
    */
   com.google.protobuf.ByteString
       getRootMessageIdBytes();
+
+  /**
+   * <pre>
+   * Thread metadata if this message is a thread root.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+   * @return Whether the thread field is set.
+   */
+  boolean hasThread();
+  /**
+   * <pre>
+   * Thread metadata if this message is a thread root.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+   * @return The thread.
+   */
+  io.channel.api.proto.pub.coreapi.model.MessageThread getThread();
+  /**
+   * <pre>
+   * Thread metadata if this message is a thread root.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder getThreadOrBuilder();
 }

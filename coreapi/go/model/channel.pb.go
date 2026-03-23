@@ -421,8 +421,44 @@ type Channel struct {
 	//
 	// +kubebuilder:validation:Nullable
 	UsingFollowUp bool `protobuf:"varint,63,opt,name=using_follow_up,json=usingFollowUp,proto3" json:"using_follow_up,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	// Theme color brightness value normalized to 0.0-1.0 range.
+	//
+	// +kubebuilder:validation:Nullable
+	Brightness float32 `protobuf:"fixed32,64,opt,name=brightness,proto3" json:"brightness,omitempty"`
+	// Whether the cover image has a bright tone.
+	//
+	// +kubebuilder:validation:Nullable
+	CoverImageBright bool `protobuf:"varint,65,opt,name=cover_image_bright,json=coverImageBright,proto3" json:"cover_image_bright,omitempty"`
+	// Cover image dominant color in hex format.
+	//
+	// +kubebuilder:validation:Nullable
+	CoverImageColor string `protobuf:"bytes,66,opt,name=cover_image_color,json=coverImageColor,proto3" json:"cover_image_color,omitempty"`
+	// Cover image URL for the channel profile.
+	//
+	// +kubebuilder:validation:Nullable
+	CoverImageUrl string `protobuf:"bytes,67,opt,name=cover_image_url,json=coverImageUrl,proto3" json:"cover_image_url,omitempty"`
+	// Whether to hide the new chat button from end users.
+	//
+	// +kubebuilder:validation:Nullable
+	DisableNewChatButton bool `protobuf:"varint,68,opt,name=disable_new_chat_button,json=disableNewChatButton,proto3" json:"disable_new_chat_button,omitempty"`
+	// Timestamp when the next away period starts.
+	//
+	// +kubebuilder:validation:Nullable
+	NextAwayTime *timestamppb.Timestamp `protobuf:"bytes,69,opt,name=next_away_time,json=nextAwayTime,proto3" json:"next_away_time,omitempty"`
+	// Timestamp when the next operating period starts.
+	//
+	// +kubebuilder:validation:Nullable
+	NextWorkingTime *timestamppb.Timestamp `protobuf:"bytes,70,opt,name=next_working_time,json=nextWorkingTime,proto3" json:"next_working_time,omitempty"`
+	// Icon color for the channel plugin widget in hex format.
+	//
+	// +kubebuilder:validation:Nullable
+	PluginIconColor string `protobuf:"bytes,71,opt,name=plugin_icon_color,json=pluginIconColor,proto3" json:"plugin_icon_color,omitempty"`
+	// Whether to display individual operator profiles to end users.
+	//
+	// +kubebuilder:validation:Nullable
+	ShowOperatorProfile bool `protobuf:"varint,72,opt,name=show_operator_profile,json=showOperatorProfile,proto3" json:"show_operator_profile,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *Channel) Reset() {
@@ -819,11 +855,74 @@ func (x *Channel) GetUsingFollowUp() bool {
 	return false
 }
 
+func (x *Channel) GetBrightness() float32 {
+	if x != nil {
+		return x.Brightness
+	}
+	return 0
+}
+
+func (x *Channel) GetCoverImageBright() bool {
+	if x != nil {
+		return x.CoverImageBright
+	}
+	return false
+}
+
+func (x *Channel) GetCoverImageColor() string {
+	if x != nil {
+		return x.CoverImageColor
+	}
+	return ""
+}
+
+func (x *Channel) GetCoverImageUrl() string {
+	if x != nil {
+		return x.CoverImageUrl
+	}
+	return ""
+}
+
+func (x *Channel) GetDisableNewChatButton() bool {
+	if x != nil {
+		return x.DisableNewChatButton
+	}
+	return false
+}
+
+func (x *Channel) GetNextAwayTime() *timestamppb.Timestamp {
+	if x != nil {
+		return x.NextAwayTime
+	}
+	return nil
+}
+
+func (x *Channel) GetNextWorkingTime() *timestamppb.Timestamp {
+	if x != nil {
+		return x.NextWorkingTime
+	}
+	return nil
+}
+
+func (x *Channel) GetPluginIconColor() string {
+	if x != nil {
+		return x.PluginIconColor
+	}
+	return ""
+}
+
+func (x *Channel) GetShowOperatorProfile() bool {
+	if x != nil {
+		return x.ShowOperatorProfile
+	}
+	return false
+}
+
 var File_coreapi_model_channel_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_channel_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/channel.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/campaign.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb2\x16\n" +
+	"\x1bcoreapi/model/channel.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/campaign.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf5\x19\n" +
 	"\aChannel\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12\xb1\x01\n" +
@@ -886,7 +985,18 @@ const file_coreapi_model_channel_proto_rawDesc = "" +
 	"enable_mfa\x18< \x01(\bR\tenableMfa\x12\x18\n" +
 	"\ablocked\x18= \x01(\bR\ablocked\x12\x16\n" +
 	"\x06bright\x18> \x01(\bR\x06bright\x12&\n" +
-	"\x0fusing_follow_up\x18? \x01(\bR\rusingFollowUp\x1a[\n" +
+	"\x0fusing_follow_up\x18? \x01(\bR\rusingFollowUp\x12\x1e\n" +
+	"\n" +
+	"brightness\x18@ \x01(\x02R\n" +
+	"brightness\x12,\n" +
+	"\x12cover_image_bright\x18A \x01(\bR\x10coverImageBright\x12*\n" +
+	"\x11cover_image_color\x18B \x01(\tR\x0fcoverImageColor\x12&\n" +
+	"\x0fcover_image_url\x18C \x01(\tR\rcoverImageUrl\x125\n" +
+	"\x17disable_new_chat_button\x18D \x01(\bR\x14disableNewChatButton\x12@\n" +
+	"\x0enext_away_time\x18E \x01(\v2\x1a.google.protobuf.TimestampR\fnextAwayTime\x12F\n" +
+	"\x11next_working_time\x18F \x01(\v2\x1a.google.protobuf.TimestampR\x0fnextWorkingTime\x12*\n" +
+	"\x11plugin_icon_color\x18G \x01(\tR\x0fpluginIconColor\x122\n" +
+	"\x15show_operator_profile\x18H \x01(\bR\x13showOperatorProfile\x1a[\n" +
 	"\x14NameDescI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12-\n" +
 	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01\x1aa\n" +
@@ -954,13 +1064,15 @@ var file_coreapi_model_channel_proto_depIdxs = []int32{
 	5,  // 9: coreapi.model.Channel.welcome_message_i18n_map:type_name -> coreapi.model.Channel.WelcomeMessageI18nMapEntry
 	9,  // 10: coreapi.model.Channel.traffic_source:type_name -> google.protobuf.Struct
 	9,  // 11: coreapi.model.Channel.source_survey:type_name -> google.protobuf.Struct
-	10, // 12: coreapi.model.Channel.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
-	9,  // 13: coreapi.model.Channel.WelcomeMessageI18nMapEntry.value:type_name -> google.protobuf.Struct
-	14, // [14:14] is the sub-list for method output_type
-	14, // [14:14] is the sub-list for method input_type
-	14, // [14:14] is the sub-list for extension type_name
-	14, // [14:14] is the sub-list for extension extendee
-	0,  // [0:14] is the sub-list for field type_name
+	6,  // 12: coreapi.model.Channel.next_away_time:type_name -> google.protobuf.Timestamp
+	6,  // 13: coreapi.model.Channel.next_working_time:type_name -> google.protobuf.Timestamp
+	10, // 14: coreapi.model.Channel.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
+	9,  // 15: coreapi.model.Channel.WelcomeMessageI18nMapEntry.value:type_name -> google.protobuf.Struct
+	16, // [16:16] is the sub-list for method output_type
+	16, // [16:16] is the sub-list for method input_type
+	16, // [16:16] is the sub-list for extension type_name
+	16, // [16:16] is the sub-list for extension extendee
+	0,  // [0:16] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_channel_proto_init() }

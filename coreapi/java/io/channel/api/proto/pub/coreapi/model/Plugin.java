@@ -35,6 +35,10 @@ private static final long serialVersionUID = 0L;
     facebookPixelId_ = "";
     key_ = "";
     urlWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    appearance_ = 0;
+    buttonType_ = 0;
+    customImageUrl_ = "";
+    iconButton_ = 0;
   }
 
   @java.lang.Override
@@ -244,6 +248,35 @@ private static final long serialVersionUID = 0L;
           case 248: {
 
             validLabelButtonTextI18NMap_ = input.readBool();
+            break;
+          }
+          case 256: {
+            int rawValue = input.readEnum();
+
+            appearance_ = rawValue;
+            break;
+          }
+          case 264: {
+            int rawValue = input.readEnum();
+
+            buttonType_ = rawValue;
+            break;
+          }
+          case 274: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            customImageUrl_ = s;
+            break;
+          }
+          case 280: {
+
+            deskHideButton_ = input.readBool();
+            break;
+          }
+          case 288: {
+            int rawValue = input.readEnum();
+
+            iconButton_ = rawValue;
             break;
           }
           default: {
@@ -1240,6 +1273,159 @@ private static final long serialVersionUID = 0L;
     return validLabelButtonTextI18NMap_;
   }
 
+  public static final int APPEARANCE_FIELD_NUMBER = 32;
+  private int appearance_;
+  /**
+   * <pre>
+   * Visual theme of the widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginAppearance appearance = 32 [json_name = "appearance"];</code>
+   * @return The enum numeric value on the wire for appearance.
+   */
+  @java.lang.Override public int getAppearanceValue() {
+    return appearance_;
+  }
+  /**
+   * <pre>
+   * Visual theme of the widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginAppearance appearance = 32 [json_name = "appearance"];</code>
+   * @return The appearance.
+   */
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.PluginAppearance getAppearance() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.PluginAppearance result = io.channel.api.proto.pub.coreapi.model.PluginAppearance.valueOf(appearance_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.PluginAppearance.UNRECOGNIZED : result;
+  }
+
+  public static final int BUTTON_TYPE_FIELD_NUMBER = 33;
+  private int buttonType_;
+  /**
+   * <pre>
+   * Type of the launcher button.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginButtonType button_type = 33 [json_name = "buttonType"];</code>
+   * @return The enum numeric value on the wire for buttonType.
+   */
+  @java.lang.Override public int getButtonTypeValue() {
+    return buttonType_;
+  }
+  /**
+   * <pre>
+   * Type of the launcher button.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginButtonType button_type = 33 [json_name = "buttonType"];</code>
+   * @return The buttonType.
+   */
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.PluginButtonType getButtonType() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.PluginButtonType result = io.channel.api.proto.pub.coreapi.model.PluginButtonType.valueOf(buttonType_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.PluginButtonType.UNRECOGNIZED : result;
+  }
+
+  public static final int CUSTOM_IMAGE_URL_FIELD_NUMBER = 34;
+  private volatile java.lang.Object customImageUrl_;
+  /**
+   * <pre>
+   * URL of the custom launcher button image.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string custom_image_url = 34 [json_name = "customImageUrl"];</code>
+   * @return The customImageUrl.
+   */
+  @java.lang.Override
+  public java.lang.String getCustomImageUrl() {
+    java.lang.Object ref = customImageUrl_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      customImageUrl_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * URL of the custom launcher button image.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string custom_image_url = 34 [json_name = "customImageUrl"];</code>
+   * @return The bytes for customImageUrl.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCustomImageUrlBytes() {
+    java.lang.Object ref = customImageUrl_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      customImageUrl_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DESK_HIDE_BUTTON_FIELD_NUMBER = 35;
+  private boolean deskHideButton_;
+  /**
+   * <pre>
+   * Whether the launcher button is hidden on desktop.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool desk_hide_button = 35 [json_name = "deskHideButton"];</code>
+   * @return The deskHideButton.
+   */
+  @java.lang.Override
+  public boolean getDeskHideButton() {
+    return deskHideButton_;
+  }
+
+  public static final int ICON_BUTTON_FIELD_NUMBER = 36;
+  private int iconButton_;
+  /**
+   * <pre>
+   * Predefined icon for the launcher button.
+   * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginIconButton icon_button = 36 [json_name = "iconButton"];</code>
+   * @return The enum numeric value on the wire for iconButton.
+   */
+  @java.lang.Override public int getIconButtonValue() {
+    return iconButton_;
+  }
+  /**
+   * <pre>
+   * Predefined icon for the launcher button.
+   * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.PluginIconButton icon_button = 36 [json_name = "iconButton"];</code>
+   * @return The iconButton.
+   */
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.PluginIconButton getIconButton() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.PluginIconButton result = io.channel.api.proto.pub.coreapi.model.PluginIconButton.valueOf(iconButton_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.PluginIconButton.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1334,6 +1520,21 @@ private static final long serialVersionUID = 0L;
     }
     if (validLabelButtonTextI18NMap_ != false) {
       output.writeBool(31, validLabelButtonTextI18NMap_);
+    }
+    if (appearance_ != io.channel.api.proto.pub.coreapi.model.PluginAppearance.PLUGIN_APPEARANCE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(32, appearance_);
+    }
+    if (buttonType_ != io.channel.api.proto.pub.coreapi.model.PluginButtonType.PLUGIN_BUTTON_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(33, buttonType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(customImageUrl_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 34, customImageUrl_);
+    }
+    if (deskHideButton_ != false) {
+      output.writeBool(35, deskHideButton_);
+    }
+    if (iconButton_ != io.channel.api.proto.pub.coreapi.model.PluginIconButton.PLUGIN_ICON_BUTTON_UNSPECIFIED.getNumber()) {
+      output.writeEnum(36, iconButton_);
     }
     unknownFields.writeTo(output);
   }
@@ -1450,6 +1651,25 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(31, validLabelButtonTextI18NMap_);
     }
+    if (appearance_ != io.channel.api.proto.pub.coreapi.model.PluginAppearance.PLUGIN_APPEARANCE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(32, appearance_);
+    }
+    if (buttonType_ != io.channel.api.proto.pub.coreapi.model.PluginButtonType.PLUGIN_BUTTON_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(33, buttonType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(customImageUrl_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(34, customImageUrl_);
+    }
+    if (deskHideButton_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(35, deskHideButton_);
+    }
+    if (iconButton_ != io.channel.api.proto.pub.coreapi.model.PluginIconButton.PLUGIN_ICON_BUTTON_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(36, iconButton_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1523,6 +1743,13 @@ private static final long serialVersionUID = 0L;
         != other.getValidLabelButtonText()) return false;
     if (getValidLabelButtonTextI18NMap()
         != other.getValidLabelButtonTextI18NMap()) return false;
+    if (appearance_ != other.appearance_) return false;
+    if (buttonType_ != other.buttonType_) return false;
+    if (!getCustomImageUrl()
+        .equals(other.getCustomImageUrl())) return false;
+    if (getDeskHideButton()
+        != other.getDeskHideButton()) return false;
+    if (iconButton_ != other.iconButton_) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1601,6 +1828,17 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + VALID_LABEL_BUTTON_TEXT_I18N_MAP_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getValidLabelButtonTextI18NMap());
+    hash = (37 * hash) + APPEARANCE_FIELD_NUMBER;
+    hash = (53 * hash) + appearance_;
+    hash = (37 * hash) + BUTTON_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + buttonType_;
+    hash = (37 * hash) + CUSTOM_IMAGE_URL_FIELD_NUMBER;
+    hash = (53 * hash) + getCustomImageUrl().hashCode();
+    hash = (37 * hash) + DESK_HIDE_BUTTON_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getDeskHideButton());
+    hash = (37 * hash) + ICON_BUTTON_FIELD_NUMBER;
+    hash = (53 * hash) + iconButton_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1825,6 +2063,16 @@ private static final long serialVersionUID = 0L;
 
       validLabelButtonTextI18NMap_ = false;
 
+      appearance_ = 0;
+
+      buttonType_ = 0;
+
+      customImageUrl_ = "";
+
+      deskHideButton_ = false;
+
+      iconButton_ = 0;
+
       return this;
     }
 
@@ -1895,6 +2143,11 @@ private static final long serialVersionUID = 0L;
       result.urlWhitelist_ = urlWhitelist_;
       result.validLabelButtonText_ = validLabelButtonText_;
       result.validLabelButtonTextI18NMap_ = validLabelButtonTextI18NMap_;
+      result.appearance_ = appearance_;
+      result.buttonType_ = buttonType_;
+      result.customImageUrl_ = customImageUrl_;
+      result.deskHideButton_ = deskHideButton_;
+      result.iconButton_ = iconButton_;
       onBuilt();
       return result;
     }
@@ -2034,6 +2287,22 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getValidLabelButtonTextI18NMap() != false) {
         setValidLabelButtonTextI18NMap(other.getValidLabelButtonTextI18NMap());
+      }
+      if (other.appearance_ != 0) {
+        setAppearanceValue(other.getAppearanceValue());
+      }
+      if (other.buttonType_ != 0) {
+        setButtonTypeValue(other.getButtonTypeValue());
+      }
+      if (!other.getCustomImageUrl().isEmpty()) {
+        customImageUrl_ = other.customImageUrl_;
+        onChanged();
+      }
+      if (other.getDeskHideButton() != false) {
+        setDeskHideButton(other.getDeskHideButton());
+      }
+      if (other.iconButton_ != 0) {
+        setIconButtonValue(other.getIconButtonValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -4472,6 +4741,395 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+
+    private int appearance_ = 0;
+    /**
+     * <pre>
+     * Visual theme of the widget.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.PluginAppearance appearance = 32 [json_name = "appearance"];</code>
+     * @return The enum numeric value on the wire for appearance.
+     */
+    @java.lang.Override public int getAppearanceValue() {
+      return appearance_;
+    }
+    /**
+     * <pre>
+     * Visual theme of the widget.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.PluginAppearance appearance = 32 [json_name = "appearance"];</code>
+     * @param value The enum numeric value on the wire for appearance to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAppearanceValue(int value) {
+      
+      appearance_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Visual theme of the widget.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.PluginAppearance appearance = 32 [json_name = "appearance"];</code>
+     * @return The appearance.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.PluginAppearance getAppearance() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.PluginAppearance result = io.channel.api.proto.pub.coreapi.model.PluginAppearance.valueOf(appearance_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.PluginAppearance.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Visual theme of the widget.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.PluginAppearance appearance = 32 [json_name = "appearance"];</code>
+     * @param value The appearance to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAppearance(io.channel.api.proto.pub.coreapi.model.PluginAppearance value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      appearance_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Visual theme of the widget.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.PluginAppearance appearance = 32 [json_name = "appearance"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAppearance() {
+      
+      appearance_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int buttonType_ = 0;
+    /**
+     * <pre>
+     * Type of the launcher button.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.PluginButtonType button_type = 33 [json_name = "buttonType"];</code>
+     * @return The enum numeric value on the wire for buttonType.
+     */
+    @java.lang.Override public int getButtonTypeValue() {
+      return buttonType_;
+    }
+    /**
+     * <pre>
+     * Type of the launcher button.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.PluginButtonType button_type = 33 [json_name = "buttonType"];</code>
+     * @param value The enum numeric value on the wire for buttonType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setButtonTypeValue(int value) {
+      
+      buttonType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Type of the launcher button.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.PluginButtonType button_type = 33 [json_name = "buttonType"];</code>
+     * @return The buttonType.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.PluginButtonType getButtonType() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.PluginButtonType result = io.channel.api.proto.pub.coreapi.model.PluginButtonType.valueOf(buttonType_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.PluginButtonType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Type of the launcher button.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.PluginButtonType button_type = 33 [json_name = "buttonType"];</code>
+     * @param value The buttonType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setButtonType(io.channel.api.proto.pub.coreapi.model.PluginButtonType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      buttonType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Type of the launcher button.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.PluginButtonType button_type = 33 [json_name = "buttonType"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearButtonType() {
+      
+      buttonType_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object customImageUrl_ = "";
+    /**
+     * <pre>
+     * URL of the custom launcher button image.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string custom_image_url = 34 [json_name = "customImageUrl"];</code>
+     * @return The customImageUrl.
+     */
+    public java.lang.String getCustomImageUrl() {
+      java.lang.Object ref = customImageUrl_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        customImageUrl_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * URL of the custom launcher button image.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string custom_image_url = 34 [json_name = "customImageUrl"];</code>
+     * @return The bytes for customImageUrl.
+     */
+    public com.google.protobuf.ByteString
+        getCustomImageUrlBytes() {
+      java.lang.Object ref = customImageUrl_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        customImageUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * URL of the custom launcher button image.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string custom_image_url = 34 [json_name = "customImageUrl"];</code>
+     * @param value The customImageUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCustomImageUrl(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      customImageUrl_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * URL of the custom launcher button image.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string custom_image_url = 34 [json_name = "customImageUrl"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCustomImageUrl() {
+      
+      customImageUrl_ = getDefaultInstance().getCustomImageUrl();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * URL of the custom launcher button image.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string custom_image_url = 34 [json_name = "customImageUrl"];</code>
+     * @param value The bytes for customImageUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCustomImageUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      customImageUrl_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean deskHideButton_ ;
+    /**
+     * <pre>
+     * Whether the launcher button is hidden on desktop.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool desk_hide_button = 35 [json_name = "deskHideButton"];</code>
+     * @return The deskHideButton.
+     */
+    @java.lang.Override
+    public boolean getDeskHideButton() {
+      return deskHideButton_;
+    }
+    /**
+     * <pre>
+     * Whether the launcher button is hidden on desktop.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool desk_hide_button = 35 [json_name = "deskHideButton"];</code>
+     * @param value The deskHideButton to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDeskHideButton(boolean value) {
+      
+      deskHideButton_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the launcher button is hidden on desktop.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool desk_hide_button = 35 [json_name = "deskHideButton"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDeskHideButton() {
+      
+      deskHideButton_ = false;
+      onChanged();
+      return this;
+    }
+
+    private int iconButton_ = 0;
+    /**
+     * <pre>
+     * Predefined icon for the launcher button.
+     * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.PluginIconButton icon_button = 36 [json_name = "iconButton"];</code>
+     * @return The enum numeric value on the wire for iconButton.
+     */
+    @java.lang.Override public int getIconButtonValue() {
+      return iconButton_;
+    }
+    /**
+     * <pre>
+     * Predefined icon for the launcher button.
+     * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.PluginIconButton icon_button = 36 [json_name = "iconButton"];</code>
+     * @param value The enum numeric value on the wire for iconButton to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIconButtonValue(int value) {
+      
+      iconButton_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Predefined icon for the launcher button.
+     * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.PluginIconButton icon_button = 36 [json_name = "iconButton"];</code>
+     * @return The iconButton.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.PluginIconButton getIconButton() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.PluginIconButton result = io.channel.api.proto.pub.coreapi.model.PluginIconButton.valueOf(iconButton_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.PluginIconButton.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Predefined icon for the launcher button.
+     * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.PluginIconButton icon_button = 36 [json_name = "iconButton"];</code>
+     * @param value The iconButton to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIconButton(io.channel.api.proto.pub.coreapi.model.PluginIconButton value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      iconButton_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Predefined icon for the launcher button.
+     * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.PluginIconButton icon_button = 36 [json_name = "iconButton"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIconButton() {
+      
+      iconButton_ = 0;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -5073,6 +5731,121 @@ private static final long serialVersionUID = 0L;
     		return clearValidLabelButtonTextI18NMap();
     	else
     		return setValidLabelButtonTextI18NMap(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The appearance to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearAppearance(io.channel.api.proto.pub.coreapi.model.PluginAppearance value) {
+    	if (value == null)
+    		return clearAppearance();
+    	else
+    		return setAppearance(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearAppearance(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.PluginAppearance> mapFunc) {
+    	if (value == null)
+    		return clearAppearance();
+    	else
+    		return setAppearance(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The button_type to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearButtonType(io.channel.api.proto.pub.coreapi.model.PluginButtonType value) {
+    	if (value == null)
+    		return clearButtonType();
+    	else
+    		return setButtonType(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearButtonType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.PluginButtonType> mapFunc) {
+    	if (value == null)
+    		return clearButtonType();
+    	else
+    		return setButtonType(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The custom_image_url to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearCustomImageUrl(java.lang.String value) {
+    	if (value == null)
+    		return clearCustomImageUrl();
+    	else
+    		return setCustomImageUrl(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearCustomImageUrl(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearCustomImageUrl();
+    	else
+    		return setCustomImageUrl(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The desk_hide_button to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearDeskHideButton(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearDeskHideButton();
+    	else
+    		return setDeskHideButton(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearDeskHideButton(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearDeskHideButton();
+    	else
+    		return setDeskHideButton(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The icon_button to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearIconButton(io.channel.api.proto.pub.coreapi.model.PluginIconButton value) {
+    	if (value == null)
+    		return clearIconButton();
+    	else
+    		return setIconButton(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearIconButton(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.PluginIconButton> mapFunc) {
+    	if (value == null)
+    		return clearIconButton();
+    	else
+    		return setIconButton(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Plugin)

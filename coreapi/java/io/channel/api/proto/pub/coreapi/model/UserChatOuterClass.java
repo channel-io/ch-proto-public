@@ -31,7 +31,7 @@ public final class UserChatOuterClass {
       "\n\035coreapi/model/user_chat.proto\022\rcoreapi" +
       ".model\032\033buf/validate/validate.proto\032\034goo" +
       "gle/protobuf/struct.proto\032\037google/protob" +
-      "uf/timestamp.proto\"\323\022\n\010UserChat\022]\n\002id\030\001 " +
+      "uf/timestamp.proto\"\206\023\n\010UserChat\022]\n\002id\030\001 " +
       "\001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must b" +
       "e at least 1 character\032\017size(this) >= 1\310" +
       "\001\001R\002id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272\001D\n\rstri" +
@@ -91,15 +91,16 @@ public final class UserChatOuterClass {
       "\0302 \001(\0132\032.google.protobuf.TimestampR\tsnoo" +
       "zedAt\0227\n\texpire_at\0303 \001(\0132\032.google.protob" +
       "uf.TimestampR\010expireAt\022\030\n\007version\0304 \001(\003R" +
-      "\007version*\332\001\n\rUserChatState\022\037\n\033USER_CHAT_" +
-      "STATE_UNSPECIFIED\020\000\022\032\n\026USER_CHAT_STATE_O" +
-      "PENED\020\001\022\032\n\026USER_CHAT_STATE_CLOSED\020\002\022\033\n\027U" +
-      "SER_CHAT_STATE_SNOOZED\020\003\022\032\n\026USER_CHAT_ST" +
-      "ATE_QUEUED\020\004\022\033\n\027USER_CHAT_STATE_INITIAL\020" +
-      "\005\022\032\n\026USER_CHAT_STATE_MISSED\020\006Bb\n&io.chan" +
-      "nel.api.proto.pub.coreapi.modelP\001Z6githu" +
-      "b.com/channel-io/ch-proto-public/coreapi" +
-      "/go/modelb\006proto3"
+      "\007version\0221\n\007profile\0305 \001(\0132\027.google.proto" +
+      "buf.StructR\007profile*\332\001\n\rUserChatState\022\037\n" +
+      "\033USER_CHAT_STATE_UNSPECIFIED\020\000\022\032\n\026USER_C" +
+      "HAT_STATE_OPENED\020\001\022\032\n\026USER_CHAT_STATE_CL" +
+      "OSED\020\002\022\033\n\027USER_CHAT_STATE_SNOOZED\020\003\022\032\n\026U" +
+      "SER_CHAT_STATE_QUEUED\020\004\022\033\n\027USER_CHAT_STA" +
+      "TE_INITIAL\020\005\022\032\n\026USER_CHAT_STATE_MISSED\020\006" +
+      "Bb\n&io.channel.api.proto.pub.coreapi.mod" +
+      "elP\001Z6github.com/channel-io/ch-proto-pub" +
+      "lic/coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -113,7 +114,7 @@ public final class UserChatOuterClass {
     internal_static_coreapi_model_UserChat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_UserChat_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "State", "UserId", "AssigneeId", "TeamId", "Description", "ContactMediumType", "Handling", "Source", "FirstOpenedAt", "OpenedAt", "FirstAskedAt", "AskedAt", "ClosedAt", "FirstRepliedAtAfterOpen", "FirstAssigneeIdAfterOpen", "OneStop", "WaitingTime", "AvgReplyTime", "TotalReplyTime", "ReplyCount", "ResolutionTime", "OperationWaitingTime", "OperationAvgReplyTime", "OperationTotalReplyTime", "OperationReplyCount", "OperationResolutionTime", "FrontMessageId", "FrontUpdatedAt", "CreatedAt", "UpdatedAt", "Tags", "Managed", "Name", "ManagerIds", "GoalEventName", "GoalEventQuery", "GoalCheckedAt", "GoalState", "DeskMessageId", "DeskUpdatedAt", "SnoozedAt", "ExpireAt", "Version", });
+        new java.lang.String[] { "Id", "ChannelId", "State", "UserId", "AssigneeId", "TeamId", "Description", "ContactMediumType", "Handling", "Source", "FirstOpenedAt", "OpenedAt", "FirstAskedAt", "AskedAt", "ClosedAt", "FirstRepliedAtAfterOpen", "FirstAssigneeIdAfterOpen", "OneStop", "WaitingTime", "AvgReplyTime", "TotalReplyTime", "ReplyCount", "ResolutionTime", "OperationWaitingTime", "OperationAvgReplyTime", "OperationTotalReplyTime", "OperationReplyCount", "OperationResolutionTime", "FrontMessageId", "FrontUpdatedAt", "CreatedAt", "UpdatedAt", "Tags", "Managed", "Name", "ManagerIds", "GoalEventName", "GoalEventQuery", "GoalCheckedAt", "GoalState", "DeskMessageId", "DeskUpdatedAt", "SnoozedAt", "ExpireAt", "Version", "Profile", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);

@@ -343,4 +343,49 @@ message Channel {
   //
   // +kubebuilder:validation:Nullable
   bool using_follow_up = 63;
+
+  // Theme color brightness value normalized to 0.0-1.0 range.
+  //
+  // +kubebuilder:validation:Nullable
+  float brightness = 64;
+
+  // Whether the cover image has a bright tone.
+  //
+  // +kubebuilder:validation:Nullable
+  bool cover_image_bright = 65;
+
+  // Cover image dominant color in hex format.
+  //
+  // +kubebuilder:validation:Nullable
+  string cover_image_color = 66;
+
+  // Cover image URL for the channel profile.
+  //
+  // +kubebuilder:validation:Nullable
+  string cover_image_url = 67;
+
+  // Whether to hide the new chat button from end users.
+  //
+  // +kubebuilder:validation:Nullable
+  bool disable_new_chat_button = 68;
+
+  // Timestamp when the next away period starts.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp next_away_time = 69;
+
+  // Timestamp when the next operating period starts.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp next_working_time = 70;
+
+  // Icon color for the channel plugin widget in hex format.
+  //
+  // +kubebuilder:validation:Nullable
+  string plugin_icon_color = 71;
+
+  // Whether to display individual operator profiles to end users.
+  //
+  // +kubebuilder:validation:Nullable
+  bool show_operator_profile = 72;
 }

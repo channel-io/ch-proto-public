@@ -273,7 +273,11 @@ type UserChat struct {
 	// Chat data version number.
 	//
 	// +kubebuilder:validation:Nullable
-	Version       int64 `protobuf:"varint,52,opt,name=version,proto3" json:"version,omitempty"`
+	Version int64 `protobuf:"varint,52,opt,name=version,proto3" json:"version,omitempty"`
+	// Custom profile data associated with this chat.
+	//
+	// +kubebuilder:validation:Nullable
+	Profile       *structpb.Struct `protobuf:"bytes,53,opt,name=profile,proto3" json:"profile,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -623,11 +627,18 @@ func (x *UserChat) GetVersion() int64 {
 	return 0
 }
 
+func (x *UserChat) GetProfile() *structpb.Struct {
+	if x != nil {
+		return x.Profile
+	}
+	return nil
+}
+
 var File_coreapi_model_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd3\x12\n" +
+	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x86\x13\n" +
 	"\bUserChat\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -684,7 +695,8 @@ const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\n" +
 	"snoozed_at\x182 \x01(\v2\x1a.google.protobuf.TimestampR\tsnoozedAt\x127\n" +
 	"\texpire_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\bexpireAt\x12\x18\n" +
-	"\aversion\x184 \x01(\x03R\aversion*\xda\x01\n" +
+	"\aversion\x184 \x01(\x03R\aversion\x121\n" +
+	"\aprofile\x185 \x01(\v2\x17.google.protobuf.StructR\aprofile*\xda\x01\n" +
 	"\rUserChatState\x12\x1f\n" +
 	"\x1bUSER_CHAT_STATE_UNSPECIFIED\x10\x00\x12\x1a\n" +
 	"\x16USER_CHAT_STATE_OPENED\x10\x01\x12\x1a\n" +
@@ -733,11 +745,12 @@ var file_coreapi_model_user_chat_proto_depIdxs = []int32{
 	3,  // 14: coreapi.model.UserChat.desk_updated_at:type_name -> google.protobuf.Timestamp
 	3,  // 15: coreapi.model.UserChat.snoozed_at:type_name -> google.protobuf.Timestamp
 	3,  // 16: coreapi.model.UserChat.expire_at:type_name -> google.protobuf.Timestamp
-	17, // [17:17] is the sub-list for method output_type
-	17, // [17:17] is the sub-list for method input_type
-	17, // [17:17] is the sub-list for extension type_name
-	17, // [17:17] is the sub-list for extension extendee
-	0,  // [0:17] is the sub-list for field type_name
+	2,  // 17: coreapi.model.UserChat.profile:type_name -> google.protobuf.Struct
+	18, // [18:18] is the sub-list for method output_type
+	18, // [18:18] is the sub-list for method input_type
+	18, // [18:18] is the sub-list for extension type_name
+	18, // [18:18] is the sub-list for extension extendee
+	0,  // [0:18] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_user_chat_proto_init() }

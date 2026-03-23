@@ -49,6 +49,9 @@ private static final long serialVersionUID = 0L;
     appCommerceId_ = "";
     appCommerceType_ = "";
     defaultEmailDomainId_ = "";
+    coverImageColor_ = "";
+    coverImageUrl_ = "";
+    pluginIconColor_ = "";
   }
 
   @java.lang.Override
@@ -436,6 +439,70 @@ private static final long serialVersionUID = 0L;
           case 504: {
 
             usingFollowUp_ = input.readBool();
+            break;
+          }
+          case 517: {
+
+            brightness_ = input.readFloat();
+            break;
+          }
+          case 520: {
+
+            coverImageBright_ = input.readBool();
+            break;
+          }
+          case 530: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            coverImageColor_ = s;
+            break;
+          }
+          case 538: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            coverImageUrl_ = s;
+            break;
+          }
+          case 544: {
+
+            disableNewChatButton_ = input.readBool();
+            break;
+          }
+          case 554: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (nextAwayTime_ != null) {
+              subBuilder = nextAwayTime_.toBuilder();
+            }
+            nextAwayTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(nextAwayTime_);
+              nextAwayTime_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 562: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (nextWorkingTime_ != null) {
+              subBuilder = nextWorkingTime_.toBuilder();
+            }
+            nextWorkingTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(nextWorkingTime_);
+              nextWorkingTime_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 570: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            pluginIconColor_ = s;
+            break;
+          }
+          case 576: {
+
+            showOperatorProfile_ = input.readBool();
             break;
           }
           default: {
@@ -2558,6 +2625,296 @@ private static final long serialVersionUID = 0L;
     return usingFollowUp_;
   }
 
+  public static final int BRIGHTNESS_FIELD_NUMBER = 64;
+  private float brightness_;
+  /**
+   * <pre>
+   * Theme color brightness value normalized to 0.0-1.0 range.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>float brightness = 64 [json_name = "brightness"];</code>
+   * @return The brightness.
+   */
+  @java.lang.Override
+  public float getBrightness() {
+    return brightness_;
+  }
+
+  public static final int COVER_IMAGE_BRIGHT_FIELD_NUMBER = 65;
+  private boolean coverImageBright_;
+  /**
+   * <pre>
+   * Whether the cover image has a bright tone.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool cover_image_bright = 65 [json_name = "coverImageBright"];</code>
+   * @return The coverImageBright.
+   */
+  @java.lang.Override
+  public boolean getCoverImageBright() {
+    return coverImageBright_;
+  }
+
+  public static final int COVER_IMAGE_COLOR_FIELD_NUMBER = 66;
+  private volatile java.lang.Object coverImageColor_;
+  /**
+   * <pre>
+   * Cover image dominant color in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
+   * @return The coverImageColor.
+   */
+  @java.lang.Override
+  public java.lang.String getCoverImageColor() {
+    java.lang.Object ref = coverImageColor_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      coverImageColor_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Cover image dominant color in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
+   * @return The bytes for coverImageColor.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCoverImageColorBytes() {
+    java.lang.Object ref = coverImageColor_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      coverImageColor_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int COVER_IMAGE_URL_FIELD_NUMBER = 67;
+  private volatile java.lang.Object coverImageUrl_;
+  /**
+   * <pre>
+   * Cover image URL for the channel profile.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
+   * @return The coverImageUrl.
+   */
+  @java.lang.Override
+  public java.lang.String getCoverImageUrl() {
+    java.lang.Object ref = coverImageUrl_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      coverImageUrl_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Cover image URL for the channel profile.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
+   * @return The bytes for coverImageUrl.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCoverImageUrlBytes() {
+    java.lang.Object ref = coverImageUrl_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      coverImageUrl_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DISABLE_NEW_CHAT_BUTTON_FIELD_NUMBER = 68;
+  private boolean disableNewChatButton_;
+  /**
+   * <pre>
+   * Whether to hide the new chat button from end users.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool disable_new_chat_button = 68 [json_name = "disableNewChatButton"];</code>
+   * @return The disableNewChatButton.
+   */
+  @java.lang.Override
+  public boolean getDisableNewChatButton() {
+    return disableNewChatButton_;
+  }
+
+  public static final int NEXT_AWAY_TIME_FIELD_NUMBER = 69;
+  private com.google.protobuf.Timestamp nextAwayTime_;
+  /**
+   * <pre>
+   * Timestamp when the next away period starts.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+   * @return Whether the nextAwayTime field is set.
+   */
+  @java.lang.Override
+  public boolean hasNextAwayTime() {
+    return nextAwayTime_ != null;
+  }
+  /**
+   * <pre>
+   * Timestamp when the next away period starts.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+   * @return The nextAwayTime.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getNextAwayTime() {
+    return nextAwayTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : nextAwayTime_;
+  }
+  /**
+   * <pre>
+   * Timestamp when the next away period starts.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getNextAwayTimeOrBuilder() {
+    return getNextAwayTime();
+  }
+
+  public static final int NEXT_WORKING_TIME_FIELD_NUMBER = 70;
+  private com.google.protobuf.Timestamp nextWorkingTime_;
+  /**
+   * <pre>
+   * Timestamp when the next operating period starts.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+   * @return Whether the nextWorkingTime field is set.
+   */
+  @java.lang.Override
+  public boolean hasNextWorkingTime() {
+    return nextWorkingTime_ != null;
+  }
+  /**
+   * <pre>
+   * Timestamp when the next operating period starts.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+   * @return The nextWorkingTime.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getNextWorkingTime() {
+    return nextWorkingTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : nextWorkingTime_;
+  }
+  /**
+   * <pre>
+   * Timestamp when the next operating period starts.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getNextWorkingTimeOrBuilder() {
+    return getNextWorkingTime();
+  }
+
+  public static final int PLUGIN_ICON_COLOR_FIELD_NUMBER = 71;
+  private volatile java.lang.Object pluginIconColor_;
+  /**
+   * <pre>
+   * Icon color for the channel plugin widget in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
+   * @return The pluginIconColor.
+   */
+  @java.lang.Override
+  public java.lang.String getPluginIconColor() {
+    java.lang.Object ref = pluginIconColor_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      pluginIconColor_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Icon color for the channel plugin widget in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
+   * @return The bytes for pluginIconColor.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPluginIconColorBytes() {
+    java.lang.Object ref = pluginIconColor_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      pluginIconColor_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int SHOW_OPERATOR_PROFILE_FIELD_NUMBER = 72;
+  private boolean showOperatorProfile_;
+  /**
+   * <pre>
+   * Whether to display individual operator profiles to end users.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool show_operator_profile = 72 [json_name = "showOperatorProfile"];</code>
+   * @return The showOperatorProfile.
+   */
+  @java.lang.Override
+  public boolean getShowOperatorProfile() {
+    return showOperatorProfile_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -2733,6 +3090,33 @@ private static final long serialVersionUID = 0L;
     }
     if (usingFollowUp_ != false) {
       output.writeBool(63, usingFollowUp_);
+    }
+    if (java.lang.Float.floatToRawIntBits(brightness_) != 0) {
+      output.writeFloat(64, brightness_);
+    }
+    if (coverImageBright_ != false) {
+      output.writeBool(65, coverImageBright_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coverImageColor_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 66, coverImageColor_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coverImageUrl_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 67, coverImageUrl_);
+    }
+    if (disableNewChatButton_ != false) {
+      output.writeBool(68, disableNewChatButton_);
+    }
+    if (nextAwayTime_ != null) {
+      output.writeMessage(69, getNextAwayTime());
+    }
+    if (nextWorkingTime_ != null) {
+      output.writeMessage(70, getNextWorkingTime());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pluginIconColor_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 71, pluginIconColor_);
+    }
+    if (showOperatorProfile_ != false) {
+      output.writeBool(72, showOperatorProfile_);
     }
     unknownFields.writeTo(output);
   }
@@ -2938,6 +3322,39 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(63, usingFollowUp_);
     }
+    if (java.lang.Float.floatToRawIntBits(brightness_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeFloatSize(64, brightness_);
+    }
+    if (coverImageBright_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(65, coverImageBright_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coverImageColor_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(66, coverImageColor_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coverImageUrl_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(67, coverImageUrl_);
+    }
+    if (disableNewChatButton_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(68, disableNewChatButton_);
+    }
+    if (nextAwayTime_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(69, getNextAwayTime());
+    }
+    if (nextWorkingTime_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(70, getNextWorkingTime());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pluginIconColor_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(71, pluginIconColor_);
+    }
+    if (showOperatorProfile_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(72, showOperatorProfile_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -3072,6 +3489,31 @@ private static final long serialVersionUID = 0L;
         != other.getBright()) return false;
     if (getUsingFollowUp()
         != other.getUsingFollowUp()) return false;
+    if (java.lang.Float.floatToIntBits(getBrightness())
+        != java.lang.Float.floatToIntBits(
+            other.getBrightness())) return false;
+    if (getCoverImageBright()
+        != other.getCoverImageBright()) return false;
+    if (!getCoverImageColor()
+        .equals(other.getCoverImageColor())) return false;
+    if (!getCoverImageUrl()
+        .equals(other.getCoverImageUrl())) return false;
+    if (getDisableNewChatButton()
+        != other.getDisableNewChatButton()) return false;
+    if (hasNextAwayTime() != other.hasNextAwayTime()) return false;
+    if (hasNextAwayTime()) {
+      if (!getNextAwayTime()
+          .equals(other.getNextAwayTime())) return false;
+    }
+    if (hasNextWorkingTime() != other.hasNextWorkingTime()) return false;
+    if (hasNextWorkingTime()) {
+      if (!getNextWorkingTime()
+          .equals(other.getNextWorkingTime())) return false;
+    }
+    if (!getPluginIconColor()
+        .equals(other.getPluginIconColor())) return false;
+    if (getShowOperatorProfile()
+        != other.getShowOperatorProfile()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -3219,6 +3661,32 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + USING_FOLLOW_UP_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getUsingFollowUp());
+    hash = (37 * hash) + BRIGHTNESS_FIELD_NUMBER;
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getBrightness());
+    hash = (37 * hash) + COVER_IMAGE_BRIGHT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getCoverImageBright());
+    hash = (37 * hash) + COVER_IMAGE_COLOR_FIELD_NUMBER;
+    hash = (53 * hash) + getCoverImageColor().hashCode();
+    hash = (37 * hash) + COVER_IMAGE_URL_FIELD_NUMBER;
+    hash = (53 * hash) + getCoverImageUrl().hashCode();
+    hash = (37 * hash) + DISABLE_NEW_CHAT_BUTTON_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getDisableNewChatButton());
+    if (hasNextAwayTime()) {
+      hash = (37 * hash) + NEXT_AWAY_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getNextAwayTime().hashCode();
+    }
+    if (hasNextWorkingTime()) {
+      hash = (37 * hash) + NEXT_WORKING_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getNextWorkingTime().hashCode();
+    }
+    hash = (37 * hash) + PLUGIN_ICON_COLOR_FIELD_NUMBER;
+    hash = (53 * hash) + getPluginIconColor().hashCode();
+    hash = (37 * hash) + SHOW_OPERATOR_PROFILE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getShowOperatorProfile());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -3513,6 +3981,32 @@ private static final long serialVersionUID = 0L;
 
       usingFollowUp_ = false;
 
+      brightness_ = 0F;
+
+      coverImageBright_ = false;
+
+      coverImageColor_ = "";
+
+      coverImageUrl_ = "";
+
+      disableNewChatButton_ = false;
+
+      if (nextAwayTimeBuilder_ == null) {
+        nextAwayTime_ = null;
+      } else {
+        nextAwayTime_ = null;
+        nextAwayTimeBuilder_ = null;
+      }
+      if (nextWorkingTimeBuilder_ == null) {
+        nextWorkingTime_ = null;
+      } else {
+        nextWorkingTime_ = null;
+        nextWorkingTimeBuilder_ = null;
+      }
+      pluginIconColor_ = "";
+
+      showOperatorProfile_ = false;
+
       return this;
     }
 
@@ -3626,6 +4120,23 @@ private static final long serialVersionUID = 0L;
       result.blocked_ = blocked_;
       result.bright_ = bright_;
       result.usingFollowUp_ = usingFollowUp_;
+      result.brightness_ = brightness_;
+      result.coverImageBright_ = coverImageBright_;
+      result.coverImageColor_ = coverImageColor_;
+      result.coverImageUrl_ = coverImageUrl_;
+      result.disableNewChatButton_ = disableNewChatButton_;
+      if (nextAwayTimeBuilder_ == null) {
+        result.nextAwayTime_ = nextAwayTime_;
+      } else {
+        result.nextAwayTime_ = nextAwayTimeBuilder_.build();
+      }
+      if (nextWorkingTimeBuilder_ == null) {
+        result.nextWorkingTime_ = nextWorkingTime_;
+      } else {
+        result.nextWorkingTime_ = nextWorkingTimeBuilder_.build();
+      }
+      result.pluginIconColor_ = pluginIconColor_;
+      result.showOperatorProfile_ = showOperatorProfile_;
       onBuilt();
       return result;
     }
@@ -3875,6 +4386,36 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getUsingFollowUp() != false) {
         setUsingFollowUp(other.getUsingFollowUp());
+      }
+      if (other.getBrightness() != 0F) {
+        setBrightness(other.getBrightness());
+      }
+      if (other.getCoverImageBright() != false) {
+        setCoverImageBright(other.getCoverImageBright());
+      }
+      if (!other.getCoverImageColor().isEmpty()) {
+        coverImageColor_ = other.coverImageColor_;
+        onChanged();
+      }
+      if (!other.getCoverImageUrl().isEmpty()) {
+        coverImageUrl_ = other.coverImageUrl_;
+        onChanged();
+      }
+      if (other.getDisableNewChatButton() != false) {
+        setDisableNewChatButton(other.getDisableNewChatButton());
+      }
+      if (other.hasNextAwayTime()) {
+        mergeNextAwayTime(other.getNextAwayTime());
+      }
+      if (other.hasNextWorkingTime()) {
+        mergeNextWorkingTime(other.getNextWorkingTime());
+      }
+      if (!other.getPluginIconColor().isEmpty()) {
+        pluginIconColor_ = other.pluginIconColor_;
+        onChanged();
+      }
+      if (other.getShowOperatorProfile() != false) {
+        setShowOperatorProfile(other.getShowOperatorProfile());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -9081,6 +9622,821 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+
+    private float brightness_ ;
+    /**
+     * <pre>
+     * Theme color brightness value normalized to 0.0-1.0 range.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>float brightness = 64 [json_name = "brightness"];</code>
+     * @return The brightness.
+     */
+    @java.lang.Override
+    public float getBrightness() {
+      return brightness_;
+    }
+    /**
+     * <pre>
+     * Theme color brightness value normalized to 0.0-1.0 range.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>float brightness = 64 [json_name = "brightness"];</code>
+     * @param value The brightness to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBrightness(float value) {
+      
+      brightness_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Theme color brightness value normalized to 0.0-1.0 range.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>float brightness = 64 [json_name = "brightness"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBrightness() {
+      
+      brightness_ = 0F;
+      onChanged();
+      return this;
+    }
+
+    private boolean coverImageBright_ ;
+    /**
+     * <pre>
+     * Whether the cover image has a bright tone.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool cover_image_bright = 65 [json_name = "coverImageBright"];</code>
+     * @return The coverImageBright.
+     */
+    @java.lang.Override
+    public boolean getCoverImageBright() {
+      return coverImageBright_;
+    }
+    /**
+     * <pre>
+     * Whether the cover image has a bright tone.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool cover_image_bright = 65 [json_name = "coverImageBright"];</code>
+     * @param value The coverImageBright to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCoverImageBright(boolean value) {
+      
+      coverImageBright_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the cover image has a bright tone.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool cover_image_bright = 65 [json_name = "coverImageBright"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCoverImageBright() {
+      
+      coverImageBright_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object coverImageColor_ = "";
+    /**
+     * <pre>
+     * Cover image dominant color in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
+     * @return The coverImageColor.
+     */
+    public java.lang.String getCoverImageColor() {
+      java.lang.Object ref = coverImageColor_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        coverImageColor_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Cover image dominant color in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
+     * @return The bytes for coverImageColor.
+     */
+    public com.google.protobuf.ByteString
+        getCoverImageColorBytes() {
+      java.lang.Object ref = coverImageColor_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        coverImageColor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Cover image dominant color in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
+     * @param value The coverImageColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCoverImageColor(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      coverImageColor_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Cover image dominant color in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCoverImageColor() {
+      
+      coverImageColor_ = getDefaultInstance().getCoverImageColor();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Cover image dominant color in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
+     * @param value The bytes for coverImageColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCoverImageColorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      coverImageColor_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object coverImageUrl_ = "";
+    /**
+     * <pre>
+     * Cover image URL for the channel profile.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
+     * @return The coverImageUrl.
+     */
+    public java.lang.String getCoverImageUrl() {
+      java.lang.Object ref = coverImageUrl_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        coverImageUrl_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Cover image URL for the channel profile.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
+     * @return The bytes for coverImageUrl.
+     */
+    public com.google.protobuf.ByteString
+        getCoverImageUrlBytes() {
+      java.lang.Object ref = coverImageUrl_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        coverImageUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Cover image URL for the channel profile.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
+     * @param value The coverImageUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCoverImageUrl(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      coverImageUrl_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Cover image URL for the channel profile.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCoverImageUrl() {
+      
+      coverImageUrl_ = getDefaultInstance().getCoverImageUrl();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Cover image URL for the channel profile.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
+     * @param value The bytes for coverImageUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCoverImageUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      coverImageUrl_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean disableNewChatButton_ ;
+    /**
+     * <pre>
+     * Whether to hide the new chat button from end users.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool disable_new_chat_button = 68 [json_name = "disableNewChatButton"];</code>
+     * @return The disableNewChatButton.
+     */
+    @java.lang.Override
+    public boolean getDisableNewChatButton() {
+      return disableNewChatButton_;
+    }
+    /**
+     * <pre>
+     * Whether to hide the new chat button from end users.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool disable_new_chat_button = 68 [json_name = "disableNewChatButton"];</code>
+     * @param value The disableNewChatButton to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDisableNewChatButton(boolean value) {
+      
+      disableNewChatButton_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether to hide the new chat button from end users.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool disable_new_chat_button = 68 [json_name = "disableNewChatButton"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDisableNewChatButton() {
+      
+      disableNewChatButton_ = false;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Timestamp nextAwayTime_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> nextAwayTimeBuilder_;
+    /**
+     * <pre>
+     * Timestamp when the next away period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+     * @return Whether the nextAwayTime field is set.
+     */
+    public boolean hasNextAwayTime() {
+      return nextAwayTimeBuilder_ != null || nextAwayTime_ != null;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+     * @return The nextAwayTime.
+     */
+    public com.google.protobuf.Timestamp getNextAwayTime() {
+      if (nextAwayTimeBuilder_ == null) {
+        return nextAwayTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : nextAwayTime_;
+      } else {
+        return nextAwayTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+     */
+    public Builder setNextAwayTime(com.google.protobuf.Timestamp value) {
+      if (nextAwayTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        nextAwayTime_ = value;
+        onChanged();
+      } else {
+        nextAwayTimeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+     */
+    public Builder setNextAwayTime(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (nextAwayTimeBuilder_ == null) {
+        nextAwayTime_ = builderForValue.build();
+        onChanged();
+      } else {
+        nextAwayTimeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+     */
+    public Builder mergeNextAwayTime(com.google.protobuf.Timestamp value) {
+      if (nextAwayTimeBuilder_ == null) {
+        if (nextAwayTime_ != null) {
+          nextAwayTime_ =
+            com.google.protobuf.Timestamp.newBuilder(nextAwayTime_).mergeFrom(value).buildPartial();
+        } else {
+          nextAwayTime_ = value;
+        }
+        onChanged();
+      } else {
+        nextAwayTimeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+     */
+    public Builder clearNextAwayTime() {
+      if (nextAwayTimeBuilder_ == null) {
+        nextAwayTime_ = null;
+        onChanged();
+      } else {
+        nextAwayTime_ = null;
+        nextAwayTimeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getNextAwayTimeBuilder() {
+      
+      onChanged();
+      return getNextAwayTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getNextAwayTimeOrBuilder() {
+      if (nextAwayTimeBuilder_ != null) {
+        return nextAwayTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return nextAwayTime_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : nextAwayTime_;
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getNextAwayTimeFieldBuilder() {
+      if (nextAwayTimeBuilder_ == null) {
+        nextAwayTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getNextAwayTime(),
+                getParentForChildren(),
+                isClean());
+        nextAwayTime_ = null;
+      }
+      return nextAwayTimeBuilder_;
+    }
+
+    private com.google.protobuf.Timestamp nextWorkingTime_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> nextWorkingTimeBuilder_;
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+     * @return Whether the nextWorkingTime field is set.
+     */
+    public boolean hasNextWorkingTime() {
+      return nextWorkingTimeBuilder_ != null || nextWorkingTime_ != null;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+     * @return The nextWorkingTime.
+     */
+    public com.google.protobuf.Timestamp getNextWorkingTime() {
+      if (nextWorkingTimeBuilder_ == null) {
+        return nextWorkingTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : nextWorkingTime_;
+      } else {
+        return nextWorkingTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+     */
+    public Builder setNextWorkingTime(com.google.protobuf.Timestamp value) {
+      if (nextWorkingTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        nextWorkingTime_ = value;
+        onChanged();
+      } else {
+        nextWorkingTimeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+     */
+    public Builder setNextWorkingTime(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (nextWorkingTimeBuilder_ == null) {
+        nextWorkingTime_ = builderForValue.build();
+        onChanged();
+      } else {
+        nextWorkingTimeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+     */
+    public Builder mergeNextWorkingTime(com.google.protobuf.Timestamp value) {
+      if (nextWorkingTimeBuilder_ == null) {
+        if (nextWorkingTime_ != null) {
+          nextWorkingTime_ =
+            com.google.protobuf.Timestamp.newBuilder(nextWorkingTime_).mergeFrom(value).buildPartial();
+        } else {
+          nextWorkingTime_ = value;
+        }
+        onChanged();
+      } else {
+        nextWorkingTimeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+     */
+    public Builder clearNextWorkingTime() {
+      if (nextWorkingTimeBuilder_ == null) {
+        nextWorkingTime_ = null;
+        onChanged();
+      } else {
+        nextWorkingTime_ = null;
+        nextWorkingTimeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getNextWorkingTimeBuilder() {
+      
+      onChanged();
+      return getNextWorkingTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getNextWorkingTimeOrBuilder() {
+      if (nextWorkingTimeBuilder_ != null) {
+        return nextWorkingTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return nextWorkingTime_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : nextWorkingTime_;
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getNextWorkingTimeFieldBuilder() {
+      if (nextWorkingTimeBuilder_ == null) {
+        nextWorkingTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getNextWorkingTime(),
+                getParentForChildren(),
+                isClean());
+        nextWorkingTime_ = null;
+      }
+      return nextWorkingTimeBuilder_;
+    }
+
+    private java.lang.Object pluginIconColor_ = "";
+    /**
+     * <pre>
+     * Icon color for the channel plugin widget in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
+     * @return The pluginIconColor.
+     */
+    public java.lang.String getPluginIconColor() {
+      java.lang.Object ref = pluginIconColor_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        pluginIconColor_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Icon color for the channel plugin widget in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
+     * @return The bytes for pluginIconColor.
+     */
+    public com.google.protobuf.ByteString
+        getPluginIconColorBytes() {
+      java.lang.Object ref = pluginIconColor_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pluginIconColor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Icon color for the channel plugin widget in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
+     * @param value The pluginIconColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPluginIconColor(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      pluginIconColor_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Icon color for the channel plugin widget in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPluginIconColor() {
+      
+      pluginIconColor_ = getDefaultInstance().getPluginIconColor();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Icon color for the channel plugin widget in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
+     * @param value The bytes for pluginIconColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPluginIconColorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      pluginIconColor_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean showOperatorProfile_ ;
+    /**
+     * <pre>
+     * Whether to display individual operator profiles to end users.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool show_operator_profile = 72 [json_name = "showOperatorProfile"];</code>
+     * @return The showOperatorProfile.
+     */
+    @java.lang.Override
+    public boolean getShowOperatorProfile() {
+      return showOperatorProfile_;
+    }
+    /**
+     * <pre>
+     * Whether to display individual operator profiles to end users.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool show_operator_profile = 72 [json_name = "showOperatorProfile"];</code>
+     * @param value The showOperatorProfile to set.
+     * @return This builder for chaining.
+     */
+    public Builder setShowOperatorProfile(boolean value) {
+      
+      showOperatorProfile_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether to display individual operator profiles to end users.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool show_operator_profile = 72 [json_name = "showOperatorProfile"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearShowOperatorProfile() {
+      
+      showOperatorProfile_ = false;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -10268,6 +11624,213 @@ private static final long serialVersionUID = 0L;
     		return clearUsingFollowUp();
     	else
     		return setUsingFollowUp(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The brightness to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearBrightness(java.lang.Float value) {
+    	if (value == null)
+    		return clearBrightness();
+    	else
+    		return setBrightness(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearBrightness(T value, java.util.function.Function<T, java.lang.Float> mapFunc) {
+    	if (value == null)
+    		return clearBrightness();
+    	else
+    		return setBrightness(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The cover_image_bright to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearCoverImageBright(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearCoverImageBright();
+    	else
+    		return setCoverImageBright(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearCoverImageBright(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearCoverImageBright();
+    	else
+    		return setCoverImageBright(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The cover_image_color to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearCoverImageColor(java.lang.String value) {
+    	if (value == null)
+    		return clearCoverImageColor();
+    	else
+    		return setCoverImageColor(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearCoverImageColor(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearCoverImageColor();
+    	else
+    		return setCoverImageColor(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The cover_image_url to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearCoverImageUrl(java.lang.String value) {
+    	if (value == null)
+    		return clearCoverImageUrl();
+    	else
+    		return setCoverImageUrl(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearCoverImageUrl(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearCoverImageUrl();
+    	else
+    		return setCoverImageUrl(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The disable_new_chat_button to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearDisableNewChatButton(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearDisableNewChatButton();
+    	else
+    		return setDisableNewChatButton(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearDisableNewChatButton(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearDisableNewChatButton();
+    	else
+    		return setDisableNewChatButton(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The next_away_time to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearNextAwayTime(com.google.protobuf.Timestamp value) {
+    	if (value == null)
+    		return clearNextAwayTime();
+    	else
+    		return setNextAwayTime(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearNextAwayTime(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    	if (value == null)
+    		return clearNextAwayTime();
+    	else
+    		return setNextAwayTime(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The next_working_time to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearNextWorkingTime(com.google.protobuf.Timestamp value) {
+    	if (value == null)
+    		return clearNextWorkingTime();
+    	else
+    		return setNextWorkingTime(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearNextWorkingTime(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    	if (value == null)
+    		return clearNextWorkingTime();
+    	else
+    		return setNextWorkingTime(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The plugin_icon_color to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearPluginIconColor(java.lang.String value) {
+    	if (value == null)
+    		return clearPluginIconColor();
+    	else
+    		return setPluginIconColor(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearPluginIconColor(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearPluginIconColor();
+    	else
+    		return setPluginIconColor(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The show_operator_profile to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearShowOperatorProfile(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearShowOperatorProfile();
+    	else
+    		return setShowOperatorProfile(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearShowOperatorProfile(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearShowOperatorProfile();
+    	else
+    		return setShowOperatorProfile(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Channel)

@@ -5,40 +5,48 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Horizontal position of the plugin widget.
+ * Type of the plugin launcher button.
  * </pre>
  *
- * Protobuf enum {@code coreapi.model.PluginPosition}
+ * Protobuf enum {@code coreapi.model.PluginButtonType}
  */
-public enum PluginPosition
+public enum PluginButtonType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>PLUGIN_POSITION_UNSPECIFIED = 0;</code>
+   * <code>PLUGIN_BUTTON_TYPE_UNSPECIFIED = 0;</code>
    */
-  PLUGIN_POSITION_UNSPECIFIED(0),
+  PLUGIN_BUTTON_TYPE_UNSPECIFIED(0),
   /**
-   * <code>PLUGIN_POSITION_LEFT = 1;</code>
+   * <code>PLUGIN_BUTTON_TYPE_LEGACY = 1;</code>
    */
-  PLUGIN_POSITION_LEFT(1),
+  PLUGIN_BUTTON_TYPE_LEGACY(1),
   /**
-   * <code>PLUGIN_POSITION_RIGHT = 2;</code>
+   * <code>PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE = 2;</code>
    */
-  PLUGIN_POSITION_RIGHT(2),
+  PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE(2),
+  /**
+   * <code>PLUGIN_BUTTON_TYPE_ICON_BUTTON = 3;</code>
+   */
+  PLUGIN_BUTTON_TYPE_ICON_BUTTON(3),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>PLUGIN_POSITION_UNSPECIFIED = 0;</code>
+   * <code>PLUGIN_BUTTON_TYPE_UNSPECIFIED = 0;</code>
    */
-  public static final int PLUGIN_POSITION_UNSPECIFIED_VALUE = 0;
+  public static final int PLUGIN_BUTTON_TYPE_UNSPECIFIED_VALUE = 0;
   /**
-   * <code>PLUGIN_POSITION_LEFT = 1;</code>
+   * <code>PLUGIN_BUTTON_TYPE_LEGACY = 1;</code>
    */
-  public static final int PLUGIN_POSITION_LEFT_VALUE = 1;
+  public static final int PLUGIN_BUTTON_TYPE_LEGACY_VALUE = 1;
   /**
-   * <code>PLUGIN_POSITION_RIGHT = 2;</code>
+   * <code>PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE = 2;</code>
    */
-  public static final int PLUGIN_POSITION_RIGHT_VALUE = 2;
+  public static final int PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE_VALUE = 2;
+  /**
+   * <code>PLUGIN_BUTTON_TYPE_ICON_BUTTON = 3;</code>
+   */
+  public static final int PLUGIN_BUTTON_TYPE_ICON_BUTTON_VALUE = 3;
 
 
   public final int getNumber() {
@@ -55,7 +63,7 @@ public enum PluginPosition
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static PluginPosition valueOf(int value) {
+  public static PluginButtonType valueOf(int value) {
     return forNumber(value);
   }
 
@@ -63,24 +71,25 @@ public enum PluginPosition
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static PluginPosition forNumber(int value) {
+  public static PluginButtonType forNumber(int value) {
     switch (value) {
-      case 0: return PLUGIN_POSITION_UNSPECIFIED;
-      case 1: return PLUGIN_POSITION_LEFT;
-      case 2: return PLUGIN_POSITION_RIGHT;
+      case 0: return PLUGIN_BUTTON_TYPE_UNSPECIFIED;
+      case 1: return PLUGIN_BUTTON_TYPE_LEGACY;
+      case 2: return PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE;
+      case 3: return PLUGIN_BUTTON_TYPE_ICON_BUTTON;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<PluginPosition>
+  public static com.google.protobuf.Internal.EnumLiteMap<PluginButtonType>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      PluginPosition> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<PluginPosition>() {
-          public PluginPosition findValueByNumber(int number) {
-            return PluginPosition.forNumber(number);
+      PluginButtonType> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<PluginButtonType>() {
+          public PluginButtonType findValueByNumber(int number) {
+            return PluginButtonType.forNumber(number);
           }
         };
 
@@ -98,12 +107,12 @@ public enum PluginPosition
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return io.channel.api.proto.pub.coreapi.model.PluginOuterClass.getDescriptor().getEnumTypes().get(2);
+    return io.channel.api.proto.pub.coreapi.model.PluginOuterClass.getDescriptor().getEnumTypes().get(3);
   }
 
-  private static final PluginPosition[] VALUES = values();
+  private static final PluginButtonType[] VALUES = values();
 
-  public static PluginPosition valueOf(
+  public static PluginButtonType valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -117,7 +126,7 @@ public enum PluginPosition
 
   private final int value;
 
-  private PluginPosition(int value) {
+  private PluginButtonType(int value) {
     this.value = value;
   }
 
@@ -127,11 +136,12 @@ public enum PluginPosition
    * @param value The string value corresponding to the enum entry.
    * @return The enum entry corresponding to the string value.
    */
-  public static PluginPosition forString(String value) {
+  public static PluginButtonType forString(String value) {
   	switch (value) {
-      case "left": return PLUGIN_POSITION_LEFT;
-      case "right": return PLUGIN_POSITION_RIGHT;
-  		default: return PLUGIN_POSITION_UNSPECIFIED;
+      case "customImage": return PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE;
+      case "iconButton": return PLUGIN_BUTTON_TYPE_ICON_BUTTON;
+      case "legacy": return PLUGIN_BUTTON_TYPE_LEGACY;
+  		default: return PLUGIN_BUTTON_TYPE_UNSPECIFIED;
   	}
   }
   				
@@ -140,11 +150,12 @@ public enum PluginPosition
    */
   public final String getString() {
   	switch (this) {
-      case PLUGIN_POSITION_LEFT: return "left";
-      case PLUGIN_POSITION_RIGHT: return "right";
+      case PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE: return "customImage";
+      case PLUGIN_BUTTON_TYPE_ICON_BUTTON: return "iconButton";
+      case PLUGIN_BUTTON_TYPE_LEGACY: return "legacy";
   		default: return null;
   	}
   }
   				
-  // @@protoc_insertion_point(enum_scope:coreapi.model.PluginPosition)
+  // @@protoc_insertion_point(enum_scope:coreapi.model.PluginButtonType)
 }

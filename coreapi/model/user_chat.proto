@@ -270,4 +270,9 @@ message UserChat {
   //
   // +kubebuilder:validation:Nullable
   int64 version = 52;
+
+  // Custom profile data associated with this chat.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct profile = 53;
 }

@@ -5,40 +5,48 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Horizontal position of the plugin widget.
+ * Visual theme of the plugin widget.
  * </pre>
  *
- * Protobuf enum {@code coreapi.model.PluginPosition}
+ * Protobuf enum {@code coreapi.model.PluginAppearance}
  */
-public enum PluginPosition
+public enum PluginAppearance
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>PLUGIN_POSITION_UNSPECIFIED = 0;</code>
+   * <code>PLUGIN_APPEARANCE_UNSPECIFIED = 0;</code>
    */
-  PLUGIN_POSITION_UNSPECIFIED(0),
+  PLUGIN_APPEARANCE_UNSPECIFIED(0),
   /**
-   * <code>PLUGIN_POSITION_LEFT = 1;</code>
+   * <code>PLUGIN_APPEARANCE_LIGHT = 1;</code>
    */
-  PLUGIN_POSITION_LEFT(1),
+  PLUGIN_APPEARANCE_LIGHT(1),
   /**
-   * <code>PLUGIN_POSITION_RIGHT = 2;</code>
+   * <code>PLUGIN_APPEARANCE_DARK = 2;</code>
    */
-  PLUGIN_POSITION_RIGHT(2),
+  PLUGIN_APPEARANCE_DARK(2),
+  /**
+   * <code>PLUGIN_APPEARANCE_SYSTEM = 3;</code>
+   */
+  PLUGIN_APPEARANCE_SYSTEM(3),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>PLUGIN_POSITION_UNSPECIFIED = 0;</code>
+   * <code>PLUGIN_APPEARANCE_UNSPECIFIED = 0;</code>
    */
-  public static final int PLUGIN_POSITION_UNSPECIFIED_VALUE = 0;
+  public static final int PLUGIN_APPEARANCE_UNSPECIFIED_VALUE = 0;
   /**
-   * <code>PLUGIN_POSITION_LEFT = 1;</code>
+   * <code>PLUGIN_APPEARANCE_LIGHT = 1;</code>
    */
-  public static final int PLUGIN_POSITION_LEFT_VALUE = 1;
+  public static final int PLUGIN_APPEARANCE_LIGHT_VALUE = 1;
   /**
-   * <code>PLUGIN_POSITION_RIGHT = 2;</code>
+   * <code>PLUGIN_APPEARANCE_DARK = 2;</code>
    */
-  public static final int PLUGIN_POSITION_RIGHT_VALUE = 2;
+  public static final int PLUGIN_APPEARANCE_DARK_VALUE = 2;
+  /**
+   * <code>PLUGIN_APPEARANCE_SYSTEM = 3;</code>
+   */
+  public static final int PLUGIN_APPEARANCE_SYSTEM_VALUE = 3;
 
 
   public final int getNumber() {
@@ -55,7 +63,7 @@ public enum PluginPosition
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static PluginPosition valueOf(int value) {
+  public static PluginAppearance valueOf(int value) {
     return forNumber(value);
   }
 
@@ -63,24 +71,25 @@ public enum PluginPosition
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static PluginPosition forNumber(int value) {
+  public static PluginAppearance forNumber(int value) {
     switch (value) {
-      case 0: return PLUGIN_POSITION_UNSPECIFIED;
-      case 1: return PLUGIN_POSITION_LEFT;
-      case 2: return PLUGIN_POSITION_RIGHT;
+      case 0: return PLUGIN_APPEARANCE_UNSPECIFIED;
+      case 1: return PLUGIN_APPEARANCE_LIGHT;
+      case 2: return PLUGIN_APPEARANCE_DARK;
+      case 3: return PLUGIN_APPEARANCE_SYSTEM;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<PluginPosition>
+  public static com.google.protobuf.Internal.EnumLiteMap<PluginAppearance>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      PluginPosition> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<PluginPosition>() {
-          public PluginPosition findValueByNumber(int number) {
-            return PluginPosition.forNumber(number);
+      PluginAppearance> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<PluginAppearance>() {
+          public PluginAppearance findValueByNumber(int number) {
+            return PluginAppearance.forNumber(number);
           }
         };
 
@@ -98,12 +107,12 @@ public enum PluginPosition
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return io.channel.api.proto.pub.coreapi.model.PluginOuterClass.getDescriptor().getEnumTypes().get(2);
+    return io.channel.api.proto.pub.coreapi.model.PluginOuterClass.getDescriptor().getEnumTypes().get(1);
   }
 
-  private static final PluginPosition[] VALUES = values();
+  private static final PluginAppearance[] VALUES = values();
 
-  public static PluginPosition valueOf(
+  public static PluginAppearance valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -117,7 +126,7 @@ public enum PluginPosition
 
   private final int value;
 
-  private PluginPosition(int value) {
+  private PluginAppearance(int value) {
     this.value = value;
   }
 
@@ -127,11 +136,12 @@ public enum PluginPosition
    * @param value The string value corresponding to the enum entry.
    * @return The enum entry corresponding to the string value.
    */
-  public static PluginPosition forString(String value) {
+  public static PluginAppearance forString(String value) {
   	switch (value) {
-      case "left": return PLUGIN_POSITION_LEFT;
-      case "right": return PLUGIN_POSITION_RIGHT;
-  		default: return PLUGIN_POSITION_UNSPECIFIED;
+      case "dark": return PLUGIN_APPEARANCE_DARK;
+      case "light": return PLUGIN_APPEARANCE_LIGHT;
+      case "system": return PLUGIN_APPEARANCE_SYSTEM;
+  		default: return PLUGIN_APPEARANCE_UNSPECIFIED;
   	}
   }
   				
@@ -140,11 +150,12 @@ public enum PluginPosition
    */
   public final String getString() {
   	switch (this) {
-      case PLUGIN_POSITION_LEFT: return "left";
-      case PLUGIN_POSITION_RIGHT: return "right";
+      case PLUGIN_APPEARANCE_DARK: return "dark";
+      case PLUGIN_APPEARANCE_LIGHT: return "light";
+      case PLUGIN_APPEARANCE_SYSTEM: return "system";
   		default: return null;
   	}
   }
   				
-  // @@protoc_insertion_point(enum_scope:coreapi.model.PluginPosition)
+  // @@protoc_insertion_point(enum_scope:coreapi.model.PluginAppearance)
 }

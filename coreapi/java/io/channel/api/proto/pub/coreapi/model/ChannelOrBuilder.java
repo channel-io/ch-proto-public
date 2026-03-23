@@ -1163,4 +1163,174 @@ public interface ChannelOrBuilder extends
    * @return The usingFollowUp.
    */
   boolean getUsingFollowUp();
+
+  /**
+   * <pre>
+   * Theme color brightness value normalized to 0.0-1.0 range.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>float brightness = 64 [json_name = "brightness"];</code>
+   * @return The brightness.
+   */
+  float getBrightness();
+
+  /**
+   * <pre>
+   * Whether the cover image has a bright tone.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool cover_image_bright = 65 [json_name = "coverImageBright"];</code>
+   * @return The coverImageBright.
+   */
+  boolean getCoverImageBright();
+
+  /**
+   * <pre>
+   * Cover image dominant color in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
+   * @return The coverImageColor.
+   */
+  java.lang.String getCoverImageColor();
+  /**
+   * <pre>
+   * Cover image dominant color in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
+   * @return The bytes for coverImageColor.
+   */
+  com.google.protobuf.ByteString
+      getCoverImageColorBytes();
+
+  /**
+   * <pre>
+   * Cover image URL for the channel profile.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
+   * @return The coverImageUrl.
+   */
+  java.lang.String getCoverImageUrl();
+  /**
+   * <pre>
+   * Cover image URL for the channel profile.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
+   * @return The bytes for coverImageUrl.
+   */
+  com.google.protobuf.ByteString
+      getCoverImageUrlBytes();
+
+  /**
+   * <pre>
+   * Whether to hide the new chat button from end users.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool disable_new_chat_button = 68 [json_name = "disableNewChatButton"];</code>
+   * @return The disableNewChatButton.
+   */
+  boolean getDisableNewChatButton();
+
+  /**
+   * <pre>
+   * Timestamp when the next away period starts.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+   * @return Whether the nextAwayTime field is set.
+   */
+  boolean hasNextAwayTime();
+  /**
+   * <pre>
+   * Timestamp when the next away period starts.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+   * @return The nextAwayTime.
+   */
+  com.google.protobuf.Timestamp getNextAwayTime();
+  /**
+   * <pre>
+   * Timestamp when the next away period starts.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getNextAwayTimeOrBuilder();
+
+  /**
+   * <pre>
+   * Timestamp when the next operating period starts.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+   * @return Whether the nextWorkingTime field is set.
+   */
+  boolean hasNextWorkingTime();
+  /**
+   * <pre>
+   * Timestamp when the next operating period starts.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+   * @return The nextWorkingTime.
+   */
+  com.google.protobuf.Timestamp getNextWorkingTime();
+  /**
+   * <pre>
+   * Timestamp when the next operating period starts.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getNextWorkingTimeOrBuilder();
+
+  /**
+   * <pre>
+   * Icon color for the channel plugin widget in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
+   * @return The pluginIconColor.
+   */
+  java.lang.String getPluginIconColor();
+  /**
+   * <pre>
+   * Icon color for the channel plugin widget in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
+   * @return The bytes for pluginIconColor.
+   */
+  com.google.protobuf.ByteString
+      getPluginIconColorBytes();
+
+  /**
+   * <pre>
+   * Whether to display individual operator profiles to end users.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool show_operator_profile = 72 [json_name = "showOperatorProfile"];</code>
+   * @return The showOperatorProfile.
+   */
+  boolean getShowOperatorProfile();
 }
