@@ -164,7 +164,7 @@ message OneTimeMsg {
   // +kubebuilder:validation:Nullable
   google.protobuf.Duration user_chat_expire_duration = 30;
 
-  // Deprecated delivery medium type identifier.
+  // Delivery medium type identifier.
   //
   // +kubebuilder:validation:Nullable
   string send_medium = 32;

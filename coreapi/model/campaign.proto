@@ -323,7 +323,7 @@ message Campaign {
   // +kubebuilder:validation:Nullable
   int32 click = 36;
 
-  // Deprecated delivery medium type identifier.
+  // Delivery medium type identifier.
   //
   // +kubebuilder:validation:Nullable
   string send_medium = 37;
