@@ -81,11 +81,6 @@ message UpdatePluginRequest {
     expression: "this == '' || size(this) <= 30"
   }];
 
-  // Visual theme of the widget.
-  //
-  // +kubebuilder:validation:Nullable
-  coreapi.model.PluginAppearance appearance = 4;
-
   // Whether the label button is displayed on the widget.
   //
   // +kubebuilder:validation:Nullable
@@ -107,17 +102,6 @@ message UpdatePluginRequest {
   //
   // +kubebuilder:validation:Nullable
   map<string, string> label_button_text_i18n_map = 7;
-
-  // Type of the launcher button.
-  //
-  // +kubebuilder:validation:Nullable
-  coreapi.model.PluginButtonType button_type = 8;
-
-  // Predefined icon for the launcher button.
-  // Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-  //
-  // +kubebuilder:validation:Nullable
-  coreapi.model.PluginIconButton icon_button = 9;
 
   // Horizontal margin in pixels for the desktop widget.
   //
