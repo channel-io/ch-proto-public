@@ -526,7 +526,14 @@ type User struct {
 	// Timestamp when app push subscription preference was last changed.
 	//
 	// +kubebuilder:validation:Nullable
-	UnsubscribeAppPushUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,50,opt,name=unsubscribe_app_push_updated_at,json=unsubscribeAppPushUpdatedAt,proto3" json:"unsubscribe_app_push_updated_at,omitempty"`
+	// Whether the user opted out of app push notifications.
+	//
+	// +kubebuilder:validation:Nullable
+	UnsubscribeAppPush bool `protobuf:"varint,50,opt,name=unsubscribe_app_push,json=unsubscribeAppPush,proto3" json:"unsubscribe_app_push,omitempty"`
+	// Timestamp when app push subscription preference was last changed.
+	//
+	// +kubebuilder:validation:Nullable
+	UnsubscribeAppPushUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=unsubscribe_app_push_updated_at,json=unsubscribeAppPushUpdatedAt,proto3" json:"unsubscribe_app_push_updated_at,omitempty"`
 	unknownFields               protoimpl.UnknownFields
 	sizeCache                   protoimpl.SizeCache
 }
@@ -890,6 +897,13 @@ func (x *User) GetUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
+func (x *User) GetUnsubscribeAppPush() bool {
+	if x != nil {
+		return x.UnsubscribeAppPush
+	}
+	return false
+}
+
 func (x *User) GetUnsubscribeAppPushUpdatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.UnsubscribeAppPushUpdatedAt
@@ -924,7 +938,7 @@ const file_coreapi_model_user_proto_rawDesc = "" +
 	"sdkVersion\x12%\n" +
 	"\x0esessions_count\x18\b \x01(\x05R\rsessionsCount\x12<\n" +
 	"\flast_seen_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\n" +
-	"lastSeenAt\"\xe8\x0f\n" +
+	"lastSeenAt\"\x9a\x10\n" +
 	"\x04User\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -984,8 +998,9 @@ const file_coreapi_model_user_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x180 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
-	"updated_at\x181 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12`\n" +
-	"\x1funsubscribe_app_push_updated_at\x182 \x01(\v2\x1a.google.protobuf.TimestampR\x1bunsubscribeAppPushUpdatedAt*f\n" +
+	"updated_at\x181 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x120\n" +
+	"\x14unsubscribe_app_push\x182 \x01(\bR\x12unsubscribeAppPush\x12`\n" +
+	"\x1funsubscribe_app_push_updated_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\x1bunsubscribeAppPushUpdatedAt*f\n" +
 	"\bUserType\x12\x19\n" +
 	"\x15USER_TYPE_UNSPECIFIED\x10\x00\x12\x14\n" +
 	"\x10USER_TYPE_MEMBER\x10\x01\x12\x12\n" +

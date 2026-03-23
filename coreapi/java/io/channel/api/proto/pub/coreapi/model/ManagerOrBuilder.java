@@ -769,85 +769,25 @@ public interface ManagerOrBuilder extends
 
   /**
    * <pre>
-   * Manager role.
+   * Role ID assigned to this manager.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string role = 51 [json_name = "role"];</code>
-   * @return The role.
+   * <code>string role_id = 51 [json_name = "roleId"];</code>
+   * @return The roleId.
    */
-  java.lang.String getRole();
+  java.lang.String getRoleId();
   /**
    * <pre>
-   * Manager role.
+   * Role ID assigned to this manager.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string role = 51 [json_name = "role"];</code>
-   * @return The bytes for role.
+   * <code>string role_id = 51 [json_name = "roleId"];</code>
+   * @return The bytes for roleId.
    */
   com.google.protobuf.ByteString
-      getRoleBytes();
-
-  /**
-   * <pre>
-   * Whether operator scheduling is enabled.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool operator_scheduling = 52 [json_name = "operatorScheduling"];</code>
-   * @return The operatorScheduling.
-   */
-  boolean getOperatorScheduling();
-
-  /**
-   * <pre>
-   * Scheduled operating time ranges for this operator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-   */
-  java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> 
-      getOperatorTimeRangesList();
-  /**
-   * <pre>
-   * Scheduled operating time ranges for this operator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.TimeRange getOperatorTimeRanges(int index);
-  /**
-   * <pre>
-   * Scheduled operating time ranges for this operator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-   */
-  int getOperatorTimeRangesCount();
-  /**
-   * <pre>
-   * Scheduled operating time ranges for this operator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-   */
-  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder> 
-      getOperatorTimeRangesOrBuilderList();
-  /**
-   * <pre>
-   * Scheduled operating time ranges for this operator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operator_time_ranges = 53 [json_name = "operatorTimeRanges"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder getOperatorTimeRangesOrBuilder(
-      int index);
+      getRoleIdBytes();
 
   /**
    * <pre>
