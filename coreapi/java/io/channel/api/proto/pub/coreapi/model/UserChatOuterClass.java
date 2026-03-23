@@ -31,7 +31,7 @@ public final class UserChatOuterClass {
       "\n\035coreapi/model/user_chat.proto\022\rcoreapi" +
       ".model\032\033buf/validate/validate.proto\032\034goo" +
       "gle/protobuf/struct.proto\032\037google/protob" +
-      "uf/timestamp.proto\"\220\021\n\010UserChat\022]\n\002id\030\001 " +
+      "uf/timestamp.proto\"\323\022\n\010UserChat\022]\n\002id\030\001 " +
       "\001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must b" +
       "e at least 1 character\032\017size(this) >= 1\310" +
       "\001\001R\002id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272\001D\n\rstri" +
@@ -39,62 +39,67 @@ public final class UserChatOuterClass {
       "acter\032\017size(this) >= 1\310\001\001R\tchannelId\022:\n\005" +
       "state\030\003 \001(\0162\034.coreapi.model.UserChatStat" +
       "eB\006\272H\003\310\001\001R\005state\022\027\n\007user_id\030\004 \001(\tR\006userI" +
-      "d\022\025\n\006xer_id\030\005 \001(\tR\005xerId\022\037\n\013assignee_id\030" +
-      "\006 \001(\tR\nassigneeId\022\027\n\007team_id\030\007 \001(\tR\006team" +
-      "Id\022w\n\013description\030\010 \001(\tBU\272HR\272\001O\n\rstring." +
-      "maxLen\022*value must be no more than 1000 " +
-      "characters\032\022size(this) <= 1000R\013descript" +
-      "ion\022.\n\023contact_medium_type\030\t \001(\tR\021contac" +
-      "tMediumType\022#\n\rmissed_reason\030\n \001(\tR\014miss" +
-      "edReason\022 \n\014live_meet_id\030\013 \001(\tR\nliveMeet" +
-      "Id\0223\n\010handling\030\014 \001(\0132\027.google.protobuf.S" +
-      "tructR\010handling\022/\n\006source\030\r \001(\0132\027.google" +
-      ".protobuf.StructR\006source\0221\n\007profile\030\016 \001(" +
-      "\0132\027.google.protobuf.StructR\007profile\022B\n\017f" +
-      "irst_opened_at\030\017 \001(\0132\032.google.protobuf.T" +
-      "imestampR\rfirstOpenedAt\0227\n\topened_at\030\020 \001" +
-      "(\0132\032.google.protobuf.TimestampR\010openedAt" +
-      "\022B\n\017first_queued_at\030\021 \001(\0132\032.google.proto" +
-      "buf.TimestampR\rfirstQueuedAt\0227\n\tqueued_a" +
-      "t\030\022 \001(\0132\032.google.protobuf.TimestampR\010que" +
-      "uedAt\022@\n\016first_asked_at\030\023 \001(\0132\032.google.p" +
-      "rotobuf.TimestampR\014firstAskedAt\0225\n\010asked" +
-      "_at\030\024 \001(\0132\032.google.protobuf.TimestampR\007a" +
-      "skedAt\0227\n\tclosed_at\030\025 \001(\0132\032.google.proto" +
-      "buf.TimestampR\010closedAt\022D\n\020first_replied" +
-      "_at\030\026 \001(\0132\032.google.protobuf.TimestampR\016f" +
-      "irstRepliedAt\022X\n\033first_replied_at_after_" +
-      "open\030\027 \001(\0132\032.google.protobuf.TimestampR\027" +
-      "firstRepliedAtAfterOpen\022>\n\034first_assigne" +
-      "e_id_after_open\030\030 \001(\tR\030firstAssigneeIdAf" +
-      "terOpen\022\031\n\010one_stop\030\031 \001(\010R\007oneStop\022!\n\014wa" +
-      "iting_time\030\032 \001(\003R\013waitingTime\022$\n\016avg_rep" +
-      "ly_time\030\033 \001(\003R\014avgReplyTime\022(\n\020total_rep" +
-      "ly_time\030\034 \001(\003R\016totalReplyTime\022\037\n\013reply_c" +
-      "ount\030\035 \001(\005R\nreplyCount\022\'\n\017resolution_tim" +
-      "e\030\036 \001(\003R\016resolutionTime\0224\n\026operation_wai" +
-      "ting_time\030\037 \001(\003R\024operationWaitingTime\0227\n" +
-      "\030operation_avg_reply_time\030  \001(\003R\025operati" +
-      "onAvgReplyTime\022;\n\032operation_total_reply_" +
-      "time\030! \001(\003R\027operationTotalReplyTime\0222\n\025o" +
-      "peration_reply_count\030\" \001(\005R\023operationRep" +
-      "lyCount\022:\n\031operation_resolution_time\030# \001" +
-      "(\003R\027operationResolutionTime\022(\n\020front_mes" +
-      "sage_id\030$ \001(\tR\016frontMessageId\022D\n\020front_u" +
-      "pdated_at\030% \001(\0132\032.google.protobuf.Timest" +
-      "ampR\016frontUpdatedAt\022A\n\ncreated_at\030& \001(\0132" +
-      "\032.google.protobuf.TimestampB\006\272H\003\310\001\001R\tcre" +
-      "atedAt\022A\n\nupdated_at\030\' \001(\0132\032.google.prot" +
-      "obuf.TimestampB\006\272H\003\310\001\001R\tupdatedAt\022\022\n\004tag" +
-      "s\030( \003(\tR\004tags*\332\001\n\rUserChatState\022\037\n\033USER_" +
-      "CHAT_STATE_UNSPECIFIED\020\000\022\032\n\026USER_CHAT_ST" +
-      "ATE_OPENED\020\001\022\032\n\026USER_CHAT_STATE_CLOSED\020\002" +
-      "\022\033\n\027USER_CHAT_STATE_SNOOZED\020\003\022\032\n\026USER_CH" +
-      "AT_STATE_QUEUED\020\004\022\033\n\027USER_CHAT_STATE_INI" +
-      "TIAL\020\005\022\032\n\026USER_CHAT_STATE_MISSED\020\006Bb\n&io" +
-      ".channel.api.proto.pub.coreapi.modelP\001Z6" +
-      "github.com/channel-io/ch-proto-public/co" +
-      "reapi/go/modelb\006proto3"
+      "d\022\037\n\013assignee_id\030\006 \001(\tR\nassigneeId\022\027\n\007te" +
+      "am_id\030\007 \001(\tR\006teamId\022w\n\013description\030\010 \001(\t" +
+      "BU\272HR\272\001O\n\rstring.maxLen\022*value must be n" +
+      "o more than 1000 characters\032\022size(this) " +
+      "<= 1000R\013description\022.\n\023contact_medium_t" +
+      "ype\030\t \001(\tR\021contactMediumType\0223\n\010handling" +
+      "\030\014 \001(\0132\027.google.protobuf.StructR\010handlin" +
+      "g\022/\n\006source\030\r \001(\0132\027.google.protobuf.Stru" +
+      "ctR\006source\022B\n\017first_opened_at\030\017 \001(\0132\032.go" +
+      "ogle.protobuf.TimestampR\rfirstOpenedAt\0227" +
+      "\n\topened_at\030\020 \001(\0132\032.google.protobuf.Time" +
+      "stampR\010openedAt\022@\n\016first_asked_at\030\023 \001(\0132" +
+      "\032.google.protobuf.TimestampR\014firstAskedA" +
+      "t\0225\n\010asked_at\030\024 \001(\0132\032.google.protobuf.Ti" +
+      "mestampR\007askedAt\0227\n\tclosed_at\030\025 \001(\0132\032.go" +
+      "ogle.protobuf.TimestampR\010closedAt\022X\n\033fir" +
+      "st_replied_at_after_open\030\027 \001(\0132\032.google." +
+      "protobuf.TimestampR\027firstRepliedAtAfterO" +
+      "pen\022>\n\034first_assignee_id_after_open\030\030 \001(" +
+      "\tR\030firstAssigneeIdAfterOpen\022\031\n\010one_stop\030" +
+      "\031 \001(\010R\007oneStop\022!\n\014waiting_time\030\032 \001(\003R\013wa" +
+      "itingTime\022$\n\016avg_reply_time\030\033 \001(\003R\014avgRe" +
+      "plyTime\022(\n\020total_reply_time\030\034 \001(\003R\016total" +
+      "ReplyTime\022\037\n\013reply_count\030\035 \001(\005R\nreplyCou" +
+      "nt\022\'\n\017resolution_time\030\036 \001(\003R\016resolutionT" +
+      "ime\0224\n\026operation_waiting_time\030\037 \001(\003R\024ope" +
+      "rationWaitingTime\0227\n\030operation_avg_reply" +
+      "_time\030  \001(\003R\025operationAvgReplyTime\022;\n\032op" +
+      "eration_total_reply_time\030! \001(\003R\027operatio" +
+      "nTotalReplyTime\0222\n\025operation_reply_count" +
+      "\030\" \001(\005R\023operationReplyCount\022:\n\031operation" +
+      "_resolution_time\030# \001(\003R\027operationResolut" +
+      "ionTime\022(\n\020front_message_id\030$ \001(\tR\016front" +
+      "MessageId\022D\n\020front_updated_at\030% \001(\0132\032.go" +
+      "ogle.protobuf.TimestampR\016frontUpdatedAt\022" +
+      "A\n\ncreated_at\030& \001(\0132\032.google.protobuf.Ti" +
+      "mestampB\006\272H\003\310\001\001R\tcreatedAt\022A\n\nupdated_at" +
+      "\030\' \001(\0132\032.google.protobuf.TimestampB\006\272H\003\310" +
+      "\001\001R\tupdatedAt\022\022\n\004tags\030( \003(\tR\004tags\022\030\n\007man" +
+      "aged\030) \001(\010R\007managed\022\022\n\004name\030* \001(\tR\004name\022" +
+      "\037\n\013manager_ids\030+ \003(\tR\nmanagerIds\022&\n\017goal" +
+      "_event_name\030, \001(\tR\rgoalEventName\022A\n\020goal" +
+      "_event_query\030- \001(\0132\027.google.protobuf.Str" +
+      "uctR\016goalEventQuery\022B\n\017goal_checked_at\030." +
+      " \001(\0132\032.google.protobuf.TimestampR\rgoalCh" +
+      "eckedAt\022\035\n\ngoal_state\030/ \001(\tR\tgoalState\022&" +
+      "\n\017desk_message_id\0300 \001(\tR\rdeskMessageId\022B" +
+      "\n\017desk_updated_at\0301 \001(\0132\032.google.protobu" +
+      "f.TimestampR\rdeskUpdatedAt\0229\n\nsnoozed_at" +
+      "\0302 \001(\0132\032.google.protobuf.TimestampR\tsnoo" +
+      "zedAt\0227\n\texpire_at\0303 \001(\0132\032.google.protob" +
+      "uf.TimestampR\010expireAt\022\030\n\007version\0304 \001(\003R" +
+      "\007version*\332\001\n\rUserChatState\022\037\n\033USER_CHAT_" +
+      "STATE_UNSPECIFIED\020\000\022\032\n\026USER_CHAT_STATE_O" +
+      "PENED\020\001\022\032\n\026USER_CHAT_STATE_CLOSED\020\002\022\033\n\027U" +
+      "SER_CHAT_STATE_SNOOZED\020\003\022\032\n\026USER_CHAT_ST" +
+      "ATE_QUEUED\020\004\022\033\n\027USER_CHAT_STATE_INITIAL\020" +
+      "\005\022\032\n\026USER_CHAT_STATE_MISSED\020\006Bb\n&io.chan" +
+      "nel.api.proto.pub.coreapi.modelP\001Z6githu" +
+      "b.com/channel-io/ch-proto-public/coreapi" +
+      "/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -108,7 +113,7 @@ public final class UserChatOuterClass {
     internal_static_coreapi_model_UserChat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_UserChat_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "State", "UserId", "XerId", "AssigneeId", "TeamId", "Description", "ContactMediumType", "MissedReason", "LiveMeetId", "Handling", "Source", "Profile", "FirstOpenedAt", "OpenedAt", "FirstQueuedAt", "QueuedAt", "FirstAskedAt", "AskedAt", "ClosedAt", "FirstRepliedAt", "FirstRepliedAtAfterOpen", "FirstAssigneeIdAfterOpen", "OneStop", "WaitingTime", "AvgReplyTime", "TotalReplyTime", "ReplyCount", "ResolutionTime", "OperationWaitingTime", "OperationAvgReplyTime", "OperationTotalReplyTime", "OperationReplyCount", "OperationResolutionTime", "FrontMessageId", "FrontUpdatedAt", "CreatedAt", "UpdatedAt", "Tags", });
+        new java.lang.String[] { "Id", "ChannelId", "State", "UserId", "AssigneeId", "TeamId", "Description", "ContactMediumType", "Handling", "Source", "FirstOpenedAt", "OpenedAt", "FirstAskedAt", "AskedAt", "ClosedAt", "FirstRepliedAtAfterOpen", "FirstAssigneeIdAfterOpen", "OneStop", "WaitingTime", "AvgReplyTime", "TotalReplyTime", "ReplyCount", "ResolutionTime", "OperationWaitingTime", "OperationAvgReplyTime", "OperationTotalReplyTime", "OperationReplyCount", "OperationResolutionTime", "FrontMessageId", "FrontUpdatedAt", "CreatedAt", "UpdatedAt", "Tags", "Managed", "Name", "ManagerIds", "GoalEventName", "GoalEventQuery", "GoalCheckedAt", "GoalState", "DeskMessageId", "DeskUpdatedAt", "SnoozedAt", "ExpireAt", "Version", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);

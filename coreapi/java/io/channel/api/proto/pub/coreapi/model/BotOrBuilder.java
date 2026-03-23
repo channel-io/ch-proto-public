@@ -248,4 +248,34 @@ public interface BotOrBuilder extends
    * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Bot avatar image reference.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
+   * @return Whether the avatar field is set.
+   */
+  boolean hasAvatar();
+  /**
+   * <pre>
+   * Bot avatar image reference.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
+   * @return The avatar.
+   */
+  io.channel.api.proto.pub.coreapi.model.TinyFile getAvatar();
+  /**
+   * <pre>
+   * Bot avatar image reference.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder getAvatarOrBuilder();
 }

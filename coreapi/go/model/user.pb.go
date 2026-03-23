@@ -503,14 +503,6 @@ type User struct {
 	//
 	// +kubebuilder:validation:Nullable
 	UnsubscribeTextingUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,42,opt,name=unsubscribe_texting_updated_at,json=unsubscribeTextingUpdatedAt,proto3" json:"unsubscribe_texting_updated_at,omitempty"`
-	// Whether the user opted out of app push notifications.
-	//
-	// +kubebuilder:validation:Nullable
-	UnsubscribeAppPush bool `protobuf:"varint,43,opt,name=unsubscribe_app_push,json=unsubscribeAppPush,proto3" json:"unsubscribe_app_push,omitempty"`
-	// Timestamp when app push subscription preference was last changed.
-	//
-	// +kubebuilder:validation:Nullable
-	UnsubscribeAppPushUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,44,opt,name=unsubscribe_app_push_updated_at,json=unsubscribeAppPushUpdatedAt,proto3" json:"unsubscribe_app_push_updated_at,omitempty"`
 	// User's preferred language locale.
 	//
 	// +kubebuilder:validation:Nullable
@@ -859,20 +851,6 @@ func (x *User) GetUnsubscribeTextingUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *User) GetUnsubscribeAppPush() bool {
-	if x != nil {
-		return x.UnsubscribeAppPush
-	}
-	return false
-}
-
-func (x *User) GetUnsubscribeAppPushUpdatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.UnsubscribeAppPushUpdatedAt
-	}
-	return nil
-}
-
 func (x *User) GetLanguage() string {
 	if x != nil {
 		return x.Language
@@ -935,7 +913,7 @@ const file_coreapi_model_user_proto_rawDesc = "" +
 	"sdkVersion\x12%\n" +
 	"\x0esessions_count\x18\b \x01(\x05R\rsessionsCount\x12<\n" +
 	"\flast_seen_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\n" +
-	"lastSeenAt\"\x9a\x10\n" +
+	"lastSeenAt\"\x86\x0f\n" +
 	"\x04User\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -988,9 +966,7 @@ const file_coreapi_model_user_proto_rawDesc = "" +
 	"\x11unsubscribe_email\x18' \x01(\bR\x10unsubscribeEmail\x12[\n" +
 	"\x1cunsubscribe_email_updated_at\x18( \x01(\v2\x1a.google.protobuf.TimestampR\x19unsubscribeEmailUpdatedAt\x12/\n" +
 	"\x13unsubscribe_texting\x18) \x01(\bR\x12unsubscribeTexting\x12_\n" +
-	"\x1eunsubscribe_texting_updated_at\x18* \x01(\v2\x1a.google.protobuf.TimestampR\x1bunsubscribeTextingUpdatedAt\x120\n" +
-	"\x14unsubscribe_app_push\x18+ \x01(\bR\x12unsubscribeAppPush\x12`\n" +
-	"\x1funsubscribe_app_push_updated_at\x18, \x01(\v2\x1a.google.protobuf.TimestampR\x1bunsubscribeAppPushUpdatedAt\x12\x1a\n" +
+	"\x1eunsubscribe_texting_updated_at\x18* \x01(\v2\x1a.google.protobuf.TimestampR\x1bunsubscribeTextingUpdatedAt\x12\x1a\n" +
 	"\blanguage\x18- \x01(\tR\blanguage\x12'\n" +
 	"\x0fsystem_language\x18. \x01(\tR\x0esystemLanguage\x12\x18\n" +
 	"\aversion\x18/ \x01(\x03R\aversion\x12A\n" +
@@ -1037,14 +1013,13 @@ var file_coreapi_model_user_proto_depIdxs = []int32{
 	4,  // 6: coreapi.model.User.last_seen_at:type_name -> google.protobuf.Timestamp
 	4,  // 7: coreapi.model.User.unsubscribe_email_updated_at:type_name -> google.protobuf.Timestamp
 	4,  // 8: coreapi.model.User.unsubscribe_texting_updated_at:type_name -> google.protobuf.Timestamp
-	4,  // 9: coreapi.model.User.unsubscribe_app_push_updated_at:type_name -> google.protobuf.Timestamp
-	4,  // 10: coreapi.model.User.created_at:type_name -> google.protobuf.Timestamp
-	4,  // 11: coreapi.model.User.updated_at:type_name -> google.protobuf.Timestamp
-	12, // [12:12] is the sub-list for method output_type
-	12, // [12:12] is the sub-list for method input_type
-	12, // [12:12] is the sub-list for extension type_name
-	12, // [12:12] is the sub-list for extension extendee
-	0,  // [0:12] is the sub-list for field type_name
+	4,  // 9: coreapi.model.User.created_at:type_name -> google.protobuf.Timestamp
+	4,  // 10: coreapi.model.User.updated_at:type_name -> google.protobuf.Timestamp
+	11, // [11:11] is the sub-list for method output_type
+	11, // [11:11] is the sub-list for method input_type
+	11, // [11:11] is the sub-list for extension type_name
+	11, // [11:11] is the sub-list for extension extendee
+	0,  // [0:11] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_user_proto_init() }

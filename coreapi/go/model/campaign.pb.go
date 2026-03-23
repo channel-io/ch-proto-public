@@ -488,24 +488,10 @@ type Campaign struct {
 	//
 	// +kubebuilder:validation:Required
 	State CampaignState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.CampaignState" json:"state,omitempty"`
-	// Delivery medium type.
-	// May be unset for draft campaigns.
-	//
-	// +kubebuilder:validation:Nullable
-	MediumType MediumType `protobuf:"varint,5,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
-	// Identifier of the specific medium instance.
-	// Required for APP medium type.
-	//
-	// +kubebuilder:validation:Nullable
-	MediumId string `protobuf:"bytes,6,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	// User targeting query for audience filtering.
 	//
 	// +kubebuilder:validation:Nullable
 	UserQuery *structpb.Struct `protobuf:"bytes,7,opt,name=user_query,json=userQuery,proto3" json:"user_query,omitempty"`
-	// App segments for user targeting.
-	//
-	// +kubebuilder:validation:Nullable
-	AppSegments []*AppSegment `protobuf:"bytes,8,rep,name=app_segments,json=appSegments,proto3" json:"app_segments,omitempty"`
 	// Name of the event that triggers the campaign.
 	// May be unset for draft campaigns.
 	//
@@ -533,15 +519,6 @@ type Campaign struct {
 	//
 	// +kubebuilder:validation:Nullable
 	FilterMatch CampaignFilterMatch `protobuf:"varint,14,opt,name=filter_match,json=filterMatch,proto3,enum=coreapi.model.CampaignFilterMatch" json:"filter_match,omitempty"`
-	// Holding property constant for the additional event filter.
-	//
-	// +kubebuilder:validation:Nullable
-	FilterHpc *HoldingPropertyConstant `protobuf:"bytes,15,opt,name=filter_hpc,json=filterHpc,proto3" json:"filter_hpc,omitempty"`
-	// Conversion tracking windows keyed by feature name.
-	// Defaults to 1 day for views and 7 days for clicks.
-	//
-	// +kubebuilder:validation:Nullable
-	ConversionWindows map[string]*durationpb.Duration `protobuf:"bytes,16,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Name of the event tracked as a conversion goal.
 	//
 	// +kubebuilder:validation:Nullable
@@ -555,10 +532,6 @@ type Campaign struct {
 	//
 	// +kubebuilder:validation:Nullable
 	GoalEventDuration *durationpb.Duration `protobuf:"bytes,19,opt,name=goal_event_duration,json=goalEventDuration,proto3" json:"goal_event_duration,omitempty"`
-	// Holding property constant for the goal event.
-	//
-	// +kubebuilder:validation:Nullable
-	GoalHpc *HoldingPropertyConstant `protobuf:"bytes,20,opt,name=goal_hpc,json=goalHpc,proto3" json:"goal_hpc,omitempty"`
 	// Whether this campaign contains advertising content.
 	//
 	// +kubebuilder:validation:Nullable
@@ -581,10 +554,6 @@ type Campaign struct {
 	//
 	// +kubebuilder:validation:Nullable
 	SendMode CampaignSendMode `protobuf:"varint,25,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.CampaignSendMode" json:"send_mode,omitempty"`
-	// Channel operation ID for business hours scheduling.
-	//
-	// +kubebuilder:validation:Nullable
-	ChannelOperationId string `protobuf:"bytes,26,opt,name=channel_operation_id,json=channelOperationId,proto3" json:"channel_operation_id,omitempty"`
 	// Custom time ranges for message delivery.
 	// Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
 	//
@@ -626,7 +595,19 @@ type Campaign struct {
 	// Total number of message link clicks.
 	//
 	// +kubebuilder:validation:Nullable
-	Click         int32 `protobuf:"varint,36,opt,name=click,proto3" json:"click,omitempty"`
+	Click int32 `protobuf:"varint,36,opt,name=click,proto3" json:"click,omitempty"`
+	// Delivery medium type identifier.
+	//
+	// +kubebuilder:validation:Nullable
+	SendMedium string `protobuf:"bytes,37,opt,name=send_medium,json=sendMedium,proto3" json:"send_medium,omitempty"`
+	// Duration after which user chat sessions expire.
+	//
+	// +kubebuilder:validation:Nullable
+	UserChatExpireDuration *durationpb.Duration `protobuf:"bytes,38,opt,name=user_chat_expire_duration,json=userChatExpireDuration,proto3" json:"user_chat_expire_duration,omitempty"`
+	// Manager ID responsible for this campaign.
+	//
+	// +kubebuilder:validation:Nullable
+	ManagerId     string `protobuf:"bytes,39,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -689,30 +670,9 @@ func (x *Campaign) GetState() CampaignState {
 	return CampaignState_CAMPAIGN_STATE_UNSPECIFIED
 }
 
-func (x *Campaign) GetMediumType() MediumType {
-	if x != nil {
-		return x.MediumType
-	}
-	return MediumType_MEDIUM_TYPE_UNSPECIFIED
-}
-
-func (x *Campaign) GetMediumId() string {
-	if x != nil {
-		return x.MediumId
-	}
-	return ""
-}
-
 func (x *Campaign) GetUserQuery() *structpb.Struct {
 	if x != nil {
 		return x.UserQuery
-	}
-	return nil
-}
-
-func (x *Campaign) GetAppSegments() []*AppSegment {
-	if x != nil {
-		return x.AppSegments
 	}
 	return nil
 }
@@ -759,20 +719,6 @@ func (x *Campaign) GetFilterMatch() CampaignFilterMatch {
 	return CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_UNSPECIFIED
 }
 
-func (x *Campaign) GetFilterHpc() *HoldingPropertyConstant {
-	if x != nil {
-		return x.FilterHpc
-	}
-	return nil
-}
-
-func (x *Campaign) GetConversionWindows() map[string]*durationpb.Duration {
-	if x != nil {
-		return x.ConversionWindows
-	}
-	return nil
-}
-
 func (x *Campaign) GetGoalEventName() string {
 	if x != nil {
 		return x.GoalEventName
@@ -790,13 +736,6 @@ func (x *Campaign) GetGoalEventQuery() *structpb.Struct {
 func (x *Campaign) GetGoalEventDuration() *durationpb.Duration {
 	if x != nil {
 		return x.GoalEventDuration
-	}
-	return nil
-}
-
-func (x *Campaign) GetGoalHpc() *HoldingPropertyConstant {
-	if x != nil {
-		return x.GoalHpc
 	}
 	return nil
 }
@@ -834,13 +773,6 @@ func (x *Campaign) GetSendMode() CampaignSendMode {
 		return x.SendMode
 	}
 	return CampaignSendMode_CAMPAIGN_SEND_MODE_UNSPECIFIED
-}
-
-func (x *Campaign) GetChannelOperationId() string {
-	if x != nil {
-		return x.ChannelOperationId
-	}
-	return ""
 }
 
 func (x *Campaign) GetSendTimeRanges() []*TimeRange {
@@ -913,11 +845,32 @@ func (x *Campaign) GetClick() int32 {
 	return 0
 }
 
+func (x *Campaign) GetSendMedium() string {
+	if x != nil {
+		return x.SendMedium
+	}
+	return ""
+}
+
+func (x *Campaign) GetUserChatExpireDuration() *durationpb.Duration {
+	if x != nil {
+		return x.UserChatExpireDuration
+	}
+	return nil
+}
+
+func (x *Campaign) GetManagerId() string {
+	if x != nil {
+		return x.ManagerId
+	}
+	return ""
+}
+
 var File_coreapi_model_campaign_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_campaign_proto_rawDesc = "" +
 	"\n" +
-	"\x1ccoreapi/model/campaign.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8f\x02\n" +
+	"\x1ccoreapi/model/campaign.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8f\x02\n" +
 	"\tTimeRange\x12:\n" +
 	"\fday_of_weeks\x18\x01 \x03(\x0e2\x18.coreapi.model.DayOfWeekR\n" +
 	"dayOfWeeks\x12d\n" +
@@ -932,7 +885,7 @@ const file_coreapi_model_campaign_proto_rawDesc = "" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\fbaseEventKey\x128\n" +
 	"\vevent_query\x18\x03 \x01(\v2\x17.google.protobuf.StructR\n" +
 	"eventQuery\x12T\n" +
-	"\x0fbase_event_type\x18\x04 \x01(\x0e2$.coreapi.model.CampaignBaseEventTypeB\x06\xbaH\x03\xc8\x01\x01R\rbaseEventType\"\xe4\x14\n" +
+	"\x0fbase_event_type\x18\x04 \x01(\x0e2$.coreapi.model.CampaignBaseEventTypeB\x06\xbaH\x03\xc8\x01\x01R\rbaseEventType\"\xe7\x11\n" +
 	"\bCampaign\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -942,13 +895,9 @@ const file_coreapi_model_campaign_proto_rawDesc = "" +
 	"\x04name\x18\x03 \x01(\tB\x9e\x01\xbaH\x9a\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128\xc8\x01\x01R\x04name\x12:\n" +
-	"\x05state\x18\x04 \x01(\x0e2\x1c.coreapi.model.CampaignStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12:\n" +
-	"\vmedium_type\x18\x05 \x01(\x0e2\x19.coreapi.model.MediumTypeR\n" +
-	"mediumType\x12\x1b\n" +
-	"\tmedium_id\x18\x06 \x01(\tR\bmediumId\x126\n" +
+	"\x05state\x18\x04 \x01(\x0e2\x1c.coreapi.model.CampaignStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x126\n" +
 	"\n" +
-	"user_query\x18\a \x01(\v2\x17.google.protobuf.StructR\tuserQuery\x12<\n" +
-	"\fapp_segments\x18\b \x03(\v2\x19.coreapi.model.AppSegmentR\vappSegments\x12,\n" +
+	"user_query\x18\a \x01(\v2\x17.google.protobuf.StructR\tuserQuery\x12,\n" +
 	"\x12trigger_event_name\x18\t \x01(\tR\x10triggerEventName\x12G\n" +
 	"\x13trigger_event_query\x18\n" +
 	" \x01(\v2\x17.google.protobuf.StructR\x11triggerEventQuery\x12\xa9\x01\n" +
@@ -956,22 +905,17 @@ const file_coreapi_model_campaign_proto_rawDesc = "" +
 	"\fduration.max\x12\x1dvalue must be at most 90 days\x1a6this == duration('0s') || this <= duration('7776000s')R\vwaitingTime\x12*\n" +
 	"\x11filter_event_name\x18\f \x01(\tR\x0ffilterEventName\x12E\n" +
 	"\x12filter_event_query\x18\r \x01(\v2\x17.google.protobuf.StructR\x10filterEventQuery\x12E\n" +
-	"\ffilter_match\x18\x0e \x01(\x0e2\".coreapi.model.CampaignFilterMatchR\vfilterMatch\x12E\n" +
-	"\n" +
-	"filter_hpc\x18\x0f \x01(\v2&.coreapi.model.HoldingPropertyConstantR\tfilterHpc\x12]\n" +
-	"\x12conversion_windows\x18\x10 \x03(\v2..coreapi.model.Campaign.ConversionWindowsEntryR\x11conversionWindows\x12&\n" +
+	"\ffilter_match\x18\x0e \x01(\x0e2\".coreapi.model.CampaignFilterMatchR\vfilterMatch\x12&\n" +
 	"\x0fgoal_event_name\x18\x11 \x01(\tR\rgoalEventName\x12A\n" +
 	"\x10goal_event_query\x18\x12 \x01(\v2\x17.google.protobuf.StructR\x0egoalEventQuery\x12\xe1\x01\n" +
 	"\x13goal_event_duration\x18\x13 \x01(\v2\x19.google.protobuf.DurationB\x95\x01\xbaH\x91\x01\xba\x01\x8d\x01\n" +
-	"\x0eduration.range\x12#value must be between 1 and 30 days\x1aVthis == duration('0s') || (this >= duration('86400s') && this <= duration('2592000s'))R\x11goalEventDuration\x12A\n" +
-	"\bgoal_hpc\x18\x14 \x01(\v2&.coreapi.model.HoldingPropertyConstantR\agoalHpc\x12 \n" +
+	"\x0eduration.range\x12#value must be between 1 and 30 days\x1aVthis == duration('0s') || (this >= duration('86400s') && this <= duration('2592000s'))R\x11goalEventDuration\x12 \n" +
 	"\vadvertising\x18\x15 \x01(\bR\vadvertising\x12-\n" +
 	"\x13send_to_offline_xms\x18\x16 \x01(\bR\x10sendToOfflineXms\x121\n" +
 	"\x15send_to_offline_email\x18\x17 \x01(\bR\x12sendToOfflineEmail\x12\xaa\x01\n" +
 	"\bcooldown\x18\x18 \x01(\v2\x19.google.protobuf.DurationBs\xbaHp\xba\x01m\n" +
 	"\x0eduration.range\x12#value must be between 0 and 30 days\x1a6this >= duration('0s') && this <= duration('2592000s')R\bcooldown\x12<\n" +
-	"\tsend_mode\x18\x19 \x01(\x0e2\x1f.coreapi.model.CampaignSendModeR\bsendMode\x120\n" +
-	"\x14channel_operation_id\x18\x1a \x01(\tR\x12channelOperationId\x12B\n" +
+	"\tsend_mode\x18\x19 \x01(\x0e2\x1f.coreapi.model.CampaignSendModeR\bsendMode\x12B\n" +
 	"\x10send_time_ranges\x18\x1b \x03(\v2\x18.coreapi.model.TimeRangeR\x0esendTimeRanges\x125\n" +
 	"\bstart_at\x18\x1c \x01(\v2\x1a.google.protobuf.TimestampR\astartAt\x121\n" +
 	"\x06end_at\x18\x1d \x01(\v2\x1a.google.protobuf.TimestampR\x05endAt\x12-\n" +
@@ -983,10 +927,12 @@ const file_coreapi_model_campaign_proto_rawDesc = "" +
 	"\x04sent\x18! \x01(\x05R\x04sent\x12\x12\n" +
 	"\x04view\x18\" \x01(\x05R\x04view\x12\x12\n" +
 	"\x04goal\x18# \x01(\x05R\x04goal\x12\x14\n" +
-	"\x05click\x18$ \x01(\x05R\x05click\x1a_\n" +
-	"\x16ConversionWindowsEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12/\n" +
-	"\x05value\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x05value:\x028\x01*\x9c\x01\n" +
+	"\x05click\x18$ \x01(\x05R\x05click\x12\x1f\n" +
+	"\vsend_medium\x18% \x01(\tR\n" +
+	"sendMedium\x12T\n" +
+	"\x19user_chat_expire_duration\x18& \x01(\v2\x19.google.protobuf.DurationR\x16userChatExpireDuration\x12\x1d\n" +
+	"\n" +
+	"manager_id\x18' \x01(\tR\tmanagerId*\x9c\x01\n" +
 	"\rCampaignState\x12\x1e\n" +
 	"\x1aCAMPAIGN_STATE_UNSPECIFIED\x10\x00\x12\x18\n" +
 	"\x14CAMPAIGN_STATE_DRAFT\x10\x01\x12\x19\n" +
@@ -1033,7 +979,7 @@ func file_coreapi_model_campaign_proto_rawDescGZIP() []byte {
 }
 
 var file_coreapi_model_campaign_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
-var file_coreapi_model_campaign_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_coreapi_model_campaign_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_coreapi_model_campaign_proto_goTypes = []any{
 	(CampaignState)(0),              // 0: coreapi.model.CampaignState
 	(CampaignSendMode)(0),           // 1: coreapi.model.CampaignSendMode
@@ -1043,44 +989,36 @@ var file_coreapi_model_campaign_proto_goTypes = []any{
 	(*TimeRange)(nil),               // 5: coreapi.model.TimeRange
 	(*HoldingPropertyConstant)(nil), // 6: coreapi.model.HoldingPropertyConstant
 	(*Campaign)(nil),                // 7: coreapi.model.Campaign
-	nil,                             // 8: coreapi.model.Campaign.ConversionWindowsEntry
-	(*structpb.Struct)(nil),         // 9: google.protobuf.Struct
-	(MediumType)(0),                 // 10: coreapi.model.MediumType
-	(*AppSegment)(nil),              // 11: coreapi.model.AppSegment
-	(*durationpb.Duration)(nil),     // 12: google.protobuf.Duration
-	(*timestamppb.Timestamp)(nil),   // 13: google.protobuf.Timestamp
+	(*structpb.Struct)(nil),         // 8: google.protobuf.Struct
+	(*durationpb.Duration)(nil),     // 9: google.protobuf.Duration
+	(*timestamppb.Timestamp)(nil),   // 10: google.protobuf.Timestamp
 }
 var file_coreapi_model_campaign_proto_depIdxs = []int32{
 	4,  // 0: coreapi.model.TimeRange.day_of_weeks:type_name -> coreapi.model.DayOfWeek
-	9,  // 1: coreapi.model.HoldingPropertyConstant.event_query:type_name -> google.protobuf.Struct
+	8,  // 1: coreapi.model.HoldingPropertyConstant.event_query:type_name -> google.protobuf.Struct
 	3,  // 2: coreapi.model.HoldingPropertyConstant.base_event_type:type_name -> coreapi.model.CampaignBaseEventType
 	0,  // 3: coreapi.model.Campaign.state:type_name -> coreapi.model.CampaignState
-	10, // 4: coreapi.model.Campaign.medium_type:type_name -> coreapi.model.MediumType
-	9,  // 5: coreapi.model.Campaign.user_query:type_name -> google.protobuf.Struct
-	11, // 6: coreapi.model.Campaign.app_segments:type_name -> coreapi.model.AppSegment
-	9,  // 7: coreapi.model.Campaign.trigger_event_query:type_name -> google.protobuf.Struct
-	12, // 8: coreapi.model.Campaign.waiting_time:type_name -> google.protobuf.Duration
-	9,  // 9: coreapi.model.Campaign.filter_event_query:type_name -> google.protobuf.Struct
-	2,  // 10: coreapi.model.Campaign.filter_match:type_name -> coreapi.model.CampaignFilterMatch
-	6,  // 11: coreapi.model.Campaign.filter_hpc:type_name -> coreapi.model.HoldingPropertyConstant
-	8,  // 12: coreapi.model.Campaign.conversion_windows:type_name -> coreapi.model.Campaign.ConversionWindowsEntry
-	9,  // 13: coreapi.model.Campaign.goal_event_query:type_name -> google.protobuf.Struct
-	12, // 14: coreapi.model.Campaign.goal_event_duration:type_name -> google.protobuf.Duration
-	6,  // 15: coreapi.model.Campaign.goal_hpc:type_name -> coreapi.model.HoldingPropertyConstant
-	12, // 16: coreapi.model.Campaign.cooldown:type_name -> google.protobuf.Duration
-	1,  // 17: coreapi.model.Campaign.send_mode:type_name -> coreapi.model.CampaignSendMode
-	5,  // 18: coreapi.model.Campaign.send_time_ranges:type_name -> coreapi.model.TimeRange
-	13, // 19: coreapi.model.Campaign.start_at:type_name -> google.protobuf.Timestamp
-	13, // 20: coreapi.model.Campaign.end_at:type_name -> google.protobuf.Timestamp
-	9,  // 21: coreapi.model.Campaign.draft:type_name -> google.protobuf.Struct
-	13, // 22: coreapi.model.Campaign.created_at:type_name -> google.protobuf.Timestamp
-	13, // 23: coreapi.model.Campaign.updated_at:type_name -> google.protobuf.Timestamp
-	12, // 24: coreapi.model.Campaign.ConversionWindowsEntry.value:type_name -> google.protobuf.Duration
-	25, // [25:25] is the sub-list for method output_type
-	25, // [25:25] is the sub-list for method input_type
-	25, // [25:25] is the sub-list for extension type_name
-	25, // [25:25] is the sub-list for extension extendee
-	0,  // [0:25] is the sub-list for field type_name
+	8,  // 4: coreapi.model.Campaign.user_query:type_name -> google.protobuf.Struct
+	8,  // 5: coreapi.model.Campaign.trigger_event_query:type_name -> google.protobuf.Struct
+	9,  // 6: coreapi.model.Campaign.waiting_time:type_name -> google.protobuf.Duration
+	8,  // 7: coreapi.model.Campaign.filter_event_query:type_name -> google.protobuf.Struct
+	2,  // 8: coreapi.model.Campaign.filter_match:type_name -> coreapi.model.CampaignFilterMatch
+	8,  // 9: coreapi.model.Campaign.goal_event_query:type_name -> google.protobuf.Struct
+	9,  // 10: coreapi.model.Campaign.goal_event_duration:type_name -> google.protobuf.Duration
+	9,  // 11: coreapi.model.Campaign.cooldown:type_name -> google.protobuf.Duration
+	1,  // 12: coreapi.model.Campaign.send_mode:type_name -> coreapi.model.CampaignSendMode
+	5,  // 13: coreapi.model.Campaign.send_time_ranges:type_name -> coreapi.model.TimeRange
+	10, // 14: coreapi.model.Campaign.start_at:type_name -> google.protobuf.Timestamp
+	10, // 15: coreapi.model.Campaign.end_at:type_name -> google.protobuf.Timestamp
+	8,  // 16: coreapi.model.Campaign.draft:type_name -> google.protobuf.Struct
+	10, // 17: coreapi.model.Campaign.created_at:type_name -> google.protobuf.Timestamp
+	10, // 18: coreapi.model.Campaign.updated_at:type_name -> google.protobuf.Timestamp
+	9,  // 19: coreapi.model.Campaign.user_chat_expire_duration:type_name -> google.protobuf.Duration
+	20, // [20:20] is the sub-list for method output_type
+	20, // [20:20] is the sub-list for method input_type
+	20, // [20:20] is the sub-list for extension type_name
+	20, // [20:20] is the sub-list for extension extendee
+	0,  // [0:20] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_campaign_proto_init() }
@@ -1088,15 +1026,13 @@ func file_coreapi_model_campaign_proto_init() {
 	if File_coreapi_model_campaign_proto != nil {
 		return
 	}
-	file_coreapi_model_app_segment_proto_init()
-	file_coreapi_model_medium_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_campaign_proto_rawDesc), len(file_coreapi_model_campaign_proto_rawDesc)),
 			NumEnums:      5,
-			NumMessages:   4,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

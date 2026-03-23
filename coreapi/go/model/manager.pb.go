@@ -10,6 +10,7 @@ import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	structpb "google.golang.org/protobuf/types/known/structpb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
@@ -70,10 +71,6 @@ type Manager struct {
 	//
 	// +kubebuilder:validation:Nullable
 	DisplayAsChannel bool `protobuf:"varint,9,opt,name=display_as_channel,json=displayAsChannel,proto3" json:"display_as_channel,omitempty"`
-	// Role ID assigned to this manager.
-	//
-	// +kubebuilder:validation:Nullable
-	RoleId string `protobuf:"bytes,10,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
 	// Maximum number of user chats that can be auto-assigned.
 	//
 	// +kubebuilder:validation:Nullable
@@ -101,46 +98,6 @@ type Manager struct {
 	//
 	// +kubebuilder:validation:Nullable
 	DoNotDisturbClearAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=do_not_disturb_clear_at,json=doNotDisturbClearAt,proto3" json:"do_not_disturb_clear_at,omitempty"`
-	// Whether account-level do-not-disturb mode is active.
-	//
-	// +kubebuilder:validation:Nullable
-	AccountDoNotDisturb bool `protobuf:"varint,17,opt,name=account_do_not_disturb,json=accountDoNotDisturb,proto3" json:"account_do_not_disturb,omitempty"`
-	// Timestamp when account-level do-not-disturb mode automatically clears.
-	//
-	// +kubebuilder:validation:Nullable
-	AccountDoNotDisturbClearAt *timestamppb.Timestamp `protobuf:"bytes,18,opt,name=account_do_not_disturb_clear_at,json=accountDoNotDisturbClearAt,proto3" json:"account_do_not_disturb_clear_at,omitempty"`
-	// Whether the user chat log panel is folded by default.
-	//
-	// +kubebuilder:validation:Nullable
-	DefaultUserChatLogFolded bool `protobuf:"varint,19,opt,name=default_user_chat_log_folded,json=defaultUserChatLogFolded,proto3" json:"default_user_chat_log_folded,omitempty"`
-	// Whether to enable indexing of reacted messages.
-	//
-	// +kubebuilder:validation:Nullable
-	EnableReactedMessageIndex bool `protobuf:"varint,20,opt,name=enable_reacted_message_index,json=enableReactedMessageIndex,proto3" json:"enable_reacted_message_index,omitempty"`
-	// Whether to enable indexing of team-mentioned messages.
-	//
-	// +kubebuilder:validation:Nullable
-	EnableTeamMentionedMessageIndex bool `protobuf:"varint,21,opt,name=enable_team_mentioned_message_index,json=enableTeamMentionedMessageIndex,proto3" json:"enable_team_mentioned_message_index,omitempty"`
-	// Whether to receive meet alerts in the PC inbox.
-	//
-	// +kubebuilder:validation:Nullable
-	PcInboxMeetAlert bool `protobuf:"varint,22,opt,name=pc_inbox_meet_alert,json=pcInboxMeetAlert,proto3" json:"pc_inbox_meet_alert,omitempty"`
-	// Whether to receive meet alerts on mobile inbox.
-	//
-	// +kubebuilder:validation:Nullable
-	MobileInboxMeetAlert bool `protobuf:"varint,23,opt,name=mobile_inbox_meet_alert,json=mobileInboxMeetAlert,proto3" json:"mobile_inbox_meet_alert,omitempty"`
-	// Whether to receive meet alerts in PC team chat.
-	//
-	// +kubebuilder:validation:Nullable
-	PcTeamChatMeetAlert bool `protobuf:"varint,24,opt,name=pc_team_chat_meet_alert,json=pcTeamChatMeetAlert,proto3" json:"pc_team_chat_meet_alert,omitempty"`
-	// Whether to receive meet alerts in mobile team chat.
-	//
-	// +kubebuilder:validation:Nullable
-	MobileTeamChatMeetAlert bool `protobuf:"varint,25,opt,name=mobile_team_chat_meet_alert,json=mobileTeamChatMeetAlert,proto3" json:"mobile_team_chat_meet_alert,omitempty"`
-	// Whether to receive meet alerts via phone.
-	//
-	// +kubebuilder:validation:Nullable
-	PhoneInboxMeetAlert bool `protobuf:"varint,26,opt,name=phone_inbox_meet_alert,json=phoneInboxMeetAlert,proto3" json:"phone_inbox_meet_alert,omitempty"`
 	// Whether this manager has been soft-deleted.
 	//
 	// +kubebuilder:validation:Nullable
@@ -149,16 +106,100 @@ type Manager struct {
 	//
 	// +kubebuilder:validation:Required
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,28,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// Manager last update timestamp.
-	//
-	// +kubebuilder:validation:Required
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,29,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Timestamp when the manager was soft-deleted.
+	// Custom key-value profile data.
 	//
 	// +kubebuilder:validation:Nullable
-	RemovedAt     *timestamppb.Timestamp `protobuf:"bytes,30,opt,name=removed_at,json=removedAt,proto3" json:"removed_at,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	Profile *structpb.Struct `protobuf:"bytes,31,opt,name=profile,proto3" json:"profile,omitempty"`
+	// Manager email address.
+	//
+	// +kubebuilder:validation:Nullable
+	Email string `protobuf:"bytes,32,opt,name=email,proto3" json:"email,omitempty"`
+	// Whether to display the email to end users.
+	//
+	// +kubebuilder:validation:Nullable
+	ShowEmailToFront bool `protobuf:"varint,33,opt,name=show_email_to_front,json=showEmailToFront,proto3" json:"show_email_to_front,omitempty"`
+	// Manager mobile phone number.
+	//
+	// +kubebuilder:validation:Nullable
+	MobileNumber string `protobuf:"bytes,34,opt,name=mobile_number,json=mobileNumber,proto3" json:"mobile_number,omitempty"`
+	// Whether to display the mobile number to end users.
+	//
+	// +kubebuilder:validation:Nullable
+	ShowMobileNumberToFront bool `protobuf:"varint,35,opt,name=show_mobile_number_to_front,json=showMobileNumberToFront,proto3" json:"show_mobile_number_to_front,omitempty"`
+	// Default notification level for group chats.
+	//
+	// +kubebuilder:validation:Nullable
+	DefaultGroupWatch string `protobuf:"bytes,36,opt,name=default_group_watch,json=defaultGroupWatch,proto3" json:"default_group_watch,omitempty"`
+	// Default notification level for direct chats.
+	//
+	// +kubebuilder:validation:Nullable
+	DefaultDirectChatWatch string `protobuf:"bytes,37,opt,name=default_direct_chat_watch,json=defaultDirectChatWatch,proto3" json:"default_direct_chat_watch,omitempty"`
+	// Default notification level for user chats.
+	//
+	// +kubebuilder:validation:Nullable
+	DefaultUserChatWatch string `protobuf:"bytes,38,opt,name=default_user_chat_watch,json=defaultUserChatWatch,proto3" json:"default_user_chat_watch,omitempty"`
+	// Chat notification alert sound.
+	//
+	// +kubebuilder:validation:Nullable
+	ChatAlertSound string `protobuf:"bytes,39,opt,name=chat_alert_sound,json=chatAlertSound,proto3" json:"chat_alert_sound,omitempty"`
+	// Whether to show private message previews in notifications.
+	//
+	// +kubebuilder:validation:Nullable
+	ShowPrivateMessagePreview bool `protobuf:"varint,40,opt,name=show_private_message_preview,json=showPrivateMessagePreview,proto3" json:"show_private_message_preview,omitempty"`
+	// Operator performance score.
+	//
+	// +kubebuilder:validation:Nullable
+	OperatorScore float32 `protobuf:"fixed32,41,opt,name=operator_score,json=operatorScore,proto3" json:"operator_score,omitempty"`
+	// User engagement score.
+	//
+	// +kubebuilder:validation:Nullable
+	TouchScore float32 `protobuf:"fixed32,42,opt,name=touch_score,json=touchScore,proto3" json:"touch_score,omitempty"`
+	// Manager avatar image reference.
+	//
+	// +kubebuilder:validation:Nullable
+	Avatar *TinyFile `protobuf:"bytes,43,opt,name=avatar,proto3" json:"avatar,omitempty"`
+	// Whether email reminders are enabled for this operator.
+	//
+	// +kubebuilder:validation:Nullable
+	OperatorEmailReminder bool `protobuf:"varint,44,opt,name=operator_email_reminder,json=operatorEmailReminder,proto3" json:"operator_email_reminder,omitempty"`
+	// Whether this manager is an active operator.
+	//
+	// +kubebuilder:validation:Nullable
+	Operator bool `protobuf:"varint,45,opt,name=operator,proto3" json:"operator,omitempty"`
+	// Whether @all mentions are marked as important.
+	//
+	// +kubebuilder:validation:Nullable
+	DefaultAllMentionImportant bool `protobuf:"varint,46,opt,name=default_all_mention_important,json=defaultAllMentionImportant,proto3" json:"default_all_mention_important,omitempty"`
+	// Whether user messages are marked as important.
+	//
+	// +kubebuilder:validation:Nullable
+	UserMessageImportant bool `protobuf:"varint,47,opt,name=user_message_important,json=userMessageImportant,proto3" json:"user_message_important,omitempty"`
+	// Manager reference identifier.
+	//
+	// +kubebuilder:validation:Nullable
+	ManagerId string `protobuf:"bytes,48,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
+	// Email address displayed to end users.
+	//
+	// +kubebuilder:validation:Nullable
+	EmailForFront string `protobuf:"bytes,49,opt,name=email_for_front,json=emailForFront,proto3" json:"email_for_front,omitempty"`
+	// Mobile number displayed to end users.
+	//
+	// +kubebuilder:validation:Nullable
+	MobileNumberForFront string `protobuf:"bytes,50,opt,name=mobile_number_for_front,json=mobileNumberForFront,proto3" json:"mobile_number_for_front,omitempty"`
+	// Manager role.
+	//
+	// +kubebuilder:validation:Nullable
+	Role string `protobuf:"bytes,51,opt,name=role,proto3" json:"role,omitempty"`
+	// Whether operator scheduling is enabled.
+	//
+	// +kubebuilder:validation:Nullable
+	OperatorScheduling bool `protobuf:"varint,52,opt,name=operator_scheduling,json=operatorScheduling,proto3" json:"operator_scheduling,omitempty"`
+	// Scheduled operating time ranges for this operator.
+	//
+	// +kubebuilder:validation:Nullable
+	OperatorTimeRanges []*TimeRange `protobuf:"bytes,53,rep,name=operator_time_ranges,json=operatorTimeRanges,proto3" json:"operator_time_ranges,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 func (x *Manager) Reset() {
@@ -254,13 +295,6 @@ func (x *Manager) GetDisplayAsChannel() bool {
 	return false
 }
 
-func (x *Manager) GetRoleId() string {
-	if x != nil {
-		return x.RoleId
-	}
-	return ""
-}
-
 func (x *Manager) GetAutoAssignCapacity() int32 {
 	if x != nil {
 		return x.AutoAssignCapacity
@@ -303,76 +337,6 @@ func (x *Manager) GetDoNotDisturbClearAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Manager) GetAccountDoNotDisturb() bool {
-	if x != nil {
-		return x.AccountDoNotDisturb
-	}
-	return false
-}
-
-func (x *Manager) GetAccountDoNotDisturbClearAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.AccountDoNotDisturbClearAt
-	}
-	return nil
-}
-
-func (x *Manager) GetDefaultUserChatLogFolded() bool {
-	if x != nil {
-		return x.DefaultUserChatLogFolded
-	}
-	return false
-}
-
-func (x *Manager) GetEnableReactedMessageIndex() bool {
-	if x != nil {
-		return x.EnableReactedMessageIndex
-	}
-	return false
-}
-
-func (x *Manager) GetEnableTeamMentionedMessageIndex() bool {
-	if x != nil {
-		return x.EnableTeamMentionedMessageIndex
-	}
-	return false
-}
-
-func (x *Manager) GetPcInboxMeetAlert() bool {
-	if x != nil {
-		return x.PcInboxMeetAlert
-	}
-	return false
-}
-
-func (x *Manager) GetMobileInboxMeetAlert() bool {
-	if x != nil {
-		return x.MobileInboxMeetAlert
-	}
-	return false
-}
-
-func (x *Manager) GetPcTeamChatMeetAlert() bool {
-	if x != nil {
-		return x.PcTeamChatMeetAlert
-	}
-	return false
-}
-
-func (x *Manager) GetMobileTeamChatMeetAlert() bool {
-	if x != nil {
-		return x.MobileTeamChatMeetAlert
-	}
-	return false
-}
-
-func (x *Manager) GetPhoneInboxMeetAlert() bool {
-	if x != nil {
-		return x.PhoneInboxMeetAlert
-	}
-	return false
-}
-
 func (x *Manager) GetRemoved() bool {
 	if x != nil {
 		return x.Removed
@@ -387,16 +351,163 @@ func (x *Manager) GetCreatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Manager) GetUpdatedAt() *timestamppb.Timestamp {
+func (x *Manager) GetProfile() *structpb.Struct {
 	if x != nil {
-		return x.UpdatedAt
+		return x.Profile
 	}
 	return nil
 }
 
-func (x *Manager) GetRemovedAt() *timestamppb.Timestamp {
+func (x *Manager) GetEmail() string {
 	if x != nil {
-		return x.RemovedAt
+		return x.Email
+	}
+	return ""
+}
+
+func (x *Manager) GetShowEmailToFront() bool {
+	if x != nil {
+		return x.ShowEmailToFront
+	}
+	return false
+}
+
+func (x *Manager) GetMobileNumber() string {
+	if x != nil {
+		return x.MobileNumber
+	}
+	return ""
+}
+
+func (x *Manager) GetShowMobileNumberToFront() bool {
+	if x != nil {
+		return x.ShowMobileNumberToFront
+	}
+	return false
+}
+
+func (x *Manager) GetDefaultGroupWatch() string {
+	if x != nil {
+		return x.DefaultGroupWatch
+	}
+	return ""
+}
+
+func (x *Manager) GetDefaultDirectChatWatch() string {
+	if x != nil {
+		return x.DefaultDirectChatWatch
+	}
+	return ""
+}
+
+func (x *Manager) GetDefaultUserChatWatch() string {
+	if x != nil {
+		return x.DefaultUserChatWatch
+	}
+	return ""
+}
+
+func (x *Manager) GetChatAlertSound() string {
+	if x != nil {
+		return x.ChatAlertSound
+	}
+	return ""
+}
+
+func (x *Manager) GetShowPrivateMessagePreview() bool {
+	if x != nil {
+		return x.ShowPrivateMessagePreview
+	}
+	return false
+}
+
+func (x *Manager) GetOperatorScore() float32 {
+	if x != nil {
+		return x.OperatorScore
+	}
+	return 0
+}
+
+func (x *Manager) GetTouchScore() float32 {
+	if x != nil {
+		return x.TouchScore
+	}
+	return 0
+}
+
+func (x *Manager) GetAvatar() *TinyFile {
+	if x != nil {
+		return x.Avatar
+	}
+	return nil
+}
+
+func (x *Manager) GetOperatorEmailReminder() bool {
+	if x != nil {
+		return x.OperatorEmailReminder
+	}
+	return false
+}
+
+func (x *Manager) GetOperator() bool {
+	if x != nil {
+		return x.Operator
+	}
+	return false
+}
+
+func (x *Manager) GetDefaultAllMentionImportant() bool {
+	if x != nil {
+		return x.DefaultAllMentionImportant
+	}
+	return false
+}
+
+func (x *Manager) GetUserMessageImportant() bool {
+	if x != nil {
+		return x.UserMessageImportant
+	}
+	return false
+}
+
+func (x *Manager) GetManagerId() string {
+	if x != nil {
+		return x.ManagerId
+	}
+	return ""
+}
+
+func (x *Manager) GetEmailForFront() string {
+	if x != nil {
+		return x.EmailForFront
+	}
+	return ""
+}
+
+func (x *Manager) GetMobileNumberForFront() string {
+	if x != nil {
+		return x.MobileNumberForFront
+	}
+	return ""
+}
+
+func (x *Manager) GetRole() string {
+	if x != nil {
+		return x.Role
+	}
+	return ""
+}
+
+func (x *Manager) GetOperatorScheduling() bool {
+	if x != nil {
+		return x.OperatorScheduling
+	}
+	return false
+}
+
+func (x *Manager) GetOperatorTimeRanges() []*TimeRange {
+	if x != nil {
+		return x.OperatorTimeRanges
 	}
 	return nil
 }
@@ -405,7 +516,7 @@ var File_coreapi_model_manager_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_manager_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/manager.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x91\x12\n" +
+	"\x1bcoreapi/model/manager.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/campaign.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1dcoreapi/model/tiny_file.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc3\x14\n" +
 	"\aManager\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -424,9 +535,7 @@ const file_coreapi_model_manager_proto_rawDesc = "" +
 	"\x12name_desc_i18n_map\x18\a \x03(\v2+.coreapi.model.Manager.NameDescI18nMapEntryR\x0fnameDescI18nMap\x12\x1d\n" +
 	"\n" +
 	"avatar_url\x18\b \x01(\tR\tavatarUrl\x12,\n" +
-	"\x12display_as_channel\x18\t \x01(\bR\x10displayAsChannel\x12\x17\n" +
-	"\arole_id\x18\n" +
-	" \x01(\tR\x06roleId\x12\x91\x01\n" +
+	"\x12display_as_channel\x18\t \x01(\bR\x10displayAsChannel\x12\x91\x01\n" +
 	"\x14auto_assign_capacity\x18\v \x01(\x05B_\xbaH\\\xba\x01Y\n" +
 	"\rint32.between\x12.auto_assign_capacity must be between 0 and 200\x1a\x18this >= 0 && this <= 200R\x12autoAssignCapacity\x12!\n" +
 	"\fstatus_emoji\x18\f \x01(\tR\vstatusEmoji\x12t\n" +
@@ -435,24 +544,35 @@ const file_coreapi_model_manager_proto_rawDesc = "" +
 	"statusText\x12B\n" +
 	"\x0fstatus_clear_at\x18\x0e \x01(\v2\x1a.google.protobuf.TimestampR\rstatusClearAt\x12$\n" +
 	"\x0edo_not_disturb\x18\x0f \x01(\bR\fdoNotDisturb\x12P\n" +
-	"\x17do_not_disturb_clear_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampR\x13doNotDisturbClearAt\x123\n" +
-	"\x16account_do_not_disturb\x18\x11 \x01(\bR\x13accountDoNotDisturb\x12_\n" +
-	"\x1faccount_do_not_disturb_clear_at\x18\x12 \x01(\v2\x1a.google.protobuf.TimestampR\x1aaccountDoNotDisturbClearAt\x12>\n" +
-	"\x1cdefault_user_chat_log_folded\x18\x13 \x01(\bR\x18defaultUserChatLogFolded\x12?\n" +
-	"\x1cenable_reacted_message_index\x18\x14 \x01(\bR\x19enableReactedMessageIndex\x12L\n" +
-	"#enable_team_mentioned_message_index\x18\x15 \x01(\bR\x1fenableTeamMentionedMessageIndex\x12-\n" +
-	"\x13pc_inbox_meet_alert\x18\x16 \x01(\bR\x10pcInboxMeetAlert\x125\n" +
-	"\x17mobile_inbox_meet_alert\x18\x17 \x01(\bR\x14mobileInboxMeetAlert\x124\n" +
-	"\x17pc_team_chat_meet_alert\x18\x18 \x01(\bR\x13pcTeamChatMeetAlert\x12<\n" +
-	"\x1bmobile_team_chat_meet_alert\x18\x19 \x01(\bR\x17mobileTeamChatMeetAlert\x123\n" +
-	"\x16phone_inbox_meet_alert\x18\x1a \x01(\bR\x13phoneInboxMeetAlert\x12\x18\n" +
+	"\x17do_not_disturb_clear_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampR\x13doNotDisturbClearAt\x12\x18\n" +
 	"\aremoved\x18\x1b \x01(\bR\aremoved\x12A\n" +
 	"\n" +
-	"created_at\x18\x1c \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
+	"created_at\x18\x1c \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x121\n" +
+	"\aprofile\x18\x1f \x01(\v2\x17.google.protobuf.StructR\aprofile\x12\x14\n" +
+	"\x05email\x18  \x01(\tR\x05email\x12-\n" +
+	"\x13show_email_to_front\x18! \x01(\bR\x10showEmailToFront\x12#\n" +
+	"\rmobile_number\x18\" \x01(\tR\fmobileNumber\x12<\n" +
+	"\x1bshow_mobile_number_to_front\x18# \x01(\bR\x17showMobileNumberToFront\x12.\n" +
+	"\x13default_group_watch\x18$ \x01(\tR\x11defaultGroupWatch\x129\n" +
+	"\x19default_direct_chat_watch\x18% \x01(\tR\x16defaultDirectChatWatch\x125\n" +
+	"\x17default_user_chat_watch\x18& \x01(\tR\x14defaultUserChatWatch\x12(\n" +
+	"\x10chat_alert_sound\x18' \x01(\tR\x0echatAlertSound\x12?\n" +
+	"\x1cshow_private_message_preview\x18( \x01(\bR\x19showPrivateMessagePreview\x12%\n" +
+	"\x0eoperator_score\x18) \x01(\x02R\roperatorScore\x12\x1f\n" +
+	"\vtouch_score\x18* \x01(\x02R\n" +
+	"touchScore\x12/\n" +
+	"\x06avatar\x18+ \x01(\v2\x17.coreapi.model.TinyFileR\x06avatar\x126\n" +
+	"\x17operator_email_reminder\x18, \x01(\bR\x15operatorEmailReminder\x12\x1a\n" +
+	"\boperator\x18- \x01(\bR\boperator\x12A\n" +
+	"\x1ddefault_all_mention_important\x18. \x01(\bR\x1adefaultAllMentionImportant\x124\n" +
+	"\x16user_message_important\x18/ \x01(\bR\x14userMessageImportant\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\x1d \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x129\n" +
-	"\n" +
-	"removed_at\x18\x1e \x01(\v2\x1a.google.protobuf.TimestampR\tremovedAt\x1a[\n" +
+	"manager_id\x180 \x01(\tR\tmanagerId\x12&\n" +
+	"\x0femail_for_front\x181 \x01(\tR\remailForFront\x125\n" +
+	"\x17mobile_number_for_front\x182 \x01(\tR\x14mobileNumberForFront\x12\x12\n" +
+	"\x04role\x183 \x01(\tR\x04role\x12/\n" +
+	"\x13operator_scheduling\x184 \x01(\bR\x12operatorScheduling\x12J\n" +
+	"\x14operator_time_ranges\x185 \x03(\v2\x18.coreapi.model.TimeRangeR\x12operatorTimeRanges\x1a[\n" +
 	"\x14NameDescI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12-\n" +
 	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01Bb\n" +
@@ -475,17 +595,20 @@ var file_coreapi_model_manager_proto_goTypes = []any{
 	(*Manager)(nil),               // 0: coreapi.model.Manager
 	nil,                           // 1: coreapi.model.Manager.NameDescI18nMapEntry
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(*NameDesc)(nil),              // 3: coreapi.model.NameDesc
+	(*structpb.Struct)(nil),       // 3: google.protobuf.Struct
+	(*TinyFile)(nil),              // 4: coreapi.model.TinyFile
+	(*TimeRange)(nil),             // 5: coreapi.model.TimeRange
+	(*NameDesc)(nil),              // 6: coreapi.model.NameDesc
 }
 var file_coreapi_model_manager_proto_depIdxs = []int32{
 	1, // 0: coreapi.model.Manager.name_desc_i18n_map:type_name -> coreapi.model.Manager.NameDescI18nMapEntry
 	2, // 1: coreapi.model.Manager.status_clear_at:type_name -> google.protobuf.Timestamp
 	2, // 2: coreapi.model.Manager.do_not_disturb_clear_at:type_name -> google.protobuf.Timestamp
-	2, // 3: coreapi.model.Manager.account_do_not_disturb_clear_at:type_name -> google.protobuf.Timestamp
-	2, // 4: coreapi.model.Manager.created_at:type_name -> google.protobuf.Timestamp
-	2, // 5: coreapi.model.Manager.updated_at:type_name -> google.protobuf.Timestamp
-	2, // 6: coreapi.model.Manager.removed_at:type_name -> google.protobuf.Timestamp
-	3, // 7: coreapi.model.Manager.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
+	2, // 3: coreapi.model.Manager.created_at:type_name -> google.protobuf.Timestamp
+	3, // 4: coreapi.model.Manager.profile:type_name -> google.protobuf.Struct
+	4, // 5: coreapi.model.Manager.avatar:type_name -> coreapi.model.TinyFile
+	5, // 6: coreapi.model.Manager.operator_time_ranges:type_name -> coreapi.model.TimeRange
+	6, // 7: coreapi.model.Manager.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
 	8, // [8:8] is the sub-list for method output_type
 	8, // [8:8] is the sub-list for method input_type
 	8, // [8:8] is the sub-list for extension type_name
@@ -498,7 +621,9 @@ func file_coreapi_model_manager_proto_init() {
 	if File_coreapi_model_manager_proto != nil {
 		return
 	}
+	file_coreapi_model_campaign_proto_init()
 	file_coreapi_model_name_desc_proto_init()
+	file_coreapi_model_tiny_file_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

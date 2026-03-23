@@ -125,6 +125,10 @@ type ChatTag struct {
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=128
 	Description string `protobuf:"bytes,6,opt,name=description,proto3" json:"description,omitempty"`
+	// Manager IDs following this chat tag for notifications.
+	//
+	// +kubebuilder:validation:Nullable
+	FollowerIds []string `protobuf:"bytes,8,rep,name=follower_ids,json=followerIds,proto3" json:"follower_ids,omitempty"`
 	// Chat tag creation timestamp.
 	//
 	// +kubebuilder:validation:Required
@@ -205,6 +209,13 @@ func (x *ChatTag) GetDescription() string {
 	return ""
 }
 
+func (x *ChatTag) GetFollowerIds() []string {
+	if x != nil {
+		return x.FollowerIds
+	}
+	return nil
+}
+
 func (x *ChatTag) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.CreatedAt
@@ -216,7 +227,7 @@ var File_coreapi_model_chat_tag_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_chat_tag_proto_rawDesc = "" +
 	"\n" +
-	"\x1ccoreapi/model/chat_tag.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x81\x06\n" +
+	"\x1ccoreapi/model/chat_tag.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa4\x06\n" +
 	"\aChatTag\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -230,7 +241,8 @@ const file_coreapi_model_chat_tag_proto_rawDesc = "" +
 	"\x03key\x18\x05 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x03key\x12u\n" +
 	"\vdescription\x18\x06 \x01(\tBS\xbaHP\xba\x01M\n" +
-	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128R\vdescription\x12A\n" +
+	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128R\vdescription\x12!\n" +
+	"\ffollower_ids\x18\b \x03(\tR\vfollowerIds\x12A\n" +
 	"\n" +
 	"created_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt*\xab\x02\n" +
 	"\x13ChatTagColorVariant\x12&\n" +

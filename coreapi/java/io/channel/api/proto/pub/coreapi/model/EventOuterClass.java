@@ -31,7 +31,7 @@ public final class EventOuterClass {
       "\n\031coreapi/model/event.proto\022\rcoreapi.mod" +
       "el\032\033buf/validate/validate.proto\032\034google/" +
       "protobuf/struct.proto\032\037google/protobuf/t" +
-      "imestamp.proto\"\350\004\n\005Event\022]\n\002id\030\001 \001(\tBM\272H" +
+      "imestamp.proto\"\273\005\n\005Event\022]\n\002id\030\001 \001(\tBM\272H" +
       "J\272\001D\n\rstring.minLen\022\"value must be at le" +
       "ast 1 character\032\017size(this) >= 1\310\001\001R\002id\022" +
       "f\n\007user_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022" +
@@ -46,10 +46,12 @@ public final class EventOuterClass {
       "acters\032\020size(this) <= 64\310\001\001R\004name\0223\n\010pro" +
       "perty\030\005 \001(\0132\027.google.protobuf.StructR\010pr" +
       "operty\022A\n\ncreated_at\030\006 \001(\0132\032.google.prot" +
-      "obuf.TimestampB\006\272H\003\310\001\001R\tcreatedAtBb\n&io." +
-      "channel.api.proto.pub.coreapi.modelP\001Z6g" +
-      "ithub.com/channel-io/ch-proto-public/cor" +
-      "eapi/go/modelb\006proto3"
+      "obuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt\0227\n\texp" +
+      "ire_at\030\007 \001(\0132\032.google.protobuf.Timestamp" +
+      "R\010expireAt\022\030\n\007version\030\010 \001(\003R\007versionBb\n&" +
+      "io.channel.api.proto.pub.coreapi.modelP\001" +
+      "Z6github.com/channel-io/ch-proto-public/" +
+      "coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -63,7 +65,7 @@ public final class EventOuterClass {
     internal_static_coreapi_model_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Event_descriptor,
-        new java.lang.String[] { "Id", "UserId", "ChannelId", "Name", "Property", "CreatedAt", });
+        new java.lang.String[] { "Id", "UserId", "ChannelId", "Name", "Property", "CreatedAt", "ExpireAt", "Version", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);

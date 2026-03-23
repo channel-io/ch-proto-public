@@ -34,34 +34,6 @@ func MessageStateForString(value string) MessageState {
 	}
 }
 
-// GetString returns the canonical string for MessageWritingType.
-func (x MessageWritingType) GetString() string {
-	switch x {
-	case MessageWritingType_MESSAGE_WRITING_TYPE_CUSTOM:
-		return "custom"
-	case MessageWritingType_MESSAGE_WRITING_TYPE_EMAIL:
-		return "email"
-	case MessageWritingType_MESSAGE_WRITING_TYPE_STANDARD:
-		return "standard"
-	default:
-		return ""
-	}
-}
-
-// MessageWritingTypeForString returns the MessageWritingType enum for the given canonical string.
-func MessageWritingTypeForString(value string) MessageWritingType {
-	switch value {
-	case "custom":
-		return MessageWritingType_MESSAGE_WRITING_TYPE_CUSTOM
-	case "email":
-		return MessageWritingType_MESSAGE_WRITING_TYPE_EMAIL
-	case "standard":
-		return MessageWritingType_MESSAGE_WRITING_TYPE_STANDARD
-	default:
-		return MessageWritingType_MESSAGE_WRITING_TYPE_UNSPECIFIED
-	}
-}
-
 // GetString returns the canonical string for LogAction.
 func (x LogAction) GetString() string {
 	switch x {

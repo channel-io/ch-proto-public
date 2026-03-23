@@ -24,16 +24,18 @@ private static final long serialVersionUID = 0L;
     channelId_ = "";
     state_ = 0;
     userId_ = "";
-    xerId_ = "";
     assigneeId_ = "";
     teamId_ = "";
     description_ = "";
     contactMediumType_ = "";
-    missedReason_ = "";
-    liveMeetId_ = "";
     firstAssigneeIdAfterOpen_ = "";
     frontMessageId_ = "";
     tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    name_ = "";
+    managerIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    goalEventName_ = "";
+    goalState_ = "";
+    deskMessageId_ = "";
   }
 
   @java.lang.Override
@@ -91,12 +93,6 @@ private static final long serialVersionUID = 0L;
             userId_ = s;
             break;
           }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            xerId_ = s;
-            break;
-          }
           case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
@@ -119,18 +115,6 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             contactMediumType_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            missedReason_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            liveMeetId_ = s;
             break;
           }
           case 98: {
@@ -159,19 +143,6 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 114: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (profile_ != null) {
-              subBuilder = profile_.toBuilder();
-            }
-            profile_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(profile_);
-              profile_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
           case 122: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (firstOpenedAt_ != null) {
@@ -194,32 +165,6 @@ private static final long serialVersionUID = 0L;
             if (subBuilder != null) {
               subBuilder.mergeFrom(openedAt_);
               openedAt_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 138: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (firstQueuedAt_ != null) {
-              subBuilder = firstQueuedAt_.toBuilder();
-            }
-            firstQueuedAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(firstQueuedAt_);
-              firstQueuedAt_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 146: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (queuedAt_ != null) {
-              subBuilder = queuedAt_.toBuilder();
-            }
-            queuedAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(queuedAt_);
-              queuedAt_ = subBuilder.buildPartial();
             }
 
             break;
@@ -259,19 +204,6 @@ private static final long serialVersionUID = 0L;
             if (subBuilder != null) {
               subBuilder.mergeFrom(closedAt_);
               closedAt_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 178: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (firstRepliedAt_ != null) {
-              subBuilder = firstRepliedAt_.toBuilder();
-            }
-            firstRepliedAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(firstRepliedAt_);
-              firstRepliedAt_ = subBuilder.buildPartial();
             }
 
             break;
@@ -404,6 +336,114 @@ private static final long serialVersionUID = 0L;
             tags_.add(s);
             break;
           }
+          case 328: {
+
+            managed_ = input.readBool();
+            break;
+          }
+          case 338: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            name_ = s;
+            break;
+          }
+          case 346: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              managerIds_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            managerIds_.add(s);
+            break;
+          }
+          case 354: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            goalEventName_ = s;
+            break;
+          }
+          case 362: {
+            com.google.protobuf.Struct.Builder subBuilder = null;
+            if (goalEventQuery_ != null) {
+              subBuilder = goalEventQuery_.toBuilder();
+            }
+            goalEventQuery_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(goalEventQuery_);
+              goalEventQuery_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 370: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (goalCheckedAt_ != null) {
+              subBuilder = goalCheckedAt_.toBuilder();
+            }
+            goalCheckedAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(goalCheckedAt_);
+              goalCheckedAt_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 378: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            goalState_ = s;
+            break;
+          }
+          case 386: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            deskMessageId_ = s;
+            break;
+          }
+          case 394: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (deskUpdatedAt_ != null) {
+              subBuilder = deskUpdatedAt_.toBuilder();
+            }
+            deskUpdatedAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(deskUpdatedAt_);
+              deskUpdatedAt_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 402: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (snoozedAt_ != null) {
+              subBuilder = snoozedAt_.toBuilder();
+            }
+            snoozedAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(snoozedAt_);
+              snoozedAt_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 410: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (expireAt_ != null) {
+              subBuilder = expireAt_.toBuilder();
+            }
+            expireAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(expireAt_);
+              expireAt_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 416: {
+
+            version_ = input.readInt64();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -421,6 +461,9 @@ private static final long serialVersionUID = 0L;
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
         tags_ = tags_.getUnmodifiableView();
+      }
+      if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        managerIds_ = managerIds_.getUnmodifiableView();
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -610,54 +653,6 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       userId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int XER_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object xerId_;
-  /**
-   * <pre>
-   * External reference ID of the user.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string xer_id = 5 [json_name = "xerId"];</code>
-   * @return The xerId.
-   */
-  @java.lang.Override
-  public java.lang.String getXerId() {
-    java.lang.Object ref = xerId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      xerId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * External reference ID of the user.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string xer_id = 5 [json_name = "xerId"];</code>
-   * @return The bytes for xerId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getXerIdBytes() {
-    java.lang.Object ref = xerId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      xerId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -858,104 +853,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int MISSED_REASON_FIELD_NUMBER = 10;
-  private volatile java.lang.Object missedReason_;
-  /**
-   * <pre>
-   * Reason why the chat was missed.
-   * Present only when state is MISSED.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string missed_reason = 10 [json_name = "missedReason"];</code>
-   * @return The missedReason.
-   */
-  @java.lang.Override
-  public java.lang.String getMissedReason() {
-    java.lang.Object ref = missedReason_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      missedReason_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Reason why the chat was missed.
-   * Present only when state is MISSED.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string missed_reason = 10 [json_name = "missedReason"];</code>
-   * @return The bytes for missedReason.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getMissedReasonBytes() {
-    java.lang.Object ref = missedReason_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      missedReason_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int LIVE_MEET_ID_FIELD_NUMBER = 11;
-  private volatile java.lang.Object liveMeetId_;
-  /**
-   * <pre>
-   * ID of the active meet session associated with this chat.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string live_meet_id = 11 [json_name = "liveMeetId"];</code>
-   * @return The liveMeetId.
-   */
-  @java.lang.Override
-  public java.lang.String getLiveMeetId() {
-    java.lang.Object ref = liveMeetId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      liveMeetId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * ID of the active meet session associated with this chat.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string live_meet_id = 11 [json_name = "liveMeetId"];</code>
-   * @return The bytes for liveMeetId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getLiveMeetIdBytes() {
-    java.lang.Object ref = liveMeetId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      liveMeetId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   public static final int HANDLING_FIELD_NUMBER = 12;
   private com.google.protobuf.Struct handling_;
   /**
@@ -1041,47 +938,6 @@ private static final long serialVersionUID = 0L;
     return getSource();
   }
 
-  public static final int PROFILE_FIELD_NUMBER = 14;
-  private com.google.protobuf.Struct profile_;
-  /**
-   * <pre>
-   * Custom profile data associated with this chat.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct profile = 14 [json_name = "profile"];</code>
-   * @return Whether the profile field is set.
-   */
-  @java.lang.Override
-  public boolean hasProfile() {
-    return profile_ != null;
-  }
-  /**
-   * <pre>
-   * Custom profile data associated with this chat.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct profile = 14 [json_name = "profile"];</code>
-   * @return The profile.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Struct getProfile() {
-    return profile_ == null ? com.google.protobuf.Struct.getDefaultInstance() : profile_;
-  }
-  /**
-   * <pre>
-   * Custom profile data associated with this chat.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct profile = 14 [json_name = "profile"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.StructOrBuilder getProfileOrBuilder() {
-    return getProfile();
-  }
-
   public static final int FIRST_OPENED_AT_FIELD_NUMBER = 15;
   private com.google.protobuf.Timestamp firstOpenedAt_;
   /**
@@ -1162,88 +1018,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getOpenedAtOrBuilder() {
     return getOpenedAt();
-  }
-
-  public static final int FIRST_QUEUED_AT_FIELD_NUMBER = 17;
-  private com.google.protobuf.Timestamp firstQueuedAt_;
-  /**
-   * <pre>
-   * Timestamp when the chat first entered the queue.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_queued_at = 17 [json_name = "firstQueuedAt"];</code>
-   * @return Whether the firstQueuedAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasFirstQueuedAt() {
-    return firstQueuedAt_ != null;
-  }
-  /**
-   * <pre>
-   * Timestamp when the chat first entered the queue.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_queued_at = 17 [json_name = "firstQueuedAt"];</code>
-   * @return The firstQueuedAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getFirstQueuedAt() {
-    return firstQueuedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : firstQueuedAt_;
-  }
-  /**
-   * <pre>
-   * Timestamp when the chat first entered the queue.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_queued_at = 17 [json_name = "firstQueuedAt"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getFirstQueuedAtOrBuilder() {
-    return getFirstQueuedAt();
-  }
-
-  public static final int QUEUED_AT_FIELD_NUMBER = 18;
-  private com.google.protobuf.Timestamp queuedAt_;
-  /**
-   * <pre>
-   * Timestamp when the chat most recently entered the queue.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp queued_at = 18 [json_name = "queuedAt"];</code>
-   * @return Whether the queuedAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasQueuedAt() {
-    return queuedAt_ != null;
-  }
-  /**
-   * <pre>
-   * Timestamp when the chat most recently entered the queue.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp queued_at = 18 [json_name = "queuedAt"];</code>
-   * @return The queuedAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getQueuedAt() {
-    return queuedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : queuedAt_;
-  }
-  /**
-   * <pre>
-   * Timestamp when the chat most recently entered the queue.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp queued_at = 18 [json_name = "queuedAt"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getQueuedAtOrBuilder() {
-    return getQueuedAt();
   }
 
   public static final int FIRST_ASKED_AT_FIELD_NUMBER = 19;
@@ -1367,47 +1141,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getClosedAtOrBuilder() {
     return getClosedAt();
-  }
-
-  public static final int FIRST_REPLIED_AT_FIELD_NUMBER = 22;
-  private com.google.protobuf.Timestamp firstRepliedAt_;
-  /**
-   * <pre>
-   * Timestamp when a manager first replied.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at = 22 [json_name = "firstRepliedAt"];</code>
-   * @return Whether the firstRepliedAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasFirstRepliedAt() {
-    return firstRepliedAt_ != null;
-  }
-  /**
-   * <pre>
-   * Timestamp when a manager first replied.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at = 22 [json_name = "firstRepliedAt"];</code>
-   * @return The firstRepliedAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getFirstRepliedAt() {
-    return firstRepliedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : firstRepliedAt_;
-  }
-  /**
-   * <pre>
-   * Timestamp when a manager first replied.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at = 22 [json_name = "firstRepliedAt"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getFirstRepliedAtOrBuilder() {
-    return getFirstRepliedAt();
   }
 
   public static final int FIRST_REPLIED_AT_AFTER_OPEN_FIELD_NUMBER = 23;
@@ -1905,6 +1638,490 @@ private static final long serialVersionUID = 0L;
     return tags_.getByteString(index);
   }
 
+  public static final int MANAGED_FIELD_NUMBER = 41;
+  private boolean managed_;
+  /**
+   * <pre>
+   * Whether this chat is in managed state.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool managed = 41 [json_name = "managed"];</code>
+   * @return The managed.
+   */
+  @java.lang.Override
+  public boolean getManaged() {
+    return managed_;
+  }
+
+  public static final int NAME_FIELD_NUMBER = 42;
+  private volatile java.lang.Object name_;
+  /**
+   * <pre>
+   * Display name of this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string name = 42 [json_name = "name"];</code>
+   * @return The name.
+   */
+  @java.lang.Override
+  public java.lang.String getName() {
+    java.lang.Object ref = name_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      name_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Display name of this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string name = 42 [json_name = "name"];</code>
+   * @return The bytes for name.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getNameBytes() {
+    java.lang.Object ref = name_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      name_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int MANAGER_IDS_FIELD_NUMBER = 43;
+  private com.google.protobuf.LazyStringList managerIds_;
+  /**
+   * <pre>
+   * IDs of managers participating in this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+   * @return A list containing the managerIds.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getManagerIdsList() {
+    return managerIds_;
+  }
+  /**
+   * <pre>
+   * IDs of managers participating in this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+   * @return The count of managerIds.
+   */
+  public int getManagerIdsCount() {
+    return managerIds_.size();
+  }
+  /**
+   * <pre>
+   * IDs of managers participating in this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+   * @param index The index of the element to return.
+   * @return The managerIds at the given index.
+   */
+  public java.lang.String getManagerIds(int index) {
+    return managerIds_.get(index);
+  }
+  /**
+   * <pre>
+   * IDs of managers participating in this chat.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the managerIds at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getManagerIdsBytes(int index) {
+    return managerIds_.getByteString(index);
+  }
+
+  public static final int GOAL_EVENT_NAME_FIELD_NUMBER = 44;
+  private volatile java.lang.Object goalEventName_;
+  /**
+   * <pre>
+   * Name of the event tracked as a conversion goal.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string goal_event_name = 44 [json_name = "goalEventName"];</code>
+   * @return The goalEventName.
+   */
+  @java.lang.Override
+  public java.lang.String getGoalEventName() {
+    java.lang.Object ref = goalEventName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      goalEventName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Name of the event tracked as a conversion goal.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string goal_event_name = 44 [json_name = "goalEventName"];</code>
+   * @return The bytes for goalEventName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getGoalEventNameBytes() {
+    java.lang.Object ref = goalEventName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      goalEventName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int GOAL_EVENT_QUERY_FIELD_NUMBER = 45;
+  private com.google.protobuf.Struct goalEventQuery_;
+  /**
+   * <pre>
+   * Filtering query for the goal event.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct goal_event_query = 45 [json_name = "goalEventQuery"];</code>
+   * @return Whether the goalEventQuery field is set.
+   */
+  @java.lang.Override
+  public boolean hasGoalEventQuery() {
+    return goalEventQuery_ != null;
+  }
+  /**
+   * <pre>
+   * Filtering query for the goal event.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct goal_event_query = 45 [json_name = "goalEventQuery"];</code>
+   * @return The goalEventQuery.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Struct getGoalEventQuery() {
+    return goalEventQuery_ == null ? com.google.protobuf.Struct.getDefaultInstance() : goalEventQuery_;
+  }
+  /**
+   * <pre>
+   * Filtering query for the goal event.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct goal_event_query = 45 [json_name = "goalEventQuery"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StructOrBuilder getGoalEventQueryOrBuilder() {
+    return getGoalEventQuery();
+  }
+
+  public static final int GOAL_CHECKED_AT_FIELD_NUMBER = 46;
+  private com.google.protobuf.Timestamp goalCheckedAt_;
+  /**
+   * <pre>
+   * Timestamp when the goal was last checked.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp goal_checked_at = 46 [json_name = "goalCheckedAt"];</code>
+   * @return Whether the goalCheckedAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasGoalCheckedAt() {
+    return goalCheckedAt_ != null;
+  }
+  /**
+   * <pre>
+   * Timestamp when the goal was last checked.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp goal_checked_at = 46 [json_name = "goalCheckedAt"];</code>
+   * @return The goalCheckedAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getGoalCheckedAt() {
+    return goalCheckedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : goalCheckedAt_;
+  }
+  /**
+   * <pre>
+   * Timestamp when the goal was last checked.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp goal_checked_at = 46 [json_name = "goalCheckedAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getGoalCheckedAtOrBuilder() {
+    return getGoalCheckedAt();
+  }
+
+  public static final int GOAL_STATE_FIELD_NUMBER = 47;
+  private volatile java.lang.Object goalState_;
+  /**
+   * <pre>
+   * Current goal achievement state.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string goal_state = 47 [json_name = "goalState"];</code>
+   * @return The goalState.
+   */
+  @java.lang.Override
+  public java.lang.String getGoalState() {
+    java.lang.Object ref = goalState_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      goalState_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Current goal achievement state.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string goal_state = 47 [json_name = "goalState"];</code>
+   * @return The bytes for goalState.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getGoalStateBytes() {
+    java.lang.Object ref = goalState_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      goalState_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DESK_MESSAGE_ID_FIELD_NUMBER = 48;
+  private volatile java.lang.Object deskMessageId_;
+  /**
+   * <pre>
+   * ID of the most recent desk-facing message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string desk_message_id = 48 [json_name = "deskMessageId"];</code>
+   * @return The deskMessageId.
+   */
+  @java.lang.Override
+  public java.lang.String getDeskMessageId() {
+    java.lang.Object ref = deskMessageId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      deskMessageId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * ID of the most recent desk-facing message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string desk_message_id = 48 [json_name = "deskMessageId"];</code>
+   * @return The bytes for deskMessageId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDeskMessageIdBytes() {
+    java.lang.Object ref = deskMessageId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      deskMessageId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DESK_UPDATED_AT_FIELD_NUMBER = 49;
+  private com.google.protobuf.Timestamp deskUpdatedAt_;
+  /**
+   * <pre>
+   * Timestamp when the desk-facing content was last updated.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp desk_updated_at = 49 [json_name = "deskUpdatedAt"];</code>
+   * @return Whether the deskUpdatedAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasDeskUpdatedAt() {
+    return deskUpdatedAt_ != null;
+  }
+  /**
+   * <pre>
+   * Timestamp when the desk-facing content was last updated.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp desk_updated_at = 49 [json_name = "deskUpdatedAt"];</code>
+   * @return The deskUpdatedAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getDeskUpdatedAt() {
+    return deskUpdatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : deskUpdatedAt_;
+  }
+  /**
+   * <pre>
+   * Timestamp when the desk-facing content was last updated.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp desk_updated_at = 49 [json_name = "deskUpdatedAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getDeskUpdatedAtOrBuilder() {
+    return getDeskUpdatedAt();
+  }
+
+  public static final int SNOOZED_AT_FIELD_NUMBER = 50;
+  private com.google.protobuf.Timestamp snoozedAt_;
+  /**
+   * <pre>
+   * Timestamp when the chat was snoozed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp snoozed_at = 50 [json_name = "snoozedAt"];</code>
+   * @return Whether the snoozedAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasSnoozedAt() {
+    return snoozedAt_ != null;
+  }
+  /**
+   * <pre>
+   * Timestamp when the chat was snoozed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp snoozed_at = 50 [json_name = "snoozedAt"];</code>
+   * @return The snoozedAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getSnoozedAt() {
+    return snoozedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : snoozedAt_;
+  }
+  /**
+   * <pre>
+   * Timestamp when the chat was snoozed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp snoozed_at = 50 [json_name = "snoozedAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getSnoozedAtOrBuilder() {
+    return getSnoozedAt();
+  }
+
+  public static final int EXPIRE_AT_FIELD_NUMBER = 51;
+  private com.google.protobuf.Timestamp expireAt_;
+  /**
+   * <pre>
+   * Timestamp when the chat expires.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+   * @return Whether the expireAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasExpireAt() {
+    return expireAt_ != null;
+  }
+  /**
+   * <pre>
+   * Timestamp when the chat expires.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+   * @return The expireAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getExpireAt() {
+    return expireAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expireAt_;
+  }
+  /**
+   * <pre>
+   * Timestamp when the chat expires.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getExpireAtOrBuilder() {
+    return getExpireAt();
+  }
+
+  public static final int VERSION_FIELD_NUMBER = 52;
+  private long version_;
+  /**
+   * <pre>
+   * Chat data version number.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int64 version = 52 [json_name = "version"];</code>
+   * @return The version.
+   */
+  @java.lang.Override
+  public long getVersion() {
+    return version_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1931,9 +2148,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, userId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(xerId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, xerId_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(assigneeId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, assigneeId_);
     }
@@ -1946,32 +2160,17 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contactMediumType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, contactMediumType_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(missedReason_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, missedReason_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(liveMeetId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, liveMeetId_);
-    }
     if (handling_ != null) {
       output.writeMessage(12, getHandling());
     }
     if (source_ != null) {
       output.writeMessage(13, getSource());
     }
-    if (profile_ != null) {
-      output.writeMessage(14, getProfile());
-    }
     if (firstOpenedAt_ != null) {
       output.writeMessage(15, getFirstOpenedAt());
     }
     if (openedAt_ != null) {
       output.writeMessage(16, getOpenedAt());
-    }
-    if (firstQueuedAt_ != null) {
-      output.writeMessage(17, getFirstQueuedAt());
-    }
-    if (queuedAt_ != null) {
-      output.writeMessage(18, getQueuedAt());
     }
     if (firstAskedAt_ != null) {
       output.writeMessage(19, getFirstAskedAt());
@@ -1981,9 +2180,6 @@ private static final long serialVersionUID = 0L;
     }
     if (closedAt_ != null) {
       output.writeMessage(21, getClosedAt());
-    }
-    if (firstRepliedAt_ != null) {
-      output.writeMessage(22, getFirstRepliedAt());
     }
     if (firstRepliedAtAfterOpen_ != null) {
       output.writeMessage(23, getFirstRepliedAtAfterOpen());
@@ -2039,6 +2235,42 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < tags_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 40, tags_.getRaw(i));
     }
+    if (managed_ != false) {
+      output.writeBool(41, managed_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 42, name_);
+    }
+    for (int i = 0; i < managerIds_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 43, managerIds_.getRaw(i));
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(goalEventName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 44, goalEventName_);
+    }
+    if (goalEventQuery_ != null) {
+      output.writeMessage(45, getGoalEventQuery());
+    }
+    if (goalCheckedAt_ != null) {
+      output.writeMessage(46, getGoalCheckedAt());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(goalState_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 47, goalState_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deskMessageId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 48, deskMessageId_);
+    }
+    if (deskUpdatedAt_ != null) {
+      output.writeMessage(49, getDeskUpdatedAt());
+    }
+    if (snoozedAt_ != null) {
+      output.writeMessage(50, getSnoozedAt());
+    }
+    if (expireAt_ != null) {
+      output.writeMessage(51, getExpireAt());
+    }
+    if (version_ != 0L) {
+      output.writeInt64(52, version_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -2061,9 +2293,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, userId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(xerId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, xerId_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(assigneeId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, assigneeId_);
     }
@@ -2076,12 +2305,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contactMediumType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, contactMediumType_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(missedReason_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, missedReason_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(liveMeetId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, liveMeetId_);
-    }
     if (handling_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, getHandling());
@@ -2090,10 +2313,6 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, getSource());
     }
-    if (profile_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(14, getProfile());
-    }
     if (firstOpenedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(15, getFirstOpenedAt());
@@ -2101,14 +2320,6 @@ private static final long serialVersionUID = 0L;
     if (openedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(16, getOpenedAt());
-    }
-    if (firstQueuedAt_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(17, getFirstQueuedAt());
-    }
-    if (queuedAt_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(18, getQueuedAt());
     }
     if (firstAskedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -2121,10 +2332,6 @@ private static final long serialVersionUID = 0L;
     if (closedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(21, getClosedAt());
-    }
-    if (firstRepliedAt_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(22, getFirstRepliedAt());
     }
     if (firstRepliedAtAfterOpen_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -2200,6 +2407,54 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 2 * getTagsList().size();
     }
+    if (managed_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(41, managed_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(42, name_);
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < managerIds_.size(); i++) {
+        dataSize += computeStringSizeNoTag(managerIds_.getRaw(i));
+      }
+      size += dataSize;
+      size += 2 * getManagerIdsList().size();
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(goalEventName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(44, goalEventName_);
+    }
+    if (goalEventQuery_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(45, getGoalEventQuery());
+    }
+    if (goalCheckedAt_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(46, getGoalCheckedAt());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(goalState_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(47, goalState_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deskMessageId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(48, deskMessageId_);
+    }
+    if (deskUpdatedAt_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(49, getDeskUpdatedAt());
+    }
+    if (snoozedAt_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(50, getSnoozedAt());
+    }
+    if (expireAt_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(51, getExpireAt());
+    }
+    if (version_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(52, version_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -2222,8 +2477,6 @@ private static final long serialVersionUID = 0L;
     if (state_ != other.state_) return false;
     if (!getUserId()
         .equals(other.getUserId())) return false;
-    if (!getXerId()
-        .equals(other.getXerId())) return false;
     if (!getAssigneeId()
         .equals(other.getAssigneeId())) return false;
     if (!getTeamId()
@@ -2232,10 +2485,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDescription())) return false;
     if (!getContactMediumType()
         .equals(other.getContactMediumType())) return false;
-    if (!getMissedReason()
-        .equals(other.getMissedReason())) return false;
-    if (!getLiveMeetId()
-        .equals(other.getLiveMeetId())) return false;
     if (hasHandling() != other.hasHandling()) return false;
     if (hasHandling()) {
       if (!getHandling()
@@ -2246,11 +2495,6 @@ private static final long serialVersionUID = 0L;
       if (!getSource()
           .equals(other.getSource())) return false;
     }
-    if (hasProfile() != other.hasProfile()) return false;
-    if (hasProfile()) {
-      if (!getProfile()
-          .equals(other.getProfile())) return false;
-    }
     if (hasFirstOpenedAt() != other.hasFirstOpenedAt()) return false;
     if (hasFirstOpenedAt()) {
       if (!getFirstOpenedAt()
@@ -2260,16 +2504,6 @@ private static final long serialVersionUID = 0L;
     if (hasOpenedAt()) {
       if (!getOpenedAt()
           .equals(other.getOpenedAt())) return false;
-    }
-    if (hasFirstQueuedAt() != other.hasFirstQueuedAt()) return false;
-    if (hasFirstQueuedAt()) {
-      if (!getFirstQueuedAt()
-          .equals(other.getFirstQueuedAt())) return false;
-    }
-    if (hasQueuedAt() != other.hasQueuedAt()) return false;
-    if (hasQueuedAt()) {
-      if (!getQueuedAt()
-          .equals(other.getQueuedAt())) return false;
     }
     if (hasFirstAskedAt() != other.hasFirstAskedAt()) return false;
     if (hasFirstAskedAt()) {
@@ -2285,11 +2519,6 @@ private static final long serialVersionUID = 0L;
     if (hasClosedAt()) {
       if (!getClosedAt()
           .equals(other.getClosedAt())) return false;
-    }
-    if (hasFirstRepliedAt() != other.hasFirstRepliedAt()) return false;
-    if (hasFirstRepliedAt()) {
-      if (!getFirstRepliedAt()
-          .equals(other.getFirstRepliedAt())) return false;
     }
     if (hasFirstRepliedAtAfterOpen() != other.hasFirstRepliedAtAfterOpen()) return false;
     if (hasFirstRepliedAtAfterOpen()) {
@@ -2339,6 +2568,45 @@ private static final long serialVersionUID = 0L;
     }
     if (!getTagsList()
         .equals(other.getTagsList())) return false;
+    if (getManaged()
+        != other.getManaged()) return false;
+    if (!getName()
+        .equals(other.getName())) return false;
+    if (!getManagerIdsList()
+        .equals(other.getManagerIdsList())) return false;
+    if (!getGoalEventName()
+        .equals(other.getGoalEventName())) return false;
+    if (hasGoalEventQuery() != other.hasGoalEventQuery()) return false;
+    if (hasGoalEventQuery()) {
+      if (!getGoalEventQuery()
+          .equals(other.getGoalEventQuery())) return false;
+    }
+    if (hasGoalCheckedAt() != other.hasGoalCheckedAt()) return false;
+    if (hasGoalCheckedAt()) {
+      if (!getGoalCheckedAt()
+          .equals(other.getGoalCheckedAt())) return false;
+    }
+    if (!getGoalState()
+        .equals(other.getGoalState())) return false;
+    if (!getDeskMessageId()
+        .equals(other.getDeskMessageId())) return false;
+    if (hasDeskUpdatedAt() != other.hasDeskUpdatedAt()) return false;
+    if (hasDeskUpdatedAt()) {
+      if (!getDeskUpdatedAt()
+          .equals(other.getDeskUpdatedAt())) return false;
+    }
+    if (hasSnoozedAt() != other.hasSnoozedAt()) return false;
+    if (hasSnoozedAt()) {
+      if (!getSnoozedAt()
+          .equals(other.getSnoozedAt())) return false;
+    }
+    if (hasExpireAt() != other.hasExpireAt()) return false;
+    if (hasExpireAt()) {
+      if (!getExpireAt()
+          .equals(other.getExpireAt())) return false;
+    }
+    if (getVersion()
+        != other.getVersion()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -2358,8 +2626,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + state_;
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + getUserId().hashCode();
-    hash = (37 * hash) + XER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getXerId().hashCode();
     hash = (37 * hash) + ASSIGNEE_ID_FIELD_NUMBER;
     hash = (53 * hash) + getAssigneeId().hashCode();
     hash = (37 * hash) + TEAM_ID_FIELD_NUMBER;
@@ -2368,10 +2634,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDescription().hashCode();
     hash = (37 * hash) + CONTACT_MEDIUM_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getContactMediumType().hashCode();
-    hash = (37 * hash) + MISSED_REASON_FIELD_NUMBER;
-    hash = (53 * hash) + getMissedReason().hashCode();
-    hash = (37 * hash) + LIVE_MEET_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getLiveMeetId().hashCode();
     if (hasHandling()) {
       hash = (37 * hash) + HANDLING_FIELD_NUMBER;
       hash = (53 * hash) + getHandling().hashCode();
@@ -2380,10 +2642,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SOURCE_FIELD_NUMBER;
       hash = (53 * hash) + getSource().hashCode();
     }
-    if (hasProfile()) {
-      hash = (37 * hash) + PROFILE_FIELD_NUMBER;
-      hash = (53 * hash) + getProfile().hashCode();
-    }
     if (hasFirstOpenedAt()) {
       hash = (37 * hash) + FIRST_OPENED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getFirstOpenedAt().hashCode();
@@ -2391,14 +2649,6 @@ private static final long serialVersionUID = 0L;
     if (hasOpenedAt()) {
       hash = (37 * hash) + OPENED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getOpenedAt().hashCode();
-    }
-    if (hasFirstQueuedAt()) {
-      hash = (37 * hash) + FIRST_QUEUED_AT_FIELD_NUMBER;
-      hash = (53 * hash) + getFirstQueuedAt().hashCode();
-    }
-    if (hasQueuedAt()) {
-      hash = (37 * hash) + QUEUED_AT_FIELD_NUMBER;
-      hash = (53 * hash) + getQueuedAt().hashCode();
     }
     if (hasFirstAskedAt()) {
       hash = (37 * hash) + FIRST_ASKED_AT_FIELD_NUMBER;
@@ -2411,10 +2661,6 @@ private static final long serialVersionUID = 0L;
     if (hasClosedAt()) {
       hash = (37 * hash) + CLOSED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getClosedAt().hashCode();
-    }
-    if (hasFirstRepliedAt()) {
-      hash = (37 * hash) + FIRST_REPLIED_AT_FIELD_NUMBER;
-      hash = (53 * hash) + getFirstRepliedAt().hashCode();
     }
     if (hasFirstRepliedAtAfterOpen()) {
       hash = (37 * hash) + FIRST_REPLIED_AT_AFTER_OPEN_FIELD_NUMBER;
@@ -2471,6 +2717,44 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TAGS_FIELD_NUMBER;
       hash = (53 * hash) + getTagsList().hashCode();
     }
+    hash = (37 * hash) + MANAGED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getManaged());
+    hash = (37 * hash) + NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getName().hashCode();
+    if (getManagerIdsCount() > 0) {
+      hash = (37 * hash) + MANAGER_IDS_FIELD_NUMBER;
+      hash = (53 * hash) + getManagerIdsList().hashCode();
+    }
+    hash = (37 * hash) + GOAL_EVENT_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getGoalEventName().hashCode();
+    if (hasGoalEventQuery()) {
+      hash = (37 * hash) + GOAL_EVENT_QUERY_FIELD_NUMBER;
+      hash = (53 * hash) + getGoalEventQuery().hashCode();
+    }
+    if (hasGoalCheckedAt()) {
+      hash = (37 * hash) + GOAL_CHECKED_AT_FIELD_NUMBER;
+      hash = (53 * hash) + getGoalCheckedAt().hashCode();
+    }
+    hash = (37 * hash) + GOAL_STATE_FIELD_NUMBER;
+    hash = (53 * hash) + getGoalState().hashCode();
+    hash = (37 * hash) + DESK_MESSAGE_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getDeskMessageId().hashCode();
+    if (hasDeskUpdatedAt()) {
+      hash = (37 * hash) + DESK_UPDATED_AT_FIELD_NUMBER;
+      hash = (53 * hash) + getDeskUpdatedAt().hashCode();
+    }
+    if (hasSnoozedAt()) {
+      hash = (37 * hash) + SNOOZED_AT_FIELD_NUMBER;
+      hash = (53 * hash) + getSnoozedAt().hashCode();
+    }
+    if (hasExpireAt()) {
+      hash = (37 * hash) + EXPIRE_AT_FIELD_NUMBER;
+      hash = (53 * hash) + getExpireAt().hashCode();
+    }
+    hash = (37 * hash) + VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getVersion());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -2616,8 +2900,6 @@ private static final long serialVersionUID = 0L;
 
       userId_ = "";
 
-      xerId_ = "";
-
       assigneeId_ = "";
 
       teamId_ = "";
@@ -2625,10 +2907,6 @@ private static final long serialVersionUID = 0L;
       description_ = "";
 
       contactMediumType_ = "";
-
-      missedReason_ = "";
-
-      liveMeetId_ = "";
 
       if (handlingBuilder_ == null) {
         handling_ = null;
@@ -2642,12 +2920,6 @@ private static final long serialVersionUID = 0L;
         source_ = null;
         sourceBuilder_ = null;
       }
-      if (profileBuilder_ == null) {
-        profile_ = null;
-      } else {
-        profile_ = null;
-        profileBuilder_ = null;
-      }
       if (firstOpenedAtBuilder_ == null) {
         firstOpenedAt_ = null;
       } else {
@@ -2659,18 +2931,6 @@ private static final long serialVersionUID = 0L;
       } else {
         openedAt_ = null;
         openedAtBuilder_ = null;
-      }
-      if (firstQueuedAtBuilder_ == null) {
-        firstQueuedAt_ = null;
-      } else {
-        firstQueuedAt_ = null;
-        firstQueuedAtBuilder_ = null;
-      }
-      if (queuedAtBuilder_ == null) {
-        queuedAt_ = null;
-      } else {
-        queuedAt_ = null;
-        queuedAtBuilder_ = null;
       }
       if (firstAskedAtBuilder_ == null) {
         firstAskedAt_ = null;
@@ -2689,12 +2949,6 @@ private static final long serialVersionUID = 0L;
       } else {
         closedAt_ = null;
         closedAtBuilder_ = null;
-      }
-      if (firstRepliedAtBuilder_ == null) {
-        firstRepliedAt_ = null;
-      } else {
-        firstRepliedAt_ = null;
-        firstRepliedAtBuilder_ = null;
       }
       if (firstRepliedAtAfterOpenBuilder_ == null) {
         firstRepliedAtAfterOpen_ = null;
@@ -2748,6 +3002,50 @@ private static final long serialVersionUID = 0L;
       }
       tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
+      managed_ = false;
+
+      name_ = "";
+
+      managerIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      goalEventName_ = "";
+
+      if (goalEventQueryBuilder_ == null) {
+        goalEventQuery_ = null;
+      } else {
+        goalEventQuery_ = null;
+        goalEventQueryBuilder_ = null;
+      }
+      if (goalCheckedAtBuilder_ == null) {
+        goalCheckedAt_ = null;
+      } else {
+        goalCheckedAt_ = null;
+        goalCheckedAtBuilder_ = null;
+      }
+      goalState_ = "";
+
+      deskMessageId_ = "";
+
+      if (deskUpdatedAtBuilder_ == null) {
+        deskUpdatedAt_ = null;
+      } else {
+        deskUpdatedAt_ = null;
+        deskUpdatedAtBuilder_ = null;
+      }
+      if (snoozedAtBuilder_ == null) {
+        snoozedAt_ = null;
+      } else {
+        snoozedAt_ = null;
+        snoozedAtBuilder_ = null;
+      }
+      if (expireAtBuilder_ == null) {
+        expireAt_ = null;
+      } else {
+        expireAt_ = null;
+        expireAtBuilder_ = null;
+      }
+      version_ = 0L;
+
       return this;
     }
 
@@ -2779,13 +3077,10 @@ private static final long serialVersionUID = 0L;
       result.channelId_ = channelId_;
       result.state_ = state_;
       result.userId_ = userId_;
-      result.xerId_ = xerId_;
       result.assigneeId_ = assigneeId_;
       result.teamId_ = teamId_;
       result.description_ = description_;
       result.contactMediumType_ = contactMediumType_;
-      result.missedReason_ = missedReason_;
-      result.liveMeetId_ = liveMeetId_;
       if (handlingBuilder_ == null) {
         result.handling_ = handling_;
       } else {
@@ -2796,11 +3091,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.source_ = sourceBuilder_.build();
       }
-      if (profileBuilder_ == null) {
-        result.profile_ = profile_;
-      } else {
-        result.profile_ = profileBuilder_.build();
-      }
       if (firstOpenedAtBuilder_ == null) {
         result.firstOpenedAt_ = firstOpenedAt_;
       } else {
@@ -2810,16 +3100,6 @@ private static final long serialVersionUID = 0L;
         result.openedAt_ = openedAt_;
       } else {
         result.openedAt_ = openedAtBuilder_.build();
-      }
-      if (firstQueuedAtBuilder_ == null) {
-        result.firstQueuedAt_ = firstQueuedAt_;
-      } else {
-        result.firstQueuedAt_ = firstQueuedAtBuilder_.build();
-      }
-      if (queuedAtBuilder_ == null) {
-        result.queuedAt_ = queuedAt_;
-      } else {
-        result.queuedAt_ = queuedAtBuilder_.build();
       }
       if (firstAskedAtBuilder_ == null) {
         result.firstAskedAt_ = firstAskedAt_;
@@ -2835,11 +3115,6 @@ private static final long serialVersionUID = 0L;
         result.closedAt_ = closedAt_;
       } else {
         result.closedAt_ = closedAtBuilder_.build();
-      }
-      if (firstRepliedAtBuilder_ == null) {
-        result.firstRepliedAt_ = firstRepliedAt_;
-      } else {
-        result.firstRepliedAt_ = firstRepliedAtBuilder_.build();
       }
       if (firstRepliedAtAfterOpenBuilder_ == null) {
         result.firstRepliedAtAfterOpen_ = firstRepliedAtAfterOpen_;
@@ -2879,6 +3154,42 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.tags_ = tags_;
+      result.managed_ = managed_;
+      result.name_ = name_;
+      if (((bitField0_ & 0x00000002) != 0)) {
+        managerIds_ = managerIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.managerIds_ = managerIds_;
+      result.goalEventName_ = goalEventName_;
+      if (goalEventQueryBuilder_ == null) {
+        result.goalEventQuery_ = goalEventQuery_;
+      } else {
+        result.goalEventQuery_ = goalEventQueryBuilder_.build();
+      }
+      if (goalCheckedAtBuilder_ == null) {
+        result.goalCheckedAt_ = goalCheckedAt_;
+      } else {
+        result.goalCheckedAt_ = goalCheckedAtBuilder_.build();
+      }
+      result.goalState_ = goalState_;
+      result.deskMessageId_ = deskMessageId_;
+      if (deskUpdatedAtBuilder_ == null) {
+        result.deskUpdatedAt_ = deskUpdatedAt_;
+      } else {
+        result.deskUpdatedAt_ = deskUpdatedAtBuilder_.build();
+      }
+      if (snoozedAtBuilder_ == null) {
+        result.snoozedAt_ = snoozedAt_;
+      } else {
+        result.snoozedAt_ = snoozedAtBuilder_.build();
+      }
+      if (expireAtBuilder_ == null) {
+        result.expireAt_ = expireAt_;
+      } else {
+        result.expireAt_ = expireAtBuilder_.build();
+      }
+      result.version_ = version_;
       onBuilt();
       return result;
     }
@@ -2942,10 +3253,6 @@ private static final long serialVersionUID = 0L;
         userId_ = other.userId_;
         onChanged();
       }
-      if (!other.getXerId().isEmpty()) {
-        xerId_ = other.xerId_;
-        onChanged();
-      }
       if (!other.getAssigneeId().isEmpty()) {
         assigneeId_ = other.assigneeId_;
         onChanged();
@@ -2962,34 +3269,17 @@ private static final long serialVersionUID = 0L;
         contactMediumType_ = other.contactMediumType_;
         onChanged();
       }
-      if (!other.getMissedReason().isEmpty()) {
-        missedReason_ = other.missedReason_;
-        onChanged();
-      }
-      if (!other.getLiveMeetId().isEmpty()) {
-        liveMeetId_ = other.liveMeetId_;
-        onChanged();
-      }
       if (other.hasHandling()) {
         mergeHandling(other.getHandling());
       }
       if (other.hasSource()) {
         mergeSource(other.getSource());
       }
-      if (other.hasProfile()) {
-        mergeProfile(other.getProfile());
-      }
       if (other.hasFirstOpenedAt()) {
         mergeFirstOpenedAt(other.getFirstOpenedAt());
       }
       if (other.hasOpenedAt()) {
         mergeOpenedAt(other.getOpenedAt());
-      }
-      if (other.hasFirstQueuedAt()) {
-        mergeFirstQueuedAt(other.getFirstQueuedAt());
-      }
-      if (other.hasQueuedAt()) {
-        mergeQueuedAt(other.getQueuedAt());
       }
       if (other.hasFirstAskedAt()) {
         mergeFirstAskedAt(other.getFirstAskedAt());
@@ -2999,9 +3289,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasClosedAt()) {
         mergeClosedAt(other.getClosedAt());
-      }
-      if (other.hasFirstRepliedAt()) {
-        mergeFirstRepliedAt(other.getFirstRepliedAt());
       }
       if (other.hasFirstRepliedAtAfterOpen()) {
         mergeFirstRepliedAtAfterOpen(other.getFirstRepliedAtAfterOpen());
@@ -3065,6 +3352,53 @@ private static final long serialVersionUID = 0L;
           tags_.addAll(other.tags_);
         }
         onChanged();
+      }
+      if (other.getManaged() != false) {
+        setManaged(other.getManaged());
+      }
+      if (!other.getName().isEmpty()) {
+        name_ = other.name_;
+        onChanged();
+      }
+      if (!other.managerIds_.isEmpty()) {
+        if (managerIds_.isEmpty()) {
+          managerIds_ = other.managerIds_;
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          ensureManagerIdsIsMutable();
+          managerIds_.addAll(other.managerIds_);
+        }
+        onChanged();
+      }
+      if (!other.getGoalEventName().isEmpty()) {
+        goalEventName_ = other.goalEventName_;
+        onChanged();
+      }
+      if (other.hasGoalEventQuery()) {
+        mergeGoalEventQuery(other.getGoalEventQuery());
+      }
+      if (other.hasGoalCheckedAt()) {
+        mergeGoalCheckedAt(other.getGoalCheckedAt());
+      }
+      if (!other.getGoalState().isEmpty()) {
+        goalState_ = other.goalState_;
+        onChanged();
+      }
+      if (!other.getDeskMessageId().isEmpty()) {
+        deskMessageId_ = other.deskMessageId_;
+        onChanged();
+      }
+      if (other.hasDeskUpdatedAt()) {
+        mergeDeskUpdatedAt(other.getDeskUpdatedAt());
+      }
+      if (other.hasSnoozedAt()) {
+        mergeSnoozedAt(other.getSnoozedAt());
+      }
+      if (other.hasExpireAt()) {
+        mergeExpireAt(other.getExpireAt());
+      }
+      if (other.getVersion() != 0L) {
+        setVersion(other.getVersion());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -3488,107 +3822,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object xerId_ = "";
-    /**
-     * <pre>
-     * External reference ID of the user.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string xer_id = 5 [json_name = "xerId"];</code>
-     * @return The xerId.
-     */
-    public java.lang.String getXerId() {
-      java.lang.Object ref = xerId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        xerId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * External reference ID of the user.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string xer_id = 5 [json_name = "xerId"];</code>
-     * @return The bytes for xerId.
-     */
-    public com.google.protobuf.ByteString
-        getXerIdBytes() {
-      java.lang.Object ref = xerId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        xerId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * External reference ID of the user.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string xer_id = 5 [json_name = "xerId"];</code>
-     * @param value The xerId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setXerId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      xerId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * External reference ID of the user.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string xer_id = 5 [json_name = "xerId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearXerId() {
-      
-      xerId_ = getDefaultInstance().getXerId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * External reference ID of the user.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string xer_id = 5 [json_name = "xerId"];</code>
-     * @param value The bytes for xerId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setXerIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      xerId_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object assigneeId_ = "";
     /**
      * <pre>
@@ -3998,213 +4231,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object missedReason_ = "";
-    /**
-     * <pre>
-     * Reason why the chat was missed.
-     * Present only when state is MISSED.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string missed_reason = 10 [json_name = "missedReason"];</code>
-     * @return The missedReason.
-     */
-    public java.lang.String getMissedReason() {
-      java.lang.Object ref = missedReason_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        missedReason_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Reason why the chat was missed.
-     * Present only when state is MISSED.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string missed_reason = 10 [json_name = "missedReason"];</code>
-     * @return The bytes for missedReason.
-     */
-    public com.google.protobuf.ByteString
-        getMissedReasonBytes() {
-      java.lang.Object ref = missedReason_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        missedReason_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Reason why the chat was missed.
-     * Present only when state is MISSED.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string missed_reason = 10 [json_name = "missedReason"];</code>
-     * @param value The missedReason to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMissedReason(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      missedReason_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Reason why the chat was missed.
-     * Present only when state is MISSED.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string missed_reason = 10 [json_name = "missedReason"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMissedReason() {
-      
-      missedReason_ = getDefaultInstance().getMissedReason();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Reason why the chat was missed.
-     * Present only when state is MISSED.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string missed_reason = 10 [json_name = "missedReason"];</code>
-     * @param value The bytes for missedReason to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMissedReasonBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      missedReason_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object liveMeetId_ = "";
-    /**
-     * <pre>
-     * ID of the active meet session associated with this chat.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string live_meet_id = 11 [json_name = "liveMeetId"];</code>
-     * @return The liveMeetId.
-     */
-    public java.lang.String getLiveMeetId() {
-      java.lang.Object ref = liveMeetId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        liveMeetId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * ID of the active meet session associated with this chat.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string live_meet_id = 11 [json_name = "liveMeetId"];</code>
-     * @return The bytes for liveMeetId.
-     */
-    public com.google.protobuf.ByteString
-        getLiveMeetIdBytes() {
-      java.lang.Object ref = liveMeetId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        liveMeetId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * ID of the active meet session associated with this chat.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string live_meet_id = 11 [json_name = "liveMeetId"];</code>
-     * @param value The liveMeetId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLiveMeetId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      liveMeetId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * ID of the active meet session associated with this chat.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string live_meet_id = 11 [json_name = "liveMeetId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearLiveMeetId() {
-      
-      liveMeetId_ = getDefaultInstance().getLiveMeetId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * ID of the active meet session associated with this chat.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string live_meet_id = 11 [json_name = "liveMeetId"];</code>
-     * @param value The bytes for liveMeetId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLiveMeetIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      liveMeetId_ = value;
-      onChanged();
-      return this;
-    }
-
     private com.google.protobuf.Struct handling_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> handlingBuilder_;
@@ -4542,170 +4568,6 @@ private static final long serialVersionUID = 0L;
       return sourceBuilder_;
     }
 
-    private com.google.protobuf.Struct profile_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> profileBuilder_;
-    /**
-     * <pre>
-     * Custom profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct profile = 14 [json_name = "profile"];</code>
-     * @return Whether the profile field is set.
-     */
-    public boolean hasProfile() {
-      return profileBuilder_ != null || profile_ != null;
-    }
-    /**
-     * <pre>
-     * Custom profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct profile = 14 [json_name = "profile"];</code>
-     * @return The profile.
-     */
-    public com.google.protobuf.Struct getProfile() {
-      if (profileBuilder_ == null) {
-        return profile_ == null ? com.google.protobuf.Struct.getDefaultInstance() : profile_;
-      } else {
-        return profileBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Custom profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct profile = 14 [json_name = "profile"];</code>
-     */
-    public Builder setProfile(com.google.protobuf.Struct value) {
-      if (profileBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        profile_ = value;
-        onChanged();
-      } else {
-        profileBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Custom profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct profile = 14 [json_name = "profile"];</code>
-     */
-    public Builder setProfile(
-        com.google.protobuf.Struct.Builder builderForValue) {
-      if (profileBuilder_ == null) {
-        profile_ = builderForValue.build();
-        onChanged();
-      } else {
-        profileBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Custom profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct profile = 14 [json_name = "profile"];</code>
-     */
-    public Builder mergeProfile(com.google.protobuf.Struct value) {
-      if (profileBuilder_ == null) {
-        if (profile_ != null) {
-          profile_ =
-            com.google.protobuf.Struct.newBuilder(profile_).mergeFrom(value).buildPartial();
-        } else {
-          profile_ = value;
-        }
-        onChanged();
-      } else {
-        profileBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Custom profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct profile = 14 [json_name = "profile"];</code>
-     */
-    public Builder clearProfile() {
-      if (profileBuilder_ == null) {
-        profile_ = null;
-        onChanged();
-      } else {
-        profile_ = null;
-        profileBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Custom profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct profile = 14 [json_name = "profile"];</code>
-     */
-    public com.google.protobuf.Struct.Builder getProfileBuilder() {
-      
-      onChanged();
-      return getProfileFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Custom profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct profile = 14 [json_name = "profile"];</code>
-     */
-    public com.google.protobuf.StructOrBuilder getProfileOrBuilder() {
-      if (profileBuilder_ != null) {
-        return profileBuilder_.getMessageOrBuilder();
-      } else {
-        return profile_ == null ?
-            com.google.protobuf.Struct.getDefaultInstance() : profile_;
-      }
-    }
-    /**
-     * <pre>
-     * Custom profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct profile = 14 [json_name = "profile"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
-        getProfileFieldBuilder() {
-      if (profileBuilder_ == null) {
-        profileBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
-                getProfile(),
-                getParentForChildren(),
-                isClean());
-        profile_ = null;
-      }
-      return profileBuilder_;
-    }
-
     private com.google.protobuf.Timestamp firstOpenedAt_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstOpenedAtBuilder_;
@@ -5032,334 +4894,6 @@ private static final long serialVersionUID = 0L;
         openedAt_ = null;
       }
       return openedAtBuilder_;
-    }
-
-    private com.google.protobuf.Timestamp firstQueuedAt_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstQueuedAtBuilder_;
-    /**
-     * <pre>
-     * Timestamp when the chat first entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_queued_at = 17 [json_name = "firstQueuedAt"];</code>
-     * @return Whether the firstQueuedAt field is set.
-     */
-    public boolean hasFirstQueuedAt() {
-      return firstQueuedAtBuilder_ != null || firstQueuedAt_ != null;
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat first entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_queued_at = 17 [json_name = "firstQueuedAt"];</code>
-     * @return The firstQueuedAt.
-     */
-    public com.google.protobuf.Timestamp getFirstQueuedAt() {
-      if (firstQueuedAtBuilder_ == null) {
-        return firstQueuedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : firstQueuedAt_;
-      } else {
-        return firstQueuedAtBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat first entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_queued_at = 17 [json_name = "firstQueuedAt"];</code>
-     */
-    public Builder setFirstQueuedAt(com.google.protobuf.Timestamp value) {
-      if (firstQueuedAtBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        firstQueuedAt_ = value;
-        onChanged();
-      } else {
-        firstQueuedAtBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat first entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_queued_at = 17 [json_name = "firstQueuedAt"];</code>
-     */
-    public Builder setFirstQueuedAt(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (firstQueuedAtBuilder_ == null) {
-        firstQueuedAt_ = builderForValue.build();
-        onChanged();
-      } else {
-        firstQueuedAtBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat first entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_queued_at = 17 [json_name = "firstQueuedAt"];</code>
-     */
-    public Builder mergeFirstQueuedAt(com.google.protobuf.Timestamp value) {
-      if (firstQueuedAtBuilder_ == null) {
-        if (firstQueuedAt_ != null) {
-          firstQueuedAt_ =
-            com.google.protobuf.Timestamp.newBuilder(firstQueuedAt_).mergeFrom(value).buildPartial();
-        } else {
-          firstQueuedAt_ = value;
-        }
-        onChanged();
-      } else {
-        firstQueuedAtBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat first entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_queued_at = 17 [json_name = "firstQueuedAt"];</code>
-     */
-    public Builder clearFirstQueuedAt() {
-      if (firstQueuedAtBuilder_ == null) {
-        firstQueuedAt_ = null;
-        onChanged();
-      } else {
-        firstQueuedAt_ = null;
-        firstQueuedAtBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat first entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_queued_at = 17 [json_name = "firstQueuedAt"];</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getFirstQueuedAtBuilder() {
-      
-      onChanged();
-      return getFirstQueuedAtFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat first entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_queued_at = 17 [json_name = "firstQueuedAt"];</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getFirstQueuedAtOrBuilder() {
-      if (firstQueuedAtBuilder_ != null) {
-        return firstQueuedAtBuilder_.getMessageOrBuilder();
-      } else {
-        return firstQueuedAt_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : firstQueuedAt_;
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat first entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_queued_at = 17 [json_name = "firstQueuedAt"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getFirstQueuedAtFieldBuilder() {
-      if (firstQueuedAtBuilder_ == null) {
-        firstQueuedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getFirstQueuedAt(),
-                getParentForChildren(),
-                isClean());
-        firstQueuedAt_ = null;
-      }
-      return firstQueuedAtBuilder_;
-    }
-
-    private com.google.protobuf.Timestamp queuedAt_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> queuedAtBuilder_;
-    /**
-     * <pre>
-     * Timestamp when the chat most recently entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp queued_at = 18 [json_name = "queuedAt"];</code>
-     * @return Whether the queuedAt field is set.
-     */
-    public boolean hasQueuedAt() {
-      return queuedAtBuilder_ != null || queuedAt_ != null;
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat most recently entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp queued_at = 18 [json_name = "queuedAt"];</code>
-     * @return The queuedAt.
-     */
-    public com.google.protobuf.Timestamp getQueuedAt() {
-      if (queuedAtBuilder_ == null) {
-        return queuedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : queuedAt_;
-      } else {
-        return queuedAtBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat most recently entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp queued_at = 18 [json_name = "queuedAt"];</code>
-     */
-    public Builder setQueuedAt(com.google.protobuf.Timestamp value) {
-      if (queuedAtBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        queuedAt_ = value;
-        onChanged();
-      } else {
-        queuedAtBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat most recently entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp queued_at = 18 [json_name = "queuedAt"];</code>
-     */
-    public Builder setQueuedAt(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (queuedAtBuilder_ == null) {
-        queuedAt_ = builderForValue.build();
-        onChanged();
-      } else {
-        queuedAtBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat most recently entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp queued_at = 18 [json_name = "queuedAt"];</code>
-     */
-    public Builder mergeQueuedAt(com.google.protobuf.Timestamp value) {
-      if (queuedAtBuilder_ == null) {
-        if (queuedAt_ != null) {
-          queuedAt_ =
-            com.google.protobuf.Timestamp.newBuilder(queuedAt_).mergeFrom(value).buildPartial();
-        } else {
-          queuedAt_ = value;
-        }
-        onChanged();
-      } else {
-        queuedAtBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat most recently entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp queued_at = 18 [json_name = "queuedAt"];</code>
-     */
-    public Builder clearQueuedAt() {
-      if (queuedAtBuilder_ == null) {
-        queuedAt_ = null;
-        onChanged();
-      } else {
-        queuedAt_ = null;
-        queuedAtBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat most recently entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp queued_at = 18 [json_name = "queuedAt"];</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getQueuedAtBuilder() {
-      
-      onChanged();
-      return getQueuedAtFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat most recently entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp queued_at = 18 [json_name = "queuedAt"];</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getQueuedAtOrBuilder() {
-      if (queuedAtBuilder_ != null) {
-        return queuedAtBuilder_.getMessageOrBuilder();
-      } else {
-        return queuedAt_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : queuedAt_;
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the chat most recently entered the queue.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp queued_at = 18 [json_name = "queuedAt"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getQueuedAtFieldBuilder() {
-      if (queuedAtBuilder_ == null) {
-        queuedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getQueuedAt(),
-                getParentForChildren(),
-                isClean());
-        queuedAt_ = null;
-      }
-      return queuedAtBuilder_;
     }
 
     private com.google.protobuf.Timestamp firstAskedAt_;
@@ -5852,170 +5386,6 @@ private static final long serialVersionUID = 0L;
         closedAt_ = null;
       }
       return closedAtBuilder_;
-    }
-
-    private com.google.protobuf.Timestamp firstRepliedAt_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstRepliedAtBuilder_;
-    /**
-     * <pre>
-     * Timestamp when a manager first replied.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at = 22 [json_name = "firstRepliedAt"];</code>
-     * @return Whether the firstRepliedAt field is set.
-     */
-    public boolean hasFirstRepliedAt() {
-      return firstRepliedAtBuilder_ != null || firstRepliedAt_ != null;
-    }
-    /**
-     * <pre>
-     * Timestamp when a manager first replied.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at = 22 [json_name = "firstRepliedAt"];</code>
-     * @return The firstRepliedAt.
-     */
-    public com.google.protobuf.Timestamp getFirstRepliedAt() {
-      if (firstRepliedAtBuilder_ == null) {
-        return firstRepliedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : firstRepliedAt_;
-      } else {
-        return firstRepliedAtBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when a manager first replied.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at = 22 [json_name = "firstRepliedAt"];</code>
-     */
-    public Builder setFirstRepliedAt(com.google.protobuf.Timestamp value) {
-      if (firstRepliedAtBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        firstRepliedAt_ = value;
-        onChanged();
-      } else {
-        firstRepliedAtBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when a manager first replied.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at = 22 [json_name = "firstRepliedAt"];</code>
-     */
-    public Builder setFirstRepliedAt(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (firstRepliedAtBuilder_ == null) {
-        firstRepliedAt_ = builderForValue.build();
-        onChanged();
-      } else {
-        firstRepliedAtBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when a manager first replied.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at = 22 [json_name = "firstRepliedAt"];</code>
-     */
-    public Builder mergeFirstRepliedAt(com.google.protobuf.Timestamp value) {
-      if (firstRepliedAtBuilder_ == null) {
-        if (firstRepliedAt_ != null) {
-          firstRepliedAt_ =
-            com.google.protobuf.Timestamp.newBuilder(firstRepliedAt_).mergeFrom(value).buildPartial();
-        } else {
-          firstRepliedAt_ = value;
-        }
-        onChanged();
-      } else {
-        firstRepliedAtBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when a manager first replied.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at = 22 [json_name = "firstRepliedAt"];</code>
-     */
-    public Builder clearFirstRepliedAt() {
-      if (firstRepliedAtBuilder_ == null) {
-        firstRepliedAt_ = null;
-        onChanged();
-      } else {
-        firstRepliedAt_ = null;
-        firstRepliedAtBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when a manager first replied.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at = 22 [json_name = "firstRepliedAt"];</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getFirstRepliedAtBuilder() {
-      
-      onChanged();
-      return getFirstRepliedAtFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Timestamp when a manager first replied.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at = 22 [json_name = "firstRepliedAt"];</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getFirstRepliedAtOrBuilder() {
-      if (firstRepliedAtBuilder_ != null) {
-        return firstRepliedAtBuilder_.getMessageOrBuilder();
-      } else {
-        return firstRepliedAt_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : firstRepliedAt_;
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when a manager first replied.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at = 22 [json_name = "firstRepliedAt"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getFirstRepliedAtFieldBuilder() {
-      if (firstRepliedAtBuilder_ == null) {
-        firstRepliedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getFirstRepliedAt(),
-                getParentForChildren(),
-                isClean());
-        firstRepliedAt_ = null;
-      }
-      return firstRepliedAtBuilder_;
     }
 
     private com.google.protobuf.Timestamp firstRepliedAtAfterOpen_;
@@ -7545,6 +6915,1477 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+
+    private boolean managed_ ;
+    /**
+     * <pre>
+     * Whether this chat is in managed state.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool managed = 41 [json_name = "managed"];</code>
+     * @return The managed.
+     */
+    @java.lang.Override
+    public boolean getManaged() {
+      return managed_;
+    }
+    /**
+     * <pre>
+     * Whether this chat is in managed state.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool managed = 41 [json_name = "managed"];</code>
+     * @param value The managed to set.
+     * @return This builder for chaining.
+     */
+    public Builder setManaged(boolean value) {
+      
+      managed_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether this chat is in managed state.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool managed = 41 [json_name = "managed"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearManaged() {
+      
+      managed_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object name_ = "";
+    /**
+     * <pre>
+     * Display name of this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string name = 42 [json_name = "name"];</code>
+     * @return The name.
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Display name of this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string name = 42 [json_name = "name"];</code>
+     * @return The bytes for name.
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Display name of this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string name = 42 [json_name = "name"];</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
+     */
+    public Builder setName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      name_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Display name of this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string name = 42 [json_name = "name"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearName() {
+      
+      name_ = getDefaultInstance().getName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Display name of this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string name = 42 [json_name = "name"];</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      name_ = value;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringList managerIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureManagerIdsIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        managerIds_ = new com.google.protobuf.LazyStringArrayList(managerIds_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+    /**
+     * <pre>
+     * IDs of managers participating in this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+     * @return A list containing the managerIds.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getManagerIdsList() {
+      return managerIds_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * IDs of managers participating in this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+     * @return The count of managerIds.
+     */
+    public int getManagerIdsCount() {
+      return managerIds_.size();
+    }
+    /**
+     * <pre>
+     * IDs of managers participating in this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+     * @param index The index of the element to return.
+     * @return The managerIds at the given index.
+     */
+    public java.lang.String getManagerIds(int index) {
+      return managerIds_.get(index);
+    }
+    /**
+     * <pre>
+     * IDs of managers participating in this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the managerIds at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getManagerIdsBytes(int index) {
+      return managerIds_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * IDs of managers participating in this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+     * @param index The index to set the value at.
+     * @param value The managerIds to set.
+     * @return This builder for chaining.
+     */
+    public Builder setManagerIds(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureManagerIdsIsMutable();
+      managerIds_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * IDs of managers participating in this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+     * @param value The managerIds to add.
+     * @return This builder for chaining.
+     */
+    public Builder addManagerIds(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureManagerIdsIsMutable();
+      managerIds_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * IDs of managers participating in this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+     * @param values The managerIds to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllManagerIds(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureManagerIdsIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, managerIds_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * IDs of managers participating in this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearManagerIds() {
+      managerIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * IDs of managers participating in this chat.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string manager_ids = 43 [json_name = "managerIds"];</code>
+     * @param value The bytes of the managerIds to add.
+     * @return This builder for chaining.
+     */
+    public Builder addManagerIdsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureManagerIdsIsMutable();
+      managerIds_.add(value);
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object goalEventName_ = "";
+    /**
+     * <pre>
+     * Name of the event tracked as a conversion goal.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string goal_event_name = 44 [json_name = "goalEventName"];</code>
+     * @return The goalEventName.
+     */
+    public java.lang.String getGoalEventName() {
+      java.lang.Object ref = goalEventName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        goalEventName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Name of the event tracked as a conversion goal.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string goal_event_name = 44 [json_name = "goalEventName"];</code>
+     * @return The bytes for goalEventName.
+     */
+    public com.google.protobuf.ByteString
+        getGoalEventNameBytes() {
+      java.lang.Object ref = goalEventName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        goalEventName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Name of the event tracked as a conversion goal.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string goal_event_name = 44 [json_name = "goalEventName"];</code>
+     * @param value The goalEventName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGoalEventName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      goalEventName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Name of the event tracked as a conversion goal.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string goal_event_name = 44 [json_name = "goalEventName"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearGoalEventName() {
+      
+      goalEventName_ = getDefaultInstance().getGoalEventName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Name of the event tracked as a conversion goal.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string goal_event_name = 44 [json_name = "goalEventName"];</code>
+     * @param value The bytes for goalEventName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGoalEventNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      goalEventName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Struct goalEventQuery_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> goalEventQueryBuilder_;
+    /**
+     * <pre>
+     * Filtering query for the goal event.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct goal_event_query = 45 [json_name = "goalEventQuery"];</code>
+     * @return Whether the goalEventQuery field is set.
+     */
+    public boolean hasGoalEventQuery() {
+      return goalEventQueryBuilder_ != null || goalEventQuery_ != null;
+    }
+    /**
+     * <pre>
+     * Filtering query for the goal event.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct goal_event_query = 45 [json_name = "goalEventQuery"];</code>
+     * @return The goalEventQuery.
+     */
+    public com.google.protobuf.Struct getGoalEventQuery() {
+      if (goalEventQueryBuilder_ == null) {
+        return goalEventQuery_ == null ? com.google.protobuf.Struct.getDefaultInstance() : goalEventQuery_;
+      } else {
+        return goalEventQueryBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Filtering query for the goal event.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct goal_event_query = 45 [json_name = "goalEventQuery"];</code>
+     */
+    public Builder setGoalEventQuery(com.google.protobuf.Struct value) {
+      if (goalEventQueryBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        goalEventQuery_ = value;
+        onChanged();
+      } else {
+        goalEventQueryBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Filtering query for the goal event.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct goal_event_query = 45 [json_name = "goalEventQuery"];</code>
+     */
+    public Builder setGoalEventQuery(
+        com.google.protobuf.Struct.Builder builderForValue) {
+      if (goalEventQueryBuilder_ == null) {
+        goalEventQuery_ = builderForValue.build();
+        onChanged();
+      } else {
+        goalEventQueryBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Filtering query for the goal event.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct goal_event_query = 45 [json_name = "goalEventQuery"];</code>
+     */
+    public Builder mergeGoalEventQuery(com.google.protobuf.Struct value) {
+      if (goalEventQueryBuilder_ == null) {
+        if (goalEventQuery_ != null) {
+          goalEventQuery_ =
+            com.google.protobuf.Struct.newBuilder(goalEventQuery_).mergeFrom(value).buildPartial();
+        } else {
+          goalEventQuery_ = value;
+        }
+        onChanged();
+      } else {
+        goalEventQueryBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Filtering query for the goal event.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct goal_event_query = 45 [json_name = "goalEventQuery"];</code>
+     */
+    public Builder clearGoalEventQuery() {
+      if (goalEventQueryBuilder_ == null) {
+        goalEventQuery_ = null;
+        onChanged();
+      } else {
+        goalEventQuery_ = null;
+        goalEventQueryBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Filtering query for the goal event.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct goal_event_query = 45 [json_name = "goalEventQuery"];</code>
+     */
+    public com.google.protobuf.Struct.Builder getGoalEventQueryBuilder() {
+      
+      onChanged();
+      return getGoalEventQueryFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Filtering query for the goal event.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct goal_event_query = 45 [json_name = "goalEventQuery"];</code>
+     */
+    public com.google.protobuf.StructOrBuilder getGoalEventQueryOrBuilder() {
+      if (goalEventQueryBuilder_ != null) {
+        return goalEventQueryBuilder_.getMessageOrBuilder();
+      } else {
+        return goalEventQuery_ == null ?
+            com.google.protobuf.Struct.getDefaultInstance() : goalEventQuery_;
+      }
+    }
+    /**
+     * <pre>
+     * Filtering query for the goal event.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct goal_event_query = 45 [json_name = "goalEventQuery"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        getGoalEventQueryFieldBuilder() {
+      if (goalEventQueryBuilder_ == null) {
+        goalEventQueryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                getGoalEventQuery(),
+                getParentForChildren(),
+                isClean());
+        goalEventQuery_ = null;
+      }
+      return goalEventQueryBuilder_;
+    }
+
+    private com.google.protobuf.Timestamp goalCheckedAt_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> goalCheckedAtBuilder_;
+    /**
+     * <pre>
+     * Timestamp when the goal was last checked.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp goal_checked_at = 46 [json_name = "goalCheckedAt"];</code>
+     * @return Whether the goalCheckedAt field is set.
+     */
+    public boolean hasGoalCheckedAt() {
+      return goalCheckedAtBuilder_ != null || goalCheckedAt_ != null;
+    }
+    /**
+     * <pre>
+     * Timestamp when the goal was last checked.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp goal_checked_at = 46 [json_name = "goalCheckedAt"];</code>
+     * @return The goalCheckedAt.
+     */
+    public com.google.protobuf.Timestamp getGoalCheckedAt() {
+      if (goalCheckedAtBuilder_ == null) {
+        return goalCheckedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : goalCheckedAt_;
+      } else {
+        return goalCheckedAtBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the goal was last checked.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp goal_checked_at = 46 [json_name = "goalCheckedAt"];</code>
+     */
+    public Builder setGoalCheckedAt(com.google.protobuf.Timestamp value) {
+      if (goalCheckedAtBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        goalCheckedAt_ = value;
+        onChanged();
+      } else {
+        goalCheckedAtBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the goal was last checked.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp goal_checked_at = 46 [json_name = "goalCheckedAt"];</code>
+     */
+    public Builder setGoalCheckedAt(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (goalCheckedAtBuilder_ == null) {
+        goalCheckedAt_ = builderForValue.build();
+        onChanged();
+      } else {
+        goalCheckedAtBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the goal was last checked.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp goal_checked_at = 46 [json_name = "goalCheckedAt"];</code>
+     */
+    public Builder mergeGoalCheckedAt(com.google.protobuf.Timestamp value) {
+      if (goalCheckedAtBuilder_ == null) {
+        if (goalCheckedAt_ != null) {
+          goalCheckedAt_ =
+            com.google.protobuf.Timestamp.newBuilder(goalCheckedAt_).mergeFrom(value).buildPartial();
+        } else {
+          goalCheckedAt_ = value;
+        }
+        onChanged();
+      } else {
+        goalCheckedAtBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the goal was last checked.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp goal_checked_at = 46 [json_name = "goalCheckedAt"];</code>
+     */
+    public Builder clearGoalCheckedAt() {
+      if (goalCheckedAtBuilder_ == null) {
+        goalCheckedAt_ = null;
+        onChanged();
+      } else {
+        goalCheckedAt_ = null;
+        goalCheckedAtBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the goal was last checked.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp goal_checked_at = 46 [json_name = "goalCheckedAt"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getGoalCheckedAtBuilder() {
+      
+      onChanged();
+      return getGoalCheckedAtFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Timestamp when the goal was last checked.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp goal_checked_at = 46 [json_name = "goalCheckedAt"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getGoalCheckedAtOrBuilder() {
+      if (goalCheckedAtBuilder_ != null) {
+        return goalCheckedAtBuilder_.getMessageOrBuilder();
+      } else {
+        return goalCheckedAt_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : goalCheckedAt_;
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the goal was last checked.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp goal_checked_at = 46 [json_name = "goalCheckedAt"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getGoalCheckedAtFieldBuilder() {
+      if (goalCheckedAtBuilder_ == null) {
+        goalCheckedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getGoalCheckedAt(),
+                getParentForChildren(),
+                isClean());
+        goalCheckedAt_ = null;
+      }
+      return goalCheckedAtBuilder_;
+    }
+
+    private java.lang.Object goalState_ = "";
+    /**
+     * <pre>
+     * Current goal achievement state.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string goal_state = 47 [json_name = "goalState"];</code>
+     * @return The goalState.
+     */
+    public java.lang.String getGoalState() {
+      java.lang.Object ref = goalState_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        goalState_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Current goal achievement state.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string goal_state = 47 [json_name = "goalState"];</code>
+     * @return The bytes for goalState.
+     */
+    public com.google.protobuf.ByteString
+        getGoalStateBytes() {
+      java.lang.Object ref = goalState_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        goalState_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Current goal achievement state.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string goal_state = 47 [json_name = "goalState"];</code>
+     * @param value The goalState to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGoalState(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      goalState_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Current goal achievement state.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string goal_state = 47 [json_name = "goalState"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearGoalState() {
+      
+      goalState_ = getDefaultInstance().getGoalState();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Current goal achievement state.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string goal_state = 47 [json_name = "goalState"];</code>
+     * @param value The bytes for goalState to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGoalStateBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      goalState_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object deskMessageId_ = "";
+    /**
+     * <pre>
+     * ID of the most recent desk-facing message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string desk_message_id = 48 [json_name = "deskMessageId"];</code>
+     * @return The deskMessageId.
+     */
+    public java.lang.String getDeskMessageId() {
+      java.lang.Object ref = deskMessageId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        deskMessageId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * ID of the most recent desk-facing message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string desk_message_id = 48 [json_name = "deskMessageId"];</code>
+     * @return The bytes for deskMessageId.
+     */
+    public com.google.protobuf.ByteString
+        getDeskMessageIdBytes() {
+      java.lang.Object ref = deskMessageId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        deskMessageId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * ID of the most recent desk-facing message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string desk_message_id = 48 [json_name = "deskMessageId"];</code>
+     * @param value The deskMessageId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDeskMessageId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      deskMessageId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * ID of the most recent desk-facing message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string desk_message_id = 48 [json_name = "deskMessageId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDeskMessageId() {
+      
+      deskMessageId_ = getDefaultInstance().getDeskMessageId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * ID of the most recent desk-facing message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string desk_message_id = 48 [json_name = "deskMessageId"];</code>
+     * @param value The bytes for deskMessageId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDeskMessageIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      deskMessageId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Timestamp deskUpdatedAt_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> deskUpdatedAtBuilder_;
+    /**
+     * <pre>
+     * Timestamp when the desk-facing content was last updated.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp desk_updated_at = 49 [json_name = "deskUpdatedAt"];</code>
+     * @return Whether the deskUpdatedAt field is set.
+     */
+    public boolean hasDeskUpdatedAt() {
+      return deskUpdatedAtBuilder_ != null || deskUpdatedAt_ != null;
+    }
+    /**
+     * <pre>
+     * Timestamp when the desk-facing content was last updated.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp desk_updated_at = 49 [json_name = "deskUpdatedAt"];</code>
+     * @return The deskUpdatedAt.
+     */
+    public com.google.protobuf.Timestamp getDeskUpdatedAt() {
+      if (deskUpdatedAtBuilder_ == null) {
+        return deskUpdatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : deskUpdatedAt_;
+      } else {
+        return deskUpdatedAtBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the desk-facing content was last updated.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp desk_updated_at = 49 [json_name = "deskUpdatedAt"];</code>
+     */
+    public Builder setDeskUpdatedAt(com.google.protobuf.Timestamp value) {
+      if (deskUpdatedAtBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        deskUpdatedAt_ = value;
+        onChanged();
+      } else {
+        deskUpdatedAtBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the desk-facing content was last updated.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp desk_updated_at = 49 [json_name = "deskUpdatedAt"];</code>
+     */
+    public Builder setDeskUpdatedAt(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (deskUpdatedAtBuilder_ == null) {
+        deskUpdatedAt_ = builderForValue.build();
+        onChanged();
+      } else {
+        deskUpdatedAtBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the desk-facing content was last updated.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp desk_updated_at = 49 [json_name = "deskUpdatedAt"];</code>
+     */
+    public Builder mergeDeskUpdatedAt(com.google.protobuf.Timestamp value) {
+      if (deskUpdatedAtBuilder_ == null) {
+        if (deskUpdatedAt_ != null) {
+          deskUpdatedAt_ =
+            com.google.protobuf.Timestamp.newBuilder(deskUpdatedAt_).mergeFrom(value).buildPartial();
+        } else {
+          deskUpdatedAt_ = value;
+        }
+        onChanged();
+      } else {
+        deskUpdatedAtBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the desk-facing content was last updated.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp desk_updated_at = 49 [json_name = "deskUpdatedAt"];</code>
+     */
+    public Builder clearDeskUpdatedAt() {
+      if (deskUpdatedAtBuilder_ == null) {
+        deskUpdatedAt_ = null;
+        onChanged();
+      } else {
+        deskUpdatedAt_ = null;
+        deskUpdatedAtBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the desk-facing content was last updated.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp desk_updated_at = 49 [json_name = "deskUpdatedAt"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getDeskUpdatedAtBuilder() {
+      
+      onChanged();
+      return getDeskUpdatedAtFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Timestamp when the desk-facing content was last updated.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp desk_updated_at = 49 [json_name = "deskUpdatedAt"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getDeskUpdatedAtOrBuilder() {
+      if (deskUpdatedAtBuilder_ != null) {
+        return deskUpdatedAtBuilder_.getMessageOrBuilder();
+      } else {
+        return deskUpdatedAt_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : deskUpdatedAt_;
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the desk-facing content was last updated.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp desk_updated_at = 49 [json_name = "deskUpdatedAt"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getDeskUpdatedAtFieldBuilder() {
+      if (deskUpdatedAtBuilder_ == null) {
+        deskUpdatedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getDeskUpdatedAt(),
+                getParentForChildren(),
+                isClean());
+        deskUpdatedAt_ = null;
+      }
+      return deskUpdatedAtBuilder_;
+    }
+
+    private com.google.protobuf.Timestamp snoozedAt_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> snoozedAtBuilder_;
+    /**
+     * <pre>
+     * Timestamp when the chat was snoozed.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp snoozed_at = 50 [json_name = "snoozedAt"];</code>
+     * @return Whether the snoozedAt field is set.
+     */
+    public boolean hasSnoozedAt() {
+      return snoozedAtBuilder_ != null || snoozedAt_ != null;
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat was snoozed.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp snoozed_at = 50 [json_name = "snoozedAt"];</code>
+     * @return The snoozedAt.
+     */
+    public com.google.protobuf.Timestamp getSnoozedAt() {
+      if (snoozedAtBuilder_ == null) {
+        return snoozedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : snoozedAt_;
+      } else {
+        return snoozedAtBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat was snoozed.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp snoozed_at = 50 [json_name = "snoozedAt"];</code>
+     */
+    public Builder setSnoozedAt(com.google.protobuf.Timestamp value) {
+      if (snoozedAtBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        snoozedAt_ = value;
+        onChanged();
+      } else {
+        snoozedAtBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat was snoozed.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp snoozed_at = 50 [json_name = "snoozedAt"];</code>
+     */
+    public Builder setSnoozedAt(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (snoozedAtBuilder_ == null) {
+        snoozedAt_ = builderForValue.build();
+        onChanged();
+      } else {
+        snoozedAtBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat was snoozed.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp snoozed_at = 50 [json_name = "snoozedAt"];</code>
+     */
+    public Builder mergeSnoozedAt(com.google.protobuf.Timestamp value) {
+      if (snoozedAtBuilder_ == null) {
+        if (snoozedAt_ != null) {
+          snoozedAt_ =
+            com.google.protobuf.Timestamp.newBuilder(snoozedAt_).mergeFrom(value).buildPartial();
+        } else {
+          snoozedAt_ = value;
+        }
+        onChanged();
+      } else {
+        snoozedAtBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat was snoozed.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp snoozed_at = 50 [json_name = "snoozedAt"];</code>
+     */
+    public Builder clearSnoozedAt() {
+      if (snoozedAtBuilder_ == null) {
+        snoozedAt_ = null;
+        onChanged();
+      } else {
+        snoozedAt_ = null;
+        snoozedAtBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat was snoozed.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp snoozed_at = 50 [json_name = "snoozedAt"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getSnoozedAtBuilder() {
+      
+      onChanged();
+      return getSnoozedAtFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat was snoozed.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp snoozed_at = 50 [json_name = "snoozedAt"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getSnoozedAtOrBuilder() {
+      if (snoozedAtBuilder_ != null) {
+        return snoozedAtBuilder_.getMessageOrBuilder();
+      } else {
+        return snoozedAt_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : snoozedAt_;
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat was snoozed.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp snoozed_at = 50 [json_name = "snoozedAt"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getSnoozedAtFieldBuilder() {
+      if (snoozedAtBuilder_ == null) {
+        snoozedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getSnoozedAt(),
+                getParentForChildren(),
+                isClean());
+        snoozedAt_ = null;
+      }
+      return snoozedAtBuilder_;
+    }
+
+    private com.google.protobuf.Timestamp expireAt_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> expireAtBuilder_;
+    /**
+     * <pre>
+     * Timestamp when the chat expires.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+     * @return Whether the expireAt field is set.
+     */
+    public boolean hasExpireAt() {
+      return expireAtBuilder_ != null || expireAt_ != null;
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat expires.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+     * @return The expireAt.
+     */
+    public com.google.protobuf.Timestamp getExpireAt() {
+      if (expireAtBuilder_ == null) {
+        return expireAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expireAt_;
+      } else {
+        return expireAtBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat expires.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+     */
+    public Builder setExpireAt(com.google.protobuf.Timestamp value) {
+      if (expireAtBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expireAt_ = value;
+        onChanged();
+      } else {
+        expireAtBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat expires.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+     */
+    public Builder setExpireAt(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (expireAtBuilder_ == null) {
+        expireAt_ = builderForValue.build();
+        onChanged();
+      } else {
+        expireAtBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat expires.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+     */
+    public Builder mergeExpireAt(com.google.protobuf.Timestamp value) {
+      if (expireAtBuilder_ == null) {
+        if (expireAt_ != null) {
+          expireAt_ =
+            com.google.protobuf.Timestamp.newBuilder(expireAt_).mergeFrom(value).buildPartial();
+        } else {
+          expireAt_ = value;
+        }
+        onChanged();
+      } else {
+        expireAtBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat expires.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+     */
+    public Builder clearExpireAt() {
+      if (expireAtBuilder_ == null) {
+        expireAt_ = null;
+        onChanged();
+      } else {
+        expireAt_ = null;
+        expireAtBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat expires.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getExpireAtBuilder() {
+      
+      onChanged();
+      return getExpireAtFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat expires.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getExpireAtOrBuilder() {
+      if (expireAtBuilder_ != null) {
+        return expireAtBuilder_.getMessageOrBuilder();
+      } else {
+        return expireAt_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : expireAt_;
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the chat expires.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp expire_at = 51 [json_name = "expireAt"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getExpireAtFieldBuilder() {
+      if (expireAtBuilder_ == null) {
+        expireAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getExpireAt(),
+                getParentForChildren(),
+                isClean());
+        expireAt_ = null;
+      }
+      return expireAtBuilder_;
+    }
+
+    private long version_ ;
+    /**
+     * <pre>
+     * Chat data version number.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int64 version = 52 [json_name = "version"];</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public long getVersion() {
+      return version_;
+    }
+    /**
+     * <pre>
+     * Chat data version number.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int64 version = 52 [json_name = "version"];</code>
+     * @param value The version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVersion(long value) {
+      
+      version_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat data version number.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int64 version = 52 [json_name = "version"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVersion() {
+      
+      version_ = 0L;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7653,29 +8494,6 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The xer_id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearXerId(java.lang.String value) {
-    	if (value == null)
-    		return clearXerId();
-    	else
-    		return setXerId(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearXerId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearXerId();
-    	else
-    		return setXerId(mapFunc.apply(value));
-    }
-    	
-    /**
      * @param value The assignee_id to set.
      * @return This builder for chaining.
      */
@@ -7768,52 +8586,6 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The missed_reason to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearMissedReason(java.lang.String value) {
-    	if (value == null)
-    		return clearMissedReason();
-    	else
-    		return setMissedReason(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearMissedReason(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearMissedReason();
-    	else
-    		return setMissedReason(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The live_meet_id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearLiveMeetId(java.lang.String value) {
-    	if (value == null)
-    		return clearLiveMeetId();
-    	else
-    		return setLiveMeetId(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearLiveMeetId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearLiveMeetId();
-    	else
-    		return setLiveMeetId(mapFunc.apply(value));
-    }
-    	
-    /**
      * @param value The handling to set.
      * @return This builder for chaining.
      */
@@ -7860,29 +8632,6 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The profile to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearProfile(com.google.protobuf.Struct value) {
-    	if (value == null)
-    		return clearProfile();
-    	else
-    		return setProfile(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearProfile(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
-    	if (value == null)
-    		return clearProfile();
-    	else
-    		return setProfile(mapFunc.apply(value));
-    }
-    	
-    /**
      * @param value The first_opened_at to set.
      * @return This builder for chaining.
      */
@@ -7926,52 +8675,6 @@ private static final long serialVersionUID = 0L;
     		return clearOpenedAt();
     	else
     		return setOpenedAt(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The first_queued_at to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearFirstQueuedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearFirstQueuedAt();
-    	else
-    		return setFirstQueuedAt(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearFirstQueuedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearFirstQueuedAt();
-    	else
-    		return setFirstQueuedAt(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The queued_at to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearQueuedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearQueuedAt();
-    	else
-    		return setQueuedAt(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearQueuedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearQueuedAt();
-    	else
-    		return setQueuedAt(mapFunc.apply(value));
     }
     	
     /**
@@ -8041,29 +8744,6 @@ private static final long serialVersionUID = 0L;
     		return clearClosedAt();
     	else
     		return setClosedAt(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The first_replied_at to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearFirstRepliedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearFirstRepliedAt();
-    	else
-    		return setFirstRepliedAt(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearFirstRepliedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearFirstRepliedAt();
-    	else
-    		return setFirstRepliedAt(mapFunc.apply(value));
     }
     	
     /**
@@ -8480,6 +9160,284 @@ private static final long serialVersionUID = 0L;
     		values.forEach(value -> addTags(mapFunc.apply(value)));
     		return this;
     	}
+    }
+    	
+    /**
+     * @param value The managed to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearManaged(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearManaged();
+    	else
+    		return setManaged(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearManaged(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearManaged();
+    	else
+    		return setManaged(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The name to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearName(java.lang.String value) {
+    	if (value == null)
+    		return clearName();
+    	else
+    		return setName(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearName(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearName();
+    	else
+    		return setName(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param values The manager_ids to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllOrClearManagerIds(java.lang.Iterable<java.lang.String> values) {
+    	if (values == null)
+    		return clearManagerIds();
+    	else
+    		return addAllManagerIds(values);
+    }
+    	
+    /**
+     * @param values The values to map.
+     * @param mapFunc The function to map the values into each proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapAllOrClearManagerIds(java.lang.Iterable<T> values, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (values == null)
+    		return clearManagerIds();
+    	else {
+    		values.forEach(value -> addManagerIds(mapFunc.apply(value)));
+    		return this;
+    	}
+    }
+    	
+    /**
+     * @param value The goal_event_name to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearGoalEventName(java.lang.String value) {
+    	if (value == null)
+    		return clearGoalEventName();
+    	else
+    		return setGoalEventName(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearGoalEventName(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearGoalEventName();
+    	else
+    		return setGoalEventName(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The goal_event_query to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearGoalEventQuery(com.google.protobuf.Struct value) {
+    	if (value == null)
+    		return clearGoalEventQuery();
+    	else
+    		return setGoalEventQuery(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearGoalEventQuery(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+    	if (value == null)
+    		return clearGoalEventQuery();
+    	else
+    		return setGoalEventQuery(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The goal_checked_at to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearGoalCheckedAt(com.google.protobuf.Timestamp value) {
+    	if (value == null)
+    		return clearGoalCheckedAt();
+    	else
+    		return setGoalCheckedAt(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearGoalCheckedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    	if (value == null)
+    		return clearGoalCheckedAt();
+    	else
+    		return setGoalCheckedAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The goal_state to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearGoalState(java.lang.String value) {
+    	if (value == null)
+    		return clearGoalState();
+    	else
+    		return setGoalState(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearGoalState(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearGoalState();
+    	else
+    		return setGoalState(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The desk_message_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearDeskMessageId(java.lang.String value) {
+    	if (value == null)
+    		return clearDeskMessageId();
+    	else
+    		return setDeskMessageId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearDeskMessageId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearDeskMessageId();
+    	else
+    		return setDeskMessageId(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The desk_updated_at to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearDeskUpdatedAt(com.google.protobuf.Timestamp value) {
+    	if (value == null)
+    		return clearDeskUpdatedAt();
+    	else
+    		return setDeskUpdatedAt(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearDeskUpdatedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    	if (value == null)
+    		return clearDeskUpdatedAt();
+    	else
+    		return setDeskUpdatedAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The snoozed_at to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearSnoozedAt(com.google.protobuf.Timestamp value) {
+    	if (value == null)
+    		return clearSnoozedAt();
+    	else
+    		return setSnoozedAt(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearSnoozedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    	if (value == null)
+    		return clearSnoozedAt();
+    	else
+    		return setSnoozedAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The expire_at to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearExpireAt(com.google.protobuf.Timestamp value) {
+    	if (value == null)
+    		return clearExpireAt();
+    	else
+    		return setExpireAt(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearExpireAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    	if (value == null)
+    		return clearExpireAt();
+    	else
+    		return setExpireAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearVersion(java.lang.Long value) {
+    	if (value == null)
+    		return clearVersion();
+    	else
+    		return setVersion(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
+    	if (value == null)
+    		return clearVersion();
+    	else
+    		return setVersion(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.UserChat)

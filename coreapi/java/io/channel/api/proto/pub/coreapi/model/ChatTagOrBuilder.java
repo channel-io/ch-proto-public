@@ -158,6 +158,51 @@ public interface ChatTagOrBuilder extends
 
   /**
    * <pre>
+   * Manager IDs following this chat tag for notifications.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
+   * @return A list containing the followerIds.
+   */
+  java.util.List<java.lang.String>
+      getFollowerIdsList();
+  /**
+   * <pre>
+   * Manager IDs following this chat tag for notifications.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
+   * @return The count of followerIds.
+   */
+  int getFollowerIdsCount();
+  /**
+   * <pre>
+   * Manager IDs following this chat tag for notifications.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
+   * @param index The index of the element to return.
+   * @return The followerIds at the given index.
+   */
+  java.lang.String getFollowerIds(int index);
+  /**
+   * <pre>
+   * Manager IDs following this chat tag for notifications.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the followerIds at the given index.
+   */
+  com.google.protobuf.ByteString
+      getFollowerIdsBytes(int index);
+
+  /**
+   * <pre>
    * Chat tag creation timestamp.
    * +kubebuilder:validation:Required
    * </pre>

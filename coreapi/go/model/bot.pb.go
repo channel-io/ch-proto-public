@@ -67,7 +67,11 @@ type Bot struct {
 	// Bot creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Bot avatar image reference.
+	//
+	// +kubebuilder:validation:Nullable
+	Avatar        *TinyFile `protobuf:"bytes,9,opt,name=avatar,proto3" json:"avatar,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -158,11 +162,18 @@ func (x *Bot) GetCreatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
+func (x *Bot) GetAvatar() *TinyFile {
+	if x != nil {
+		return x.Avatar
+	}
+	return nil
+}
+
 var File_coreapi_model_bot_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_bot_proto_rawDesc = "" +
 	"\n" +
-	"\x17coreapi/model/bot.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa8\x06\n" +
+	"\x17coreapi/model/bot.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1dcoreapi/model/tiny_file.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd9\x06\n" +
 	"\x03Bot\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -179,7 +190,8 @@ const file_coreapi_model_bot_proto_rawDesc = "" +
 	"\n" +
 	"avatar_url\x18\a \x01(\tR\tavatarUrl\x12A\n" +
 	"\n" +
-	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x1a[\n" +
+	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12/\n" +
+	"\x06avatar\x18\t \x01(\v2\x17.coreapi.model.TinyFileR\x06avatar\x1a[\n" +
 	"\x14NameDescI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12-\n" +
 	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01Bb\n" +
@@ -202,17 +214,19 @@ var file_coreapi_model_bot_proto_goTypes = []any{
 	(*Bot)(nil),                   // 0: coreapi.model.Bot
 	nil,                           // 1: coreapi.model.Bot.NameDescI18nMapEntry
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(*NameDesc)(nil),              // 3: coreapi.model.NameDesc
+	(*TinyFile)(nil),              // 3: coreapi.model.TinyFile
+	(*NameDesc)(nil),              // 4: coreapi.model.NameDesc
 }
 var file_coreapi_model_bot_proto_depIdxs = []int32{
 	1, // 0: coreapi.model.Bot.name_desc_i18n_map:type_name -> coreapi.model.Bot.NameDescI18nMapEntry
 	2, // 1: coreapi.model.Bot.created_at:type_name -> google.protobuf.Timestamp
-	3, // 2: coreapi.model.Bot.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	3, // 2: coreapi.model.Bot.avatar:type_name -> coreapi.model.TinyFile
+	4, // 3: coreapi.model.Bot.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_bot_proto_init() }
@@ -221,6 +235,7 @@ func file_coreapi_model_bot_proto_init() {
 		return
 	}
 	file_coreapi_model_name_desc_proto_init()
+	file_coreapi_model_tiny_file_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

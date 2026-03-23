@@ -107,10 +107,6 @@ type UserChat struct {
 	//
 	// +kubebuilder:validation:Nullable
 	UserId string `protobuf:"bytes,4,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	// External reference ID of the user.
-	//
-	// +kubebuilder:validation:Nullable
-	XerId string `protobuf:"bytes,5,opt,name=xer_id,json=xerId,proto3" json:"xer_id,omitempty"`
 	// ID of the manager currently assigned to this chat.
 	//
 	// +kubebuilder:validation:Nullable
@@ -128,15 +124,6 @@ type UserChat struct {
 	//
 	// +kubebuilder:validation:Nullable
 	ContactMediumType string `protobuf:"bytes,9,opt,name=contact_medium_type,json=contactMediumType,proto3" json:"contact_medium_type,omitempty"`
-	// Reason why the chat was missed.
-	// Present only when state is MISSED.
-	//
-	// +kubebuilder:validation:Nullable
-	MissedReason string `protobuf:"bytes,10,opt,name=missed_reason,json=missedReason,proto3" json:"missed_reason,omitempty"`
-	// ID of the active meet session associated with this chat.
-	//
-	// +kubebuilder:validation:Nullable
-	LiveMeetId string `protobuf:"bytes,11,opt,name=live_meet_id,json=liveMeetId,proto3" json:"live_meet_id,omitempty"`
 	// Automated handling state of this chat.
 	// Varies by handling type (workflow, ALF, support bot, etc.).
 	//
@@ -146,10 +133,6 @@ type UserChat struct {
 	//
 	// +kubebuilder:validation:Nullable
 	Source *structpb.Struct `protobuf:"bytes,13,opt,name=source,proto3" json:"source,omitempty"`
-	// Custom profile data associated with this chat.
-	//
-	// +kubebuilder:validation:Nullable
-	Profile *structpb.Struct `protobuf:"bytes,14,opt,name=profile,proto3" json:"profile,omitempty"`
 	// Timestamp when the chat was first opened.
 	//
 	// +kubebuilder:validation:Nullable
@@ -158,14 +141,6 @@ type UserChat struct {
 	//
 	// +kubebuilder:validation:Nullable
 	OpenedAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=opened_at,json=openedAt,proto3" json:"opened_at,omitempty"`
-	// Timestamp when the chat first entered the queue.
-	//
-	// +kubebuilder:validation:Nullable
-	FirstQueuedAt *timestamppb.Timestamp `protobuf:"bytes,17,opt,name=first_queued_at,json=firstQueuedAt,proto3" json:"first_queued_at,omitempty"`
-	// Timestamp when the chat most recently entered the queue.
-	//
-	// +kubebuilder:validation:Nullable
-	QueuedAt *timestamppb.Timestamp `protobuf:"bytes,18,opt,name=queued_at,json=queuedAt,proto3" json:"queued_at,omitempty"`
 	// Timestamp when the user first asked a question.
 	//
 	// +kubebuilder:validation:Nullable
@@ -178,10 +153,6 @@ type UserChat struct {
 	//
 	// +kubebuilder:validation:Nullable
 	ClosedAt *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=closed_at,json=closedAt,proto3" json:"closed_at,omitempty"`
-	// Timestamp when a manager first replied.
-	//
-	// +kubebuilder:validation:Nullable
-	FirstRepliedAt *timestamppb.Timestamp `protobuf:"bytes,22,opt,name=first_replied_at,json=firstRepliedAt,proto3" json:"first_replied_at,omitempty"`
 	// Timestamp when a manager first replied after the chat was opened.
 	//
 	// +kubebuilder:validation:Nullable
@@ -254,7 +225,55 @@ type UserChat struct {
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxItems=8
-	Tags          []string `protobuf:"bytes,40,rep,name=tags,proto3" json:"tags,omitempty"`
+	Tags []string `protobuf:"bytes,40,rep,name=tags,proto3" json:"tags,omitempty"`
+	// Whether this chat is in managed state.
+	//
+	// +kubebuilder:validation:Nullable
+	Managed bool `protobuf:"varint,41,opt,name=managed,proto3" json:"managed,omitempty"`
+	// Display name of this chat.
+	//
+	// +kubebuilder:validation:Nullable
+	Name string `protobuf:"bytes,42,opt,name=name,proto3" json:"name,omitempty"`
+	// IDs of managers participating in this chat.
+	//
+	// +kubebuilder:validation:Nullable
+	ManagerIds []string `protobuf:"bytes,43,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
+	// Name of the event tracked as a conversion goal.
+	//
+	// +kubebuilder:validation:Nullable
+	GoalEventName string `protobuf:"bytes,44,opt,name=goal_event_name,json=goalEventName,proto3" json:"goal_event_name,omitempty"`
+	// Filtering query for the goal event.
+	//
+	// +kubebuilder:validation:Nullable
+	GoalEventQuery *structpb.Struct `protobuf:"bytes,45,opt,name=goal_event_query,json=goalEventQuery,proto3" json:"goal_event_query,omitempty"`
+	// Timestamp when the goal was last checked.
+	//
+	// +kubebuilder:validation:Nullable
+	GoalCheckedAt *timestamppb.Timestamp `protobuf:"bytes,46,opt,name=goal_checked_at,json=goalCheckedAt,proto3" json:"goal_checked_at,omitempty"`
+	// Current goal achievement state.
+	//
+	// +kubebuilder:validation:Nullable
+	GoalState string `protobuf:"bytes,47,opt,name=goal_state,json=goalState,proto3" json:"goal_state,omitempty"`
+	// ID of the most recent desk-facing message.
+	//
+	// +kubebuilder:validation:Nullable
+	DeskMessageId string `protobuf:"bytes,48,opt,name=desk_message_id,json=deskMessageId,proto3" json:"desk_message_id,omitempty"`
+	// Timestamp when the desk-facing content was last updated.
+	//
+	// +kubebuilder:validation:Nullable
+	DeskUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,49,opt,name=desk_updated_at,json=deskUpdatedAt,proto3" json:"desk_updated_at,omitempty"`
+	// Timestamp when the chat was snoozed.
+	//
+	// +kubebuilder:validation:Nullable
+	SnoozedAt *timestamppb.Timestamp `protobuf:"bytes,50,opt,name=snoozed_at,json=snoozedAt,proto3" json:"snoozed_at,omitempty"`
+	// Timestamp when the chat expires.
+	//
+	// +kubebuilder:validation:Nullable
+	ExpireAt *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=expire_at,json=expireAt,proto3" json:"expire_at,omitempty"`
+	// Chat data version number.
+	//
+	// +kubebuilder:validation:Nullable
+	Version       int64 `protobuf:"varint,52,opt,name=version,proto3" json:"version,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -317,13 +336,6 @@ func (x *UserChat) GetUserId() string {
 	return ""
 }
 
-func (x *UserChat) GetXerId() string {
-	if x != nil {
-		return x.XerId
-	}
-	return ""
-}
-
 func (x *UserChat) GetAssigneeId() string {
 	if x != nil {
 		return x.AssigneeId
@@ -352,20 +364,6 @@ func (x *UserChat) GetContactMediumType() string {
 	return ""
 }
 
-func (x *UserChat) GetMissedReason() string {
-	if x != nil {
-		return x.MissedReason
-	}
-	return ""
-}
-
-func (x *UserChat) GetLiveMeetId() string {
-	if x != nil {
-		return x.LiveMeetId
-	}
-	return ""
-}
-
 func (x *UserChat) GetHandling() *structpb.Struct {
 	if x != nil {
 		return x.Handling
@@ -380,13 +378,6 @@ func (x *UserChat) GetSource() *structpb.Struct {
 	return nil
 }
 
-func (x *UserChat) GetProfile() *structpb.Struct {
-	if x != nil {
-		return x.Profile
-	}
-	return nil
-}
-
 func (x *UserChat) GetFirstOpenedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.FirstOpenedAt
@@ -397,20 +388,6 @@ func (x *UserChat) GetFirstOpenedAt() *timestamppb.Timestamp {
 func (x *UserChat) GetOpenedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.OpenedAt
-	}
-	return nil
-}
-
-func (x *UserChat) GetFirstQueuedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.FirstQueuedAt
-	}
-	return nil
-}
-
-func (x *UserChat) GetQueuedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.QueuedAt
 	}
 	return nil
 }
@@ -432,13 +409,6 @@ func (x *UserChat) GetAskedAt() *timestamppb.Timestamp {
 func (x *UserChat) GetClosedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.ClosedAt
-	}
-	return nil
-}
-
-func (x *UserChat) GetFirstRepliedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.FirstRepliedAt
 	}
 	return nil
 }
@@ -569,11 +539,95 @@ func (x *UserChat) GetTags() []string {
 	return nil
 }
 
+func (x *UserChat) GetManaged() bool {
+	if x != nil {
+		return x.Managed
+	}
+	return false
+}
+
+func (x *UserChat) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *UserChat) GetManagerIds() []string {
+	if x != nil {
+		return x.ManagerIds
+	}
+	return nil
+}
+
+func (x *UserChat) GetGoalEventName() string {
+	if x != nil {
+		return x.GoalEventName
+	}
+	return ""
+}
+
+func (x *UserChat) GetGoalEventQuery() *structpb.Struct {
+	if x != nil {
+		return x.GoalEventQuery
+	}
+	return nil
+}
+
+func (x *UserChat) GetGoalCheckedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.GoalCheckedAt
+	}
+	return nil
+}
+
+func (x *UserChat) GetGoalState() string {
+	if x != nil {
+		return x.GoalState
+	}
+	return ""
+}
+
+func (x *UserChat) GetDeskMessageId() string {
+	if x != nil {
+		return x.DeskMessageId
+	}
+	return ""
+}
+
+func (x *UserChat) GetDeskUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.DeskUpdatedAt
+	}
+	return nil
+}
+
+func (x *UserChat) GetSnoozedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.SnoozedAt
+	}
+	return nil
+}
+
+func (x *UserChat) GetExpireAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ExpireAt
+	}
+	return nil
+}
+
+func (x *UserChat) GetVersion() int64 {
+	if x != nil {
+		return x.Version
+	}
+	return 0
+}
+
 var File_coreapi_model_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x90\x11\n" +
+	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd3\x12\n" +
 	"\bUserChat\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -581,29 +635,20 @@ const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12:\n" +
 	"\x05state\x18\x03 \x01(\x0e2\x1c.coreapi.model.UserChatStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12\x17\n" +
-	"\auser_id\x18\x04 \x01(\tR\x06userId\x12\x15\n" +
-	"\x06xer_id\x18\x05 \x01(\tR\x05xerId\x12\x1f\n" +
+	"\auser_id\x18\x04 \x01(\tR\x06userId\x12\x1f\n" +
 	"\vassignee_id\x18\x06 \x01(\tR\n" +
 	"assigneeId\x12\x17\n" +
 	"\ateam_id\x18\a \x01(\tR\x06teamId\x12w\n" +
 	"\vdescription\x18\b \x01(\tBU\xbaHR\xba\x01O\n" +
 	"\rstring.maxLen\x12*value must be no more than 1000 characters\x1a\x12size(this) <= 1000R\vdescription\x12.\n" +
-	"\x13contact_medium_type\x18\t \x01(\tR\x11contactMediumType\x12#\n" +
-	"\rmissed_reason\x18\n" +
-	" \x01(\tR\fmissedReason\x12 \n" +
-	"\flive_meet_id\x18\v \x01(\tR\n" +
-	"liveMeetId\x123\n" +
+	"\x13contact_medium_type\x18\t \x01(\tR\x11contactMediumType\x123\n" +
 	"\bhandling\x18\f \x01(\v2\x17.google.protobuf.StructR\bhandling\x12/\n" +
-	"\x06source\x18\r \x01(\v2\x17.google.protobuf.StructR\x06source\x121\n" +
-	"\aprofile\x18\x0e \x01(\v2\x17.google.protobuf.StructR\aprofile\x12B\n" +
+	"\x06source\x18\r \x01(\v2\x17.google.protobuf.StructR\x06source\x12B\n" +
 	"\x0ffirst_opened_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampR\rfirstOpenedAt\x127\n" +
-	"\topened_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampR\bopenedAt\x12B\n" +
-	"\x0ffirst_queued_at\x18\x11 \x01(\v2\x1a.google.protobuf.TimestampR\rfirstQueuedAt\x127\n" +
-	"\tqueued_at\x18\x12 \x01(\v2\x1a.google.protobuf.TimestampR\bqueuedAt\x12@\n" +
+	"\topened_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampR\bopenedAt\x12@\n" +
 	"\x0efirst_asked_at\x18\x13 \x01(\v2\x1a.google.protobuf.TimestampR\ffirstAskedAt\x125\n" +
 	"\basked_at\x18\x14 \x01(\v2\x1a.google.protobuf.TimestampR\aaskedAt\x127\n" +
-	"\tclosed_at\x18\x15 \x01(\v2\x1a.google.protobuf.TimestampR\bclosedAt\x12D\n" +
-	"\x10first_replied_at\x18\x16 \x01(\v2\x1a.google.protobuf.TimestampR\x0efirstRepliedAt\x12X\n" +
+	"\tclosed_at\x18\x15 \x01(\v2\x1a.google.protobuf.TimestampR\bclosedAt\x12X\n" +
 	"\x1bfirst_replied_at_after_open\x18\x17 \x01(\v2\x1a.google.protobuf.TimestampR\x17firstRepliedAtAfterOpen\x12>\n" +
 	"\x1cfirst_assignee_id_after_open\x18\x18 \x01(\tR\x18firstAssigneeIdAfterOpen\x12\x19\n" +
 	"\bone_stop\x18\x19 \x01(\bR\aoneStop\x12!\n" +
@@ -624,7 +669,22 @@ const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"created_at\x18& \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
 	"updated_at\x18' \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12\x12\n" +
-	"\x04tags\x18( \x03(\tR\x04tags*\xda\x01\n" +
+	"\x04tags\x18( \x03(\tR\x04tags\x12\x18\n" +
+	"\amanaged\x18) \x01(\bR\amanaged\x12\x12\n" +
+	"\x04name\x18* \x01(\tR\x04name\x12\x1f\n" +
+	"\vmanager_ids\x18+ \x03(\tR\n" +
+	"managerIds\x12&\n" +
+	"\x0fgoal_event_name\x18, \x01(\tR\rgoalEventName\x12A\n" +
+	"\x10goal_event_query\x18- \x01(\v2\x17.google.protobuf.StructR\x0egoalEventQuery\x12B\n" +
+	"\x0fgoal_checked_at\x18. \x01(\v2\x1a.google.protobuf.TimestampR\rgoalCheckedAt\x12\x1d\n" +
+	"\n" +
+	"goal_state\x18/ \x01(\tR\tgoalState\x12&\n" +
+	"\x0fdesk_message_id\x180 \x01(\tR\rdeskMessageId\x12B\n" +
+	"\x0fdesk_updated_at\x181 \x01(\v2\x1a.google.protobuf.TimestampR\rdeskUpdatedAt\x129\n" +
+	"\n" +
+	"snoozed_at\x182 \x01(\v2\x1a.google.protobuf.TimestampR\tsnoozedAt\x127\n" +
+	"\texpire_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\bexpireAt\x12\x18\n" +
+	"\aversion\x184 \x01(\x03R\aversion*\xda\x01\n" +
 	"\rUserChatState\x12\x1f\n" +
 	"\x1bUSER_CHAT_STATE_UNSPECIFIED\x10\x00\x12\x1a\n" +
 	"\x16USER_CHAT_STATE_OPENED\x10\x01\x12\x1a\n" +
@@ -659,24 +719,25 @@ var file_coreapi_model_user_chat_proto_depIdxs = []int32{
 	0,  // 0: coreapi.model.UserChat.state:type_name -> coreapi.model.UserChatState
 	2,  // 1: coreapi.model.UserChat.handling:type_name -> google.protobuf.Struct
 	2,  // 2: coreapi.model.UserChat.source:type_name -> google.protobuf.Struct
-	2,  // 3: coreapi.model.UserChat.profile:type_name -> google.protobuf.Struct
-	3,  // 4: coreapi.model.UserChat.first_opened_at:type_name -> google.protobuf.Timestamp
-	3,  // 5: coreapi.model.UserChat.opened_at:type_name -> google.protobuf.Timestamp
-	3,  // 6: coreapi.model.UserChat.first_queued_at:type_name -> google.protobuf.Timestamp
-	3,  // 7: coreapi.model.UserChat.queued_at:type_name -> google.protobuf.Timestamp
-	3,  // 8: coreapi.model.UserChat.first_asked_at:type_name -> google.protobuf.Timestamp
-	3,  // 9: coreapi.model.UserChat.asked_at:type_name -> google.protobuf.Timestamp
-	3,  // 10: coreapi.model.UserChat.closed_at:type_name -> google.protobuf.Timestamp
-	3,  // 11: coreapi.model.UserChat.first_replied_at:type_name -> google.protobuf.Timestamp
-	3,  // 12: coreapi.model.UserChat.first_replied_at_after_open:type_name -> google.protobuf.Timestamp
-	3,  // 13: coreapi.model.UserChat.front_updated_at:type_name -> google.protobuf.Timestamp
-	3,  // 14: coreapi.model.UserChat.created_at:type_name -> google.protobuf.Timestamp
-	3,  // 15: coreapi.model.UserChat.updated_at:type_name -> google.protobuf.Timestamp
-	16, // [16:16] is the sub-list for method output_type
-	16, // [16:16] is the sub-list for method input_type
-	16, // [16:16] is the sub-list for extension type_name
-	16, // [16:16] is the sub-list for extension extendee
-	0,  // [0:16] is the sub-list for field type_name
+	3,  // 3: coreapi.model.UserChat.first_opened_at:type_name -> google.protobuf.Timestamp
+	3,  // 4: coreapi.model.UserChat.opened_at:type_name -> google.protobuf.Timestamp
+	3,  // 5: coreapi.model.UserChat.first_asked_at:type_name -> google.protobuf.Timestamp
+	3,  // 6: coreapi.model.UserChat.asked_at:type_name -> google.protobuf.Timestamp
+	3,  // 7: coreapi.model.UserChat.closed_at:type_name -> google.protobuf.Timestamp
+	3,  // 8: coreapi.model.UserChat.first_replied_at_after_open:type_name -> google.protobuf.Timestamp
+	3,  // 9: coreapi.model.UserChat.front_updated_at:type_name -> google.protobuf.Timestamp
+	3,  // 10: coreapi.model.UserChat.created_at:type_name -> google.protobuf.Timestamp
+	3,  // 11: coreapi.model.UserChat.updated_at:type_name -> google.protobuf.Timestamp
+	2,  // 12: coreapi.model.UserChat.goal_event_query:type_name -> google.protobuf.Struct
+	3,  // 13: coreapi.model.UserChat.goal_checked_at:type_name -> google.protobuf.Timestamp
+	3,  // 14: coreapi.model.UserChat.desk_updated_at:type_name -> google.protobuf.Timestamp
+	3,  // 15: coreapi.model.UserChat.snoozed_at:type_name -> google.protobuf.Timestamp
+	3,  // 16: coreapi.model.UserChat.expire_at:type_name -> google.protobuf.Timestamp
+	17, // [17:17] is the sub-list for method output_type
+	17, // [17:17] is the sub-list for method input_type
+	17, // [17:17] is the sub-list for extension type_name
+	17, // [17:17] is the sub-list for extension extendee
+	0,  // [0:17] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_user_chat_proto_init() }

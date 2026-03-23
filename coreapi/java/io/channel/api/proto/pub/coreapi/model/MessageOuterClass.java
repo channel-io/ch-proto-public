@@ -25,11 +25,6 @@ public final class MessageOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_coreapi_model_MessageReaction_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_coreapi_model_MessageThread_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_coreapi_model_MessageThread_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_coreapi_model_Message_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -55,91 +50,86 @@ public final class MessageOuterClass {
       "emoji_name\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022" +
       "\"value must be at least 1 character\032\017siz" +
       "e(this) >= 1\310\001\001R\temojiName\022\037\n\013person_key" +
-      "s\030\002 \003(\tR\npersonKeys\"\340\001\n\rMessageThread\022]\n" +
-      "\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value " +
-      "must be at least 1 character\032\017size(this)" +
-      " >= 1\310\001\001R\002id\022\037\n\013manager_ids\030\002 \003(\tR\nmanag" +
-      "erIds\022.\n\023replied_manager_ids\030\003 \003(\tR\021repl" +
-      "iedManagerIds\022\037\n\013reply_count\030\004 \001(\005R\nrepl" +
-      "yCount\"\362\013\n\007Message\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\r" +
-      "string.minLen\022\"value must be at least 1 " +
-      "character\032\017size(this) >= 1\310\001\001R\002id\022l\n\ncha" +
-      "nnel_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"va" +
-      "lue must be at least 1 character\032\017size(t" +
-      "his) >= 1\310\001\001R\tchannelId\022j\n\tchat_type\030\003 \001" +
-      "(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must be" +
-      " at least 1 character\032\017size(this) >= 1\310\001" +
-      "\001R\010chatType\022f\n\007chat_id\030\004 \001(\tBM\272HJ\272\001D\n\rst" +
-      "ring.minLen\022\"value must be at least 1 ch" +
-      "aracter\032\017size(this) >= 1\310\001\001R\006chatId\022n\n\013p" +
-      "erson_type\030\005 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022" +
-      "\"value must be at least 1 character\032\017siz" +
-      "e(this) >= 1\310\001\001R\npersonType\022j\n\tperson_id" +
-      "\030\006 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value mus" +
-      "t be at least 1 character\032\017size(this) >=" +
-      " 1\310\001\001R\010personId\022\035\n\nrequest_id\030\007 \001(\tR\treq" +
-      "uestId\022\032\n\010language\030\010 \001(\tR\010language\022A\n\ncr" +
-      "eated_at\030\t \001(\0132\032.google.protobuf.Timesta" +
-      "mpB\006\272H\003\310\001\001R\tcreatedAt\0229\n\nupdated_at\030\n \001(" +
-      "\0132\032.google.protobuf.TimestampR\tupdatedAt" +
-      "\0227\n\tedited_at\030\013 \001(\0132\032.google.protobuf.Ti" +
-      "mestampR\010editedAt\022,\n\006blocks\030\014 \003(\0132\024.core" +
-      "api.model.BlockR\006blocks\022\035\n\nplain_text\030\r " +
-      "\001(\tR\tplainText\022@\n\007buttons\030\016 \003(\0132\034.coreap" +
-      "i.model.MessageButtonB\010\272H\005\222\001\002\020\002R\007buttons" +
-      "\0220\n\005files\030\017 \003(\0132\032.coreapi.model.MessageF" +
-      "ileR\005files\0228\n\010web_page\030\020 \001(\0132\035.coreapi.m" +
-      "odel.MessageWebPageR\007webPage\022+\n\004form\030\021 \001" +
-      "(\0132\027.google.protobuf.StructR\004form\0226\n\007opt" +
-      "ions\030\022 \003(\0162\034.coreapi.model.MessageOption" +
-      "R\007options\0221\n\005state\030\023 \001(\0162\033.coreapi.model" +
-      ".MessageStateR\005state\022D\n\014writing_type\030\024 \001" +
-      "(\0162!.coreapi.model.MessageWritingTypeR\013w" +
-      "ritingType\022+\n\003log\030\025 \001(\0132\031.coreapi.model." +
-      "MessageLogR\003log\022<\n\treactions\030\026 \003(\0132\036.cor" +
-      "eapi.model.MessageReactionR\treactions\0224\n" +
-      "\006thread\030\027 \001(\0132\034.coreapi.model.MessageThr" +
-      "eadR\006thread*\225\001\n\014MessageState\022\035\n\031MESSAGE_" +
-      "STATE_UNSPECIFIED\020\000\022\031\n\025MESSAGE_STATE_SEN" +
-      "DING\020\001\022\026\n\022MESSAGE_STATE_SENT\020\002\022\030\n\024MESSAG" +
-      "E_STATE_FAILED\020\003\022\031\n\025MESSAGE_STATE_REMOVE" +
-      "D\020\004*\236\001\n\022MessageWritingType\022$\n MESSAGE_WR" +
-      "ITING_TYPE_UNSPECIFIED\020\000\022!\n\035MESSAGE_WRIT" +
-      "ING_TYPE_STANDARD\020\001\022\037\n\033MESSAGE_WRITING_T" +
-      "YPE_CUSTOM\020\002\022\036\n\032MESSAGE_WRITING_TYPE_EMA" +
-      "IL\020\003*\263\t\n\tLogAction\022\032\n\026LOG_ACTION_UNSPECI" +
-      "FIED\020\000\022\032\n\026LOG_ACTION_CHANGE_NAME\020\001\022\033\n\027LO" +
-      "G_ACTION_CHANGE_SCOPE\020\002\022\024\n\020LOG_ACTION_CL" +
-      "OSE\020\003\022\031\n\025LOG_ACTION_AUTO_CLOSE\020\004\022\025\n\021LOG_" +
-      "ACTION_CREATE\020\005\022\025\n\021LOG_ACTION_INVITE\020\006\022\023" +
-      "\n\017LOG_ACTION_JOIN\020\007\022\025\n\021LOG_ACTION_ASSIGN" +
-      "\020\010\022\032\n\026LOG_ACTION_AUTO_ASSIGN\020\t\022\027\n\023LOG_AC" +
-      "TION_UNASSIGN\020\n\022\024\n\020LOG_ACTION_LEAVE\020\013\022\023\n" +
-      "\017LOG_ACTION_OPEN\020\014\022\030\n\024LOG_ACTION_AUTO_OP" +
-      "EN\020\r\022\026\n\022LOG_ACTION_ENQUEUE\020\016\022\023\n\017LOG_ACTI" +
-      "ON_MISS\020\017\022\025\n\021LOG_ACTION_REMOVE\020\020\022\025\n\021LOG_" +
-      "ACTION_SNOOZE\020\021\022\027\n\023LOG_ACTION_ADD_TAGS\020\022" +
-      "\022\032\n\026LOG_ACTION_REMOVE_TAGS\020\023\022\032\n\026LOG_ACTI" +
-      "ON_ASSIGN_TEAM\020\024\022\034\n\030LOG_ACTION_UNASSIGN_" +
-      "TEAM\020\025\022\030\n\024LOG_ACTION_JOIN_MEET\020\026\022\031\n\025LOG_" +
-      "ACTION_LEAVE_MEET\020\027\022\032\n\026LOG_ACTION_INVITE" +
-      "_MEET\020\030\022\030\n\024LOG_ACTION_MISS_MEET\020\031\022\034\n\030LOG" +
-      "_ACTION_CALLBACK_MEET\020\032\022\037\n\033LOG_ACTION_TR" +
-      "Y_CONNECT_CALL\020\033\022\036\n\032LOG_ACTION_PROCESS_B" +
-      "Y_MISS\020\034\022\035\n\031LOG_ACTION_PROCESS_BRANCH\020\035\022" +
-      "\027\n\023LOG_ACTION_SEND_XMS\020\036\022\034\n\030LOG_ACTION_A" +
-      "DD_USER_TAGS\020\037\022\037\n\033LOG_ACTION_REMOVE_USER" +
-      "_TAGS\020 \022\036\n\032LOG_ACTION_UPDATE_PRIORITY\020!\022" +
-      "\035\n\031LOG_ACTION_START_WORKFLOW\020\"\022\033\n\027LOG_AC" +
-      "TION_END_WORKFLOW\020#\022!\n\035LOG_ACTION_INTERR" +
-      "UPT_WORKFLOW\020$\022(\n$LOG_ACTION_INTERRUPT_W" +
-      "ORKFLOW_BY_BOT\020%\022 \n\034LOG_ACTION_TRY_OPEN_" +
-      "WITH_ALF\020&\022\031\n\025LOG_ACTION_START_TASK\020\'\022\032\n" +
-      "\026LOG_ACTION_APPLY_RULES\020(\022!\n\035LOG_ACTION_" +
-      "CANCEL_ALF_BY_USER\020)\022\034\n\030LOG_ACTION_FALLB" +
-      "ACK_CALL\020*Bb\n&io.channel.api.proto.pub.c" +
-      "oreapi.modelP\001Z6github.com/channel-io/ch" +
-      "-proto-public/coreapi/go/modelb\006proto3"
+      "s\030\002 \003(\tR\npersonKeys\"\215\r\n\007Message\022]\n\002id\030\001 " +
+      "\001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must b" +
+      "e at least 1 character\032\017size(this) >= 1\310" +
+      "\001\001R\002id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272\001D\n\rstri" +
+      "ng.minLen\022\"value must be at least 1 char" +
+      "acter\032\017size(this) >= 1\310\001\001R\tchannelId\022j\n\t" +
+      "chat_type\030\003 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"" +
+      "value must be at least 1 character\032\017size" +
+      "(this) >= 1\310\001\001R\010chatType\022f\n\007chat_id\030\004 \001(" +
+      "\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must be " +
+      "at least 1 character\032\017size(this) >= 1\310\001\001" +
+      "R\006chatId\022n\n\013person_type\030\005 \001(\tBM\272HJ\272\001D\n\rs" +
+      "tring.minLen\022\"value must be at least 1 c" +
+      "haracter\032\017size(this) >= 1\310\001\001R\npersonType" +
+      "\022j\n\tperson_id\030\006 \001(\tBM\272HJ\272\001D\n\rstring.minL" +
+      "en\022\"value must be at least 1 character\032\017" +
+      "size(this) >= 1\310\001\001R\010personId\022\035\n\nrequest_" +
+      "id\030\007 \001(\tR\trequestId\022\032\n\010language\030\010 \001(\tR\010l" +
+      "anguage\022A\n\ncreated_at\030\t \001(\0132\032.google.pro" +
+      "tobuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt\0229\n\nup" +
+      "dated_at\030\n \001(\0132\032.google.protobuf.Timesta" +
+      "mpR\tupdatedAt\022,\n\006blocks\030\014 \003(\0132\024.coreapi." +
+      "model.BlockR\006blocks\022\035\n\nplain_text\030\r \001(\tR" +
+      "\tplainText\022@\n\007buttons\030\016 \003(\0132\034.coreapi.mo" +
+      "del.MessageButtonB\010\272H\005\222\001\002\020\002R\007buttons\0220\n\005" +
+      "files\030\017 \003(\0132\032.coreapi.model.MessageFileR" +
+      "\005files\0228\n\010web_page\030\020 \001(\0132\035.coreapi.model" +
+      ".MessageWebPageR\007webPage\022+\n\004form\030\021 \001(\0132\027" +
+      ".google.protobuf.StructR\004form\0226\n\007options" +
+      "\030\022 \003(\0162\034.coreapi.model.MessageOptionR\007op" +
+      "tions\0221\n\005state\030\023 \001(\0162\033.coreapi.model.Mes" +
+      "sageStateR\005state\022+\n\003log\030\025 \001(\0132\031.coreapi." +
+      "model.MessageLogR\003log\022<\n\treactions\030\026 \003(\013" +
+      "2\036.coreapi.model.MessageReactionR\treacti" +
+      "ons\022\031\n\010chat_key\030\030 \001(\tR\007chatKey\022\031\n\010main_k" +
+      "ey\030\031 \001(\tR\007mainKey\022\035\n\nthread_key\030\032 \001(\tR\tt" +
+      "hreadKey\022\030\n\007version\030\033 \001(\003R\007version\0225\n\tma" +
+      "rketing\030\034 \001(\0132\027.google.protobuf.StructR\t" +
+      "marketing\0228\n\013support_bot\030\035 \001(\0132\027.google." +
+      "protobuf.StructR\nsupportBot\022\035\n\nthread_ms" +
+      "g\030\036 \001(\010R\tthreadMsg\022\'\n\017broadcasted_msg\030\037 " +
+      "\001(\010R\016broadcastedMsg\022&\n\017root_message_id\030 " +
+      " \001(\tR\rrootMessageId*\225\001\n\014MessageState\022\035\n\031" +
+      "MESSAGE_STATE_UNSPECIFIED\020\000\022\031\n\025MESSAGE_S" +
+      "TATE_SENDING\020\001\022\026\n\022MESSAGE_STATE_SENT\020\002\022\030" +
+      "\n\024MESSAGE_STATE_FAILED\020\003\022\031\n\025MESSAGE_STAT" +
+      "E_REMOVED\020\004*\263\t\n\tLogAction\022\032\n\026LOG_ACTION_" +
+      "UNSPECIFIED\020\000\022\032\n\026LOG_ACTION_CHANGE_NAME\020" +
+      "\001\022\033\n\027LOG_ACTION_CHANGE_SCOPE\020\002\022\024\n\020LOG_AC" +
+      "TION_CLOSE\020\003\022\031\n\025LOG_ACTION_AUTO_CLOSE\020\004\022" +
+      "\025\n\021LOG_ACTION_CREATE\020\005\022\025\n\021LOG_ACTION_INV" +
+      "ITE\020\006\022\023\n\017LOG_ACTION_JOIN\020\007\022\025\n\021LOG_ACTION" +
+      "_ASSIGN\020\010\022\032\n\026LOG_ACTION_AUTO_ASSIGN\020\t\022\027\n" +
+      "\023LOG_ACTION_UNASSIGN\020\n\022\024\n\020LOG_ACTION_LEA" +
+      "VE\020\013\022\023\n\017LOG_ACTION_OPEN\020\014\022\030\n\024LOG_ACTION_" +
+      "AUTO_OPEN\020\r\022\026\n\022LOG_ACTION_ENQUEUE\020\016\022\023\n\017L" +
+      "OG_ACTION_MISS\020\017\022\025\n\021LOG_ACTION_REMOVE\020\020\022" +
+      "\025\n\021LOG_ACTION_SNOOZE\020\021\022\027\n\023LOG_ACTION_ADD" +
+      "_TAGS\020\022\022\032\n\026LOG_ACTION_REMOVE_TAGS\020\023\022\032\n\026L" +
+      "OG_ACTION_ASSIGN_TEAM\020\024\022\034\n\030LOG_ACTION_UN" +
+      "ASSIGN_TEAM\020\025\022\030\n\024LOG_ACTION_JOIN_MEET\020\026\022" +
+      "\031\n\025LOG_ACTION_LEAVE_MEET\020\027\022\032\n\026LOG_ACTION" +
+      "_INVITE_MEET\020\030\022\030\n\024LOG_ACTION_MISS_MEET\020\031" +
+      "\022\034\n\030LOG_ACTION_CALLBACK_MEET\020\032\022\037\n\033LOG_AC" +
+      "TION_TRY_CONNECT_CALL\020\033\022\036\n\032LOG_ACTION_PR" +
+      "OCESS_BY_MISS\020\034\022\035\n\031LOG_ACTION_PROCESS_BR" +
+      "ANCH\020\035\022\027\n\023LOG_ACTION_SEND_XMS\020\036\022\034\n\030LOG_A" +
+      "CTION_ADD_USER_TAGS\020\037\022\037\n\033LOG_ACTION_REMO" +
+      "VE_USER_TAGS\020 \022\036\n\032LOG_ACTION_UPDATE_PRIO" +
+      "RITY\020!\022\035\n\031LOG_ACTION_START_WORKFLOW\020\"\022\033\n" +
+      "\027LOG_ACTION_END_WORKFLOW\020#\022!\n\035LOG_ACTION" +
+      "_INTERRUPT_WORKFLOW\020$\022(\n$LOG_ACTION_INTE" +
+      "RRUPT_WORKFLOW_BY_BOT\020%\022 \n\034LOG_ACTION_TR" +
+      "Y_OPEN_WITH_ALF\020&\022\031\n\025LOG_ACTION_START_TA" +
+      "SK\020\'\022\032\n\026LOG_ACTION_APPLY_RULES\020(\022!\n\035LOG_" +
+      "ACTION_CANCEL_ALF_BY_USER\020)\022\034\n\030LOG_ACTIO" +
+      "N_FALLBACK_CALL\020*Bb\n&io.channel.api.prot" +
+      "o.pub.coreapi.modelP\001Z6github.com/channe" +
+      "l-io/ch-proto-public/coreapi/go/modelb\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -161,18 +151,12 @@ public final class MessageOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_MessageReaction_descriptor,
         new java.lang.String[] { "EmojiName", "PersonKeys", });
-    internal_static_coreapi_model_MessageThread_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_coreapi_model_MessageThread_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_coreapi_model_MessageThread_descriptor,
-        new java.lang.String[] { "Id", "ManagerIds", "RepliedManagerIds", "ReplyCount", });
     internal_static_coreapi_model_Message_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_coreapi_model_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Message_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "ChatType", "ChatId", "PersonType", "PersonId", "RequestId", "Language", "CreatedAt", "UpdatedAt", "EditedAt", "Blocks", "PlainText", "Buttons", "Files", "WebPage", "Form", "Options", "State", "WritingType", "Log", "Reactions", "Thread", });
+        new java.lang.String[] { "Id", "ChannelId", "ChatType", "ChatId", "PersonType", "PersonId", "RequestId", "Language", "CreatedAt", "UpdatedAt", "Blocks", "PlainText", "Buttons", "Files", "WebPage", "Form", "Options", "State", "Log", "Reactions", "ChatKey", "MainKey", "ThreadKey", "Version", "Marketing", "SupportBot", "ThreadMsg", "BroadcastedMsg", "RootMessageId", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);

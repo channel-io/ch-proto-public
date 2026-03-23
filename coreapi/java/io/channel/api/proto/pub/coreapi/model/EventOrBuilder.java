@@ -164,4 +164,45 @@ public interface EventOrBuilder extends
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Event expiration timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
+   * @return Whether the expireAt field is set.
+   */
+  boolean hasExpireAt();
+  /**
+   * <pre>
+   * Event expiration timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
+   * @return The expireAt.
+   */
+  com.google.protobuf.Timestamp getExpireAt();
+  /**
+   * <pre>
+   * Event expiration timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getExpireAtOrBuilder();
+
+  /**
+   * <pre>
+   * Event data version number.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int64 version = 8 [json_name = "version"];</code>
+   * @return The version.
+   */
+  long getVersion();
 }

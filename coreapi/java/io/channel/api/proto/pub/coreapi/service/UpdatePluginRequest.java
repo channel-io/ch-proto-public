@@ -23,10 +23,7 @@ private static final long serialVersionUID = 0L;
     pluginId_ = "";
     channelId_ = "";
     name_ = "";
-    appearance_ = 0;
     labelButtonText_ = "";
-    buttonType_ = 0;
-    iconButton_ = 0;
     deskPosition_ = 0;
     mobilePosition_ = 0;
     mobileBubblePosition_ = 0;
@@ -81,12 +78,6 @@ private static final long serialVersionUID = 0L;
             name_ = s;
             break;
           }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            appearance_ = rawValue;
-            break;
-          }
           case 40: {
 
             labelButton_ = input.readBool();
@@ -109,18 +100,6 @@ private static final long serialVersionUID = 0L;
                 LabelButtonTextI18NMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
             labelButtonTextI18NMap_.getMutableMap().put(
                 labelButtonTextI18NMap__.getKey(), labelButtonTextI18NMap__.getValue());
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            buttonType_ = rawValue;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            iconButton_ = rawValue;
             break;
           }
           case 80: {
@@ -364,35 +343,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int APPEARANCE_FIELD_NUMBER = 4;
-  private int appearance_;
-  /**
-   * <pre>
-   * Visual theme of the widget.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginAppearance appearance = 4 [json_name = "appearance"];</code>
-   * @return The enum numeric value on the wire for appearance.
-   */
-  @java.lang.Override public int getAppearanceValue() {
-    return appearance_;
-  }
-  /**
-   * <pre>
-   * Visual theme of the widget.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginAppearance appearance = 4 [json_name = "appearance"];</code>
-   * @return The appearance.
-   */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.PluginAppearance getAppearance() {
-    @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.PluginAppearance result = io.channel.api.proto.pub.coreapi.model.PluginAppearance.valueOf(appearance_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.PluginAppearance.UNRECOGNIZED : result;
-  }
-
   public static final int LABEL_BUTTON_FIELD_NUMBER = 5;
   private boolean labelButton_;
   /**
@@ -564,66 +514,6 @@ private static final long serialVersionUID = 0L;
       throw new java.lang.IllegalArgumentException();
     }
     return map.get(key);
-  }
-
-  public static final int BUTTON_TYPE_FIELD_NUMBER = 8;
-  private int buttonType_;
-  /**
-   * <pre>
-   * Type of the launcher button.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginButtonType button_type = 8 [json_name = "buttonType"];</code>
-   * @return The enum numeric value on the wire for buttonType.
-   */
-  @java.lang.Override public int getButtonTypeValue() {
-    return buttonType_;
-  }
-  /**
-   * <pre>
-   * Type of the launcher button.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginButtonType button_type = 8 [json_name = "buttonType"];</code>
-   * @return The buttonType.
-   */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.PluginButtonType getButtonType() {
-    @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.PluginButtonType result = io.channel.api.proto.pub.coreapi.model.PluginButtonType.valueOf(buttonType_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.PluginButtonType.UNRECOGNIZED : result;
-  }
-
-  public static final int ICON_BUTTON_FIELD_NUMBER = 9;
-  private int iconButton_;
-  /**
-   * <pre>
-   * Predefined icon for the launcher button.
-   * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginIconButton icon_button = 9 [json_name = "iconButton"];</code>
-   * @return The enum numeric value on the wire for iconButton.
-   */
-  @java.lang.Override public int getIconButtonValue() {
-    return iconButton_;
-  }
-  /**
-   * <pre>
-   * Predefined icon for the launcher button.
-   * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.PluginIconButton icon_button = 9 [json_name = "iconButton"];</code>
-   * @return The iconButton.
-   */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.PluginIconButton getIconButton() {
-    @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.PluginIconButton result = io.channel.api.proto.pub.coreapi.model.PluginIconButton.valueOf(iconButton_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.PluginIconButton.UNRECOGNIZED : result;
   }
 
   public static final int DESK_MARGIN_X_FIELD_NUMBER = 10;
@@ -850,9 +740,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
     }
-    if (appearance_ != io.channel.api.proto.pub.coreapi.model.PluginAppearance.PLUGIN_APPEARANCE_UNSPECIFIED.getNumber()) {
-      output.writeEnum(4, appearance_);
-    }
     if (labelButton_ != false) {
       output.writeBool(5, labelButton_);
     }
@@ -865,12 +752,6 @@ private static final long serialVersionUID = 0L;
         internalGetLabelButtonTextI18NMap(),
         LabelButtonTextI18NMapDefaultEntryHolder.defaultEntry,
         7);
-    if (buttonType_ != io.channel.api.proto.pub.coreapi.model.PluginButtonType.PLUGIN_BUTTON_TYPE_UNSPECIFIED.getNumber()) {
-      output.writeEnum(8, buttonType_);
-    }
-    if (iconButton_ != io.channel.api.proto.pub.coreapi.model.PluginIconButton.PLUGIN_ICON_BUTTON_UNSPECIFIED.getNumber()) {
-      output.writeEnum(9, iconButton_);
-    }
     if (deskMarginX_ != 0) {
       output.writeInt32(10, deskMarginX_);
     }
@@ -919,10 +800,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
     }
-    if (appearance_ != io.channel.api.proto.pub.coreapi.model.PluginAppearance.PLUGIN_APPEARANCE_UNSPECIFIED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(4, appearance_);
-    }
     if (labelButton_ != false) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, labelButton_);
@@ -939,14 +816,6 @@ private static final long serialVersionUID = 0L;
           .build();
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, labelButtonTextI18NMap__);
-    }
-    if (buttonType_ != io.channel.api.proto.pub.coreapi.model.PluginButtonType.PLUGIN_BUTTON_TYPE_UNSPECIFIED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(8, buttonType_);
-    }
-    if (iconButton_ != io.channel.api.proto.pub.coreapi.model.PluginIconButton.PLUGIN_ICON_BUTTON_UNSPECIFIED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(9, iconButton_);
     }
     if (deskMarginX_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -1009,15 +878,12 @@ private static final long serialVersionUID = 0L;
         .equals(other.getChannelId())) return false;
     if (!getName()
         .equals(other.getName())) return false;
-    if (appearance_ != other.appearance_) return false;
     if (getLabelButton()
         != other.getLabelButton()) return false;
     if (!getLabelButtonText()
         .equals(other.getLabelButtonText())) return false;
     if (!internalGetLabelButtonTextI18NMap().equals(
         other.internalGetLabelButtonTextI18NMap())) return false;
-    if (buttonType_ != other.buttonType_) return false;
-    if (iconButton_ != other.iconButton_) return false;
     if (getDeskMarginX()
         != other.getDeskMarginX()) return false;
     if (getDeskMarginY()
@@ -1053,8 +919,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getChannelId().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
-    hash = (37 * hash) + APPEARANCE_FIELD_NUMBER;
-    hash = (53 * hash) + appearance_;
     hash = (37 * hash) + LABEL_BUTTON_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getLabelButton());
@@ -1064,10 +928,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LABEL_BUTTON_TEXT_I18N_MAP_FIELD_NUMBER;
       hash = (53 * hash) + internalGetLabelButtonTextI18NMap().hashCode();
     }
-    hash = (37 * hash) + BUTTON_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + buttonType_;
-    hash = (37 * hash) + ICON_BUTTON_FIELD_NUMBER;
-    hash = (53 * hash) + iconButton_;
     hash = (37 * hash) + DESK_MARGIN_X_FIELD_NUMBER;
     hash = (53 * hash) + getDeskMarginX();
     hash = (37 * hash) + DESK_MARGIN_Y_FIELD_NUMBER;
@@ -1256,17 +1116,11 @@ private static final long serialVersionUID = 0L;
 
       name_ = "";
 
-      appearance_ = 0;
-
       labelButton_ = false;
 
       labelButtonText_ = "";
 
       internalGetMutableLabelButtonTextI18NMap().clear();
-      buttonType_ = 0;
-
-      iconButton_ = 0;
-
       deskMarginX_ = 0;
 
       deskMarginY_ = 0;
@@ -1317,13 +1171,10 @@ private static final long serialVersionUID = 0L;
       result.pluginId_ = pluginId_;
       result.channelId_ = channelId_;
       result.name_ = name_;
-      result.appearance_ = appearance_;
       result.labelButton_ = labelButton_;
       result.labelButtonText_ = labelButtonText_;
       result.labelButtonTextI18NMap_ = internalGetLabelButtonTextI18NMap();
       result.labelButtonTextI18NMap_.makeImmutable();
-      result.buttonType_ = buttonType_;
-      result.iconButton_ = iconButton_;
       result.deskMarginX_ = deskMarginX_;
       result.deskMarginY_ = deskMarginY_;
       result.deskHideButton_ = deskHideButton_;
@@ -1394,9 +1245,6 @@ private static final long serialVersionUID = 0L;
         name_ = other.name_;
         onChanged();
       }
-      if (other.appearance_ != 0) {
-        setAppearanceValue(other.getAppearanceValue());
-      }
       if (other.getLabelButton() != false) {
         setLabelButton(other.getLabelButton());
       }
@@ -1406,12 +1254,6 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabelButtonTextI18NMap().mergeFrom(
           other.internalGetLabelButtonTextI18NMap());
-      if (other.buttonType_ != 0) {
-        setButtonTypeValue(other.getButtonTypeValue());
-      }
-      if (other.iconButton_ != 0) {
-        setIconButtonValue(other.getIconButtonValue());
-      }
       if (other.getDeskMarginX() != 0) {
         setDeskMarginX(other.getDeskMarginX());
       }
@@ -1775,85 +1617,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int appearance_ = 0;
-    /**
-     * <pre>
-     * Visual theme of the widget.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginAppearance appearance = 4 [json_name = "appearance"];</code>
-     * @return The enum numeric value on the wire for appearance.
-     */
-    @java.lang.Override public int getAppearanceValue() {
-      return appearance_;
-    }
-    /**
-     * <pre>
-     * Visual theme of the widget.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginAppearance appearance = 4 [json_name = "appearance"];</code>
-     * @param value The enum numeric value on the wire for appearance to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAppearanceValue(int value) {
-      
-      appearance_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Visual theme of the widget.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginAppearance appearance = 4 [json_name = "appearance"];</code>
-     * @return The appearance.
-     */
-    @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.PluginAppearance getAppearance() {
-      @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.PluginAppearance result = io.channel.api.proto.pub.coreapi.model.PluginAppearance.valueOf(appearance_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.PluginAppearance.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Visual theme of the widget.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginAppearance appearance = 4 [json_name = "appearance"];</code>
-     * @param value The appearance to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAppearance(io.channel.api.proto.pub.coreapi.model.PluginAppearance value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      appearance_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Visual theme of the widget.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginAppearance appearance = 4 [json_name = "appearance"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearAppearance() {
-      
-      appearance_ = 0;
-      onChanged();
-      return this;
-    }
-
     private boolean labelButton_ ;
     /**
      * <pre>
@@ -2181,169 +1944,6 @@ private static final long serialVersionUID = 0L;
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabelButtonTextI18NMap().getMutableMap()
           .putAll(values);
-      return this;
-    }
-
-    private int buttonType_ = 0;
-    /**
-     * <pre>
-     * Type of the launcher button.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginButtonType button_type = 8 [json_name = "buttonType"];</code>
-     * @return The enum numeric value on the wire for buttonType.
-     */
-    @java.lang.Override public int getButtonTypeValue() {
-      return buttonType_;
-    }
-    /**
-     * <pre>
-     * Type of the launcher button.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginButtonType button_type = 8 [json_name = "buttonType"];</code>
-     * @param value The enum numeric value on the wire for buttonType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setButtonTypeValue(int value) {
-      
-      buttonType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Type of the launcher button.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginButtonType button_type = 8 [json_name = "buttonType"];</code>
-     * @return The buttonType.
-     */
-    @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.PluginButtonType getButtonType() {
-      @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.PluginButtonType result = io.channel.api.proto.pub.coreapi.model.PluginButtonType.valueOf(buttonType_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.PluginButtonType.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Type of the launcher button.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginButtonType button_type = 8 [json_name = "buttonType"];</code>
-     * @param value The buttonType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setButtonType(io.channel.api.proto.pub.coreapi.model.PluginButtonType value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      buttonType_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Type of the launcher button.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginButtonType button_type = 8 [json_name = "buttonType"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearButtonType() {
-      
-      buttonType_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int iconButton_ = 0;
-    /**
-     * <pre>
-     * Predefined icon for the launcher button.
-     * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginIconButton icon_button = 9 [json_name = "iconButton"];</code>
-     * @return The enum numeric value on the wire for iconButton.
-     */
-    @java.lang.Override public int getIconButtonValue() {
-      return iconButton_;
-    }
-    /**
-     * <pre>
-     * Predefined icon for the launcher button.
-     * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginIconButton icon_button = 9 [json_name = "iconButton"];</code>
-     * @param value The enum numeric value on the wire for iconButton to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIconButtonValue(int value) {
-      
-      iconButton_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Predefined icon for the launcher button.
-     * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginIconButton icon_button = 9 [json_name = "iconButton"];</code>
-     * @return The iconButton.
-     */
-    @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.PluginIconButton getIconButton() {
-      @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.PluginIconButton result = io.channel.api.proto.pub.coreapi.model.PluginIconButton.valueOf(iconButton_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.PluginIconButton.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Predefined icon for the launcher button.
-     * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginIconButton icon_button = 9 [json_name = "iconButton"];</code>
-     * @param value The iconButton to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIconButton(io.channel.api.proto.pub.coreapi.model.PluginIconButton value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      iconButton_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Predefined icon for the launcher button.
-     * Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.PluginIconButton icon_button = 9 [json_name = "iconButton"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearIconButton() {
-      
-      iconButton_ = 0;
-      onChanged();
       return this;
     }
 
@@ -2996,29 +2596,6 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The appearance to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearAppearance(io.channel.api.proto.pub.coreapi.model.PluginAppearance value) {
-    	if (value == null)
-    		return clearAppearance();
-    	else
-    		return setAppearance(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearAppearance(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.PluginAppearance> mapFunc) {
-    	if (value == null)
-    		return clearAppearance();
-    	else
-    		return setAppearance(mapFunc.apply(value));
-    }
-    	
-    /**
      * @param value The label_button to set.
      * @return This builder for chaining.
      */
@@ -3073,52 +2650,6 @@ private static final long serialVersionUID = 0L;
     		return clearLabelButtonTextI18NMap();
     	else
     		return putAllLabelButtonTextI18NMap(map);
-    }
-    	
-    /**
-     * @param value The button_type to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearButtonType(io.channel.api.proto.pub.coreapi.model.PluginButtonType value) {
-    	if (value == null)
-    		return clearButtonType();
-    	else
-    		return setButtonType(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearButtonType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.PluginButtonType> mapFunc) {
-    	if (value == null)
-    		return clearButtonType();
-    	else
-    		return setButtonType(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The icon_button to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearIconButton(io.channel.api.proto.pub.coreapi.model.PluginIconButton value) {
-    	if (value == null)
-    		return clearIconButton();
-    	else
-    		return setIconButton(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearIconButton(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.PluginIconButton> mapFunc) {
-    	if (value == null)
-    		return clearIconButton();
-    	else
-    		return setIconButton(mapFunc.apply(value));
     }
     	
     /**
