@@ -104,10 +104,17 @@ public final class ManagerOuterClass {
       "\030.coreapi.model.TimeRangeR\022operatorTimeR" +
       "anges\032[\n\024NameDescI18nMapEntry\022\020\n\003key\030\001 \001" +
       "(\tR\003key\022-\n\005value\030\002 \001(\0132\027.coreapi.model.N" +
-      "ameDescR\005value:\0028\001Bb\n&io.channel.api.pro" +
-      "to.pub.coreapi.modelP\001Z6github.com/chann" +
-      "el-io/ch-proto-public/coreapi/go/modelb\006" +
-      "proto3"
+      "ameDescR\005value:\0028\001*\227\002\n\020StatusClearAfter\022" +
+      "\"\n\036STATUS_CLEAR_AFTER_UNSPECIFIED\020\000\022\033\n\027S" +
+      "TATUS_CLEAR_AFTER_NONE\020\001\022 \n\034STATUS_CLEAR" +
+      "_AFTER_HALF_HOUR\020\002\022\037\n\033STATUS_CLEAR_AFTER" +
+      "_ONE_HOUR\020\003\022 \n\034STATUS_CLEAR_AFTER_TWO_HO" +
+      "URS\020\004\022\034\n\030STATUS_CLEAR_AFTER_TODAY\020\005\022 \n\034S" +
+      "TATUS_CLEAR_AFTER_THIS_WEEK\020\006\022\035\n\031STATUS_" +
+      "CLEAR_AFTER_CUSTOM\020\007Bb\n&io.channel.api.p" +
+      "roto.pub.coreapi.modelP\001Z6github.com/cha" +
+      "nnel-io/ch-proto-public/coreapi/go/model" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

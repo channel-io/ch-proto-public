@@ -24,6 +24,71 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Preset duration after which a manager's status automatically clears.
+type StatusClearAfter int32
+
+const (
+	StatusClearAfter_STATUS_CLEAR_AFTER_UNSPECIFIED StatusClearAfter = 0
+	StatusClearAfter_STATUS_CLEAR_AFTER_NONE        StatusClearAfter = 1
+	StatusClearAfter_STATUS_CLEAR_AFTER_HALF_HOUR   StatusClearAfter = 2
+	StatusClearAfter_STATUS_CLEAR_AFTER_ONE_HOUR    StatusClearAfter = 3
+	StatusClearAfter_STATUS_CLEAR_AFTER_TWO_HOURS   StatusClearAfter = 4
+	StatusClearAfter_STATUS_CLEAR_AFTER_TODAY       StatusClearAfter = 5
+	StatusClearAfter_STATUS_CLEAR_AFTER_THIS_WEEK   StatusClearAfter = 6
+	StatusClearAfter_STATUS_CLEAR_AFTER_CUSTOM      StatusClearAfter = 7
+)
+
+// Enum value maps for StatusClearAfter.
+var (
+	StatusClearAfter_name = map[int32]string{
+		0: "STATUS_CLEAR_AFTER_UNSPECIFIED",
+		1: "STATUS_CLEAR_AFTER_NONE",
+		2: "STATUS_CLEAR_AFTER_HALF_HOUR",
+		3: "STATUS_CLEAR_AFTER_ONE_HOUR",
+		4: "STATUS_CLEAR_AFTER_TWO_HOURS",
+		5: "STATUS_CLEAR_AFTER_TODAY",
+		6: "STATUS_CLEAR_AFTER_THIS_WEEK",
+		7: "STATUS_CLEAR_AFTER_CUSTOM",
+	}
+	StatusClearAfter_value = map[string]int32{
+		"STATUS_CLEAR_AFTER_UNSPECIFIED": 0,
+		"STATUS_CLEAR_AFTER_NONE":        1,
+		"STATUS_CLEAR_AFTER_HALF_HOUR":   2,
+		"STATUS_CLEAR_AFTER_ONE_HOUR":    3,
+		"STATUS_CLEAR_AFTER_TWO_HOURS":   4,
+		"STATUS_CLEAR_AFTER_TODAY":       5,
+		"STATUS_CLEAR_AFTER_THIS_WEEK":   6,
+		"STATUS_CLEAR_AFTER_CUSTOM":      7,
+	}
+)
+
+func (x StatusClearAfter) Enum() *StatusClearAfter {
+	p := new(StatusClearAfter)
+	*p = x
+	return p
+}
+
+func (x StatusClearAfter) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (StatusClearAfter) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_manager_proto_enumTypes[0].Descriptor()
+}
+
+func (StatusClearAfter) Type() protoreflect.EnumType {
+	return &file_coreapi_model_manager_proto_enumTypes[0]
+}
+
+func (x StatusClearAfter) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use StatusClearAfter.Descriptor instead.
+func (StatusClearAfter) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_manager_proto_rawDescGZIP(), []int{0}
+}
+
 // Manager represents an operator or administrator in a channel.
 type Manager struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -575,7 +640,16 @@ const file_coreapi_model_manager_proto_rawDesc = "" +
 	"\x14operator_time_ranges\x185 \x03(\v2\x18.coreapi.model.TimeRangeR\x12operatorTimeRanges\x1a[\n" +
 	"\x14NameDescI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12-\n" +
-	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01Bb\n" +
+	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01*\x97\x02\n" +
+	"\x10StatusClearAfter\x12\"\n" +
+	"\x1eSTATUS_CLEAR_AFTER_UNSPECIFIED\x10\x00\x12\x1b\n" +
+	"\x17STATUS_CLEAR_AFTER_NONE\x10\x01\x12 \n" +
+	"\x1cSTATUS_CLEAR_AFTER_HALF_HOUR\x10\x02\x12\x1f\n" +
+	"\x1bSTATUS_CLEAR_AFTER_ONE_HOUR\x10\x03\x12 \n" +
+	"\x1cSTATUS_CLEAR_AFTER_TWO_HOURS\x10\x04\x12\x1c\n" +
+	"\x18STATUS_CLEAR_AFTER_TODAY\x10\x05\x12 \n" +
+	"\x1cSTATUS_CLEAR_AFTER_THIS_WEEK\x10\x06\x12\x1d\n" +
+	"\x19STATUS_CLEAR_AFTER_CUSTOM\x10\aBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -590,25 +664,27 @@ func file_coreapi_model_manager_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_manager_proto_rawDescData
 }
 
+var file_coreapi_model_manager_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_coreapi_model_manager_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_coreapi_model_manager_proto_goTypes = []any{
-	(*Manager)(nil),               // 0: coreapi.model.Manager
-	nil,                           // 1: coreapi.model.Manager.NameDescI18nMapEntry
-	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(*structpb.Struct)(nil),       // 3: google.protobuf.Struct
-	(*TinyFile)(nil),              // 4: coreapi.model.TinyFile
-	(*TimeRange)(nil),             // 5: coreapi.model.TimeRange
-	(*NameDesc)(nil),              // 6: coreapi.model.NameDesc
+	(StatusClearAfter)(0),         // 0: coreapi.model.StatusClearAfter
+	(*Manager)(nil),               // 1: coreapi.model.Manager
+	nil,                           // 2: coreapi.model.Manager.NameDescI18nMapEntry
+	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
+	(*structpb.Struct)(nil),       // 4: google.protobuf.Struct
+	(*TinyFile)(nil),              // 5: coreapi.model.TinyFile
+	(*TimeRange)(nil),             // 6: coreapi.model.TimeRange
+	(*NameDesc)(nil),              // 7: coreapi.model.NameDesc
 }
 var file_coreapi_model_manager_proto_depIdxs = []int32{
-	1, // 0: coreapi.model.Manager.name_desc_i18n_map:type_name -> coreapi.model.Manager.NameDescI18nMapEntry
-	2, // 1: coreapi.model.Manager.status_clear_at:type_name -> google.protobuf.Timestamp
-	2, // 2: coreapi.model.Manager.do_not_disturb_clear_at:type_name -> google.protobuf.Timestamp
-	2, // 3: coreapi.model.Manager.created_at:type_name -> google.protobuf.Timestamp
-	3, // 4: coreapi.model.Manager.profile:type_name -> google.protobuf.Struct
-	4, // 5: coreapi.model.Manager.avatar:type_name -> coreapi.model.TinyFile
-	5, // 6: coreapi.model.Manager.operator_time_ranges:type_name -> coreapi.model.TimeRange
-	6, // 7: coreapi.model.Manager.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
+	2, // 0: coreapi.model.Manager.name_desc_i18n_map:type_name -> coreapi.model.Manager.NameDescI18nMapEntry
+	3, // 1: coreapi.model.Manager.status_clear_at:type_name -> google.protobuf.Timestamp
+	3, // 2: coreapi.model.Manager.do_not_disturb_clear_at:type_name -> google.protobuf.Timestamp
+	3, // 3: coreapi.model.Manager.created_at:type_name -> google.protobuf.Timestamp
+	4, // 4: coreapi.model.Manager.profile:type_name -> google.protobuf.Struct
+	5, // 5: coreapi.model.Manager.avatar:type_name -> coreapi.model.TinyFile
+	6, // 6: coreapi.model.Manager.operator_time_ranges:type_name -> coreapi.model.TimeRange
+	7, // 7: coreapi.model.Manager.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
 	8, // [8:8] is the sub-list for method output_type
 	8, // [8:8] is the sub-list for method input_type
 	8, // [8:8] is the sub-list for extension type_name
@@ -629,13 +705,14 @@ func file_coreapi_model_manager_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_manager_proto_rawDesc), len(file_coreapi_model_manager_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_coreapi_model_manager_proto_goTypes,
 		DependencyIndexes: file_coreapi_model_manager_proto_depIdxs,
+		EnumInfos:         file_coreapi_model_manager_proto_enumTypes,
 		MessageInfos:      file_coreapi_model_manager_proto_msgTypes,
 	}.Build()
 	File_coreapi_model_manager_proto = out.File

@@ -13,6 +13,18 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
+// Preset duration after which a manager's status automatically clears.
+enum StatusClearAfter {
+  STATUS_CLEAR_AFTER_UNSPECIFIED = 0;
+  STATUS_CLEAR_AFTER_NONE = 1;
+  STATUS_CLEAR_AFTER_HALF_HOUR = 2;
+  STATUS_CLEAR_AFTER_ONE_HOUR = 3;
+  STATUS_CLEAR_AFTER_TWO_HOURS = 4;
+  STATUS_CLEAR_AFTER_TODAY = 5;
+  STATUS_CLEAR_AFTER_THIS_WEEK = 6;
+  STATUS_CLEAR_AFTER_CUSTOM = 7;
+}
+
 // Manager represents an operator or administrator in a channel.
 message Manager {
   // Unique manager identifier.
