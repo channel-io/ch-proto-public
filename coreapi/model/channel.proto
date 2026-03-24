@@ -58,8 +58,8 @@ message Channel {
 
   // Default welcome message shown to end users when a new conversation starts.
   //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Struct welcome_message = 2;
+  // +kubebuilder:validation:Required
+  google.protobuf.Struct welcome_message = 2 [(buf.validate.field).required = true];
 
   // Internationalized welcome message overrides keyed by locale (e.g., en, ko).
   //
@@ -112,15 +112,15 @@ message Channel {
 
   // Default bot display name shown to end users in conversations.
   //
-  // +kubebuilder:validation:Nullable
-  string bot_name = 10;
+  // +kubebuilder:validation:Required
+  string bot_name = 10 [(buf.validate.field).required = true];
 
   // Channel theme color in hex format (e.g., #3B82F6).
   // Used to derive border, gradient, text, and plugin icon colors.
   //
-  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:Required
   // +kubebuilder:example="#3B82F6"
-  string color = 11;
+  string color = 11 [(buf.validate.field).required = true];
 
   // Free-text summary displayed on the channel profile.
   //
@@ -146,8 +146,8 @@ message Channel {
 
   // System-assigned default domain.
   //
-  // +kubebuilder:validation:Nullable
-  string default_domain = 15;
+  // +kubebuilder:validation:Required
+  string default_domain = 15 [(buf.validate.field).required = true];
 
   // Business homepage URL associated with the channel.
   //
@@ -162,19 +162,19 @@ message Channel {
 
   // IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
   //
-  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:Required
   // +kubebuilder:example="Asia/Seoul"
-  string time_zone = 18;
+  string time_zone = 18 [(buf.validate.field).required = true];
 
   // Whether to display individual operator profiles instead of the channel identity to end users.
   //
-  // +kubebuilder:validation:Nullable
-  bool show_operator_profile = 19;
+  // +kubebuilder:validation:Required
+  bool show_operator_profile = 19 [(buf.validate.field).required = true];
 
   // Whether the new chat button is hidden from end users.
   //
-  // +kubebuilder:validation:Nullable
-  bool disable_new_chat_button = 20;
+  // +kubebuilder:validation:Required
+  bool disable_new_chat_button = 20 [(buf.validate.field).required = true];
 
   // Due date for payment before the channel transitions to an indebted state.
   // ISO 8601 date format (e.g., 2026-12-31).
@@ -185,34 +185,34 @@ message Channel {
 
   // Whether SMS/text follow-up is enabled for offline conversations.
   //
-  // +kubebuilder:validation:Nullable
-  bool follow_up_texting = 22;
+  // +kubebuilder:validation:Required
+  bool follow_up_texting = 22 [(buf.validate.field).required = true];
 
   // Whether email follow-up is enabled for offline conversations.
   //
-  // +kubebuilder:validation:Nullable
-  bool follow_up_email = 23;
+  // +kubebuilder:validation:Required
+  bool follow_up_email = 23 [(buf.validate.field).required = true];
 
   // Whether the follow-up form asks for the user's name.
   //
-  // +kubebuilder:validation:Nullable
-  bool follow_up_ask_name = 24;
+  // +kubebuilder:validation:Required
+  bool follow_up_ask_name = 24 [(buf.validate.field).required = true];
 
   // Whether the follow-up form must be completed before the user can start a conversation.
   //
-  // +kubebuilder:validation:Nullable
-  bool follow_up_mandatory = 25;
+  // +kubebuilder:validation:Required
+  bool follow_up_mandatory = 25 [(buf.validate.field).required = true];
 
   // Current lifecycle state of the channel.
   // See ChannelState for possible values.
   //
-  // +kubebuilder:validation:Required
-  ChannelState state = 26 [(buf.validate.field).required = true];
+  // +kubebuilder:validation:Nullable
+  ChannelState state = 26;
 
   // Whether the channel is verified as an enterprise account.
   //
-  // +kubebuilder:validation:Nullable
-  bool ent_verified = 27;
+  // +kubebuilder:validation:Required
+  bool ent_verified = 27 [(buf.validate.field).required = true];
 
   // Default plugin identifier used by the messenger widget.
   //
@@ -257,24 +257,24 @@ message Channel {
 
   // Whether multi-factor authentication is required for managers in this channel.
   //
-  // +kubebuilder:validation:Nullable
-  bool enable_mfa = 36;
+  // +kubebuilder:validation:Required
+  bool enable_mfa = 36 [(buf.validate.field).required = true];
 
   // Whether the messenger widget is hidden from end users on the website.
   //
-  // +kubebuilder:validation:Nullable
-  bool hide_app_messenger = 37;
+  // +kubebuilder:validation:Required
+  bool hide_app_messenger = 37 [(buf.validate.field).required = true];
 
   // Whether the channel holds a business certification.
   // Derived from biz_certificated_countries; true when at least one country is certified.
   //
-  // +kubebuilder:validation:Nullable
-  bool biz_certificated = 38;
+  // +kubebuilder:validation:Required
+  bool biz_certificated = 38 [(buf.validate.field).required = true];
 
   // Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
   //
-  // +kubebuilder:validation:Nullable
-  bool mkt_alimtalk_allowed = 39;
+  // +kubebuilder:validation:Required
+  bool mkt_alimtalk_allowed = 39 [(buf.validate.field).required = true];
 
   // Countries where the channel has obtained business certification.
   // Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
@@ -284,20 +284,20 @@ message Channel {
 
   // Whether the front-end ALF v2 AI assistant is enabled for end users.
   //
-  // +kubebuilder:validation:Nullable
-  bool enable_front_alf_v2 = 41;
+  // +kubebuilder:validation:Required
+  bool enable_front_alf_v2 = 41 [(buf.validate.field).required = true];
 
   // Whether the channel is currently blocked.
   // Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
   //
-  // +kubebuilder:validation:Nullable
-  bool blocked = 42;
+  // +kubebuilder:validation:Required
+  bool blocked = 42 [(buf.validate.field).required = true];
 
   // Whether the channel is currently accepting new conversations.
   // True when the channel is not blocked and is within operating hours.
   //
-  // +kubebuilder:validation:Nullable
-  bool working = 43;
+  // +kubebuilder:validation:Required
+  bool working = 43 [(buf.validate.field).required = true];
 
   // Channel avatar image URL.
   // Falls back to a system-generated default when no custom avatar is set.
@@ -314,14 +314,14 @@ message Channel {
   // Whether the channel is currently within operating hours.
   // Derived from the operating schedule configuration.
   //
-  // +kubebuilder:validation:Nullable
-  bool in_operation = 46;
+  // +kubebuilder:validation:Required
+  bool in_operation = 46 [(buf.validate.field).required = true];
 
   // Whether operating hour scheduling is enabled.
   // When false, the channel is always considered in operation.
   //
-  // +kubebuilder:validation:Nullable
-  bool operation_time_scheduling = 47;
+  // +kubebuilder:validation:Required
+  bool operation_time_scheduling = 47 [(buf.validate.field).required = true];
 
   // Timestamp when the next operating period starts.
   // Present only when the channel is currently outside operating hours.
@@ -348,8 +348,8 @@ message Channel {
 
   // Whether end-user replying is blocked after a conversation is closed.
   //
-  // +kubebuilder:validation:Nullable
-  bool block_replying_after_closed = 52;
+  // +kubebuilder:validation:Required
+  bool block_replying_after_closed = 52 [(buf.validate.field).required = true];
 
   // Grace period after conversation closure during which the end user may still reply.
   // Applicable only when block_replying_after_closed is true.
