@@ -122,8 +122,8 @@ message Plugin {
   // Color theme of the widget.
   // Defaults to LIGHT.
   //
-  // +kubebuilder:validation:Nullable
-  PluginAppearance appearance = 7;
+  // +kubebuilder:validation:Required
+  PluginAppearance appearance = 7 [(buf.validate.field).required = true];
 
   // Whether the text label is displayed alongside the launcher button.
   // Defaults to true.
