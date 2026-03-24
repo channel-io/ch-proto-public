@@ -58,8 +58,8 @@ message Channel {
 
   // Default welcome message shown to end users when a new conversation starts.
   //
-  // +kubebuilder:validation:Required
-  google.protobuf.Struct welcome_message = 2 [(buf.validate.field).required = true];
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct welcome_message = 2;
 
   // Internationalized welcome message overrides keyed by locale (e.g., en, ko).
   //
@@ -112,15 +112,15 @@ message Channel {
 
   // Default bot display name shown to end users in conversations.
   //
-  // +kubebuilder:validation:Required
-  string bot_name = 10 [(buf.validate.field).required = true];
+  // +kubebuilder:validation:Nullable
+  string bot_name = 10;
 
   // Channel theme color in hex format (e.g., #3B82F6).
   // Used to derive border, gradient, text, and plugin icon colors.
   //
-  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:Nullable
   // +kubebuilder:example="#3B82F6"
-  string color = 11 [(buf.validate.field).required = true];
+  string color = 11;
 
   // Free-text summary displayed on the channel profile.
   //
@@ -162,9 +162,9 @@ message Channel {
 
   // IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
   //
-  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:Nullable
   // +kubebuilder:example="Asia/Seoul"
-  string time_zone = 18 [(buf.validate.field).required = true];
+  string time_zone = 18;
 
   // Whether to display individual operator profiles instead of the channel identity to end users.
   //
@@ -185,13 +185,13 @@ message Channel {
 
   // Whether SMS/text follow-up is enabled for offline conversations.
   //
-  // +kubebuilder:validation:Required
-  bool follow_up_texting = 22 [(buf.validate.field).required = true];
+  // +kubebuilder:validation:Nullable
+  bool follow_up_texting = 22;
 
   // Whether email follow-up is enabled for offline conversations.
   //
-  // +kubebuilder:validation:Required
-  bool follow_up_email = 23 [(buf.validate.field).required = true];
+  // +kubebuilder:validation:Nullable
+  bool follow_up_email = 23;
 
   // Whether the follow-up form asks for the user's name.
   //
