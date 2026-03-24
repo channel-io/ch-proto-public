@@ -46,6 +46,7 @@ message Channel {
   // Unique channel identifier.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="ch-12345"
   string id = 1 [(buf.validate.field).required = true];
 
   // Default welcome message shown to end users when a new conversation starts.
@@ -71,6 +72,7 @@ message Channel {
   // Webhook URL called to retrieve additional user information from your server.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="https://example.com/api/user-info"
   string user_info_url = 6;
 
   // Channel display name visible to end users.
@@ -78,6 +80,7 @@ message Channel {
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:example="Channel Corp"
   string name = 7 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -105,6 +108,7 @@ message Channel {
   // Default bot display name shown to end users in conversations.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="Support Bot"
   string bot_name = 10 [(buf.validate.field).required = true];
 
   // Channel theme color in hex format (e.g., #3B82F6).
@@ -118,6 +122,7 @@ message Channel {
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxLength=180
+  // +kubebuilder:example="We help businesses connect with customers."
   string description = 12 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 180 characters"
@@ -134,16 +139,19 @@ message Channel {
   // Globally unique across all channels.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="my-company"
   string domain = 14;
 
   // System-assigned default domain.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="ch-12345"
   string default_domain = 15 [(buf.validate.field).required = true];
 
   // Business homepage URL associated with the channel.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="https://channel.io"
   string homepage_url = 16;
 
   // Business contact phone number in E.164 format (e.g., +821012345678).
@@ -214,6 +222,7 @@ message Channel {
   // Industry or business category of the channel (e.g., "E-commerce", "SaaS").
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="E-commerce"
   string biz_category = 29;
 
   // Number of staff members in the organization.
@@ -295,6 +304,7 @@ message Channel {
   // Falls back to a system-generated default when no custom avatar is set.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
   string avatar_url = 44;
 
   // Expected response delay indicator shown to end users.
