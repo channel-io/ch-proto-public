@@ -64,11 +64,11 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            io.channel.api.proto.pub.coreapi.service.MessageContent.Builder subBuilder = null;
+            io.channel.api.proto.pub.coreapi.model.MessageContent.Builder subBuilder = null;
             if (message_ != null) {
               subBuilder = message_.toBuilder();
             }
-            message_ = input.readMessage(io.channel.api.proto.pub.coreapi.service.MessageContent.parser(), extensionRegistry);
+            message_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.MessageContent.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(message_);
               message_ = subBuilder.buildPartial();
@@ -161,13 +161,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 2;
-  private io.channel.api.proto.pub.coreapi.service.MessageContent message_;
+  private io.channel.api.proto.pub.coreapi.model.MessageContent message_;
   /**
    * <pre>
    * Message content to announce.
    * </pre>
    *
-   * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
    * @return Whether the message field is set.
    */
   @java.lang.Override
@@ -179,22 +179,22 @@ private static final long serialVersionUID = 0L;
    * Message content to announce.
    * </pre>
    *
-   * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
    * @return The message.
    */
   @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.service.MessageContent getMessage() {
-    return message_ == null ? io.channel.api.proto.pub.coreapi.service.MessageContent.getDefaultInstance() : message_;
+  public io.channel.api.proto.pub.coreapi.model.MessageContent getMessage() {
+    return message_ == null ? io.channel.api.proto.pub.coreapi.model.MessageContent.getDefaultInstance() : message_;
   }
   /**
    * <pre>
    * Message content to announce.
    * </pre>
    *
-   * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.service.MessageContentOrBuilder getMessageOrBuilder() {
+  public io.channel.api.proto.pub.coreapi.model.MessageContentOrBuilder getMessageOrBuilder() {
     return getMessage();
   }
 
@@ -696,15 +696,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private io.channel.api.proto.pub.coreapi.service.MessageContent message_;
+    private io.channel.api.proto.pub.coreapi.model.MessageContent message_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.service.MessageContent, io.channel.api.proto.pub.coreapi.service.MessageContent.Builder, io.channel.api.proto.pub.coreapi.service.MessageContentOrBuilder> messageBuilder_;
+        io.channel.api.proto.pub.coreapi.model.MessageContent, io.channel.api.proto.pub.coreapi.model.MessageContent.Builder, io.channel.api.proto.pub.coreapi.model.MessageContentOrBuilder> messageBuilder_;
     /**
      * <pre>
      * Message content to announce.
      * </pre>
      *
-     * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
      * @return Whether the message field is set.
      */
     public boolean hasMessage() {
@@ -715,12 +715,12 @@ private static final long serialVersionUID = 0L;
      * Message content to announce.
      * </pre>
      *
-     * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
      * @return The message.
      */
-    public io.channel.api.proto.pub.coreapi.service.MessageContent getMessage() {
+    public io.channel.api.proto.pub.coreapi.model.MessageContent getMessage() {
       if (messageBuilder_ == null) {
-        return message_ == null ? io.channel.api.proto.pub.coreapi.service.MessageContent.getDefaultInstance() : message_;
+        return message_ == null ? io.channel.api.proto.pub.coreapi.model.MessageContent.getDefaultInstance() : message_;
       } else {
         return messageBuilder_.getMessage();
       }
@@ -730,9 +730,9 @@ private static final long serialVersionUID = 0L;
      * Message content to announce.
      * </pre>
      *
-     * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
      */
-    public Builder setMessage(io.channel.api.proto.pub.coreapi.service.MessageContent value) {
+    public Builder setMessage(io.channel.api.proto.pub.coreapi.model.MessageContent value) {
       if (messageBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -750,10 +750,10 @@ private static final long serialVersionUID = 0L;
      * Message content to announce.
      * </pre>
      *
-     * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
      */
     public Builder setMessage(
-        io.channel.api.proto.pub.coreapi.service.MessageContent.Builder builderForValue) {
+        io.channel.api.proto.pub.coreapi.model.MessageContent.Builder builderForValue) {
       if (messageBuilder_ == null) {
         message_ = builderForValue.build();
         onChanged();
@@ -768,13 +768,13 @@ private static final long serialVersionUID = 0L;
      * Message content to announce.
      * </pre>
      *
-     * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
      */
-    public Builder mergeMessage(io.channel.api.proto.pub.coreapi.service.MessageContent value) {
+    public Builder mergeMessage(io.channel.api.proto.pub.coreapi.model.MessageContent value) {
       if (messageBuilder_ == null) {
         if (message_ != null) {
           message_ =
-            io.channel.api.proto.pub.coreapi.service.MessageContent.newBuilder(message_).mergeFrom(value).buildPartial();
+            io.channel.api.proto.pub.coreapi.model.MessageContent.newBuilder(message_).mergeFrom(value).buildPartial();
         } else {
           message_ = value;
         }
@@ -790,7 +790,7 @@ private static final long serialVersionUID = 0L;
      * Message content to announce.
      * </pre>
      *
-     * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearMessage() {
       if (messageBuilder_ == null) {
@@ -808,9 +808,9 @@ private static final long serialVersionUID = 0L;
      * Message content to announce.
      * </pre>
      *
-     * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
      */
-    public io.channel.api.proto.pub.coreapi.service.MessageContent.Builder getMessageBuilder() {
+    public io.channel.api.proto.pub.coreapi.model.MessageContent.Builder getMessageBuilder() {
       
       onChanged();
       return getMessageFieldBuilder().getBuilder();
@@ -820,14 +820,14 @@ private static final long serialVersionUID = 0L;
      * Message content to announce.
      * </pre>
      *
-     * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
      */
-    public io.channel.api.proto.pub.coreapi.service.MessageContentOrBuilder getMessageOrBuilder() {
+    public io.channel.api.proto.pub.coreapi.model.MessageContentOrBuilder getMessageOrBuilder() {
       if (messageBuilder_ != null) {
         return messageBuilder_.getMessageOrBuilder();
       } else {
         return message_ == null ?
-            io.channel.api.proto.pub.coreapi.service.MessageContent.getDefaultInstance() : message_;
+            io.channel.api.proto.pub.coreapi.model.MessageContent.getDefaultInstance() : message_;
       }
     }
     /**
@@ -835,14 +835,14 @@ private static final long serialVersionUID = 0L;
      * Message content to announce.
      * </pre>
      *
-     * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.service.MessageContent, io.channel.api.proto.pub.coreapi.service.MessageContent.Builder, io.channel.api.proto.pub.coreapi.service.MessageContentOrBuilder> 
+        io.channel.api.proto.pub.coreapi.model.MessageContent, io.channel.api.proto.pub.coreapi.model.MessageContent.Builder, io.channel.api.proto.pub.coreapi.model.MessageContentOrBuilder> 
         getMessageFieldBuilder() {
       if (messageBuilder_ == null) {
         messageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            io.channel.api.proto.pub.coreapi.service.MessageContent, io.channel.api.proto.pub.coreapi.service.MessageContent.Builder, io.channel.api.proto.pub.coreapi.service.MessageContentOrBuilder>(
+            io.channel.api.proto.pub.coreapi.model.MessageContent, io.channel.api.proto.pub.coreapi.model.MessageContent.Builder, io.channel.api.proto.pub.coreapi.model.MessageContentOrBuilder>(
                 getMessage(),
                 getParentForChildren(),
                 isClean());
@@ -988,7 +988,7 @@ private static final long serialVersionUID = 0L;
      * @param value The message to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearMessage(io.channel.api.proto.pub.coreapi.service.MessageContent value) {
+    public Builder setOrClearMessage(io.channel.api.proto.pub.coreapi.model.MessageContent value) {
     	if (value == null)
     		return clearMessage();
     	else
@@ -1000,7 +1000,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearMessage(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.service.MessageContent> mapFunc) {
+    public <T> Builder mapOrClearMessage(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.MessageContent> mapFunc) {
     	if (value == null)
     		return clearMessage();
     	else

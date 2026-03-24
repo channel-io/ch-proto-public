@@ -9,6 +9,15 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
+// Interaction state used to filter and sort one-time message user records.
+enum OneTimeMsgUserState {
+  ONE_TIME_MSG_USER_STATE_UNSPECIFIED = 0;
+  ONE_TIME_MSG_USER_STATE_SENT = 1;
+  ONE_TIME_MSG_USER_STATE_VIEW = 2;
+  ONE_TIME_MSG_USER_STATE_GOAL = 3;
+  ONE_TIME_MSG_USER_STATE_CLICK = 4;
+}
+
 // OneTimeMsgUser represents a per-user delivery and engagement record for a one-time message.
 message OneTimeMsgUser {
   // One-time message that was delivered to this user.

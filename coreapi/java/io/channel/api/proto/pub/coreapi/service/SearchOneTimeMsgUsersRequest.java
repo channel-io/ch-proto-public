@@ -234,7 +234,7 @@ private static final long serialVersionUID = 0L;
    * Interaction state to filter and sort users by.
    * </pre>
    *
-   * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The enum numeric value on the wire for state.
    */
   @java.lang.Override public int getStateValue() {
@@ -245,13 +245,13 @@ private static final long serialVersionUID = 0L;
    * Interaction state to filter and sort users by.
    * </pre>
    *
-   * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The state.
    */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState getState() {
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.OneTimeMsgUserState getState() {
     @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState result = io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState.valueOf(state_);
-    return result == null ? io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState.UNRECOGNIZED : result;
+    io.channel.api.proto.pub.coreapi.model.OneTimeMsgUserState result = io.channel.api.proto.pub.coreapi.model.OneTimeMsgUserState.valueOf(state_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.OneTimeMsgUserState.UNRECOGNIZED : result;
   }
 
   public static final int CURSOR_FIELD_NUMBER = 4;
@@ -362,7 +362,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(oneTimeMsgId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, oneTimeMsgId_);
     }
-    if (state_ != io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState.ONE_TIME_MSG_USER_STATE_UNSPECIFIED.getNumber()) {
+    if (state_ != io.channel.api.proto.pub.coreapi.model.OneTimeMsgUserState.ONE_TIME_MSG_USER_STATE_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, state_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cursor_)) {
@@ -389,7 +389,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(oneTimeMsgId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, oneTimeMsgId_);
     }
-    if (state_ != io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState.ONE_TIME_MSG_USER_STATE_UNSPECIFIED.getNumber()) {
+    if (state_ != io.channel.api.proto.pub.coreapi.model.OneTimeMsgUserState.ONE_TIME_MSG_USER_STATE_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, state_);
     }
@@ -940,7 +940,7 @@ private static final long serialVersionUID = 0L;
      * Interaction state to filter and sort users by.
      * </pre>
      *
-     * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @return The enum numeric value on the wire for state.
      */
     @java.lang.Override public int getStateValue() {
@@ -951,7 +951,7 @@ private static final long serialVersionUID = 0L;
      * Interaction state to filter and sort users by.
      * </pre>
      *
-     * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @param value The enum numeric value on the wire for state to set.
      * @return This builder for chaining.
      */
@@ -966,25 +966,25 @@ private static final long serialVersionUID = 0L;
      * Interaction state to filter and sort users by.
      * </pre>
      *
-     * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @return The state.
      */
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState getState() {
+    public io.channel.api.proto.pub.coreapi.model.OneTimeMsgUserState getState() {
       @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState result = io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState.valueOf(state_);
-      return result == null ? io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState.UNRECOGNIZED : result;
+      io.channel.api.proto.pub.coreapi.model.OneTimeMsgUserState result = io.channel.api.proto.pub.coreapi.model.OneTimeMsgUserState.valueOf(state_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.OneTimeMsgUserState.UNRECOGNIZED : result;
     }
     /**
      * <pre>
      * Interaction state to filter and sort users by.
      * </pre>
      *
-     * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @param value The state to set.
      * @return This builder for chaining.
      */
-    public Builder setState(io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState value) {
+    public Builder setState(io.channel.api.proto.pub.coreapi.model.OneTimeMsgUserState value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -998,7 +998,7 @@ private static final long serialVersionUID = 0L;
      * Interaction state to filter and sort users by.
      * </pre>
      *
-     * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearState() {
@@ -1285,7 +1285,7 @@ private static final long serialVersionUID = 0L;
      * @param value The state to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearState(io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState value) {
+    public Builder setOrClearState(io.channel.api.proto.pub.coreapi.model.OneTimeMsgUserState value) {
     	if (value == null)
     		return clearState();
     	else
@@ -1297,7 +1297,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearState(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState> mapFunc) {
+    public <T> Builder mapOrClearState(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.OneTimeMsgUserState> mapFunc) {
     	if (value == null)
     		return clearState();
     	else

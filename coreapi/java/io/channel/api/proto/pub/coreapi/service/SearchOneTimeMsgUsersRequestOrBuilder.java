@@ -52,7 +52,7 @@ public interface SearchOneTimeMsgUsersRequestOrBuilder extends
    * Interaction state to filter and sort users by.
    * </pre>
    *
-   * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The enum numeric value on the wire for state.
    */
   int getStateValue();
@@ -61,10 +61,10 @@ public interface SearchOneTimeMsgUsersRequestOrBuilder extends
    * Interaction state to filter and sort users by.
    * </pre>
    *
-   * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The state.
    */
-  io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState getState();
+  io.channel.api.proto.pub.coreapi.model.OneTimeMsgUserState getState();
 
   /**
    * <pre>

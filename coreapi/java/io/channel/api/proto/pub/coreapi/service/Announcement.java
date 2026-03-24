@@ -45,33 +45,33 @@ public final class Announcement {
     java.lang.String[] descriptorData = {
       "\n\"coreapi/service/announcement.proto\022\017co" +
       "reapi.service\032\033buf/validate/validate.pro" +
-      "to\032%coreapi/service/message_content.prot" +
-      "o\"\204\002\n\024AnnounceToAllRequest\022%\n\nchannel_id" +
-      "\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022A\n\007message\030\002 \001" +
-      "(\0132\037.coreapi.service.MessageContentB\006\272H\003" +
-      "\310\001\001R\007message\022\201\001\n\010bot_name\030\003 \001(\tBf\272Hc\272\001K\n" +
-      "\rstring.maxLen\022(value must be no more th" +
-      "an 30 characters\032\020size(this) <= 30r\0232\021^$" +
-      "|^[^@#$%:/\\\\]+$R\007botName\")\n\023AnnounceToAl" +
-      "lResult\022\022\n\004sent\030\001 \001(\005R\004sent\"\263\002\n\017Announce" +
-      "Request\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tcha" +
-      "nnelId\022A\n\007message\030\002 \001(\0132\037.coreapi.servic" +
-      "e.MessageContentB\006\272H\003\310\001\001R\007message\022\201\001\n\010bo" +
-      "t_name\030\003 \001(\tBf\272Hc\272\001K\n\rstring.maxLen\022(val" +
-      "ue must be no more than 30 characters\032\020s" +
-      "ize(this) <= 30r\0232\021^$|^[^@#$%:/\\\\]+$R\007bo" +
-      "tName\0222\n\013manager_ids\030\004 \003(\tB\021\272H\016\310\001\001\222\001\010\010\001\"" +
-      "\004r\002\020\001R\nmanagerIds\"$\n\016AnnounceResult\022\022\n\004s" +
-      "ent\030\001 \001(\005R\004sentBf\n(io.channel.api.proto." +
-      "pub.coreapi.serviceP\001Z8github.com/channe" +
-      "l-io/ch-proto-public/coreapi/go/serviceb" +
-      "\006proto3"
+      "to\032#coreapi/model/message_content.proto\"" +
+      "\202\002\n\024AnnounceToAllRequest\022%\n\nchannel_id\030\001" +
+      " \001(\tB\006\272H\003\310\001\001R\tchannelId\022?\n\007message\030\002 \001(\013" +
+      "2\035.coreapi.model.MessageContentB\006\272H\003\310\001\001R" +
+      "\007message\022\201\001\n\010bot_name\030\003 \001(\tBf\272Hc\272\001K\n\rstr" +
+      "ing.maxLen\022(value must be no more than 3" +
+      "0 characters\032\020size(this) <= 30r\0232\021^$|^[^" +
+      "@#$%:/\\\\]+$R\007botName\")\n\023AnnounceToAllRes" +
+      "ult\022\022\n\004sent\030\001 \001(\005R\004sent\"\261\002\n\017AnnounceRequ" +
+      "est\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannel" +
+      "Id\022?\n\007message\030\002 \001(\0132\035.coreapi.model.Mess" +
+      "ageContentB\006\272H\003\310\001\001R\007message\022\201\001\n\010bot_name" +
+      "\030\003 \001(\tBf\272Hc\272\001K\n\rstring.maxLen\022(value mus" +
+      "t be no more than 30 characters\032\020size(th" +
+      "is) <= 30r\0232\021^$|^[^@#$%:/\\\\]+$R\007botName\022" +
+      "2\n\013manager_ids\030\004 \003(\tB\021\272H\016\310\001\001\222\001\010\010\001\"\004r\002\020\001R" +
+      "\nmanagerIds\"$\n\016AnnounceResult\022\022\n\004sent\030\001 " +
+      "\001(\005R\004sentBf\n(io.channel.api.proto.pub.co" +
+      "reapi.serviceP\001Z8github.com/channel-io/c" +
+      "h-proto-public/coreapi/go/serviceb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
-          io.channel.api.proto.pub.coreapi.service.MessageContentOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.MessageContentOuterClass.getDescriptor(),
         });
     internal_static_coreapi_service_AnnounceToAllRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -103,7 +103,7 @@ public final class Announcement {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
-    io.channel.api.proto.pub.coreapi.service.MessageContentOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.MessageContentOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -2,13 +2,12 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        (unknown)
-// source: coreapi/service/message_content.proto
+// source: coreapi/model/message_content.proto
 
-package service
+package model
 
 import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
-	model "github.com/channel-io/ch-proto-public/coreapi/go/model"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	structpb "google.golang.org/protobuf/types/known/structpb"
@@ -100,11 +99,11 @@ func (x MessageOption) String() string {
 }
 
 func (MessageOption) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_service_message_content_proto_enumTypes[0].Descriptor()
+	return file_coreapi_model_message_content_proto_enumTypes[0].Descriptor()
 }
 
 func (MessageOption) Type() protoreflect.EnumType {
-	return &file_coreapi_service_message_content_proto_enumTypes[0]
+	return &file_coreapi_model_message_content_proto_enumTypes[0]
 }
 
 func (x MessageOption) Number() protoreflect.EnumNumber {
@@ -113,17 +112,16 @@ func (x MessageOption) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MessageOption.Descriptor instead.
 func (MessageOption) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_service_message_content_proto_rawDescGZIP(), []int{0}
+	return file_coreapi_model_message_content_proto_rawDescGZIP(), []int{0}
 }
 
 // MessageContent represents the content payload for sending a message via the API.
-// Used in announcement, group message, user chat message, and thread message requests.
 type MessageContent struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Structured content blocks of the message.
 	//
 	// +kubebuilder:validation:Nullable
-	Blocks []*model.Block `protobuf:"bytes,1,rep,name=blocks,proto3" json:"blocks,omitempty"`
+	Blocks []*Block `protobuf:"bytes,1,rep,name=blocks,proto3" json:"blocks,omitempty"`
 	// Plain text representation of the message.
 	//
 	// +kubebuilder:validation:Nullable
@@ -132,16 +130,16 @@ type MessageContent struct {
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxItems=2
-	Buttons []*model.MessageButton `protobuf:"bytes,3,rep,name=buttons,proto3" json:"buttons,omitempty"`
+	Buttons []*MessageButton `protobuf:"bytes,3,rep,name=buttons,proto3" json:"buttons,omitempty"`
 	// File attachments included in the message.
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxItems=10
-	Files []*model.MessageFile `protobuf:"bytes,4,rep,name=files,proto3" json:"files,omitempty"`
+	Files []*MessageFile `protobuf:"bytes,4,rep,name=files,proto3" json:"files,omitempty"`
 	// Web page link preview attached to the message.
 	//
 	// +kubebuilder:validation:Nullable
-	WebPage *model.MessageWebPage `protobuf:"bytes,5,opt,name=web_page,json=webPage,proto3" json:"web_page,omitempty"`
+	WebPage *MessageWebPage `protobuf:"bytes,5,opt,name=web_page,json=webPage,proto3" json:"web_page,omitempty"`
 	// Interactive form attached to the message.
 	// The structure depends on the form type (custom, followUp, call).
 	//
@@ -150,7 +148,7 @@ type MessageContent struct {
 	// Option flags that modify message delivery and display behavior.
 	//
 	// +kubebuilder:validation:Nullable
-	Options []MessageOption `protobuf:"varint,7,rep,packed,name=options,proto3,enum=coreapi.service.MessageOption" json:"options,omitempty"`
+	Options []MessageOption `protobuf:"varint,7,rep,packed,name=options,proto3,enum=coreapi.model.MessageOption" json:"options,omitempty"`
 	// Client-generated request identifier for idempotency.
 	//
 	// +kubebuilder:validation:Nullable
@@ -161,7 +159,7 @@ type MessageContent struct {
 
 func (x *MessageContent) Reset() {
 	*x = MessageContent{}
-	mi := &file_coreapi_service_message_content_proto_msgTypes[0]
+	mi := &file_coreapi_model_message_content_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -173,7 +171,7 @@ func (x *MessageContent) String() string {
 func (*MessageContent) ProtoMessage() {}
 
 func (x *MessageContent) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_message_content_proto_msgTypes[0]
+	mi := &file_coreapi_model_message_content_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -186,10 +184,10 @@ func (x *MessageContent) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageContent.ProtoReflect.Descriptor instead.
 func (*MessageContent) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_message_content_proto_rawDescGZIP(), []int{0}
+	return file_coreapi_model_message_content_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *MessageContent) GetBlocks() []*model.Block {
+func (x *MessageContent) GetBlocks() []*Block {
 	if x != nil {
 		return x.Blocks
 	}
@@ -203,21 +201,21 @@ func (x *MessageContent) GetPlainText() string {
 	return ""
 }
 
-func (x *MessageContent) GetButtons() []*model.MessageButton {
+func (x *MessageContent) GetButtons() []*MessageButton {
 	if x != nil {
 		return x.Buttons
 	}
 	return nil
 }
 
-func (x *MessageContent) GetFiles() []*model.MessageFile {
+func (x *MessageContent) GetFiles() []*MessageFile {
 	if x != nil {
 		return x.Files
 	}
 	return nil
 }
 
-func (x *MessageContent) GetWebPage() *model.MessageWebPage {
+func (x *MessageContent) GetWebPage() *MessageWebPage {
 	if x != nil {
 		return x.WebPage
 	}
@@ -245,11 +243,11 @@ func (x *MessageContent) GetRequestId() string {
 	return ""
 }
 
-var File_coreapi_service_message_content_proto protoreflect.FileDescriptor
+var File_coreapi_model_message_content_proto protoreflect.FileDescriptor
 
-const file_coreapi_service_message_content_proto_rawDesc = "" +
+const file_coreapi_model_message_content_proto_rawDesc = "" +
 	"\n" +
-	"%coreapi/service/message_content.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x19coreapi/model/block.proto\x1a\"coreapi/model/message_button.proto\x1a coreapi/model/message_file.proto\x1a$coreapi/model/message_web_page.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x9b\x03\n" +
+	"#coreapi/model/message_content.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x19coreapi/model/block.proto\x1a\"coreapi/model/message_button.proto\x1a coreapi/model/message_file.proto\x1a$coreapi/model/message_web_page.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x99\x03\n" +
 	"\x0eMessageContent\x12,\n" +
 	"\x06blocks\x18\x01 \x03(\v2\x14.coreapi.model.BlockR\x06blocks\x12\x1d\n" +
 	"\n" +
@@ -258,8 +256,8 @@ const file_coreapi_service_message_content_proto_rawDesc = "" +
 	"\x05files\x18\x04 \x03(\v2\x1a.coreapi.model.MessageFileB\b\xbaH\x05\x92\x01\x02\x10\n" +
 	"R\x05files\x128\n" +
 	"\bweb_page\x18\x05 \x01(\v2\x1d.coreapi.model.MessageWebPageR\awebPage\x12+\n" +
-	"\x04form\x18\x06 \x01(\v2\x17.google.protobuf.StructR\x04form\x128\n" +
-	"\aoptions\x18\a \x03(\x0e2\x1e.coreapi.service.MessageOptionR\aoptions\x12\x1d\n" +
+	"\x04form\x18\x06 \x01(\v2\x17.google.protobuf.StructR\x04form\x126\n" +
+	"\aoptions\x18\a \x03(\x0e2\x1c.coreapi.model.MessageOptionR\aoptions\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\b \x01(\tR\trequestId*\xc8\x03\n" +
 	"\rMessageOption\x12\x1e\n" +
@@ -276,39 +274,39 @@ const file_coreapi_service_message_content_proto_rawDesc = "" +
 	" MESSAGE_OPTION_SILENT_TO_MANAGER\x10\n" +
 	"\x12!\n" +
 	"\x1dMESSAGE_OPTION_SILENT_TO_USER\x10\v\x12\"\n" +
-	"\x1eMESSAGE_OPTION_ALERT_TO_WRITER\x10\fBf\n" +
-	"(io.channel.api.proto.pub.coreapi.serviceP\x01Z8github.com/channel-io/ch-proto-public/coreapi/go/serviceb\x06proto3"
+	"\x1eMESSAGE_OPTION_ALERT_TO_WRITER\x10\fBb\n" +
+	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
-	file_coreapi_service_message_content_proto_rawDescOnce sync.Once
-	file_coreapi_service_message_content_proto_rawDescData []byte
+	file_coreapi_model_message_content_proto_rawDescOnce sync.Once
+	file_coreapi_model_message_content_proto_rawDescData []byte
 )
 
-func file_coreapi_service_message_content_proto_rawDescGZIP() []byte {
-	file_coreapi_service_message_content_proto_rawDescOnce.Do(func() {
-		file_coreapi_service_message_content_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_coreapi_service_message_content_proto_rawDesc), len(file_coreapi_service_message_content_proto_rawDesc)))
+func file_coreapi_model_message_content_proto_rawDescGZIP() []byte {
+	file_coreapi_model_message_content_proto_rawDescOnce.Do(func() {
+		file_coreapi_model_message_content_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_coreapi_model_message_content_proto_rawDesc), len(file_coreapi_model_message_content_proto_rawDesc)))
 	})
-	return file_coreapi_service_message_content_proto_rawDescData
+	return file_coreapi_model_message_content_proto_rawDescData
 }
 
-var file_coreapi_service_message_content_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_coreapi_service_message_content_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
-var file_coreapi_service_message_content_proto_goTypes = []any{
-	(MessageOption)(0),           // 0: coreapi.service.MessageOption
-	(*MessageContent)(nil),       // 1: coreapi.service.MessageContent
-	(*model.Block)(nil),          // 2: coreapi.model.Block
-	(*model.MessageButton)(nil),  // 3: coreapi.model.MessageButton
-	(*model.MessageFile)(nil),    // 4: coreapi.model.MessageFile
-	(*model.MessageWebPage)(nil), // 5: coreapi.model.MessageWebPage
-	(*structpb.Struct)(nil),      // 6: google.protobuf.Struct
+var file_coreapi_model_message_content_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_coreapi_model_message_content_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_coreapi_model_message_content_proto_goTypes = []any{
+	(MessageOption)(0),      // 0: coreapi.model.MessageOption
+	(*MessageContent)(nil),  // 1: coreapi.model.MessageContent
+	(*Block)(nil),           // 2: coreapi.model.Block
+	(*MessageButton)(nil),   // 3: coreapi.model.MessageButton
+	(*MessageFile)(nil),     // 4: coreapi.model.MessageFile
+	(*MessageWebPage)(nil),  // 5: coreapi.model.MessageWebPage
+	(*structpb.Struct)(nil), // 6: google.protobuf.Struct
 }
-var file_coreapi_service_message_content_proto_depIdxs = []int32{
-	2, // 0: coreapi.service.MessageContent.blocks:type_name -> coreapi.model.Block
-	3, // 1: coreapi.service.MessageContent.buttons:type_name -> coreapi.model.MessageButton
-	4, // 2: coreapi.service.MessageContent.files:type_name -> coreapi.model.MessageFile
-	5, // 3: coreapi.service.MessageContent.web_page:type_name -> coreapi.model.MessageWebPage
-	6, // 4: coreapi.service.MessageContent.form:type_name -> google.protobuf.Struct
-	0, // 5: coreapi.service.MessageContent.options:type_name -> coreapi.service.MessageOption
+var file_coreapi_model_message_content_proto_depIdxs = []int32{
+	2, // 0: coreapi.model.MessageContent.blocks:type_name -> coreapi.model.Block
+	3, // 1: coreapi.model.MessageContent.buttons:type_name -> coreapi.model.MessageButton
+	4, // 2: coreapi.model.MessageContent.files:type_name -> coreapi.model.MessageFile
+	5, // 3: coreapi.model.MessageContent.web_page:type_name -> coreapi.model.MessageWebPage
+	6, // 4: coreapi.model.MessageContent.form:type_name -> google.protobuf.Struct
+	0, // 5: coreapi.model.MessageContent.options:type_name -> coreapi.model.MessageOption
 	6, // [6:6] is the sub-list for method output_type
 	6, // [6:6] is the sub-list for method input_type
 	6, // [6:6] is the sub-list for extension type_name
@@ -316,27 +314,31 @@ var file_coreapi_service_message_content_proto_depIdxs = []int32{
 	0, // [0:6] is the sub-list for field type_name
 }
 
-func init() { file_coreapi_service_message_content_proto_init() }
-func file_coreapi_service_message_content_proto_init() {
-	if File_coreapi_service_message_content_proto != nil {
+func init() { file_coreapi_model_message_content_proto_init() }
+func file_coreapi_model_message_content_proto_init() {
+	if File_coreapi_model_message_content_proto != nil {
 		return
 	}
+	file_coreapi_model_block_proto_init()
+	file_coreapi_model_message_button_proto_init()
+	file_coreapi_model_message_file_proto_init()
+	file_coreapi_model_message_web_page_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_message_content_proto_rawDesc), len(file_coreapi_service_message_content_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_message_content_proto_rawDesc), len(file_coreapi_model_message_content_proto_rawDesc)),
 			NumEnums:      1,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_coreapi_service_message_content_proto_goTypes,
-		DependencyIndexes: file_coreapi_service_message_content_proto_depIdxs,
-		EnumInfos:         file_coreapi_service_message_content_proto_enumTypes,
-		MessageInfos:      file_coreapi_service_message_content_proto_msgTypes,
+		GoTypes:           file_coreapi_model_message_content_proto_goTypes,
+		DependencyIndexes: file_coreapi_model_message_content_proto_depIdxs,
+		EnumInfos:         file_coreapi_model_message_content_proto_enumTypes,
+		MessageInfos:      file_coreapi_model_message_content_proto_msgTypes,
 	}.Build()
-	File_coreapi_service_message_content_proto = out.File
-	file_coreapi_service_message_content_proto_goTypes = nil
-	file_coreapi_service_message_content_proto_depIdxs = nil
+	File_coreapi_model_message_content_proto = out.File
+	file_coreapi_model_message_content_proto_goTypes = nil
+	file_coreapi_model_message_content_proto_depIdxs = nil
 }

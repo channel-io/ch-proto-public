@@ -24,62 +24,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Interaction state used to filter and sort one-time message user records.
-type OneTimeMsgUserState int32
-
-const (
-	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_UNSPECIFIED OneTimeMsgUserState = 0
-	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_SENT        OneTimeMsgUserState = 1
-	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_VIEW        OneTimeMsgUserState = 2
-	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_GOAL        OneTimeMsgUserState = 3
-	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_CLICK       OneTimeMsgUserState = 4
-)
-
-// Enum value maps for OneTimeMsgUserState.
-var (
-	OneTimeMsgUserState_name = map[int32]string{
-		0: "ONE_TIME_MSG_USER_STATE_UNSPECIFIED",
-		1: "ONE_TIME_MSG_USER_STATE_SENT",
-		2: "ONE_TIME_MSG_USER_STATE_VIEW",
-		3: "ONE_TIME_MSG_USER_STATE_GOAL",
-		4: "ONE_TIME_MSG_USER_STATE_CLICK",
-	}
-	OneTimeMsgUserState_value = map[string]int32{
-		"ONE_TIME_MSG_USER_STATE_UNSPECIFIED": 0,
-		"ONE_TIME_MSG_USER_STATE_SENT":        1,
-		"ONE_TIME_MSG_USER_STATE_VIEW":        2,
-		"ONE_TIME_MSG_USER_STATE_GOAL":        3,
-		"ONE_TIME_MSG_USER_STATE_CLICK":       4,
-	}
-)
-
-func (x OneTimeMsgUserState) Enum() *OneTimeMsgUserState {
-	p := new(OneTimeMsgUserState)
-	*p = x
-	return p
-}
-
-func (x OneTimeMsgUserState) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (OneTimeMsgUserState) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_service_one_time_msg_proto_enumTypes[0].Descriptor()
-}
-
-func (OneTimeMsgUserState) Type() protoreflect.EnumType {
-	return &file_coreapi_service_one_time_msg_proto_enumTypes[0]
-}
-
-func (x OneTimeMsgUserState) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use OneTimeMsgUserState.Descriptor instead.
-func (OneTimeMsgUserState) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_service_one_time_msg_proto_rawDescGZIP(), []int{0}
-}
-
 // Retrieves a list of one-time messages.
 //
 // The number of one-time messages retrieved is restricted by the limit parameter,
@@ -353,7 +297,7 @@ type SearchOneTimeMsgUsersRequest struct {
 	// One-time message ID to retrieve users for.
 	OneTimeMsgId string `protobuf:"bytes,2,opt,name=one_time_msg_id,json=oneTimeMsgId,proto3" json:"one_time_msg_id,omitempty"`
 	// Interaction state to filter and sort users by.
-	State OneTimeMsgUserState `protobuf:"varint,3,opt,name=state,proto3,enum=coreapi.service.OneTimeMsgUserState" json:"state,omitempty"`
+	State model.OneTimeMsgUserState `protobuf:"varint,3,opt,name=state,proto3,enum=coreapi.model.OneTimeMsgUserState" json:"state,omitempty"`
 	// Opaque pagination cursor from a previous response.
 	Cursor string `protobuf:"bytes,4,opt,name=cursor,proto3" json:"cursor,omitempty"`
 	// Maximum number of results to return. Defaults to 25 if unset.
@@ -408,11 +352,11 @@ func (x *SearchOneTimeMsgUsersRequest) GetOneTimeMsgId() string {
 	return ""
 }
 
-func (x *SearchOneTimeMsgUsersRequest) GetState() OneTimeMsgUserState {
+func (x *SearchOneTimeMsgUsersRequest) GetState() model.OneTimeMsgUserState {
 	if x != nil {
 		return x.State
 	}
-	return OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_UNSPECIFIED
+	return model.OneTimeMsgUserState(0)
 }
 
 func (x *SearchOneTimeMsgUsersRequest) GetCursor() string {
@@ -634,12 +578,12 @@ const file_coreapi_service_one_time_msg_proto_rawDesc = "" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"R\n" +
 	"\x13GetOneTimeMsgResult\x12;\n" +
 	"\fone_time_msg\x18\x01 \x01(\v2\x19.coreapi.model.OneTimeMsgR\n" +
-	"oneTimeMsg\"\x81\x03\n" +
+	"oneTimeMsg\"\xff\x02\n" +
 	"\x1cSearchOneTimeMsgUsersRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12-\n" +
-	"\x0fone_time_msg_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\foneTimeMsgId\x12B\n" +
-	"\x05state\x18\x03 \x01(\x0e2$.coreapi.service.OneTimeMsgUserStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12\x16\n" +
+	"\x0fone_time_msg_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\foneTimeMsgId\x12@\n" +
+	"\x05state\x18\x03 \x01(\x0e2\".coreapi.model.OneTimeMsgUserStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12\x16\n" +
 	"\x06cursor\x18\x04 \x01(\tR\x06cursor\x12u\n" +
 	"\x05limit\x18\x05 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
 	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\x128\n" +
@@ -656,13 +600,7 @@ const file_coreapi_service_one_time_msg_proto_rawDesc = "" +
 	"\n" +
 	"channel_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"c\n" +
 	"\x17GetOneTimeMsgUserResult\x12H\n" +
-	"\x11one_time_msg_user\x18\x01 \x01(\v2\x1d.coreapi.model.OneTimeMsgUserR\x0eoneTimeMsgUser*\xc7\x01\n" +
-	"\x13OneTimeMsgUserState\x12'\n" +
-	"#ONE_TIME_MSG_USER_STATE_UNSPECIFIED\x10\x00\x12 \n" +
-	"\x1cONE_TIME_MSG_USER_STATE_SENT\x10\x01\x12 \n" +
-	"\x1cONE_TIME_MSG_USER_STATE_VIEW\x10\x02\x12 \n" +
-	"\x1cONE_TIME_MSG_USER_STATE_GOAL\x10\x03\x12!\n" +
-	"\x1dONE_TIME_MSG_USER_STATE_CLICK\x10\x04Bf\n" +
+	"\x11one_time_msg_user\x18\x01 \x01(\v2\x1d.coreapi.model.OneTimeMsgUserR\x0eoneTimeMsgUserBf\n" +
 	"(io.channel.api.proto.pub.coreapi.serviceP\x01Z8github.com/channel-io/ch-proto-public/coreapi/go/serviceb\x06proto3"
 
 var (
@@ -677,28 +615,27 @@ func file_coreapi_service_one_time_msg_proto_rawDescGZIP() []byte {
 	return file_coreapi_service_one_time_msg_proto_rawDescData
 }
 
-var file_coreapi_service_one_time_msg_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_coreapi_service_one_time_msg_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_coreapi_service_one_time_msg_proto_goTypes = []any{
-	(OneTimeMsgUserState)(0),             // 0: coreapi.service.OneTimeMsgUserState
-	(*SearchOneTimeMsgsRequest)(nil),     // 1: coreapi.service.SearchOneTimeMsgsRequest
-	(*SearchOneTimeMsgsResult)(nil),      // 2: coreapi.service.SearchOneTimeMsgsResult
-	(*GetOneTimeMsgRequest)(nil),         // 3: coreapi.service.GetOneTimeMsgRequest
-	(*GetOneTimeMsgResult)(nil),          // 4: coreapi.service.GetOneTimeMsgResult
-	(*SearchOneTimeMsgUsersRequest)(nil), // 5: coreapi.service.SearchOneTimeMsgUsersRequest
-	(*SearchOneTimeMsgUsersResult)(nil),  // 6: coreapi.service.SearchOneTimeMsgUsersResult
-	(*GetOneTimeMsgUserRequest)(nil),     // 7: coreapi.service.GetOneTimeMsgUserRequest
-	(*GetOneTimeMsgUserResult)(nil),      // 8: coreapi.service.GetOneTimeMsgUserResult
-	(model.OneTimeMsgState)(0),           // 9: coreapi.model.OneTimeMsgState
-	(*model.OneTimeMsg)(nil),             // 10: coreapi.model.OneTimeMsg
+	(*SearchOneTimeMsgsRequest)(nil),     // 0: coreapi.service.SearchOneTimeMsgsRequest
+	(*SearchOneTimeMsgsResult)(nil),      // 1: coreapi.service.SearchOneTimeMsgsResult
+	(*GetOneTimeMsgRequest)(nil),         // 2: coreapi.service.GetOneTimeMsgRequest
+	(*GetOneTimeMsgResult)(nil),          // 3: coreapi.service.GetOneTimeMsgResult
+	(*SearchOneTimeMsgUsersRequest)(nil), // 4: coreapi.service.SearchOneTimeMsgUsersRequest
+	(*SearchOneTimeMsgUsersResult)(nil),  // 5: coreapi.service.SearchOneTimeMsgUsersResult
+	(*GetOneTimeMsgUserRequest)(nil),     // 6: coreapi.service.GetOneTimeMsgUserRequest
+	(*GetOneTimeMsgUserResult)(nil),      // 7: coreapi.service.GetOneTimeMsgUserResult
+	(model.OneTimeMsgState)(0),           // 8: coreapi.model.OneTimeMsgState
+	(*model.OneTimeMsg)(nil),             // 9: coreapi.model.OneTimeMsg
+	(model.OneTimeMsgUserState)(0),       // 10: coreapi.model.OneTimeMsgUserState
 	(common.SortOrder)(0),                // 11: coreapi.common.SortOrder
 	(*model.OneTimeMsgUser)(nil),         // 12: coreapi.model.OneTimeMsgUser
 }
 var file_coreapi_service_one_time_msg_proto_depIdxs = []int32{
-	9,  // 0: coreapi.service.SearchOneTimeMsgsRequest.states:type_name -> coreapi.model.OneTimeMsgState
-	10, // 1: coreapi.service.SearchOneTimeMsgsResult.one_time_msgs:type_name -> coreapi.model.OneTimeMsg
-	10, // 2: coreapi.service.GetOneTimeMsgResult.one_time_msg:type_name -> coreapi.model.OneTimeMsg
-	0,  // 3: coreapi.service.SearchOneTimeMsgUsersRequest.state:type_name -> coreapi.service.OneTimeMsgUserState
+	8,  // 0: coreapi.service.SearchOneTimeMsgsRequest.states:type_name -> coreapi.model.OneTimeMsgState
+	9,  // 1: coreapi.service.SearchOneTimeMsgsResult.one_time_msgs:type_name -> coreapi.model.OneTimeMsg
+	9,  // 2: coreapi.service.GetOneTimeMsgResult.one_time_msg:type_name -> coreapi.model.OneTimeMsg
+	10, // 3: coreapi.service.SearchOneTimeMsgUsersRequest.state:type_name -> coreapi.model.OneTimeMsgUserState
 	11, // 4: coreapi.service.SearchOneTimeMsgUsersRequest.sort_order:type_name -> coreapi.common.SortOrder
 	12, // 5: coreapi.service.SearchOneTimeMsgUsersResult.one_time_msg_users:type_name -> coreapi.model.OneTimeMsgUser
 	12, // 6: coreapi.service.GetOneTimeMsgUserResult.one_time_msg_user:type_name -> coreapi.model.OneTimeMsgUser
@@ -719,14 +656,13 @@ func file_coreapi_service_one_time_msg_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_one_time_msg_proto_rawDesc), len(file_coreapi_service_one_time_msg_proto_rawDesc)),
-			NumEnums:      1,
+			NumEnums:      0,
 			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_coreapi_service_one_time_msg_proto_goTypes,
 		DependencyIndexes: file_coreapi_service_one_time_msg_proto_depIdxs,
-		EnumInfos:         file_coreapi_service_one_time_msg_proto_enumTypes,
 		MessageInfos:      file_coreapi_service_one_time_msg_proto_msgTypes,
 	}.Build()
 	File_coreapi_service_one_time_msg_proto = out.File

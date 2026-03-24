@@ -44,10 +44,15 @@ public final class OneTimeMsgUserOuterClass {
       "oogle.protobuf.TimestampR\005click\022\030\n\007reven" +
       "ue\030\007 \001(\001R\007revenue\022]\n\002id\030\010 \001(\tBM\272HJ\272\001D\n\rs" +
       "tring.minLen\022\"value must be at least 1 c" +
-      "haracter\032\017size(this) >= 1\310\001\001R\002idBb\n&io.c" +
-      "hannel.api.proto.pub.coreapi.modelP\001Z6gi" +
-      "thub.com/channel-io/ch-proto-public/core" +
-      "api/go/modelb\006proto3"
+      "haracter\032\017size(this) >= 1\310\001\001R\002id*\307\001\n\023One" +
+      "TimeMsgUserState\022\'\n#ONE_TIME_MSG_USER_ST" +
+      "ATE_UNSPECIFIED\020\000\022 \n\034ONE_TIME_MSG_USER_S" +
+      "TATE_SENT\020\001\022 \n\034ONE_TIME_MSG_USER_STATE_V" +
+      "IEW\020\002\022 \n\034ONE_TIME_MSG_USER_STATE_GOAL\020\003\022" +
+      "!\n\035ONE_TIME_MSG_USER_STATE_CLICK\020\004Bb\n&io" +
+      ".channel.api.proto.pub.coreapi.modelP\001Z6" +
+      "github.com/channel-io/ch-proto-public/co" +
+      "reapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

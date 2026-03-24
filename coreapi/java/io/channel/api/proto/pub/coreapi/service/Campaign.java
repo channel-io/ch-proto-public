@@ -85,34 +85,29 @@ public final class Campaign {
       "elId\"\211\001\n\021GetCampaignResult\0223\n\010campaign\030\001" +
       " \001(\0132\027.coreapi.model.CampaignR\010campaign\022" +
       "?\n\rcampaign_msgs\030\002 \003(\0132\032.coreapi.model.C" +
-      "ampaignMsgR\014campaignMsgs\"\367\002\n\032SearchCampa" +
+      "ampaignMsgR\014campaignMsgs\"\365\002\n\032SearchCampa" +
       "ignUsersRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003" +
       "\310\001\001R\tchannelId\022\'\n\013campaign_id\030\002 \001(\tB\006\272H\003" +
-      "\310\001\001R\ncampaignId\022@\n\005state\030\003 \001(\0162\".coreapi" +
-      ".service.CampaignUserStateB\006\272H\003\310\001\001R\005stat" +
-      "e\022\026\n\006cursor\030\004 \001(\tR\006cursor\022u\n\005limit\030\005 \001(\005" +
-      "B_\272H\\\272\001Y\n\rint32.between\022\037limit must be b" +
-      "etween 1 and 500\032\'this == 0 || (this >= " +
-      "1 && this <= 500)R\005limit\0228\n\nsort_order\030\006" +
-      " \001(\0162\031.coreapi.common.SortOrderR\tsortOrd" +
-      "er\"\233\001\n\031SearchCampaignUsersResult\022B\n\016camp" +
-      "aign_users\030\001 \003(\0132\033.coreapi.model.Campaig" +
-      "nUserR\rcampaignUsers\022\037\n\013next_cursor\030\002 \001(" +
-      "\tR\nnextCursor\022\031\n\010has_next\030\003 \001(\010R\007hasNext" +
-      "\"\211\001\n\026GetCampaignUserRequest\022\'\n\013campaign_" +
-      "id\030\001 \001(\tB\006\272H\003\310\001\001R\ncampaignId\022\037\n\007user_id\030" +
-      "\002 \001(\tB\006\272H\003\310\001\001R\006userId\022%\n\nchannel_id\030\003 \001(" +
-      "\tB\006\272H\003\310\001\001R\tchannelId\"Y\n\025GetCampaignUserR" +
-      "esult\022@\n\rcampaign_user\030\001 \001(\0132\033.coreapi.m" +
-      "odel.CampaignUserR\014campaignUser*\261\001\n\021Camp" +
-      "aignUserState\022#\n\037CAMPAIGN_USER_STATE_UNS" +
-      "PECIFIED\020\000\022\034\n\030CAMPAIGN_USER_STATE_SENT\020\001" +
-      "\022\034\n\030CAMPAIGN_USER_STATE_VIEW\020\002\022\034\n\030CAMPAI" +
-      "GN_USER_STATE_GOAL\020\003\022\035\n\031CAMPAIGN_USER_ST" +
-      "ATE_CLICK\020\004Bf\n(io.channel.api.proto.pub." +
-      "coreapi.serviceP\001Z8github.com/channel-io" +
-      "/ch-proto-public/coreapi/go/serviceb\006pro" +
-      "to3"
+      "\310\001\001R\ncampaignId\022>\n\005state\030\003 \001(\0162 .coreapi" +
+      ".model.CampaignUserStateB\006\272H\003\310\001\001R\005state\022" +
+      "\026\n\006cursor\030\004 \001(\tR\006cursor\022u\n\005limit\030\005 \001(\005B_" +
+      "\272H\\\272\001Y\n\rint32.between\022\037limit must be bet" +
+      "ween 1 and 500\032\'this == 0 || (this >= 1 " +
+      "&& this <= 500)R\005limit\0228\n\nsort_order\030\006 \001" +
+      "(\0162\031.coreapi.common.SortOrderR\tsortOrder" +
+      "\"\233\001\n\031SearchCampaignUsersResult\022B\n\016campai" +
+      "gn_users\030\001 \003(\0132\033.coreapi.model.CampaignU" +
+      "serR\rcampaignUsers\022\037\n\013next_cursor\030\002 \001(\tR" +
+      "\nnextCursor\022\031\n\010has_next\030\003 \001(\010R\007hasNext\"\211" +
+      "\001\n\026GetCampaignUserRequest\022\'\n\013campaign_id" +
+      "\030\001 \001(\tB\006\272H\003\310\001\001R\ncampaignId\022\037\n\007user_id\030\002 " +
+      "\001(\tB\006\272H\003\310\001\001R\006userId\022%\n\nchannel_id\030\003 \001(\tB" +
+      "\006\272H\003\310\001\001R\tchannelId\"Y\n\025GetCampaignUserRes" +
+      "ult\022@\n\rcampaign_user\030\001 \001(\0132\033.coreapi.mod" +
+      "el.CampaignUserR\014campaignUserBf\n(io.chan" +
+      "nel.api.proto.pub.coreapi.serviceP\001Z8git" +
+      "hub.com/channel-io/ch-proto-public/corea" +
+      "pi/go/serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

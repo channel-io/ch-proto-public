@@ -158,152 +158,152 @@ public final class Group {
       "eapi/common/sort_order.proto\032!coreapi/mo" +
       "del/chat_bookmark.proto\032 coreapi/model/c" +
       "hat_session.proto\032\031coreapi/model/group.p" +
-      "roto\032\033coreapi/model/message.proto\032%corea" +
-      "pi/service/message_content.proto\"\313\001\n\023Sea" +
-      "rchGroupsRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H" +
-      "\003\310\001\001R\tchannelId\022\026\n\006cursor\030\002 \001(\tR\006cursor\022" +
-      "u\n\005limit\030\003 \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037l" +
-      "imit must be between 1 and 500\032\'this == " +
-      "0 || (this >= 1 && this <= 500)R\005limit\"~" +
-      "\n\022SearchGroupsResult\022,\n\006groups\030\001 \003(\0132\024.c" +
-      "oreapi.model.GroupR\006groups\022\037\n\013next_curso" +
-      "r\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001(\010R\007h" +
-      "asNext\"\257\001\n\017GetGroupRequest\022%\n\nchannel_id" +
-      "\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_id\030\002 " +
-      "\001(\tB\006\272H\003\310\001\001R\007groupId\022)\n\020include_bookmark" +
+      "roto\032\033coreapi/model/message.proto\032#corea" +
+      "pi/model/message_content.proto\"\313\001\n\023Searc" +
+      "hGroupsRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310" +
+      "\001\001R\tchannelId\022\026\n\006cursor\030\002 \001(\tR\006cursor\022u\n" +
+      "\005limit\030\003 \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037lim" +
+      "it must be between 1 and 500\032\'this == 0 " +
+      "|| (this >= 1 && this <= 500)R\005limit\"~\n\022" +
+      "SearchGroupsResult\022,\n\006groups\030\001 \003(\0132\024.cor" +
+      "eapi.model.GroupR\006groups\022\037\n\013next_cursor\030" +
+      "\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001(\010R\007has" +
+      "Next\"\257\001\n\017GetGroupRequest\022%\n\nchannel_id\030\001" +
+      " \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_id\030\002 \001(" +
+      "\tB\006\272H\003\310\001\001R\007groupId\022)\n\020include_bookmark\030\003" +
+      " \001(\010R\017includeBookmark\022\'\n\017include_session" +
+      "\030\004 \001(\010R\016includeSession\"\253\001\n\016GetGroupResul" +
+      "t\022*\n\005group\030\001 \001(\0132\024.coreapi.model.GroupR\005" +
+      "group\0227\n\010bookmark\030\002 \001(\0132\033.coreapi.model." +
+      "ChatBookmarkR\010bookmark\0224\n\007session\030\003 \001(\0132" +
+      "\032.coreapi.model.ChatSessionR\007session\"\271\001\n" +
+      "\025GetGroupByNameRequest\022%\n\nchannel_id\030\001 \001" +
+      "(\tB\006\272H\003\310\001\001R\tchannelId\022%\n\ngroup_name\030\002 \001(" +
+      "\tB\006\272H\003\310\001\001R\tgroupName\022)\n\020include_bookmark" +
       "\030\003 \001(\010R\017includeBookmark\022\'\n\017include_sessi" +
-      "on\030\004 \001(\010R\016includeSession\"\253\001\n\016GetGroupRes" +
-      "ult\022*\n\005group\030\001 \001(\0132\024.coreapi.model.Group" +
-      "R\005group\0227\n\010bookmark\030\002 \001(\0132\033.coreapi.mode" +
-      "l.ChatBookmarkR\010bookmark\0224\n\007session\030\003 \001(" +
-      "\0132\032.coreapi.model.ChatSessionR\007session\"\271" +
-      "\001\n\025GetGroupByNameRequest\022%\n\nchannel_id\030\001" +
-      " \001(\tB\006\272H\003\310\001\001R\tchannelId\022%\n\ngroup_name\030\002 " +
-      "\001(\tB\006\272H\003\310\001\001R\tgroupName\022)\n\020include_bookma" +
-      "rk\030\003 \001(\010R\017includeBookmark\022\'\n\017include_ses" +
-      "sion\030\004 \001(\010R\016includeSession\"\261\001\n\024GetGroupB" +
-      "yNameResult\022*\n\005group\030\001 \001(\0132\024.coreapi.mod" +
-      "el.GroupR\005group\0227\n\010bookmark\030\002 \001(\0132\033.core" +
-      "api.model.ChatBookmarkR\010bookmark\0224\n\007sess" +
-      "ion\030\003 \001(\0132\032.coreapi.model.ChatSessionR\007s" +
-      "ession\"\363\006\n\022UpdateGroupRequest\022%\n\nchannel" +
-      "_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_id" +
-      "\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\022\212\001\n\010bot_name\030\003 \001" +
-      "(\tBo\272Hl\272\001Y\n\rstring.maxLen\022(value must be" +
-      " no more than 30 characters\032\036this == \'\' " +
-      "|| size(this) <= 30r\0162\014^[^@#$%:/]+$R\007bot" +
-      "Name\022\350\002\n\005title\030\004 \001(\tB\321\002\272H\315\002\272\001Y\n\rstring.m" +
-      "axLen\022(value must be no more than 30 cha" +
-      "racters\032\036this == \'\' || size(this) <= 30\272" +
-      "\001S\n\rstring.minLen\022#value must be at leas" +
-      "t 2 characters\032\035this == \'\' || size(this)" +
-      " >= 2\272\001\227\001\n\016string.pattern\022Nvalue must co" +
-      "ntain only letters, numbers, hyphens, un" +
-      "derscores, or parentheses\0325this == \'\' ||" +
-      " this.matches(\'^[\\\\p{L}\\\\p{N}\\\\-_()]+$\')" +
-      "R\005title\022/\n\005scope\030\005 \001(\0162\031.coreapi.model.G" +
-      "roupScopeR\005scope\022s\n\004icon\030\006 \001(\tB_\272H\\\272\001Y\n\016" +
-      "string.pattern\022!value must not contain w" +
-      "hitespace\032$this == \'\' || this.matches(\'^" +
-      "\\\\S+$\')R\004icon\022u\n\013description\030\007 \001(\tBS\272HP\272" +
-      "\001M\n\rstring.maxLen\022)value must be no more" +
-      " than 200 characters\032\021size(this) <= 200R" +
-      "\013description\"?\n\021UpdateGroupResult\022*\n\005gro" +
-      "up\030\001 \001(\0132\024.coreapi.model.GroupR\005group\"\375\006" +
-      "\n\030UpdateGroupByNameRequest\022%\n\nchannel_id" +
-      "\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022%\n\ngroup_name\030" +
-      "\002 \001(\tB\006\272H\003\310\001\001R\tgroupName\022\212\001\n\010bot_name\030\003 " +
-      "\001(\tBo\272Hl\272\001Y\n\rstring.maxLen\022(value must b" +
-      "e no more than 30 characters\032\036this == \'\'" +
-      " || size(this) <= 30r\0162\014^[^@#$%:/]+$R\007bo" +
-      "tName\022\350\002\n\005title\030\004 \001(\tB\321\002\272H\315\002\272\001Y\n\rstring." +
-      "maxLen\022(value must be no more than 30 ch" +
-      "aracters\032\036this == \'\' || size(this) <= 30" +
-      "\272\001S\n\rstring.minLen\022#value must be at lea" +
-      "st 2 characters\032\035this == \'\' || size(this" +
-      ") >= 2\272\001\227\001\n\016string.pattern\022Nvalue must c" +
-      "ontain only letters, numbers, hyphens, u" +
-      "nderscores, or parentheses\0325this == \'\' |" +
-      "| this.matches(\'^[\\\\p{L}\\\\p{N}\\\\-_()]+$\'" +
-      ")R\005title\022/\n\005scope\030\005 \001(\0162\031.coreapi.model." +
-      "GroupScopeR\005scope\022s\n\004icon\030\006 \001(\tB_\272H\\\272\001Y\n" +
-      "\016string.pattern\022!value must not contain " +
-      "whitespace\032$this == \'\' || this.matches(\'" +
-      "^\\\\S+$\')R\004icon\022u\n\013description\030\007 \001(\tBS\272HP" +
-      "\272\001M\n\rstring.maxLen\022)value must be no mor" +
-      "e than 200 characters\032\021size(this) <= 200" +
-      "R\013description\"E\n\027UpdateGroupByNameResult" +
-      "\022*\n\005group\030\001 \001(\0132\024.coreapi.model.GroupR\005g" +
-      "roup\"f\n\032SearchGroupSessionsRequest\022%\n\nch" +
-      "annel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010gro" +
-      "up_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\"\\\n\031SearchGr" +
-      "oupSessionsResult\022?\n\rchat_sessions\030\001 \003(\013" +
-      "2\032.coreapi.model.ChatSessionR\014chatSessio" +
-      "ns\"\257\002\n\032SearchGroupMessagesRequest\022%\n\ncha" +
-      "nnel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010grou" +
-      "p_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\0228\n\nsort_orde" +
-      "r\030\003 \001(\0162\031.coreapi.common.SortOrderR\tsort" +
-      "Order\022\026\n\006cursor\030\004 \001(\tR\006cursor\022u\n\005limit\030\005" +
-      " \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037limit must " +
-      "be between 1 and 500\032\'this == 0 || (this" +
-      " >= 1 && this <= 500)R\005limit\"\213\001\n\031SearchG" +
-      "roupMessagesResult\0222\n\010messages\030\001 \003(\0132\026.c" +
-      "oreapi.model.MessageR\010messages\022\037\n\013next_c" +
-      "ursor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001(" +
-      "\010R\007hasNext\"\324\002\n\031CreateGroupMessageRequest" +
-      "\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022" +
-      "!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\022A\n\007co" +
-      "ntent\030\003 \001(\0132\037.coreapi.service.MessageCon" +
-      "tentB\006\272H\003\310\001\001R\007content\022\212\001\n\010bot_name\030\004 \001(\t" +
+      "on\030\004 \001(\010R\016includeSession\"\261\001\n\024GetGroupByN" +
+      "ameResult\022*\n\005group\030\001 \001(\0132\024.coreapi.model" +
+      ".GroupR\005group\0227\n\010bookmark\030\002 \001(\0132\033.coreap" +
+      "i.model.ChatBookmarkR\010bookmark\0224\n\007sessio" +
+      "n\030\003 \001(\0132\032.coreapi.model.ChatSessionR\007ses" +
+      "sion\"\363\006\n\022UpdateGroupRequest\022%\n\nchannel_i" +
+      "d\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_id\030\002" +
+      " \001(\tB\006\272H\003\310\001\001R\007groupId\022\212\001\n\010bot_name\030\003 \001(\t" +
       "Bo\272Hl\272\001Y\n\rstring.maxLen\022(value must be n" +
       "o more than 30 characters\032\036this == \'\' ||" +
       " size(this) <= 30r\0162\014^[^@#$%:/]+$R\007botNa" +
-      "me\022\035\n\nrequest_id\030\005 \001(\tR\trequestId\"L\n\030Cre" +
-      "ateGroupMessageResult\0220\n\007message\030\001 \001(\0132\026" +
-      ".coreapi.model.MessageR\007message\"|\n\026GetGr" +
-      "oupFileUrlRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272" +
-      "H\003\310\001\001R\tchannelId\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310" +
-      "\001\001R\007groupId\022\030\n\003key\030\003 \001(\tB\006\272H\003\310\001\001R\003key\")\n" +
-      "\025GetGroupFileUrlResult\022\020\n\003url\030\001 \001(\tR\003url" +
-      "\"\210\001\n\025GetGroupThreadRequest\022%\n\nchannel_id" +
-      "\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_id\030\002 " +
-      "\001(\tB\006\272H\003\310\001\001R\007groupId\022%\n\nmessage_id\030\003 \001(\t" +
-      "B\006\272H\003\310\001\001R\tmessageId\"H\n\024GetGroupThreadRes" +
-      "ult\0220\n\007message\030\001 \001(\0132\026.coreapi.model.Mes" +
-      "sageR\007message\"\213\001\n\030CreateGroupThreadReque" +
-      "st\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelI" +
-      "d\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\022%\n\n" +
-      "message_id\030\003 \001(\tB\006\272H\003\310\001\001R\tmessageId\"K\n\027C" +
-      "reateGroupThreadResult\0220\n\007message\030\001 \001(\0132" +
-      "\026.coreapi.model.MessageR\007message\"\334\002\n Sea" +
-      "rchGroupThreadMessagesRequest\022%\n\nchannel" +
-      "_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_id" +
-      "\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\022%\n\nmessage_id\030\003 " +
-      "\001(\tB\006\272H\003\310\001\001R\tmessageId\0228\n\nsort_order\030\004 \001" +
-      "(\0162\031.coreapi.common.SortOrderR\tsortOrder" +
-      "\022\026\n\006cursor\030\005 \001(\tR\006cursor\022u\n\005limit\030\006 \001(\005B" +
-      "_\272H\\\272\001Y\n\rint32.between\022\037limit must be be" +
-      "tween 1 and 500\032\'this == 0 || (this >= 1" +
-      " && this <= 500)R\005limit\"\221\001\n\037SearchGroupT" +
-      "hreadMessagesResult\0222\n\010messages\030\001 \003(\0132\026." +
-      "coreapi.model.MessageR\010messages\022\037\n\013next_" +
-      "cursor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001" +
-      "(\010R\007hasNext\"\220\003\n\037CreateGroupThreadMessage" +
-      "Request\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tcha" +
-      "nnelId\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupI" +
-      "d\022%\n\nmessage_id\030\003 \001(\tB\006\272H\003\310\001\001R\tmessageId" +
-      "\022A\n\007content\030\004 \001(\0132\037.coreapi.service.Mess" +
-      "ageContentB\006\272H\003\310\001\001R\007content\022|\n\010bot_name\030" +
-      "\005 \001(\tBa\272H^\272\001K\n\rstring.maxLen\022(value must" +
-      " be no more than 30 characters\032\020size(thi" +
-      "s) <= 30r\0162\014^[^@#$%:/]+$R\007botName\022\034\n\tbro" +
-      "adcast\030\006 \001(\010R\tbroadcast\022\035\n\nrequest_id\030\007 " +
-      "\001(\tR\trequestId\"R\n\036CreateGroupThreadMessa" +
-      "geResult\0220\n\007message\030\001 \001(\0132\026.coreapi.mode" +
-      "l.MessageR\007messageBf\n(io.channel.api.pro" +
-      "to.pub.coreapi.serviceP\001Z8github.com/cha" +
-      "nnel-io/ch-proto-public/coreapi/go/servi" +
-      "ceb\006proto3"
+      "me\022\350\002\n\005title\030\004 \001(\tB\321\002\272H\315\002\272\001Y\n\rstring.max" +
+      "Len\022(value must be no more than 30 chara" +
+      "cters\032\036this == \'\' || size(this) <= 30\272\001S" +
+      "\n\rstring.minLen\022#value must be at least " +
+      "2 characters\032\035this == \'\' || size(this) >" +
+      "= 2\272\001\227\001\n\016string.pattern\022Nvalue must cont" +
+      "ain only letters, numbers, hyphens, unde" +
+      "rscores, or parentheses\0325this == \'\' || t" +
+      "his.matches(\'^[\\\\p{L}\\\\p{N}\\\\-_()]+$\')R\005" +
+      "title\022/\n\005scope\030\005 \001(\0162\031.coreapi.model.Gro" +
+      "upScopeR\005scope\022s\n\004icon\030\006 \001(\tB_\272H\\\272\001Y\n\016st" +
+      "ring.pattern\022!value must not contain whi" +
+      "tespace\032$this == \'\' || this.matches(\'^\\\\" +
+      "S+$\')R\004icon\022u\n\013description\030\007 \001(\tBS\272HP\272\001M" +
+      "\n\rstring.maxLen\022)value must be no more t" +
+      "han 200 characters\032\021size(this) <= 200R\013d" +
+      "escription\"?\n\021UpdateGroupResult\022*\n\005group" +
+      "\030\001 \001(\0132\024.coreapi.model.GroupR\005group\"\375\006\n\030" +
+      "UpdateGroupByNameRequest\022%\n\nchannel_id\030\001" +
+      " \001(\tB\006\272H\003\310\001\001R\tchannelId\022%\n\ngroup_name\030\002 " +
+      "\001(\tB\006\272H\003\310\001\001R\tgroupName\022\212\001\n\010bot_name\030\003 \001(" +
+      "\tBo\272Hl\272\001Y\n\rstring.maxLen\022(value must be " +
+      "no more than 30 characters\032\036this == \'\' |" +
+      "| size(this) <= 30r\0162\014^[^@#$%:/]+$R\007botN" +
+      "ame\022\350\002\n\005title\030\004 \001(\tB\321\002\272H\315\002\272\001Y\n\rstring.ma" +
+      "xLen\022(value must be no more than 30 char" +
+      "acters\032\036this == \'\' || size(this) <= 30\272\001" +
+      "S\n\rstring.minLen\022#value must be at least" +
+      " 2 characters\032\035this == \'\' || size(this) " +
+      ">= 2\272\001\227\001\n\016string.pattern\022Nvalue must con" +
+      "tain only letters, numbers, hyphens, und" +
+      "erscores, or parentheses\0325this == \'\' || " +
+      "this.matches(\'^[\\\\p{L}\\\\p{N}\\\\-_()]+$\')R" +
+      "\005title\022/\n\005scope\030\005 \001(\0162\031.coreapi.model.Gr" +
+      "oupScopeR\005scope\022s\n\004icon\030\006 \001(\tB_\272H\\\272\001Y\n\016s" +
+      "tring.pattern\022!value must not contain wh" +
+      "itespace\032$this == \'\' || this.matches(\'^\\" +
+      "\\S+$\')R\004icon\022u\n\013description\030\007 \001(\tBS\272HP\272\001" +
+      "M\n\rstring.maxLen\022)value must be no more " +
+      "than 200 characters\032\021size(this) <= 200R\013" +
+      "description\"E\n\027UpdateGroupByNameResult\022*" +
+      "\n\005group\030\001 \001(\0132\024.coreapi.model.GroupR\005gro" +
+      "up\"f\n\032SearchGroupSessionsRequest\022%\n\nchan" +
+      "nel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group" +
+      "_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\"\\\n\031SearchGrou" +
+      "pSessionsResult\022?\n\rchat_sessions\030\001 \003(\0132\032" +
+      ".coreapi.model.ChatSessionR\014chatSessions" +
+      "\"\257\002\n\032SearchGroupMessagesRequest\022%\n\nchann" +
+      "el_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_" +
+      "id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\0228\n\nsort_order\030" +
+      "\003 \001(\0162\031.coreapi.common.SortOrderR\tsortOr" +
+      "der\022\026\n\006cursor\030\004 \001(\tR\006cursor\022u\n\005limit\030\005 \001" +
+      "(\005B_\272H\\\272\001Y\n\rint32.between\022\037limit must be" +
+      " between 1 and 500\032\'this == 0 || (this >" +
+      "= 1 && this <= 500)R\005limit\"\213\001\n\031SearchGro" +
+      "upMessagesResult\0222\n\010messages\030\001 \003(\0132\026.cor" +
+      "eapi.model.MessageR\010messages\022\037\n\013next_cur" +
+      "sor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001(\010R" +
+      "\007hasNext\"\322\002\n\031CreateGroupMessageRequest\022%" +
+      "\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n" +
+      "\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\022?\n\007cont" +
+      "ent\030\003 \001(\0132\035.coreapi.model.MessageContent" +
+      "B\006\272H\003\310\001\001R\007content\022\212\001\n\010bot_name\030\004 \001(\tBo\272H" +
+      "l\272\001Y\n\rstring.maxLen\022(value must be no mo" +
+      "re than 30 characters\032\036this == \'\' || siz" +
+      "e(this) <= 30r\0162\014^[^@#$%:/]+$R\007botName\022\035" +
+      "\n\nrequest_id\030\005 \001(\tR\trequestId\"L\n\030CreateG" +
+      "roupMessageResult\0220\n\007message\030\001 \001(\0132\026.cor" +
+      "eapi.model.MessageR\007message\"|\n\026GetGroupF" +
+      "ileUrlRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001" +
+      "\001R\tchannelId\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007" +
+      "groupId\022\030\n\003key\030\003 \001(\tB\006\272H\003\310\001\001R\003key\")\n\025Get" +
+      "GroupFileUrlResult\022\020\n\003url\030\001 \001(\tR\003url\"\210\001\n" +
+      "\025GetGroupThreadRequest\022%\n\nchannel_id\030\001 \001" +
+      "(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_id\030\002 \001(\tB" +
+      "\006\272H\003\310\001\001R\007groupId\022%\n\nmessage_id\030\003 \001(\tB\006\272H" +
+      "\003\310\001\001R\tmessageId\"H\n\024GetGroupThreadResult\022" +
+      "0\n\007message\030\001 \001(\0132\026.coreapi.model.Message" +
+      "R\007message\"\213\001\n\030CreateGroupThreadRequest\022%" +
+      "\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n" +
+      "\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\022%\n\nmess" +
+      "age_id\030\003 \001(\tB\006\272H\003\310\001\001R\tmessageId\"K\n\027Creat" +
+      "eGroupThreadResult\0220\n\007message\030\001 \001(\0132\026.co" +
+      "reapi.model.MessageR\007message\"\334\002\n SearchG" +
+      "roupThreadMessagesRequest\022%\n\nchannel_id\030" +
+      "\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_id\030\002 \001" +
+      "(\tB\006\272H\003\310\001\001R\007groupId\022%\n\nmessage_id\030\003 \001(\tB" +
+      "\006\272H\003\310\001\001R\tmessageId\0228\n\nsort_order\030\004 \001(\0162\031" +
+      ".coreapi.common.SortOrderR\tsortOrder\022\026\n\006" +
+      "cursor\030\005 \001(\tR\006cursor\022u\n\005limit\030\006 \001(\005B_\272H\\" +
+      "\272\001Y\n\rint32.between\022\037limit must be betwee" +
+      "n 1 and 500\032\'this == 0 || (this >= 1 && " +
+      "this <= 500)R\005limit\"\221\001\n\037SearchGroupThrea" +
+      "dMessagesResult\0222\n\010messages\030\001 \003(\0132\026.core" +
+      "api.model.MessageR\010messages\022\037\n\013next_curs" +
+      "or\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001(\010R\007" +
+      "hasNext\"\216\003\n\037CreateGroupThreadMessageRequ" +
+      "est\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannel" +
+      "Id\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\022%\n" +
+      "\nmessage_id\030\003 \001(\tB\006\272H\003\310\001\001R\tmessageId\022?\n\007" +
+      "content\030\004 \001(\0132\035.coreapi.model.MessageCon" +
+      "tentB\006\272H\003\310\001\001R\007content\022|\n\010bot_name\030\005 \001(\tB" +
+      "a\272H^\272\001K\n\rstring.maxLen\022(value must be no" +
+      " more than 30 characters\032\020size(this) <= " +
+      "30r\0162\014^[^@#$%:/]+$R\007botName\022\034\n\tbroadcast" +
+      "\030\006 \001(\010R\tbroadcast\022\035\n\nrequest_id\030\007 \001(\tR\tr" +
+      "equestId\"R\n\036CreateGroupThreadMessageResu" +
+      "lt\0220\n\007message\030\001 \001(\0132\026.coreapi.model.Mess" +
+      "ageR\007messageBf\n(io.channel.api.proto.pub" +
+      ".coreapi.serviceP\001Z8github.com/channel-i" +
+      "o/ch-proto-public/coreapi/go/serviceb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -314,7 +314,7 @@ public final class Group {
           io.channel.api.proto.pub.coreapi.model.ChatSessionOuterClass.getDescriptor(),
           io.channel.api.proto.pub.coreapi.model.GroupOuterClass.getDescriptor(),
           io.channel.api.proto.pub.coreapi.model.MessageOuterClass.getDescriptor(),
-          io.channel.api.proto.pub.coreapi.service.MessageContentOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.MessageContentOuterClass.getDescriptor(),
         });
     internal_static_coreapi_service_SearchGroupsRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -483,7 +483,7 @@ public final class Group {
     io.channel.api.proto.pub.coreapi.model.ChatSessionOuterClass.getDescriptor();
     io.channel.api.proto.pub.coreapi.model.GroupOuterClass.getDescriptor();
     io.channel.api.proto.pub.coreapi.model.MessageOuterClass.getDescriptor();
-    io.channel.api.proto.pub.coreapi.service.MessageContentOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.MessageContentOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -32,7 +32,7 @@ public interface AnnounceToAllRequestOrBuilder extends
    * Message content to announce.
    * </pre>
    *
-   * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
    * @return Whether the message field is set.
    */
   boolean hasMessage();
@@ -41,18 +41,18 @@ public interface AnnounceToAllRequestOrBuilder extends
    * Message content to announce.
    * </pre>
    *
-   * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
    * @return The message.
    */
-  io.channel.api.proto.pub.coreapi.service.MessageContent getMessage();
+  io.channel.api.proto.pub.coreapi.model.MessageContent getMessage();
   /**
    * <pre>
    * Message content to announce.
    * </pre>
    *
-   * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
    */
-  io.channel.api.proto.pub.coreapi.service.MessageContentOrBuilder getMessageOrBuilder();
+  io.channel.api.proto.pub.coreapi.model.MessageContentOrBuilder getMessageOrBuilder();
 
   /**
    * <pre>

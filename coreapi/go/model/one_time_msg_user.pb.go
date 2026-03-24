@@ -23,6 +23,62 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Interaction state used to filter and sort one-time message user records.
+type OneTimeMsgUserState int32
+
+const (
+	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_UNSPECIFIED OneTimeMsgUserState = 0
+	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_SENT        OneTimeMsgUserState = 1
+	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_VIEW        OneTimeMsgUserState = 2
+	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_GOAL        OneTimeMsgUserState = 3
+	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_CLICK       OneTimeMsgUserState = 4
+)
+
+// Enum value maps for OneTimeMsgUserState.
+var (
+	OneTimeMsgUserState_name = map[int32]string{
+		0: "ONE_TIME_MSG_USER_STATE_UNSPECIFIED",
+		1: "ONE_TIME_MSG_USER_STATE_SENT",
+		2: "ONE_TIME_MSG_USER_STATE_VIEW",
+		3: "ONE_TIME_MSG_USER_STATE_GOAL",
+		4: "ONE_TIME_MSG_USER_STATE_CLICK",
+	}
+	OneTimeMsgUserState_value = map[string]int32{
+		"ONE_TIME_MSG_USER_STATE_UNSPECIFIED": 0,
+		"ONE_TIME_MSG_USER_STATE_SENT":        1,
+		"ONE_TIME_MSG_USER_STATE_VIEW":        2,
+		"ONE_TIME_MSG_USER_STATE_GOAL":        3,
+		"ONE_TIME_MSG_USER_STATE_CLICK":       4,
+	}
+)
+
+func (x OneTimeMsgUserState) Enum() *OneTimeMsgUserState {
+	p := new(OneTimeMsgUserState)
+	*p = x
+	return p
+}
+
+func (x OneTimeMsgUserState) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (OneTimeMsgUserState) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_one_time_msg_user_proto_enumTypes[0].Descriptor()
+}
+
+func (OneTimeMsgUserState) Type() protoreflect.EnumType {
+	return &file_coreapi_model_one_time_msg_user_proto_enumTypes[0]
+}
+
+func (x OneTimeMsgUserState) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use OneTimeMsgUserState.Descriptor instead.
+func (OneTimeMsgUserState) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_one_time_msg_user_proto_rawDescGZIP(), []int{0}
+}
+
 // OneTimeMsgUser represents a per-user delivery and engagement record for a one-time message.
 type OneTimeMsgUser struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -167,7 +223,13 @@ const file_coreapi_model_one_time_msg_user_proto_rawDesc = "" +
 	"\x05click\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x05click\x12\x18\n" +
 	"\arevenue\x18\a \x01(\x01R\arevenue\x12]\n" +
 	"\x02id\x18\b \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02idBb\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id*\xc7\x01\n" +
+	"\x13OneTimeMsgUserState\x12'\n" +
+	"#ONE_TIME_MSG_USER_STATE_UNSPECIFIED\x10\x00\x12 \n" +
+	"\x1cONE_TIME_MSG_USER_STATE_SENT\x10\x01\x12 \n" +
+	"\x1cONE_TIME_MSG_USER_STATE_VIEW\x10\x02\x12 \n" +
+	"\x1cONE_TIME_MSG_USER_STATE_GOAL\x10\x03\x12!\n" +
+	"\x1dONE_TIME_MSG_USER_STATE_CLICK\x10\x04Bb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -182,16 +244,18 @@ func file_coreapi_model_one_time_msg_user_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_one_time_msg_user_proto_rawDescData
 }
 
+var file_coreapi_model_one_time_msg_user_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_coreapi_model_one_time_msg_user_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_coreapi_model_one_time_msg_user_proto_goTypes = []any{
-	(*OneTimeMsgUser)(nil),        // 0: coreapi.model.OneTimeMsgUser
-	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
+	(OneTimeMsgUserState)(0),      // 0: coreapi.model.OneTimeMsgUserState
+	(*OneTimeMsgUser)(nil),        // 1: coreapi.model.OneTimeMsgUser
+	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_coreapi_model_one_time_msg_user_proto_depIdxs = []int32{
-	1, // 0: coreapi.model.OneTimeMsgUser.sent:type_name -> google.protobuf.Timestamp
-	1, // 1: coreapi.model.OneTimeMsgUser.view:type_name -> google.protobuf.Timestamp
-	1, // 2: coreapi.model.OneTimeMsgUser.goal:type_name -> google.protobuf.Timestamp
-	1, // 3: coreapi.model.OneTimeMsgUser.click:type_name -> google.protobuf.Timestamp
+	2, // 0: coreapi.model.OneTimeMsgUser.sent:type_name -> google.protobuf.Timestamp
+	2, // 1: coreapi.model.OneTimeMsgUser.view:type_name -> google.protobuf.Timestamp
+	2, // 2: coreapi.model.OneTimeMsgUser.goal:type_name -> google.protobuf.Timestamp
+	2, // 3: coreapi.model.OneTimeMsgUser.click:type_name -> google.protobuf.Timestamp
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
@@ -209,13 +273,14 @@ func file_coreapi_model_one_time_msg_user_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_one_time_msg_user_proto_rawDesc), len(file_coreapi_model_one_time_msg_user_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_coreapi_model_one_time_msg_user_proto_goTypes,
 		DependencyIndexes: file_coreapi_model_one_time_msg_user_proto_depIdxs,
+		EnumInfos:         file_coreapi_model_one_time_msg_user_proto_enumTypes,
 		MessageInfos:      file_coreapi_model_one_time_msg_user_proto_msgTypes,
 	}.Build()
 	File_coreapi_model_one_time_msg_user_proto = out.File

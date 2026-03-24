@@ -36,7 +36,7 @@ public interface CreateUserChatMessageRequestOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.service.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
    * @return Whether the content field is set.
    */
   boolean hasContent();
@@ -45,18 +45,18 @@ public interface CreateUserChatMessageRequestOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.service.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
    * @return The content.
    */
-  io.channel.api.proto.pub.coreapi.service.MessageContent getContent();
+  io.channel.api.proto.pub.coreapi.model.MessageContent getContent();
   /**
    * <pre>
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.service.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
    */
-  io.channel.api.proto.pub.coreapi.service.MessageContentOrBuilder getContentOrBuilder();
+  io.channel.api.proto.pub.coreapi.model.MessageContentOrBuilder getContentOrBuilder();
 
   /**
    * <pre>

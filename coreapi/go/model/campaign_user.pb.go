@@ -23,6 +23,62 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Interaction state used to filter and sort campaign user records.
+type CampaignUserState int32
+
+const (
+	CampaignUserState_CAMPAIGN_USER_STATE_UNSPECIFIED CampaignUserState = 0
+	CampaignUserState_CAMPAIGN_USER_STATE_SENT        CampaignUserState = 1
+	CampaignUserState_CAMPAIGN_USER_STATE_VIEW        CampaignUserState = 2
+	CampaignUserState_CAMPAIGN_USER_STATE_GOAL        CampaignUserState = 3
+	CampaignUserState_CAMPAIGN_USER_STATE_CLICK       CampaignUserState = 4
+)
+
+// Enum value maps for CampaignUserState.
+var (
+	CampaignUserState_name = map[int32]string{
+		0: "CAMPAIGN_USER_STATE_UNSPECIFIED",
+		1: "CAMPAIGN_USER_STATE_SENT",
+		2: "CAMPAIGN_USER_STATE_VIEW",
+		3: "CAMPAIGN_USER_STATE_GOAL",
+		4: "CAMPAIGN_USER_STATE_CLICK",
+	}
+	CampaignUserState_value = map[string]int32{
+		"CAMPAIGN_USER_STATE_UNSPECIFIED": 0,
+		"CAMPAIGN_USER_STATE_SENT":        1,
+		"CAMPAIGN_USER_STATE_VIEW":        2,
+		"CAMPAIGN_USER_STATE_GOAL":        3,
+		"CAMPAIGN_USER_STATE_CLICK":       4,
+	}
+)
+
+func (x CampaignUserState) Enum() *CampaignUserState {
+	p := new(CampaignUserState)
+	*p = x
+	return p
+}
+
+func (x CampaignUserState) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (CampaignUserState) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_campaign_user_proto_enumTypes[0].Descriptor()
+}
+
+func (CampaignUserState) Type() protoreflect.EnumType {
+	return &file_coreapi_model_campaign_user_proto_enumTypes[0]
+}
+
+func (x CampaignUserState) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use CampaignUserState.Descriptor instead.
+func (CampaignUserState) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_campaign_user_proto_rawDescGZIP(), []int{0}
+}
+
 // CampaignUser represents a per-user delivery and engagement record for a campaign.
 type CampaignUser struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -194,7 +250,13 @@ const file_coreapi_model_campaign_user_proto_rawDesc = "" +
 	"\arevenue\x18\t \x01(\x01R\arevenue\x12]\n" +
 	"\x02id\x18\n" +
 	" \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02idBb\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id*\xb1\x01\n" +
+	"\x11CampaignUserState\x12#\n" +
+	"\x1fCAMPAIGN_USER_STATE_UNSPECIFIED\x10\x00\x12\x1c\n" +
+	"\x18CAMPAIGN_USER_STATE_SENT\x10\x01\x12\x1c\n" +
+	"\x18CAMPAIGN_USER_STATE_VIEW\x10\x02\x12\x1c\n" +
+	"\x18CAMPAIGN_USER_STATE_GOAL\x10\x03\x12\x1d\n" +
+	"\x19CAMPAIGN_USER_STATE_CLICK\x10\x04Bb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -209,16 +271,18 @@ func file_coreapi_model_campaign_user_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_campaign_user_proto_rawDescData
 }
 
+var file_coreapi_model_campaign_user_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_coreapi_model_campaign_user_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_coreapi_model_campaign_user_proto_goTypes = []any{
-	(*CampaignUser)(nil),          // 0: coreapi.model.CampaignUser
-	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
+	(CampaignUserState)(0),        // 0: coreapi.model.CampaignUserState
+	(*CampaignUser)(nil),          // 1: coreapi.model.CampaignUser
+	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_coreapi_model_campaign_user_proto_depIdxs = []int32{
-	1, // 0: coreapi.model.CampaignUser.sent:type_name -> google.protobuf.Timestamp
-	1, // 1: coreapi.model.CampaignUser.view:type_name -> google.protobuf.Timestamp
-	1, // 2: coreapi.model.CampaignUser.click:type_name -> google.protobuf.Timestamp
-	1, // 3: coreapi.model.CampaignUser.goal:type_name -> google.protobuf.Timestamp
+	2, // 0: coreapi.model.CampaignUser.sent:type_name -> google.protobuf.Timestamp
+	2, // 1: coreapi.model.CampaignUser.view:type_name -> google.protobuf.Timestamp
+	2, // 2: coreapi.model.CampaignUser.click:type_name -> google.protobuf.Timestamp
+	2, // 3: coreapi.model.CampaignUser.goal:type_name -> google.protobuf.Timestamp
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
@@ -236,13 +300,14 @@ func file_coreapi_model_campaign_user_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_campaign_user_proto_rawDesc), len(file_coreapi_model_campaign_user_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_coreapi_model_campaign_user_proto_goTypes,
 		DependencyIndexes: file_coreapi_model_campaign_user_proto_depIdxs,
+		EnumInfos:         file_coreapi_model_campaign_user_proto_enumTypes,
 		MessageInfos:      file_coreapi_model_campaign_user_proto_msgTypes,
 	}.Build()
 	File_coreapi_model_campaign_user_proto = out.File

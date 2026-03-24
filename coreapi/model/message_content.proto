@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package coreapi.service;
+package coreapi.model;
 
 import "buf/validate/validate.proto";
 import "coreapi/model/block.proto";
@@ -9,9 +9,9 @@ import "coreapi/model/message_file.proto";
 import "coreapi/model/message_web_page.proto";
 import "google/protobuf/struct.proto";
 
-option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
-option java_package = "io.channel.api.proto.pub.coreapi.service";
+option java_package = "io.channel.api.proto.pub.coreapi.model";
 
 // Message option flags that modify message delivery and display behavior.
 enum MessageOption {
@@ -43,12 +43,11 @@ enum MessageOption {
 }
 
 // MessageContent represents the content payload for sending a message via the API.
-// Used in announcement, group message, user chat message, and thread message requests.
 message MessageContent {
   // Structured content blocks of the message.
   //
   // +kubebuilder:validation:Nullable
-  repeated coreapi.model.Block blocks = 1;
+  repeated Block blocks = 1;
 
   // Plain text representation of the message.
   //
@@ -59,18 +58,18 @@ message MessageContent {
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxItems=2
-  repeated coreapi.model.MessageButton buttons = 3 [(buf.validate.field).repeated = {max_items: 2}];
+  repeated MessageButton buttons = 3 [(buf.validate.field).repeated = {max_items: 2}];
 
   // File attachments included in the message.
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxItems=10
-  repeated coreapi.model.MessageFile files = 4 [(buf.validate.field).repeated = {max_items: 10}];
+  repeated MessageFile files = 4 [(buf.validate.field).repeated = {max_items: 10}];
 
   // Web page link preview attached to the message.
   //
   // +kubebuilder:validation:Nullable
-  coreapi.model.MessageWebPage web_page = 5;
+  MessageWebPage web_page = 5;
 
   // Interactive form attached to the message.
   // The structure depends on the form type (custom, followUp, call).

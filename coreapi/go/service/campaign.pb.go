@@ -24,62 +24,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Interaction state used to filter and sort campaign user records.
-type CampaignUserState int32
-
-const (
-	CampaignUserState_CAMPAIGN_USER_STATE_UNSPECIFIED CampaignUserState = 0
-	CampaignUserState_CAMPAIGN_USER_STATE_SENT        CampaignUserState = 1
-	CampaignUserState_CAMPAIGN_USER_STATE_VIEW        CampaignUserState = 2
-	CampaignUserState_CAMPAIGN_USER_STATE_GOAL        CampaignUserState = 3
-	CampaignUserState_CAMPAIGN_USER_STATE_CLICK       CampaignUserState = 4
-)
-
-// Enum value maps for CampaignUserState.
-var (
-	CampaignUserState_name = map[int32]string{
-		0: "CAMPAIGN_USER_STATE_UNSPECIFIED",
-		1: "CAMPAIGN_USER_STATE_SENT",
-		2: "CAMPAIGN_USER_STATE_VIEW",
-		3: "CAMPAIGN_USER_STATE_GOAL",
-		4: "CAMPAIGN_USER_STATE_CLICK",
-	}
-	CampaignUserState_value = map[string]int32{
-		"CAMPAIGN_USER_STATE_UNSPECIFIED": 0,
-		"CAMPAIGN_USER_STATE_SENT":        1,
-		"CAMPAIGN_USER_STATE_VIEW":        2,
-		"CAMPAIGN_USER_STATE_GOAL":        3,
-		"CAMPAIGN_USER_STATE_CLICK":       4,
-	}
-)
-
-func (x CampaignUserState) Enum() *CampaignUserState {
-	p := new(CampaignUserState)
-	*p = x
-	return p
-}
-
-func (x CampaignUserState) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (CampaignUserState) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_service_campaign_proto_enumTypes[0].Descriptor()
-}
-
-func (CampaignUserState) Type() protoreflect.EnumType {
-	return &file_coreapi_service_campaign_proto_enumTypes[0]
-}
-
-func (x CampaignUserState) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use CampaignUserState.Descriptor instead.
-func (CampaignUserState) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_service_campaign_proto_rawDescGZIP(), []int{0}
-}
-
 // Retrieves a list of campaigns.
 //
 // The number of campaigns retrieved is restricted by the limit parameter,
@@ -371,7 +315,7 @@ type SearchCampaignUsersRequest struct {
 	// Campaign ID to retrieve users for.
 	CampaignId string `protobuf:"bytes,2,opt,name=campaign_id,json=campaignId,proto3" json:"campaign_id,omitempty"`
 	// Interaction state to filter and sort users by.
-	State CampaignUserState `protobuf:"varint,3,opt,name=state,proto3,enum=coreapi.service.CampaignUserState" json:"state,omitempty"`
+	State model.CampaignUserState `protobuf:"varint,3,opt,name=state,proto3,enum=coreapi.model.CampaignUserState" json:"state,omitempty"`
 	// Opaque pagination cursor from a previous response.
 	Cursor string `protobuf:"bytes,4,opt,name=cursor,proto3" json:"cursor,omitempty"`
 	// Maximum number of results to return. Defaults to 25 if unset.
@@ -426,11 +370,11 @@ func (x *SearchCampaignUsersRequest) GetCampaignId() string {
 	return ""
 }
 
-func (x *SearchCampaignUsersRequest) GetState() CampaignUserState {
+func (x *SearchCampaignUsersRequest) GetState() model.CampaignUserState {
 	if x != nil {
 		return x.State
 	}
-	return CampaignUserState_CAMPAIGN_USER_STATE_UNSPECIFIED
+	return model.CampaignUserState(0)
 }
 
 func (x *SearchCampaignUsersRequest) GetCursor() string {
@@ -653,13 +597,13 @@ const file_coreapi_service_campaign_proto_rawDesc = "" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"\x89\x01\n" +
 	"\x11GetCampaignResult\x123\n" +
 	"\bcampaign\x18\x01 \x01(\v2\x17.coreapi.model.CampaignR\bcampaign\x12?\n" +
-	"\rcampaign_msgs\x18\x02 \x03(\v2\x1a.coreapi.model.CampaignMsgR\fcampaignMsgs\"\xf7\x02\n" +
+	"\rcampaign_msgs\x18\x02 \x03(\v2\x1a.coreapi.model.CampaignMsgR\fcampaignMsgs\"\xf5\x02\n" +
 	"\x1aSearchCampaignUsersRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12'\n" +
 	"\vcampaign_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
-	"campaignId\x12@\n" +
-	"\x05state\x18\x03 \x01(\x0e2\".coreapi.service.CampaignUserStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12\x16\n" +
+	"campaignId\x12>\n" +
+	"\x05state\x18\x03 \x01(\x0e2 .coreapi.model.CampaignUserStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12\x16\n" +
 	"\x06cursor\x18\x04 \x01(\tR\x06cursor\x12u\n" +
 	"\x05limit\x18\x05 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
 	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\x128\n" +
@@ -677,13 +621,7 @@ const file_coreapi_service_campaign_proto_rawDesc = "" +
 	"\n" +
 	"channel_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"Y\n" +
 	"\x15GetCampaignUserResult\x12@\n" +
-	"\rcampaign_user\x18\x01 \x01(\v2\x1b.coreapi.model.CampaignUserR\fcampaignUser*\xb1\x01\n" +
-	"\x11CampaignUserState\x12#\n" +
-	"\x1fCAMPAIGN_USER_STATE_UNSPECIFIED\x10\x00\x12\x1c\n" +
-	"\x18CAMPAIGN_USER_STATE_SENT\x10\x01\x12\x1c\n" +
-	"\x18CAMPAIGN_USER_STATE_VIEW\x10\x02\x12\x1c\n" +
-	"\x18CAMPAIGN_USER_STATE_GOAL\x10\x03\x12\x1d\n" +
-	"\x19CAMPAIGN_USER_STATE_CLICK\x10\x04Bf\n" +
+	"\rcampaign_user\x18\x01 \x01(\v2\x1b.coreapi.model.CampaignUserR\fcampaignUserBf\n" +
 	"(io.channel.api.proto.pub.coreapi.serviceP\x01Z8github.com/channel-io/ch-proto-public/coreapi/go/serviceb\x06proto3"
 
 var (
@@ -698,31 +636,30 @@ func file_coreapi_service_campaign_proto_rawDescGZIP() []byte {
 	return file_coreapi_service_campaign_proto_rawDescData
 }
 
-var file_coreapi_service_campaign_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_coreapi_service_campaign_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_coreapi_service_campaign_proto_goTypes = []any{
-	(CampaignUserState)(0),             // 0: coreapi.service.CampaignUserState
-	(*SearchCampaignsRequest)(nil),     // 1: coreapi.service.SearchCampaignsRequest
-	(*SearchCampaignsResult)(nil),      // 2: coreapi.service.SearchCampaignsResult
-	(*GetCampaignRequest)(nil),         // 3: coreapi.service.GetCampaignRequest
-	(*GetCampaignResult)(nil),          // 4: coreapi.service.GetCampaignResult
-	(*SearchCampaignUsersRequest)(nil), // 5: coreapi.service.SearchCampaignUsersRequest
-	(*SearchCampaignUsersResult)(nil),  // 6: coreapi.service.SearchCampaignUsersResult
-	(*GetCampaignUserRequest)(nil),     // 7: coreapi.service.GetCampaignUserRequest
-	(*GetCampaignUserResult)(nil),      // 8: coreapi.service.GetCampaignUserResult
-	(model.CampaignState)(0),           // 9: coreapi.model.CampaignState
-	(*model.Campaign)(nil),             // 10: coreapi.model.Campaign
-	(*model.CampaignMsg)(nil),          // 11: coreapi.model.CampaignMsg
+	(*SearchCampaignsRequest)(nil),     // 0: coreapi.service.SearchCampaignsRequest
+	(*SearchCampaignsResult)(nil),      // 1: coreapi.service.SearchCampaignsResult
+	(*GetCampaignRequest)(nil),         // 2: coreapi.service.GetCampaignRequest
+	(*GetCampaignResult)(nil),          // 3: coreapi.service.GetCampaignResult
+	(*SearchCampaignUsersRequest)(nil), // 4: coreapi.service.SearchCampaignUsersRequest
+	(*SearchCampaignUsersResult)(nil),  // 5: coreapi.service.SearchCampaignUsersResult
+	(*GetCampaignUserRequest)(nil),     // 6: coreapi.service.GetCampaignUserRequest
+	(*GetCampaignUserResult)(nil),      // 7: coreapi.service.GetCampaignUserResult
+	(model.CampaignState)(0),           // 8: coreapi.model.CampaignState
+	(*model.Campaign)(nil),             // 9: coreapi.model.Campaign
+	(*model.CampaignMsg)(nil),          // 10: coreapi.model.CampaignMsg
+	(model.CampaignUserState)(0),       // 11: coreapi.model.CampaignUserState
 	(common.SortOrder)(0),              // 12: coreapi.common.SortOrder
 	(*model.CampaignUser)(nil),         // 13: coreapi.model.CampaignUser
 }
 var file_coreapi_service_campaign_proto_depIdxs = []int32{
-	9,  // 0: coreapi.service.SearchCampaignsRequest.states:type_name -> coreapi.model.CampaignState
-	10, // 1: coreapi.service.SearchCampaignsResult.campaigns:type_name -> coreapi.model.Campaign
-	11, // 2: coreapi.service.SearchCampaignsResult.campaign_msgs:type_name -> coreapi.model.CampaignMsg
-	10, // 3: coreapi.service.GetCampaignResult.campaign:type_name -> coreapi.model.Campaign
-	11, // 4: coreapi.service.GetCampaignResult.campaign_msgs:type_name -> coreapi.model.CampaignMsg
-	0,  // 5: coreapi.service.SearchCampaignUsersRequest.state:type_name -> coreapi.service.CampaignUserState
+	8,  // 0: coreapi.service.SearchCampaignsRequest.states:type_name -> coreapi.model.CampaignState
+	9,  // 1: coreapi.service.SearchCampaignsResult.campaigns:type_name -> coreapi.model.Campaign
+	10, // 2: coreapi.service.SearchCampaignsResult.campaign_msgs:type_name -> coreapi.model.CampaignMsg
+	9,  // 3: coreapi.service.GetCampaignResult.campaign:type_name -> coreapi.model.Campaign
+	10, // 4: coreapi.service.GetCampaignResult.campaign_msgs:type_name -> coreapi.model.CampaignMsg
+	11, // 5: coreapi.service.SearchCampaignUsersRequest.state:type_name -> coreapi.model.CampaignUserState
 	12, // 6: coreapi.service.SearchCampaignUsersRequest.sort_order:type_name -> coreapi.common.SortOrder
 	13, // 7: coreapi.service.SearchCampaignUsersResult.campaign_users:type_name -> coreapi.model.CampaignUser
 	13, // 8: coreapi.service.GetCampaignUserResult.campaign_user:type_name -> coreapi.model.CampaignUser
@@ -743,14 +680,13 @@ func file_coreapi_service_campaign_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_campaign_proto_rawDesc), len(file_coreapi_service_campaign_proto_rawDesc)),
-			NumEnums:      1,
+			NumEnums:      0,
 			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_coreapi_service_campaign_proto_goTypes,
 		DependencyIndexes: file_coreapi_service_campaign_proto_depIdxs,
-		EnumInfos:         file_coreapi_service_campaign_proto_enumTypes,
 		MessageInfos:      file_coreapi_service_campaign_proto_msgTypes,
 	}.Build()
 	File_coreapi_service_campaign_proto = out.File

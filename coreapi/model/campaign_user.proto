@@ -9,6 +9,15 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
+// Interaction state used to filter and sort campaign user records.
+enum CampaignUserState {
+  CAMPAIGN_USER_STATE_UNSPECIFIED = 0;
+  CAMPAIGN_USER_STATE_SENT = 1;
+  CAMPAIGN_USER_STATE_VIEW = 2;
+  CAMPAIGN_USER_STATE_GOAL = 3;
+  CAMPAIGN_USER_STATE_CLICK = 4;
+}
+
 // CampaignUser represents a per-user delivery and engagement record for a campaign.
 message CampaignUser {
   // Target user identifier.

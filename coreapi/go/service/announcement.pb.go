@@ -8,6 +8,7 @@ package service
 
 import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
+	model "github.com/channel-io/ch-proto-public/coreapi/go/model"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -32,7 +33,7 @@ type AnnounceToAllRequest struct {
 	// Channel ID to send the announcement in.
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Message content to announce.
-	Message *MessageContent `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	Message *model.MessageContent `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	// Display name of the bot sending the announcement.
 	BotName       string `protobuf:"bytes,3,opt,name=bot_name,json=botName,proto3" json:"bot_name,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -76,7 +77,7 @@ func (x *AnnounceToAllRequest) GetChannelId() string {
 	return ""
 }
 
-func (x *AnnounceToAllRequest) GetMessage() *MessageContent {
+func (x *AnnounceToAllRequest) GetMessage() *model.MessageContent {
 	if x != nil {
 		return x.Message
 	}
@@ -147,7 +148,7 @@ type AnnounceRequest struct {
 	// Channel ID to send the announcement in.
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Message content to announce.
-	Message *MessageContent `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	Message *model.MessageContent `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	// Display name of the bot sending the announcement.
 	BotName string `protobuf:"bytes,3,opt,name=bot_name,json=botName,proto3" json:"bot_name,omitempty"`
 	// IDs of the managers to receive the announcement.
@@ -193,7 +194,7 @@ func (x *AnnounceRequest) GetChannelId() string {
 	return ""
 }
 
-func (x *AnnounceRequest) GetMessage() *MessageContent {
+func (x *AnnounceRequest) GetMessage() *model.MessageContent {
 	if x != nil {
 		return x.Message
 	}
@@ -264,19 +265,19 @@ var File_coreapi_service_announcement_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_announcement_proto_rawDesc = "" +
 	"\n" +
-	"\"coreapi/service/announcement.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a%coreapi/service/message_content.proto\"\x84\x02\n" +
+	"\"coreapi/service/announcement.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a#coreapi/model/message_content.proto\"\x82\x02\n" +
 	"\x14AnnounceToAllRequest\x12%\n" +
 	"\n" +
-	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12A\n" +
-	"\amessage\x18\x02 \x01(\v2\x1f.coreapi.service.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\amessage\x12\x81\x01\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12?\n" +
+	"\amessage\x18\x02 \x01(\v2\x1d.coreapi.model.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\amessage\x12\x81\x01\n" +
 	"\bbot_name\x18\x03 \x01(\tBf\xbaHc\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30r\x132\x11^$|^[^@#$%:/\\\\]+$R\abotName\")\n" +
 	"\x13AnnounceToAllResult\x12\x12\n" +
-	"\x04sent\x18\x01 \x01(\x05R\x04sent\"\xb3\x02\n" +
+	"\x04sent\x18\x01 \x01(\x05R\x04sent\"\xb1\x02\n" +
 	"\x0fAnnounceRequest\x12%\n" +
 	"\n" +
-	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12A\n" +
-	"\amessage\x18\x02 \x01(\v2\x1f.coreapi.service.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\amessage\x12\x81\x01\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12?\n" +
+	"\amessage\x18\x02 \x01(\v2\x1d.coreapi.model.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\amessage\x12\x81\x01\n" +
 	"\bbot_name\x18\x03 \x01(\tBf\xbaHc\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30r\x132\x11^$|^[^@#$%:/\\\\]+$R\abotName\x122\n" +
 	"\vmanager_ids\x18\x04 \x03(\tB\x11\xbaH\x0e\xc8\x01\x01\x92\x01\b\b\x01\"\x04r\x02\x10\x01R\n" +
@@ -303,11 +304,11 @@ var file_coreapi_service_announcement_proto_goTypes = []any{
 	(*AnnounceToAllResult)(nil),  // 1: coreapi.service.AnnounceToAllResult
 	(*AnnounceRequest)(nil),      // 2: coreapi.service.AnnounceRequest
 	(*AnnounceResult)(nil),       // 3: coreapi.service.AnnounceResult
-	(*MessageContent)(nil),       // 4: coreapi.service.MessageContent
+	(*model.MessageContent)(nil), // 4: coreapi.model.MessageContent
 }
 var file_coreapi_service_announcement_proto_depIdxs = []int32{
-	4, // 0: coreapi.service.AnnounceToAllRequest.message:type_name -> coreapi.service.MessageContent
-	4, // 1: coreapi.service.AnnounceRequest.message:type_name -> coreapi.service.MessageContent
+	4, // 0: coreapi.service.AnnounceToAllRequest.message:type_name -> coreapi.model.MessageContent
+	4, // 1: coreapi.service.AnnounceRequest.message:type_name -> coreapi.model.MessageContent
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -320,7 +321,6 @@ func file_coreapi_service_announcement_proto_init() {
 	if File_coreapi_service_announcement_proto != nil {
 		return
 	}
-	file_coreapi_service_message_content_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
