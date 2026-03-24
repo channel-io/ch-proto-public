@@ -30,12 +30,10 @@ type Bot struct {
 	// Unique bot identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this bot belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Bot display name.
 	// Unique within the channel.
@@ -43,6 +41,7 @@ type Bot struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
+	// +kubebuilder:validation:Pattern="^[^@#$%:/\\]+$"
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Bot description.
 	//
@@ -57,7 +56,7 @@ type Bot struct {
 	// Bot color in hex format.
 	// Randomly assigned if not specified on creation.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	// +kubebuilder:example="#3B82F6"
 	Color string `protobuf:"bytes,6,opt,name=color,proto3" json:"color,omitempty"`
 	// Bot avatar image URL.
@@ -173,20 +172,18 @@ var File_coreapi_model_bot_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_bot_proto_rawDesc = "" +
 	"\n" +
-	"\x17coreapi/model/bot.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1dcoreapi/model/tiny_file.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd9\x06\n" +
-	"\x03Bot\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"\x17coreapi/model/bot.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1dcoreapi/model/tiny_file.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe5\x05\n" +
+	"\x03Bot\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\xb1\x01\n" +
-	"\x04name\x18\x03 \x01(\tB\x9c\x01\xbaH\x98\x01\xba\x01D\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xc3\x01\n" +
+	"\x04name\x18\x03 \x01(\tB\xae\x01\xbaH\xaa\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01K\n" +
-	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01R\x04name\x12u\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01r\x102\x0e^[^@#$%:/\\\\]+$R\x04name\x12u\n" +
 	"\vdescription\x18\x04 \x01(\tBS\xbaHP\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 180 characters\x1a\x11size(this) <= 180R\vdescription\x12T\n" +
-	"\x12name_desc_i18n_map\x18\x05 \x03(\v2'.coreapi.model.Bot.NameDescI18nMapEntryR\x0fnameDescI18nMap\x12\x14\n" +
-	"\x05color\x18\x06 \x01(\tR\x05color\x12\x1d\n" +
+	"\x12name_desc_i18n_map\x18\x05 \x03(\v2'.coreapi.model.Bot.NameDescI18nMapEntryR\x0fnameDescI18nMap\x12\x1c\n" +
+	"\x05color\x18\x06 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x05color\x12\x1d\n" +
 	"\n" +
 	"avatar_url\x18\a \x01(\tR\tavatarUrl\x12A\n" +
 	"\n" +

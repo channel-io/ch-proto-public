@@ -353,11 +353,11 @@ type UserChat struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique user chat identifier.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this user chat belongs to.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Contact medium type identifier for chats originating from external
 	// messenger integrations (e.g., "appKakao", "mobileNumber").
@@ -370,7 +370,7 @@ type UserChat struct {
 	LiveMeetId string `protobuf:"bytes,4,opt,name=live_meet_id,json=liveMeetId,proto3" json:"live_meet_id,omitempty"`
 	// Current lifecycle state of the chat conversation.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	State UserChatState `protobuf:"varint,5,opt,name=state,proto3,enum=coreapi.model.UserChatState" json:"state,omitempty"`
 	// Reason the chat was missed.
 	// Only present when the chat transitioned to a missed state.
@@ -380,7 +380,7 @@ type UserChat struct {
 	// Whether the chat is managed and visible in the Desk inbox.
 	// Unmanaged chats are only visible to the user.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	Managed bool `protobuf:"varint,7,opt,name=managed,proto3" json:"managed,omitempty"`
 	// Priority level used by the auto-assignment system to order this chat
 	// in the queue. Defaults to medium.
@@ -481,11 +481,11 @@ type UserChat struct {
 	QueuedAt *timestamppb.Timestamp `protobuf:"bytes,29,opt,name=queued_at,json=queuedAt,proto3" json:"queued_at,omitempty"`
 	// Chat creation timestamp.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,30,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Chat last update timestamp.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,31,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// ID of the latest message visible to the user (front side).
 	//
@@ -1027,17 +1027,17 @@ var File_coreapi_model_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xff\x15\n" +
-	"\bUserChat\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
+	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xaf\x16\n" +
+	"\bUserChat\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tR\tchannelId\x12.\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12.\n" +
 	"\x13contact_medium_type\x18\x03 \x01(\tR\x11contactMediumType\x12 \n" +
 	"\flive_meet_id\x18\x04 \x01(\tR\n" +
-	"liveMeetId\x122\n" +
-	"\x05state\x18\x05 \x01(\x0e2\x1c.coreapi.model.UserChatStateR\x05state\x12@\n" +
-	"\rmissed_reason\x18\x06 \x01(\x0e2\x1b.coreapi.model.MissedReasonR\fmissedReason\x12\x18\n" +
-	"\amanaged\x18\a \x01(\bR\amanaged\x12=\n" +
+	"liveMeetId\x12:\n" +
+	"\x05state\x18\x05 \x01(\x0e2\x1c.coreapi.model.UserChatStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12@\n" +
+	"\rmissed_reason\x18\x06 \x01(\x0e2\x1b.coreapi.model.MissedReasonR\fmissedReason\x12 \n" +
+	"\amanaged\x18\a \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\amanaged\x12=\n" +
 	"\bpriority\x18\b \x01(\x0e2!.coreapi.model.AutoAssignPriorityR\bpriority\x12\x17\n" +
 	"\auser_id\x18\t \x01(\tR\x06userId\x12\x15\n" +
 	"\x06xer_id\x18\n" +
@@ -1064,11 +1064,11 @@ const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\x0ffirst_opened_at\x18\x1a \x01(\v2\x1a.google.protobuf.TimestampR\rfirstOpenedAt\x127\n" +
 	"\topened_at\x18\x1b \x01(\v2\x1a.google.protobuf.TimestampR\bopenedAt\x12B\n" +
 	"\x0ffirst_queued_at\x18\x1c \x01(\v2\x1a.google.protobuf.TimestampR\rfirstQueuedAt\x127\n" +
-	"\tqueued_at\x18\x1d \x01(\v2\x1a.google.protobuf.TimestampR\bqueuedAt\x129\n" +
+	"\tqueued_at\x18\x1d \x01(\v2\x1a.google.protobuf.TimestampR\bqueuedAt\x12A\n" +
 	"\n" +
-	"created_at\x18\x1e \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
+	"created_at\x18\x1e \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
-	"updated_at\x18\x1f \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12(\n" +
+	"updated_at\x18\x1f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12(\n" +
 	"\x10front_message_id\x18  \x01(\tR\x0efrontMessageId\x12D\n" +
 	"\x10front_updated_at\x18! \x01(\v2\x1a.google.protobuf.TimestampR\x0efrontUpdatedAt\x12&\n" +
 	"\x0fdesk_message_id\x18\" \x01(\tR\rdeskMessageId\x12B\n" +

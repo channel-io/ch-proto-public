@@ -30,7 +30,7 @@ public final class CampaignUserOuterClass {
     java.lang.String[] descriptorData = {
       "\n!coreapi/model/campaign_user.proto\022\rcor" +
       "eapi.model\032\033buf/validate/validate.proto\032" +
-      "\037google/protobuf/timestamp.proto\"\332\004\n\014Cam" +
+      "\037google/protobuf/timestamp.proto\"\223\004\n\014Cam" +
       "paignUser\022f\n\007user_id\030\001 \001(\tBM\272HJ\272\001D\n\rstri" +
       "ng.minLen\022\"value must be at least 1 char" +
       "acter\032\017size(this) >= 1\310\001\001R\006userId\022n\n\013cam" +
@@ -43,17 +43,15 @@ public final class CampaignUserOuterClass {
       "uf.TimestampR\004view\0220\n\005click\030\007 \001(\0132\032.goog" +
       "le.protobuf.TimestampR\005click\022.\n\004goal\030\010 \001" +
       "(\0132\032.google.protobuf.TimestampR\004goal\022\030\n\007" +
-      "revenue\030\t \001(\tR\007revenue\022]\n\002id\030\n \001(\tBM\272HJ\272" +
-      "\001D\n\rstring.minLen\022\"value must be at leas" +
-      "t 1 character\032\017size(this) >= 1\310\001\001R\002id*\261\001" +
-      "\n\021CampaignUserState\022#\n\037CAMPAIGN_USER_STA" +
-      "TE_UNSPECIFIED\020\000\022\034\n\030CAMPAIGN_USER_STATE_" +
-      "SENT\020\001\022\034\n\030CAMPAIGN_USER_STATE_VIEW\020\002\022\034\n\030" +
-      "CAMPAIGN_USER_STATE_GOAL\020\003\022\035\n\031CAMPAIGN_U" +
-      "SER_STATE_CLICK\020\004Bb\n&io.channel.api.prot" +
-      "o.pub.coreapi.modelP\001Z6github.com/channe" +
-      "l-io/ch-proto-public/coreapi/go/modelb\006p" +
-      "roto3"
+      "revenue\030\t \001(\tR\007revenue\022\026\n\002id\030\n \001(\tB\006\272H\003\310" +
+      "\001\001R\002id*\261\001\n\021CampaignUserState\022#\n\037CAMPAIGN" +
+      "_USER_STATE_UNSPECIFIED\020\000\022\034\n\030CAMPAIGN_US" +
+      "ER_STATE_SENT\020\001\022\034\n\030CAMPAIGN_USER_STATE_V" +
+      "IEW\020\002\022\034\n\030CAMPAIGN_USER_STATE_GOAL\020\003\022\035\n\031C" +
+      "AMPAIGN_USER_STATE_CLICK\020\004Bb\n&io.channel" +
+      ".api.proto.pub.coreapi.modelP\001Z6github.c" +
+      "om/channel-io/ch-proto-public/coreapi/go" +
+      "/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

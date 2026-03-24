@@ -210,18 +210,15 @@ type Manager struct {
 	// Unique manager identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this manager belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Account ID of the person linked to this manager.
 	// Unique per channel among non-removed managers.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	AccountId string `protobuf:"bytes,3,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
 	// Manager display name shown to end users and teammates.
 	//
@@ -238,7 +235,7 @@ type Manager struct {
 	Description string `protobuf:"bytes,5,opt,name=description,proto3" json:"description,omitempty"`
 	// Whether the description is visible to end-user visitors.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	ShowDescriptionToFront bool `protobuf:"varint,6,opt,name=show_description_to_front,json=showDescriptionToFront,proto3" json:"show_description_to_front,omitempty"`
 	// Internationalized name and description overrides keyed by locale (e.g., en, ko).
 	//
@@ -255,7 +252,7 @@ type Manager struct {
 	Email string `protobuf:"bytes,9,opt,name=email,proto3" json:"email,omitempty"`
 	// Whether the email address is visible to end-user visitors.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	ShowEmailToFront bool `protobuf:"varint,10,opt,name=show_email_to_front,json=showEmailToFront,proto3" json:"show_email_to_front,omitempty"`
 	// Manager mobile phone number in E.164 format (e.g., +821012345678).
 	//
@@ -263,7 +260,7 @@ type Manager struct {
 	MobileNumber string `protobuf:"bytes,11,opt,name=mobile_number,json=mobileNumber,proto3" json:"mobile_number,omitempty"`
 	// Whether the mobile number is visible to end-user visitors.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	ShowMobileNumberToFront bool `protobuf:"varint,12,opt,name=show_mobile_number_to_front,json=showMobileNumberToFront,proto3" json:"show_mobile_number_to_front,omitempty"`
 	// Role ID assigned to this manager, defining permissions and access levels.
 	//
@@ -271,7 +268,7 @@ type Manager struct {
 	RoleId string `protobuf:"bytes,13,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
 	// Whether this manager has been soft-deleted from the channel.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	Removed bool `protobuf:"varint,14,opt,name=removed,proto3" json:"removed,omitempty"`
 	// Manager creation timestamp.
 	//
@@ -288,7 +285,7 @@ type Manager struct {
 	RemovedAt *timestamppb.Timestamp `protobuf:"bytes,17,opt,name=removed_at,json=removedAt,proto3" json:"removed_at,omitempty"`
 	// Whether this manager appears as the channel identity instead of their personal profile.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	DisplayAsChannel bool `protobuf:"varint,18,opt,name=display_as_channel,json=displayAsChannel,proto3" json:"display_as_channel,omitempty"`
 	// Default notification level for group chat sessions.
 	// See SessionWatch for possible values.
@@ -317,11 +314,11 @@ type Manager struct {
 	MeetAlertSound MeetAlertSound `protobuf:"varint,23,opt,name=meet_alert_sound,json=meetAlertSound,proto3,enum=coreapi.model.MeetAlertSound" json:"meet_alert_sound,omitempty"`
 	// Whether to receive mobile push notifications even while the manager is online on desktop.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	ReceiveMobilePushWhenOnline bool `protobuf:"varint,24,opt,name=receive_mobile_push_when_online,json=receiveMobilePushWhenOnline,proto3" json:"receive_mobile_push_when_online,omitempty"`
 	// Whether to include a preview of internal (private) messages in push notifications.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	ShowPrivateMessagePreview bool `protobuf:"varint,25,opt,name=show_private_message_preview,json=showPrivateMessagePreview,proto3" json:"show_private_message_preview,omitempty"`
 	// Performance score reflecting the manager's conversation handling efficiency.
 	// Decays over time when the manager is inactive.
@@ -335,27 +332,27 @@ type Manager struct {
 	TouchScore float32 `protobuf:"fixed32,27,opt,name=touch_score,json=touchScore,proto3" json:"touch_score,omitempty"`
 	// Whether periodic email reminders for unhandled conversations are enabled.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	OperatorEmailReminder bool `protobuf:"varint,28,opt,name=operator_email_reminder,json=operatorEmailReminder,proto3" json:"operator_email_reminder,omitempty"`
 	// Whether to receive alerts when a new conversation is waiting to be assigned.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	ReceiveUnassignedAlert bool `protobuf:"varint,29,opt,name=receive_unassigned_alert,json=receiveUnassignedAlert,proto3" json:"receive_unassigned_alert,omitempty"`
 	// Whether to receive alerts for conversations that were not responded to in time.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	ReceiveMissedChatAlert bool `protobuf:"varint,30,opt,name=receive_missed_chat_alert,json=receiveMissedChatAlert,proto3" json:"receive_missed_chat_alert,omitempty"`
 	// Whether to receive alerts specifically for unassigned chat conversations.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	ReceiveUnassignedChatAlert bool `protobuf:"varint,31,opt,name=receive_unassigned_chat_alert,json=receiveUnassignedChatAlert,proto3" json:"receive_unassigned_chat_alert,omitempty"`
 	// Whether to receive alerts for unassigned meet (call) sessions.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	ReceiveUnassignedMeetAlert bool `protobuf:"varint,32,opt,name=receive_unassigned_meet_alert,json=receiveUnassignedMeetAlert,proto3" json:"receive_unassigned_meet_alert,omitempty"`
 	// Whether this manager is currently active as an operator handling customer conversations.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	Operator bool `protobuf:"varint,33,opt,name=operator,proto3" json:"operator,omitempty"`
 	// Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
 	//
@@ -363,11 +360,11 @@ type Manager struct {
 	OperatorStatusId string `protobuf:"bytes,34,opt,name=operator_status_id,json=operatorStatusId,proto3" json:"operator_status_id,omitempty"`
 	// Whether @all mentions in conversations are automatically marked as important.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	DefaultAllMentionImportant bool `protobuf:"varint,35,opt,name=default_all_mention_important,json=defaultAllMentionImportant,proto3" json:"default_all_mention_important,omitempty"`
 	// Whether incoming user messages are automatically marked as important.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	UserMessageImportant bool `protobuf:"varint,36,opt,name=user_message_important,json=userMessageImportant,proto3" json:"user_message_important,omitempty"`
 	// User chat types this manager can be auto-assigned to (e.g., sync, async).
 	//
@@ -381,7 +378,7 @@ type Manager struct {
 	AutoAssignCapacity int32 `protobuf:"varint,38,opt,name=auto_assign_capacity,json=autoAssignCapacity,proto3" json:"auto_assign_capacity,omitempty"`
 	// Whether auto-assignment is enabled when the manager joins a synchronous chat session.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	EnableAutoAssignOnSync bool `protobuf:"varint,39,opt,name=enable_auto_assign_on_sync,json=enableAutoAssignOnSync,proto3" json:"enable_auto_assign_on_sync,omitempty"`
 	// Emoji displayed alongside the manager name as a status indicator.
 	// Must be set together with status_text; both or neither should be present.
@@ -400,7 +397,7 @@ type Manager struct {
 	StatusClearAt *timestamppb.Timestamp `protobuf:"bytes,42,opt,name=status_clear_at,json=statusClearAt,proto3" json:"status_clear_at,omitempty"`
 	// Whether do-not-disturb mode is active, suppressing all notifications for this manager.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	DoNotDisturb bool `protobuf:"varint,43,opt,name=do_not_disturb,json=doNotDisturb,proto3" json:"do_not_disturb,omitempty"`
 	// Timestamp when do-not-disturb mode automatically deactivates.
 	//
@@ -408,7 +405,7 @@ type Manager struct {
 	DoNotDisturbClearAt *timestamppb.Timestamp `protobuf:"bytes,44,opt,name=do_not_disturb_clear_at,json=doNotDisturbClearAt,proto3" json:"do_not_disturb_clear_at,omitempty"`
 	// Whether account-level do-not-disturb mode is active across all channels.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	AccountDoNotDisturb bool `protobuf:"varint,45,opt,name=account_do_not_disturb,json=accountDoNotDisturb,proto3" json:"account_do_not_disturb,omitempty"`
 	// Timestamp when account-level do-not-disturb mode automatically deactivates.
 	//
@@ -797,69 +794,66 @@ var File_coreapi_model_manager_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_manager_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/manager.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa3\x1a\n" +
-	"\aManager\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"\x1bcoreapi/model/manager.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xde\x19\n" +
+	"\aManager\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12l\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12%\n" +
 	"\n" +
-	"account_id\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\taccountId\x12\xc3\x01\n" +
+	"account_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\taccountId\x12\xc3\x01\n" +
 	"\x04name\x18\x04 \x01(\tB\xae\x01\xbaH\xaa\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01r\x102\x0e^[^@#$%:/\\\\]+$R\x04name\x12u\n" +
 	"\vdescription\x18\x05 \x01(\tBS\xbaHP\xba\x01M\n" +
-	"\rstring.maxLen\x12)value must be no more than 180 characters\x1a\x11size(this) <= 180R\vdescription\x129\n" +
-	"\x19show_description_to_front\x18\x06 \x01(\bR\x16showDescriptionToFront\x12X\n" +
+	"\rstring.maxLen\x12)value must be no more than 180 characters\x1a\x11size(this) <= 180R\vdescription\x12A\n" +
+	"\x19show_description_to_front\x18\x06 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x16showDescriptionToFront\x12X\n" +
 	"\x12name_desc_i18n_map\x18\a \x03(\v2+.coreapi.model.Manager.NameDescI18nMapEntryR\x0fnameDescI18nMap\x121\n" +
 	"\aprofile\x18\b \x01(\v2\x17.google.protobuf.StructR\aprofile\x12\x14\n" +
-	"\x05email\x18\t \x01(\tR\x05email\x12-\n" +
+	"\x05email\x18\t \x01(\tR\x05email\x125\n" +
 	"\x13show_email_to_front\x18\n" +
-	" \x01(\bR\x10showEmailToFront\x12#\n" +
-	"\rmobile_number\x18\v \x01(\tR\fmobileNumber\x12<\n" +
-	"\x1bshow_mobile_number_to_front\x18\f \x01(\bR\x17showMobileNumberToFront\x12\x17\n" +
-	"\arole_id\x18\r \x01(\tR\x06roleId\x12\x18\n" +
-	"\aremoved\x18\x0e \x01(\bR\aremoved\x12A\n" +
+	" \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x10showEmailToFront\x12#\n" +
+	"\rmobile_number\x18\v \x01(\tR\fmobileNumber\x12D\n" +
+	"\x1bshow_mobile_number_to_front\x18\f \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x17showMobileNumberToFront\x12\x17\n" +
+	"\arole_id\x18\r \x01(\tR\x06roleId\x12 \n" +
+	"\aremoved\x18\x0e \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\aremoved\x12A\n" +
 	"\n" +
 	"created_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
 	"updated_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x129\n" +
 	"\n" +
-	"removed_at\x18\x11 \x01(\v2\x1a.google.protobuf.TimestampR\tremovedAt\x12,\n" +
-	"\x12display_as_channel\x18\x12 \x01(\bR\x10displayAsChannel\x12K\n" +
+	"removed_at\x18\x11 \x01(\v2\x1a.google.protobuf.TimestampR\tremovedAt\x124\n" +
+	"\x12display_as_channel\x18\x12 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x10displayAsChannel\x12K\n" +
 	"\x13default_group_watch\x18\x13 \x01(\x0e2\x1b.coreapi.model.SessionWatchR\x11defaultGroupWatch\x12V\n" +
 	"\x19default_direct_chat_watch\x18\x14 \x01(\x0e2\x1b.coreapi.model.SessionWatchR\x16defaultDirectChatWatch\x12R\n" +
 	"\x17default_user_chat_watch\x18\x15 \x01(\x0e2\x1b.coreapi.model.SessionWatchR\x14defaultUserChatWatch\x12G\n" +
 	"\x10chat_alert_sound\x18\x16 \x01(\x0e2\x1d.coreapi.model.ChatAlertSoundR\x0echatAlertSound\x12G\n" +
-	"\x10meet_alert_sound\x18\x17 \x01(\x0e2\x1d.coreapi.model.MeetAlertSoundR\x0emeetAlertSound\x12D\n" +
-	"\x1freceive_mobile_push_when_online\x18\x18 \x01(\bR\x1breceiveMobilePushWhenOnline\x12?\n" +
-	"\x1cshow_private_message_preview\x18\x19 \x01(\bR\x19showPrivateMessagePreview\x12%\n" +
+	"\x10meet_alert_sound\x18\x17 \x01(\x0e2\x1d.coreapi.model.MeetAlertSoundR\x0emeetAlertSound\x12L\n" +
+	"\x1freceive_mobile_push_when_online\x18\x18 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x1breceiveMobilePushWhenOnline\x12G\n" +
+	"\x1cshow_private_message_preview\x18\x19 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x19showPrivateMessagePreview\x12%\n" +
 	"\x0eoperator_score\x18\x1a \x01(\x02R\roperatorScore\x12\x1f\n" +
 	"\vtouch_score\x18\x1b \x01(\x02R\n" +
-	"touchScore\x126\n" +
-	"\x17operator_email_reminder\x18\x1c \x01(\bR\x15operatorEmailReminder\x128\n" +
-	"\x18receive_unassigned_alert\x18\x1d \x01(\bR\x16receiveUnassignedAlert\x129\n" +
-	"\x19receive_missed_chat_alert\x18\x1e \x01(\bR\x16receiveMissedChatAlert\x12A\n" +
-	"\x1dreceive_unassigned_chat_alert\x18\x1f \x01(\bR\x1areceiveUnassignedChatAlert\x12A\n" +
-	"\x1dreceive_unassigned_meet_alert\x18  \x01(\bR\x1areceiveUnassignedMeetAlert\x12\x1a\n" +
-	"\boperator\x18! \x01(\bR\boperator\x12,\n" +
-	"\x12operator_status_id\x18\" \x01(\tR\x10operatorStatusId\x12A\n" +
-	"\x1ddefault_all_mention_important\x18# \x01(\bR\x1adefaultAllMentionImportant\x124\n" +
-	"\x16user_message_important\x18$ \x01(\bR\x14userMessageImportant\x12;\n" +
+	"touchScore\x12>\n" +
+	"\x17operator_email_reminder\x18\x1c \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x15operatorEmailReminder\x12@\n" +
+	"\x18receive_unassigned_alert\x18\x1d \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x16receiveUnassignedAlert\x12A\n" +
+	"\x19receive_missed_chat_alert\x18\x1e \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x16receiveMissedChatAlert\x12I\n" +
+	"\x1dreceive_unassigned_chat_alert\x18\x1f \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x1areceiveUnassignedChatAlert\x12I\n" +
+	"\x1dreceive_unassigned_meet_alert\x18  \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x1areceiveUnassignedMeetAlert\x12\"\n" +
+	"\boperator\x18! \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\boperator\x12,\n" +
+	"\x12operator_status_id\x18\" \x01(\tR\x10operatorStatusId\x12I\n" +
+	"\x1ddefault_all_mention_important\x18# \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x1adefaultAllMentionImportant\x12<\n" +
+	"\x16user_message_important\x18$ \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x14userMessageImportant\x12;\n" +
 	"\x1aassignable_user_chat_types\x18% \x03(\tR\x17assignableUserChatTypes\x12\x91\x01\n" +
 	"\x14auto_assign_capacity\x18& \x01(\x05B_\xbaH\\\xba\x01Y\n" +
-	"\rint32.between\x12.auto_assign_capacity must be between 0 and 200\x1a\x18this >= 0 && this <= 200R\x12autoAssignCapacity\x12:\n" +
-	"\x1aenable_auto_assign_on_sync\x18' \x01(\bR\x16enableAutoAssignOnSync\x12!\n" +
+	"\rint32.between\x12.auto_assign_capacity must be between 0 and 200\x1a\x18this >= 0 && this <= 200R\x12autoAssignCapacity\x12B\n" +
+	"\x1aenable_auto_assign_on_sync\x18' \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x16enableAutoAssignOnSync\x12!\n" +
 	"\fstatus_emoji\x18( \x01(\tR\vstatusEmoji\x12t\n" +
 	"\vstatus_text\x18) \x01(\tBS\xbaHP\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128R\n" +
 	"statusText\x12B\n" +
-	"\x0fstatus_clear_at\x18* \x01(\v2\x1a.google.protobuf.TimestampR\rstatusClearAt\x12$\n" +
-	"\x0edo_not_disturb\x18+ \x01(\bR\fdoNotDisturb\x12P\n" +
-	"\x17do_not_disturb_clear_at\x18, \x01(\v2\x1a.google.protobuf.TimestampR\x13doNotDisturbClearAt\x123\n" +
-	"\x16account_do_not_disturb\x18- \x01(\bR\x13accountDoNotDisturb\x12_\n" +
+	"\x0fstatus_clear_at\x18* \x01(\v2\x1a.google.protobuf.TimestampR\rstatusClearAt\x12,\n" +
+	"\x0edo_not_disturb\x18+ \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\fdoNotDisturb\x12P\n" +
+	"\x17do_not_disturb_clear_at\x18, \x01(\v2\x1a.google.protobuf.TimestampR\x13doNotDisturbClearAt\x12;\n" +
+	"\x16account_do_not_disturb\x18- \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x13accountDoNotDisturb\x12_\n" +
 	"\x1faccount_do_not_disturb_clear_at\x18. \x01(\v2\x1a.google.protobuf.TimestampR\x1aaccountDoNotDisturbClearAt\x12J\n" +
 	"\x13operator_updated_at\x18/ \x01(\v2\x1a.google.protobuf.TimestampR\x11operatorUpdatedAt\x12\x1d\n" +
 	"\n" +

@@ -86,12 +86,10 @@ type User struct {
 	// Unique user identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this user belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// External member ID provided at boot or manual creation.
 	// Present for member-type users; for anonymous visitors, this matches
@@ -172,7 +170,7 @@ type User struct {
 	Language string `protobuf:"bytes,19,opt,name=language,proto3" json:"language,omitempty"`
 	// Whether the user has opted out of email notifications.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	UnsubscribeEmail bool `protobuf:"varint,20,opt,name=unsubscribe_email,json=unsubscribeEmail,proto3" json:"unsubscribe_email,omitempty"`
 	// Timestamp when the email opt-out preference was last changed.
 	//
@@ -180,7 +178,7 @@ type User struct {
 	UnsubscribeEmailUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=unsubscribe_email_updated_at,json=unsubscribeEmailUpdatedAt,proto3" json:"unsubscribe_email_updated_at,omitempty"`
 	// Whether the user has opted out of SMS/text notifications.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	UnsubscribeTexting bool `protobuf:"varint,22,opt,name=unsubscribe_texting,json=unsubscribeTexting,proto3" json:"unsubscribe_texting,omitempty"`
 	// Timestamp when the SMS/text opt-out preference was last changed.
 	//
@@ -203,7 +201,7 @@ type User struct {
 	// Whether the user has a display name set in the profile
 	// (name, firstName, or lastName).
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	Named bool `protobuf:"varint,27,opt,name=named,proto3" json:"named,omitempty"`
 	// Language detected from the user's browser or device settings,
 	// as a BCP 47 locale code.
@@ -213,12 +211,12 @@ type User struct {
 	// Whether the user's mobile number has passed format validation
 	// and is eligible for SMS delivery.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	MobileNumberQualified bool `protobuf:"varint,29,opt,name=mobile_number_qualified,json=mobileNumberQualified,proto3" json:"mobile_number_qualified,omitempty"`
 	// Whether the user's email address has passed format validation
 	// and is eligible for email delivery.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	EmailQualified bool `protobuf:"varint,30,opt,name=email_qualified,json=emailQualified,proto3" json:"email_qualified,omitempty"`
 	// Display name of the user, derived from the profile's name field.
 	//
@@ -226,11 +224,11 @@ type User struct {
 	Name string `protobuf:"bytes,31,opt,name=name,proto3" json:"name,omitempty"`
 	// Whether the user has at least one managed chat conversation.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	HasChat bool `protobuf:"varint,32,opt,name=has_chat,json=hasChat,proto3" json:"has_chat,omitempty"`
 	// Whether the user has a registered device token for push notifications.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	HasPushToken bool `protobuf:"varint,33,opt,name=has_push_token,json=hasPushToken,proto3" json:"has_push_token,omitempty"`
 	// Province or state name derived from IP geolocation.
 	//
@@ -266,7 +264,7 @@ type User struct {
 	LastSeenAt *timestamppb.Timestamp `protobuf:"bytes,41,opt,name=last_seen_at,json=lastSeenAt,proto3" json:"last_seen_at,omitempty"`
 	// Whether the user is blocked from initiating new chats.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	Blocked bool `protobuf:"varint,42,opt,name=blocked,proto3" json:"blocked,omitempty"`
 	// Identifier key associated with the block action,
 	// used to look up block details.
@@ -280,7 +278,7 @@ type User struct {
 	// Whether the user's type is member.
 	// Derived from the type field.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	Member bool `protobuf:"varint,45,opt,name=member,proto3" json:"member,omitempty"`
 	// Email address extracted from the user's profile data.
 	//
@@ -668,13 +666,11 @@ var File_coreapi_model_user_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_user_proto_rawDesc = "" +
 	"\n" +
-	"\x18coreapi/model/user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/web_info.proto\x1a\x1fcoreapi/model/mobile_info.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf6\x0f\n" +
-	"\x04User\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"\x18coreapi/model/user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/web_info.proto\x1a\x1fcoreapi/model/mobile_info.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb0\x0f\n" +
+	"\x04User\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\x1b\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x1b\n" +
 	"\tmember_id\x18\x03 \x01(\tR\bmemberId\x12\x17\n" +
 	"\aveil_id\x18\x04 \x01(\tR\x06veilId\x12\x1d\n" +
 	"\n" +
@@ -696,22 +692,22 @@ const file_coreapi_model_user_proto_rawDesc = "" +
 	"\aversion\x18\x10 \x01(\x03R\aversion\x121\n" +
 	"\aprofile\x18\x11 \x01(\v2\x17.google.protobuf.StructR\aprofile\x12\x12\n" +
 	"\x04tags\x18\x12 \x03(\tR\x04tags\x12\x1a\n" +
-	"\blanguage\x18\x13 \x01(\tR\blanguage\x12+\n" +
-	"\x11unsubscribe_email\x18\x14 \x01(\bR\x10unsubscribeEmail\x12[\n" +
-	"\x1cunsubscribe_email_updated_at\x18\x15 \x01(\v2\x1a.google.protobuf.TimestampR\x19unsubscribeEmailUpdatedAt\x12/\n" +
-	"\x13unsubscribe_texting\x18\x16 \x01(\bR\x12unsubscribeTexting\x12_\n" +
+	"\blanguage\x18\x13 \x01(\tR\blanguage\x123\n" +
+	"\x11unsubscribe_email\x18\x14 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x10unsubscribeEmail\x12[\n" +
+	"\x1cunsubscribe_email_updated_at\x18\x15 \x01(\v2\x1a.google.protobuf.TimestampR\x19unsubscribeEmailUpdatedAt\x127\n" +
+	"\x13unsubscribe_texting\x18\x16 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x12unsubscribeTexting\x12_\n" +
 	"\x1eunsubscribe_texting_updated_at\x18\x17 \x01(\v2\x1a.google.protobuf.TimestampR\x1bunsubscribeTextingUpdatedAt\x120\n" +
 	"\x14unsubscribe_app_push\x18\x18 \x01(\bR\x12unsubscribeAppPush\x12`\n" +
 	"\x1funsubscribe_app_push_updated_at\x18\x19 \x01(\v2\x1a.google.protobuf.TimestampR\x1bunsubscribeAppPushUpdatedAt\x12\x1d\n" +
 	"\n" +
-	"avatar_url\x18\x1a \x01(\tR\tavatarUrl\x12\x14\n" +
-	"\x05named\x18\x1b \x01(\bR\x05named\x12'\n" +
-	"\x0fsystem_language\x18\x1c \x01(\tR\x0esystemLanguage\x126\n" +
-	"\x17mobile_number_qualified\x18\x1d \x01(\bR\x15mobileNumberQualified\x12'\n" +
-	"\x0femail_qualified\x18\x1e \x01(\bR\x0eemailQualified\x12\x12\n" +
-	"\x04name\x18\x1f \x01(\tR\x04name\x12\x19\n" +
-	"\bhas_chat\x18  \x01(\bR\ahasChat\x12$\n" +
-	"\x0ehas_push_token\x18! \x01(\bR\fhasPushToken\x12\x1a\n" +
+	"avatar_url\x18\x1a \x01(\tR\tavatarUrl\x12\x1c\n" +
+	"\x05named\x18\x1b \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x05named\x12'\n" +
+	"\x0fsystem_language\x18\x1c \x01(\tR\x0esystemLanguage\x12>\n" +
+	"\x17mobile_number_qualified\x18\x1d \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x15mobileNumberQualified\x12/\n" +
+	"\x0femail_qualified\x18\x1e \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0eemailQualified\x12\x12\n" +
+	"\x04name\x18\x1f \x01(\tR\x04name\x12!\n" +
+	"\bhas_chat\x18  \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\ahasChat\x12,\n" +
+	"\x0ehas_push_token\x18! \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\fhasPushToken\x12\x1a\n" +
 	"\bprovince\x18\" \x01(\tR\bprovince\x12\x12\n" +
 	"\x04city\x18# \x01(\tR\x04city\x12\x1a\n" +
 	"\blatitude\x18$ \x01(\x01R\blatitude\x12\x1c\n" +
@@ -720,13 +716,13 @@ const file_coreapi_model_user_proto_rawDesc = "" +
 	"\x06mobile\x18' \x01(\v2\x19.coreapi.model.MobileInfoR\x06mobile\x12%\n" +
 	"\x0esessions_count\x18( \x01(\x05R\rsessionsCount\x12<\n" +
 	"\flast_seen_at\x18) \x01(\v2\x1a.google.protobuf.TimestampR\n" +
-	"lastSeenAt\x12\x18\n" +
-	"\ablocked\x18* \x01(\bR\ablocked\x12\x1f\n" +
+	"lastSeenAt\x12 \n" +
+	"\ablocked\x18* \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\ablocked\x12\x1f\n" +
 	"\vblocked_key\x18+ \x01(\tR\n" +
 	"blockedKey\x12\x1f\n" +
 	"\vmanaged_key\x18, \x01(\x03R\n" +
-	"managedKey\x12\x16\n" +
-	"\x06member\x18- \x01(\bR\x06member\x12\x14\n" +
+	"managedKey\x12\x1e\n" +
+	"\x06member\x18- \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x06member\x12\x14\n" +
 	"\x05email\x18. \x01(\tR\x05email\x12#\n" +
 	"\rmobile_number\x18/ \x01(\tR\fmobileNumber\x12'\n" +
 	"\x0flandline_number\x180 \x01(\tR\x0elandlineNumber*f\n" +

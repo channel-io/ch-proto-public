@@ -562,7 +562,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this session belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -585,7 +584,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this session belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -914,7 +912,6 @@ private static final long serialVersionUID = 0L;
    * Unique session identifier.
    * Format: "{key}-{chatId}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -938,7 +935,6 @@ private static final long serialVersionUID = 0L;
    * Unique session identifier.
    * Format: "{key}-{chatId}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2468,7 +2464,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this session belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -2490,7 +2485,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this session belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -2513,7 +2507,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this session belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -2534,7 +2527,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this session belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -2550,7 +2542,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this session belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3667,7 +3658,6 @@ private static final long serialVersionUID = 0L;
      * Unique session identifier.
      * Format: "{key}-{chatId}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3690,7 +3680,6 @@ private static final long serialVersionUID = 0L;
      * Unique session identifier.
      * Format: "{key}-{chatId}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3714,7 +3703,6 @@ private static final long serialVersionUID = 0L;
      * Unique session identifier.
      * Format: "{key}-{chatId}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3736,7 +3724,6 @@ private static final long serialVersionUID = 0L;
      * Unique session identifier.
      * Format: "{key}-{chatId}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3753,7 +3740,6 @@ private static final long serialVersionUID = 0L;
      * Unique session identifier.
      * Format: "{key}-{chatId}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>

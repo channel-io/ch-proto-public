@@ -523,7 +523,6 @@ private static final long serialVersionUID = 0L;
    * Composite key identifying the parent conversation.
    * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -547,7 +546,6 @@ private static final long serialVersionUID = 0L;
    * Composite key identifying the parent conversation.
    * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -574,7 +572,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique message identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -597,7 +594,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique message identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -886,7 +882,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -909,7 +904,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -936,7 +930,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -959,7 +952,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -986,7 +978,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat ID of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -1009,7 +1000,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat ID of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -1036,7 +1026,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Entity type of the message author (e.g., "manager", "user", "bot").
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -1059,7 +1048,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Entity type of the message author (e.g., "manager", "user", "bot").
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -1086,7 +1074,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Entity ID of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -1109,7 +1096,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Entity ID of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -2446,10 +2432,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether this message is a reply within a thread (not the root).
    * True when thread_key is present and the message is not a thread root.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool thread_msg = 41 [json_name = "threadMsg"];</code>
+   * <code>bool thread_msg = 41 [json_name = "threadMsg", (.buf.validate.field) = { ... }</code>
    * @return The threadMsg.
    */
   @java.lang.Override
@@ -2515,10 +2501,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether this message is the root of a thread.
    * True when the thread field is present.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool thread_root = 43 [json_name = "threadRoot"];</code>
+   * <code>bool thread_root = 43 [json_name = "threadRoot", (.buf.validate.field) = { ... }</code>
    * @return The threadRoot.
    */
   @java.lang.Override
@@ -2532,10 +2518,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether this thread reply is also visible in the main message stream.
    * True when the message has both thread_key and main_key, but is not a thread root.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg"];</code>
+   * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg", (.buf.validate.field) = { ... }</code>
    * @return The broadcastedMsg.
    */
   @java.lang.Override
@@ -2550,10 +2536,10 @@ private static final long serialVersionUID = 0L;
    * Whether the message was removed by its original author.
    * True when the message state is REMOVED and the remover matches the author,
    * or when no specific remover is recorded.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool removed_by_writer = 45 [json_name = "removedByWriter"];</code>
+   * <code>bool removed_by_writer = 45 [json_name = "removedByWriter", (.buf.validate.field) = { ... }</code>
    * @return The removedByWriter.
    */
   @java.lang.Override
@@ -4002,7 +3988,6 @@ private static final long serialVersionUID = 0L;
      * Composite key identifying the parent conversation.
      * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -4025,7 +4010,6 @@ private static final long serialVersionUID = 0L;
      * Composite key identifying the parent conversation.
      * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -4049,7 +4033,6 @@ private static final long serialVersionUID = 0L;
      * Composite key identifying the parent conversation.
      * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -4071,7 +4054,6 @@ private static final long serialVersionUID = 0L;
      * Composite key identifying the parent conversation.
      * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -4088,7 +4070,6 @@ private static final long serialVersionUID = 0L;
      * Composite key identifying the parent conversation.
      * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -4112,7 +4093,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique message identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4134,7 +4114,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique message identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4157,7 +4136,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique message identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4178,7 +4156,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique message identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4194,7 +4171,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique message identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4778,7 +4754,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -4800,7 +4775,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -4823,7 +4797,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -4844,7 +4817,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -4860,7 +4832,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -4884,7 +4855,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -4906,7 +4876,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -4929,7 +4898,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -4950,7 +4918,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -4966,7 +4933,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -4990,7 +4956,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -5012,7 +4977,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -5035,7 +4999,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -5056,7 +5019,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -5072,7 +5034,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -5096,7 +5057,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity type of the message author (e.g., "manager", "user", "bot").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -5118,7 +5078,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity type of the message author (e.g., "manager", "user", "bot").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -5141,7 +5100,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity type of the message author (e.g., "manager", "user", "bot").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -5162,7 +5120,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity type of the message author (e.g., "manager", "user", "bot").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -5178,7 +5135,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity type of the message author (e.g., "manager", "user", "bot").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -5202,7 +5158,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity ID of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -5224,7 +5179,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity ID of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -5247,7 +5201,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity ID of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -5268,7 +5221,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity ID of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -5284,7 +5236,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity ID of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -10269,10 +10220,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this message is a reply within a thread (not the root).
      * True when thread_key is present and the message is not a thread root.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool thread_msg = 41 [json_name = "threadMsg"];</code>
+     * <code>bool thread_msg = 41 [json_name = "threadMsg", (.buf.validate.field) = { ... }</code>
      * @return The threadMsg.
      */
     @java.lang.Override
@@ -10283,10 +10234,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this message is a reply within a thread (not the root).
      * True when thread_key is present and the message is not a thread root.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool thread_msg = 41 [json_name = "threadMsg"];</code>
+     * <code>bool thread_msg = 41 [json_name = "threadMsg", (.buf.validate.field) = { ... }</code>
      * @param value The threadMsg to set.
      * @return This builder for chaining.
      */
@@ -10300,10 +10251,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this message is a reply within a thread (not the root).
      * True when thread_key is present and the message is not a thread root.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool thread_msg = 41 [json_name = "threadMsg"];</code>
+     * <code>bool thread_msg = 41 [json_name = "threadMsg", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearThreadMsg() {
@@ -10429,10 +10380,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this message is the root of a thread.
      * True when the thread field is present.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool thread_root = 43 [json_name = "threadRoot"];</code>
+     * <code>bool thread_root = 43 [json_name = "threadRoot", (.buf.validate.field) = { ... }</code>
      * @return The threadRoot.
      */
     @java.lang.Override
@@ -10443,10 +10394,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this message is the root of a thread.
      * True when the thread field is present.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool thread_root = 43 [json_name = "threadRoot"];</code>
+     * <code>bool thread_root = 43 [json_name = "threadRoot", (.buf.validate.field) = { ... }</code>
      * @param value The threadRoot to set.
      * @return This builder for chaining.
      */
@@ -10460,10 +10411,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this message is the root of a thread.
      * True when the thread field is present.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool thread_root = 43 [json_name = "threadRoot"];</code>
+     * <code>bool thread_root = 43 [json_name = "threadRoot", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearThreadRoot() {
@@ -10478,10 +10429,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this thread reply is also visible in the main message stream.
      * True when the message has both thread_key and main_key, but is not a thread root.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg"];</code>
+     * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg", (.buf.validate.field) = { ... }</code>
      * @return The broadcastedMsg.
      */
     @java.lang.Override
@@ -10492,10 +10443,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this thread reply is also visible in the main message stream.
      * True when the message has both thread_key and main_key, but is not a thread root.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg"];</code>
+     * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg", (.buf.validate.field) = { ... }</code>
      * @param value The broadcastedMsg to set.
      * @return This builder for chaining.
      */
@@ -10509,10 +10460,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this thread reply is also visible in the main message stream.
      * True when the message has both thread_key and main_key, but is not a thread root.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg"];</code>
+     * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearBroadcastedMsg() {
@@ -10528,10 +10479,10 @@ private static final long serialVersionUID = 0L;
      * Whether the message was removed by its original author.
      * True when the message state is REMOVED and the remover matches the author,
      * or when no specific remover is recorded.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool removed_by_writer = 45 [json_name = "removedByWriter"];</code>
+     * <code>bool removed_by_writer = 45 [json_name = "removedByWriter", (.buf.validate.field) = { ... }</code>
      * @return The removedByWriter.
      */
     @java.lang.Override
@@ -10543,10 +10494,10 @@ private static final long serialVersionUID = 0L;
      * Whether the message was removed by its original author.
      * True when the message state is REMOVED and the remover matches the author,
      * or when no specific remover is recorded.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool removed_by_writer = 45 [json_name = "removedByWriter"];</code>
+     * <code>bool removed_by_writer = 45 [json_name = "removedByWriter", (.buf.validate.field) = { ... }</code>
      * @param value The removedByWriter to set.
      * @return This builder for chaining.
      */
@@ -10561,10 +10512,10 @@ private static final long serialVersionUID = 0L;
      * Whether the message was removed by its original author.
      * True when the message state is REMOVED and the remover matches the author,
      * or when no specific remover is recorded.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool removed_by_writer = 45 [json_name = "removedByWriter"];</code>
+     * <code>bool removed_by_writer = 45 [json_name = "removedByWriter", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearRemovedByWriter() {

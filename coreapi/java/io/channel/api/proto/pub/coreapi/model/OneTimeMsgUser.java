@@ -482,7 +482,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Composite identifier in the format "{one_time_msg_id}-{user_id}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -505,7 +504,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Composite identifier in the format "{one_time_msg_id}-{user_id}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1977,7 +1975,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{one_time_msg_id}-{user_id}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1999,7 +1996,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{one_time_msg_id}-{user_id}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2022,7 +2018,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{one_time_msg_id}-{user_id}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2043,7 +2038,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{one_time_msg_id}-{user_id}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2059,7 +2053,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{one_time_msg_id}-{user_id}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>

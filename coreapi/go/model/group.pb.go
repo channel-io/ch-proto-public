@@ -85,12 +85,10 @@ type Group struct {
 	// Unique group identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this group belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Display title of the group.
 	// Unique within the channel (case-insensitive).
@@ -242,13 +240,11 @@ var File_coreapi_model_group_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_group_proto_rawDesc = "" +
 	"\n" +
-	"\x19coreapi/model/group.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xba\x06\n" +
-	"\x05Group\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"\x19coreapi/model/group.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xac\x05\n" +
+	"\x05Group\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\xca\x01\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xca\x01\n" +
 	"\x05title\x18\x03 \x01(\tB\xb3\x01\xbaH\xaf\x01\xba\x01E\n" +
 	"\rstring.minLen\x12#value must be at least 2 characters\x1a\x0fsize(this) >= 2\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01r\x142\x12[\\p{L}\\p{N}\\-_()]+R\x05title\x127\n" +

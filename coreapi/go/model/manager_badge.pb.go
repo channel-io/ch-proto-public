@@ -31,7 +31,6 @@ type ManagerBadge struct {
 	// Uses the same value as the owning manager's ID.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Alert-level unread count in team chat main conversations.
 	// Defaults to 0.
@@ -209,10 +208,9 @@ var File_coreapi_model_manager_badge_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_manager_badge_proto_rawDesc = "" +
 	"\n" +
-	"!coreapi/model/manager_badge.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9f\x04\n" +
-	"\fManagerBadge\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12&\n" +
+	"!coreapi/model/manager_badge.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd8\x03\n" +
+	"\fManagerBadge\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12&\n" +
 	"\x0fteam_chat_alert\x18\x02 \x01(\x05R\rteamChatAlert\x12(\n" +
 	"\x10team_chat_unread\x18\x03 \x01(\x05R\x0eteamChatUnread\x12&\n" +
 	"\x0fuser_chat_alert\x18\x04 \x01(\x05R\ruserChatAlert\x12(\n" +

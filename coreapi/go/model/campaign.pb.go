@@ -200,12 +200,10 @@ type Campaign struct {
 	// Unique campaign identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this campaign belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Human-readable label for the campaign.
 	//
@@ -678,13 +676,11 @@ var File_coreapi_model_campaign_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_campaign_proto_rawDesc = "" +
 	"\n" +
-	"\x1ccoreapi/model/campaign.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a-coreapi/model/holding_property_constant.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1ecoreapi/model/time_range.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x84\x13\n" +
-	"\bCampaign\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"\x1ccoreapi/model/campaign.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a-coreapi/model/holding_property_constant.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1ecoreapi/model/time_range.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf6\x11\n" +
+	"\bCampaign\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\xb3\x01\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xb3\x01\n" +
 	"\x04name\x18\x03 \x01(\tB\x9e\x01\xbaH\x9a\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128\xc8\x01\x01R\x04name\x12:\n" +

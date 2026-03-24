@@ -84,7 +84,6 @@ type MessageFile struct {
 	// Unique file identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// High-level media category derived from the MIME type (e.g. "image", "video", "audio").
 	//
@@ -341,10 +340,9 @@ var File_coreapi_model_message_file_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_message_file_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/message_file.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\x9d\b\n" +
-	"\vMessageFile\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12\x12\n" +
+	" coreapi/model/message_file.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\xd6\a\n" +
+	"\vMessageFile\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12\x12\n" +
 	"\x04type\x18\x02 \x01(\tR\x04type\x12a\n" +
 	"\x04name\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x04name\x12\x1a\n" +

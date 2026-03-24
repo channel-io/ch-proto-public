@@ -11,7 +11,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Unique channel identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +21,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Unique channel identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -432,20 +430,20 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * System-assigned default domain.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+   * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
    * @return The defaultDomain.
    */
   java.lang.String getDefaultDomain();
   /**
    * <pre>
    * System-assigned default domain.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+   * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
    * @return The bytes for defaultDomain.
    */
   com.google.protobuf.ByteString
@@ -524,10 +522,10 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Whether to display individual operator profiles instead of the channel identity to end users.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile"];</code>
+   * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile", (.buf.validate.field) = { ... }</code>
    * @return The showOperatorProfile.
    */
   boolean getShowOperatorProfile();
@@ -535,10 +533,10 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Whether the new chat button is hidden from end users.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton"];</code>
+   * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton", (.buf.validate.field) = { ... }</code>
    * @return The disableNewChatButton.
    */
   boolean getDisableNewChatButton();
@@ -594,10 +592,10 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Whether the follow-up form asks for the user's name.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName"];</code>
+   * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName", (.buf.validate.field) = { ... }</code>
    * @return The followUpAskName.
    */
   boolean getFollowUpAskName();
@@ -605,10 +603,10 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Whether the follow-up form must be completed before the user can start a conversation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory"];</code>
+   * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory", (.buf.validate.field) = { ... }</code>
    * @return The followUpMandatory.
    */
   boolean getFollowUpMandatory();
@@ -617,10 +615,10 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Current lifecycle state of the channel.
    * See ChannelState for possible values.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
    * @return The enum numeric value on the wire for state.
    */
   int getStateValue();
@@ -628,10 +626,10 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Current lifecycle state of the channel.
    * See ChannelState for possible values.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
    * @return The state.
    */
   io.channel.api.proto.pub.coreapi.model.ChannelState getState();
@@ -639,10 +637,10 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Whether the channel is verified as an enterprise account.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool ent_verified = 27 [json_name = "entVerified"];</code>
+   * <code>bool ent_verified = 27 [json_name = "entVerified", (.buf.validate.field) = { ... }</code>
    * @return The entVerified.
    */
   boolean getEntVerified();
@@ -805,10 +803,10 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Whether multi-factor authentication is required for managers in this channel.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool enable_mfa = 36 [json_name = "enableMfa"];</code>
+   * <code>bool enable_mfa = 36 [json_name = "enableMfa", (.buf.validate.field) = { ... }</code>
    * @return The enableMfa.
    */
   boolean getEnableMfa();
@@ -816,10 +814,10 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Whether the messenger widget is hidden from end users on the website.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger"];</code>
+   * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger", (.buf.validate.field) = { ... }</code>
    * @return The hideAppMessenger.
    */
   boolean getHideAppMessenger();
@@ -828,10 +826,10 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Whether the channel holds a business certification.
    * Derived from biz_certificated_countries; true when at least one country is certified.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool biz_certificated = 38 [json_name = "bizCertificated"];</code>
+   * <code>bool biz_certificated = 38 [json_name = "bizCertificated", (.buf.validate.field) = { ... }</code>
    * @return The bizCertificated.
    */
   boolean getBizCertificated();
@@ -839,10 +837,10 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed"];</code>
+   * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed", (.buf.validate.field) = { ... }</code>
    * @return The mktAlimtalkAllowed.
    */
   boolean getMktAlimtalkAllowed();
@@ -899,10 +897,10 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Whether the front-end ALF v2 AI assistant is enabled for end users.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2"];</code>
+   * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2", (.buf.validate.field) = { ... }</code>
    * @return The enableFrontAlfV2.
    */
   boolean getEnableFrontAlfV2();
@@ -911,10 +909,10 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Whether the channel is currently blocked.
    * Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool blocked = 42 [json_name = "blocked"];</code>
+   * <code>bool blocked = 42 [json_name = "blocked", (.buf.validate.field) = { ... }</code>
    * @return The blocked.
    */
   boolean getBlocked();
@@ -923,10 +921,10 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Whether the channel is currently accepting new conversations.
    * True when the channel is not blocked and is within operating hours.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool working = 43 [json_name = "working"];</code>
+   * <code>bool working = 43 [json_name = "working", (.buf.validate.field) = { ... }</code>
    * @return The working.
    */
   boolean getWorking();
@@ -982,10 +980,10 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Whether the channel is currently within operating hours.
    * Derived from the operating schedule configuration.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool in_operation = 46 [json_name = "inOperation"];</code>
+   * <code>bool in_operation = 46 [json_name = "inOperation", (.buf.validate.field) = { ... }</code>
    * @return The inOperation.
    */
   boolean getInOperation();
@@ -994,10 +992,10 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Whether operating hour scheduling is enabled.
    * When false, the channel is always considered in operation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling"];</code>
+   * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling", (.buf.validate.field) = { ... }</code>
    * @return The operationTimeScheduling.
    */
   boolean getOperationTimeScheduling();
@@ -1143,10 +1141,10 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Whether end-user replying is blocked after a conversation is closed.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed"];</code>
+   * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed", (.buf.validate.field) = { ... }</code>
    * @return The blockReplyingAfterClosed.
    */
   boolean getBlockReplyingAfterClosed();

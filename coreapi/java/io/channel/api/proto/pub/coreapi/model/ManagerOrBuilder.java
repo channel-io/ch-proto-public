@@ -11,7 +11,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Unique manager identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +21,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Unique manager identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +33,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Channel ID this manager belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -46,7 +43,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Channel ID this manager belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -60,7 +56,6 @@ public interface ManagerOrBuilder extends
    * Account ID of the person linked to this manager.
    * Unique per channel among non-removed managers.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -72,7 +67,6 @@ public interface ManagerOrBuilder extends
    * Account ID of the person linked to this manager.
    * Unique per channel among non-removed managers.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -138,10 +132,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether the description is visible to end-user visitors.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront"];</code>
+   * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront", (.buf.validate.field) = { ... }</code>
    * @return The showDescriptionToFront.
    */
   boolean getShowDescriptionToFront();
@@ -262,10 +256,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether the email address is visible to end-user visitors.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool show_email_to_front = 10 [json_name = "showEmailToFront"];</code>
+   * <code>bool show_email_to_front = 10 [json_name = "showEmailToFront", (.buf.validate.field) = { ... }</code>
    * @return The showEmailToFront.
    */
   boolean getShowEmailToFront();
@@ -295,10 +289,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether the mobile number is visible to end-user visitors.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool show_mobile_number_to_front = 12 [json_name = "showMobileNumberToFront"];</code>
+   * <code>bool show_mobile_number_to_front = 12 [json_name = "showMobileNumberToFront", (.buf.validate.field) = { ... }</code>
    * @return The showMobileNumberToFront.
    */
   boolean getShowMobileNumberToFront();
@@ -328,10 +322,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether this manager has been soft-deleted from the channel.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool removed = 14 [json_name = "removed"];</code>
+   * <code>bool removed = 14 [json_name = "removed", (.buf.validate.field) = { ... }</code>
    * @return The removed.
    */
   boolean getRemoved();
@@ -432,10 +426,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether this manager appears as the channel identity instead of their personal profile.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool display_as_channel = 18 [json_name = "displayAsChannel"];</code>
+   * <code>bool display_as_channel = 18 [json_name = "displayAsChannel", (.buf.validate.field) = { ... }</code>
    * @return The displayAsChannel.
    */
   boolean getDisplayAsChannel();
@@ -558,10 +552,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether to receive mobile push notifications even while the manager is online on desktop.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool receive_mobile_push_when_online = 24 [json_name = "receiveMobilePushWhenOnline"];</code>
+   * <code>bool receive_mobile_push_when_online = 24 [json_name = "receiveMobilePushWhenOnline", (.buf.validate.field) = { ... }</code>
    * @return The receiveMobilePushWhenOnline.
    */
   boolean getReceiveMobilePushWhenOnline();
@@ -569,10 +563,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether to include a preview of internal (private) messages in push notifications.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool show_private_message_preview = 25 [json_name = "showPrivateMessagePreview"];</code>
+   * <code>bool show_private_message_preview = 25 [json_name = "showPrivateMessagePreview", (.buf.validate.field) = { ... }</code>
    * @return The showPrivateMessagePreview.
    */
   boolean getShowPrivateMessagePreview();
@@ -604,10 +598,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether periodic email reminders for unhandled conversations are enabled.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool operator_email_reminder = 28 [json_name = "operatorEmailReminder"];</code>
+   * <code>bool operator_email_reminder = 28 [json_name = "operatorEmailReminder", (.buf.validate.field) = { ... }</code>
    * @return The operatorEmailReminder.
    */
   boolean getOperatorEmailReminder();
@@ -615,10 +609,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether to receive alerts when a new conversation is waiting to be assigned.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool receive_unassigned_alert = 29 [json_name = "receiveUnassignedAlert"];</code>
+   * <code>bool receive_unassigned_alert = 29 [json_name = "receiveUnassignedAlert", (.buf.validate.field) = { ... }</code>
    * @return The receiveUnassignedAlert.
    */
   boolean getReceiveUnassignedAlert();
@@ -626,10 +620,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether to receive alerts for conversations that were not responded to in time.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool receive_missed_chat_alert = 30 [json_name = "receiveMissedChatAlert"];</code>
+   * <code>bool receive_missed_chat_alert = 30 [json_name = "receiveMissedChatAlert", (.buf.validate.field) = { ... }</code>
    * @return The receiveMissedChatAlert.
    */
   boolean getReceiveMissedChatAlert();
@@ -637,10 +631,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether to receive alerts specifically for unassigned chat conversations.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool receive_unassigned_chat_alert = 31 [json_name = "receiveUnassignedChatAlert"];</code>
+   * <code>bool receive_unassigned_chat_alert = 31 [json_name = "receiveUnassignedChatAlert", (.buf.validate.field) = { ... }</code>
    * @return The receiveUnassignedChatAlert.
    */
   boolean getReceiveUnassignedChatAlert();
@@ -648,10 +642,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether to receive alerts for unassigned meet (call) sessions.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool receive_unassigned_meet_alert = 32 [json_name = "receiveUnassignedMeetAlert"];</code>
+   * <code>bool receive_unassigned_meet_alert = 32 [json_name = "receiveUnassignedMeetAlert", (.buf.validate.field) = { ... }</code>
    * @return The receiveUnassignedMeetAlert.
    */
   boolean getReceiveUnassignedMeetAlert();
@@ -659,10 +653,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether this manager is currently active as an operator handling customer conversations.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool operator = 33 [json_name = "operator"];</code>
+   * <code>bool operator = 33 [json_name = "operator", (.buf.validate.field) = { ... }</code>
    * @return The operator.
    */
   boolean getOperator();
@@ -692,10 +686,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether &#64;all mentions in conversations are automatically marked as important.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool default_all_mention_important = 35 [json_name = "defaultAllMentionImportant"];</code>
+   * <code>bool default_all_mention_important = 35 [json_name = "defaultAllMentionImportant", (.buf.validate.field) = { ... }</code>
    * @return The defaultAllMentionImportant.
    */
   boolean getDefaultAllMentionImportant();
@@ -703,10 +697,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether incoming user messages are automatically marked as important.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool user_message_important = 36 [json_name = "userMessageImportant"];</code>
+   * <code>bool user_message_important = 36 [json_name = "userMessageImportant", (.buf.validate.field) = { ... }</code>
    * @return The userMessageImportant.
    */
   boolean getUserMessageImportant();
@@ -772,10 +766,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether auto-assignment is enabled when the manager joins a synchronous chat session.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool enable_auto_assign_on_sync = 39 [json_name = "enableAutoAssignOnSync"];</code>
+   * <code>bool enable_auto_assign_on_sync = 39 [json_name = "enableAutoAssignOnSync", (.buf.validate.field) = { ... }</code>
    * @return The enableAutoAssignOnSync.
    */
   boolean getEnableAutoAssignOnSync();
@@ -863,10 +857,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether do-not-disturb mode is active, suppressing all notifications for this manager.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool do_not_disturb = 43 [json_name = "doNotDisturb"];</code>
+   * <code>bool do_not_disturb = 43 [json_name = "doNotDisturb", (.buf.validate.field) = { ... }</code>
    * @return The doNotDisturb.
    */
   boolean getDoNotDisturb();
@@ -904,10 +898,10 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Whether account-level do-not-disturb mode is active across all channels.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool account_do_not_disturb = 45 [json_name = "accountDoNotDisturb"];</code>
+   * <code>bool account_do_not_disturb = 45 [json_name = "accountDoNotDisturb", (.buf.validate.field) = { ... }</code>
    * @return The accountDoNotDisturb.
    */
   boolean getAccountDoNotDisturb();

@@ -30,38 +30,35 @@ public final class ChatTagOuterClass {
     java.lang.String[] descriptorData = {
       "\n\034coreapi/model/chat_tag.proto\022\rcoreapi." +
       "model\032\033buf/validate/validate.proto\032\037goog" +
-      "le/protobuf/timestamp.proto\"\201\006\n\007ChatTag\022" +
-      "]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"valu" +
-      "e must be at least 1 character\032\017size(thi" +
-      "s) >= 1\310\001\001R\002id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272" +
-      "\001D\n\rstring.minLen\022\"value must be at leas" +
-      "t 1 character\032\017size(this) >= 1\310\001\001R\tchann" +
-      "elId\022G\n\rcolor_variant\030\003 \001(\0162\".coreapi.mo" +
-      "del.ChatTagColorVariantR\014colorVariant\022\304\001" +
-      "\n\004name\030\004 \001(\tB\257\001\272H\253\001\272\001D\n\rstring.minLen\022\"v" +
-      "alue must be at least 1 character\032\017size(" +
-      "this) >= 1\272\001M\n\rstring.maxLen\022)value must" +
-      " be no more than 128 characters\032\021size(th" +
-      "is) <= 128\310\001\001r\0172\r^[^.\\\\$%\\s]+$R\004name\022_\n\003" +
-      "key\030\005 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value " +
-      "must be at least 1 character\032\017size(this)" +
-      " >= 1\310\001\001R\003key\022u\n\013description\030\006 \001(\tBS\272HP\272" +
-      "\001M\n\rstring.maxLen\022)value must be no more" +
-      " than 128 characters\032\021size(this) <= 128R" +
-      "\013description\022A\n\ncreated_at\030\007 \001(\0132\032.googl" +
-      "e.protobuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt*" +
-      "\357\002\n\023ChatTagColorVariant\022&\n\"CHAT_TAG_COLO" +
-      "R_VARIANT_UNSPECIFIED\020\000\022\036\n\032CHAT_TAG_COLO" +
-      "R_VARIANT_RED\020\001\022!\n\035CHAT_TAG_COLOR_VARIAN" +
-      "T_ORANGE\020\002\022!\n\035CHAT_TAG_COLOR_VARIANT_YEL" +
-      "LOW\020\003\022 \n\034CHAT_TAG_COLOR_VARIANT_OLIVE\020\004\022" +
-      " \n\034CHAT_TAG_COLOR_VARIANT_GREEN\020\005\022!\n\035CHA" +
-      "T_TAG_COLOR_VARIANT_COBALT\020\006\022!\n\035CHAT_TAG" +
-      "_COLOR_VARIANT_PURPLE\020\007\022\037\n\033CHAT_TAG_COLO" +
-      "R_VARIANT_PINK\020\010\022\037\n\033CHAT_TAG_COLOR_VARIA" +
-      "NT_NAVY\020\tBb\n&io.channel.api.proto.pub.co" +
-      "reapi.modelP\001Z6github.com/channel-io/ch-" +
-      "proto-public/coreapi/go/modelb\006proto3"
+      "le/protobuf/timestamp.proto\"\363\004\n\007ChatTag\022" +
+      "\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022%\n\nchannel_id\030\002 " +
+      "\001(\tB\006\272H\003\310\001\001R\tchannelId\022G\n\rcolor_variant\030" +
+      "\003 \001(\0162\".coreapi.model.ChatTagColorVarian" +
+      "tR\014colorVariant\022\304\001\n\004name\030\004 \001(\tB\257\001\272H\253\001\272\001D" +
+      "\n\rstring.minLen\022\"value must be at least " +
+      "1 character\032\017size(this) >= 1\272\001M\n\rstring." +
+      "maxLen\022)value must be no more than 128 c" +
+      "haracters\032\021size(this) <= 128\310\001\001r\0172\r^[^.\\" +
+      "\\$%\\s]+$R\004name\022_\n\003key\030\005 \001(\tBM\272HJ\272\001D\n\rstr" +
+      "ing.minLen\022\"value must be at least 1 cha" +
+      "racter\032\017size(this) >= 1\310\001\001R\003key\022u\n\013descr" +
+      "iption\030\006 \001(\tBS\272HP\272\001M\n\rstring.maxLen\022)val" +
+      "ue must be no more than 128 characters\032\021" +
+      "size(this) <= 128R\013description\022A\n\ncreate" +
+      "d_at\030\007 \001(\0132\032.google.protobuf.TimestampB\006" +
+      "\272H\003\310\001\001R\tcreatedAt*\357\002\n\023ChatTagColorVarian" +
+      "t\022&\n\"CHAT_TAG_COLOR_VARIANT_UNSPECIFIED\020" +
+      "\000\022\036\n\032CHAT_TAG_COLOR_VARIANT_RED\020\001\022!\n\035CHA" +
+      "T_TAG_COLOR_VARIANT_ORANGE\020\002\022!\n\035CHAT_TAG" +
+      "_COLOR_VARIANT_YELLOW\020\003\022 \n\034CHAT_TAG_COLO" +
+      "R_VARIANT_OLIVE\020\004\022 \n\034CHAT_TAG_COLOR_VARI" +
+      "ANT_GREEN\020\005\022!\n\035CHAT_TAG_COLOR_VARIANT_CO" +
+      "BALT\020\006\022!\n\035CHAT_TAG_COLOR_VARIANT_PURPLE\020" +
+      "\007\022\037\n\033CHAT_TAG_COLOR_VARIANT_PINK\020\010\022\037\n\033CH" +
+      "AT_TAG_COLOR_VARIANT_NAVY\020\tBb\n&io.channe" +
+      "l.api.proto.pub.coreapi.modelP\001Z6github." +
+      "com/channel-io/ch-proto-public/coreapi/g" +
+      "o/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

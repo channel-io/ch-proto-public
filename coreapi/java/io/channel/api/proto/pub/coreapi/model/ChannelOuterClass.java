@@ -43,110 +43,111 @@ public final class ChannelOuterClass {
       "pi/model/name_desc.proto\032\036coreapi/model/" +
       "time_range.proto\032\036google/protobuf/durati" +
       "on.proto\032\034google/protobuf/struct.proto\032\037" +
-      "google/protobuf/timestamp.proto\"\356\032\n\007Chan" +
-      "nel\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"" +
-      "value must be at least 1 character\032\017size" +
-      "(this) >= 1\310\001\001R\002id\022H\n\017welcome_message\030\002 " +
-      "\001(\0132\027.google.protobuf.StructB\006\272H\003\310\001\001R\016we" +
-      "lcomeMessage\022j\n\030welcome_message_i18n_map" +
-      "\030\003 \003(\01321.coreapi.model.Channel.WelcomeMe" +
-      "ssageI18nMapEntryR\025welcomeMessageI18nMap" +
-      "\022A\n\ncreated_at\030\004 \001(\0132\032.google.protobuf.T" +
-      "imestampB\006\272H\003\310\001\001R\tcreatedAt\022A\n\nupdated_a" +
-      "t\030\005 \001(\0132\032.google.protobuf.TimestampB\006\272H\003" +
-      "\310\001\001R\tupdatedAt\022\"\n\ruser_info_url\030\006 \001(\tR\013u" +
-      "serInfoUrl\022\261\001\n\004name\030\007 \001(\tB\234\001\272H\230\001\272\001D\n\rstr" +
-      "ing.minLen\022\"value must be at least 1 cha" +
-      "racter\032\017size(this) >= 1\272\001K\n\rstring.maxLe" +
-      "n\022(value must be no more than 30 charact" +
-      "ers\032\020size(this) <= 30\310\001\001R\004name\022X\n\022name_d" +
-      "esc_i18n_map\030\010 \003(\0132+.coreapi.model.Chann" +
-      "el.NameDescI18nMapEntryR\017nameDescI18nMap" +
-      "\022*\n\021cover_image_color\030\t \001(\tR\017coverImageC" +
-      "olor\022!\n\010bot_name\030\n \001(\tB\006\272H\003\310\001\001R\007botName\022" +
-      "\034\n\005color\030\013 \001(\tB\006\272H\003\310\001\001R\005color\022u\n\013descrip" +
-      "tion\030\014 \001(\tBS\272HP\272\001M\n\rstring.maxLen\022)value" +
-      " must be no more than 180 characters\032\021si" +
-      "ze(this) <= 180R\013description\022\030\n\007country\030" +
-      "\r \001(\tR\007country\022\026\n\006domain\030\016 \001(\tR\006domain\022%" +
-      "\n\016default_domain\030\017 \001(\tR\rdefaultDomain\022!\n" +
-      "\014homepage_url\030\020 \001(\tR\013homepageUrl\022!\n\014phon" +
-      "e_number\030\021 \001(\tR\013phoneNumber\022#\n\ttime_zone" +
-      "\030\022 \001(\tB\006\272H\003\310\001\001R\010timeZone\0222\n\025show_operato" +
-      "r_profile\030\023 \001(\010R\023showOperatorProfile\0225\n\027" +
-      "disable_new_chat_button\030\024 \001(\010R\024disableNe" +
-      "wChatButton\022*\n\021indebted_due_date\030\025 \001(\tR\017" +
-      "indebtedDueDate\0222\n\021follow_up_texting\030\026 \001" +
-      "(\010B\006\272H\003\310\001\001R\017followUpTexting\022.\n\017follow_up" +
-      "_email\030\027 \001(\010B\006\272H\003\310\001\001R\rfollowUpEmail\022+\n\022f" +
-      "ollow_up_ask_name\030\030 \001(\010R\017followUpAskName" +
-      "\022.\n\023follow_up_mandatory\030\031 \001(\010R\021followUpM" +
-      "andatory\0229\n\005state\030\032 \001(\0162\033.coreapi.model." +
-      "ChannelStateB\006\272H\003\310\001\001R\005state\022!\n\014ent_verif" +
-      "ied\030\033 \001(\010R\013entVerified\022*\n\021default_plugin" +
-      "_id\030\034 \001(\tR\017defaultPluginId\022!\n\014biz_catego" +
-      "ry\030\035 \001(\tR\013bizCategory\022\026\n\006staffs\030\036 \001(\005R\006s" +
-      "taffs\022&\n\017app_commerce_id\030\037 \001(\tR\rappComme" +
-      "rceId\022*\n\021app_commerce_type\030  \001(\tR\017appCom" +
-      "merceType\022.\n\023app_commerce_domain\030! \001(\tR\021" +
-      "appCommerceDomain\022,\n\022enable_member_hash\030" +
-      "\" \001(\010R\020enableMemberHash\0225\n\027default_email" +
-      "_domain_id\030# \001(\tR\024defaultEmailDomainId\022\035" +
-      "\n\nenable_mfa\030$ \001(\010R\tenableMfa\022,\n\022hide_ap" +
-      "p_messenger\030% \001(\010R\020hideAppMessenger\022)\n\020b" +
-      "iz_certificated\030& \001(\010R\017bizCertificated\0220" +
-      "\n\024mkt_alimtalk_allowed\030\' \001(\010R\022mktAlimtal" +
-      "kAllowed\022<\n\032biz_certificated_countries\030(" +
-      " \003(\tR\030bizCertificatedCountries\022-\n\023enable" +
-      "_front_alf_v2\030) \001(\010R\020enableFrontAlfV2\022\030\n" +
-      "\007blocked\030* \001(\010R\007blocked\022\030\n\007working\030+ \001(\010" +
-      "R\007working\022\035\n\navatar_url\030, \001(\tR\tavatarUrl" +
-      "\022X\n\027expected_response_delay\030- \001(\0162 .core" +
-      "api.model.ResponseDelayTypeR\025expectedRes" +
-      "ponseDelay\022!\n\014in_operation\030. \001(\010R\013inOper" +
-      "ation\022:\n\031operation_time_scheduling\030/ \001(\010" +
-      "R\027operationTimeScheduling\022F\n\021next_workin" +
-      "g_time\0300 \001(\0132\032.google.protobuf.Timestamp" +
-      "R\017nextWorkingTime\022@\n\016next_away_time\0301 \001(" +
-      "\0132\032.google.protobuf.TimestampR\014nextAwayT" +
-      "ime\022L\n\025operation_time_ranges\0302 \003(\0132\030.cor" +
-      "eapi.model.TimeRangeR\023operationTimeRange" +
-      "s\022A\n\013away_option\0303 \001(\0162 .coreapi.model.C" +
-      "hannelAwayOptionR\nawayOption\022=\n\033block_re" +
-      "plying_after_closed\0304 \001(\010R\030blockReplying" +
-      "AfterClosed\022a\n block_replying_after_clos" +
-      "ed_time\0305 \001(\0132\031.google.protobuf.Duration" +
-      "R\034blockReplyingAfterClosedTime\022!\n\014border" +
-      "_color\0306 \001(\tR\013borderColor\022%\n\016gradient_co" +
-      "lor\0307 \001(\tR\rgradientColor\022\035\n\ntext_color\0308" +
-      " \001(\tR\ttextColor\022\030\n\007initial\0309 \001(\tR\007initia" +
-      "l\022#\n\rsystem_domain\030: \001(\tR\014systemDomain\022*" +
-      "\n\021plugin_icon_color\030; \001(\tR\017pluginIconCol" +
-      "or\022\036\n\nbrightness\030< \001(\002R\nbrightness\022&\n\017co" +
-      "ver_image_url\030= \001(\tR\rcoverImageUrl\022,\n\022co" +
-      "ver_image_bright\030> \001(\010R\020coverImageBright" +
-      "\032a\n\032WelcomeMessageI18nMapEntry\022\020\n\003key\030\001 " +
-      "\001(\tR\003key\022-\n\005value\030\002 \001(\0132\027.google.protobu" +
-      "f.StructR\005value:\0028\001\032[\n\024NameDescI18nMapEn" +
-      "try\022\020\n\003key\030\001 \001(\tR\003key\022-\n\005value\030\002 \001(\0132\027.c" +
-      "oreapi.model.NameDescR\005value:\0028\001*\361\001\n\014Cha" +
-      "nnelState\022\035\n\031CHANNEL_STATE_UNSPECIFIED\020\000" +
-      "\022\031\n\025CHANNEL_STATE_WAITING\020\001\022\030\n\024CHANNEL_S" +
-      "TATE_ACTIVE\020\002\022\034\n\030CHANNEL_STATE_RESTRICTE" +
-      "D\020\003\022\036\n\032CHANNEL_STATE_PRE_INDEBTED\020\004\022\032\n\026C" +
-      "HANNEL_STATE_INDEBTED\020\005\022\030\n\024CHANNEL_STATE" +
-      "_BANNED\020\006\022\031\n\025CHANNEL_STATE_REMOVED\020\007*\232\001\n" +
-      "\021ChannelAwayOption\022#\n\037CHANNEL_AWAY_OPTIO" +
-      "N_UNSPECIFIED\020\000\022\036\n\032CHANNEL_AWAY_OPTION_A" +
-      "CTIVE\020\001\022 \n\034CHANNEL_AWAY_OPTION_DISABLED\020" +
-      "\002\022\036\n\032CHANNEL_AWAY_OPTION_HIDDEN\020\003*\232\001\n\021Re" +
-      "sponseDelayType\022#\n\037RESPONSE_DELAY_TYPE_U" +
-      "NSPECIFIED\020\000\022\037\n\033RESPONSE_DELAY_TYPE_INST" +
-      "ANT\020\001\022\036\n\032RESPONSE_DELAY_TYPE_NORMAL\020\002\022\037\n" +
-      "\033RESPONSE_DELAY_TYPE_DELAYED\020\003Bb\n&io.cha" +
-      "nnel.api.proto.pub.coreapi.modelP\001Z6gith" +
-      "ub.com/channel-io/ch-proto-public/coreap" +
-      "i/go/modelb\006proto3"
+      "google/protobuf/timestamp.proto\"\237\033\n\007Chan" +
+      "nel\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022H\n\017welcome_m" +
+      "essage\030\002 \001(\0132\027.google.protobuf.StructB\006\272" +
+      "H\003\310\001\001R\016welcomeMessage\022j\n\030welcome_message" +
+      "_i18n_map\030\003 \003(\01321.coreapi.model.Channel." +
+      "WelcomeMessageI18nMapEntryR\025welcomeMessa" +
+      "geI18nMap\022A\n\ncreated_at\030\004 \001(\0132\032.google.p" +
+      "rotobuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt\022A\n\n" +
+      "updated_at\030\005 \001(\0132\032.google.protobuf.Times" +
+      "tampB\006\272H\003\310\001\001R\tupdatedAt\022\"\n\ruser_info_url" +
+      "\030\006 \001(\tR\013userInfoUrl\022\261\001\n\004name\030\007 \001(\tB\234\001\272H\230" +
+      "\001\272\001D\n\rstring.minLen\022\"value must be at le" +
+      "ast 1 character\032\017size(this) >= 1\272\001K\n\rstr" +
+      "ing.maxLen\022(value must be no more than 3" +
+      "0 characters\032\020size(this) <= 30\310\001\001R\004name\022" +
+      "X\n\022name_desc_i18n_map\030\010 \003(\0132+.coreapi.mo" +
+      "del.Channel.NameDescI18nMapEntryR\017nameDe" +
+      "scI18nMap\022*\n\021cover_image_color\030\t \001(\tR\017co" +
+      "verImageColor\022!\n\010bot_name\030\n \001(\tB\006\272H\003\310\001\001R" +
+      "\007botName\022\034\n\005color\030\013 \001(\tB\006\272H\003\310\001\001R\005color\022u" +
+      "\n\013description\030\014 \001(\tBS\272HP\272\001M\n\rstring.maxL" +
+      "en\022)value must be no more than 180 chara" +
+      "cters\032\021size(this) <= 180R\013description\022\030\n" +
+      "\007country\030\r \001(\tR\007country\022\026\n\006domain\030\016 \001(\tR" +
+      "\006domain\022-\n\016default_domain\030\017 \001(\tB\006\272H\003\310\001\001R" +
+      "\rdefaultDomain\022!\n\014homepage_url\030\020 \001(\tR\013ho" +
+      "mepageUrl\022!\n\014phone_number\030\021 \001(\tR\013phoneNu" +
+      "mber\022#\n\ttime_zone\030\022 \001(\tB\006\272H\003\310\001\001R\010timeZon" +
+      "e\022:\n\025show_operator_profile\030\023 \001(\010B\006\272H\003\310\001\001" +
+      "R\023showOperatorProfile\022=\n\027disable_new_cha" +
+      "t_button\030\024 \001(\010B\006\272H\003\310\001\001R\024disableNewChatBu" +
+      "tton\022*\n\021indebted_due_date\030\025 \001(\tR\017indebte" +
+      "dDueDate\0222\n\021follow_up_texting\030\026 \001(\010B\006\272H\003" +
+      "\310\001\001R\017followUpTexting\022.\n\017follow_up_email\030" +
+      "\027 \001(\010B\006\272H\003\310\001\001R\rfollowUpEmail\0223\n\022follow_u" +
+      "p_ask_name\030\030 \001(\010B\006\272H\003\310\001\001R\017followUpAskNam" +
+      "e\0226\n\023follow_up_mandatory\030\031 \001(\010B\006\272H\003\310\001\001R\021" +
+      "followUpMandatory\0221\n\005state\030\032 \001(\0162\033.corea" +
+      "pi.model.ChannelStateR\005state\022)\n\014ent_veri" +
+      "fied\030\033 \001(\010B\006\272H\003\310\001\001R\013entVerified\022*\n\021defau" +
+      "lt_plugin_id\030\034 \001(\tR\017defaultPluginId\022!\n\014b" +
+      "iz_category\030\035 \001(\tR\013bizCategory\022\026\n\006staffs" +
+      "\030\036 \001(\005R\006staffs\022&\n\017app_commerce_id\030\037 \001(\tR" +
+      "\rappCommerceId\022*\n\021app_commerce_type\030  \001(" +
+      "\tR\017appCommerceType\022.\n\023app_commerce_domai" +
+      "n\030! \001(\tR\021appCommerceDomain\022,\n\022enable_mem" +
+      "ber_hash\030\" \001(\010R\020enableMemberHash\0225\n\027defa" +
+      "ult_email_domain_id\030# \001(\tR\024defaultEmailD" +
+      "omainId\022%\n\nenable_mfa\030$ \001(\010B\006\272H\003\310\001\001R\tena" +
+      "bleMfa\0224\n\022hide_app_messenger\030% \001(\010B\006\272H\003\310" +
+      "\001\001R\020hideAppMessenger\0221\n\020biz_certificated" +
+      "\030& \001(\010B\006\272H\003\310\001\001R\017bizCertificated\0228\n\024mkt_a" +
+      "limtalk_allowed\030\' \001(\010B\006\272H\003\310\001\001R\022mktAlimta" +
+      "lkAllowed\022<\n\032biz_certificated_countries\030" +
+      "( \003(\tR\030bizCertificatedCountries\0225\n\023enabl" +
+      "e_front_alf_v2\030) \001(\010B\006\272H\003\310\001\001R\020enableFron" +
+      "tAlfV2\022 \n\007blocked\030* \001(\010B\006\272H\003\310\001\001R\007blocked" +
+      "\022 \n\007working\030+ \001(\010B\006\272H\003\310\001\001R\007working\022\035\n\nav" +
+      "atar_url\030, \001(\tR\tavatarUrl\022X\n\027expected_re" +
+      "sponse_delay\030- \001(\0162 .coreapi.model.Respo" +
+      "nseDelayTypeR\025expectedResponseDelay\022)\n\014i" +
+      "n_operation\030. \001(\010B\006\272H\003\310\001\001R\013inOperation\022B" +
+      "\n\031operation_time_scheduling\030/ \001(\010B\006\272H\003\310\001" +
+      "\001R\027operationTimeScheduling\022F\n\021next_worki" +
+      "ng_time\0300 \001(\0132\032.google.protobuf.Timestam" +
+      "pR\017nextWorkingTime\022@\n\016next_away_time\0301 \001" +
+      "(\0132\032.google.protobuf.TimestampR\014nextAway" +
+      "Time\022L\n\025operation_time_ranges\0302 \003(\0132\030.co" +
+      "reapi.model.TimeRangeR\023operationTimeRang" +
+      "es\022A\n\013away_option\0303 \001(\0162 .coreapi.model." +
+      "ChannelAwayOptionR\nawayOption\022E\n\033block_r" +
+      "eplying_after_closed\0304 \001(\010B\006\272H\003\310\001\001R\030bloc" +
+      "kReplyingAfterClosed\022a\n block_replying_a" +
+      "fter_closed_time\0305 \001(\0132\031.google.protobuf" +
+      ".DurationR\034blockReplyingAfterClosedTime\022" +
+      "!\n\014border_color\0306 \001(\tR\013borderColor\022%\n\016gr" +
+      "adient_color\0307 \001(\tR\rgradientColor\022\035\n\ntex" +
+      "t_color\0308 \001(\tR\ttextColor\022\030\n\007initial\0309 \001(" +
+      "\tR\007initial\022#\n\rsystem_domain\030: \001(\tR\014syste" +
+      "mDomain\022*\n\021plugin_icon_color\030; \001(\tR\017plug" +
+      "inIconColor\022\036\n\nbrightness\030< \001(\002R\nbrightn" +
+      "ess\022&\n\017cover_image_url\030= \001(\tR\rcoverImage" +
+      "Url\022,\n\022cover_image_bright\030> \001(\010R\020coverIm" +
+      "ageBright\032a\n\032WelcomeMessageI18nMapEntry\022" +
+      "\020\n\003key\030\001 \001(\tR\003key\022-\n\005value\030\002 \001(\0132\027.googl" +
+      "e.protobuf.StructR\005value:\0028\001\032[\n\024NameDesc" +
+      "I18nMapEntry\022\020\n\003key\030\001 \001(\tR\003key\022-\n\005value\030" +
+      "\002 \001(\0132\027.coreapi.model.NameDescR\005value:\0028" +
+      "\001*\361\001\n\014ChannelState\022\035\n\031CHANNEL_STATE_UNSP" +
+      "ECIFIED\020\000\022\031\n\025CHANNEL_STATE_WAITING\020\001\022\030\n\024" +
+      "CHANNEL_STATE_ACTIVE\020\002\022\034\n\030CHANNEL_STATE_" +
+      "RESTRICTED\020\003\022\036\n\032CHANNEL_STATE_PRE_INDEBT" +
+      "ED\020\004\022\032\n\026CHANNEL_STATE_INDEBTED\020\005\022\030\n\024CHAN" +
+      "NEL_STATE_BANNED\020\006\022\031\n\025CHANNEL_STATE_REMO" +
+      "VED\020\007*\232\001\n\021ChannelAwayOption\022#\n\037CHANNEL_A" +
+      "WAY_OPTION_UNSPECIFIED\020\000\022\036\n\032CHANNEL_AWAY" +
+      "_OPTION_ACTIVE\020\001\022 \n\034CHANNEL_AWAY_OPTION_" +
+      "DISABLED\020\002\022\036\n\032CHANNEL_AWAY_OPTION_HIDDEN" +
+      "\020\003*\232\001\n\021ResponseDelayType\022#\n\037RESPONSE_DEL" +
+      "AY_TYPE_UNSPECIFIED\020\000\022\037\n\033RESPONSE_DELAY_" +
+      "TYPE_INSTANT\020\001\022\036\n\032RESPONSE_DELAY_TYPE_NO" +
+      "RMAL\020\002\022\037\n\033RESPONSE_DELAY_TYPE_DELAYED\020\003B" +
+      "b\n&io.channel.api.proto.pub.coreapi.mode" +
+      "lP\001Z6github.com/channel-io/ch-proto-publ" +
+      "ic/coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -189,7 +189,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ID of the user who triggered the event.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -212,7 +211,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ID of the user who triggered the event.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -239,7 +237,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique event identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -262,7 +259,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique event identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -289,7 +285,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this event belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -312,7 +307,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this event belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1152,7 +1146,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the user who triggered the event.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1174,7 +1167,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the user who triggered the event.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1197,7 +1189,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the user who triggered the event.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1218,7 +1209,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the user who triggered the event.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1234,7 +1224,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the user who triggered the event.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1258,7 +1247,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique event identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1280,7 +1268,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique event identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1303,7 +1290,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique event identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1324,7 +1310,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique event identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1340,7 +1325,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique event identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1364,7 +1348,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this event belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1386,7 +1369,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this event belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1409,7 +1391,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this event belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1430,7 +1411,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this event belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1446,7 +1426,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this event belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>

@@ -11,7 +11,6 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Unique webhook identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +21,6 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Unique webhook identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +33,6 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Channel ID this webhook belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -46,7 +43,6 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Channel ID this webhook belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -275,10 +271,10 @@ public interface WebhookOrBuilder extends
   /**
    * <pre>
    * Whether the webhook is currently blocked due to excessive delivery failures.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool blocked = 10 [json_name = "blocked"];</code>
+   * <code>bool blocked = 10 [json_name = "blocked", (.buf.validate.field) = { ... }</code>
    * @return The blocked.
    */
   boolean getBlocked();

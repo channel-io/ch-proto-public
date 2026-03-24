@@ -333,7 +333,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique plugin identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -356,7 +355,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique plugin identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -382,10 +380,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Plugin API key in UUID format.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+   * <code>string key = 2 [json_name = "key"];</code>
    * @return The key.
    */
   @java.lang.Override
@@ -404,10 +402,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Plugin API key in UUID format.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+   * <code>string key = 2 [json_name = "key"];</code>
    * @return The bytes for key.
    */
   @java.lang.Override
@@ -431,7 +429,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this plugin belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -454,7 +451,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this plugin belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -2367,7 +2363,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique plugin identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2389,7 +2384,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique plugin identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2412,7 +2406,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique plugin identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2433,7 +2426,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique plugin identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2449,7 +2441,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique plugin identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2472,10 +2463,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Plugin API key in UUID format.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+     * <code>string key = 2 [json_name = "key"];</code>
      * @return The key.
      */
     public java.lang.String getKey() {
@@ -2493,10 +2484,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Plugin API key in UUID format.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+     * <code>string key = 2 [json_name = "key"];</code>
      * @return The bytes for key.
      */
     public com.google.protobuf.ByteString
@@ -2515,10 +2506,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Plugin API key in UUID format.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+     * <code>string key = 2 [json_name = "key"];</code>
      * @param value The key to set.
      * @return This builder for chaining.
      */
@@ -2535,10 +2526,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Plugin API key in UUID format.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+     * <code>string key = 2 [json_name = "key"];</code>
      * @return This builder for chaining.
      */
     public Builder clearKey() {
@@ -2550,10 +2541,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Plugin API key in UUID format.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+     * <code>string key = 2 [json_name = "key"];</code>
      * @param value The bytes for key to set.
      * @return This builder for chaining.
      */
@@ -2574,7 +2565,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this plugin belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -2596,7 +2586,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this plugin belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -2619,7 +2608,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this plugin belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -2640,7 +2628,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this plugin belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -2656,7 +2643,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this plugin belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>

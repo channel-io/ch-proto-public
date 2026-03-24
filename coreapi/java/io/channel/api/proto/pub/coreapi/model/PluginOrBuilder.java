@@ -11,7 +11,6 @@ public interface PluginOrBuilder extends
    * <pre>
    * Unique plugin identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +21,6 @@ public interface PluginOrBuilder extends
    * <pre>
    * Unique plugin identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -34,20 +32,20 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Plugin API key in UUID format.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+   * <code>string key = 2 [json_name = "key"];</code>
    * @return The key.
    */
   java.lang.String getKey();
   /**
    * <pre>
    * Plugin API key in UUID format.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+   * <code>string key = 2 [json_name = "key"];</code>
    * @return The bytes for key.
    */
   com.google.protobuf.ByteString
@@ -57,7 +55,6 @@ public interface PluginOrBuilder extends
    * <pre>
    * Channel ID this plugin belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -68,7 +65,6 @@ public interface PluginOrBuilder extends
    * <pre>
    * Channel ID this plugin belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>

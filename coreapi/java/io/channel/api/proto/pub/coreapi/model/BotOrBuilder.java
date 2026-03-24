@@ -11,7 +11,6 @@ public interface BotOrBuilder extends
    * <pre>
    * Unique bot identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +21,6 @@ public interface BotOrBuilder extends
    * <pre>
    * Unique bot identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +33,6 @@ public interface BotOrBuilder extends
    * <pre>
    * Channel ID this bot belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -46,7 +43,6 @@ public interface BotOrBuilder extends
    * <pre>
    * Channel ID this bot belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -62,6 +58,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -75,6 +72,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -175,11 +173,11 @@ public interface BotOrBuilder extends
    * <pre>
    * Bot color in hex format.
    * Randomly assigned if not specified on creation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * +kubebuilder:example="#3B82F6"
    * </pre>
    *
-   * <code>string color = 6 [json_name = "color"];</code>
+   * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
    * @return The color.
    */
   java.lang.String getColor();
@@ -187,11 +185,11 @@ public interface BotOrBuilder extends
    * <pre>
    * Bot color in hex format.
    * Randomly assigned if not specified on creation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * +kubebuilder:example="#3B82F6"
    * </pre>
    *
-   * <code>string color = 6 [json_name = "color"];</code>
+   * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
    * @return The bytes for color.
    */
   com.google.protobuf.ByteString

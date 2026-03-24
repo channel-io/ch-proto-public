@@ -11,7 +11,6 @@ public interface UserOrBuilder extends
    * <pre>
    * Unique user identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +21,6 @@ public interface UserOrBuilder extends
    * <pre>
    * Unique user identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +33,6 @@ public interface UserOrBuilder extends
    * <pre>
    * Channel ID this user belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -46,7 +43,6 @@ public interface UserOrBuilder extends
    * <pre>
    * Channel ID this user belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -491,10 +487,10 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Whether the user has opted out of email notifications.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool unsubscribe_email = 20 [json_name = "unsubscribeEmail"];</code>
+   * <code>bool unsubscribe_email = 20 [json_name = "unsubscribeEmail", (.buf.validate.field) = { ... }</code>
    * @return The unsubscribeEmail.
    */
   boolean getUnsubscribeEmail();
@@ -532,10 +528,10 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Whether the user has opted out of SMS/text notifications.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool unsubscribe_texting = 22 [json_name = "unsubscribeTexting"];</code>
+   * <code>bool unsubscribe_texting = 22 [json_name = "unsubscribeTexting", (.buf.validate.field) = { ... }</code>
    * @return The unsubscribeTexting.
    */
   boolean getUnsubscribeTexting();
@@ -641,10 +637,10 @@ public interface UserOrBuilder extends
    * <pre>
    * Whether the user has a display name set in the profile
    * (name, firstName, or lastName).
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool named = 27 [json_name = "named"];</code>
+   * <code>bool named = 27 [json_name = "named", (.buf.validate.field) = { ... }</code>
    * @return The named.
    */
   boolean getNamed();
@@ -677,10 +673,10 @@ public interface UserOrBuilder extends
    * <pre>
    * Whether the user's mobile number has passed format validation
    * and is eligible for SMS delivery.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool mobile_number_qualified = 29 [json_name = "mobileNumberQualified"];</code>
+   * <code>bool mobile_number_qualified = 29 [json_name = "mobileNumberQualified", (.buf.validate.field) = { ... }</code>
    * @return The mobileNumberQualified.
    */
   boolean getMobileNumberQualified();
@@ -689,10 +685,10 @@ public interface UserOrBuilder extends
    * <pre>
    * Whether the user's email address has passed format validation
    * and is eligible for email delivery.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool email_qualified = 30 [json_name = "emailQualified"];</code>
+   * <code>bool email_qualified = 30 [json_name = "emailQualified", (.buf.validate.field) = { ... }</code>
    * @return The emailQualified.
    */
   boolean getEmailQualified();
@@ -722,10 +718,10 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Whether the user has at least one managed chat conversation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool has_chat = 32 [json_name = "hasChat"];</code>
+   * <code>bool has_chat = 32 [json_name = "hasChat", (.buf.validate.field) = { ... }</code>
    * @return The hasChat.
    */
   boolean getHasChat();
@@ -733,10 +729,10 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Whether the user has a registered device token for push notifications.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool has_push_token = 33 [json_name = "hasPushToken"];</code>
+   * <code>bool has_push_token = 33 [json_name = "hasPushToken", (.buf.validate.field) = { ... }</code>
    * @return The hasPushToken.
    */
   boolean getHasPushToken();
@@ -911,10 +907,10 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Whether the user is blocked from initiating new chats.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool blocked = 42 [json_name = "blocked"];</code>
+   * <code>bool blocked = 42 [json_name = "blocked", (.buf.validate.field) = { ... }</code>
    * @return The blocked.
    */
   boolean getBlocked();
@@ -958,10 +954,10 @@ public interface UserOrBuilder extends
    * <pre>
    * Whether the user's type is member.
    * Derived from the type field.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool member = 45 [json_name = "member"];</code>
+   * <code>bool member = 45 [json_name = "member", (.buf.validate.field) = { ... }</code>
    * @return The member.
    */
   boolean getMember();

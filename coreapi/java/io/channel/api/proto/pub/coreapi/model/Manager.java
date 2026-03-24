@@ -457,7 +457,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique manager identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -480,7 +479,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique manager identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -507,7 +505,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this manager belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -530,7 +527,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this manager belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -558,7 +554,6 @@ private static final long serialVersionUID = 0L;
    * Account ID of the person linked to this manager.
    * Unique per channel among non-removed managers.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -582,7 +577,6 @@ private static final long serialVersionUID = 0L;
    * Account ID of the person linked to this manager.
    * Unique per channel among non-removed managers.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -714,10 +708,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the description is visible to end-user visitors.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront"];</code>
+   * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront", (.buf.validate.field) = { ... }</code>
    * @return The showDescriptionToFront.
    */
   @java.lang.Override
@@ -922,10 +916,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the email address is visible to end-user visitors.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool show_email_to_front = 10 [json_name = "showEmailToFront"];</code>
+   * <code>bool show_email_to_front = 10 [json_name = "showEmailToFront", (.buf.validate.field) = { ... }</code>
    * @return The showEmailToFront.
    */
   @java.lang.Override
@@ -986,10 +980,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the mobile number is visible to end-user visitors.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool show_mobile_number_to_front = 12 [json_name = "showMobileNumberToFront"];</code>
+   * <code>bool show_mobile_number_to_front = 12 [json_name = "showMobileNumberToFront", (.buf.validate.field) = { ... }</code>
    * @return The showMobileNumberToFront.
    */
   @java.lang.Override
@@ -1050,10 +1044,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether this manager has been soft-deleted from the channel.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool removed = 14 [json_name = "removed"];</code>
+   * <code>bool removed = 14 [json_name = "removed", (.buf.validate.field) = { ... }</code>
    * @return The removed.
    */
   @java.lang.Override
@@ -1192,10 +1186,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether this manager appears as the channel identity instead of their personal profile.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool display_as_channel = 18 [json_name = "displayAsChannel"];</code>
+   * <code>bool display_as_channel = 18 [json_name = "displayAsChannel", (.buf.validate.field) = { ... }</code>
    * @return The displayAsChannel.
    */
   @java.lang.Override
@@ -1363,10 +1357,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether to receive mobile push notifications even while the manager is online on desktop.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool receive_mobile_push_when_online = 24 [json_name = "receiveMobilePushWhenOnline"];</code>
+   * <code>bool receive_mobile_push_when_online = 24 [json_name = "receiveMobilePushWhenOnline", (.buf.validate.field) = { ... }</code>
    * @return The receiveMobilePushWhenOnline.
    */
   @java.lang.Override
@@ -1379,10 +1373,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether to include a preview of internal (private) messages in push notifications.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool show_private_message_preview = 25 [json_name = "showPrivateMessagePreview"];</code>
+   * <code>bool show_private_message_preview = 25 [json_name = "showPrivateMessagePreview", (.buf.validate.field) = { ... }</code>
    * @return The showPrivateMessagePreview.
    */
   @java.lang.Override
@@ -1429,10 +1423,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether periodic email reminders for unhandled conversations are enabled.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool operator_email_reminder = 28 [json_name = "operatorEmailReminder"];</code>
+   * <code>bool operator_email_reminder = 28 [json_name = "operatorEmailReminder", (.buf.validate.field) = { ... }</code>
    * @return The operatorEmailReminder.
    */
   @java.lang.Override
@@ -1445,10 +1439,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether to receive alerts when a new conversation is waiting to be assigned.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool receive_unassigned_alert = 29 [json_name = "receiveUnassignedAlert"];</code>
+   * <code>bool receive_unassigned_alert = 29 [json_name = "receiveUnassignedAlert", (.buf.validate.field) = { ... }</code>
    * @return The receiveUnassignedAlert.
    */
   @java.lang.Override
@@ -1461,10 +1455,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether to receive alerts for conversations that were not responded to in time.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool receive_missed_chat_alert = 30 [json_name = "receiveMissedChatAlert"];</code>
+   * <code>bool receive_missed_chat_alert = 30 [json_name = "receiveMissedChatAlert", (.buf.validate.field) = { ... }</code>
    * @return The receiveMissedChatAlert.
    */
   @java.lang.Override
@@ -1477,10 +1471,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether to receive alerts specifically for unassigned chat conversations.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool receive_unassigned_chat_alert = 31 [json_name = "receiveUnassignedChatAlert"];</code>
+   * <code>bool receive_unassigned_chat_alert = 31 [json_name = "receiveUnassignedChatAlert", (.buf.validate.field) = { ... }</code>
    * @return The receiveUnassignedChatAlert.
    */
   @java.lang.Override
@@ -1493,10 +1487,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether to receive alerts for unassigned meet (call) sessions.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool receive_unassigned_meet_alert = 32 [json_name = "receiveUnassignedMeetAlert"];</code>
+   * <code>bool receive_unassigned_meet_alert = 32 [json_name = "receiveUnassignedMeetAlert", (.buf.validate.field) = { ... }</code>
    * @return The receiveUnassignedMeetAlert.
    */
   @java.lang.Override
@@ -1509,10 +1503,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether this manager is currently active as an operator handling customer conversations.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool operator = 33 [json_name = "operator"];</code>
+   * <code>bool operator = 33 [json_name = "operator", (.buf.validate.field) = { ... }</code>
    * @return The operator.
    */
   @java.lang.Override
@@ -1573,10 +1567,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether &#64;all mentions in conversations are automatically marked as important.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool default_all_mention_important = 35 [json_name = "defaultAllMentionImportant"];</code>
+   * <code>bool default_all_mention_important = 35 [json_name = "defaultAllMentionImportant", (.buf.validate.field) = { ... }</code>
    * @return The defaultAllMentionImportant.
    */
   @java.lang.Override
@@ -1589,10 +1583,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether incoming user messages are automatically marked as important.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool user_message_important = 36 [json_name = "userMessageImportant"];</code>
+   * <code>bool user_message_important = 36 [json_name = "userMessageImportant", (.buf.validate.field) = { ... }</code>
    * @return The userMessageImportant.
    */
   @java.lang.Override
@@ -1678,10 +1672,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether auto-assignment is enabled when the manager joins a synchronous chat session.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool enable_auto_assign_on_sync = 39 [json_name = "enableAutoAssignOnSync"];</code>
+   * <code>bool enable_auto_assign_on_sync = 39 [json_name = "enableAutoAssignOnSync", (.buf.validate.field) = { ... }</code>
    * @return The enableAutoAssignOnSync.
    */
   @java.lang.Override
@@ -1837,10 +1831,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether do-not-disturb mode is active, suppressing all notifications for this manager.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool do_not_disturb = 43 [json_name = "doNotDisturb"];</code>
+   * <code>bool do_not_disturb = 43 [json_name = "doNotDisturb", (.buf.validate.field) = { ... }</code>
    * @return The doNotDisturb.
    */
   @java.lang.Override
@@ -1894,10 +1888,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether account-level do-not-disturb mode is active across all channels.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool account_do_not_disturb = 45 [json_name = "accountDoNotDisturb"];</code>
+   * <code>bool account_do_not_disturb = 45 [json_name = "accountDoNotDisturb", (.buf.validate.field) = { ... }</code>
    * @return The accountDoNotDisturb.
    */
   @java.lang.Override
@@ -3319,7 +3313,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique manager identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3341,7 +3334,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique manager identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3364,7 +3356,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique manager identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3385,7 +3376,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique manager identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3401,7 +3391,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique manager identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3425,7 +3414,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this manager belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3447,7 +3435,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this manager belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3470,7 +3457,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this manager belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3491,7 +3477,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this manager belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3507,7 +3492,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this manager belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3532,7 +3516,6 @@ private static final long serialVersionUID = 0L;
      * Account ID of the person linked to this manager.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -3555,7 +3538,6 @@ private static final long serialVersionUID = 0L;
      * Account ID of the person linked to this manager.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -3579,7 +3561,6 @@ private static final long serialVersionUID = 0L;
      * Account ID of the person linked to this manager.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -3601,7 +3582,6 @@ private static final long serialVersionUID = 0L;
      * Account ID of the person linked to this manager.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -3618,7 +3598,6 @@ private static final long serialVersionUID = 0L;
      * Account ID of the person linked to this manager.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -3868,10 +3847,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the description is visible to end-user visitors.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront"];</code>
+     * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront", (.buf.validate.field) = { ... }</code>
      * @return The showDescriptionToFront.
      */
     @java.lang.Override
@@ -3881,10 +3860,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the description is visible to end-user visitors.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront"];</code>
+     * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront", (.buf.validate.field) = { ... }</code>
      * @param value The showDescriptionToFront to set.
      * @return This builder for chaining.
      */
@@ -3897,10 +3876,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the description is visible to end-user visitors.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront"];</code>
+     * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearShowDescriptionToFront() {
@@ -4350,10 +4329,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the email address is visible to end-user visitors.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool show_email_to_front = 10 [json_name = "showEmailToFront"];</code>
+     * <code>bool show_email_to_front = 10 [json_name = "showEmailToFront", (.buf.validate.field) = { ... }</code>
      * @return The showEmailToFront.
      */
     @java.lang.Override
@@ -4363,10 +4342,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the email address is visible to end-user visitors.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool show_email_to_front = 10 [json_name = "showEmailToFront"];</code>
+     * <code>bool show_email_to_front = 10 [json_name = "showEmailToFront", (.buf.validate.field) = { ... }</code>
      * @param value The showEmailToFront to set.
      * @return This builder for chaining.
      */
@@ -4379,10 +4358,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the email address is visible to end-user visitors.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool show_email_to_front = 10 [json_name = "showEmailToFront"];</code>
+     * <code>bool show_email_to_front = 10 [json_name = "showEmailToFront", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearShowEmailToFront() {
@@ -4497,10 +4476,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the mobile number is visible to end-user visitors.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool show_mobile_number_to_front = 12 [json_name = "showMobileNumberToFront"];</code>
+     * <code>bool show_mobile_number_to_front = 12 [json_name = "showMobileNumberToFront", (.buf.validate.field) = { ... }</code>
      * @return The showMobileNumberToFront.
      */
     @java.lang.Override
@@ -4510,10 +4489,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the mobile number is visible to end-user visitors.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool show_mobile_number_to_front = 12 [json_name = "showMobileNumberToFront"];</code>
+     * <code>bool show_mobile_number_to_front = 12 [json_name = "showMobileNumberToFront", (.buf.validate.field) = { ... }</code>
      * @param value The showMobileNumberToFront to set.
      * @return This builder for chaining.
      */
@@ -4526,10 +4505,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the mobile number is visible to end-user visitors.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool show_mobile_number_to_front = 12 [json_name = "showMobileNumberToFront"];</code>
+     * <code>bool show_mobile_number_to_front = 12 [json_name = "showMobileNumberToFront", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearShowMobileNumberToFront() {
@@ -4644,10 +4623,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether this manager has been soft-deleted from the channel.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool removed = 14 [json_name = "removed"];</code>
+     * <code>bool removed = 14 [json_name = "removed", (.buf.validate.field) = { ... }</code>
      * @return The removed.
      */
     @java.lang.Override
@@ -4657,10 +4636,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether this manager has been soft-deleted from the channel.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool removed = 14 [json_name = "removed"];</code>
+     * <code>bool removed = 14 [json_name = "removed", (.buf.validate.field) = { ... }</code>
      * @param value The removed to set.
      * @return This builder for chaining.
      */
@@ -4673,10 +4652,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether this manager has been soft-deleted from the channel.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool removed = 14 [json_name = "removed"];</code>
+     * <code>bool removed = 14 [json_name = "removed", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearRemoved() {
@@ -5191,10 +5170,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether this manager appears as the channel identity instead of their personal profile.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool display_as_channel = 18 [json_name = "displayAsChannel"];</code>
+     * <code>bool display_as_channel = 18 [json_name = "displayAsChannel", (.buf.validate.field) = { ... }</code>
      * @return The displayAsChannel.
      */
     @java.lang.Override
@@ -5204,10 +5183,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether this manager appears as the channel identity instead of their personal profile.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool display_as_channel = 18 [json_name = "displayAsChannel"];</code>
+     * <code>bool display_as_channel = 18 [json_name = "displayAsChannel", (.buf.validate.field) = { ... }</code>
      * @param value The displayAsChannel to set.
      * @return This builder for chaining.
      */
@@ -5220,10 +5199,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether this manager appears as the channel identity instead of their personal profile.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool display_as_channel = 18 [json_name = "displayAsChannel"];</code>
+     * <code>bool display_as_channel = 18 [json_name = "displayAsChannel", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearDisplayAsChannel() {
@@ -5657,10 +5636,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to receive mobile push notifications even while the manager is online on desktop.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool receive_mobile_push_when_online = 24 [json_name = "receiveMobilePushWhenOnline"];</code>
+     * <code>bool receive_mobile_push_when_online = 24 [json_name = "receiveMobilePushWhenOnline", (.buf.validate.field) = { ... }</code>
      * @return The receiveMobilePushWhenOnline.
      */
     @java.lang.Override
@@ -5670,10 +5649,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to receive mobile push notifications even while the manager is online on desktop.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool receive_mobile_push_when_online = 24 [json_name = "receiveMobilePushWhenOnline"];</code>
+     * <code>bool receive_mobile_push_when_online = 24 [json_name = "receiveMobilePushWhenOnline", (.buf.validate.field) = { ... }</code>
      * @param value The receiveMobilePushWhenOnline to set.
      * @return This builder for chaining.
      */
@@ -5686,10 +5665,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to receive mobile push notifications even while the manager is online on desktop.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool receive_mobile_push_when_online = 24 [json_name = "receiveMobilePushWhenOnline"];</code>
+     * <code>bool receive_mobile_push_when_online = 24 [json_name = "receiveMobilePushWhenOnline", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearReceiveMobilePushWhenOnline() {
@@ -5703,10 +5682,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to include a preview of internal (private) messages in push notifications.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool show_private_message_preview = 25 [json_name = "showPrivateMessagePreview"];</code>
+     * <code>bool show_private_message_preview = 25 [json_name = "showPrivateMessagePreview", (.buf.validate.field) = { ... }</code>
      * @return The showPrivateMessagePreview.
      */
     @java.lang.Override
@@ -5716,10 +5695,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to include a preview of internal (private) messages in push notifications.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool show_private_message_preview = 25 [json_name = "showPrivateMessagePreview"];</code>
+     * <code>bool show_private_message_preview = 25 [json_name = "showPrivateMessagePreview", (.buf.validate.field) = { ... }</code>
      * @param value The showPrivateMessagePreview to set.
      * @return This builder for chaining.
      */
@@ -5732,10 +5711,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to include a preview of internal (private) messages in push notifications.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool show_private_message_preview = 25 [json_name = "showPrivateMessagePreview"];</code>
+     * <code>bool show_private_message_preview = 25 [json_name = "showPrivateMessagePreview", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearShowPrivateMessagePreview() {
@@ -5847,10 +5826,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether periodic email reminders for unhandled conversations are enabled.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool operator_email_reminder = 28 [json_name = "operatorEmailReminder"];</code>
+     * <code>bool operator_email_reminder = 28 [json_name = "operatorEmailReminder", (.buf.validate.field) = { ... }</code>
      * @return The operatorEmailReminder.
      */
     @java.lang.Override
@@ -5860,10 +5839,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether periodic email reminders for unhandled conversations are enabled.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool operator_email_reminder = 28 [json_name = "operatorEmailReminder"];</code>
+     * <code>bool operator_email_reminder = 28 [json_name = "operatorEmailReminder", (.buf.validate.field) = { ... }</code>
      * @param value The operatorEmailReminder to set.
      * @return This builder for chaining.
      */
@@ -5876,10 +5855,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether periodic email reminders for unhandled conversations are enabled.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool operator_email_reminder = 28 [json_name = "operatorEmailReminder"];</code>
+     * <code>bool operator_email_reminder = 28 [json_name = "operatorEmailReminder", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearOperatorEmailReminder() {
@@ -5893,10 +5872,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to receive alerts when a new conversation is waiting to be assigned.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool receive_unassigned_alert = 29 [json_name = "receiveUnassignedAlert"];</code>
+     * <code>bool receive_unassigned_alert = 29 [json_name = "receiveUnassignedAlert", (.buf.validate.field) = { ... }</code>
      * @return The receiveUnassignedAlert.
      */
     @java.lang.Override
@@ -5906,10 +5885,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to receive alerts when a new conversation is waiting to be assigned.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool receive_unassigned_alert = 29 [json_name = "receiveUnassignedAlert"];</code>
+     * <code>bool receive_unassigned_alert = 29 [json_name = "receiveUnassignedAlert", (.buf.validate.field) = { ... }</code>
      * @param value The receiveUnassignedAlert to set.
      * @return This builder for chaining.
      */
@@ -5922,10 +5901,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to receive alerts when a new conversation is waiting to be assigned.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool receive_unassigned_alert = 29 [json_name = "receiveUnassignedAlert"];</code>
+     * <code>bool receive_unassigned_alert = 29 [json_name = "receiveUnassignedAlert", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearReceiveUnassignedAlert() {
@@ -5939,10 +5918,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to receive alerts for conversations that were not responded to in time.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool receive_missed_chat_alert = 30 [json_name = "receiveMissedChatAlert"];</code>
+     * <code>bool receive_missed_chat_alert = 30 [json_name = "receiveMissedChatAlert", (.buf.validate.field) = { ... }</code>
      * @return The receiveMissedChatAlert.
      */
     @java.lang.Override
@@ -5952,10 +5931,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to receive alerts for conversations that were not responded to in time.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool receive_missed_chat_alert = 30 [json_name = "receiveMissedChatAlert"];</code>
+     * <code>bool receive_missed_chat_alert = 30 [json_name = "receiveMissedChatAlert", (.buf.validate.field) = { ... }</code>
      * @param value The receiveMissedChatAlert to set.
      * @return This builder for chaining.
      */
@@ -5968,10 +5947,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to receive alerts for conversations that were not responded to in time.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool receive_missed_chat_alert = 30 [json_name = "receiveMissedChatAlert"];</code>
+     * <code>bool receive_missed_chat_alert = 30 [json_name = "receiveMissedChatAlert", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearReceiveMissedChatAlert() {
@@ -5985,10 +5964,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to receive alerts specifically for unassigned chat conversations.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool receive_unassigned_chat_alert = 31 [json_name = "receiveUnassignedChatAlert"];</code>
+     * <code>bool receive_unassigned_chat_alert = 31 [json_name = "receiveUnassignedChatAlert", (.buf.validate.field) = { ... }</code>
      * @return The receiveUnassignedChatAlert.
      */
     @java.lang.Override
@@ -5998,10 +5977,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to receive alerts specifically for unassigned chat conversations.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool receive_unassigned_chat_alert = 31 [json_name = "receiveUnassignedChatAlert"];</code>
+     * <code>bool receive_unassigned_chat_alert = 31 [json_name = "receiveUnassignedChatAlert", (.buf.validate.field) = { ... }</code>
      * @param value The receiveUnassignedChatAlert to set.
      * @return This builder for chaining.
      */
@@ -6014,10 +5993,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to receive alerts specifically for unassigned chat conversations.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool receive_unassigned_chat_alert = 31 [json_name = "receiveUnassignedChatAlert"];</code>
+     * <code>bool receive_unassigned_chat_alert = 31 [json_name = "receiveUnassignedChatAlert", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearReceiveUnassignedChatAlert() {
@@ -6031,10 +6010,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to receive alerts for unassigned meet (call) sessions.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool receive_unassigned_meet_alert = 32 [json_name = "receiveUnassignedMeetAlert"];</code>
+     * <code>bool receive_unassigned_meet_alert = 32 [json_name = "receiveUnassignedMeetAlert", (.buf.validate.field) = { ... }</code>
      * @return The receiveUnassignedMeetAlert.
      */
     @java.lang.Override
@@ -6044,10 +6023,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to receive alerts for unassigned meet (call) sessions.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool receive_unassigned_meet_alert = 32 [json_name = "receiveUnassignedMeetAlert"];</code>
+     * <code>bool receive_unassigned_meet_alert = 32 [json_name = "receiveUnassignedMeetAlert", (.buf.validate.field) = { ... }</code>
      * @param value The receiveUnassignedMeetAlert to set.
      * @return This builder for chaining.
      */
@@ -6060,10 +6039,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to receive alerts for unassigned meet (call) sessions.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool receive_unassigned_meet_alert = 32 [json_name = "receiveUnassignedMeetAlert"];</code>
+     * <code>bool receive_unassigned_meet_alert = 32 [json_name = "receiveUnassignedMeetAlert", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearReceiveUnassignedMeetAlert() {
@@ -6077,10 +6056,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether this manager is currently active as an operator handling customer conversations.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool operator = 33 [json_name = "operator"];</code>
+     * <code>bool operator = 33 [json_name = "operator", (.buf.validate.field) = { ... }</code>
      * @return The operator.
      */
     @java.lang.Override
@@ -6090,10 +6069,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether this manager is currently active as an operator handling customer conversations.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool operator = 33 [json_name = "operator"];</code>
+     * <code>bool operator = 33 [json_name = "operator", (.buf.validate.field) = { ... }</code>
      * @param value The operator to set.
      * @return This builder for chaining.
      */
@@ -6106,10 +6085,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether this manager is currently active as an operator handling customer conversations.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool operator = 33 [json_name = "operator"];</code>
+     * <code>bool operator = 33 [json_name = "operator", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearOperator() {
@@ -6224,10 +6203,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether &#64;all mentions in conversations are automatically marked as important.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool default_all_mention_important = 35 [json_name = "defaultAllMentionImportant"];</code>
+     * <code>bool default_all_mention_important = 35 [json_name = "defaultAllMentionImportant", (.buf.validate.field) = { ... }</code>
      * @return The defaultAllMentionImportant.
      */
     @java.lang.Override
@@ -6237,10 +6216,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether &#64;all mentions in conversations are automatically marked as important.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool default_all_mention_important = 35 [json_name = "defaultAllMentionImportant"];</code>
+     * <code>bool default_all_mention_important = 35 [json_name = "defaultAllMentionImportant", (.buf.validate.field) = { ... }</code>
      * @param value The defaultAllMentionImportant to set.
      * @return This builder for chaining.
      */
@@ -6253,10 +6232,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether &#64;all mentions in conversations are automatically marked as important.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool default_all_mention_important = 35 [json_name = "defaultAllMentionImportant"];</code>
+     * <code>bool default_all_mention_important = 35 [json_name = "defaultAllMentionImportant", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearDefaultAllMentionImportant() {
@@ -6270,10 +6249,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether incoming user messages are automatically marked as important.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool user_message_important = 36 [json_name = "userMessageImportant"];</code>
+     * <code>bool user_message_important = 36 [json_name = "userMessageImportant", (.buf.validate.field) = { ... }</code>
      * @return The userMessageImportant.
      */
     @java.lang.Override
@@ -6283,10 +6262,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether incoming user messages are automatically marked as important.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool user_message_important = 36 [json_name = "userMessageImportant"];</code>
+     * <code>bool user_message_important = 36 [json_name = "userMessageImportant", (.buf.validate.field) = { ... }</code>
      * @param value The userMessageImportant to set.
      * @return This builder for chaining.
      */
@@ -6299,10 +6278,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether incoming user messages are automatically marked as important.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool user_message_important = 36 [json_name = "userMessageImportant"];</code>
+     * <code>bool user_message_important = 36 [json_name = "userMessageImportant", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserMessageImportant() {
@@ -6523,10 +6502,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether auto-assignment is enabled when the manager joins a synchronous chat session.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool enable_auto_assign_on_sync = 39 [json_name = "enableAutoAssignOnSync"];</code>
+     * <code>bool enable_auto_assign_on_sync = 39 [json_name = "enableAutoAssignOnSync", (.buf.validate.field) = { ... }</code>
      * @return The enableAutoAssignOnSync.
      */
     @java.lang.Override
@@ -6536,10 +6515,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether auto-assignment is enabled when the manager joins a synchronous chat session.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool enable_auto_assign_on_sync = 39 [json_name = "enableAutoAssignOnSync"];</code>
+     * <code>bool enable_auto_assign_on_sync = 39 [json_name = "enableAutoAssignOnSync", (.buf.validate.field) = { ... }</code>
      * @param value The enableAutoAssignOnSync to set.
      * @return This builder for chaining.
      */
@@ -6552,10 +6531,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether auto-assignment is enabled when the manager joins a synchronous chat session.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool enable_auto_assign_on_sync = 39 [json_name = "enableAutoAssignOnSync"];</code>
+     * <code>bool enable_auto_assign_on_sync = 39 [json_name = "enableAutoAssignOnSync", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearEnableAutoAssignOnSync() {
@@ -6950,10 +6929,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether do-not-disturb mode is active, suppressing all notifications for this manager.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool do_not_disturb = 43 [json_name = "doNotDisturb"];</code>
+     * <code>bool do_not_disturb = 43 [json_name = "doNotDisturb", (.buf.validate.field) = { ... }</code>
      * @return The doNotDisturb.
      */
     @java.lang.Override
@@ -6963,10 +6942,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether do-not-disturb mode is active, suppressing all notifications for this manager.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool do_not_disturb = 43 [json_name = "doNotDisturb"];</code>
+     * <code>bool do_not_disturb = 43 [json_name = "doNotDisturb", (.buf.validate.field) = { ... }</code>
      * @param value The doNotDisturb to set.
      * @return This builder for chaining.
      */
@@ -6979,10 +6958,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether do-not-disturb mode is active, suppressing all notifications for this manager.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool do_not_disturb = 43 [json_name = "doNotDisturb"];</code>
+     * <code>bool do_not_disturb = 43 [json_name = "doNotDisturb", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearDoNotDisturb() {
@@ -7160,10 +7139,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether account-level do-not-disturb mode is active across all channels.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool account_do_not_disturb = 45 [json_name = "accountDoNotDisturb"];</code>
+     * <code>bool account_do_not_disturb = 45 [json_name = "accountDoNotDisturb", (.buf.validate.field) = { ... }</code>
      * @return The accountDoNotDisturb.
      */
     @java.lang.Override
@@ -7173,10 +7152,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether account-level do-not-disturb mode is active across all channels.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool account_do_not_disturb = 45 [json_name = "accountDoNotDisturb"];</code>
+     * <code>bool account_do_not_disturb = 45 [json_name = "accountDoNotDisturb", (.buf.validate.field) = { ... }</code>
      * @param value The accountDoNotDisturb to set.
      * @return This builder for chaining.
      */
@@ -7189,10 +7168,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether account-level do-not-disturb mode is active across all channels.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool account_do_not_disturb = 45 [json_name = "accountDoNotDisturb"];</code>
+     * <code>bool account_do_not_disturb = 45 [json_name = "accountDoNotDisturb", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearAccountDoNotDisturb() {

@@ -115,7 +115,6 @@ type OneTimeMsgUser struct {
 	// Composite identifier in the format "{one_time_msg_id}-{user_id}".
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id            string `protobuf:"bytes,8,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -211,7 +210,7 @@ var File_coreapi_model_one_time_msg_user_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_one_time_msg_user_proto_rawDesc = "" +
 	"\n" +
-	"%coreapi/model/one_time_msg_user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa9\x04\n" +
+	"%coreapi/model/one_time_msg_user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe2\x03\n" +
 	"\x0eOneTimeMsgUser\x12t\n" +
 	"\x0fone_time_msg_id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\foneTimeMsgId\x12f\n" +
@@ -221,9 +220,8 @@ const file_coreapi_model_one_time_msg_user_proto_rawDesc = "" +
 	"\x04view\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\x04view\x12.\n" +
 	"\x04goal\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\x04goal\x120\n" +
 	"\x05click\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x05click\x12\x18\n" +
-	"\arevenue\x18\a \x01(\tR\arevenue\x12]\n" +
-	"\x02id\x18\b \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id*\xc7\x01\n" +
+	"\arevenue\x18\a \x01(\tR\arevenue\x12\x16\n" +
+	"\x02id\x18\b \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id*\xc7\x01\n" +
 	"\x13OneTimeMsgUserState\x12'\n" +
 	"#ONE_TIME_MSG_USER_STATE_UNSPECIFIED\x10\x00\x12 \n" +
 	"\x1cONE_TIME_MSG_USER_STATE_SENT\x10\x01\x12 \n" +

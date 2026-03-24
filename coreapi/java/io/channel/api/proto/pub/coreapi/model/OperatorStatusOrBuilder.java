@@ -11,7 +11,6 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Unique operator status identifier, matching the associated manager ID.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +21,6 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Unique operator status identifier, matching the associated manager ID.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -59,7 +57,6 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Channel ID this operator status belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -70,7 +67,6 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Channel ID this operator status belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>

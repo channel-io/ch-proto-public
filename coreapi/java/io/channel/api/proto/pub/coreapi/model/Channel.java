@@ -557,7 +557,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique channel identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -580,7 +579,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique channel identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1329,10 +1327,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * System-assigned default domain.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+   * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
    * @return The defaultDomain.
    */
   @java.lang.Override
@@ -1351,10 +1349,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * System-assigned default domain.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+   * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
    * @return The bytes for defaultDomain.
    */
   @java.lang.Override
@@ -1525,10 +1523,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether to display individual operator profiles instead of the channel identity to end users.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile"];</code>
+   * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile", (.buf.validate.field) = { ... }</code>
    * @return The showOperatorProfile.
    */
   @java.lang.Override
@@ -1541,10 +1539,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the new chat button is hidden from end users.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton"];</code>
+   * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton", (.buf.validate.field) = { ... }</code>
    * @return The disableNewChatButton.
    */
   @java.lang.Override
@@ -1641,10 +1639,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the follow-up form asks for the user's name.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName"];</code>
+   * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName", (.buf.validate.field) = { ... }</code>
    * @return The followUpAskName.
    */
   @java.lang.Override
@@ -1657,10 +1655,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the follow-up form must be completed before the user can start a conversation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory"];</code>
+   * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory", (.buf.validate.field) = { ... }</code>
    * @return The followUpMandatory.
    */
   @java.lang.Override
@@ -1674,10 +1672,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Current lifecycle state of the channel.
    * See ChannelState for possible values.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
    * @return The enum numeric value on the wire for state.
    */
   @java.lang.Override public int getStateValue() {
@@ -1687,10 +1685,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Current lifecycle state of the channel.
    * See ChannelState for possible values.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
    * @return The state.
    */
   @java.lang.Override public io.channel.api.proto.pub.coreapi.model.ChannelState getState() {
@@ -1704,10 +1702,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the channel is verified as an enterprise account.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool ent_verified = 27 [json_name = "entVerified"];</code>
+   * <code>bool ent_verified = 27 [json_name = "entVerified", (.buf.validate.field) = { ... }</code>
    * @return The entVerified.
    */
   @java.lang.Override
@@ -2041,10 +2039,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether multi-factor authentication is required for managers in this channel.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool enable_mfa = 36 [json_name = "enableMfa"];</code>
+   * <code>bool enable_mfa = 36 [json_name = "enableMfa", (.buf.validate.field) = { ... }</code>
    * @return The enableMfa.
    */
   @java.lang.Override
@@ -2057,10 +2055,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the messenger widget is hidden from end users on the website.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger"];</code>
+   * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger", (.buf.validate.field) = { ... }</code>
    * @return The hideAppMessenger.
    */
   @java.lang.Override
@@ -2074,10 +2072,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the channel holds a business certification.
    * Derived from biz_certificated_countries; true when at least one country is certified.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool biz_certificated = 38 [json_name = "bizCertificated"];</code>
+   * <code>bool biz_certificated = 38 [json_name = "bizCertificated", (.buf.validate.field) = { ... }</code>
    * @return The bizCertificated.
    */
   @java.lang.Override
@@ -2090,10 +2088,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed"];</code>
+   * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed", (.buf.validate.field) = { ... }</code>
    * @return The mktAlimtalkAllowed.
    */
   @java.lang.Override
@@ -2165,10 +2163,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the front-end ALF v2 AI assistant is enabled for end users.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2"];</code>
+   * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2", (.buf.validate.field) = { ... }</code>
    * @return The enableFrontAlfV2.
    */
   @java.lang.Override
@@ -2182,10 +2180,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the channel is currently blocked.
    * Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool blocked = 42 [json_name = "blocked"];</code>
+   * <code>bool blocked = 42 [json_name = "blocked", (.buf.validate.field) = { ... }</code>
    * @return The blocked.
    */
   @java.lang.Override
@@ -2199,10 +2197,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the channel is currently accepting new conversations.
    * True when the channel is not blocked and is within operating hours.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool working = 43 [json_name = "working"];</code>
+   * <code>bool working = 43 [json_name = "working", (.buf.validate.field) = { ... }</code>
    * @return The working.
    */
   @java.lang.Override
@@ -2297,10 +2295,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the channel is currently within operating hours.
    * Derived from the operating schedule configuration.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool in_operation = 46 [json_name = "inOperation"];</code>
+   * <code>bool in_operation = 46 [json_name = "inOperation", (.buf.validate.field) = { ... }</code>
    * @return The inOperation.
    */
   @java.lang.Override
@@ -2314,10 +2312,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether operating hour scheduling is enabled.
    * When false, the channel is always considered in operation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling"];</code>
+   * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling", (.buf.validate.field) = { ... }</code>
    * @return The operationTimeScheduling.
    */
   @java.lang.Override
@@ -2514,10 +2512,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether end-user replying is blocked after a conversation is closed.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed"];</code>
+   * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed", (.buf.validate.field) = { ... }</code>
    * @return The blockReplyingAfterClosed.
    */
   @java.lang.Override
@@ -4488,7 +4486,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique channel identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4510,7 +4507,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique channel identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4533,7 +4529,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique channel identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4554,7 +4549,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique channel identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4570,7 +4564,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique channel identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -6260,10 +6253,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * System-assigned default domain.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+     * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
      * @return The defaultDomain.
      */
     public java.lang.String getDefaultDomain() {
@@ -6281,10 +6274,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * System-assigned default domain.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+     * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
      * @return The bytes for defaultDomain.
      */
     public com.google.protobuf.ByteString
@@ -6303,10 +6296,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * System-assigned default domain.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+     * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
      * @param value The defaultDomain to set.
      * @return This builder for chaining.
      */
@@ -6323,10 +6316,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * System-assigned default domain.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+     * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearDefaultDomain() {
@@ -6338,10 +6331,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * System-assigned default domain.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+     * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for defaultDomain to set.
      * @return This builder for chaining.
      */
@@ -6674,10 +6667,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to display individual operator profiles instead of the channel identity to end users.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile"];</code>
+     * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile", (.buf.validate.field) = { ... }</code>
      * @return The showOperatorProfile.
      */
     @java.lang.Override
@@ -6687,10 +6680,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to display individual operator profiles instead of the channel identity to end users.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile"];</code>
+     * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile", (.buf.validate.field) = { ... }</code>
      * @param value The showOperatorProfile to set.
      * @return This builder for chaining.
      */
@@ -6703,10 +6696,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to display individual operator profiles instead of the channel identity to end users.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile"];</code>
+     * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearShowOperatorProfile() {
@@ -6720,10 +6713,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the new chat button is hidden from end users.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton"];</code>
+     * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton", (.buf.validate.field) = { ... }</code>
      * @return The disableNewChatButton.
      */
     @java.lang.Override
@@ -6733,10 +6726,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the new chat button is hidden from end users.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton"];</code>
+     * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton", (.buf.validate.field) = { ... }</code>
      * @param value The disableNewChatButton to set.
      * @return This builder for chaining.
      */
@@ -6749,10 +6742,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the new chat button is hidden from end users.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton"];</code>
+     * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearDisableNewChatButton() {
@@ -6969,10 +6962,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the follow-up form asks for the user's name.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName"];</code>
+     * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName", (.buf.validate.field) = { ... }</code>
      * @return The followUpAskName.
      */
     @java.lang.Override
@@ -6982,10 +6975,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the follow-up form asks for the user's name.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName"];</code>
+     * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName", (.buf.validate.field) = { ... }</code>
      * @param value The followUpAskName to set.
      * @return This builder for chaining.
      */
@@ -6998,10 +6991,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the follow-up form asks for the user's name.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName"];</code>
+     * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearFollowUpAskName() {
@@ -7015,10 +7008,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the follow-up form must be completed before the user can start a conversation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory"];</code>
+     * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory", (.buf.validate.field) = { ... }</code>
      * @return The followUpMandatory.
      */
     @java.lang.Override
@@ -7028,10 +7021,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the follow-up form must be completed before the user can start a conversation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory"];</code>
+     * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory", (.buf.validate.field) = { ... }</code>
      * @param value The followUpMandatory to set.
      * @return This builder for chaining.
      */
@@ -7044,10 +7037,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the follow-up form must be completed before the user can start a conversation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory"];</code>
+     * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearFollowUpMandatory() {
@@ -7062,10 +7055,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current lifecycle state of the channel.
      * See ChannelState for possible values.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
      * @return The enum numeric value on the wire for state.
      */
     @java.lang.Override public int getStateValue() {
@@ -7075,10 +7068,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current lifecycle state of the channel.
      * See ChannelState for possible values.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
      * @param value The enum numeric value on the wire for state to set.
      * @return This builder for chaining.
      */
@@ -7092,10 +7085,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current lifecycle state of the channel.
      * See ChannelState for possible values.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
      * @return The state.
      */
     @java.lang.Override
@@ -7108,10 +7101,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current lifecycle state of the channel.
      * See ChannelState for possible values.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
      * @param value The state to set.
      * @return This builder for chaining.
      */
@@ -7128,10 +7121,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current lifecycle state of the channel.
      * See ChannelState for possible values.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
      * @return This builder for chaining.
      */
     public Builder clearState() {
@@ -7145,10 +7138,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the channel is verified as an enterprise account.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool ent_verified = 27 [json_name = "entVerified"];</code>
+     * <code>bool ent_verified = 27 [json_name = "entVerified", (.buf.validate.field) = { ... }</code>
      * @return The entVerified.
      */
     @java.lang.Override
@@ -7158,10 +7151,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the channel is verified as an enterprise account.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool ent_verified = 27 [json_name = "entVerified"];</code>
+     * <code>bool ent_verified = 27 [json_name = "entVerified", (.buf.validate.field) = { ... }</code>
      * @param value The entVerified to set.
      * @return This builder for chaining.
      */
@@ -7174,10 +7167,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the channel is verified as an enterprise account.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool ent_verified = 27 [json_name = "entVerified"];</code>
+     * <code>bool ent_verified = 27 [json_name = "entVerified", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearEntVerified() {
@@ -7892,10 +7885,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether multi-factor authentication is required for managers in this channel.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool enable_mfa = 36 [json_name = "enableMfa"];</code>
+     * <code>bool enable_mfa = 36 [json_name = "enableMfa", (.buf.validate.field) = { ... }</code>
      * @return The enableMfa.
      */
     @java.lang.Override
@@ -7905,10 +7898,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether multi-factor authentication is required for managers in this channel.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool enable_mfa = 36 [json_name = "enableMfa"];</code>
+     * <code>bool enable_mfa = 36 [json_name = "enableMfa", (.buf.validate.field) = { ... }</code>
      * @param value The enableMfa to set.
      * @return This builder for chaining.
      */
@@ -7921,10 +7914,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether multi-factor authentication is required for managers in this channel.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool enable_mfa = 36 [json_name = "enableMfa"];</code>
+     * <code>bool enable_mfa = 36 [json_name = "enableMfa", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearEnableMfa() {
@@ -7938,10 +7931,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the messenger widget is hidden from end users on the website.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger"];</code>
+     * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger", (.buf.validate.field) = { ... }</code>
      * @return The hideAppMessenger.
      */
     @java.lang.Override
@@ -7951,10 +7944,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the messenger widget is hidden from end users on the website.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger"];</code>
+     * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger", (.buf.validate.field) = { ... }</code>
      * @param value The hideAppMessenger to set.
      * @return This builder for chaining.
      */
@@ -7967,10 +7960,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the messenger widget is hidden from end users on the website.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger"];</code>
+     * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearHideAppMessenger() {
@@ -7985,10 +7978,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the channel holds a business certification.
      * Derived from biz_certificated_countries; true when at least one country is certified.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool biz_certificated = 38 [json_name = "bizCertificated"];</code>
+     * <code>bool biz_certificated = 38 [json_name = "bizCertificated", (.buf.validate.field) = { ... }</code>
      * @return The bizCertificated.
      */
     @java.lang.Override
@@ -7999,10 +7992,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the channel holds a business certification.
      * Derived from biz_certificated_countries; true when at least one country is certified.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool biz_certificated = 38 [json_name = "bizCertificated"];</code>
+     * <code>bool biz_certificated = 38 [json_name = "bizCertificated", (.buf.validate.field) = { ... }</code>
      * @param value The bizCertificated to set.
      * @return This builder for chaining.
      */
@@ -8016,10 +8009,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the channel holds a business certification.
      * Derived from biz_certificated_countries; true when at least one country is certified.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool biz_certificated = 38 [json_name = "bizCertificated"];</code>
+     * <code>bool biz_certificated = 38 [json_name = "bizCertificated", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearBizCertificated() {
@@ -8033,10 +8026,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed"];</code>
+     * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed", (.buf.validate.field) = { ... }</code>
      * @return The mktAlimtalkAllowed.
      */
     @java.lang.Override
@@ -8046,10 +8039,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed"];</code>
+     * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed", (.buf.validate.field) = { ... }</code>
      * @param value The mktAlimtalkAllowed to set.
      * @return This builder for chaining.
      */
@@ -8062,10 +8055,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed"];</code>
+     * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearMktAlimtalkAllowed() {
@@ -8243,10 +8236,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the front-end ALF v2 AI assistant is enabled for end users.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2"];</code>
+     * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2", (.buf.validate.field) = { ... }</code>
      * @return The enableFrontAlfV2.
      */
     @java.lang.Override
@@ -8256,10 +8249,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the front-end ALF v2 AI assistant is enabled for end users.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2"];</code>
+     * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2", (.buf.validate.field) = { ... }</code>
      * @param value The enableFrontAlfV2 to set.
      * @return This builder for chaining.
      */
@@ -8272,10 +8265,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the front-end ALF v2 AI assistant is enabled for end users.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2"];</code>
+     * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearEnableFrontAlfV2() {
@@ -8290,10 +8283,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the channel is currently blocked.
      * Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool blocked = 42 [json_name = "blocked"];</code>
+     * <code>bool blocked = 42 [json_name = "blocked", (.buf.validate.field) = { ... }</code>
      * @return The blocked.
      */
     @java.lang.Override
@@ -8304,10 +8297,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the channel is currently blocked.
      * Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool blocked = 42 [json_name = "blocked"];</code>
+     * <code>bool blocked = 42 [json_name = "blocked", (.buf.validate.field) = { ... }</code>
      * @param value The blocked to set.
      * @return This builder for chaining.
      */
@@ -8321,10 +8314,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the channel is currently blocked.
      * Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool blocked = 42 [json_name = "blocked"];</code>
+     * <code>bool blocked = 42 [json_name = "blocked", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearBlocked() {
@@ -8339,10 +8332,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the channel is currently accepting new conversations.
      * True when the channel is not blocked and is within operating hours.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool working = 43 [json_name = "working"];</code>
+     * <code>bool working = 43 [json_name = "working", (.buf.validate.field) = { ... }</code>
      * @return The working.
      */
     @java.lang.Override
@@ -8353,10 +8346,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the channel is currently accepting new conversations.
      * True when the channel is not blocked and is within operating hours.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool working = 43 [json_name = "working"];</code>
+     * <code>bool working = 43 [json_name = "working", (.buf.validate.field) = { ... }</code>
      * @param value The working to set.
      * @return This builder for chaining.
      */
@@ -8370,10 +8363,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the channel is currently accepting new conversations.
      * True when the channel is not blocked and is within operating hours.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool working = 43 [json_name = "working"];</code>
+     * <code>bool working = 43 [json_name = "working", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearWorking() {
@@ -8578,10 +8571,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the channel is currently within operating hours.
      * Derived from the operating schedule configuration.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool in_operation = 46 [json_name = "inOperation"];</code>
+     * <code>bool in_operation = 46 [json_name = "inOperation", (.buf.validate.field) = { ... }</code>
      * @return The inOperation.
      */
     @java.lang.Override
@@ -8592,10 +8585,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the channel is currently within operating hours.
      * Derived from the operating schedule configuration.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool in_operation = 46 [json_name = "inOperation"];</code>
+     * <code>bool in_operation = 46 [json_name = "inOperation", (.buf.validate.field) = { ... }</code>
      * @param value The inOperation to set.
      * @return This builder for chaining.
      */
@@ -8609,10 +8602,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the channel is currently within operating hours.
      * Derived from the operating schedule configuration.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool in_operation = 46 [json_name = "inOperation"];</code>
+     * <code>bool in_operation = 46 [json_name = "inOperation", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearInOperation() {
@@ -8627,10 +8620,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether operating hour scheduling is enabled.
      * When false, the channel is always considered in operation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling"];</code>
+     * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling", (.buf.validate.field) = { ... }</code>
      * @return The operationTimeScheduling.
      */
     @java.lang.Override
@@ -8641,10 +8634,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether operating hour scheduling is enabled.
      * When false, the channel is always considered in operation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling"];</code>
+     * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling", (.buf.validate.field) = { ... }</code>
      * @param value The operationTimeScheduling to set.
      * @return This builder for chaining.
      */
@@ -8658,10 +8651,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether operating hour scheduling is enabled.
      * When false, the channel is always considered in operation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling"];</code>
+     * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearOperationTimeScheduling() {
@@ -9435,10 +9428,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether end-user replying is blocked after a conversation is closed.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed"];</code>
+     * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed", (.buf.validate.field) = { ... }</code>
      * @return The blockReplyingAfterClosed.
      */
     @java.lang.Override
@@ -9448,10 +9441,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether end-user replying is blocked after a conversation is closed.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed"];</code>
+     * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed", (.buf.validate.field) = { ... }</code>
      * @param value The blockReplyingAfterClosed to set.
      * @return This builder for chaining.
      */
@@ -9464,10 +9457,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether end-user replying is blocked after a conversation is closed.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed"];</code>
+     * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearBlockReplyingAfterClosed() {

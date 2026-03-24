@@ -37,82 +37,70 @@ public final class MessageOuterClass {
       "o\032\"coreapi/model/message_thread.proto\032$c" +
       "oreapi/model/message_web_page.proto\032\034goo" +
       "gle/protobuf/struct.proto\032\037google/protob" +
-      "uf/timestamp.proto\"\271\023\n\007Message\022h\n\010chat_k" +
-      "ey\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value m" +
-      "ust be at least 1 character\032\017size(this) " +
-      ">= 1\310\001\001R\007chatKey\022]\n\002id\030\002 \001(\tBM\272HJ\272\001D\n\rst" +
-      "ring.minLen\022\"value must be at least 1 ch" +
-      "aracter\032\017size(this) >= 1\310\001\001R\002id\022\031\n\010main_" +
-      "key\030\003 \001(\tR\007mainKey\022\035\n\nthread_key\030\004 \001(\tR\t" +
-      "threadKey\022\031\n\010meet_key\030\005 \001(\tR\007meetKey\022\033\n\t" +
-      "front_key\030\006 \001(\tR\010frontKey\022$\n\016alf_thread_" +
-      "key\030\007 \001(\tR\014alfThreadKey\022l\n\nchannel_id\030\010 " +
-      "\001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must b" +
-      "e at least 1 character\032\017size(this) >= 1\310" +
-      "\001\001R\tchannelId\022j\n\tchat_type\030\t \001(\tBM\272HJ\272\001D" +
-      "\n\rstring.minLen\022\"value must be at least " +
-      "1 character\032\017size(this) >= 1\310\001\001R\010chatTyp" +
-      "e\022f\n\007chat_id\030\n \001(\tBM\272HJ\272\001D\n\rstring.minLe" +
-      "n\022\"value must be at least 1 character\032\017s" +
-      "ize(this) >= 1\310\001\001R\006chatId\022n\n\013person_type" +
-      "\030\013 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value mus" +
-      "t be at least 1 character\032\017size(this) >=" +
-      " 1\310\001\001R\npersonType\022j\n\tperson_id\030\014 \001(\tBM\272H" +
-      "J\272\001D\n\rstring.minLen\022\"value must be at le" +
-      "ast 1 character\032\017size(this) >= 1\310\001\001R\010per" +
-      "sonId\022\035\n\nrequest_id\030\r \001(\tR\trequestId\022\032\n\010" +
-      "language\030\016 \001(\tR\010language\022A\n\ncreated_at\030\017" +
-      " \001(\0132\032.google.protobuf.TimestampB\006\272H\003\310\001\001" +
-      "R\tcreatedAt\022\030\n\007version\030\020 \001(\003R\007version\022,\n" +
-      "\006blocks\030\021 \003(\0132\024.coreapi.model.BlockR\006blo" +
-      "cks\022\035\n\nplain_text\030\022 \001(\tR\tplainText\0229\n\nup" +
-      "dated_at\030\023 \001(\0132\032.google.protobuf.Timesta" +
-      "mpR\tupdatedAt\0224\n\006thread\030\024 \001(\0132\034.coreapi." +
-      "model.MessageThreadR\006thread\022+\n\004meet\030\025 \001(" +
-      "\0132\027.google.protobuf.StructR\004meet\022-\n\005emai" +
-      "l\030\026 \001(\0132\027.google.protobuf.StructR\005email\022" +
-      "6\n\nalf_thread\030\027 \001(\0132\027.google.protobuf.St" +
-      "ructR\talfThread\0227\n\tedited_at\030\030 \001(\0132\032.goo" +
-      "gle.protobuf.TimestampR\010editedAt\0226\n\007butt" +
-      "ons\030\031 \003(\0132\034.coreapi.model.MessageButtonR" +
-      "\007buttons\0220\n\005files\030\032 \003(\0132\032.coreapi.model." +
-      "MessageFileR\005files\0228\n\010web_page\030\033 \001(\0132\035.c" +
-      "oreapi.model.MessageWebPageR\007webPage\022+\n\003" +
-      "log\030\034 \001(\0132\031.coreapi.model.MessageLogR\003lo" +
-      "g\022<\n\treactions\030\035 \003(\0132\036.coreapi.model.Mes" +
-      "sageReactionR\treactions\022:\n\014alf_progress\030" +
-      "\036 \001(\0132\027.google.protobuf.StructR\013alfProgr" +
-      "ess\022+\n\004form\030\037 \001(\0132\027.google.protobuf.Stru" +
-      "ctR\004form\0221\n\005state\030  \001(\0162\033.coreapi.model." +
-      "MessageStateR\005state\022\030\n\007options\030! \003(\tR\007op" +
-      "tions\0225\n\tmarketing\030\" \001(\0132\027.google.protob" +
-      "uf.StructR\tmarketing\0228\n\013support_bot\030# \001(" +
-      "\0132\027.google.protobuf.StructR\nsupportBot\0223" +
-      "\n\010workflow\030$ \001(\0132\027.google.protobuf.Struc" +
-      "tR\010workflow\022:\n\013alert_level\030% \001(\0162\031.corea" +
-      "pi.model.AlertLevelR\nalertLevel\022)\n\003ivr\030&" +
-      " \001(\0132\027.google.protobuf.StructR\003ivr\022>\n\016cu" +
-      "stom_payload\030\' \001(\0132\027.google.protobuf.Str" +
-      "uctR\rcustomPayload\022=\n\014writing_type\030( \001(\016" +
-      "2\032.coreapi.model.WritingTypeR\013writingTyp" +
-      "e\022\035\n\nthread_msg\030) \001(\010R\tthreadMsg\022&\n\017root" +
-      "_message_id\030* \001(\tR\rrootMessageId\022\037\n\013thre" +
-      "ad_root\030+ \001(\010R\nthreadRoot\022\'\n\017broadcasted" +
-      "_msg\030, \001(\010R\016broadcastedMsg\022*\n\021removed_by" +
-      "_writer\030- \001(\010R\017removedByWriter*\225\001\n\014Messa" +
-      "geState\022\035\n\031MESSAGE_STATE_UNSPECIFIED\020\000\022\031" +
-      "\n\025MESSAGE_STATE_SENDING\020\001\022\026\n\022MESSAGE_STA" +
-      "TE_SENT\020\002\022\030\n\024MESSAGE_STATE_FAILED\020\003\022\031\n\025M" +
-      "ESSAGE_STATE_REMOVED\020\004*n\n\nAlertLevel\022\033\n\027" +
-      "ALERT_LEVEL_UNSPECIFIED\020\000\022\025\n\021ALERT_LEVEL" +
-      "_ALERT\020\001\022\026\n\022ALERT_LEVEL_UNREAD\020\002\022\024\n\020ALER" +
-      "T_LEVEL_NONE\020\003*w\n\013WritingType\022\034\n\030WRITING" +
-      "_TYPE_UNSPECIFIED\020\000\022\031\n\025WRITING_TYPE_STAN" +
-      "DARD\020\001\022\027\n\023WRITING_TYPE_CUSTOM\020\002\022\026\n\022WRITI" +
-      "NG_TYPE_EMAIL\020\003Bb\n&io.channel.api.proto." +
-      "pub.coreapi.modelP\001Z6github.com/channel-" +
-      "io/ch-proto-public/coreapi/go/modelb\006pro" +
-      "to3"
+      "uf/timestamp.proto\"\350\017\n\007Message\022!\n\010chat_k" +
+      "ey\030\001 \001(\tB\006\272H\003\310\001\001R\007chatKey\022\026\n\002id\030\002 \001(\tB\006\272" +
+      "H\003\310\001\001R\002id\022\031\n\010main_key\030\003 \001(\tR\007mainKey\022\035\n\n" +
+      "thread_key\030\004 \001(\tR\tthreadKey\022\031\n\010meet_key\030" +
+      "\005 \001(\tR\007meetKey\022\033\n\tfront_key\030\006 \001(\tR\010front" +
+      "Key\022$\n\016alf_thread_key\030\007 \001(\tR\014alfThreadKe" +
+      "y\022%\n\nchannel_id\030\010 \001(\tB\006\272H\003\310\001\001R\tchannelId" +
+      "\022#\n\tchat_type\030\t \001(\tB\006\272H\003\310\001\001R\010chatType\022\037\n" +
+      "\007chat_id\030\n \001(\tB\006\272H\003\310\001\001R\006chatId\022\'\n\013person" +
+      "_type\030\013 \001(\tB\006\272H\003\310\001\001R\npersonType\022#\n\tperso" +
+      "n_id\030\014 \001(\tB\006\272H\003\310\001\001R\010personId\022\035\n\nrequest_" +
+      "id\030\r \001(\tR\trequestId\022\032\n\010language\030\016 \001(\tR\010l" +
+      "anguage\022A\n\ncreated_at\030\017 \001(\0132\032.google.pro" +
+      "tobuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt\022\030\n\007ve" +
+      "rsion\030\020 \001(\003R\007version\022,\n\006blocks\030\021 \003(\0132\024.c" +
+      "oreapi.model.BlockR\006blocks\022\035\n\nplain_text" +
+      "\030\022 \001(\tR\tplainText\0229\n\nupdated_at\030\023 \001(\0132\032." +
+      "google.protobuf.TimestampR\tupdatedAt\0224\n\006" +
+      "thread\030\024 \001(\0132\034.coreapi.model.MessageThre" +
+      "adR\006thread\022+\n\004meet\030\025 \001(\0132\027.google.protob" +
+      "uf.StructR\004meet\022-\n\005email\030\026 \001(\0132\027.google." +
+      "protobuf.StructR\005email\0226\n\nalf_thread\030\027 \001" +
+      "(\0132\027.google.protobuf.StructR\talfThread\0227" +
+      "\n\tedited_at\030\030 \001(\0132\032.google.protobuf.Time" +
+      "stampR\010editedAt\0226\n\007buttons\030\031 \003(\0132\034.corea" +
+      "pi.model.MessageButtonR\007buttons\0220\n\005files" +
+      "\030\032 \003(\0132\032.coreapi.model.MessageFileR\005file" +
+      "s\0228\n\010web_page\030\033 \001(\0132\035.coreapi.model.Mess" +
+      "ageWebPageR\007webPage\022+\n\003log\030\034 \001(\0132\031.corea" +
+      "pi.model.MessageLogR\003log\022<\n\treactions\030\035 " +
+      "\003(\0132\036.coreapi.model.MessageReactionR\trea" +
+      "ctions\022:\n\014alf_progress\030\036 \001(\0132\027.google.pr" +
+      "otobuf.StructR\013alfProgress\022+\n\004form\030\037 \001(\013" +
+      "2\027.google.protobuf.StructR\004form\0221\n\005state" +
+      "\030  \001(\0162\033.coreapi.model.MessageStateR\005sta" +
+      "te\022\030\n\007options\030! \003(\tR\007options\0225\n\tmarketin" +
+      "g\030\" \001(\0132\027.google.protobuf.StructR\tmarket" +
+      "ing\0228\n\013support_bot\030# \001(\0132\027.google.protob" +
+      "uf.StructR\nsupportBot\0223\n\010workflow\030$ \001(\0132" +
+      "\027.google.protobuf.StructR\010workflow\022:\n\013al" +
+      "ert_level\030% \001(\0162\031.coreapi.model.AlertLev" +
+      "elR\nalertLevel\022)\n\003ivr\030& \001(\0132\027.google.pro" +
+      "tobuf.StructR\003ivr\022>\n\016custom_payload\030\' \001(" +
+      "\0132\027.google.protobuf.StructR\rcustomPayloa" +
+      "d\022=\n\014writing_type\030( \001(\0162\032.coreapi.model." +
+      "WritingTypeR\013writingType\022%\n\nthread_msg\030)" +
+      " \001(\010B\006\272H\003\310\001\001R\tthreadMsg\022&\n\017root_message_" +
+      "id\030* \001(\tR\rrootMessageId\022\'\n\013thread_root\030+" +
+      " \001(\010B\006\272H\003\310\001\001R\nthreadRoot\022/\n\017broadcasted_" +
+      "msg\030, \001(\010B\006\272H\003\310\001\001R\016broadcastedMsg\0222\n\021rem" +
+      "oved_by_writer\030- \001(\010B\006\272H\003\310\001\001R\017removedByW" +
+      "riter*\225\001\n\014MessageState\022\035\n\031MESSAGE_STATE_" +
+      "UNSPECIFIED\020\000\022\031\n\025MESSAGE_STATE_SENDING\020\001" +
+      "\022\026\n\022MESSAGE_STATE_SENT\020\002\022\030\n\024MESSAGE_STAT" +
+      "E_FAILED\020\003\022\031\n\025MESSAGE_STATE_REMOVED\020\004*n\n" +
+      "\nAlertLevel\022\033\n\027ALERT_LEVEL_UNSPECIFIED\020\000" +
+      "\022\025\n\021ALERT_LEVEL_ALERT\020\001\022\026\n\022ALERT_LEVEL_U" +
+      "NREAD\020\002\022\024\n\020ALERT_LEVEL_NONE\020\003*w\n\013Writing" +
+      "Type\022\034\n\030WRITING_TYPE_UNSPECIFIED\020\000\022\031\n\025WR" +
+      "ITING_TYPE_STANDARD\020\001\022\027\n\023WRITING_TYPE_CU" +
+      "STOM\020\002\022\026\n\022WRITING_TYPE_EMAIL\020\003Bb\n&io.cha" +
+      "nnel.api.proto.pub.coreapi.modelP\001Z6gith" +
+      "ub.com/channel-io/ch-proto-public/coreap" +
+      "i/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -100,12 +100,10 @@ type Webhook struct {
 	// Unique webhook identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this webhook belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Webhook display name.
 	// Unique within the channel.
@@ -143,7 +141,7 @@ type Webhook struct {
 	LastBlockedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=last_blocked_at,json=lastBlockedAt,proto3" json:"last_blocked_at,omitempty"`
 	// Whether the webhook is currently blocked due to excessive delivery failures.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	Blocked       bool `protobuf:"varint,10,opt,name=blocked,proto3" json:"blocked,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -253,13 +251,11 @@ var File_coreapi_model_webhook_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_webhook_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/webhook.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x86\x06\n" +
-	"\aWebhook\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"\x1bcoreapi/model/webhook.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x80\x05\n" +
+	"\aWebhook\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12a\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12a\n" +
 	"\x04name\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x04name\x12_\n" +
 	"\x03url\x18\x04 \x01(\tBM\xbaHJ\xba\x01D\n" +
@@ -271,9 +267,9 @@ const file_coreapi_model_webhook_proto_rawDesc = "" +
 	"\x06scopes\x18\a \x03(\x0e2\x1b.coreapi.model.WebhookScopeB\x06\xbaH\x03\xc8\x01\x01R\x06scopes\x12'\n" +
 	"\vapi_version\x18\b \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"apiVersion\x12B\n" +
-	"\x0flast_blocked_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\rlastBlockedAt\x12\x18\n" +
+	"\x0flast_blocked_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\rlastBlockedAt\x12 \n" +
 	"\ablocked\x18\n" +
-	" \x01(\bR\ablocked*\x9f\x03\n" +
+	" \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\ablocked*\x9f\x03\n" +
 	"\fWebhookScope\x12\x1d\n" +
 	"\x19WEBHOOK_SCOPE_UNSPECIFIED\x10\x00\x12\"\n" +
 	"\x1eWEBHOOK_SCOPE_USER_CHAT_OPENED\x10\x01\x12+\n" +

@@ -29,37 +29,35 @@ public final class MessageFileOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n coreapi/model/message_file.proto\022\rcore" +
-      "api.model\032\033buf/validate/validate.proto\"\235" +
-      "\010\n\013MessageFile\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstri" +
-      "ng.minLen\022\"value must be at least 1 char" +
-      "acter\032\017size(this) >= 1\310\001\001R\002id\022\022\n\004type\030\002 " +
-      "\001(\tR\004type\022a\n\004name\030\003 \001(\tBM\272HJ\272\001D\n\rstring." +
-      "minLen\022\"value must be at least 1 charact" +
-      "er\032\017size(this) >= 1\310\001\001R\004name\022\032\n\004size\030\004 \001" +
-      "(\003B\006\272H\003\310\001\001R\004size\022!\n\014content_type\030\005 \001(\tR\013" +
-      "contentType\022\032\n\010duration\030\006 \001(\001R\010duration\022" +
-      "\024\n\005width\030\007 \001(\005R\005width\022\026\n\006height\030\010 \001(\005R\006h" +
-      "eight\022 \n\013orientation\030\t \001(\005R\013orientation\022" +
-      "\032\n\010animated\030\n \001(\010R\010animated\022e\n\006bucket\030\013 " +
-      "\001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must b" +
-      "e at least 1 character\032\017size(this) >= 1\310" +
-      "\001\001R\006bucket\022_\n\003key\030\014 \001(\tBM\272HJ\272\001D\n\rstring." +
-      "minLen\022\"value must be at least 1 charact" +
-      "er\032\017size(this) >= 1\310\001\001R\003key\022\037\n\013preview_k" +
-      "ey\030\r \001(\tR\npreviewKey\022Y\n\022private_file_sco" +
-      "pe\030\016 \001(\0162+.coreapi.model.MessageFile.Pri" +
-      "vateFileScopeR\020privateFileScope\022#\n\rshare" +
-      "d_domain\030\017 \001(\tR\014sharedDomain\022\035\n\nchannel_" +
-      "id\030\020 \001(\tR\tchannelId\022\035\n\nmanager_id\030\021 \001(\tR" +
-      "\tmanagerId\022\033\n\tchat_type\030\022 \001(\tR\010chatType\022" +
-      "\027\n\007chat_id\030\023 \001(\tR\006chatId\"\223\001\n\020PrivateFile" +
-      "Scope\022\"\n\036PRIVATE_FILE_SCOPE_UNSPECIFIED\020" +
-      "\000\022\033\n\027PRIVATE_FILE_SCOPE_CHAT\020\001\022\036\n\032PRIVAT" +
-      "E_FILE_SCOPE_MANAGER\020\002\022\036\n\032PRIVATE_FILE_S" +
-      "COPE_CHANNEL\020\003Bb\n&io.channel.api.proto.p" +
-      "ub.coreapi.modelP\001Z6github.com/channel-i" +
-      "o/ch-proto-public/coreapi/go/modelb\006prot" +
-      "o3"
+      "api.model\032\033buf/validate/validate.proto\"\326" +
+      "\007\n\013MessageFile\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022\022" +
+      "\n\004type\030\002 \001(\tR\004type\022a\n\004name\030\003 \001(\tBM\272HJ\272\001D" +
+      "\n\rstring.minLen\022\"value must be at least " +
+      "1 character\032\017size(this) >= 1\310\001\001R\004name\022\032\n" +
+      "\004size\030\004 \001(\003B\006\272H\003\310\001\001R\004size\022!\n\014content_typ" +
+      "e\030\005 \001(\tR\013contentType\022\032\n\010duration\030\006 \001(\001R\010" +
+      "duration\022\024\n\005width\030\007 \001(\005R\005width\022\026\n\006height" +
+      "\030\010 \001(\005R\006height\022 \n\013orientation\030\t \001(\005R\013ori" +
+      "entation\022\032\n\010animated\030\n \001(\010R\010animated\022e\n\006" +
+      "bucket\030\013 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"val" +
+      "ue must be at least 1 character\032\017size(th" +
+      "is) >= 1\310\001\001R\006bucket\022_\n\003key\030\014 \001(\tBM\272HJ\272\001D" +
+      "\n\rstring.minLen\022\"value must be at least " +
+      "1 character\032\017size(this) >= 1\310\001\001R\003key\022\037\n\013" +
+      "preview_key\030\r \001(\tR\npreviewKey\022Y\n\022private" +
+      "_file_scope\030\016 \001(\0162+.coreapi.model.Messag" +
+      "eFile.PrivateFileScopeR\020privateFileScope" +
+      "\022#\n\rshared_domain\030\017 \001(\tR\014sharedDomain\022\035\n" +
+      "\nchannel_id\030\020 \001(\tR\tchannelId\022\035\n\nmanager_" +
+      "id\030\021 \001(\tR\tmanagerId\022\033\n\tchat_type\030\022 \001(\tR\010" +
+      "chatType\022\027\n\007chat_id\030\023 \001(\tR\006chatId\"\223\001\n\020Pr" +
+      "ivateFileScope\022\"\n\036PRIVATE_FILE_SCOPE_UNS" +
+      "PECIFIED\020\000\022\033\n\027PRIVATE_FILE_SCOPE_CHAT\020\001\022" +
+      "\036\n\032PRIVATE_FILE_SCOPE_MANAGER\020\002\022\036\n\032PRIVA" +
+      "TE_FILE_SCOPE_CHANNEL\020\003Bb\n&io.channel.ap" +
+      "i.proto.pub.coreapi.modelP\001Z6github.com/" +
+      "channel-io/ch-proto-public/coreapi/go/mo" +
+      "delb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

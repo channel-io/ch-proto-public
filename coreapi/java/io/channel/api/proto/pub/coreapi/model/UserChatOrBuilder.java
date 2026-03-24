@@ -10,20 +10,20 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Unique user chat identifier.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The id.
    */
   java.lang.String getId();
   /**
    * <pre>
    * Unique user chat identifier.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
@@ -32,20 +32,20 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Channel ID this user chat belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
   /**
    * <pre>
    * Channel ID this user chat belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   com.google.protobuf.ByteString
@@ -100,20 +100,20 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Current lifecycle state of the chat conversation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.UserChatState state = 5 [json_name = "state"];</code>
+   * <code>.coreapi.model.UserChatState state = 5 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The enum numeric value on the wire for state.
    */
   int getStateValue();
   /**
    * <pre>
    * Current lifecycle state of the chat conversation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.UserChatState state = 5 [json_name = "state"];</code>
+   * <code>.coreapi.model.UserChatState state = 5 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The state.
    */
   io.channel.api.proto.pub.coreapi.model.UserChatState getState();
@@ -145,10 +145,10 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Whether the chat is managed and visible in the Desk inbox.
    * Unmanaged chats are only visible to the user.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool managed = 7 [json_name = "managed"];</code>
+   * <code>bool managed = 7 [json_name = "managed", (.buf.validate.field) = { ... }</code>
    * @return The managed.
    */
   boolean getManaged();
@@ -782,60 +782,60 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Chat creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
   /**
    * <pre>
    * Chat creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
   /**
    * <pre>
    * Chat creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 
   /**
    * <pre>
    * Chat last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the updatedAt field is set.
    */
   boolean hasUpdatedAt();
   /**
    * <pre>
    * Chat last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return The updatedAt.
    */
   com.google.protobuf.Timestamp getUpdatedAt();
   /**
    * <pre>
    * Chat last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
 

@@ -61,7 +61,6 @@ type ChatSession struct {
 	// Channel ID this session belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,7,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Number of unread messages with alert-level notification priority.
 	// Defaults to 0.
@@ -110,7 +109,6 @@ type ChatSession struct {
 	// Format: "{key}-{chatId}".
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,18,opt,name=id,proto3" json:"id,omitempty"`
 	// Chat type of the conversation (e.g., "userChat", "group", "directChat").
 	//
@@ -312,7 +310,7 @@ var File_coreapi_model_chat_session_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_chat_session_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/chat_session.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1bcoreapi/model/manager.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xcc\f\n" +
+	" coreapi/model/chat_session.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1bcoreapi/model/manager.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbe\v\n" +
 	"\vChatSession\x12_\n" +
 	"\x03key\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x03key\x12f\n" +
@@ -326,10 +324,9 @@ const file_coreapi_model_chat_session_proto_rawDesc = "" +
 	"updatedKey\x12l\n" +
 	"\n" +
 	"unread_key\x18\x06 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tunreadKey\x12l\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tunreadKey\x12%\n" +
 	"\n" +
-	"channel_id\x18\a \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\x14\n" +
+	"channel_id\x18\a \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x14\n" +
 	"\x05alert\x18\b \x01(\x05R\x05alert\x12\x16\n" +
 	"\x06unread\x18\t \x01(\x05R\x06unread\x121\n" +
 	"\x05watch\x18\n" +
@@ -343,9 +340,8 @@ const file_coreapi_model_chat_session_proto_rawDesc = "" +
 	"updated_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12A\n" +
 	"\n" +
 	"created_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12 \n" +
-	"\aversion\x18\x11 \x01(\x03B\x06\xbaH\x03\xc8\x01\x01R\aversion\x12]\n" +
-	"\x02id\x18\x12 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12j\n" +
+	"\aversion\x18\x11 \x01(\x03B\x06\xbaH\x03\xc8\x01\x01R\aversion\x12\x16\n" +
+	"\x02id\x18\x12 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12j\n" +
 	"\tchat_type\x18\x13 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bchatType\x12n\n" +
 	"\vperson_type\x18\x14 \x01(\tBM\xbaHJ\xba\x01D\n" +

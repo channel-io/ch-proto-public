@@ -592,7 +592,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Composite identifier in the format "{campaign_id}-{user_id}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -615,7 +614,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Composite identifier in the format "{campaign_id}-{user_id}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2323,7 +2321,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{campaign_id}-{user_id}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2345,7 +2342,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{campaign_id}-{user_id}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2368,7 +2364,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{campaign_id}-{user_id}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2389,7 +2384,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{campaign_id}-{user_id}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2405,7 +2399,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{campaign_id}-{user_id}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>

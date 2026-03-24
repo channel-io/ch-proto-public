@@ -36,31 +36,25 @@ public final class EventOuterClass {
       "\n\031coreapi/model/event.proto\022\rcoreapi.mod" +
       "el\032\033buf/validate/validate.proto\032\034google/" +
       "protobuf/struct.proto\032\037google/protobuf/t" +
-      "imestamp.proto\"\306\006\n\005Event\022f\n\007user_id\030\001 \001(" +
-      "\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must be " +
-      "at least 1 character\032\017size(this) >= 1\310\001\001" +
-      "R\006userId\022]\n\002id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.min" +
-      "Len\022\"value must be at least 1 character\032" +
-      "\017size(this) >= 1\310\001\001R\002id\022l\n\nchannel_id\030\003 " +
-      "\001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must b" +
-      "e at least 1 character\032\017size(this) >= 1\310" +
-      "\001\001R\tchannelId\022\261\001\n\004name\030\004 \001(\tB\234\001\272H\230\001\272\001D\n\r" +
-      "string.minLen\022\"value must be at least 1 " +
-      "character\032\017size(this) >= 1\272\001K\n\rstring.ma" +
-      "xLen\022(value must be no more than 64 char" +
-      "acters\032\020size(this) <= 64\310\001\001R\004name\0223\n\010pro" +
-      "perty\030\005 \001(\0132\027.google.protobuf.StructR\010pr" +
-      "operty\022A\n\ncreated_at\030\006 \001(\0132\032.google.prot" +
-      "obuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt\0227\n\texp" +
-      "ire_at\030\007 \001(\0132\032.google.protobuf.Timestamp" +
-      "R\010expireAt\022\030\n\007version\030\010 \001(\003R\007version\022I\n\r" +
-      "name_i18n_map\030\t \003(\0132%.coreapi.model.Even" +
-      "t.NameI18nMapEntryR\013nameI18nMap\032>\n\020NameI" +
-      "18nMapEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002" +
-      " \001(\tR\005value:\0028\001Bb\n&io.channel.api.proto." +
-      "pub.coreapi.modelP\001Z6github.com/channel-" +
-      "io/ch-proto-public/coreapi/go/modelb\006pro" +
-      "to3"
+      "imestamp.proto\"\361\004\n\005Event\022\037\n\007user_id\030\001 \001(" +
+      "\tB\006\272H\003\310\001\001R\006userId\022\026\n\002id\030\002 \001(\tB\006\272H\003\310\001\001R\002i" +
+      "d\022%\n\nchannel_id\030\003 \001(\tB\006\272H\003\310\001\001R\tchannelId" +
+      "\022\261\001\n\004name\030\004 \001(\tB\234\001\272H\230\001\272\001D\n\rstring.minLen" +
+      "\022\"value must be at least 1 character\032\017si" +
+      "ze(this) >= 1\272\001K\n\rstring.maxLen\022(value m" +
+      "ust be no more than 64 characters\032\020size(" +
+      "this) <= 64\310\001\001R\004name\0223\n\010property\030\005 \001(\0132\027" +
+      ".google.protobuf.StructR\010property\022A\n\ncre" +
+      "ated_at\030\006 \001(\0132\032.google.protobuf.Timestam" +
+      "pB\006\272H\003\310\001\001R\tcreatedAt\0227\n\texpire_at\030\007 \001(\0132" +
+      "\032.google.protobuf.TimestampR\010expireAt\022\030\n" +
+      "\007version\030\010 \001(\003R\007version\022I\n\rname_i18n_map" +
+      "\030\t \003(\0132%.coreapi.model.Event.NameI18nMap" +
+      "EntryR\013nameI18nMap\032>\n\020NameI18nMapEntry\022\020" +
+      "\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\002" +
+      "8\001Bb\n&io.channel.api.proto.pub.coreapi.m" +
+      "odelP\001Z6github.com/channel-io/ch-proto-p" +
+      "ublic/coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

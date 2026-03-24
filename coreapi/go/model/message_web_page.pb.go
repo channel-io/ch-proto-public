@@ -29,7 +29,6 @@ type MessageWebPage struct {
 	// Unique web page preview identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Target URL of the linked web page.
 	//
@@ -220,10 +219,9 @@ var File_coreapi_model_message_web_page_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_message_web_page_proto_rawDesc = "" +
 	"\n" +
-	"$coreapi/model/message_web_page.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\x87\x04\n" +
-	"\x0eMessageWebPage\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12_\n" +
+	"$coreapi/model/message_web_page.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\xc0\x03\n" +
+	"\x0eMessageWebPage\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12_\n" +
 	"\x03url\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x03url\x12\x14\n" +
 	"\x05title\x18\x03 \x01(\tR\x05title\x12 \n" +

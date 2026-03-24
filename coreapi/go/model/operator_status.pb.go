@@ -123,7 +123,6 @@ type OperatorStatus struct {
 	// Unique operator status identifier, matching the associated manager ID.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Manager ID this operator status belongs to.
 	//
@@ -133,7 +132,6 @@ type OperatorStatus struct {
 	// Channel ID this operator status belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Current activity state of the manager, used for chat routing and workload management.
 	//
@@ -262,16 +260,14 @@ var File_coreapi_model_operator_status_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_operator_status_proto_rawDesc = "" +
 	"\n" +
-	"#coreapi/model/operator_status.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xff\b\n" +
-	"\x0eOperatorStatus\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"#coreapi/model/operator_status.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf1\a\n" +
+	"\x0eOperatorStatus\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12l\n" +
 	"\n" +
 	"manager_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tmanagerId\x12l\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tmanagerId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12b\n" +
+	"channel_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12b\n" +
 	"\x14operator_status_type\x18\x04 \x01(\x0e20.coreapi.model.OperatorStatus.OperatorStatusTypeR\x12operatorStatusType\x12\x1e\n" +
 	"\x06enable\x18\x05 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x06enable\x12A\n" +
 	"\n" +

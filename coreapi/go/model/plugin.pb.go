@@ -386,16 +386,14 @@ type Plugin struct {
 	// Unique plugin identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Plugin API key in UUID format.
 	//
-	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:Nullable
 	Key string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
 	// Channel ID this plugin belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Current activation lifecycle state.
 	//
@@ -774,14 +772,12 @@ var File_coreapi_model_plugin_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_plugin_proto_rawDesc = "" +
 	"\n" +
-	"\x1acoreapi/model/plugin.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ecoreapi/model/image_file.proto\x1a\x1dcoreapi/model/tiny_file.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb3\x11\n" +
-	"\x06Plugin\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12\x18\n" +
-	"\x03key\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x03key\x12l\n" +
+	"\x1acoreapi/model/plugin.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ecoreapi/model/image_file.proto\x1a\x1dcoreapi/model/tiny_file.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9d\x10\n" +
+	"\x06Plugin\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12\x10\n" +
+	"\x03key\x18\x02 \x01(\tR\x03key\x12%\n" +
 	"\n" +
-	"channel_id\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x128\n" +
+	"channel_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x128\n" +
 	"\x05state\x18\x04 \x01(\x0e2\x1a.coreapi.model.PluginStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12\xb1\x01\n" +
 	"\x04name\x18\x05 \x01(\tB\x9c\x01\xbaH\x98\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01K\n" +

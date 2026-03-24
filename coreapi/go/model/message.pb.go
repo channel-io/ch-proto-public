@@ -203,12 +203,10 @@ type Message struct {
 	// Format: "{chatType}-{chatId}".
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChatKey string `protobuf:"bytes,1,opt,name=chat_key,json=chatKey,proto3" json:"chat_key,omitempty"`
 	// Unique message identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
 	// Index key for the main (top-level) message stream.
 	// Same value as chat_key when the message appears in the main stream.
@@ -244,27 +242,22 @@ type Message struct {
 	// Channel ID this message belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,8,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChatType string `protobuf:"bytes,9,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
 	// Chat ID of the parent conversation.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChatId string `protobuf:"bytes,10,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	// Entity type of the message author (e.g., "manager", "user", "bot").
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	PersonType string `protobuf:"bytes,11,opt,name=person_type,json=personType,proto3" json:"person_type,omitempty"`
 	// Entity ID of the message author.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	PersonId string `protobuf:"bytes,12,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
 	// Client-generated identifier for deduplication.
 	// Allows matching a locally pre-rendered message with the server response.
@@ -410,7 +403,7 @@ type Message struct {
 	// Whether this message is a reply within a thread (not the root).
 	// True when thread_key is present and the message is not a thread root.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	ThreadMsg bool `protobuf:"varint,41,opt,name=thread_msg,json=threadMsg,proto3" json:"thread_msg,omitempty"`
 	// ID of the root message when this message belongs to a thread, meet, or ALF thread.
 	// Parsed from thread_key, meet_key, or alf_thread_key respectively.
@@ -421,18 +414,18 @@ type Message struct {
 	// Whether this message is the root of a thread.
 	// True when the thread field is present.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	ThreadRoot bool `protobuf:"varint,43,opt,name=thread_root,json=threadRoot,proto3" json:"thread_root,omitempty"`
 	// Whether this thread reply is also visible in the main message stream.
 	// True when the message has both thread_key and main_key, but is not a thread root.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	BroadcastedMsg bool `protobuf:"varint,44,opt,name=broadcasted_msg,json=broadcastedMsg,proto3" json:"broadcasted_msg,omitempty"`
 	// Whether the message was removed by its original author.
 	// True when the message state is REMOVED and the remover matches the author,
 	// or when no specific remover is recorded.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	RemovedByWriter bool `protobuf:"varint,45,opt,name=removed_by_writer,json=removedByWriter,proto3" json:"removed_by_writer,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
@@ -787,31 +780,24 @@ var File_coreapi_model_message_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_message_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/message.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x19coreapi/model/block.proto\x1a\"coreapi/model/message_button.proto\x1a coreapi/model/message_file.proto\x1a\x1fcoreapi/model/message_log.proto\x1a$coreapi/model/message_reaction.proto\x1a\"coreapi/model/message_thread.proto\x1a$coreapi/model/message_web_page.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb9\x13\n" +
-	"\aMessage\x12h\n" +
-	"\bchat_key\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\achatKey\x12]\n" +
-	"\x02id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12\x19\n" +
+	"\x1bcoreapi/model/message.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x19coreapi/model/block.proto\x1a\"coreapi/model/message_button.proto\x1a coreapi/model/message_file.proto\x1a\x1fcoreapi/model/message_log.proto\x1a$coreapi/model/message_reaction.proto\x1a\"coreapi/model/message_thread.proto\x1a$coreapi/model/message_web_page.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe8\x0f\n" +
+	"\aMessage\x12!\n" +
+	"\bchat_key\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\achatKey\x12\x16\n" +
+	"\x02id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12\x19\n" +
 	"\bmain_key\x18\x03 \x01(\tR\amainKey\x12\x1d\n" +
 	"\n" +
 	"thread_key\x18\x04 \x01(\tR\tthreadKey\x12\x19\n" +
 	"\bmeet_key\x18\x05 \x01(\tR\ameetKey\x12\x1b\n" +
 	"\tfront_key\x18\x06 \x01(\tR\bfrontKey\x12$\n" +
-	"\x0ealf_thread_key\x18\a \x01(\tR\falfThreadKey\x12l\n" +
+	"\x0ealf_thread_key\x18\a \x01(\tR\falfThreadKey\x12%\n" +
 	"\n" +
-	"channel_id\x18\b \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12j\n" +
-	"\tchat_type\x18\t \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bchatType\x12f\n" +
+	"channel_id\x18\b \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12#\n" +
+	"\tchat_type\x18\t \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\bchatType\x12\x1f\n" +
 	"\achat_id\x18\n" +
-	" \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x06chatId\x12n\n" +
-	"\vperson_type\x18\v \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
-	"personType\x12j\n" +
-	"\tperson_id\x18\f \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bpersonId\x12\x1d\n" +
+	" \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06chatId\x12'\n" +
+	"\vperson_type\x18\v \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"personType\x12#\n" +
+	"\tperson_id\x18\f \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\bpersonId\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\r \x01(\tR\trequestId\x12\x1a\n" +
 	"\blanguage\x18\x0e \x01(\tR\blanguage\x12A\n" +
@@ -846,14 +832,14 @@ const file_coreapi_model_message_proto_rawDesc = "" +
 	"alertLevel\x12)\n" +
 	"\x03ivr\x18& \x01(\v2\x17.google.protobuf.StructR\x03ivr\x12>\n" +
 	"\x0ecustom_payload\x18' \x01(\v2\x17.google.protobuf.StructR\rcustomPayload\x12=\n" +
-	"\fwriting_type\x18( \x01(\x0e2\x1a.coreapi.model.WritingTypeR\vwritingType\x12\x1d\n" +
+	"\fwriting_type\x18( \x01(\x0e2\x1a.coreapi.model.WritingTypeR\vwritingType\x12%\n" +
 	"\n" +
-	"thread_msg\x18) \x01(\bR\tthreadMsg\x12&\n" +
-	"\x0froot_message_id\x18* \x01(\tR\rrootMessageId\x12\x1f\n" +
-	"\vthread_root\x18+ \x01(\bR\n" +
-	"threadRoot\x12'\n" +
-	"\x0fbroadcasted_msg\x18, \x01(\bR\x0ebroadcastedMsg\x12*\n" +
-	"\x11removed_by_writer\x18- \x01(\bR\x0fremovedByWriter*\x95\x01\n" +
+	"thread_msg\x18) \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\tthreadMsg\x12&\n" +
+	"\x0froot_message_id\x18* \x01(\tR\rrootMessageId\x12'\n" +
+	"\vthread_root\x18+ \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"threadRoot\x12/\n" +
+	"\x0fbroadcasted_msg\x18, \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0ebroadcastedMsg\x122\n" +
+	"\x11removed_by_writer\x18- \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0fremovedByWriter*\x95\x01\n" +
 	"\fMessageState\x12\x1d\n" +
 	"\x19MESSAGE_STATE_UNSPECIFIED\x10\x00\x12\x19\n" +
 	"\x15MESSAGE_STATE_SENDING\x10\x01\x12\x16\n" +

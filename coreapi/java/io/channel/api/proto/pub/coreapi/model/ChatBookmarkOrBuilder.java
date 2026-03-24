@@ -111,7 +111,6 @@ public interface ChatBookmarkOrBuilder extends
    * <pre>
    * Channel ID this bookmark belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -122,7 +121,6 @@ public interface ChatBookmarkOrBuilder extends
    * <pre>
    * Channel ID this bookmark belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>

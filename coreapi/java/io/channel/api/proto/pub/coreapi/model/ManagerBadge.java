@@ -164,7 +164,6 @@ private static final long serialVersionUID = 0L;
    * Unique badge identifier.
    * Uses the same value as the owning manager's ID.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -188,7 +187,6 @@ private static final long serialVersionUID = 0L;
    * Unique badge identifier.
    * Uses the same value as the owning manager's ID.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -967,7 +965,6 @@ private static final long serialVersionUID = 0L;
      * Unique badge identifier.
      * Uses the same value as the owning manager's ID.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -990,7 +987,6 @@ private static final long serialVersionUID = 0L;
      * Unique badge identifier.
      * Uses the same value as the owning manager's ID.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1014,7 +1010,6 @@ private static final long serialVersionUID = 0L;
      * Unique badge identifier.
      * Uses the same value as the owning manager's ID.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1036,7 +1031,6 @@ private static final long serialVersionUID = 0L;
      * Unique badge identifier.
      * Uses the same value as the owning manager's ID.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1053,7 +1047,6 @@ private static final long serialVersionUID = 0L;
      * Unique badge identifier.
      * Uses the same value as the owning manager's ID.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>

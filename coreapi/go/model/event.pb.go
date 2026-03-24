@@ -31,17 +31,14 @@ type Event struct {
 	// ID of the user who triggered the event.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	// Unique event identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this event belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
 	//
@@ -172,15 +169,12 @@ var File_coreapi_model_event_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_event_proto_rawDesc = "" +
 	"\n" +
-	"\x19coreapi/model/event.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc6\x06\n" +
-	"\x05Event\x12f\n" +
-	"\auser_id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x06userId\x12]\n" +
-	"\x02id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"\x19coreapi/model/event.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf1\x04\n" +
+	"\x05Event\x12\x1f\n" +
+	"\auser_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\x12\x16\n" +
+	"\x02id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\xb1\x01\n" +
+	"channel_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xb1\x01\n" +
 	"\x04name\x18\x04 \x01(\tB\x9c\x01\xbaH\x98\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 64 characters\x1a\x10size(this) <= 64\xc8\x01\x01R\x04name\x123\n" +

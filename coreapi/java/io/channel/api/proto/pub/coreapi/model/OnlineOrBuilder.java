@@ -11,7 +11,6 @@ public interface OnlineOrBuilder extends
    * <pre>
    * Channel ID this online record belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -22,7 +21,6 @@ public interface OnlineOrBuilder extends
    * <pre>
    * Channel ID this online record belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>

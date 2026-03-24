@@ -11,7 +11,6 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Channel ID where the call occurred.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -22,7 +21,6 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Channel ID where the call occurred.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>

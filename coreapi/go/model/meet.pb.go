@@ -133,7 +133,6 @@ type CallLog struct {
 	// Channel ID where the call occurred.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Reason the call was missed.
 	// Only present when the call ended without being answered.
@@ -307,12 +306,10 @@ type MeetMessage struct {
 	// Unique message identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this message belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Chat type of the parent conversation.
 	//
@@ -454,11 +451,10 @@ var File_coreapi_model_meet_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_meet_proto_rawDesc = "" +
 	"\n" +
-	"\x18coreapi/model/meet.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x19coreapi/model/block.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x86\x05\n" +
-	"\aCallLog\x12l\n" +
+	"\x18coreapi/model/meet.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x19coreapi/model/block.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbf\x04\n" +
+	"\aCallLog\x12%\n" +
 	"\n" +
-	"channel_id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12@\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12@\n" +
 	"\rmissed_reason\x18\x02 \x01(\x0e2\x1b.coreapi.model.MissedReasonR\fmissedReason\x12:\n" +
 	"\tdirection\x18\x03 \x01(\x0e2\x1c.coreapi.model.CallDirectionR\tdirection\x12.\n" +
 	"\x05state\x18\x04 \x01(\x0e2\x18.coreapi.model.CallStateR\x05state\x12\x12\n" +
@@ -475,13 +471,11 @@ const file_coreapi_model_meet_proto_rawDesc = "" +
 	"\fuser_chat_id\x18\v \x01(\tR\n" +
 	"userChatId\x12\x1f\n" +
 	"\vmanager_ids\x18\f \x03(\tR\n" +
-	"managerIds\"\xc1\x04\n" +
-	"\vMeetMessage\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"managerIds\"\xb3\x03\n" +
+	"\vMeetMessage\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12#\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12#\n" +
 	"\tchat_type\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\bchatType\x12\x1f\n" +
 	"\achat_id\x18\x04 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06chatId\x12'\n" +
 	"\vperson_type\x18\x05 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +

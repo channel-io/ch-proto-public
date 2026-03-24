@@ -37,45 +37,39 @@ public final class Meet {
       "l\032\033buf/validate/validate.proto\032\031coreapi/" +
       "model/block.proto\032\035coreapi/model/user_ch" +
       "at.proto\032\037google/protobuf/timestamp.prot" +
-      "o\"\206\005\n\007CallLog\022l\n\nchannel_id\030\001 \001(\tBM\272HJ\272\001" +
-      "D\n\rstring.minLen\022\"value must be at least" +
-      " 1 character\032\017size(this) >= 1\310\001\001R\tchanne" +
-      "lId\022@\n\rmissed_reason\030\002 \001(\0162\033.coreapi.mod" +
-      "el.MissedReasonR\014missedReason\022:\n\tdirecti" +
-      "on\030\003 \001(\0162\034.coreapi.model.CallDirectionR\t" +
-      "direction\022.\n\005state\030\004 \001(\0162\030.coreapi.model" +
-      ".CallStateR\005state\022\022\n\004from\030\005 \001(\tR\004from\022\016\n" +
-      "\002to\030\006 \001(\tR\002to\022A\n\ncreated_at\030\007 \001(\0132\032.goog" +
-      "le.protobuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt" +
-      "\022A\n\nupdated_at\030\010 \001(\0132\032.google.protobuf.T" +
-      "imestampB\006\272H\003\310\001\001R\tupdatedAt\0229\n\nengaged_a" +
-      "t\030\t \001(\0132\032.google.protobuf.TimestampR\teng" +
-      "agedAt\0227\n\tclosed_at\030\n \001(\0132\032.google.proto" +
-      "buf.TimestampR\010closedAt\022 \n\014user_chat_id\030" +
-      "\013 \001(\tR\nuserChatId\022\037\n\013manager_ids\030\014 \003(\tR\n" +
-      "managerIds\"\301\004\n\013MeetMessage\022]\n\002id\030\001 \001(\tBM" +
-      "\272HJ\272\001D\n\rstring.minLen\022\"value must be at " +
-      "least 1 character\032\017size(this) >= 1\310\001\001R\002i" +
-      "d\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.mi" +
-      "nLen\022\"value must be at least 1 character" +
-      "\032\017size(this) >= 1\310\001\001R\tchannelId\022#\n\tchat_" +
-      "type\030\003 \001(\tB\006\272H\003\310\001\001R\010chatType\022\037\n\007chat_id\030" +
-      "\004 \001(\tB\006\272H\003\310\001\001R\006chatId\022\'\n\013person_type\030\005 \001" +
-      "(\tB\006\272H\003\310\001\001R\npersonType\022#\n\tperson_id\030\006 \001(" +
-      "\tB\006\272H\003\310\001\001R\010personId\022,\n\006blocks\030\007 \003(\0132\024.co" +
-      "reapi.model.BlockR\006blocks\022\035\n\nplain_text\030" +
-      "\010 \001(\tR\tplainText\022A\n\ncreated_at\030\t \001(\0132\032.g" +
-      "oogle.protobuf.TimestampB\006\272H\003\310\001\001R\tcreate" +
-      "dAt\022A\n\nupdated_at\030\n \001(\0132\032.google.protobu" +
-      "f.TimestampB\006\272H\003\310\001\001R\tupdatedAt*h\n\rCallDi" +
-      "rection\022\036\n\032CALL_DIRECTION_UNSPECIFIED\020\000\022" +
-      "\032\n\026CALL_DIRECTION_INBOUND\020\001\022\033\n\027CALL_DIRE" +
-      "CTION_OUTBOUND\020\002*W\n\tCallState\022\032\n\026CALL_ST" +
-      "ATE_UNSPECIFIED\020\000\022\026\n\022CALL_STATE_WAITING\020" +
-      "\001\022\026\n\022CALL_STATE_ENGAGED\020\002Bb\n&io.channel." +
-      "api.proto.pub.coreapi.modelP\001Z6github.co" +
-      "m/channel-io/ch-proto-public/coreapi/go/" +
-      "modelb\006proto3"
+      "o\"\277\004\n\007CallLog\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001" +
+      "\001R\tchannelId\022@\n\rmissed_reason\030\002 \001(\0162\033.co" +
+      "reapi.model.MissedReasonR\014missedReason\022:" +
+      "\n\tdirection\030\003 \001(\0162\034.coreapi.model.CallDi" +
+      "rectionR\tdirection\022.\n\005state\030\004 \001(\0162\030.core" +
+      "api.model.CallStateR\005state\022\022\n\004from\030\005 \001(\t" +
+      "R\004from\022\016\n\002to\030\006 \001(\tR\002to\022A\n\ncreated_at\030\007 \001" +
+      "(\0132\032.google.protobuf.TimestampB\006\272H\003\310\001\001R\t" +
+      "createdAt\022A\n\nupdated_at\030\010 \001(\0132\032.google.p" +
+      "rotobuf.TimestampB\006\272H\003\310\001\001R\tupdatedAt\0229\n\n" +
+      "engaged_at\030\t \001(\0132\032.google.protobuf.Times" +
+      "tampR\tengagedAt\0227\n\tclosed_at\030\n \001(\0132\032.goo" +
+      "gle.protobuf.TimestampR\010closedAt\022 \n\014user" +
+      "_chat_id\030\013 \001(\tR\nuserChatId\022\037\n\013manager_id" +
+      "s\030\014 \003(\tR\nmanagerIds\"\263\003\n\013MeetMessage\022\026\n\002i" +
+      "d\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022%\n\nchannel_id\030\002 \001(\tB" +
+      "\006\272H\003\310\001\001R\tchannelId\022#\n\tchat_type\030\003 \001(\tB\006\272" +
+      "H\003\310\001\001R\010chatType\022\037\n\007chat_id\030\004 \001(\tB\006\272H\003\310\001\001" +
+      "R\006chatId\022\'\n\013person_type\030\005 \001(\tB\006\272H\003\310\001\001R\np" +
+      "ersonType\022#\n\tperson_id\030\006 \001(\tB\006\272H\003\310\001\001R\010pe" +
+      "rsonId\022,\n\006blocks\030\007 \003(\0132\024.coreapi.model.B" +
+      "lockR\006blocks\022\035\n\nplain_text\030\010 \001(\tR\tplainT" +
+      "ext\022A\n\ncreated_at\030\t \001(\0132\032.google.protobu" +
+      "f.TimestampB\006\272H\003\310\001\001R\tcreatedAt\022A\n\nupdate" +
+      "d_at\030\n \001(\0132\032.google.protobuf.TimestampB\006" +
+      "\272H\003\310\001\001R\tupdatedAt*h\n\rCallDirection\022\036\n\032CA" +
+      "LL_DIRECTION_UNSPECIFIED\020\000\022\032\n\026CALL_DIREC" +
+      "TION_INBOUND\020\001\022\033\n\027CALL_DIRECTION_OUTBOUN" +
+      "D\020\002*W\n\tCallState\022\032\n\026CALL_STATE_UNSPECIFI" +
+      "ED\020\000\022\026\n\022CALL_STATE_WAITING\020\001\022\026\n\022CALL_STA" +
+      "TE_ENGAGED\020\002Bb\n&io.channel.api.proto.pub" +
+      ".coreapi.modelP\001Z6github.com/channel-io/" +
+      "ch-proto-public/coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -202,7 +202,6 @@ type Channel struct {
 	// Unique channel identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Default welcome message shown to end users when a new conversation starts.
 	//
@@ -265,7 +264,7 @@ type Channel struct {
 	Domain string `protobuf:"bytes,14,opt,name=domain,proto3" json:"domain,omitempty"`
 	// System-assigned default domain.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	DefaultDomain string `protobuf:"bytes,15,opt,name=default_domain,json=defaultDomain,proto3" json:"default_domain,omitempty"`
 	// Business homepage URL associated with the channel.
 	//
@@ -283,11 +282,11 @@ type Channel struct {
 	TimeZone string `protobuf:"bytes,18,opt,name=time_zone,json=timeZone,proto3" json:"time_zone,omitempty"`
 	// Whether to display individual operator profiles instead of the channel identity to end users.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	ShowOperatorProfile bool `protobuf:"varint,19,opt,name=show_operator_profile,json=showOperatorProfile,proto3" json:"show_operator_profile,omitempty"`
 	// Whether the new chat button is hidden from end users.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	DisableNewChatButton bool `protobuf:"varint,20,opt,name=disable_new_chat_button,json=disableNewChatButton,proto3" json:"disable_new_chat_button,omitempty"`
 	// Due date for payment before the channel transitions to an indebted state.
 	// ISO 8601 date format (e.g., 2026-12-31).
@@ -305,20 +304,20 @@ type Channel struct {
 	FollowUpEmail bool `protobuf:"varint,23,opt,name=follow_up_email,json=followUpEmail,proto3" json:"follow_up_email,omitempty"`
 	// Whether the follow-up form asks for the user's name.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	FollowUpAskName bool `protobuf:"varint,24,opt,name=follow_up_ask_name,json=followUpAskName,proto3" json:"follow_up_ask_name,omitempty"`
 	// Whether the follow-up form must be completed before the user can start a conversation.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	FollowUpMandatory bool `protobuf:"varint,25,opt,name=follow_up_mandatory,json=followUpMandatory,proto3" json:"follow_up_mandatory,omitempty"`
 	// Current lifecycle state of the channel.
 	// See ChannelState for possible values.
 	//
-	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:Nullable
 	State ChannelState `protobuf:"varint,26,opt,name=state,proto3,enum=coreapi.model.ChannelState" json:"state,omitempty"`
 	// Whether the channel is verified as an enterprise account.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	EntVerified bool `protobuf:"varint,27,opt,name=ent_verified,json=entVerified,proto3" json:"ent_verified,omitempty"`
 	// Default plugin identifier used by the messenger widget.
 	//
@@ -355,20 +354,20 @@ type Channel struct {
 	DefaultEmailDomainId string `protobuf:"bytes,35,opt,name=default_email_domain_id,json=defaultEmailDomainId,proto3" json:"default_email_domain_id,omitempty"`
 	// Whether multi-factor authentication is required for managers in this channel.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	EnableMfa bool `protobuf:"varint,36,opt,name=enable_mfa,json=enableMfa,proto3" json:"enable_mfa,omitempty"`
 	// Whether the messenger widget is hidden from end users on the website.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	HideAppMessenger bool `protobuf:"varint,37,opt,name=hide_app_messenger,json=hideAppMessenger,proto3" json:"hide_app_messenger,omitempty"`
 	// Whether the channel holds a business certification.
 	// Derived from biz_certificated_countries; true when at least one country is certified.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	BizCertificated bool `protobuf:"varint,38,opt,name=biz_certificated,json=bizCertificated,proto3" json:"biz_certificated,omitempty"`
 	// Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	MktAlimtalkAllowed bool `protobuf:"varint,39,opt,name=mkt_alimtalk_allowed,json=mktAlimtalkAllowed,proto3" json:"mkt_alimtalk_allowed,omitempty"`
 	// Countries where the channel has obtained business certification.
 	// Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
@@ -377,17 +376,17 @@ type Channel struct {
 	BizCertificatedCountries []string `protobuf:"bytes,40,rep,name=biz_certificated_countries,json=bizCertificatedCountries,proto3" json:"biz_certificated_countries,omitempty"`
 	// Whether the front-end ALF v2 AI assistant is enabled for end users.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	EnableFrontAlfV2 bool `protobuf:"varint,41,opt,name=enable_front_alf_v2,json=enableFrontAlfV2,proto3" json:"enable_front_alf_v2,omitempty"`
 	// Whether the channel is currently blocked.
 	// Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	Blocked bool `protobuf:"varint,42,opt,name=blocked,proto3" json:"blocked,omitempty"`
 	// Whether the channel is currently accepting new conversations.
 	// True when the channel is not blocked and is within operating hours.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	Working bool `protobuf:"varint,43,opt,name=working,proto3" json:"working,omitempty"`
 	// Channel avatar image URL.
 	// Falls back to a system-generated default when no custom avatar is set.
@@ -402,12 +401,12 @@ type Channel struct {
 	// Whether the channel is currently within operating hours.
 	// Derived from the operating schedule configuration.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	InOperation bool `protobuf:"varint,46,opt,name=in_operation,json=inOperation,proto3" json:"in_operation,omitempty"`
 	// Whether operating hour scheduling is enabled.
 	// When false, the channel is always considered in operation.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	OperationTimeScheduling bool `protobuf:"varint,47,opt,name=operation_time_scheduling,json=operationTimeScheduling,proto3" json:"operation_time_scheduling,omitempty"`
 	// Timestamp when the next operating period starts.
 	// Present only when the channel is currently outside operating hours.
@@ -430,7 +429,7 @@ type Channel struct {
 	AwayOption ChannelAwayOption `protobuf:"varint,51,opt,name=away_option,json=awayOption,proto3,enum=coreapi.model.ChannelAwayOption" json:"away_option,omitempty"`
 	// Whether end-user replying is blocked after a conversation is closed.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	BlockReplyingAfterClosed bool `protobuf:"varint,52,opt,name=block_replying_after_closed,json=blockReplyingAfterClosed,proto3" json:"block_replying_after_closed,omitempty"`
 	// Grace period after conversation closure during which the end user may still reply.
 	// Applicable only when block_replying_after_closed is true.
@@ -948,10 +947,9 @@ var File_coreapi_model_channel_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_channel_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/channel.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1ecoreapi/model/time_range.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xee\x1a\n" +
-	"\aChannel\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12H\n" +
+	"\x1bcoreapi/model/channel.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1ecoreapi/model/time_range.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9f\x1b\n" +
+	"\aChannel\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12H\n" +
 	"\x0fwelcome_message\x18\x02 \x01(\v2\x17.google.protobuf.StructB\x06\xbaH\x03\xc8\x01\x01R\x0ewelcomeMessage\x12j\n" +
 	"\x18welcome_message_i18n_map\x18\x03 \x03(\v21.coreapi.model.Channel.WelcomeMessageI18nMapEntryR\x15welcomeMessageI18nMap\x12A\n" +
 	"\n" +
@@ -970,20 +968,20 @@ const file_coreapi_model_channel_proto_rawDesc = "" +
 	"\vdescription\x18\f \x01(\tBS\xbaHP\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 180 characters\x1a\x11size(this) <= 180R\vdescription\x12\x18\n" +
 	"\acountry\x18\r \x01(\tR\acountry\x12\x16\n" +
-	"\x06domain\x18\x0e \x01(\tR\x06domain\x12%\n" +
-	"\x0edefault_domain\x18\x0f \x01(\tR\rdefaultDomain\x12!\n" +
+	"\x06domain\x18\x0e \x01(\tR\x06domain\x12-\n" +
+	"\x0edefault_domain\x18\x0f \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\rdefaultDomain\x12!\n" +
 	"\fhomepage_url\x18\x10 \x01(\tR\vhomepageUrl\x12!\n" +
 	"\fphone_number\x18\x11 \x01(\tR\vphoneNumber\x12#\n" +
-	"\ttime_zone\x18\x12 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\btimeZone\x122\n" +
-	"\x15show_operator_profile\x18\x13 \x01(\bR\x13showOperatorProfile\x125\n" +
-	"\x17disable_new_chat_button\x18\x14 \x01(\bR\x14disableNewChatButton\x12*\n" +
+	"\ttime_zone\x18\x12 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\btimeZone\x12:\n" +
+	"\x15show_operator_profile\x18\x13 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x13showOperatorProfile\x12=\n" +
+	"\x17disable_new_chat_button\x18\x14 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x14disableNewChatButton\x12*\n" +
 	"\x11indebted_due_date\x18\x15 \x01(\tR\x0findebtedDueDate\x122\n" +
 	"\x11follow_up_texting\x18\x16 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0ffollowUpTexting\x12.\n" +
-	"\x0ffollow_up_email\x18\x17 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\rfollowUpEmail\x12+\n" +
-	"\x12follow_up_ask_name\x18\x18 \x01(\bR\x0ffollowUpAskName\x12.\n" +
-	"\x13follow_up_mandatory\x18\x19 \x01(\bR\x11followUpMandatory\x129\n" +
-	"\x05state\x18\x1a \x01(\x0e2\x1b.coreapi.model.ChannelStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12!\n" +
-	"\fent_verified\x18\x1b \x01(\bR\ventVerified\x12*\n" +
+	"\x0ffollow_up_email\x18\x17 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\rfollowUpEmail\x123\n" +
+	"\x12follow_up_ask_name\x18\x18 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0ffollowUpAskName\x126\n" +
+	"\x13follow_up_mandatory\x18\x19 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x11followUpMandatory\x121\n" +
+	"\x05state\x18\x1a \x01(\x0e2\x1b.coreapi.model.ChannelStateR\x05state\x12)\n" +
+	"\fent_verified\x18\x1b \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\ventVerified\x12*\n" +
 	"\x11default_plugin_id\x18\x1c \x01(\tR\x0fdefaultPluginId\x12!\n" +
 	"\fbiz_category\x18\x1d \x01(\tR\vbizCategory\x12\x16\n" +
 	"\x06staffs\x18\x1e \x01(\x05R\x06staffs\x12&\n" +
@@ -991,27 +989,27 @@ const file_coreapi_model_channel_proto_rawDesc = "" +
 	"\x11app_commerce_type\x18  \x01(\tR\x0fappCommerceType\x12.\n" +
 	"\x13app_commerce_domain\x18! \x01(\tR\x11appCommerceDomain\x12,\n" +
 	"\x12enable_member_hash\x18\" \x01(\bR\x10enableMemberHash\x125\n" +
-	"\x17default_email_domain_id\x18# \x01(\tR\x14defaultEmailDomainId\x12\x1d\n" +
+	"\x17default_email_domain_id\x18# \x01(\tR\x14defaultEmailDomainId\x12%\n" +
 	"\n" +
-	"enable_mfa\x18$ \x01(\bR\tenableMfa\x12,\n" +
-	"\x12hide_app_messenger\x18% \x01(\bR\x10hideAppMessenger\x12)\n" +
-	"\x10biz_certificated\x18& \x01(\bR\x0fbizCertificated\x120\n" +
-	"\x14mkt_alimtalk_allowed\x18' \x01(\bR\x12mktAlimtalkAllowed\x12<\n" +
-	"\x1abiz_certificated_countries\x18( \x03(\tR\x18bizCertificatedCountries\x12-\n" +
-	"\x13enable_front_alf_v2\x18) \x01(\bR\x10enableFrontAlfV2\x12\x18\n" +
-	"\ablocked\x18* \x01(\bR\ablocked\x12\x18\n" +
-	"\aworking\x18+ \x01(\bR\aworking\x12\x1d\n" +
+	"enable_mfa\x18$ \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\tenableMfa\x124\n" +
+	"\x12hide_app_messenger\x18% \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x10hideAppMessenger\x121\n" +
+	"\x10biz_certificated\x18& \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0fbizCertificated\x128\n" +
+	"\x14mkt_alimtalk_allowed\x18' \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x12mktAlimtalkAllowed\x12<\n" +
+	"\x1abiz_certificated_countries\x18( \x03(\tR\x18bizCertificatedCountries\x125\n" +
+	"\x13enable_front_alf_v2\x18) \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x10enableFrontAlfV2\x12 \n" +
+	"\ablocked\x18* \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\ablocked\x12 \n" +
+	"\aworking\x18+ \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\aworking\x12\x1d\n" +
 	"\n" +
 	"avatar_url\x18, \x01(\tR\tavatarUrl\x12X\n" +
-	"\x17expected_response_delay\x18- \x01(\x0e2 .coreapi.model.ResponseDelayTypeR\x15expectedResponseDelay\x12!\n" +
-	"\fin_operation\x18. \x01(\bR\vinOperation\x12:\n" +
-	"\x19operation_time_scheduling\x18/ \x01(\bR\x17operationTimeScheduling\x12F\n" +
+	"\x17expected_response_delay\x18- \x01(\x0e2 .coreapi.model.ResponseDelayTypeR\x15expectedResponseDelay\x12)\n" +
+	"\fin_operation\x18. \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\vinOperation\x12B\n" +
+	"\x19operation_time_scheduling\x18/ \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x17operationTimeScheduling\x12F\n" +
 	"\x11next_working_time\x180 \x01(\v2\x1a.google.protobuf.TimestampR\x0fnextWorkingTime\x12@\n" +
 	"\x0enext_away_time\x181 \x01(\v2\x1a.google.protobuf.TimestampR\fnextAwayTime\x12L\n" +
 	"\x15operation_time_ranges\x182 \x03(\v2\x18.coreapi.model.TimeRangeR\x13operationTimeRanges\x12A\n" +
 	"\vaway_option\x183 \x01(\x0e2 .coreapi.model.ChannelAwayOptionR\n" +
-	"awayOption\x12=\n" +
-	"\x1bblock_replying_after_closed\x184 \x01(\bR\x18blockReplyingAfterClosed\x12a\n" +
+	"awayOption\x12E\n" +
+	"\x1bblock_replying_after_closed\x184 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x18blockReplyingAfterClosed\x12a\n" +
 	" block_replying_after_closed_time\x185 \x01(\v2\x19.google.protobuf.DurationR\x1cblockReplyingAfterClosedTime\x12!\n" +
 	"\fborder_color\x186 \x01(\tR\vborderColor\x12%\n" +
 	"\x0egradient_color\x187 \x01(\tR\rgradientColor\x12\x1d\n" +

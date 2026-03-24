@@ -37,101 +37,97 @@ public final class PluginOuterClass {
       "del\032\033buf/validate/validate.proto\032\036coreap" +
       "i/model/image_file.proto\032\035coreapi/model/" +
       "tiny_file.proto\032\037google/protobuf/timesta" +
-      "mp.proto\"\263\021\n\006Plugin\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n" +
-      "\rstring.minLen\022\"value must be at least 1" +
-      " character\032\017size(this) >= 1\310\001\001R\002id\022\030\n\003ke" +
-      "y\030\002 \001(\tB\006\272H\003\310\001\001R\003key\022l\n\nchannel_id\030\003 \001(\t" +
-      "BM\272HJ\272\001D\n\rstring.minLen\022\"value must be a" +
-      "t least 1 character\032\017size(this) >= 1\310\001\001R" +
-      "\tchannelId\0228\n\005state\030\004 \001(\0162\032.coreapi.mode" +
-      "l.PluginStateB\006\272H\003\310\001\001R\005state\022\261\001\n\004name\030\005 " +
-      "\001(\tB\234\001\272H\230\001\272\001D\n\rstring.minLen\022\"value must" +
-      " be at least 1 character\032\017size(this) >= " +
-      "1\272\001K\n\rstring.maxLen\022(value must be no mo" +
-      "re than 30 characters\032\020size(this) <= 30\310" +
-      "\001\001R\004name\022A\n\ncreated_at\030\006 \001(\0132\032.google.pr" +
-      "otobuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt\022G\n\na" +
-      "ppearance\030\007 \001(\0162\037.coreapi.model.PluginAp" +
-      "pearanceB\006\272H\003\310\001\001R\nappearance\022)\n\014label_bu" +
-      "tton\030\010 \001(\010B\006\272H\003\310\001\001R\013labelButton\022\307\001\n\021labe" +
-      "l_button_text\030\t \001(\tB\232\001\272H\226\001\272\001E\n\rstring.mi" +
-      "nLen\022#value must be at least 4 character" +
-      "s\032\017size(this) >= 4\272\001K\n\rstring.maxLen\022(va" +
-      "lue must be no more than 30 characters\032\020" +
-      "size(this) <= 30R\017labelButtonText\022m\n\032lab" +
-      "el_button_text_i18n_map\030\n \003(\01321.coreapi." +
-      "model.Plugin.LabelButtonTextI18nMapEntry" +
-      "R\026labelButtonTextI18nMap\022H\n\013button_type\030" +
-      "\013 \001(\0162\037.coreapi.model.PluginButtonTypeB\006" +
-      "\272H\003\310\001\001R\nbuttonType\022H\n\013icon_button\030\014 \001(\0162" +
-      "\037.coreapi.model.PluginIconButtonB\006\272H\003\310\001\001" +
-      "R\niconButton\022;\n\014custom_image\030\r \001(\0132\030.cor" +
-      "eapi.model.ImageFileR\013customImage\0226\n\ndes" +
-      "k_image\030\016 \001(\0132\027.coreapi.model.TinyFileR\t" +
-      "deskImage\022\"\n\rdesk_margin_x\030\017 \001(\005R\013deskMa" +
-      "rginX\022\"\n\rdesk_margin_y\030\020 \001(\005R\013deskMargin" +
-      "Y\022(\n\020desk_hide_button\030\021 \001(\010R\016deskHideBut" +
-      "ton\022B\n\rdesk_position\030\022 \001(\0162\035.coreapi.mod" +
-      "el.PluginPositionR\014deskPosition\022:\n\014mobil" +
-      "e_image\030\023 \001(\0132\027.coreapi.model.TinyFileR\013" +
-      "mobileImage\022&\n\017mobile_margin_x\030\024 \001(\005R\rmo" +
-      "bileMarginX\022&\n\017mobile_margin_y\030\025 \001(\005R\rmo" +
-      "bileMarginY\022F\n\017mobile_position\030\026 \001(\0162\035.c" +
-      "oreapi.model.PluginPositionR\016mobilePosit" +
-      "ion\022,\n\022mobile_hide_button\030\027 \001(\010R\020mobileH" +
-      "ideButton\022Y\n\026mobile_bubble_position\030\030 \001(" +
-      "\0162#.coreapi.model.PluginBubblePositionR\024" +
-      "mobileBubblePosition\022-\n\rurl_whitelist\030\031 " +
-      "\003(\tB\010\272H\005\222\001\002\020\005R\014urlWhitelist\022\247\001\n\010run_rate" +
-      "\030\032 \001(\002B\213\001\272H\207\001\272\001B\n\tfloat.gte\022(value must " +
-      "be greater than or equal to 0\032\013this >= 0" +
-      ".0\272\001?\n\tfloat.lte\022%value must be less tha" +
-      "n or equal to 1\032\013this <= 1.0R\007runRate\022*\n" +
-      "\021facebook_pixel_id\030\033 \001(\tR\017facebookPixelI" +
-      "d\022(\n\020custom_image_url\030\034 \001(\tR\016customImage" +
-      "Url\022$\n\016desk_image_url\030\035 \001(\tR\014deskImageUr" +
-      "l\022(\n\020mobile_image_url\030\036 \001(\tR\016mobileImage" +
-      "Url\032I\n\033LabelButtonTextI18nMapEntry\022\020\n\003ke" +
-      "y\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001*^" +
-      "\n\013PluginState\022\034\n\030PLUGIN_STATE_UNSPECIFIE" +
-      "D\020\000\022\030\n\024PLUGIN_STATE_WAITING\020\001\022\027\n\023PLUGIN_" +
-      "STATE_ACTIVE\020\002*\214\001\n\020PluginAppearance\022!\n\035P" +
-      "LUGIN_APPEARANCE_UNSPECIFIED\020\000\022\033\n\027PLUGIN" +
-      "_APPEARANCE_LIGHT\020\001\022\032\n\026PLUGIN_APPEARANCE" +
-      "_DARK\020\002\022\034\n\030PLUGIN_APPEARANCE_SYSTEM\020\003*\236\001" +
-      "\n\020PluginButtonType\022\"\n\036PLUGIN_BUTTON_TYPE" +
-      "_UNSPECIFIED\020\000\022\035\n\031PLUGIN_BUTTON_TYPE_LEG" +
-      "ACY\020\001\022#\n\037PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE" +
-      "\020\002\022\"\n\036PLUGIN_BUTTON_TYPE_ICON_BUTTON\020\003*\224" +
-      "\006\n\020PluginIconButton\022\"\n\036PLUGIN_ICON_BUTTO" +
-      "N_UNSPECIFIED\020\000\022\036\n\032PLUGIN_ICON_BUTTON_CH" +
-      "ANNEL\020\001\022%\n!PLUGIN_ICON_BUTTON_CHANNEL_FI" +
-      "LLED\020\002\022&\n\"PLUGIN_ICON_BUTTON_CHAT_BUBBLE" +
-      "_ALT\020\003\022-\n)PLUGIN_ICON_BUTTON_CHAT_BUBBLE" +
-      "_ALT_FILLED\020\004\022)\n%PLUGIN_ICON_BUTTON_CHAT" +
-      "_BUBBLE_FILLED\020\005\022,\n(PLUGIN_ICON_BUTTON_C" +
-      "HAT_LIGHTNING_FILLED\020\006\022$\n PLUGIN_ICON_BU" +
-      "TTON_CHAT_PROGRESS\020\007\022+\n\'PLUGIN_ICON_BUTT" +
-      "ON_CHAT_PROGRESS_FILLED\020\010\022$\n PLUGIN_ICON" +
-      "_BUTTON_CHAT_QUESTION\020\t\022+\n\'PLUGIN_ICON_B" +
-      "UTTON_CHAT_QUESTION_FILLED\020\n\022\036\n\032PLUGIN_I" +
-      "CON_BUTTON_COMMENT\020\013\022%\n!PLUGIN_ICON_BUTT" +
-      "ON_COMMENT_FILLED\020\014\022$\n PLUGIN_ICON_BUTTO" +
-      "N_COMMUNICATION\020\r\022\036\n\032PLUGIN_ICON_BUTTON_" +
-      "HEADSET\020\016\022\"\n\036PLUGIN_ICON_BUTTON_HELP_FIL" +
-      "LED\020\017\022#\n\037PLUGIN_ICON_BUTTON_SEND_FORWARD" +
-      "\020\020\022*\n&PLUGIN_ICON_BUTTON_SEND_FORWARD_FI" +
-      "LLED\020\021\022\032\n\026PLUGIN_ICON_BUTTON_SMS\020\022\022!\n\035PL" +
-      "UGIN_ICON_BUTTON_SMS_FILLED\020\023*f\n\016PluginP" +
-      "osition\022\037\n\033PLUGIN_POSITION_UNSPECIFIED\020\000" +
-      "\022\030\n\024PLUGIN_POSITION_LEFT\020\001\022\031\n\025PLUGIN_POS" +
-      "ITION_RIGHT\020\002*\201\001\n\024PluginBubblePosition\022&" +
-      "\n\"PLUGIN_BUBBLE_POSITION_UNSPECIFIED\020\000\022\036" +
-      "\n\032PLUGIN_BUBBLE_POSITION_TOP\020\001\022!\n\035PLUGIN" +
-      "_BUBBLE_POSITION_BOTTOM\020\002Bb\n&io.channel." +
-      "api.proto.pub.coreapi.modelP\001Z6github.co" +
-      "m/channel-io/ch-proto-public/coreapi/go/" +
-      "modelb\006proto3"
+      "mp.proto\"\235\020\n\006Plugin\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R" +
+      "\002id\022\020\n\003key\030\002 \001(\tR\003key\022%\n\nchannel_id\030\003 \001(" +
+      "\tB\006\272H\003\310\001\001R\tchannelId\0228\n\005state\030\004 \001(\0162\032.co" +
+      "reapi.model.PluginStateB\006\272H\003\310\001\001R\005state\022\261" +
+      "\001\n\004name\030\005 \001(\tB\234\001\272H\230\001\272\001D\n\rstring.minLen\022\"" +
+      "value must be at least 1 character\032\017size" +
+      "(this) >= 1\272\001K\n\rstring.maxLen\022(value mus" +
+      "t be no more than 30 characters\032\020size(th" +
+      "is) <= 30\310\001\001R\004name\022A\n\ncreated_at\030\006 \001(\0132\032" +
+      ".google.protobuf.TimestampB\006\272H\003\310\001\001R\tcrea" +
+      "tedAt\022G\n\nappearance\030\007 \001(\0162\037.coreapi.mode" +
+      "l.PluginAppearanceB\006\272H\003\310\001\001R\nappearance\022)" +
+      "\n\014label_button\030\010 \001(\010B\006\272H\003\310\001\001R\013labelButto" +
+      "n\022\307\001\n\021label_button_text\030\t \001(\tB\232\001\272H\226\001\272\001E\n" +
+      "\rstring.minLen\022#value must be at least 4" +
+      " characters\032\017size(this) >= 4\272\001K\n\rstring." +
+      "maxLen\022(value must be no more than 30 ch" +
+      "aracters\032\020size(this) <= 30R\017labelButtonT" +
+      "ext\022m\n\032label_button_text_i18n_map\030\n \003(\0132" +
+      "1.coreapi.model.Plugin.LabelButtonTextI1" +
+      "8nMapEntryR\026labelButtonTextI18nMap\022H\n\013bu" +
+      "tton_type\030\013 \001(\0162\037.coreapi.model.PluginBu" +
+      "ttonTypeB\006\272H\003\310\001\001R\nbuttonType\022H\n\013icon_but" +
+      "ton\030\014 \001(\0162\037.coreapi.model.PluginIconButt" +
+      "onB\006\272H\003\310\001\001R\niconButton\022;\n\014custom_image\030\r" +
+      " \001(\0132\030.coreapi.model.ImageFileR\013customIm" +
+      "age\0226\n\ndesk_image\030\016 \001(\0132\027.coreapi.model." +
+      "TinyFileR\tdeskImage\022\"\n\rdesk_margin_x\030\017 \001" +
+      "(\005R\013deskMarginX\022\"\n\rdesk_margin_y\030\020 \001(\005R\013" +
+      "deskMarginY\022(\n\020desk_hide_button\030\021 \001(\010R\016d" +
+      "eskHideButton\022B\n\rdesk_position\030\022 \001(\0162\035.c" +
+      "oreapi.model.PluginPositionR\014deskPositio" +
+      "n\022:\n\014mobile_image\030\023 \001(\0132\027.coreapi.model." +
+      "TinyFileR\013mobileImage\022&\n\017mobile_margin_x" +
+      "\030\024 \001(\005R\rmobileMarginX\022&\n\017mobile_margin_y" +
+      "\030\025 \001(\005R\rmobileMarginY\022F\n\017mobile_position" +
+      "\030\026 \001(\0162\035.coreapi.model.PluginPositionR\016m" +
+      "obilePosition\022,\n\022mobile_hide_button\030\027 \001(" +
+      "\010R\020mobileHideButton\022Y\n\026mobile_bubble_pos" +
+      "ition\030\030 \001(\0162#.coreapi.model.PluginBubble" +
+      "PositionR\024mobileBubblePosition\022-\n\rurl_wh" +
+      "itelist\030\031 \003(\tB\010\272H\005\222\001\002\020\005R\014urlWhitelist\022\247\001" +
+      "\n\010run_rate\030\032 \001(\002B\213\001\272H\207\001\272\001B\n\tfloat.gte\022(v" +
+      "alue must be greater than or equal to 0\032" +
+      "\013this >= 0.0\272\001?\n\tfloat.lte\022%value must b" +
+      "e less than or equal to 1\032\013this <= 1.0R\007" +
+      "runRate\022*\n\021facebook_pixel_id\030\033 \001(\tR\017face" +
+      "bookPixelId\022(\n\020custom_image_url\030\034 \001(\tR\016c" +
+      "ustomImageUrl\022$\n\016desk_image_url\030\035 \001(\tR\014d" +
+      "eskImageUrl\022(\n\020mobile_image_url\030\036 \001(\tR\016m" +
+      "obileImageUrl\032I\n\033LabelButtonTextI18nMapE" +
+      "ntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005v" +
+      "alue:\0028\001*^\n\013PluginState\022\034\n\030PLUGIN_STATE_" +
+      "UNSPECIFIED\020\000\022\030\n\024PLUGIN_STATE_WAITING\020\001\022" +
+      "\027\n\023PLUGIN_STATE_ACTIVE\020\002*\214\001\n\020PluginAppea" +
+      "rance\022!\n\035PLUGIN_APPEARANCE_UNSPECIFIED\020\000" +
+      "\022\033\n\027PLUGIN_APPEARANCE_LIGHT\020\001\022\032\n\026PLUGIN_" +
+      "APPEARANCE_DARK\020\002\022\034\n\030PLUGIN_APPEARANCE_S" +
+      "YSTEM\020\003*\236\001\n\020PluginButtonType\022\"\n\036PLUGIN_B" +
+      "UTTON_TYPE_UNSPECIFIED\020\000\022\035\n\031PLUGIN_BUTTO" +
+      "N_TYPE_LEGACY\020\001\022#\n\037PLUGIN_BUTTON_TYPE_CU" +
+      "STOM_IMAGE\020\002\022\"\n\036PLUGIN_BUTTON_TYPE_ICON_" +
+      "BUTTON\020\003*\224\006\n\020PluginIconButton\022\"\n\036PLUGIN_" +
+      "ICON_BUTTON_UNSPECIFIED\020\000\022\036\n\032PLUGIN_ICON" +
+      "_BUTTON_CHANNEL\020\001\022%\n!PLUGIN_ICON_BUTTON_" +
+      "CHANNEL_FILLED\020\002\022&\n\"PLUGIN_ICON_BUTTON_C" +
+      "HAT_BUBBLE_ALT\020\003\022-\n)PLUGIN_ICON_BUTTON_C" +
+      "HAT_BUBBLE_ALT_FILLED\020\004\022)\n%PLUGIN_ICON_B" +
+      "UTTON_CHAT_BUBBLE_FILLED\020\005\022,\n(PLUGIN_ICO" +
+      "N_BUTTON_CHAT_LIGHTNING_FILLED\020\006\022$\n PLUG" +
+      "IN_ICON_BUTTON_CHAT_PROGRESS\020\007\022+\n\'PLUGIN" +
+      "_ICON_BUTTON_CHAT_PROGRESS_FILLED\020\010\022$\n P" +
+      "LUGIN_ICON_BUTTON_CHAT_QUESTION\020\t\022+\n\'PLU" +
+      "GIN_ICON_BUTTON_CHAT_QUESTION_FILLED\020\n\022\036" +
+      "\n\032PLUGIN_ICON_BUTTON_COMMENT\020\013\022%\n!PLUGIN" +
+      "_ICON_BUTTON_COMMENT_FILLED\020\014\022$\n PLUGIN_" +
+      "ICON_BUTTON_COMMUNICATION\020\r\022\036\n\032PLUGIN_IC" +
+      "ON_BUTTON_HEADSET\020\016\022\"\n\036PLUGIN_ICON_BUTTO" +
+      "N_HELP_FILLED\020\017\022#\n\037PLUGIN_ICON_BUTTON_SE" +
+      "ND_FORWARD\020\020\022*\n&PLUGIN_ICON_BUTTON_SEND_" +
+      "FORWARD_FILLED\020\021\022\032\n\026PLUGIN_ICON_BUTTON_S" +
+      "MS\020\022\022!\n\035PLUGIN_ICON_BUTTON_SMS_FILLED\020\023*" +
+      "f\n\016PluginPosition\022\037\n\033PLUGIN_POSITION_UNS" +
+      "PECIFIED\020\000\022\030\n\024PLUGIN_POSITION_LEFT\020\001\022\031\n\025" +
+      "PLUGIN_POSITION_RIGHT\020\002*\201\001\n\024PluginBubble" +
+      "Position\022&\n\"PLUGIN_BUBBLE_POSITION_UNSPE" +
+      "CIFIED\020\000\022\036\n\032PLUGIN_BUBBLE_POSITION_TOP\020\001" +
+      "\022!\n\035PLUGIN_BUBBLE_POSITION_BOTTOM\020\002Bb\n&i" +
+      "o.channel.api.proto.pub.coreapi.modelP\001Z" +
+      "6github.com/channel-io/ch-proto-public/c" +
+      "oreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

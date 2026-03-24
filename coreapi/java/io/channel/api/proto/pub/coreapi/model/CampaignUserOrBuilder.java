@@ -245,7 +245,6 @@ public interface CampaignUserOrBuilder extends
    * <pre>
    * Composite identifier in the format "{campaign_id}-{user_id}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -256,7 +255,6 @@ public interface CampaignUserOrBuilder extends
    * <pre>
    * Composite identifier in the format "{campaign_id}-{user_id}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>

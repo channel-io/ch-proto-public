@@ -588,10 +588,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique user chat identifier.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The id.
    */
   @java.lang.Override
@@ -610,10 +610,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique user chat identifier.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The bytes for id.
    */
   @java.lang.Override
@@ -636,10 +636,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this user chat belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   @java.lang.Override
@@ -658,10 +658,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this user chat belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   @java.lang.Override
@@ -782,10 +782,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Current lifecycle state of the chat conversation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.UserChatState state = 5 [json_name = "state"];</code>
+   * <code>.coreapi.model.UserChatState state = 5 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The enum numeric value on the wire for state.
    */
   @java.lang.Override public int getStateValue() {
@@ -794,10 +794,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Current lifecycle state of the chat conversation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.UserChatState state = 5 [json_name = "state"];</code>
+   * <code>.coreapi.model.UserChatState state = 5 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The state.
    */
   @java.lang.Override public io.channel.api.proto.pub.coreapi.model.UserChatState getState() {
@@ -843,10 +843,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the chat is managed and visible in the Desk inbox.
    * Unmanaged chats are only visible to the user.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool managed = 7 [json_name = "managed"];</code>
+   * <code>bool managed = 7 [json_name = "managed", (.buf.validate.field) = { ... }</code>
    * @return The managed.
    */
   @java.lang.Override
@@ -1836,10 +1836,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the createdAt field is set.
    */
   @java.lang.Override
@@ -1849,10 +1849,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return The createdAt.
    */
   @java.lang.Override
@@ -1862,10 +1862,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
@@ -1877,10 +1877,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the updatedAt field is set.
    */
   @java.lang.Override
@@ -1890,10 +1890,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return The updatedAt.
    */
   @java.lang.Override
@@ -1903,10 +1903,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
@@ -4230,10 +4230,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique user chat identifier.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return The id.
      */
     public java.lang.String getId() {
@@ -4251,10 +4251,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique user chat identifier.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
@@ -4273,10 +4273,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique user chat identifier.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -4293,10 +4293,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique user chat identifier.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -4308,10 +4308,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique user chat identifier.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -4331,10 +4331,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this user chat belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The channelId.
      */
     public java.lang.String getChannelId() {
@@ -4352,10 +4352,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this user chat belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for channelId.
      */
     public com.google.protobuf.ByteString
@@ -4374,10 +4374,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this user chat belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The channelId to set.
      * @return This builder for chaining.
      */
@@ -4394,10 +4394,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this user chat belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChannelId() {
@@ -4409,10 +4409,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this user chat belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for channelId to set.
      * @return This builder for chaining.
      */
@@ -4639,10 +4639,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of the chat conversation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.UserChatState state = 5 [json_name = "state"];</code>
+     * <code>.coreapi.model.UserChatState state = 5 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @return The enum numeric value on the wire for state.
      */
     @java.lang.Override public int getStateValue() {
@@ -4651,10 +4651,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of the chat conversation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.UserChatState state = 5 [json_name = "state"];</code>
+     * <code>.coreapi.model.UserChatState state = 5 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @param value The enum numeric value on the wire for state to set.
      * @return This builder for chaining.
      */
@@ -4667,10 +4667,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of the chat conversation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.UserChatState state = 5 [json_name = "state"];</code>
+     * <code>.coreapi.model.UserChatState state = 5 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @return The state.
      */
     @java.lang.Override
@@ -4682,10 +4682,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of the chat conversation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.UserChatState state = 5 [json_name = "state"];</code>
+     * <code>.coreapi.model.UserChatState state = 5 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @param value The state to set.
      * @return This builder for chaining.
      */
@@ -4701,10 +4701,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of the chat conversation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.UserChatState state = 5 [json_name = "state"];</code>
+     * <code>.coreapi.model.UserChatState state = 5 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearState() {
@@ -4803,10 +4803,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the chat is managed and visible in the Desk inbox.
      * Unmanaged chats are only visible to the user.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool managed = 7 [json_name = "managed"];</code>
+     * <code>bool managed = 7 [json_name = "managed", (.buf.validate.field) = { ... }</code>
      * @return The managed.
      */
     @java.lang.Override
@@ -4817,10 +4817,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the chat is managed and visible in the Desk inbox.
      * Unmanaged chats are only visible to the user.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool managed = 7 [json_name = "managed"];</code>
+     * <code>bool managed = 7 [json_name = "managed", (.buf.validate.field) = { ... }</code>
      * @param value The managed to set.
      * @return This builder for chaining.
      */
@@ -4834,10 +4834,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the chat is managed and visible in the Desk inbox.
      * Unmanaged chats are only visible to the user.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool managed = 7 [json_name = "managed"];</code>
+     * <code>bool managed = 7 [json_name = "managed", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearManaged() {
@@ -7753,10 +7753,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      * @return Whether the createdAt field is set.
      */
     public boolean hasCreatedAt() {
@@ -7765,10 +7765,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      * @return The createdAt.
      */
     public com.google.protobuf.Timestamp getCreatedAt() {
@@ -7781,10 +7781,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -7802,10 +7802,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setCreatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -7821,10 +7821,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -7844,10 +7844,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearCreatedAt() {
       if (createdAtBuilder_ == null) {
@@ -7863,10 +7863,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
       
@@ -7876,10 +7876,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       if (createdAtBuilder_ != null) {
@@ -7892,10 +7892,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -7917,10 +7917,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      * @return Whether the updatedAt field is set.
      */
     public boolean hasUpdatedAt() {
@@ -7929,10 +7929,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      * @return The updatedAt.
      */
     public com.google.protobuf.Timestamp getUpdatedAt() {
@@ -7945,10 +7945,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
@@ -7966,10 +7966,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setUpdatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -7985,10 +7985,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
@@ -8008,10 +8008,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearUpdatedAt() {
       if (updatedAtBuilder_ == null) {
@@ -8027,10 +8027,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
       
@@ -8040,10 +8040,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
       if (updatedAtBuilder_ != null) {
@@ -8056,10 +8056,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 

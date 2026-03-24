@@ -28,7 +28,6 @@ type Online struct {
 	// Channel ID this online record belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Type of the person (e.g., manager, user).
 	//
@@ -110,11 +109,10 @@ var File_coreapi_model_online_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_online_proto_rawDesc = "" +
 	"\n" +
-	"\x1acoreapi/model/online.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\xe2\x02\n" +
-	"\x06Online\x12l\n" +
+	"\x1acoreapi/model/online.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\x9b\x02\n" +
+	"\x06Online\x12%\n" +
 	"\n" +
-	"channel_id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12n\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12n\n" +
 	"\vperson_type\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
 	"personType\x12j\n" +

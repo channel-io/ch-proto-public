@@ -39,68 +39,64 @@ public final class OneTimeMsgOuterClass {
       "/model/medium_type.proto\032\036google/protobu" +
       "f/duration.proto\032\034google/protobuf/struct" +
       ".proto\032\037google/protobuf/timestamp.proto\"" +
-      "\371\016\n\nOneTimeMsg\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstri" +
-      "ng.minLen\022\"value must be at least 1 char" +
-      "acter\032\017size(this) >= 1\310\001\001R\002id\022l\n\nchannel" +
-      "_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value " +
-      "must be at least 1 character\032\017size(this)" +
-      " >= 1\310\001\001R\tchannelId\022\263\001\n\004name\030\003 \001(\tB\236\001\272H\232" +
-      "\001\272\001D\n\rstring.minLen\022\"value must be at le" +
-      "ast 1 character\032\017size(this) >= 1\272\001M\n\rstr" +
-      "ing.maxLen\022)value must be no more than 1" +
-      "28 characters\032\021size(this) <= 128\310\001\001R\004nam" +
-      "e\022<\n\005state\030\004 \001(\0162\036.coreapi.model.OneTime" +
-      "MsgStateB\006\272H\003\310\001\001R\005state\022>\n\tsend_mode\030\005 \001" +
-      "(\0162!.coreapi.model.OneTimeMsgSendModeR\010s" +
-      "endMode\0220\n\024channel_operation_id\030\006 \001(\tR\022c" +
-      "hannelOperationId\022B\n\013medium_type\030\007 \001(\0162\031" +
-      ".coreapi.model.MediumTypeB\006\272H\003\310\001\001R\nmediu" +
-      "mType\022\033\n\tmedium_id\030\010 \001(\tR\010mediumId\0223\n\026me" +
-      "dium_topic_build_key\030\t \001(\tR\023mediumTopicB" +
-      "uildKey\0229\n\031medium_topic_build_labels\030\n \003" +
-      "(\tR\026mediumTopicBuildLabels\0223\n\010settings\030\013" +
-      " \001(\0132\027.google.protobuf.StructR\010settings\022" +
-      "6\n\nuser_query\030\014 \001(\0132\027.google.protobuf.St" +
-      "ructR\tuserQuery\022<\n\014app_segments\030\r \003(\0132\031." +
-      "coreapi.model.AppSegmentR\013appSegments\022_\n" +
-      "\022conversion_windows\030\016 \003(\01320.coreapi.mode" +
-      "l.OneTimeMsg.ConversionWindowsEntryR\021con" +
-      "versionWindows\022&\n\017goal_event_name\030\017 \001(\tR" +
-      "\rgoalEventName\022A\n\020goal_event_query\030\020 \001(\013" +
-      "2\027.google.protobuf.StructR\016goalEventQuer" +
-      "y\022I\n\023goal_event_duration\030\021 \001(\0132\031.google." +
-      "protobuf.DurationR\021goalEventDuration\022(\n\013" +
-      "advertising\030\022 \001(\010B\006\272H\003\310\001\001R\013advertising\022-" +
-      "\n\023send_to_offline_xms\030\023 \001(\010R\020sendToOffli" +
-      "neXms\0221\n\025send_to_offline_email\030\024 \001(\010R\022se" +
-      "ndToOfflineEmail\0225\n\010start_at\030\025 \001(\0132\032.goo" +
-      "gle.protobuf.TimestampR\007startAt\022$\n\016local" +
-      "_start_at\030\026 \001(\tR\014localStartAt\022-\n\005draft\030\027" +
-      " \001(\0132\027.google.protobuf.StructR\005draft\022A\n\n" +
-      "created_at\030\030 \001(\0132\032.google.protobuf.Times" +
-      "tampB\006\272H\003\310\001\001R\tcreatedAt\022A\n\nupdated_at\030\031 " +
-      "\001(\0132\032.google.protobuf.TimestampB\006\272H\003\310\001\001R" +
-      "\tupdatedAt\022\022\n\004sent\030\032 \001(\005R\004sent\022\022\n\004view\030\033" +
-      " \001(\005R\004view\022\022\n\004goal\030\034 \001(\005R\004goal\022\024\n\005click\030" +
-      "\035 \001(\005R\005click\022T\n\031user_chat_expire_duratio" +
-      "n\030\036 \001(\0132\031.google.protobuf.DurationR\026user" +
-      "ChatExpireDuration\032_\n\026ConversionWindowsE" +
-      "ntry\022\020\n\003key\030\001 \001(\tR\003key\022/\n\005value\030\002 \001(\0132\031." +
-      "google.protobuf.DurationR\005value:\0028\001*\321\001\n\017" +
-      "OneTimeMsgState\022\"\n\036ONE_TIME_MSG_STATE_UN" +
-      "SPECIFIED\020\000\022\034\n\030ONE_TIME_MSG_STATE_DRAFT\020" +
-      "\001\022\036\n\032ONE_TIME_MSG_STATE_WAITING\020\002\022\033\n\027ONE" +
-      "_TIME_MSG_STATE_SENT\020\003\022\037\n\033ONE_TIME_MSG_S" +
-      "TATE_CANCELED\020\004\022\036\n\032ONE_TIME_MSG_STATE_RE" +
-      "MOVED\020\005*\322\001\n\022OneTimeMsgSendMode\022&\n\"ONE_TI" +
-      "ME_MSG_SEND_MODE_UNSPECIFIED\020\000\022&\n\"ONE_TI" +
-      "ME_MSG_SEND_MODE_IMMEDIATELY\020\001\0224\n0ONE_TI" +
-      "ME_MSG_SEND_MODE_RESERVED_WITH_SENDER_TI" +
-      "ME\020\002\0226\n2ONE_TIME_MSG_SEND_MODE_RESERVED_" +
-      "WITH_RECEIVER_TIME\020\003Bb\n&io.channel.api.p" +
-      "roto.pub.coreapi.modelP\001Z6github.com/cha" +
-      "nnel-io/ch-proto-public/coreapi/go/model" +
-      "b\006proto3"
+      "\353\r\n\nOneTimeMsg\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022%" +
+      "\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\263\001" +
+      "\n\004name\030\003 \001(\tB\236\001\272H\232\001\272\001D\n\rstring.minLen\022\"v" +
+      "alue must be at least 1 character\032\017size(" +
+      "this) >= 1\272\001M\n\rstring.maxLen\022)value must" +
+      " be no more than 128 characters\032\021size(th" +
+      "is) <= 128\310\001\001R\004name\022<\n\005state\030\004 \001(\0162\036.cor" +
+      "eapi.model.OneTimeMsgStateB\006\272H\003\310\001\001R\005stat" +
+      "e\022>\n\tsend_mode\030\005 \001(\0162!.coreapi.model.One" +
+      "TimeMsgSendModeR\010sendMode\0220\n\024channel_ope" +
+      "ration_id\030\006 \001(\tR\022channelOperationId\022B\n\013m" +
+      "edium_type\030\007 \001(\0162\031.coreapi.model.MediumT" +
+      "ypeB\006\272H\003\310\001\001R\nmediumType\022\033\n\tmedium_id\030\010 \001" +
+      "(\tR\010mediumId\0223\n\026medium_topic_build_key\030\t" +
+      " \001(\tR\023mediumTopicBuildKey\0229\n\031medium_topi" +
+      "c_build_labels\030\n \003(\tR\026mediumTopicBuildLa" +
+      "bels\0223\n\010settings\030\013 \001(\0132\027.google.protobuf" +
+      ".StructR\010settings\0226\n\nuser_query\030\014 \001(\0132\027." +
+      "google.protobuf.StructR\tuserQuery\022<\n\014app" +
+      "_segments\030\r \003(\0132\031.coreapi.model.AppSegme" +
+      "ntR\013appSegments\022_\n\022conversion_windows\030\016 " +
+      "\003(\01320.coreapi.model.OneTimeMsg.Conversio" +
+      "nWindowsEntryR\021conversionWindows\022&\n\017goal" +
+      "_event_name\030\017 \001(\tR\rgoalEventName\022A\n\020goal" +
+      "_event_query\030\020 \001(\0132\027.google.protobuf.Str" +
+      "uctR\016goalEventQuery\022I\n\023goal_event_durati" +
+      "on\030\021 \001(\0132\031.google.protobuf.DurationR\021goa" +
+      "lEventDuration\022(\n\013advertising\030\022 \001(\010B\006\272H\003" +
+      "\310\001\001R\013advertising\022-\n\023send_to_offline_xms\030" +
+      "\023 \001(\010R\020sendToOfflineXms\0221\n\025send_to_offli" +
+      "ne_email\030\024 \001(\010R\022sendToOfflineEmail\0225\n\010st" +
+      "art_at\030\025 \001(\0132\032.google.protobuf.Timestamp" +
+      "R\007startAt\022$\n\016local_start_at\030\026 \001(\tR\014local" +
+      "StartAt\022-\n\005draft\030\027 \001(\0132\027.google.protobuf" +
+      ".StructR\005draft\022A\n\ncreated_at\030\030 \001(\0132\032.goo" +
+      "gle.protobuf.TimestampB\006\272H\003\310\001\001R\tcreatedA" +
+      "t\022A\n\nupdated_at\030\031 \001(\0132\032.google.protobuf." +
+      "TimestampB\006\272H\003\310\001\001R\tupdatedAt\022\022\n\004sent\030\032 \001" +
+      "(\005R\004sent\022\022\n\004view\030\033 \001(\005R\004view\022\022\n\004goal\030\034 \001" +
+      "(\005R\004goal\022\024\n\005click\030\035 \001(\005R\005click\022T\n\031user_c" +
+      "hat_expire_duration\030\036 \001(\0132\031.google.proto" +
+      "buf.DurationR\026userChatExpireDuration\032_\n\026" +
+      "ConversionWindowsEntry\022\020\n\003key\030\001 \001(\tR\003key" +
+      "\022/\n\005value\030\002 \001(\0132\031.google.protobuf.Durati" +
+      "onR\005value:\0028\001*\321\001\n\017OneTimeMsgState\022\"\n\036ONE" +
+      "_TIME_MSG_STATE_UNSPECIFIED\020\000\022\034\n\030ONE_TIM" +
+      "E_MSG_STATE_DRAFT\020\001\022\036\n\032ONE_TIME_MSG_STAT" +
+      "E_WAITING\020\002\022\033\n\027ONE_TIME_MSG_STATE_SENT\020\003" +
+      "\022\037\n\033ONE_TIME_MSG_STATE_CANCELED\020\004\022\036\n\032ONE" +
+      "_TIME_MSG_STATE_REMOVED\020\005*\322\001\n\022OneTimeMsg" +
+      "SendMode\022&\n\"ONE_TIME_MSG_SEND_MODE_UNSPE" +
+      "CIFIED\020\000\022&\n\"ONE_TIME_MSG_SEND_MODE_IMMED" +
+      "IATELY\020\001\0224\n0ONE_TIME_MSG_SEND_MODE_RESER" +
+      "VED_WITH_SENDER_TIME\020\002\0226\n2ONE_TIME_MSG_S" +
+      "END_MODE_RESERVED_WITH_RECEIVER_TIME\020\003Bb" +
+      "\n&io.channel.api.proto.pub.coreapi.model" +
+      "P\001Z6github.com/channel-io/ch-proto-publi" +
+      "c/coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
