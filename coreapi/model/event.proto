@@ -29,28 +29,12 @@ message Event {
   // Unique event identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 2 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string id = 2 [(buf.validate.field).required = true];
 
   // Channel ID this event belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string channel_id = 3 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string channel_id = 3 [(buf.validate.field).required = true];
 
   // Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
   //

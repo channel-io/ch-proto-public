@@ -15,15 +15,7 @@ message OperatorStatus {
   // Unique operator status identifier, matching the associated manager ID.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 1 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string id = 1 [(buf.validate.field).required = true];
 
   // Manager ID this operator status belongs to.
   //
@@ -41,15 +33,7 @@ message OperatorStatus {
   // Channel ID this operator status belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string channel_id = 3 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string channel_id = 3 [(buf.validate.field).required = true];
 
   // Current activity state of the manager, used for chat routing and workload management.
   //

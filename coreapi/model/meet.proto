@@ -34,15 +34,7 @@ message CallLog {
   // Channel ID where the call occurred.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string channel_id = 1 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string channel_id = 1 [(buf.validate.field).required = true];
 
   // Reason the call was missed.
   // Only present when the call ended without being answered.
@@ -109,28 +101,12 @@ message MeetMessage {
   // Unique message identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 1 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this message belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string channel_id = 2 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string channel_id = 2 [(buf.validate.field).required = true];
 
   // Chat type of the parent conversation.
   //

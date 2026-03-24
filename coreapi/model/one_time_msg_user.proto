@@ -74,13 +74,5 @@ message OneTimeMsgUser {
   // Composite identifier in the format "{one_time_msg_id}-{user_id}".
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 8 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string id = 8 [(buf.validate.field).required = true];
 }

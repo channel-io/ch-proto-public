@@ -84,13 +84,5 @@ message CampaignUser {
   // Composite identifier in the format "{campaign_id}-{user_id}".
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 10 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string id = 10 [(buf.validate.field).required = true];
 }

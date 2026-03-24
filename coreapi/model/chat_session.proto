@@ -88,15 +88,7 @@ message ChatSession {
   // Channel ID this session belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string channel_id = 7 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string channel_id = 7 [(buf.validate.field).required = true];
 
   // Number of unread messages with alert-level notification priority.
   // Defaults to 0.
@@ -155,15 +147,7 @@ message ChatSession {
   // Format: "{key}-{chatId}".
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 18 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string id = 18 [(buf.validate.field).required = true];
 
   // Chat type of the conversation (e.g., "userChat", "group", "directChat").
   //

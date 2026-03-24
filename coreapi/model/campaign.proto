@@ -48,28 +48,12 @@ message Campaign {
   // Unique campaign identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 1 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this campaign belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string channel_id = 2 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string channel_id = 2 [(buf.validate.field).required = true];
 
   // Human-readable label for the campaign.
   //
@@ -98,8 +82,8 @@ message Campaign {
   // Channel through which the campaign message is delivered.
   // Cannot be changed after creation.
   //
-  // +kubebuilder:validation:Required
-  MediumType medium_type = 5 [(buf.validate.field).required = true];
+  // +kubebuilder:validation:Nullable
+  MediumType medium_type = 5;
 
   // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
   //
@@ -119,8 +103,8 @@ message Campaign {
 
   // Name of the user event that triggers this campaign.
   //
-  // +kubebuilder:validation:Required
-  string trigger_event_name = 9 [(buf.validate.field).required = true];
+  // +kubebuilder:validation:Nullable
+  string trigger_event_name = 9;
 
   // Query expression to further filter matching trigger events by their properties.
   // Represented as a structured filter object.
@@ -131,9 +115,9 @@ message Campaign {
   // Delay between the trigger event and message delivery, in ISO 8601 duration format.
   // Maximum 90 days.
   //
-  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:Nullable
   // +kubebuilder:example="PT23H50M"
-  google.protobuf.Duration waiting_time = 11 [(buf.validate.field).required = true];
+  google.protobuf.Duration waiting_time = 11;
 
   // Name of an additional event used to filter users before delivery.
   // When set, filter_match determines whether the event must occur or must not occur.
@@ -191,8 +175,8 @@ message Campaign {
 
   // Whether the campaign message contains advertising content subject to opt-out regulations.
   //
-  // +kubebuilder:validation:Required
-  bool advertising = 21 [(buf.validate.field).required = true];
+  // +kubebuilder:validation:Nullable
+  bool advertising = 21;
 
   // Whether to fall back to XMS (text message) delivery when the user is offline.
   //
@@ -213,8 +197,8 @@ message Campaign {
 
   // Controls when messages are delivered relative to operation hours or custom time ranges.
   //
-  // +kubebuilder:validation:Required
-  CampaignSendMode send_mode = 25 [(buf.validate.field).required = true];
+  // +kubebuilder:validation:Nullable
+  CampaignSendMode send_mode = 25;
 
   // Channel operation schedule used to determine delivery timing.
   // Applicable when send_mode is IN_OPERATION or AWAY.
