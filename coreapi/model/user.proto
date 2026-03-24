@@ -28,28 +28,12 @@ message User {
   // Unique user identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 1 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this user belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string channel_id = 2 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string channel_id = 2 [(buf.validate.field).required = true];
 
   // External member ID provided at boot or manual creation.
   // Present for member-type users; for anonymous visitors, this matches
@@ -147,8 +131,8 @@ message User {
 
   // Whether the user has opted out of email notifications.
   //
-  // +kubebuilder:validation:Nullable
-  bool unsubscribe_email = 20;
+  // +kubebuilder:validation:Required
+  bool unsubscribe_email = 20 [(buf.validate.field).required = true];
 
   // Timestamp when the email opt-out preference was last changed.
   //
@@ -157,8 +141,8 @@ message User {
 
   // Whether the user has opted out of SMS/text notifications.
   //
-  // +kubebuilder:validation:Nullable
-  bool unsubscribe_texting = 22;
+  // +kubebuilder:validation:Required
+  bool unsubscribe_texting = 22 [(buf.validate.field).required = true];
 
   // Timestamp when the SMS/text opt-out preference was last changed.
   //
@@ -185,8 +169,8 @@ message User {
   // Whether the user has a display name set in the profile
   // (name, firstName, or lastName).
   //
-  // +kubebuilder:validation:Nullable
-  bool named = 27;
+  // +kubebuilder:validation:Required
+  bool named = 27 [(buf.validate.field).required = true];
 
   // Language detected from the user's browser or device settings,
   // as a BCP 47 locale code.
@@ -197,14 +181,14 @@ message User {
   // Whether the user's mobile number has passed format validation
   // and is eligible for SMS delivery.
   //
-  // +kubebuilder:validation:Nullable
-  bool mobile_number_qualified = 29;
+  // +kubebuilder:validation:Required
+  bool mobile_number_qualified = 29 [(buf.validate.field).required = true];
 
   // Whether the user's email address has passed format validation
   // and is eligible for email delivery.
   //
-  // +kubebuilder:validation:Nullable
-  bool email_qualified = 30;
+  // +kubebuilder:validation:Required
+  bool email_qualified = 30 [(buf.validate.field).required = true];
 
   // Display name of the user, derived from the profile's name field.
   //
@@ -213,13 +197,13 @@ message User {
 
   // Whether the user has at least one managed chat conversation.
   //
-  // +kubebuilder:validation:Nullable
-  bool has_chat = 32;
+  // +kubebuilder:validation:Required
+  bool has_chat = 32 [(buf.validate.field).required = true];
 
   // Whether the user has a registered device token for push notifications.
   //
-  // +kubebuilder:validation:Nullable
-  bool has_push_token = 33;
+  // +kubebuilder:validation:Required
+  bool has_push_token = 33 [(buf.validate.field).required = true];
 
   // Province or state name derived from IP geolocation.
   //
@@ -263,8 +247,8 @@ message User {
 
   // Whether the user is blocked from initiating new chats.
   //
-  // +kubebuilder:validation:Nullable
-  bool blocked = 42;
+  // +kubebuilder:validation:Required
+  bool blocked = 42 [(buf.validate.field).required = true];
 
   // Identifier key associated with the block action,
   // used to look up block details.
@@ -280,8 +264,8 @@ message User {
   // Whether the user's type is member.
   // Derived from the type field.
   //
-  // +kubebuilder:validation:Nullable
-  bool member = 45;
+  // +kubebuilder:validation:Required
+  bool member = 45 [(buf.validate.field).required = true];
 
   // Email address extracted from the user's profile data.
   //
