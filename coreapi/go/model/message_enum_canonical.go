@@ -90,3 +90,319 @@ func WritingTypeForString(value string) WritingType {
 	}
 }
 
+// GetString returns the canonical string for MessageLog_MessageLogAction.
+func (x MessageLog_MessageLogAction) GetString() string {
+	switch x {
+	case MessageLog_MESSAGE_LOG_ACTION_ADD_TAGS:
+		return "addTags"
+	case MessageLog_MESSAGE_LOG_ACTION_ADD_USER_TAGS:
+		return "addUserTags"
+	case MessageLog_MESSAGE_LOG_ACTION_APPLY_RULES:
+		return "applyRules"
+	case MessageLog_MESSAGE_LOG_ACTION_ASSIGN:
+		return "assign"
+	case MessageLog_MESSAGE_LOG_ACTION_ASSIGN_TEAM:
+		return "assignTeam"
+	case MessageLog_MESSAGE_LOG_ACTION_AUTO_ASSIGN:
+		return "autoAssign"
+	case MessageLog_MESSAGE_LOG_ACTION_AUTO_CLOSE:
+		return "autoClose"
+	case MessageLog_MESSAGE_LOG_ACTION_AUTO_OPEN:
+		return "autoOpen"
+	case MessageLog_MESSAGE_LOG_ACTION_CALLBACK_MEET:
+		return "callbackMeet"
+	case MessageLog_MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER:
+		return "cancelAlfByUser"
+	case MessageLog_MESSAGE_LOG_ACTION_CHANGE_NAME:
+		return "changeName"
+	case MessageLog_MESSAGE_LOG_ACTION_CHANGE_SCOPE:
+		return "changeScope"
+	case MessageLog_MESSAGE_LOG_ACTION_CLOSE:
+		return "close"
+	case MessageLog_MESSAGE_LOG_ACTION_CREATE:
+		return "create"
+	case MessageLog_MESSAGE_LOG_ACTION_END_WORKFLOW:
+		return "endWorkflow"
+	case MessageLog_MESSAGE_LOG_ACTION_ENQUEUE:
+		return "enqueue"
+	case MessageLog_MESSAGE_LOG_ACTION_FALLBACK_CALL:
+		return "fallbackCall"
+	case MessageLog_MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW:
+		return "interruptWorkflow"
+	case MessageLog_MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT:
+		return "interruptWorkflowByBot"
+	case MessageLog_MESSAGE_LOG_ACTION_INVITE:
+		return "invite"
+	case MessageLog_MESSAGE_LOG_ACTION_INVITE_MEET:
+		return "inviteMeet"
+	case MessageLog_MESSAGE_LOG_ACTION_JOIN:
+		return "join"
+	case MessageLog_MESSAGE_LOG_ACTION_JOIN_MEET:
+		return "joinMeet"
+	case MessageLog_MESSAGE_LOG_ACTION_LEAVE:
+		return "leave"
+	case MessageLog_MESSAGE_LOG_ACTION_LEAVE_MEET:
+		return "leaveMeet"
+	case MessageLog_MESSAGE_LOG_ACTION_MISS:
+		return "miss"
+	case MessageLog_MESSAGE_LOG_ACTION_MISS_MEET:
+		return "missMeet"
+	case MessageLog_MESSAGE_LOG_ACTION_OPEN:
+		return "open"
+	case MessageLog_MESSAGE_LOG_ACTION_PROCESS_BRANCH:
+		return "processBranch"
+	case MessageLog_MESSAGE_LOG_ACTION_PROCESS_BY_MISS:
+		return "processByMiss"
+	case MessageLog_MESSAGE_LOG_ACTION_REMOVE:
+		return "remove"
+	case MessageLog_MESSAGE_LOG_ACTION_REMOVE_TAGS:
+		return "removeTags"
+	case MessageLog_MESSAGE_LOG_ACTION_REMOVE_USER_TAGS:
+		return "removeUserTags"
+	case MessageLog_MESSAGE_LOG_ACTION_SEND_XMS:
+		return "sendXms"
+	case MessageLog_MESSAGE_LOG_ACTION_SNOOZE:
+		return "snooze"
+	case MessageLog_MESSAGE_LOG_ACTION_START_TASK:
+		return "startTask"
+	case MessageLog_MESSAGE_LOG_ACTION_START_WORKFLOW:
+		return "startWorkflow"
+	case MessageLog_MESSAGE_LOG_ACTION_TRY_CONNECT_CALL:
+		return "tryConnectCall"
+	case MessageLog_MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF:
+		return "tryOpenWithAlf"
+	case MessageLog_MESSAGE_LOG_ACTION_UNASSIGN:
+		return "unassign"
+	case MessageLog_MESSAGE_LOG_ACTION_UNASSIGN_TEAM:
+		return "unassignTeam"
+	case MessageLog_MESSAGE_LOG_ACTION_UPDATE_PRIORITY:
+		return "updatePriority"
+	default:
+		return ""
+	}
+}
+
+// MessageLog_MessageLogActionForString returns the MessageLog_MessageLogAction enum for the given canonical string.
+func MessageLog_MessageLogActionForString(value string) MessageLog_MessageLogAction {
+	switch value {
+	case "addTags":
+		return MessageLog_MESSAGE_LOG_ACTION_ADD_TAGS
+	case "addUserTags":
+		return MessageLog_MESSAGE_LOG_ACTION_ADD_USER_TAGS
+	case "applyRules":
+		return MessageLog_MESSAGE_LOG_ACTION_APPLY_RULES
+	case "assign":
+		return MessageLog_MESSAGE_LOG_ACTION_ASSIGN
+	case "assignTeam":
+		return MessageLog_MESSAGE_LOG_ACTION_ASSIGN_TEAM
+	case "autoAssign":
+		return MessageLog_MESSAGE_LOG_ACTION_AUTO_ASSIGN
+	case "autoClose":
+		return MessageLog_MESSAGE_LOG_ACTION_AUTO_CLOSE
+	case "autoOpen":
+		return MessageLog_MESSAGE_LOG_ACTION_AUTO_OPEN
+	case "callbackMeet":
+		return MessageLog_MESSAGE_LOG_ACTION_CALLBACK_MEET
+	case "cancelAlfByUser":
+		return MessageLog_MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER
+	case "changeName":
+		return MessageLog_MESSAGE_LOG_ACTION_CHANGE_NAME
+	case "changeScope":
+		return MessageLog_MESSAGE_LOG_ACTION_CHANGE_SCOPE
+	case "close":
+		return MessageLog_MESSAGE_LOG_ACTION_CLOSE
+	case "create":
+		return MessageLog_MESSAGE_LOG_ACTION_CREATE
+	case "endWorkflow":
+		return MessageLog_MESSAGE_LOG_ACTION_END_WORKFLOW
+	case "enqueue":
+		return MessageLog_MESSAGE_LOG_ACTION_ENQUEUE
+	case "fallbackCall":
+		return MessageLog_MESSAGE_LOG_ACTION_FALLBACK_CALL
+	case "interruptWorkflow":
+		return MessageLog_MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW
+	case "interruptWorkflowByBot":
+		return MessageLog_MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT
+	case "invite":
+		return MessageLog_MESSAGE_LOG_ACTION_INVITE
+	case "inviteMeet":
+		return MessageLog_MESSAGE_LOG_ACTION_INVITE_MEET
+	case "join":
+		return MessageLog_MESSAGE_LOG_ACTION_JOIN
+	case "joinMeet":
+		return MessageLog_MESSAGE_LOG_ACTION_JOIN_MEET
+	case "leave":
+		return MessageLog_MESSAGE_LOG_ACTION_LEAVE
+	case "leaveMeet":
+		return MessageLog_MESSAGE_LOG_ACTION_LEAVE_MEET
+	case "miss":
+		return MessageLog_MESSAGE_LOG_ACTION_MISS
+	case "missMeet":
+		return MessageLog_MESSAGE_LOG_ACTION_MISS_MEET
+	case "open":
+		return MessageLog_MESSAGE_LOG_ACTION_OPEN
+	case "processBranch":
+		return MessageLog_MESSAGE_LOG_ACTION_PROCESS_BRANCH
+	case "processByMiss":
+		return MessageLog_MESSAGE_LOG_ACTION_PROCESS_BY_MISS
+	case "remove":
+		return MessageLog_MESSAGE_LOG_ACTION_REMOVE
+	case "removeTags":
+		return MessageLog_MESSAGE_LOG_ACTION_REMOVE_TAGS
+	case "removeUserTags":
+		return MessageLog_MESSAGE_LOG_ACTION_REMOVE_USER_TAGS
+	case "sendXms":
+		return MessageLog_MESSAGE_LOG_ACTION_SEND_XMS
+	case "snooze":
+		return MessageLog_MESSAGE_LOG_ACTION_SNOOZE
+	case "startTask":
+		return MessageLog_MESSAGE_LOG_ACTION_START_TASK
+	case "startWorkflow":
+		return MessageLog_MESSAGE_LOG_ACTION_START_WORKFLOW
+	case "tryConnectCall":
+		return MessageLog_MESSAGE_LOG_ACTION_TRY_CONNECT_CALL
+	case "tryOpenWithAlf":
+		return MessageLog_MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF
+	case "unassign":
+		return MessageLog_MESSAGE_LOG_ACTION_UNASSIGN
+	case "unassignTeam":
+		return MessageLog_MESSAGE_LOG_ACTION_UNASSIGN_TEAM
+	case "updatePriority":
+		return MessageLog_MESSAGE_LOG_ACTION_UPDATE_PRIORITY
+	default:
+		return MessageLog_MESSAGE_LOG_ACTION_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for MessageMeet_MeetState.
+func (x MessageMeet_MeetState) GetString() string {
+	switch x {
+	case MessageMeet_MEET_STATE_ENDED:
+		return "ended"
+	case MessageMeet_MEET_STATE_LIVE:
+		return "live"
+	case MessageMeet_MEET_STATE_TRANSCRIBE_FAILED:
+		return "transcribeFailed"
+	case MessageMeet_MEET_STATE_TRANSCRIBED:
+		return "transcribed"
+	case MessageMeet_MEET_STATE_TRANSCRIBING:
+		return "transcribing"
+	default:
+		return ""
+	}
+}
+
+// MessageMeet_MeetStateForString returns the MessageMeet_MeetState enum for the given canonical string.
+func MessageMeet_MeetStateForString(value string) MessageMeet_MeetState {
+	switch value {
+	case "ended":
+		return MessageMeet_MEET_STATE_ENDED
+	case "live":
+		return MessageMeet_MEET_STATE_LIVE
+	case "transcribeFailed":
+		return MessageMeet_MEET_STATE_TRANSCRIBE_FAILED
+	case "transcribed":
+		return MessageMeet_MEET_STATE_TRANSCRIBED
+	case "transcribing":
+		return MessageMeet_MEET_STATE_TRANSCRIBING
+	default:
+		return MessageMeet_MEET_STATE_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for MessageMeet_MeetMode.
+func (x MessageMeet_MeetMode) GetString() string {
+	switch x {
+	case MessageMeet_MEET_MODE_AUDIO:
+		return "audio"
+	case MessageMeet_MEET_MODE_VIDEO:
+		return "video"
+	default:
+		return ""
+	}
+}
+
+// MessageMeet_MeetModeForString returns the MessageMeet_MeetMode enum for the given canonical string.
+func MessageMeet_MeetModeForString(value string) MessageMeet_MeetMode {
+	switch value {
+	case "audio":
+		return MessageMeet_MEET_MODE_AUDIO
+	case "video":
+		return MessageMeet_MEET_MODE_VIDEO
+	default:
+		return MessageMeet_MEET_MODE_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for MessageMeet_MeetType.
+func (x MessageMeet_MeetType) GetString() string {
+	switch x {
+	case MessageMeet_MEET_TYPE_CALL:
+		return "call"
+	case MessageMeet_MEET_TYPE_FRONT:
+		return "front"
+	case MessageMeet_MEET_TYPE_TEAM:
+		return "team"
+	default:
+		return ""
+	}
+}
+
+// MessageMeet_MeetTypeForString returns the MessageMeet_MeetType enum for the given canonical string.
+func MessageMeet_MeetTypeForString(value string) MessageMeet_MeetType {
+	switch value {
+	case "call":
+		return MessageMeet_MEET_TYPE_CALL
+	case "front":
+		return MessageMeet_MEET_TYPE_FRONT
+	case "team":
+		return MessageMeet_MEET_TYPE_TEAM
+	default:
+		return MessageMeet_MEET_TYPE_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for MessageEmail_EmailDirection.
+func (x MessageEmail_EmailDirection) GetString() string {
+	switch x {
+	case MessageEmail_EMAIL_DIRECTION_INBOUND:
+		return "inbound"
+	case MessageEmail_EMAIL_DIRECTION_OUTBOUND:
+		return "outbound"
+	default:
+		return ""
+	}
+}
+
+// MessageEmail_EmailDirectionForString returns the MessageEmail_EmailDirection enum for the given canonical string.
+func MessageEmail_EmailDirectionForString(value string) MessageEmail_EmailDirection {
+	switch value {
+	case "inbound":
+		return MessageEmail_EMAIL_DIRECTION_INBOUND
+	case "outbound":
+		return MessageEmail_EMAIL_DIRECTION_OUTBOUND
+	default:
+		return MessageEmail_EMAIL_DIRECTION_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for MessageMarketing_ExposureType.
+func (x MessageMarketing_ExposureType) GetString() string {
+	switch x {
+	case MessageMarketing_EXPOSURE_TYPE_FULL_SCREEN:
+		return "fullScreen"
+	default:
+		return ""
+	}
+}
+
+// MessageMarketing_ExposureTypeForString returns the MessageMarketing_ExposureType enum for the given canonical string.
+func MessageMarketing_ExposureTypeForString(value string) MessageMarketing_ExposureType {
+	switch value {
+	case "fullScreen":
+		return MessageMarketing_EXPOSURE_TYPE_FULL_SCREEN
+	default:
+		return MessageMarketing_EXPOSURE_TYPE_UNSPECIFIED
+	}
+}
+
