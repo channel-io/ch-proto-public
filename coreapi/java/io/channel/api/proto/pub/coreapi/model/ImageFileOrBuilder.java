@@ -58,7 +58,6 @@ public interface ImageFileOrBuilder extends
   /**
    * <pre>
    * Image width in pixels.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 width = 3 [json_name = "width"];</code>
@@ -69,7 +68,6 @@ public interface ImageFileOrBuilder extends
   /**
    * <pre>
    * Image height in pixels.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 height = 4 [json_name = "height"];</code>
@@ -80,7 +78,6 @@ public interface ImageFileOrBuilder extends
   /**
    * <pre>
    * MIME content type of the image (e.g. "image/png", "image/jpeg").
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:Pattern="^image/.*"
    * </pre>
    *
@@ -91,7 +88,6 @@ public interface ImageFileOrBuilder extends
   /**
    * <pre>
    * MIME content type of the image (e.g. "image/png", "image/jpeg").
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:Pattern="^image/.*"
    * </pre>
    *

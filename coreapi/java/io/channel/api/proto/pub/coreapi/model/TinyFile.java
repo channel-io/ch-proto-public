@@ -215,7 +215,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Image width in pixels.
    * Present only when the file is an image.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 width = 3 [json_name = "width"];</code>
@@ -232,7 +231,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Image height in pixels.
    * Present only when the file is an image.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 height = 4 [json_name = "height"];</code>
@@ -818,7 +816,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Image width in pixels.
      * Present only when the file is an image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 width = 3 [json_name = "width"];</code>
@@ -832,7 +829,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Image width in pixels.
      * Present only when the file is an image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 width = 3 [json_name = "width"];</code>
@@ -849,7 +845,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Image width in pixels.
      * Present only when the file is an image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 width = 3 [json_name = "width"];</code>
@@ -867,7 +862,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Image height in pixels.
      * Present only when the file is an image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 height = 4 [json_name = "height"];</code>
@@ -881,7 +875,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Image height in pixels.
      * Present only when the file is an image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 height = 4 [json_name = "height"];</code>
@@ -898,7 +891,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Image height in pixels.
      * Present only when the file is an image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 height = 4 [json_name = "height"];</code>

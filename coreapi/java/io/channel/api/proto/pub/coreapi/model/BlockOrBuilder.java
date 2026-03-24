@@ -32,7 +32,6 @@ public interface BlockOrBuilder extends
    * <pre>
    * Programming language identifier for syntax highlighting.
    * Only applicable when type is CODE.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string language = 2 [json_name = "language"];</code>
@@ -43,7 +42,6 @@ public interface BlockOrBuilder extends
    * <pre>
    * Programming language identifier for syntax highlighting.
    * Only applicable when type is CODE.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string language = 2 [json_name = "language"];</code>
@@ -56,7 +54,6 @@ public interface BlockOrBuilder extends
    * <pre>
    * Text content of the block.
    * Applicable for TEXT and CODE block types; ignored for BULLETS.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string value = 3 [json_name = "value"];</code>
@@ -67,7 +64,6 @@ public interface BlockOrBuilder extends
    * <pre>
    * Text content of the block.
    * Applicable for TEXT and CODE block types; ignored for BULLETS.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string value = 3 [json_name = "value"];</code>
@@ -80,7 +76,6 @@ public interface BlockOrBuilder extends
    * <pre>
    * Nested child blocks that form a hierarchical list structure.
    * Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 4 [json_name = "blocks"];</code>
@@ -91,7 +86,6 @@ public interface BlockOrBuilder extends
    * <pre>
    * Nested child blocks that form a hierarchical list structure.
    * Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 4 [json_name = "blocks"];</code>
@@ -101,7 +95,6 @@ public interface BlockOrBuilder extends
    * <pre>
    * Nested child blocks that form a hierarchical list structure.
    * Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 4 [json_name = "blocks"];</code>
@@ -111,7 +104,6 @@ public interface BlockOrBuilder extends
    * <pre>
    * Nested child blocks that form a hierarchical list structure.
    * Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 4 [json_name = "blocks"];</code>
@@ -122,7 +114,6 @@ public interface BlockOrBuilder extends
    * <pre>
    * Nested child blocks that form a hierarchical list structure.
    * Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 4 [json_name = "blocks"];</code>

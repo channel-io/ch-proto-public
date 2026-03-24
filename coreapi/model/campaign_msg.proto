@@ -61,7 +61,6 @@ message CampaignMsg {
 
   // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
   //
-  // +kubebuilder:validation:Nullable
   string medium_id = 6;
 
   // Message content and medium-specific delivery configuration.
@@ -82,21 +81,17 @@ message CampaignMsg {
 
   // Cumulative count of messages delivered for this variant.
   //
-  // +kubebuilder:validation:Nullable
   int32 sent = 10;
 
   // Cumulative count of message views by recipients for this variant.
   //
-  // +kubebuilder:validation:Nullable
   int32 view = 11;
 
   // Cumulative count of goal event completions attributed to this variant.
   //
-  // +kubebuilder:validation:Nullable
   int32 goal = 12;
 
   // Cumulative count of message link clicks for this variant.
   //
-  // +kubebuilder:validation:Nullable
   int32 click = 13;
 }

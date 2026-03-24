@@ -389,8 +389,6 @@ type Plugin struct {
 	// +kubebuilder:example="plg-001"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Plugin API key in UUID format.
-	//
-	// +kubebuilder:validation:Nullable
 	Key string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
 	// Channel ID this plugin belongs to.
 	//
@@ -425,14 +423,11 @@ type Plugin struct {
 	// Text shown on the label next to the launcher button.
 	// Applicable when label_button is true.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MinLength=4
 	// +kubebuilder:validation:MaxLength=30
 	LabelButtonText string `protobuf:"bytes,9,opt,name=label_button_text,json=labelButtonText,proto3" json:"label_button_text,omitempty"`
 	// Localized label button text, keyed by locale code (e.g., "en", "ko").
 	// Overrides label_button_text for matching locales.
-	//
-	// +kubebuilder:validation:Nullable
 	LabelButtonTextI18NMap map[string]string `protobuf:"bytes,10,rep,name=label_button_text_i18n_map,json=labelButtonTextI18nMap,proto3" json:"label_button_text_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Determines how the launcher button is rendered.
 	// Defaults to ICON_BUTTON. When set to CUSTOM_IMAGE, the custom_image field must be provided.
@@ -446,85 +441,51 @@ type Plugin struct {
 	IconButton PluginIconButton `protobuf:"varint,12,opt,name=icon_button,json=iconButton,proto3,enum=coreapi.model.PluginIconButton" json:"icon_button,omitempty"`
 	// Uploaded image for the launcher button.
 	// Applicable when button_type is CUSTOM_IMAGE.
-	//
-	// +kubebuilder:validation:Nullable
 	CustomImage *ImageFile `protobuf:"bytes,13,opt,name=custom_image,json=customImage,proto3" json:"custom_image,omitempty"`
 	// Uploaded desktop launcher image.
 	// Applicable when button_type is LEGACY.
-	//
-	// +kubebuilder:validation:Nullable
 	DeskImage *TinyFile `protobuf:"bytes,14,opt,name=desk_image,json=deskImage,proto3" json:"desk_image,omitempty"`
 	// Horizontal offset of the desktop widget from its anchored edge, in pixels.
-	//
-	// +kubebuilder:validation:Nullable
 	DeskMarginX int32 `protobuf:"varint,15,opt,name=desk_margin_x,json=deskMarginX,proto3" json:"desk_margin_x,omitempty"`
 	// Vertical offset of the desktop widget from the bottom edge, in pixels.
-	//
-	// +kubebuilder:validation:Nullable
 	DeskMarginY int32 `protobuf:"varint,16,opt,name=desk_margin_y,json=deskMarginY,proto3" json:"desk_margin_y,omitempty"`
 	// Whether the desktop launcher button is hidden while the widget remains accessible.
-	//
-	// +kubebuilder:validation:Nullable
 	DeskHideButton bool `protobuf:"varint,17,opt,name=desk_hide_button,json=deskHideButton,proto3" json:"desk_hide_button,omitempty"`
 	// Horizontal anchor position of the desktop widget.
-	//
-	// +kubebuilder:validation:Nullable
 	DeskPosition PluginPosition `protobuf:"varint,18,opt,name=desk_position,json=deskPosition,proto3,enum=coreapi.model.PluginPosition" json:"desk_position,omitempty"`
 	// Uploaded mobile launcher image.
 	// Applicable when button_type is LEGACY.
-	//
-	// +kubebuilder:validation:Nullable
 	MobileImage *TinyFile `protobuf:"bytes,19,opt,name=mobile_image,json=mobileImage,proto3" json:"mobile_image,omitempty"`
 	// Horizontal offset of the mobile widget from its anchored edge, in pixels.
-	//
-	// +kubebuilder:validation:Nullable
 	MobileMarginX int32 `protobuf:"varint,20,opt,name=mobile_margin_x,json=mobileMarginX,proto3" json:"mobile_margin_x,omitempty"`
 	// Vertical offset of the mobile widget from the bottom edge, in pixels.
-	//
-	// +kubebuilder:validation:Nullable
 	MobileMarginY int32 `protobuf:"varint,21,opt,name=mobile_margin_y,json=mobileMarginY,proto3" json:"mobile_margin_y,omitempty"`
 	// Horizontal anchor position of the mobile widget.
-	//
-	// +kubebuilder:validation:Nullable
 	MobilePosition PluginPosition `protobuf:"varint,22,opt,name=mobile_position,json=mobilePosition,proto3,enum=coreapi.model.PluginPosition" json:"mobile_position,omitempty"`
 	// Whether the mobile launcher button is hidden while the widget remains accessible.
-	//
-	// +kubebuilder:validation:Nullable
 	MobileHideButton bool `protobuf:"varint,23,opt,name=mobile_hide_button,json=mobileHideButton,proto3" json:"mobile_hide_button,omitempty"`
 	// Vertical position of the chat bubble on mobile devices.
-	//
-	// +kubebuilder:validation:Nullable
 	MobileBubblePosition PluginBubblePosition `protobuf:"varint,24,opt,name=mobile_bubble_position,json=mobileBubblePosition,proto3,enum=coreapi.model.PluginBubblePosition" json:"mobile_bubble_position,omitempty"`
 	// URL patterns that restrict where the plugin is displayed.
 	// When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxItems=5
 	UrlWhitelist []string `protobuf:"bytes,25,rep,name=url_whitelist,json=urlWhitelist,proto3" json:"url_whitelist,omitempty"`
 	// Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:Minimum=0
 	// +kubebuilder:validation:Maximum=1
 	RunRate float32 `protobuf:"fixed32,26,opt,name=run_rate,json=runRate,proto3" json:"run_rate,omitempty"`
 	// Facebook Pixel ID linked for conversion tracking.
-	//
-	// +kubebuilder:validation:Nullable
 	FacebookPixelId string `protobuf:"bytes,27,opt,name=facebook_pixel_id,json=facebookPixelId,proto3" json:"facebook_pixel_id,omitempty"`
 	// Resolved URL of the custom launcher button image.
 	// Automatically derived from custom_image.
-	//
-	// +kubebuilder:validation:Nullable
 	CustomImageUrl string `protobuf:"bytes,28,opt,name=custom_image_url,json=customImageUrl,proto3" json:"custom_image_url,omitempty"`
 	// Resolved URL of the desktop launcher image.
 	// Automatically derived from desk_image.
-	//
-	// +kubebuilder:validation:Nullable
 	DeskImageUrl string `protobuf:"bytes,29,opt,name=desk_image_url,json=deskImageUrl,proto3" json:"desk_image_url,omitempty"`
 	// Resolved URL of the mobile launcher image.
 	// Automatically derived from mobile_image.
-	//
-	// +kubebuilder:validation:Nullable
 	MobileImageUrl string `protobuf:"bytes,30,opt,name=mobile_image_url,json=mobileImageUrl,proto3" json:"mobile_image_url,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache

@@ -61,7 +61,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Index key for the main (top-level) message stream.
    * Same value as chat_key when the message appears in the main stream.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -72,7 +71,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Index key for the main (top-level) message stream.
    * Same value as chat_key when the message appears in the main stream.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -87,7 +85,6 @@ public interface MessageOrBuilder extends
    * For thread root messages: same value as chat_key.
    * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message does not belong to a thread.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string thread_key = 4 [json_name = "threadKey"];</code>
@@ -100,7 +97,6 @@ public interface MessageOrBuilder extends
    * For thread root messages: same value as chat_key.
    * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message does not belong to a thread.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string thread_key = 4 [json_name = "threadKey"];</code>
@@ -115,7 +111,6 @@ public interface MessageOrBuilder extends
    * For meet root messages: same value as chat_key.
    * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not associated with a meet session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -128,7 +123,6 @@ public interface MessageOrBuilder extends
    * For meet root messages: same value as chat_key.
    * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not associated with a meet session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -141,7 +135,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Index key for the front (user-facing) message stream.
    * Same value as chat_key when the message appears in the front stream.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string front_key = 6 [json_name = "frontKey"];</code>
@@ -152,7 +145,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Index key for the front (user-facing) message stream.
    * Same value as chat_key when the message appears in the front stream.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string front_key = 6 [json_name = "frontKey"];</code>
@@ -167,7 +159,6 @@ public interface MessageOrBuilder extends
    * For ALF thread root messages: same value as chat_key.
    * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not part of an ALF thread.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -180,7 +171,6 @@ public interface MessageOrBuilder extends
    * For ALF thread root messages: same value as chat_key.
    * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not part of an ALF thread.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -306,7 +296,6 @@ public interface MessageOrBuilder extends
    * Client-generated identifier for deduplication.
    * Allows matching a locally pre-rendered message with the server response.
    * Immutable after creation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string request_id = 13 [json_name = "requestId"];</code>
@@ -318,7 +307,6 @@ public interface MessageOrBuilder extends
    * Client-generated identifier for deduplication.
    * Allows matching a locally pre-rendered message with the server response.
    * Immutable after creation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string request_id = 13 [json_name = "requestId"];</code>
@@ -330,7 +318,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Detected language of the message content (e.g., "ko", "en", "ja").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string language = 14 [json_name = "language"];</code>
@@ -340,7 +327,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Detected language of the message content (e.g., "ko", "en", "ja").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string language = 14 [json_name = "language"];</code>
@@ -383,7 +369,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Optimistic locking version.
    * Incremented on every update.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 version = 16 [json_name = "version"];</code>
@@ -395,7 +380,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Structured content blocks composing the message body.
    * Contains rich text, images, code snippets, and other block-level elements.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
@@ -406,7 +390,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Structured content blocks composing the message body.
    * Contains rich text, images, code snippets, and other block-level elements.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
@@ -416,7 +399,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Structured content blocks composing the message body.
    * Contains rich text, images, code snippets, and other block-level elements.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
@@ -426,7 +408,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Structured content blocks composing the message body.
    * Contains rich text, images, code snippets, and other block-level elements.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
@@ -437,7 +418,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Structured content blocks composing the message body.
    * Contains rich text, images, code snippets, and other block-level elements.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
@@ -449,7 +429,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Plain text representation of the message body.
    * Stripped of all formatting from blocks.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string plain_text = 18 [json_name = "plainText"];</code>
@@ -460,7 +439,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Plain text representation of the message body.
    * Stripped of all formatting from blocks.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string plain_text = 18 [json_name = "plainText"];</code>
@@ -472,7 +450,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Message last update timestamp.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -482,7 +459,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Message last update timestamp.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -492,7 +468,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Message last update timestamp.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -503,7 +478,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Thread metadata present only on thread root messages.
    * Contains reply count, last reply timestamp, and participant summary.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
@@ -514,7 +488,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Thread metadata present only on thread root messages.
    * Contains reply count, last reply timestamp, and participant summary.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
@@ -525,7 +498,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Thread metadata present only on thread root messages.
    * Contains reply count, last reply timestamp, and participant summary.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
@@ -537,7 +509,6 @@ public interface MessageOrBuilder extends
    * Meet session metadata for messages associated with a video/voice meet.
    * Contains session ID, participants, and call state.
    * Present only on meet-related messages.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -549,7 +520,6 @@ public interface MessageOrBuilder extends
    * Meet session metadata for messages associated with a video/voice meet.
    * Contains session ID, participants, and call state.
    * Present only on meet-related messages.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -561,7 +531,6 @@ public interface MessageOrBuilder extends
    * Meet session metadata for messages associated with a video/voice meet.
    * Contains session ID, participants, and call state.
    * Present only on meet-related messages.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -572,7 +541,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Email metadata for messages sent or received via email integration.
    * Contains email subject, recipients, and direction (inbound/outbound).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -583,7 +551,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Email metadata for messages sent or received via email integration.
    * Contains email subject, recipients, and direction (inbound/outbound).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -594,7 +561,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Email metadata for messages sent or received via email integration.
    * Contains email subject, recipients, and direction (inbound/outbound).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -605,7 +571,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * ALF (AI agent) thread metadata for AI-assisted conversation threads.
    * Contains ALF session state and context.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -616,7 +581,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * ALF (AI agent) thread metadata for AI-assisted conversation threads.
    * Contains ALF session state and context.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -627,7 +591,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * ALF (AI agent) thread metadata for AI-assisted conversation threads.
    * Contains ALF session state and context.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -638,7 +601,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Timestamp when the message content was last edited by a person.
    * Absent if the message has never been edited.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -649,7 +611,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Timestamp when the message content was last edited by a person.
    * Absent if the message has never been edited.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -660,7 +621,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Timestamp when the message content was last edited by a person.
    * Absent if the message has never been edited.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -670,7 +630,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Interactive action buttons displayed below the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=2
    * </pre>
@@ -682,7 +641,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Interactive action buttons displayed below the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=2
    * </pre>
@@ -693,7 +651,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Interactive action buttons displayed below the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=2
    * </pre>
@@ -704,7 +661,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Interactive action buttons displayed below the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=2
    * </pre>
@@ -716,7 +672,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Interactive action buttons displayed below the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=2
    * </pre>
@@ -729,7 +684,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * File attachments included in the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=30
    * </pre>
@@ -741,7 +695,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * File attachments included in the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=30
    * </pre>
@@ -752,7 +705,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * File attachments included in the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=30
    * </pre>
@@ -763,7 +715,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * File attachments included in the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=30
    * </pre>
@@ -775,7 +726,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * File attachments included in the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=30
    * </pre>
@@ -788,7 +738,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Link preview extracted from the first URL found in the message content.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
@@ -798,7 +747,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Link preview extracted from the first URL found in the message content.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
@@ -808,7 +756,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Link preview extracted from the first URL found in the message content.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
@@ -819,7 +766,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * System log entry for automated events (e.g., chat opened, assigned, closed).
    * Present only on system-generated messages.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
@@ -830,7 +776,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * System log entry for automated events (e.g., chat opened, assigned, closed).
    * Present only on system-generated messages.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
@@ -841,7 +786,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * System log entry for automated events (e.g., chat opened, assigned, closed).
    * Present only on system-generated messages.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
@@ -851,7 +795,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Emoji reactions added to this message by participants.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
@@ -861,7 +804,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Emoji reactions added to this message by participants.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
@@ -870,7 +812,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Emoji reactions added to this message by participants.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
@@ -879,7 +820,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Emoji reactions added to this message by participants.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
@@ -889,7 +829,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Emoji reactions added to this message by participants.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
@@ -902,7 +841,6 @@ public interface MessageOrBuilder extends
    * Progress indicator for an ALF AI response being streamed.
    * Contains the partial content generated so far.
    * Transient; replaced by the final message content when streaming completes.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -914,7 +852,6 @@ public interface MessageOrBuilder extends
    * Progress indicator for an ALF AI response being streamed.
    * Contains the partial content generated so far.
    * Transient; replaced by the final message content when streaming completes.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -926,7 +863,6 @@ public interface MessageOrBuilder extends
    * Progress indicator for an ALF AI response being streamed.
    * Contains the partial content generated so far.
    * Transient; replaced by the final message content when streaming completes.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -936,7 +872,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Interactive form (e.g., input fields, dropdowns) attached to the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -946,7 +881,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Interactive form (e.g., input fields, dropdowns) attached to the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -956,7 +890,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Interactive form (e.g., input fields, dropdowns) attached to the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -966,7 +899,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Current lifecycle state of this message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
@@ -976,7 +908,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Current lifecycle state of this message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
@@ -989,7 +920,6 @@ public interface MessageOrBuilder extends
    * Delivery and visibility options applied to this message.
    * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
    * Some options are only applicable in user chats.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -1003,7 +933,6 @@ public interface MessageOrBuilder extends
    * Delivery and visibility options applied to this message.
    * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
    * Some options are only applicable in user chats.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -1016,7 +945,6 @@ public interface MessageOrBuilder extends
    * Delivery and visibility options applied to this message.
    * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
    * Some options are only applicable in user chats.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -1030,7 +958,6 @@ public interface MessageOrBuilder extends
    * Delivery and visibility options applied to this message.
    * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
    * Some options are only applicable in user chats.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -1045,7 +972,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Marketing campaign metadata for outbound promotional messages.
    * Contains campaign type and tracking attributes.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -1056,7 +982,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Marketing campaign metadata for outbound promotional messages.
    * Contains campaign type and tracking attributes.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -1067,7 +992,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Marketing campaign metadata for outbound promotional messages.
    * Contains campaign type and tracking attributes.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -1078,7 +1002,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Legacy support bot metadata.
    * Retained for backward compatibility with older workflow implementations.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -1089,7 +1012,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Legacy support bot metadata.
    * Retained for backward compatibility with older workflow implementations.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -1100,7 +1022,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Legacy support bot metadata.
    * Retained for backward compatibility with older workflow implementations.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -1111,7 +1032,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Workflow automation metadata linking this message to a workflow step.
    * Contains workflow ID, step ID, and button submission context.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -1122,7 +1042,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Workflow automation metadata linking this message to a workflow step.
    * Contains workflow ID, step ID, and button submission context.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -1133,7 +1052,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Workflow automation metadata linking this message to a workflow step.
    * Contains workflow ID, step ID, and button submission context.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -1143,7 +1061,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Notification priority level controlling client-side popup behavior.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
@@ -1153,7 +1070,6 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Notification priority level controlling client-side popup behavior.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
@@ -1165,7 +1081,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * IVR (Interactive Voice Response) call metadata for phone-based messages.
    * Contains DTMF input, call routing state, and voice prompt context.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -1176,7 +1091,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * IVR (Interactive Voice Response) call metadata for phone-based messages.
    * Contains DTMF input, call routing state, and voice prompt context.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -1187,7 +1101,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * IVR (Interactive Voice Response) call metadata for phone-based messages.
    * Contains DTMF input, call routing state, and voice prompt context.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -1198,7 +1111,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Custom rendering payload for third-party integrations.
    * Structure and content are defined by the integration provider.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -1209,7 +1121,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Custom rendering payload for third-party integrations.
    * Structure and content are defined by the integration provider.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -1220,7 +1131,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Custom rendering payload for third-party integrations.
    * Structure and content are defined by the integration provider.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -1233,7 +1143,6 @@ public interface MessageOrBuilder extends
    * Automatically derived from the message content when not explicitly set:
    * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
    * and STANDARD otherwise.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
@@ -1246,7 +1155,6 @@ public interface MessageOrBuilder extends
    * Automatically derived from the message content when not explicitly set:
    * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
    * and STANDARD otherwise.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
@@ -1271,7 +1179,6 @@ public interface MessageOrBuilder extends
    * ID of the root message when this message belongs to a thread, meet, or ALF thread.
    * Parsed from thread_key, meet_key, or alf_thread_key respectively.
    * Absent for root messages and standalone messages.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
@@ -1283,7 +1190,6 @@ public interface MessageOrBuilder extends
    * ID of the root message when this message belongs to a thread, meet, or ALF thread.
    * Parsed from thread_key, meet_key, or alf_thread_key respectively.
    * Absent for root messages and standalone messages.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>

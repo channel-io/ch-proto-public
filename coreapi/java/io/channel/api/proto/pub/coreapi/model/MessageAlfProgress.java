@@ -104,7 +104,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Human-readable summary of the current processing step.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string plain_text = 1 [json_name = "plainText"];</code>
@@ -126,7 +125,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Human-readable summary of the current processing step.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string plain_text = 1 [json_name = "plainText"];</code>
@@ -525,7 +523,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Human-readable summary of the current processing step.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string plain_text = 1 [json_name = "plainText"];</code>
@@ -546,7 +543,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Human-readable summary of the current processing step.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string plain_text = 1 [json_name = "plainText"];</code>
@@ -568,7 +564,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Human-readable summary of the current processing step.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string plain_text = 1 [json_name = "plainText"];</code>
@@ -588,7 +583,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Human-readable summary of the current processing step.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string plain_text = 1 [json_name = "plainText"];</code>
@@ -603,7 +597,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Human-readable summary of the current processing step.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string plain_text = 1 [json_name = "plainText"];</code>

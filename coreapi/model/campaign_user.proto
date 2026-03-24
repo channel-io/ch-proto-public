@@ -50,37 +50,30 @@ message CampaignUser {
 
   // Message variant that was delivered to this user.
   //
-  // +kubebuilder:validation:Nullable
   string msg_id = 3;
 
   // User chat conversation created by the campaign delivery.
   //
-  // +kubebuilder:validation:Nullable
   string user_chat_id = 4;
 
   // Timestamp when the campaign message was delivered to the user.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp sent = 5;
 
   // Timestamp when the user first viewed the delivered message.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp view = 6;
 
   // Timestamp when the user first clicked a link in the message.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp click = 7;
 
   // Timestamp when the user completed the campaign goal event.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp goal = 8;
 
   // Cumulative revenue attributed to this user from the campaign.
   //
-  // +kubebuilder:validation:Nullable
   string revenue = 9;
 
   // Composite identifier in the format "{campaign_id}-{user_id}".

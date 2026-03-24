@@ -255,7 +255,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Reason the call was missed.
    * Only present when the call ended without being answered.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -268,7 +267,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Reason the call was missed.
    * Only present when the call ended without being answered.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -285,7 +283,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the call was inbound (received) or outbound (initiated).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -297,7 +294,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the call was inbound (received) or outbound (initiated).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -314,7 +310,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Current lifecycle state indicating whether the call is waiting or connected.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -326,7 +321,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Current lifecycle state indicating whether the call is waiting or connected.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -343,7 +337,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Originating phone number or caller identifier.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string from = 5 [json_name = "from"];</code>
@@ -365,7 +358,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Originating phone number or caller identifier.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string from = 5 [json_name = "from"];</code>
@@ -391,7 +383,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Destination phone number or callee identifier.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string to = 6 [json_name = "to"];</code>
@@ -413,7 +404,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Destination phone number or callee identifier.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string to = 6 [json_name = "to"];</code>
@@ -522,7 +512,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the call was answered and the conversation began.
    * Absent if the call was never answered.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -536,7 +525,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the call was answered and the conversation began.
    * Absent if the call was never answered.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -550,7 +538,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the call was answered and the conversation began.
    * Absent if the call was never answered.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -566,7 +553,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the call ended and the connection was terminated.
    * Absent if the call is still active or was never connected.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -580,7 +566,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the call ended and the connection was terminated.
    * Absent if the call is still active or was never connected.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -594,7 +579,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the call ended and the connection was terminated.
    * Absent if the call is still active or was never connected.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -610,7 +594,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * User chat ID linked to this call.
    * Present when the call is associated with a user chat conversation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -633,7 +616,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * User chat ID linked to this call.
    * Present when the call is associated with a user chat conversation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -659,7 +641,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * List of manager IDs who participated in or handled the call.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>
@@ -672,7 +653,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * List of manager IDs who participated in or handled the call.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>
@@ -684,7 +664,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * List of manager IDs who participated in or handled the call.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>
@@ -697,7 +676,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * List of manager IDs who participated in or handled the call.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>
@@ -1381,7 +1359,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the call was missed.
      * Only present when the call ended without being answered.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -1394,7 +1371,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the call was missed.
      * Only present when the call ended without being answered.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -1411,7 +1387,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the call was missed.
      * Only present when the call ended without being answered.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -1427,7 +1402,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the call was missed.
      * Only present when the call ended without being answered.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -1447,7 +1421,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the call was missed.
      * Only present when the call ended without being answered.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -1464,7 +1437,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the call was inbound (received) or outbound (initiated).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -1476,7 +1448,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the call was inbound (received) or outbound (initiated).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -1492,7 +1463,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the call was inbound (received) or outbound (initiated).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -1507,7 +1477,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the call was inbound (received) or outbound (initiated).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -1526,7 +1495,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the call was inbound (received) or outbound (initiated).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -1543,7 +1511,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state indicating whether the call is waiting or connected.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -1555,7 +1522,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state indicating whether the call is waiting or connected.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -1571,7 +1537,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state indicating whether the call is waiting or connected.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -1586,7 +1551,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state indicating whether the call is waiting or connected.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -1605,7 +1569,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state indicating whether the call is waiting or connected.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -1622,7 +1585,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Originating phone number or caller identifier.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string from = 5 [json_name = "from"];</code>
@@ -1643,7 +1605,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Originating phone number or caller identifier.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string from = 5 [json_name = "from"];</code>
@@ -1665,7 +1626,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Originating phone number or caller identifier.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string from = 5 [json_name = "from"];</code>
@@ -1685,7 +1645,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Originating phone number or caller identifier.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string from = 5 [json_name = "from"];</code>
@@ -1700,7 +1659,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Originating phone number or caller identifier.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string from = 5 [json_name = "from"];</code>
@@ -1723,7 +1681,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Destination phone number or callee identifier.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string to = 6 [json_name = "to"];</code>
@@ -1744,7 +1701,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Destination phone number or callee identifier.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string to = 6 [json_name = "to"];</code>
@@ -1766,7 +1722,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Destination phone number or callee identifier.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string to = 6 [json_name = "to"];</code>
@@ -1786,7 +1741,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Destination phone number or callee identifier.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string to = 6 [json_name = "to"];</code>
@@ -1801,7 +1755,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Destination phone number or callee identifier.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string to = 6 [json_name = "to"];</code>
@@ -2155,7 +2108,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2168,7 +2120,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2185,7 +2136,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2207,7 +2157,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2227,7 +2176,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2251,7 +2199,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2271,7 +2218,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2285,7 +2231,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2302,7 +2247,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2328,7 +2272,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2341,7 +2284,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2358,7 +2300,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2380,7 +2321,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2400,7 +2340,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2424,7 +2363,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2444,7 +2382,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2458,7 +2395,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2475,7 +2411,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2499,7 +2434,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User chat ID linked to this call.
      * Present when the call is associated with a user chat conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -2521,7 +2455,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User chat ID linked to this call.
      * Present when the call is associated with a user chat conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -2544,7 +2477,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User chat ID linked to this call.
      * Present when the call is associated with a user chat conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -2565,7 +2497,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User chat ID linked to this call.
      * Present when the call is associated with a user chat conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -2581,7 +2512,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User chat ID linked to this call.
      * Present when the call is associated with a user chat conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -2610,7 +2540,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * List of manager IDs who participated in or handled the call.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>
@@ -2623,7 +2552,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * List of manager IDs who participated in or handled the call.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>
@@ -2635,7 +2563,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * List of manager IDs who participated in or handled the call.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>
@@ -2648,7 +2575,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * List of manager IDs who participated in or handled the call.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>
@@ -2662,7 +2588,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * List of manager IDs who participated in or handled the call.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>
@@ -2683,7 +2608,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * List of manager IDs who participated in or handled the call.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>
@@ -2703,7 +2627,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * List of manager IDs who participated in or handled the call.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>
@@ -2721,7 +2644,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * List of manager IDs who participated in or handled the call.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>
@@ -2736,7 +2658,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * List of manager IDs who participated in or handled the call.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>

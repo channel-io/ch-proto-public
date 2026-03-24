@@ -215,7 +215,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Alert-level unread count in team chat main conversations.
    * Defaults to 0.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 team_chat_alert = 2 [json_name = "teamChatAlert"];</code>
@@ -232,7 +231,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Total unread count in team chat main conversations.
    * Defaults to 0.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 team_chat_unread = 3 [json_name = "teamChatUnread"];</code>
@@ -249,7 +247,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Alert-level unread count in user chat conversations.
    * Defaults to 0.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 user_chat_alert = 4 [json_name = "userChatAlert"];</code>
@@ -266,7 +263,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Total unread count in user chat conversations.
    * Defaults to 0.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 user_chat_unread = 5 [json_name = "userChatUnread"];</code>
@@ -283,7 +279,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Alert-level unread count in team chat thread replies.
    * Defaults to 0.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 team_chat_thread_alert = 6 [json_name = "teamChatThreadAlert"];</code>
@@ -300,7 +295,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Total unread count in team chat thread replies.
    * Defaults to 0.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 team_chat_thread_unread = 7 [json_name = "teamChatThreadUnread"];</code>
@@ -316,7 +310,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Badge last update timestamp.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -329,7 +322,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Badge last update timestamp.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -342,7 +334,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Badge last update timestamp.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -358,7 +349,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Optimistic locking version.
    * Incremented on every update.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 version = 9 [json_name = "version"];</code>
@@ -375,7 +365,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager ID this badge belongs to.
    * Same value as the badge id.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string manager_id = 10 [json_name = "managerId"];</code>
@@ -398,7 +387,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager ID this badge belongs to.
    * Same value as the badge id.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string manager_id = 10 [json_name = "managerId"];</code>
@@ -425,7 +413,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Aggregated alert count across all chat types.
    * Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 alert = 11 [json_name = "alert"];</code>
@@ -442,7 +429,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Aggregated unread count across all chat types.
    * Equals team_chat_unread + team_chat_thread_unread + user_chat_unread.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 unread = 12 [json_name = "unread"];</code>
@@ -1077,7 +1063,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in team chat main conversations.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 team_chat_alert = 2 [json_name = "teamChatAlert"];</code>
@@ -1091,7 +1076,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in team chat main conversations.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 team_chat_alert = 2 [json_name = "teamChatAlert"];</code>
@@ -1108,7 +1092,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in team chat main conversations.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 team_chat_alert = 2 [json_name = "teamChatAlert"];</code>
@@ -1126,7 +1109,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Total unread count in team chat main conversations.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 team_chat_unread = 3 [json_name = "teamChatUnread"];</code>
@@ -1140,7 +1122,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Total unread count in team chat main conversations.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 team_chat_unread = 3 [json_name = "teamChatUnread"];</code>
@@ -1157,7 +1138,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Total unread count in team chat main conversations.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 team_chat_unread = 3 [json_name = "teamChatUnread"];</code>
@@ -1175,7 +1155,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in user chat conversations.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 user_chat_alert = 4 [json_name = "userChatAlert"];</code>
@@ -1189,7 +1168,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in user chat conversations.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 user_chat_alert = 4 [json_name = "userChatAlert"];</code>
@@ -1206,7 +1184,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in user chat conversations.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 user_chat_alert = 4 [json_name = "userChatAlert"];</code>
@@ -1224,7 +1201,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Total unread count in user chat conversations.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 user_chat_unread = 5 [json_name = "userChatUnread"];</code>
@@ -1238,7 +1214,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Total unread count in user chat conversations.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 user_chat_unread = 5 [json_name = "userChatUnread"];</code>
@@ -1255,7 +1230,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Total unread count in user chat conversations.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 user_chat_unread = 5 [json_name = "userChatUnread"];</code>
@@ -1273,7 +1247,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in team chat thread replies.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 team_chat_thread_alert = 6 [json_name = "teamChatThreadAlert"];</code>
@@ -1287,7 +1260,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in team chat thread replies.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 team_chat_thread_alert = 6 [json_name = "teamChatThreadAlert"];</code>
@@ -1304,7 +1276,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in team chat thread replies.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 team_chat_thread_alert = 6 [json_name = "teamChatThreadAlert"];</code>
@@ -1322,7 +1293,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Total unread count in team chat thread replies.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 team_chat_thread_unread = 7 [json_name = "teamChatThreadUnread"];</code>
@@ -1336,7 +1306,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Total unread count in team chat thread replies.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 team_chat_thread_unread = 7 [json_name = "teamChatThreadUnread"];</code>
@@ -1353,7 +1322,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Total unread count in team chat thread replies.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 team_chat_thread_unread = 7 [json_name = "teamChatThreadUnread"];</code>
@@ -1372,7 +1340,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1384,7 +1351,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1400,7 +1366,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1421,7 +1386,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1440,7 +1404,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1463,7 +1426,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1482,7 +1444,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1495,7 +1456,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1511,7 +1471,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1535,7 +1494,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version.
      * Incremented on every update.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 version = 9 [json_name = "version"];</code>
@@ -1549,7 +1507,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version.
      * Incremented on every update.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 version = 9 [json_name = "version"];</code>
@@ -1566,7 +1523,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version.
      * Incremented on every update.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 version = 9 [json_name = "version"];</code>
@@ -1584,7 +1540,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID this badge belongs to.
      * Same value as the badge id.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string manager_id = 10 [json_name = "managerId"];</code>
@@ -1606,7 +1561,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID this badge belongs to.
      * Same value as the badge id.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string manager_id = 10 [json_name = "managerId"];</code>
@@ -1629,7 +1583,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID this badge belongs to.
      * Same value as the badge id.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string manager_id = 10 [json_name = "managerId"];</code>
@@ -1650,7 +1603,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID this badge belongs to.
      * Same value as the badge id.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string manager_id = 10 [json_name = "managerId"];</code>
@@ -1666,7 +1618,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID this badge belongs to.
      * Same value as the badge id.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string manager_id = 10 [json_name = "managerId"];</code>
@@ -1690,7 +1641,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Aggregated alert count across all chat types.
      * Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 alert = 11 [json_name = "alert"];</code>
@@ -1704,7 +1654,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Aggregated alert count across all chat types.
      * Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 alert = 11 [json_name = "alert"];</code>
@@ -1721,7 +1670,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Aggregated alert count across all chat types.
      * Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 alert = 11 [json_name = "alert"];</code>
@@ -1739,7 +1687,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Aggregated unread count across all chat types.
      * Equals team_chat_unread + team_chat_thread_unread + user_chat_unread.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 unread = 12 [json_name = "unread"];</code>
@@ -1753,7 +1700,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Aggregated unread count across all chat types.
      * Equals team_chat_unread + team_chat_thread_unread + user_chat_unread.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 unread = 12 [json_name = "unread"];</code>
@@ -1770,7 +1716,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Aggregated unread count across all chat types.
      * Equals team_chat_unread + team_chat_thread_unread + user_chat_unread.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 unread = 12 [json_name = "unread"];</code>

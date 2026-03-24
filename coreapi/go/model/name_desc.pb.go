@@ -36,7 +36,6 @@ type NameDesc struct {
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// Short description of the entity.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=180
 	Description   string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
 	unknownFields protoimpl.UnknownFields

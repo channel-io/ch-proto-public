@@ -56,7 +56,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Page title extracted from Open Graph `og:title` or HTML `&lt;title&gt;` tag.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string title = 3 [json_name = "title"];</code>
@@ -66,7 +65,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Page title extracted from Open Graph `og:title` or HTML `&lt;title&gt;` tag.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string title = 3 [json_name = "title"];</code>
@@ -78,7 +76,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Page summary extracted from Open Graph `og:description` or HTML meta description.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string description = 4 [json_name = "description"];</code>
@@ -88,7 +85,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Page summary extracted from Open Graph `og:description` or HTML meta description.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string description = 4 [json_name = "description"];</code>
@@ -100,7 +96,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Primary image URL from Open Graph `og:image` metadata.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string image_url = 5 [json_name = "imageUrl"];</code>
@@ -110,7 +105,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Primary image URL from Open Graph `og:image` metadata.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string image_url = 5 [json_name = "imageUrl"];</code>
@@ -122,7 +116,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Embedded video URL from Open Graph `og:video` metadata.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string video_url = 6 [json_name = "videoUrl"];</code>
@@ -132,7 +125,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Embedded video URL from Open Graph `og:video` metadata.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string video_url = 6 [json_name = "videoUrl"];</code>
@@ -144,7 +136,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Publisher or site name extracted from page metadata.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string publisher = 7 [json_name = "publisher"];</code>
@@ -154,7 +145,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Publisher or site name extracted from page metadata.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string publisher = 7 [json_name = "publisher"];</code>
@@ -166,7 +156,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Content author name extracted from page metadata.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string author = 8 [json_name = "author"];</code>
@@ -176,7 +165,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Content author name extracted from page metadata.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string author = 8 [json_name = "author"];</code>
@@ -188,7 +176,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Preview image width in pixels.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 width = 9 [json_name = "width"];</code>
@@ -199,7 +186,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Preview image height in pixels.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 height = 10 [json_name = "height"];</code>
@@ -210,7 +196,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Storage bucket name for the cached preview image.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string bucket = 11 [json_name = "bucket"];</code>
@@ -220,7 +205,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Storage bucket name for the cached preview image.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string bucket = 11 [json_name = "bucket"];</code>
@@ -232,7 +216,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Storage key for the locally cached preview image.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string preview_key = 12 [json_name = "previewKey"];</code>
@@ -242,7 +225,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Storage key for the locally cached preview image.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string preview_key = 12 [json_name = "previewKey"];</code>
@@ -254,7 +236,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Publisher logo URL extracted from page metadata.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string logo = 13 [json_name = "logo"];</code>
@@ -264,7 +245,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Publisher logo URL extracted from page metadata.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string logo = 13 [json_name = "logo"];</code>
@@ -276,7 +256,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Site name from Open Graph `og:site_name` metadata.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string name = 14 [json_name = "name"];</code>
@@ -286,7 +265,6 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Site name from Open Graph `og:site_name` metadata.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string name = 14 [json_name = "name"];</code>

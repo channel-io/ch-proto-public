@@ -689,7 +689,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Contact medium type identifier for chats originating from external
    * messenger integrations (e.g., "appKakao", "mobileNumber").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
@@ -712,7 +711,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Contact medium type identifier for chats originating from external
    * messenger integrations (e.g., "appKakao", "mobileNumber").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
@@ -738,7 +736,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the active live meet session attached to this chat.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -760,7 +757,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the active live meet session attached to this chat.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -816,7 +812,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Reason the chat was missed.
    * Only present when the chat transitioned to a missed state.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MissedReason missed_reason = 6 [json_name = "missedReason"];</code>
@@ -829,7 +824,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Reason the chat was missed.
    * Only present when the chat transitioned to a missed state.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MissedReason missed_reason = 6 [json_name = "missedReason"];</code>
@@ -864,7 +858,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Priority level used by the auto-assignment system to order this chat
    * in the queue. Defaults to medium.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.AutoAssignPriority priority = 8 [json_name = "priority"];</code>
@@ -877,7 +870,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Priority level used by the auto-assignment system to order this chat
    * in the queue. Defaults to medium.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.AutoAssignPriority priority = 8 [json_name = "priority"];</code>
@@ -894,7 +886,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the user who owns this chat conversation.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="u-abc123"
    * </pre>
    *
@@ -917,7 +908,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the user who owns this chat conversation.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="u-abc123"
    * </pre>
    *
@@ -945,7 +935,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ID of the external service user linked to this chat
    * via a messenger integration.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -968,7 +957,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ID of the external service user linked to this chat
    * via a messenger integration.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -994,7 +982,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Display name of this chat shown to managers in the Desk.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string name = 11 [json_name = "name"];</code>
@@ -1016,7 +1003,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Display name of this chat shown to managers in the Desk.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string name = 11 [json_name = "name"];</code>
@@ -1042,7 +1028,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Title of the chat conversation displayed in the Desk inbox list.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string title = 12 [json_name = "title"];</code>
@@ -1064,7 +1049,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Title of the chat conversation displayed in the Desk inbox list.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string title = 12 [json_name = "title"];</code>
@@ -1090,7 +1074,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Free-text note or summary attached to this chat by a manager.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=1000
    * </pre>
    *
@@ -1113,7 +1096,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Free-text note or summary attached to this chat by a manager.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=1000
    * </pre>
    *
@@ -1140,7 +1122,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Type of subtext shown below the chat title in the Desk inbox list.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.UserChatSubtextType subtext_type = 14 [json_name = "subtextType"];</code>
@@ -1152,7 +1133,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Type of subtext shown below the chat title in the Desk inbox list.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.UserChatSubtextType subtext_type = 14 [json_name = "subtextType"];</code>
@@ -1170,7 +1150,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Current handling state that controls the chat's input behavior
    * (e.g., workflow step, follow-up collection).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct handling = 15 [json_name = "handling"];</code>
@@ -1184,7 +1163,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Current handling state that controls the chat's input behavior
    * (e.g., workflow step, follow-up collection).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct handling = 15 [json_name = "handling"];</code>
@@ -1198,7 +1176,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Current handling state that controls the chat's input behavior
    * (e.g., workflow step, follow-up collection).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct handling = 15 [json_name = "handling"];</code>
@@ -1214,7 +1191,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Origin information describing how this chat was created
    * (e.g., user-initiated, workflow-triggered, support bot).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
@@ -1228,7 +1204,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Origin information describing how this chat was created
    * (e.g., user-initiated, workflow-triggered, support bot).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
@@ -1242,7 +1217,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Origin information describing how this chat was created
    * (e.g., user-initiated, workflow-triggered, support bot).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
@@ -1257,7 +1231,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * IDs of managers currently participating in this chat.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -1271,7 +1244,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * IDs of managers currently participating in this chat.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -1284,7 +1256,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * IDs of managers currently participating in this chat.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -1298,7 +1269,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * IDs of managers currently participating in this chat.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -1316,7 +1286,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the manager currently assigned as the primary responder.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string assignee_id = 18 [json_name = "assigneeId"];</code>
@@ -1338,7 +1307,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the manager currently assigned as the primary responder.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string assignee_id = 18 [json_name = "assigneeId"];</code>
@@ -1364,7 +1332,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the team this chat is routed to for handling.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -1386,7 +1353,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the team this chat is routed to for handling.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -1412,7 +1378,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Classification tags attached to this chat for filtering and reporting.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=8
    * </pre>
@@ -1427,7 +1392,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Classification tags attached to this chat for filtering and reporting.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=8
    * </pre>
@@ -1441,7 +1405,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Classification tags attached to this chat for filtering and reporting.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=8
    * </pre>
@@ -1456,7 +1419,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Classification tags attached to this chat for filtering and reporting.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=8
    * </pre>
@@ -1475,7 +1437,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Custom key-value profile data associated with this chat.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 21 [json_name = "profile"];</code>
@@ -1488,7 +1449,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Custom key-value profile data associated with this chat.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 21 [json_name = "profile"];</code>
@@ -1501,7 +1461,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Custom key-value profile data associated with this chat.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 21 [json_name = "profile"];</code>
@@ -1516,7 +1475,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Name of the goal event being tracked for conversion measurement.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string goal_event_name = 22 [json_name = "goalEventName"];</code>
@@ -1538,7 +1496,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Name of the goal event being tracked for conversion measurement.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string goal_event_name = 22 [json_name = "goalEventName"];</code>
@@ -1564,7 +1521,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Query expression defining the conditions for the goal event to match.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 23 [json_name = "goalEventQuery"];</code>
@@ -1577,7 +1533,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Query expression defining the conditions for the goal event to match.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 23 [json_name = "goalEventQuery"];</code>
@@ -1590,7 +1545,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Query expression defining the conditions for the goal event to match.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 23 [json_name = "goalEventQuery"];</code>
@@ -1605,7 +1559,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the goal achievement was last evaluated.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
@@ -1618,7 +1571,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the goal achievement was last evaluated.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
@@ -1631,7 +1583,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the goal achievement was last evaluated.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
@@ -1646,7 +1597,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Current achievement state of the tracked goal.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.UserChatGoalState goal_state = 25 [json_name = "goalState"];</code>
@@ -1658,7 +1608,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Current achievement state of the tracked goal.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.UserChatGoalState goal_state = 25 [json_name = "goalState"];</code>
@@ -1675,7 +1624,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat was first opened by a manager.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
@@ -1688,7 +1636,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat was first opened by a manager.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
@@ -1701,7 +1648,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat was first opened by a manager.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
@@ -1717,7 +1663,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the chat was most recently opened.
    * Reset each time the chat transitions to the opened state.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
@@ -1731,7 +1676,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the chat was most recently opened.
    * Reset each time the chat transitions to the opened state.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
@@ -1745,7 +1689,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the chat was most recently opened.
    * Reset each time the chat transitions to the opened state.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
@@ -1760,7 +1703,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat was first placed in the assignment queue.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
@@ -1773,7 +1715,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat was first placed in the assignment queue.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
@@ -1786,7 +1727,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat was first placed in the assignment queue.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
@@ -1801,7 +1741,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat was most recently placed in the assignment queue.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
@@ -1814,7 +1753,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat was most recently placed in the assignment queue.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
@@ -1827,7 +1765,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat was most recently placed in the assignment queue.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
@@ -1924,7 +1861,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the latest message visible to the user (front side).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string front_message_id = 32 [json_name = "frontMessageId"];</code>
@@ -1946,7 +1882,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the latest message visible to the user (front side).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string front_message_id = 32 [json_name = "frontMessageId"];</code>
@@ -1972,7 +1907,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the front-side (user-visible) message list was last updated.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
@@ -1985,7 +1919,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the front-side (user-visible) message list was last updated.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
@@ -1998,7 +1931,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the front-side (user-visible) message list was last updated.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
@@ -2013,7 +1945,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the latest message visible on the Desk (manager) side.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -2035,7 +1966,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the latest message visible on the Desk (manager) side.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -2061,7 +1991,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the Desk-side message list was last updated.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
@@ -2074,7 +2003,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the Desk-side message list was last updated.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
@@ -2087,7 +2015,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the Desk-side message list was last updated.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
@@ -2102,7 +2029,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the most recent message sent by the user.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string user_last_message_id = 36 [json_name = "userLastMessageId"];</code>
@@ -2124,7 +2050,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the most recent message sent by the user.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string user_last_message_id = 36 [json_name = "userLastMessageId"];</code>
@@ -2151,7 +2076,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ID of the first manager assigned after the chat was opened.
    * Used for tracking initial response ownership.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -2174,7 +2098,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ID of the first manager assigned after the chat was opened.
    * Used for tracking initial response ownership.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -2201,7 +2124,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp of the first-ever manager reply in this chat,
    * across all open/close cycles.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
@@ -2215,7 +2137,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp of the first-ever manager reply in this chat,
    * across all open/close cycles.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
@@ -2229,7 +2150,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp of the first-ever manager reply in this chat,
    * across all open/close cycles.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
@@ -2245,7 +2165,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp of the first manager reply after the most recent open.
    * Reset each time the chat is reopened.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
@@ -2259,7 +2178,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp of the first manager reply after the most recent open.
    * Reset each time the chat is reopened.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
@@ -2273,7 +2191,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp of the first manager reply after the most recent open.
    * Reset each time the chat is reopened.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
@@ -2289,7 +2206,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the chat was resolved by a single assignee without being
    * transferred to another manager.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool one_stop = 40 [json_name = "oneStop"];</code>
@@ -2305,7 +2221,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Duration from chat open to the first manager reply (in milliseconds).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 waiting_time = 41 [json_name = "waitingTime"];</code>
@@ -2322,7 +2237,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Average time between a user's question and the manager's reply
    * (in milliseconds).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
@@ -2339,7 +2253,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Sum of all individual reply durations across manager responses
    * (in milliseconds).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 total_reply_time = 43 [json_name = "totalReplyTime"];</code>
@@ -2355,7 +2268,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Total number of manager replies in this chat.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 reply_count = 44 [json_name = "replyCount"];</code>
@@ -2371,7 +2283,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Total duration from the first open to close (in milliseconds).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 resolution_time = 45 [json_name = "resolutionTime"];</code>
@@ -2388,7 +2299,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Duration from open to the first manager reply, counting only
    * operating hours (in milliseconds).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 operation_waiting_time = 46 [json_name = "operationWaitingTime"];</code>
@@ -2404,7 +2314,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Average reply time counting only operating hours (in milliseconds).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 operation_avg_reply_time = 47 [json_name = "operationAvgReplyTime"];</code>
@@ -2421,7 +2330,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Sum of all reply durations counting only operating hours
    * (in milliseconds).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 operation_total_reply_time = 48 [json_name = "operationTotalReplyTime"];</code>
@@ -2437,7 +2345,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Total number of manager replies during operating hours.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 operation_reply_count = 49 [json_name = "operationReplyCount"];</code>
@@ -2453,7 +2360,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Total resolution time counting only operating hours (in milliseconds).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 operation_resolution_time = 50 [json_name = "operationResolutionTime"];</code>
@@ -2470,7 +2376,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the user last sent a message that is awaiting
    * a manager's reply. Cleared when the manager responds.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
@@ -2484,7 +2389,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the user last sent a message that is awaiting
    * a manager's reply. Cleared when the manager responds.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
@@ -2498,7 +2402,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the user last sent a message that is awaiting
    * a manager's reply. Cleared when the manager responds.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
@@ -2513,7 +2416,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user sent the first message in this chat.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
@@ -2526,7 +2428,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user sent the first message in this chat.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
@@ -2539,7 +2440,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user sent the first message in this chat.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
@@ -2554,7 +2454,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat was closed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
@@ -2567,7 +2466,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat was closed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
@@ -2580,7 +2478,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat was closed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
@@ -2595,7 +2492,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat was snoozed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
@@ -2608,7 +2504,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat was snoozed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
@@ -2621,7 +2516,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat was snoozed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
@@ -2636,7 +2530,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat is scheduled to automatically expire and close.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
@@ -2649,7 +2542,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat is scheduled to automatically expire and close.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
@@ -2662,7 +2554,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the chat is scheduled to automatically expire and close.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
@@ -2678,7 +2569,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Optimistic locking version incremented on every update.
    * Supply the current value when updating to prevent overwriting concurrent changes.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 version = 56 [json_name = "version"];</code>
@@ -4449,7 +4339,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Contact medium type identifier for chats originating from external
      * messenger integrations (e.g., "appKakao", "mobileNumber").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
@@ -4471,7 +4360,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Contact medium type identifier for chats originating from external
      * messenger integrations (e.g., "appKakao", "mobileNumber").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
@@ -4494,7 +4382,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Contact medium type identifier for chats originating from external
      * messenger integrations (e.g., "appKakao", "mobileNumber").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
@@ -4515,7 +4402,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Contact medium type identifier for chats originating from external
      * messenger integrations (e.g., "appKakao", "mobileNumber").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
@@ -4531,7 +4417,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Contact medium type identifier for chats originating from external
      * messenger integrations (e.g., "appKakao", "mobileNumber").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
@@ -4554,7 +4439,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session attached to this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -4575,7 +4459,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session attached to this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -4597,7 +4480,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session attached to this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -4617,7 +4499,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session attached to this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -4632,7 +4513,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session attached to this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -4735,7 +4615,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the chat was missed.
      * Only present when the chat transitioned to a missed state.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 6 [json_name = "missedReason"];</code>
@@ -4748,7 +4627,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the chat was missed.
      * Only present when the chat transitioned to a missed state.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 6 [json_name = "missedReason"];</code>
@@ -4765,7 +4643,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the chat was missed.
      * Only present when the chat transitioned to a missed state.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 6 [json_name = "missedReason"];</code>
@@ -4781,7 +4658,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the chat was missed.
      * Only present when the chat transitioned to a missed state.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 6 [json_name = "missedReason"];</code>
@@ -4801,7 +4677,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the chat was missed.
      * Only present when the chat transitioned to a missed state.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 6 [json_name = "missedReason"];</code>
@@ -4868,7 +4743,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Priority level used by the auto-assignment system to order this chat
      * in the queue. Defaults to medium.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.AutoAssignPriority priority = 8 [json_name = "priority"];</code>
@@ -4881,7 +4755,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Priority level used by the auto-assignment system to order this chat
      * in the queue. Defaults to medium.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.AutoAssignPriority priority = 8 [json_name = "priority"];</code>
@@ -4898,7 +4771,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Priority level used by the auto-assignment system to order this chat
      * in the queue. Defaults to medium.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.AutoAssignPriority priority = 8 [json_name = "priority"];</code>
@@ -4914,7 +4786,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Priority level used by the auto-assignment system to order this chat
      * in the queue. Defaults to medium.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.AutoAssignPriority priority = 8 [json_name = "priority"];</code>
@@ -4934,7 +4805,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Priority level used by the auto-assignment system to order this chat
      * in the queue. Defaults to medium.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.AutoAssignPriority priority = 8 [json_name = "priority"];</code>
@@ -4951,7 +4821,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the user who owns this chat conversation.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="u-abc123"
      * </pre>
      *
@@ -4973,7 +4842,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the user who owns this chat conversation.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="u-abc123"
      * </pre>
      *
@@ -4996,7 +4864,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the user who owns this chat conversation.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="u-abc123"
      * </pre>
      *
@@ -5017,7 +4884,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the user who owns this chat conversation.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="u-abc123"
      * </pre>
      *
@@ -5033,7 +4899,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the user who owns this chat conversation.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="u-abc123"
      * </pre>
      *
@@ -5058,7 +4923,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the external service user linked to this chat
      * via a messenger integration.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -5080,7 +4944,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the external service user linked to this chat
      * via a messenger integration.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -5103,7 +4966,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the external service user linked to this chat
      * via a messenger integration.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -5124,7 +4986,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the external service user linked to this chat
      * via a messenger integration.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -5140,7 +5001,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the external service user linked to this chat
      * via a messenger integration.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -5163,7 +5023,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of this chat shown to managers in the Desk.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string name = 11 [json_name = "name"];</code>
@@ -5184,7 +5043,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of this chat shown to managers in the Desk.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string name = 11 [json_name = "name"];</code>
@@ -5206,7 +5064,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of this chat shown to managers in the Desk.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string name = 11 [json_name = "name"];</code>
@@ -5226,7 +5083,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of this chat shown to managers in the Desk.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string name = 11 [json_name = "name"];</code>
@@ -5241,7 +5097,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of this chat shown to managers in the Desk.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string name = 11 [json_name = "name"];</code>
@@ -5264,7 +5119,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Title of the chat conversation displayed in the Desk inbox list.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string title = 12 [json_name = "title"];</code>
@@ -5285,7 +5139,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Title of the chat conversation displayed in the Desk inbox list.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string title = 12 [json_name = "title"];</code>
@@ -5307,7 +5160,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Title of the chat conversation displayed in the Desk inbox list.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string title = 12 [json_name = "title"];</code>
@@ -5327,7 +5179,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Title of the chat conversation displayed in the Desk inbox list.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string title = 12 [json_name = "title"];</code>
@@ -5342,7 +5193,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Title of the chat conversation displayed in the Desk inbox list.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string title = 12 [json_name = "title"];</code>
@@ -5365,7 +5215,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Free-text note or summary attached to this chat by a manager.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=1000
      * </pre>
      *
@@ -5387,7 +5236,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Free-text note or summary attached to this chat by a manager.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=1000
      * </pre>
      *
@@ -5410,7 +5258,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Free-text note or summary attached to this chat by a manager.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=1000
      * </pre>
      *
@@ -5431,7 +5278,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Free-text note or summary attached to this chat by a manager.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=1000
      * </pre>
      *
@@ -5447,7 +5293,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Free-text note or summary attached to this chat by a manager.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=1000
      * </pre>
      *
@@ -5471,7 +5316,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Type of subtext shown below the chat title in the Desk inbox list.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.UserChatSubtextType subtext_type = 14 [json_name = "subtextType"];</code>
@@ -5483,7 +5327,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Type of subtext shown below the chat title in the Desk inbox list.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.UserChatSubtextType subtext_type = 14 [json_name = "subtextType"];</code>
@@ -5499,7 +5342,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Type of subtext shown below the chat title in the Desk inbox list.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.UserChatSubtextType subtext_type = 14 [json_name = "subtextType"];</code>
@@ -5514,7 +5356,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Type of subtext shown below the chat title in the Desk inbox list.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.UserChatSubtextType subtext_type = 14 [json_name = "subtextType"];</code>
@@ -5533,7 +5374,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Type of subtext shown below the chat title in the Desk inbox list.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.UserChatSubtextType subtext_type = 14 [json_name = "subtextType"];</code>
@@ -5553,7 +5393,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current handling state that controls the chat's input behavior
      * (e.g., workflow step, follow-up collection).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct handling = 15 [json_name = "handling"];</code>
@@ -5566,7 +5405,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current handling state that controls the chat's input behavior
      * (e.g., workflow step, follow-up collection).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct handling = 15 [json_name = "handling"];</code>
@@ -5583,7 +5421,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current handling state that controls the chat's input behavior
      * (e.g., workflow step, follow-up collection).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct handling = 15 [json_name = "handling"];</code>
@@ -5605,7 +5442,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current handling state that controls the chat's input behavior
      * (e.g., workflow step, follow-up collection).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct handling = 15 [json_name = "handling"];</code>
@@ -5625,7 +5461,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current handling state that controls the chat's input behavior
      * (e.g., workflow step, follow-up collection).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct handling = 15 [json_name = "handling"];</code>
@@ -5649,7 +5484,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current handling state that controls the chat's input behavior
      * (e.g., workflow step, follow-up collection).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct handling = 15 [json_name = "handling"];</code>
@@ -5669,7 +5503,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current handling state that controls the chat's input behavior
      * (e.g., workflow step, follow-up collection).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct handling = 15 [json_name = "handling"];</code>
@@ -5683,7 +5516,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current handling state that controls the chat's input behavior
      * (e.g., workflow step, follow-up collection).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct handling = 15 [json_name = "handling"];</code>
@@ -5700,7 +5532,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current handling state that controls the chat's input behavior
      * (e.g., workflow step, follow-up collection).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct handling = 15 [json_name = "handling"];</code>
@@ -5726,7 +5557,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Origin information describing how this chat was created
      * (e.g., user-initiated, workflow-triggered, support bot).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
@@ -5739,7 +5569,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Origin information describing how this chat was created
      * (e.g., user-initiated, workflow-triggered, support bot).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
@@ -5756,7 +5585,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Origin information describing how this chat was created
      * (e.g., user-initiated, workflow-triggered, support bot).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
@@ -5778,7 +5606,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Origin information describing how this chat was created
      * (e.g., user-initiated, workflow-triggered, support bot).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
@@ -5798,7 +5625,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Origin information describing how this chat was created
      * (e.g., user-initiated, workflow-triggered, support bot).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
@@ -5822,7 +5648,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Origin information describing how this chat was created
      * (e.g., user-initiated, workflow-triggered, support bot).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
@@ -5842,7 +5667,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Origin information describing how this chat was created
      * (e.g., user-initiated, workflow-triggered, support bot).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
@@ -5856,7 +5680,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Origin information describing how this chat was created
      * (e.g., user-initiated, workflow-triggered, support bot).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
@@ -5873,7 +5696,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Origin information describing how this chat was created
      * (e.g., user-initiated, workflow-triggered, support bot).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
@@ -5902,7 +5724,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers currently participating in this chat.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -5916,7 +5737,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers currently participating in this chat.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -5929,7 +5749,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers currently participating in this chat.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -5943,7 +5762,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers currently participating in this chat.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -5958,7 +5776,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers currently participating in this chat.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -5980,7 +5797,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers currently participating in this chat.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -6001,7 +5817,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers currently participating in this chat.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -6020,7 +5835,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers currently participating in this chat.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -6036,7 +5850,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers currently participating in this chat.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -6060,7 +5873,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the manager currently assigned as the primary responder.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string assignee_id = 18 [json_name = "assigneeId"];</code>
@@ -6081,7 +5893,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the manager currently assigned as the primary responder.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string assignee_id = 18 [json_name = "assigneeId"];</code>
@@ -6103,7 +5914,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the manager currently assigned as the primary responder.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string assignee_id = 18 [json_name = "assigneeId"];</code>
@@ -6123,7 +5933,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the manager currently assigned as the primary responder.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string assignee_id = 18 [json_name = "assigneeId"];</code>
@@ -6138,7 +5947,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the manager currently assigned as the primary responder.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string assignee_id = 18 [json_name = "assigneeId"];</code>
@@ -6161,7 +5969,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the team this chat is routed to for handling.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -6182,7 +5989,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the team this chat is routed to for handling.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -6204,7 +6010,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the team this chat is routed to for handling.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -6224,7 +6029,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the team this chat is routed to for handling.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -6239,7 +6043,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the team this chat is routed to for handling.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -6268,7 +6071,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Classification tags attached to this chat for filtering and reporting.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=8
      * </pre>
@@ -6283,7 +6085,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Classification tags attached to this chat for filtering and reporting.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=8
      * </pre>
@@ -6297,7 +6098,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Classification tags attached to this chat for filtering and reporting.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=8
      * </pre>
@@ -6312,7 +6112,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Classification tags attached to this chat for filtering and reporting.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=8
      * </pre>
@@ -6328,7 +6127,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Classification tags attached to this chat for filtering and reporting.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=8
      * </pre>
@@ -6351,7 +6149,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Classification tags attached to this chat for filtering and reporting.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=8
      * </pre>
@@ -6373,7 +6170,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Classification tags attached to this chat for filtering and reporting.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=8
      * </pre>
@@ -6393,7 +6189,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Classification tags attached to this chat for filtering and reporting.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=8
      * </pre>
@@ -6410,7 +6205,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Classification tags attached to this chat for filtering and reporting.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=8
      * </pre>
@@ -6437,7 +6231,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 21 [json_name = "profile"];</code>
@@ -6449,7 +6242,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 21 [json_name = "profile"];</code>
@@ -6465,7 +6257,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 21 [json_name = "profile"];</code>
@@ -6486,7 +6277,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 21 [json_name = "profile"];</code>
@@ -6505,7 +6295,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 21 [json_name = "profile"];</code>
@@ -6528,7 +6317,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 21 [json_name = "profile"];</code>
@@ -6547,7 +6335,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 21 [json_name = "profile"];</code>
@@ -6560,7 +6347,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 21 [json_name = "profile"];</code>
@@ -6576,7 +6362,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value profile data associated with this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 21 [json_name = "profile"];</code>
@@ -6599,7 +6384,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the goal event being tracked for conversion measurement.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string goal_event_name = 22 [json_name = "goalEventName"];</code>
@@ -6620,7 +6404,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the goal event being tracked for conversion measurement.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string goal_event_name = 22 [json_name = "goalEventName"];</code>
@@ -6642,7 +6425,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the goal event being tracked for conversion measurement.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string goal_event_name = 22 [json_name = "goalEventName"];</code>
@@ -6662,7 +6444,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the goal event being tracked for conversion measurement.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string goal_event_name = 22 [json_name = "goalEventName"];</code>
@@ -6677,7 +6458,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the goal event being tracked for conversion measurement.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string goal_event_name = 22 [json_name = "goalEventName"];</code>
@@ -6702,7 +6482,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Query expression defining the conditions for the goal event to match.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 23 [json_name = "goalEventQuery"];</code>
@@ -6714,7 +6493,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Query expression defining the conditions for the goal event to match.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 23 [json_name = "goalEventQuery"];</code>
@@ -6730,7 +6508,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Query expression defining the conditions for the goal event to match.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 23 [json_name = "goalEventQuery"];</code>
@@ -6751,7 +6528,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Query expression defining the conditions for the goal event to match.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 23 [json_name = "goalEventQuery"];</code>
@@ -6770,7 +6546,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Query expression defining the conditions for the goal event to match.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 23 [json_name = "goalEventQuery"];</code>
@@ -6793,7 +6568,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Query expression defining the conditions for the goal event to match.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 23 [json_name = "goalEventQuery"];</code>
@@ -6812,7 +6586,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Query expression defining the conditions for the goal event to match.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 23 [json_name = "goalEventQuery"];</code>
@@ -6825,7 +6598,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Query expression defining the conditions for the goal event to match.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 23 [json_name = "goalEventQuery"];</code>
@@ -6841,7 +6613,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Query expression defining the conditions for the goal event to match.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 23 [json_name = "goalEventQuery"];</code>
@@ -6866,7 +6637,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the goal achievement was last evaluated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
@@ -6878,7 +6648,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the goal achievement was last evaluated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
@@ -6894,7 +6663,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the goal achievement was last evaluated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
@@ -6915,7 +6683,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the goal achievement was last evaluated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
@@ -6934,7 +6701,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the goal achievement was last evaluated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
@@ -6957,7 +6723,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the goal achievement was last evaluated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
@@ -6976,7 +6741,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the goal achievement was last evaluated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
@@ -6989,7 +6753,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the goal achievement was last evaluated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
@@ -7005,7 +6768,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the goal achievement was last evaluated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
@@ -7028,7 +6790,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current achievement state of the tracked goal.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.UserChatGoalState goal_state = 25 [json_name = "goalState"];</code>
@@ -7040,7 +6801,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current achievement state of the tracked goal.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.UserChatGoalState goal_state = 25 [json_name = "goalState"];</code>
@@ -7056,7 +6816,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current achievement state of the tracked goal.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.UserChatGoalState goal_state = 25 [json_name = "goalState"];</code>
@@ -7071,7 +6830,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current achievement state of the tracked goal.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.UserChatGoalState goal_state = 25 [json_name = "goalState"];</code>
@@ -7090,7 +6848,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current achievement state of the tracked goal.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.UserChatGoalState goal_state = 25 [json_name = "goalState"];</code>
@@ -7109,7 +6866,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first opened by a manager.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
@@ -7121,7 +6877,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first opened by a manager.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
@@ -7137,7 +6892,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first opened by a manager.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
@@ -7158,7 +6912,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first opened by a manager.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
@@ -7177,7 +6930,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first opened by a manager.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
@@ -7200,7 +6952,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first opened by a manager.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
@@ -7219,7 +6970,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first opened by a manager.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
@@ -7232,7 +6982,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first opened by a manager.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
@@ -7248,7 +6997,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first opened by a manager.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
@@ -7274,7 +7022,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the chat was most recently opened.
      * Reset each time the chat transitions to the opened state.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
@@ -7287,7 +7034,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the chat was most recently opened.
      * Reset each time the chat transitions to the opened state.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
@@ -7304,7 +7050,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the chat was most recently opened.
      * Reset each time the chat transitions to the opened state.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
@@ -7326,7 +7071,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the chat was most recently opened.
      * Reset each time the chat transitions to the opened state.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
@@ -7346,7 +7090,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the chat was most recently opened.
      * Reset each time the chat transitions to the opened state.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
@@ -7370,7 +7113,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the chat was most recently opened.
      * Reset each time the chat transitions to the opened state.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
@@ -7390,7 +7132,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the chat was most recently opened.
      * Reset each time the chat transitions to the opened state.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
@@ -7404,7 +7145,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the chat was most recently opened.
      * Reset each time the chat transitions to the opened state.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
@@ -7421,7 +7161,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the chat was most recently opened.
      * Reset each time the chat transitions to the opened state.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
@@ -7446,7 +7185,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
@@ -7458,7 +7196,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
@@ -7474,7 +7211,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
@@ -7495,7 +7231,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
@@ -7514,7 +7249,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
@@ -7537,7 +7271,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
@@ -7556,7 +7289,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
@@ -7569,7 +7301,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
@@ -7585,7 +7316,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was first placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
@@ -7610,7 +7340,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was most recently placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
@@ -7622,7 +7351,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was most recently placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
@@ -7638,7 +7366,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was most recently placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
@@ -7659,7 +7386,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was most recently placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
@@ -7678,7 +7404,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was most recently placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
@@ -7701,7 +7426,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was most recently placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
@@ -7720,7 +7444,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was most recently placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
@@ -7733,7 +7456,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was most recently placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
@@ -7749,7 +7471,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was most recently placed in the assignment queue.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
@@ -8100,7 +7821,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the latest message visible to the user (front side).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string front_message_id = 32 [json_name = "frontMessageId"];</code>
@@ -8121,7 +7841,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the latest message visible to the user (front side).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string front_message_id = 32 [json_name = "frontMessageId"];</code>
@@ -8143,7 +7862,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the latest message visible to the user (front side).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string front_message_id = 32 [json_name = "frontMessageId"];</code>
@@ -8163,7 +7881,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the latest message visible to the user (front side).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string front_message_id = 32 [json_name = "frontMessageId"];</code>
@@ -8178,7 +7895,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the latest message visible to the user (front side).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string front_message_id = 32 [json_name = "frontMessageId"];</code>
@@ -8203,7 +7919,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the front-side (user-visible) message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
@@ -8215,7 +7930,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the front-side (user-visible) message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
@@ -8231,7 +7945,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the front-side (user-visible) message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
@@ -8252,7 +7965,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the front-side (user-visible) message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
@@ -8271,7 +7983,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the front-side (user-visible) message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
@@ -8294,7 +8005,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the front-side (user-visible) message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
@@ -8313,7 +8023,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the front-side (user-visible) message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
@@ -8326,7 +8035,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the front-side (user-visible) message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
@@ -8342,7 +8050,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the front-side (user-visible) message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
@@ -8365,7 +8072,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the latest message visible on the Desk (manager) side.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -8386,7 +8092,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the latest message visible on the Desk (manager) side.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -8408,7 +8113,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the latest message visible on the Desk (manager) side.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -8428,7 +8132,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the latest message visible on the Desk (manager) side.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -8443,7 +8146,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the latest message visible on the Desk (manager) side.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -8468,7 +8170,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the Desk-side message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
@@ -8480,7 +8181,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the Desk-side message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
@@ -8496,7 +8196,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the Desk-side message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
@@ -8517,7 +8216,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the Desk-side message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
@@ -8536,7 +8234,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the Desk-side message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
@@ -8559,7 +8256,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the Desk-side message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
@@ -8578,7 +8274,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the Desk-side message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
@@ -8591,7 +8286,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the Desk-side message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
@@ -8607,7 +8301,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the Desk-side message list was last updated.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
@@ -8630,7 +8323,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the most recent message sent by the user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string user_last_message_id = 36 [json_name = "userLastMessageId"];</code>
@@ -8651,7 +8343,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the most recent message sent by the user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string user_last_message_id = 36 [json_name = "userLastMessageId"];</code>
@@ -8673,7 +8364,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the most recent message sent by the user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string user_last_message_id = 36 [json_name = "userLastMessageId"];</code>
@@ -8693,7 +8383,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the most recent message sent by the user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string user_last_message_id = 36 [json_name = "userLastMessageId"];</code>
@@ -8708,7 +8397,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the most recent message sent by the user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string user_last_message_id = 36 [json_name = "userLastMessageId"];</code>
@@ -8732,7 +8420,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the first manager assigned after the chat was opened.
      * Used for tracking initial response ownership.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -8754,7 +8441,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the first manager assigned after the chat was opened.
      * Used for tracking initial response ownership.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -8777,7 +8463,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the first manager assigned after the chat was opened.
      * Used for tracking initial response ownership.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -8798,7 +8483,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the first manager assigned after the chat was opened.
      * Used for tracking initial response ownership.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -8814,7 +8498,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the first manager assigned after the chat was opened.
      * Used for tracking initial response ownership.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -8840,7 +8523,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first-ever manager reply in this chat,
      * across all open/close cycles.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
@@ -8853,7 +8535,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first-ever manager reply in this chat,
      * across all open/close cycles.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
@@ -8870,7 +8551,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first-ever manager reply in this chat,
      * across all open/close cycles.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
@@ -8892,7 +8572,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first-ever manager reply in this chat,
      * across all open/close cycles.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
@@ -8912,7 +8591,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first-ever manager reply in this chat,
      * across all open/close cycles.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
@@ -8936,7 +8614,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first-ever manager reply in this chat,
      * across all open/close cycles.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
@@ -8956,7 +8633,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first-ever manager reply in this chat,
      * across all open/close cycles.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
@@ -8970,7 +8646,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first-ever manager reply in this chat,
      * across all open/close cycles.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
@@ -8987,7 +8662,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first-ever manager reply in this chat,
      * across all open/close cycles.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
@@ -9013,7 +8687,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first manager reply after the most recent open.
      * Reset each time the chat is reopened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
@@ -9026,7 +8699,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first manager reply after the most recent open.
      * Reset each time the chat is reopened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
@@ -9043,7 +8715,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first manager reply after the most recent open.
      * Reset each time the chat is reopened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
@@ -9065,7 +8736,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first manager reply after the most recent open.
      * Reset each time the chat is reopened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
@@ -9085,7 +8755,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first manager reply after the most recent open.
      * Reset each time the chat is reopened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
@@ -9109,7 +8778,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first manager reply after the most recent open.
      * Reset each time the chat is reopened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
@@ -9129,7 +8797,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first manager reply after the most recent open.
      * Reset each time the chat is reopened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
@@ -9143,7 +8810,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first manager reply after the most recent open.
      * Reset each time the chat is reopened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
@@ -9160,7 +8826,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp of the first manager reply after the most recent open.
      * Reset each time the chat is reopened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
@@ -9184,7 +8849,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the chat was resolved by a single assignee without being
      * transferred to another manager.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool one_stop = 40 [json_name = "oneStop"];</code>
@@ -9198,7 +8862,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the chat was resolved by a single assignee without being
      * transferred to another manager.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool one_stop = 40 [json_name = "oneStop"];</code>
@@ -9215,7 +8878,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the chat was resolved by a single assignee without being
      * transferred to another manager.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool one_stop = 40 [json_name = "oneStop"];</code>
@@ -9232,7 +8894,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Duration from chat open to the first manager reply (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 waiting_time = 41 [json_name = "waitingTime"];</code>
@@ -9245,7 +8906,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Duration from chat open to the first manager reply (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 waiting_time = 41 [json_name = "waitingTime"];</code>
@@ -9261,7 +8921,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Duration from chat open to the first manager reply (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 waiting_time = 41 [json_name = "waitingTime"];</code>
@@ -9279,7 +8938,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Average time between a user's question and the manager's reply
      * (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
@@ -9293,7 +8951,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Average time between a user's question and the manager's reply
      * (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
@@ -9310,7 +8967,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Average time between a user's question and the manager's reply
      * (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
@@ -9328,7 +8984,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Sum of all individual reply durations across manager responses
      * (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 total_reply_time = 43 [json_name = "totalReplyTime"];</code>
@@ -9342,7 +8997,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Sum of all individual reply durations across manager responses
      * (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 total_reply_time = 43 [json_name = "totalReplyTime"];</code>
@@ -9359,7 +9013,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Sum of all individual reply durations across manager responses
      * (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 total_reply_time = 43 [json_name = "totalReplyTime"];</code>
@@ -9376,7 +9029,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of manager replies in this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 reply_count = 44 [json_name = "replyCount"];</code>
@@ -9389,7 +9041,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of manager replies in this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 reply_count = 44 [json_name = "replyCount"];</code>
@@ -9405,7 +9056,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of manager replies in this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 reply_count = 44 [json_name = "replyCount"];</code>
@@ -9422,7 +9072,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total duration from the first open to close (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 resolution_time = 45 [json_name = "resolutionTime"];</code>
@@ -9435,7 +9084,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total duration from the first open to close (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 resolution_time = 45 [json_name = "resolutionTime"];</code>
@@ -9451,7 +9099,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total duration from the first open to close (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 resolution_time = 45 [json_name = "resolutionTime"];</code>
@@ -9469,7 +9116,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Duration from open to the first manager reply, counting only
      * operating hours (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 operation_waiting_time = 46 [json_name = "operationWaitingTime"];</code>
@@ -9483,7 +9129,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Duration from open to the first manager reply, counting only
      * operating hours (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 operation_waiting_time = 46 [json_name = "operationWaitingTime"];</code>
@@ -9500,7 +9145,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Duration from open to the first manager reply, counting only
      * operating hours (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 operation_waiting_time = 46 [json_name = "operationWaitingTime"];</code>
@@ -9517,7 +9161,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Average reply time counting only operating hours (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 operation_avg_reply_time = 47 [json_name = "operationAvgReplyTime"];</code>
@@ -9530,7 +9173,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Average reply time counting only operating hours (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 operation_avg_reply_time = 47 [json_name = "operationAvgReplyTime"];</code>
@@ -9546,7 +9188,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Average reply time counting only operating hours (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 operation_avg_reply_time = 47 [json_name = "operationAvgReplyTime"];</code>
@@ -9564,7 +9205,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Sum of all reply durations counting only operating hours
      * (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 operation_total_reply_time = 48 [json_name = "operationTotalReplyTime"];</code>
@@ -9578,7 +9218,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Sum of all reply durations counting only operating hours
      * (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 operation_total_reply_time = 48 [json_name = "operationTotalReplyTime"];</code>
@@ -9595,7 +9234,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Sum of all reply durations counting only operating hours
      * (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 operation_total_reply_time = 48 [json_name = "operationTotalReplyTime"];</code>
@@ -9612,7 +9250,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of manager replies during operating hours.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 operation_reply_count = 49 [json_name = "operationReplyCount"];</code>
@@ -9625,7 +9262,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of manager replies during operating hours.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 operation_reply_count = 49 [json_name = "operationReplyCount"];</code>
@@ -9641,7 +9277,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of manager replies during operating hours.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 operation_reply_count = 49 [json_name = "operationReplyCount"];</code>
@@ -9658,7 +9293,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total resolution time counting only operating hours (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 operation_resolution_time = 50 [json_name = "operationResolutionTime"];</code>
@@ -9671,7 +9305,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total resolution time counting only operating hours (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 operation_resolution_time = 50 [json_name = "operationResolutionTime"];</code>
@@ -9687,7 +9320,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total resolution time counting only operating hours (in milliseconds).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 operation_resolution_time = 50 [json_name = "operationResolutionTime"];</code>
@@ -9707,7 +9339,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the user last sent a message that is awaiting
      * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
@@ -9720,7 +9351,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the user last sent a message that is awaiting
      * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
@@ -9737,7 +9367,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the user last sent a message that is awaiting
      * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
@@ -9759,7 +9388,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the user last sent a message that is awaiting
      * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
@@ -9779,7 +9407,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the user last sent a message that is awaiting
      * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
@@ -9803,7 +9430,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the user last sent a message that is awaiting
      * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
@@ -9823,7 +9449,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the user last sent a message that is awaiting
      * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
@@ -9837,7 +9462,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the user last sent a message that is awaiting
      * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
@@ -9854,7 +9478,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the user last sent a message that is awaiting
      * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
@@ -9879,7 +9502,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
@@ -9891,7 +9513,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
@@ -9907,7 +9528,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
@@ -9928,7 +9548,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
@@ -9947,7 +9566,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
@@ -9970,7 +9588,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
@@ -9989,7 +9606,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
@@ -10002,7 +9618,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
@@ -10018,7 +9633,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
@@ -10043,7 +9657,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was closed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
@@ -10055,7 +9668,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was closed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
@@ -10071,7 +9683,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was closed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
@@ -10092,7 +9703,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was closed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
@@ -10111,7 +9721,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was closed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
@@ -10134,7 +9743,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was closed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
@@ -10153,7 +9761,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was closed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
@@ -10166,7 +9773,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was closed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
@@ -10182,7 +9788,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was closed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
@@ -10207,7 +9812,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was snoozed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
@@ -10219,7 +9823,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was snoozed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
@@ -10235,7 +9838,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was snoozed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
@@ -10256,7 +9858,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was snoozed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
@@ -10275,7 +9876,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was snoozed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
@@ -10298,7 +9898,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was snoozed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
@@ -10317,7 +9916,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was snoozed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
@@ -10330,7 +9928,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was snoozed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
@@ -10346,7 +9943,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat was snoozed.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
@@ -10371,7 +9967,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat is scheduled to automatically expire and close.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
@@ -10383,7 +9978,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat is scheduled to automatically expire and close.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
@@ -10399,7 +9993,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat is scheduled to automatically expire and close.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
@@ -10420,7 +10013,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat is scheduled to automatically expire and close.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
@@ -10439,7 +10031,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat is scheduled to automatically expire and close.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
@@ -10462,7 +10053,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat is scheduled to automatically expire and close.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
@@ -10481,7 +10071,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat is scheduled to automatically expire and close.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
@@ -10494,7 +10083,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat is scheduled to automatically expire and close.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
@@ -10510,7 +10098,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the chat is scheduled to automatically expire and close.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
@@ -10534,7 +10121,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version incremented on every update.
      * Supply the current value when updating to prevent overwriting concurrent changes.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 version = 56 [json_name = "version"];</code>
@@ -10548,7 +10134,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version incremented on every update.
      * Supply the current value when updating to prevent overwriting concurrent changes.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 version = 56 [json_name = "version"];</code>
@@ -10565,7 +10150,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version incremented on every update.
      * Supply the current value when updating to prevent overwriting concurrent changes.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 version = 56 [json_name = "version"];</code>

@@ -95,24 +95,14 @@ type OneTimeMsgUser struct {
 	// +kubebuilder:example="u-abc123"
 	UserId string `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	// Timestamp when the message was delivered to the user.
-	//
-	// +kubebuilder:validation:Nullable
 	Sent *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=sent,proto3" json:"sent,omitempty"`
 	// Timestamp when the user first viewed the delivered message.
-	//
-	// +kubebuilder:validation:Nullable
 	View *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=view,proto3" json:"view,omitempty"`
 	// Timestamp when the user completed the goal event.
-	//
-	// +kubebuilder:validation:Nullable
 	Goal *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=goal,proto3" json:"goal,omitempty"`
 	// Timestamp when the user first clicked a link in the message.
-	//
-	// +kubebuilder:validation:Nullable
 	Click *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=click,proto3" json:"click,omitempty"`
 	// Cumulative revenue attributed to this user from the one-time message.
-	//
-	// +kubebuilder:validation:Nullable
 	Revenue string `protobuf:"bytes,7,opt,name=revenue,proto3" json:"revenue,omitempty"`
 	// Composite identifier in the format "{one_time_msg_id}-{user_id}".
 	//

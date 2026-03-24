@@ -48,14 +48,11 @@ type Bot struct {
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Bot description.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=180
 	// +kubebuilder:example="Handles billing and payment inquiries."
 	Description string `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
 	// Internationalized name and description map.
 	// Keyed by locale.
-	//
-	// +kubebuilder:validation:Nullable
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,5,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Bot color in hex format.
 	// Randomly assigned if not specified on creation.
@@ -65,7 +62,6 @@ type Bot struct {
 	Color string `protobuf:"bytes,6,opt,name=color,proto3" json:"color,omitempty"`
 	// Bot avatar image URL.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
 	AvatarUrl string `protobuf:"bytes,7,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	// Bot creation timestamp.
@@ -73,8 +69,6 @@ type Bot struct {
 	// +kubebuilder:validation:Required
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Bot avatar image reference.
-	//
-	// +kubebuilder:validation:Nullable
 	Avatar        *TinyFile `protobuf:"bytes,9,opt,name=avatar,proto3" json:"avatar,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

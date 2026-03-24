@@ -253,7 +253,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Marketing source type: "campaign" for automated campaigns or "oneTimeMsg" for one-time messages.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string type = 1 [json_name = "type"];</code>
@@ -275,7 +274,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Marketing source type: "campaign" for automated campaigns or "oneTimeMsg" for one-time messages.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string type = 1 [json_name = "type"];</code>
@@ -301,7 +299,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the originating campaign or one-time message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 2 [json_name = "id"];</code>
@@ -323,7 +320,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the originating campaign or one-time message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 2 [json_name = "id"];</code>
@@ -349,7 +345,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether this message is classified as advertising content subject to opt-out regulations.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool advertising = 3 [json_name = "advertising"];</code>
@@ -365,7 +360,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether to deliver via SMS/LMS/MMS as a fallback when the user is offline.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool send_to_offline_xms = 4 [json_name = "sendToOfflineXms"];</code>
@@ -381,7 +375,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether to deliver via email as a fallback when the user is offline.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool send_to_offline_email = 5 [json_name = "sendToOfflineEmail"];</code>
@@ -397,7 +390,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * In-app display mode for the marketing message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageMarketing.ExposureType exposure_type = 6 [json_name = "exposureType"];</code>
@@ -409,7 +401,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * In-app display mode for the marketing message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageMarketing.ExposureType exposure_type = 6 [json_name = "exposureType"];</code>
@@ -427,7 +418,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Clickthrough URL for the marketing image.
    * Present only when the message includes an in-app image with a link.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>
@@ -450,7 +440,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Clickthrough URL for the marketing image.
    * Present only when the message includes an in-app image with a link.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>
@@ -886,7 +875,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Marketing source type: "campaign" for automated campaigns or "oneTimeMsg" for one-time messages.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string type = 1 [json_name = "type"];</code>
@@ -907,7 +895,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Marketing source type: "campaign" for automated campaigns or "oneTimeMsg" for one-time messages.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string type = 1 [json_name = "type"];</code>
@@ -929,7 +916,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Marketing source type: "campaign" for automated campaigns or "oneTimeMsg" for one-time messages.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string type = 1 [json_name = "type"];</code>
@@ -949,7 +935,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Marketing source type: "campaign" for automated campaigns or "oneTimeMsg" for one-time messages.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string type = 1 [json_name = "type"];</code>
@@ -964,7 +949,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Marketing source type: "campaign" for automated campaigns or "oneTimeMsg" for one-time messages.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string type = 1 [json_name = "type"];</code>
@@ -987,7 +971,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the originating campaign or one-time message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string id = 2 [json_name = "id"];</code>
@@ -1008,7 +991,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the originating campaign or one-time message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string id = 2 [json_name = "id"];</code>
@@ -1030,7 +1012,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the originating campaign or one-time message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string id = 2 [json_name = "id"];</code>
@@ -1050,7 +1031,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the originating campaign or one-time message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string id = 2 [json_name = "id"];</code>
@@ -1065,7 +1045,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the originating campaign or one-time message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string id = 2 [json_name = "id"];</code>
@@ -1088,7 +1067,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether this message is classified as advertising content subject to opt-out regulations.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool advertising = 3 [json_name = "advertising"];</code>
@@ -1101,7 +1079,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether this message is classified as advertising content subject to opt-out regulations.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool advertising = 3 [json_name = "advertising"];</code>
@@ -1117,7 +1094,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether this message is classified as advertising content subject to opt-out regulations.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool advertising = 3 [json_name = "advertising"];</code>
@@ -1134,7 +1110,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to deliver via SMS/LMS/MMS as a fallback when the user is offline.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool send_to_offline_xms = 4 [json_name = "sendToOfflineXms"];</code>
@@ -1147,7 +1122,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to deliver via SMS/LMS/MMS as a fallback when the user is offline.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool send_to_offline_xms = 4 [json_name = "sendToOfflineXms"];</code>
@@ -1163,7 +1137,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to deliver via SMS/LMS/MMS as a fallback when the user is offline.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool send_to_offline_xms = 4 [json_name = "sendToOfflineXms"];</code>
@@ -1180,7 +1153,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to deliver via email as a fallback when the user is offline.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool send_to_offline_email = 5 [json_name = "sendToOfflineEmail"];</code>
@@ -1193,7 +1165,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to deliver via email as a fallback when the user is offline.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool send_to_offline_email = 5 [json_name = "sendToOfflineEmail"];</code>
@@ -1209,7 +1180,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to deliver via email as a fallback when the user is offline.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool send_to_offline_email = 5 [json_name = "sendToOfflineEmail"];</code>
@@ -1226,7 +1196,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * In-app display mode for the marketing message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMarketing.ExposureType exposure_type = 6 [json_name = "exposureType"];</code>
@@ -1238,7 +1207,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * In-app display mode for the marketing message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMarketing.ExposureType exposure_type = 6 [json_name = "exposureType"];</code>
@@ -1254,7 +1222,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * In-app display mode for the marketing message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMarketing.ExposureType exposure_type = 6 [json_name = "exposureType"];</code>
@@ -1269,7 +1236,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * In-app display mode for the marketing message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMarketing.ExposureType exposure_type = 6 [json_name = "exposureType"];</code>
@@ -1288,7 +1254,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * In-app display mode for the marketing message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMarketing.ExposureType exposure_type = 6 [json_name = "exposureType"];</code>
@@ -1306,7 +1271,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Clickthrough URL for the marketing image.
      * Present only when the message includes an in-app image with a link.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>
@@ -1328,7 +1292,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Clickthrough URL for the marketing image.
      * Present only when the message includes an in-app image with a link.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>
@@ -1351,7 +1314,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Clickthrough URL for the marketing image.
      * Present only when the message includes an in-app image with a link.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>
@@ -1372,7 +1334,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Clickthrough URL for the marketing image.
      * Present only when the message includes an in-app image with a link.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>
@@ -1388,7 +1349,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Clickthrough URL for the marketing image.
      * Present only when the message includes an in-app image with a link.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>

@@ -140,8 +140,6 @@ type Webhook struct {
 	// +kubebuilder:validation:Enum={"v4","v5"}
 	ApiVersion string `protobuf:"bytes,8,opt,name=api_version,json=apiVersion,proto3" json:"api_version,omitempty"`
 	// Timestamp when the webhook was last blocked due to consecutive failures.
-	//
-	// +kubebuilder:validation:Nullable
 	LastBlockedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=last_blocked_at,json=lastBlockedAt,proto3" json:"last_blocked_at,omitempty"`
 	// Whether the webhook is currently blocked due to excessive delivery failures.
 	//

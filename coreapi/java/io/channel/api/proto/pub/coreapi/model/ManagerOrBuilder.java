@@ -113,7 +113,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Free-text summary displayed on the manager profile.
    * Visible to end users only when show_description_to_front is true.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * +kubebuilder:example="Product team lead"
    * </pre>
@@ -126,7 +125,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Free-text summary displayed on the manager profile.
    * Visible to end users only when show_description_to_front is true.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * +kubebuilder:example="Product team lead"
    * </pre>
@@ -151,7 +149,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -160,7 +157,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -176,7 +172,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -186,7 +181,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -198,7 +192,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -210,7 +203,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Custom profile data as key-value pairs for additional manager information.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
@@ -220,7 +212,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Custom profile data as key-value pairs for additional manager information.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
@@ -230,7 +221,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Custom profile data as key-value pairs for additional manager information.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
@@ -241,7 +231,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Manager email address.
    * Unique per channel among non-removed managers.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="manager&#64;example.com"
    * </pre>
    *
@@ -253,7 +242,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Manager email address.
    * Unique per channel among non-removed managers.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="manager&#64;example.com"
    * </pre>
    *
@@ -277,7 +265,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Manager mobile phone number in E.164 format (e.g., +821012345678).
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="+821012345678"
    * </pre>
    *
@@ -288,7 +275,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Manager mobile phone number in E.164 format (e.g., +821012345678).
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="+821012345678"
    * </pre>
    *
@@ -312,7 +298,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Role ID assigned to this manager, defining permissions and access levels.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="role-owner"
    * </pre>
    *
@@ -323,7 +308,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Role ID assigned to this manager, defining permissions and access levels.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="role-owner"
    * </pre>
    *
@@ -408,7 +392,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Timestamp when the manager was soft-deleted.
    * Present only when removed is true.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -419,7 +402,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Timestamp when the manager was soft-deleted.
    * Present only when removed is true.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -430,7 +412,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Timestamp when the manager was soft-deleted.
    * Present only when removed is true.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -452,7 +433,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Default notification level for group chat sessions.
    * See SessionWatch for possible values.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.SessionWatch default_group_watch = 19 [json_name = "defaultGroupWatch"];</code>
@@ -463,7 +443,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Default notification level for group chat sessions.
    * See SessionWatch for possible values.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.SessionWatch default_group_watch = 19 [json_name = "defaultGroupWatch"];</code>
@@ -475,7 +454,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Default notification level for direct message sessions.
    * See SessionWatch for possible values.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.SessionWatch default_direct_chat_watch = 20 [json_name = "defaultDirectChatWatch"];</code>
@@ -486,7 +464,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Default notification level for direct message sessions.
    * See SessionWatch for possible values.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.SessionWatch default_direct_chat_watch = 20 [json_name = "defaultDirectChatWatch"];</code>
@@ -498,7 +475,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Default notification level for user (customer) chat sessions.
    * See SessionWatch for possible values.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.SessionWatch default_user_chat_watch = 21 [json_name = "defaultUserChatWatch"];</code>
@@ -509,7 +485,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Default notification level for user (customer) chat sessions.
    * See SessionWatch for possible values.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.SessionWatch default_user_chat_watch = 21 [json_name = "defaultUserChatWatch"];</code>
@@ -521,7 +496,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Sound effect for incoming chat message notifications.
    * See ChatAlertSound for possible values.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.ChatAlertSound chat_alert_sound = 22 [json_name = "chatAlertSound"];</code>
@@ -532,7 +506,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Sound effect for incoming chat message notifications.
    * See ChatAlertSound for possible values.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.ChatAlertSound chat_alert_sound = 22 [json_name = "chatAlertSound"];</code>
@@ -544,7 +517,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Sound effect for incoming meet (call) notifications.
    * See MeetAlertSound for possible values.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MeetAlertSound meet_alert_sound = 23 [json_name = "meetAlertSound"];</code>
@@ -555,7 +527,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Sound effect for incoming meet (call) notifications.
    * See MeetAlertSound for possible values.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MeetAlertSound meet_alert_sound = 23 [json_name = "meetAlertSound"];</code>
@@ -589,7 +560,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Performance score reflecting the manager's conversation handling efficiency.
    * Decays over time when the manager is inactive.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>float operator_score = 26 [json_name = "operatorScore"];</code>
@@ -601,7 +571,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Engagement score reflecting the frequency of customer interactions.
    * Decays over time when the manager is inactive.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>float touch_score = 27 [json_name = "touchScore"];</code>
@@ -678,7 +647,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -688,7 +656,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -722,7 +689,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * User chat types this manager can be auto-assigned to (e.g., sync, async).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -733,7 +699,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * User chat types this manager can be auto-assigned to (e.g., sync, async).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -743,7 +708,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * User chat types this manager can be auto-assigned to (e.g., sync, async).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -754,7 +718,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * User chat types this manager can be auto-assigned to (e.g., sync, async).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -767,7 +730,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Maximum number of concurrent user chats that can be auto-assigned to this manager.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:Minimum=0
    * +kubebuilder:validation:Maximum=200
    * </pre>
@@ -792,7 +754,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Emoji displayed alongside the manager name as a status indicator.
    * Must be set together with status_text; both or neither should be present.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="coffee"
    * </pre>
    *
@@ -804,7 +765,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Emoji displayed alongside the manager name as a status indicator.
    * Must be set together with status_text; both or neither should be present.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="coffee"
    * </pre>
    *
@@ -818,7 +778,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Short text displayed alongside the manager name as a status indicator.
    * Must be set together with status_emoji; both or neither should be present.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=128
    * +kubebuilder:example="In a meeting until 3pm"
    * </pre>
@@ -831,7 +790,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Short text displayed alongside the manager name as a status indicator.
    * Must be set together with status_emoji; both or neither should be present.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=128
    * +kubebuilder:example="In a meeting until 3pm"
    * </pre>
@@ -845,7 +803,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when the custom status (emoji + text) automatically clears.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -855,7 +812,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when the custom status (emoji + text) automatically clears.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -865,7 +821,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when the custom status (emoji + text) automatically clears.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -886,7 +841,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when do-not-disturb mode automatically deactivates.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -896,7 +850,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when do-not-disturb mode automatically deactivates.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -906,7 +859,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when do-not-disturb mode automatically deactivates.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -927,7 +879,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when account-level do-not-disturb mode automatically deactivates.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -937,7 +888,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when account-level do-not-disturb mode automatically deactivates.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -947,7 +897,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when account-level do-not-disturb mode automatically deactivates.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -957,7 +906,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when the operator status was last toggled on or off.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -967,7 +915,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when the operator status was last toggled on or off.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -977,7 +924,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when the operator status was last toggled on or off.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -988,7 +934,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Manager avatar image URL.
    * Falls back to a system-generated default when no custom avatar is set.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
    * </pre>
    *
@@ -1000,7 +945,6 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Manager avatar image URL.
    * Falls back to a system-generated default when no custom avatar is set.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
    * </pre>
    *

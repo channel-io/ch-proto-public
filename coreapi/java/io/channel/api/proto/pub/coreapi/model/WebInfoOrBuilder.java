@@ -10,7 +10,6 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Device form factor (e.g. "desktop", "tablet", "mobile").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string device = 1 [json_name = "device"];</code>
@@ -20,7 +19,6 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Device form factor (e.g. "desktop", "tablet", "mobile").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string device = 1 [json_name = "device"];</code>
@@ -32,7 +30,6 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Operating system version string (e.g. "10.15.7", "11").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string os = 2 [json_name = "os"];</code>
@@ -42,7 +39,6 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Operating system version string (e.g. "10.15.7", "11").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string os = 2 [json_name = "os"];</code>
@@ -54,7 +50,6 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Operating system name (e.g. "Windows", "macOS", "Linux").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string os_name = 3 [json_name = "osName"];</code>
@@ -64,7 +59,6 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Operating system name (e.g. "Windows", "macOS", "Linux").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string os_name = 3 [json_name = "osName"];</code>
@@ -76,7 +70,6 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Browser version string (e.g. "120.0.6099.109").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string browser = 4 [json_name = "browser"];</code>
@@ -86,7 +79,6 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Browser version string (e.g. "120.0.6099.109").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string browser = 4 [json_name = "browser"];</code>
@@ -98,7 +90,6 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Browser name (e.g. "Chrome", "Safari", "Firefox").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string browser_name = 5 [json_name = "browserName"];</code>
@@ -108,7 +99,6 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Browser name (e.g. "Chrome", "Safari", "Firefox").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string browser_name = 5 [json_name = "browserName"];</code>
@@ -121,7 +111,6 @@ public interface WebInfoOrBuilder extends
    * <pre>
    * Cumulative number of web sessions recorded for this user.
    * Incremented on each new session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 sessions_count = 6 [json_name = "sessionsCount"];</code>
@@ -132,7 +121,6 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Timestamp of the user's most recent web session start.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 7 [json_name = "lastSeenAt"];</code>
@@ -142,7 +130,6 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Timestamp of the user's most recent web session start.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 7 [json_name = "lastSeenAt"];</code>
@@ -152,7 +139,6 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Timestamp of the user's most recent web session start.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 7 [json_name = "lastSeenAt"];</code>

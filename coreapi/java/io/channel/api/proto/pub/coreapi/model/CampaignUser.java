@@ -287,7 +287,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Message variant that was delivered to this user.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string msg_id = 3 [json_name = "msgId"];</code>
@@ -309,7 +308,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Message variant that was delivered to this user.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string msg_id = 3 [json_name = "msgId"];</code>
@@ -335,7 +333,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * User chat conversation created by the campaign delivery.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string user_chat_id = 4 [json_name = "userChatId"];</code>
@@ -357,7 +354,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * User chat conversation created by the campaign delivery.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string user_chat_id = 4 [json_name = "userChatId"];</code>
@@ -383,7 +379,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the campaign message was delivered to the user.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp sent = 5 [json_name = "sent"];</code>
@@ -396,7 +391,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the campaign message was delivered to the user.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp sent = 5 [json_name = "sent"];</code>
@@ -409,7 +403,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the campaign message was delivered to the user.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp sent = 5 [json_name = "sent"];</code>
@@ -424,7 +417,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user first viewed the delivered message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp view = 6 [json_name = "view"];</code>
@@ -437,7 +429,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user first viewed the delivered message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp view = 6 [json_name = "view"];</code>
@@ -450,7 +441,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user first viewed the delivered message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp view = 6 [json_name = "view"];</code>
@@ -465,7 +455,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user first clicked a link in the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp click = 7 [json_name = "click"];</code>
@@ -478,7 +467,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user first clicked a link in the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp click = 7 [json_name = "click"];</code>
@@ -491,7 +479,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user first clicked a link in the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp click = 7 [json_name = "click"];</code>
@@ -506,7 +493,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user completed the campaign goal event.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal = 8 [json_name = "goal"];</code>
@@ -519,7 +505,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user completed the campaign goal event.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal = 8 [json_name = "goal"];</code>
@@ -532,7 +517,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user completed the campaign goal event.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal = 8 [json_name = "goal"];</code>
@@ -547,7 +531,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Cumulative revenue attributed to this user from the campaign.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string revenue = 9 [json_name = "revenue"];</code>
@@ -569,7 +552,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Cumulative revenue attributed to this user from the campaign.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string revenue = 9 [json_name = "revenue"];</code>
@@ -1375,7 +1357,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message variant that was delivered to this user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string msg_id = 3 [json_name = "msgId"];</code>
@@ -1396,7 +1377,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message variant that was delivered to this user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string msg_id = 3 [json_name = "msgId"];</code>
@@ -1418,7 +1398,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message variant that was delivered to this user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string msg_id = 3 [json_name = "msgId"];</code>
@@ -1438,7 +1417,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message variant that was delivered to this user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string msg_id = 3 [json_name = "msgId"];</code>
@@ -1453,7 +1431,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message variant that was delivered to this user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string msg_id = 3 [json_name = "msgId"];</code>
@@ -1476,7 +1453,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat conversation created by the campaign delivery.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string user_chat_id = 4 [json_name = "userChatId"];</code>
@@ -1497,7 +1473,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat conversation created by the campaign delivery.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string user_chat_id = 4 [json_name = "userChatId"];</code>
@@ -1519,7 +1494,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat conversation created by the campaign delivery.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string user_chat_id = 4 [json_name = "userChatId"];</code>
@@ -1539,7 +1513,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat conversation created by the campaign delivery.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string user_chat_id = 4 [json_name = "userChatId"];</code>
@@ -1554,7 +1527,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat conversation created by the campaign delivery.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string user_chat_id = 4 [json_name = "userChatId"];</code>
@@ -1579,7 +1551,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the campaign message was delivered to the user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 5 [json_name = "sent"];</code>
@@ -1591,7 +1562,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the campaign message was delivered to the user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 5 [json_name = "sent"];</code>
@@ -1607,7 +1577,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the campaign message was delivered to the user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 5 [json_name = "sent"];</code>
@@ -1628,7 +1597,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the campaign message was delivered to the user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 5 [json_name = "sent"];</code>
@@ -1647,7 +1615,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the campaign message was delivered to the user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 5 [json_name = "sent"];</code>
@@ -1670,7 +1637,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the campaign message was delivered to the user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 5 [json_name = "sent"];</code>
@@ -1689,7 +1655,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the campaign message was delivered to the user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 5 [json_name = "sent"];</code>
@@ -1702,7 +1667,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the campaign message was delivered to the user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 5 [json_name = "sent"];</code>
@@ -1718,7 +1682,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the campaign message was delivered to the user.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 5 [json_name = "sent"];</code>
@@ -1743,7 +1706,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 6 [json_name = "view"];</code>
@@ -1755,7 +1717,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 6 [json_name = "view"];</code>
@@ -1771,7 +1732,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 6 [json_name = "view"];</code>
@@ -1792,7 +1752,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 6 [json_name = "view"];</code>
@@ -1811,7 +1770,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 6 [json_name = "view"];</code>
@@ -1834,7 +1792,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 6 [json_name = "view"];</code>
@@ -1853,7 +1810,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 6 [json_name = "view"];</code>
@@ -1866,7 +1822,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 6 [json_name = "view"];</code>
@@ -1882,7 +1837,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 6 [json_name = "view"];</code>
@@ -1907,7 +1861,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 7 [json_name = "click"];</code>
@@ -1919,7 +1872,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 7 [json_name = "click"];</code>
@@ -1935,7 +1887,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 7 [json_name = "click"];</code>
@@ -1956,7 +1907,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 7 [json_name = "click"];</code>
@@ -1975,7 +1925,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 7 [json_name = "click"];</code>
@@ -1998,7 +1947,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 7 [json_name = "click"];</code>
@@ -2017,7 +1965,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 7 [json_name = "click"];</code>
@@ -2030,7 +1977,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 7 [json_name = "click"];</code>
@@ -2046,7 +1992,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 7 [json_name = "click"];</code>
@@ -2071,7 +2016,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the campaign goal event.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 8 [json_name = "goal"];</code>
@@ -2083,7 +2027,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the campaign goal event.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 8 [json_name = "goal"];</code>
@@ -2099,7 +2042,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the campaign goal event.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 8 [json_name = "goal"];</code>
@@ -2120,7 +2062,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the campaign goal event.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 8 [json_name = "goal"];</code>
@@ -2139,7 +2080,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the campaign goal event.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 8 [json_name = "goal"];</code>
@@ -2162,7 +2102,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the campaign goal event.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 8 [json_name = "goal"];</code>
@@ -2181,7 +2120,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the campaign goal event.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 8 [json_name = "goal"];</code>
@@ -2194,7 +2132,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the campaign goal event.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 8 [json_name = "goal"];</code>
@@ -2210,7 +2147,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the campaign goal event.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 8 [json_name = "goal"];</code>
@@ -2233,7 +2169,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative revenue attributed to this user from the campaign.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string revenue = 9 [json_name = "revenue"];</code>
@@ -2254,7 +2189,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative revenue attributed to this user from the campaign.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string revenue = 9 [json_name = "revenue"];</code>
@@ -2276,7 +2210,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative revenue attributed to this user from the campaign.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string revenue = 9 [json_name = "revenue"];</code>
@@ -2296,7 +2229,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative revenue attributed to this user from the campaign.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string revenue = 9 [json_name = "revenue"];</code>
@@ -2311,7 +2243,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative revenue attributed to this user from the campaign.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string revenue = 9 [json_name = "revenue"];</code>

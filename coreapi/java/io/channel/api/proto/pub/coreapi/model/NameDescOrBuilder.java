@@ -40,7 +40,6 @@ public interface NameDescOrBuilder extends
   /**
    * <pre>
    * Short description of the entity.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * </pre>
    *
@@ -51,7 +50,6 @@ public interface NameDescOrBuilder extends
   /**
    * <pre>
    * Short description of the entity.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * </pre>
    *

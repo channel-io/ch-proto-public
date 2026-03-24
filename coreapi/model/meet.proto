@@ -40,27 +40,22 @@ message CallLog {
   // Reason the call was missed.
   // Only present when the call ended without being answered.
   //
-  // +kubebuilder:validation:Nullable
   MissedReason missed_reason = 2;
 
   // Whether the call was inbound (received) or outbound (initiated).
   //
-  // +kubebuilder:validation:Nullable
   CallDirection direction = 3;
 
   // Current lifecycle state indicating whether the call is waiting or connected.
   //
-  // +kubebuilder:validation:Nullable
   CallState state = 4;
 
   // Originating phone number or caller identifier.
   //
-  // +kubebuilder:validation:Nullable
   string from = 5;
 
   // Destination phone number or callee identifier.
   //
-  // +kubebuilder:validation:Nullable
   string to = 6;
 
   // Call creation timestamp.
@@ -76,24 +71,20 @@ message CallLog {
   // Timestamp when the call was answered and the conversation began.
   // Absent if the call was never answered.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp engaged_at = 9;
 
   // Timestamp when the call ended and the connection was terminated.
   // Absent if the call is still active or was never connected.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp closed_at = 10;
 
   // User chat ID linked to this call.
   // Present when the call is associated with a user chat conversation.
   //
-  // +kubebuilder:validation:Nullable
   string user_chat_id = 11;
 
   // List of manager IDs who participated in or handled the call.
   //
-  // +kubebuilder:validation:Nullable
   repeated string manager_ids = 12;
 }
 
@@ -131,12 +122,10 @@ message MeetMessage {
 
   // Structured content blocks of the message.
   //
-  // +kubebuilder:validation:Nullable
   repeated coreapi.model.Block blocks = 7;
 
   // Plain text representation of the message.
   //
-  // +kubebuilder:validation:Nullable
   string plain_text = 8;
 
   // Message creation timestamp.

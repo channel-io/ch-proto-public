@@ -412,7 +412,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string type = 2 [json_name = "type"];</code>
@@ -434,7 +433,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string type = 2 [json_name = "type"];</code>
@@ -526,7 +524,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * MIME content type (e.g. "image/png", "application/pdf").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string content_type = 5 [json_name = "contentType"];</code>
@@ -548,7 +545,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * MIME content type (e.g. "image/png", "application/pdf").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string content_type = 5 [json_name = "contentType"];</code>
@@ -575,7 +571,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Media playback duration in seconds.
    * Present only for audio or video files.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>double duration = 6 [json_name = "duration"];</code>
@@ -591,7 +586,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Image or video width in pixels.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 width = 7 [json_name = "width"];</code>
@@ -607,7 +601,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Image or video height in pixels.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 height = 8 [json_name = "height"];</code>
@@ -624,7 +617,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * EXIF orientation value (1-8) indicating how the image should be rotated for display.
    * Present only for image files with EXIF metadata.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 orientation = 9 [json_name = "orientation"];</code>
@@ -640,7 +632,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the image is an animated format (e.g. GIF, APNG).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool animated = 10 [json_name = "animated"];</code>
@@ -757,7 +748,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Storage key for the preview thumbnail.
    * Falls back to `key` when not set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string preview_key = 13 [json_name = "previewKey"];</code>
@@ -780,7 +770,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Storage key for the preview thumbnail.
    * Falls back to `key` when not set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string preview_key = 13 [json_name = "previewKey"];</code>
@@ -807,7 +796,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Access scope that determines who can view this private file.
    * Derived from the storage key pattern.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
@@ -820,7 +808,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Access scope that determines who can view this private file.
    * Derived from the storage key pattern.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
@@ -838,7 +825,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Domain identifier for channel-scoped private files.
    * Derived from the storage key pattern.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
@@ -861,7 +847,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Domain identifier for channel-scoped private files.
    * Derived from the storage key pattern.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
@@ -888,7 +873,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID that owns this private file.
    * Derived from the storage key pattern.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -911,7 +895,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID that owns this private file.
    * Derived from the storage key pattern.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -938,7 +921,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager ID that owns this private file.
    * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -961,7 +943,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager ID that owns this private file.
    * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -988,7 +969,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat type for chat-scoped private files.
    * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string chat_type = 18 [json_name = "chatType"];</code>
@@ -1011,7 +991,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat type for chat-scoped private files.
    * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string chat_type = 18 [json_name = "chatType"];</code>
@@ -1038,7 +1017,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat ID for chat-scoped private files.
    * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -1061,7 +1039,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat ID for chat-scoped private files.
    * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -1802,7 +1779,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string type = 2 [json_name = "type"];</code>
@@ -1823,7 +1799,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string type = 2 [json_name = "type"];</code>
@@ -1845,7 +1820,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string type = 2 [json_name = "type"];</code>
@@ -1865,7 +1839,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string type = 2 [json_name = "type"];</code>
@@ -1880,7 +1853,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string type = 2 [json_name = "type"];</code>
@@ -2055,7 +2027,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MIME content type (e.g. "image/png", "application/pdf").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string content_type = 5 [json_name = "contentType"];</code>
@@ -2076,7 +2047,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MIME content type (e.g. "image/png", "application/pdf").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string content_type = 5 [json_name = "contentType"];</code>
@@ -2098,7 +2068,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MIME content type (e.g. "image/png", "application/pdf").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string content_type = 5 [json_name = "contentType"];</code>
@@ -2118,7 +2087,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MIME content type (e.g. "image/png", "application/pdf").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string content_type = 5 [json_name = "contentType"];</code>
@@ -2133,7 +2101,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MIME content type (e.g. "image/png", "application/pdf").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string content_type = 5 [json_name = "contentType"];</code>
@@ -2157,7 +2124,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Media playback duration in seconds.
      * Present only for audio or video files.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>double duration = 6 [json_name = "duration"];</code>
@@ -2171,7 +2137,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Media playback duration in seconds.
      * Present only for audio or video files.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>double duration = 6 [json_name = "duration"];</code>
@@ -2188,7 +2153,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Media playback duration in seconds.
      * Present only for audio or video files.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>double duration = 6 [json_name = "duration"];</code>
@@ -2205,7 +2169,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image or video width in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 width = 7 [json_name = "width"];</code>
@@ -2218,7 +2181,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image or video width in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 width = 7 [json_name = "width"];</code>
@@ -2234,7 +2196,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image or video width in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 width = 7 [json_name = "width"];</code>
@@ -2251,7 +2212,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image or video height in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 height = 8 [json_name = "height"];</code>
@@ -2264,7 +2224,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image or video height in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 height = 8 [json_name = "height"];</code>
@@ -2280,7 +2239,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image or video height in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 height = 8 [json_name = "height"];</code>
@@ -2298,7 +2256,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * EXIF orientation value (1-8) indicating how the image should be rotated for display.
      * Present only for image files with EXIF metadata.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 orientation = 9 [json_name = "orientation"];</code>
@@ -2312,7 +2269,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * EXIF orientation value (1-8) indicating how the image should be rotated for display.
      * Present only for image files with EXIF metadata.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 orientation = 9 [json_name = "orientation"];</code>
@@ -2329,7 +2285,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * EXIF orientation value (1-8) indicating how the image should be rotated for display.
      * Present only for image files with EXIF metadata.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 orientation = 9 [json_name = "orientation"];</code>
@@ -2346,7 +2301,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the image is an animated format (e.g. GIF, APNG).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool animated = 10 [json_name = "animated"];</code>
@@ -2359,7 +2313,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the image is an animated format (e.g. GIF, APNG).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool animated = 10 [json_name = "animated"];</code>
@@ -2375,7 +2328,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the image is an animated format (e.g. GIF, APNG).
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool animated = 10 [json_name = "animated"];</code>
@@ -2605,7 +2557,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Storage key for the preview thumbnail.
      * Falls back to `key` when not set.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string preview_key = 13 [json_name = "previewKey"];</code>
@@ -2627,7 +2578,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Storage key for the preview thumbnail.
      * Falls back to `key` when not set.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string preview_key = 13 [json_name = "previewKey"];</code>
@@ -2650,7 +2600,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Storage key for the preview thumbnail.
      * Falls back to `key` when not set.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string preview_key = 13 [json_name = "previewKey"];</code>
@@ -2671,7 +2620,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Storage key for the preview thumbnail.
      * Falls back to `key` when not set.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string preview_key = 13 [json_name = "previewKey"];</code>
@@ -2687,7 +2635,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Storage key for the preview thumbnail.
      * Falls back to `key` when not set.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string preview_key = 13 [json_name = "previewKey"];</code>
@@ -2711,7 +2658,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Access scope that determines who can view this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
@@ -2724,7 +2670,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Access scope that determines who can view this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
@@ -2741,7 +2686,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Access scope that determines who can view this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
@@ -2757,7 +2701,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Access scope that determines who can view this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
@@ -2777,7 +2720,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Access scope that determines who can view this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
@@ -2795,7 +2737,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Domain identifier for channel-scoped private files.
      * Derived from the storage key pattern.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
@@ -2817,7 +2758,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Domain identifier for channel-scoped private files.
      * Derived from the storage key pattern.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
@@ -2840,7 +2780,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Domain identifier for channel-scoped private files.
      * Derived from the storage key pattern.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
@@ -2861,7 +2800,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Domain identifier for channel-scoped private files.
      * Derived from the storage key pattern.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
@@ -2877,7 +2815,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Domain identifier for channel-scoped private files.
      * Derived from the storage key pattern.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
@@ -2901,7 +2838,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID that owns this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -2923,7 +2859,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID that owns this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -2946,7 +2881,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID that owns this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -2967,7 +2901,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID that owns this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -2983,7 +2916,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID that owns this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -3007,7 +2939,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID that owns this private file.
      * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -3029,7 +2960,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID that owns this private file.
      * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -3052,7 +2982,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID that owns this private file.
      * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -3073,7 +3002,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID that owns this private file.
      * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -3089,7 +3017,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID that owns this private file.
      * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -3113,7 +3040,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string chat_type = 18 [json_name = "chatType"];</code>
@@ -3135,7 +3061,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string chat_type = 18 [json_name = "chatType"];</code>
@@ -3158,7 +3083,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string chat_type = 18 [json_name = "chatType"];</code>
@@ -3179,7 +3103,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string chat_type = 18 [json_name = "chatType"];</code>
@@ -3195,7 +3118,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string chat_type = 18 [json_name = "chatType"];</code>
@@ -3219,7 +3141,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -3241,7 +3162,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -3264,7 +3184,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -3285,7 +3204,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -3301,7 +3219,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string chat_id = 19 [json_name = "chatId"];</code>

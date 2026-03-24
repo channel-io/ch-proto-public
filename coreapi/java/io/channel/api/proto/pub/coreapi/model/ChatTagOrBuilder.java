@@ -58,7 +58,6 @@ public interface ChatTagOrBuilder extends
   /**
    * <pre>
    * Color theme of the chat tag.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.ChatTagColorVariant color_variant = 3 [json_name = "colorVariant"];</code>
@@ -68,7 +67,6 @@ public interface ChatTagOrBuilder extends
   /**
    * <pre>
    * Color theme of the chat tag.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.ChatTagColorVariant color_variant = 3 [json_name = "colorVariant"];</code>
@@ -133,7 +131,6 @@ public interface ChatTagOrBuilder extends
   /**
    * <pre>
    * Short description of the chat tag.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=128
    * </pre>
    *
@@ -144,7 +141,6 @@ public interface ChatTagOrBuilder extends
   /**
    * <pre>
    * Short description of the chat tag.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=128
    * </pre>
    *

@@ -64,7 +64,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -73,7 +72,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -89,7 +87,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -99,7 +96,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -111,7 +107,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -183,7 +178,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Webhook URL called to retrieve additional user information from your server.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="https://example.com/api/user-info"
    * </pre>
    *
@@ -194,7 +188,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Webhook URL called to retrieve additional user information from your server.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="https://example.com/api/user-info"
    * </pre>
    *
@@ -235,7 +228,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -244,7 +236,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -260,7 +251,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -270,7 +260,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -282,7 +271,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -294,7 +282,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
@@ -304,7 +291,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
@@ -366,7 +352,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Free-text summary displayed on the channel profile.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * +kubebuilder:example="We help businesses connect with customers."
    * </pre>
@@ -378,7 +363,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Free-text summary displayed on the channel profile.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * +kubebuilder:example="We help businesses connect with customers."
    * </pre>
@@ -392,7 +376,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * ISO 3166-1 alpha-2 country code (e.g., KR, US).
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="KR"
    * </pre>
    *
@@ -403,7 +386,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * ISO 3166-1 alpha-2 country code (e.g., KR, US).
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="KR"
    * </pre>
    *
@@ -417,7 +399,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Custom domain slug for the channel.
    * Globally unique across all channels.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="my-company"
    * </pre>
    *
@@ -429,7 +410,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Custom domain slug for the channel.
    * Globally unique across all channels.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="my-company"
    * </pre>
    *
@@ -466,7 +446,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Business homepage URL associated with the channel.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="https://channel.io"
    * </pre>
    *
@@ -477,7 +456,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Business homepage URL associated with the channel.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="https://channel.io"
    * </pre>
    *
@@ -490,7 +468,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Business contact phone number in E.164 format (e.g., +821012345678).
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="+821012345678"
    * </pre>
    *
@@ -501,7 +478,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Business contact phone number in E.164 format (e.g., +821012345678).
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="+821012345678"
    * </pre>
    *
@@ -561,7 +537,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Due date for payment before the channel transitions to an indebted state.
    * ISO 8601 date format (e.g., 2026-12-31).
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="2026-12-31"
    * </pre>
    *
@@ -573,7 +548,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Due date for payment before the channel transitions to an indebted state.
    * ISO 8601 date format (e.g., 2026-12-31).
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="2026-12-31"
    * </pre>
    *
@@ -631,7 +605,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Current lifecycle state of the channel.
    * See ChannelState for possible values.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
@@ -642,7 +615,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Current lifecycle state of the channel.
    * See ChannelState for possible values.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
@@ -664,7 +636,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Default plugin identifier used by the messenger widget.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
@@ -674,7 +645,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Default plugin identifier used by the messenger widget.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
@@ -686,7 +656,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="E-commerce"
    * </pre>
    *
@@ -697,7 +666,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="E-commerce"
    * </pre>
    *
@@ -710,7 +678,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Number of staff members in the organization.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 staffs = 30 [json_name = "staffs"];</code>
@@ -721,7 +688,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Integrated e-commerce platform app identifier.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string app_commerce_id = 31 [json_name = "appCommerceId"];</code>
@@ -731,7 +697,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Integrated e-commerce platform app identifier.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string app_commerce_id = 31 [json_name = "appCommerceId"];</code>
@@ -743,7 +708,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
@@ -753,7 +717,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
@@ -765,7 +728,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Domain of the integrated e-commerce platform.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string app_commerce_domain = 33 [json_name = "appCommerceDomain"];</code>
@@ -775,7 +737,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Domain of the integrated e-commerce platform.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string app_commerce_domain = 33 [json_name = "appCommerceDomain"];</code>
@@ -788,7 +749,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Whether member identity hash verification is enabled.
    * When enabled, member logins require an HMAC hash to prevent impersonation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool enable_member_hash = 34 [json_name = "enableMemberHash"];</code>
@@ -799,7 +759,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Default email domain identifier used for outbound emails sent from this channel.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
@@ -809,7 +768,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Default email domain identifier used for outbound emails sent from this channel.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
@@ -867,7 +825,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Countries where the channel has obtained business certification.
    * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -879,7 +836,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Countries where the channel has obtained business certification.
    * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -890,7 +846,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Countries where the channel has obtained business certification.
    * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -902,7 +857,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Countries where the channel has obtained business certification.
    * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -951,7 +905,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Channel avatar image URL.
    * Falls back to a system-generated default when no custom avatar is set.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
    * </pre>
    *
@@ -963,7 +916,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Channel avatar image URL.
    * Falls back to a system-generated default when no custom avatar is set.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
    * </pre>
    *
@@ -977,7 +929,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Expected response delay indicator shown to end users.
    * Derived from the channel operating configuration.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.ResponseDelayType expected_response_delay = 45 [json_name = "expectedResponseDelay"];</code>
@@ -988,7 +939,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Expected response delay indicator shown to end users.
    * Derived from the channel operating configuration.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.ResponseDelayType expected_response_delay = 45 [json_name = "expectedResponseDelay"];</code>
@@ -1024,7 +974,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Timestamp when the next operating period starts.
    * Present only when the channel is currently outside operating hours.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -1035,7 +984,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Timestamp when the next operating period starts.
    * Present only when the channel is currently outside operating hours.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -1046,7 +994,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Timestamp when the next operating period starts.
    * Present only when the channel is currently outside operating hours.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -1057,7 +1004,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Timestamp when the next away (non-operating) period starts.
    * Present only when the channel is currently within operating hours.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -1068,7 +1014,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Timestamp when the next away (non-operating) period starts.
    * Present only when the channel is currently within operating hours.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -1079,7 +1024,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Timestamp when the next away (non-operating) period starts.
    * Present only when the channel is currently within operating hours.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -1089,7 +1033,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Recurring weekly time ranges that define the channel operating hours.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
@@ -1099,7 +1042,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Recurring weekly time ranges that define the channel operating hours.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
@@ -1108,7 +1050,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Recurring weekly time ranges that define the channel operating hours.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
@@ -1117,7 +1058,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Recurring weekly time ranges that define the channel operating hours.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
@@ -1127,7 +1067,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Recurring weekly time ranges that define the channel operating hours.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
@@ -1139,7 +1078,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Messenger behavior when the channel is outside of operating hours.
    * See ChannelAwayOption for possible values.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.ChannelAwayOption away_option = 51 [json_name = "awayOption"];</code>
@@ -1150,7 +1088,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Messenger behavior when the channel is outside of operating hours.
    * See ChannelAwayOption for possible values.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.ChannelAwayOption away_option = 51 [json_name = "awayOption"];</code>
@@ -1173,7 +1110,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Grace period after conversation closure during which the end user may still reply.
    * Applicable only when block_replying_after_closed is true.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -1184,7 +1120,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Grace period after conversation closure during which the end user may still reply.
    * Applicable only when block_replying_after_closed is true.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -1195,7 +1130,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Grace period after conversation closure during which the end user may still reply.
    * Applicable only when block_replying_after_closed is true.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -1205,7 +1139,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Border accent color derived from the theme color, in hex format.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string border_color = 54 [json_name = "borderColor"];</code>
@@ -1215,7 +1148,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Border accent color derived from the theme color, in hex format.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string border_color = 54 [json_name = "borderColor"];</code>
@@ -1227,7 +1159,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Gradient accent color derived from the theme color, in hex format.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
@@ -1237,7 +1168,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Gradient accent color derived from the theme color, in hex format.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
@@ -1249,7 +1179,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Text color for contrast against the theme color, in hex format.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string text_color = 56 [json_name = "textColor"];</code>
@@ -1259,7 +1188,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Text color for contrast against the theme color, in hex format.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string text_color = 56 [json_name = "textColor"];</code>
@@ -1271,7 +1199,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * First character of the channel name, used as a fallback when no avatar is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string initial = 57 [json_name = "initial"];</code>
@@ -1281,7 +1208,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * First character of the channel name, used as a fallback when no avatar is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string initial = 57 [json_name = "initial"];</code>
@@ -1294,7 +1220,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Resolved domain for the channel.
    * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
@@ -1305,7 +1230,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Resolved domain for the channel.
    * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
@@ -1317,7 +1241,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Icon color for the messenger plugin widget, derived from the theme color, in hex format.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string plugin_icon_color = 59 [json_name = "pluginIconColor"];</code>
@@ -1327,7 +1250,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Icon color for the messenger plugin widget, derived from the theme color, in hex format.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string plugin_icon_color = 59 [json_name = "pluginIconColor"];</code>
@@ -1340,7 +1262,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Theme color brightness value normalized to 0.0 -- 1.0 range.
    * Derived from the theme color.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>float brightness = 60 [json_name = "brightness"];</code>
@@ -1351,7 +1272,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Cover image URL for the channel profile page.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
@@ -1361,7 +1281,6 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Cover image URL for the channel profile page.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
@@ -1374,7 +1293,6 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Whether the cover image has a bright tone.
    * Derived from the cover_image_color field.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool cover_image_bright = 62 [json_name = "coverImageBright"];</code>

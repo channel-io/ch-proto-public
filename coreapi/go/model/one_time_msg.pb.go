@@ -162,12 +162,8 @@ type OneTimeMsg struct {
 	State OneTimeMsgState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.OneTimeMsgState" json:"state,omitempty"`
 	// Controls when the message is delivered.
 	// Automatically inferred from start_at and local_start_at if not explicitly set.
-	//
-	// +kubebuilder:validation:Nullable
 	SendMode OneTimeMsgSendMode `protobuf:"varint,5,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.OneTimeMsgSendMode" json:"send_mode,omitempty"`
 	// Channel operation schedule referenced for delivery timing.
-	//
-	// +kubebuilder:validation:Nullable
 	ChannelOperationId string `protobuf:"bytes,6,opt,name=channel_operation_id,json=channelOperationId,proto3" json:"channel_operation_id,omitempty"`
 	// Channel through which the message is delivered.
 	// Cannot be changed after creation.
@@ -175,49 +171,30 @@ type OneTimeMsg struct {
 	// +kubebuilder:validation:Required
 	MediumType MediumType `protobuf:"varint,7,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-	//
-	// +kubebuilder:validation:Nullable
 	MediumId string `protobuf:"bytes,8,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	// Key for selecting the message topic template within the medium.
-	//
-	// +kubebuilder:validation:Nullable
 	MediumTopicBuildKey string `protobuf:"bytes,9,opt,name=medium_topic_build_key,json=mediumTopicBuildKey,proto3" json:"medium_topic_build_key,omitempty"`
 	// Labels for categorizing the message topic within the medium.
-	//
-	// +kubebuilder:validation:Nullable
 	MediumTopicBuildLabels []string `protobuf:"bytes,10,rep,name=medium_topic_build_labels,json=mediumTopicBuildLabels,proto3" json:"medium_topic_build_labels,omitempty"`
 	// Message content and medium-specific delivery configuration.
 	// Structure varies by medium_type.
-	//
-	// +kubebuilder:validation:Nullable
 	Settings *structpb.Struct `protobuf:"bytes,11,opt,name=settings,proto3" json:"settings,omitempty"`
 	// Query expression that defines the target user segment.
 	// Represented as a structured filter object.
-	//
-	// +kubebuilder:validation:Nullable
 	UserQuery *structpb.Struct `protobuf:"bytes,12,opt,name=user_query,json=userQuery,proto3" json:"user_query,omitempty"`
 	// App-defined user segments used alongside user_query for targeting.
-	//
-	// +kubebuilder:validation:Nullable
 	AppSegments []*AppSegment `protobuf:"bytes,13,rep,name=app_segments,json=appSegments,proto3" json:"app_segments,omitempty"`
 	// Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
 	// Defines how long after delivery each conversion event is counted.
-	//
-	// +kubebuilder:validation:Nullable
 	ConversionWindows map[string]*durationpb.Duration `protobuf:"bytes,14,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Name of the event that counts as a goal completion.
-	//
-	// +kubebuilder:validation:Nullable
 	GoalEventName string `protobuf:"bytes,15,opt,name=goal_event_name,json=goalEventName,proto3" json:"goal_event_name,omitempty"`
 	// Query expression to filter goal events by their properties.
 	// Represented as a structured filter object. Applicable when goal_event_name is set.
-	//
-	// +kubebuilder:validation:Nullable
 	GoalEventQuery *structpb.Struct `protobuf:"bytes,16,opt,name=goal_event_query,json=goalEventQuery,proto3" json:"goal_event_query,omitempty"`
 	// Time window for attributing goal events after delivery, in ISO 8601 duration format.
 	// Between 1 and 30 days. Defaults to 7 days.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="PT23H50M"
 	GoalEventDuration *durationpb.Duration `protobuf:"bytes,17,opt,name=goal_event_duration,json=goalEventDuration,proto3" json:"goal_event_duration,omitempty"`
 	// Whether the message contains advertising content subject to opt-out regulations.
@@ -225,27 +202,17 @@ type OneTimeMsg struct {
 	// +kubebuilder:validation:Required
 	Advertising bool `protobuf:"varint,18,opt,name=advertising,proto3" json:"advertising,omitempty"`
 	// Whether to fall back to XMS (text message) delivery when the user is offline.
-	//
-	// +kubebuilder:validation:Nullable
 	SendToOfflineXms bool `protobuf:"varint,19,opt,name=send_to_offline_xms,json=sendToOfflineXms,proto3" json:"send_to_offline_xms,omitempty"`
 	// Whether to fall back to email delivery when the user is offline.
-	//
-	// +kubebuilder:validation:Nullable
 	SendToOfflineEmail bool `protobuf:"varint,20,opt,name=send_to_offline_email,json=sendToOfflineEmail,proto3" json:"send_to_offline_email,omitempty"`
 	// Scheduled send timestamp in UTC.
 	// Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
-	//
-	// +kubebuilder:validation:Nullable
 	StartAt *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=start_at,json=startAt,proto3" json:"start_at,omitempty"`
 	// Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
 	// Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
-	//
-	// +kubebuilder:validation:Nullable
 	LocalStartAt string `protobuf:"bytes,22,opt,name=local_start_at,json=localStartAt,proto3" json:"local_start_at,omitempty"`
 	// Snapshot of the message configuration captured before sending.
 	// Represented as a free-form JSON object.
-	//
-	// +kubebuilder:validation:Nullable
 	Draft *structpb.Struct `protobuf:"bytes,23,opt,name=draft,proto3" json:"draft,omitempty"`
 	// One-time message creation timestamp.
 	//
@@ -256,25 +223,16 @@ type OneTimeMsg struct {
 	// +kubebuilder:validation:Required
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Cumulative count of messages delivered.
-	//
-	// +kubebuilder:validation:Nullable
 	Sent int32 `protobuf:"varint,26,opt,name=sent,proto3" json:"sent,omitempty"`
 	// Cumulative count of message views by recipients.
-	//
-	// +kubebuilder:validation:Nullable
 	View int32 `protobuf:"varint,27,opt,name=view,proto3" json:"view,omitempty"`
 	// Cumulative count of goal event completions attributed to this message.
-	//
-	// +kubebuilder:validation:Nullable
 	Goal int32 `protobuf:"varint,28,opt,name=goal,proto3" json:"goal,omitempty"`
 	// Cumulative count of message link clicks.
-	//
-	// +kubebuilder:validation:Nullable
 	Click int32 `protobuf:"varint,29,opt,name=click,proto3" json:"click,omitempty"`
 	// Duration before the user chat created by this message expires, in ISO 8601 format.
 	// Defaults to 31 days.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="PT23H50M"
 	UserChatExpireDuration *durationpb.Duration `protobuf:"bytes,30,opt,name=user_chat_expire_duration,json=userChatExpireDuration,proto3" json:"user_chat_expire_duration,omitempty"`
 	unknownFields          protoimpl.UnknownFields

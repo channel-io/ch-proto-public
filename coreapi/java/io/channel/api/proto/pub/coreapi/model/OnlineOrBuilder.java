@@ -82,7 +82,6 @@ public interface OnlineOrBuilder extends
   /**
    * <pre>
    * Composite presence record identifier derived from person type and person ID.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 4 [json_name = "id"];</code>
@@ -92,7 +91,6 @@ public interface OnlineOrBuilder extends
   /**
    * <pre>
    * Composite presence record identifier derived from person type and person ID.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 4 [json_name = "id"];</code>

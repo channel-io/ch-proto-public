@@ -365,7 +365,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Section ID used to organize team chat conversations into custom groups.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
@@ -387,7 +386,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Section ID used to organize team chat conversations into custom groups.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
@@ -616,7 +614,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Number of unread messages with alert-level notification priority.
    * Defaults to 0.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 alert = 8 [json_name = "alert"];</code>
@@ -633,7 +630,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Total number of unread messages in this session.
    * Defaults to 0.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 unread = 9 [json_name = "unread"];</code>
@@ -649,7 +645,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Notification preference controlling which messages trigger alerts in this session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.SessionWatch watch = 10 [json_name = "watch"];</code>
@@ -661,7 +656,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Notification preference controlling which messages trigger alerts in this session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.SessionWatch watch = 10 [json_name = "watch"];</code>
@@ -679,7 +673,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether &#64;all mentions trigger alert-level notifications in this session.
    * When absent, inherits from the manager-level default setting.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool all_mention_important = 11 [json_name = "allMentionImportant"];</code>
@@ -695,7 +688,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the person last read messages in this session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
@@ -708,7 +700,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the person last read messages in this session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
@@ -721,7 +712,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the person last read messages in this session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
@@ -736,7 +726,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the last message was received in this conversation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
@@ -749,7 +738,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the last message was received in this conversation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
@@ -762,7 +750,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the last message was received in this conversation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
@@ -777,7 +764,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the last message was posted in this conversation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
@@ -790,7 +776,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the last message was posted in this conversation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
@@ -803,7 +788,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the last message was posted in this conversation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
@@ -2055,7 +2039,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Section ID used to organize team chat conversations into custom groups.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
@@ -2076,7 +2059,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Section ID used to organize team chat conversations into custom groups.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
@@ -2098,7 +2080,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Section ID used to organize team chat conversations into custom groups.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
@@ -2118,7 +2099,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Section ID used to organize team chat conversations into custom groups.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
@@ -2133,7 +2113,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Section ID used to organize team chat conversations into custom groups.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
@@ -2586,7 +2565,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Number of unread messages with alert-level notification priority.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 alert = 8 [json_name = "alert"];</code>
@@ -2600,7 +2578,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Number of unread messages with alert-level notification priority.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 alert = 8 [json_name = "alert"];</code>
@@ -2617,7 +2594,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Number of unread messages with alert-level notification priority.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 alert = 8 [json_name = "alert"];</code>
@@ -2635,7 +2611,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Total number of unread messages in this session.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 unread = 9 [json_name = "unread"];</code>
@@ -2649,7 +2624,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Total number of unread messages in this session.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 unread = 9 [json_name = "unread"];</code>
@@ -2666,7 +2640,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Total number of unread messages in this session.
      * Defaults to 0.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 unread = 9 [json_name = "unread"];</code>
@@ -2683,7 +2656,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Notification preference controlling which messages trigger alerts in this session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.SessionWatch watch = 10 [json_name = "watch"];</code>
@@ -2695,7 +2667,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Notification preference controlling which messages trigger alerts in this session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.SessionWatch watch = 10 [json_name = "watch"];</code>
@@ -2711,7 +2682,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Notification preference controlling which messages trigger alerts in this session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.SessionWatch watch = 10 [json_name = "watch"];</code>
@@ -2726,7 +2696,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Notification preference controlling which messages trigger alerts in this session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.SessionWatch watch = 10 [json_name = "watch"];</code>
@@ -2745,7 +2714,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Notification preference controlling which messages trigger alerts in this session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.SessionWatch watch = 10 [json_name = "watch"];</code>
@@ -2763,7 +2731,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether &#64;all mentions trigger alert-level notifications in this session.
      * When absent, inherits from the manager-level default setting.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool all_mention_important = 11 [json_name = "allMentionImportant"];</code>
@@ -2777,7 +2744,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether &#64;all mentions trigger alert-level notifications in this session.
      * When absent, inherits from the manager-level default setting.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool all_mention_important = 11 [json_name = "allMentionImportant"];</code>
@@ -2794,7 +2760,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether &#64;all mentions trigger alert-level notifications in this session.
      * When absent, inherits from the manager-level default setting.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool all_mention_important = 11 [json_name = "allMentionImportant"];</code>
@@ -2813,7 +2778,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
@@ -2825,7 +2789,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
@@ -2841,7 +2804,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
@@ -2862,7 +2824,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
@@ -2881,7 +2842,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
@@ -2904,7 +2864,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
@@ -2923,7 +2882,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
@@ -2936,7 +2894,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
@@ -2952,7 +2909,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
@@ -2977,7 +2933,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was received in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
@@ -2989,7 +2944,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was received in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
@@ -3005,7 +2959,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was received in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
@@ -3026,7 +2979,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was received in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
@@ -3045,7 +2997,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was received in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
@@ -3068,7 +3019,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was received in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
@@ -3087,7 +3037,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was received in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
@@ -3100,7 +3049,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was received in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
@@ -3116,7 +3064,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was received in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
@@ -3141,7 +3088,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was posted in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
@@ -3153,7 +3099,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was posted in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
@@ -3169,7 +3114,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was posted in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
@@ -3190,7 +3134,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was posted in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
@@ -3209,7 +3152,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was posted in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
@@ -3232,7 +3174,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was posted in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
@@ -3251,7 +3192,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was posted in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
@@ -3264,7 +3204,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was posted in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
@@ -3280,7 +3219,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the last message was posted in this conversation.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>

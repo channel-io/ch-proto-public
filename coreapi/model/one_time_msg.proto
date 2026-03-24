@@ -72,12 +72,10 @@ message OneTimeMsg {
   // Controls when the message is delivered.
   // Automatically inferred from start_at and local_start_at if not explicitly set.
   //
-  // +kubebuilder:validation:Nullable
   OneTimeMsgSendMode send_mode = 5;
 
   // Channel operation schedule referenced for delivery timing.
   //
-  // +kubebuilder:validation:Nullable
   string channel_operation_id = 6;
 
   // Channel through which the message is delivered.
@@ -88,57 +86,47 @@ message OneTimeMsg {
 
   // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
   //
-  // +kubebuilder:validation:Nullable
   string medium_id = 8;
 
   // Key for selecting the message topic template within the medium.
   //
-  // +kubebuilder:validation:Nullable
   string medium_topic_build_key = 9;
 
   // Labels for categorizing the message topic within the medium.
   //
-  // +kubebuilder:validation:Nullable
   repeated string medium_topic_build_labels = 10;
 
   // Message content and medium-specific delivery configuration.
   // Structure varies by medium_type.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Struct settings = 11;
 
   // Query expression that defines the target user segment.
   // Represented as a structured filter object.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Struct user_query = 12;
 
   // App-defined user segments used alongside user_query for targeting.
   //
-  // +kubebuilder:validation:Nullable
   repeated coreapi.model.AppSegment app_segments = 13;
 
   // Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
   // Defines how long after delivery each conversion event is counted.
   //
-  // +kubebuilder:validation:Nullable
   map<string, google.protobuf.Duration> conversion_windows = 14;
 
   // Name of the event that counts as a goal completion.
   //
-  // +kubebuilder:validation:Nullable
   string goal_event_name = 15;
 
   // Query expression to filter goal events by their properties.
   // Represented as a structured filter object. Applicable when goal_event_name is set.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Struct goal_event_query = 16;
 
   // Time window for attributing goal events after delivery, in ISO 8601 duration format.
   // Between 1 and 30 days. Defaults to 7 days.
   //
-  // +kubebuilder:validation:Nullable
   // +kubebuilder:example="PT23H50M"
   google.protobuf.Duration goal_event_duration = 17;
 
@@ -149,30 +137,25 @@ message OneTimeMsg {
 
   // Whether to fall back to XMS (text message) delivery when the user is offline.
   //
-  // +kubebuilder:validation:Nullable
   bool send_to_offline_xms = 19;
 
   // Whether to fall back to email delivery when the user is offline.
   //
-  // +kubebuilder:validation:Nullable
   bool send_to_offline_email = 20;
 
   // Scheduled send timestamp in UTC.
   // Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp start_at = 21;
 
   // Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
   // Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
   //
-  // +kubebuilder:validation:Nullable
   string local_start_at = 22;
 
   // Snapshot of the message configuration captured before sending.
   // Represented as a free-form JSON object.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Struct draft = 23;
 
   // One-time message creation timestamp.
@@ -187,28 +170,23 @@ message OneTimeMsg {
 
   // Cumulative count of messages delivered.
   //
-  // +kubebuilder:validation:Nullable
   int32 sent = 26;
 
   // Cumulative count of message views by recipients.
   //
-  // +kubebuilder:validation:Nullable
   int32 view = 27;
 
   // Cumulative count of goal event completions attributed to this message.
   //
-  // +kubebuilder:validation:Nullable
   int32 goal = 28;
 
   // Cumulative count of message link clicks.
   //
-  // +kubebuilder:validation:Nullable
   int32 click = 29;
 
   // Duration before the user chat created by this message expires, in ISO 8601 format.
   // Defaults to 31 days.
   //
-  // +kubebuilder:validation:Nullable
   // +kubebuilder:example="PT23H50M"
   google.protobuf.Duration user_chat_expire_duration = 30;
 }

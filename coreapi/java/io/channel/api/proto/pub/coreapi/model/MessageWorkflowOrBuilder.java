@@ -10,7 +10,6 @@ public interface MessageWorkflowOrBuilder extends
   /**
    * <pre>
    * Workflow identifier being executed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -20,7 +19,6 @@ public interface MessageWorkflowOrBuilder extends
   /**
    * <pre>
    * Workflow identifier being executed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -32,7 +30,6 @@ public interface MessageWorkflowOrBuilder extends
   /**
    * <pre>
    * Published revision of the workflow being executed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string revision_id = 2 [json_name = "revisionId"];</code>
@@ -42,7 +39,6 @@ public interface MessageWorkflowOrBuilder extends
   /**
    * <pre>
    * Published revision of the workflow being executed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string revision_id = 2 [json_name = "revisionId"];</code>
@@ -54,7 +50,6 @@ public interface MessageWorkflowOrBuilder extends
   /**
    * <pre>
    * Current section within the workflow.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string section_id = 3 [json_name = "sectionId"];</code>
@@ -64,7 +59,6 @@ public interface MessageWorkflowOrBuilder extends
   /**
    * <pre>
    * Current section within the workflow.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string section_id = 3 [json_name = "sectionId"];</code>
@@ -76,7 +70,6 @@ public interface MessageWorkflowOrBuilder extends
   /**
    * <pre>
    * Zero-based action position within the current section.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 action_index = 4 [json_name = "actionIndex"];</code>
@@ -88,7 +81,6 @@ public interface MessageWorkflowOrBuilder extends
    * <pre>
    * Identifier of the button the user selected to submit a response.
    * Present only on messages recording the user's button selection.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string submit_button_id = 5 [json_name = "submitButtonId"];</code>
@@ -99,7 +91,6 @@ public interface MessageWorkflowOrBuilder extends
    * <pre>
    * Identifier of the button the user selected to submit a response.
    * Present only on messages recording the user's button selection.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string submit_button_id = 5 [json_name = "submitButtonId"];</code>
