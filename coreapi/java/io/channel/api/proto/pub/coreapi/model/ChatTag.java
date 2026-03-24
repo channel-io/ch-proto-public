@@ -5,8 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * ChatTag represents a classification label that can be attached to user chats
- * for categorization and filtering.
+ * ChatTag represents a label that can be attached to user chats for categorization.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.ChatTag}
@@ -145,10 +144,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique chat tag identifier.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The id.
    */
   @java.lang.Override
@@ -167,10 +167,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique chat tag identifier.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The bytes for id.
    */
   @java.lang.Override
@@ -193,10 +194,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this chat tag belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   @java.lang.Override
@@ -215,10 +217,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this chat tag belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   @java.lang.Override
@@ -240,7 +243,7 @@ private static final long serialVersionUID = 0L;
   private int colorVariant_;
   /**
    * <pre>
-   * Color used for visual display of this tag in the Desk UI.
+   * Color theme of the chat tag.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -252,7 +255,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Color used for visual display of this tag in the Desk UI.
+   * Color theme of the chat tag.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -269,9 +272,11 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   * Human-readable display name of the chat tag.
-   * Cannot be changed after creation.
+   * Display name of the chat tag.
+   * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
    * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:MaxLength=128
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -292,9 +297,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Human-readable display name of the chat tag.
-   * Cannot be changed after creation.
+   * Display name of the chat tag.
+   * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
    * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:MaxLength=128
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -319,10 +326,10 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object key_;
   /**
    * <pre>
-   * Lowercase key automatically derived from the tag name.
+   * Lowercase representation of name.
    * Unique within the channel (case-insensitive).
-   * Cannot be changed after creation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -343,10 +350,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Lowercase key automatically derived from the tag name.
+   * Lowercase representation of name.
    * Unique within the channel (case-insensitive).
-   * Cannot be changed after creation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -371,7 +378,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object description_;
   /**
    * <pre>
-   * Free-text description explaining when or how to use this tag.
+   * Short description of the chat tag.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=128
    * </pre>
@@ -394,7 +401,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Free-text description explaining when or how to use this tag.
+   * Short description of the chat tag.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=128
    * </pre>
@@ -422,10 +429,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat tag creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the createdAt field is set.
    */
   @java.lang.Override
@@ -435,10 +442,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat tag creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return The createdAt.
    */
   @java.lang.Override
@@ -448,10 +455,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat tag creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
@@ -680,8 +687,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * ChatTag represents a classification label that can be attached to user chats
-   * for categorization and filtering.
+   * ChatTag represents a label that can be attached to user chats for categorization.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.ChatTag}
@@ -883,10 +889,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique chat tag identifier.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return The id.
      */
     public java.lang.String getId() {
@@ -904,10 +911,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique chat tag identifier.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
@@ -926,10 +934,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique chat tag identifier.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -946,10 +955,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique chat tag identifier.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -961,10 +971,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique chat tag identifier.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -984,10 +995,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this chat tag belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The channelId.
      */
     public java.lang.String getChannelId() {
@@ -1005,10 +1017,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this chat tag belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for channelId.
      */
     public com.google.protobuf.ByteString
@@ -1027,10 +1040,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this chat tag belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The channelId to set.
      * @return This builder for chaining.
      */
@@ -1047,10 +1061,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this chat tag belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChannelId() {
@@ -1062,10 +1077,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this chat tag belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for channelId to set.
      * @return This builder for chaining.
      */
@@ -1084,7 +1100,7 @@ private static final long serialVersionUID = 0L;
     private int colorVariant_ = 0;
     /**
      * <pre>
-     * Color used for visual display of this tag in the Desk UI.
+     * Color theme of the chat tag.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1096,7 +1112,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Color used for visual display of this tag in the Desk UI.
+     * Color theme of the chat tag.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1112,7 +1128,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Color used for visual display of this tag in the Desk UI.
+     * Color theme of the chat tag.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1127,7 +1143,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Color used for visual display of this tag in the Desk UI.
+     * Color theme of the chat tag.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1146,7 +1162,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Color used for visual display of this tag in the Desk UI.
+     * Color theme of the chat tag.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1163,9 +1179,11 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Human-readable display name of the chat tag.
-     * Cannot be changed after creation.
+     * Display name of the chat tag.
+     * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:MaxLength=128
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1185,9 +1203,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Human-readable display name of the chat tag.
-     * Cannot be changed after creation.
+     * Display name of the chat tag.
+     * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:MaxLength=128
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1208,9 +1228,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Human-readable display name of the chat tag.
-     * Cannot be changed after creation.
+     * Display name of the chat tag.
+     * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:MaxLength=128
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1229,9 +1251,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Human-readable display name of the chat tag.
-     * Cannot be changed after creation.
+     * Display name of the chat tag.
+     * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:MaxLength=128
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1245,9 +1269,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Human-readable display name of the chat tag.
-     * Cannot be changed after creation.
+     * Display name of the chat tag.
+     * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:MaxLength=128
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1269,10 +1295,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object key_ = "";
     /**
      * <pre>
-     * Lowercase key automatically derived from the tag name.
+     * Lowercase representation of name.
      * Unique within the channel (case-insensitive).
-     * Cannot be changed after creation.
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1292,10 +1318,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Lowercase key automatically derived from the tag name.
+     * Lowercase representation of name.
      * Unique within the channel (case-insensitive).
-     * Cannot be changed after creation.
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1316,10 +1342,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Lowercase key automatically derived from the tag name.
+     * Lowercase representation of name.
      * Unique within the channel (case-insensitive).
-     * Cannot be changed after creation.
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1338,10 +1364,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Lowercase key automatically derived from the tag name.
+     * Lowercase representation of name.
      * Unique within the channel (case-insensitive).
-     * Cannot be changed after creation.
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1355,10 +1381,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Lowercase key automatically derived from the tag name.
+     * Lowercase representation of name.
      * Unique within the channel (case-insensitive).
-     * Cannot be changed after creation.
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1380,7 +1406,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object description_ = "";
     /**
      * <pre>
-     * Free-text description explaining when or how to use this tag.
+     * Short description of the chat tag.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=128
      * </pre>
@@ -1402,7 +1428,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Free-text description explaining when or how to use this tag.
+     * Short description of the chat tag.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=128
      * </pre>
@@ -1425,7 +1451,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Free-text description explaining when or how to use this tag.
+     * Short description of the chat tag.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=128
      * </pre>
@@ -1446,7 +1472,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Free-text description explaining when or how to use this tag.
+     * Short description of the chat tag.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=128
      * </pre>
@@ -1462,7 +1488,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Free-text description explaining when or how to use this tag.
+     * Short description of the chat tag.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=128
      * </pre>
@@ -1489,10 +1515,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      * @return Whether the createdAt field is set.
      */
     public boolean hasCreatedAt() {
@@ -1501,10 +1527,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      * @return The createdAt.
      */
     public com.google.protobuf.Timestamp getCreatedAt() {
@@ -1517,10 +1543,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -1538,10 +1564,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setCreatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1557,10 +1583,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -1580,10 +1606,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearCreatedAt() {
       if (createdAtBuilder_ == null) {
@@ -1599,10 +1625,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
       
@@ -1612,10 +1638,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       if (createdAtBuilder_ != null) {
@@ -1628,10 +1654,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 

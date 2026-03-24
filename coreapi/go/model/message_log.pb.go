@@ -7,6 +7,7 @@
 package model
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -239,7 +240,7 @@ type MessageLog struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Type of action that was recorded.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	Action MessageLog_MessageLogAction `protobuf:"varint,1,opt,name=action,proto3,enum=coreapi.model.MessageLog_MessageLogAction" json:"action,omitempty"`
 	// Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
 	// Interpretation depends on the `action` type.
@@ -320,10 +321,10 @@ var File_coreapi_model_message_log_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_message_log_proto_rawDesc = "" +
 	"\n" +
-	"\x1fcoreapi/model/message_log.proto\x12\rcoreapi.model\"\xbf\r\n" +
+	"\x1fcoreapi/model/message_log.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\xc7\r\n" +
 	"\n" +
-	"MessageLog\x12B\n" +
-	"\x06action\x18\x01 \x01(\x0e2*.coreapi.model.MessageLog.MessageLogActionR\x06action\x12\x16\n" +
+	"MessageLog\x12J\n" +
+	"\x06action\x18\x01 \x01(\x0e2*.coreapi.model.MessageLog.MessageLogActionB\x06\xbaH\x03\xc8\x01\x01R\x06action\x12\x16\n" +
 	"\x06values\x18\x02 \x03(\tR\x06values\x12!\n" +
 	"\ftrigger_type\x18\x03 \x01(\tR\vtriggerType\x12\x1d\n" +
 	"\n" +

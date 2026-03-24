@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Event scope that triggers a webhook delivery.
+ * Webhook event scope determining which events trigger the webhook.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.WebhookScope}

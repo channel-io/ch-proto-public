@@ -34,38 +34,6 @@ func CampaignStateForString(value string) CampaignState {
 	}
 }
 
-// GetString returns the canonical string for MediumType.
-func (x MediumType) GetString() string {
-	switch x {
-	case MediumType_MEDIUM_TYPE_APP:
-		return "app"
-	case MediumType_MEDIUM_TYPE_EMAIL:
-		return "email"
-	case MediumType_MEDIUM_TYPE_NATIVE:
-		return "native"
-	case MediumType_MEDIUM_TYPE_PHONE:
-		return "phone"
-	default:
-		return ""
-	}
-}
-
-// MediumTypeForString returns the MediumType enum for the given canonical string.
-func MediumTypeForString(value string) MediumType {
-	switch value {
-	case "app":
-		return MediumType_MEDIUM_TYPE_APP
-	case "email":
-		return MediumType_MEDIUM_TYPE_EMAIL
-	case "native":
-		return MediumType_MEDIUM_TYPE_NATIVE
-	case "phone":
-		return MediumType_MEDIUM_TYPE_PHONE
-	default:
-		return MediumType_MEDIUM_TYPE_UNSPECIFIED
-	}
-}
-
 // GetString returns the canonical string for CampaignFilterMatch.
 func (x CampaignFilterMatch) GetString() string {
 	switch x {

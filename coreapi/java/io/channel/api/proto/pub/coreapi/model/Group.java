@@ -178,10 +178,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique group identifier.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The id.
    */
   @java.lang.Override
@@ -200,10 +201,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique group identifier.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The bytes for id.
    */
   @java.lang.Override
@@ -226,10 +228,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this group belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   @java.lang.Override
@@ -248,10 +251,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this group belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   @java.lang.Override
@@ -280,7 +284,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=2
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
+   * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -308,7 +312,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=2
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
+   * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -424,7 +428,7 @@ private static final long serialVersionUID = 0L;
    * Icon identifier or emoji representing the group visually.
    * Must not contain whitespace.
    * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:Pattern="&#92;&#92;S+"
+   * +kubebuilder:validation:Pattern="&#92;S+"
    * </pre>
    *
    * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -448,7 +452,7 @@ private static final long serialVersionUID = 0L;
    * Icon identifier or emoji representing the group visually.
    * Must not contain whitespace.
    * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:Pattern="&#92;&#92;S+"
+   * +kubebuilder:validation:Pattern="&#92;S+"
    * </pre>
    *
    * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -572,10 +576,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Group creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the createdAt field is set.
    */
   @java.lang.Override
@@ -585,10 +589,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Group creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return The createdAt.
    */
   @java.lang.Override
@@ -598,10 +602,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Group creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
@@ -613,10 +617,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Group last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the updatedAt field is set.
    */
   @java.lang.Override
@@ -626,10 +630,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Group last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return The updatedAt.
    */
   @java.lang.Override
@@ -639,10 +643,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Group last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
@@ -1156,10 +1160,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique group identifier.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return The id.
      */
     public java.lang.String getId() {
@@ -1177,10 +1182,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique group identifier.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
@@ -1199,10 +1205,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique group identifier.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -1219,10 +1226,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique group identifier.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -1234,10 +1242,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique group identifier.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -1257,10 +1266,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this group belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The channelId.
      */
     public java.lang.String getChannelId() {
@@ -1278,10 +1288,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this group belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for channelId.
      */
     public com.google.protobuf.ByteString
@@ -1300,10 +1311,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this group belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The channelId to set.
      * @return This builder for chaining.
      */
@@ -1320,10 +1332,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this group belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChannelId() {
@@ -1335,10 +1348,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this group belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId"];</code>
+     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for channelId to set.
      * @return This builder for chaining.
      */
@@ -1364,7 +1378,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
+     * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1391,7 +1405,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
+     * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1419,7 +1433,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
+     * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1445,7 +1459,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
+     * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1466,7 +1480,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
+     * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1734,7 +1748,7 @@ private static final long serialVersionUID = 0L;
      * Icon identifier or emoji representing the group visually.
      * Must not contain whitespace.
      * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:Pattern="&#92;&#92;S+"
+     * +kubebuilder:validation:Pattern="&#92;S+"
      * </pre>
      *
      * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -1757,7 +1771,7 @@ private static final long serialVersionUID = 0L;
      * Icon identifier or emoji representing the group visually.
      * Must not contain whitespace.
      * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:Pattern="&#92;&#92;S+"
+     * +kubebuilder:validation:Pattern="&#92;S+"
      * </pre>
      *
      * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -1781,7 +1795,7 @@ private static final long serialVersionUID = 0L;
      * Icon identifier or emoji representing the group visually.
      * Must not contain whitespace.
      * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:Pattern="&#92;&#92;S+"
+     * +kubebuilder:validation:Pattern="&#92;S+"
      * </pre>
      *
      * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -1803,7 +1817,7 @@ private static final long serialVersionUID = 0L;
      * Icon identifier or emoji representing the group visually.
      * Must not contain whitespace.
      * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:Pattern="&#92;&#92;S+"
+     * +kubebuilder:validation:Pattern="&#92;S+"
      * </pre>
      *
      * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -1820,7 +1834,7 @@ private static final long serialVersionUID = 0L;
      * Icon identifier or emoji representing the group visually.
      * Must not contain whitespace.
      * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:Pattern="&#92;&#92;S+"
+     * +kubebuilder:validation:Pattern="&#92;S+"
      * </pre>
      *
      * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -2052,10 +2066,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      * @return Whether the createdAt field is set.
      */
     public boolean hasCreatedAt() {
@@ -2064,10 +2078,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      * @return The createdAt.
      */
     public com.google.protobuf.Timestamp getCreatedAt() {
@@ -2080,10 +2094,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -2101,10 +2115,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setCreatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -2120,10 +2134,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -2143,10 +2157,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearCreatedAt() {
       if (createdAtBuilder_ == null) {
@@ -2162,10 +2176,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
       
@@ -2175,10 +2189,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       if (createdAtBuilder_ != null) {
@@ -2191,10 +2205,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -2216,10 +2230,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      * @return Whether the updatedAt field is set.
      */
     public boolean hasUpdatedAt() {
@@ -2228,10 +2242,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      * @return The updatedAt.
      */
     public com.google.protobuf.Timestamp getUpdatedAt() {
@@ -2244,10 +2258,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
@@ -2265,10 +2279,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setUpdatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -2284,10 +2298,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
@@ -2307,10 +2321,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearUpdatedAt() {
       if (updatedAtBuilder_ == null) {
@@ -2326,10 +2340,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
       
@@ -2339,10 +2353,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
       if (updatedAtBuilder_ != null) {
@@ -2355,10 +2369,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Group last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 

@@ -181,10 +181,21 @@ public interface OneTimeMsgUserOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>double revenue = 7 [json_name = "revenue"];</code>
+   * <code>string revenue = 7 [json_name = "revenue"];</code>
    * @return The revenue.
    */
-  double getRevenue();
+  java.lang.String getRevenue();
+  /**
+   * <pre>
+   * Cumulative revenue attributed to this user from the one-time message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string revenue = 7 [json_name = "revenue"];</code>
+   * @return The bytes for revenue.
+   */
+  com.google.protobuf.ByteString
+      getRevenueBytes();
 
   /**
    * <pre>

@@ -23,7 +23,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Interaction state used to filter and sort one-time message user records.
+// Filter state for querying one-time message user delivery results.
 type OneTimeMsgUserState int32
 
 const (
@@ -111,7 +111,7 @@ type OneTimeMsgUser struct {
 	// Cumulative revenue attributed to this user from the one-time message.
 	//
 	// +kubebuilder:validation:Nullable
-	Revenue float64 `protobuf:"fixed64,7,opt,name=revenue,proto3" json:"revenue,omitempty"`
+	Revenue string `protobuf:"bytes,7,opt,name=revenue,proto3" json:"revenue,omitempty"`
 	// Composite identifier in the format "{one_time_msg_id}-{user_id}".
 	//
 	// +kubebuilder:validation:Required
@@ -193,11 +193,11 @@ func (x *OneTimeMsgUser) GetClick() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *OneTimeMsgUser) GetRevenue() float64 {
+func (x *OneTimeMsgUser) GetRevenue() string {
 	if x != nil {
 		return x.Revenue
 	}
-	return 0
+	return ""
 }
 
 func (x *OneTimeMsgUser) GetId() string {
@@ -221,7 +221,7 @@ const file_coreapi_model_one_time_msg_user_proto_rawDesc = "" +
 	"\x04view\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\x04view\x12.\n" +
 	"\x04goal\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\x04goal\x120\n" +
 	"\x05click\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x05click\x12\x18\n" +
-	"\arevenue\x18\a \x01(\x01R\arevenue\x12]\n" +
+	"\arevenue\x18\a \x01(\tR\arevenue\x12]\n" +
 	"\x02id\x18\b \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id*\xc7\x01\n" +
 	"\x13OneTimeMsgUserState\x12'\n" +

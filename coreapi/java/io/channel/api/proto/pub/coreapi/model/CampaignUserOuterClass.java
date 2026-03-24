@@ -43,7 +43,7 @@ public final class CampaignUserOuterClass {
       "uf.TimestampR\004view\0220\n\005click\030\007 \001(\0132\032.goog" +
       "le.protobuf.TimestampR\005click\022.\n\004goal\030\010 \001" +
       "(\0132\032.google.protobuf.TimestampR\004goal\022\030\n\007" +
-      "revenue\030\t \001(\001R\007revenue\022]\n\002id\030\n \001(\tBM\272HJ\272" +
+      "revenue\030\t \001(\tR\007revenue\022]\n\002id\030\n \001(\tBM\272HJ\272" +
       "\001D\n\rstring.minLen\022\"value must be at leas" +
       "t 1 character\032\017size(this) >= 1\310\001\001R\002id*\261\001" +
       "\n\021CampaignUserState\022#\n\037CAMPAIGN_USER_STA" +

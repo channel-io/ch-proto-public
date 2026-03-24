@@ -9,7 +9,7 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// Interaction state used to filter and sort one-time message user records.
+// Filter state for querying one-time message user delivery results.
 enum OneTimeMsgUserState {
   ONE_TIME_MSG_USER_STATE_UNSPECIFIED = 0;
   ONE_TIME_MSG_USER_STATE_SENT = 1;
@@ -69,7 +69,7 @@ message OneTimeMsgUser {
   // Cumulative revenue attributed to this user from the one-time message.
   //
   // +kubebuilder:validation:Nullable
-  double revenue = 7;
+  string revenue = 7;
 
   // Composite identifier in the format "{one_time_msg_id}-{user_id}".
   //

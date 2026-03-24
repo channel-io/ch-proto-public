@@ -1674,10 +1674,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Current lifecycle state of the channel.
    * See ChannelState for possible values.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The enum numeric value on the wire for state.
    */
   @java.lang.Override public int getStateValue() {
@@ -1687,10 +1687,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Current lifecycle state of the channel.
    * See ChannelState for possible values.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The state.
    */
   @java.lang.Override public io.channel.api.proto.pub.coreapi.model.ChannelState getState() {
@@ -7062,10 +7062,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current lifecycle state of the channel.
      * See ChannelState for possible values.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @return The enum numeric value on the wire for state.
      */
     @java.lang.Override public int getStateValue() {
@@ -7075,10 +7075,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current lifecycle state of the channel.
      * See ChannelState for possible values.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @param value The enum numeric value on the wire for state to set.
      * @return This builder for chaining.
      */
@@ -7092,10 +7092,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current lifecycle state of the channel.
      * See ChannelState for possible values.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @return The state.
      */
     @java.lang.Override
@@ -7108,10 +7108,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current lifecycle state of the channel.
      * See ChannelState for possible values.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @param value The state to set.
      * @return This builder for chaining.
      */
@@ -7128,10 +7128,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Current lifecycle state of the channel.
      * See ChannelState for possible values.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearState() {

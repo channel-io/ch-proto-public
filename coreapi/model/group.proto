@@ -24,13 +24,29 @@ enum GroupScope {
 message Group {
   // Unique group identifier.
   //
-  // +kubebuilder:validation:Nullable
-  string id = 1;
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 
   // Channel ID this group belongs to.
   //
-  // +kubebuilder:validation:Nullable
-  string channel_id = 2;
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string channel_id = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 
   // Display title of the group.
   // Unique within the channel (case-insensitive).
@@ -40,7 +56,7 @@ message Group {
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=2
   // +kubebuilder:validation:MaxLength=30
-  // +kubebuilder:validation:Pattern="[\\p{L}\\p{N}\\-_()]+"
+  // +kubebuilder:validation:Pattern="[\p{L}\p{N}\-_()]+"
   string title = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -71,7 +87,7 @@ message Group {
   // Must not contain whitespace.
   //
   // +kubebuilder:validation:Nullable
-  // +kubebuilder:validation:Pattern="\\S+"
+  // +kubebuilder:validation:Pattern="\S+"
   string icon = 6 [(buf.validate.field).string.pattern = "\\S+"];
 
   // ID of the active live meet session in this group.
@@ -91,11 +107,11 @@ message Group {
 
   // Group creation timestamp.
   //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp created_at = 9;
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp created_at = 9 [(buf.validate.field).required = true];
 
   // Group last update timestamp.
   //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp updated_at = 10;
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp updated_at = 10 [(buf.validate.field).required = true];
 }

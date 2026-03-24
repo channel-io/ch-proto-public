@@ -42,7 +42,7 @@ public final class OneTimeMsgUserOuterClass {
       "mestampR\004view\022.\n\004goal\030\005 \001(\0132\032.google.pro" +
       "tobuf.TimestampR\004goal\0220\n\005click\030\006 \001(\0132\032.g" +
       "oogle.protobuf.TimestampR\005click\022\030\n\007reven" +
-      "ue\030\007 \001(\001R\007revenue\022]\n\002id\030\010 \001(\tBM\272HJ\272\001D\n\rs" +
+      "ue\030\007 \001(\tR\007revenue\022]\n\002id\030\010 \001(\tBM\272HJ\272\001D\n\rs" +
       "tring.minLen\022\"value must be at least 1 c" +
       "haracter\032\017size(this) >= 1\310\001\001R\002id*\307\001\n\023One" +
       "TimeMsgUserState\022\'\n#ONE_TIME_MSG_USER_ST" +

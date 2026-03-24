@@ -10,6 +10,7 @@ import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	structpb "google.golang.org/protobuf/types/known/structpb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
@@ -203,7 +204,7 @@ type OneTimeMsg struct {
 	// Defines how long after delivery each conversion event is counted.
 	//
 	// +kubebuilder:validation:Nullable
-	ConversionWindows map[string]string `protobuf:"bytes,14,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	ConversionWindows map[string]*durationpb.Duration `protobuf:"bytes,14,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Name of the event that counts as a goal completion.
 	//
 	// +kubebuilder:validation:Nullable
@@ -218,7 +219,7 @@ type OneTimeMsg struct {
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="PT23H50M"
-	GoalEventDuration string `protobuf:"bytes,17,opt,name=goal_event_duration,json=goalEventDuration,proto3" json:"goal_event_duration,omitempty"`
+	GoalEventDuration *durationpb.Duration `protobuf:"bytes,17,opt,name=goal_event_duration,json=goalEventDuration,proto3" json:"goal_event_duration,omitempty"`
 	// Whether the message contains advertising content subject to opt-out regulations.
 	//
 	// +kubebuilder:validation:Required
@@ -275,7 +276,7 @@ type OneTimeMsg struct {
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="PT23H50M"
-	UserChatExpireDuration string `protobuf:"bytes,30,opt,name=user_chat_expire_duration,json=userChatExpireDuration,proto3" json:"user_chat_expire_duration,omitempty"`
+	UserChatExpireDuration *durationpb.Duration `protobuf:"bytes,30,opt,name=user_chat_expire_duration,json=userChatExpireDuration,proto3" json:"user_chat_expire_duration,omitempty"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
 }
@@ -401,7 +402,7 @@ func (x *OneTimeMsg) GetAppSegments() []*AppSegment {
 	return nil
 }
 
-func (x *OneTimeMsg) GetConversionWindows() map[string]string {
+func (x *OneTimeMsg) GetConversionWindows() map[string]*durationpb.Duration {
 	if x != nil {
 		return x.ConversionWindows
 	}
@@ -422,11 +423,11 @@ func (x *OneTimeMsg) GetGoalEventQuery() *structpb.Struct {
 	return nil
 }
 
-func (x *OneTimeMsg) GetGoalEventDuration() string {
+func (x *OneTimeMsg) GetGoalEventDuration() *durationpb.Duration {
 	if x != nil {
 		return x.GoalEventDuration
 	}
-	return ""
+	return nil
 }
 
 func (x *OneTimeMsg) GetAdvertising() bool {
@@ -513,18 +514,18 @@ func (x *OneTimeMsg) GetClick() int32 {
 	return 0
 }
 
-func (x *OneTimeMsg) GetUserChatExpireDuration() string {
+func (x *OneTimeMsg) GetUserChatExpireDuration() *durationpb.Duration {
 	if x != nil {
 		return x.UserChatExpireDuration
 	}
-	return ""
+	return nil
 }
 
 var File_coreapi_model_one_time_msg_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_one_time_msg_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/one_time_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1ccoreapi/model/campaign.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa8\x0e\n" +
+	" coreapi/model/one_time_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf9\x0e\n" +
 	"\n" +
 	"OneTimeMsg\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
@@ -550,8 +551,8 @@ const file_coreapi_model_one_time_msg_proto_rawDesc = "" +
 	"\fapp_segments\x18\r \x03(\v2\x19.coreapi.model.AppSegmentR\vappSegments\x12_\n" +
 	"\x12conversion_windows\x18\x0e \x03(\v20.coreapi.model.OneTimeMsg.ConversionWindowsEntryR\x11conversionWindows\x12&\n" +
 	"\x0fgoal_event_name\x18\x0f \x01(\tR\rgoalEventName\x12A\n" +
-	"\x10goal_event_query\x18\x10 \x01(\v2\x17.google.protobuf.StructR\x0egoalEventQuery\x12.\n" +
-	"\x13goal_event_duration\x18\x11 \x01(\tR\x11goalEventDuration\x12(\n" +
+	"\x10goal_event_query\x18\x10 \x01(\v2\x17.google.protobuf.StructR\x0egoalEventQuery\x12I\n" +
+	"\x13goal_event_duration\x18\x11 \x01(\v2\x19.google.protobuf.DurationR\x11goalEventDuration\x12(\n" +
 	"\vadvertising\x18\x12 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\vadvertising\x12-\n" +
 	"\x13send_to_offline_xms\x18\x13 \x01(\bR\x10sendToOfflineXms\x121\n" +
 	"\x15send_to_offline_email\x18\x14 \x01(\bR\x12sendToOfflineEmail\x125\n" +
@@ -565,11 +566,11 @@ const file_coreapi_model_one_time_msg_proto_rawDesc = "" +
 	"\x04sent\x18\x1a \x01(\x05R\x04sent\x12\x12\n" +
 	"\x04view\x18\x1b \x01(\x05R\x04view\x12\x12\n" +
 	"\x04goal\x18\x1c \x01(\x05R\x04goal\x12\x14\n" +
-	"\x05click\x18\x1d \x01(\x05R\x05click\x129\n" +
-	"\x19user_chat_expire_duration\x18\x1e \x01(\tR\x16userChatExpireDuration\x1aD\n" +
+	"\x05click\x18\x1d \x01(\x05R\x05click\x12T\n" +
+	"\x19user_chat_expire_duration\x18\x1e \x01(\v2\x19.google.protobuf.DurationR\x16userChatExpireDuration\x1a_\n" +
 	"\x16ConversionWindowsEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01*\xd1\x01\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12/\n" +
+	"\x05value\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x05value:\x028\x01*\xd1\x01\n" +
 	"\x0fOneTimeMsgState\x12\"\n" +
 	"\x1eONE_TIME_MSG_STATE_UNSPECIFIED\x10\x00\x12\x1c\n" +
 	"\x18ONE_TIME_MSG_STATE_DRAFT\x10\x01\x12\x1e\n" +
@@ -606,7 +607,8 @@ var file_coreapi_model_one_time_msg_proto_goTypes = []any{
 	(MediumType)(0),               // 4: coreapi.model.MediumType
 	(*structpb.Struct)(nil),       // 5: google.protobuf.Struct
 	(*AppSegment)(nil),            // 6: coreapi.model.AppSegment
-	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
+	(*durationpb.Duration)(nil),   // 7: google.protobuf.Duration
+	(*timestamppb.Timestamp)(nil), // 8: google.protobuf.Timestamp
 }
 var file_coreapi_model_one_time_msg_proto_depIdxs = []int32{
 	0,  // 0: coreapi.model.OneTimeMsg.state:type_name -> coreapi.model.OneTimeMsgState
@@ -617,15 +619,18 @@ var file_coreapi_model_one_time_msg_proto_depIdxs = []int32{
 	6,  // 5: coreapi.model.OneTimeMsg.app_segments:type_name -> coreapi.model.AppSegment
 	3,  // 6: coreapi.model.OneTimeMsg.conversion_windows:type_name -> coreapi.model.OneTimeMsg.ConversionWindowsEntry
 	5,  // 7: coreapi.model.OneTimeMsg.goal_event_query:type_name -> google.protobuf.Struct
-	7,  // 8: coreapi.model.OneTimeMsg.start_at:type_name -> google.protobuf.Timestamp
-	5,  // 9: coreapi.model.OneTimeMsg.draft:type_name -> google.protobuf.Struct
-	7,  // 10: coreapi.model.OneTimeMsg.created_at:type_name -> google.protobuf.Timestamp
-	7,  // 11: coreapi.model.OneTimeMsg.updated_at:type_name -> google.protobuf.Timestamp
-	12, // [12:12] is the sub-list for method output_type
-	12, // [12:12] is the sub-list for method input_type
-	12, // [12:12] is the sub-list for extension type_name
-	12, // [12:12] is the sub-list for extension extendee
-	0,  // [0:12] is the sub-list for field type_name
+	7,  // 8: coreapi.model.OneTimeMsg.goal_event_duration:type_name -> google.protobuf.Duration
+	8,  // 9: coreapi.model.OneTimeMsg.start_at:type_name -> google.protobuf.Timestamp
+	5,  // 10: coreapi.model.OneTimeMsg.draft:type_name -> google.protobuf.Struct
+	8,  // 11: coreapi.model.OneTimeMsg.created_at:type_name -> google.protobuf.Timestamp
+	8,  // 12: coreapi.model.OneTimeMsg.updated_at:type_name -> google.protobuf.Timestamp
+	7,  // 13: coreapi.model.OneTimeMsg.user_chat_expire_duration:type_name -> google.protobuf.Duration
+	7,  // 14: coreapi.model.OneTimeMsg.ConversionWindowsEntry.value:type_name -> google.protobuf.Duration
+	15, // [15:15] is the sub-list for method output_type
+	15, // [15:15] is the sub-list for method input_type
+	15, // [15:15] is the sub-list for extension type_name
+	15, // [15:15] is the sub-list for extension extendee
+	0,  // [0:15] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_one_time_msg_proto_init() }
@@ -634,7 +639,7 @@ func file_coreapi_model_one_time_msg_proto_init() {
 		return
 	}
 	file_coreapi_model_app_segment_proto_init()
-	file_coreapi_model_campaign_proto_init()
+	file_coreapi_model_medium_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

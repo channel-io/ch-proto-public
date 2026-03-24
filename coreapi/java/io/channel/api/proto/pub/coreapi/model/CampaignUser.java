@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
     campaignId_ = "";
     msgId_ = "";
     userChatId_ = "";
+    revenue_ = "";
     id_ = "";
   }
 
@@ -133,9 +134,10 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 73: {
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            revenue_ = input.readDouble();
+            revenue_ = s;
             break;
           }
           case 82: {
@@ -537,19 +539,51 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REVENUE_FIELD_NUMBER = 9;
-  private double revenue_;
+  private volatile java.lang.Object revenue_;
   /**
    * <pre>
    * Cumulative revenue attributed to this user from the campaign.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>double revenue = 9 [json_name = "revenue"];</code>
+   * <code>string revenue = 9 [json_name = "revenue"];</code>
    * @return The revenue.
    */
   @java.lang.Override
-  public double getRevenue() {
-    return revenue_;
+  public java.lang.String getRevenue() {
+    java.lang.Object ref = revenue_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      revenue_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Cumulative revenue attributed to this user from the campaign.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string revenue = 9 [json_name = "revenue"];</code>
+   * @return The bytes for revenue.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getRevenueBytes() {
+    java.lang.Object ref = revenue_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      revenue_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int ID_FIELD_NUMBER = 10;
@@ -640,8 +674,8 @@ private static final long serialVersionUID = 0L;
     if (goal_ != null) {
       output.writeMessage(8, getGoal());
     }
-    if (java.lang.Double.doubleToRawLongBits(revenue_) != 0) {
-      output.writeDouble(9, revenue_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(revenue_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, revenue_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, id_);
@@ -683,9 +717,8 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getGoal());
     }
-    if (java.lang.Double.doubleToRawLongBits(revenue_) != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(9, revenue_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(revenue_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, revenue_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, id_);
@@ -733,9 +766,8 @@ private static final long serialVersionUID = 0L;
       if (!getGoal()
           .equals(other.getGoal())) return false;
     }
-    if (java.lang.Double.doubleToLongBits(getRevenue())
-        != java.lang.Double.doubleToLongBits(
-            other.getRevenue())) return false;
+    if (!getRevenue()
+        .equals(other.getRevenue())) return false;
     if (!getId()
         .equals(other.getId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -774,8 +806,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getGoal().hashCode();
     }
     hash = (37 * hash) + REVENUE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getRevenue()));
+    hash = (53 * hash) + getRevenue().hashCode();
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -947,7 +978,7 @@ private static final long serialVersionUID = 0L;
         goal_ = null;
         goalBuilder_ = null;
       }
-      revenue_ = 0D;
+      revenue_ = "";
 
       id_ = "";
 
@@ -1079,8 +1110,9 @@ private static final long serialVersionUID = 0L;
       if (other.hasGoal()) {
         mergeGoal(other.getGoal());
       }
-      if (other.getRevenue() != 0D) {
-        setRevenue(other.getRevenue());
+      if (!other.getRevenue().isEmpty()) {
+        revenue_ = other.revenue_;
+        onChanged();
       }
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
@@ -2185,19 +2217,27 @@ private static final long serialVersionUID = 0L;
       return goalBuilder_;
     }
 
-    private double revenue_ ;
+    private java.lang.Object revenue_ = "";
     /**
      * <pre>
      * Cumulative revenue attributed to this user from the campaign.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>double revenue = 9 [json_name = "revenue"];</code>
+     * <code>string revenue = 9 [json_name = "revenue"];</code>
      * @return The revenue.
      */
-    @java.lang.Override
-    public double getRevenue() {
-      return revenue_;
+    public java.lang.String getRevenue() {
+      java.lang.Object ref = revenue_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        revenue_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
      * <pre>
@@ -2205,12 +2245,38 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>double revenue = 9 [json_name = "revenue"];</code>
+     * <code>string revenue = 9 [json_name = "revenue"];</code>
+     * @return The bytes for revenue.
+     */
+    public com.google.protobuf.ByteString
+        getRevenueBytes() {
+      java.lang.Object ref = revenue_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        revenue_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Cumulative revenue attributed to this user from the campaign.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string revenue = 9 [json_name = "revenue"];</code>
      * @param value The revenue to set.
      * @return This builder for chaining.
      */
-    public Builder setRevenue(double value) {
-      
+    public Builder setRevenue(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       revenue_ = value;
       onChanged();
       return this;
@@ -2221,12 +2287,33 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>double revenue = 9 [json_name = "revenue"];</code>
+     * <code>string revenue = 9 [json_name = "revenue"];</code>
      * @return This builder for chaining.
      */
     public Builder clearRevenue() {
       
-      revenue_ = 0D;
+      revenue_ = getDefaultInstance().getRevenue();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Cumulative revenue attributed to this user from the campaign.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string revenue = 9 [json_name = "revenue"];</code>
+     * @param value The bytes for revenue to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRevenueBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      revenue_ = value;
       onChanged();
       return this;
     }
@@ -2539,7 +2626,7 @@ private static final long serialVersionUID = 0L;
      * @param value The revenue to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearRevenue(java.lang.Double value) {
+    public Builder setOrClearRevenue(java.lang.String value) {
     	if (value == null)
     		return clearRevenue();
     	else
@@ -2551,7 +2638,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearRevenue(T value, java.util.function.Function<T, java.lang.Double> mapFunc) {
+    public <T> Builder mapOrClearRevenue(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
     	if (value == null)
     		return clearRevenue();
     	else

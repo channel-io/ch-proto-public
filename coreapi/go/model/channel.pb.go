@@ -314,7 +314,7 @@ type Channel struct {
 	// Current lifecycle state of the channel.
 	// See ChannelState for possible values.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	State ChannelState `protobuf:"varint,26,opt,name=state,proto3,enum=coreapi.model.ChannelState" json:"state,omitempty"`
 	// Whether the channel is verified as an enterprise account.
 	//
@@ -948,7 +948,7 @@ var File_coreapi_model_channel_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_channel_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/channel.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1ecoreapi/model/time_range.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe6\x1a\n" +
+	"\x1bcoreapi/model/channel.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1ecoreapi/model/time_range.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xee\x1a\n" +
 	"\aChannel\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12H\n" +
@@ -981,8 +981,8 @@ const file_coreapi_model_channel_proto_rawDesc = "" +
 	"\x11follow_up_texting\x18\x16 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0ffollowUpTexting\x12.\n" +
 	"\x0ffollow_up_email\x18\x17 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\rfollowUpEmail\x12+\n" +
 	"\x12follow_up_ask_name\x18\x18 \x01(\bR\x0ffollowUpAskName\x12.\n" +
-	"\x13follow_up_mandatory\x18\x19 \x01(\bR\x11followUpMandatory\x121\n" +
-	"\x05state\x18\x1a \x01(\x0e2\x1b.coreapi.model.ChannelStateR\x05state\x12!\n" +
+	"\x13follow_up_mandatory\x18\x19 \x01(\bR\x11followUpMandatory\x129\n" +
+	"\x05state\x18\x1a \x01(\x0e2\x1b.coreapi.model.ChannelStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12!\n" +
 	"\fent_verified\x18\x1b \x01(\bR\ventVerified\x12*\n" +
 	"\x11default_plugin_id\x18\x1c \x01(\tR\x0fdefaultPluginId\x12!\n" +
 	"\fbiz_category\x18\x1d \x01(\tR\vbizCategory\x12\x16\n" +

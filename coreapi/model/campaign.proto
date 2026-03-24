@@ -5,7 +5,9 @@ package coreapi.model;
 import "buf/validate/validate.proto";
 import "coreapi/model/app_segment.proto";
 import "coreapi/model/holding_property_constant.proto";
+import "coreapi/model/medium_type.proto";
 import "coreapi/model/time_range.proto";
+import "google/protobuf/duration.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -23,14 +25,6 @@ enum CampaignState {
 }
 
 // Messaging medium type for marketing delivery.
-enum MediumType {
-  MEDIUM_TYPE_UNSPECIFIED = 0;
-  MEDIUM_TYPE_NATIVE = 1;
-  MEDIUM_TYPE_PHONE = 2;
-  MEDIUM_TYPE_EMAIL = 3;
-  MEDIUM_TYPE_APP = 4;
-}
-
 // Additional event filter matching strategy.
 enum CampaignFilterMatch {
   CAMPAIGN_FILTER_MATCH_UNSPECIFIED = 0;
@@ -98,8 +92,8 @@ message Campaign {
 
   // Current lifecycle state of the campaign.
   //
-  // +kubebuilder:validation:Nullable
-  CampaignState state = 4;
+  // +kubebuilder:validation:Required
+  CampaignState state = 4 [(buf.validate.field).required = true];
 
   // Channel through which the campaign message is delivered.
   // Cannot be changed after creation.
@@ -139,7 +133,7 @@ message Campaign {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:example="PT23H50M"
-  string waiting_time = 11 [(buf.validate.field).required = true];
+  google.protobuf.Duration waiting_time = 11 [(buf.validate.field).required = true];
 
   // Name of an additional event used to filter users before delivery.
   // When set, filter_match determines whether the event must occur or must not occur.
@@ -169,7 +163,7 @@ message Campaign {
   // Defines how long after delivery each conversion event is counted.
   //
   // +kubebuilder:validation:Nullable
-  map<string, string> conversion_windows = 16;
+  map<string, google.protobuf.Duration> conversion_windows = 16;
 
   // Name of the event that counts as a goal completion.
   //
@@ -187,7 +181,7 @@ message Campaign {
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:example="PT23H50M"
-  string goal_event_duration = 19;
+  google.protobuf.Duration goal_event_duration = 19;
 
   // Holds a property value from the trigger or filter event constant for consistent goal checking.
   // Applicable when goal_event_name is set.
@@ -215,7 +209,7 @@ message Campaign {
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:example="PT23H50M"
-  string cooldown = 24;
+  google.protobuf.Duration cooldown = 24;
 
   // Controls when messages are delivered relative to operation hours or custom time ranges.
   //
@@ -285,7 +279,7 @@ message Campaign {
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:example="PT23H50M"
-  string user_chat_expire_duration = 37;
+  google.protobuf.Duration user_chat_expire_duration = 37;
 
   // Manager assigned to handle user responses from this campaign.
   //

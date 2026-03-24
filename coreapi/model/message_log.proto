@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package coreapi.model;
 
+import "buf/validate/validate.proto";
+
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
@@ -11,8 +13,8 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 message MessageLog {
   // Type of action that was recorded.
   //
-  // +kubebuilder:validation:Nullable
-  MessageLogAction action = 1;
+  // +kubebuilder:validation:Required
+  MessageLogAction action = 1 [(buf.validate.field).required = true];
 
   // Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
   // Interpretation depends on the `action` type.

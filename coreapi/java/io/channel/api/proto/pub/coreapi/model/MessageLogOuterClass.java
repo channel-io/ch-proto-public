@@ -29,57 +29,59 @@ public final class MessageLogOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\037coreapi/model/message_log.proto\022\rcorea" +
-      "pi.model\"\277\r\n\nMessageLog\022B\n\006action\030\001 \001(\0162" +
-      "*.coreapi.model.MessageLog.MessageLogAct" +
-      "ionR\006action\022\026\n\006values\030\002 \003(\tR\006values\022!\n\014t" +
-      "rigger_type\030\003 \001(\tR\013triggerType\022\035\n\ntrigge" +
-      "r_id\030\004 \001(\tR\ttriggerId\"\222\014\n\020MessageLogActi" +
-      "on\022\"\n\036MESSAGE_LOG_ACTION_UNSPECIFIED\020\000\022\"" +
-      "\n\036MESSAGE_LOG_ACTION_CHANGE_NAME\020\001\022#\n\037ME" +
-      "SSAGE_LOG_ACTION_CHANGE_SCOPE\020\002\022\034\n\030MESSA" +
-      "GE_LOG_ACTION_CLOSE\020\003\022!\n\035MESSAGE_LOG_ACT" +
-      "ION_AUTO_CLOSE\020\004\022\035\n\031MESSAGE_LOG_ACTION_C" +
-      "REATE\020\005\022\035\n\031MESSAGE_LOG_ACTION_INVITE\020\006\022\033" +
-      "\n\027MESSAGE_LOG_ACTION_JOIN\020\007\022\035\n\031MESSAGE_L" +
-      "OG_ACTION_ASSIGN\020\010\022\"\n\036MESSAGE_LOG_ACTION" +
-      "_AUTO_ASSIGN\020\t\022\037\n\033MESSAGE_LOG_ACTION_UNA" +
-      "SSIGN\020\n\022\034\n\030MESSAGE_LOG_ACTION_LEAVE\020\013\022\033\n" +
-      "\027MESSAGE_LOG_ACTION_OPEN\020\014\022 \n\034MESSAGE_LO" +
-      "G_ACTION_AUTO_OPEN\020\r\022\036\n\032MESSAGE_LOG_ACTI" +
-      "ON_ENQUEUE\020\016\022\033\n\027MESSAGE_LOG_ACTION_MISS\020" +
-      "\017\022\035\n\031MESSAGE_LOG_ACTION_REMOVE\020\020\022\035\n\031MESS" +
-      "AGE_LOG_ACTION_SNOOZE\020\021\022\037\n\033MESSAGE_LOG_A" +
-      "CTION_ADD_TAGS\020\022\022\"\n\036MESSAGE_LOG_ACTION_R" +
-      "EMOVE_TAGS\020\023\022\"\n\036MESSAGE_LOG_ACTION_ASSIG" +
-      "N_TEAM\020\024\022$\n MESSAGE_LOG_ACTION_UNASSIGN_" +
-      "TEAM\020\025\022 \n\034MESSAGE_LOG_ACTION_JOIN_MEET\020\026" +
-      "\022!\n\035MESSAGE_LOG_ACTION_LEAVE_MEET\020\027\022\"\n\036M" +
-      "ESSAGE_LOG_ACTION_INVITE_MEET\020\030\022 \n\034MESSA" +
-      "GE_LOG_ACTION_MISS_MEET\020\031\022$\n MESSAGE_LOG" +
-      "_ACTION_CALLBACK_MEET\020\032\022\'\n#MESSAGE_LOG_A" +
-      "CTION_TRY_CONNECT_CALL\020\033\022&\n\"MESSAGE_LOG_" +
-      "ACTION_PROCESS_BY_MISS\020\034\022%\n!MESSAGE_LOG_" +
-      "ACTION_PROCESS_BRANCH\020\035\022\037\n\033MESSAGE_LOG_A" +
-      "CTION_SEND_XMS\020\036\022$\n MESSAGE_LOG_ACTION_A" +
-      "DD_USER_TAGS\020\037\022\'\n#MESSAGE_LOG_ACTION_REM" +
-      "OVE_USER_TAGS\020 \022&\n\"MESSAGE_LOG_ACTION_UP" +
-      "DATE_PRIORITY\020!\022%\n!MESSAGE_LOG_ACTION_ST" +
-      "ART_WORKFLOW\020\"\022#\n\037MESSAGE_LOG_ACTION_END" +
-      "_WORKFLOW\020#\022)\n%MESSAGE_LOG_ACTION_INTERR" +
-      "UPT_WORKFLOW\020$\0220\n,MESSAGE_LOG_ACTION_INT" +
-      "ERRUPT_WORKFLOW_BY_BOT\020%\022(\n$MESSAGE_LOG_" +
-      "ACTION_TRY_OPEN_WITH_ALF\020&\022!\n\035MESSAGE_LO" +
-      "G_ACTION_START_TASK\020\'\022\"\n\036MESSAGE_LOG_ACT" +
-      "ION_APPLY_RULES\020(\022)\n%MESSAGE_LOG_ACTION_" +
-      "CANCEL_ALF_BY_USER\020)\022$\n MESSAGE_LOG_ACTI" +
-      "ON_FALLBACK_CALL\020*Bb\n&io.channel.api.pro" +
-      "to.pub.coreapi.modelP\001Z6github.com/chann" +
-      "el-io/ch-proto-public/coreapi/go/modelb\006" +
-      "proto3"
+      "pi.model\032\033buf/validate/validate.proto\"\307\r" +
+      "\n\nMessageLog\022J\n\006action\030\001 \001(\0162*.coreapi.m" +
+      "odel.MessageLog.MessageLogActionB\006\272H\003\310\001\001" +
+      "R\006action\022\026\n\006values\030\002 \003(\tR\006values\022!\n\014trig" +
+      "ger_type\030\003 \001(\tR\013triggerType\022\035\n\ntrigger_i" +
+      "d\030\004 \001(\tR\ttriggerId\"\222\014\n\020MessageLogAction\022" +
+      "\"\n\036MESSAGE_LOG_ACTION_UNSPECIFIED\020\000\022\"\n\036M" +
+      "ESSAGE_LOG_ACTION_CHANGE_NAME\020\001\022#\n\037MESSA" +
+      "GE_LOG_ACTION_CHANGE_SCOPE\020\002\022\034\n\030MESSAGE_" +
+      "LOG_ACTION_CLOSE\020\003\022!\n\035MESSAGE_LOG_ACTION" +
+      "_AUTO_CLOSE\020\004\022\035\n\031MESSAGE_LOG_ACTION_CREA" +
+      "TE\020\005\022\035\n\031MESSAGE_LOG_ACTION_INVITE\020\006\022\033\n\027M" +
+      "ESSAGE_LOG_ACTION_JOIN\020\007\022\035\n\031MESSAGE_LOG_" +
+      "ACTION_ASSIGN\020\010\022\"\n\036MESSAGE_LOG_ACTION_AU" +
+      "TO_ASSIGN\020\t\022\037\n\033MESSAGE_LOG_ACTION_UNASSI" +
+      "GN\020\n\022\034\n\030MESSAGE_LOG_ACTION_LEAVE\020\013\022\033\n\027ME" +
+      "SSAGE_LOG_ACTION_OPEN\020\014\022 \n\034MESSAGE_LOG_A" +
+      "CTION_AUTO_OPEN\020\r\022\036\n\032MESSAGE_LOG_ACTION_" +
+      "ENQUEUE\020\016\022\033\n\027MESSAGE_LOG_ACTION_MISS\020\017\022\035" +
+      "\n\031MESSAGE_LOG_ACTION_REMOVE\020\020\022\035\n\031MESSAGE" +
+      "_LOG_ACTION_SNOOZE\020\021\022\037\n\033MESSAGE_LOG_ACTI" +
+      "ON_ADD_TAGS\020\022\022\"\n\036MESSAGE_LOG_ACTION_REMO" +
+      "VE_TAGS\020\023\022\"\n\036MESSAGE_LOG_ACTION_ASSIGN_T" +
+      "EAM\020\024\022$\n MESSAGE_LOG_ACTION_UNASSIGN_TEA" +
+      "M\020\025\022 \n\034MESSAGE_LOG_ACTION_JOIN_MEET\020\026\022!\n" +
+      "\035MESSAGE_LOG_ACTION_LEAVE_MEET\020\027\022\"\n\036MESS" +
+      "AGE_LOG_ACTION_INVITE_MEET\020\030\022 \n\034MESSAGE_" +
+      "LOG_ACTION_MISS_MEET\020\031\022$\n MESSAGE_LOG_AC" +
+      "TION_CALLBACK_MEET\020\032\022\'\n#MESSAGE_LOG_ACTI" +
+      "ON_TRY_CONNECT_CALL\020\033\022&\n\"MESSAGE_LOG_ACT" +
+      "ION_PROCESS_BY_MISS\020\034\022%\n!MESSAGE_LOG_ACT" +
+      "ION_PROCESS_BRANCH\020\035\022\037\n\033MESSAGE_LOG_ACTI" +
+      "ON_SEND_XMS\020\036\022$\n MESSAGE_LOG_ACTION_ADD_" +
+      "USER_TAGS\020\037\022\'\n#MESSAGE_LOG_ACTION_REMOVE" +
+      "_USER_TAGS\020 \022&\n\"MESSAGE_LOG_ACTION_UPDAT" +
+      "E_PRIORITY\020!\022%\n!MESSAGE_LOG_ACTION_START" +
+      "_WORKFLOW\020\"\022#\n\037MESSAGE_LOG_ACTION_END_WO" +
+      "RKFLOW\020#\022)\n%MESSAGE_LOG_ACTION_INTERRUPT" +
+      "_WORKFLOW\020$\0220\n,MESSAGE_LOG_ACTION_INTERR" +
+      "UPT_WORKFLOW_BY_BOT\020%\022(\n$MESSAGE_LOG_ACT" +
+      "ION_TRY_OPEN_WITH_ALF\020&\022!\n\035MESSAGE_LOG_A" +
+      "CTION_START_TASK\020\'\022\"\n\036MESSAGE_LOG_ACTION" +
+      "_APPLY_RULES\020(\022)\n%MESSAGE_LOG_ACTION_CAN" +
+      "CEL_ALF_BY_USER\020)\022$\n MESSAGE_LOG_ACTION_" +
+      "FALLBACK_CALL\020*Bb\n&io.channel.api.proto." +
+      "pub.coreapi.modelP\001Z6github.com/channel-" +
+      "io/ch-proto-public/coreapi/go/modelb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          build.buf.validate.ValidateProto.getDescriptor(),
         });
     internal_static_coreapi_model_MessageLog_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -87,6 +89,12 @@ public final class MessageLogOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_MessageLog_descriptor,
         new java.lang.String[] { "Action", "Values", "TriggerType", "TriggerId", });
+    com.google.protobuf.ExtensionRegistry registry =
+        com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(build.buf.validate.ValidateProto.field);
+    com.google.protobuf.Descriptors.FileDescriptor
+        .internalUpdateFileDescriptor(descriptor, registry);
+    build.buf.validate.ValidateProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

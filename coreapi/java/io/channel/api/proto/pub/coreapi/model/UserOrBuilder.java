@@ -10,20 +10,22 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Unique user identifier.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The id.
    */
   java.lang.String getId();
   /**
    * <pre>
    * Unique user identifier.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
@@ -32,20 +34,22 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Channel ID this user belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
   /**
    * <pre>
    * Channel ID this user belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   com.google.protobuf.ByteString
@@ -304,60 +308,60 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * User creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
   /**
    * <pre>
    * User creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
   /**
    * <pre>
    * User creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 
   /**
    * <pre>
    * User last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the updatedAt field is set.
    */
   boolean hasUpdatedAt();
   /**
    * <pre>
    * User last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return The updatedAt.
    */
   com.google.protobuf.Timestamp getUpdatedAt();
   /**
    * <pre>
    * User last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
 

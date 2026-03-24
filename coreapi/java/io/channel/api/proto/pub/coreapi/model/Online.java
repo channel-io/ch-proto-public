@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Online represents the real-time online presence of a person (user or manager) in a channel.
+ * Online represents the online presence of a person in a channel.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.Online}
@@ -116,11 +116,12 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object channelId_;
   /**
    * <pre>
-   * Channel ID this presence record belongs to.
-   * +kubebuilder:validation:Nullable
+   * Channel ID this online record belongs to.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 1 [json_name = "channelId"];</code>
+   * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   @java.lang.Override
@@ -138,11 +139,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Channel ID this presence record belongs to.
-   * +kubebuilder:validation:Nullable
+   * Channel ID this online record belongs to.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 1 [json_name = "channelId"];</code>
+   * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   @java.lang.Override
@@ -164,11 +166,12 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object personType_;
   /**
    * <pre>
-   * Person type that distinguishes the entity kind (e.g. "user", "manager").
-   * +kubebuilder:validation:Nullable
+   * Type of the person (e.g., manager, user).
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_type = 2 [json_name = "personType"];</code>
+   * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>
    * @return The personType.
    */
   @java.lang.Override
@@ -186,11 +189,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Person type that distinguishes the entity kind (e.g. "user", "manager").
-   * +kubebuilder:validation:Nullable
+   * Type of the person (e.g., manager, user).
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_type = 2 [json_name = "personType"];</code>
+   * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>
    * @return The bytes for personType.
    */
   @java.lang.Override
@@ -212,11 +216,12 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object personId_;
   /**
    * <pre>
-   * Unique identifier of the person within their type.
-   * +kubebuilder:validation:Nullable
+   * Identifier of the person.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_id = 3 [json_name = "personId"];</code>
+   * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
    * @return The personId.
    */
   @java.lang.Override
@@ -234,11 +239,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Unique identifier of the person within their type.
-   * +kubebuilder:validation:Nullable
+   * Identifier of the person.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_id = 3 [json_name = "personId"];</code>
+   * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for personId.
    */
   @java.lang.Override
@@ -260,7 +266,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object id_;
   /**
    * <pre>
-   * Composite presence record identifier derived from channel, type, and person.
+   * Composite presence record identifier derived from person type and person ID.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -282,7 +288,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Composite presence record identifier derived from channel, type, and person.
+   * Composite presence record identifier derived from person type and person ID.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -490,7 +496,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Online represents the real-time online presence of a person (user or manager) in a channel.
+   * Online represents the online presence of a person in a channel.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.Online}
@@ -664,11 +670,12 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object channelId_ = "";
     /**
      * <pre>
-     * Channel ID this presence record belongs to.
-     * +kubebuilder:validation:Nullable
+     * Channel ID this online record belongs to.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 1 [json_name = "channelId"];</code>
+     * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The channelId.
      */
     public java.lang.String getChannelId() {
@@ -685,11 +692,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Channel ID this presence record belongs to.
-     * +kubebuilder:validation:Nullable
+     * Channel ID this online record belongs to.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 1 [json_name = "channelId"];</code>
+     * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for channelId.
      */
     public com.google.protobuf.ByteString
@@ -707,11 +715,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Channel ID this presence record belongs to.
-     * +kubebuilder:validation:Nullable
+     * Channel ID this online record belongs to.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 1 [json_name = "channelId"];</code>
+     * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The channelId to set.
      * @return This builder for chaining.
      */
@@ -727,11 +736,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Channel ID this presence record belongs to.
-     * +kubebuilder:validation:Nullable
+     * Channel ID this online record belongs to.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 1 [json_name = "channelId"];</code>
+     * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChannelId() {
@@ -742,11 +752,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Channel ID this presence record belongs to.
-     * +kubebuilder:validation:Nullable
+     * Channel ID this online record belongs to.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 1 [json_name = "channelId"];</code>
+     * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for channelId to set.
      * @return This builder for chaining.
      */
@@ -765,11 +776,12 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object personType_ = "";
     /**
      * <pre>
-     * Person type that distinguishes the entity kind (e.g. "user", "manager").
-     * +kubebuilder:validation:Nullable
+     * Type of the person (e.g., manager, user).
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_type = 2 [json_name = "personType"];</code>
+     * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @return The personType.
      */
     public java.lang.String getPersonType() {
@@ -786,11 +798,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Person type that distinguishes the entity kind (e.g. "user", "manager").
-     * +kubebuilder:validation:Nullable
+     * Type of the person (e.g., manager, user).
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_type = 2 [json_name = "personType"];</code>
+     * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @return The bytes for personType.
      */
     public com.google.protobuf.ByteString
@@ -808,11 +821,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Person type that distinguishes the entity kind (e.g. "user", "manager").
-     * +kubebuilder:validation:Nullable
+     * Type of the person (e.g., manager, user).
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_type = 2 [json_name = "personType"];</code>
+     * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @param value The personType to set.
      * @return This builder for chaining.
      */
@@ -828,11 +842,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Person type that distinguishes the entity kind (e.g. "user", "manager").
-     * +kubebuilder:validation:Nullable
+     * Type of the person (e.g., manager, user).
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_type = 2 [json_name = "personType"];</code>
+     * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPersonType() {
@@ -843,11 +858,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Person type that distinguishes the entity kind (e.g. "user", "manager").
-     * +kubebuilder:validation:Nullable
+     * Type of the person (e.g., manager, user).
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_type = 2 [json_name = "personType"];</code>
+     * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for personType to set.
      * @return This builder for chaining.
      */
@@ -866,11 +882,12 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object personId_ = "";
     /**
      * <pre>
-     * Unique identifier of the person within their type.
-     * +kubebuilder:validation:Nullable
+     * Identifier of the person.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_id = 3 [json_name = "personId"];</code>
+     * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
      * @return The personId.
      */
     public java.lang.String getPersonId() {
@@ -887,11 +904,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique identifier of the person within their type.
-     * +kubebuilder:validation:Nullable
+     * Identifier of the person.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_id = 3 [json_name = "personId"];</code>
+     * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for personId.
      */
     public com.google.protobuf.ByteString
@@ -909,11 +927,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique identifier of the person within their type.
-     * +kubebuilder:validation:Nullable
+     * Identifier of the person.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_id = 3 [json_name = "personId"];</code>
+     * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
      * @param value The personId to set.
      * @return This builder for chaining.
      */
@@ -929,11 +948,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique identifier of the person within their type.
-     * +kubebuilder:validation:Nullable
+     * Identifier of the person.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_id = 3 [json_name = "personId"];</code>
+     * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPersonId() {
@@ -944,11 +964,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique identifier of the person within their type.
-     * +kubebuilder:validation:Nullable
+     * Identifier of the person.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_id = 3 [json_name = "personId"];</code>
+     * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for personId to set.
      * @return This builder for chaining.
      */
@@ -967,7 +988,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object id_ = "";
     /**
      * <pre>
-     * Composite presence record identifier derived from channel, type, and person.
+     * Composite presence record identifier derived from person type and person ID.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -988,7 +1009,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Composite presence record identifier derived from channel, type, and person.
+     * Composite presence record identifier derived from person type and person ID.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1010,7 +1031,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Composite presence record identifier derived from channel, type, and person.
+     * Composite presence record identifier derived from person type and person ID.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1030,7 +1051,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Composite presence record identifier derived from channel, type, and person.
+     * Composite presence record identifier derived from person type and person ID.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1045,7 +1066,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Composite presence record identifier derived from channel, type, and person.
+     * Composite presence record identifier derived from person type and person ID.
      * +kubebuilder:validation:Nullable
      * </pre>
      *

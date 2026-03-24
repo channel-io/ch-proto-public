@@ -7,6 +7,7 @@
 package model
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	structpb "google.golang.org/protobuf/types/known/structpb"
@@ -84,11 +85,13 @@ type User struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique user identifier.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this user belongs to.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// External member ID provided at boot or manual creation.
 	// Present for member-type users; for anonymous visitors, this matches
@@ -140,11 +143,11 @@ type User struct {
 	TimeZone string `protobuf:"bytes,13,opt,name=time_zone,json=timeZone,proto3" json:"time_zone,omitempty"`
 	// User creation timestamp.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// User last update timestamp.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Optimistic locking version incremented on every update.
 	// Supply the current value when updating to prevent overwriting concurrent changes.
@@ -665,11 +668,13 @@ var File_coreapi_model_user_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_user_proto_rawDesc = "" +
 	"\n" +
-	"\x18coreapi/model/user.proto\x12\rcoreapi.model\x1a\x1ccoreapi/model/web_info.proto\x1a\x1fcoreapi/model/mobile_info.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc8\x0e\n" +
-	"\x04User\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
+	"\x18coreapi/model/user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/web_info.proto\x1a\x1fcoreapi/model/mobile_info.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf6\x0f\n" +
+	"\x04User\x12]\n" +
+	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tR\tchannelId\x12\x1b\n" +
+	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\x1b\n" +
 	"\tmember_id\x18\x03 \x01(\tR\bmemberId\x12\x17\n" +
 	"\aveil_id\x18\x04 \x01(\tR\x06veilId\x12\x1d\n" +
 	"\n" +
@@ -683,11 +688,11 @@ const file_coreapi_model_user_proto_rawDesc = "" +
 	"\fmain_chat_id\x18\v \x01(\tR\n" +
 	"mainChatId\x12\x18\n" +
 	"\acountry\x18\f \x01(\tR\acountry\x12\x1b\n" +
-	"\ttime_zone\x18\r \x01(\tR\btimeZone\x129\n" +
+	"\ttime_zone\x18\r \x01(\tR\btimeZone\x12A\n" +
 	"\n" +
-	"created_at\x18\x0e \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
+	"created_at\x18\x0e \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
-	"updated_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x18\n" +
+	"updated_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12\x18\n" +
 	"\aversion\x18\x10 \x01(\x03R\aversion\x121\n" +
 	"\aprofile\x18\x11 \x01(\v2\x17.google.protobuf.StructR\aprofile\x12\x12\n" +
 	"\x04tags\x18\x12 \x03(\tR\x04tags\x12\x1a\n" +

@@ -7,6 +7,7 @@
 package model
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -21,22 +22,25 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Online represents the real-time online presence of a person (user or manager) in a channel.
+// Online represents the online presence of a person in a channel.
 type Online struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Channel ID this presence record belongs to.
+	// Channel ID this online record belongs to.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Person type that distinguishes the entity kind (e.g. "user", "manager").
+	// Type of the person (e.g., manager, user).
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	PersonType string `protobuf:"bytes,2,opt,name=person_type,json=personType,proto3" json:"person_type,omitempty"`
-	// Unique identifier of the person within their type.
+	// Identifier of the person.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	PersonId string `protobuf:"bytes,3,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
-	// Composite presence record identifier derived from channel, type, and person.
+	// Composite presence record identifier derived from person type and person ID.
 	//
 	// +kubebuilder:validation:Nullable
 	Id            string `protobuf:"bytes,4,opt,name=id,proto3" json:"id,omitempty"`
@@ -106,13 +110,16 @@ var File_coreapi_model_online_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_online_proto_rawDesc = "" +
 	"\n" +
-	"\x1acoreapi/model/online.proto\x12\rcoreapi.model\"u\n" +
-	"\x06Online\x12\x1d\n" +
+	"\x1acoreapi/model/online.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\xe2\x02\n" +
+	"\x06Online\x12l\n" +
 	"\n" +
-	"channel_id\x18\x01 \x01(\tR\tchannelId\x12\x1f\n" +
-	"\vperson_type\x18\x02 \x01(\tR\n" +
-	"personType\x12\x1b\n" +
-	"\tperson_id\x18\x03 \x01(\tR\bpersonId\x12\x0e\n" +
+	"channel_id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12n\n" +
+	"\vperson_type\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
+	"personType\x12j\n" +
+	"\tperson_id\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bpersonId\x12\x0e\n" +
 	"\x02id\x18\x04 \x01(\tR\x02idBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 

@@ -84,20 +84,20 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Current lifecycle state of the campaign.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.CampaignState state = 4 [json_name = "state"];</code>
+   * <code>.coreapi.model.CampaignState state = 4 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The enum numeric value on the wire for state.
    */
   int getStateValue();
   /**
    * <pre>
    * Current lifecycle state of the campaign.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.CampaignState state = 4 [json_name = "state"];</code>
+   * <code>.coreapi.model.CampaignState state = 4 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The state.
    */
   io.channel.api.proto.pub.coreapi.model.CampaignState getState();
@@ -292,10 +292,10 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
-   * @return The waitingTime.
+   * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
+   * @return Whether the waitingTime field is set.
    */
-  java.lang.String getWaitingTime();
+  boolean hasWaitingTime();
   /**
    * <pre>
    * Delay between the trigger event and message delivery, in ISO 8601 duration format.
@@ -304,11 +304,21 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for waitingTime.
+   * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
+   * @return The waitingTime.
    */
-  com.google.protobuf.ByteString
-      getWaitingTimeBytes();
+  com.google.protobuf.Duration getWaitingTime();
+  /**
+   * <pre>
+   * Delay between the trigger event and message delivery, in ISO 8601 duration format.
+   * Maximum 90 days.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="PT23H50M"
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
+   */
+  com.google.protobuf.DurationOrBuilder getWaitingTimeOrBuilder();
 
   /**
    * <pre>
@@ -430,7 +440,7 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, string&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
    */
   int getConversionWindowsCount();
   /**
@@ -440,7 +450,7 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, string&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
    */
   boolean containsConversionWindows(
       java.lang.String key);
@@ -448,7 +458,7 @@ public interface CampaignOrBuilder extends
    * Use {@link #getConversionWindowsMap()} instead.
    */
   @java.lang.Deprecated
-  java.util.Map<java.lang.String, java.lang.String>
+  java.util.Map<java.lang.String, com.google.protobuf.Duration>
   getConversionWindows();
   /**
    * <pre>
@@ -457,9 +467,9 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, string&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
    */
-  java.util.Map<java.lang.String, java.lang.String>
+  java.util.Map<java.lang.String, com.google.protobuf.Duration>
   getConversionWindowsMap();
   /**
    * <pre>
@@ -468,12 +478,12 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, string&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
    */
 
-  java.lang.String getConversionWindowsOrDefault(
+  com.google.protobuf.Duration getConversionWindowsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue);
+      com.google.protobuf.Duration defaultValue);
   /**
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
@@ -481,10 +491,10 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, string&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
    */
 
-  java.lang.String getConversionWindowsOrThrow(
+  com.google.protobuf.Duration getConversionWindowsOrThrow(
       java.lang.String key);
 
   /**
@@ -550,10 +560,10 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
-   * @return The goalEventDuration.
+   * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
+   * @return Whether the goalEventDuration field is set.
    */
-  java.lang.String getGoalEventDuration();
+  boolean hasGoalEventDuration();
   /**
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
@@ -562,11 +572,21 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
-   * @return The bytes for goalEventDuration.
+   * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
+   * @return The goalEventDuration.
    */
-  com.google.protobuf.ByteString
-      getGoalEventDurationBytes();
+  com.google.protobuf.Duration getGoalEventDuration();
+  /**
+   * <pre>
+   * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+   * Between 1 and 30 days. Defaults to 7 days.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
+   */
+  com.google.protobuf.DurationOrBuilder getGoalEventDurationOrBuilder();
 
   /**
    * <pre>
@@ -642,10 +662,10 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string cooldown = 24 [json_name = "cooldown"];</code>
-   * @return The cooldown.
+   * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
+   * @return Whether the cooldown field is set.
    */
-  java.lang.String getCooldown();
+  boolean hasCooldown();
   /**
    * <pre>
    * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
@@ -654,11 +674,21 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string cooldown = 24 [json_name = "cooldown"];</code>
-   * @return The bytes for cooldown.
+   * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
+   * @return The cooldown.
    */
-  com.google.protobuf.ByteString
-      getCooldownBytes();
+  com.google.protobuf.Duration getCooldown();
+  /**
+   * <pre>
+   * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+   * Between 0 seconds and 30 days.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
+   */
+  com.google.protobuf.DurationOrBuilder getCooldownOrBuilder();
 
   /**
    * <pre>
@@ -964,10 +994,10 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
-   * @return The userChatExpireDuration.
+   * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
+   * @return Whether the userChatExpireDuration field is set.
    */
-  java.lang.String getUserChatExpireDuration();
+  boolean hasUserChatExpireDuration();
   /**
    * <pre>
    * Duration before the user chat created by this campaign expires, in ISO 8601 format.
@@ -976,11 +1006,21 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
-   * @return The bytes for userChatExpireDuration.
+   * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
+   * @return The userChatExpireDuration.
    */
-  com.google.protobuf.ByteString
-      getUserChatExpireDurationBytes();
+  com.google.protobuf.Duration getUserChatExpireDuration();
+  /**
+   * <pre>
+   * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+   * Defaults to 31 days.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
+   */
+  com.google.protobuf.DurationOrBuilder getUserChatExpireDurationOrBuilder();
 
   /**
    * <pre>

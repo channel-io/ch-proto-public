@@ -216,7 +216,7 @@ var File_coreapi_model_campaign_msg_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_campaign_msg_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/campaign_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/campaign.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa3\x06\n" +
+	" coreapi/model/campaign_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa3\x06\n" +
 	"\vCampaignMsg\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12n\n" +
@@ -279,7 +279,7 @@ func file_coreapi_model_campaign_msg_proto_init() {
 	if File_coreapi_model_campaign_msg_proto != nil {
 		return
 	}
-	file_coreapi_model_campaign_proto_init()
+	file_coreapi_model_medium_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

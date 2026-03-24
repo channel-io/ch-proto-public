@@ -225,10 +225,21 @@ public interface CampaignUserOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>double revenue = 9 [json_name = "revenue"];</code>
+   * <code>string revenue = 9 [json_name = "revenue"];</code>
    * @return The revenue.
    */
-  double getRevenue();
+  java.lang.String getRevenue();
+  /**
+   * <pre>
+   * Cumulative revenue attributed to this user from the campaign.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string revenue = 9 [json_name = "revenue"];</code>
+   * @return The bytes for revenue.
+   */
+  com.google.protobuf.ByteString
+      getRevenueBytes();
 
   /**
    * <pre>

@@ -107,8 +107,8 @@ message Plugin {
 
   // Current activation lifecycle state.
   //
-  // +kubebuilder:validation:Nullable
-  PluginState state = 4;
+  // +kubebuilder:validation:Required
+  PluginState state = 4 [(buf.validate.field).required = true];
 
   // Widget display name shown to end users.
   // Defaults to the channel name on creation.

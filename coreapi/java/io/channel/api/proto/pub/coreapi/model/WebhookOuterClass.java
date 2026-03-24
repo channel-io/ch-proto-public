@@ -30,30 +30,40 @@ public final class WebhookOuterClass {
     java.lang.String[] descriptorData = {
       "\n\033coreapi/model/webhook.proto\022\rcoreapi.m" +
       "odel\032\033buf/validate/validate.proto\032\037googl" +
-      "e/protobuf/timestamp.proto\"\203\003\n\007Webhook\022\016" +
-      "\n\002id\030\001 \001(\tR\002id\022\035\n\nchannel_id\030\002 \001(\tR\tchan" +
-      "nelId\022\032\n\004name\030\003 \001(\tB\006\272H\003\310\001\001R\004name\022\030\n\003url" +
-      "\030\004 \001(\tB\006\272H\003\310\001\001R\003url\022\024\n\005token\030\005 \001(\tR\005toke" +
-      "n\0229\n\ncreated_at\030\006 \001(\0132\032.google.protobuf." +
-      "TimestampR\tcreatedAt\022;\n\006scopes\030\007 \003(\0162\033.c" +
-      "oreapi.model.WebhookScopeB\006\272H\003\310\001\001R\006scope" +
-      "s\022\'\n\013api_version\030\010 \001(\tB\006\272H\003\310\001\001R\napiVersi" +
-      "on\022B\n\017last_blocked_at\030\t \001(\0132\032.google.pro" +
-      "tobuf.TimestampR\rlastBlockedAt\022\030\n\007blocke" +
-      "d\030\n \001(\010R\007blocked*\237\003\n\014WebhookScope\022\035\n\031WEB" +
-      "HOOK_SCOPE_UNSPECIFIED\020\000\022\"\n\036WEBHOOK_SCOP" +
-      "E_USER_CHAT_OPENED\020\001\022+\n\'WEBHOOK_SCOPE_ME" +
-      "SSAGE_CREATED_USER_CHAT\020\002\022+\n\'WEBHOOK_SCO" +
-      "PE_MESSAGE_CREATED_TEAM_CHAT\020\003\022\'\n#WEBHOO" +
-      "K_SCOPE_LEAD_UPSERTED_CONTACT\020\004\022,\n(WEBHO" +
-      "OK_SCOPE_LEAD_UPSERTED_SUBSCRIPTION\020\005\022\036\n" +
-      "\032WEBHOOK_SCOPE_LEAD_DELETED\020\006\022)\n%WEBHOOK" +
-      "_SCOPE_MEMBER_UPSERTED_CONTACT\020\007\022.\n*WEBH" +
-      "OOK_SCOPE_MEMBER_UPSERTED_SUBSCRIPTION\020\010" +
-      "\022 \n\034WEBHOOK_SCOPE_MEMBER_DELETED\020\tBb\n&io" +
-      ".channel.api.proto.pub.coreapi.modelP\001Z6" +
-      "github.com/channel-io/ch-proto-public/co" +
-      "reapi/go/modelb\006proto3"
+      "e/protobuf/timestamp.proto\"\206\006\n\007Webhook\022]" +
+      "\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value" +
+      " must be at least 1 character\032\017size(this" +
+      ") >= 1\310\001\001R\002id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272\001" +
+      "D\n\rstring.minLen\022\"value must be at least" +
+      " 1 character\032\017size(this) >= 1\310\001\001R\tchanne" +
+      "lId\022a\n\004name\030\003 \001(\tBM\272HJ\272\001D\n\rstring.minLen" +
+      "\022\"value must be at least 1 character\032\017si" +
+      "ze(this) >= 1\310\001\001R\004name\022_\n\003url\030\004 \001(\tBM\272HJ" +
+      "\272\001D\n\rstring.minLen\022\"value must be at lea" +
+      "st 1 character\032\017size(this) >= 1\310\001\001R\003url\022" +
+      "c\n\005token\030\005 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"v" +
+      "alue must be at least 1 character\032\017size(" +
+      "this) >= 1\310\001\001R\005token\022A\n\ncreated_at\030\006 \001(\013" +
+      "2\032.google.protobuf.TimestampB\006\272H\003\310\001\001R\tcr" +
+      "eatedAt\022;\n\006scopes\030\007 \003(\0162\033.coreapi.model." +
+      "WebhookScopeB\006\272H\003\310\001\001R\006scopes\022\'\n\013api_vers" +
+      "ion\030\010 \001(\tB\006\272H\003\310\001\001R\napiVersion\022B\n\017last_bl" +
+      "ocked_at\030\t \001(\0132\032.google.protobuf.Timesta" +
+      "mpR\rlastBlockedAt\022\030\n\007blocked\030\n \001(\010R\007bloc" +
+      "ked*\237\003\n\014WebhookScope\022\035\n\031WEBHOOK_SCOPE_UN" +
+      "SPECIFIED\020\000\022\"\n\036WEBHOOK_SCOPE_USER_CHAT_O" +
+      "PENED\020\001\022+\n\'WEBHOOK_SCOPE_MESSAGE_CREATED" +
+      "_USER_CHAT\020\002\022+\n\'WEBHOOK_SCOPE_MESSAGE_CR" +
+      "EATED_TEAM_CHAT\020\003\022\'\n#WEBHOOK_SCOPE_LEAD_" +
+      "UPSERTED_CONTACT\020\004\022,\n(WEBHOOK_SCOPE_LEAD" +
+      "_UPSERTED_SUBSCRIPTION\020\005\022\036\n\032WEBHOOK_SCOP" +
+      "E_LEAD_DELETED\020\006\022)\n%WEBHOOK_SCOPE_MEMBER" +
+      "_UPSERTED_CONTACT\020\007\022.\n*WEBHOOK_SCOPE_MEM" +
+      "BER_UPSERTED_SUBSCRIPTION\020\010\022 \n\034WEBHOOK_S" +
+      "COPE_MEMBER_DELETED\020\tBb\n&io.channel.api." +
+      "proto.pub.coreapi.modelP\001Z6github.com/ch" +
+      "annel-io/ch-proto-public/coreapi/go/mode" +
+      "lb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

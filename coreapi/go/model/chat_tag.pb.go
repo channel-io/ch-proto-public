@@ -94,41 +94,44 @@ func (ChatTagColorVariant) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_chat_tag_proto_rawDescGZIP(), []int{0}
 }
 
-// ChatTag represents a classification label that can be attached to user chats
-// for categorization and filtering.
+// ChatTag represents a label that can be attached to user chats for categorization.
 type ChatTag struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique chat tag identifier.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this chat tag belongs to.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Color used for visual display of this tag in the Desk UI.
+	// Color theme of the chat tag.
 	//
 	// +kubebuilder:validation:Nullable
 	ColorVariant ChatTagColorVariant `protobuf:"varint,3,opt,name=color_variant,json=colorVariant,proto3,enum=coreapi.model.ChatTagColorVariant" json:"color_variant,omitempty"`
-	// Human-readable display name of the chat tag.
-	// Cannot be changed after creation.
+	// Display name of the chat tag.
+	// Supports hierarchical naming with "/" as a depth separator (max 3 levels).
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:validation:MaxLength=128
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
-	// Lowercase key automatically derived from the tag name.
+	// Lowercase representation of name.
 	// Unique within the channel (case-insensitive).
-	// Cannot be changed after creation.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	Key string `protobuf:"bytes,5,opt,name=key,proto3" json:"key,omitempty"`
-	// Free-text description explaining when or how to use this tag.
+	// Short description of the chat tag.
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=128
 	Description string `protobuf:"bytes,6,opt,name=description,proto3" json:"description,omitempty"`
 	// Chat tag creation timestamp.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -217,18 +220,23 @@ var File_coreapi_model_chat_tag_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_chat_tag_proto_rawDesc = "" +
 	"\n" +
-	"\x1ccoreapi/model/chat_tag.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe9\x02\n" +
-	"\aChatTag\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
+	"\x1ccoreapi/model/chat_tag.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x81\x06\n" +
+	"\aChatTag\x12]\n" +
+	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tR\tchannelId\x12G\n" +
-	"\rcolor_variant\x18\x03 \x01(\x0e2\".coreapi.model.ChatTagColorVariantR\fcolorVariant\x12\x1a\n" +
-	"\x04name\x18\x04 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x04name\x12\x18\n" +
-	"\x03key\x18\x05 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x03key\x12u\n" +
+	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12G\n" +
+	"\rcolor_variant\x18\x03 \x01(\x0e2\".coreapi.model.ChatTagColorVariantR\fcolorVariant\x12\xc4\x01\n" +
+	"\x04name\x18\x04 \x01(\tB\xaf\x01\xbaH\xab\x01\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01M\n" +
+	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128\xc8\x01\x01r\x0f2\r^[^.\\\\$%\\s]+$R\x04name\x12_\n" +
+	"\x03key\x18\x05 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x03key\x12u\n" +
 	"\vdescription\x18\x06 \x01(\tBS\xbaHP\xba\x01M\n" +
-	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128R\vdescription\x129\n" +
+	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128R\vdescription\x12A\n" +
 	"\n" +
-	"created_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt*\xef\x02\n" +
+	"created_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt*\xef\x02\n" +
 	"\x13ChatTagColorVariant\x12&\n" +
 	"\"CHAT_TAG_COLOR_VARIANT_UNSPECIFIED\x10\x00\x12\x1e\n" +
 	"\x1aCHAT_TAG_COLOR_VARIANT_RED\x10\x01\x12!\n" +

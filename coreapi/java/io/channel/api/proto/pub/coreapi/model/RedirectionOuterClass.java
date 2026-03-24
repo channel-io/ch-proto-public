@@ -29,18 +29,24 @@ public final class RedirectionOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\037coreapi/model/redirection.proto\022\rcorea" +
-      "pi.model\032\037google/protobuf/timestamp.prot" +
-      "o\"\206\001\n\013Redirection\022!\n\014original_url\030\001 \001(\tR" +
-      "\013originalUrl\0227\n\texpire_at\030\002 \001(\0132\032.google" +
-      ".protobuf.TimestampR\010expireAt\022\033\n\tshort_u" +
-      "rl\030\003 \001(\tR\010shortUrlBb\n&io.channel.api.pro" +
-      "to.pub.coreapi.modelP\001Z6github.com/chann" +
-      "el-io/ch-proto-public/coreapi/go/modelb\006" +
-      "proto3"
+      "pi.model\032\033buf/validate/validate.proto\032\037g" +
+      "oogle/protobuf/timestamp.proto\"\254\002\n\013Redir" +
+      "ection\022p\n\014original_url\030\001 \001(\tBM\272HJ\272\001D\n\rst" +
+      "ring.minLen\022\"value must be at least 1 ch" +
+      "aracter\032\017size(this) >= 1\310\001\001R\013originalUrl" +
+      "\022j\n\tshort_url\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minL" +
+      "en\022\"value must be at least 1 character\032\017" +
+      "size(this) >= 1\310\001\001R\010shortUrl\022?\n\texpire_a" +
+      "t\030\003 \001(\0132\032.google.protobuf.TimestampB\006\272H\003" +
+      "\310\001\001R\010expireAtBb\n&io.channel.api.proto.pu" +
+      "b.coreapi.modelP\001Z6github.com/channel-io" +
+      "/ch-proto-public/coreapi/go/modelb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          build.buf.validate.ValidateProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_coreapi_model_Redirection_descriptor =
@@ -48,7 +54,13 @@ public final class RedirectionOuterClass {
     internal_static_coreapi_model_Redirection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Redirection_descriptor,
-        new java.lang.String[] { "OriginalUrl", "ExpireAt", "ShortUrl", });
+        new java.lang.String[] { "OriginalUrl", "ShortUrl", "ExpireAt", });
+    com.google.protobuf.ExtensionRegistry registry =
+        com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(build.buf.validate.ValidateProto.field);
+    com.google.protobuf.Descriptors.FileDescriptor
+        .internalUpdateFileDescriptor(descriptor, registry);
+    build.buf.validate.ValidateProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

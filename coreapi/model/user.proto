@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package coreapi.model;
 
+import "buf/validate/validate.proto";
 import "coreapi/model/web_info.proto";
 import "coreapi/model/mobile_info.proto";
 import "google/protobuf/struct.proto";
@@ -26,13 +27,29 @@ enum UserType {
 message User {
   // Unique user identifier.
   //
-  // +kubebuilder:validation:Nullable
-  string id = 1;
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 
   // Channel ID this user belongs to.
   //
-  // +kubebuilder:validation:Nullable
-  string channel_id = 2;
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string channel_id = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 
   // External member ID provided at boot or manual creation.
   // Present for member-type users; for anonymous visitors, this matches
@@ -95,13 +112,13 @@ message User {
 
   // User creation timestamp.
   //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp created_at = 14;
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp created_at = 14 [(buf.validate.field).required = true];
 
   // User last update timestamp.
   //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp updated_at = 15;
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp updated_at = 15 [(buf.validate.field).required = true];
 
   // Optimistic locking version incremented on every update.
   // Supply the current value when updating to prevent overwriting concurrent changes.

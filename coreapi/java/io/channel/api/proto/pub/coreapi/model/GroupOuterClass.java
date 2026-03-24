@@ -30,29 +30,33 @@ public final class GroupOuterClass {
     java.lang.String[] descriptorData = {
       "\n\031coreapi/model/group.proto\022\rcoreapi.mod" +
       "el\032\033buf/validate/validate.proto\032\037google/" +
-      "protobuf/timestamp.proto\"\214\005\n\005Group\022\016\n\002id" +
-      "\030\001 \001(\tR\002id\022\035\n\nchannel_id\030\002 \001(\tR\tchannelI" +
-      "d\022\312\001\n\005title\030\003 \001(\tB\263\001\272H\257\001\272\001E\n\rstring.minL" +
-      "en\022#value must be at least 2 characters\032" +
-      "\017size(this) >= 2\272\001K\n\rstring.maxLen\022(valu" +
-      "e must be no more than 30 characters\032\020si" +
-      "ze(this) <= 30\310\001\001r\0242\022[\\p{L}\\p{N}\\-_()]+R" +
-      "\005title\0227\n\005scope\030\004 \001(\0162\031.coreapi.model.Gr" +
-      "oupScopeB\006\272H\003\310\001\001R\005scope\022\037\n\013manager_ids\030\005" +
-      " \003(\tR\nmanagerIds\022\036\n\004icon\030\006 \001(\tB\n\272H\007r\0052\003\\" +
-      "S+R\004icon\022 \n\014live_meet_id\030\007 \001(\tR\nliveMeet" +
-      "Id\022u\n\013description\030\010 \001(\tBS\272HP\272\001M\n\rstring." +
-      "maxLen\022)value must be no more than 200 c" +
-      "haracters\032\021size(this) <= 200R\013descriptio" +
-      "n\0229\n\ncreated_at\030\t \001(\0132\032.google.protobuf." +
-      "TimestampR\tcreatedAt\0229\n\nupdated_at\030\n \001(\013" +
-      "2\032.google.protobuf.TimestampR\tupdatedAt*" +
-      "o\n\nGroupScope\022\033\n\027GROUP_SCOPE_UNSPECIFIED" +
-      "\020\000\022\023\n\017GROUP_SCOPE_ALL\020\001\022\026\n\022GROUP_SCOPE_P" +
-      "UBLIC\020\002\022\027\n\023GROUP_SCOPE_PRIVATE\020\003Bb\n&io.c" +
-      "hannel.api.proto.pub.coreapi.modelP\001Z6gi" +
-      "thub.com/channel-io/ch-proto-public/core" +
-      "api/go/modelb\006proto3"
+      "protobuf/timestamp.proto\"\272\006\n\005Group\022]\n\002id" +
+      "\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value mus" +
+      "t be at least 1 character\032\017size(this) >=" +
+      " 1\310\001\001R\002id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272\001D\n\rs" +
+      "tring.minLen\022\"value must be at least 1 c" +
+      "haracter\032\017size(this) >= 1\310\001\001R\tchannelId\022" +
+      "\312\001\n\005title\030\003 \001(\tB\263\001\272H\257\001\272\001E\n\rstring.minLen" +
+      "\022#value must be at least 2 characters\032\017s" +
+      "ize(this) >= 2\272\001K\n\rstring.maxLen\022(value " +
+      "must be no more than 30 characters\032\020size" +
+      "(this) <= 30\310\001\001r\0242\022[\\p{L}\\p{N}\\-_()]+R\005t" +
+      "itle\0227\n\005scope\030\004 \001(\0162\031.coreapi.model.Grou" +
+      "pScopeB\006\272H\003\310\001\001R\005scope\022\037\n\013manager_ids\030\005 \003" +
+      "(\tR\nmanagerIds\022\036\n\004icon\030\006 \001(\tB\n\272H\007r\0052\003\\S+" +
+      "R\004icon\022 \n\014live_meet_id\030\007 \001(\tR\nliveMeetId" +
+      "\022u\n\013description\030\010 \001(\tBS\272HP\272\001M\n\rstring.ma" +
+      "xLen\022)value must be no more than 200 cha" +
+      "racters\032\021size(this) <= 200R\013description\022" +
+      "A\n\ncreated_at\030\t \001(\0132\032.google.protobuf.Ti" +
+      "mestampB\006\272H\003\310\001\001R\tcreatedAt\022A\n\nupdated_at" +
+      "\030\n \001(\0132\032.google.protobuf.TimestampB\006\272H\003\310" +
+      "\001\001R\tupdatedAt*o\n\nGroupScope\022\033\n\027GROUP_SCO" +
+      "PE_UNSPECIFIED\020\000\022\023\n\017GROUP_SCOPE_ALL\020\001\022\026\n" +
+      "\022GROUP_SCOPE_PUBLIC\020\002\022\027\n\023GROUP_SCOPE_PRI" +
+      "VATE\020\003Bb\n&io.channel.api.proto.pub.corea" +
+      "pi.modelP\001Z6github.com/channel-io/ch-pro" +
+      "to-public/coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

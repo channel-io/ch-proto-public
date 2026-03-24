@@ -2,26 +2,43 @@ syntax = "proto3";
 
 package coreapi.model;
 
+import "buf/validate/validate.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// Redirection represents a shortened URL mapping with a time-limited validity.
+// Redirection represents a shortened URL that redirects to an original URL.
 message Redirection {
-  // Full destination URL that the short URL redirects to.
+  // The original URL that this redirection points to.
   //
-  // +kubebuilder:validation:Nullable
-  string original_url = 1;
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string original_url = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 
-  // Timestamp after which the short URL is no longer valid.
+  // The shortened redirect URL.
   //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp expire_at = 2;
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string short_url = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 
-  // Shortened URL that redirects to `original_url` until `expire_at`.
+  // Redirection expiration timestamp.
   //
-  // +kubebuilder:validation:Nullable
-  string short_url = 3;
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp expire_at = 3 [(buf.validate.field).required = true];
 }

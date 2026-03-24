@@ -228,7 +228,7 @@ type Manager struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
-	// +kubebuilder:validation:Pattern="^[^@#$%:/\\]+$"
+	// +kubebuilder:validation:Pattern="^[^@#$%:/\]+$"
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Free-text summary displayed on the manager profile.
 	// Visible to end users only when show_description_to_front is true.

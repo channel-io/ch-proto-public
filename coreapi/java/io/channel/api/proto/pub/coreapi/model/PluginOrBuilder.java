@@ -80,20 +80,20 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Current activation lifecycle state.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.PluginState state = 4 [json_name = "state"];</code>
+   * <code>.coreapi.model.PluginState state = 4 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The enum numeric value on the wire for state.
    */
   int getStateValue();
   /**
    * <pre>
    * Current activation lifecycle state.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.PluginState state = 4 [json_name = "state"];</code>
+   * <code>.coreapi.model.PluginState state = 4 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The state.
    */
   io.channel.api.proto.pub.coreapi.model.PluginState getState();

@@ -7,6 +7,7 @@
 package model
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -22,21 +23,23 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Redirection represents a shortened URL mapping with a time-limited validity.
+// Redirection represents a shortened URL that redirects to an original URL.
 type Redirection struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Full destination URL that the short URL redirects to.
+	// The original URL that this redirection points to.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	OriginalUrl string `protobuf:"bytes,1,opt,name=original_url,json=originalUrl,proto3" json:"original_url,omitempty"`
-	// Timestamp after which the short URL is no longer valid.
+	// The shortened redirect URL.
 	//
-	// +kubebuilder:validation:Nullable
-	ExpireAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=expire_at,json=expireAt,proto3" json:"expire_at,omitempty"`
-	// Shortened URL that redirects to `original_url` until `expire_at`.
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
+	ShortUrl string `protobuf:"bytes,2,opt,name=short_url,json=shortUrl,proto3" json:"short_url,omitempty"`
+	// Redirection expiration timestamp.
 	//
-	// +kubebuilder:validation:Nullable
-	ShortUrl      string `protobuf:"bytes,3,opt,name=short_url,json=shortUrl,proto3" json:"short_url,omitempty"`
+	// +kubebuilder:validation:Required
+	ExpireAt      *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=expire_at,json=expireAt,proto3" json:"expire_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -78,13 +81,6 @@ func (x *Redirection) GetOriginalUrl() string {
 	return ""
 }
 
-func (x *Redirection) GetExpireAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.ExpireAt
-	}
-	return nil
-}
-
 func (x *Redirection) GetShortUrl() string {
 	if x != nil {
 		return x.ShortUrl
@@ -92,15 +88,24 @@ func (x *Redirection) GetShortUrl() string {
 	return ""
 }
 
+func (x *Redirection) GetExpireAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ExpireAt
+	}
+	return nil
+}
+
 var File_coreapi_model_redirection_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_redirection_proto_rawDesc = "" +
 	"\n" +
-	"\x1fcoreapi/model/redirection.proto\x12\rcoreapi.model\x1a\x1fgoogle/protobuf/timestamp.proto\"\x86\x01\n" +
-	"\vRedirection\x12!\n" +
-	"\foriginal_url\x18\x01 \x01(\tR\voriginalUrl\x127\n" +
-	"\texpire_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\bexpireAt\x12\x1b\n" +
-	"\tshort_url\x18\x03 \x01(\tR\bshortUrlBb\n" +
+	"\x1fcoreapi/model/redirection.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xac\x02\n" +
+	"\vRedirection\x12p\n" +
+	"\foriginal_url\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\voriginalUrl\x12j\n" +
+	"\tshort_url\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bshortUrl\x12?\n" +
+	"\texpire_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\bexpireAtBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (

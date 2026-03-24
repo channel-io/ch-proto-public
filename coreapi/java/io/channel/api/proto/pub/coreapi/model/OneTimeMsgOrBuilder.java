@@ -381,7 +381,7 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
    */
   int getConversionWindowsCount();
   /**
@@ -391,7 +391,7 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
    */
   boolean containsConversionWindows(
       java.lang.String key);
@@ -399,7 +399,7 @@ public interface OneTimeMsgOrBuilder extends
    * Use {@link #getConversionWindowsMap()} instead.
    */
   @java.lang.Deprecated
-  java.util.Map<java.lang.String, java.lang.String>
+  java.util.Map<java.lang.String, com.google.protobuf.Duration>
   getConversionWindows();
   /**
    * <pre>
@@ -408,9 +408,9 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
    */
-  java.util.Map<java.lang.String, java.lang.String>
+  java.util.Map<java.lang.String, com.google.protobuf.Duration>
   getConversionWindowsMap();
   /**
    * <pre>
@@ -419,12 +419,12 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
    */
 
-  java.lang.String getConversionWindowsOrDefault(
+  com.google.protobuf.Duration getConversionWindowsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue);
+      com.google.protobuf.Duration defaultValue);
   /**
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
@@ -432,10 +432,10 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
    */
 
-  java.lang.String getConversionWindowsOrThrow(
+  com.google.protobuf.Duration getConversionWindowsOrThrow(
       java.lang.String key);
 
   /**
@@ -501,10 +501,10 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
-   * @return The goalEventDuration.
+   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+   * @return Whether the goalEventDuration field is set.
    */
-  java.lang.String getGoalEventDuration();
+  boolean hasGoalEventDuration();
   /**
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
@@ -513,11 +513,21 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
-   * @return The bytes for goalEventDuration.
+   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+   * @return The goalEventDuration.
    */
-  com.google.protobuf.ByteString
-      getGoalEventDurationBytes();
+  com.google.protobuf.Duration getGoalEventDuration();
+  /**
+   * <pre>
+   * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+   * Between 1 and 30 days. Defaults to 7 days.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+   */
+  com.google.protobuf.DurationOrBuilder getGoalEventDurationOrBuilder();
 
   /**
    * <pre>
@@ -754,10 +764,10 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
-   * @return The userChatExpireDuration.
+   * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
+   * @return Whether the userChatExpireDuration field is set.
    */
-  java.lang.String getUserChatExpireDuration();
+  boolean hasUserChatExpireDuration();
   /**
    * <pre>
    * Duration before the user chat created by this message expires, in ISO 8601 format.
@@ -766,9 +776,19 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
-   * @return The bytes for userChatExpireDuration.
+   * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
+   * @return The userChatExpireDuration.
    */
-  com.google.protobuf.ByteString
-      getUserChatExpireDurationBytes();
+  com.google.protobuf.Duration getUserChatExpireDuration();
+  /**
+   * <pre>
+   * Duration before the user chat created by this message expires, in ISO 8601 format.
+   * Defaults to 31 days.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
+   */
+  com.google.protobuf.DurationOrBuilder getUserChatExpireDurationOrBuilder();
 }

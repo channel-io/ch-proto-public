@@ -10,20 +10,22 @@ public interface GroupOrBuilder extends
   /**
    * <pre>
    * Unique group identifier.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The id.
    */
   java.lang.String getId();
   /**
    * <pre>
    * Unique group identifier.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
@@ -32,20 +34,22 @@ public interface GroupOrBuilder extends
   /**
    * <pre>
    * Channel ID this group belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
   /**
    * <pre>
    * Channel ID this group belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   com.google.protobuf.ByteString
@@ -60,7 +64,7 @@ public interface GroupOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=2
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
+   * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -76,7 +80,7 @@ public interface GroupOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=2
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
+   * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -160,7 +164,7 @@ public interface GroupOrBuilder extends
    * Icon identifier or emoji representing the group visually.
    * Must not contain whitespace.
    * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:Pattern="&#92;&#92;S+"
+   * +kubebuilder:validation:Pattern="&#92;S+"
    * </pre>
    *
    * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -172,7 +176,7 @@ public interface GroupOrBuilder extends
    * Icon identifier or emoji representing the group visually.
    * Must not contain whitespace.
    * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:Pattern="&#92;&#92;S+"
+   * +kubebuilder:validation:Pattern="&#92;S+"
    * </pre>
    *
    * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -230,60 +234,60 @@ public interface GroupOrBuilder extends
   /**
    * <pre>
    * Group creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
   /**
    * <pre>
    * Group creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
   /**
    * <pre>
    * Group creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 
   /**
    * <pre>
    * Group last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the updatedAt field is set.
    */
   boolean hasUpdatedAt();
   /**
    * <pre>
    * Group last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return The updatedAt.
    */
   com.google.protobuf.Timestamp getUpdatedAt();
   /**
    * <pre>
    * Group last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
 }

@@ -4,7 +4,8 @@ package coreapi.model;
 
 import "buf/validate/validate.proto";
 import "coreapi/model/app_segment.proto";
-import "coreapi/model/campaign.proto";
+import "coreapi/model/medium_type.proto";
+import "google/protobuf/duration.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -135,7 +136,7 @@ message OneTimeMsg {
   // Defines how long after delivery each conversion event is counted.
   //
   // +kubebuilder:validation:Nullable
-  map<string, string> conversion_windows = 14;
+  map<string, google.protobuf.Duration> conversion_windows = 14;
 
   // Name of the event that counts as a goal completion.
   //
@@ -153,7 +154,7 @@ message OneTimeMsg {
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:example="PT23H50M"
-  string goal_event_duration = 17;
+  google.protobuf.Duration goal_event_duration = 17;
 
   // Whether the message contains advertising content subject to opt-out regulations.
   //
@@ -223,5 +224,5 @@ message OneTimeMsg {
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:example="PT23H50M"
-  string user_chat_expire_duration = 30;
+  google.protobuf.Duration user_chat_expire_duration = 30;
 }

@@ -9,7 +9,7 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// Event scope that triggers a webhook delivery.
+// Webhook event scope determining which events trigger the webhook.
 enum WebhookScope {
   WEBHOOK_SCOPE_UNSPECIFIED = 0;
   WEBHOOK_SCOPE_USER_CHAT_OPENED = 1;
@@ -23,62 +23,97 @@ enum WebhookScope {
   WEBHOOK_SCOPE_MEMBER_DELETED = 9;
 }
 
-// Webhook represents an HTTP callback endpoint that receives
-// real-time event notifications from the channel.
+// Webhook represents a channel's webhook endpoint configuration.
 message Webhook {
   // Unique webhook identifier.
   //
-  // +kubebuilder:validation:Nullable
-  string id = 1;
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 
   // Channel ID this webhook belongs to.
   //
-  // +kubebuilder:validation:Nullable
-  string channel_id = 2;
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string channel_id = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 
-  // Display name of the webhook.
+  // Webhook display name.
   // Unique within the channel.
   //
   // +kubebuilder:validation:Required
-  string name = 3 [(buf.validate.field).required = true];
+  // +kubebuilder:validation:MinLength=1
+  string name = 3 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 
-  // Destination URL where event payloads are delivered via HTTP POST.
+  // Destination URL that receives webhook payloads.
   //
   // +kubebuilder:validation:Required
-  string url = 4 [(buf.validate.field).required = true];
+  // +kubebuilder:validation:MinLength=1
+  string url = 4 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 
-  // Secret token for verifying webhook payload signatures.
-  // Automatically generated on creation.
+  // Auto-generated HMAC token for verifying webhook payloads.
   //
-  // +kubebuilder:validation:Nullable
-  string token = 5;
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string token = 5 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 
   // Webhook creation timestamp.
   //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp created_at = 6;
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp created_at = 6 [(buf.validate.field).required = true];
 
   // Event scopes that trigger this webhook.
-  // Only events matching at least one of these scopes will be delivered.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinItems=1
   repeated WebhookScope scopes = 7 [(buf.validate.field).required = true];
 
-  // API version that determines the webhook payload format ("v4" or "v5").
+  // API version for webhook payloads.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:Enum={"v4","v5"}
   string api_version = 8 [(buf.validate.field).required = true];
 
-  // Timestamp when the webhook was last blocked due to consecutive
-  // delivery failures.
+  // Timestamp when the webhook was last blocked due to consecutive failures.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp last_blocked_at = 9;
 
-  // Whether the webhook is currently blocked.
-  // A webhook becomes blocked after exceeding the consecutive failure
-  // threshold and stops receiving event deliveries until re-enabled.
+  // Whether the webhook is currently blocked due to excessive delivery failures.
   //
   // +kubebuilder:validation:Nullable
   bool blocked = 10;

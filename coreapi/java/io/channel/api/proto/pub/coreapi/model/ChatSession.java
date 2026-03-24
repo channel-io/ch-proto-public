@@ -410,10 +410,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Composite key identifying the conversation.
    * Format: "{chatType}-{chatId}".
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_key = 4 [json_name = "chatKey"];</code>
+   * <code>string chat_key = 4 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
    * @return The chatKey.
    */
   @java.lang.Override
@@ -433,10 +434,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Composite key identifying the conversation.
    * Format: "{chatType}-{chatId}".
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_key = 4 [json_name = "chatKey"];</code>
+   * <code>string chat_key = 4 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
    * @return The bytes for chatKey.
    */
   @java.lang.Override
@@ -459,10 +461,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Opaque sort key for ordering sessions by last activity.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
+   * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
    * @return The updatedKey.
    */
   @java.lang.Override
@@ -481,10 +484,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Opaque sort key for ordering sessions by last activity.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
+   * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
    * @return The bytes for updatedKey.
    */
   @java.lang.Override
@@ -507,10 +511,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Opaque sort key for filtering and ordering sessions with unread messages.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
+   * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
    * @return The unreadKey.
    */
   @java.lang.Override
@@ -529,10 +534,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Opaque sort key for filtering and ordering sessions with unread messages.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
+   * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
    * @return The bytes for unreadKey.
    */
   @java.lang.Override
@@ -555,10 +561,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this session belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 7 [json_name = "channelId"];</code>
+   * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   @java.lang.Override
@@ -577,10 +584,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this session belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 7 [json_name = "channelId"];</code>
+   * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   @java.lang.Override
@@ -620,7 +628,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Total number of unread messages in this session.
-   * Includes both alert-level and regular unread messages.
    * Defaults to 0.
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -684,7 +691,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the person last read messages in this session.
-   * Messages created after this timestamp are considered unread.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -698,7 +704,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the person last read messages in this session.
-   * Messages created after this timestamp are considered unread.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -712,7 +717,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the person last read messages in this session.
-   * Messages created after this timestamp are considered unread.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -768,7 +772,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp postedAt_;
   /**
    * <pre>
-   * Timestamp when the last message was posted (sent by any participant) in this conversation.
+   * Timestamp when the last message was posted in this conversation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -781,7 +785,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the last message was posted (sent by any participant) in this conversation.
+   * Timestamp when the last message was posted in this conversation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -794,7 +798,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the last message was posted (sent by any participant) in this conversation.
+   * Timestamp when the last message was posted in this conversation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -810,10 +814,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Session last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the updatedAt field is set.
    */
   @java.lang.Override
@@ -823,10 +827,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Session last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return The updatedAt.
    */
   @java.lang.Override
@@ -836,10 +840,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Session last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
@@ -851,10 +855,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Session creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the createdAt field is set.
    */
   @java.lang.Override
@@ -864,10 +868,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Session creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return The createdAt.
    */
   @java.lang.Override
@@ -877,10 +881,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Session creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
@@ -892,11 +896,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Optimistic locking version.
-   * Incremented on every update.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>int64 version = 17 [json_name = "version"];</code>
+   * <code>int64 version = 17 [json_name = "version", (.buf.validate.field) = { ... }</code>
    * @return The version.
    */
   @java.lang.Override
@@ -910,11 +913,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique session identifier.
    * Format: "{key}-{chatId}".
-   * Derived from key and chat_id.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 18 [json_name = "id"];</code>
+   * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The id.
    */
   @java.lang.Override
@@ -934,11 +937,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique session identifier.
    * Format: "{key}-{chatId}".
-   * Derived from key and chat_id.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 18 [json_name = "id"];</code>
+   * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The bytes for id.
    */
   @java.lang.Override
@@ -961,11 +964,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat type of the conversation (e.g., "userChat", "group", "directChat").
-   * Derived from the third segment of the session key.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_type = 19 [json_name = "chatType"];</code>
+   * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
    * @return The chatType.
    */
   @java.lang.Override
@@ -984,11 +987,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat type of the conversation (e.g., "userChat", "group", "directChat").
-   * Derived from the third segment of the session key.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_type = 19 [json_name = "chatType"];</code>
+   * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
    * @return The bytes for chatType.
    */
   @java.lang.Override
@@ -1011,11 +1014,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Entity type of the session owner (e.g., "manager", "user").
-   * Derived from the first segment of the session key.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_type = 20 [json_name = "personType"];</code>
+   * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
    * @return The personType.
    */
   @java.lang.Override
@@ -1034,11 +1037,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Entity type of the session owner (e.g., "manager", "user").
-   * Derived from the first segment of the session key.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_type = 20 [json_name = "personType"];</code>
+   * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
    * @return The bytes for personType.
    */
   @java.lang.Override
@@ -1061,11 +1064,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Entity ID of the session owner.
-   * Derived from the second segment of the session key.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_id = 21 [json_name = "personId"];</code>
+   * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>
    * @return The personId.
    */
   @java.lang.Override
@@ -1084,11 +1087,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Entity ID of the session owner.
-   * Derived from the second segment of the session key.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_id = 21 [json_name = "personId"];</code>
+   * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for personId.
    */
   @java.lang.Override
@@ -2142,10 +2145,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite key identifying the conversation.
      * Format: "{chatType}-{chatId}".
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_key = 4 [json_name = "chatKey"];</code>
+     * <code>string chat_key = 4 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
      * @return The chatKey.
      */
     public java.lang.String getChatKey() {
@@ -2164,10 +2168,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite key identifying the conversation.
      * Format: "{chatType}-{chatId}".
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_key = 4 [json_name = "chatKey"];</code>
+     * <code>string chat_key = 4 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
      * @return The bytes for chatKey.
      */
     public com.google.protobuf.ByteString
@@ -2187,10 +2192,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite key identifying the conversation.
      * Format: "{chatType}-{chatId}".
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_key = 4 [json_name = "chatKey"];</code>
+     * <code>string chat_key = 4 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
      * @param value The chatKey to set.
      * @return This builder for chaining.
      */
@@ -2208,10 +2214,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite key identifying the conversation.
      * Format: "{chatType}-{chatId}".
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_key = 4 [json_name = "chatKey"];</code>
+     * <code>string chat_key = 4 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChatKey() {
@@ -2224,10 +2231,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite key identifying the conversation.
      * Format: "{chatType}-{chatId}".
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_key = 4 [json_name = "chatKey"];</code>
+     * <code>string chat_key = 4 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for chatKey to set.
      * @return This builder for chaining.
      */
@@ -2247,10 +2255,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque sort key for ordering sessions by last activity.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
+     * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
      * @return The updatedKey.
      */
     public java.lang.String getUpdatedKey() {
@@ -2268,10 +2277,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque sort key for ordering sessions by last activity.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
+     * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
      * @return The bytes for updatedKey.
      */
     public com.google.protobuf.ByteString
@@ -2290,10 +2300,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque sort key for ordering sessions by last activity.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
+     * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
      * @param value The updatedKey to set.
      * @return This builder for chaining.
      */
@@ -2310,10 +2321,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque sort key for ordering sessions by last activity.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
+     * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUpdatedKey() {
@@ -2325,10 +2337,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque sort key for ordering sessions by last activity.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
+     * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for updatedKey to set.
      * @return This builder for chaining.
      */
@@ -2348,10 +2361,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque sort key for filtering and ordering sessions with unread messages.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
+     * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
      * @return The unreadKey.
      */
     public java.lang.String getUnreadKey() {
@@ -2369,10 +2383,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque sort key for filtering and ordering sessions with unread messages.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
+     * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
      * @return The bytes for unreadKey.
      */
     public com.google.protobuf.ByteString
@@ -2391,10 +2406,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque sort key for filtering and ordering sessions with unread messages.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
+     * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
      * @param value The unreadKey to set.
      * @return This builder for chaining.
      */
@@ -2411,10 +2427,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque sort key for filtering and ordering sessions with unread messages.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
+     * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUnreadKey() {
@@ -2426,10 +2443,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque sort key for filtering and ordering sessions with unread messages.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
+     * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for unreadKey to set.
      * @return This builder for chaining.
      */
@@ -2449,10 +2467,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this session belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 7 [json_name = "channelId"];</code>
+     * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The channelId.
      */
     public java.lang.String getChannelId() {
@@ -2470,10 +2489,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this session belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 7 [json_name = "channelId"];</code>
+     * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for channelId.
      */
     public com.google.protobuf.ByteString
@@ -2492,10 +2512,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this session belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 7 [json_name = "channelId"];</code>
+     * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The channelId to set.
      * @return This builder for chaining.
      */
@@ -2512,10 +2533,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this session belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 7 [json_name = "channelId"];</code>
+     * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChannelId() {
@@ -2527,10 +2549,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this session belongs to.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string channel_id = 7 [json_name = "channelId"];</code>
+     * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for channelId to set.
      * @return This builder for chaining.
      */
@@ -2599,7 +2622,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of unread messages in this session.
-     * Includes both alert-level and regular unread messages.
      * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -2614,7 +2636,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of unread messages in this session.
-     * Includes both alert-level and regular unread messages.
      * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -2632,7 +2653,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of unread messages in this session.
-     * Includes both alert-level and regular unread messages.
      * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -2781,7 +2801,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2794,7 +2813,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2811,7 +2829,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2833,7 +2850,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2853,7 +2869,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2877,7 +2892,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2897,7 +2911,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2911,7 +2924,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2928,7 +2940,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the person last read messages in this session.
-     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3117,7 +3128,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> postedAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the last message was posted (sent by any participant) in this conversation.
+     * Timestamp when the last message was posted in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3129,7 +3140,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was posted (sent by any participant) in this conversation.
+     * Timestamp when the last message was posted in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3145,7 +3156,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was posted (sent by any participant) in this conversation.
+     * Timestamp when the last message was posted in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3166,7 +3177,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was posted (sent by any participant) in this conversation.
+     * Timestamp when the last message was posted in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3185,7 +3196,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was posted (sent by any participant) in this conversation.
+     * Timestamp when the last message was posted in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3208,7 +3219,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was posted (sent by any participant) in this conversation.
+     * Timestamp when the last message was posted in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3227,7 +3238,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was posted (sent by any participant) in this conversation.
+     * Timestamp when the last message was posted in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3240,7 +3251,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was posted (sent by any participant) in this conversation.
+     * Timestamp when the last message was posted in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3256,7 +3267,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was posted (sent by any participant) in this conversation.
+     * Timestamp when the last message was posted in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3282,10 +3293,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      * @return Whether the updatedAt field is set.
      */
     public boolean hasUpdatedAt() {
@@ -3294,10 +3305,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      * @return The updatedAt.
      */
     public com.google.protobuf.Timestamp getUpdatedAt() {
@@ -3310,10 +3321,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
@@ -3331,10 +3342,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setUpdatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -3350,10 +3361,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
@@ -3373,10 +3384,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearUpdatedAt() {
       if (updatedAtBuilder_ == null) {
@@ -3392,10 +3403,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
       
@@ -3405,10 +3416,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
       if (updatedAtBuilder_ != null) {
@@ -3421,10 +3432,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -3446,10 +3457,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      * @return Whether the createdAt field is set.
      */
     public boolean hasCreatedAt() {
@@ -3458,10 +3469,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      * @return The createdAt.
      */
     public com.google.protobuf.Timestamp getCreatedAt() {
@@ -3474,10 +3485,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -3495,10 +3506,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setCreatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -3514,10 +3525,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -3537,10 +3548,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearCreatedAt() {
       if (createdAtBuilder_ == null) {
@@ -3556,10 +3567,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
       
@@ -3569,10 +3580,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       if (createdAtBuilder_ != null) {
@@ -3585,10 +3596,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -3608,11 +3619,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optimistic locking version.
-     * Incremented on every update.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>int64 version = 17 [json_name = "version"];</code>
+     * <code>int64 version = 17 [json_name = "version", (.buf.validate.field) = { ... }</code>
      * @return The version.
      */
     @java.lang.Override
@@ -3622,11 +3632,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optimistic locking version.
-     * Incremented on every update.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>int64 version = 17 [json_name = "version"];</code>
+     * <code>int64 version = 17 [json_name = "version", (.buf.validate.field) = { ... }</code>
      * @param value The version to set.
      * @return This builder for chaining.
      */
@@ -3639,11 +3648,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optimistic locking version.
-     * Incremented on every update.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>int64 version = 17 [json_name = "version"];</code>
+     * <code>int64 version = 17 [json_name = "version", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
@@ -3658,11 +3666,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique session identifier.
      * Format: "{key}-{chatId}".
-     * Derived from key and chat_id.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 18 [json_name = "id"];</code>
+     * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return The id.
      */
     public java.lang.String getId() {
@@ -3681,11 +3689,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique session identifier.
      * Format: "{key}-{chatId}".
-     * Derived from key and chat_id.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 18 [json_name = "id"];</code>
+     * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
@@ -3705,11 +3713,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique session identifier.
      * Format: "{key}-{chatId}".
-     * Derived from key and chat_id.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 18 [json_name = "id"];</code>
+     * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -3727,11 +3735,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique session identifier.
      * Format: "{key}-{chatId}".
-     * Derived from key and chat_id.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 18 [json_name = "id"];</code>
+     * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -3744,11 +3752,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique session identifier.
      * Format: "{key}-{chatId}".
-     * Derived from key and chat_id.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string id = 18 [json_name = "id"];</code>
+     * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -3768,11 +3776,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat type of the conversation (e.g., "userChat", "group", "directChat").
-     * Derived from the third segment of the session key.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_type = 19 [json_name = "chatType"];</code>
+     * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
      * @return The chatType.
      */
     public java.lang.String getChatType() {
@@ -3790,11 +3798,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat type of the conversation (e.g., "userChat", "group", "directChat").
-     * Derived from the third segment of the session key.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_type = 19 [json_name = "chatType"];</code>
+     * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
      * @return The bytes for chatType.
      */
     public com.google.protobuf.ByteString
@@ -3813,11 +3821,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat type of the conversation (e.g., "userChat", "group", "directChat").
-     * Derived from the third segment of the session key.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_type = 19 [json_name = "chatType"];</code>
+     * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
      * @param value The chatType to set.
      * @return This builder for chaining.
      */
@@ -3834,11 +3842,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat type of the conversation (e.g., "userChat", "group", "directChat").
-     * Derived from the third segment of the session key.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_type = 19 [json_name = "chatType"];</code>
+     * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChatType() {
@@ -3850,11 +3858,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat type of the conversation (e.g., "userChat", "group", "directChat").
-     * Derived from the third segment of the session key.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_type = 19 [json_name = "chatType"];</code>
+     * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for chatType to set.
      * @return This builder for chaining.
      */
@@ -3874,11 +3882,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Entity type of the session owner (e.g., "manager", "user").
-     * Derived from the first segment of the session key.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_type = 20 [json_name = "personType"];</code>
+     * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @return The personType.
      */
     public java.lang.String getPersonType() {
@@ -3896,11 +3904,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Entity type of the session owner (e.g., "manager", "user").
-     * Derived from the first segment of the session key.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_type = 20 [json_name = "personType"];</code>
+     * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @return The bytes for personType.
      */
     public com.google.protobuf.ByteString
@@ -3919,11 +3927,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Entity type of the session owner (e.g., "manager", "user").
-     * Derived from the first segment of the session key.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_type = 20 [json_name = "personType"];</code>
+     * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @param value The personType to set.
      * @return This builder for chaining.
      */
@@ -3940,11 +3948,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Entity type of the session owner (e.g., "manager", "user").
-     * Derived from the first segment of the session key.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_type = 20 [json_name = "personType"];</code>
+     * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPersonType() {
@@ -3956,11 +3964,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Entity type of the session owner (e.g., "manager", "user").
-     * Derived from the first segment of the session key.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_type = 20 [json_name = "personType"];</code>
+     * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for personType to set.
      * @return This builder for chaining.
      */
@@ -3980,11 +3988,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Entity ID of the session owner.
-     * Derived from the second segment of the session key.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_id = 21 [json_name = "personId"];</code>
+     * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>
      * @return The personId.
      */
     public java.lang.String getPersonId() {
@@ -4002,11 +4010,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Entity ID of the session owner.
-     * Derived from the second segment of the session key.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_id = 21 [json_name = "personId"];</code>
+     * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for personId.
      */
     public com.google.protobuf.ByteString
@@ -4025,11 +4033,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Entity ID of the session owner.
-     * Derived from the second segment of the session key.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_id = 21 [json_name = "personId"];</code>
+     * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>
      * @param value The personId to set.
      * @return This builder for chaining.
      */
@@ -4046,11 +4054,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Entity ID of the session owner.
-     * Derived from the second segment of the session key.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_id = 21 [json_name = "personId"];</code>
+     * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPersonId() {
@@ -4062,11 +4070,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Entity ID of the session owner.
-     * Derived from the second segment of the session key.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_id = 21 [json_name = "personId"];</code>
+     * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for personId to set.
      * @return This builder for chaining.
      */

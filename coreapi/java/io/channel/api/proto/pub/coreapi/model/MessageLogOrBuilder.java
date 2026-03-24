@@ -10,20 +10,20 @@ public interface MessageLogOrBuilder extends
   /**
    * <pre>
    * Type of action that was recorded.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action"];</code>
+   * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
    * @return The enum numeric value on the wire for action.
    */
   int getActionValue();
   /**
    * <pre>
    * Type of action that was recorded.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action"];</code>
+   * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
    * @return The action.
    */
   io.channel.api.proto.pub.coreapi.model.MessageLog.MessageLogAction getAction();

@@ -32,9 +32,7 @@ private static final long serialVersionUID = 0L;
     mediumTopicBuildLabels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     appSegments_ = java.util.Collections.emptyList();
     goalEventName_ = "";
-    goalEventDuration_ = "";
     localStartAt_ = "";
-    userChatExpireDuration_ = "";
   }
 
   @java.lang.Override
@@ -172,7 +170,7 @@ private static final long serialVersionUID = 0L;
                   ConversionWindowsDefaultEntryHolder.defaultEntry);
               mutable_bitField0_ |= 0x00000004;
             }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Duration>
             conversionWindows__ = input.readMessage(
                 ConversionWindowsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
             conversionWindows_.getMutableMap().put(
@@ -199,9 +197,16 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 138: {
-            java.lang.String s = input.readStringRequireUtf8();
+            com.google.protobuf.Duration.Builder subBuilder = null;
+            if (goalEventDuration_ != null) {
+              subBuilder = goalEventDuration_.toBuilder();
+            }
+            goalEventDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(goalEventDuration_);
+              goalEventDuration_ = subBuilder.buildPartial();
+            }
 
-            goalEventDuration_ = s;
             break;
           }
           case 144: {
@@ -298,9 +303,16 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 242: {
-            java.lang.String s = input.readStringRequireUtf8();
+            com.google.protobuf.Duration.Builder subBuilder = null;
+            if (userChatExpireDuration_ != null) {
+              subBuilder = userChatExpireDuration_.toBuilder();
+            }
+            userChatExpireDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(userChatExpireDuration_);
+              userChatExpireDuration_ = subBuilder.buildPartial();
+            }
 
-            userChatExpireDuration_ = s;
             break;
           }
           default: {
@@ -951,18 +963,18 @@ private static final long serialVersionUID = 0L;
   public static final int CONVERSION_WINDOWS_FIELD_NUMBER = 14;
   private static final class ConversionWindowsDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
-        java.lang.String, java.lang.String> defaultEntry =
+        java.lang.String, com.google.protobuf.Duration> defaultEntry =
             com.google.protobuf.MapEntry
-            .<java.lang.String, java.lang.String>newDefaultInstance(
+            .<java.lang.String, com.google.protobuf.Duration>newDefaultInstance(
                 io.channel.api.proto.pub.coreapi.model.OneTimeMsgOuterClass.internal_static_coreapi_model_OneTimeMsg_ConversionWindowsEntry_descriptor, 
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
-                com.google.protobuf.WireFormat.FieldType.STRING,
-                "");
+                com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                com.google.protobuf.Duration.getDefaultInstance());
   }
   private com.google.protobuf.MapField<
-      java.lang.String, java.lang.String> conversionWindows_;
-  private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      java.lang.String, com.google.protobuf.Duration> conversionWindows_;
+  private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Duration>
   internalGetConversionWindows() {
     if (conversionWindows_ == null) {
       return com.google.protobuf.MapField.emptyMapField(
@@ -981,7 +993,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
    */
 
   @java.lang.Override
@@ -995,7 +1007,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   @java.lang.Deprecated
-  public java.util.Map<java.lang.String, java.lang.String> getConversionWindows() {
+  public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindows() {
     return getConversionWindowsMap();
   }
   /**
@@ -1005,11 +1017,11 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
    */
   @java.lang.Override
 
-  public java.util.Map<java.lang.String, java.lang.String> getConversionWindowsMap() {
+  public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindowsMap() {
     return internalGetConversionWindows().getMap();
   }
   /**
@@ -1019,15 +1031,15 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
    */
   @java.lang.Override
 
-  public java.lang.String getConversionWindowsOrDefault(
+  public com.google.protobuf.Duration getConversionWindowsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      com.google.protobuf.Duration defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
-    java.util.Map<java.lang.String, java.lang.String> map =
+    java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
         internalGetConversionWindows().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
@@ -1038,14 +1050,14 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
    */
   @java.lang.Override
 
-  public java.lang.String getConversionWindowsOrThrow(
+  public com.google.protobuf.Duration getConversionWindowsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
-    java.util.Map<java.lang.String, java.lang.String> map =
+    java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
         internalGetConversionWindows().getMap();
     if (!map.containsKey(key)) {
       throw new java.lang.IllegalArgumentException();
@@ -1146,7 +1158,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GOAL_EVENT_DURATION_FIELD_NUMBER = 17;
-  private volatile java.lang.Object goalEventDuration_;
+  private com.google.protobuf.Duration goalEventDuration_;
   /**
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
@@ -1155,21 +1167,12 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
-   * @return The goalEventDuration.
+   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+   * @return Whether the goalEventDuration field is set.
    */
   @java.lang.Override
-  public java.lang.String getGoalEventDuration() {
-    java.lang.Object ref = goalEventDuration_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      goalEventDuration_ = s;
-      return s;
-    }
+  public boolean hasGoalEventDuration() {
+    return goalEventDuration_ != null;
   }
   /**
    * <pre>
@@ -1179,22 +1182,26 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
-   * @return The bytes for goalEventDuration.
+   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+   * @return The goalEventDuration.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getGoalEventDurationBytes() {
-    java.lang.Object ref = goalEventDuration_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      goalEventDuration_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.google.protobuf.Duration getGoalEventDuration() {
+    return goalEventDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : goalEventDuration_;
+  }
+  /**
+   * <pre>
+   * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+   * Between 1 and 30 days. Defaults to 7 days.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.DurationOrBuilder getGoalEventDurationOrBuilder() {
+    return getGoalEventDuration();
   }
 
   public static final int ADVERTISING_FIELD_NUMBER = 18;
@@ -1530,7 +1537,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_CHAT_EXPIRE_DURATION_FIELD_NUMBER = 30;
-  private volatile java.lang.Object userChatExpireDuration_;
+  private com.google.protobuf.Duration userChatExpireDuration_;
   /**
    * <pre>
    * Duration before the user chat created by this message expires, in ISO 8601 format.
@@ -1539,21 +1546,12 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
-   * @return The userChatExpireDuration.
+   * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
+   * @return Whether the userChatExpireDuration field is set.
    */
   @java.lang.Override
-  public java.lang.String getUserChatExpireDuration() {
-    java.lang.Object ref = userChatExpireDuration_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      userChatExpireDuration_ = s;
-      return s;
-    }
+  public boolean hasUserChatExpireDuration() {
+    return userChatExpireDuration_ != null;
   }
   /**
    * <pre>
@@ -1563,22 +1561,26 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
-   * @return The bytes for userChatExpireDuration.
+   * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
+   * @return The userChatExpireDuration.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getUserChatExpireDurationBytes() {
-    java.lang.Object ref = userChatExpireDuration_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      userChatExpireDuration_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.google.protobuf.Duration getUserChatExpireDuration() {
+    return userChatExpireDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : userChatExpireDuration_;
+  }
+  /**
+   * <pre>
+   * Duration before the user chat created by this message expires, in ISO 8601 format.
+   * Defaults to 31 days.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.DurationOrBuilder getUserChatExpireDurationOrBuilder() {
+    return getUserChatExpireDuration();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1646,8 +1648,8 @@ private static final long serialVersionUID = 0L;
     if (goalEventQuery_ != null) {
       output.writeMessage(16, getGoalEventQuery());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(goalEventDuration_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 17, goalEventDuration_);
+    if (goalEventDuration_ != null) {
+      output.writeMessage(17, getGoalEventDuration());
     }
     if (advertising_ != false) {
       output.writeBool(18, advertising_);
@@ -1685,8 +1687,8 @@ private static final long serialVersionUID = 0L;
     if (click_ != 0) {
       output.writeInt32(29, click_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userChatExpireDuration_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 30, userChatExpireDuration_);
+    if (userChatExpireDuration_ != null) {
+      output.writeMessage(30, getUserChatExpireDuration());
     }
     unknownFields.writeTo(output);
   }
@@ -1747,9 +1749,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, appSegments_.get(i));
     }
-    for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+    for (java.util.Map.Entry<java.lang.String, com.google.protobuf.Duration> entry
          : internalGetConversionWindows().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+      com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Duration>
       conversionWindows__ = ConversionWindowsDefaultEntryHolder.defaultEntry.newBuilderForType()
           .setKey(entry.getKey())
           .setValue(entry.getValue())
@@ -1764,8 +1766,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(16, getGoalEventQuery());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(goalEventDuration_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, goalEventDuration_);
+    if (goalEventDuration_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(17, getGoalEventDuration());
     }
     if (advertising_ != false) {
       size += com.google.protobuf.CodedOutputStream
@@ -1814,8 +1817,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(29, click_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userChatExpireDuration_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(30, userChatExpireDuration_);
+    if (userChatExpireDuration_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(30, getUserChatExpireDuration());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -1870,8 +1874,11 @@ private static final long serialVersionUID = 0L;
       if (!getGoalEventQuery()
           .equals(other.getGoalEventQuery())) return false;
     }
-    if (!getGoalEventDuration()
-        .equals(other.getGoalEventDuration())) return false;
+    if (hasGoalEventDuration() != other.hasGoalEventDuration()) return false;
+    if (hasGoalEventDuration()) {
+      if (!getGoalEventDuration()
+          .equals(other.getGoalEventDuration())) return false;
+    }
     if (getAdvertising()
         != other.getAdvertising()) return false;
     if (getSendToOfflineXms()
@@ -1908,8 +1915,11 @@ private static final long serialVersionUID = 0L;
         != other.getGoal()) return false;
     if (getClick()
         != other.getClick()) return false;
-    if (!getUserChatExpireDuration()
-        .equals(other.getUserChatExpireDuration())) return false;
+    if (hasUserChatExpireDuration() != other.hasUserChatExpireDuration()) return false;
+    if (hasUserChatExpireDuration()) {
+      if (!getUserChatExpireDuration()
+          .equals(other.getUserChatExpireDuration())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1965,8 +1975,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + GOAL_EVENT_QUERY_FIELD_NUMBER;
       hash = (53 * hash) + getGoalEventQuery().hashCode();
     }
-    hash = (37 * hash) + GOAL_EVENT_DURATION_FIELD_NUMBER;
-    hash = (53 * hash) + getGoalEventDuration().hashCode();
+    if (hasGoalEventDuration()) {
+      hash = (37 * hash) + GOAL_EVENT_DURATION_FIELD_NUMBER;
+      hash = (53 * hash) + getGoalEventDuration().hashCode();
+    }
     hash = (37 * hash) + ADVERTISING_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getAdvertising());
@@ -2002,8 +2014,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getGoal();
     hash = (37 * hash) + CLICK_FIELD_NUMBER;
     hash = (53 * hash) + getClick();
-    hash = (37 * hash) + USER_CHAT_EXPIRE_DURATION_FIELD_NUMBER;
-    hash = (53 * hash) + getUserChatExpireDuration().hashCode();
+    if (hasUserChatExpireDuration()) {
+      hash = (37 * hash) + USER_CHAT_EXPIRE_DURATION_FIELD_NUMBER;
+      hash = (53 * hash) + getUserChatExpireDuration().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -2211,8 +2225,12 @@ private static final long serialVersionUID = 0L;
         goalEventQuery_ = null;
         goalEventQueryBuilder_ = null;
       }
-      goalEventDuration_ = "";
-
+      if (goalEventDurationBuilder_ == null) {
+        goalEventDuration_ = null;
+      } else {
+        goalEventDuration_ = null;
+        goalEventDurationBuilder_ = null;
+      }
       advertising_ = false;
 
       sendToOfflineXms_ = false;
@@ -2253,8 +2271,12 @@ private static final long serialVersionUID = 0L;
 
       click_ = 0;
 
-      userChatExpireDuration_ = "";
-
+      if (userChatExpireDurationBuilder_ == null) {
+        userChatExpireDuration_ = null;
+      } else {
+        userChatExpireDuration_ = null;
+        userChatExpireDurationBuilder_ = null;
+      }
       return this;
     }
 
@@ -2323,7 +2345,11 @@ private static final long serialVersionUID = 0L;
       } else {
         result.goalEventQuery_ = goalEventQueryBuilder_.build();
       }
-      result.goalEventDuration_ = goalEventDuration_;
+      if (goalEventDurationBuilder_ == null) {
+        result.goalEventDuration_ = goalEventDuration_;
+      } else {
+        result.goalEventDuration_ = goalEventDurationBuilder_.build();
+      }
       result.advertising_ = advertising_;
       result.sendToOfflineXms_ = sendToOfflineXms_;
       result.sendToOfflineEmail_ = sendToOfflineEmail_;
@@ -2352,7 +2378,11 @@ private static final long serialVersionUID = 0L;
       result.view_ = view_;
       result.goal_ = goal_;
       result.click_ = click_;
-      result.userChatExpireDuration_ = userChatExpireDuration_;
+      if (userChatExpireDurationBuilder_ == null) {
+        result.userChatExpireDuration_ = userChatExpireDuration_;
+      } else {
+        result.userChatExpireDuration_ = userChatExpireDurationBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -2485,9 +2515,8 @@ private static final long serialVersionUID = 0L;
       if (other.hasGoalEventQuery()) {
         mergeGoalEventQuery(other.getGoalEventQuery());
       }
-      if (!other.getGoalEventDuration().isEmpty()) {
-        goalEventDuration_ = other.goalEventDuration_;
-        onChanged();
+      if (other.hasGoalEventDuration()) {
+        mergeGoalEventDuration(other.getGoalEventDuration());
       }
       if (other.getAdvertising() != false) {
         setAdvertising(other.getAdvertising());
@@ -2526,9 +2555,8 @@ private static final long serialVersionUID = 0L;
       if (other.getClick() != 0) {
         setClick(other.getClick());
       }
-      if (!other.getUserChatExpireDuration().isEmpty()) {
-        userChatExpireDuration_ = other.userChatExpireDuration_;
-        onChanged();
+      if (other.hasUserChatExpireDuration()) {
+        mergeUserChatExpireDuration(other.getUserChatExpireDuration());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -4265,8 +4293,8 @@ private static final long serialVersionUID = 0L;
     }
 
     private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> conversionWindows_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        java.lang.String, com.google.protobuf.Duration> conversionWindows_;
+    private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Duration>
     internalGetConversionWindows() {
       if (conversionWindows_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -4274,7 +4302,7 @@ private static final long serialVersionUID = 0L;
       }
       return conversionWindows_;
     }
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Duration>
     internalGetMutableConversionWindows() {
       onChanged();;
       if (conversionWindows_ == null) {
@@ -4297,7 +4325,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
      */
 
     @java.lang.Override
@@ -4311,7 +4339,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getConversionWindows() {
+    public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindows() {
       return getConversionWindowsMap();
     }
     /**
@@ -4321,11 +4349,11 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
      */
     @java.lang.Override
 
-    public java.util.Map<java.lang.String, java.lang.String> getConversionWindowsMap() {
+    public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindowsMap() {
       return internalGetConversionWindows().getMap();
     }
     /**
@@ -4335,15 +4363,15 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
      */
     @java.lang.Override
 
-    public java.lang.String getConversionWindowsOrDefault(
+    public com.google.protobuf.Duration getConversionWindowsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        com.google.protobuf.Duration defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, java.lang.String> map =
+      java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
           internalGetConversionWindows().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
@@ -4354,14 +4382,14 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
      */
     @java.lang.Override
 
-    public java.lang.String getConversionWindowsOrThrow(
+    public com.google.protobuf.Duration getConversionWindowsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, java.lang.String> map =
+      java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
           internalGetConversionWindows().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
@@ -4381,7 +4409,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
      */
 
     public Builder removeConversionWindows(
@@ -4395,7 +4423,7 @@ private static final long serialVersionUID = 0L;
      * Use alternate mutation accessors instead.
      */
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String>
+    public java.util.Map<java.lang.String, com.google.protobuf.Duration>
     getMutableConversionWindows() {
       return internalGetMutableConversionWindows().getMutableMap();
     }
@@ -4406,11 +4434,11 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
      */
     public Builder putConversionWindows(
         java.lang.String key,
-        java.lang.String value) {
+        com.google.protobuf.Duration value) {
       if (key == null) { throw new NullPointerException("map key"); }
       if (value == null) {
   throw new NullPointerException("map value");
@@ -4427,11 +4455,11 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>map&lt;string, string&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
+     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
      */
 
     public Builder putAllConversionWindows(
-        java.util.Map<java.lang.String, java.lang.String> values) {
+        java.util.Map<java.lang.String, com.google.protobuf.Duration> values) {
       internalGetMutableConversionWindows().getMutableMap()
           .putAll(values);
       return this;
@@ -4711,7 +4739,9 @@ private static final long serialVersionUID = 0L;
       return goalEventQueryBuilder_;
     }
 
-    private java.lang.Object goalEventDuration_ = "";
+    private com.google.protobuf.Duration goalEventDuration_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> goalEventDurationBuilder_;
     /**
      * <pre>
      * Time window for attributing goal events after delivery, in ISO 8601 duration format.
@@ -4720,19 +4750,28 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>string goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+     * @return Whether the goalEventDuration field is set.
+     */
+    public boolean hasGoalEventDuration() {
+      return goalEventDurationBuilder_ != null || goalEventDuration_ != null;
+    }
+    /**
+     * <pre>
+     * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+     * Between 1 and 30 days. Defaults to 7 days.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
      * @return The goalEventDuration.
      */
-    public java.lang.String getGoalEventDuration() {
-      java.lang.Object ref = goalEventDuration_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        goalEventDuration_ = s;
-        return s;
+    public com.google.protobuf.Duration getGoalEventDuration() {
+      if (goalEventDurationBuilder_ == null) {
+        return goalEventDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : goalEventDuration_;
       } else {
-        return (java.lang.String) ref;
+        return goalEventDurationBuilder_.getMessage();
       }
     }
     /**
@@ -4743,21 +4782,20 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>string goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
-     * @return The bytes for goalEventDuration.
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
      */
-    public com.google.protobuf.ByteString
-        getGoalEventDurationBytes() {
-      java.lang.Object ref = goalEventDuration_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        goalEventDuration_ = b;
-        return b;
+    public Builder setGoalEventDuration(com.google.protobuf.Duration value) {
+      if (goalEventDurationBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        goalEventDuration_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        goalEventDurationBuilder_.setMessage(value);
       }
+
+      return this;
     }
     /**
      * <pre>
@@ -4767,18 +4805,17 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>string goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
-     * @param value The goalEventDuration to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
      */
     public Builder setGoalEventDuration(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      goalEventDuration_ = value;
-      onChanged();
+        com.google.protobuf.Duration.Builder builderForValue) {
+      if (goalEventDurationBuilder_ == null) {
+        goalEventDuration_ = builderForValue.build();
+        onChanged();
+      } else {
+        goalEventDurationBuilder_.setMessage(builderForValue.build());
+      }
+
       return this;
     }
     /**
@@ -4789,13 +4826,42 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>string goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
-     * @return This builder for chaining.
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+     */
+    public Builder mergeGoalEventDuration(com.google.protobuf.Duration value) {
+      if (goalEventDurationBuilder_ == null) {
+        if (goalEventDuration_ != null) {
+          goalEventDuration_ =
+            com.google.protobuf.Duration.newBuilder(goalEventDuration_).mergeFrom(value).buildPartial();
+        } else {
+          goalEventDuration_ = value;
+        }
+        onChanged();
+      } else {
+        goalEventDurationBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+     * Between 1 and 30 days. Defaults to 7 days.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
      */
     public Builder clearGoalEventDuration() {
-      
-      goalEventDuration_ = getDefaultInstance().getGoalEventDuration();
-      onChanged();
+      if (goalEventDurationBuilder_ == null) {
+        goalEventDuration_ = null;
+        onChanged();
+      } else {
+        goalEventDuration_ = null;
+        goalEventDurationBuilder_ = null;
+      }
+
       return this;
     }
     /**
@@ -4806,20 +4872,53 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>string goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
-     * @param value The bytes for goalEventDuration to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
      */
-    public Builder setGoalEventDurationBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public com.google.protobuf.Duration.Builder getGoalEventDurationBuilder() {
       
-      goalEventDuration_ = value;
       onChanged();
-      return this;
+      return getGoalEventDurationFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+     * Between 1 and 30 days. Defaults to 7 days.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+     */
+    public com.google.protobuf.DurationOrBuilder getGoalEventDurationOrBuilder() {
+      if (goalEventDurationBuilder_ != null) {
+        return goalEventDurationBuilder_.getMessageOrBuilder();
+      } else {
+        return goalEventDuration_ == null ?
+            com.google.protobuf.Duration.getDefaultInstance() : goalEventDuration_;
+      }
+    }
+    /**
+     * <pre>
+     * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+     * Between 1 and 30 days. Defaults to 7 days.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+        getGoalEventDurationFieldBuilder() {
+      if (goalEventDurationBuilder_ == null) {
+        goalEventDurationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                getGoalEventDuration(),
+                getParentForChildren(),
+                isClean());
+        goalEventDuration_ = null;
+      }
+      return goalEventDurationBuilder_;
     }
 
     private boolean advertising_ ;
@@ -5924,7 +6023,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object userChatExpireDuration_ = "";
+    private com.google.protobuf.Duration userChatExpireDuration_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> userChatExpireDurationBuilder_;
     /**
      * <pre>
      * Duration before the user chat created by this message expires, in ISO 8601 format.
@@ -5933,19 +6034,28 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>string user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
+     * @return Whether the userChatExpireDuration field is set.
+     */
+    public boolean hasUserChatExpireDuration() {
+      return userChatExpireDurationBuilder_ != null || userChatExpireDuration_ != null;
+    }
+    /**
+     * <pre>
+     * Duration before the user chat created by this message expires, in ISO 8601 format.
+     * Defaults to 31 days.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
      * @return The userChatExpireDuration.
      */
-    public java.lang.String getUserChatExpireDuration() {
-      java.lang.Object ref = userChatExpireDuration_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        userChatExpireDuration_ = s;
-        return s;
+    public com.google.protobuf.Duration getUserChatExpireDuration() {
+      if (userChatExpireDurationBuilder_ == null) {
+        return userChatExpireDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : userChatExpireDuration_;
       } else {
-        return (java.lang.String) ref;
+        return userChatExpireDurationBuilder_.getMessage();
       }
     }
     /**
@@ -5956,21 +6066,20 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>string user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
-     * @return The bytes for userChatExpireDuration.
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
      */
-    public com.google.protobuf.ByteString
-        getUserChatExpireDurationBytes() {
-      java.lang.Object ref = userChatExpireDuration_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        userChatExpireDuration_ = b;
-        return b;
+    public Builder setUserChatExpireDuration(com.google.protobuf.Duration value) {
+      if (userChatExpireDurationBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        userChatExpireDuration_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        userChatExpireDurationBuilder_.setMessage(value);
       }
+
+      return this;
     }
     /**
      * <pre>
@@ -5980,18 +6089,17 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>string user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
-     * @param value The userChatExpireDuration to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
      */
     public Builder setUserChatExpireDuration(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      userChatExpireDuration_ = value;
-      onChanged();
+        com.google.protobuf.Duration.Builder builderForValue) {
+      if (userChatExpireDurationBuilder_ == null) {
+        userChatExpireDuration_ = builderForValue.build();
+        onChanged();
+      } else {
+        userChatExpireDurationBuilder_.setMessage(builderForValue.build());
+      }
+
       return this;
     }
     /**
@@ -6002,13 +6110,42 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>string user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
-     * @return This builder for chaining.
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
+     */
+    public Builder mergeUserChatExpireDuration(com.google.protobuf.Duration value) {
+      if (userChatExpireDurationBuilder_ == null) {
+        if (userChatExpireDuration_ != null) {
+          userChatExpireDuration_ =
+            com.google.protobuf.Duration.newBuilder(userChatExpireDuration_).mergeFrom(value).buildPartial();
+        } else {
+          userChatExpireDuration_ = value;
+        }
+        onChanged();
+      } else {
+        userChatExpireDurationBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Duration before the user chat created by this message expires, in ISO 8601 format.
+     * Defaults to 31 days.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
      */
     public Builder clearUserChatExpireDuration() {
-      
-      userChatExpireDuration_ = getDefaultInstance().getUserChatExpireDuration();
-      onChanged();
+      if (userChatExpireDurationBuilder_ == null) {
+        userChatExpireDuration_ = null;
+        onChanged();
+      } else {
+        userChatExpireDuration_ = null;
+        userChatExpireDurationBuilder_ = null;
+      }
+
       return this;
     }
     /**
@@ -6019,20 +6156,53 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>string user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
-     * @param value The bytes for userChatExpireDuration to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
      */
-    public Builder setUserChatExpireDurationBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public com.google.protobuf.Duration.Builder getUserChatExpireDurationBuilder() {
       
-      userChatExpireDuration_ = value;
       onChanged();
-      return this;
+      return getUserChatExpireDurationFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Duration before the user chat created by this message expires, in ISO 8601 format.
+     * Defaults to 31 days.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
+     */
+    public com.google.protobuf.DurationOrBuilder getUserChatExpireDurationOrBuilder() {
+      if (userChatExpireDurationBuilder_ != null) {
+        return userChatExpireDurationBuilder_.getMessageOrBuilder();
+      } else {
+        return userChatExpireDuration_ == null ?
+            com.google.protobuf.Duration.getDefaultInstance() : userChatExpireDuration_;
+      }
+    }
+    /**
+     * <pre>
+     * Duration before the user chat created by this message expires, in ISO 8601 format.
+     * Defaults to 31 days.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+        getUserChatExpireDurationFieldBuilder() {
+      if (userChatExpireDurationBuilder_ == null) {
+        userChatExpireDurationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                getUserChatExpireDuration(),
+                getParentForChildren(),
+                isClean());
+        userChatExpireDuration_ = null;
+      }
+      return userChatExpireDurationBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -6356,7 +6526,7 @@ private static final long serialVersionUID = 0L;
      * @param map The map to put.
      * @return This builder for chaining.
      */
-    public Builder putAllOrClearConversionWindows(java.util.Map<java.lang.String, java.lang.String> map) {
+    public Builder putAllOrClearConversionWindows(java.util.Map<java.lang.String, com.google.protobuf.Duration> map) {
     	if (map == null)
     		return clearConversionWindows();
     	else
@@ -6413,7 +6583,7 @@ private static final long serialVersionUID = 0L;
      * @param value The goal_event_duration to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearGoalEventDuration(java.lang.String value) {
+    public Builder setOrClearGoalEventDuration(com.google.protobuf.Duration value) {
     	if (value == null)
     		return clearGoalEventDuration();
     	else
@@ -6425,7 +6595,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearGoalEventDuration(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearGoalEventDuration(T value, java.util.function.Function<T, com.google.protobuf.Duration> mapFunc) {
     	if (value == null)
     		return clearGoalEventDuration();
     	else
@@ -6712,7 +6882,7 @@ private static final long serialVersionUID = 0L;
      * @param value The user_chat_expire_duration to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearUserChatExpireDuration(java.lang.String value) {
+    public Builder setOrClearUserChatExpireDuration(com.google.protobuf.Duration value) {
     	if (value == null)
     		return clearUserChatExpireDuration();
     	else
@@ -6724,7 +6894,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearUserChatExpireDuration(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearUserChatExpireDuration(T value, java.util.function.Function<T, com.google.protobuf.Duration> mapFunc) {
     	if (value == null)
     		return clearUserChatExpireDuration();
     	else

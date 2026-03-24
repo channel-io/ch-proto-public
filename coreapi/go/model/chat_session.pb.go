@@ -45,19 +45,23 @@ type ChatSession struct {
 	// Composite key identifying the conversation.
 	// Format: "{chatType}-{chatId}".
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	ChatKey string `protobuf:"bytes,4,opt,name=chat_key,json=chatKey,proto3" json:"chat_key,omitempty"`
 	// Opaque sort key for ordering sessions by last activity.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	UpdatedKey string `protobuf:"bytes,5,opt,name=updated_key,json=updatedKey,proto3" json:"updated_key,omitempty"`
 	// Opaque sort key for filtering and ordering sessions with unread messages.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	UnreadKey string `protobuf:"bytes,6,opt,name=unread_key,json=unreadKey,proto3" json:"unread_key,omitempty"`
 	// Channel ID this session belongs to.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,7,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Number of unread messages with alert-level notification priority.
 	// Defaults to 0.
@@ -65,7 +69,6 @@ type ChatSession struct {
 	// +kubebuilder:validation:Nullable
 	Alert int32 `protobuf:"varint,8,opt,name=alert,proto3" json:"alert,omitempty"`
 	// Total number of unread messages in this session.
-	// Includes both alert-level and regular unread messages.
 	// Defaults to 0.
 	//
 	// +kubebuilder:validation:Nullable
@@ -80,7 +83,6 @@ type ChatSession struct {
 	// +kubebuilder:validation:Nullable
 	AllMentionImportant bool `protobuf:"varint,11,opt,name=all_mention_important,json=allMentionImportant,proto3" json:"all_mention_important,omitempty"`
 	// Timestamp when the person last read messages in this session.
-	// Messages created after this timestamp are considered unread.
 	//
 	// +kubebuilder:validation:Nullable
 	ReadAt *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=read_at,json=readAt,proto3" json:"read_at,omitempty"`
@@ -88,43 +90,42 @@ type ChatSession struct {
 	//
 	// +kubebuilder:validation:Nullable
 	ReceivedAt *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=received_at,json=receivedAt,proto3" json:"received_at,omitempty"`
-	// Timestamp when the last message was posted (sent by any participant) in this conversation.
+	// Timestamp when the last message was posted in this conversation.
 	//
 	// +kubebuilder:validation:Nullable
 	PostedAt *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=posted_at,json=postedAt,proto3" json:"posted_at,omitempty"`
 	// Session last update timestamp.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Session creation timestamp.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Optimistic locking version.
-	// Incremented on every update.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	Version int64 `protobuf:"varint,17,opt,name=version,proto3" json:"version,omitempty"`
 	// Unique session identifier.
 	// Format: "{key}-{chatId}".
-	// Derived from key and chat_id.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,18,opt,name=id,proto3" json:"id,omitempty"`
 	// Chat type of the conversation (e.g., "userChat", "group", "directChat").
-	// Derived from the third segment of the session key.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	ChatType string `protobuf:"bytes,19,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
 	// Entity type of the session owner (e.g., "manager", "user").
-	// Derived from the first segment of the session key.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	PersonType string `protobuf:"bytes,20,opt,name=person_type,json=personType,proto3" json:"person_type,omitempty"`
 	// Entity ID of the session owner.
-	// Derived from the second segment of the session key.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	PersonId      string `protobuf:"bytes,21,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -311,20 +312,24 @@ var File_coreapi_model_chat_session_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_chat_session_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/chat_session.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1bcoreapi/model/manager.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbc\a\n" +
+	" coreapi/model/chat_session.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1bcoreapi/model/manager.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xcc\f\n" +
 	"\vChatSession\x12_\n" +
 	"\x03key\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x03key\x12f\n" +
 	"\achat_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x06chatId\x12/\n" +
-	"\x14team_chat_section_id\x18\x03 \x01(\tR\x11teamChatSectionId\x12\x19\n" +
-	"\bchat_key\x18\x04 \x01(\tR\achatKey\x12\x1f\n" +
-	"\vupdated_key\x18\x05 \x01(\tR\n" +
-	"updatedKey\x12\x1d\n" +
+	"\x14team_chat_section_id\x18\x03 \x01(\tR\x11teamChatSectionId\x12h\n" +
+	"\bchat_key\x18\x04 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\achatKey\x12n\n" +
+	"\vupdated_key\x18\x05 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
+	"updatedKey\x12l\n" +
 	"\n" +
-	"unread_key\x18\x06 \x01(\tR\tunreadKey\x12\x1d\n" +
+	"unread_key\x18\x06 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tunreadKey\x12l\n" +
 	"\n" +
-	"channel_id\x18\a \x01(\tR\tchannelId\x12\x14\n" +
+	"channel_id\x18\a \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\x14\n" +
 	"\x05alert\x18\b \x01(\x05R\x05alert\x12\x16\n" +
 	"\x06unread\x18\t \x01(\x05R\x06unread\x121\n" +
 	"\x05watch\x18\n" +
@@ -333,17 +338,21 @@ const file_coreapi_model_chat_session_proto_rawDesc = "" +
 	"\aread_at\x18\f \x01(\v2\x1a.google.protobuf.TimestampR\x06readAt\x12;\n" +
 	"\vreceived_at\x18\r \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"receivedAt\x127\n" +
-	"\tposted_at\x18\x0e \x01(\v2\x1a.google.protobuf.TimestampR\bpostedAt\x129\n" +
+	"\tposted_at\x18\x0e \x01(\v2\x1a.google.protobuf.TimestampR\bpostedAt\x12A\n" +
 	"\n" +
-	"updated_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x129\n" +
+	"updated_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12A\n" +
 	"\n" +
-	"created_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x12\x18\n" +
-	"\aversion\x18\x11 \x01(\x03R\aversion\x12\x0e\n" +
-	"\x02id\x18\x12 \x01(\tR\x02id\x12\x1b\n" +
-	"\tchat_type\x18\x13 \x01(\tR\bchatType\x12\x1f\n" +
-	"\vperson_type\x18\x14 \x01(\tR\n" +
-	"personType\x12\x1b\n" +
-	"\tperson_id\x18\x15 \x01(\tR\bpersonIdBb\n" +
+	"created_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12 \n" +
+	"\aversion\x18\x11 \x01(\x03B\x06\xbaH\x03\xc8\x01\x01R\aversion\x12]\n" +
+	"\x02id\x18\x12 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12j\n" +
+	"\tchat_type\x18\x13 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bchatType\x12n\n" +
+	"\vperson_type\x18\x14 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
+	"personType\x12j\n" +
+	"\tperson_id\x18\x15 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bpersonIdBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (

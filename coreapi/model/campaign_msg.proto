@@ -3,7 +3,7 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
-import "coreapi/model/campaign.proto";
+import "coreapi/model/medium_type.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 

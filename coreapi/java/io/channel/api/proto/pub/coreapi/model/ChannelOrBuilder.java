@@ -617,10 +617,10 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Current lifecycle state of the channel.
    * See ChannelState for possible values.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The enum numeric value on the wire for state.
    */
   int getStateValue();
@@ -628,10 +628,10 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Current lifecycle state of the channel.
    * See ChannelState for possible values.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state", (.buf.validate.field) = { ... }</code>
    * @return The state.
    */
   io.channel.api.proto.pub.coreapi.model.ChannelState getState();

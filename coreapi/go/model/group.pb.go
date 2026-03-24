@@ -84,11 +84,13 @@ type Group struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique group identifier.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this group belongs to.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Display title of the group.
 	// Unique within the channel (case-insensitive).
@@ -98,7 +100,7 @@ type Group struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=2
 	// +kubebuilder:validation:MaxLength=30
-	// +kubebuilder:validation:Pattern="[\\p{L}\\p{N}\\-_()]+"
+	// +kubebuilder:validation:Pattern="[\p{L}\p{N}\-_()]+"
 	Title string `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
 	// Visibility scope determining who can discover and access the group.
 	//
@@ -113,7 +115,7 @@ type Group struct {
 	// Must not contain whitespace.
 	//
 	// +kubebuilder:validation:Nullable
-	// +kubebuilder:validation:Pattern="\\S+"
+	// +kubebuilder:validation:Pattern="\S+"
 	Icon string `protobuf:"bytes,6,opt,name=icon,proto3" json:"icon,omitempty"`
 	// ID of the active live meet session in this group.
 	//
@@ -126,11 +128,11 @@ type Group struct {
 	Description string `protobuf:"bytes,8,opt,name=description,proto3" json:"description,omitempty"`
 	// Group creation timestamp.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Group last update timestamp.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -240,11 +242,13 @@ var File_coreapi_model_group_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_group_proto_rawDesc = "" +
 	"\n" +
-	"\x19coreapi/model/group.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8c\x05\n" +
-	"\x05Group\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
+	"\x19coreapi/model/group.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xba\x06\n" +
+	"\x05Group\x12]\n" +
+	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tR\tchannelId\x12\xca\x01\n" +
+	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\xca\x01\n" +
 	"\x05title\x18\x03 \x01(\tB\xb3\x01\xbaH\xaf\x01\xba\x01E\n" +
 	"\rstring.minLen\x12#value must be at least 2 characters\x1a\x0fsize(this) >= 2\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01r\x142\x12[\\p{L}\\p{N}\\-_()]+R\x05title\x127\n" +
@@ -256,12 +260,12 @@ const file_coreapi_model_group_proto_rawDesc = "" +
 	"\flive_meet_id\x18\a \x01(\tR\n" +
 	"liveMeetId\x12u\n" +
 	"\vdescription\x18\b \x01(\tBS\xbaHP\xba\x01M\n" +
-	"\rstring.maxLen\x12)value must be no more than 200 characters\x1a\x11size(this) <= 200R\vdescription\x129\n" +
+	"\rstring.maxLen\x12)value must be no more than 200 characters\x1a\x11size(this) <= 200R\vdescription\x12A\n" +
 	"\n" +
-	"created_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
+	"created_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
 	"updated_at\x18\n" +
-	" \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt*o\n" +
+	" \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt*o\n" +
 	"\n" +
 	"GroupScope\x12\x1b\n" +
 	"\x17GROUP_SCOPE_UNSPECIFIED\x10\x00\x12\x13\n" +

@@ -206,8 +206,8 @@ message Channel {
   // Current lifecycle state of the channel.
   // See ChannelState for possible values.
   //
-  // +kubebuilder:validation:Nullable
-  ChannelState state = 26;
+  // +kubebuilder:validation:Required
+  ChannelState state = 26 [(buf.validate.field).required = true];
 
   // Whether the channel is verified as an enterprise account.
   //

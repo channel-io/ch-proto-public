@@ -14,7 +14,7 @@ public interface NameDescOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
+   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
    * </pre>
    *
    * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -28,7 +28,7 @@ public interface NameDescOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
+   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
    * </pre>
    *
    * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>

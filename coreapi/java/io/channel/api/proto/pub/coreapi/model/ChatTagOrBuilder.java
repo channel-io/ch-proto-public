@@ -10,20 +10,22 @@ public interface ChatTagOrBuilder extends
   /**
    * <pre>
    * Unique chat tag identifier.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The id.
    */
   java.lang.String getId();
   /**
    * <pre>
    * Unique chat tag identifier.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
@@ -32,20 +34,22 @@ public interface ChatTagOrBuilder extends
   /**
    * <pre>
    * Channel ID this chat tag belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
   /**
    * <pre>
    * Channel ID this chat tag belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId"];</code>
+   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   com.google.protobuf.ByteString
@@ -53,7 +57,7 @@ public interface ChatTagOrBuilder extends
 
   /**
    * <pre>
-   * Color used for visual display of this tag in the Desk UI.
+   * Color theme of the chat tag.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -63,7 +67,7 @@ public interface ChatTagOrBuilder extends
   int getColorVariantValue();
   /**
    * <pre>
-   * Color used for visual display of this tag in the Desk UI.
+   * Color theme of the chat tag.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -74,9 +78,11 @@ public interface ChatTagOrBuilder extends
 
   /**
    * <pre>
-   * Human-readable display name of the chat tag.
-   * Cannot be changed after creation.
+   * Display name of the chat tag.
+   * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
    * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:MaxLength=128
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -85,9 +91,11 @@ public interface ChatTagOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Human-readable display name of the chat tag.
-   * Cannot be changed after creation.
+   * Display name of the chat tag.
+   * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
    * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:MaxLength=128
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -98,10 +106,10 @@ public interface ChatTagOrBuilder extends
 
   /**
    * <pre>
-   * Lowercase key automatically derived from the tag name.
+   * Lowercase representation of name.
    * Unique within the channel (case-insensitive).
-   * Cannot be changed after creation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -110,10 +118,10 @@ public interface ChatTagOrBuilder extends
   java.lang.String getKey();
   /**
    * <pre>
-   * Lowercase key automatically derived from the tag name.
+   * Lowercase representation of name.
    * Unique within the channel (case-insensitive).
-   * Cannot be changed after creation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -124,7 +132,7 @@ public interface ChatTagOrBuilder extends
 
   /**
    * <pre>
-   * Free-text description explaining when or how to use this tag.
+   * Short description of the chat tag.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=128
    * </pre>
@@ -135,7 +143,7 @@ public interface ChatTagOrBuilder extends
   java.lang.String getDescription();
   /**
    * <pre>
-   * Free-text description explaining when or how to use this tag.
+   * Short description of the chat tag.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=128
    * </pre>
@@ -149,30 +157,30 @@ public interface ChatTagOrBuilder extends
   /**
    * <pre>
    * Chat tag creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
   /**
    * <pre>
    * Chat tag creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
   /**
    * <pre>
    * Chat tag creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 }

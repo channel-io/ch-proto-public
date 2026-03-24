@@ -23,7 +23,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Interaction state used to filter and sort campaign user records.
+// Filter state for querying campaign user delivery results.
 type CampaignUserState int32
 
 const (
@@ -119,7 +119,7 @@ type CampaignUser struct {
 	// Cumulative revenue attributed to this user from the campaign.
 	//
 	// +kubebuilder:validation:Nullable
-	Revenue float64 `protobuf:"fixed64,9,opt,name=revenue,proto3" json:"revenue,omitempty"`
+	Revenue string `protobuf:"bytes,9,opt,name=revenue,proto3" json:"revenue,omitempty"`
 	// Composite identifier in the format "{campaign_id}-{user_id}".
 	//
 	// +kubebuilder:validation:Required
@@ -215,11 +215,11 @@ func (x *CampaignUser) GetGoal() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *CampaignUser) GetRevenue() float64 {
+func (x *CampaignUser) GetRevenue() string {
 	if x != nil {
 		return x.Revenue
 	}
-	return 0
+	return ""
 }
 
 func (x *CampaignUser) GetId() string {
@@ -247,7 +247,7 @@ const file_coreapi_model_campaign_user_proto_rawDesc = "" +
 	"\x04view\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x04view\x120\n" +
 	"\x05click\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\x05click\x12.\n" +
 	"\x04goal\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\x04goal\x12\x18\n" +
-	"\arevenue\x18\t \x01(\x01R\arevenue\x12]\n" +
+	"\arevenue\x18\t \x01(\tR\arevenue\x12]\n" +
 	"\x02id\x18\n" +
 	" \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id*\xb1\x01\n" +

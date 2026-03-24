@@ -23,7 +23,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Event scope that triggers a webhook delivery.
+// Webhook event scope determining which events trigger the webhook.
 type WebhookScope int32
 
 const (
@@ -94,54 +94,54 @@ func (WebhookScope) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_webhook_proto_rawDescGZIP(), []int{0}
 }
 
-// Webhook represents an HTTP callback endpoint that receives
-// real-time event notifications from the channel.
+// Webhook represents a channel's webhook endpoint configuration.
 type Webhook struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique webhook identifier.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this webhook belongs to.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Display name of the webhook.
+	// Webhook display name.
 	// Unique within the channel.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	// Destination URL where event payloads are delivered via HTTP POST.
+	// Destination URL that receives webhook payloads.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	Url string `protobuf:"bytes,4,opt,name=url,proto3" json:"url,omitempty"`
-	// Secret token for verifying webhook payload signatures.
-	// Automatically generated on creation.
+	// Auto-generated HMAC token for verifying webhook payloads.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
 	Token string `protobuf:"bytes,5,opt,name=token,proto3" json:"token,omitempty"`
 	// Webhook creation timestamp.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Event scopes that trigger this webhook.
-	// Only events matching at least one of these scopes will be delivered.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinItems=1
 	Scopes []WebhookScope `protobuf:"varint,7,rep,packed,name=scopes,proto3,enum=coreapi.model.WebhookScope" json:"scopes,omitempty"`
-	// API version that determines the webhook payload format ("v4" or "v5").
+	// API version for webhook payloads.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:Enum={"v4","v5"}
 	ApiVersion string `protobuf:"bytes,8,opt,name=api_version,json=apiVersion,proto3" json:"api_version,omitempty"`
-	// Timestamp when the webhook was last blocked due to consecutive
-	// delivery failures.
+	// Timestamp when the webhook was last blocked due to consecutive failures.
 	//
 	// +kubebuilder:validation:Nullable
 	LastBlockedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=last_blocked_at,json=lastBlockedAt,proto3" json:"last_blocked_at,omitempty"`
-	// Whether the webhook is currently blocked.
-	// A webhook becomes blocked after exceeding the consecutive failure
-	// threshold and stops receiving event deliveries until re-enabled.
+	// Whether the webhook is currently blocked due to excessive delivery failures.
 	//
 	// +kubebuilder:validation:Nullable
 	Blocked       bool `protobuf:"varint,10,opt,name=blocked,proto3" json:"blocked,omitempty"`
@@ -253,16 +253,21 @@ var File_coreapi_model_webhook_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_webhook_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/webhook.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x83\x03\n" +
-	"\aWebhook\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
+	"\x1bcoreapi/model/webhook.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x86\x06\n" +
+	"\aWebhook\x12]\n" +
+	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tR\tchannelId\x12\x1a\n" +
-	"\x04name\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x04name\x12\x18\n" +
-	"\x03url\x18\x04 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x03url\x12\x14\n" +
-	"\x05token\x18\x05 \x01(\tR\x05token\x129\n" +
+	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12a\n" +
+	"\x04name\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x04name\x12_\n" +
+	"\x03url\x18\x04 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x03url\x12c\n" +
+	"\x05token\x18\x05 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x05token\x12A\n" +
 	"\n" +
-	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x12;\n" +
+	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12;\n" +
 	"\x06scopes\x18\a \x03(\x0e2\x1b.coreapi.model.WebhookScopeB\x06\xbaH\x03\xc8\x01\x01R\x06scopes\x12'\n" +
 	"\vapi_version\x18\b \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"apiVersion\x12B\n" +

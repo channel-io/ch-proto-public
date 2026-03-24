@@ -83,10 +83,11 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Composite key identifying the conversation.
    * Format: "{chatType}-{chatId}".
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_key = 4 [json_name = "chatKey"];</code>
+   * <code>string chat_key = 4 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
    * @return The chatKey.
    */
   java.lang.String getChatKey();
@@ -94,10 +95,11 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Composite key identifying the conversation.
    * Format: "{chatType}-{chatId}".
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_key = 4 [json_name = "chatKey"];</code>
+   * <code>string chat_key = 4 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
    * @return The bytes for chatKey.
    */
   com.google.protobuf.ByteString
@@ -106,20 +108,22 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Opaque sort key for ordering sessions by last activity.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
+   * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
    * @return The updatedKey.
    */
   java.lang.String getUpdatedKey();
   /**
    * <pre>
    * Opaque sort key for ordering sessions by last activity.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
+   * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
    * @return The bytes for updatedKey.
    */
   com.google.protobuf.ByteString
@@ -128,20 +132,22 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Opaque sort key for filtering and ordering sessions with unread messages.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
+   * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
    * @return The unreadKey.
    */
   java.lang.String getUnreadKey();
   /**
    * <pre>
    * Opaque sort key for filtering and ordering sessions with unread messages.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
+   * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
    * @return The bytes for unreadKey.
    */
   com.google.protobuf.ByteString
@@ -150,20 +156,22 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Channel ID this session belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 7 [json_name = "channelId"];</code>
+   * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
   /**
    * <pre>
    * Channel ID this session belongs to.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 7 [json_name = "channelId"];</code>
+   * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   com.google.protobuf.ByteString
@@ -184,7 +192,6 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Total number of unread messages in this session.
-   * Includes both alert-level and regular unread messages.
    * Defaults to 0.
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -230,7 +237,6 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Timestamp when the person last read messages in this session.
-   * Messages created after this timestamp are considered unread.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -241,7 +247,6 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Timestamp when the person last read messages in this session.
-   * Messages created after this timestamp are considered unread.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -252,7 +257,6 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Timestamp when the person last read messages in this session.
-   * Messages created after this timestamp are considered unread.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -292,7 +296,7 @@ public interface ChatSessionOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the last message was posted (sent by any participant) in this conversation.
+   * Timestamp when the last message was posted in this conversation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -302,7 +306,7 @@ public interface ChatSessionOrBuilder extends
   boolean hasPostedAt();
   /**
    * <pre>
-   * Timestamp when the last message was posted (sent by any participant) in this conversation.
+   * Timestamp when the last message was posted in this conversation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -312,7 +316,7 @@ public interface ChatSessionOrBuilder extends
   com.google.protobuf.Timestamp getPostedAt();
   /**
    * <pre>
-   * Timestamp when the last message was posted (sent by any participant) in this conversation.
+   * Timestamp when the last message was posted in this conversation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -323,71 +327,70 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Session last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the updatedAt field is set.
    */
   boolean hasUpdatedAt();
   /**
    * <pre>
    * Session last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return The updatedAt.
    */
   com.google.protobuf.Timestamp getUpdatedAt();
   /**
    * <pre>
    * Session last update timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
 
   /**
    * <pre>
    * Session creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
   /**
    * <pre>
    * Session creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
   /**
    * <pre>
    * Session creation timestamp.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 
   /**
    * <pre>
    * Optimistic locking version.
-   * Incremented on every update.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>int64 version = 17 [json_name = "version"];</code>
+   * <code>int64 version = 17 [json_name = "version", (.buf.validate.field) = { ... }</code>
    * @return The version.
    */
   long getVersion();
@@ -396,11 +399,11 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Unique session identifier.
    * Format: "{key}-{chatId}".
-   * Derived from key and chat_id.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 18 [json_name = "id"];</code>
+   * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The id.
    */
   java.lang.String getId();
@@ -408,11 +411,11 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Unique session identifier.
    * Format: "{key}-{chatId}".
-   * Derived from key and chat_id.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 18 [json_name = "id"];</code>
+   * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
@@ -421,22 +424,22 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Chat type of the conversation (e.g., "userChat", "group", "directChat").
-   * Derived from the third segment of the session key.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_type = 19 [json_name = "chatType"];</code>
+   * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
    * @return The chatType.
    */
   java.lang.String getChatType();
   /**
    * <pre>
    * Chat type of the conversation (e.g., "userChat", "group", "directChat").
-   * Derived from the third segment of the session key.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_type = 19 [json_name = "chatType"];</code>
+   * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
    * @return The bytes for chatType.
    */
   com.google.protobuf.ByteString
@@ -445,22 +448,22 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Entity type of the session owner (e.g., "manager", "user").
-   * Derived from the first segment of the session key.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_type = 20 [json_name = "personType"];</code>
+   * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
    * @return The personType.
    */
   java.lang.String getPersonType();
   /**
    * <pre>
    * Entity type of the session owner (e.g., "manager", "user").
-   * Derived from the first segment of the session key.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_type = 20 [json_name = "personType"];</code>
+   * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
    * @return The bytes for personType.
    */
   com.google.protobuf.ByteString
@@ -469,22 +472,22 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Entity ID of the session owner.
-   * Derived from the second segment of the session key.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_id = 21 [json_name = "personId"];</code>
+   * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>
    * @return The personId.
    */
   java.lang.String getPersonId();
   /**
    * <pre>
    * Entity ID of the session owner.
-   * Derived from the second segment of the session key.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_id = 21 [json_name = "personId"];</code>
+   * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for personId.
    */
   com.google.protobuf.ByteString

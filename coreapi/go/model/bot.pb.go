@@ -37,37 +37,41 @@ type Bot struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Bot display name shown to end users in conversations.
+	// Bot display name.
 	// Unique within the channel.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	// Free-text summary displayed on the bot profile.
+	// Bot description.
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=180
 	Description string `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
-	// Internationalized name and description overrides keyed by locale (e.g., en, ko).
+	// Internationalized name and description map.
+	// Keyed by locale.
 	//
 	// +kubebuilder:validation:Nullable
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,5,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Bot theme color in hex format (e.g., #3B82F6).
+	// Bot color in hex format.
 	// Randomly assigned if not specified on creation.
 	//
-	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="#3B82F6"
 	Color string `protobuf:"bytes,6,opt,name=color,proto3" json:"color,omitempty"`
 	// Bot avatar image URL.
-	// Falls back to a system-generated default when no custom avatar is set.
 	//
 	// +kubebuilder:validation:Nullable
 	AvatarUrl string `protobuf:"bytes,7,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	// Bot creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Bot avatar image reference.
+	//
+	// +kubebuilder:validation:Nullable
+	Avatar        *TinyFile `protobuf:"bytes,9,opt,name=avatar,proto3" json:"avatar,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -158,11 +162,18 @@ func (x *Bot) GetCreatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
+func (x *Bot) GetAvatar() *TinyFile {
+	if x != nil {
+		return x.Avatar
+	}
+	return nil
+}
+
 var File_coreapi_model_bot_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_bot_proto_rawDesc = "" +
 	"\n" +
-	"\x17coreapi/model/bot.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb0\x06\n" +
+	"\x17coreapi/model/bot.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1dcoreapi/model/tiny_file.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd9\x06\n" +
 	"\x03Bot\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -174,12 +185,13 @@ const file_coreapi_model_bot_proto_rawDesc = "" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01R\x04name\x12u\n" +
 	"\vdescription\x18\x04 \x01(\tBS\xbaHP\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 180 characters\x1a\x11size(this) <= 180R\vdescription\x12T\n" +
-	"\x12name_desc_i18n_map\x18\x05 \x03(\v2'.coreapi.model.Bot.NameDescI18nMapEntryR\x0fnameDescI18nMap\x12\x1c\n" +
-	"\x05color\x18\x06 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x05color\x12\x1d\n" +
+	"\x12name_desc_i18n_map\x18\x05 \x03(\v2'.coreapi.model.Bot.NameDescI18nMapEntryR\x0fnameDescI18nMap\x12\x14\n" +
+	"\x05color\x18\x06 \x01(\tR\x05color\x12\x1d\n" +
 	"\n" +
 	"avatar_url\x18\a \x01(\tR\tavatarUrl\x12A\n" +
 	"\n" +
-	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x1a[\n" +
+	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12/\n" +
+	"\x06avatar\x18\t \x01(\v2\x17.coreapi.model.TinyFileR\x06avatar\x1a[\n" +
 	"\x14NameDescI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12-\n" +
 	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01Bb\n" +
@@ -202,17 +214,19 @@ var file_coreapi_model_bot_proto_goTypes = []any{
 	(*Bot)(nil),                   // 0: coreapi.model.Bot
 	nil,                           // 1: coreapi.model.Bot.NameDescI18nMapEntry
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(*NameDesc)(nil),              // 3: coreapi.model.NameDesc
+	(*TinyFile)(nil),              // 3: coreapi.model.TinyFile
+	(*NameDesc)(nil),              // 4: coreapi.model.NameDesc
 }
 var file_coreapi_model_bot_proto_depIdxs = []int32{
 	1, // 0: coreapi.model.Bot.name_desc_i18n_map:type_name -> coreapi.model.Bot.NameDescI18nMapEntry
 	2, // 1: coreapi.model.Bot.created_at:type_name -> google.protobuf.Timestamp
-	3, // 2: coreapi.model.Bot.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	3, // 2: coreapi.model.Bot.avatar:type_name -> coreapi.model.TinyFile
+	4, // 3: coreapi.model.Bot.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_bot_proto_init() }
@@ -221,6 +235,7 @@ func file_coreapi_model_bot_proto_init() {
 		return
 	}
 	file_coreapi_model_name_desc_proto_init()
+	file_coreapi_model_tiny_file_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
