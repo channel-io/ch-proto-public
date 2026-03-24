@@ -3,8 +3,6 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
-import "coreapi/model/web_info.proto";
-import "coreapi/model/mobile_info.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -281,4 +279,102 @@ message User {
   //
   // +kubebuilder:validation:Nullable
   string landline_number = 48;
+}
+
+// =====================================================
+// WebInfo
+// =====================================================
+
+// WebInfo represents web browser environment and session data
+// collected from a user visiting the channel via a web browser.
+message WebInfo {
+  // Device form factor (e.g. "desktop", "tablet", "mobile").
+  //
+  // +kubebuilder:validation:Nullable
+  string device = 1;
+
+  // Operating system version string (e.g. "10.15.7", "11").
+  //
+  // +kubebuilder:validation:Nullable
+  string os = 2;
+
+  // Operating system name (e.g. "Windows", "macOS", "Linux").
+  //
+  // +kubebuilder:validation:Nullable
+  string os_name = 3;
+
+  // Browser version string (e.g. "120.0.6099.109").
+  //
+  // +kubebuilder:validation:Nullable
+  string browser = 4;
+
+  // Browser name (e.g. "Chrome", "Safari", "Firefox").
+  //
+  // +kubebuilder:validation:Nullable
+  string browser_name = 5;
+
+  // Cumulative number of web sessions recorded for this user.
+  // Incremented on each new session.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 sessions_count = 6;
+
+  // Timestamp of the user's most recent web session start.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp last_seen_at = 7;
+}
+
+// =====================================================
+// MobileInfo
+// =====================================================
+
+// MobileInfo represents mobile app environment and session data
+// collected from a user accessing the channel via a mobile SDK.
+message MobileInfo {
+  // Device model name (e.g. "iPhone 15", "Galaxy S24").
+  //
+  // +kubebuilder:validation:Nullable
+  string device = 1;
+
+  // Operating system version string (e.g. "17.2", "14").
+  //
+  // +kubebuilder:validation:Nullable
+  string os = 2;
+
+  // Operating system name (e.g. "iOS", "Android").
+  //
+  // +kubebuilder:validation:Nullable
+  string os_name = 3;
+
+  // Name of the host application embedding the Channel SDK.
+  //
+  // +kubebuilder:validation:Nullable
+  string app_name = 4;
+
+  // Version of the host application embedding the Channel SDK.
+  //
+  // +kubebuilder:validation:Nullable
+  string app_version = 5;
+
+  // Channel SDK platform name (e.g. "ios", "android", "react-native").
+  //
+  // +kubebuilder:validation:Nullable
+  string sdk_name = 6;
+
+  // Channel SDK version string.
+  //
+  // +kubebuilder:validation:Nullable
+  string sdk_version = 7;
+
+  // Cumulative number of mobile sessions recorded for this user.
+  // Incremented on each new session.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 sessions_count = 8;
+
+  // Timestamp of the user's most recent mobile session start.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp last_seen_at = 9;
 }

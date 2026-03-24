@@ -4,9 +4,6 @@ package coreapi.model;
 
 import "buf/validate/validate.proto";
 import "coreapi/model/message_content.proto";
-import "coreapi/model/message_log.proto";
-import "coreapi/model/message_reaction.proto";
-import "coreapi/model/message_thread.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -323,4 +320,152 @@ message Message {
   //
   // +kubebuilder:validation:Required
   bool removed_by_writer = 45 [(buf.validate.field).required = true];
+}
+
+// =====================================================
+// MessageThread
+// =====================================================
+
+// MessageThread represents a threaded reply chain attached to a root message within a chat.
+message MessageThread {
+  // Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
+  // Encodes the parent chat context and the root message that started the thread.
+  //
+  // +kubebuilder:validation:Nullable
+  string id = 1;
+
+  // Manager IDs assigned to handle this thread.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MinItems=1
+  repeated string manager_ids = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Manager IDs who have posted replies in this thread, ordered by first reply time.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string replied_manager_ids = 3;
+
+  // Total number of replies in this thread.
+  // Defaults to 0.
+  //
+  // +kubebuilder:validation:Required
+  int32 reply_count = 4 [(buf.validate.field).required = true];
+
+  // Chat type component extracted from the thread `id`.
+  //
+  // +kubebuilder:validation:Nullable
+  string chat_type = 5;
+
+  // Chat ID component extracted from the thread `id`.
+  //
+  // +kubebuilder:validation:Nullable
+  string chat_id = 6;
+
+  // ID of the root message that started this thread, extracted from the thread `id`.
+  //
+  // +kubebuilder:validation:Nullable
+  string root_message_id = 7;
+}
+
+// =====================================================
+// MessageLog
+// =====================================================
+
+// MessageLog represents a system-generated log entry attached to a message,
+// recording an automated or manual action that occurred in a chat.
+message MessageLog {
+  // Type of action that was recorded.
+  //
+  // +kubebuilder:validation:Required
+  MessageLogAction action = 1 [(buf.validate.field).required = true];
+
+  // Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+  // Interpretation depends on the `action` type.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string values = 2;
+
+  // Entity type that triggered this action (e.g. "workflow", "rule", "alf").
+  //
+  // +kubebuilder:validation:Nullable
+  string trigger_type = 3;
+
+  // Identifier of the entity that triggered this action.
+  //
+  // +kubebuilder:validation:Nullable
+  string trigger_id = 4;
+
+  // Action types recorded in system log messages.
+  enum MessageLogAction {
+    MESSAGE_LOG_ACTION_UNSPECIFIED = 0;
+    MESSAGE_LOG_ACTION_CHANGE_NAME = 1;
+    MESSAGE_LOG_ACTION_CHANGE_SCOPE = 2;
+    MESSAGE_LOG_ACTION_CLOSE = 3;
+    MESSAGE_LOG_ACTION_AUTO_CLOSE = 4;
+    MESSAGE_LOG_ACTION_CREATE = 5;
+    MESSAGE_LOG_ACTION_INVITE = 6;
+    MESSAGE_LOG_ACTION_JOIN = 7;
+    MESSAGE_LOG_ACTION_ASSIGN = 8;
+    MESSAGE_LOG_ACTION_AUTO_ASSIGN = 9;
+    MESSAGE_LOG_ACTION_UNASSIGN = 10;
+    MESSAGE_LOG_ACTION_LEAVE = 11;
+    MESSAGE_LOG_ACTION_OPEN = 12;
+    MESSAGE_LOG_ACTION_AUTO_OPEN = 13;
+    MESSAGE_LOG_ACTION_ENQUEUE = 14;
+    MESSAGE_LOG_ACTION_MISS = 15;
+    MESSAGE_LOG_ACTION_REMOVE = 16;
+    MESSAGE_LOG_ACTION_SNOOZE = 17;
+    MESSAGE_LOG_ACTION_ADD_TAGS = 18;
+    MESSAGE_LOG_ACTION_REMOVE_TAGS = 19;
+    MESSAGE_LOG_ACTION_ASSIGN_TEAM = 20;
+    MESSAGE_LOG_ACTION_UNASSIGN_TEAM = 21;
+    MESSAGE_LOG_ACTION_JOIN_MEET = 22;
+    MESSAGE_LOG_ACTION_LEAVE_MEET = 23;
+    MESSAGE_LOG_ACTION_INVITE_MEET = 24;
+    MESSAGE_LOG_ACTION_MISS_MEET = 25;
+    MESSAGE_LOG_ACTION_CALLBACK_MEET = 26;
+    MESSAGE_LOG_ACTION_TRY_CONNECT_CALL = 27;
+    MESSAGE_LOG_ACTION_PROCESS_BY_MISS = 28;
+    MESSAGE_LOG_ACTION_PROCESS_BRANCH = 29;
+    MESSAGE_LOG_ACTION_SEND_XMS = 30;
+    MESSAGE_LOG_ACTION_ADD_USER_TAGS = 31;
+    MESSAGE_LOG_ACTION_REMOVE_USER_TAGS = 32;
+    MESSAGE_LOG_ACTION_UPDATE_PRIORITY = 33;
+    MESSAGE_LOG_ACTION_START_WORKFLOW = 34;
+    MESSAGE_LOG_ACTION_END_WORKFLOW = 35;
+    MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW = 36;
+    MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT = 37;
+    MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF = 38;
+    MESSAGE_LOG_ACTION_START_TASK = 39;
+    MESSAGE_LOG_ACTION_APPLY_RULES = 40;
+    MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER = 41;
+    MESSAGE_LOG_ACTION_FALLBACK_CALL = 42;
+  }
+}
+
+// =====================================================
+// MessageReaction
+// =====================================================
+
+// MessageReaction represents a single emoji reaction on a message,
+// aggregating all people who used the same emoji.
+message MessageReaction {
+  // Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string emoji_name = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Person keys of everyone who reacted with this emoji,
+  // in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string person_keys = 2;
 }
