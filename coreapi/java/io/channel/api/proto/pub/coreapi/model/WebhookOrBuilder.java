@@ -11,6 +11,7 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Unique webhook identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="100"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -21,6 +22,7 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Unique webhook identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="100"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -33,6 +35,7 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Channel ID this webhook belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -43,6 +46,7 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Channel ID this webhook belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -82,6 +86,7 @@ public interface WebhookOrBuilder extends
    * Destination URL that receives webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="https://example.com/webhook"
    * </pre>
    *
    * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -93,6 +98,7 @@ public interface WebhookOrBuilder extends
    * Destination URL that receives webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="https://example.com/webhook"
    * </pre>
    *
    * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -106,6 +112,7 @@ public interface WebhookOrBuilder extends
    * Auto-generated HMAC token for verifying webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="whk_abc123xyz789"
    * </pre>
    *
    * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
@@ -117,6 +124,7 @@ public interface WebhookOrBuilder extends
    * Auto-generated HMAC token for verifying webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="whk_abc123xyz789"
    * </pre>
    *
    * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>

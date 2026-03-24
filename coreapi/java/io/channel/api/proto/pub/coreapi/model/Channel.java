@@ -557,6 +557,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique channel identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -579,6 +580,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique channel identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -829,6 +831,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Webhook URL called to retrieve additional user information from your server.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://example.com/api/user-info"
    * </pre>
    *
    * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
@@ -851,6 +854,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Webhook URL called to retrieve additional user information from your server.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://example.com/api/user-info"
    * </pre>
    *
    * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
@@ -879,6 +883,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:example="Channel Corp"
    * </pre>
    *
    * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -903,6 +908,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:example="Channel Corp"
    * </pre>
    *
    * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1078,6 +1084,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Default bot display name shown to end users in conversations.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="Support Bot"
    * </pre>
    *
    * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
@@ -1100,6 +1107,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Default bot display name shown to end users in conversations.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="Support Bot"
    * </pre>
    *
    * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
@@ -1179,6 +1187,7 @@ private static final long serialVersionUID = 0L;
    * Free-text summary displayed on the channel profile.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
+   * +kubebuilder:example="We help businesses connect with customers."
    * </pre>
    *
    * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1202,6 +1211,7 @@ private static final long serialVersionUID = 0L;
    * Free-text summary displayed on the channel profile.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
+   * +kubebuilder:example="We help businesses connect with customers."
    * </pre>
    *
    * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1279,6 +1289,7 @@ private static final long serialVersionUID = 0L;
    * Custom domain slug for the channel.
    * Globally unique across all channels.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="my-company"
    * </pre>
    *
    * <code>string domain = 14 [json_name = "domain"];</code>
@@ -1302,6 +1313,7 @@ private static final long serialVersionUID = 0L;
    * Custom domain slug for the channel.
    * Globally unique across all channels.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="my-company"
    * </pre>
    *
    * <code>string domain = 14 [json_name = "domain"];</code>
@@ -1328,6 +1340,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * System-assigned default domain.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
@@ -1350,6 +1363,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * System-assigned default domain.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
@@ -1376,6 +1390,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Business homepage URL associated with the channel.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://channel.io"
    * </pre>
    *
    * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
@@ -1398,6 +1413,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Business homepage URL associated with the channel.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://channel.io"
    * </pre>
    *
    * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
@@ -1767,6 +1783,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="E-commerce"
    * </pre>
    *
    * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
@@ -1789,6 +1806,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="E-commerce"
    * </pre>
    *
    * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
@@ -2215,6 +2233,7 @@ private static final long serialVersionUID = 0L;
    * Channel avatar image URL.
    * Falls back to a system-generated default when no custom avatar is set.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
    * </pre>
    *
    * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
@@ -2238,6 +2257,7 @@ private static final long serialVersionUID = 0L;
    * Channel avatar image URL.
    * Falls back to a system-generated default when no custom avatar is set.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
    * </pre>
    *
    * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
@@ -4486,6 +4506,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique channel identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4507,6 +4528,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique channel identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4529,6 +4551,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique channel identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4549,6 +4572,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique channel identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4564,6 +4588,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique channel identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -5245,6 +5270,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook URL called to retrieve additional user information from your server.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://example.com/api/user-info"
      * </pre>
      *
      * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
@@ -5266,6 +5292,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook URL called to retrieve additional user information from your server.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://example.com/api/user-info"
      * </pre>
      *
      * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
@@ -5288,6 +5315,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook URL called to retrieve additional user information from your server.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://example.com/api/user-info"
      * </pre>
      *
      * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
@@ -5308,6 +5336,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook URL called to retrieve additional user information from your server.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://example.com/api/user-info"
      * </pre>
      *
      * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
@@ -5323,6 +5352,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook URL called to retrieve additional user information from your server.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://example.com/api/user-info"
      * </pre>
      *
      * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
@@ -5348,6 +5378,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:example="Channel Corp"
      * </pre>
      *
      * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -5371,6 +5402,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:example="Channel Corp"
      * </pre>
      *
      * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -5395,6 +5427,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:example="Channel Corp"
      * </pre>
      *
      * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -5417,6 +5450,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:example="Channel Corp"
      * </pre>
      *
      * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -5434,6 +5468,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:example="Channel Corp"
      * </pre>
      *
      * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -5724,6 +5759,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Default bot display name shown to end users in conversations.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="Support Bot"
      * </pre>
      *
      * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
@@ -5745,6 +5781,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Default bot display name shown to end users in conversations.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="Support Bot"
      * </pre>
      *
      * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
@@ -5767,6 +5804,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Default bot display name shown to end users in conversations.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="Support Bot"
      * </pre>
      *
      * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
@@ -5787,6 +5825,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Default bot display name shown to end users in conversations.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="Support Bot"
      * </pre>
      *
      * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
@@ -5802,6 +5841,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Default bot display name shown to end users in conversations.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="Support Bot"
      * </pre>
      *
      * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
@@ -5937,6 +5977,7 @@ private static final long serialVersionUID = 0L;
      * Free-text summary displayed on the channel profile.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
+     * +kubebuilder:example="We help businesses connect with customers."
      * </pre>
      *
      * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -5959,6 +6000,7 @@ private static final long serialVersionUID = 0L;
      * Free-text summary displayed on the channel profile.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
+     * +kubebuilder:example="We help businesses connect with customers."
      * </pre>
      *
      * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -5982,6 +6024,7 @@ private static final long serialVersionUID = 0L;
      * Free-text summary displayed on the channel profile.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
+     * +kubebuilder:example="We help businesses connect with customers."
      * </pre>
      *
      * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -6003,6 +6046,7 @@ private static final long serialVersionUID = 0L;
      * Free-text summary displayed on the channel profile.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
+     * +kubebuilder:example="We help businesses connect with customers."
      * </pre>
      *
      * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -6019,6 +6063,7 @@ private static final long serialVersionUID = 0L;
      * Free-text summary displayed on the channel profile.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
+     * +kubebuilder:example="We help businesses connect with customers."
      * </pre>
      *
      * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -6149,6 +6194,7 @@ private static final long serialVersionUID = 0L;
      * Custom domain slug for the channel.
      * Globally unique across all channels.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="my-company"
      * </pre>
      *
      * <code>string domain = 14 [json_name = "domain"];</code>
@@ -6171,6 +6217,7 @@ private static final long serialVersionUID = 0L;
      * Custom domain slug for the channel.
      * Globally unique across all channels.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="my-company"
      * </pre>
      *
      * <code>string domain = 14 [json_name = "domain"];</code>
@@ -6194,6 +6241,7 @@ private static final long serialVersionUID = 0L;
      * Custom domain slug for the channel.
      * Globally unique across all channels.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="my-company"
      * </pre>
      *
      * <code>string domain = 14 [json_name = "domain"];</code>
@@ -6215,6 +6263,7 @@ private static final long serialVersionUID = 0L;
      * Custom domain slug for the channel.
      * Globally unique across all channels.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="my-company"
      * </pre>
      *
      * <code>string domain = 14 [json_name = "domain"];</code>
@@ -6231,6 +6280,7 @@ private static final long serialVersionUID = 0L;
      * Custom domain slug for the channel.
      * Globally unique across all channels.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="my-company"
      * </pre>
      *
      * <code>string domain = 14 [json_name = "domain"];</code>
@@ -6254,6 +6304,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * System-assigned default domain.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
@@ -6275,6 +6326,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * System-assigned default domain.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
@@ -6297,6 +6349,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * System-assigned default domain.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
@@ -6317,6 +6370,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * System-assigned default domain.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
@@ -6332,6 +6386,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * System-assigned default domain.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
@@ -6355,6 +6410,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Business homepage URL associated with the channel.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://channel.io"
      * </pre>
      *
      * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
@@ -6376,6 +6432,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Business homepage URL associated with the channel.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://channel.io"
      * </pre>
      *
      * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
@@ -6398,6 +6455,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Business homepage URL associated with the channel.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://channel.io"
      * </pre>
      *
      * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
@@ -6418,6 +6476,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Business homepage URL associated with the channel.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://channel.io"
      * </pre>
      *
      * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
@@ -6433,6 +6492,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Business homepage URL associated with the channel.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://channel.io"
      * </pre>
      *
      * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
@@ -7286,6 +7346,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="E-commerce"
      * </pre>
      *
      * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
@@ -7307,6 +7368,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="E-commerce"
      * </pre>
      *
      * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
@@ -7329,6 +7391,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="E-commerce"
      * </pre>
      *
      * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
@@ -7349,6 +7412,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="E-commerce"
      * </pre>
      *
      * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
@@ -7364,6 +7428,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="E-commerce"
      * </pre>
      *
      * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
@@ -8382,6 +8447,7 @@ private static final long serialVersionUID = 0L;
      * Channel avatar image URL.
      * Falls back to a system-generated default when no custom avatar is set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
      * </pre>
      *
      * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
@@ -8404,6 +8470,7 @@ private static final long serialVersionUID = 0L;
      * Channel avatar image URL.
      * Falls back to a system-generated default when no custom avatar is set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
      * </pre>
      *
      * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
@@ -8427,6 +8494,7 @@ private static final long serialVersionUID = 0L;
      * Channel avatar image URL.
      * Falls back to a system-generated default when no custom avatar is set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
      * </pre>
      *
      * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
@@ -8448,6 +8516,7 @@ private static final long serialVersionUID = 0L;
      * Channel avatar image URL.
      * Falls back to a system-generated default when no custom avatar is set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
      * </pre>
      *
      * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
@@ -8464,6 +8533,7 @@ private static final long serialVersionUID = 0L;
      * Channel avatar image URL.
      * Falls back to a system-generated default when no custom avatar is set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
      * </pre>
      *
      * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>

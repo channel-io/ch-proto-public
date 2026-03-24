@@ -86,11 +86,13 @@ type OneTimeMsgUser struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="otm-001"
 	OneTimeMsgId string `protobuf:"bytes,1,opt,name=one_time_msg_id,json=oneTimeMsgId,proto3" json:"one_time_msg_id,omitempty"`
 	// Target user identifier.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="u-abc123"
 	UserId string `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	// Timestamp when the message was delivered to the user.
 	//

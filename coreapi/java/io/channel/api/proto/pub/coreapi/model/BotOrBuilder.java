@@ -11,6 +11,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Unique bot identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="100"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -21,6 +22,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Unique bot identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="100"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -33,6 +35,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Channel ID this bot belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -43,6 +46,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Channel ID this bot belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -59,6 +63,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
+   * +kubebuilder:example="Support Bot"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -73,6 +78,7 @@ public interface BotOrBuilder extends
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
+   * +kubebuilder:example="Support Bot"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -86,6 +92,7 @@ public interface BotOrBuilder extends
    * Bot description.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
+   * +kubebuilder:example="Handles billing and payment inquiries."
    * </pre>
    *
    * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -97,6 +104,7 @@ public interface BotOrBuilder extends
    * Bot description.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
+   * +kubebuilder:example="Handles billing and payment inquiries."
    * </pre>
    *
    * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -199,6 +207,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Bot avatar image URL.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
    * </pre>
    *
    * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
@@ -209,6 +218,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Bot avatar image URL.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
    * </pre>
    *
    * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>

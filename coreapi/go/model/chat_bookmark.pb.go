@@ -31,11 +31,13 @@ type ChatBookmark struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="manager-m001-userChat"
 	Key string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
 	// Chat ID this bookmark belongs to.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="uc-abc123"
 	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	// Composite key for the associated chat.
 	// Format: "{chatType}-{chatId}".
@@ -51,6 +53,7 @@ type ChatBookmark struct {
 	// Channel ID this bookmark belongs to.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,5,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Entity version number for optimistic concurrency control.
 	//

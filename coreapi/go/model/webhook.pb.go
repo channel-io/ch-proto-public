@@ -100,10 +100,12 @@ type Webhook struct {
 	// Unique webhook identifier.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="100"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this webhook belongs to.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Webhook display name.
 	// Unique within the channel.
@@ -115,11 +117,13 @@ type Webhook struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="https://example.com/webhook"
 	Url string `protobuf:"bytes,4,opt,name=url,proto3" json:"url,omitempty"`
 	// Auto-generated HMAC token for verifying webhook payloads.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="whk_abc123xyz789"
 	Token string `protobuf:"bytes,5,opt,name=token,proto3" json:"token,omitempty"`
 	// Webhook creation timestamp.
 	//

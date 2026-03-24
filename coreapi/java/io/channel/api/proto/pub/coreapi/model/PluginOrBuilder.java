@@ -11,6 +11,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Unique plugin identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="plg-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -21,6 +22,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Unique plugin identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="plg-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -55,6 +57,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Channel ID this plugin belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -65,6 +68,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Channel ID this plugin belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>

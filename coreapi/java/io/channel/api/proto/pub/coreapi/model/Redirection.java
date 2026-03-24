@@ -118,6 +118,7 @@ private static final long serialVersionUID = 0L;
    * The original URL that this redirection points to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="https://channel.io/blog/post-123"
    * </pre>
    *
    * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
@@ -141,6 +142,7 @@ private static final long serialVersionUID = 0L;
    * The original URL that this redirection points to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="https://channel.io/blog/post-123"
    * </pre>
    *
    * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
@@ -168,6 +170,7 @@ private static final long serialVersionUID = 0L;
    * The shortened redirect URL.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="https://ch.io/s/abc123"
    * </pre>
    *
    * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
@@ -191,6 +194,7 @@ private static final long serialVersionUID = 0L;
    * The shortened redirect URL.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="https://ch.io/s/abc123"
    * </pre>
    *
    * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
@@ -611,6 +615,7 @@ private static final long serialVersionUID = 0L;
      * The original URL that this redirection points to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="https://channel.io/blog/post-123"
      * </pre>
      *
      * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
@@ -633,6 +638,7 @@ private static final long serialVersionUID = 0L;
      * The original URL that this redirection points to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="https://channel.io/blog/post-123"
      * </pre>
      *
      * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
@@ -656,6 +662,7 @@ private static final long serialVersionUID = 0L;
      * The original URL that this redirection points to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="https://channel.io/blog/post-123"
      * </pre>
      *
      * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
@@ -677,6 +684,7 @@ private static final long serialVersionUID = 0L;
      * The original URL that this redirection points to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="https://channel.io/blog/post-123"
      * </pre>
      *
      * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
@@ -693,6 +701,7 @@ private static final long serialVersionUID = 0L;
      * The original URL that this redirection points to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="https://channel.io/blog/post-123"
      * </pre>
      *
      * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
@@ -717,6 +726,7 @@ private static final long serialVersionUID = 0L;
      * The shortened redirect URL.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="https://ch.io/s/abc123"
      * </pre>
      *
      * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
@@ -739,6 +749,7 @@ private static final long serialVersionUID = 0L;
      * The shortened redirect URL.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="https://ch.io/s/abc123"
      * </pre>
      *
      * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
@@ -762,6 +773,7 @@ private static final long serialVersionUID = 0L;
      * The shortened redirect URL.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="https://ch.io/s/abc123"
      * </pre>
      *
      * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
@@ -783,6 +795,7 @@ private static final long serialVersionUID = 0L;
      * The shortened redirect URL.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="https://ch.io/s/abc123"
      * </pre>
      *
      * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
@@ -799,6 +812,7 @@ private static final long serialVersionUID = 0L;
      * The shortened redirect URL.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="https://ch.io/s/abc123"
      * </pre>
      *
      * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>

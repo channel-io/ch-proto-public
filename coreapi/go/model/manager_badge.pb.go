@@ -31,6 +31,7 @@ type ManagerBadge struct {
 	// Uses the same value as the owning manager's ID.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="m-abc123"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Alert-level unread count in team chat main conversations.
 	// Defaults to 0.

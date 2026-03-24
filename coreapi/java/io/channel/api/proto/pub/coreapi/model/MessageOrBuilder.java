@@ -12,6 +12,7 @@ public interface MessageOrBuilder extends
    * Composite key identifying the parent conversation.
    * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="userChat-uc-abc123"
    * </pre>
    *
    * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -23,6 +24,7 @@ public interface MessageOrBuilder extends
    * Composite key identifying the parent conversation.
    * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="userChat-uc-abc123"
    * </pre>
    *
    * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -35,6 +37,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Unique message identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="msg-001"
    * </pre>
    *
    * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -45,6 +48,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Unique message identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="msg-001"
    * </pre>
    *
    * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -189,6 +193,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Channel ID this message belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -199,6 +204,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Channel ID this message belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>

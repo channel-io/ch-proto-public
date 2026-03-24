@@ -12,6 +12,7 @@ public interface AppSegmentOrBuilder extends
    * App that owns the segment definition.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="app-001"
    * </pre>
    *
    * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -23,6 +24,7 @@ public interface AppSegmentOrBuilder extends
    * App that owns the segment definition.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="app-001"
    * </pre>
    *
    * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -36,6 +38,7 @@ public interface AppSegmentOrBuilder extends
    * Extension within the app that provides the segmentation logic.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ext-001"
    * </pre>
    *
    * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>
@@ -47,6 +50,7 @@ public interface AppSegmentOrBuilder extends
    * Extension within the app that provides the segmentation logic.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ext-001"
    * </pre>
    *
    * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>
@@ -60,6 +64,7 @@ public interface AppSegmentOrBuilder extends
    * Specific segment within the extension that users must belong to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="seg-001"
    * </pre>
    *
    * <code>string segment_id = 3 [json_name = "segmentId", (.buf.validate.field) = { ... }</code>
@@ -71,6 +76,7 @@ public interface AppSegmentOrBuilder extends
    * Specific segment within the extension that users must belong to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="seg-001"
    * </pre>
    *
    * <code>string segment_id = 3 [json_name = "segmentId", (.buf.validate.field) = { ... }</code>

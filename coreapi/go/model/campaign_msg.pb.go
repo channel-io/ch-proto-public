@@ -32,6 +32,7 @@ type CampaignMsg struct {
 	// Client-assigned on creation.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="cm-001"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Campaign ID this message variant belongs to.
 	//
@@ -41,6 +42,7 @@ type CampaignMsg struct {
 	// Channel ID this campaign message belongs to.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Human-readable label for this message variant.
 	//

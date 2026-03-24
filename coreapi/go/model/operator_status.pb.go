@@ -123,6 +123,7 @@ type OperatorStatus struct {
 	// Unique operator status identifier, matching the associated manager ID.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="m-abc123"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Manager ID this operator status belongs to.
 	//
@@ -132,6 +133,7 @@ type OperatorStatus struct {
 	// Channel ID this operator status belongs to.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Current activity state of the manager, used for chat routing and workload management.
 	//

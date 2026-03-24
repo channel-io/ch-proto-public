@@ -133,6 +133,7 @@ type CallLog struct {
 	// Channel ID where the call occurred.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Reason the call was missed.
 	// Only present when the call ended without being answered.

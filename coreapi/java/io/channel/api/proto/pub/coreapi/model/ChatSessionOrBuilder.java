@@ -13,6 +13,7 @@ public interface ChatSessionOrBuilder extends
    * Format: "{personType}-{personId}-{chatType}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="manager-m001-userChat"
    * </pre>
    *
    * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -25,6 +26,7 @@ public interface ChatSessionOrBuilder extends
    * Format: "{personType}-{personId}-{chatType}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="manager-m001-userChat"
    * </pre>
    *
    * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -38,6 +40,7 @@ public interface ChatSessionOrBuilder extends
    * Chat ID of the conversation this session tracks.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -49,6 +52,7 @@ public interface ChatSessionOrBuilder extends
    * Chat ID of the conversation this session tracks.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -157,6 +161,7 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Channel ID this session belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -167,6 +172,7 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Channel ID this session belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 7 [json_name = "channelId", (.buf.validate.field) = { ... }</code>

@@ -238,9 +238,7 @@ message Plugin {
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxItems=5
-  repeated string url_whitelist = 25 [(buf.validate.field).repeated = {
-    max_items: 5
-  }];
+  repeated string url_whitelist = 25 [(buf.validate.field).repeated = {max_items: 5}];
 
   // Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
   //

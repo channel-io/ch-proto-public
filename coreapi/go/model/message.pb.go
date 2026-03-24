@@ -645,10 +645,12 @@ type Message struct {
 	// Format: "{chatType}-{chatId}".
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="userChat-uc-abc123"
 	ChatKey string `protobuf:"bytes,1,opt,name=chat_key,json=chatKey,proto3" json:"chat_key,omitempty"`
 	// Unique message identifier.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="msg-001"
 	Id string `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
 	// Index key for the main (top-level) message stream.
 	// Same value as chat_key when the message appears in the main stream.
@@ -684,6 +686,7 @@ type Message struct {
 	// Channel ID this message belongs to.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,8,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
 	//

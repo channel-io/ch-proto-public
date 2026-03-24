@@ -386,6 +386,7 @@ type Plugin struct {
 	// Unique plugin identifier.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="plg-001"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Plugin API key in UUID format.
 	//
@@ -394,6 +395,7 @@ type Plugin struct {
 	// Channel ID this plugin belongs to.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Current activation lifecycle state.
 	//

@@ -171,6 +171,7 @@ private static final long serialVersionUID = 0L;
    * One-time message that was delivered to this user.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="otm-001"
    * </pre>
    *
    * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -194,6 +195,7 @@ private static final long serialVersionUID = 0L;
    * One-time message that was delivered to this user.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="otm-001"
    * </pre>
    *
    * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -221,6 +223,7 @@ private static final long serialVersionUID = 0L;
    * Target user identifier.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="u-abc123"
    * </pre>
    *
    * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -244,6 +247,7 @@ private static final long serialVersionUID = 0L;
    * Target user identifier.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="u-abc123"
    * </pre>
    *
    * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1007,6 +1011,7 @@ private static final long serialVersionUID = 0L;
      * One-time message that was delivered to this user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="otm-001"
      * </pre>
      *
      * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -1029,6 +1034,7 @@ private static final long serialVersionUID = 0L;
      * One-time message that was delivered to this user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="otm-001"
      * </pre>
      *
      * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -1052,6 +1058,7 @@ private static final long serialVersionUID = 0L;
      * One-time message that was delivered to this user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="otm-001"
      * </pre>
      *
      * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -1073,6 +1080,7 @@ private static final long serialVersionUID = 0L;
      * One-time message that was delivered to this user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="otm-001"
      * </pre>
      *
      * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -1089,6 +1097,7 @@ private static final long serialVersionUID = 0L;
      * One-time message that was delivered to this user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="otm-001"
      * </pre>
      *
      * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -1113,6 +1122,7 @@ private static final long serialVersionUID = 0L;
      * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1135,6 +1145,7 @@ private static final long serialVersionUID = 0L;
      * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1158,6 +1169,7 @@ private static final long serialVersionUID = 0L;
      * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1179,6 +1191,7 @@ private static final long serialVersionUID = 0L;
      * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1195,6 +1208,7 @@ private static final long serialVersionUID = 0L;
      * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>

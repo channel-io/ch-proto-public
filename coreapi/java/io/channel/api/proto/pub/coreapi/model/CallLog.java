@@ -205,6 +205,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID where the call occurred.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -227,6 +228,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID where the call occurred.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1273,6 +1275,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID where the call occurred.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1294,6 +1297,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID where the call occurred.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1316,6 +1320,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID where the call occurred.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1336,6 +1341,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID where the call occurred.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1351,6 +1357,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID where the call occurred.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>

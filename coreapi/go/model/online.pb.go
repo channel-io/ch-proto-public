@@ -28,6 +28,7 @@ type Online struct {
 	// Channel ID this online record belongs to.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Type of the person (e.g., manager, user).
 	//

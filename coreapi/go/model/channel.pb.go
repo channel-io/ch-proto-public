@@ -202,6 +202,7 @@ type Channel struct {
 	// Unique channel identifier.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Default welcome message shown to end users when a new conversation starts.
 	//
@@ -222,12 +223,14 @@ type Channel struct {
 	// Webhook URL called to retrieve additional user information from your server.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="https://example.com/api/user-info"
 	UserInfoUrl string `protobuf:"bytes,6,opt,name=user_info_url,json=userInfoUrl,proto3" json:"user_info_url,omitempty"`
 	// Channel display name visible to end users.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
+	// +kubebuilder:example="Channel Corp"
 	Name string `protobuf:"bytes,7,opt,name=name,proto3" json:"name,omitempty"`
 	// Internationalized name and description overrides keyed by locale (e.g., en, ko).
 	//
@@ -240,6 +243,7 @@ type Channel struct {
 	// Default bot display name shown to end users in conversations.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="Support Bot"
 	BotName string `protobuf:"bytes,10,opt,name=bot_name,json=botName,proto3" json:"bot_name,omitempty"`
 	// Channel theme color in hex format (e.g., #3B82F6).
 	// Used to derive border, gradient, text, and plugin icon colors.
@@ -251,6 +255,7 @@ type Channel struct {
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=180
+	// +kubebuilder:example="We help businesses connect with customers."
 	Description string `protobuf:"bytes,12,opt,name=description,proto3" json:"description,omitempty"`
 	// ISO 3166-1 alpha-2 country code (e.g., KR, US).
 	//
@@ -261,14 +266,17 @@ type Channel struct {
 	// Globally unique across all channels.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="my-company"
 	Domain string `protobuf:"bytes,14,opt,name=domain,proto3" json:"domain,omitempty"`
 	// System-assigned default domain.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	DefaultDomain string `protobuf:"bytes,15,opt,name=default_domain,json=defaultDomain,proto3" json:"default_domain,omitempty"`
 	// Business homepage URL associated with the channel.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="https://channel.io"
 	HomepageUrl string `protobuf:"bytes,16,opt,name=homepage_url,json=homepageUrl,proto3" json:"homepage_url,omitempty"`
 	// Business contact phone number in E.164 format (e.g., +821012345678).
 	//
@@ -326,6 +334,7 @@ type Channel struct {
 	// Industry or business category of the channel (e.g., "E-commerce", "SaaS").
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="E-commerce"
 	BizCategory string `protobuf:"bytes,29,opt,name=biz_category,json=bizCategory,proto3" json:"biz_category,omitempty"`
 	// Number of staff members in the organization.
 	//
@@ -392,6 +401,7 @@ type Channel struct {
 	// Falls back to a system-generated default when no custom avatar is set.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
 	AvatarUrl string `protobuf:"bytes,44,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	// Expected response delay indicator shown to end users.
 	// Derived from the channel operating configuration.

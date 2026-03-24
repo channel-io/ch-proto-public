@@ -457,6 +457,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique manager identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -479,6 +480,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique manager identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -505,6 +507,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this manager belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -527,6 +530,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this manager belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -554,6 +558,7 @@ private static final long serialVersionUID = 0L;
    * Account ID of the person linked to this manager.
    * Unique per channel among non-removed managers.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="a-xyz789"
    * </pre>
    *
    * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -577,6 +582,7 @@ private static final long serialVersionUID = 0L;
    * Account ID of the person linked to this manager.
    * Unique per channel among non-removed managers.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="a-xyz789"
    * </pre>
    *
    * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -659,6 +665,7 @@ private static final long serialVersionUID = 0L;
    * Visible to end users only when show_description_to_front is true.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
+   * +kubebuilder:example="Product team lead"
    * </pre>
    *
    * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -683,6 +690,7 @@ private static final long serialVersionUID = 0L;
    * Visible to end users only when show_description_to_front is true.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
+   * +kubebuilder:example="Product team lead"
    * </pre>
    *
    * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -868,6 +876,7 @@ private static final long serialVersionUID = 0L;
    * Manager email address.
    * Unique per channel among non-removed managers.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="manager&#64;example.com"
    * </pre>
    *
    * <code>string email = 9 [json_name = "email"];</code>
@@ -891,6 +900,7 @@ private static final long serialVersionUID = 0L;
    * Manager email address.
    * Unique per channel among non-removed managers.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="manager&#64;example.com"
    * </pre>
    *
    * <code>string email = 9 [json_name = "email"];</code>
@@ -933,6 +943,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager mobile phone number in E.164 format (e.g., +821012345678).
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
    * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -955,6 +966,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager mobile phone number in E.164 format (e.g., +821012345678).
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
    * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -997,6 +1009,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Role ID assigned to this manager, defining permissions and access levels.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="role-owner"
    * </pre>
    *
    * <code>string role_id = 13 [json_name = "roleId"];</code>
@@ -1019,6 +1032,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Role ID assigned to this manager, defining permissions and access levels.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="role-owner"
    * </pre>
    *
    * <code>string role_id = 13 [json_name = "roleId"];</code>
@@ -1690,6 +1704,7 @@ private static final long serialVersionUID = 0L;
    * Emoji displayed alongside the manager name as a status indicator.
    * Must be set together with status_text; both or neither should be present.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="coffee"
    * </pre>
    *
    * <code>string status_emoji = 40 [json_name = "statusEmoji"];</code>
@@ -1713,6 +1728,7 @@ private static final long serialVersionUID = 0L;
    * Emoji displayed alongside the manager name as a status indicator.
    * Must be set together with status_text; both or neither should be present.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="coffee"
    * </pre>
    *
    * <code>string status_emoji = 40 [json_name = "statusEmoji"];</code>
@@ -1741,6 +1757,7 @@ private static final long serialVersionUID = 0L;
    * Must be set together with status_emoji; both or neither should be present.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="In a meeting until 3pm"
    * </pre>
    *
    * <code>string status_text = 41 [json_name = "statusText", (.buf.validate.field) = { ... }</code>
@@ -1765,6 +1782,7 @@ private static final long serialVersionUID = 0L;
    * Must be set together with status_emoji; both or neither should be present.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="In a meeting until 3pm"
    * </pre>
    *
    * <code>string status_text = 41 [json_name = "statusText", (.buf.validate.field) = { ... }</code>
@@ -1988,6 +2006,7 @@ private static final long serialVersionUID = 0L;
    * Manager avatar image URL.
    * Falls back to a system-generated default when no custom avatar is set.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
    * </pre>
    *
    * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>
@@ -2011,6 +2030,7 @@ private static final long serialVersionUID = 0L;
    * Manager avatar image URL.
    * Falls back to a system-generated default when no custom avatar is set.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
    * </pre>
    *
    * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>
@@ -3313,6 +3333,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique manager identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3334,6 +3355,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique manager identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3356,6 +3378,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique manager identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3376,6 +3399,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique manager identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3391,6 +3415,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique manager identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3414,6 +3439,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this manager belongs to.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3435,6 +3461,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this manager belongs to.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3457,6 +3484,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this manager belongs to.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3477,6 +3505,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this manager belongs to.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3492,6 +3521,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this manager belongs to.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3516,6 +3546,7 @@ private static final long serialVersionUID = 0L;
      * Account ID of the person linked to this manager.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="a-xyz789"
      * </pre>
      *
      * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -3538,6 +3569,7 @@ private static final long serialVersionUID = 0L;
      * Account ID of the person linked to this manager.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="a-xyz789"
      * </pre>
      *
      * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -3561,6 +3593,7 @@ private static final long serialVersionUID = 0L;
      * Account ID of the person linked to this manager.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="a-xyz789"
      * </pre>
      *
      * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -3582,6 +3615,7 @@ private static final long serialVersionUID = 0L;
      * Account ID of the person linked to this manager.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="a-xyz789"
      * </pre>
      *
      * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -3598,6 +3632,7 @@ private static final long serialVersionUID = 0L;
      * Account ID of the person linked to this manager.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="a-xyz789"
      * </pre>
      *
      * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -3739,6 +3774,7 @@ private static final long serialVersionUID = 0L;
      * Visible to end users only when show_description_to_front is true.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
+     * +kubebuilder:example="Product team lead"
      * </pre>
      *
      * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -3762,6 +3798,7 @@ private static final long serialVersionUID = 0L;
      * Visible to end users only when show_description_to_front is true.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
+     * +kubebuilder:example="Product team lead"
      * </pre>
      *
      * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -3786,6 +3823,7 @@ private static final long serialVersionUID = 0L;
      * Visible to end users only when show_description_to_front is true.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
+     * +kubebuilder:example="Product team lead"
      * </pre>
      *
      * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -3808,6 +3846,7 @@ private static final long serialVersionUID = 0L;
      * Visible to end users only when show_description_to_front is true.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
+     * +kubebuilder:example="Product team lead"
      * </pre>
      *
      * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -3825,6 +3864,7 @@ private static final long serialVersionUID = 0L;
      * Visible to end users only when show_description_to_front is true.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
+     * +kubebuilder:example="Product team lead"
      * </pre>
      *
      * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -4225,6 +4265,7 @@ private static final long serialVersionUID = 0L;
      * Manager email address.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="manager&#64;example.com"
      * </pre>
      *
      * <code>string email = 9 [json_name = "email"];</code>
@@ -4247,6 +4288,7 @@ private static final long serialVersionUID = 0L;
      * Manager email address.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="manager&#64;example.com"
      * </pre>
      *
      * <code>string email = 9 [json_name = "email"];</code>
@@ -4270,6 +4312,7 @@ private static final long serialVersionUID = 0L;
      * Manager email address.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="manager&#64;example.com"
      * </pre>
      *
      * <code>string email = 9 [json_name = "email"];</code>
@@ -4291,6 +4334,7 @@ private static final long serialVersionUID = 0L;
      * Manager email address.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="manager&#64;example.com"
      * </pre>
      *
      * <code>string email = 9 [json_name = "email"];</code>
@@ -4307,6 +4351,7 @@ private static final long serialVersionUID = 0L;
      * Manager email address.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="manager&#64;example.com"
      * </pre>
      *
      * <code>string email = 9 [json_name = "email"];</code>
@@ -4376,6 +4421,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager mobile phone number in E.164 format (e.g., +821012345678).
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -4397,6 +4443,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager mobile phone number in E.164 format (e.g., +821012345678).
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -4419,6 +4466,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager mobile phone number in E.164 format (e.g., +821012345678).
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -4439,6 +4487,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager mobile phone number in E.164 format (e.g., +821012345678).
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -4454,6 +4503,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager mobile phone number in E.164 format (e.g., +821012345678).
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -4523,6 +4573,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Role ID assigned to this manager, defining permissions and access levels.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="role-owner"
      * </pre>
      *
      * <code>string role_id = 13 [json_name = "roleId"];</code>
@@ -4544,6 +4595,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Role ID assigned to this manager, defining permissions and access levels.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="role-owner"
      * </pre>
      *
      * <code>string role_id = 13 [json_name = "roleId"];</code>
@@ -4566,6 +4618,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Role ID assigned to this manager, defining permissions and access levels.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="role-owner"
      * </pre>
      *
      * <code>string role_id = 13 [json_name = "roleId"];</code>
@@ -4586,6 +4639,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Role ID assigned to this manager, defining permissions and access levels.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="role-owner"
      * </pre>
      *
      * <code>string role_id = 13 [json_name = "roleId"];</code>
@@ -4601,6 +4655,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Role ID assigned to this manager, defining permissions and access levels.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="role-owner"
      * </pre>
      *
      * <code>string role_id = 13 [json_name = "roleId"];</code>
@@ -6550,6 +6605,7 @@ private static final long serialVersionUID = 0L;
      * Emoji displayed alongside the manager name as a status indicator.
      * Must be set together with status_text; both or neither should be present.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="coffee"
      * </pre>
      *
      * <code>string status_emoji = 40 [json_name = "statusEmoji"];</code>
@@ -6572,6 +6628,7 @@ private static final long serialVersionUID = 0L;
      * Emoji displayed alongside the manager name as a status indicator.
      * Must be set together with status_text; both or neither should be present.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="coffee"
      * </pre>
      *
      * <code>string status_emoji = 40 [json_name = "statusEmoji"];</code>
@@ -6595,6 +6652,7 @@ private static final long serialVersionUID = 0L;
      * Emoji displayed alongside the manager name as a status indicator.
      * Must be set together with status_text; both or neither should be present.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="coffee"
      * </pre>
      *
      * <code>string status_emoji = 40 [json_name = "statusEmoji"];</code>
@@ -6616,6 +6674,7 @@ private static final long serialVersionUID = 0L;
      * Emoji displayed alongside the manager name as a status indicator.
      * Must be set together with status_text; both or neither should be present.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="coffee"
      * </pre>
      *
      * <code>string status_emoji = 40 [json_name = "statusEmoji"];</code>
@@ -6632,6 +6691,7 @@ private static final long serialVersionUID = 0L;
      * Emoji displayed alongside the manager name as a status indicator.
      * Must be set together with status_text; both or neither should be present.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="coffee"
      * </pre>
      *
      * <code>string status_emoji = 40 [json_name = "statusEmoji"];</code>
@@ -6657,6 +6717,7 @@ private static final long serialVersionUID = 0L;
      * Must be set together with status_emoji; both or neither should be present.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=128
+     * +kubebuilder:example="In a meeting until 3pm"
      * </pre>
      *
      * <code>string status_text = 41 [json_name = "statusText", (.buf.validate.field) = { ... }</code>
@@ -6680,6 +6741,7 @@ private static final long serialVersionUID = 0L;
      * Must be set together with status_emoji; both or neither should be present.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=128
+     * +kubebuilder:example="In a meeting until 3pm"
      * </pre>
      *
      * <code>string status_text = 41 [json_name = "statusText", (.buf.validate.field) = { ... }</code>
@@ -6704,6 +6766,7 @@ private static final long serialVersionUID = 0L;
      * Must be set together with status_emoji; both or neither should be present.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=128
+     * +kubebuilder:example="In a meeting until 3pm"
      * </pre>
      *
      * <code>string status_text = 41 [json_name = "statusText", (.buf.validate.field) = { ... }</code>
@@ -6726,6 +6789,7 @@ private static final long serialVersionUID = 0L;
      * Must be set together with status_emoji; both or neither should be present.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=128
+     * +kubebuilder:example="In a meeting until 3pm"
      * </pre>
      *
      * <code>string status_text = 41 [json_name = "statusText", (.buf.validate.field) = { ... }</code>
@@ -6743,6 +6807,7 @@ private static final long serialVersionUID = 0L;
      * Must be set together with status_emoji; both or neither should be present.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=128
+     * +kubebuilder:example="In a meeting until 3pm"
      * </pre>
      *
      * <code>string status_text = 41 [json_name = "statusText", (.buf.validate.field) = { ... }</code>
@@ -7515,6 +7580,7 @@ private static final long serialVersionUID = 0L;
      * Manager avatar image URL.
      * Falls back to a system-generated default when no custom avatar is set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
      * </pre>
      *
      * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>
@@ -7537,6 +7603,7 @@ private static final long serialVersionUID = 0L;
      * Manager avatar image URL.
      * Falls back to a system-generated default when no custom avatar is set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
      * </pre>
      *
      * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>
@@ -7560,6 +7627,7 @@ private static final long serialVersionUID = 0L;
      * Manager avatar image URL.
      * Falls back to a system-generated default when no custom avatar is set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
      * </pre>
      *
      * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>
@@ -7581,6 +7649,7 @@ private static final long serialVersionUID = 0L;
      * Manager avatar image URL.
      * Falls back to a system-generated default when no custom avatar is set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
      * </pre>
      *
      * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>
@@ -7597,6 +7666,7 @@ private static final long serialVersionUID = 0L;
      * Manager avatar image URL.
      * Falls back to a system-generated default when no custom avatar is set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
      * </pre>
      *
      * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>

@@ -12,6 +12,7 @@ public interface CampaignMsgOrBuilder extends
    * Unique campaign message identifier.
    * Client-assigned on creation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="cm-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -23,6 +24,7 @@ public interface CampaignMsgOrBuilder extends
    * Unique campaign message identifier.
    * Client-assigned on creation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="cm-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -59,6 +61,7 @@ public interface CampaignMsgOrBuilder extends
    * <pre>
    * Channel ID this campaign message belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -69,6 +72,7 @@ public interface CampaignMsgOrBuilder extends
    * <pre>
    * Channel ID this campaign message belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>

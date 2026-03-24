@@ -86,20 +86,24 @@ type User struct {
 	// Unique user identifier.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="u-abc123"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this user belongs to.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// External member ID provided at boot or manual creation.
 	// Present for member-type users; for anonymous visitors, this matches
 	// the veil_id.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="member-001"
 	MemberId string `protobuf:"bytes,3,opt,name=member_id,json=memberId,proto3" json:"member_id,omitempty"`
 	// Cookie-based device identifier assigned to anonymous visitors.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
 	VeilId string `protobuf:"bytes,4,opt,name=veil_id,json=veilId,proto3" json:"veil_id,omitempty"`
 	// ID of the unified identity when multiple user records have been merged.
 	//
@@ -133,11 +137,13 @@ type User struct {
 	// (e.g., "KR", "US").
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="KR"
 	Country string `protobuf:"bytes,12,opt,name=country,proto3" json:"country,omitempty"`
 	// IANA time zone identifier derived from the user's IP geolocation
 	// (e.g., "Asia/Seoul").
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="Asia/Seoul"
 	TimeZone string `protobuf:"bytes,13,opt,name=time_zone,json=timeZone,proto3" json:"time_zone,omitempty"`
 	// User creation timestamp.
 	//
@@ -167,6 +173,7 @@ type User struct {
 	// Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="ko"
 	Language string `protobuf:"bytes,19,opt,name=language,proto3" json:"language,omitempty"`
 	// Whether the user has opted out of email notifications.
 	//
@@ -197,6 +204,7 @@ type User struct {
 	// in the profile.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
 	AvatarUrl string `protobuf:"bytes,26,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	// Whether the user has a display name set in the profile
 	// (name, firstName, or lastName).
@@ -221,6 +229,7 @@ type User struct {
 	// Display name of the user, derived from the profile's name field.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="John Doe"
 	Name string `protobuf:"bytes,31,opt,name=name,proto3" json:"name,omitempty"`
 	// Whether the user has at least one managed chat conversation.
 	//
@@ -233,10 +242,12 @@ type User struct {
 	// Province or state name derived from IP geolocation.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="Seoul"
 	Province string `protobuf:"bytes,34,opt,name=province,proto3" json:"province,omitempty"`
 	// City name derived from IP geolocation.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="Gangnam-gu"
 	City string `protobuf:"bytes,35,opt,name=city,proto3" json:"city,omitempty"`
 	// Latitude coordinate derived from IP geolocation.
 	//
@@ -283,14 +294,17 @@ type User struct {
 	// Email address extracted from the user's profile data.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="user@example.com"
 	Email string `protobuf:"bytes,46,opt,name=email,proto3" json:"email,omitempty"`
 	// Mobile phone number extracted from the user's profile data.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="+821012345678"
 	MobileNumber string `protobuf:"bytes,47,opt,name=mobile_number,json=mobileNumber,proto3" json:"mobile_number,omitempty"`
 	// Landline phone number extracted from the user's profile data.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="+8221234567"
 	LandlineNumber string `protobuf:"bytes,48,opt,name=landline_number,json=landlineNumber,proto3" json:"landline_number,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache

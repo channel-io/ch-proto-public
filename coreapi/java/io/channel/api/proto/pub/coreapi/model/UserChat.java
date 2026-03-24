@@ -589,6 +589,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique user chat identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -611,6 +612,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique user chat identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -637,6 +639,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this user chat belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -659,6 +662,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this user chat belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -891,6 +895,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ID of the user who owns this chat conversation.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="u-abc123"
    * </pre>
    *
    * <code>string user_id = 9 [json_name = "userId"];</code>
@@ -913,6 +918,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ID of the user who owns this chat conversation.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="u-abc123"
    * </pre>
    *
    * <code>string user_id = 9 [json_name = "userId"];</code>
@@ -4231,6 +4237,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique user chat identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4252,6 +4259,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique user chat identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4274,6 +4282,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique user chat identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4294,6 +4303,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique user chat identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4309,6 +4319,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique user chat identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4332,6 +4343,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this user chat belongs to.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -4353,6 +4365,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this user chat belongs to.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -4375,6 +4388,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this user chat belongs to.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -4395,6 +4409,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this user chat belongs to.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -4410,6 +4425,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this user chat belongs to.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -4936,6 +4952,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the user who owns this chat conversation.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 9 [json_name = "userId"];</code>
@@ -4957,6 +4974,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the user who owns this chat conversation.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 9 [json_name = "userId"];</code>
@@ -4979,6 +4997,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the user who owns this chat conversation.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 9 [json_name = "userId"];</code>
@@ -4999,6 +5018,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the user who owns this chat conversation.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 9 [json_name = "userId"];</code>
@@ -5014,6 +5034,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the user who owns this chat conversation.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 9 [json_name = "userId"];</code>

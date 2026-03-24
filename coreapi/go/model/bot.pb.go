@@ -30,10 +30,12 @@ type Bot struct {
 	// Unique bot identifier.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="100"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this bot belongs to.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Bot display name.
 	// Unique within the channel.
@@ -42,11 +44,13 @@ type Bot struct {
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:validation:Pattern="^[^@#$%:/\\]+$"
+	// +kubebuilder:example="Support Bot"
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Bot description.
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=180
+	// +kubebuilder:example="Handles billing and payment inquiries."
 	Description string `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
 	// Internationalized name and description map.
 	// Keyed by locale.
@@ -62,6 +66,7 @@ type Bot struct {
 	// Bot avatar image URL.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
 	AvatarUrl string `protobuf:"bytes,7,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	// Bot creation timestamp.
 	//

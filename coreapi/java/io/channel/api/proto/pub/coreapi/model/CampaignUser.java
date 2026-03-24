@@ -185,6 +185,7 @@ private static final long serialVersionUID = 0L;
    * Target user identifier.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="u-abc123"
    * </pre>
    *
    * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -208,6 +209,7 @@ private static final long serialVersionUID = 0L;
    * Target user identifier.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="u-abc123"
    * </pre>
    *
    * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -235,6 +237,7 @@ private static final long serialVersionUID = 0L;
    * Campaign that delivered the message.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="cpn-001"
    * </pre>
    *
    * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -258,6 +261,7 @@ private static final long serialVersionUID = 0L;
    * Campaign that delivered the message.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="cpn-001"
    * </pre>
    *
    * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -1151,6 +1155,7 @@ private static final long serialVersionUID = 0L;
      * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1173,6 +1178,7 @@ private static final long serialVersionUID = 0L;
      * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1196,6 +1202,7 @@ private static final long serialVersionUID = 0L;
      * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1217,6 +1224,7 @@ private static final long serialVersionUID = 0L;
      * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1233,6 +1241,7 @@ private static final long serialVersionUID = 0L;
      * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1257,6 +1266,7 @@ private static final long serialVersionUID = 0L;
      * Campaign that delivered the message.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
      * </pre>
      *
      * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -1279,6 +1289,7 @@ private static final long serialVersionUID = 0L;
      * Campaign that delivered the message.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
      * </pre>
      *
      * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -1302,6 +1313,7 @@ private static final long serialVersionUID = 0L;
      * Campaign that delivered the message.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
      * </pre>
      *
      * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -1323,6 +1335,7 @@ private static final long serialVersionUID = 0L;
      * Campaign that delivered the message.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
      * </pre>
      *
      * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -1339,6 +1352,7 @@ private static final long serialVersionUID = 0L;
      * Campaign that delivered the message.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
      * </pre>
      *
      * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>

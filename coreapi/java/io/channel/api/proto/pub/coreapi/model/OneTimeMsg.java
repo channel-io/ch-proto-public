@@ -371,6 +371,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique one-time message identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="otm-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -393,6 +394,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique one-time message identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="otm-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -419,6 +421,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this one-time message belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -441,6 +444,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this one-time message belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -2589,6 +2593,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique one-time message identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="otm-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2610,6 +2615,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique one-time message identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="otm-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2632,6 +2638,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique one-time message identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="otm-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2652,6 +2659,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique one-time message identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="otm-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2667,6 +2675,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique one-time message identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="otm-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2690,6 +2699,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this one-time message belongs to.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -2711,6 +2721,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this one-time message belongs to.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -2733,6 +2744,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this one-time message belongs to.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -2753,6 +2765,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this one-time message belongs to.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -2768,6 +2781,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this one-time message belongs to.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>

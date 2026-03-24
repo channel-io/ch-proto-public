@@ -11,6 +11,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Unique user identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="u-abc123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -21,6 +22,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Unique user identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="u-abc123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -33,6 +35,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Channel ID this user belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -43,6 +46,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Channel ID this user belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -57,6 +61,7 @@ public interface UserOrBuilder extends
    * Present for member-type users; for anonymous visitors, this matches
    * the veil_id.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="member-001"
    * </pre>
    *
    * <code>string member_id = 3 [json_name = "memberId"];</code>
@@ -69,6 +74,7 @@ public interface UserOrBuilder extends
    * Present for member-type users; for anonymous visitors, this matches
    * the veil_id.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="member-001"
    * </pre>
    *
    * <code>string member_id = 3 [json_name = "memberId"];</code>
@@ -81,6 +87,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Cookie-based device identifier assigned to anonymous visitors.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
    * </pre>
    *
    * <code>string veil_id = 4 [json_name = "veilId"];</code>
@@ -91,6 +98,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Cookie-based device identifier assigned to anonymous visitors.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
    * </pre>
    *
    * <code>string veil_id = 4 [json_name = "veilId"];</code>
@@ -258,6 +266,7 @@ public interface UserOrBuilder extends
    * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
    * (e.g., "KR", "US").
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="KR"
    * </pre>
    *
    * <code>string country = 12 [json_name = "country"];</code>
@@ -269,6 +278,7 @@ public interface UserOrBuilder extends
    * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
    * (e.g., "KR", "US").
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="KR"
    * </pre>
    *
    * <code>string country = 12 [json_name = "country"];</code>
@@ -282,6 +292,7 @@ public interface UserOrBuilder extends
    * IANA time zone identifier derived from the user's IP geolocation
    * (e.g., "Asia/Seoul").
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="Asia/Seoul"
    * </pre>
    *
    * <code>string time_zone = 13 [json_name = "timeZone"];</code>
@@ -293,6 +304,7 @@ public interface UserOrBuilder extends
    * IANA time zone identifier derived from the user's IP geolocation
    * (e.g., "Asia/Seoul").
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="Asia/Seoul"
    * </pre>
    *
    * <code>string time_zone = 13 [json_name = "timeZone"];</code>
@@ -466,6 +478,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="ko"
    * </pre>
    *
    * <code>string language = 19 [json_name = "language"];</code>
@@ -476,6 +489,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="ko"
    * </pre>
    *
    * <code>string language = 19 [json_name = "language"];</code>
@@ -613,6 +627,7 @@ public interface UserOrBuilder extends
    * Falls back to an auto-generated default avatar when no custom avatar is set
    * in the profile.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
    * </pre>
    *
    * <code>string avatar_url = 26 [json_name = "avatarUrl"];</code>
@@ -625,6 +640,7 @@ public interface UserOrBuilder extends
    * Falls back to an auto-generated default avatar when no custom avatar is set
    * in the profile.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
    * </pre>
    *
    * <code>string avatar_url = 26 [json_name = "avatarUrl"];</code>
@@ -697,6 +713,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Display name of the user, derived from the profile's name field.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="John Doe"
    * </pre>
    *
    * <code>string name = 31 [json_name = "name"];</code>
@@ -707,6 +724,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Display name of the user, derived from the profile's name field.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="John Doe"
    * </pre>
    *
    * <code>string name = 31 [json_name = "name"];</code>
@@ -741,6 +759,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Province or state name derived from IP geolocation.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="Seoul"
    * </pre>
    *
    * <code>string province = 34 [json_name = "province"];</code>
@@ -751,6 +770,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Province or state name derived from IP geolocation.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="Seoul"
    * </pre>
    *
    * <code>string province = 34 [json_name = "province"];</code>
@@ -763,6 +783,7 @@ public interface UserOrBuilder extends
    * <pre>
    * City name derived from IP geolocation.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="Gangnam-gu"
    * </pre>
    *
    * <code>string city = 35 [json_name = "city"];</code>
@@ -773,6 +794,7 @@ public interface UserOrBuilder extends
    * <pre>
    * City name derived from IP geolocation.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="Gangnam-gu"
    * </pre>
    *
    * <code>string city = 35 [json_name = "city"];</code>
@@ -966,6 +988,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Email address extracted from the user's profile data.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="user&#64;example.com"
    * </pre>
    *
    * <code>string email = 46 [json_name = "email"];</code>
@@ -976,6 +999,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Email address extracted from the user's profile data.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="user&#64;example.com"
    * </pre>
    *
    * <code>string email = 46 [json_name = "email"];</code>
@@ -988,6 +1012,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Mobile phone number extracted from the user's profile data.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
    * <code>string mobile_number = 47 [json_name = "mobileNumber"];</code>
@@ -998,6 +1023,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Mobile phone number extracted from the user's profile data.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
    * <code>string mobile_number = 47 [json_name = "mobileNumber"];</code>
@@ -1010,6 +1036,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Landline phone number extracted from the user's profile data.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="+8221234567"
    * </pre>
    *
    * <code>string landline_number = 48 [json_name = "landlineNumber"];</code>
@@ -1020,6 +1047,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Landline phone number extracted from the user's profile data.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="+8221234567"
    * </pre>
    *
    * <code>string landline_number = 48 [json_name = "landlineNumber"];</code>

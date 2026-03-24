@@ -354,10 +354,12 @@ type UserChat struct {
 	// Unique user chat identifier.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="uc-abc123"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this user chat belongs to.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Contact medium type identifier for chats originating from external
 	// messenger integrations (e.g., "appKakao", "mobileNumber").
@@ -390,6 +392,7 @@ type UserChat struct {
 	// ID of the user who owns this chat conversation.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="u-abc123"
 	UserId string `protobuf:"bytes,9,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	// ID of the external service user linked to this chat
 	// via a messenger integration.

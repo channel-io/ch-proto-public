@@ -143,10 +143,12 @@ type OneTimeMsg struct {
 	// Unique one-time message identifier.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="otm-001"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this one-time message belongs to.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Human-readable label for the one-time message.
 	//

@@ -210,15 +210,18 @@ type Manager struct {
 	// Unique manager identifier.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="m-abc123"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this manager belongs to.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Account ID of the person linked to this manager.
 	// Unique per channel among non-removed managers.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="a-xyz789"
 	AccountId string `protobuf:"bytes,3,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
 	// Manager display name shown to end users and teammates.
 	//
@@ -232,6 +235,7 @@ type Manager struct {
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=180
+	// +kubebuilder:example="Product team lead"
 	Description string `protobuf:"bytes,5,opt,name=description,proto3" json:"description,omitempty"`
 	// Whether the description is visible to end-user visitors.
 	//
@@ -249,6 +253,7 @@ type Manager struct {
 	// Unique per channel among non-removed managers.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="manager@example.com"
 	Email string `protobuf:"bytes,9,opt,name=email,proto3" json:"email,omitempty"`
 	// Whether the email address is visible to end-user visitors.
 	//
@@ -257,6 +262,7 @@ type Manager struct {
 	// Manager mobile phone number in E.164 format (e.g., +821012345678).
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="+821012345678"
 	MobileNumber string `protobuf:"bytes,11,opt,name=mobile_number,json=mobileNumber,proto3" json:"mobile_number,omitempty"`
 	// Whether the mobile number is visible to end-user visitors.
 	//
@@ -265,6 +271,7 @@ type Manager struct {
 	// Role ID assigned to this manager, defining permissions and access levels.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="role-owner"
 	RoleId string `protobuf:"bytes,13,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
 	// Whether this manager has been soft-deleted from the channel.
 	//
@@ -384,12 +391,14 @@ type Manager struct {
 	// Must be set together with status_text; both or neither should be present.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="coffee"
 	StatusEmoji string `protobuf:"bytes,40,opt,name=status_emoji,json=statusEmoji,proto3" json:"status_emoji,omitempty"`
 	// Short text displayed alongside the manager name as a status indicator.
 	// Must be set together with status_emoji; both or neither should be present.
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=128
+	// +kubebuilder:example="In a meeting until 3pm"
 	StatusText string `protobuf:"bytes,41,opt,name=status_text,json=statusText,proto3" json:"status_text,omitempty"`
 	// Timestamp when the custom status (emoji + text) automatically clears.
 	//
@@ -419,6 +428,7 @@ type Manager struct {
 	// Falls back to a system-generated default when no custom avatar is set.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
 	AvatarUrl     string `protobuf:"bytes,48,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
