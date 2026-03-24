@@ -97,52 +97,34 @@ type User struct {
 	// Present for member-type users; for anonymous visitors, this matches
 	// the veil_id.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="member-001"
 	MemberId string `protobuf:"bytes,3,opt,name=member_id,json=memberId,proto3" json:"member_id,omitempty"`
 	// Cookie-based device identifier assigned to anonymous visitors.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
 	VeilId string `protobuf:"bytes,4,opt,name=veil_id,json=veilId,proto3" json:"veil_id,omitempty"`
 	// ID of the unified identity when multiple user records have been merged.
-	//
-	// +kubebuilder:validation:Nullable
 	UnifiedId string `protobuf:"bytes,5,opt,name=unified_id,json=unifiedId,proto3" json:"unified_id,omitempty"`
 	// Identity type of this user.
-	//
-	// +kubebuilder:validation:Nullable
 	Type UserType `protobuf:"varint,6,opt,name=type,proto3,enum=coreapi.model.UserType" json:"type,omitempty"`
 	// Tags that were automatically applied during a user import operation.
-	//
-	// +kubebuilder:validation:Nullable
 	UserImportTags []string `protobuf:"bytes,7,rep,name=user_import_tags,json=userImportTags,proto3" json:"user_import_tags,omitempty"`
 	// Number of chats with unread messages that have alert notifications enabled.
-	//
-	// +kubebuilder:validation:Nullable
 	Alert int32 `protobuf:"varint,8,opt,name=alert,proto3" json:"alert,omitempty"`
 	// Total number of unread messages across all of the user's chats.
-	//
-	// +kubebuilder:validation:Nullable
 	Unread int32 `protobuf:"varint,9,opt,name=unread,proto3" json:"unread,omitempty"`
 	// ID of the chat currently displayed as a pop-up widget to the user.
-	//
-	// +kubebuilder:validation:Nullable
 	PopUpChatId string `protobuf:"bytes,10,opt,name=pop_up_chat_id,json=popUpChatId,proto3" json:"pop_up_chat_id,omitempty"`
 	// ID of the chat pinned as the primary conversation in the messenger.
-	//
-	// +kubebuilder:validation:Nullable
 	MainChatId string `protobuf:"bytes,11,opt,name=main_chat_id,json=mainChatId,proto3" json:"main_chat_id,omitempty"`
 	// ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
 	// (e.g., "KR", "US").
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="KR"
 	Country string `protobuf:"bytes,12,opt,name=country,proto3" json:"country,omitempty"`
 	// IANA time zone identifier derived from the user's IP geolocation
 	// (e.g., "Asia/Seoul").
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="Asia/Seoul"
 	TimeZone string `protobuf:"bytes,13,opt,name=time_zone,json=timeZone,proto3" json:"time_zone,omitempty"`
 	// User creation timestamp.
@@ -155,24 +137,18 @@ type User struct {
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Optimistic locking version incremented on every update.
 	// Supply the current value when updating to prevent overwriting concurrent changes.
-	//
-	// +kubebuilder:validation:Nullable
 	Version int64 `protobuf:"varint,16,opt,name=version,proto3" json:"version,omitempty"`
 	// Custom key-value profile data.
 	// Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
 	// arbitrary keys are also supported.
-	//
-	// +kubebuilder:validation:Nullable
 	Profile *structpb.Struct `protobuf:"bytes,17,opt,name=profile,proto3" json:"profile,omitempty"`
 	// Classification tags attached to the user for segmentation and filtering.
 	// Supports hierarchical tags using "/" as a depth separator.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxItems=20
 	Tags []string `protobuf:"bytes,18,rep,name=tags,proto3" json:"tags,omitempty"`
 	// Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="ko"
 	Language string `protobuf:"bytes,19,opt,name=language,proto3" json:"language,omitempty"`
 	// Whether the user has opted out of email notifications.
@@ -180,30 +156,21 @@ type User struct {
 	// +kubebuilder:validation:Required
 	UnsubscribeEmail bool `protobuf:"varint,20,opt,name=unsubscribe_email,json=unsubscribeEmail,proto3" json:"unsubscribe_email,omitempty"`
 	// Timestamp when the email opt-out preference was last changed.
-	//
-	// +kubebuilder:validation:Nullable
 	UnsubscribeEmailUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=unsubscribe_email_updated_at,json=unsubscribeEmailUpdatedAt,proto3" json:"unsubscribe_email_updated_at,omitempty"`
 	// Whether the user has opted out of SMS/text notifications.
 	//
 	// +kubebuilder:validation:Required
 	UnsubscribeTexting bool `protobuf:"varint,22,opt,name=unsubscribe_texting,json=unsubscribeTexting,proto3" json:"unsubscribe_texting,omitempty"`
 	// Timestamp when the SMS/text opt-out preference was last changed.
-	//
-	// +kubebuilder:validation:Nullable
 	UnsubscribeTextingUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,23,opt,name=unsubscribe_texting_updated_at,json=unsubscribeTextingUpdatedAt,proto3" json:"unsubscribe_texting_updated_at,omitempty"`
 	// Whether the user has opted out of mobile app push notifications.
-	//
-	// +kubebuilder:validation:Nullable
 	UnsubscribeAppPush bool `protobuf:"varint,24,opt,name=unsubscribe_app_push,json=unsubscribeAppPush,proto3" json:"unsubscribe_app_push,omitempty"`
 	// Timestamp when the app push opt-out preference was last changed.
-	//
-	// +kubebuilder:validation:Nullable
 	UnsubscribeAppPushUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=unsubscribe_app_push_updated_at,json=unsubscribeAppPushUpdatedAt,proto3" json:"unsubscribe_app_push_updated_at,omitempty"`
 	// URL of the user's avatar image.
 	// Falls back to an auto-generated default avatar when no custom avatar is set
 	// in the profile.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
 	AvatarUrl string `protobuf:"bytes,26,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	// Whether the user has a display name set in the profile
@@ -213,8 +180,6 @@ type User struct {
 	Named bool `protobuf:"varint,27,opt,name=named,proto3" json:"named,omitempty"`
 	// Language detected from the user's browser or device settings,
 	// as a BCP 47 locale code.
-	//
-	// +kubebuilder:validation:Nullable
 	SystemLanguage string `protobuf:"bytes,28,opt,name=system_language,json=systemLanguage,proto3" json:"system_language,omitempty"`
 	// Whether the user's mobile number has passed format validation
 	// and is eligible for SMS delivery.
@@ -228,7 +193,6 @@ type User struct {
 	EmailQualified bool `protobuf:"varint,30,opt,name=email_qualified,json=emailQualified,proto3" json:"email_qualified,omitempty"`
 	// Display name of the user, derived from the profile's name field.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="John Doe"
 	Name string `protobuf:"bytes,31,opt,name=name,proto3" json:"name,omitempty"`
 	// Whether the user has at least one managed chat conversation.
@@ -241,37 +205,23 @@ type User struct {
 	HasPushToken bool `protobuf:"varint,33,opt,name=has_push_token,json=hasPushToken,proto3" json:"has_push_token,omitempty"`
 	// Province or state name derived from IP geolocation.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="Seoul"
 	Province string `protobuf:"bytes,34,opt,name=province,proto3" json:"province,omitempty"`
 	// City name derived from IP geolocation.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="Gangnam-gu"
 	City string `protobuf:"bytes,35,opt,name=city,proto3" json:"city,omitempty"`
 	// Latitude coordinate derived from IP geolocation.
-	//
-	// +kubebuilder:validation:Nullable
 	Latitude float64 `protobuf:"fixed64,36,opt,name=latitude,proto3" json:"latitude,omitempty"`
 	// Longitude coordinate derived from IP geolocation.
-	//
-	// +kubebuilder:validation:Nullable
 	Longitude float64 `protobuf:"fixed64,37,opt,name=longitude,proto3" json:"longitude,omitempty"`
 	// Web browser and page tracking information from the user's latest session.
-	//
-	// +kubebuilder:validation:Nullable
 	Web *WebInfo `protobuf:"bytes,38,opt,name=web,proto3" json:"web,omitempty"`
 	// Mobile device information from the user's latest session.
-	//
-	// +kubebuilder:validation:Nullable
 	Mobile *MobileInfo `protobuf:"bytes,39,opt,name=mobile,proto3" json:"mobile,omitempty"`
 	// Total number of chat sessions the user has initiated in this channel.
-	//
-	// +kubebuilder:validation:Nullable
 	SessionsCount int32 `protobuf:"varint,40,opt,name=sessions_count,json=sessionsCount,proto3" json:"sessions_count,omitempty"`
 	// Timestamp when the user was last seen online in the channel.
-	//
-	// +kubebuilder:validation:Nullable
 	LastSeenAt *timestamppb.Timestamp `protobuf:"bytes,41,opt,name=last_seen_at,json=lastSeenAt,proto3" json:"last_seen_at,omitempty"`
 	// Whether the user is blocked from initiating new chats.
 	//
@@ -279,12 +229,8 @@ type User struct {
 	Blocked bool `protobuf:"varint,42,opt,name=blocked,proto3" json:"blocked,omitempty"`
 	// Identifier key associated with the block action,
 	// used to look up block details.
-	//
-	// +kubebuilder:validation:Nullable
 	BlockedKey string `protobuf:"bytes,43,opt,name=blocked_key,json=blockedKey,proto3" json:"blocked_key,omitempty"`
 	// Sort key used for ordering users in the managed contact list.
-	//
-	// +kubebuilder:validation:Nullable
 	ManagedKey int64 `protobuf:"varint,44,opt,name=managed_key,json=managedKey,proto3" json:"managed_key,omitempty"`
 	// Whether the user's type is member.
 	// Derived from the type field.
@@ -293,17 +239,14 @@ type User struct {
 	Member bool `protobuf:"varint,45,opt,name=member,proto3" json:"member,omitempty"`
 	// Email address extracted from the user's profile data.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="user@example.com"
 	Email string `protobuf:"bytes,46,opt,name=email,proto3" json:"email,omitempty"`
 	// Mobile phone number extracted from the user's profile data.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="+821012345678"
 	MobileNumber string `protobuf:"bytes,47,opt,name=mobile_number,json=mobileNumber,proto3" json:"mobile_number,omitempty"`
 	// Landline phone number extracted from the user's profile data.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="+8221234567"
 	LandlineNumber string `protobuf:"bytes,48,opt,name=landline_number,json=landlineNumber,proto3" json:"landline_number,omitempty"`
 	unknownFields  protoimpl.UnknownFields
@@ -681,33 +624,19 @@ func (x *User) GetLandlineNumber() string {
 type WebInfo struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Device form factor (e.g. "desktop", "tablet", "mobile").
-	//
-	// +kubebuilder:validation:Nullable
 	Device string `protobuf:"bytes,1,opt,name=device,proto3" json:"device,omitempty"`
 	// Operating system version string (e.g. "10.15.7", "11").
-	//
-	// +kubebuilder:validation:Nullable
 	Os string `protobuf:"bytes,2,opt,name=os,proto3" json:"os,omitempty"`
 	// Operating system name (e.g. "Windows", "macOS", "Linux").
-	//
-	// +kubebuilder:validation:Nullable
 	OsName string `protobuf:"bytes,3,opt,name=os_name,json=osName,proto3" json:"os_name,omitempty"`
 	// Browser version string (e.g. "120.0.6099.109").
-	//
-	// +kubebuilder:validation:Nullable
 	Browser string `protobuf:"bytes,4,opt,name=browser,proto3" json:"browser,omitempty"`
 	// Browser name (e.g. "Chrome", "Safari", "Firefox").
-	//
-	// +kubebuilder:validation:Nullable
 	BrowserName string `protobuf:"bytes,5,opt,name=browser_name,json=browserName,proto3" json:"browser_name,omitempty"`
 	// Cumulative number of web sessions recorded for this user.
 	// Incremented on each new session.
-	//
-	// +kubebuilder:validation:Nullable
 	SessionsCount int32 `protobuf:"varint,6,opt,name=sessions_count,json=sessionsCount,proto3" json:"sessions_count,omitempty"`
 	// Timestamp of the user's most recent web session start.
-	//
-	// +kubebuilder:validation:Nullable
 	LastSeenAt    *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=last_seen_at,json=lastSeenAt,proto3" json:"last_seen_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -797,41 +726,23 @@ func (x *WebInfo) GetLastSeenAt() *timestamppb.Timestamp {
 type MobileInfo struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Device model name (e.g. "iPhone 15", "Galaxy S24").
-	//
-	// +kubebuilder:validation:Nullable
 	Device string `protobuf:"bytes,1,opt,name=device,proto3" json:"device,omitempty"`
 	// Operating system version string (e.g. "17.2", "14").
-	//
-	// +kubebuilder:validation:Nullable
 	Os string `protobuf:"bytes,2,opt,name=os,proto3" json:"os,omitempty"`
 	// Operating system name (e.g. "iOS", "Android").
-	//
-	// +kubebuilder:validation:Nullable
 	OsName string `protobuf:"bytes,3,opt,name=os_name,json=osName,proto3" json:"os_name,omitempty"`
 	// Name of the host application embedding the Channel SDK.
-	//
-	// +kubebuilder:validation:Nullable
 	AppName string `protobuf:"bytes,4,opt,name=app_name,json=appName,proto3" json:"app_name,omitempty"`
 	// Version of the host application embedding the Channel SDK.
-	//
-	// +kubebuilder:validation:Nullable
 	AppVersion string `protobuf:"bytes,5,opt,name=app_version,json=appVersion,proto3" json:"app_version,omitempty"`
 	// Channel SDK platform name (e.g. "ios", "android", "react-native").
-	//
-	// +kubebuilder:validation:Nullable
 	SdkName string `protobuf:"bytes,6,opt,name=sdk_name,json=sdkName,proto3" json:"sdk_name,omitempty"`
 	// Channel SDK version string.
-	//
-	// +kubebuilder:validation:Nullable
 	SdkVersion string `protobuf:"bytes,7,opt,name=sdk_version,json=sdkVersion,proto3" json:"sdk_version,omitempty"`
 	// Cumulative number of mobile sessions recorded for this user.
 	// Incremented on each new session.
-	//
-	// +kubebuilder:validation:Nullable
 	SessionsCount int32 `protobuf:"varint,8,opt,name=sessions_count,json=sessionsCount,proto3" json:"sessions_count,omitempty"`
 	// Timestamp of the user's most recent mobile session start.
-	//
-	// +kubebuilder:validation:Nullable
 	LastSeenAt    *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=last_seen_at,json=lastSeenAt,proto3" json:"last_seen_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

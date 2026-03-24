@@ -52,7 +52,6 @@ message Event {
 
   // Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Struct property = 5;
 
   // Event creation timestamp.
@@ -62,18 +61,15 @@ message Event {
 
   // Expiration timestamp after which the event may no longer be retrievable.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp expire_at = 7;
 
   // Optimistic concurrency version counter.
   // Incremented on each update to detect conflicting writes.
   //
-  // +kubebuilder:validation:Nullable
   int64 version = 8;
 
   // Internationalized event name map keyed by locale (e.g., en, ko).
   // Populated only for system-defined events; custom events return no entries.
   //
-  // +kubebuilder:validation:Nullable
   map<string, string> name_i18n_map = 9;
 }

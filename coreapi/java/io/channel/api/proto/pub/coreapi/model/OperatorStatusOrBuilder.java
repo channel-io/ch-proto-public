@@ -82,7 +82,6 @@ public interface OperatorStatusOrBuilder extends
   /**
    * <pre>
    * Current activity state of the manager, used for chat routing and workload management.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
@@ -92,7 +91,6 @@ public interface OperatorStatusOrBuilder extends
   /**
    * <pre>
    * Current activity state of the manager, used for chat routing and workload management.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
@@ -176,7 +174,6 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Timestamp when `operator_status_type` was last changed.
    * Differs from `updated_at` which tracks any field update.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp type_updated_at = 8 [json_name = "typeUpdatedAt"];</code>
@@ -187,7 +184,6 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Timestamp when `operator_status_type` was last changed.
    * Differs from `updated_at` which tracks any field update.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp type_updated_at = 8 [json_name = "typeUpdatedAt"];</code>
@@ -198,7 +194,6 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Timestamp when `operator_status_type` was last changed.
    * Differs from `updated_at` which tracks any field update.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp type_updated_at = 8 [json_name = "typeUpdatedAt"];</code>
@@ -208,7 +203,6 @@ public interface OperatorStatusOrBuilder extends
   /**
    * <pre>
    * Optimistic locking version for concurrent update detection.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 version = 9 [json_name = "version"];</code>

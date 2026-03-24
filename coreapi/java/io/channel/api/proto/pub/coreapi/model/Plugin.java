@@ -382,7 +382,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Plugin API key in UUID format.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string key = 2 [json_name = "key"];</code>
@@ -404,7 +403,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Plugin API key in UUID format.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string key = 2 [json_name = "key"];</code>
@@ -653,7 +651,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Text shown on the label next to the launcher button.
    * Applicable when label_button is true.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinLength=4
    * +kubebuilder:validation:MaxLength=30
    * </pre>
@@ -678,7 +675,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Text shown on the label next to the launcher button.
    * Applicable when label_button is true.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinLength=4
    * +kubebuilder:validation:MaxLength=30
    * </pre>
@@ -731,7 +727,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -755,7 +750,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -769,7 +763,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -788,7 +781,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -874,7 +866,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Uploaded image for the launcher button.
    * Applicable when button_type is CUSTOM_IMAGE.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.ImageFile custom_image = 13 [json_name = "customImage"];</code>
@@ -888,7 +879,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Uploaded image for the launcher button.
    * Applicable when button_type is CUSTOM_IMAGE.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.ImageFile custom_image = 13 [json_name = "customImage"];</code>
@@ -902,7 +892,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Uploaded image for the launcher button.
    * Applicable when button_type is CUSTOM_IMAGE.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.ImageFile custom_image = 13 [json_name = "customImage"];</code>
@@ -918,7 +907,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Uploaded desktop launcher image.
    * Applicable when button_type is LEGACY.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -932,7 +920,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Uploaded desktop launcher image.
    * Applicable when button_type is LEGACY.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -946,7 +933,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Uploaded desktop launcher image.
    * Applicable when button_type is LEGACY.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -961,7 +947,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Horizontal offset of the desktop widget from its anchored edge, in pixels.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 desk_margin_x = 15 [json_name = "deskMarginX"];</code>
@@ -977,7 +962,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Vertical offset of the desktop widget from the bottom edge, in pixels.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 desk_margin_y = 16 [json_name = "deskMarginY"];</code>
@@ -993,7 +977,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the desktop launcher button is hidden while the widget remains accessible.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool desk_hide_button = 17 [json_name = "deskHideButton"];</code>
@@ -1009,7 +992,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Horizontal anchor position of the desktop widget.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.PluginPosition desk_position = 18 [json_name = "deskPosition"];</code>
@@ -1021,7 +1003,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Horizontal anchor position of the desktop widget.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.PluginPosition desk_position = 18 [json_name = "deskPosition"];</code>
@@ -1039,7 +1020,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Uploaded mobile launcher image.
    * Applicable when button_type is LEGACY.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -1053,7 +1033,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Uploaded mobile launcher image.
    * Applicable when button_type is LEGACY.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -1067,7 +1046,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Uploaded mobile launcher image.
    * Applicable when button_type is LEGACY.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -1082,7 +1060,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Horizontal offset of the mobile widget from its anchored edge, in pixels.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 mobile_margin_x = 20 [json_name = "mobileMarginX"];</code>
@@ -1098,7 +1075,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Vertical offset of the mobile widget from the bottom edge, in pixels.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 mobile_margin_y = 21 [json_name = "mobileMarginY"];</code>
@@ -1114,7 +1090,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Horizontal anchor position of the mobile widget.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.PluginPosition mobile_position = 22 [json_name = "mobilePosition"];</code>
@@ -1126,7 +1101,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Horizontal anchor position of the mobile widget.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.PluginPosition mobile_position = 22 [json_name = "mobilePosition"];</code>
@@ -1143,7 +1117,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the mobile launcher button is hidden while the widget remains accessible.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool mobile_hide_button = 23 [json_name = "mobileHideButton"];</code>
@@ -1159,7 +1132,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Vertical position of the chat bubble on mobile devices.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.PluginBubblePosition mobile_bubble_position = 24 [json_name = "mobileBubblePosition"];</code>
@@ -1171,7 +1143,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Vertical position of the chat bubble on mobile devices.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.PluginBubblePosition mobile_bubble_position = 24 [json_name = "mobileBubblePosition"];</code>
@@ -1189,7 +1160,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * URL patterns that restrict where the plugin is displayed.
    * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=5
    * </pre>
    *
@@ -1204,7 +1174,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * URL patterns that restrict where the plugin is displayed.
    * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=5
    * </pre>
    *
@@ -1218,7 +1187,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * URL patterns that restrict where the plugin is displayed.
    * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=5
    * </pre>
    *
@@ -1233,7 +1201,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * URL patterns that restrict where the plugin is displayed.
    * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=5
    * </pre>
    *
@@ -1251,7 +1218,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:Minimum=0
    * +kubebuilder:validation:Maximum=1
    * </pre>
@@ -1269,7 +1235,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Facebook Pixel ID linked for conversion tracking.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string facebook_pixel_id = 27 [json_name = "facebookPixelId"];</code>
@@ -1291,7 +1256,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Facebook Pixel ID linked for conversion tracking.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string facebook_pixel_id = 27 [json_name = "facebookPixelId"];</code>
@@ -1318,7 +1282,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Resolved URL of the custom launcher button image.
    * Automatically derived from custom_image.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string custom_image_url = 28 [json_name = "customImageUrl"];</code>
@@ -1341,7 +1304,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Resolved URL of the custom launcher button image.
    * Automatically derived from custom_image.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string custom_image_url = 28 [json_name = "customImageUrl"];</code>
@@ -1368,7 +1330,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Resolved URL of the desktop launcher image.
    * Automatically derived from desk_image.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>
@@ -1391,7 +1352,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Resolved URL of the desktop launcher image.
    * Automatically derived from desk_image.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>
@@ -1418,7 +1378,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Resolved URL of the mobile launcher image.
    * Automatically derived from mobile_image.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string mobile_image_url = 30 [json_name = "mobileImageUrl"];</code>
@@ -1441,7 +1400,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Resolved URL of the mobile launcher image.
    * Automatically derived from mobile_image.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string mobile_image_url = 30 [json_name = "mobileImageUrl"];</code>
@@ -2472,7 +2430,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Plugin API key in UUID format.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string key = 2 [json_name = "key"];</code>
@@ -2493,7 +2450,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Plugin API key in UUID format.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string key = 2 [json_name = "key"];</code>
@@ -2515,7 +2471,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Plugin API key in UUID format.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string key = 2 [json_name = "key"];</code>
@@ -2535,7 +2490,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Plugin API key in UUID format.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string key = 2 [json_name = "key"];</code>
@@ -2550,7 +2504,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Plugin API key in UUID format.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string key = 2 [json_name = "key"];</code>
@@ -3172,7 +3125,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Text shown on the label next to the launcher button.
      * Applicable when label_button is true.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinLength=4
      * +kubebuilder:validation:MaxLength=30
      * </pre>
@@ -3196,7 +3148,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Text shown on the label next to the launcher button.
      * Applicable when label_button is true.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinLength=4
      * +kubebuilder:validation:MaxLength=30
      * </pre>
@@ -3221,7 +3172,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Text shown on the label next to the launcher button.
      * Applicable when label_button is true.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinLength=4
      * +kubebuilder:validation:MaxLength=30
      * </pre>
@@ -3244,7 +3194,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Text shown on the label next to the launcher button.
      * Applicable when label_button is true.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinLength=4
      * +kubebuilder:validation:MaxLength=30
      * </pre>
@@ -3262,7 +3211,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Text shown on the label next to the launcher button.
      * Applicable when label_button is true.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinLength=4
      * +kubebuilder:validation:MaxLength=30
      * </pre>
@@ -3313,7 +3261,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Localized label button text, keyed by locale code (e.g., "en", "ko").
      * Overrides label_button_text for matching locales.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -3337,7 +3284,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Localized label button text, keyed by locale code (e.g., "en", "ko").
      * Overrides label_button_text for matching locales.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -3351,7 +3297,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Localized label button text, keyed by locale code (e.g., "en", "ko").
      * Overrides label_button_text for matching locales.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -3370,7 +3315,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Localized label button text, keyed by locale code (e.g., "en", "ko").
      * Overrides label_button_text for matching locales.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -3397,7 +3341,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Localized label button text, keyed by locale code (e.g., "en", "ko").
      * Overrides label_button_text for matching locales.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -3422,7 +3365,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Localized label button text, keyed by locale code (e.g., "en", "ko").
      * Overrides label_button_text for matching locales.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -3443,7 +3385,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Localized label button text, keyed by locale code (e.g., "en", "ko").
      * Overrides label_button_text for matching locales.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -3631,7 +3572,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded image for the launcher button.
      * Applicable when button_type is CUSTOM_IMAGE.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.ImageFile custom_image = 13 [json_name = "customImage"];</code>
@@ -3644,7 +3584,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded image for the launcher button.
      * Applicable when button_type is CUSTOM_IMAGE.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.ImageFile custom_image = 13 [json_name = "customImage"];</code>
@@ -3661,7 +3600,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded image for the launcher button.
      * Applicable when button_type is CUSTOM_IMAGE.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.ImageFile custom_image = 13 [json_name = "customImage"];</code>
@@ -3683,7 +3621,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded image for the launcher button.
      * Applicable when button_type is CUSTOM_IMAGE.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.ImageFile custom_image = 13 [json_name = "customImage"];</code>
@@ -3703,7 +3640,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded image for the launcher button.
      * Applicable when button_type is CUSTOM_IMAGE.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.ImageFile custom_image = 13 [json_name = "customImage"];</code>
@@ -3727,7 +3663,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded image for the launcher button.
      * Applicable when button_type is CUSTOM_IMAGE.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.ImageFile custom_image = 13 [json_name = "customImage"];</code>
@@ -3747,7 +3682,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded image for the launcher button.
      * Applicable when button_type is CUSTOM_IMAGE.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.ImageFile custom_image = 13 [json_name = "customImage"];</code>
@@ -3761,7 +3695,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded image for the launcher button.
      * Applicable when button_type is CUSTOM_IMAGE.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.ImageFile custom_image = 13 [json_name = "customImage"];</code>
@@ -3778,7 +3711,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded image for the launcher button.
      * Applicable when button_type is CUSTOM_IMAGE.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.ImageFile custom_image = 13 [json_name = "customImage"];</code>
@@ -3804,7 +3736,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded desktop launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3817,7 +3748,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded desktop launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3834,7 +3764,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded desktop launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3856,7 +3785,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded desktop launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3876,7 +3804,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded desktop launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3900,7 +3827,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded desktop launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3920,7 +3846,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded desktop launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3934,7 +3859,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded desktop launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3951,7 +3875,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded desktop launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3974,7 +3897,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal offset of the desktop widget from its anchored edge, in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 desk_margin_x = 15 [json_name = "deskMarginX"];</code>
@@ -3987,7 +3909,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal offset of the desktop widget from its anchored edge, in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 desk_margin_x = 15 [json_name = "deskMarginX"];</code>
@@ -4003,7 +3924,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal offset of the desktop widget from its anchored edge, in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 desk_margin_x = 15 [json_name = "deskMarginX"];</code>
@@ -4020,7 +3940,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Vertical offset of the desktop widget from the bottom edge, in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 desk_margin_y = 16 [json_name = "deskMarginY"];</code>
@@ -4033,7 +3952,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Vertical offset of the desktop widget from the bottom edge, in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 desk_margin_y = 16 [json_name = "deskMarginY"];</code>
@@ -4049,7 +3967,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Vertical offset of the desktop widget from the bottom edge, in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 desk_margin_y = 16 [json_name = "deskMarginY"];</code>
@@ -4066,7 +3983,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the desktop launcher button is hidden while the widget remains accessible.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool desk_hide_button = 17 [json_name = "deskHideButton"];</code>
@@ -4079,7 +3995,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the desktop launcher button is hidden while the widget remains accessible.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool desk_hide_button = 17 [json_name = "deskHideButton"];</code>
@@ -4095,7 +4010,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the desktop launcher button is hidden while the widget remains accessible.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool desk_hide_button = 17 [json_name = "deskHideButton"];</code>
@@ -4112,7 +4026,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal anchor position of the desktop widget.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.PluginPosition desk_position = 18 [json_name = "deskPosition"];</code>
@@ -4124,7 +4037,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal anchor position of the desktop widget.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.PluginPosition desk_position = 18 [json_name = "deskPosition"];</code>
@@ -4140,7 +4052,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal anchor position of the desktop widget.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.PluginPosition desk_position = 18 [json_name = "deskPosition"];</code>
@@ -4155,7 +4066,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal anchor position of the desktop widget.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.PluginPosition desk_position = 18 [json_name = "deskPosition"];</code>
@@ -4174,7 +4084,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal anchor position of the desktop widget.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.PluginPosition desk_position = 18 [json_name = "deskPosition"];</code>
@@ -4194,7 +4103,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded mobile launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4207,7 +4115,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded mobile launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4224,7 +4131,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded mobile launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4246,7 +4152,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded mobile launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4266,7 +4171,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded mobile launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4290,7 +4194,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded mobile launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4310,7 +4213,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded mobile launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4324,7 +4226,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded mobile launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4341,7 +4242,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Uploaded mobile launcher image.
      * Applicable when button_type is LEGACY.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4364,7 +4264,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal offset of the mobile widget from its anchored edge, in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 mobile_margin_x = 20 [json_name = "mobileMarginX"];</code>
@@ -4377,7 +4276,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal offset of the mobile widget from its anchored edge, in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 mobile_margin_x = 20 [json_name = "mobileMarginX"];</code>
@@ -4393,7 +4291,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal offset of the mobile widget from its anchored edge, in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 mobile_margin_x = 20 [json_name = "mobileMarginX"];</code>
@@ -4410,7 +4307,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Vertical offset of the mobile widget from the bottom edge, in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 mobile_margin_y = 21 [json_name = "mobileMarginY"];</code>
@@ -4423,7 +4319,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Vertical offset of the mobile widget from the bottom edge, in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 mobile_margin_y = 21 [json_name = "mobileMarginY"];</code>
@@ -4439,7 +4334,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Vertical offset of the mobile widget from the bottom edge, in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 mobile_margin_y = 21 [json_name = "mobileMarginY"];</code>
@@ -4456,7 +4350,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal anchor position of the mobile widget.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.PluginPosition mobile_position = 22 [json_name = "mobilePosition"];</code>
@@ -4468,7 +4361,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal anchor position of the mobile widget.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.PluginPosition mobile_position = 22 [json_name = "mobilePosition"];</code>
@@ -4484,7 +4376,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal anchor position of the mobile widget.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.PluginPosition mobile_position = 22 [json_name = "mobilePosition"];</code>
@@ -4499,7 +4390,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal anchor position of the mobile widget.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.PluginPosition mobile_position = 22 [json_name = "mobilePosition"];</code>
@@ -4518,7 +4408,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal anchor position of the mobile widget.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.PluginPosition mobile_position = 22 [json_name = "mobilePosition"];</code>
@@ -4535,7 +4424,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the mobile launcher button is hidden while the widget remains accessible.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool mobile_hide_button = 23 [json_name = "mobileHideButton"];</code>
@@ -4548,7 +4436,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the mobile launcher button is hidden while the widget remains accessible.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool mobile_hide_button = 23 [json_name = "mobileHideButton"];</code>
@@ -4564,7 +4451,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the mobile launcher button is hidden while the widget remains accessible.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool mobile_hide_button = 23 [json_name = "mobileHideButton"];</code>
@@ -4581,7 +4467,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Vertical position of the chat bubble on mobile devices.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.PluginBubblePosition mobile_bubble_position = 24 [json_name = "mobileBubblePosition"];</code>
@@ -4593,7 +4478,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Vertical position of the chat bubble on mobile devices.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.PluginBubblePosition mobile_bubble_position = 24 [json_name = "mobileBubblePosition"];</code>
@@ -4609,7 +4493,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Vertical position of the chat bubble on mobile devices.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.PluginBubblePosition mobile_bubble_position = 24 [json_name = "mobileBubblePosition"];</code>
@@ -4624,7 +4507,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Vertical position of the chat bubble on mobile devices.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.PluginBubblePosition mobile_bubble_position = 24 [json_name = "mobileBubblePosition"];</code>
@@ -4643,7 +4525,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Vertical position of the chat bubble on mobile devices.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.PluginBubblePosition mobile_bubble_position = 24 [json_name = "mobileBubblePosition"];</code>
@@ -4667,7 +4548,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxItems=5
      * </pre>
      *
@@ -4682,7 +4562,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxItems=5
      * </pre>
      *
@@ -4696,7 +4575,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxItems=5
      * </pre>
      *
@@ -4711,7 +4589,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxItems=5
      * </pre>
      *
@@ -4727,7 +4604,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxItems=5
      * </pre>
      *
@@ -4750,7 +4626,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxItems=5
      * </pre>
      *
@@ -4772,7 +4647,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxItems=5
      * </pre>
      *
@@ -4792,7 +4666,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxItems=5
      * </pre>
      *
@@ -4809,7 +4682,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxItems=5
      * </pre>
      *
@@ -4833,7 +4705,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:Minimum=0
      * +kubebuilder:validation:Maximum=1
      * </pre>
@@ -4848,7 +4719,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:Minimum=0
      * +kubebuilder:validation:Maximum=1
      * </pre>
@@ -4866,7 +4736,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:Minimum=0
      * +kubebuilder:validation:Maximum=1
      * </pre>
@@ -4885,7 +4754,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Facebook Pixel ID linked for conversion tracking.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string facebook_pixel_id = 27 [json_name = "facebookPixelId"];</code>
@@ -4906,7 +4774,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Facebook Pixel ID linked for conversion tracking.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string facebook_pixel_id = 27 [json_name = "facebookPixelId"];</code>
@@ -4928,7 +4795,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Facebook Pixel ID linked for conversion tracking.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string facebook_pixel_id = 27 [json_name = "facebookPixelId"];</code>
@@ -4948,7 +4814,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Facebook Pixel ID linked for conversion tracking.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string facebook_pixel_id = 27 [json_name = "facebookPixelId"];</code>
@@ -4963,7 +4828,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Facebook Pixel ID linked for conversion tracking.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string facebook_pixel_id = 27 [json_name = "facebookPixelId"];</code>
@@ -4987,7 +4851,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the custom launcher button image.
      * Automatically derived from custom_image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string custom_image_url = 28 [json_name = "customImageUrl"];</code>
@@ -5009,7 +4872,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the custom launcher button image.
      * Automatically derived from custom_image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string custom_image_url = 28 [json_name = "customImageUrl"];</code>
@@ -5032,7 +4894,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the custom launcher button image.
      * Automatically derived from custom_image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string custom_image_url = 28 [json_name = "customImageUrl"];</code>
@@ -5053,7 +4914,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the custom launcher button image.
      * Automatically derived from custom_image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string custom_image_url = 28 [json_name = "customImageUrl"];</code>
@@ -5069,7 +4929,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the custom launcher button image.
      * Automatically derived from custom_image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string custom_image_url = 28 [json_name = "customImageUrl"];</code>
@@ -5093,7 +4952,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the desktop launcher image.
      * Automatically derived from desk_image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>
@@ -5115,7 +4973,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the desktop launcher image.
      * Automatically derived from desk_image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>
@@ -5138,7 +4995,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the desktop launcher image.
      * Automatically derived from desk_image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>
@@ -5159,7 +5015,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the desktop launcher image.
      * Automatically derived from desk_image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>
@@ -5175,7 +5030,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the desktop launcher image.
      * Automatically derived from desk_image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>
@@ -5199,7 +5053,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the mobile launcher image.
      * Automatically derived from mobile_image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string mobile_image_url = 30 [json_name = "mobileImageUrl"];</code>
@@ -5221,7 +5074,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the mobile launcher image.
      * Automatically derived from mobile_image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string mobile_image_url = 30 [json_name = "mobileImageUrl"];</code>
@@ -5244,7 +5096,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the mobile launcher image.
      * Automatically derived from mobile_image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string mobile_image_url = 30 [json_name = "mobileImageUrl"];</code>
@@ -5265,7 +5116,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the mobile launcher image.
      * Automatically derived from mobile_image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string mobile_image_url = 30 [json_name = "mobileImageUrl"];</code>
@@ -5281,7 +5131,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the mobile launcher image.
      * Automatically derived from mobile_image.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string mobile_image_url = 30 [json_name = "mobileImageUrl"];</code>

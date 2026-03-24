@@ -24,19 +24,16 @@ message Block {
   // Programming language identifier for syntax highlighting.
   // Only applicable when type is CODE.
   //
-  // +kubebuilder:validation:Nullable
   string language = 2;
 
   // Text content of the block.
   // Applicable for TEXT and CODE block types; ignored for BULLETS.
   //
-  // +kubebuilder:validation:Nullable
   string value = 3;
 
   // Nested child blocks that form a hierarchical list structure.
   // Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
   //
-  // +kubebuilder:validation:Nullable
   repeated Block blocks = 4;
 
   // Type of content block.
@@ -82,7 +79,6 @@ message MessageButton {
   // Visual color theme applied to the button.
   // Defaults to the channel's primary color when not specified.
   //
-  // +kubebuilder:validation:Nullable
   ColorVariant color_variant = 2;
 
   // Action payload executed when the button is clicked.
@@ -117,7 +113,6 @@ message MessageFile {
 
   // High-level media category derived from the MIME type (e.g. "image", "video", "audio").
   //
-  // +kubebuilder:validation:Nullable
   string type = 2;
 
   // Original file name including the extension (e.g. "report.pdf").
@@ -140,34 +135,28 @@ message MessageFile {
 
   // MIME content type (e.g. "image/png", "application/pdf").
   //
-  // +kubebuilder:validation:Nullable
   string content_type = 5;
 
   // Media playback duration in seconds.
   // Present only for audio or video files.
   //
-  // +kubebuilder:validation:Nullable
   double duration = 6;
 
   // Image or video width in pixels.
   //
-  // +kubebuilder:validation:Nullable
   int32 width = 7;
 
   // Image or video height in pixels.
   //
-  // +kubebuilder:validation:Nullable
   int32 height = 8;
 
   // EXIF orientation value (1-8) indicating how the image should be rotated for display.
   // Present only for image files with EXIF metadata.
   //
-  // +kubebuilder:validation:Nullable
   int32 orientation = 9;
 
   // Whether the image is an animated format (e.g. GIF, APNG).
   //
-  // +kubebuilder:validation:Nullable
   bool animated = 10;
 
   // Storage bucket name where the file is hosted.
@@ -199,43 +188,36 @@ message MessageFile {
   // Storage key for the preview thumbnail.
   // Falls back to `key` when not set.
   //
-  // +kubebuilder:validation:Nullable
   string preview_key = 13;
 
   // Access scope that determines who can view this private file.
   // Derived from the storage key pattern.
   //
-  // +kubebuilder:validation:Nullable
   PrivateFileScope private_file_scope = 14;
 
   // Domain identifier for channel-scoped private files.
   // Derived from the storage key pattern.
   //
-  // +kubebuilder:validation:Nullable
   string shared_domain = 15;
 
   // Channel ID that owns this private file.
   // Derived from the storage key pattern.
   //
-  // +kubebuilder:validation:Nullable
   string channel_id = 16;
 
   // Manager ID that owns this private file.
   // Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
   //
-  // +kubebuilder:validation:Nullable
   string manager_id = 17;
 
   // Chat type for chat-scoped private files.
   // Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
   //
-  // +kubebuilder:validation:Nullable
   string chat_type = 18;
 
   // Chat ID for chat-scoped private files.
   // Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
   //
-  // +kubebuilder:validation:Nullable
   string chat_id = 19;
 
   // Access scope for private file visibility.
@@ -277,62 +259,50 @@ message MessageWebPage {
 
   // Page title extracted from Open Graph `og:title` or HTML `<title>` tag.
   //
-  // +kubebuilder:validation:Nullable
   string title = 3;
 
   // Page summary extracted from Open Graph `og:description` or HTML meta description.
   //
-  // +kubebuilder:validation:Nullable
   string description = 4;
 
   // Primary image URL from Open Graph `og:image` metadata.
   //
-  // +kubebuilder:validation:Nullable
   string image_url = 5;
 
   // Embedded video URL from Open Graph `og:video` metadata.
   //
-  // +kubebuilder:validation:Nullable
   string video_url = 6;
 
   // Publisher or site name extracted from page metadata.
   //
-  // +kubebuilder:validation:Nullable
   string publisher = 7;
 
   // Content author name extracted from page metadata.
   //
-  // +kubebuilder:validation:Nullable
   string author = 8;
 
   // Preview image width in pixels.
   //
-  // +kubebuilder:validation:Nullable
   int32 width = 9;
 
   // Preview image height in pixels.
   //
-  // +kubebuilder:validation:Nullable
   int32 height = 10;
 
   // Storage bucket name for the cached preview image.
   //
-  // +kubebuilder:validation:Nullable
   string bucket = 11;
 
   // Storage key for the locally cached preview image.
   //
-  // +kubebuilder:validation:Nullable
   string preview_key = 12;
 
   // Publisher logo URL extracted from page metadata.
   //
-  // +kubebuilder:validation:Nullable
   string logo = 13;
 
   // Site name from Open Graph `og:site_name` metadata.
   //
-  // +kubebuilder:validation:Nullable
   string name = 14;
 }
 
@@ -373,44 +343,36 @@ enum MessageOption {
 message MessageContent {
   // Structured content blocks of the message.
   //
-  // +kubebuilder:validation:Nullable
   repeated Block blocks = 1;
 
   // Plain text representation of the message.
   //
-  // +kubebuilder:validation:Nullable
   string plain_text = 2;
 
   // Interactive buttons attached to the message.
   //
-  // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxItems=2
   repeated MessageButton buttons = 3 [(buf.validate.field).repeated = {max_items: 2}];
 
   // File attachments included in the message.
   //
-  // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxItems=10
   repeated MessageFile files = 4 [(buf.validate.field).repeated = {max_items: 10}];
 
   // Web page link preview attached to the message.
   //
-  // +kubebuilder:validation:Nullable
   MessageWebPage web_page = 5;
 
   // Interactive form attached to the message.
   // The structure depends on the form type (custom, followUp, call).
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Struct form = 6;
 
   // Option flags that modify message delivery and display behavior.
   //
-  // +kubebuilder:validation:Nullable
   repeated MessageOption options = 7;
 
   // Client-generated request identifier for idempotency.
   //
-  // +kubebuilder:validation:Nullable
   string request_id = 8;
 }

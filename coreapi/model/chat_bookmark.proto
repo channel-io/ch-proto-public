@@ -75,7 +75,6 @@ message ChatBookmark {
 
   // Entity version number for optimistic concurrency control.
   //
-  // +kubebuilder:validation:Nullable
   int64 version = 6;
 
   // Type of the bookmark owner (e.g. "manager").

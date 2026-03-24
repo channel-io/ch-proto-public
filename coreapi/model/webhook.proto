@@ -98,7 +98,6 @@ message Webhook {
 
   // Timestamp when the webhook was last blocked due to consecutive failures.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp last_blocked_at = 9;
 
   // Whether the webhook is currently blocked due to excessive delivery failures.

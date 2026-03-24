@@ -108,22 +108,17 @@ type Group struct {
 	Scope GroupScope `protobuf:"varint,4,opt,name=scope,proto3,enum=coreapi.model.GroupScope" json:"scope,omitempty"`
 	// IDs of managers who are members of this group.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MinItems=1
 	ManagerIds []string `protobuf:"bytes,5,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	// Icon identifier or emoji representing the group visually.
 	// Must not contain whitespace.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:Pattern="\S+"
 	Icon string `protobuf:"bytes,6,opt,name=icon,proto3" json:"icon,omitempty"`
 	// ID of the active live meet session in this group.
-	//
-	// +kubebuilder:validation:Nullable
 	LiveMeetId string `protobuf:"bytes,7,opt,name=live_meet_id,json=liveMeetId,proto3" json:"live_meet_id,omitempty"`
 	// Free-text description explaining the group's purpose or topic.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=200
 	Description string `protobuf:"bytes,8,opt,name=description,proto3" json:"description,omitempty"`
 	// Group creation timestamp.

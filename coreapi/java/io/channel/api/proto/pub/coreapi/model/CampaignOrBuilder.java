@@ -128,7 +128,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -138,7 +137,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -151,7 +149,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression that defines the target user segment.
    * Represented as a structured filter object.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct user_query = 7 [json_name = "userQuery"];</code>
@@ -162,7 +159,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression that defines the target user segment.
    * Represented as a structured filter object.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct user_query = 7 [json_name = "userQuery"];</code>
@@ -173,7 +169,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression that defines the target user segment.
    * Represented as a structured filter object.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct user_query = 7 [json_name = "userQuery"];</code>
@@ -183,7 +178,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * App-defined user segments used alongside user_query for targeting.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
@@ -193,7 +187,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * App-defined user segments used alongside user_query for targeting.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
@@ -202,7 +195,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * App-defined user segments used alongside user_query for targeting.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
@@ -211,7 +203,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * App-defined user segments used alongside user_query for targeting.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
@@ -221,7 +212,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * App-defined user segments used alongside user_query for targeting.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
@@ -255,7 +245,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to further filter matching trigger events by their properties.
    * Represented as a structured filter object.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct trigger_event_query = 10 [json_name = "triggerEventQuery"];</code>
@@ -266,7 +255,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to further filter matching trigger events by their properties.
    * Represented as a structured filter object.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct trigger_event_query = 10 [json_name = "triggerEventQuery"];</code>
@@ -277,7 +265,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to further filter matching trigger events by their properties.
    * Represented as a structured filter object.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct trigger_event_query = 10 [json_name = "triggerEventQuery"];</code>
@@ -324,7 +311,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Name of an additional event used to filter users before delivery.
    * When set, filter_match determines whether the event must occur or must not occur.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string filter_event_name = 12 [json_name = "filterEventName"];</code>
@@ -335,7 +321,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Name of an additional event used to filter users before delivery.
    * When set, filter_match determines whether the event must occur or must not occur.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string filter_event_name = 12 [json_name = "filterEventName"];</code>
@@ -348,7 +333,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to filter the additional filter events by their properties.
    * Represented as a structured filter object. Applicable when filter_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct filter_event_query = 13 [json_name = "filterEventQuery"];</code>
@@ -359,7 +343,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to filter the additional filter events by their properties.
    * Represented as a structured filter object. Applicable when filter_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct filter_event_query = 13 [json_name = "filterEventQuery"];</code>
@@ -370,7 +353,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to filter the additional filter events by their properties.
    * Represented as a structured filter object. Applicable when filter_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct filter_event_query = 13 [json_name = "filterEventQuery"];</code>
@@ -381,7 +363,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
    * Applicable when filter_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.CampaignFilterMatch filter_match = 14 [json_name = "filterMatch"];</code>
@@ -392,7 +373,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
    * Applicable when filter_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.CampaignFilterMatch filter_match = 14 [json_name = "filterMatch"];</code>
@@ -404,7 +384,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Holds a property value from the trigger event constant for consistent additional event filtering.
    * Applicable when filter_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
@@ -415,7 +394,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Holds a property value from the trigger event constant for consistent additional event filtering.
    * Applicable when filter_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
@@ -426,7 +404,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Holds a property value from the trigger event constant for consistent additional event filtering.
    * Applicable when filter_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
@@ -437,7 +414,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
@@ -447,7 +423,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
@@ -464,7 +439,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
@@ -475,7 +449,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
@@ -488,7 +461,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
@@ -500,7 +472,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Name of the event that counts as a goal completion.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string goal_event_name = 17 [json_name = "goalEventName"];</code>
@@ -510,7 +481,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Name of the event that counts as a goal completion.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string goal_event_name = 17 [json_name = "goalEventName"];</code>
@@ -523,7 +493,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to filter goal events by their properties.
    * Represented as a structured filter object. Applicable when goal_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 18 [json_name = "goalEventQuery"];</code>
@@ -534,7 +503,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to filter goal events by their properties.
    * Represented as a structured filter object. Applicable when goal_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 18 [json_name = "goalEventQuery"];</code>
@@ -545,7 +513,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to filter goal events by their properties.
    * Represented as a structured filter object. Applicable when goal_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 18 [json_name = "goalEventQuery"];</code>
@@ -556,7 +523,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
    * Between 1 and 30 days. Defaults to 7 days.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
@@ -568,7 +534,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
    * Between 1 and 30 days. Defaults to 7 days.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
@@ -580,7 +545,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
    * Between 1 and 30 days. Defaults to 7 days.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
@@ -592,7 +556,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Holds a property value from the trigger or filter event constant for consistent goal checking.
    * Applicable when goal_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
@@ -603,7 +566,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Holds a property value from the trigger or filter event constant for consistent goal checking.
    * Applicable when goal_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
@@ -614,7 +576,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Holds a property value from the trigger or filter event constant for consistent goal checking.
    * Applicable when goal_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
@@ -635,7 +596,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Whether to fall back to XMS (text message) delivery when the user is offline.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool send_to_offline_xms = 22 [json_name = "sendToOfflineXms"];</code>
@@ -646,7 +606,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Whether to fall back to email delivery when the user is offline.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool send_to_offline_email = 23 [json_name = "sendToOfflineEmail"];</code>
@@ -658,7 +617,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
    * Between 0 seconds and 30 days.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
@@ -670,7 +628,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
    * Between 0 seconds and 30 days.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
@@ -682,7 +639,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
    * Between 0 seconds and 30 days.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
@@ -715,7 +671,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Channel operation schedule used to determine delivery timing.
    * Applicable when send_mode is IN_OPERATION or AWAY.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string channel_operation_id = 26 [json_name = "channelOperationId"];</code>
@@ -726,7 +681,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Channel operation schedule used to determine delivery timing.
    * Applicable when send_mode is IN_OPERATION or AWAY.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string channel_operation_id = 26 [json_name = "channelOperationId"];</code>
@@ -739,7 +693,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Custom time windows for delivery scheduling.
    * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.TimeRange send_time_ranges = 27 [json_name = "sendTimeRanges"];</code>
@@ -750,7 +703,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Custom time windows for delivery scheduling.
    * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.TimeRange send_time_ranges = 27 [json_name = "sendTimeRanges"];</code>
@@ -760,7 +712,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Custom time windows for delivery scheduling.
    * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.TimeRange send_time_ranges = 27 [json_name = "sendTimeRanges"];</code>
@@ -770,7 +721,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Custom time windows for delivery scheduling.
    * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.TimeRange send_time_ranges = 27 [json_name = "sendTimeRanges"];</code>
@@ -781,7 +731,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Custom time windows for delivery scheduling.
    * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.TimeRange send_time_ranges = 27 [json_name = "sendTimeRanges"];</code>
@@ -792,7 +741,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Timestamp when the campaign becomes eligible to trigger.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp start_at = 28 [json_name = "startAt"];</code>
@@ -802,7 +750,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Timestamp when the campaign becomes eligible to trigger.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp start_at = 28 [json_name = "startAt"];</code>
@@ -812,7 +759,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Timestamp when the campaign becomes eligible to trigger.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp start_at = 28 [json_name = "startAt"];</code>
@@ -822,7 +768,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Timestamp when the campaign automatically stops.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp end_at = 29 [json_name = "endAt"];</code>
@@ -832,7 +777,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Timestamp when the campaign automatically stops.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp end_at = 29 [json_name = "endAt"];</code>
@@ -842,7 +786,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Timestamp when the campaign automatically stops.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp end_at = 29 [json_name = "endAt"];</code>
@@ -853,7 +796,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Snapshot of the campaign configuration captured before activation.
    * Represented as a free-form JSON object.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 30 [json_name = "draft"];</code>
@@ -864,7 +806,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Snapshot of the campaign configuration captured before activation.
    * Represented as a free-form JSON object.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 30 [json_name = "draft"];</code>
@@ -875,7 +816,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Snapshot of the campaign configuration captured before activation.
    * Represented as a free-form JSON object.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 30 [json_name = "draft"];</code>
@@ -945,7 +885,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Cumulative count of messages delivered.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 sent = 33 [json_name = "sent"];</code>
@@ -956,7 +895,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Cumulative count of message views by recipients.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 view = 34 [json_name = "view"];</code>
@@ -967,7 +905,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Cumulative count of goal event completions attributed to this campaign.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 goal = 35 [json_name = "goal"];</code>
@@ -978,7 +915,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Cumulative count of message link clicks.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 click = 36 [json_name = "click"];</code>
@@ -990,7 +926,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Duration before the user chat created by this campaign expires, in ISO 8601 format.
    * Defaults to 31 days.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
@@ -1002,7 +937,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Duration before the user chat created by this campaign expires, in ISO 8601 format.
    * Defaults to 31 days.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
@@ -1014,7 +948,6 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Duration before the user chat created by this campaign expires, in ISO 8601 format.
    * Defaults to 31 days.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
@@ -1025,7 +958,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Manager assigned to handle user responses from this campaign.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string manager_id = 38 [json_name = "managerId"];</code>
@@ -1035,7 +967,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Manager assigned to handle user responses from this campaign.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string manager_id = 38 [json_name = "managerId"];</code>

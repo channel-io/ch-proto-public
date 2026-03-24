@@ -160,7 +160,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Short description of the entity.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * </pre>
    *
@@ -183,7 +182,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Short description of the entity.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * </pre>
    *
@@ -654,7 +652,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Short description of the entity.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * </pre>
      *
@@ -676,7 +673,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Short description of the entity.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * </pre>
      *
@@ -699,7 +695,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Short description of the entity.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * </pre>
      *
@@ -720,7 +715,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Short description of the entity.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * </pre>
      *
@@ -736,7 +730,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Short description of the entity.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * </pre>
      *

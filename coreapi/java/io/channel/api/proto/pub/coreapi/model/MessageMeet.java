@@ -722,7 +722,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique meet session identifier.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -744,7 +743,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique meet session identifier.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -770,7 +768,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string chat_type = 2 [json_name = "chatType"];</code>
@@ -792,7 +789,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string chat_type = 2 [json_name = "chatType"];</code>
@@ -818,7 +814,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this meet belongs to.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId"];</code>
@@ -840,7 +835,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this meet belongs to.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId"];</code>
@@ -866,7 +860,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Current lifecycle state of the meet session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageMeet.MeetState state = 4 [json_name = "state"];</code>
@@ -878,7 +871,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Current lifecycle state of the meet session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageMeet.MeetState state = 4 [json_name = "state"];</code>
@@ -895,7 +887,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Media mode indicating whether this is an audio-only or video meet.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageMeet.MeetMode mode = 5 [json_name = "mode"];</code>
@@ -907,7 +898,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Media mode indicating whether this is an audio-only or video meet.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageMeet.MeetMode mode = 5 [json_name = "mode"];</code>
@@ -925,7 +915,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Person keys of all participants who have ever joined this meet,
    * in the format "{personType}-{personId}" (e.g. "manager-abc123").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -939,7 +928,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Person keys of all participants who have ever joined this meet,
    * in the format "{personType}-{personId}" (e.g. "manager-abc123").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -952,7 +940,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Person keys of all participants who have ever joined this meet,
    * in the format "{personType}-{personId}" (e.g. "manager-abc123").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -966,7 +953,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Person keys of all participants who have ever joined this meet,
    * in the format "{personType}-{personId}" (e.g. "manager-abc123").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -983,7 +969,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the meet room was first opened.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -996,7 +981,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the meet room was first opened.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -1009,7 +993,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the meet room was first opened.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -1025,7 +1008,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Phone call session details.
    * Present only when `meet_type` is CALL.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -1039,7 +1021,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Phone call session details.
    * Present only when `meet_type` is CALL.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -1053,7 +1034,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Phone call session details.
    * Present only when `meet_type` is CALL.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -1069,7 +1049,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Video/audio front session details.
    * Present only when `meet_type` is FRONT.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -1083,7 +1062,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Video/audio front session details.
    * Present only when `meet_type` is FRONT.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -1097,7 +1075,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Video/audio front session details.
    * Present only when `meet_type` is FRONT.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -1113,7 +1090,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Recording details for the meet session.
    * Present only when the session was recorded.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -1127,7 +1103,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Recording details for the meet session.
    * Present only when the session was recorded.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -1141,7 +1116,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Recording details for the meet session.
    * Present only when the session was recorded.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -1156,7 +1130,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string country = 11 [json_name = "country"];</code>
@@ -1178,7 +1151,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string country = 11 [json_name = "country"];</code>
@@ -1204,7 +1176,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the meet session ended.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -1217,7 +1188,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the meet session ended.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -1230,7 +1200,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the meet session ended.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -1245,7 +1214,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Manager IDs extracted from `amassed_persons`.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -1258,7 +1226,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Manager IDs extracted from `amassed_persons`.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -1270,7 +1237,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Manager IDs extracted from `amassed_persons`.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -1283,7 +1249,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Manager IDs extracted from `amassed_persons`.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -1300,7 +1265,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Computed meet category determined by the presence of `call` or `front` data.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageMeet.MeetType meet_type = 14 [json_name = "meetType"];</code>
@@ -1312,7 +1276,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Computed meet category determined by the presence of `call` or `front` data.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageMeet.MeetType meet_type = 14 [json_name = "meetType"];</code>
@@ -1329,7 +1292,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot IDs extracted from `amassed_persons`.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -1342,7 +1304,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot IDs extracted from `amassed_persons`.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -1354,7 +1315,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot IDs extracted from `amassed_persons`.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -1367,7 +1327,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot IDs extracted from `amassed_persons`.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -2042,7 +2001,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique meet session identifier.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string id = 1 [json_name = "id"];</code>
@@ -2063,7 +2021,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique meet session identifier.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string id = 1 [json_name = "id"];</code>
@@ -2085,7 +2042,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique meet session identifier.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string id = 1 [json_name = "id"];</code>
@@ -2105,7 +2061,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique meet session identifier.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string id = 1 [json_name = "id"];</code>
@@ -2120,7 +2075,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique meet session identifier.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string id = 1 [json_name = "id"];</code>
@@ -2143,7 +2097,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string chat_type = 2 [json_name = "chatType"];</code>
@@ -2164,7 +2117,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string chat_type = 2 [json_name = "chatType"];</code>
@@ -2186,7 +2138,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string chat_type = 2 [json_name = "chatType"];</code>
@@ -2206,7 +2157,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string chat_type = 2 [json_name = "chatType"];</code>
@@ -2221,7 +2171,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string chat_type = 2 [json_name = "chatType"];</code>
@@ -2244,7 +2193,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this meet belongs to.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId"];</code>
@@ -2265,7 +2213,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this meet belongs to.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId"];</code>
@@ -2287,7 +2234,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this meet belongs to.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId"];</code>
@@ -2307,7 +2253,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this meet belongs to.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId"];</code>
@@ -2322,7 +2267,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this meet belongs to.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId"];</code>
@@ -2345,7 +2289,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of the meet session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMeet.MeetState state = 4 [json_name = "state"];</code>
@@ -2357,7 +2300,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of the meet session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMeet.MeetState state = 4 [json_name = "state"];</code>
@@ -2373,7 +2315,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of the meet session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMeet.MeetState state = 4 [json_name = "state"];</code>
@@ -2388,7 +2329,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of the meet session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMeet.MeetState state = 4 [json_name = "state"];</code>
@@ -2407,7 +2347,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of the meet session.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMeet.MeetState state = 4 [json_name = "state"];</code>
@@ -2424,7 +2363,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Media mode indicating whether this is an audio-only or video meet.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMeet.MeetMode mode = 5 [json_name = "mode"];</code>
@@ -2436,7 +2374,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Media mode indicating whether this is an audio-only or video meet.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMeet.MeetMode mode = 5 [json_name = "mode"];</code>
@@ -2452,7 +2389,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Media mode indicating whether this is an audio-only or video meet.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMeet.MeetMode mode = 5 [json_name = "mode"];</code>
@@ -2467,7 +2403,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Media mode indicating whether this is an audio-only or video meet.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMeet.MeetMode mode = 5 [json_name = "mode"];</code>
@@ -2486,7 +2421,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Media mode indicating whether this is an audio-only or video meet.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMeet.MeetMode mode = 5 [json_name = "mode"];</code>
@@ -2510,7 +2444,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2524,7 +2457,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2537,7 +2469,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2551,7 +2482,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2566,7 +2496,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2588,7 +2517,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2609,7 +2537,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2628,7 +2555,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2644,7 +2570,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2669,7 +2594,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2681,7 +2605,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2697,7 +2620,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2718,7 +2640,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2737,7 +2658,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2760,7 +2680,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2779,7 +2698,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2792,7 +2710,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2808,7 +2725,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2834,7 +2750,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2847,7 +2762,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2864,7 +2778,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2886,7 +2799,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2906,7 +2818,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2930,7 +2841,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2950,7 +2860,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2964,7 +2873,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2981,7 +2889,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -3007,7 +2914,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -3020,7 +2926,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -3037,7 +2942,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -3059,7 +2963,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -3079,7 +2982,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -3103,7 +3005,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -3123,7 +3024,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -3137,7 +3037,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -3154,7 +3053,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -3180,7 +3078,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3193,7 +3090,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3210,7 +3106,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3232,7 +3127,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3252,7 +3146,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3276,7 +3169,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3296,7 +3188,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3310,7 +3201,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3327,7 +3217,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3350,7 +3239,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string country = 11 [json_name = "country"];</code>
@@ -3371,7 +3259,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string country = 11 [json_name = "country"];</code>
@@ -3393,7 +3280,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string country = 11 [json_name = "country"];</code>
@@ -3413,7 +3299,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string country = 11 [json_name = "country"];</code>
@@ -3428,7 +3313,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string country = 11 [json_name = "country"];</code>
@@ -3453,7 +3337,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3465,7 +3348,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3481,7 +3363,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3502,7 +3383,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3521,7 +3401,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3544,7 +3423,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3563,7 +3441,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3576,7 +3453,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3592,7 +3468,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3621,7 +3496,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3634,7 +3508,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3646,7 +3519,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3659,7 +3531,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3673,7 +3544,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3694,7 +3564,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3714,7 +3583,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3732,7 +3600,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3747,7 +3614,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3770,7 +3636,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Computed meet category determined by the presence of `call` or `front` data.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMeet.MeetType meet_type = 14 [json_name = "meetType"];</code>
@@ -3782,7 +3647,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Computed meet category determined by the presence of `call` or `front` data.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMeet.MeetType meet_type = 14 [json_name = "meetType"];</code>
@@ -3798,7 +3662,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Computed meet category determined by the presence of `call` or `front` data.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMeet.MeetType meet_type = 14 [json_name = "meetType"];</code>
@@ -3813,7 +3676,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Computed meet category determined by the presence of `call` or `front` data.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMeet.MeetType meet_type = 14 [json_name = "meetType"];</code>
@@ -3832,7 +3694,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Computed meet category determined by the presence of `call` or `front` data.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.MessageMeet.MeetType meet_type = 14 [json_name = "meetType"];</code>
@@ -3855,7 +3716,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3868,7 +3728,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3880,7 +3739,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3893,7 +3751,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3907,7 +3764,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3928,7 +3784,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3948,7 +3803,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3966,7 +3820,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3981,7 +3834,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>

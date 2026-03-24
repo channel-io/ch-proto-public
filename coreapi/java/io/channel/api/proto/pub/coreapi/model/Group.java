@@ -367,7 +367,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * IDs of managers who are members of this group.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -381,7 +380,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * IDs of managers who are members of this group.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -394,7 +392,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * IDs of managers who are members of this group.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -408,7 +405,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * IDs of managers who are members of this group.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -427,7 +423,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Icon identifier or emoji representing the group visually.
    * Must not contain whitespace.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:Pattern="&#92;S+"
    * </pre>
    *
@@ -451,7 +446,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Icon identifier or emoji representing the group visually.
    * Must not contain whitespace.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:Pattern="&#92;S+"
    * </pre>
    *
@@ -478,7 +472,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the active live meet session in this group.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -500,7 +493,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the active live meet session in this group.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -526,7 +518,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Free-text description explaining the group's purpose or topic.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=200
    * </pre>
    *
@@ -549,7 +540,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Free-text description explaining the group's purpose or topic.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=200
    * </pre>
    *
@@ -1588,7 +1578,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers who are members of this group.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -1602,7 +1591,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers who are members of this group.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -1615,7 +1603,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers who are members of this group.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -1629,7 +1616,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers who are members of this group.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -1644,7 +1630,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers who are members of this group.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -1666,7 +1651,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers who are members of this group.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -1687,7 +1671,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers who are members of this group.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -1706,7 +1689,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers who are members of this group.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -1722,7 +1704,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * IDs of managers who are members of this group.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MinItems=1
      * </pre>
      *
@@ -1747,7 +1728,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Icon identifier or emoji representing the group visually.
      * Must not contain whitespace.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:Pattern="&#92;S+"
      * </pre>
      *
@@ -1770,7 +1750,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Icon identifier or emoji representing the group visually.
      * Must not contain whitespace.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:Pattern="&#92;S+"
      * </pre>
      *
@@ -1794,7 +1773,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Icon identifier or emoji representing the group visually.
      * Must not contain whitespace.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:Pattern="&#92;S+"
      * </pre>
      *
@@ -1816,7 +1794,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Icon identifier or emoji representing the group visually.
      * Must not contain whitespace.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:Pattern="&#92;S+"
      * </pre>
      *
@@ -1833,7 +1810,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Icon identifier or emoji representing the group visually.
      * Must not contain whitespace.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:Pattern="&#92;S+"
      * </pre>
      *
@@ -1857,7 +1833,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session in this group.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -1878,7 +1853,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session in this group.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -1900,7 +1874,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session in this group.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -1920,7 +1893,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session in this group.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -1935,7 +1907,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session in this group.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -1958,7 +1929,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Free-text description explaining the group's purpose or topic.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=200
      * </pre>
      *
@@ -1980,7 +1950,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Free-text description explaining the group's purpose or topic.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=200
      * </pre>
      *
@@ -2003,7 +1972,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Free-text description explaining the group's purpose or topic.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=200
      * </pre>
      *
@@ -2024,7 +1992,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Free-text description explaining the group's purpose or topic.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=200
      * </pre>
      *
@@ -2040,7 +2007,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Free-text description explaining the group's purpose or topic.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=200
      * </pre>
      *

@@ -40,12 +40,10 @@ message TinyFile {
   // Image width in pixels.
   // Present only when the file is an image.
   //
-  // +kubebuilder:validation:Nullable
   int32 width = 3;
 
   // Image height in pixels.
   // Present only when the file is an image.
   //
-  // +kubebuilder:validation:Nullable
   int32 height = 4;
 }

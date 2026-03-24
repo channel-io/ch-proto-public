@@ -267,7 +267,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Composite presence record identifier derived from person type and person ID.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 4 [json_name = "id"];</code>
@@ -289,7 +288,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Composite presence record identifier derived from person type and person ID.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 4 [json_name = "id"];</code>
@@ -989,7 +987,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite presence record identifier derived from person type and person ID.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string id = 4 [json_name = "id"];</code>
@@ -1010,7 +1007,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite presence record identifier derived from person type and person ID.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string id = 4 [json_name = "id"];</code>
@@ -1032,7 +1028,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite presence record identifier derived from person type and person ID.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string id = 4 [json_name = "id"];</code>
@@ -1052,7 +1047,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite presence record identifier derived from person type and person ID.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string id = 4 [json_name = "id"];</code>
@@ -1067,7 +1061,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite presence record identifier derived from person type and person ID.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string id = 4 [json_name = "id"];</code>

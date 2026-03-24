@@ -142,7 +142,6 @@ public interface MeetMessageOrBuilder extends
   /**
    * <pre>
    * Structured content blocks of the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 7 [json_name = "blocks"];</code>
@@ -152,7 +151,6 @@ public interface MeetMessageOrBuilder extends
   /**
    * <pre>
    * Structured content blocks of the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 7 [json_name = "blocks"];</code>
@@ -161,7 +159,6 @@ public interface MeetMessageOrBuilder extends
   /**
    * <pre>
    * Structured content blocks of the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 7 [json_name = "blocks"];</code>
@@ -170,7 +167,6 @@ public interface MeetMessageOrBuilder extends
   /**
    * <pre>
    * Structured content blocks of the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 7 [json_name = "blocks"];</code>
@@ -180,7 +176,6 @@ public interface MeetMessageOrBuilder extends
   /**
    * <pre>
    * Structured content blocks of the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 7 [json_name = "blocks"];</code>
@@ -191,7 +186,6 @@ public interface MeetMessageOrBuilder extends
   /**
    * <pre>
    * Plain text representation of the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string plain_text = 8 [json_name = "plainText"];</code>
@@ -201,7 +195,6 @@ public interface MeetMessageOrBuilder extends
   /**
    * <pre>
    * Plain text representation of the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string plain_text = 8 [json_name = "plainText"];</code>

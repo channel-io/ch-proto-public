@@ -95,32 +95,18 @@ type CampaignUser struct {
 	// +kubebuilder:example="cpn-001"
 	CampaignId string `protobuf:"bytes,2,opt,name=campaign_id,json=campaignId,proto3" json:"campaign_id,omitempty"`
 	// Message variant that was delivered to this user.
-	//
-	// +kubebuilder:validation:Nullable
 	MsgId string `protobuf:"bytes,3,opt,name=msg_id,json=msgId,proto3" json:"msg_id,omitempty"`
 	// User chat conversation created by the campaign delivery.
-	//
-	// +kubebuilder:validation:Nullable
 	UserChatId string `protobuf:"bytes,4,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
 	// Timestamp when the campaign message was delivered to the user.
-	//
-	// +kubebuilder:validation:Nullable
 	Sent *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=sent,proto3" json:"sent,omitempty"`
 	// Timestamp when the user first viewed the delivered message.
-	//
-	// +kubebuilder:validation:Nullable
 	View *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=view,proto3" json:"view,omitempty"`
 	// Timestamp when the user first clicked a link in the message.
-	//
-	// +kubebuilder:validation:Nullable
 	Click *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=click,proto3" json:"click,omitempty"`
 	// Timestamp when the user completed the campaign goal event.
-	//
-	// +kubebuilder:validation:Nullable
 	Goal *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=goal,proto3" json:"goal,omitempty"`
 	// Cumulative revenue attributed to this user from the campaign.
-	//
-	// +kubebuilder:validation:Nullable
 	Revenue string `protobuf:"bytes,9,opt,name=revenue,proto3" json:"revenue,omitempty"`
 	// Composite identifier in the format "{campaign_id}-{user_id}".
 	//

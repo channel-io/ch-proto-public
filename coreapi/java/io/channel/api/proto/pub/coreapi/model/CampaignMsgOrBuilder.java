@@ -131,7 +131,6 @@ public interface CampaignMsgOrBuilder extends
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -141,7 +140,6 @@ public interface CampaignMsgOrBuilder extends
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -246,7 +244,6 @@ public interface CampaignMsgOrBuilder extends
   /**
    * <pre>
    * Cumulative count of messages delivered for this variant.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 sent = 10 [json_name = "sent"];</code>
@@ -257,7 +254,6 @@ public interface CampaignMsgOrBuilder extends
   /**
    * <pre>
    * Cumulative count of message views by recipients for this variant.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 view = 11 [json_name = "view"];</code>
@@ -268,7 +264,6 @@ public interface CampaignMsgOrBuilder extends
   /**
    * <pre>
    * Cumulative count of goal event completions attributed to this variant.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 goal = 12 [json_name = "goal"];</code>
@@ -279,7 +274,6 @@ public interface CampaignMsgOrBuilder extends
   /**
    * <pre>
    * Cumulative count of message link clicks for this variant.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 click = 13 [json_name = "click"];</code>

@@ -41,8 +41,6 @@ type ChatSession struct {
 	// +kubebuilder:example="uc-abc123"
 	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	// Section ID used to organize team chat conversations into custom groups.
-	//
-	// +kubebuilder:validation:Nullable
 	TeamChatSectionId string `protobuf:"bytes,3,opt,name=team_chat_section_id,json=teamChatSectionId,proto3" json:"team_chat_section_id,omitempty"`
 	// Composite key identifying the conversation.
 	// Format: "{chatType}-{chatId}".
@@ -67,34 +65,20 @@ type ChatSession struct {
 	ChannelId string `protobuf:"bytes,7,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Number of unread messages with alert-level notification priority.
 	// Defaults to 0.
-	//
-	// +kubebuilder:validation:Nullable
 	Alert int32 `protobuf:"varint,8,opt,name=alert,proto3" json:"alert,omitempty"`
 	// Total number of unread messages in this session.
 	// Defaults to 0.
-	//
-	// +kubebuilder:validation:Nullable
 	Unread int32 `protobuf:"varint,9,opt,name=unread,proto3" json:"unread,omitempty"`
 	// Notification preference controlling which messages trigger alerts in this session.
-	//
-	// +kubebuilder:validation:Nullable
 	Watch SessionWatch `protobuf:"varint,10,opt,name=watch,proto3,enum=coreapi.model.SessionWatch" json:"watch,omitempty"`
 	// Whether @all mentions trigger alert-level notifications in this session.
 	// When absent, inherits from the manager-level default setting.
-	//
-	// +kubebuilder:validation:Nullable
 	AllMentionImportant bool `protobuf:"varint,11,opt,name=all_mention_important,json=allMentionImportant,proto3" json:"all_mention_important,omitempty"`
 	// Timestamp when the person last read messages in this session.
-	//
-	// +kubebuilder:validation:Nullable
 	ReadAt *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=read_at,json=readAt,proto3" json:"read_at,omitempty"`
 	// Timestamp when the last message was received in this conversation.
-	//
-	// +kubebuilder:validation:Nullable
 	ReceivedAt *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=received_at,json=receivedAt,proto3" json:"received_at,omitempty"`
 	// Timestamp when the last message was posted in this conversation.
-	//
-	// +kubebuilder:validation:Nullable
 	PostedAt *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=posted_at,json=postedAt,proto3" json:"posted_at,omitempty"`
 	// Session last update timestamp.
 	//

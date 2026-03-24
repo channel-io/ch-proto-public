@@ -44,6 +44,5 @@ message Online {
 
   // Composite presence record identifier derived from person type and person ID.
   //
-  // +kubebuilder:validation:Nullable
   string id = 4;
 }

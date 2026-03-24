@@ -10,7 +10,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Corresponding Email entity identifier.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -20,7 +19,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Corresponding Email entity identifier.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -32,7 +30,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Whether this email was sent to or received from an external party.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageEmail.EmailDirection direction = 2 [json_name = "direction"];</code>
@@ -42,7 +39,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Whether this email was sent to or received from an external party.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageEmail.EmailDirection direction = 2 [json_name = "direction"];</code>
@@ -53,7 +49,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Sender email address with optional display name.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct from = 3 [json_name = "from"];</code>
@@ -63,7 +58,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Sender email address with optional display name.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct from = 3 [json_name = "from"];</code>
@@ -73,7 +67,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Sender email address with optional display name.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct from = 3 [json_name = "from"];</code>
@@ -83,7 +76,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Primary recipient email addresses.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct to = 4 [json_name = "to"];</code>
@@ -93,7 +85,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Primary recipient email addresses.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct to = 4 [json_name = "to"];</code>
@@ -102,7 +93,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Primary recipient email addresses.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct to = 4 [json_name = "to"];</code>
@@ -111,7 +101,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Primary recipient email addresses.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct to = 4 [json_name = "to"];</code>
@@ -121,7 +110,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Primary recipient email addresses.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct to = 4 [json_name = "to"];</code>
@@ -132,7 +120,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Carbon copy (CC) recipient email addresses.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct cc = 5 [json_name = "cc"];</code>
@@ -142,7 +129,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Carbon copy (CC) recipient email addresses.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct cc = 5 [json_name = "cc"];</code>
@@ -151,7 +137,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Carbon copy (CC) recipient email addresses.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct cc = 5 [json_name = "cc"];</code>
@@ -160,7 +145,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Carbon copy (CC) recipient email addresses.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct cc = 5 [json_name = "cc"];</code>
@@ -170,7 +154,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Carbon copy (CC) recipient email addresses.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct cc = 5 [json_name = "cc"];</code>
@@ -181,7 +164,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Blind carbon copy (BCC) recipient email addresses.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct bcc = 6 [json_name = "bcc"];</code>
@@ -191,7 +173,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Blind carbon copy (BCC) recipient email addresses.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct bcc = 6 [json_name = "bcc"];</code>
@@ -200,7 +181,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Blind carbon copy (BCC) recipient email addresses.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct bcc = 6 [json_name = "bcc"];</code>
@@ -209,7 +189,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Blind carbon copy (BCC) recipient email addresses.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct bcc = 6 [json_name = "bcc"];</code>
@@ -219,7 +198,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Blind carbon copy (BCC) recipient email addresses.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct bcc = 6 [json_name = "bcc"];</code>
@@ -230,7 +208,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Designated reply-to address, if different from the sender.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct reply_to = 7 [json_name = "replyTo"];</code>
@@ -240,7 +217,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Designated reply-to address, if different from the sender.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct reply_to = 7 [json_name = "replyTo"];</code>
@@ -250,7 +226,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Designated reply-to address, if different from the sender.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct reply_to = 7 [json_name = "replyTo"];</code>
@@ -260,7 +235,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Email subject line.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string subject = 8 [json_name = "subject"];</code>
@@ -270,7 +244,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Email subject line.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string subject = 8 [json_name = "subject"];</code>
@@ -283,7 +256,6 @@ public interface MessageEmailOrBuilder extends
    * <pre>
    * Whether this email contains quoted conversation history from previous messages.
    * Defaults to false.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool has_history = 9 [json_name = "hasHistory"];</code>
@@ -294,7 +266,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Message ID of the email this is a reply to, forming the email thread chain.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string reply_to_message_id = 10 [json_name = "replyToMessageId"];</code>
@@ -304,7 +275,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Message ID of the email this is a reply to, forming the email thread chain.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string reply_to_message_id = 10 [json_name = "replyToMessageId"];</code>
@@ -317,7 +287,6 @@ public interface MessageEmailOrBuilder extends
    * <pre>
    * Channel email address that received this inbound email.
    * Present only when `direction` is INBOUND.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string received_for = 11 [json_name = "receivedFor"];</code>
@@ -328,7 +297,6 @@ public interface MessageEmailOrBuilder extends
    * <pre>
    * Channel email address that received this inbound email.
    * Present only when `direction` is INBOUND.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string received_for = 11 [json_name = "receivedFor"];</code>
@@ -340,7 +308,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Email creation timestamp.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 12 [json_name = "createdAt"];</code>
@@ -350,7 +317,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Email creation timestamp.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 12 [json_name = "createdAt"];</code>
@@ -360,7 +326,6 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Email creation timestamp.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 12 [json_name = "createdAt"];</code>

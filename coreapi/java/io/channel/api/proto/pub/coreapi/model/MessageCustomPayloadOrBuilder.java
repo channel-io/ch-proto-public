@@ -10,7 +10,6 @@ public interface MessageCustomPayloadOrBuilder extends
   /**
    * <pre>
    * Arbitrary JSON payload conforming to the external messenger's message schema.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct data = 1 [json_name = "data"];</code>
@@ -20,7 +19,6 @@ public interface MessageCustomPayloadOrBuilder extends
   /**
    * <pre>
    * Arbitrary JSON payload conforming to the external messenger's message schema.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct data = 1 [json_name = "data"];</code>
@@ -30,7 +28,6 @@ public interface MessageCustomPayloadOrBuilder extends
   /**
    * <pre>
    * Arbitrary JSON payload conforming to the external messenger's message schema.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct data = 1 [json_name = "data"];</code>
@@ -41,7 +38,6 @@ public interface MessageCustomPayloadOrBuilder extends
    * <pre>
    * Key-value mapping for template variable substitution within the custom payload.
    * Keys are placeholder names and values are the replacement strings.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, string&gt; param_mapper = 2 [json_name = "paramMapper"];</code>
@@ -51,7 +47,6 @@ public interface MessageCustomPayloadOrBuilder extends
    * <pre>
    * Key-value mapping for template variable substitution within the custom payload.
    * Keys are placeholder names and values are the replacement strings.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, string&gt; param_mapper = 2 [json_name = "paramMapper"];</code>
@@ -68,7 +63,6 @@ public interface MessageCustomPayloadOrBuilder extends
    * <pre>
    * Key-value mapping for template variable substitution within the custom payload.
    * Keys are placeholder names and values are the replacement strings.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, string&gt; param_mapper = 2 [json_name = "paramMapper"];</code>
@@ -79,7 +73,6 @@ public interface MessageCustomPayloadOrBuilder extends
    * <pre>
    * Key-value mapping for template variable substitution within the custom payload.
    * Keys are placeholder names and values are the replacement strings.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, string&gt; param_mapper = 2 [json_name = "paramMapper"];</code>
@@ -92,7 +85,6 @@ public interface MessageCustomPayloadOrBuilder extends
    * <pre>
    * Key-value mapping for template variable substitution within the custom payload.
    * Keys are placeholder names and values are the replacement strings.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, string&gt; param_mapper = 2 [json_name = "paramMapper"];</code>

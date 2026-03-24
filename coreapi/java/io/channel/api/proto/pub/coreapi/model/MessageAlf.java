@@ -123,7 +123,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the handling session that triggered this ALF response.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -145,7 +144,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the handling session that triggered this ALF response.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -171,7 +169,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the ALF conversation session spanning multiple turns.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string alf_session_id = 2 [json_name = "alfSessionId"];</code>
@@ -193,7 +190,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the ALF conversation session spanning multiple turns.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string alf_session_id = 2 [json_name = "alfSessionId"];</code>
@@ -220,7 +216,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Source documents or articles cited by ALF in its response.
    * Each entry contains reference metadata such as title, URL, and relevance score.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -233,7 +228,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Source documents or articles cited by ALF in its response.
    * Each entry contains reference metadata such as title, URL, and relevance score.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -247,7 +241,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Source documents or articles cited by ALF in its response.
    * Each entry contains reference metadata such as title, URL, and relevance score.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -260,7 +253,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Source documents or articles cited by ALF in its response.
    * Each entry contains reference metadata such as title, URL, and relevance score.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -273,7 +265,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Source documents or articles cited by ALF in its response.
    * Each entry contains reference metadata such as title, URL, and relevance score.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -704,7 +695,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the handling session that triggered this ALF response.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -725,7 +715,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the handling session that triggered this ALF response.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -747,7 +736,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the handling session that triggered this ALF response.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -767,7 +755,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the handling session that triggered this ALF response.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -782,7 +769,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the handling session that triggered this ALF response.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -805,7 +791,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the ALF conversation session spanning multiple turns.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string alf_session_id = 2 [json_name = "alfSessionId"];</code>
@@ -826,7 +811,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the ALF conversation session spanning multiple turns.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string alf_session_id = 2 [json_name = "alfSessionId"];</code>
@@ -848,7 +832,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the ALF conversation session spanning multiple turns.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string alf_session_id = 2 [json_name = "alfSessionId"];</code>
@@ -868,7 +851,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the ALF conversation session spanning multiple turns.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string alf_session_id = 2 [json_name = "alfSessionId"];</code>
@@ -883,7 +865,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the ALF conversation session spanning multiple turns.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>string alf_session_id = 2 [json_name = "alfSessionId"];</code>
@@ -918,7 +899,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -934,7 +914,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -950,7 +929,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -966,7 +944,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -989,7 +966,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -1009,7 +985,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -1031,7 +1006,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -1054,7 +1028,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -1074,7 +1047,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -1094,7 +1066,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -1115,7 +1086,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -1134,7 +1104,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -1153,7 +1122,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -1166,7 +1134,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -1182,7 +1149,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -1199,7 +1165,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -1212,7 +1177,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -1226,7 +1190,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Source documents or articles cited by ALF in its response.
      * Each entry contains reference metadata such as title, URL, and relevance score.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>

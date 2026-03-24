@@ -82,7 +82,6 @@ message Plugin {
 
   // Plugin API key in UUID format.
   //
-  // +kubebuilder:validation:Nullable
   string key = 2;
 
   // Channel ID this plugin belongs to.
@@ -136,7 +135,6 @@ message Plugin {
   // Text shown on the label next to the launcher button.
   // Applicable when label_button is true.
   //
-  // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MinLength=4
   // +kubebuilder:validation:MaxLength=30
   string label_button_text = 9 [
@@ -155,7 +153,6 @@ message Plugin {
   // Localized label button text, keyed by locale code (e.g., "en", "ko").
   // Overrides label_button_text for matching locales.
   //
-  // +kubebuilder:validation:Nullable
   map<string, string> label_button_text_i18n_map = 10;
 
   // Determines how the launcher button is rendered.
@@ -173,76 +170,62 @@ message Plugin {
   // Uploaded image for the launcher button.
   // Applicable when button_type is CUSTOM_IMAGE.
   //
-  // +kubebuilder:validation:Nullable
   coreapi.model.ImageFile custom_image = 13;
 
   // Uploaded desktop launcher image.
   // Applicable when button_type is LEGACY.
   //
-  // +kubebuilder:validation:Nullable
   coreapi.model.TinyFile desk_image = 14;
 
   // Horizontal offset of the desktop widget from its anchored edge, in pixels.
   //
-  // +kubebuilder:validation:Nullable
   int32 desk_margin_x = 15;
 
   // Vertical offset of the desktop widget from the bottom edge, in pixels.
   //
-  // +kubebuilder:validation:Nullable
   int32 desk_margin_y = 16;
 
   // Whether the desktop launcher button is hidden while the widget remains accessible.
   //
-  // +kubebuilder:validation:Nullable
   bool desk_hide_button = 17;
 
   // Horizontal anchor position of the desktop widget.
   //
-  // +kubebuilder:validation:Nullable
   PluginPosition desk_position = 18;
 
   // Uploaded mobile launcher image.
   // Applicable when button_type is LEGACY.
   //
-  // +kubebuilder:validation:Nullable
   coreapi.model.TinyFile mobile_image = 19;
 
   // Horizontal offset of the mobile widget from its anchored edge, in pixels.
   //
-  // +kubebuilder:validation:Nullable
   int32 mobile_margin_x = 20;
 
   // Vertical offset of the mobile widget from the bottom edge, in pixels.
   //
-  // +kubebuilder:validation:Nullable
   int32 mobile_margin_y = 21;
 
   // Horizontal anchor position of the mobile widget.
   //
-  // +kubebuilder:validation:Nullable
   PluginPosition mobile_position = 22;
 
   // Whether the mobile launcher button is hidden while the widget remains accessible.
   //
-  // +kubebuilder:validation:Nullable
   bool mobile_hide_button = 23;
 
   // Vertical position of the chat bubble on mobile devices.
   //
-  // +kubebuilder:validation:Nullable
   PluginBubblePosition mobile_bubble_position = 24;
 
   // URL patterns that restrict where the plugin is displayed.
   // When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
   //
-  // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxItems=5
   repeated string url_whitelist = 25 [(buf.validate.field).repeated = {max_items: 5}];
 
   // Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
   //
-  // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:Minimum=0
   // +kubebuilder:validation:Maximum=1
   float run_rate = 26 [
@@ -260,24 +243,20 @@ message Plugin {
 
   // Facebook Pixel ID linked for conversion tracking.
   //
-  // +kubebuilder:validation:Nullable
   string facebook_pixel_id = 27;
 
   // Resolved URL of the custom launcher button image.
   // Automatically derived from custom_image.
   //
-  // +kubebuilder:validation:Nullable
   string custom_image_url = 28;
 
   // Resolved URL of the desktop launcher image.
   // Automatically derived from desk_image.
   //
-  // +kubebuilder:validation:Nullable
   string desk_image_url = 29;
 
   // Resolved URL of the mobile launcher image.
   // Automatically derived from mobile_image.
   //
-  // +kubebuilder:validation:Nullable
   string mobile_image_url = 30;
 }

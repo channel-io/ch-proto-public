@@ -304,18 +304,12 @@ type Block struct {
 	Type Block_BlockType `protobuf:"varint,1,opt,name=type,proto3,enum=coreapi.model.Block_BlockType" json:"type,omitempty"`
 	// Programming language identifier for syntax highlighting.
 	// Only applicable when type is CODE.
-	//
-	// +kubebuilder:validation:Nullable
 	Language string `protobuf:"bytes,2,opt,name=language,proto3" json:"language,omitempty"`
 	// Text content of the block.
 	// Applicable for TEXT and CODE block types; ignored for BULLETS.
-	//
-	// +kubebuilder:validation:Nullable
 	Value string `protobuf:"bytes,3,opt,name=value,proto3" json:"value,omitempty"`
 	// Nested child blocks that form a hierarchical list structure.
 	// Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
-	//
-	// +kubebuilder:validation:Nullable
 	Blocks        []*Block `protobuf:"bytes,4,rep,name=blocks,proto3" json:"blocks,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -391,8 +385,6 @@ type MessageButton struct {
 	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
 	// Visual color theme applied to the button.
 	// Defaults to the channel's primary color when not specified.
-	//
-	// +kubebuilder:validation:Nullable
 	ColorVariant MessageButton_ColorVariant `protobuf:"varint,2,opt,name=color_variant,json=colorVariant,proto3,enum=coreapi.model.MessageButton_ColorVariant" json:"color_variant,omitempty"`
 	// Action payload executed when the button is clicked.
 	// Contains the action type and its attributes (e.g. URL to open, WAM to launch).
@@ -462,8 +454,6 @@ type MessageFile struct {
 	// +kubebuilder:validation:Required
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// High-level media category derived from the MIME type (e.g. "image", "video", "audio").
-	//
-	// +kubebuilder:validation:Nullable
 	Type string `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
 	// Original file name including the extension (e.g. "report.pdf").
 	//
@@ -475,30 +465,18 @@ type MessageFile struct {
 	// +kubebuilder:validation:Required
 	Size int64 `protobuf:"varint,4,opt,name=size,proto3" json:"size,omitempty"`
 	// MIME content type (e.g. "image/png", "application/pdf").
-	//
-	// +kubebuilder:validation:Nullable
 	ContentType string `protobuf:"bytes,5,opt,name=content_type,json=contentType,proto3" json:"content_type,omitempty"`
 	// Media playback duration in seconds.
 	// Present only for audio or video files.
-	//
-	// +kubebuilder:validation:Nullable
 	Duration float64 `protobuf:"fixed64,6,opt,name=duration,proto3" json:"duration,omitempty"`
 	// Image or video width in pixels.
-	//
-	// +kubebuilder:validation:Nullable
 	Width int32 `protobuf:"varint,7,opt,name=width,proto3" json:"width,omitempty"`
 	// Image or video height in pixels.
-	//
-	// +kubebuilder:validation:Nullable
 	Height int32 `protobuf:"varint,8,opt,name=height,proto3" json:"height,omitempty"`
 	// EXIF orientation value (1-8) indicating how the image should be rotated for display.
 	// Present only for image files with EXIF metadata.
-	//
-	// +kubebuilder:validation:Nullable
 	Orientation int32 `protobuf:"varint,9,opt,name=orientation,proto3" json:"orientation,omitempty"`
 	// Whether the image is an animated format (e.g. GIF, APNG).
-	//
-	// +kubebuilder:validation:Nullable
 	Animated bool `protobuf:"varint,10,opt,name=animated,proto3" json:"animated,omitempty"`
 	// Storage bucket name where the file is hosted.
 	//
@@ -512,38 +490,24 @@ type MessageFile struct {
 	Key string `protobuf:"bytes,12,opt,name=key,proto3" json:"key,omitempty"`
 	// Storage key for the preview thumbnail.
 	// Falls back to `key` when not set.
-	//
-	// +kubebuilder:validation:Nullable
 	PreviewKey string `protobuf:"bytes,13,opt,name=preview_key,json=previewKey,proto3" json:"preview_key,omitempty"`
 	// Access scope that determines who can view this private file.
 	// Derived from the storage key pattern.
-	//
-	// +kubebuilder:validation:Nullable
 	PrivateFileScope MessageFile_PrivateFileScope `protobuf:"varint,14,opt,name=private_file_scope,json=privateFileScope,proto3,enum=coreapi.model.MessageFile_PrivateFileScope" json:"private_file_scope,omitempty"`
 	// Domain identifier for channel-scoped private files.
 	// Derived from the storage key pattern.
-	//
-	// +kubebuilder:validation:Nullable
 	SharedDomain string `protobuf:"bytes,15,opt,name=shared_domain,json=sharedDomain,proto3" json:"shared_domain,omitempty"`
 	// Channel ID that owns this private file.
 	// Derived from the storage key pattern.
-	//
-	// +kubebuilder:validation:Nullable
 	ChannelId string `protobuf:"bytes,16,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Manager ID that owns this private file.
 	// Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-	//
-	// +kubebuilder:validation:Nullable
 	ManagerId string `protobuf:"bytes,17,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	// Chat type for chat-scoped private files.
 	// Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-	//
-	// +kubebuilder:validation:Nullable
 	ChatType string `protobuf:"bytes,18,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
 	// Chat ID for chat-scoped private files.
 	// Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-	//
-	// +kubebuilder:validation:Nullable
 	ChatId        string `protobuf:"bytes,19,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -726,52 +690,28 @@ type MessageWebPage struct {
 	// +kubebuilder:validation:MinLength=1
 	Url string `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
 	// Page title extracted from Open Graph `og:title` or HTML `<title>` tag.
-	//
-	// +kubebuilder:validation:Nullable
 	Title string `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
 	// Page summary extracted from Open Graph `og:description` or HTML meta description.
-	//
-	// +kubebuilder:validation:Nullable
 	Description string `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
 	// Primary image URL from Open Graph `og:image` metadata.
-	//
-	// +kubebuilder:validation:Nullable
 	ImageUrl string `protobuf:"bytes,5,opt,name=image_url,json=imageUrl,proto3" json:"image_url,omitempty"`
 	// Embedded video URL from Open Graph `og:video` metadata.
-	//
-	// +kubebuilder:validation:Nullable
 	VideoUrl string `protobuf:"bytes,6,opt,name=video_url,json=videoUrl,proto3" json:"video_url,omitempty"`
 	// Publisher or site name extracted from page metadata.
-	//
-	// +kubebuilder:validation:Nullable
 	Publisher string `protobuf:"bytes,7,opt,name=publisher,proto3" json:"publisher,omitempty"`
 	// Content author name extracted from page metadata.
-	//
-	// +kubebuilder:validation:Nullable
 	Author string `protobuf:"bytes,8,opt,name=author,proto3" json:"author,omitempty"`
 	// Preview image width in pixels.
-	//
-	// +kubebuilder:validation:Nullable
 	Width int32 `protobuf:"varint,9,opt,name=width,proto3" json:"width,omitempty"`
 	// Preview image height in pixels.
-	//
-	// +kubebuilder:validation:Nullable
 	Height int32 `protobuf:"varint,10,opt,name=height,proto3" json:"height,omitempty"`
 	// Storage bucket name for the cached preview image.
-	//
-	// +kubebuilder:validation:Nullable
 	Bucket string `protobuf:"bytes,11,opt,name=bucket,proto3" json:"bucket,omitempty"`
 	// Storage key for the locally cached preview image.
-	//
-	// +kubebuilder:validation:Nullable
 	PreviewKey string `protobuf:"bytes,12,opt,name=preview_key,json=previewKey,proto3" json:"preview_key,omitempty"`
 	// Publisher logo URL extracted from page metadata.
-	//
-	// +kubebuilder:validation:Nullable
 	Logo string `protobuf:"bytes,13,opt,name=logo,proto3" json:"logo,omitempty"`
 	// Site name from Open Graph `og:site_name` metadata.
-	//
-	// +kubebuilder:validation:Nullable
 	Name          string `protobuf:"bytes,14,opt,name=name,proto3" json:"name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -909,39 +849,25 @@ func (x *MessageWebPage) GetName() string {
 type MessageContent struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Structured content blocks of the message.
-	//
-	// +kubebuilder:validation:Nullable
 	Blocks []*Block `protobuf:"bytes,1,rep,name=blocks,proto3" json:"blocks,omitempty"`
 	// Plain text representation of the message.
-	//
-	// +kubebuilder:validation:Nullable
 	PlainText string `protobuf:"bytes,2,opt,name=plain_text,json=plainText,proto3" json:"plain_text,omitempty"`
 	// Interactive buttons attached to the message.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxItems=2
 	Buttons []*MessageButton `protobuf:"bytes,3,rep,name=buttons,proto3" json:"buttons,omitempty"`
 	// File attachments included in the message.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxItems=10
 	Files []*MessageFile `protobuf:"bytes,4,rep,name=files,proto3" json:"files,omitempty"`
 	// Web page link preview attached to the message.
-	//
-	// +kubebuilder:validation:Nullable
 	WebPage *MessageWebPage `protobuf:"bytes,5,opt,name=web_page,json=webPage,proto3" json:"web_page,omitempty"`
 	// Interactive form attached to the message.
 	// The structure depends on the form type (custom, followUp, call).
-	//
-	// +kubebuilder:validation:Nullable
 	Form *structpb.Struct `protobuf:"bytes,6,opt,name=form,proto3" json:"form,omitempty"`
 	// Option flags that modify message delivery and display behavior.
-	//
-	// +kubebuilder:validation:Nullable
 	Options []MessageOption `protobuf:"varint,7,rep,packed,name=options,proto3,enum=coreapi.model.MessageOption" json:"options,omitempty"`
 	// Client-generated request identifier for idempotency.
-	//
-	// +kubebuilder:validation:Nullable
 	RequestId     string `protobuf:"bytes,8,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

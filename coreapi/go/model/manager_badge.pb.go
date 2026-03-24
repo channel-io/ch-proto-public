@@ -35,57 +35,35 @@ type ManagerBadge struct {
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Alert-level unread count in team chat main conversations.
 	// Defaults to 0.
-	//
-	// +kubebuilder:validation:Nullable
 	TeamChatAlert int32 `protobuf:"varint,2,opt,name=team_chat_alert,json=teamChatAlert,proto3" json:"team_chat_alert,omitempty"`
 	// Total unread count in team chat main conversations.
 	// Defaults to 0.
-	//
-	// +kubebuilder:validation:Nullable
 	TeamChatUnread int32 `protobuf:"varint,3,opt,name=team_chat_unread,json=teamChatUnread,proto3" json:"team_chat_unread,omitempty"`
 	// Alert-level unread count in user chat conversations.
 	// Defaults to 0.
-	//
-	// +kubebuilder:validation:Nullable
 	UserChatAlert int32 `protobuf:"varint,4,opt,name=user_chat_alert,json=userChatAlert,proto3" json:"user_chat_alert,omitempty"`
 	// Total unread count in user chat conversations.
 	// Defaults to 0.
-	//
-	// +kubebuilder:validation:Nullable
 	UserChatUnread int32 `protobuf:"varint,5,opt,name=user_chat_unread,json=userChatUnread,proto3" json:"user_chat_unread,omitempty"`
 	// Alert-level unread count in team chat thread replies.
 	// Defaults to 0.
-	//
-	// +kubebuilder:validation:Nullable
 	TeamChatThreadAlert int32 `protobuf:"varint,6,opt,name=team_chat_thread_alert,json=teamChatThreadAlert,proto3" json:"team_chat_thread_alert,omitempty"`
 	// Total unread count in team chat thread replies.
 	// Defaults to 0.
-	//
-	// +kubebuilder:validation:Nullable
 	TeamChatThreadUnread int32 `protobuf:"varint,7,opt,name=team_chat_thread_unread,json=teamChatThreadUnread,proto3" json:"team_chat_thread_unread,omitempty"`
 	// Badge last update timestamp.
-	//
-	// +kubebuilder:validation:Nullable
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Optimistic locking version.
 	// Incremented on every update.
-	//
-	// +kubebuilder:validation:Nullable
 	Version int64 `protobuf:"varint,9,opt,name=version,proto3" json:"version,omitempty"`
 	// Manager ID this badge belongs to.
 	// Same value as the badge id.
-	//
-	// +kubebuilder:validation:Nullable
 	ManagerId string `protobuf:"bytes,10,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	// Aggregated alert count across all chat types.
 	// Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.
-	//
-	// +kubebuilder:validation:Nullable
 	Alert int32 `protobuf:"varint,11,opt,name=alert,proto3" json:"alert,omitempty"`
 	// Aggregated unread count across all chat types.
 	// Equals team_chat_unread + team_chat_thread_unread + user_chat_unread.
-	//
-	// +kubebuilder:validation:Nullable
 	Unread        int32 `protobuf:"varint,12,opt,name=unread,proto3" json:"unread,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

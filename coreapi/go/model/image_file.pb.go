@@ -37,16 +37,11 @@ type ImageFile struct {
 	// +kubebuilder:validation:MinLength=1
 	Key string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
 	// Image width in pixels.
-	//
-	// +kubebuilder:validation:Nullable
 	Width int32 `protobuf:"varint,3,opt,name=width,proto3" json:"width,omitempty"`
 	// Image height in pixels.
-	//
-	// +kubebuilder:validation:Nullable
 	Height int32 `protobuf:"varint,4,opt,name=height,proto3" json:"height,omitempty"`
 	// MIME content type of the image (e.g. "image/png", "image/jpeg").
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:Pattern="^image/.*"
 	ContentType   string `protobuf:"bytes,5,opt,name=content_type,json=contentType,proto3" json:"content_type,omitempty"`
 	unknownFields protoimpl.UnknownFields

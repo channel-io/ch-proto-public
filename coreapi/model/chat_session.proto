@@ -44,7 +44,6 @@ message ChatSession {
 
   // Section ID used to organize team chat conversations into custom groups.
   //
-  // +kubebuilder:validation:Nullable
   string team_chat_section_id = 3;
 
   // Composite key identifying the conversation.
@@ -96,39 +95,32 @@ message ChatSession {
   // Number of unread messages with alert-level notification priority.
   // Defaults to 0.
   //
-  // +kubebuilder:validation:Nullable
   int32 alert = 8;
 
   // Total number of unread messages in this session.
   // Defaults to 0.
   //
-  // +kubebuilder:validation:Nullable
   int32 unread = 9;
 
   // Notification preference controlling which messages trigger alerts in this session.
   //
-  // +kubebuilder:validation:Nullable
   SessionWatch watch = 10;
 
   // Whether @all mentions trigger alert-level notifications in this session.
   // When absent, inherits from the manager-level default setting.
   //
-  // +kubebuilder:validation:Nullable
   bool all_mention_important = 11;
 
   // Timestamp when the person last read messages in this session.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp read_at = 12;
 
   // Timestamp when the last message was received in this conversation.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp received_at = 13;
 
   // Timestamp when the last message was posted in this conversation.
   //
-  // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp posted_at = 14;
 
   // Session last update timestamp.

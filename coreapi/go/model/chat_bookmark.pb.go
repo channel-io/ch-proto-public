@@ -56,8 +56,6 @@ type ChatBookmark struct {
 	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,5,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Entity version number for optimistic concurrency control.
-	//
-	// +kubebuilder:validation:Nullable
 	Version int64 `protobuf:"varint,6,opt,name=version,proto3" json:"version,omitempty"`
 	// Type of the bookmark owner (e.g. "manager").
 	//

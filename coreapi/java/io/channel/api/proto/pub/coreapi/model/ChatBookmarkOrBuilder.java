@@ -138,7 +138,6 @@ public interface ChatBookmarkOrBuilder extends
   /**
    * <pre>
    * Entity version number for optimistic concurrency control.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 version = 6 [json_name = "version"];</code>

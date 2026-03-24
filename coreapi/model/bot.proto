@@ -51,7 +51,6 @@ message Bot {
 
   // Bot description.
   //
-  // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxLength=180
   // +kubebuilder:example="Handles billing and payment inquiries."
   string description = 4 [(buf.validate.field).cel = {
@@ -63,7 +62,6 @@ message Bot {
   // Internationalized name and description map.
   // Keyed by locale.
   //
-  // +kubebuilder:validation:Nullable
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 5;
 
   // Bot color in hex format.
@@ -75,7 +73,6 @@ message Bot {
 
   // Bot avatar image URL.
   //
-  // +kubebuilder:validation:Nullable
   // +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
   string avatar_url = 7;
 
@@ -86,6 +83,5 @@ message Bot {
 
   // Bot avatar image reference.
   //
-  // +kubebuilder:validation:Nullable
   coreapi.model.TinyFile avatar = 9;
 }

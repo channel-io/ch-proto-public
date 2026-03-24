@@ -39,7 +39,6 @@ message ChatTag {
 
   // Color theme of the chat tag.
   //
-  // +kubebuilder:validation:Nullable
   ChatTagColorVariant color_variant = 3;
 
   // Display name of the chat tag.
@@ -79,7 +78,6 @@ message ChatTag {
 
   // Short description of the chat tag.
   //
-  // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxLength=128
   string description = 6 [(buf.validate.field).cel = {
     id: "string.maxLen"

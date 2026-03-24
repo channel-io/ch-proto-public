@@ -106,7 +106,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Controls when the message is delivered.
    * Automatically inferred from start_at and local_start_at if not explicitly set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.OneTimeMsgSendMode send_mode = 5 [json_name = "sendMode"];</code>
@@ -117,7 +116,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Controls when the message is delivered.
    * Automatically inferred from start_at and local_start_at if not explicitly set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.OneTimeMsgSendMode send_mode = 5 [json_name = "sendMode"];</code>
@@ -128,7 +126,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Channel operation schedule referenced for delivery timing.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
@@ -138,7 +135,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Channel operation schedule referenced for delivery timing.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
@@ -173,7 +169,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string medium_id = 8 [json_name = "mediumId"];</code>
@@ -183,7 +178,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string medium_id = 8 [json_name = "mediumId"];</code>
@@ -195,7 +189,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Key for selecting the message topic template within the medium.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string medium_topic_build_key = 9 [json_name = "mediumTopicBuildKey"];</code>
@@ -205,7 +198,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Key for selecting the message topic template within the medium.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string medium_topic_build_key = 9 [json_name = "mediumTopicBuildKey"];</code>
@@ -217,7 +209,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Labels for categorizing the message topic within the medium.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -228,7 +219,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Labels for categorizing the message topic within the medium.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -238,7 +228,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Labels for categorizing the message topic within the medium.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -249,7 +238,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Labels for categorizing the message topic within the medium.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -263,7 +251,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -274,7 +261,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -285,7 +271,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -296,7 +281,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Query expression that defines the target user segment.
    * Represented as a structured filter object.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -307,7 +291,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Query expression that defines the target user segment.
    * Represented as a structured filter object.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -318,7 +301,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Query expression that defines the target user segment.
    * Represented as a structured filter object.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -328,7 +310,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * App-defined user segments used alongside user_query for targeting.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.AppSegment app_segments = 13 [json_name = "appSegments"];</code>
@@ -338,7 +319,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * App-defined user segments used alongside user_query for targeting.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.AppSegment app_segments = 13 [json_name = "appSegments"];</code>
@@ -347,7 +327,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * App-defined user segments used alongside user_query for targeting.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.AppSegment app_segments = 13 [json_name = "appSegments"];</code>
@@ -356,7 +335,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * App-defined user segments used alongside user_query for targeting.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.AppSegment app_segments = 13 [json_name = "appSegments"];</code>
@@ -366,7 +344,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * App-defined user segments used alongside user_query for targeting.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.AppSegment app_segments = 13 [json_name = "appSegments"];</code>
@@ -378,7 +355,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -388,7 +364,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -405,7 +380,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -416,7 +390,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -429,7 +402,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -441,7 +413,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Name of the event that counts as a goal completion.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string goal_event_name = 15 [json_name = "goalEventName"];</code>
@@ -451,7 +422,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Name of the event that counts as a goal completion.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string goal_event_name = 15 [json_name = "goalEventName"];</code>
@@ -464,7 +434,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Query expression to filter goal events by their properties.
    * Represented as a structured filter object. Applicable when goal_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -475,7 +444,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Query expression to filter goal events by their properties.
    * Represented as a structured filter object. Applicable when goal_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -486,7 +454,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Query expression to filter goal events by their properties.
    * Represented as a structured filter object. Applicable when goal_event_name is set.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -497,7 +464,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
    * Between 1 and 30 days. Defaults to 7 days.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
@@ -509,7 +475,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
    * Between 1 and 30 days. Defaults to 7 days.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
@@ -521,7 +486,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
    * Between 1 and 30 days. Defaults to 7 days.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
@@ -543,7 +507,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Whether to fall back to XMS (text message) delivery when the user is offline.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool send_to_offline_xms = 19 [json_name = "sendToOfflineXms"];</code>
@@ -554,7 +517,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Whether to fall back to email delivery when the user is offline.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool send_to_offline_email = 20 [json_name = "sendToOfflineEmail"];</code>
@@ -566,7 +528,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Scheduled send timestamp in UTC.
    * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -577,7 +538,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Scheduled send timestamp in UTC.
    * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -588,7 +548,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Scheduled send timestamp in UTC.
    * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -599,7 +558,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
    * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
@@ -610,7 +568,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
    * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
@@ -623,7 +580,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Snapshot of the message configuration captured before sending.
    * Represented as a free-form JSON object.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -634,7 +590,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Snapshot of the message configuration captured before sending.
    * Represented as a free-form JSON object.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -645,7 +600,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Snapshot of the message configuration captured before sending.
    * Represented as a free-form JSON object.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -715,7 +669,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Cumulative count of messages delivered.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 sent = 26 [json_name = "sent"];</code>
@@ -726,7 +679,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Cumulative count of message views by recipients.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 view = 27 [json_name = "view"];</code>
@@ -737,7 +689,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Cumulative count of goal event completions attributed to this message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 goal = 28 [json_name = "goal"];</code>
@@ -748,7 +699,6 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Cumulative count of message link clicks.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 click = 29 [json_name = "click"];</code>
@@ -760,7 +710,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Duration before the user chat created by this message expires, in ISO 8601 format.
    * Defaults to 31 days.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
@@ -772,7 +721,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Duration before the user chat created by this message expires, in ISO 8601 format.
    * Defaults to 31 days.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *
@@ -784,7 +732,6 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Duration before the user chat created by this message expires, in ISO 8601 format.
    * Defaults to 31 days.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="PT23H50M"
    * </pre>
    *

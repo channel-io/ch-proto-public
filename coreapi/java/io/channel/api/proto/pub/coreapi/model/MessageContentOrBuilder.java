@@ -10,7 +10,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Structured content blocks of the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
@@ -20,7 +19,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Structured content blocks of the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
@@ -29,7 +27,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Structured content blocks of the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
@@ -38,7 +35,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Structured content blocks of the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
@@ -48,7 +44,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Structured content blocks of the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
@@ -59,7 +54,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Plain text representation of the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string plain_text = 2 [json_name = "plainText"];</code>
@@ -69,7 +63,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Plain text representation of the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string plain_text = 2 [json_name = "plainText"];</code>
@@ -81,7 +74,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Interactive buttons attached to the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=2
    * </pre>
    *
@@ -92,7 +84,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Interactive buttons attached to the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=2
    * </pre>
    *
@@ -102,7 +93,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Interactive buttons attached to the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=2
    * </pre>
    *
@@ -112,7 +102,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Interactive buttons attached to the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=2
    * </pre>
    *
@@ -123,7 +112,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Interactive buttons attached to the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=2
    * </pre>
    *
@@ -135,7 +123,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * File attachments included in the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=10
    * </pre>
    *
@@ -146,7 +133,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * File attachments included in the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=10
    * </pre>
    *
@@ -156,7 +142,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * File attachments included in the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=10
    * </pre>
    *
@@ -166,7 +151,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * File attachments included in the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=10
    * </pre>
    *
@@ -177,7 +161,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * File attachments included in the message.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=10
    * </pre>
    *
@@ -189,7 +172,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Web page link preview attached to the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageWebPage web_page = 5 [json_name = "webPage"];</code>
@@ -199,7 +181,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Web page link preview attached to the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageWebPage web_page = 5 [json_name = "webPage"];</code>
@@ -209,7 +190,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Web page link preview attached to the message.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MessageWebPage web_page = 5 [json_name = "webPage"];</code>
@@ -220,7 +200,6 @@ public interface MessageContentOrBuilder extends
    * <pre>
    * Interactive form attached to the message.
    * The structure depends on the form type (custom, followUp, call).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -231,7 +210,6 @@ public interface MessageContentOrBuilder extends
    * <pre>
    * Interactive form attached to the message.
    * The structure depends on the form type (custom, followUp, call).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -242,7 +220,6 @@ public interface MessageContentOrBuilder extends
    * <pre>
    * Interactive form attached to the message.
    * The structure depends on the form type (custom, followUp, call).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -252,7 +229,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -262,7 +238,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -272,7 +247,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -283,7 +257,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -294,7 +267,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -306,7 +278,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Client-generated request identifier for idempotency.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string request_id = 8 [json_name = "requestId"];</code>
@@ -316,7 +287,6 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Client-generated request identifier for idempotency.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string request_id = 8 [json_name = "requestId"];</code>

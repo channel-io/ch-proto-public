@@ -10,7 +10,6 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Support bot identifier that owns this flow.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -20,7 +19,6 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Support bot identifier that owns this flow.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -32,7 +30,6 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Published revision of the support bot being executed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string revision_id = 2 [json_name = "revisionId"];</code>
@@ -42,7 +39,6 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Published revision of the support bot being executed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string revision_id = 2 [json_name = "revisionId"];</code>
@@ -54,7 +50,6 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Current section within the support bot flow (e.g. a route or action section).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string section_id = 3 [json_name = "sectionId"];</code>
@@ -64,7 +59,6 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Current section within the support bot flow (e.g. a route or action section).
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string section_id = 3 [json_name = "sectionId"];</code>
@@ -76,7 +70,6 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Zero-based step position within the current section.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 step_index = 4 [json_name = "stepIndex"];</code>
@@ -88,7 +81,6 @@ public interface MessageSupportBotOrBuilder extends
    * <pre>
    * Route selection buttons presented to the user at the end of a route section.
    * Set to null after the user makes a selection.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -99,7 +91,6 @@ public interface MessageSupportBotOrBuilder extends
    * <pre>
    * Route selection buttons presented to the user at the end of a route section.
    * Set to null after the user makes a selection.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -109,7 +100,6 @@ public interface MessageSupportBotOrBuilder extends
    * <pre>
    * Route selection buttons presented to the user at the end of a route section.
    * Set to null after the user makes a selection.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -119,7 +109,6 @@ public interface MessageSupportBotOrBuilder extends
    * <pre>
    * Route selection buttons presented to the user at the end of a route section.
    * Set to null after the user makes a selection.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -130,7 +119,6 @@ public interface MessageSupportBotOrBuilder extends
    * <pre>
    * Route selection buttons presented to the user at the end of a route section.
    * Set to null after the user makes a selection.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -142,7 +130,6 @@ public interface MessageSupportBotOrBuilder extends
    * <pre>
    * Zero-based index of the button the user selected.
    * Present only on messages recording the user's route selection.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 submit_button_index = 6 [json_name = "submitButtonIndex"];</code>

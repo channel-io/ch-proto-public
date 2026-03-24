@@ -342,7 +342,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot description.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * +kubebuilder:example="Handles billing and payment inquiries."
    * </pre>
@@ -366,7 +365,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot description.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * +kubebuilder:example="Handles billing and payment inquiries."
    * </pre>
@@ -419,7 +417,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Internationalized name and description map.
    * Keyed by locale.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -443,7 +440,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Internationalized name and description map.
    * Keyed by locale.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -457,7 +453,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Internationalized name and description map.
    * Keyed by locale.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -476,7 +471,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Internationalized name and description map.
    * Keyed by locale.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -551,7 +545,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot avatar image URL.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
    * </pre>
    *
@@ -574,7 +567,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot avatar image URL.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
    * </pre>
    *
@@ -642,7 +634,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot avatar image reference.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -655,7 +646,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot avatar image reference.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -668,7 +658,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot avatar image reference.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -1523,7 +1512,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot description.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * +kubebuilder:example="Handles billing and payment inquiries."
      * </pre>
@@ -1546,7 +1534,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot description.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * +kubebuilder:example="Handles billing and payment inquiries."
      * </pre>
@@ -1570,7 +1557,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot description.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * +kubebuilder:example="Handles billing and payment inquiries."
      * </pre>
@@ -1592,7 +1578,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot description.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * +kubebuilder:example="Handles billing and payment inquiries."
      * </pre>
@@ -1609,7 +1594,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot description.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * +kubebuilder:example="Handles billing and payment inquiries."
      * </pre>
@@ -1660,7 +1644,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized name and description map.
      * Keyed by locale.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -1684,7 +1667,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized name and description map.
      * Keyed by locale.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -1698,7 +1680,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized name and description map.
      * Keyed by locale.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -1717,7 +1698,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized name and description map.
      * Keyed by locale.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -1744,7 +1724,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized name and description map.
      * Keyed by locale.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -1769,7 +1748,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized name and description map.
      * Keyed by locale.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -1790,7 +1768,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized name and description map.
      * Keyed by locale.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -1918,7 +1895,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image URL.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
      * </pre>
      *
@@ -1940,7 +1916,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image URL.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
      * </pre>
      *
@@ -1963,7 +1938,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image URL.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
      * </pre>
      *
@@ -1984,7 +1958,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image URL.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
      * </pre>
      *
@@ -2000,7 +1973,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image URL.
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
      * </pre>
      *
@@ -2190,7 +2162,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2202,7 +2173,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2218,7 +2188,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2239,7 +2208,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2258,7 +2226,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2281,7 +2248,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2300,7 +2266,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2313,7 +2278,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2329,7 +2293,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>

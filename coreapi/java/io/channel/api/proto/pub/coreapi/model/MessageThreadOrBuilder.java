@@ -11,7 +11,6 @@ public interface MessageThreadOrBuilder extends
    * <pre>
    * Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
    * Encodes the parent chat context and the root message that started the thread.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -22,7 +21,6 @@ public interface MessageThreadOrBuilder extends
    * <pre>
    * Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
    * Encodes the parent chat context and the root message that started the thread.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -34,7 +32,6 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs assigned to handle this thread.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -46,7 +43,6 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs assigned to handle this thread.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -57,7 +53,6 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs assigned to handle this thread.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -69,7 +64,6 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs assigned to handle this thread.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MinItems=1
    * </pre>
    *
@@ -83,7 +77,6 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs who have posted replies in this thread, ordered by first reply time.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string replied_manager_ids = 3 [json_name = "repliedManagerIds"];</code>
@@ -94,7 +87,6 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs who have posted replies in this thread, ordered by first reply time.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string replied_manager_ids = 3 [json_name = "repliedManagerIds"];</code>
@@ -104,7 +96,6 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs who have posted replies in this thread, ordered by first reply time.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string replied_manager_ids = 3 [json_name = "repliedManagerIds"];</code>
@@ -115,7 +106,6 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs who have posted replies in this thread, ordered by first reply time.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string replied_manager_ids = 3 [json_name = "repliedManagerIds"];</code>
@@ -140,7 +130,6 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Chat type component extracted from the thread `id`.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string chat_type = 5 [json_name = "chatType"];</code>
@@ -150,7 +139,6 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Chat type component extracted from the thread `id`.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string chat_type = 5 [json_name = "chatType"];</code>
@@ -162,7 +150,6 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Chat ID component extracted from the thread `id`.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string chat_id = 6 [json_name = "chatId"];</code>
@@ -172,7 +159,6 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Chat ID component extracted from the thread `id`.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string chat_id = 6 [json_name = "chatId"];</code>
@@ -184,7 +170,6 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * ID of the root message that started this thread, extracted from the thread `id`.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string root_message_id = 7 [json_name = "rootMessageId"];</code>
@@ -194,7 +179,6 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * ID of the root message that started this thread, extracted from the thread `id`.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string root_message_id = 7 [json_name = "rootMessageId"];</code>

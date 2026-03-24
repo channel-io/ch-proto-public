@@ -273,17 +273,11 @@ type Campaign struct {
 	// +kubebuilder:validation:Required
 	MediumType MediumType `protobuf:"varint,5,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-	//
-	// +kubebuilder:validation:Nullable
 	MediumId string `protobuf:"bytes,6,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	// Query expression that defines the target user segment.
 	// Represented as a structured filter object.
-	//
-	// +kubebuilder:validation:Nullable
 	UserQuery *structpb.Struct `protobuf:"bytes,7,opt,name=user_query,json=userQuery,proto3" json:"user_query,omitempty"`
 	// App-defined user segments used alongside user_query for targeting.
-	//
-	// +kubebuilder:validation:Nullable
 	AppSegments []*AppSegment `protobuf:"bytes,8,rep,name=app_segments,json=appSegments,proto3" json:"app_segments,omitempty"`
 	// Name of the user event that triggers this campaign.
 	//
@@ -291,8 +285,6 @@ type Campaign struct {
 	TriggerEventName string `protobuf:"bytes,9,opt,name=trigger_event_name,json=triggerEventName,proto3" json:"trigger_event_name,omitempty"`
 	// Query expression to further filter matching trigger events by their properties.
 	// Represented as a structured filter object.
-	//
-	// +kubebuilder:validation:Nullable
 	TriggerEventQuery *structpb.Struct `protobuf:"bytes,10,opt,name=trigger_event_query,json=triggerEventQuery,proto3" json:"trigger_event_query,omitempty"`
 	// Delay between the trigger event and message delivery, in ISO 8601 duration format.
 	// Maximum 90 days.
@@ -302,65 +294,43 @@ type Campaign struct {
 	WaitingTime *durationpb.Duration `protobuf:"bytes,11,opt,name=waiting_time,json=waitingTime,proto3" json:"waiting_time,omitempty"`
 	// Name of an additional event used to filter users before delivery.
 	// When set, filter_match determines whether the event must occur or must not occur.
-	//
-	// +kubebuilder:validation:Nullable
 	FilterEventName string `protobuf:"bytes,12,opt,name=filter_event_name,json=filterEventName,proto3" json:"filter_event_name,omitempty"`
 	// Query expression to filter the additional filter events by their properties.
 	// Represented as a structured filter object. Applicable when filter_event_name is set.
-	//
-	// +kubebuilder:validation:Nullable
 	FilterEventQuery *structpb.Struct `protobuf:"bytes,13,opt,name=filter_event_query,json=filterEventQuery,proto3" json:"filter_event_query,omitempty"`
 	// Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
 	// Applicable when filter_event_name is set.
-	//
-	// +kubebuilder:validation:Nullable
 	FilterMatch CampaignFilterMatch `protobuf:"varint,14,opt,name=filter_match,json=filterMatch,proto3,enum=coreapi.model.CampaignFilterMatch" json:"filter_match,omitempty"`
 	// Holds a property value from the trigger event constant for consistent additional event filtering.
 	// Applicable when filter_event_name is set.
-	//
-	// +kubebuilder:validation:Nullable
 	FilterHpc *HoldingPropertyConstant `protobuf:"bytes,15,opt,name=filter_hpc,json=filterHpc,proto3" json:"filter_hpc,omitempty"`
 	// Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
 	// Defines how long after delivery each conversion event is counted.
-	//
-	// +kubebuilder:validation:Nullable
 	ConversionWindows map[string]*durationpb.Duration `protobuf:"bytes,16,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Name of the event that counts as a goal completion.
-	//
-	// +kubebuilder:validation:Nullable
 	GoalEventName string `protobuf:"bytes,17,opt,name=goal_event_name,json=goalEventName,proto3" json:"goal_event_name,omitempty"`
 	// Query expression to filter goal events by their properties.
 	// Represented as a structured filter object. Applicable when goal_event_name is set.
-	//
-	// +kubebuilder:validation:Nullable
 	GoalEventQuery *structpb.Struct `protobuf:"bytes,18,opt,name=goal_event_query,json=goalEventQuery,proto3" json:"goal_event_query,omitempty"`
 	// Time window for attributing goal events after delivery, in ISO 8601 duration format.
 	// Between 1 and 30 days. Defaults to 7 days.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="PT23H50M"
 	GoalEventDuration *durationpb.Duration `protobuf:"bytes,19,opt,name=goal_event_duration,json=goalEventDuration,proto3" json:"goal_event_duration,omitempty"`
 	// Holds a property value from the trigger or filter event constant for consistent goal checking.
 	// Applicable when goal_event_name is set.
-	//
-	// +kubebuilder:validation:Nullable
 	GoalHpc *HoldingPropertyConstant `protobuf:"bytes,20,opt,name=goal_hpc,json=goalHpc,proto3" json:"goal_hpc,omitempty"`
 	// Whether the campaign message contains advertising content subject to opt-out regulations.
 	//
 	// +kubebuilder:validation:Required
 	Advertising bool `protobuf:"varint,21,opt,name=advertising,proto3" json:"advertising,omitempty"`
 	// Whether to fall back to XMS (text message) delivery when the user is offline.
-	//
-	// +kubebuilder:validation:Nullable
 	SendToOfflineXms bool `protobuf:"varint,22,opt,name=send_to_offline_xms,json=sendToOfflineXms,proto3" json:"send_to_offline_xms,omitempty"`
 	// Whether to fall back to email delivery when the user is offline.
-	//
-	// +kubebuilder:validation:Nullable
 	SendToOfflineEmail bool `protobuf:"varint,23,opt,name=send_to_offline_email,json=sendToOfflineEmail,proto3" json:"send_to_offline_email,omitempty"`
 	// Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
 	// Between 0 seconds and 30 days.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="PT23H50M"
 	Cooldown *durationpb.Duration `protobuf:"bytes,24,opt,name=cooldown,proto3" json:"cooldown,omitempty"`
 	// Controls when messages are delivered relative to operation hours or custom time ranges.
@@ -369,26 +339,16 @@ type Campaign struct {
 	SendMode CampaignSendMode `protobuf:"varint,25,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.CampaignSendMode" json:"send_mode,omitempty"`
 	// Channel operation schedule used to determine delivery timing.
 	// Applicable when send_mode is IN_OPERATION or AWAY.
-	//
-	// +kubebuilder:validation:Nullable
 	ChannelOperationId string `protobuf:"bytes,26,opt,name=channel_operation_id,json=channelOperationId,proto3" json:"channel_operation_id,omitempty"`
 	// Custom time windows for delivery scheduling.
 	// Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
-	//
-	// +kubebuilder:validation:Nullable
 	SendTimeRanges []*TimeRange `protobuf:"bytes,27,rep,name=send_time_ranges,json=sendTimeRanges,proto3" json:"send_time_ranges,omitempty"`
 	// Timestamp when the campaign becomes eligible to trigger.
-	//
-	// +kubebuilder:validation:Nullable
 	StartAt *timestamppb.Timestamp `protobuf:"bytes,28,opt,name=start_at,json=startAt,proto3" json:"start_at,omitempty"`
 	// Timestamp when the campaign automatically stops.
-	//
-	// +kubebuilder:validation:Nullable
 	EndAt *timestamppb.Timestamp `protobuf:"bytes,29,opt,name=end_at,json=endAt,proto3" json:"end_at,omitempty"`
 	// Snapshot of the campaign configuration captured before activation.
 	// Represented as a free-form JSON object.
-	//
-	// +kubebuilder:validation:Nullable
 	Draft *structpb.Struct `protobuf:"bytes,30,opt,name=draft,proto3" json:"draft,omitempty"`
 	// Campaign creation timestamp.
 	//
@@ -399,30 +359,19 @@ type Campaign struct {
 	// +kubebuilder:validation:Required
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,32,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Cumulative count of messages delivered.
-	//
-	// +kubebuilder:validation:Nullable
 	Sent int32 `protobuf:"varint,33,opt,name=sent,proto3" json:"sent,omitempty"`
 	// Cumulative count of message views by recipients.
-	//
-	// +kubebuilder:validation:Nullable
 	View int32 `protobuf:"varint,34,opt,name=view,proto3" json:"view,omitempty"`
 	// Cumulative count of goal event completions attributed to this campaign.
-	//
-	// +kubebuilder:validation:Nullable
 	Goal int32 `protobuf:"varint,35,opt,name=goal,proto3" json:"goal,omitempty"`
 	// Cumulative count of message link clicks.
-	//
-	// +kubebuilder:validation:Nullable
 	Click int32 `protobuf:"varint,36,opt,name=click,proto3" json:"click,omitempty"`
 	// Duration before the user chat created by this campaign expires, in ISO 8601 format.
 	// Defaults to 31 days.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="PT23H50M"
 	UserChatExpireDuration *durationpb.Duration `protobuf:"bytes,37,opt,name=user_chat_expire_duration,json=userChatExpireDuration,proto3" json:"user_chat_expire_duration,omitempty"`
 	// Manager assigned to handle user responses from this campaign.
-	//
-	// +kubebuilder:validation:Nullable
 	ManagerId     string `protobuf:"bytes,38,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -740,8 +689,6 @@ type HoldingPropertyConstant struct {
 	BaseEventKey string `protobuf:"bytes,2,opt,name=base_event_key,json=baseEventKey,proto3" json:"base_event_key,omitempty"`
 	// Query expression applied to the held property value for matching.
 	// Represented as a structured filter object.
-	//
-	// +kubebuilder:validation:Nullable
 	EventQuery *structpb.Struct `protobuf:"bytes,3,opt,name=event_query,json=eventQuery,proto3" json:"event_query,omitempty"`
 	// Indicates whether the property is captured from the trigger event or the additional filter event.
 	//
@@ -749,13 +696,9 @@ type HoldingPropertyConstant struct {
 	BaseEventType CampaignBaseEventType `protobuf:"varint,4,opt,name=base_event_type,json=baseEventType,proto3,enum=coreapi.model.CampaignBaseEventType" json:"base_event_type,omitempty"`
 	// Comparison operator schema used to evaluate the held property value.
 	// Represented as a structured object describing the operator type and configuration.
-	//
-	// +kubebuilder:validation:Nullable
 	Operator *structpb.Struct `protobuf:"bytes,5,opt,name=operator,proto3" json:"operator,omitempty"`
 	// Property values captured from the base event at trigger time.
 	// Represented as a structured object holding the snapshot values.
-	//
-	// +kubebuilder:validation:Nullable
 	Values        *structpb.Struct `protobuf:"bytes,6,opt,name=values,proto3" json:"values,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

@@ -60,7 +60,6 @@ public interface UserOrBuilder extends
    * External member ID provided at boot or manual creation.
    * Present for member-type users; for anonymous visitors, this matches
    * the veil_id.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="member-001"
    * </pre>
    *
@@ -73,7 +72,6 @@ public interface UserOrBuilder extends
    * External member ID provided at boot or manual creation.
    * Present for member-type users; for anonymous visitors, this matches
    * the veil_id.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="member-001"
    * </pre>
    *
@@ -86,7 +84,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Cookie-based device identifier assigned to anonymous visitors.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
    * </pre>
    *
@@ -97,7 +94,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Cookie-based device identifier assigned to anonymous visitors.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
    * </pre>
    *
@@ -110,7 +106,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * ID of the unified identity when multiple user records have been merged.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string unified_id = 5 [json_name = "unifiedId"];</code>
@@ -120,7 +115,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * ID of the unified identity when multiple user records have been merged.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string unified_id = 5 [json_name = "unifiedId"];</code>
@@ -132,7 +126,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Identity type of this user.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.UserType type = 6 [json_name = "type"];</code>
@@ -142,7 +135,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Identity type of this user.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.UserType type = 6 [json_name = "type"];</code>
@@ -153,7 +145,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Tags that were automatically applied during a user import operation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string user_import_tags = 7 [json_name = "userImportTags"];</code>
@@ -164,7 +155,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Tags that were automatically applied during a user import operation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string user_import_tags = 7 [json_name = "userImportTags"];</code>
@@ -174,7 +164,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Tags that were automatically applied during a user import operation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string user_import_tags = 7 [json_name = "userImportTags"];</code>
@@ -185,7 +174,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Tags that were automatically applied during a user import operation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>repeated string user_import_tags = 7 [json_name = "userImportTags"];</code>
@@ -198,7 +186,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Number of chats with unread messages that have alert notifications enabled.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 alert = 8 [json_name = "alert"];</code>
@@ -209,7 +196,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Total number of unread messages across all of the user's chats.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 unread = 9 [json_name = "unread"];</code>
@@ -220,7 +206,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * ID of the chat currently displayed as a pop-up widget to the user.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string pop_up_chat_id = 10 [json_name = "popUpChatId"];</code>
@@ -230,7 +215,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * ID of the chat currently displayed as a pop-up widget to the user.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string pop_up_chat_id = 10 [json_name = "popUpChatId"];</code>
@@ -242,7 +226,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * ID of the chat pinned as the primary conversation in the messenger.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -252,7 +235,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * ID of the chat pinned as the primary conversation in the messenger.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -265,7 +247,6 @@ public interface UserOrBuilder extends
    * <pre>
    * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
    * (e.g., "KR", "US").
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="KR"
    * </pre>
    *
@@ -277,7 +258,6 @@ public interface UserOrBuilder extends
    * <pre>
    * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
    * (e.g., "KR", "US").
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="KR"
    * </pre>
    *
@@ -291,7 +271,6 @@ public interface UserOrBuilder extends
    * <pre>
    * IANA time zone identifier derived from the user's IP geolocation
    * (e.g., "Asia/Seoul").
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="Asia/Seoul"
    * </pre>
    *
@@ -303,7 +282,6 @@ public interface UserOrBuilder extends
    * <pre>
    * IANA time zone identifier derived from the user's IP geolocation
    * (e.g., "Asia/Seoul").
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="Asia/Seoul"
    * </pre>
    *
@@ -377,7 +355,6 @@ public interface UserOrBuilder extends
    * <pre>
    * Optimistic locking version incremented on every update.
    * Supply the current value when updating to prevent overwriting concurrent changes.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 version = 16 [json_name = "version"];</code>
@@ -390,7 +367,6 @@ public interface UserOrBuilder extends
    * Custom key-value profile data.
    * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
    * arbitrary keys are also supported.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -402,7 +378,6 @@ public interface UserOrBuilder extends
    * Custom key-value profile data.
    * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
    * arbitrary keys are also supported.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -414,7 +389,6 @@ public interface UserOrBuilder extends
    * Custom key-value profile data.
    * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
    * arbitrary keys are also supported.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -425,7 +399,6 @@ public interface UserOrBuilder extends
    * <pre>
    * Classification tags attached to the user for segmentation and filtering.
    * Supports hierarchical tags using "/" as a depth separator.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=20
    * </pre>
    *
@@ -438,7 +411,6 @@ public interface UserOrBuilder extends
    * <pre>
    * Classification tags attached to the user for segmentation and filtering.
    * Supports hierarchical tags using "/" as a depth separator.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=20
    * </pre>
    *
@@ -450,7 +422,6 @@ public interface UserOrBuilder extends
    * <pre>
    * Classification tags attached to the user for segmentation and filtering.
    * Supports hierarchical tags using "/" as a depth separator.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=20
    * </pre>
    *
@@ -463,7 +434,6 @@ public interface UserOrBuilder extends
    * <pre>
    * Classification tags attached to the user for segmentation and filtering.
    * Supports hierarchical tags using "/" as a depth separator.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxItems=20
    * </pre>
    *
@@ -477,7 +447,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="ko"
    * </pre>
    *
@@ -488,7 +457,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="ko"
    * </pre>
    *
@@ -512,7 +480,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the email opt-out preference was last changed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -522,7 +489,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the email opt-out preference was last changed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -532,7 +498,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the email opt-out preference was last changed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -553,7 +518,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the SMS/text opt-out preference was last changed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -563,7 +527,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the SMS/text opt-out preference was last changed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -573,7 +536,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the SMS/text opt-out preference was last changed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -583,7 +545,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Whether the user has opted out of mobile app push notifications.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool unsubscribe_app_push = 24 [json_name = "unsubscribeAppPush"];</code>
@@ -594,7 +555,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the app push opt-out preference was last changed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -604,7 +564,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the app push opt-out preference was last changed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -614,7 +573,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the app push opt-out preference was last changed.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -626,7 +584,6 @@ public interface UserOrBuilder extends
    * URL of the user's avatar image.
    * Falls back to an auto-generated default avatar when no custom avatar is set
    * in the profile.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
    * </pre>
    *
@@ -639,7 +596,6 @@ public interface UserOrBuilder extends
    * URL of the user's avatar image.
    * Falls back to an auto-generated default avatar when no custom avatar is set
    * in the profile.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
    * </pre>
    *
@@ -665,7 +621,6 @@ public interface UserOrBuilder extends
    * <pre>
    * Language detected from the user's browser or device settings,
    * as a BCP 47 locale code.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string system_language = 28 [json_name = "systemLanguage"];</code>
@@ -676,7 +631,6 @@ public interface UserOrBuilder extends
    * <pre>
    * Language detected from the user's browser or device settings,
    * as a BCP 47 locale code.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string system_language = 28 [json_name = "systemLanguage"];</code>
@@ -712,7 +666,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Display name of the user, derived from the profile's name field.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="John Doe"
    * </pre>
    *
@@ -723,7 +676,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Display name of the user, derived from the profile's name field.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="John Doe"
    * </pre>
    *
@@ -758,7 +710,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Province or state name derived from IP geolocation.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="Seoul"
    * </pre>
    *
@@ -769,7 +720,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Province or state name derived from IP geolocation.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="Seoul"
    * </pre>
    *
@@ -782,7 +732,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * City name derived from IP geolocation.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="Gangnam-gu"
    * </pre>
    *
@@ -793,7 +742,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * City name derived from IP geolocation.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="Gangnam-gu"
    * </pre>
    *
@@ -806,7 +754,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Latitude coordinate derived from IP geolocation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>double latitude = 36 [json_name = "latitude"];</code>
@@ -817,7 +764,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Longitude coordinate derived from IP geolocation.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>double longitude = 37 [json_name = "longitude"];</code>
@@ -828,7 +774,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Web browser and page tracking information from the user's latest session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.WebInfo web = 38 [json_name = "web"];</code>
@@ -838,7 +783,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Web browser and page tracking information from the user's latest session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.WebInfo web = 38 [json_name = "web"];</code>
@@ -848,7 +792,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Web browser and page tracking information from the user's latest session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.WebInfo web = 38 [json_name = "web"];</code>
@@ -858,7 +801,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Mobile device information from the user's latest session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MobileInfo mobile = 39 [json_name = "mobile"];</code>
@@ -868,7 +810,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Mobile device information from the user's latest session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MobileInfo mobile = 39 [json_name = "mobile"];</code>
@@ -878,7 +819,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Mobile device information from the user's latest session.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.coreapi.model.MobileInfo mobile = 39 [json_name = "mobile"];</code>
@@ -888,7 +828,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Total number of chat sessions the user has initiated in this channel.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 sessions_count = 40 [json_name = "sessionsCount"];</code>
@@ -899,7 +838,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user was last seen online in the channel.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -909,7 +847,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user was last seen online in the channel.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -919,7 +856,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user was last seen online in the channel.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -941,7 +877,6 @@ public interface UserOrBuilder extends
    * <pre>
    * Identifier key associated with the block action,
    * used to look up block details.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -952,7 +887,6 @@ public interface UserOrBuilder extends
    * <pre>
    * Identifier key associated with the block action,
    * used to look up block details.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -964,7 +898,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Sort key used for ordering users in the managed contact list.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 managed_key = 44 [json_name = "managedKey"];</code>
@@ -987,7 +920,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Email address extracted from the user's profile data.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="user&#64;example.com"
    * </pre>
    *
@@ -998,7 +930,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Email address extracted from the user's profile data.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="user&#64;example.com"
    * </pre>
    *
@@ -1011,7 +942,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Mobile phone number extracted from the user's profile data.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="+821012345678"
    * </pre>
    *
@@ -1022,7 +952,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Mobile phone number extracted from the user's profile data.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="+821012345678"
    * </pre>
    *
@@ -1035,7 +964,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Landline phone number extracted from the user's profile data.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="+8221234567"
    * </pre>
    *
@@ -1046,7 +974,6 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Landline phone number extracted from the user's profile data.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="+8221234567"
    * </pre>
    *

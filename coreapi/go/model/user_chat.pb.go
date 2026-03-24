@@ -363,12 +363,8 @@ type UserChat struct {
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Contact medium type identifier for chats originating from external
 	// messenger integrations (e.g., "appKakao", "mobileNumber").
-	//
-	// +kubebuilder:validation:Nullable
 	ContactMediumType string `protobuf:"bytes,3,opt,name=contact_medium_type,json=contactMediumType,proto3" json:"contact_medium_type,omitempty"`
 	// ID of the active live meet session attached to this chat.
-	//
-	// +kubebuilder:validation:Nullable
 	LiveMeetId string `protobuf:"bytes,4,opt,name=live_meet_id,json=liveMeetId,proto3" json:"live_meet_id,omitempty"`
 	// Current lifecycle state of the chat conversation.
 	//
@@ -376,8 +372,6 @@ type UserChat struct {
 	State UserChatState `protobuf:"varint,5,opt,name=state,proto3,enum=coreapi.model.UserChatState" json:"state,omitempty"`
 	// Reason the chat was missed.
 	// Only present when the chat transitioned to a missed state.
-	//
-	// +kubebuilder:validation:Nullable
 	MissedReason MissedReason `protobuf:"varint,6,opt,name=missed_reason,json=missedReason,proto3,enum=coreapi.model.MissedReason" json:"missed_reason,omitempty"`
 	// Whether the chat is managed and visible in the Desk inbox.
 	// Unmanaged chats are only visible to the user.
@@ -386,101 +380,61 @@ type UserChat struct {
 	Managed bool `protobuf:"varint,7,opt,name=managed,proto3" json:"managed,omitempty"`
 	// Priority level used by the auto-assignment system to order this chat
 	// in the queue. Defaults to medium.
-	//
-	// +kubebuilder:validation:Nullable
 	Priority AutoAssignPriority `protobuf:"varint,8,opt,name=priority,proto3,enum=coreapi.model.AutoAssignPriority" json:"priority,omitempty"`
 	// ID of the user who owns this chat conversation.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="u-abc123"
 	UserId string `protobuf:"bytes,9,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	// ID of the external service user linked to this chat
 	// via a messenger integration.
-	//
-	// +kubebuilder:validation:Nullable
 	XerId string `protobuf:"bytes,10,opt,name=xer_id,json=xerId,proto3" json:"xer_id,omitempty"`
 	// Display name of this chat shown to managers in the Desk.
-	//
-	// +kubebuilder:validation:Nullable
 	Name string `protobuf:"bytes,11,opt,name=name,proto3" json:"name,omitempty"`
 	// Title of the chat conversation displayed in the Desk inbox list.
-	//
-	// +kubebuilder:validation:Nullable
 	Title string `protobuf:"bytes,12,opt,name=title,proto3" json:"title,omitempty"`
 	// Free-text note or summary attached to this chat by a manager.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=1000
 	Description string `protobuf:"bytes,13,opt,name=description,proto3" json:"description,omitempty"`
 	// Type of subtext shown below the chat title in the Desk inbox list.
-	//
-	// +kubebuilder:validation:Nullable
 	SubtextType UserChatSubtextType `protobuf:"varint,14,opt,name=subtext_type,json=subtextType,proto3,enum=coreapi.model.UserChatSubtextType" json:"subtext_type,omitempty"`
 	// Current handling state that controls the chat's input behavior
 	// (e.g., workflow step, follow-up collection).
-	//
-	// +kubebuilder:validation:Nullable
 	Handling *structpb.Struct `protobuf:"bytes,15,opt,name=handling,proto3" json:"handling,omitempty"`
 	// Origin information describing how this chat was created
 	// (e.g., user-initiated, workflow-triggered, support bot).
-	//
-	// +kubebuilder:validation:Nullable
 	Source *structpb.Struct `protobuf:"bytes,16,opt,name=source,proto3" json:"source,omitempty"`
 	// IDs of managers currently participating in this chat.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MinItems=1
 	ManagerIds []string `protobuf:"bytes,17,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	// ID of the manager currently assigned as the primary responder.
-	//
-	// +kubebuilder:validation:Nullable
 	AssigneeId string `protobuf:"bytes,18,opt,name=assignee_id,json=assigneeId,proto3" json:"assignee_id,omitempty"`
 	// ID of the team this chat is routed to for handling.
-	//
-	// +kubebuilder:validation:Nullable
 	TeamId string `protobuf:"bytes,19,opt,name=team_id,json=teamId,proto3" json:"team_id,omitempty"`
 	// Classification tags attached to this chat for filtering and reporting.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MinItems=1
 	// +kubebuilder:validation:MaxItems=8
 	Tags []string `protobuf:"bytes,20,rep,name=tags,proto3" json:"tags,omitempty"`
 	// Custom key-value profile data associated with this chat.
-	//
-	// +kubebuilder:validation:Nullable
 	Profile *structpb.Struct `protobuf:"bytes,21,opt,name=profile,proto3" json:"profile,omitempty"`
 	// Name of the goal event being tracked for conversion measurement.
-	//
-	// +kubebuilder:validation:Nullable
 	GoalEventName string `protobuf:"bytes,22,opt,name=goal_event_name,json=goalEventName,proto3" json:"goal_event_name,omitempty"`
 	// Query expression defining the conditions for the goal event to match.
-	//
-	// +kubebuilder:validation:Nullable
 	GoalEventQuery *structpb.Struct `protobuf:"bytes,23,opt,name=goal_event_query,json=goalEventQuery,proto3" json:"goal_event_query,omitempty"`
 	// Timestamp when the goal achievement was last evaluated.
-	//
-	// +kubebuilder:validation:Nullable
 	GoalCheckedAt *timestamppb.Timestamp `protobuf:"bytes,24,opt,name=goal_checked_at,json=goalCheckedAt,proto3" json:"goal_checked_at,omitempty"`
 	// Current achievement state of the tracked goal.
-	//
-	// +kubebuilder:validation:Nullable
 	GoalState UserChatGoalState `protobuf:"varint,25,opt,name=goal_state,json=goalState,proto3,enum=coreapi.model.UserChatGoalState" json:"goal_state,omitempty"`
 	// Timestamp when the chat was first opened by a manager.
-	//
-	// +kubebuilder:validation:Nullable
 	FirstOpenedAt *timestamppb.Timestamp `protobuf:"bytes,26,opt,name=first_opened_at,json=firstOpenedAt,proto3" json:"first_opened_at,omitempty"`
 	// Timestamp when the chat was most recently opened.
 	// Reset each time the chat transitions to the opened state.
-	//
-	// +kubebuilder:validation:Nullable
 	OpenedAt *timestamppb.Timestamp `protobuf:"bytes,27,opt,name=opened_at,json=openedAt,proto3" json:"opened_at,omitempty"`
 	// Timestamp when the chat was first placed in the assignment queue.
-	//
-	// +kubebuilder:validation:Nullable
 	FirstQueuedAt *timestamppb.Timestamp `protobuf:"bytes,28,opt,name=first_queued_at,json=firstQueuedAt,proto3" json:"first_queued_at,omitempty"`
 	// Timestamp when the chat was most recently placed in the assignment queue.
-	//
-	// +kubebuilder:validation:Nullable
 	QueuedAt *timestamppb.Timestamp `protobuf:"bytes,29,opt,name=queued_at,json=queuedAt,proto3" json:"queued_at,omitempty"`
 	// Chat creation timestamp.
 	//
@@ -491,114 +445,64 @@ type UserChat struct {
 	// +kubebuilder:validation:Required
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,31,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// ID of the latest message visible to the user (front side).
-	//
-	// +kubebuilder:validation:Nullable
 	FrontMessageId string `protobuf:"bytes,32,opt,name=front_message_id,json=frontMessageId,proto3" json:"front_message_id,omitempty"`
 	// Timestamp when the front-side (user-visible) message list was last updated.
-	//
-	// +kubebuilder:validation:Nullable
 	FrontUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,33,opt,name=front_updated_at,json=frontUpdatedAt,proto3" json:"front_updated_at,omitempty"`
 	// ID of the latest message visible on the Desk (manager) side.
-	//
-	// +kubebuilder:validation:Nullable
 	DeskMessageId string `protobuf:"bytes,34,opt,name=desk_message_id,json=deskMessageId,proto3" json:"desk_message_id,omitempty"`
 	// Timestamp when the Desk-side message list was last updated.
-	//
-	// +kubebuilder:validation:Nullable
 	DeskUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,35,opt,name=desk_updated_at,json=deskUpdatedAt,proto3" json:"desk_updated_at,omitempty"`
 	// ID of the most recent message sent by the user.
-	//
-	// +kubebuilder:validation:Nullable
 	UserLastMessageId string `protobuf:"bytes,36,opt,name=user_last_message_id,json=userLastMessageId,proto3" json:"user_last_message_id,omitempty"`
 	// ID of the first manager assigned after the chat was opened.
 	// Used for tracking initial response ownership.
-	//
-	// +kubebuilder:validation:Nullable
 	FirstAssigneeIdAfterOpen string `protobuf:"bytes,37,opt,name=first_assignee_id_after_open,json=firstAssigneeIdAfterOpen,proto3" json:"first_assignee_id_after_open,omitempty"`
 	// Timestamp of the first-ever manager reply in this chat,
 	// across all open/close cycles.
-	//
-	// +kubebuilder:validation:Nullable
 	FirstRepliedAt *timestamppb.Timestamp `protobuf:"bytes,38,opt,name=first_replied_at,json=firstRepliedAt,proto3" json:"first_replied_at,omitempty"`
 	// Timestamp of the first manager reply after the most recent open.
 	// Reset each time the chat is reopened.
-	//
-	// +kubebuilder:validation:Nullable
 	FirstRepliedAtAfterOpen *timestamppb.Timestamp `protobuf:"bytes,39,opt,name=first_replied_at_after_open,json=firstRepliedAtAfterOpen,proto3" json:"first_replied_at_after_open,omitempty"`
 	// Whether the chat was resolved by a single assignee without being
 	// transferred to another manager.
-	//
-	// +kubebuilder:validation:Nullable
 	OneStop bool `protobuf:"varint,40,opt,name=one_stop,json=oneStop,proto3" json:"one_stop,omitempty"`
 	// Duration from chat open to the first manager reply (in milliseconds).
-	//
-	// +kubebuilder:validation:Nullable
 	WaitingTime int64 `protobuf:"varint,41,opt,name=waiting_time,json=waitingTime,proto3" json:"waiting_time,omitempty"`
 	// Average time between a user's question and the manager's reply
 	// (in milliseconds).
-	//
-	// +kubebuilder:validation:Nullable
 	AvgReplyTime int64 `protobuf:"varint,42,opt,name=avg_reply_time,json=avgReplyTime,proto3" json:"avg_reply_time,omitempty"`
 	// Sum of all individual reply durations across manager responses
 	// (in milliseconds).
-	//
-	// +kubebuilder:validation:Nullable
 	TotalReplyTime int64 `protobuf:"varint,43,opt,name=total_reply_time,json=totalReplyTime,proto3" json:"total_reply_time,omitempty"`
 	// Total number of manager replies in this chat.
-	//
-	// +kubebuilder:validation:Nullable
 	ReplyCount int32 `protobuf:"varint,44,opt,name=reply_count,json=replyCount,proto3" json:"reply_count,omitempty"`
 	// Total duration from the first open to close (in milliseconds).
-	//
-	// +kubebuilder:validation:Nullable
 	ResolutionTime int64 `protobuf:"varint,45,opt,name=resolution_time,json=resolutionTime,proto3" json:"resolution_time,omitempty"`
 	// Duration from open to the first manager reply, counting only
 	// operating hours (in milliseconds).
-	//
-	// +kubebuilder:validation:Nullable
 	OperationWaitingTime int64 `protobuf:"varint,46,opt,name=operation_waiting_time,json=operationWaitingTime,proto3" json:"operation_waiting_time,omitempty"`
 	// Average reply time counting only operating hours (in milliseconds).
-	//
-	// +kubebuilder:validation:Nullable
 	OperationAvgReplyTime int64 `protobuf:"varint,47,opt,name=operation_avg_reply_time,json=operationAvgReplyTime,proto3" json:"operation_avg_reply_time,omitempty"`
 	// Sum of all reply durations counting only operating hours
 	// (in milliseconds).
-	//
-	// +kubebuilder:validation:Nullable
 	OperationTotalReplyTime int64 `protobuf:"varint,48,opt,name=operation_total_reply_time,json=operationTotalReplyTime,proto3" json:"operation_total_reply_time,omitempty"`
 	// Total number of manager replies during operating hours.
-	//
-	// +kubebuilder:validation:Nullable
 	OperationReplyCount int32 `protobuf:"varint,49,opt,name=operation_reply_count,json=operationReplyCount,proto3" json:"operation_reply_count,omitempty"`
 	// Total resolution time counting only operating hours (in milliseconds).
-	//
-	// +kubebuilder:validation:Nullable
 	OperationResolutionTime int64 `protobuf:"varint,50,opt,name=operation_resolution_time,json=operationResolutionTime,proto3" json:"operation_resolution_time,omitempty"`
 	// Timestamp when the user last sent a message that is awaiting
 	// a manager's reply. Cleared when the manager responds.
-	//
-	// +kubebuilder:validation:Nullable
 	AskedAt *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=asked_at,json=askedAt,proto3" json:"asked_at,omitempty"`
 	// Timestamp when the user sent the first message in this chat.
-	//
-	// +kubebuilder:validation:Nullable
 	FirstAskedAt *timestamppb.Timestamp `protobuf:"bytes,52,opt,name=first_asked_at,json=firstAskedAt,proto3" json:"first_asked_at,omitempty"`
 	// Timestamp when the chat was closed.
-	//
-	// +kubebuilder:validation:Nullable
 	ClosedAt *timestamppb.Timestamp `protobuf:"bytes,53,opt,name=closed_at,json=closedAt,proto3" json:"closed_at,omitempty"`
 	// Timestamp when the chat was snoozed.
-	//
-	// +kubebuilder:validation:Nullable
 	SnoozedAt *timestamppb.Timestamp `protobuf:"bytes,54,opt,name=snoozed_at,json=snoozedAt,proto3" json:"snoozed_at,omitempty"`
 	// Timestamp when the chat is scheduled to automatically expire and close.
-	//
-	// +kubebuilder:validation:Nullable
 	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,55,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
 	// Optimistic locking version incremented on every update.
 	// Supply the current value when updating to prevent overwriting concurrent changes.
-	//
-	// +kubebuilder:validation:Nullable
 	Version       int64 `protobuf:"varint,56,opt,name=version,proto3" json:"version,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

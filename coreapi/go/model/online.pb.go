@@ -41,8 +41,6 @@ type Online struct {
 	// +kubebuilder:validation:MinLength=1
 	PersonId string `protobuf:"bytes,3,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
 	// Composite presence record identifier derived from person type and person ID.
-	//
-	// +kubebuilder:validation:Nullable
 	Id            string `protobuf:"bytes,4,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

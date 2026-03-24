@@ -35,7 +35,6 @@ message NameDesc {
 
   // Short description of the entity.
   //
-  // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxLength=180
   string description = 2 [(buf.validate.field).cel = {
     id: "string.maxLen"

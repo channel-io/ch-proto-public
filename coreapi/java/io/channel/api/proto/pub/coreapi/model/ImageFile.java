@@ -221,7 +221,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Image width in pixels.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 width = 3 [json_name = "width"];</code>
@@ -237,7 +236,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Image height in pixels.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 height = 4 [json_name = "height"];</code>
@@ -253,7 +251,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * MIME content type of the image (e.g. "image/png", "image/jpeg").
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:Pattern="^image/.*"
    * </pre>
    *
@@ -276,7 +273,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * MIME content type of the image (e.g. "image/png", "image/jpeg").
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:Pattern="^image/.*"
    * </pre>
    *
@@ -889,7 +885,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image width in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 width = 3 [json_name = "width"];</code>
@@ -902,7 +897,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image width in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 width = 3 [json_name = "width"];</code>
@@ -918,7 +912,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image width in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 width = 3 [json_name = "width"];</code>
@@ -935,7 +928,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image height in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 height = 4 [json_name = "height"];</code>
@@ -948,7 +940,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image height in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 height = 4 [json_name = "height"];</code>
@@ -964,7 +955,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image height in pixels.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int32 height = 4 [json_name = "height"];</code>
@@ -981,7 +971,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MIME content type of the image (e.g. "image/png", "image/jpeg").
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:Pattern="^image/.*"
      * </pre>
      *
@@ -1003,7 +992,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MIME content type of the image (e.g. "image/png", "image/jpeg").
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:Pattern="^image/.*"
      * </pre>
      *
@@ -1026,7 +1014,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MIME content type of the image (e.g. "image/png", "image/jpeg").
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:Pattern="^image/.*"
      * </pre>
      *
@@ -1047,7 +1034,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MIME content type of the image (e.g. "image/png", "image/jpeg").
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:Pattern="^image/.*"
      * </pre>
      *
@@ -1063,7 +1049,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MIME content type of the image (e.g. "image/png", "image/jpeg").
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:Pattern="^image/.*"
      * </pre>
      *
