@@ -25,39 +25,39 @@ const (
 
 // Activity state of a manager for operational tracking and chat routing.
 // States are grouped into "active" (eligible for chat assignment) and "inactive".
-type OperatorStatus_OperatorStatusType int32
+type OperatorStatusType int32
 
 const (
-	OperatorStatus_OPERATOR_STATUS_TYPE_UNSPECIFIED OperatorStatus_OperatorStatusType = 0
+	OperatorStatusType_OPERATOR_STATUS_TYPE_UNSPECIFIED OperatorStatusType = 0
 	// Idle and ready to receive new chats (active).
-	OperatorStatus_OPERATOR_STATUS_TYPE_WAITING OperatorStatus_OperatorStatusType = 1
+	OperatorStatusType_OPERATOR_STATUS_TYPE_WAITING OperatorStatusType = 1
 	// Currently handling a chat (active).
-	OperatorStatus_OPERATOR_STATUS_TYPE_CHAT OperatorStatus_OperatorStatusType = 2
+	OperatorStatusType_OPERATOR_STATUS_TYPE_CHAT OperatorStatusType = 2
 	// On a phone call (active).
-	OperatorStatus_OPERATOR_STATUS_TYPE_CALL OperatorStatus_OperatorStatusType = 3
+	OperatorStatusType_OPERATOR_STATUS_TYPE_CALL OperatorStatusType = 3
 	// Wrapping up after a phone call (active).
-	OperatorStatus_OPERATOR_STATUS_TYPE_POST_CALL OperatorStatus_OperatorStatusType = 4
+	OperatorStatusType_OPERATOR_STATUS_TYPE_POST_CALL OperatorStatusType = 4
 	// In a video/audio meet (active).
-	OperatorStatus_OPERATOR_STATUS_TYPE_MEET OperatorStatus_OperatorStatusType = 5
+	OperatorStatusType_OPERATOR_STATUS_TYPE_MEET OperatorStatusType = 5
 	// On a meal break (inactive).
-	OperatorStatus_OPERATOR_STATUS_TYPE_EAT OperatorStatus_OperatorStatusType = 6
+	OperatorStatusType_OPERATOR_STATUS_TYPE_EAT OperatorStatusType = 6
 	// On a short break (inactive).
-	OperatorStatus_OPERATOR_STATUS_TYPE_REST OperatorStatus_OperatorStatusType = 7
+	OperatorStatusType_OPERATOR_STATUS_TYPE_REST OperatorStatusType = 7
 	// In a scheduled meeting (inactive).
-	OperatorStatus_OPERATOR_STATUS_TYPE_IN_MEETING OperatorStatus_OperatorStatusType = 8
+	OperatorStatusType_OPERATOR_STATUS_TYPE_IN_MEETING OperatorStatusType = 8
 	// In a training or education session (inactive).
-	OperatorStatus_OPERATOR_STATUS_TYPE_EDUCATION OperatorStatus_OperatorStatusType = 9
+	OperatorStatusType_OPERATOR_STATUS_TYPE_EDUCATION OperatorStatusType = 9
 	// Performing non-chat work (inactive).
-	OperatorStatus_OPERATOR_STATUS_TYPE_OTHER_WORK OperatorStatus_OperatorStatusType = 10
+	OperatorStatusType_OPERATOR_STATUS_TYPE_OTHER_WORK OperatorStatusType = 10
 	// Signed off for the day (inactive).
-	OperatorStatus_OPERATOR_STATUS_TYPE_OFF OperatorStatus_OperatorStatusType = 11
+	OperatorStatusType_OPERATOR_STATUS_TYPE_OFF OperatorStatusType = 11
 	// On vacation leave (inactive).
-	OperatorStatus_OPERATOR_STATUS_TYPE_VACATION OperatorStatus_OperatorStatusType = 12
+	OperatorStatusType_OPERATOR_STATUS_TYPE_VACATION OperatorStatusType = 12
 )
 
-// Enum value maps for OperatorStatus_OperatorStatusType.
+// Enum value maps for OperatorStatusType.
 var (
-	OperatorStatus_OperatorStatusType_name = map[int32]string{
+	OperatorStatusType_name = map[int32]string{
 		0:  "OPERATOR_STATUS_TYPE_UNSPECIFIED",
 		1:  "OPERATOR_STATUS_TYPE_WAITING",
 		2:  "OPERATOR_STATUS_TYPE_CHAT",
@@ -72,7 +72,7 @@ var (
 		11: "OPERATOR_STATUS_TYPE_OFF",
 		12: "OPERATOR_STATUS_TYPE_VACATION",
 	}
-	OperatorStatus_OperatorStatusType_value = map[string]int32{
+	OperatorStatusType_value = map[string]int32{
 		"OPERATOR_STATUS_TYPE_UNSPECIFIED": 0,
 		"OPERATOR_STATUS_TYPE_WAITING":     1,
 		"OPERATOR_STATUS_TYPE_CHAT":        2,
@@ -89,31 +89,31 @@ var (
 	}
 )
 
-func (x OperatorStatus_OperatorStatusType) Enum() *OperatorStatus_OperatorStatusType {
-	p := new(OperatorStatus_OperatorStatusType)
+func (x OperatorStatusType) Enum() *OperatorStatusType {
+	p := new(OperatorStatusType)
 	*p = x
 	return p
 }
 
-func (x OperatorStatus_OperatorStatusType) String() string {
+func (x OperatorStatusType) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (OperatorStatus_OperatorStatusType) Descriptor() protoreflect.EnumDescriptor {
+func (OperatorStatusType) Descriptor() protoreflect.EnumDescriptor {
 	return file_coreapi_model_operator_status_proto_enumTypes[0].Descriptor()
 }
 
-func (OperatorStatus_OperatorStatusType) Type() protoreflect.EnumType {
+func (OperatorStatusType) Type() protoreflect.EnumType {
 	return &file_coreapi_model_operator_status_proto_enumTypes[0]
 }
 
-func (x OperatorStatus_OperatorStatusType) Number() protoreflect.EnumNumber {
+func (x OperatorStatusType) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use OperatorStatus_OperatorStatusType.Descriptor instead.
-func (OperatorStatus_OperatorStatusType) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_operator_status_proto_rawDescGZIP(), []int{0, 0}
+// Deprecated: Use OperatorStatusType.Descriptor instead.
+func (OperatorStatusType) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_operator_status_proto_rawDescGZIP(), []int{0}
 }
 
 // OperatorStatus represents a manager's real-time operational state within a channel,
@@ -136,7 +136,7 @@ type OperatorStatus struct {
 	// Current activity state of the manager, used for chat routing and workload management.
 	//
 	// +kubebuilder:validation:Nullable
-	OperatorStatusType OperatorStatus_OperatorStatusType `protobuf:"varint,4,opt,name=operator_status_type,json=operatorStatusType,proto3,enum=coreapi.model.OperatorStatus_OperatorStatusType" json:"operator_status_type,omitempty"`
+	OperatorStatusType OperatorStatusType `protobuf:"varint,4,opt,name=operator_status_type,json=operatorStatusType,proto3,enum=coreapi.model.OperatorStatusType" json:"operator_status_type,omitempty"`
 	// Whether the manager is enabled to receive and handle chats.
 	// Disabled managers are excluded from auto-assignment.
 	//
@@ -214,11 +214,11 @@ func (x *OperatorStatus) GetChannelId() string {
 	return ""
 }
 
-func (x *OperatorStatus) GetOperatorStatusType() OperatorStatus_OperatorStatusType {
+func (x *OperatorStatus) GetOperatorStatusType() OperatorStatusType {
 	if x != nil {
 		return x.OperatorStatusType
 	}
-	return OperatorStatus_OPERATOR_STATUS_TYPE_UNSPECIFIED
+	return OperatorStatusType_OPERATOR_STATUS_TYPE_UNSPECIFIED
 }
 
 func (x *OperatorStatus) GetEnable() bool {
@@ -260,22 +260,22 @@ var File_coreapi_model_operator_status_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_operator_status_proto_rawDesc = "" +
 	"\n" +
-	"#coreapi/model/operator_status.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf1\a\n" +
+	"#coreapi/model/operator_status.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x96\x04\n" +
 	"\x0eOperatorStatus\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12l\n" +
 	"\n" +
 	"manager_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tmanagerId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12b\n" +
-	"\x14operator_status_type\x18\x04 \x01(\x0e20.coreapi.model.OperatorStatus.OperatorStatusTypeR\x12operatorStatusType\x12\x1e\n" +
+	"channel_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12S\n" +
+	"\x14operator_status_type\x18\x04 \x01(\x0e2!.coreapi.model.OperatorStatusTypeR\x12operatorStatusType\x12\x1e\n" +
 	"\x06enable\x18\x05 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x06enable\x12A\n" +
 	"\n" +
 	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
 	"updated_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12B\n" +
 	"\x0ftype_updated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\rtypeUpdatedAt\x12\x18\n" +
-	"\aversion\x18\t \x01(\x03R\aversion\"\xc9\x03\n" +
+	"\aversion\x18\t \x01(\x03R\aversion*\xc9\x03\n" +
 	"\x12OperatorStatusType\x12$\n" +
 	" OPERATOR_STATUS_TYPE_UNSPECIFIED\x10\x00\x12 \n" +
 	"\x1cOPERATOR_STATUS_TYPE_WAITING\x10\x01\x12\x1d\n" +
@@ -308,12 +308,12 @@ func file_coreapi_model_operator_status_proto_rawDescGZIP() []byte {
 var file_coreapi_model_operator_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_coreapi_model_operator_status_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_coreapi_model_operator_status_proto_goTypes = []any{
-	(OperatorStatus_OperatorStatusType)(0), // 0: coreapi.model.OperatorStatus.OperatorStatusType
-	(*OperatorStatus)(nil),                 // 1: coreapi.model.OperatorStatus
-	(*timestamppb.Timestamp)(nil),          // 2: google.protobuf.Timestamp
+	(OperatorStatusType)(0),       // 0: coreapi.model.OperatorStatusType
+	(*OperatorStatus)(nil),        // 1: coreapi.model.OperatorStatus
+	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_coreapi_model_operator_status_proto_depIdxs = []int32{
-	0, // 0: coreapi.model.OperatorStatus.operator_status_type:type_name -> coreapi.model.OperatorStatus.OperatorStatusType
+	0, // 0: coreapi.model.OperatorStatus.operator_status_type:type_name -> coreapi.model.OperatorStatusType
 	2, // 1: coreapi.model.OperatorStatus.created_at:type_name -> google.protobuf.Timestamp
 	2, // 2: coreapi.model.OperatorStatus.updated_at:type_name -> google.protobuf.Timestamp
 	2, // 3: coreapi.model.OperatorStatus.type_updated_at:type_name -> google.protobuf.Timestamp

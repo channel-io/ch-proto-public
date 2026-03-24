@@ -194,6 +194,56 @@ func (CampaignSendMode) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{2}
 }
 
+// Source event type from which the property value is captured.
+type CampaignBaseEventType int32
+
+const (
+	CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED       CampaignBaseEventType = 0
+	CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT     CampaignBaseEventType = 1
+	CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER CampaignBaseEventType = 2
+)
+
+// Enum value maps for CampaignBaseEventType.
+var (
+	CampaignBaseEventType_name = map[int32]string{
+		0: "CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED",
+		1: "CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT",
+		2: "CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER",
+	}
+	CampaignBaseEventType_value = map[string]int32{
+		"CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED":       0,
+		"CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT":     1,
+		"CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER": 2,
+	}
+)
+
+func (x CampaignBaseEventType) Enum() *CampaignBaseEventType {
+	p := new(CampaignBaseEventType)
+	*p = x
+	return p
+}
+
+func (x CampaignBaseEventType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (CampaignBaseEventType) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_campaign_proto_enumTypes[3].Descriptor()
+}
+
+func (CampaignBaseEventType) Type() protoreflect.EnumType {
+	return &file_coreapi_model_campaign_proto_enumTypes[3]
+}
+
+func (x CampaignBaseEventType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use CampaignBaseEventType.Descriptor instead.
+func (CampaignBaseEventType) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{3}
+}
+
 // Campaign represents a recurring marketing campaign triggered by user events.
 type Campaign struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -672,11 +722,120 @@ func (x *Campaign) GetManagerId() string {
 	return ""
 }
 
+// HoldingPropertyConstant captures a property value from a base event at trigger time
+// so that downstream filtering or goal checking uses a consistent snapshot rather than the latest value.
+type HoldingPropertyConstant struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Name of the base event from which the property value is captured.
+	//
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
+	BaseEventName string `protobuf:"bytes,1,opt,name=base_event_name,json=baseEventName,proto3" json:"base_event_name,omitempty"`
+	// Property key within the base event whose value is held constant.
+	//
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
+	BaseEventKey string `protobuf:"bytes,2,opt,name=base_event_key,json=baseEventKey,proto3" json:"base_event_key,omitempty"`
+	// Query expression applied to the held property value for matching.
+	// Represented as a structured filter object.
+	//
+	// +kubebuilder:validation:Nullable
+	EventQuery *structpb.Struct `protobuf:"bytes,3,opt,name=event_query,json=eventQuery,proto3" json:"event_query,omitempty"`
+	// Indicates whether the property is captured from the trigger event or the additional filter event.
+	//
+	// +kubebuilder:validation:Required
+	BaseEventType CampaignBaseEventType `protobuf:"varint,4,opt,name=base_event_type,json=baseEventType,proto3,enum=coreapi.model.CampaignBaseEventType" json:"base_event_type,omitempty"`
+	// Comparison operator schema used to evaluate the held property value.
+	// Represented as a structured object describing the operator type and configuration.
+	//
+	// +kubebuilder:validation:Nullable
+	Operator *structpb.Struct `protobuf:"bytes,5,opt,name=operator,proto3" json:"operator,omitempty"`
+	// Property values captured from the base event at trigger time.
+	// Represented as a structured object holding the snapshot values.
+	//
+	// +kubebuilder:validation:Nullable
+	Values        *structpb.Struct `protobuf:"bytes,6,opt,name=values,proto3" json:"values,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HoldingPropertyConstant) Reset() {
+	*x = HoldingPropertyConstant{}
+	mi := &file_coreapi_model_campaign_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HoldingPropertyConstant) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HoldingPropertyConstant) ProtoMessage() {}
+
+func (x *HoldingPropertyConstant) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_model_campaign_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HoldingPropertyConstant.ProtoReflect.Descriptor instead.
+func (*HoldingPropertyConstant) Descriptor() ([]byte, []int) {
+	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *HoldingPropertyConstant) GetBaseEventName() string {
+	if x != nil {
+		return x.BaseEventName
+	}
+	return ""
+}
+
+func (x *HoldingPropertyConstant) GetBaseEventKey() string {
+	if x != nil {
+		return x.BaseEventKey
+	}
+	return ""
+}
+
+func (x *HoldingPropertyConstant) GetEventQuery() *structpb.Struct {
+	if x != nil {
+		return x.EventQuery
+	}
+	return nil
+}
+
+func (x *HoldingPropertyConstant) GetBaseEventType() CampaignBaseEventType {
+	if x != nil {
+		return x.BaseEventType
+	}
+	return CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED
+}
+
+func (x *HoldingPropertyConstant) GetOperator() *structpb.Struct {
+	if x != nil {
+		return x.Operator
+	}
+	return nil
+}
+
+func (x *HoldingPropertyConstant) GetValues() *structpb.Struct {
+	if x != nil {
+		return x.Values
+	}
+	return nil
+}
+
 var File_coreapi_model_campaign_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_campaign_proto_rawDesc = "" +
 	"\n" +
-	"\x1ccoreapi/model/campaign.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a-coreapi/model/holding_property_constant.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1ecoreapi/model/time_range.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf6\x11\n" +
+	"\x1ccoreapi/model/campaign.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1ecoreapi/model/time_range.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf6\x11\n" +
 	"\bCampaign\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
@@ -728,7 +887,17 @@ const file_coreapi_model_campaign_proto_rawDesc = "" +
 	"manager_id\x18& \x01(\tR\tmanagerId\x1a_\n" +
 	"\x16ConversionWindowsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12/\n" +
-	"\x05value\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x05value:\x028\x01*\x9c\x01\n" +
+	"\x05value\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x05value:\x028\x01\"\xfb\x03\n" +
+	"\x17HoldingPropertyConstant\x12u\n" +
+	"\x0fbase_event_name\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\rbaseEventName\x12s\n" +
+	"\x0ebase_event_key\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\fbaseEventKey\x128\n" +
+	"\vevent_query\x18\x03 \x01(\v2\x17.google.protobuf.StructR\n" +
+	"eventQuery\x12T\n" +
+	"\x0fbase_event_type\x18\x04 \x01(\x0e2$.coreapi.model.CampaignBaseEventTypeB\x06\xbaH\x03\xc8\x01\x01R\rbaseEventType\x123\n" +
+	"\boperator\x18\x05 \x01(\v2\x17.google.protobuf.StructR\boperator\x12/\n" +
+	"\x06values\x18\x06 \x01(\v2\x17.google.protobuf.StructR\x06values*\x9c\x01\n" +
 	"\rCampaignState\x12\x1e\n" +
 	"\x1aCAMPAIGN_STATE_UNSPECIFIED\x10\x00\x12\x18\n" +
 	"\x14CAMPAIGN_STATE_DRAFT\x10\x01\x12\x19\n" +
@@ -746,7 +915,11 @@ const file_coreapi_model_campaign_proto_rawDesc = "" +
 	"\x1fCAMPAIGN_SEND_MODE_IN_OPERATION\x10\x03\x12/\n" +
 	"+CAMPAIGN_SEND_MODE_CUSTOM_USING_SENDER_TIME\x10\x04\x121\n" +
 	"-CAMPAIGN_SEND_MODE_CUSTOM_USING_RECEIVER_TIME\x10\x05\x12\x1d\n" +
-	"\x19CAMPAIGN_SEND_MODE_CUSTOM\x10\x06Bb\n" +
+	"\x19CAMPAIGN_SEND_MODE_CUSTOM\x10\x06*\x9d\x01\n" +
+	"\x15CampaignBaseEventType\x12(\n" +
+	"$CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED\x10\x00\x12*\n" +
+	"&CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT\x10\x01\x12.\n" +
+	"*CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER\x10\x02Bb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -761,51 +934,56 @@ func file_coreapi_model_campaign_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_campaign_proto_rawDescData
 }
 
-var file_coreapi_model_campaign_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_coreapi_model_campaign_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_coreapi_model_campaign_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
+var file_coreapi_model_campaign_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_coreapi_model_campaign_proto_goTypes = []any{
 	(CampaignState)(0),              // 0: coreapi.model.CampaignState
 	(CampaignFilterMatch)(0),        // 1: coreapi.model.CampaignFilterMatch
 	(CampaignSendMode)(0),           // 2: coreapi.model.CampaignSendMode
-	(*Campaign)(nil),                // 3: coreapi.model.Campaign
-	nil,                             // 4: coreapi.model.Campaign.ConversionWindowsEntry
-	(MediumType)(0),                 // 5: coreapi.model.MediumType
-	(*structpb.Struct)(nil),         // 6: google.protobuf.Struct
-	(*AppSegment)(nil),              // 7: coreapi.model.AppSegment
-	(*durationpb.Duration)(nil),     // 8: google.protobuf.Duration
-	(*HoldingPropertyConstant)(nil), // 9: coreapi.model.HoldingPropertyConstant
-	(*TimeRange)(nil),               // 10: coreapi.model.TimeRange
-	(*timestamppb.Timestamp)(nil),   // 11: google.protobuf.Timestamp
+	(CampaignBaseEventType)(0),      // 3: coreapi.model.CampaignBaseEventType
+	(*Campaign)(nil),                // 4: coreapi.model.Campaign
+	(*HoldingPropertyConstant)(nil), // 5: coreapi.model.HoldingPropertyConstant
+	nil,                             // 6: coreapi.model.Campaign.ConversionWindowsEntry
+	(MediumType)(0),                 // 7: coreapi.model.MediumType
+	(*structpb.Struct)(nil),         // 8: google.protobuf.Struct
+	(*AppSegment)(nil),              // 9: coreapi.model.AppSegment
+	(*durationpb.Duration)(nil),     // 10: google.protobuf.Duration
+	(*TimeRange)(nil),               // 11: coreapi.model.TimeRange
+	(*timestamppb.Timestamp)(nil),   // 12: google.protobuf.Timestamp
 }
 var file_coreapi_model_campaign_proto_depIdxs = []int32{
 	0,  // 0: coreapi.model.Campaign.state:type_name -> coreapi.model.CampaignState
-	5,  // 1: coreapi.model.Campaign.medium_type:type_name -> coreapi.model.MediumType
-	6,  // 2: coreapi.model.Campaign.user_query:type_name -> google.protobuf.Struct
-	7,  // 3: coreapi.model.Campaign.app_segments:type_name -> coreapi.model.AppSegment
-	6,  // 4: coreapi.model.Campaign.trigger_event_query:type_name -> google.protobuf.Struct
-	8,  // 5: coreapi.model.Campaign.waiting_time:type_name -> google.protobuf.Duration
-	6,  // 6: coreapi.model.Campaign.filter_event_query:type_name -> google.protobuf.Struct
+	7,  // 1: coreapi.model.Campaign.medium_type:type_name -> coreapi.model.MediumType
+	8,  // 2: coreapi.model.Campaign.user_query:type_name -> google.protobuf.Struct
+	9,  // 3: coreapi.model.Campaign.app_segments:type_name -> coreapi.model.AppSegment
+	8,  // 4: coreapi.model.Campaign.trigger_event_query:type_name -> google.protobuf.Struct
+	10, // 5: coreapi.model.Campaign.waiting_time:type_name -> google.protobuf.Duration
+	8,  // 6: coreapi.model.Campaign.filter_event_query:type_name -> google.protobuf.Struct
 	1,  // 7: coreapi.model.Campaign.filter_match:type_name -> coreapi.model.CampaignFilterMatch
-	9,  // 8: coreapi.model.Campaign.filter_hpc:type_name -> coreapi.model.HoldingPropertyConstant
-	4,  // 9: coreapi.model.Campaign.conversion_windows:type_name -> coreapi.model.Campaign.ConversionWindowsEntry
-	6,  // 10: coreapi.model.Campaign.goal_event_query:type_name -> google.protobuf.Struct
-	8,  // 11: coreapi.model.Campaign.goal_event_duration:type_name -> google.protobuf.Duration
-	9,  // 12: coreapi.model.Campaign.goal_hpc:type_name -> coreapi.model.HoldingPropertyConstant
-	8,  // 13: coreapi.model.Campaign.cooldown:type_name -> google.protobuf.Duration
+	5,  // 8: coreapi.model.Campaign.filter_hpc:type_name -> coreapi.model.HoldingPropertyConstant
+	6,  // 9: coreapi.model.Campaign.conversion_windows:type_name -> coreapi.model.Campaign.ConversionWindowsEntry
+	8,  // 10: coreapi.model.Campaign.goal_event_query:type_name -> google.protobuf.Struct
+	10, // 11: coreapi.model.Campaign.goal_event_duration:type_name -> google.protobuf.Duration
+	5,  // 12: coreapi.model.Campaign.goal_hpc:type_name -> coreapi.model.HoldingPropertyConstant
+	10, // 13: coreapi.model.Campaign.cooldown:type_name -> google.protobuf.Duration
 	2,  // 14: coreapi.model.Campaign.send_mode:type_name -> coreapi.model.CampaignSendMode
-	10, // 15: coreapi.model.Campaign.send_time_ranges:type_name -> coreapi.model.TimeRange
-	11, // 16: coreapi.model.Campaign.start_at:type_name -> google.protobuf.Timestamp
-	11, // 17: coreapi.model.Campaign.end_at:type_name -> google.protobuf.Timestamp
-	6,  // 18: coreapi.model.Campaign.draft:type_name -> google.protobuf.Struct
-	11, // 19: coreapi.model.Campaign.created_at:type_name -> google.protobuf.Timestamp
-	11, // 20: coreapi.model.Campaign.updated_at:type_name -> google.protobuf.Timestamp
-	8,  // 21: coreapi.model.Campaign.user_chat_expire_duration:type_name -> google.protobuf.Duration
-	8,  // 22: coreapi.model.Campaign.ConversionWindowsEntry.value:type_name -> google.protobuf.Duration
-	23, // [23:23] is the sub-list for method output_type
-	23, // [23:23] is the sub-list for method input_type
-	23, // [23:23] is the sub-list for extension type_name
-	23, // [23:23] is the sub-list for extension extendee
-	0,  // [0:23] is the sub-list for field type_name
+	11, // 15: coreapi.model.Campaign.send_time_ranges:type_name -> coreapi.model.TimeRange
+	12, // 16: coreapi.model.Campaign.start_at:type_name -> google.protobuf.Timestamp
+	12, // 17: coreapi.model.Campaign.end_at:type_name -> google.protobuf.Timestamp
+	8,  // 18: coreapi.model.Campaign.draft:type_name -> google.protobuf.Struct
+	12, // 19: coreapi.model.Campaign.created_at:type_name -> google.protobuf.Timestamp
+	12, // 20: coreapi.model.Campaign.updated_at:type_name -> google.protobuf.Timestamp
+	10, // 21: coreapi.model.Campaign.user_chat_expire_duration:type_name -> google.protobuf.Duration
+	8,  // 22: coreapi.model.HoldingPropertyConstant.event_query:type_name -> google.protobuf.Struct
+	3,  // 23: coreapi.model.HoldingPropertyConstant.base_event_type:type_name -> coreapi.model.CampaignBaseEventType
+	8,  // 24: coreapi.model.HoldingPropertyConstant.operator:type_name -> google.protobuf.Struct
+	8,  // 25: coreapi.model.HoldingPropertyConstant.values:type_name -> google.protobuf.Struct
+	10, // 26: coreapi.model.Campaign.ConversionWindowsEntry.value:type_name -> google.protobuf.Duration
+	27, // [27:27] is the sub-list for method output_type
+	27, // [27:27] is the sub-list for method input_type
+	27, // [27:27] is the sub-list for extension type_name
+	27, // [27:27] is the sub-list for extension extendee
+	0,  // [0:27] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_campaign_proto_init() }
@@ -814,7 +992,6 @@ func file_coreapi_model_campaign_proto_init() {
 		return
 	}
 	file_coreapi_model_app_segment_proto_init()
-	file_coreapi_model_holding_property_constant_proto_init()
 	file_coreapi_model_medium_type_proto_init()
 	file_coreapi_model_time_range_proto_init()
 	type x struct{}
@@ -822,8 +999,8 @@ func file_coreapi_model_campaign_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_campaign_proto_rawDesc), len(file_coreapi_model_campaign_proto_rawDesc)),
-			NumEnums:      3,
-			NumMessages:   2,
+			NumEnums:      4,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

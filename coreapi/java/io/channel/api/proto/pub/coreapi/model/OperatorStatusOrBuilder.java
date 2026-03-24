@@ -81,7 +81,7 @@ public interface OperatorStatusOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+   * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
    * @return The enum numeric value on the wire for operatorStatusType.
    */
   int getOperatorStatusTypeValue();
@@ -91,10 +91,10 @@ public interface OperatorStatusOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+   * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
    * @return The operatorStatusType.
    */
-  io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType getOperatorStatusType();
+  io.channel.api.proto.pub.coreapi.model.OperatorStatusType getOperatorStatusType();
 
   /**
    * <pre>

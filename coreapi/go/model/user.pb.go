@@ -662,11 +662,265 @@ func (x *User) GetLandlineNumber() string {
 	return ""
 }
 
+// WebInfo represents web browser environment and session data
+// collected from a user visiting the channel via a web browser.
+type WebInfo struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Device form factor (e.g. "desktop", "tablet", "mobile").
+	//
+	// +kubebuilder:validation:Nullable
+	Device string `protobuf:"bytes,1,opt,name=device,proto3" json:"device,omitempty"`
+	// Operating system version string (e.g. "10.15.7", "11").
+	//
+	// +kubebuilder:validation:Nullable
+	Os string `protobuf:"bytes,2,opt,name=os,proto3" json:"os,omitempty"`
+	// Operating system name (e.g. "Windows", "macOS", "Linux").
+	//
+	// +kubebuilder:validation:Nullable
+	OsName string `protobuf:"bytes,3,opt,name=os_name,json=osName,proto3" json:"os_name,omitempty"`
+	// Browser version string (e.g. "120.0.6099.109").
+	//
+	// +kubebuilder:validation:Nullable
+	Browser string `protobuf:"bytes,4,opt,name=browser,proto3" json:"browser,omitempty"`
+	// Browser name (e.g. "Chrome", "Safari", "Firefox").
+	//
+	// +kubebuilder:validation:Nullable
+	BrowserName string `protobuf:"bytes,5,opt,name=browser_name,json=browserName,proto3" json:"browser_name,omitempty"`
+	// Cumulative number of web sessions recorded for this user.
+	// Incremented on each new session.
+	//
+	// +kubebuilder:validation:Nullable
+	SessionsCount int32 `protobuf:"varint,6,opt,name=sessions_count,json=sessionsCount,proto3" json:"sessions_count,omitempty"`
+	// Timestamp of the user's most recent web session start.
+	//
+	// +kubebuilder:validation:Nullable
+	LastSeenAt    *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=last_seen_at,json=lastSeenAt,proto3" json:"last_seen_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WebInfo) Reset() {
+	*x = WebInfo{}
+	mi := &file_coreapi_model_user_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WebInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WebInfo) ProtoMessage() {}
+
+func (x *WebInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_model_user_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WebInfo.ProtoReflect.Descriptor instead.
+func (*WebInfo) Descriptor() ([]byte, []int) {
+	return file_coreapi_model_user_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *WebInfo) GetDevice() string {
+	if x != nil {
+		return x.Device
+	}
+	return ""
+}
+
+func (x *WebInfo) GetOs() string {
+	if x != nil {
+		return x.Os
+	}
+	return ""
+}
+
+func (x *WebInfo) GetOsName() string {
+	if x != nil {
+		return x.OsName
+	}
+	return ""
+}
+
+func (x *WebInfo) GetBrowser() string {
+	if x != nil {
+		return x.Browser
+	}
+	return ""
+}
+
+func (x *WebInfo) GetBrowserName() string {
+	if x != nil {
+		return x.BrowserName
+	}
+	return ""
+}
+
+func (x *WebInfo) GetSessionsCount() int32 {
+	if x != nil {
+		return x.SessionsCount
+	}
+	return 0
+}
+
+func (x *WebInfo) GetLastSeenAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.LastSeenAt
+	}
+	return nil
+}
+
+// MobileInfo represents mobile app environment and session data
+// collected from a user accessing the channel via a mobile SDK.
+type MobileInfo struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Device model name (e.g. "iPhone 15", "Galaxy S24").
+	//
+	// +kubebuilder:validation:Nullable
+	Device string `protobuf:"bytes,1,opt,name=device,proto3" json:"device,omitempty"`
+	// Operating system version string (e.g. "17.2", "14").
+	//
+	// +kubebuilder:validation:Nullable
+	Os string `protobuf:"bytes,2,opt,name=os,proto3" json:"os,omitempty"`
+	// Operating system name (e.g. "iOS", "Android").
+	//
+	// +kubebuilder:validation:Nullable
+	OsName string `protobuf:"bytes,3,opt,name=os_name,json=osName,proto3" json:"os_name,omitempty"`
+	// Name of the host application embedding the Channel SDK.
+	//
+	// +kubebuilder:validation:Nullable
+	AppName string `protobuf:"bytes,4,opt,name=app_name,json=appName,proto3" json:"app_name,omitempty"`
+	// Version of the host application embedding the Channel SDK.
+	//
+	// +kubebuilder:validation:Nullable
+	AppVersion string `protobuf:"bytes,5,opt,name=app_version,json=appVersion,proto3" json:"app_version,omitempty"`
+	// Channel SDK platform name (e.g. "ios", "android", "react-native").
+	//
+	// +kubebuilder:validation:Nullable
+	SdkName string `protobuf:"bytes,6,opt,name=sdk_name,json=sdkName,proto3" json:"sdk_name,omitempty"`
+	// Channel SDK version string.
+	//
+	// +kubebuilder:validation:Nullable
+	SdkVersion string `protobuf:"bytes,7,opt,name=sdk_version,json=sdkVersion,proto3" json:"sdk_version,omitempty"`
+	// Cumulative number of mobile sessions recorded for this user.
+	// Incremented on each new session.
+	//
+	// +kubebuilder:validation:Nullable
+	SessionsCount int32 `protobuf:"varint,8,opt,name=sessions_count,json=sessionsCount,proto3" json:"sessions_count,omitempty"`
+	// Timestamp of the user's most recent mobile session start.
+	//
+	// +kubebuilder:validation:Nullable
+	LastSeenAt    *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=last_seen_at,json=lastSeenAt,proto3" json:"last_seen_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MobileInfo) Reset() {
+	*x = MobileInfo{}
+	mi := &file_coreapi_model_user_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MobileInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MobileInfo) ProtoMessage() {}
+
+func (x *MobileInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_model_user_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MobileInfo.ProtoReflect.Descriptor instead.
+func (*MobileInfo) Descriptor() ([]byte, []int) {
+	return file_coreapi_model_user_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *MobileInfo) GetDevice() string {
+	if x != nil {
+		return x.Device
+	}
+	return ""
+}
+
+func (x *MobileInfo) GetOs() string {
+	if x != nil {
+		return x.Os
+	}
+	return ""
+}
+
+func (x *MobileInfo) GetOsName() string {
+	if x != nil {
+		return x.OsName
+	}
+	return ""
+}
+
+func (x *MobileInfo) GetAppName() string {
+	if x != nil {
+		return x.AppName
+	}
+	return ""
+}
+
+func (x *MobileInfo) GetAppVersion() string {
+	if x != nil {
+		return x.AppVersion
+	}
+	return ""
+}
+
+func (x *MobileInfo) GetSdkName() string {
+	if x != nil {
+		return x.SdkName
+	}
+	return ""
+}
+
+func (x *MobileInfo) GetSdkVersion() string {
+	if x != nil {
+		return x.SdkVersion
+	}
+	return ""
+}
+
+func (x *MobileInfo) GetSessionsCount() int32 {
+	if x != nil {
+		return x.SessionsCount
+	}
+	return 0
+}
+
+func (x *MobileInfo) GetLastSeenAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.LastSeenAt
+	}
+	return nil
+}
+
 var File_coreapi_model_user_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_user_proto_rawDesc = "" +
 	"\n" +
-	"\x18coreapi/model/user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/web_info.proto\x1a\x1fcoreapi/model/mobile_info.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb0\x0f\n" +
+	"\x18coreapi/model/user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb0\x0f\n" +
 	"\x04User\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
@@ -725,7 +979,30 @@ const file_coreapi_model_user_proto_rawDesc = "" +
 	"\x06member\x18- \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x06member\x12\x14\n" +
 	"\x05email\x18. \x01(\tR\x05email\x12#\n" +
 	"\rmobile_number\x18/ \x01(\tR\fmobileNumber\x12'\n" +
-	"\x0flandline_number\x180 \x01(\tR\x0elandlineNumber*f\n" +
+	"\x0flandline_number\x180 \x01(\tR\x0elandlineNumber\"\xec\x01\n" +
+	"\aWebInfo\x12\x16\n" +
+	"\x06device\x18\x01 \x01(\tR\x06device\x12\x0e\n" +
+	"\x02os\x18\x02 \x01(\tR\x02os\x12\x17\n" +
+	"\aos_name\x18\x03 \x01(\tR\x06osName\x12\x18\n" +
+	"\abrowser\x18\x04 \x01(\tR\abrowser\x12!\n" +
+	"\fbrowser_name\x18\x05 \x01(\tR\vbrowserName\x12%\n" +
+	"\x0esessions_count\x18\x06 \x01(\x05R\rsessionsCount\x12<\n" +
+	"\flast_seen_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\n" +
+	"lastSeenAt\"\xaa\x02\n" +
+	"\n" +
+	"MobileInfo\x12\x16\n" +
+	"\x06device\x18\x01 \x01(\tR\x06device\x12\x0e\n" +
+	"\x02os\x18\x02 \x01(\tR\x02os\x12\x17\n" +
+	"\aos_name\x18\x03 \x01(\tR\x06osName\x12\x19\n" +
+	"\bapp_name\x18\x04 \x01(\tR\aappName\x12\x1f\n" +
+	"\vapp_version\x18\x05 \x01(\tR\n" +
+	"appVersion\x12\x19\n" +
+	"\bsdk_name\x18\x06 \x01(\tR\asdkName\x12\x1f\n" +
+	"\vsdk_version\x18\a \x01(\tR\n" +
+	"sdkVersion\x12%\n" +
+	"\x0esessions_count\x18\b \x01(\x05R\rsessionsCount\x12<\n" +
+	"\flast_seen_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\n" +
+	"lastSeenAt*f\n" +
 	"\bUserType\x12\x19\n" +
 	"\x15USER_TYPE_UNSPECIFIED\x10\x00\x12\x14\n" +
 	"\x10USER_TYPE_MEMBER\x10\x01\x12\x12\n" +
@@ -746,31 +1023,33 @@ func file_coreapi_model_user_proto_rawDescGZIP() []byte {
 }
 
 var file_coreapi_model_user_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_coreapi_model_user_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_coreapi_model_user_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_coreapi_model_user_proto_goTypes = []any{
 	(UserType)(0),                 // 0: coreapi.model.UserType
 	(*User)(nil),                  // 1: coreapi.model.User
-	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(*structpb.Struct)(nil),       // 3: google.protobuf.Struct
-	(*WebInfo)(nil),               // 4: coreapi.model.WebInfo
-	(*MobileInfo)(nil),            // 5: coreapi.model.MobileInfo
+	(*WebInfo)(nil),               // 2: coreapi.model.WebInfo
+	(*MobileInfo)(nil),            // 3: coreapi.model.MobileInfo
+	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
+	(*structpb.Struct)(nil),       // 5: google.protobuf.Struct
 }
 var file_coreapi_model_user_proto_depIdxs = []int32{
 	0,  // 0: coreapi.model.User.type:type_name -> coreapi.model.UserType
-	2,  // 1: coreapi.model.User.created_at:type_name -> google.protobuf.Timestamp
-	2,  // 2: coreapi.model.User.updated_at:type_name -> google.protobuf.Timestamp
-	3,  // 3: coreapi.model.User.profile:type_name -> google.protobuf.Struct
-	2,  // 4: coreapi.model.User.unsubscribe_email_updated_at:type_name -> google.protobuf.Timestamp
-	2,  // 5: coreapi.model.User.unsubscribe_texting_updated_at:type_name -> google.protobuf.Timestamp
-	2,  // 6: coreapi.model.User.unsubscribe_app_push_updated_at:type_name -> google.protobuf.Timestamp
-	4,  // 7: coreapi.model.User.web:type_name -> coreapi.model.WebInfo
-	5,  // 8: coreapi.model.User.mobile:type_name -> coreapi.model.MobileInfo
-	2,  // 9: coreapi.model.User.last_seen_at:type_name -> google.protobuf.Timestamp
-	10, // [10:10] is the sub-list for method output_type
-	10, // [10:10] is the sub-list for method input_type
-	10, // [10:10] is the sub-list for extension type_name
-	10, // [10:10] is the sub-list for extension extendee
-	0,  // [0:10] is the sub-list for field type_name
+	4,  // 1: coreapi.model.User.created_at:type_name -> google.protobuf.Timestamp
+	4,  // 2: coreapi.model.User.updated_at:type_name -> google.protobuf.Timestamp
+	5,  // 3: coreapi.model.User.profile:type_name -> google.protobuf.Struct
+	4,  // 4: coreapi.model.User.unsubscribe_email_updated_at:type_name -> google.protobuf.Timestamp
+	4,  // 5: coreapi.model.User.unsubscribe_texting_updated_at:type_name -> google.protobuf.Timestamp
+	4,  // 6: coreapi.model.User.unsubscribe_app_push_updated_at:type_name -> google.protobuf.Timestamp
+	2,  // 7: coreapi.model.User.web:type_name -> coreapi.model.WebInfo
+	3,  // 8: coreapi.model.User.mobile:type_name -> coreapi.model.MobileInfo
+	4,  // 9: coreapi.model.User.last_seen_at:type_name -> google.protobuf.Timestamp
+	4,  // 10: coreapi.model.WebInfo.last_seen_at:type_name -> google.protobuf.Timestamp
+	4,  // 11: coreapi.model.MobileInfo.last_seen_at:type_name -> google.protobuf.Timestamp
+	12, // [12:12] is the sub-list for method output_type
+	12, // [12:12] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_user_proto_init() }
@@ -778,15 +1057,13 @@ func file_coreapi_model_user_proto_init() {
 	if File_coreapi_model_user_proto != nil {
 		return
 	}
-	file_coreapi_model_web_info_proto_init()
-	file_coreapi_model_mobile_info_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_user_proto_rawDesc), len(file_coreapi_model_user_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   1,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

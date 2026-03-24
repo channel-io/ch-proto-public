@@ -469,3 +469,419 @@ message MessageReaction {
   // +kubebuilder:validation:Nullable
   repeated string person_keys = 2;
 }
+
+// =====================================================
+// MessageMeet
+// =====================================================
+
+// MessageMeet represents a meet (voice/video call) session attached to a message.
+message MessageMeet {
+  // Unique meet session identifier.
+  //
+  // +kubebuilder:validation:Nullable
+  string id = 1;
+
+  // Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
+  //
+  // +kubebuilder:validation:Nullable
+  string chat_type = 2;
+
+  // Channel ID this meet belongs to.
+  //
+  // +kubebuilder:validation:Nullable
+  string channel_id = 3;
+
+  // Current lifecycle state of the meet session.
+  //
+  // +kubebuilder:validation:Nullable
+  MeetState state = 4;
+
+  // Media mode indicating whether this is an audio-only or video meet.
+  //
+  // +kubebuilder:validation:Nullable
+  MeetMode mode = 5;
+
+  // Person keys of all participants who have ever joined this meet,
+  // in the format "{personType}-{personId}" (e.g. "manager-abc123").
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string amassed_persons = 6;
+
+  // Timestamp when the meet room was first opened.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp room_started_at = 7;
+
+  // Phone call session details.
+  // Present only when `meet_type` is CALL.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct call = 8;
+
+  // Video/audio front session details.
+  // Present only when `meet_type` is FRONT.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct front = 9;
+
+  // Recording details for the meet session.
+  // Present only when the session was recorded.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct recording = 10;
+
+  // ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
+  //
+  // +kubebuilder:validation:Nullable
+  string country = 11;
+
+  // Timestamp when the meet session ended.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp meet_ended_at = 12;
+
+  // Manager IDs extracted from `amassed_persons`.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string manager_ids = 13;
+
+  // Computed meet category determined by the presence of `call` or `front` data.
+  //
+  // +kubebuilder:validation:Nullable
+  MeetType meet_type = 14;
+
+  // Bot IDs extracted from `amassed_persons`.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string bot_ids = 15;
+
+  // Lifecycle state of a meet session.
+  enum MeetState {
+    MEET_STATE_UNSPECIFIED = 0;
+    // Meet is currently in progress.
+    MEET_STATE_LIVE = 1;
+    // Meet has ended normally.
+    MEET_STATE_ENDED = 2;
+    // Post-meet speech-to-text processing is in progress.
+    MEET_STATE_TRANSCRIBING = 3;
+    // Speech-to-text processing completed successfully.
+    MEET_STATE_TRANSCRIBED = 4;
+    // Speech-to-text processing failed.
+    MEET_STATE_TRANSCRIBE_FAILED = 5;
+  }
+
+  // Media mode for a meet session.
+  enum MeetMode {
+    MEET_MODE_UNSPECIFIED = 0;
+    // Audio-only session.
+    MEET_MODE_AUDIO = 1;
+    // Video session (may include audio).
+    MEET_MODE_VIDEO = 2;
+  }
+
+  // Category of a meet session, determined by the session type.
+  enum MeetType {
+    MEET_TYPE_UNSPECIFIED = 0;
+    // Browser-based video/audio meet.
+    MEET_TYPE_FRONT = 1;
+    // Phone call via telephony integration.
+    MEET_TYPE_CALL = 2;
+    // Internal team meet between managers.
+    MEET_TYPE_TEAM = 3;
+  }
+}
+
+// =====================================================
+// MessageAlf
+// =====================================================
+
+// MessageAlf represents ALF (AI assistant) metadata attached to a message,
+// tracking the AI session context and source references used to generate the response.
+message MessageAlf {
+  // Identifier of the handling session that triggered this ALF response.
+  //
+  // +kubebuilder:validation:Nullable
+  string handling_id = 1;
+
+  // Identifier of the ALF conversation session spanning multiple turns.
+  //
+  // +kubebuilder:validation:Nullable
+  string alf_session_id = 2;
+
+  // Source documents or articles cited by ALF in its response.
+  // Each entry contains reference metadata such as title, URL, and relevance score.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated google.protobuf.Struct references = 3;
+
+  // Whether this message is ALF's reply to a direct @mention.
+  // Defaults to false.
+  //
+  // +kubebuilder:validation:Required
+  bool mention_alf_answered = 4 [(buf.validate.field).required = true];
+}
+
+// =====================================================
+// MessageAlfProgress
+// =====================================================
+
+// MessageAlfProgress represents an intermediate progress indicator from the ALF AI assistant
+// displayed to the user while a request is being processed.
+message MessageAlfProgress {
+  // Human-readable summary of the current processing step.
+  //
+  // +kubebuilder:validation:Nullable
+  string plain_text = 1;
+
+  // Discriminator that identifies the progress variant and determines additional fields.
+  // Currently supported: "agenticSearch".
+  //
+  // +kubebuilder:validation:Required
+  string type = 2 [(buf.validate.field).required = true];
+}
+
+// =====================================================
+// MessageEmail
+// =====================================================
+
+// MessageEmail represents email envelope metadata attached to an email-originated message.
+message MessageEmail {
+  // Corresponding Email entity identifier.
+  //
+  // +kubebuilder:validation:Nullable
+  string id = 1;
+
+  // Whether this email was sent to or received from an external party.
+  //
+  // +kubebuilder:validation:Nullable
+  EmailDirection direction = 2;
+
+  // Sender email address with optional display name.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct from = 3;
+
+  // Primary recipient email addresses.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated google.protobuf.Struct to = 4;
+
+  // Carbon copy (CC) recipient email addresses.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated google.protobuf.Struct cc = 5;
+
+  // Blind carbon copy (BCC) recipient email addresses.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated google.protobuf.Struct bcc = 6;
+
+  // Designated reply-to address, if different from the sender.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct reply_to = 7;
+
+  // Email subject line.
+  //
+  // +kubebuilder:validation:Nullable
+  string subject = 8;
+
+  // Whether this email contains quoted conversation history from previous messages.
+  // Defaults to false.
+  //
+  // +kubebuilder:validation:Nullable
+  bool has_history = 9;
+
+  // Message ID of the email this is a reply to, forming the email thread chain.
+  //
+  // +kubebuilder:validation:Nullable
+  string reply_to_message_id = 10;
+
+  // Channel email address that received this inbound email.
+  // Present only when `direction` is INBOUND.
+  //
+  // +kubebuilder:validation:Nullable
+  string received_for = 11;
+
+  // Email creation timestamp.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp created_at = 12;
+
+  // Direction of an email relative to the channel.
+  enum EmailDirection {
+    EMAIL_DIRECTION_UNSPECIFIED = 0;
+    // Received from an external sender.
+    EMAIL_DIRECTION_INBOUND = 1;
+    // Sent by a manager to an external recipient.
+    EMAIL_DIRECTION_OUTBOUND = 2;
+  }
+}
+
+// =====================================================
+// MessageIvr
+// =====================================================
+
+// MessageIvr represents IVR (Interactive Voice Response) interaction data
+// captured during a phone call session.
+message MessageIvr {
+  // Audio recording captured during the IVR session (e.g. voice mail).
+  //
+  // +kubebuilder:validation:Nullable
+  coreapi.model.MessageFile audio_file = 1;
+
+  // DTMF keypad input entered by the caller (e.g. "1" for menu selection).
+  //
+  // +kubebuilder:validation:Nullable
+  string dial_input = 2;
+}
+
+// =====================================================
+// MessageMarketing
+// =====================================================
+
+// MessageMarketing represents marketing campaign metadata attached to a user chat message,
+// tracking the origin campaign and its delivery settings.
+message MessageMarketing {
+  // Marketing source type: "campaign" for automated campaigns or "oneTimeMsg" for one-time messages.
+  //
+  // +kubebuilder:validation:Nullable
+  string type = 1;
+
+  // Identifier of the originating campaign or one-time message.
+  //
+  // +kubebuilder:validation:Nullable
+  string id = 2;
+
+  // Whether this message is classified as advertising content subject to opt-out regulations.
+  //
+  // +kubebuilder:validation:Nullable
+  bool advertising = 3;
+
+  // Whether to deliver via SMS/LMS/MMS as a fallback when the user is offline.
+  //
+  // +kubebuilder:validation:Nullable
+  bool send_to_offline_xms = 4;
+
+  // Whether to deliver via email as a fallback when the user is offline.
+  //
+  // +kubebuilder:validation:Nullable
+  bool send_to_offline_email = 5;
+
+  // In-app display mode for the marketing message.
+  //
+  // +kubebuilder:validation:Nullable
+  ExposureType exposure_type = 6;
+
+  // Clickthrough URL for the marketing image.
+  // Present only when the message includes an in-app image with a link.
+  //
+  // +kubebuilder:validation:Nullable
+  string image_link_url = 7;
+
+  // In-app display mode for marketing messages.
+  enum ExposureType {
+    EXPOSURE_TYPE_UNSPECIFIED = 0;
+    // Renders as a full-screen overlay.
+    EXPOSURE_TYPE_FULL_SCREEN = 1;
+  }
+}
+
+// =====================================================
+// MessageSupportBot
+// =====================================================
+
+// MessageSupportBot represents legacy support bot flow metadata attached to a user chat message.
+// Tracks the current position within a support bot's multi-step conversation flow.
+message MessageSupportBot {
+  // Support bot identifier that owns this flow.
+  //
+  // +kubebuilder:validation:Nullable
+  string id = 1;
+
+  // Published revision of the support bot being executed.
+  //
+  // +kubebuilder:validation:Nullable
+  string revision_id = 2;
+
+  // Current section within the support bot flow (e.g. a route or action section).
+  //
+  // +kubebuilder:validation:Nullable
+  string section_id = 3;
+
+  // Zero-based step position within the current section.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 step_index = 4;
+
+  // Route selection buttons presented to the user at the end of a route section.
+  // Set to null after the user makes a selection.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated google.protobuf.Struct buttons = 5;
+
+  // Zero-based index of the button the user selected.
+  // Present only on messages recording the user's route selection.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 submit_button_index = 6;
+}
+
+// =====================================================
+// MessageWorkflow
+// =====================================================
+
+// MessageWorkflow represents workflow automation metadata attached to a user chat message.
+// Tracks the current execution position within a multi-step workflow.
+message MessageWorkflow {
+  // Workflow identifier being executed.
+  //
+  // +kubebuilder:validation:Nullable
+  string id = 1;
+
+  // Published revision of the workflow being executed.
+  //
+  // +kubebuilder:validation:Nullable
+  string revision_id = 2;
+
+  // Current section within the workflow.
+  //
+  // +kubebuilder:validation:Nullable
+  string section_id = 3;
+
+  // Zero-based action position within the current section.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 action_index = 4;
+
+  // Identifier of the button the user selected to submit a response.
+  // Present only on messages recording the user's button selection.
+  //
+  // +kubebuilder:validation:Nullable
+  string submit_button_id = 5;
+
+  // Whether this message was generated by a button action triggered
+  // from an external messenger integration.
+  //
+  // +kubebuilder:validation:Required
+  bool button_bot_message = 6 [(buf.validate.field).required = true];
+}
+
+// =====================================================
+// MessageCustomPayload
+// =====================================================
+
+// MessageCustomPayload carries messenger-specific data for external integrations
+// (e.g. Kakao, LINE) that require platform-native message formats.
+message MessageCustomPayload {
+  // Arbitrary JSON payload conforming to the external messenger's message schema.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct data = 1;
+
+  // Key-value mapping for template variable substitution within the custom payload.
+  // Keys are placeholder names and values are the replacement strings.
+  //
+  // +kubebuilder:validation:Nullable
+  map<string, string> param_mapper = 2;
+}

@@ -451,7 +451,7 @@ var File_coreapi_model_meet_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_meet_proto_rawDesc = "" +
 	"\n" +
-	"\x18coreapi/model/meet.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x19coreapi/model/block.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbf\x04\n" +
+	"\x18coreapi/model/meet.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a#coreapi/model/message_content.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbf\x04\n" +
 	"\aCallLog\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12@\n" +
@@ -545,7 +545,7 @@ func file_coreapi_model_meet_proto_init() {
 	if File_coreapi_model_meet_proto != nil {
 		return
 	}
-	file_coreapi_model_block_proto_init()
+	file_coreapi_model_message_content_proto_init()
 	file_coreapi_model_user_chat_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

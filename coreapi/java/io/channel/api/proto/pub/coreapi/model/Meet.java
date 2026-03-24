@@ -34,48 +34,49 @@ public final class Meet {
   static {
     java.lang.String[] descriptorData = {
       "\n\030coreapi/model/meet.proto\022\rcoreapi.mode" +
-      "l\032\033buf/validate/validate.proto\032\031coreapi/" +
-      "model/block.proto\032\035coreapi/model/user_ch" +
-      "at.proto\032\037google/protobuf/timestamp.prot" +
-      "o\"\277\004\n\007CallLog\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001" +
-      "\001R\tchannelId\022@\n\rmissed_reason\030\002 \001(\0162\033.co" +
-      "reapi.model.MissedReasonR\014missedReason\022:" +
-      "\n\tdirection\030\003 \001(\0162\034.coreapi.model.CallDi" +
-      "rectionR\tdirection\022.\n\005state\030\004 \001(\0162\030.core" +
-      "api.model.CallStateR\005state\022\022\n\004from\030\005 \001(\t" +
-      "R\004from\022\016\n\002to\030\006 \001(\tR\002to\022A\n\ncreated_at\030\007 \001" +
-      "(\0132\032.google.protobuf.TimestampB\006\272H\003\310\001\001R\t" +
-      "createdAt\022A\n\nupdated_at\030\010 \001(\0132\032.google.p" +
-      "rotobuf.TimestampB\006\272H\003\310\001\001R\tupdatedAt\0229\n\n" +
-      "engaged_at\030\t \001(\0132\032.google.protobuf.Times" +
-      "tampR\tengagedAt\0227\n\tclosed_at\030\n \001(\0132\032.goo" +
-      "gle.protobuf.TimestampR\010closedAt\022 \n\014user" +
-      "_chat_id\030\013 \001(\tR\nuserChatId\022\037\n\013manager_id" +
-      "s\030\014 \003(\tR\nmanagerIds\"\263\003\n\013MeetMessage\022\026\n\002i" +
-      "d\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022%\n\nchannel_id\030\002 \001(\tB" +
-      "\006\272H\003\310\001\001R\tchannelId\022#\n\tchat_type\030\003 \001(\tB\006\272" +
-      "H\003\310\001\001R\010chatType\022\037\n\007chat_id\030\004 \001(\tB\006\272H\003\310\001\001" +
-      "R\006chatId\022\'\n\013person_type\030\005 \001(\tB\006\272H\003\310\001\001R\np" +
-      "ersonType\022#\n\tperson_id\030\006 \001(\tB\006\272H\003\310\001\001R\010pe" +
-      "rsonId\022,\n\006blocks\030\007 \003(\0132\024.coreapi.model.B" +
-      "lockR\006blocks\022\035\n\nplain_text\030\010 \001(\tR\tplainT" +
-      "ext\022A\n\ncreated_at\030\t \001(\0132\032.google.protobu" +
-      "f.TimestampB\006\272H\003\310\001\001R\tcreatedAt\022A\n\nupdate" +
-      "d_at\030\n \001(\0132\032.google.protobuf.TimestampB\006" +
-      "\272H\003\310\001\001R\tupdatedAt*h\n\rCallDirection\022\036\n\032CA" +
-      "LL_DIRECTION_UNSPECIFIED\020\000\022\032\n\026CALL_DIREC" +
-      "TION_INBOUND\020\001\022\033\n\027CALL_DIRECTION_OUTBOUN" +
-      "D\020\002*W\n\tCallState\022\032\n\026CALL_STATE_UNSPECIFI" +
-      "ED\020\000\022\026\n\022CALL_STATE_WAITING\020\001\022\026\n\022CALL_STA" +
-      "TE_ENGAGED\020\002Bb\n&io.channel.api.proto.pub" +
-      ".coreapi.modelP\001Z6github.com/channel-io/" +
-      "ch-proto-public/coreapi/go/modelb\006proto3"
+      "l\032\033buf/validate/validate.proto\032#coreapi/" +
+      "model/message_content.proto\032\035coreapi/mod" +
+      "el/user_chat.proto\032\037google/protobuf/time" +
+      "stamp.proto\"\277\004\n\007CallLog\022%\n\nchannel_id\030\001 " +
+      "\001(\tB\006\272H\003\310\001\001R\tchannelId\022@\n\rmissed_reason\030" +
+      "\002 \001(\0162\033.coreapi.model.MissedReasonR\014miss" +
+      "edReason\022:\n\tdirection\030\003 \001(\0162\034.coreapi.mo" +
+      "del.CallDirectionR\tdirection\022.\n\005state\030\004 " +
+      "\001(\0162\030.coreapi.model.CallStateR\005state\022\022\n\004" +
+      "from\030\005 \001(\tR\004from\022\016\n\002to\030\006 \001(\tR\002to\022A\n\ncrea" +
+      "ted_at\030\007 \001(\0132\032.google.protobuf.Timestamp" +
+      "B\006\272H\003\310\001\001R\tcreatedAt\022A\n\nupdated_at\030\010 \001(\0132" +
+      "\032.google.protobuf.TimestampB\006\272H\003\310\001\001R\tupd" +
+      "atedAt\0229\n\nengaged_at\030\t \001(\0132\032.google.prot" +
+      "obuf.TimestampR\tengagedAt\0227\n\tclosed_at\030\n" +
+      " \001(\0132\032.google.protobuf.TimestampR\010closed" +
+      "At\022 \n\014user_chat_id\030\013 \001(\tR\nuserChatId\022\037\n\013" +
+      "manager_ids\030\014 \003(\tR\nmanagerIds\"\263\003\n\013MeetMe" +
+      "ssage\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022%\n\nchannel" +
+      "_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\022#\n\tchat_typ" +
+      "e\030\003 \001(\tB\006\272H\003\310\001\001R\010chatType\022\037\n\007chat_id\030\004 \001" +
+      "(\tB\006\272H\003\310\001\001R\006chatId\022\'\n\013person_type\030\005 \001(\tB" +
+      "\006\272H\003\310\001\001R\npersonType\022#\n\tperson_id\030\006 \001(\tB\006" +
+      "\272H\003\310\001\001R\010personId\022,\n\006blocks\030\007 \003(\0132\024.corea" +
+      "pi.model.BlockR\006blocks\022\035\n\nplain_text\030\010 \001" +
+      "(\tR\tplainText\022A\n\ncreated_at\030\t \001(\0132\032.goog" +
+      "le.protobuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt" +
+      "\022A\n\nupdated_at\030\n \001(\0132\032.google.protobuf.T" +
+      "imestampB\006\272H\003\310\001\001R\tupdatedAt*h\n\rCallDirec" +
+      "tion\022\036\n\032CALL_DIRECTION_UNSPECIFIED\020\000\022\032\n\026" +
+      "CALL_DIRECTION_INBOUND\020\001\022\033\n\027CALL_DIRECTI" +
+      "ON_OUTBOUND\020\002*W\n\tCallState\022\032\n\026CALL_STATE" +
+      "_UNSPECIFIED\020\000\022\026\n\022CALL_STATE_WAITING\020\001\022\026" +
+      "\n\022CALL_STATE_ENGAGED\020\002Bb\n&io.channel.api" +
+      ".proto.pub.coreapi.modelP\001Z6github.com/c" +
+      "hannel-io/ch-proto-public/coreapi/go/mod" +
+      "elb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
-          io.channel.api.proto.pub.coreapi.model.BlockOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.MessageContentOuterClass.getDescriptor(),
           io.channel.api.proto.pub.coreapi.model.UserChatOuterClass.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
@@ -97,7 +98,7 @@ public final class Meet {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
-    io.channel.api.proto.pub.coreapi.model.BlockOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.MessageContentOuterClass.getDescriptor();
     io.channel.api.proto.pub.coreapi.model.UserChatOuterClass.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }

@@ -162,314 +162,6 @@ private static final long serialVersionUID = 0L;
             io.channel.api.proto.pub.coreapi.model.OperatorStatus.class, io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder.class);
   }
 
-  /**
-   * <pre>
-   * Activity state of a manager for operational tracking and chat routing.
-   * States are grouped into "active" (eligible for chat assignment) and "inactive".
-   * </pre>
-   *
-   * Protobuf enum {@code coreapi.model.OperatorStatus.OperatorStatusType}
-   */
-  public enum OperatorStatusType
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>OPERATOR_STATUS_TYPE_UNSPECIFIED = 0;</code>
-     */
-    OPERATOR_STATUS_TYPE_UNSPECIFIED(0),
-    /**
-     * <pre>
-     * Idle and ready to receive new chats (active).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_WAITING = 1;</code>
-     */
-    OPERATOR_STATUS_TYPE_WAITING(1),
-    /**
-     * <pre>
-     * Currently handling a chat (active).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_CHAT = 2;</code>
-     */
-    OPERATOR_STATUS_TYPE_CHAT(2),
-    /**
-     * <pre>
-     * On a phone call (active).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_CALL = 3;</code>
-     */
-    OPERATOR_STATUS_TYPE_CALL(3),
-    /**
-     * <pre>
-     * Wrapping up after a phone call (active).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_POST_CALL = 4;</code>
-     */
-    OPERATOR_STATUS_TYPE_POST_CALL(4),
-    /**
-     * <pre>
-     * In a video/audio meet (active).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_MEET = 5;</code>
-     */
-    OPERATOR_STATUS_TYPE_MEET(5),
-    /**
-     * <pre>
-     * On a meal break (inactive).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_EAT = 6;</code>
-     */
-    OPERATOR_STATUS_TYPE_EAT(6),
-    /**
-     * <pre>
-     * On a short break (inactive).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_REST = 7;</code>
-     */
-    OPERATOR_STATUS_TYPE_REST(7),
-    /**
-     * <pre>
-     * In a scheduled meeting (inactive).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_IN_MEETING = 8;</code>
-     */
-    OPERATOR_STATUS_TYPE_IN_MEETING(8),
-    /**
-     * <pre>
-     * In a training or education session (inactive).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_EDUCATION = 9;</code>
-     */
-    OPERATOR_STATUS_TYPE_EDUCATION(9),
-    /**
-     * <pre>
-     * Performing non-chat work (inactive).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_OTHER_WORK = 10;</code>
-     */
-    OPERATOR_STATUS_TYPE_OTHER_WORK(10),
-    /**
-     * <pre>
-     * Signed off for the day (inactive).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_OFF = 11;</code>
-     */
-    OPERATOR_STATUS_TYPE_OFF(11),
-    /**
-     * <pre>
-     * On vacation leave (inactive).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_VACATION = 12;</code>
-     */
-    OPERATOR_STATUS_TYPE_VACATION(12),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>OPERATOR_STATUS_TYPE_UNSPECIFIED = 0;</code>
-     */
-    public static final int OPERATOR_STATUS_TYPE_UNSPECIFIED_VALUE = 0;
-    /**
-     * <pre>
-     * Idle and ready to receive new chats (active).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_WAITING = 1;</code>
-     */
-    public static final int OPERATOR_STATUS_TYPE_WAITING_VALUE = 1;
-    /**
-     * <pre>
-     * Currently handling a chat (active).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_CHAT = 2;</code>
-     */
-    public static final int OPERATOR_STATUS_TYPE_CHAT_VALUE = 2;
-    /**
-     * <pre>
-     * On a phone call (active).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_CALL = 3;</code>
-     */
-    public static final int OPERATOR_STATUS_TYPE_CALL_VALUE = 3;
-    /**
-     * <pre>
-     * Wrapping up after a phone call (active).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_POST_CALL = 4;</code>
-     */
-    public static final int OPERATOR_STATUS_TYPE_POST_CALL_VALUE = 4;
-    /**
-     * <pre>
-     * In a video/audio meet (active).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_MEET = 5;</code>
-     */
-    public static final int OPERATOR_STATUS_TYPE_MEET_VALUE = 5;
-    /**
-     * <pre>
-     * On a meal break (inactive).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_EAT = 6;</code>
-     */
-    public static final int OPERATOR_STATUS_TYPE_EAT_VALUE = 6;
-    /**
-     * <pre>
-     * On a short break (inactive).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_REST = 7;</code>
-     */
-    public static final int OPERATOR_STATUS_TYPE_REST_VALUE = 7;
-    /**
-     * <pre>
-     * In a scheduled meeting (inactive).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_IN_MEETING = 8;</code>
-     */
-    public static final int OPERATOR_STATUS_TYPE_IN_MEETING_VALUE = 8;
-    /**
-     * <pre>
-     * In a training or education session (inactive).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_EDUCATION = 9;</code>
-     */
-    public static final int OPERATOR_STATUS_TYPE_EDUCATION_VALUE = 9;
-    /**
-     * <pre>
-     * Performing non-chat work (inactive).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_OTHER_WORK = 10;</code>
-     */
-    public static final int OPERATOR_STATUS_TYPE_OTHER_WORK_VALUE = 10;
-    /**
-     * <pre>
-     * Signed off for the day (inactive).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_OFF = 11;</code>
-     */
-    public static final int OPERATOR_STATUS_TYPE_OFF_VALUE = 11;
-    /**
-     * <pre>
-     * On vacation leave (inactive).
-     * </pre>
-     *
-     * <code>OPERATOR_STATUS_TYPE_VACATION = 12;</code>
-     */
-    public static final int OPERATOR_STATUS_TYPE_VACATION_VALUE = 12;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static OperatorStatusType valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static OperatorStatusType forNumber(int value) {
-      switch (value) {
-        case 0: return OPERATOR_STATUS_TYPE_UNSPECIFIED;
-        case 1: return OPERATOR_STATUS_TYPE_WAITING;
-        case 2: return OPERATOR_STATUS_TYPE_CHAT;
-        case 3: return OPERATOR_STATUS_TYPE_CALL;
-        case 4: return OPERATOR_STATUS_TYPE_POST_CALL;
-        case 5: return OPERATOR_STATUS_TYPE_MEET;
-        case 6: return OPERATOR_STATUS_TYPE_EAT;
-        case 7: return OPERATOR_STATUS_TYPE_REST;
-        case 8: return OPERATOR_STATUS_TYPE_IN_MEETING;
-        case 9: return OPERATOR_STATUS_TYPE_EDUCATION;
-        case 10: return OPERATOR_STATUS_TYPE_OTHER_WORK;
-        case 11: return OPERATOR_STATUS_TYPE_OFF;
-        case 12: return OPERATOR_STATUS_TYPE_VACATION;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<OperatorStatusType>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        OperatorStatusType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<OperatorStatusType>() {
-            public OperatorStatusType findValueByNumber(int number) {
-              return OperatorStatusType.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return io.channel.api.proto.pub.coreapi.model.OperatorStatus.getDescriptor().getEnumTypes().get(0);
-    }
-
-    private static final OperatorStatusType[] VALUES = values();
-
-    public static OperatorStatusType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private OperatorStatusType(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:coreapi.model.OperatorStatus.OperatorStatusType)
-  }
-
   public static final int ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object id_;
   /**
@@ -624,7 +316,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+   * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
    * @return The enum numeric value on the wire for operatorStatusType.
    */
   @java.lang.Override public int getOperatorStatusTypeValue() {
@@ -636,13 +328,13 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+   * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
    * @return The operatorStatusType.
    */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType getOperatorStatusType() {
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.OperatorStatusType getOperatorStatusType() {
     @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType result = io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType.valueOf(operatorStatusType_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType.UNRECOGNIZED : result;
+    io.channel.api.proto.pub.coreapi.model.OperatorStatusType result = io.channel.api.proto.pub.coreapi.model.OperatorStatusType.valueOf(operatorStatusType_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.OperatorStatusType.UNRECOGNIZED : result;
   }
 
   public static final int ENABLE_FIELD_NUMBER = 5;
@@ -827,7 +519,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, channelId_);
     }
-    if (operatorStatusType_ != io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType.OPERATOR_STATUS_TYPE_UNSPECIFIED.getNumber()) {
+    if (operatorStatusType_ != io.channel.api.proto.pub.coreapi.model.OperatorStatusType.OPERATOR_STATUS_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, operatorStatusType_);
     }
     if (enable_ != false) {
@@ -863,7 +555,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, channelId_);
     }
-    if (operatorStatusType_ != io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType.OPERATOR_STATUS_TYPE_UNSPECIFIED.getNumber()) {
+    if (operatorStatusType_ != io.channel.api.proto.pub.coreapi.model.OperatorStatusType.OPERATOR_STATUS_TYPE_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, operatorStatusType_);
     }
@@ -1602,7 +1294,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+     * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
      * @return The enum numeric value on the wire for operatorStatusType.
      */
     @java.lang.Override public int getOperatorStatusTypeValue() {
@@ -1614,7 +1306,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+     * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
      * @param value The enum numeric value on the wire for operatorStatusType to set.
      * @return This builder for chaining.
      */
@@ -1630,14 +1322,14 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+     * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
      * @return The operatorStatusType.
      */
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType getOperatorStatusType() {
+    public io.channel.api.proto.pub.coreapi.model.OperatorStatusType getOperatorStatusType() {
       @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType result = io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType.valueOf(operatorStatusType_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType.UNRECOGNIZED : result;
+      io.channel.api.proto.pub.coreapi.model.OperatorStatusType result = io.channel.api.proto.pub.coreapi.model.OperatorStatusType.valueOf(operatorStatusType_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.OperatorStatusType.UNRECOGNIZED : result;
     }
     /**
      * <pre>
@@ -1645,11 +1337,11 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+     * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
      * @param value The operatorStatusType to set.
      * @return This builder for chaining.
      */
-    public Builder setOperatorStatusType(io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType value) {
+    public Builder setOperatorStatusType(io.channel.api.proto.pub.coreapi.model.OperatorStatusType value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -1664,7 +1356,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+     * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
      * @return This builder for chaining.
      */
     public Builder clearOperatorStatusType() {
@@ -2357,7 +2049,7 @@ private static final long serialVersionUID = 0L;
      * @param value The operator_status_type to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearOperatorStatusType(io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType value) {
+    public Builder setOrClearOperatorStatusType(io.channel.api.proto.pub.coreapi.model.OperatorStatusType value) {
     	if (value == null)
     		return clearOperatorStatusType();
     	else
@@ -2369,7 +2061,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearOperatorStatusType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType> mapFunc) {
+    public <T> Builder mapOrClearOperatorStatusType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.OperatorStatusType> mapFunc) {
     	if (value == null)
     		return clearOperatorStatusType();
     	else

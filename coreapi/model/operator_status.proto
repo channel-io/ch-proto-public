@@ -9,6 +9,36 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
+// Activity state of a manager for operational tracking and chat routing.
+// States are grouped into "active" (eligible for chat assignment) and "inactive".
+enum OperatorStatusType {
+  OPERATOR_STATUS_TYPE_UNSPECIFIED = 0;
+  // Idle and ready to receive new chats (active).
+  OPERATOR_STATUS_TYPE_WAITING = 1;
+  // Currently handling a chat (active).
+  OPERATOR_STATUS_TYPE_CHAT = 2;
+  // On a phone call (active).
+  OPERATOR_STATUS_TYPE_CALL = 3;
+  // Wrapping up after a phone call (active).
+  OPERATOR_STATUS_TYPE_POST_CALL = 4;
+  // In a video/audio meet (active).
+  OPERATOR_STATUS_TYPE_MEET = 5;
+  // On a meal break (inactive).
+  OPERATOR_STATUS_TYPE_EAT = 6;
+  // On a short break (inactive).
+  OPERATOR_STATUS_TYPE_REST = 7;
+  // In a scheduled meeting (inactive).
+  OPERATOR_STATUS_TYPE_IN_MEETING = 8;
+  // In a training or education session (inactive).
+  OPERATOR_STATUS_TYPE_EDUCATION = 9;
+  // Performing non-chat work (inactive).
+  OPERATOR_STATUS_TYPE_OTHER_WORK = 10;
+  // Signed off for the day (inactive).
+  OPERATOR_STATUS_TYPE_OFF = 11;
+  // On vacation leave (inactive).
+  OPERATOR_STATUS_TYPE_VACATION = 12;
+}
+
 // OperatorStatus represents a manager's real-time operational state within a channel,
 // tracking availability and current activity for chat routing decisions.
 message OperatorStatus {
@@ -66,34 +96,4 @@ message OperatorStatus {
   //
   // +kubebuilder:validation:Nullable
   int64 version = 9;
-
-  // Activity state of a manager for operational tracking and chat routing.
-  // States are grouped into "active" (eligible for chat assignment) and "inactive".
-  enum OperatorStatusType {
-    OPERATOR_STATUS_TYPE_UNSPECIFIED = 0;
-    // Idle and ready to receive new chats (active).
-    OPERATOR_STATUS_TYPE_WAITING = 1;
-    // Currently handling a chat (active).
-    OPERATOR_STATUS_TYPE_CHAT = 2;
-    // On a phone call (active).
-    OPERATOR_STATUS_TYPE_CALL = 3;
-    // Wrapping up after a phone call (active).
-    OPERATOR_STATUS_TYPE_POST_CALL = 4;
-    // In a video/audio meet (active).
-    OPERATOR_STATUS_TYPE_MEET = 5;
-    // On a meal break (inactive).
-    OPERATOR_STATUS_TYPE_EAT = 6;
-    // On a short break (inactive).
-    OPERATOR_STATUS_TYPE_REST = 7;
-    // In a scheduled meeting (inactive).
-    OPERATOR_STATUS_TYPE_IN_MEETING = 8;
-    // In a training or education session (inactive).
-    OPERATOR_STATUS_TYPE_EDUCATION = 9;
-    // Performing non-chat work (inactive).
-    OPERATOR_STATUS_TYPE_OTHER_WORK = 10;
-    // Signed off for the day (inactive).
-    OPERATOR_STATUS_TYPE_OFF = 11;
-    // On vacation leave (inactive).
-    OPERATOR_STATUS_TYPE_VACATION = 12;
-  }
 }

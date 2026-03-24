@@ -30,35 +30,35 @@ public final class OperatorStatusOuterClass {
     java.lang.String[] descriptorData = {
       "\n#coreapi/model/operator_status.proto\022\rc" +
       "oreapi.model\032\033buf/validate/validate.prot" +
-      "o\032\037google/protobuf/timestamp.proto\"\361\007\n\016O" +
+      "o\032\037google/protobuf/timestamp.proto\"\226\004\n\016O" +
       "peratorStatus\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022l\n" +
       "\nmanager_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen" +
       "\022\"value must be at least 1 character\032\017si" +
       "ze(this) >= 1\310\001\001R\tmanagerId\022%\n\nchannel_i" +
-      "d\030\003 \001(\tB\006\272H\003\310\001\001R\tchannelId\022b\n\024operator_s" +
-      "tatus_type\030\004 \001(\01620.coreapi.model.Operato" +
-      "rStatus.OperatorStatusTypeR\022operatorStat" +
-      "usType\022\036\n\006enable\030\005 \001(\010B\006\272H\003\310\001\001R\006enable\022A" +
-      "\n\ncreated_at\030\006 \001(\0132\032.google.protobuf.Tim" +
-      "estampB\006\272H\003\310\001\001R\tcreatedAt\022A\n\nupdated_at\030" +
-      "\007 \001(\0132\032.google.protobuf.TimestampB\006\272H\003\310\001" +
-      "\001R\tupdatedAt\022B\n\017type_updated_at\030\010 \001(\0132\032." +
-      "google.protobuf.TimestampR\rtypeUpdatedAt" +
-      "\022\030\n\007version\030\t \001(\003R\007version\"\311\003\n\022OperatorS" +
-      "tatusType\022$\n OPERATOR_STATUS_TYPE_UNSPEC" +
-      "IFIED\020\000\022 \n\034OPERATOR_STATUS_TYPE_WAITING\020" +
-      "\001\022\035\n\031OPERATOR_STATUS_TYPE_CHAT\020\002\022\035\n\031OPER" +
-      "ATOR_STATUS_TYPE_CALL\020\003\022\"\n\036OPERATOR_STAT" +
-      "US_TYPE_POST_CALL\020\004\022\035\n\031OPERATOR_STATUS_T" +
-      "YPE_MEET\020\005\022\034\n\030OPERATOR_STATUS_TYPE_EAT\020\006" +
-      "\022\035\n\031OPERATOR_STATUS_TYPE_REST\020\007\022#\n\037OPERA" +
-      "TOR_STATUS_TYPE_IN_MEETING\020\010\022\"\n\036OPERATOR" +
-      "_STATUS_TYPE_EDUCATION\020\t\022#\n\037OPERATOR_STA" +
-      "TUS_TYPE_OTHER_WORK\020\n\022\034\n\030OPERATOR_STATUS" +
-      "_TYPE_OFF\020\013\022!\n\035OPERATOR_STATUS_TYPE_VACA" +
-      "TION\020\014Bb\n&io.channel.api.proto.pub.corea" +
-      "pi.modelP\001Z6github.com/channel-io/ch-pro" +
-      "to-public/coreapi/go/modelb\006proto3"
+      "d\030\003 \001(\tB\006\272H\003\310\001\001R\tchannelId\022S\n\024operator_s" +
+      "tatus_type\030\004 \001(\0162!.coreapi.model.Operato" +
+      "rStatusTypeR\022operatorStatusType\022\036\n\006enabl" +
+      "e\030\005 \001(\010B\006\272H\003\310\001\001R\006enable\022A\n\ncreated_at\030\006 " +
+      "\001(\0132\032.google.protobuf.TimestampB\006\272H\003\310\001\001R" +
+      "\tcreatedAt\022A\n\nupdated_at\030\007 \001(\0132\032.google." +
+      "protobuf.TimestampB\006\272H\003\310\001\001R\tupdatedAt\022B\n" +
+      "\017type_updated_at\030\010 \001(\0132\032.google.protobuf" +
+      ".TimestampR\rtypeUpdatedAt\022\030\n\007version\030\t \001" +
+      "(\003R\007version*\311\003\n\022OperatorStatusType\022$\n OP" +
+      "ERATOR_STATUS_TYPE_UNSPECIFIED\020\000\022 \n\034OPER" +
+      "ATOR_STATUS_TYPE_WAITING\020\001\022\035\n\031OPERATOR_S" +
+      "TATUS_TYPE_CHAT\020\002\022\035\n\031OPERATOR_STATUS_TYP" +
+      "E_CALL\020\003\022\"\n\036OPERATOR_STATUS_TYPE_POST_CA" +
+      "LL\020\004\022\035\n\031OPERATOR_STATUS_TYPE_MEET\020\005\022\034\n\030O" +
+      "PERATOR_STATUS_TYPE_EAT\020\006\022\035\n\031OPERATOR_ST" +
+      "ATUS_TYPE_REST\020\007\022#\n\037OPERATOR_STATUS_TYPE" +
+      "_IN_MEETING\020\010\022\"\n\036OPERATOR_STATUS_TYPE_ED" +
+      "UCATION\020\t\022#\n\037OPERATOR_STATUS_TYPE_OTHER_" +
+      "WORK\020\n\022\034\n\030OPERATOR_STATUS_TYPE_OFF\020\013\022!\n\035" +
+      "OPERATOR_STATUS_TYPE_VACATION\020\014Bb\n&io.ch" +
+      "annel.api.proto.pub.coreapi.modelP\001Z6git" +
+      "hub.com/channel-io/ch-proto-public/corea" +
+      "pi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
