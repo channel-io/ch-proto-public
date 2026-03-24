@@ -66,3 +66,103 @@ func MessageOptionForString(value string) MessageOption {
 	}
 }
 
+// GetString returns the canonical string for Block_BlockType.
+func (x Block_BlockType) GetString() string {
+	switch x {
+	case Block_BLOCK_TYPE_BULLETS:
+		return "bullets"
+	case Block_BLOCK_TYPE_CODE:
+		return "code"
+	case Block_BLOCK_TYPE_TEXT:
+		return "text"
+	default:
+		return ""
+	}
+}
+
+// Block_BlockTypeForString returns the Block_BlockType enum for the given canonical string.
+func Block_BlockTypeForString(value string) Block_BlockType {
+	switch value {
+	case "bullets":
+		return Block_BLOCK_TYPE_BULLETS
+	case "code":
+		return Block_BLOCK_TYPE_CODE
+	case "text":
+		return Block_BLOCK_TYPE_TEXT
+	default:
+		return Block_BLOCK_TYPE_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for MessageButton_ColorVariant.
+func (x MessageButton_ColorVariant) GetString() string {
+	switch x {
+	case MessageButton_COLOR_VARIANT_BLACK:
+		return "black"
+	case MessageButton_COLOR_VARIANT_COBALT:
+		return "cobalt"
+	case MessageButton_COLOR_VARIANT_GREEN:
+		return "green"
+	case MessageButton_COLOR_VARIANT_ORANGE:
+		return "orange"
+	case MessageButton_COLOR_VARIANT_PINK:
+		return "pink"
+	case MessageButton_COLOR_VARIANT_PURPLE:
+		return "purple"
+	case MessageButton_COLOR_VARIANT_RED:
+		return "red"
+	default:
+		return ""
+	}
+}
+
+// MessageButton_ColorVariantForString returns the MessageButton_ColorVariant enum for the given canonical string.
+func MessageButton_ColorVariantForString(value string) MessageButton_ColorVariant {
+	switch value {
+	case "black":
+		return MessageButton_COLOR_VARIANT_BLACK
+	case "cobalt":
+		return MessageButton_COLOR_VARIANT_COBALT
+	case "green":
+		return MessageButton_COLOR_VARIANT_GREEN
+	case "orange":
+		return MessageButton_COLOR_VARIANT_ORANGE
+	case "pink":
+		return MessageButton_COLOR_VARIANT_PINK
+	case "purple":
+		return MessageButton_COLOR_VARIANT_PURPLE
+	case "red":
+		return MessageButton_COLOR_VARIANT_RED
+	default:
+		return MessageButton_COLOR_VARIANT_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for MessageFile_PrivateFileScope.
+func (x MessageFile_PrivateFileScope) GetString() string {
+	switch x {
+	case MessageFile_PRIVATE_FILE_SCOPE_CHANNEL:
+		return "channel"
+	case MessageFile_PRIVATE_FILE_SCOPE_CHAT:
+		return "chat"
+	case MessageFile_PRIVATE_FILE_SCOPE_MANAGER:
+		return "manager"
+	default:
+		return ""
+	}
+}
+
+// MessageFile_PrivateFileScopeForString returns the MessageFile_PrivateFileScope enum for the given canonical string.
+func MessageFile_PrivateFileScopeForString(value string) MessageFile_PrivateFileScope {
+	switch value {
+	case "channel":
+		return MessageFile_PRIVATE_FILE_SCOPE_CHANNEL
+	case "chat":
+		return MessageFile_PRIVATE_FILE_SCOPE_CHAT
+	case "manager":
+		return MessageFile_PRIVATE_FILE_SCOPE_MANAGER
+	default:
+		return MessageFile_PRIVATE_FILE_SCOPE_UNSPECIFIED
+	}
+}
+

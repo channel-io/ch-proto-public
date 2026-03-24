@@ -56,10 +56,19 @@ func extractEnumMappings(
 	return unspecified, mapping, nil
 }
 
+// enumEntry holds an enum descriptor with its Go type name and const prefix.
+// For top-level enums: goName = "GroupScope", constPrefix = "GroupScope"
+// For nested enums:    goName = "Block_BlockType", constPrefix = "Block"
+type enumEntry struct {
+	enum        *descriptorpb.EnumDescriptorProto
+	goName      string
+	constPrefix string
+}
+
 // generateGoFile generates a Go file with GetString()/ForString() methods for each enum.
 func generateGoFile(
 	protoFile *descriptorpb.FileDescriptorProto,
-	enums []*descriptorpb.EnumDescriptorProto,
+	entries []enumEntry,
 	goPackage string,
 ) (string, error) {
 	var b strings.Builder
@@ -67,8 +76,8 @@ func generateGoFile(
 	b.WriteString(watermark())
 	b.WriteString(fmt.Sprintf("package %s\n\n", goPackage))
 
-	for _, enum := range enums {
-		unspecified, mapping, err := extractEnumMappings(protoFile, enum)
+	for _, entry := range entries {
+		unspecified, mapping, err := extractEnumMappings(protoFile, entry.enum)
 		if err != nil {
 			return "", err
 		}
@@ -76,12 +85,15 @@ func generateGoFile(
 		canonicalNames := lo.Keys(mapping)
 		slices.Sort(canonicalNames)
 
+		goName := entry.goName
+		constPrefix := entry.constPrefix
+
 		// Generate GetString() method — enum → canonical string
-		b.WriteString(fmt.Sprintf("// GetString returns the canonical string for %s.\n", *enum.Name))
-		b.WriteString(fmt.Sprintf("func (x %s) GetString() string {\n", *enum.Name))
+		b.WriteString(fmt.Sprintf("// GetString returns the canonical string for %s.\n", goName))
+		b.WriteString(fmt.Sprintf("func (x %s) GetString() string {\n", goName))
 		b.WriteString("\tswitch x {\n")
 		for _, canonicalName := range canonicalNames {
-			b.WriteString(fmt.Sprintf("\tcase %s_%s:\n", *enum.Name, mapping[canonicalName]))
+			b.WriteString(fmt.Sprintf("\tcase %s_%s:\n", constPrefix, mapping[canonicalName]))
 			b.WriteString(fmt.Sprintf("\t\treturn %q\n", canonicalName))
 		}
 		b.WriteString("\tdefault:\n")
@@ -90,15 +102,15 @@ func generateGoFile(
 		b.WriteString("}\n\n")
 
 		// Generate ForString() function — canonical string → enum
-		b.WriteString(fmt.Sprintf("// %sForString returns the %s enum for the given canonical string.\n", *enum.Name, *enum.Name))
-		b.WriteString(fmt.Sprintf("func %sForString(value string) %s {\n", *enum.Name, *enum.Name))
+		b.WriteString(fmt.Sprintf("// %sForString returns the %s enum for the given canonical string.\n", goName, goName))
+		b.WriteString(fmt.Sprintf("func %sForString(value string) %s {\n", goName, goName))
 		b.WriteString("\tswitch value {\n")
 		for _, canonicalName := range canonicalNames {
 			b.WriteString(fmt.Sprintf("\tcase %q:\n", canonicalName))
-			b.WriteString(fmt.Sprintf("\t\treturn %s_%s\n", *enum.Name, mapping[canonicalName]))
+			b.WriteString(fmt.Sprintf("\t\treturn %s_%s\n", constPrefix, mapping[canonicalName]))
 		}
 		b.WriteString("\tdefault:\n")
-		b.WriteString(fmt.Sprintf("\t\treturn %s_%s\n", *enum.Name, unspecified))
+		b.WriteString(fmt.Sprintf("\t\treturn %s_%s\n", constPrefix, unspecified))
 		b.WriteString("\t}\n")
 		b.WriteString("}\n\n")
 	}
@@ -116,10 +128,37 @@ func process(req *plugin.CodeGeneratorRequest, resp *plugin.CodeGeneratorRespons
 			continue
 		}
 
-		enums := protoFile.GetEnumType()
-		if len(enums) == 0 {
+		// Collect top-level enums
+		var entries []enumEntry
+		for _, enum := range protoFile.GetEnumType() {
+			entries = append(entries, enumEntry{enum: enum, goName: *enum.Name, constPrefix: *enum.Name})
+		}
+
+		// Collect nested enums from messages (recursive)
+		// Go proto const naming uses the message ancestry as prefix:
+		//   Block_BLOCK_TYPE_TEXT        (1-level: prefix = "Block")
+		//   Outer_Inner_ENUM_VALUE      (2-level: prefix = "Outer_Inner")
+		var collectNestedEnums func(msgs []*descriptorpb.DescriptorProto, parentGoName string)
+		collectNestedEnums = func(msgs []*descriptorpb.DescriptorProto, parentGoName string) {
+			for _, msg := range msgs {
+				msgGoName := *msg.Name
+				if parentGoName != "" {
+					msgGoName = parentGoName + "_" + *msg.Name
+				}
+				for _, enum := range msg.GetEnumType() {
+					goName := msgGoName + "_" + *enum.Name
+					entries = append(entries, enumEntry{enum: enum, goName: goName, constPrefix: msgGoName})
+				}
+				collectNestedEnums(msg.GetNestedType(), msgGoName)
+			}
+		}
+		collectNestedEnums(protoFile.GetMessageType(), "")
+
+		if len(entries) == 0 {
 			continue
 		}
+
+		enums := entries
 
 		// Derive Go package name from go_package option
 		goPackageFull := protoFile.GetOptions().GetGoPackage()

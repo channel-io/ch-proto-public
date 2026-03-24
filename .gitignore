@@ -7,3 +7,4 @@ reference/
 # build artifacts
 protoc-gen-java-canonical-enum-namings
 protoc-gen-java-set-or-clear
+protoc-gen-go-canonical-enum-namings
