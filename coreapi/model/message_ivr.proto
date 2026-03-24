@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package coreapi.model;
 
-import "coreapi/model/message_file.proto";
+import "coreapi/model/message_content.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;

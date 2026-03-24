@@ -3,13 +3,10 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
-import "coreapi/model/block.proto";
-import "coreapi/model/message_button.proto";
-import "coreapi/model/message_file.proto";
+import "coreapi/model/message_content.proto";
 import "coreapi/model/message_log.proto";
 import "coreapi/model/message_reaction.proto";
 import "coreapi/model/message_thread.proto";
-import "coreapi/model/message_web_page.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 

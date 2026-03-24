@@ -3,15 +3,342 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
-import "coreapi/model/block.proto";
-import "coreapi/model/message_button.proto";
-import "coreapi/model/message_file.proto";
-import "coreapi/model/message_web_page.proto";
 import "google/protobuf/struct.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// =====================================================
+// Block
+// =====================================================
+
+// Block represents a structured content block within a message.
+// Blocks can be nested to form bullet lists.
+message Block {
+  // Content block type that determines how the block is rendered and which fields are applicable.
+  //
+  // +kubebuilder:validation:Required
+  BlockType type = 1 [(buf.validate.field).required = true];
+
+  // Programming language identifier for syntax highlighting.
+  // Only applicable when type is CODE.
+  //
+  // +kubebuilder:validation:Nullable
+  string language = 2;
+
+  // Text content of the block.
+  // Applicable for TEXT and CODE block types; ignored for BULLETS.
+  //
+  // +kubebuilder:validation:Nullable
+  string value = 3;
+
+  // Nested child blocks that form a hierarchical list structure.
+  // Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
+  //
+  // +kubebuilder:validation:Nullable
+  repeated Block blocks = 4;
+
+  // Type of content block.
+  // TEXT and CODE are leaf types that hold text in `value`.
+  // BULLETS is a container type that holds child blocks in `blocks`.
+  enum BlockType {
+    BLOCK_TYPE_UNSPECIFIED = 0;
+    // Container for nested child blocks forming a bullet list.
+    BLOCK_TYPE_BULLETS = 1;
+    // Code snippet with optional syntax highlighting via `language`.
+    BLOCK_TYPE_CODE = 2;
+    // Rich text content with inline markup support.
+    BLOCK_TYPE_TEXT = 3;
+  }
+}
+
+// =====================================================
+// MessageButton
+// =====================================================
+
+// MessageButton represents an interactive button attached to a message.
+// A message can have up to 2 buttons.
+message MessageButton {
+  // Button label shown to the user.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:validation:MaxLength=30
+  string title = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "size(this) <= 30"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Visual color theme applied to the button.
+  // Defaults to the channel's primary color when not specified.
+  //
+  // +kubebuilder:validation:Nullable
+  ColorVariant color_variant = 2;
+
+  // Action payload executed when the button is clicked.
+  // Contains the action type and its attributes (e.g. URL to open, WAM to launch).
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Struct action = 3 [(buf.validate.field).required = true];
+
+  // Visual color theme for a button.
+  enum ColorVariant {
+    COLOR_VARIANT_UNSPECIFIED = 0;
+    COLOR_VARIANT_COBALT = 1;
+    COLOR_VARIANT_GREEN = 2;
+    COLOR_VARIANT_ORANGE = 3;
+    COLOR_VARIANT_RED = 4;
+    COLOR_VARIANT_BLACK = 5;
+    COLOR_VARIANT_PINK = 6;
+    COLOR_VARIANT_PURPLE = 7;
+  }
+}
+
+// =====================================================
+// MessageFile
+// =====================================================
+
+// MessageFile represents a file attached to a message.
+message MessageFile {
+  // Unique file identifier.
+  //
+  // +kubebuilder:validation:Required
+  string id = 1 [(buf.validate.field).required = true];
+
+  // High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+  //
+  // +kubebuilder:validation:Nullable
+  string type = 2;
+
+  // Original file name including the extension (e.g. "report.pdf").
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string name = 3 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // File size in bytes.
+  //
+  // +kubebuilder:validation:Required
+  int64 size = 4 [(buf.validate.field).required = true];
+
+  // MIME content type (e.g. "image/png", "application/pdf").
+  //
+  // +kubebuilder:validation:Nullable
+  string content_type = 5;
+
+  // Media playback duration in seconds.
+  // Present only for audio or video files.
+  //
+  // +kubebuilder:validation:Nullable
+  double duration = 6;
+
+  // Image or video width in pixels.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 width = 7;
+
+  // Image or video height in pixels.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 height = 8;
+
+  // EXIF orientation value (1-8) indicating how the image should be rotated for display.
+  // Present only for image files with EXIF metadata.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 orientation = 9;
+
+  // Whether the image is an animated format (e.g. GIF, APNG).
+  //
+  // +kubebuilder:validation:Nullable
+  bool animated = 10;
+
+  // Storage bucket name where the file is hosted.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string bucket = 11 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Storage object key used to locate the file within the bucket.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string key = 12 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Storage key for the preview thumbnail.
+  // Falls back to `key` when not set.
+  //
+  // +kubebuilder:validation:Nullable
+  string preview_key = 13;
+
+  // Access scope that determines who can view this private file.
+  // Derived from the storage key pattern.
+  //
+  // +kubebuilder:validation:Nullable
+  PrivateFileScope private_file_scope = 14;
+
+  // Domain identifier for channel-scoped private files.
+  // Derived from the storage key pattern.
+  //
+  // +kubebuilder:validation:Nullable
+  string shared_domain = 15;
+
+  // Channel ID that owns this private file.
+  // Derived from the storage key pattern.
+  //
+  // +kubebuilder:validation:Nullable
+  string channel_id = 16;
+
+  // Manager ID that owns this private file.
+  // Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+  //
+  // +kubebuilder:validation:Nullable
+  string manager_id = 17;
+
+  // Chat type for chat-scoped private files.
+  // Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+  //
+  // +kubebuilder:validation:Nullable
+  string chat_type = 18;
+
+  // Chat ID for chat-scoped private files.
+  // Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+  //
+  // +kubebuilder:validation:Nullable
+  string chat_id = 19;
+
+  // Access scope for private file visibility.
+  enum PrivateFileScope {
+    PRIVATE_FILE_SCOPE_UNSPECIFIED = 0;
+    // Visible only to participants of the specific chat.
+    PRIVATE_FILE_SCOPE_CHAT = 1;
+    // Visible only to the owning manager.
+    PRIVATE_FILE_SCOPE_MANAGER = 2;
+    // Visible to all members of the channel.
+    PRIVATE_FILE_SCOPE_CHANNEL = 3;
+  }
+}
+
+// =====================================================
+// MessageWebPage
+// =====================================================
+
+// MessageWebPage represents a link preview card embedded in a message,
+// populated from Open Graph and HTML meta tags of the target URL.
+message MessageWebPage {
+  // Unique web page preview identifier.
+  //
+  // +kubebuilder:validation:Required
+  string id = 1 [(buf.validate.field).required = true];
+
+  // Target URL of the linked web page.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string url = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Page title extracted from Open Graph `og:title` or HTML `<title>` tag.
+  //
+  // +kubebuilder:validation:Nullable
+  string title = 3;
+
+  // Page summary extracted from Open Graph `og:description` or HTML meta description.
+  //
+  // +kubebuilder:validation:Nullable
+  string description = 4;
+
+  // Primary image URL from Open Graph `og:image` metadata.
+  //
+  // +kubebuilder:validation:Nullable
+  string image_url = 5;
+
+  // Embedded video URL from Open Graph `og:video` metadata.
+  //
+  // +kubebuilder:validation:Nullable
+  string video_url = 6;
+
+  // Publisher or site name extracted from page metadata.
+  //
+  // +kubebuilder:validation:Nullable
+  string publisher = 7;
+
+  // Content author name extracted from page metadata.
+  //
+  // +kubebuilder:validation:Nullable
+  string author = 8;
+
+  // Preview image width in pixels.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 width = 9;
+
+  // Preview image height in pixels.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 height = 10;
+
+  // Storage bucket name for the cached preview image.
+  //
+  // +kubebuilder:validation:Nullable
+  string bucket = 11;
+
+  // Storage key for the locally cached preview image.
+  //
+  // +kubebuilder:validation:Nullable
+  string preview_key = 12;
+
+  // Publisher logo URL extracted from page metadata.
+  //
+  // +kubebuilder:validation:Nullable
+  string logo = 13;
+
+  // Site name from Open Graph `og:site_name` metadata.
+  //
+  // +kubebuilder:validation:Nullable
+  string name = 14;
+}
+
+// =====================================================
+// MessageContent (service-level message payload)
+// =====================================================
 
 // Message option flags that modify message delivery and display behavior.
 enum MessageOption {
