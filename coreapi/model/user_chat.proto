@@ -91,13 +91,29 @@ enum UserChatSubtextType {
 message UserChat {
   // Unique user chat identifier.
   //
-  // +kubebuilder:validation:Nullable
-  string id = 1;
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string id = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 
   // Channel ID this user chat belongs to.
   //
-  // +kubebuilder:validation:Nullable
-  string channel_id = 2;
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string channel_id = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 
   // Contact medium type identifier for chats originating from external
   // messenger integrations (e.g., "appKakao", "mobileNumber").
@@ -112,8 +128,8 @@ message UserChat {
 
   // Current lifecycle state of the chat conversation.
   //
-  // +kubebuilder:validation:Nullable
-  UserChatState state = 5;
+  // +kubebuilder:validation:Required
+  UserChatState state = 5 [(buf.validate.field).required = true];
 
   // Reason the chat was missed.
   // Only present when the chat transitioned to a missed state.
@@ -252,13 +268,13 @@ message UserChat {
 
   // Chat creation timestamp.
   //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp created_at = 30;
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp created_at = 30 [(buf.validate.field).required = true];
 
   // Chat last update timestamp.
   //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp updated_at = 31;
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp updated_at = 31 [(buf.validate.field).required = true];
 
   // ID of the latest message visible to the user (front side).
   //
