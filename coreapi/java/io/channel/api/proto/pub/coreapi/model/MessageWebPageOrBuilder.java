@@ -9,9 +9,8 @@ public interface MessageWebPageOrBuilder extends
 
   /**
    * <pre>
-   * Unique web page identifier.
+   * Unique web page preview identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -20,9 +19,8 @@ public interface MessageWebPageOrBuilder extends
   java.lang.String getId();
   /**
    * <pre>
-   * Unique web page identifier.
+   * Unique web page preview identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -33,7 +31,7 @@ public interface MessageWebPageOrBuilder extends
 
   /**
    * <pre>
-   * URL of the web page.
+   * Target URL of the linked web page.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -44,7 +42,7 @@ public interface MessageWebPageOrBuilder extends
   java.lang.String getUrl();
   /**
    * <pre>
-   * URL of the web page.
+   * Target URL of the linked web page.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -57,7 +55,7 @@ public interface MessageWebPageOrBuilder extends
 
   /**
    * <pre>
-   * Title of the web page.
+   * Page title extracted from Open Graph `og:title` or HTML `&lt;title&gt;` tag.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -67,7 +65,7 @@ public interface MessageWebPageOrBuilder extends
   java.lang.String getTitle();
   /**
    * <pre>
-   * Title of the web page.
+   * Page title extracted from Open Graph `og:title` or HTML `&lt;title&gt;` tag.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -79,7 +77,7 @@ public interface MessageWebPageOrBuilder extends
 
   /**
    * <pre>
-   * Short description of the web page content.
+   * Page summary extracted from Open Graph `og:description` or HTML meta description.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -89,7 +87,7 @@ public interface MessageWebPageOrBuilder extends
   java.lang.String getDescription();
   /**
    * <pre>
-   * Short description of the web page content.
+   * Page summary extracted from Open Graph `og:description` or HTML meta description.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -101,7 +99,7 @@ public interface MessageWebPageOrBuilder extends
 
   /**
    * <pre>
-   * URL of the preview image.
+   * Primary image URL from Open Graph `og:image` metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -111,7 +109,7 @@ public interface MessageWebPageOrBuilder extends
   java.lang.String getImageUrl();
   /**
    * <pre>
-   * URL of the preview image.
+   * Primary image URL from Open Graph `og:image` metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -123,7 +121,7 @@ public interface MessageWebPageOrBuilder extends
 
   /**
    * <pre>
-   * URL of the preview video.
+   * Embedded video URL from Open Graph `og:video` metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -133,7 +131,7 @@ public interface MessageWebPageOrBuilder extends
   java.lang.String getVideoUrl();
   /**
    * <pre>
-   * URL of the preview video.
+   * Embedded video URL from Open Graph `og:video` metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -145,7 +143,7 @@ public interface MessageWebPageOrBuilder extends
 
   /**
    * <pre>
-   * Publisher name of the web page.
+   * Publisher or site name extracted from page metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -155,7 +153,7 @@ public interface MessageWebPageOrBuilder extends
   java.lang.String getPublisher();
   /**
    * <pre>
-   * Publisher name of the web page.
+   * Publisher or site name extracted from page metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -167,7 +165,7 @@ public interface MessageWebPageOrBuilder extends
 
   /**
    * <pre>
-   * Author name of the web page content.
+   * Content author name extracted from page metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -177,7 +175,7 @@ public interface MessageWebPageOrBuilder extends
   java.lang.String getAuthor();
   /**
    * <pre>
-   * Author name of the web page content.
+   * Content author name extracted from page metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -233,7 +231,7 @@ public interface MessageWebPageOrBuilder extends
 
   /**
    * <pre>
-   * Storage key for the cached preview image.
+   * Storage key for the locally cached preview image.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -243,7 +241,7 @@ public interface MessageWebPageOrBuilder extends
   java.lang.String getPreviewKey();
   /**
    * <pre>
-   * Storage key for the cached preview image.
+   * Storage key for the locally cached preview image.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -255,7 +253,7 @@ public interface MessageWebPageOrBuilder extends
 
   /**
    * <pre>
-   * Logo URL of the web page publisher.
+   * Publisher logo URL extracted from page metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -265,7 +263,7 @@ public interface MessageWebPageOrBuilder extends
   java.lang.String getLogo();
   /**
    * <pre>
-   * Logo URL of the web page publisher.
+   * Publisher logo URL extracted from page metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -277,7 +275,7 @@ public interface MessageWebPageOrBuilder extends
 
   /**
    * <pre>
-   * Site name of the web page.
+   * Site name from Open Graph `og:site_name` metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -287,7 +285,7 @@ public interface MessageWebPageOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Site name of the web page.
+   * Site name from Open Graph `og:site_name` metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *

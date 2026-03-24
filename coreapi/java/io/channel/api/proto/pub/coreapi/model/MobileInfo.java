@@ -5,7 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Mobile session device and app information.
+ * MobileInfo represents mobile app environment and session data
+ * collected from a user accessing the channel via a mobile SDK.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.MobileInfo}
@@ -155,7 +156,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object device_;
   /**
    * <pre>
-   * Device identifier.
+   * Device model name (e.g. "iPhone 15", "Galaxy S24").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -177,7 +178,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Device identifier.
+   * Device model name (e.g. "iPhone 15", "Galaxy S24").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -203,7 +204,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object os_;
   /**
    * <pre>
-   * Operating system identifier.
+   * Operating system version string (e.g. "17.2", "14").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -225,7 +226,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Operating system identifier.
+   * Operating system version string (e.g. "17.2", "14").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -251,7 +252,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object osName_;
   /**
    * <pre>
-   * Operating system display name.
+   * Operating system name (e.g. "iOS", "Android").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -273,7 +274,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Operating system display name.
+   * Operating system name (e.g. "iOS", "Android").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -299,7 +300,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object appName_;
   /**
    * <pre>
-   * Host application name.
+   * Name of the host application embedding the Channel SDK.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -321,7 +322,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Host application name.
+   * Name of the host application embedding the Channel SDK.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -347,7 +348,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object appVersion_;
   /**
    * <pre>
-   * Host application version.
+   * Version of the host application embedding the Channel SDK.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -369,7 +370,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Host application version.
+   * Version of the host application embedding the Channel SDK.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -395,7 +396,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object sdkName_;
   /**
    * <pre>
-   * SDK name.
+   * Channel SDK platform name (e.g. "ios", "android", "react-native").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -417,7 +418,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * SDK name.
+   * Channel SDK platform name (e.g. "ios", "android", "react-native").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -443,7 +444,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object sdkVersion_;
   /**
    * <pre>
-   * SDK version.
+   * Channel SDK version string.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -465,7 +466,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * SDK version.
+   * Channel SDK version string.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -491,7 +492,8 @@ private static final long serialVersionUID = 0L;
   private int sessionsCount_;
   /**
    * <pre>
-   * Number of mobile sessions.
+   * Cumulative number of mobile sessions recorded for this user.
+   * Incremented on each new session.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -507,7 +509,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp lastSeenAt_;
   /**
    * <pre>
-   * Timestamp of the last mobile session.
+   * Timestamp of the user's most recent mobile session start.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -520,7 +522,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp of the last mobile session.
+   * Timestamp of the user's most recent mobile session start.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -533,7 +535,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp of the last mobile session.
+   * Timestamp of the user's most recent mobile session start.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -787,7 +789,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Mobile session device and app information.
+   * MobileInfo represents mobile app environment and session data
+   * collected from a user accessing the channel via a mobile SDK.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.MobileInfo}
@@ -1002,7 +1005,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object device_ = "";
     /**
      * <pre>
-     * Device identifier.
+     * Device model name (e.g. "iPhone 15", "Galaxy S24").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1023,7 +1026,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device identifier.
+     * Device model name (e.g. "iPhone 15", "Galaxy S24").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1045,7 +1048,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device identifier.
+     * Device model name (e.g. "iPhone 15", "Galaxy S24").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1065,7 +1068,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device identifier.
+     * Device model name (e.g. "iPhone 15", "Galaxy S24").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1080,7 +1083,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device identifier.
+     * Device model name (e.g. "iPhone 15", "Galaxy S24").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1103,7 +1106,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object os_ = "";
     /**
      * <pre>
-     * Operating system identifier.
+     * Operating system version string (e.g. "17.2", "14").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1124,7 +1127,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system identifier.
+     * Operating system version string (e.g. "17.2", "14").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1146,7 +1149,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system identifier.
+     * Operating system version string (e.g. "17.2", "14").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1166,7 +1169,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system identifier.
+     * Operating system version string (e.g. "17.2", "14").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1181,7 +1184,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system identifier.
+     * Operating system version string (e.g. "17.2", "14").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1204,7 +1207,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object osName_ = "";
     /**
      * <pre>
-     * Operating system display name.
+     * Operating system name (e.g. "iOS", "Android").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1225,7 +1228,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system display name.
+     * Operating system name (e.g. "iOS", "Android").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1247,7 +1250,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system display name.
+     * Operating system name (e.g. "iOS", "Android").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1267,7 +1270,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system display name.
+     * Operating system name (e.g. "iOS", "Android").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1282,7 +1285,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system display name.
+     * Operating system name (e.g. "iOS", "Android").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1305,7 +1308,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object appName_ = "";
     /**
      * <pre>
-     * Host application name.
+     * Name of the host application embedding the Channel SDK.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1326,7 +1329,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Host application name.
+     * Name of the host application embedding the Channel SDK.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1348,7 +1351,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Host application name.
+     * Name of the host application embedding the Channel SDK.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1368,7 +1371,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Host application name.
+     * Name of the host application embedding the Channel SDK.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1383,7 +1386,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Host application name.
+     * Name of the host application embedding the Channel SDK.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1406,7 +1409,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object appVersion_ = "";
     /**
      * <pre>
-     * Host application version.
+     * Version of the host application embedding the Channel SDK.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1427,7 +1430,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Host application version.
+     * Version of the host application embedding the Channel SDK.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1449,7 +1452,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Host application version.
+     * Version of the host application embedding the Channel SDK.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1469,7 +1472,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Host application version.
+     * Version of the host application embedding the Channel SDK.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1484,7 +1487,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Host application version.
+     * Version of the host application embedding the Channel SDK.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1507,7 +1510,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object sdkName_ = "";
     /**
      * <pre>
-     * SDK name.
+     * Channel SDK platform name (e.g. "ios", "android", "react-native").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1528,7 +1531,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * SDK name.
+     * Channel SDK platform name (e.g. "ios", "android", "react-native").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1550,7 +1553,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * SDK name.
+     * Channel SDK platform name (e.g. "ios", "android", "react-native").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1570,7 +1573,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * SDK name.
+     * Channel SDK platform name (e.g. "ios", "android", "react-native").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1585,7 +1588,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * SDK name.
+     * Channel SDK platform name (e.g. "ios", "android", "react-native").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1608,7 +1611,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object sdkVersion_ = "";
     /**
      * <pre>
-     * SDK version.
+     * Channel SDK version string.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1629,7 +1632,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * SDK version.
+     * Channel SDK version string.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1651,7 +1654,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * SDK version.
+     * Channel SDK version string.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1671,7 +1674,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * SDK version.
+     * Channel SDK version string.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1686,7 +1689,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * SDK version.
+     * Channel SDK version string.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1709,7 +1712,8 @@ private static final long serialVersionUID = 0L;
     private int sessionsCount_ ;
     /**
      * <pre>
-     * Number of mobile sessions.
+     * Cumulative number of mobile sessions recorded for this user.
+     * Incremented on each new session.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1722,7 +1726,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of mobile sessions.
+     * Cumulative number of mobile sessions recorded for this user.
+     * Incremented on each new session.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1738,7 +1743,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of mobile sessions.
+     * Cumulative number of mobile sessions recorded for this user.
+     * Incremented on each new session.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1757,7 +1763,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> lastSeenAtBuilder_;
     /**
      * <pre>
-     * Timestamp of the last mobile session.
+     * Timestamp of the user's most recent mobile session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1769,7 +1775,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last mobile session.
+     * Timestamp of the user's most recent mobile session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1785,7 +1791,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last mobile session.
+     * Timestamp of the user's most recent mobile session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1806,7 +1812,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last mobile session.
+     * Timestamp of the user's most recent mobile session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1825,7 +1831,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last mobile session.
+     * Timestamp of the user's most recent mobile session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1848,7 +1854,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last mobile session.
+     * Timestamp of the user's most recent mobile session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1867,7 +1873,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last mobile session.
+     * Timestamp of the user's most recent mobile session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1880,7 +1886,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last mobile session.
+     * Timestamp of the user's most recent mobile session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1896,7 +1902,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last mobile session.
+     * Timestamp of the user's most recent mobile session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *

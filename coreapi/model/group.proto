@@ -12,45 +12,37 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 // Visibility scope of a group.
 enum GroupScope {
   GROUP_SCOPE_UNSPECIFIED = 0;
+  // Visible to all managers in the channel regardless of membership.
   GROUP_SCOPE_ALL = 1;
+  // Listed publicly; any manager can join.
   GROUP_SCOPE_PUBLIC = 2;
+  // Hidden from non-members; only invited managers can access.
   GROUP_SCOPE_PRIVATE = 3;
 }
 
-// Group represents a team chat room where managers collaborate.
+// Group represents a team chat room for internal manager communication.
 message Group {
   // Unique group identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 1 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  // +kubebuilder:example="g-abc123"
+  string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this group belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string channel_id = 2 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  // +kubebuilder:example="ch-12345"
+  string channel_id = 2 [(buf.validate.field).required = true];
 
-  // Group display name.
+  // Display title of the group.
   // Unique within the channel (case-insensitive).
+  // Allowed characters: letters, numbers, hyphens, underscores,
+  // and parentheses.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=2
   // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:validation:Pattern="[\p{L}\p{N}\-_()]+"
   string title = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -62,25 +54,34 @@ message Group {
       message: "value must be no more than 30 characters"
       expression: "size(this) <= 30"
     },
+    (buf.validate.field).string.pattern = "[\\p{L}\\p{N}\\-_()]+",
     (buf.validate.field).required = true
   ];
 
-  // Visibility scope of the group.
+  // Visibility scope determining who can discover and access the group.
   //
   // +kubebuilder:validation:Required
   GroupScope scope = 4 [(buf.validate.field).required = true];
 
-  // Manager IDs who are members of this group.
+  // IDs of managers who are members of this group.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MinItems=1
   repeated string manager_ids = 5;
 
-  // Group icon identifier.
+  // Icon identifier or emoji representing the group visually.
+  // Must not contain whitespace.
   //
   // +kubebuilder:validation:Nullable
-  string icon = 6;
+  // +kubebuilder:validation:Pattern="\S+"
+  string icon = 6 [(buf.validate.field).string.pattern = "\\S+"];
 
-  // Group description.
+  // ID of the active live meet session in this group.
+  //
+  // +kubebuilder:validation:Nullable
+  string live_meet_id = 7;
+
+  // Free-text description explaining the group's purpose or topic.
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxLength=200
@@ -99,9 +100,4 @@ message Group {
   //
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp updated_at = 10 [(buf.validate.field).required = true];
-
-  // Whether this group is currently active.
-  //
-  // +kubebuilder:validation:Nullable
-  bool active = 11;
 }

@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Message represents a single message within a chat.
+ * Message represents a single chat message within a conversation.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.Message}
@@ -20,7 +20,13 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Message() {
+    chatKey_ = "";
     id_ = "";
+    mainKey_ = "";
+    threadKey_ = "";
+    meetKey_ = "";
+    frontKey_ = "";
+    alfThreadKey_ = "";
     channelId_ = "";
     chatType_ = "";
     chatId_ = "";
@@ -32,12 +38,11 @@ private static final long serialVersionUID = 0L;
     plainText_ = "";
     buttons_ = java.util.Collections.emptyList();
     files_ = java.util.Collections.emptyList();
-    options_ = java.util.Collections.emptyList();
-    state_ = 0;
     reactions_ = java.util.Collections.emptyList();
-    chatKey_ = "";
-    mainKey_ = "";
-    threadKey_ = "";
+    state_ = 0;
+    options_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    alertLevel_ = 0;
+    writingType_ = 0;
     rootMessageId_ = "";
   }
 
@@ -75,52 +80,88 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            id_ = s;
+            chatKey_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            channelId_ = s;
+            id_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            chatType_ = s;
+            mainKey_ = s;
             break;
           }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            chatId_ = s;
+            threadKey_ = s;
             break;
           }
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            personType_ = s;
+            meetKey_ = s;
             break;
           }
           case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            personId_ = s;
+            frontKey_ = s;
             break;
           }
           case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            requestId_ = s;
+            alfThreadKey_ = s;
             break;
           }
           case 66: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            language_ = s;
+            channelId_ = s;
             break;
           }
           case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            chatType_ = s;
+            break;
+          }
+          case 82: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            chatId_ = s;
+            break;
+          }
+          case 90: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            personType_ = s;
+            break;
+          }
+          case 98: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            personId_ = s;
+            break;
+          }
+          case 106: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            requestId_ = s;
+            break;
+          }
+          case 114: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            language_ = s;
+            break;
+          }
+          case 122: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (createdAt_ != null) {
               subBuilder = createdAt_.toBuilder();
@@ -133,7 +174,27 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 82: {
+          case 128: {
+
+            version_ = input.readInt64();
+            break;
+          }
+          case 138: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              blocks_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.Block>();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            blocks_.add(
+                input.readMessage(io.channel.api.proto.pub.coreapi.model.Block.parser(), extensionRegistry));
+            break;
+          }
+          case 146: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            plainText_ = s;
+            break;
+          }
+          case 154: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (updatedAt_ != null) {
               subBuilder = updatedAt_.toBuilder();
@@ -146,22 +207,72 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 98: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              blocks_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.Block>();
-              mutable_bitField0_ |= 0x00000001;
+          case 162: {
+            io.channel.api.proto.pub.coreapi.model.MessageThread.Builder subBuilder = null;
+            if (thread_ != null) {
+              subBuilder = thread_.toBuilder();
             }
-            blocks_.add(
-                input.readMessage(io.channel.api.proto.pub.coreapi.model.Block.parser(), extensionRegistry));
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
+            thread_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.MessageThread.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(thread_);
+              thread_ = subBuilder.buildPartial();
+            }
 
-            plainText_ = s;
             break;
           }
-          case 114: {
+          case 170: {
+            com.google.protobuf.Struct.Builder subBuilder = null;
+            if (meet_ != null) {
+              subBuilder = meet_.toBuilder();
+            }
+            meet_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(meet_);
+              meet_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 178: {
+            com.google.protobuf.Struct.Builder subBuilder = null;
+            if (email_ != null) {
+              subBuilder = email_.toBuilder();
+            }
+            email_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(email_);
+              email_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 186: {
+            com.google.protobuf.Struct.Builder subBuilder = null;
+            if (alfThread_ != null) {
+              subBuilder = alfThread_.toBuilder();
+            }
+            alfThread_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(alfThread_);
+              alfThread_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 194: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (editedAt_ != null) {
+              subBuilder = editedAt_.toBuilder();
+            }
+            editedAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(editedAt_);
+              editedAt_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 202: {
             if (!((mutable_bitField0_ & 0x00000002) != 0)) {
               buttons_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.MessageButton>();
               mutable_bitField0_ |= 0x00000002;
@@ -170,7 +281,7 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(io.channel.api.proto.pub.coreapi.model.MessageButton.parser(), extensionRegistry));
             break;
           }
-          case 122: {
+          case 210: {
             if (!((mutable_bitField0_ & 0x00000004) != 0)) {
               files_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.MessageFile>();
               mutable_bitField0_ |= 0x00000004;
@@ -179,7 +290,7 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(io.channel.api.proto.pub.coreapi.model.MessageFile.parser(), extensionRegistry));
             break;
           }
-          case 130: {
+          case 218: {
             io.channel.api.proto.pub.coreapi.model.MessageWebPage.Builder subBuilder = null;
             if (webPage_ != null) {
               subBuilder = webPage_.toBuilder();
@@ -192,49 +303,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 138: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (form_ != null) {
-              subBuilder = form_.toBuilder();
-            }
-            form_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(form_);
-              form_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 144: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              options_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            options_.add(rawValue);
-            break;
-          }
-          case 146: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                options_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              options_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 152: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 170: {
+          case 226: {
             io.channel.api.proto.pub.coreapi.model.MessageLog.Builder subBuilder = null;
             if (log_ != null) {
               subBuilder = log_.toBuilder();
@@ -247,39 +316,57 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 178: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+          case 234: {
+            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
               reactions_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.MessageReaction>();
-              mutable_bitField0_ |= 0x00000010;
+              mutable_bitField0_ |= 0x00000008;
             }
             reactions_.add(
                 input.readMessage(io.channel.api.proto.pub.coreapi.model.MessageReaction.parser(), extensionRegistry));
             break;
           }
-          case 194: {
+          case 242: {
+            com.google.protobuf.Struct.Builder subBuilder = null;
+            if (alfProgress_ != null) {
+              subBuilder = alfProgress_.toBuilder();
+            }
+            alfProgress_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(alfProgress_);
+              alfProgress_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 250: {
+            com.google.protobuf.Struct.Builder subBuilder = null;
+            if (form_ != null) {
+              subBuilder = form_.toBuilder();
+            }
+            form_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(form_);
+              form_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 256: {
+            int rawValue = input.readEnum();
+
+            state_ = rawValue;
+            break;
+          }
+          case 266: {
             java.lang.String s = input.readStringRequireUtf8();
-
-            chatKey_ = s;
+            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+              options_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000010;
+            }
+            options_.add(s);
             break;
           }
-          case 202: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            mainKey_ = s;
-            break;
-          }
-          case 210: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            threadKey_ = s;
-            break;
-          }
-          case 216: {
-
-            version_ = input.readInt64();
-            break;
-          }
-          case 226: {
+          case 274: {
             com.google.protobuf.Struct.Builder subBuilder = null;
             if (marketing_ != null) {
               subBuilder = marketing_.toBuilder();
@@ -292,7 +379,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 234: {
+          case 282: {
             com.google.protobuf.Struct.Builder subBuilder = null;
             if (supportBot_ != null) {
               subBuilder = supportBot_.toBuilder();
@@ -305,33 +392,81 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 240: {
+          case 290: {
+            com.google.protobuf.Struct.Builder subBuilder = null;
+            if (workflow_ != null) {
+              subBuilder = workflow_.toBuilder();
+            }
+            workflow_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(workflow_);
+              workflow_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 296: {
+            int rawValue = input.readEnum();
+
+            alertLevel_ = rawValue;
+            break;
+          }
+          case 306: {
+            com.google.protobuf.Struct.Builder subBuilder = null;
+            if (ivr_ != null) {
+              subBuilder = ivr_.toBuilder();
+            }
+            ivr_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(ivr_);
+              ivr_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 314: {
+            com.google.protobuf.Struct.Builder subBuilder = null;
+            if (customPayload_ != null) {
+              subBuilder = customPayload_.toBuilder();
+            }
+            customPayload_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(customPayload_);
+              customPayload_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 320: {
+            int rawValue = input.readEnum();
+
+            writingType_ = rawValue;
+            break;
+          }
+          case 328: {
 
             threadMsg_ = input.readBool();
             break;
           }
-          case 248: {
-
-            broadcastedMsg_ = input.readBool();
-            break;
-          }
-          case 258: {
+          case 338: {
             java.lang.String s = input.readStringRequireUtf8();
 
             rootMessageId_ = s;
             break;
           }
-          case 266: {
-            io.channel.api.proto.pub.coreapi.model.MessageThread.Builder subBuilder = null;
-            if (thread_ != null) {
-              subBuilder = thread_.toBuilder();
-            }
-            thread_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.MessageThread.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(thread_);
-              thread_ = subBuilder.buildPartial();
-            }
+          case 344: {
 
+            threadRoot_ = input.readBool();
+            break;
+          }
+          case 352: {
+
+            broadcastedMsg_ = input.readBool();
+            break;
+          }
+          case 360: {
+
+            removedByWriter_ = input.readBool();
             break;
           }
           default: {
@@ -359,10 +494,10 @@ private static final long serialVersionUID = 0L;
         files_ = java.util.Collections.unmodifiableList(files_);
       }
       if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        options_ = java.util.Collections.unmodifiableList(options_);
+        reactions_ = java.util.Collections.unmodifiableList(reactions_);
       }
       if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        reactions_ = java.util.Collections.unmodifiableList(reactions_);
+        options_ = options_.getUnmodifiableView();
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -381,16 +516,68 @@ private static final long serialVersionUID = 0L;
             io.channel.api.proto.pub.coreapi.model.Message.class, io.channel.api.proto.pub.coreapi.model.Message.Builder.class);
   }
 
-  public static final int ID_FIELD_NUMBER = 1;
+  public static final int CHAT_KEY_FIELD_NUMBER = 1;
+  private volatile java.lang.Object chatKey_;
+  /**
+   * <pre>
+   * Composite key identifying the parent conversation.
+   * Format: "{chatType}-{chatId}".
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="userChat-uc-abc123"
+   * </pre>
+   *
+   * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+   * @return The chatKey.
+   */
+  @java.lang.Override
+  public java.lang.String getChatKey() {
+    java.lang.Object ref = chatKey_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      chatKey_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Composite key identifying the parent conversation.
+   * Format: "{chatType}-{chatId}".
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="userChat-uc-abc123"
+   * </pre>
+   *
+   * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for chatKey.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getChatKeyBytes() {
+    java.lang.Object ref = chatKey_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      chatKey_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ID_FIELD_NUMBER = 2;
   private volatile java.lang.Object id_;
   /**
    * <pre>
    * Unique message identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="msg-001"
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The id.
    */
   @java.lang.Override
@@ -410,10 +597,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique message identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="msg-001"
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The bytes for id.
    */
   @java.lang.Override
@@ -431,16 +618,278 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CHANNEL_ID_FIELD_NUMBER = 2;
+  public static final int MAIN_KEY_FIELD_NUMBER = 3;
+  private volatile java.lang.Object mainKey_;
+  /**
+   * <pre>
+   * Index key for the main (top-level) message stream.
+   * Same value as chat_key when the message appears in the main stream.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string main_key = 3 [json_name = "mainKey"];</code>
+   * @return The mainKey.
+   */
+  @java.lang.Override
+  public java.lang.String getMainKey() {
+    java.lang.Object ref = mainKey_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      mainKey_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Index key for the main (top-level) message stream.
+   * Same value as chat_key when the message appears in the main stream.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string main_key = 3 [json_name = "mainKey"];</code>
+   * @return The bytes for mainKey.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getMainKeyBytes() {
+    java.lang.Object ref = mainKey_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      mainKey_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int THREAD_KEY_FIELD_NUMBER = 4;
+  private volatile java.lang.Object threadKey_;
+  /**
+   * <pre>
+   * Index key for the thread message stream.
+   * For thread root messages: same value as chat_key.
+   * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
+   * Absent when the message does not belong to a thread.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string thread_key = 4 [json_name = "threadKey"];</code>
+   * @return The threadKey.
+   */
+  @java.lang.Override
+  public java.lang.String getThreadKey() {
+    java.lang.Object ref = threadKey_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      threadKey_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Index key for the thread message stream.
+   * For thread root messages: same value as chat_key.
+   * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
+   * Absent when the message does not belong to a thread.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string thread_key = 4 [json_name = "threadKey"];</code>
+   * @return The bytes for threadKey.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getThreadKeyBytes() {
+    java.lang.Object ref = threadKey_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      threadKey_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int MEET_KEY_FIELD_NUMBER = 5;
+  private volatile java.lang.Object meetKey_;
+  /**
+   * <pre>
+   * Index key for the meet message stream.
+   * For meet root messages: same value as chat_key.
+   * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
+   * Absent when the message is not associated with a meet session.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string meet_key = 5 [json_name = "meetKey"];</code>
+   * @return The meetKey.
+   */
+  @java.lang.Override
+  public java.lang.String getMeetKey() {
+    java.lang.Object ref = meetKey_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      meetKey_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Index key for the meet message stream.
+   * For meet root messages: same value as chat_key.
+   * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
+   * Absent when the message is not associated with a meet session.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string meet_key = 5 [json_name = "meetKey"];</code>
+   * @return The bytes for meetKey.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getMeetKeyBytes() {
+    java.lang.Object ref = meetKey_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      meetKey_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int FRONT_KEY_FIELD_NUMBER = 6;
+  private volatile java.lang.Object frontKey_;
+  /**
+   * <pre>
+   * Index key for the front (user-facing) message stream.
+   * Same value as chat_key when the message appears in the front stream.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string front_key = 6 [json_name = "frontKey"];</code>
+   * @return The frontKey.
+   */
+  @java.lang.Override
+  public java.lang.String getFrontKey() {
+    java.lang.Object ref = frontKey_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      frontKey_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Index key for the front (user-facing) message stream.
+   * Same value as chat_key when the message appears in the front stream.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string front_key = 6 [json_name = "frontKey"];</code>
+   * @return The bytes for frontKey.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getFrontKeyBytes() {
+    java.lang.Object ref = frontKey_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      frontKey_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ALF_THREAD_KEY_FIELD_NUMBER = 7;
+  private volatile java.lang.Object alfThreadKey_;
+  /**
+   * <pre>
+   * Index key for the ALF AI-assisted thread stream.
+   * For ALF thread root messages: same value as chat_key.
+   * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
+   * Absent when the message is not part of an ALF thread.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
+   * @return The alfThreadKey.
+   */
+  @java.lang.Override
+  public java.lang.String getAlfThreadKey() {
+    java.lang.Object ref = alfThreadKey_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      alfThreadKey_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Index key for the ALF AI-assisted thread stream.
+   * For ALF thread root messages: same value as chat_key.
+   * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
+   * Absent when the message is not part of an ALF thread.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
+   * @return The bytes for alfThreadKey.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAlfThreadKeyBytes() {
+    java.lang.Object ref = alfThreadKey_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      alfThreadKey_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CHANNEL_ID_FIELD_NUMBER = 8;
   private volatile java.lang.Object channelId_;
   /**
    * <pre>
    * Channel ID this message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   @java.lang.Override
@@ -460,10 +909,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   @java.lang.Override
@@ -481,16 +930,15 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CHAT_TYPE_FIELD_NUMBER = 3;
+  public static final int CHAT_TYPE_FIELD_NUMBER = 9;
   private volatile java.lang.Object chatType_;
   /**
    * <pre>
-   * Chat type containing this message (e.g. "userChat", "group").
+   * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
    * @return The chatType.
    */
   @java.lang.Override
@@ -508,12 +956,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Chat type containing this message (e.g. "userChat", "group").
+   * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
    * @return The bytes for chatType.
    */
   @java.lang.Override
@@ -531,16 +978,15 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CHAT_ID_FIELD_NUMBER = 4;
+  public static final int CHAT_ID_FIELD_NUMBER = 10;
   private volatile java.lang.Object chatId_;
   /**
    * <pre>
-   * Chat ID containing this message.
+   * Chat ID of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_id = 4 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
    * @return The chatId.
    */
   @java.lang.Override
@@ -558,12 +1004,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Chat ID containing this message.
+   * Chat ID of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_id = 4 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for chatId.
    */
   @java.lang.Override
@@ -581,16 +1026,15 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int PERSON_TYPE_FIELD_NUMBER = 5;
+  public static final int PERSON_TYPE_FIELD_NUMBER = 11;
   private volatile java.lang.Object personType_;
   /**
    * <pre>
-   * Entity type of the message author (e.g. "manager", "bot", "user").
+   * Entity type of the message author (e.g., "manager", "user", "bot").
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
    * @return The personType.
    */
   @java.lang.Override
@@ -608,12 +1052,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Entity type of the message author (e.g. "manager", "bot", "user").
+   * Entity type of the message author (e.g., "manager", "user", "bot").
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
    * @return The bytes for personType.
    */
   @java.lang.Override
@@ -631,16 +1074,15 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int PERSON_ID_FIELD_NUMBER = 6;
+  public static final int PERSON_ID_FIELD_NUMBER = 12;
   private volatile java.lang.Object personId_;
   /**
    * <pre>
    * Entity ID of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_id = 6 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+   * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
    * @return The personId.
    */
   @java.lang.Override
@@ -660,10 +1102,9 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Entity ID of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_id = 6 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+   * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for personId.
    */
   @java.lang.Override
@@ -681,15 +1122,17 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int REQUEST_ID_FIELD_NUMBER = 7;
+  public static final int REQUEST_ID_FIELD_NUMBER = 13;
   private volatile java.lang.Object requestId_;
   /**
    * <pre>
-   * Client-generated request identifier for idempotency.
+   * Client-generated identifier for deduplication.
+   * Allows matching a locally pre-rendered message with the server response.
+   * Immutable after creation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string request_id = 7 [json_name = "requestId"];</code>
+   * <code>string request_id = 13 [json_name = "requestId"];</code>
    * @return The requestId.
    */
   @java.lang.Override
@@ -707,11 +1150,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Client-generated request identifier for idempotency.
+   * Client-generated identifier for deduplication.
+   * Allows matching a locally pre-rendered message with the server response.
+   * Immutable after creation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string request_id = 7 [json_name = "requestId"];</code>
+   * <code>string request_id = 13 [json_name = "requestId"];</code>
    * @return The bytes for requestId.
    */
   @java.lang.Override
@@ -729,15 +1174,15 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int LANGUAGE_FIELD_NUMBER = 8;
+  public static final int LANGUAGE_FIELD_NUMBER = 14;
   private volatile java.lang.Object language_;
   /**
    * <pre>
-   * Language code of the message content.
+   * Detected language of the message content (e.g., "ko", "en", "ja").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string language = 8 [json_name = "language"];</code>
+   * <code>string language = 14 [json_name = "language"];</code>
    * @return The language.
    */
   @java.lang.Override
@@ -755,11 +1200,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Language code of the message content.
+   * Detected language of the message content (e.g., "ko", "en", "ja").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string language = 8 [json_name = "language"];</code>
+   * <code>string language = 14 [json_name = "language"];</code>
    * @return The bytes for language.
    */
   @java.lang.Override
@@ -777,7 +1222,7 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CREATED_AT_FIELD_NUMBER = 9;
+  public static final int CREATED_AT_FIELD_NUMBER = 15;
   private com.google.protobuf.Timestamp createdAt_;
   /**
    * <pre>
@@ -785,7 +1230,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the createdAt field is set.
    */
   @java.lang.Override
@@ -798,7 +1243,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return The createdAt.
    */
   @java.lang.Override
@@ -811,63 +1256,40 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
     return getCreatedAt();
   }
 
-  public static final int UPDATED_AT_FIELD_NUMBER = 10;
-  private com.google.protobuf.Timestamp updatedAt_;
+  public static final int VERSION_FIELD_NUMBER = 16;
+  private long version_;
   /**
    * <pre>
-   * Message last update timestamp.
+   * Optimistic locking version.
+   * Incremented on every update.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
-   * @return Whether the updatedAt field is set.
+   * <code>int64 version = 16 [json_name = "version"];</code>
+   * @return The version.
    */
   @java.lang.Override
-  public boolean hasUpdatedAt() {
-    return updatedAt_ != null;
-  }
-  /**
-   * <pre>
-   * Message last update timestamp.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
-   * @return The updatedAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getUpdatedAt() {
-    return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
-  }
-  /**
-   * <pre>
-   * Message last update timestamp.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
-    return getUpdatedAt();
+  public long getVersion() {
+    return version_;
   }
 
-  public static final int BLOCKS_FIELD_NUMBER = 12;
+  public static final int BLOCKS_FIELD_NUMBER = 17;
   private java.util.List<io.channel.api.proto.pub.coreapi.model.Block> blocks_;
   /**
    * <pre>
-   * Structured content blocks of the message.
+   * Structured content blocks composing the message body.
+   * Contains rich text, images, code snippets, and other block-level elements.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+   * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
    */
   @java.lang.Override
   public java.util.List<io.channel.api.proto.pub.coreapi.model.Block> getBlocksList() {
@@ -875,11 +1297,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Structured content blocks of the message.
+   * Structured content blocks composing the message body.
+   * Contains rich text, images, code snippets, and other block-level elements.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+   * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
    */
   @java.lang.Override
   public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.BlockOrBuilder> 
@@ -888,11 +1311,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Structured content blocks of the message.
+   * Structured content blocks composing the message body.
+   * Contains rich text, images, code snippets, and other block-level elements.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+   * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
    */
   @java.lang.Override
   public int getBlocksCount() {
@@ -900,11 +1324,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Structured content blocks of the message.
+   * Structured content blocks composing the message body.
+   * Contains rich text, images, code snippets, and other block-level elements.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+   * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
    */
   @java.lang.Override
   public io.channel.api.proto.pub.coreapi.model.Block getBlocks(int index) {
@@ -912,11 +1337,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Structured content blocks of the message.
+   * Structured content blocks composing the message body.
+   * Contains rich text, images, code snippets, and other block-level elements.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+   * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
    */
   @java.lang.Override
   public io.channel.api.proto.pub.coreapi.model.BlockOrBuilder getBlocksOrBuilder(
@@ -924,15 +1350,16 @@ private static final long serialVersionUID = 0L;
     return blocks_.get(index);
   }
 
-  public static final int PLAIN_TEXT_FIELD_NUMBER = 13;
+  public static final int PLAIN_TEXT_FIELD_NUMBER = 18;
   private volatile java.lang.Object plainText_;
   /**
    * <pre>
-   * Plain text representation of the message.
+   * Plain text representation of the message body.
+   * Stripped of all formatting from blocks.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string plain_text = 13 [json_name = "plainText"];</code>
+   * <code>string plain_text = 18 [json_name = "plainText"];</code>
    * @return The plainText.
    */
   @java.lang.Override
@@ -950,11 +1377,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Plain text representation of the message.
+   * Plain text representation of the message body.
+   * Stripped of all formatting from blocks.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string plain_text = 13 [json_name = "plainText"];</code>
+   * <code>string plain_text = 18 [json_name = "plainText"];</code>
    * @return The bytes for plainText.
    */
   @java.lang.Override
@@ -972,16 +1400,281 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int BUTTONS_FIELD_NUMBER = 14;
+  public static final int UPDATED_AT_FIELD_NUMBER = 19;
+  private com.google.protobuf.Timestamp updatedAt_;
+  /**
+   * <pre>
+   * Message last update timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
+   * @return Whether the updatedAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasUpdatedAt() {
+    return updatedAt_ != null;
+  }
+  /**
+   * <pre>
+   * Message last update timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
+   * @return The updatedAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getUpdatedAt() {
+    return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+  }
+  /**
+   * <pre>
+   * Message last update timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
+    return getUpdatedAt();
+  }
+
+  public static final int THREAD_FIELD_NUMBER = 20;
+  private io.channel.api.proto.pub.coreapi.model.MessageThread thread_;
+  /**
+   * <pre>
+   * Thread metadata present only on thread root messages.
+   * Contains reply count, last reply timestamp, and participant summary.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
+   * @return Whether the thread field is set.
+   */
+  @java.lang.Override
+  public boolean hasThread() {
+    return thread_ != null;
+  }
+  /**
+   * <pre>
+   * Thread metadata present only on thread root messages.
+   * Contains reply count, last reply timestamp, and participant summary.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
+   * @return The thread.
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.MessageThread getThread() {
+    return thread_ == null ? io.channel.api.proto.pub.coreapi.model.MessageThread.getDefaultInstance() : thread_;
+  }
+  /**
+   * <pre>
+   * Thread metadata present only on thread root messages.
+   * Contains reply count, last reply timestamp, and participant summary.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder getThreadOrBuilder() {
+    return getThread();
+  }
+
+  public static final int MEET_FIELD_NUMBER = 21;
+  private com.google.protobuf.Struct meet_;
+  /**
+   * <pre>
+   * Meet session metadata for messages associated with a video/voice meet.
+   * Contains session ID, participants, and call state.
+   * Present only on meet-related messages.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
+   * @return Whether the meet field is set.
+   */
+  @java.lang.Override
+  public boolean hasMeet() {
+    return meet_ != null;
+  }
+  /**
+   * <pre>
+   * Meet session metadata for messages associated with a video/voice meet.
+   * Contains session ID, participants, and call state.
+   * Present only on meet-related messages.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
+   * @return The meet.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Struct getMeet() {
+    return meet_ == null ? com.google.protobuf.Struct.getDefaultInstance() : meet_;
+  }
+  /**
+   * <pre>
+   * Meet session metadata for messages associated with a video/voice meet.
+   * Contains session ID, participants, and call state.
+   * Present only on meet-related messages.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StructOrBuilder getMeetOrBuilder() {
+    return getMeet();
+  }
+
+  public static final int EMAIL_FIELD_NUMBER = 22;
+  private com.google.protobuf.Struct email_;
+  /**
+   * <pre>
+   * Email metadata for messages sent or received via email integration.
+   * Contains email subject, recipients, and direction (inbound/outbound).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
+   * @return Whether the email field is set.
+   */
+  @java.lang.Override
+  public boolean hasEmail() {
+    return email_ != null;
+  }
+  /**
+   * <pre>
+   * Email metadata for messages sent or received via email integration.
+   * Contains email subject, recipients, and direction (inbound/outbound).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
+   * @return The email.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Struct getEmail() {
+    return email_ == null ? com.google.protobuf.Struct.getDefaultInstance() : email_;
+  }
+  /**
+   * <pre>
+   * Email metadata for messages sent or received via email integration.
+   * Contains email subject, recipients, and direction (inbound/outbound).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StructOrBuilder getEmailOrBuilder() {
+    return getEmail();
+  }
+
+  public static final int ALF_THREAD_FIELD_NUMBER = 23;
+  private com.google.protobuf.Struct alfThread_;
+  /**
+   * <pre>
+   * ALF (AI agent) thread metadata for AI-assisted conversation threads.
+   * Contains ALF session state and context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
+   * @return Whether the alfThread field is set.
+   */
+  @java.lang.Override
+  public boolean hasAlfThread() {
+    return alfThread_ != null;
+  }
+  /**
+   * <pre>
+   * ALF (AI agent) thread metadata for AI-assisted conversation threads.
+   * Contains ALF session state and context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
+   * @return The alfThread.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Struct getAlfThread() {
+    return alfThread_ == null ? com.google.protobuf.Struct.getDefaultInstance() : alfThread_;
+  }
+  /**
+   * <pre>
+   * ALF (AI agent) thread metadata for AI-assisted conversation threads.
+   * Contains ALF session state and context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StructOrBuilder getAlfThreadOrBuilder() {
+    return getAlfThread();
+  }
+
+  public static final int EDITED_AT_FIELD_NUMBER = 24;
+  private com.google.protobuf.Timestamp editedAt_;
+  /**
+   * <pre>
+   * Timestamp when the message content was last edited by a person.
+   * Absent if the message has never been edited.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
+   * @return Whether the editedAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasEditedAt() {
+    return editedAt_ != null;
+  }
+  /**
+   * <pre>
+   * Timestamp when the message content was last edited by a person.
+   * Absent if the message has never been edited.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
+   * @return The editedAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getEditedAt() {
+    return editedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : editedAt_;
+  }
+  /**
+   * <pre>
+   * Timestamp when the message content was last edited by a person.
+   * Absent if the message has never been edited.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getEditedAtOrBuilder() {
+    return getEditedAt();
+  }
+
+  public static final int BUTTONS_FIELD_NUMBER = 25;
   private java.util.List<io.channel.api.proto.pub.coreapi.model.MessageButton> buttons_;
   /**
    * <pre>
-   * Interactive buttons attached to the message.
+   * Interactive action buttons displayed below the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=2
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
    */
   @java.lang.Override
   public java.util.List<io.channel.api.proto.pub.coreapi.model.MessageButton> getButtonsList() {
@@ -989,12 +1682,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Interactive buttons attached to the message.
+   * Interactive action buttons displayed below the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=2
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
    */
   @java.lang.Override
   public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.MessageButtonOrBuilder> 
@@ -1003,12 +1697,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Interactive buttons attached to the message.
+   * Interactive action buttons displayed below the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=2
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
    */
   @java.lang.Override
   public int getButtonsCount() {
@@ -1016,12 +1711,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Interactive buttons attached to the message.
+   * Interactive action buttons displayed below the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=2
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
    */
   @java.lang.Override
   public io.channel.api.proto.pub.coreapi.model.MessageButton getButtons(int index) {
@@ -1029,12 +1725,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Interactive buttons attached to the message.
+   * Interactive action buttons displayed below the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=2
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
    */
   @java.lang.Override
   public io.channel.api.proto.pub.coreapi.model.MessageButtonOrBuilder getButtonsOrBuilder(
@@ -1042,15 +1739,17 @@ private static final long serialVersionUID = 0L;
     return buttons_.get(index);
   }
 
-  public static final int FILES_FIELD_NUMBER = 15;
+  public static final int FILES_FIELD_NUMBER = 26;
   private java.util.List<io.channel.api.proto.pub.coreapi.model.MessageFile> files_;
   /**
    * <pre>
    * File attachments included in the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:validation:MaxItems=30
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+   * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
    */
   @java.lang.Override
   public java.util.List<io.channel.api.proto.pub.coreapi.model.MessageFile> getFilesList() {
@@ -1060,9 +1759,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * File attachments included in the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:validation:MaxItems=30
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+   * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
    */
   @java.lang.Override
   public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.MessageFileOrBuilder> 
@@ -1073,9 +1774,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * File attachments included in the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:validation:MaxItems=30
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+   * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
    */
   @java.lang.Override
   public int getFilesCount() {
@@ -1085,9 +1788,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * File attachments included in the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:validation:MaxItems=30
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+   * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
    */
   @java.lang.Override
   public io.channel.api.proto.pub.coreapi.model.MessageFile getFiles(int index) {
@@ -1097,9 +1802,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * File attachments included in the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:validation:MaxItems=30
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+   * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
    */
   @java.lang.Override
   public io.channel.api.proto.pub.coreapi.model.MessageFileOrBuilder getFilesOrBuilder(
@@ -1107,15 +1814,15 @@ private static final long serialVersionUID = 0L;
     return files_.get(index);
   }
 
-  public static final int WEB_PAGE_FIELD_NUMBER = 16;
+  public static final int WEB_PAGE_FIELD_NUMBER = 27;
   private io.channel.api.proto.pub.coreapi.model.MessageWebPage webPage_;
   /**
    * <pre>
-   * Web page link preview attached to the message.
+   * Link preview extracted from the first URL found in the message content.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageWebPage web_page = 16 [json_name = "webPage"];</code>
+   * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
    * @return Whether the webPage field is set.
    */
   @java.lang.Override
@@ -1124,11 +1831,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Web page link preview attached to the message.
+   * Link preview extracted from the first URL found in the message content.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageWebPage web_page = 16 [json_name = "webPage"];</code>
+   * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
    * @return The webPage.
    */
   @java.lang.Override
@@ -1137,182 +1844,27 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Web page link preview attached to the message.
+   * Link preview extracted from the first URL found in the message content.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageWebPage web_page = 16 [json_name = "webPage"];</code>
+   * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
    */
   @java.lang.Override
   public io.channel.api.proto.pub.coreapi.model.MessageWebPageOrBuilder getWebPageOrBuilder() {
     return getWebPage();
   }
 
-  public static final int FORM_FIELD_NUMBER = 17;
-  private com.google.protobuf.Struct form_;
-  /**
-   * <pre>
-   * Interactive form attached to the message.
-   * The structure depends on the form type.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct form = 17 [json_name = "form"];</code>
-   * @return Whether the form field is set.
-   */
-  @java.lang.Override
-  public boolean hasForm() {
-    return form_ != null;
-  }
-  /**
-   * <pre>
-   * Interactive form attached to the message.
-   * The structure depends on the form type.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct form = 17 [json_name = "form"];</code>
-   * @return The form.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Struct getForm() {
-    return form_ == null ? com.google.protobuf.Struct.getDefaultInstance() : form_;
-  }
-  /**
-   * <pre>
-   * Interactive form attached to the message.
-   * The structure depends on the form type.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct form = 17 [json_name = "form"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.StructOrBuilder getFormOrBuilder() {
-    return getForm();
-  }
-
-  public static final int OPTIONS_FIELD_NUMBER = 18;
-  private java.util.List<java.lang.Integer> options_;
-  private static final com.google.protobuf.Internal.ListAdapter.Converter<
-      java.lang.Integer, io.channel.api.proto.pub.coreapi.model.MessageOption> options_converter_ =
-          new com.google.protobuf.Internal.ListAdapter.Converter<
-              java.lang.Integer, io.channel.api.proto.pub.coreapi.model.MessageOption>() {
-            public io.channel.api.proto.pub.coreapi.model.MessageOption convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              io.channel.api.proto.pub.coreapi.model.MessageOption result = io.channel.api.proto.pub.coreapi.model.MessageOption.valueOf(from);
-              return result == null ? io.channel.api.proto.pub.coreapi.model.MessageOption.UNRECOGNIZED : result;
-            }
-          };
-  /**
-   * <pre>
-   * Option flags that modify message delivery and display behavior.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-   * @return A list containing the options.
-   */
-  @java.lang.Override
-  public java.util.List<io.channel.api.proto.pub.coreapi.model.MessageOption> getOptionsList() {
-    return new com.google.protobuf.Internal.ListAdapter<
-        java.lang.Integer, io.channel.api.proto.pub.coreapi.model.MessageOption>(options_, options_converter_);
-  }
-  /**
-   * <pre>
-   * Option flags that modify message delivery and display behavior.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-   * @return The count of options.
-   */
-  @java.lang.Override
-  public int getOptionsCount() {
-    return options_.size();
-  }
-  /**
-   * <pre>
-   * Option flags that modify message delivery and display behavior.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-   * @param index The index of the element to return.
-   * @return The options at the given index.
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.MessageOption getOptions(int index) {
-    return options_converter_.convert(options_.get(index));
-  }
-  /**
-   * <pre>
-   * Option flags that modify message delivery and display behavior.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-   * @return A list containing the enum numeric values on the wire for options.
-   */
-  @java.lang.Override
-  public java.util.List<java.lang.Integer>
-  getOptionsValueList() {
-    return options_;
-  }
-  /**
-   * <pre>
-   * Option flags that modify message delivery and display behavior.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-   * @param index The index of the value to return.
-   * @return The enum numeric value on the wire of options at the given index.
-   */
-  @java.lang.Override
-  public int getOptionsValue(int index) {
-    return options_.get(index);
-  }
-  private int optionsMemoizedSerializedSize;
-
-  public static final int STATE_FIELD_NUMBER = 19;
-  private int state_;
-  /**
-   * <pre>
-   * Current lifecycle state of the message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MessageState state = 19 [json_name = "state"];</code>
-   * @return The enum numeric value on the wire for state.
-   */
-  @java.lang.Override public int getStateValue() {
-    return state_;
-  }
-  /**
-   * <pre>
-   * Current lifecycle state of the message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MessageState state = 19 [json_name = "state"];</code>
-   * @return The state.
-   */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.MessageState getState() {
-    @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.MessageState result = io.channel.api.proto.pub.coreapi.model.MessageState.valueOf(state_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.MessageState.UNRECOGNIZED : result;
-  }
-
-  public static final int LOG_FIELD_NUMBER = 21;
+  public static final int LOG_FIELD_NUMBER = 28;
   private io.channel.api.proto.pub.coreapi.model.MessageLog log_;
   /**
    * <pre>
-   * System log data for log-type messages.
+   * System log entry for automated events (e.g., chat opened, assigned, closed).
+   * Present only on system-generated messages.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageLog log = 21 [json_name = "log"];</code>
+   * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
    * @return Whether the log field is set.
    */
   @java.lang.Override
@@ -1321,11 +1873,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * System log data for log-type messages.
+   * System log entry for automated events (e.g., chat opened, assigned, closed).
+   * Present only on system-generated messages.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageLog log = 21 [json_name = "log"];</code>
+   * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
    * @return The log.
    */
   @java.lang.Override
@@ -1334,26 +1887,27 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * System log data for log-type messages.
+   * System log entry for automated events (e.g., chat opened, assigned, closed).
+   * Present only on system-generated messages.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageLog log = 21 [json_name = "log"];</code>
+   * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
    */
   @java.lang.Override
   public io.channel.api.proto.pub.coreapi.model.MessageLogOrBuilder getLogOrBuilder() {
     return getLog();
   }
 
-  public static final int REACTIONS_FIELD_NUMBER = 22;
+  public static final int REACTIONS_FIELD_NUMBER = 29;
   private java.util.List<io.channel.api.proto.pub.coreapi.model.MessageReaction> reactions_;
   /**
    * <pre>
-   * Emoji reactions on this message.
+   * Emoji reactions added to this message by participants.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+   * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
    */
   @java.lang.Override
   public java.util.List<io.channel.api.proto.pub.coreapi.model.MessageReaction> getReactionsList() {
@@ -1361,11 +1915,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Emoji reactions on this message.
+   * Emoji reactions added to this message by participants.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+   * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
    */
   @java.lang.Override
   public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.MessageReactionOrBuilder> 
@@ -1374,11 +1928,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Emoji reactions on this message.
+   * Emoji reactions added to this message by participants.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+   * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
    */
   @java.lang.Override
   public int getReactionsCount() {
@@ -1386,11 +1940,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Emoji reactions on this message.
+   * Emoji reactions added to this message by participants.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+   * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
    */
   @java.lang.Override
   public io.channel.api.proto.pub.coreapi.model.MessageReaction getReactions(int index) {
@@ -1398,11 +1952,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Emoji reactions on this message.
+   * Emoji reactions added to this message by participants.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+   * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
    */
   @java.lang.Override
   public io.channel.api.proto.pub.coreapi.model.MessageReactionOrBuilder getReactionsOrBuilder(
@@ -1410,175 +1964,200 @@ private static final long serialVersionUID = 0L;
     return reactions_.get(index);
   }
 
-  public static final int CHAT_KEY_FIELD_NUMBER = 24;
-  private volatile java.lang.Object chatKey_;
+  public static final int ALF_PROGRESS_FIELD_NUMBER = 30;
+  private com.google.protobuf.Struct alfProgress_;
   /**
    * <pre>
-   * Composite key for the chat this message belongs to.
+   * Progress indicator for an ALF AI response being streamed.
+   * Contains the partial content generated so far.
+   * Transient; replaced by the final message content when streaming completes.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string chat_key = 24 [json_name = "chatKey"];</code>
-   * @return The chatKey.
+   * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
+   * @return Whether the alfProgress field is set.
    */
   @java.lang.Override
-  public java.lang.String getChatKey() {
-    java.lang.Object ref = chatKey_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      chatKey_ = s;
-      return s;
-    }
+  public boolean hasAlfProgress() {
+    return alfProgress_ != null;
   }
   /**
    * <pre>
-   * Composite key for the chat this message belongs to.
+   * Progress indicator for an ALF AI response being streamed.
+   * Contains the partial content generated so far.
+   * Transient; replaced by the final message content when streaming completes.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string chat_key = 24 [json_name = "chatKey"];</code>
-   * @return The bytes for chatKey.
+   * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
+   * @return The alfProgress.
    */
   @java.lang.Override
+  public com.google.protobuf.Struct getAlfProgress() {
+    return alfProgress_ == null ? com.google.protobuf.Struct.getDefaultInstance() : alfProgress_;
+  }
+  /**
+   * <pre>
+   * Progress indicator for an ALF AI response being streamed.
+   * Contains the partial content generated so far.
+   * Transient; replaced by the final message content when streaming completes.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StructOrBuilder getAlfProgressOrBuilder() {
+    return getAlfProgress();
+  }
+
+  public static final int FORM_FIELD_NUMBER = 31;
+  private com.google.protobuf.Struct form_;
+  /**
+   * <pre>
+   * Interactive form (e.g., input fields, dropdowns) attached to the message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
+   * @return Whether the form field is set.
+   */
+  @java.lang.Override
+  public boolean hasForm() {
+    return form_ != null;
+  }
+  /**
+   * <pre>
+   * Interactive form (e.g., input fields, dropdowns) attached to the message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
+   * @return The form.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Struct getForm() {
+    return form_ == null ? com.google.protobuf.Struct.getDefaultInstance() : form_;
+  }
+  /**
+   * <pre>
+   * Interactive form (e.g., input fields, dropdowns) attached to the message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StructOrBuilder getFormOrBuilder() {
+    return getForm();
+  }
+
+  public static final int STATE_FIELD_NUMBER = 32;
+  private int state_;
+  /**
+   * <pre>
+   * Current lifecycle state of this message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+   * @return The enum numeric value on the wire for state.
+   */
+  @java.lang.Override public int getStateValue() {
+    return state_;
+  }
+  /**
+   * <pre>
+   * Current lifecycle state of this message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+   * @return The state.
+   */
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.MessageState getState() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.MessageState result = io.channel.api.proto.pub.coreapi.model.MessageState.valueOf(state_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.MessageState.UNRECOGNIZED : result;
+  }
+
+  public static final int OPTIONS_FIELD_NUMBER = 33;
+  private com.google.protobuf.LazyStringList options_;
+  /**
+   * <pre>
+   * Delivery and visibility options applied to this message.
+   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+   * Some options are only applicable in user chats.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * </pre>
+   *
+   * <code>repeated string options = 33 [json_name = "options"];</code>
+   * @return A list containing the options.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getOptionsList() {
+    return options_;
+  }
+  /**
+   * <pre>
+   * Delivery and visibility options applied to this message.
+   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+   * Some options are only applicable in user chats.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * </pre>
+   *
+   * <code>repeated string options = 33 [json_name = "options"];</code>
+   * @return The count of options.
+   */
+  public int getOptionsCount() {
+    return options_.size();
+  }
+  /**
+   * <pre>
+   * Delivery and visibility options applied to this message.
+   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+   * Some options are only applicable in user chats.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * </pre>
+   *
+   * <code>repeated string options = 33 [json_name = "options"];</code>
+   * @param index The index of the element to return.
+   * @return The options at the given index.
+   */
+  public java.lang.String getOptions(int index) {
+    return options_.get(index);
+  }
+  /**
+   * <pre>
+   * Delivery and visibility options applied to this message.
+   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+   * Some options are only applicable in user chats.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * </pre>
+   *
+   * <code>repeated string options = 33 [json_name = "options"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the options at the given index.
+   */
   public com.google.protobuf.ByteString
-      getChatKeyBytes() {
-    java.lang.Object ref = chatKey_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      chatKey_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+      getOptionsBytes(int index) {
+    return options_.getByteString(index);
   }
 
-  public static final int MAIN_KEY_FIELD_NUMBER = 25;
-  private volatile java.lang.Object mainKey_;
-  /**
-   * <pre>
-   * Key of the main conversation thread.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string main_key = 25 [json_name = "mainKey"];</code>
-   * @return The mainKey.
-   */
-  @java.lang.Override
-  public java.lang.String getMainKey() {
-    java.lang.Object ref = mainKey_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      mainKey_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Key of the main conversation thread.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string main_key = 25 [json_name = "mainKey"];</code>
-   * @return The bytes for mainKey.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getMainKeyBytes() {
-    java.lang.Object ref = mainKey_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      mainKey_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int THREAD_KEY_FIELD_NUMBER = 26;
-  private volatile java.lang.Object threadKey_;
-  /**
-   * <pre>
-   * Key of the sub-thread this message belongs to.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string thread_key = 26 [json_name = "threadKey"];</code>
-   * @return The threadKey.
-   */
-  @java.lang.Override
-  public java.lang.String getThreadKey() {
-    java.lang.Object ref = threadKey_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      threadKey_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Key of the sub-thread this message belongs to.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string thread_key = 26 [json_name = "threadKey"];</code>
-   * @return The bytes for threadKey.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getThreadKeyBytes() {
-    java.lang.Object ref = threadKey_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      threadKey_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int VERSION_FIELD_NUMBER = 27;
-  private long version_;
-  /**
-   * <pre>
-   * Message data version number.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>int64 version = 27 [json_name = "version"];</code>
-   * @return The version.
-   */
-  @java.lang.Override
-  public long getVersion() {
-    return version_;
-  }
-
-  public static final int MARKETING_FIELD_NUMBER = 28;
+  public static final int MARKETING_FIELD_NUMBER = 34;
   private com.google.protobuf.Struct marketing_;
   /**
    * <pre>
-   * Marketing campaign metadata associated with this message.
+   * Marketing campaign metadata for outbound promotional messages.
+   * Contains campaign type and tracking attributes.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+   * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
    * @return Whether the marketing field is set.
    */
   @java.lang.Override
@@ -1587,11 +2166,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Marketing campaign metadata associated with this message.
+   * Marketing campaign metadata for outbound promotional messages.
+   * Contains campaign type and tracking attributes.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+   * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
    * @return The marketing.
    */
   @java.lang.Override
@@ -1600,26 +2180,28 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Marketing campaign metadata associated with this message.
+   * Marketing campaign metadata for outbound promotional messages.
+   * Contains campaign type and tracking attributes.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+   * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getMarketingOrBuilder() {
     return getMarketing();
   }
 
-  public static final int SUPPORT_BOT_FIELD_NUMBER = 29;
+  public static final int SUPPORT_BOT_FIELD_NUMBER = 35;
   private com.google.protobuf.Struct supportBot_;
   /**
    * <pre>
-   * Support bot metadata associated with this message.
+   * Legacy support bot metadata.
+   * Retained for backward compatibility with older workflow implementations.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+   * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
    * @return Whether the supportBot field is set.
    */
   @java.lang.Override
@@ -1628,11 +2210,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Support bot metadata associated with this message.
+   * Legacy support bot metadata.
+   * Retained for backward compatibility with older workflow implementations.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+   * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
    * @return The supportBot.
    */
   @java.lang.Override
@@ -1641,26 +2224,224 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Support bot metadata associated with this message.
+   * Legacy support bot metadata.
+   * Retained for backward compatibility with older workflow implementations.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+   * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getSupportBotOrBuilder() {
     return getSupportBot();
   }
 
-  public static final int THREAD_MSG_FIELD_NUMBER = 30;
-  private boolean threadMsg_;
+  public static final int WORKFLOW_FIELD_NUMBER = 36;
+  private com.google.protobuf.Struct workflow_;
   /**
    * <pre>
-   * Whether this message is a thread reply.
+   * Workflow automation metadata linking this message to a workflow step.
+   * Contains workflow ID, step ID, and button submission context.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>bool thread_msg = 30 [json_name = "threadMsg"];</code>
+   * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
+   * @return Whether the workflow field is set.
+   */
+  @java.lang.Override
+  public boolean hasWorkflow() {
+    return workflow_ != null;
+  }
+  /**
+   * <pre>
+   * Workflow automation metadata linking this message to a workflow step.
+   * Contains workflow ID, step ID, and button submission context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
+   * @return The workflow.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Struct getWorkflow() {
+    return workflow_ == null ? com.google.protobuf.Struct.getDefaultInstance() : workflow_;
+  }
+  /**
+   * <pre>
+   * Workflow automation metadata linking this message to a workflow step.
+   * Contains workflow ID, step ID, and button submission context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StructOrBuilder getWorkflowOrBuilder() {
+    return getWorkflow();
+  }
+
+  public static final int ALERT_LEVEL_FIELD_NUMBER = 37;
+  private int alertLevel_;
+  /**
+   * <pre>
+   * Notification priority level controlling client-side popup behavior.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
+   * @return The enum numeric value on the wire for alertLevel.
+   */
+  @java.lang.Override public int getAlertLevelValue() {
+    return alertLevel_;
+  }
+  /**
+   * <pre>
+   * Notification priority level controlling client-side popup behavior.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
+   * @return The alertLevel.
+   */
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.AlertLevel getAlertLevel() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.AlertLevel result = io.channel.api.proto.pub.coreapi.model.AlertLevel.valueOf(alertLevel_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.AlertLevel.UNRECOGNIZED : result;
+  }
+
+  public static final int IVR_FIELD_NUMBER = 38;
+  private com.google.protobuf.Struct ivr_;
+  /**
+   * <pre>
+   * IVR (Interactive Voice Response) call metadata for phone-based messages.
+   * Contains DTMF input, call routing state, and voice prompt context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
+   * @return Whether the ivr field is set.
+   */
+  @java.lang.Override
+  public boolean hasIvr() {
+    return ivr_ != null;
+  }
+  /**
+   * <pre>
+   * IVR (Interactive Voice Response) call metadata for phone-based messages.
+   * Contains DTMF input, call routing state, and voice prompt context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
+   * @return The ivr.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Struct getIvr() {
+    return ivr_ == null ? com.google.protobuf.Struct.getDefaultInstance() : ivr_;
+  }
+  /**
+   * <pre>
+   * IVR (Interactive Voice Response) call metadata for phone-based messages.
+   * Contains DTMF input, call routing state, and voice prompt context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StructOrBuilder getIvrOrBuilder() {
+    return getIvr();
+  }
+
+  public static final int CUSTOM_PAYLOAD_FIELD_NUMBER = 39;
+  private com.google.protobuf.Struct customPayload_;
+  /**
+   * <pre>
+   * Custom rendering payload for third-party integrations.
+   * Structure and content are defined by the integration provider.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
+   * @return Whether the customPayload field is set.
+   */
+  @java.lang.Override
+  public boolean hasCustomPayload() {
+    return customPayload_ != null;
+  }
+  /**
+   * <pre>
+   * Custom rendering payload for third-party integrations.
+   * Structure and content are defined by the integration provider.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
+   * @return The customPayload.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Struct getCustomPayload() {
+    return customPayload_ == null ? com.google.protobuf.Struct.getDefaultInstance() : customPayload_;
+  }
+  /**
+   * <pre>
+   * Custom rendering payload for third-party integrations.
+   * Structure and content are defined by the integration provider.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StructOrBuilder getCustomPayloadOrBuilder() {
+    return getCustomPayload();
+  }
+
+  public static final int WRITING_TYPE_FIELD_NUMBER = 40;
+  private int writingType_;
+  /**
+   * <pre>
+   * Composition method that determines how clients render this message.
+   * Automatically derived from the message content when not explicitly set:
+   * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
+   * and STANDARD otherwise.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
+   * @return The enum numeric value on the wire for writingType.
+   */
+  @java.lang.Override public int getWritingTypeValue() {
+    return writingType_;
+  }
+  /**
+   * <pre>
+   * Composition method that determines how clients render this message.
+   * Automatically derived from the message content when not explicitly set:
+   * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
+   * and STANDARD otherwise.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
+   * @return The writingType.
+   */
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.WritingType getWritingType() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.WritingType result = io.channel.api.proto.pub.coreapi.model.WritingType.valueOf(writingType_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.WritingType.UNRECOGNIZED : result;
+  }
+
+  public static final int THREAD_MSG_FIELD_NUMBER = 41;
+  private boolean threadMsg_;
+  /**
+   * <pre>
+   * Whether this message is a reply within a thread (not the root).
+   * True when thread_key is present and the message is not a thread root.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool thread_msg = 41 [json_name = "threadMsg", (.buf.validate.field) = { ... }</code>
    * @return The threadMsg.
    */
   @java.lang.Override
@@ -1668,31 +2449,17 @@ private static final long serialVersionUID = 0L;
     return threadMsg_;
   }
 
-  public static final int BROADCASTED_MSG_FIELD_NUMBER = 31;
-  private boolean broadcastedMsg_;
-  /**
-   * <pre>
-   * Whether this message was broadcasted.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool broadcasted_msg = 31 [json_name = "broadcastedMsg"];</code>
-   * @return The broadcastedMsg.
-   */
-  @java.lang.Override
-  public boolean getBroadcastedMsg() {
-    return broadcastedMsg_;
-  }
-
-  public static final int ROOT_MESSAGE_ID_FIELD_NUMBER = 32;
+  public static final int ROOT_MESSAGE_ID_FIELD_NUMBER = 42;
   private volatile java.lang.Object rootMessageId_;
   /**
    * <pre>
-   * ID of the parent message this is a reply to.
+   * ID of the root message when this message belongs to a thread, meet, or ALF thread.
+   * Parsed from thread_key, meet_key, or alf_thread_key respectively.
+   * Absent for root messages and standalone messages.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string root_message_id = 32 [json_name = "rootMessageId"];</code>
+   * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
    * @return The rootMessageId.
    */
   @java.lang.Override
@@ -1710,11 +2477,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * ID of the parent message this is a reply to.
+   * ID of the root message when this message belongs to a thread, meet, or ALF thread.
+   * Parsed from thread_key, meet_key, or alf_thread_key respectively.
+   * Absent for root messages and standalone messages.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string root_message_id = 32 [json_name = "rootMessageId"];</code>
+   * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
    * @return The bytes for rootMessageId.
    */
   @java.lang.Override
@@ -1732,45 +2501,56 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int THREAD_FIELD_NUMBER = 33;
-  private io.channel.api.proto.pub.coreapi.model.MessageThread thread_;
+  public static final int THREAD_ROOT_FIELD_NUMBER = 43;
+  private boolean threadRoot_;
   /**
    * <pre>
-   * Thread metadata if this message is a thread root.
-   * +kubebuilder:validation:Nullable
+   * Whether this message is the root of a thread.
+   * True when the thread field is present.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
-   * @return Whether the thread field is set.
+   * <code>bool thread_root = 43 [json_name = "threadRoot", (.buf.validate.field) = { ... }</code>
+   * @return The threadRoot.
    */
   @java.lang.Override
-  public boolean hasThread() {
-    return thread_ != null;
+  public boolean getThreadRoot() {
+    return threadRoot_;
   }
+
+  public static final int BROADCASTED_MSG_FIELD_NUMBER = 44;
+  private boolean broadcastedMsg_;
   /**
    * <pre>
-   * Thread metadata if this message is a thread root.
-   * +kubebuilder:validation:Nullable
+   * Whether this thread reply is also visible in the main message stream.
+   * True when the message has both thread_key and main_key, but is not a thread root.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
-   * @return The thread.
+   * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg", (.buf.validate.field) = { ... }</code>
+   * @return The broadcastedMsg.
    */
   @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.MessageThread getThread() {
-    return thread_ == null ? io.channel.api.proto.pub.coreapi.model.MessageThread.getDefaultInstance() : thread_;
+  public boolean getBroadcastedMsg() {
+    return broadcastedMsg_;
   }
+
+  public static final int REMOVED_BY_WRITER_FIELD_NUMBER = 45;
+  private boolean removedByWriter_;
   /**
    * <pre>
-   * Thread metadata if this message is a thread root.
-   * +kubebuilder:validation:Nullable
+   * Whether the message was removed by its original author.
+   * True when the message state is REMOVED and the remover matches the author,
+   * or when no specific remover is recorded.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+   * <code>bool removed_by_writer = 45 [json_name = "removedByWriter", (.buf.validate.field) = { ... }</code>
+   * @return The removedByWriter.
    */
   @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder getThreadOrBuilder() {
-    return getThread();
+  public boolean getRemovedByWriter() {
+    return removedByWriter_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1787,100 +2567,140 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    getSerializedSize();
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, chatType_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, chatId_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, personType_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, personId_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, requestId_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(language_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, language_);
-    }
-    if (createdAt_ != null) {
-      output.writeMessage(9, getCreatedAt());
-    }
-    if (updatedAt_ != null) {
-      output.writeMessage(10, getUpdatedAt());
-    }
-    for (int i = 0; i < blocks_.size(); i++) {
-      output.writeMessage(12, blocks_.get(i));
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(plainText_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, plainText_);
-    }
-    for (int i = 0; i < buttons_.size(); i++) {
-      output.writeMessage(14, buttons_.get(i));
-    }
-    for (int i = 0; i < files_.size(); i++) {
-      output.writeMessage(15, files_.get(i));
-    }
-    if (webPage_ != null) {
-      output.writeMessage(16, getWebPage());
-    }
-    if (form_ != null) {
-      output.writeMessage(17, getForm());
-    }
-    if (getOptionsList().size() > 0) {
-      output.writeUInt32NoTag(146);
-      output.writeUInt32NoTag(optionsMemoizedSerializedSize);
-    }
-    for (int i = 0; i < options_.size(); i++) {
-      output.writeEnumNoTag(options_.get(i));
-    }
-    if (state_ != io.channel.api.proto.pub.coreapi.model.MessageState.MESSAGE_STATE_UNSPECIFIED.getNumber()) {
-      output.writeEnum(19, state_);
-    }
-    if (log_ != null) {
-      output.writeMessage(21, getLog());
-    }
-    for (int i = 0; i < reactions_.size(); i++) {
-      output.writeMessage(22, reactions_.get(i));
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatKey_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 24, chatKey_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, chatKey_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, id_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mainKey_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 25, mainKey_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, mainKey_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(threadKey_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 26, threadKey_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, threadKey_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(meetKey_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, meetKey_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(frontKey_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, frontKey_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alfThreadKey_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, alfThreadKey_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, channelId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, chatType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, chatId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, personType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, personId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, requestId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(language_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, language_);
+    }
+    if (createdAt_ != null) {
+      output.writeMessage(15, getCreatedAt());
     }
     if (version_ != 0L) {
-      output.writeInt64(27, version_);
+      output.writeInt64(16, version_);
     }
-    if (marketing_ != null) {
-      output.writeMessage(28, getMarketing());
+    for (int i = 0; i < blocks_.size(); i++) {
+      output.writeMessage(17, blocks_.get(i));
     }
-    if (supportBot_ != null) {
-      output.writeMessage(29, getSupportBot());
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(plainText_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 18, plainText_);
     }
-    if (threadMsg_ != false) {
-      output.writeBool(30, threadMsg_);
-    }
-    if (broadcastedMsg_ != false) {
-      output.writeBool(31, broadcastedMsg_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rootMessageId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 32, rootMessageId_);
+    if (updatedAt_ != null) {
+      output.writeMessage(19, getUpdatedAt());
     }
     if (thread_ != null) {
-      output.writeMessage(33, getThread());
+      output.writeMessage(20, getThread());
+    }
+    if (meet_ != null) {
+      output.writeMessage(21, getMeet());
+    }
+    if (email_ != null) {
+      output.writeMessage(22, getEmail());
+    }
+    if (alfThread_ != null) {
+      output.writeMessage(23, getAlfThread());
+    }
+    if (editedAt_ != null) {
+      output.writeMessage(24, getEditedAt());
+    }
+    for (int i = 0; i < buttons_.size(); i++) {
+      output.writeMessage(25, buttons_.get(i));
+    }
+    for (int i = 0; i < files_.size(); i++) {
+      output.writeMessage(26, files_.get(i));
+    }
+    if (webPage_ != null) {
+      output.writeMessage(27, getWebPage());
+    }
+    if (log_ != null) {
+      output.writeMessage(28, getLog());
+    }
+    for (int i = 0; i < reactions_.size(); i++) {
+      output.writeMessage(29, reactions_.get(i));
+    }
+    if (alfProgress_ != null) {
+      output.writeMessage(30, getAlfProgress());
+    }
+    if (form_ != null) {
+      output.writeMessage(31, getForm());
+    }
+    if (state_ != io.channel.api.proto.pub.coreapi.model.MessageState.MESSAGE_STATE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(32, state_);
+    }
+    for (int i = 0; i < options_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 33, options_.getRaw(i));
+    }
+    if (marketing_ != null) {
+      output.writeMessage(34, getMarketing());
+    }
+    if (supportBot_ != null) {
+      output.writeMessage(35, getSupportBot());
+    }
+    if (workflow_ != null) {
+      output.writeMessage(36, getWorkflow());
+    }
+    if (alertLevel_ != io.channel.api.proto.pub.coreapi.model.AlertLevel.ALERT_LEVEL_UNSPECIFIED.getNumber()) {
+      output.writeEnum(37, alertLevel_);
+    }
+    if (ivr_ != null) {
+      output.writeMessage(38, getIvr());
+    }
+    if (customPayload_ != null) {
+      output.writeMessage(39, getCustomPayload());
+    }
+    if (writingType_ != io.channel.api.proto.pub.coreapi.model.WritingType.WRITING_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(40, writingType_);
+    }
+    if (threadMsg_ != false) {
+      output.writeBool(41, threadMsg_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rootMessageId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 42, rootMessageId_);
+    }
+    if (threadRoot_ != false) {
+      output.writeBool(43, threadRoot_);
+    }
+    if (broadcastedMsg_ != false) {
+      output.writeBool(44, broadcastedMsg_);
+    }
+    if (removedByWriter_ != false) {
+      output.writeBool(45, removedByWriter_);
     }
     unknownFields.writeTo(output);
   }
@@ -1891,120 +2711,173 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatKey_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, chatKey_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, id_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mainKey_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, mainKey_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(threadKey_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, threadKey_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(meetKey_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, meetKey_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(frontKey_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, frontKey_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alfThreadKey_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, alfThreadKey_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, channelId_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, chatType_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, chatType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, chatId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, chatId_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, personType_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, personType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, personId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, personId_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, requestId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, requestId_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(language_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, language_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, language_);
     }
     if (createdAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(9, getCreatedAt());
+        .computeMessageSize(15, getCreatedAt());
     }
-    if (updatedAt_ != null) {
+    if (version_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, getUpdatedAt());
+        .computeInt64Size(16, version_);
     }
     for (int i = 0; i < blocks_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(12, blocks_.get(i));
+        .computeMessageSize(17, blocks_.get(i));
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(plainText_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, plainText_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, plainText_);
+    }
+    if (updatedAt_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(19, getUpdatedAt());
+    }
+    if (thread_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(20, getThread());
+    }
+    if (meet_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(21, getMeet());
+    }
+    if (email_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(22, getEmail());
+    }
+    if (alfThread_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(23, getAlfThread());
+    }
+    if (editedAt_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(24, getEditedAt());
     }
     for (int i = 0; i < buttons_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(14, buttons_.get(i));
+        .computeMessageSize(25, buttons_.get(i));
     }
     for (int i = 0; i < files_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(15, files_.get(i));
+        .computeMessageSize(26, files_.get(i));
     }
     if (webPage_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(16, getWebPage());
+        .computeMessageSize(27, getWebPage());
+    }
+    if (log_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(28, getLog());
+    }
+    for (int i = 0; i < reactions_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(29, reactions_.get(i));
+    }
+    if (alfProgress_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(30, getAlfProgress());
     }
     if (form_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(17, getForm());
+        .computeMessageSize(31, getForm());
+    }
+    if (state_ != io.channel.api.proto.pub.coreapi.model.MessageState.MESSAGE_STATE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(32, state_);
     }
     {
       int dataSize = 0;
       for (int i = 0; i < options_.size(); i++) {
-        dataSize += com.google.protobuf.CodedOutputStream
-          .computeEnumSizeNoTag(options_.get(i));
+        dataSize += computeStringSizeNoTag(options_.getRaw(i));
       }
       size += dataSize;
-      if (!getOptionsList().isEmpty()) {  size += 2;
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32SizeNoTag(dataSize);
-      }optionsMemoizedSerializedSize = dataSize;
-    }
-    if (state_ != io.channel.api.proto.pub.coreapi.model.MessageState.MESSAGE_STATE_UNSPECIFIED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(19, state_);
-    }
-    if (log_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(21, getLog());
-    }
-    for (int i = 0; i < reactions_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(22, reactions_.get(i));
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatKey_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(24, chatKey_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mainKey_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(25, mainKey_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(threadKey_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(26, threadKey_);
-    }
-    if (version_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(27, version_);
+      size += 2 * getOptionsList().size();
     }
     if (marketing_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(28, getMarketing());
+        .computeMessageSize(34, getMarketing());
     }
     if (supportBot_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(29, getSupportBot());
+        .computeMessageSize(35, getSupportBot());
+    }
+    if (workflow_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(36, getWorkflow());
+    }
+    if (alertLevel_ != io.channel.api.proto.pub.coreapi.model.AlertLevel.ALERT_LEVEL_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(37, alertLevel_);
+    }
+    if (ivr_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(38, getIvr());
+    }
+    if (customPayload_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(39, getCustomPayload());
+    }
+    if (writingType_ != io.channel.api.proto.pub.coreapi.model.WritingType.WRITING_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(40, writingType_);
     }
     if (threadMsg_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(30, threadMsg_);
+        .computeBoolSize(41, threadMsg_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rootMessageId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(42, rootMessageId_);
+    }
+    if (threadRoot_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(43, threadRoot_);
     }
     if (broadcastedMsg_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(31, broadcastedMsg_);
+        .computeBoolSize(44, broadcastedMsg_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rootMessageId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(32, rootMessageId_);
-    }
-    if (thread_ != null) {
+    if (removedByWriter_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(33, getThread());
+        .computeBoolSize(45, removedByWriter_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -2021,8 +2894,20 @@ private static final long serialVersionUID = 0L;
     }
     io.channel.api.proto.pub.coreapi.model.Message other = (io.channel.api.proto.pub.coreapi.model.Message) obj;
 
+    if (!getChatKey()
+        .equals(other.getChatKey())) return false;
     if (!getId()
         .equals(other.getId())) return false;
+    if (!getMainKey()
+        .equals(other.getMainKey())) return false;
+    if (!getThreadKey()
+        .equals(other.getThreadKey())) return false;
+    if (!getMeetKey()
+        .equals(other.getMeetKey())) return false;
+    if (!getFrontKey()
+        .equals(other.getFrontKey())) return false;
+    if (!getAlfThreadKey()
+        .equals(other.getAlfThreadKey())) return false;
     if (!getChannelId()
         .equals(other.getChannelId())) return false;
     if (!getChatType()
@@ -2042,15 +2927,42 @@ private static final long serialVersionUID = 0L;
       if (!getCreatedAt()
           .equals(other.getCreatedAt())) return false;
     }
+    if (getVersion()
+        != other.getVersion()) return false;
+    if (!getBlocksList()
+        .equals(other.getBlocksList())) return false;
+    if (!getPlainText()
+        .equals(other.getPlainText())) return false;
     if (hasUpdatedAt() != other.hasUpdatedAt()) return false;
     if (hasUpdatedAt()) {
       if (!getUpdatedAt()
           .equals(other.getUpdatedAt())) return false;
     }
-    if (!getBlocksList()
-        .equals(other.getBlocksList())) return false;
-    if (!getPlainText()
-        .equals(other.getPlainText())) return false;
+    if (hasThread() != other.hasThread()) return false;
+    if (hasThread()) {
+      if (!getThread()
+          .equals(other.getThread())) return false;
+    }
+    if (hasMeet() != other.hasMeet()) return false;
+    if (hasMeet()) {
+      if (!getMeet()
+          .equals(other.getMeet())) return false;
+    }
+    if (hasEmail() != other.hasEmail()) return false;
+    if (hasEmail()) {
+      if (!getEmail()
+          .equals(other.getEmail())) return false;
+    }
+    if (hasAlfThread() != other.hasAlfThread()) return false;
+    if (hasAlfThread()) {
+      if (!getAlfThread()
+          .equals(other.getAlfThread())) return false;
+    }
+    if (hasEditedAt() != other.hasEditedAt()) return false;
+    if (hasEditedAt()) {
+      if (!getEditedAt()
+          .equals(other.getEditedAt())) return false;
+    }
     if (!getButtonsList()
         .equals(other.getButtonsList())) return false;
     if (!getFilesList()
@@ -2060,13 +2972,6 @@ private static final long serialVersionUID = 0L;
       if (!getWebPage()
           .equals(other.getWebPage())) return false;
     }
-    if (hasForm() != other.hasForm()) return false;
-    if (hasForm()) {
-      if (!getForm()
-          .equals(other.getForm())) return false;
-    }
-    if (!options_.equals(other.options_)) return false;
-    if (state_ != other.state_) return false;
     if (hasLog() != other.hasLog()) return false;
     if (hasLog()) {
       if (!getLog()
@@ -2074,14 +2979,19 @@ private static final long serialVersionUID = 0L;
     }
     if (!getReactionsList()
         .equals(other.getReactionsList())) return false;
-    if (!getChatKey()
-        .equals(other.getChatKey())) return false;
-    if (!getMainKey()
-        .equals(other.getMainKey())) return false;
-    if (!getThreadKey()
-        .equals(other.getThreadKey())) return false;
-    if (getVersion()
-        != other.getVersion()) return false;
+    if (hasAlfProgress() != other.hasAlfProgress()) return false;
+    if (hasAlfProgress()) {
+      if (!getAlfProgress()
+          .equals(other.getAlfProgress())) return false;
+    }
+    if (hasForm() != other.hasForm()) return false;
+    if (hasForm()) {
+      if (!getForm()
+          .equals(other.getForm())) return false;
+    }
+    if (state_ != other.state_) return false;
+    if (!getOptionsList()
+        .equals(other.getOptionsList())) return false;
     if (hasMarketing() != other.hasMarketing()) return false;
     if (hasMarketing()) {
       if (!getMarketing()
@@ -2092,17 +3002,33 @@ private static final long serialVersionUID = 0L;
       if (!getSupportBot()
           .equals(other.getSupportBot())) return false;
     }
+    if (hasWorkflow() != other.hasWorkflow()) return false;
+    if (hasWorkflow()) {
+      if (!getWorkflow()
+          .equals(other.getWorkflow())) return false;
+    }
+    if (alertLevel_ != other.alertLevel_) return false;
+    if (hasIvr() != other.hasIvr()) return false;
+    if (hasIvr()) {
+      if (!getIvr()
+          .equals(other.getIvr())) return false;
+    }
+    if (hasCustomPayload() != other.hasCustomPayload()) return false;
+    if (hasCustomPayload()) {
+      if (!getCustomPayload()
+          .equals(other.getCustomPayload())) return false;
+    }
+    if (writingType_ != other.writingType_) return false;
     if (getThreadMsg()
         != other.getThreadMsg()) return false;
-    if (getBroadcastedMsg()
-        != other.getBroadcastedMsg()) return false;
     if (!getRootMessageId()
         .equals(other.getRootMessageId())) return false;
-    if (hasThread() != other.hasThread()) return false;
-    if (hasThread()) {
-      if (!getThread()
-          .equals(other.getThread())) return false;
-    }
+    if (getThreadRoot()
+        != other.getThreadRoot()) return false;
+    if (getBroadcastedMsg()
+        != other.getBroadcastedMsg()) return false;
+    if (getRemovedByWriter()
+        != other.getRemovedByWriter()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -2114,8 +3040,20 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + CHAT_KEY_FIELD_NUMBER;
+    hash = (53 * hash) + getChatKey().hashCode();
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId().hashCode();
+    hash = (37 * hash) + MAIN_KEY_FIELD_NUMBER;
+    hash = (53 * hash) + getMainKey().hashCode();
+    hash = (37 * hash) + THREAD_KEY_FIELD_NUMBER;
+    hash = (53 * hash) + getThreadKey().hashCode();
+    hash = (37 * hash) + MEET_KEY_FIELD_NUMBER;
+    hash = (53 * hash) + getMeetKey().hashCode();
+    hash = (37 * hash) + FRONT_KEY_FIELD_NUMBER;
+    hash = (53 * hash) + getFrontKey().hashCode();
+    hash = (37 * hash) + ALF_THREAD_KEY_FIELD_NUMBER;
+    hash = (53 * hash) + getAlfThreadKey().hashCode();
     hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChannelId().hashCode();
     hash = (37 * hash) + CHAT_TYPE_FIELD_NUMBER;
@@ -2134,16 +3072,39 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getCreatedAt().hashCode();
     }
-    if (hasUpdatedAt()) {
-      hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
-      hash = (53 * hash) + getUpdatedAt().hashCode();
-    }
+    hash = (37 * hash) + VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getVersion());
     if (getBlocksCount() > 0) {
       hash = (37 * hash) + BLOCKS_FIELD_NUMBER;
       hash = (53 * hash) + getBlocksList().hashCode();
     }
     hash = (37 * hash) + PLAIN_TEXT_FIELD_NUMBER;
     hash = (53 * hash) + getPlainText().hashCode();
+    if (hasUpdatedAt()) {
+      hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
+      hash = (53 * hash) + getUpdatedAt().hashCode();
+    }
+    if (hasThread()) {
+      hash = (37 * hash) + THREAD_FIELD_NUMBER;
+      hash = (53 * hash) + getThread().hashCode();
+    }
+    if (hasMeet()) {
+      hash = (37 * hash) + MEET_FIELD_NUMBER;
+      hash = (53 * hash) + getMeet().hashCode();
+    }
+    if (hasEmail()) {
+      hash = (37 * hash) + EMAIL_FIELD_NUMBER;
+      hash = (53 * hash) + getEmail().hashCode();
+    }
+    if (hasAlfThread()) {
+      hash = (37 * hash) + ALF_THREAD_FIELD_NUMBER;
+      hash = (53 * hash) + getAlfThread().hashCode();
+    }
+    if (hasEditedAt()) {
+      hash = (37 * hash) + EDITED_AT_FIELD_NUMBER;
+      hash = (53 * hash) + getEditedAt().hashCode();
+    }
     if (getButtonsCount() > 0) {
       hash = (37 * hash) + BUTTONS_FIELD_NUMBER;
       hash = (53 * hash) + getButtonsList().hashCode();
@@ -2156,16 +3117,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + WEB_PAGE_FIELD_NUMBER;
       hash = (53 * hash) + getWebPage().hashCode();
     }
-    if (hasForm()) {
-      hash = (37 * hash) + FORM_FIELD_NUMBER;
-      hash = (53 * hash) + getForm().hashCode();
-    }
-    if (getOptionsCount() > 0) {
-      hash = (37 * hash) + OPTIONS_FIELD_NUMBER;
-      hash = (53 * hash) + options_.hashCode();
-    }
-    hash = (37 * hash) + STATE_FIELD_NUMBER;
-    hash = (53 * hash) + state_;
     if (hasLog()) {
       hash = (37 * hash) + LOG_FIELD_NUMBER;
       hash = (53 * hash) + getLog().hashCode();
@@ -2174,15 +3125,20 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REACTIONS_FIELD_NUMBER;
       hash = (53 * hash) + getReactionsList().hashCode();
     }
-    hash = (37 * hash) + CHAT_KEY_FIELD_NUMBER;
-    hash = (53 * hash) + getChatKey().hashCode();
-    hash = (37 * hash) + MAIN_KEY_FIELD_NUMBER;
-    hash = (53 * hash) + getMainKey().hashCode();
-    hash = (37 * hash) + THREAD_KEY_FIELD_NUMBER;
-    hash = (53 * hash) + getThreadKey().hashCode();
-    hash = (37 * hash) + VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getVersion());
+    if (hasAlfProgress()) {
+      hash = (37 * hash) + ALF_PROGRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAlfProgress().hashCode();
+    }
+    if (hasForm()) {
+      hash = (37 * hash) + FORM_FIELD_NUMBER;
+      hash = (53 * hash) + getForm().hashCode();
+    }
+    hash = (37 * hash) + STATE_FIELD_NUMBER;
+    hash = (53 * hash) + state_;
+    if (getOptionsCount() > 0) {
+      hash = (37 * hash) + OPTIONS_FIELD_NUMBER;
+      hash = (53 * hash) + getOptionsList().hashCode();
+    }
     if (hasMarketing()) {
       hash = (37 * hash) + MARKETING_FIELD_NUMBER;
       hash = (53 * hash) + getMarketing().hashCode();
@@ -2191,18 +3147,36 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SUPPORT_BOT_FIELD_NUMBER;
       hash = (53 * hash) + getSupportBot().hashCode();
     }
+    if (hasWorkflow()) {
+      hash = (37 * hash) + WORKFLOW_FIELD_NUMBER;
+      hash = (53 * hash) + getWorkflow().hashCode();
+    }
+    hash = (37 * hash) + ALERT_LEVEL_FIELD_NUMBER;
+    hash = (53 * hash) + alertLevel_;
+    if (hasIvr()) {
+      hash = (37 * hash) + IVR_FIELD_NUMBER;
+      hash = (53 * hash) + getIvr().hashCode();
+    }
+    if (hasCustomPayload()) {
+      hash = (37 * hash) + CUSTOM_PAYLOAD_FIELD_NUMBER;
+      hash = (53 * hash) + getCustomPayload().hashCode();
+    }
+    hash = (37 * hash) + WRITING_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + writingType_;
     hash = (37 * hash) + THREAD_MSG_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getThreadMsg());
+    hash = (37 * hash) + ROOT_MESSAGE_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getRootMessageId().hashCode();
+    hash = (37 * hash) + THREAD_ROOT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getThreadRoot());
     hash = (37 * hash) + BROADCASTED_MSG_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getBroadcastedMsg());
-    hash = (37 * hash) + ROOT_MESSAGE_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getRootMessageId().hashCode();
-    if (hasThread()) {
-      hash = (37 * hash) + THREAD_FIELD_NUMBER;
-      hash = (53 * hash) + getThread().hashCode();
-    }
+    hash = (37 * hash) + REMOVED_BY_WRITER_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getRemovedByWriter());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -2300,7 +3274,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Message represents a single message within a chat.
+   * Message represents a single chat message within a conversation.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.Message}
@@ -2344,7 +3318,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      chatKey_ = "";
+
       id_ = "";
+
+      mainKey_ = "";
+
+      threadKey_ = "";
+
+      meetKey_ = "";
+
+      frontKey_ = "";
+
+      alfThreadKey_ = "";
 
       channelId_ = "";
 
@@ -2366,12 +3352,8 @@ private static final long serialVersionUID = 0L;
         createdAt_ = null;
         createdAtBuilder_ = null;
       }
-      if (updatedAtBuilder_ == null) {
-        updatedAt_ = null;
-      } else {
-        updatedAt_ = null;
-        updatedAtBuilder_ = null;
-      }
+      version_ = 0L;
+
       if (blocksBuilder_ == null) {
         blocks_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -2380,6 +3362,42 @@ private static final long serialVersionUID = 0L;
       }
       plainText_ = "";
 
+      if (updatedAtBuilder_ == null) {
+        updatedAt_ = null;
+      } else {
+        updatedAt_ = null;
+        updatedAtBuilder_ = null;
+      }
+      if (threadBuilder_ == null) {
+        thread_ = null;
+      } else {
+        thread_ = null;
+        threadBuilder_ = null;
+      }
+      if (meetBuilder_ == null) {
+        meet_ = null;
+      } else {
+        meet_ = null;
+        meetBuilder_ = null;
+      }
+      if (emailBuilder_ == null) {
+        email_ = null;
+      } else {
+        email_ = null;
+        emailBuilder_ = null;
+      }
+      if (alfThreadBuilder_ == null) {
+        alfThread_ = null;
+      } else {
+        alfThread_ = null;
+        alfThreadBuilder_ = null;
+      }
+      if (editedAtBuilder_ == null) {
+        editedAt_ = null;
+      } else {
+        editedAt_ = null;
+        editedAtBuilder_ = null;
+      }
       if (buttonsBuilder_ == null) {
         buttons_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -2398,16 +3416,6 @@ private static final long serialVersionUID = 0L;
         webPage_ = null;
         webPageBuilder_ = null;
       }
-      if (formBuilder_ == null) {
-        form_ = null;
-      } else {
-        form_ = null;
-        formBuilder_ = null;
-      }
-      options_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000008);
-      state_ = 0;
-
       if (logBuilder_ == null) {
         log_ = null;
       } else {
@@ -2416,18 +3424,26 @@ private static final long serialVersionUID = 0L;
       }
       if (reactionsBuilder_ == null) {
         reactions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
         reactionsBuilder_.clear();
       }
-      chatKey_ = "";
+      if (alfProgressBuilder_ == null) {
+        alfProgress_ = null;
+      } else {
+        alfProgress_ = null;
+        alfProgressBuilder_ = null;
+      }
+      if (formBuilder_ == null) {
+        form_ = null;
+      } else {
+        form_ = null;
+        formBuilder_ = null;
+      }
+      state_ = 0;
 
-      mainKey_ = "";
-
-      threadKey_ = "";
-
-      version_ = 0L;
-
+      options_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000010);
       if (marketingBuilder_ == null) {
         marketing_ = null;
       } else {
@@ -2440,18 +3456,38 @@ private static final long serialVersionUID = 0L;
         supportBot_ = null;
         supportBotBuilder_ = null;
       }
-      threadMsg_ = false;
+      if (workflowBuilder_ == null) {
+        workflow_ = null;
+      } else {
+        workflow_ = null;
+        workflowBuilder_ = null;
+      }
+      alertLevel_ = 0;
 
-      broadcastedMsg_ = false;
+      if (ivrBuilder_ == null) {
+        ivr_ = null;
+      } else {
+        ivr_ = null;
+        ivrBuilder_ = null;
+      }
+      if (customPayloadBuilder_ == null) {
+        customPayload_ = null;
+      } else {
+        customPayload_ = null;
+        customPayloadBuilder_ = null;
+      }
+      writingType_ = 0;
+
+      threadMsg_ = false;
 
       rootMessageId_ = "";
 
-      if (threadBuilder_ == null) {
-        thread_ = null;
-      } else {
-        thread_ = null;
-        threadBuilder_ = null;
-      }
+      threadRoot_ = false;
+
+      broadcastedMsg_ = false;
+
+      removedByWriter_ = false;
+
       return this;
     }
 
@@ -2479,7 +3515,13 @@ private static final long serialVersionUID = 0L;
     public io.channel.api.proto.pub.coreapi.model.Message buildPartial() {
       io.channel.api.proto.pub.coreapi.model.Message result = new io.channel.api.proto.pub.coreapi.model.Message(this);
       int from_bitField0_ = bitField0_;
+      result.chatKey_ = chatKey_;
       result.id_ = id_;
+      result.mainKey_ = mainKey_;
+      result.threadKey_ = threadKey_;
+      result.meetKey_ = meetKey_;
+      result.frontKey_ = frontKey_;
+      result.alfThreadKey_ = alfThreadKey_;
       result.channelId_ = channelId_;
       result.chatType_ = chatType_;
       result.chatId_ = chatId_;
@@ -2492,11 +3534,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.createdAt_ = createdAtBuilder_.build();
       }
-      if (updatedAtBuilder_ == null) {
-        result.updatedAt_ = updatedAt_;
-      } else {
-        result.updatedAt_ = updatedAtBuilder_.build();
-      }
+      result.version_ = version_;
       if (blocksBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           blocks_ = java.util.Collections.unmodifiableList(blocks_);
@@ -2507,6 +3545,36 @@ private static final long serialVersionUID = 0L;
         result.blocks_ = blocksBuilder_.build();
       }
       result.plainText_ = plainText_;
+      if (updatedAtBuilder_ == null) {
+        result.updatedAt_ = updatedAt_;
+      } else {
+        result.updatedAt_ = updatedAtBuilder_.build();
+      }
+      if (threadBuilder_ == null) {
+        result.thread_ = thread_;
+      } else {
+        result.thread_ = threadBuilder_.build();
+      }
+      if (meetBuilder_ == null) {
+        result.meet_ = meet_;
+      } else {
+        result.meet_ = meetBuilder_.build();
+      }
+      if (emailBuilder_ == null) {
+        result.email_ = email_;
+      } else {
+        result.email_ = emailBuilder_.build();
+      }
+      if (alfThreadBuilder_ == null) {
+        result.alfThread_ = alfThread_;
+      } else {
+        result.alfThread_ = alfThreadBuilder_.build();
+      }
+      if (editedAtBuilder_ == null) {
+        result.editedAt_ = editedAt_;
+      } else {
+        result.editedAt_ = editedAtBuilder_.build();
+      }
       if (buttonsBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0)) {
           buttons_ = java.util.Collections.unmodifiableList(buttons_);
@@ -2530,35 +3598,36 @@ private static final long serialVersionUID = 0L;
       } else {
         result.webPage_ = webPageBuilder_.build();
       }
-      if (formBuilder_ == null) {
-        result.form_ = form_;
-      } else {
-        result.form_ = formBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000008) != 0)) {
-        options_ = java.util.Collections.unmodifiableList(options_);
-        bitField0_ = (bitField0_ & ~0x00000008);
-      }
-      result.options_ = options_;
-      result.state_ = state_;
       if (logBuilder_ == null) {
         result.log_ = log_;
       } else {
         result.log_ = logBuilder_.build();
       }
       if (reactionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           reactions_ = java.util.Collections.unmodifiableList(reactions_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.reactions_ = reactions_;
       } else {
         result.reactions_ = reactionsBuilder_.build();
       }
-      result.chatKey_ = chatKey_;
-      result.mainKey_ = mainKey_;
-      result.threadKey_ = threadKey_;
-      result.version_ = version_;
+      if (alfProgressBuilder_ == null) {
+        result.alfProgress_ = alfProgress_;
+      } else {
+        result.alfProgress_ = alfProgressBuilder_.build();
+      }
+      if (formBuilder_ == null) {
+        result.form_ = form_;
+      } else {
+        result.form_ = formBuilder_.build();
+      }
+      result.state_ = state_;
+      if (((bitField0_ & 0x00000010) != 0)) {
+        options_ = options_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.options_ = options_;
       if (marketingBuilder_ == null) {
         result.marketing_ = marketing_;
       } else {
@@ -2569,14 +3638,28 @@ private static final long serialVersionUID = 0L;
       } else {
         result.supportBot_ = supportBotBuilder_.build();
       }
-      result.threadMsg_ = threadMsg_;
-      result.broadcastedMsg_ = broadcastedMsg_;
-      result.rootMessageId_ = rootMessageId_;
-      if (threadBuilder_ == null) {
-        result.thread_ = thread_;
+      if (workflowBuilder_ == null) {
+        result.workflow_ = workflow_;
       } else {
-        result.thread_ = threadBuilder_.build();
+        result.workflow_ = workflowBuilder_.build();
       }
+      result.alertLevel_ = alertLevel_;
+      if (ivrBuilder_ == null) {
+        result.ivr_ = ivr_;
+      } else {
+        result.ivr_ = ivrBuilder_.build();
+      }
+      if (customPayloadBuilder_ == null) {
+        result.customPayload_ = customPayload_;
+      } else {
+        result.customPayload_ = customPayloadBuilder_.build();
+      }
+      result.writingType_ = writingType_;
+      result.threadMsg_ = threadMsg_;
+      result.rootMessageId_ = rootMessageId_;
+      result.threadRoot_ = threadRoot_;
+      result.broadcastedMsg_ = broadcastedMsg_;
+      result.removedByWriter_ = removedByWriter_;
       onBuilt();
       return result;
     }
@@ -2625,8 +3708,32 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(io.channel.api.proto.pub.coreapi.model.Message other) {
       if (other == io.channel.api.proto.pub.coreapi.model.Message.getDefaultInstance()) return this;
+      if (!other.getChatKey().isEmpty()) {
+        chatKey_ = other.chatKey_;
+        onChanged();
+      }
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        onChanged();
+      }
+      if (!other.getMainKey().isEmpty()) {
+        mainKey_ = other.mainKey_;
+        onChanged();
+      }
+      if (!other.getThreadKey().isEmpty()) {
+        threadKey_ = other.threadKey_;
+        onChanged();
+      }
+      if (!other.getMeetKey().isEmpty()) {
+        meetKey_ = other.meetKey_;
+        onChanged();
+      }
+      if (!other.getFrontKey().isEmpty()) {
+        frontKey_ = other.frontKey_;
+        onChanged();
+      }
+      if (!other.getAlfThreadKey().isEmpty()) {
+        alfThreadKey_ = other.alfThreadKey_;
         onChanged();
       }
       if (!other.getChannelId().isEmpty()) {
@@ -2660,8 +3767,8 @@ private static final long serialVersionUID = 0L;
       if (other.hasCreatedAt()) {
         mergeCreatedAt(other.getCreatedAt());
       }
-      if (other.hasUpdatedAt()) {
-        mergeUpdatedAt(other.getUpdatedAt());
+      if (other.getVersion() != 0L) {
+        setVersion(other.getVersion());
       }
       if (blocksBuilder_ == null) {
         if (!other.blocks_.isEmpty()) {
@@ -2692,6 +3799,24 @@ private static final long serialVersionUID = 0L;
       if (!other.getPlainText().isEmpty()) {
         plainText_ = other.plainText_;
         onChanged();
+      }
+      if (other.hasUpdatedAt()) {
+        mergeUpdatedAt(other.getUpdatedAt());
+      }
+      if (other.hasThread()) {
+        mergeThread(other.getThread());
+      }
+      if (other.hasMeet()) {
+        mergeMeet(other.getMeet());
+      }
+      if (other.hasEmail()) {
+        mergeEmail(other.getEmail());
+      }
+      if (other.hasAlfThread()) {
+        mergeAlfThread(other.getAlfThread());
+      }
+      if (other.hasEditedAt()) {
+        mergeEditedAt(other.getEditedAt());
       }
       if (buttonsBuilder_ == null) {
         if (!other.buttons_.isEmpty()) {
@@ -2748,22 +3873,6 @@ private static final long serialVersionUID = 0L;
       if (other.hasWebPage()) {
         mergeWebPage(other.getWebPage());
       }
-      if (other.hasForm()) {
-        mergeForm(other.getForm());
-      }
-      if (!other.options_.isEmpty()) {
-        if (options_.isEmpty()) {
-          options_ = other.options_;
-          bitField0_ = (bitField0_ & ~0x00000008);
-        } else {
-          ensureOptionsIsMutable();
-          options_.addAll(other.options_);
-        }
-        onChanged();
-      }
-      if (other.state_ != 0) {
-        setStateValue(other.getStateValue());
-      }
       if (other.hasLog()) {
         mergeLog(other.getLog());
       }
@@ -2771,7 +3880,7 @@ private static final long serialVersionUID = 0L;
         if (!other.reactions_.isEmpty()) {
           if (reactions_.isEmpty()) {
             reactions_ = other.reactions_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureReactionsIsMutable();
             reactions_.addAll(other.reactions_);
@@ -2784,7 +3893,7 @@ private static final long serialVersionUID = 0L;
             reactionsBuilder_.dispose();
             reactionsBuilder_ = null;
             reactions_ = other.reactions_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000008);
             reactionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getReactionsFieldBuilder() : null;
@@ -2793,20 +3902,24 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      if (!other.getChatKey().isEmpty()) {
-        chatKey_ = other.chatKey_;
-        onChanged();
+      if (other.hasAlfProgress()) {
+        mergeAlfProgress(other.getAlfProgress());
       }
-      if (!other.getMainKey().isEmpty()) {
-        mainKey_ = other.mainKey_;
-        onChanged();
+      if (other.hasForm()) {
+        mergeForm(other.getForm());
       }
-      if (!other.getThreadKey().isEmpty()) {
-        threadKey_ = other.threadKey_;
-        onChanged();
+      if (other.state_ != 0) {
+        setStateValue(other.getStateValue());
       }
-      if (other.getVersion() != 0L) {
-        setVersion(other.getVersion());
+      if (!other.options_.isEmpty()) {
+        if (options_.isEmpty()) {
+          options_ = other.options_;
+          bitField0_ = (bitField0_ & ~0x00000010);
+        } else {
+          ensureOptionsIsMutable();
+          options_.addAll(other.options_);
+        }
+        onChanged();
       }
       if (other.hasMarketing()) {
         mergeMarketing(other.getMarketing());
@@ -2814,18 +3927,36 @@ private static final long serialVersionUID = 0L;
       if (other.hasSupportBot()) {
         mergeSupportBot(other.getSupportBot());
       }
+      if (other.hasWorkflow()) {
+        mergeWorkflow(other.getWorkflow());
+      }
+      if (other.alertLevel_ != 0) {
+        setAlertLevelValue(other.getAlertLevelValue());
+      }
+      if (other.hasIvr()) {
+        mergeIvr(other.getIvr());
+      }
+      if (other.hasCustomPayload()) {
+        mergeCustomPayload(other.getCustomPayload());
+      }
+      if (other.writingType_ != 0) {
+        setWritingTypeValue(other.getWritingTypeValue());
+      }
       if (other.getThreadMsg() != false) {
         setThreadMsg(other.getThreadMsg());
-      }
-      if (other.getBroadcastedMsg() != false) {
-        setBroadcastedMsg(other.getBroadcastedMsg());
       }
       if (!other.getRootMessageId().isEmpty()) {
         rootMessageId_ = other.rootMessageId_;
         onChanged();
       }
-      if (other.hasThread()) {
-        mergeThread(other.getThread());
+      if (other.getThreadRoot() != false) {
+        setThreadRoot(other.getThreadRoot());
+      }
+      if (other.getBroadcastedMsg() != false) {
+        setBroadcastedMsg(other.getBroadcastedMsg());
+      }
+      if (other.getRemovedByWriter() != false) {
+        setRemovedByWriter(other.getRemovedByWriter());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2857,15 +3988,126 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
+    private java.lang.Object chatKey_ = "";
+    /**
+     * <pre>
+     * Composite key identifying the parent conversation.
+     * Format: "{chatType}-{chatId}".
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="userChat-uc-abc123"
+     * </pre>
+     *
+     * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+     * @return The chatKey.
+     */
+    public java.lang.String getChatKey() {
+      java.lang.Object ref = chatKey_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        chatKey_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Composite key identifying the parent conversation.
+     * Format: "{chatType}-{chatId}".
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="userChat-uc-abc123"
+     * </pre>
+     *
+     * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+     * @return The bytes for chatKey.
+     */
+    public com.google.protobuf.ByteString
+        getChatKeyBytes() {
+      java.lang.Object ref = chatKey_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        chatKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Composite key identifying the parent conversation.
+     * Format: "{chatType}-{chatId}".
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="userChat-uc-abc123"
+     * </pre>
+     *
+     * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+     * @param value The chatKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatKey(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      chatKey_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Composite key identifying the parent conversation.
+     * Format: "{chatType}-{chatId}".
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="userChat-uc-abc123"
+     * </pre>
+     *
+     * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChatKey() {
+      
+      chatKey_ = getDefaultInstance().getChatKey();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Composite key identifying the parent conversation.
+     * Format: "{chatType}-{chatId}".
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="userChat-uc-abc123"
+     * </pre>
+     *
+     * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+     * @param value The bytes for chatKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatKeyBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      chatKey_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object id_ = "";
     /**
      * <pre>
      * Unique message identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="msg-001"
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return The id.
      */
     public java.lang.String getId() {
@@ -2884,10 +4126,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique message identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="msg-001"
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
@@ -2907,10 +4149,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique message identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="msg-001"
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -2928,10 +4170,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique message identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="msg-001"
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -2944,10 +4186,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique message identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="msg-001"
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -2963,15 +4205,575 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object mainKey_ = "";
+    /**
+     * <pre>
+     * Index key for the main (top-level) message stream.
+     * Same value as chat_key when the message appears in the main stream.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string main_key = 3 [json_name = "mainKey"];</code>
+     * @return The mainKey.
+     */
+    public java.lang.String getMainKey() {
+      java.lang.Object ref = mainKey_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        mainKey_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Index key for the main (top-level) message stream.
+     * Same value as chat_key when the message appears in the main stream.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string main_key = 3 [json_name = "mainKey"];</code>
+     * @return The bytes for mainKey.
+     */
+    public com.google.protobuf.ByteString
+        getMainKeyBytes() {
+      java.lang.Object ref = mainKey_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        mainKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Index key for the main (top-level) message stream.
+     * Same value as chat_key when the message appears in the main stream.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string main_key = 3 [json_name = "mainKey"];</code>
+     * @param value The mainKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMainKey(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      mainKey_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Index key for the main (top-level) message stream.
+     * Same value as chat_key when the message appears in the main stream.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string main_key = 3 [json_name = "mainKey"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMainKey() {
+      
+      mainKey_ = getDefaultInstance().getMainKey();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Index key for the main (top-level) message stream.
+     * Same value as chat_key when the message appears in the main stream.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string main_key = 3 [json_name = "mainKey"];</code>
+     * @param value The bytes for mainKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMainKeyBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      mainKey_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object threadKey_ = "";
+    /**
+     * <pre>
+     * Index key for the thread message stream.
+     * For thread root messages: same value as chat_key.
+     * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
+     * Absent when the message does not belong to a thread.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string thread_key = 4 [json_name = "threadKey"];</code>
+     * @return The threadKey.
+     */
+    public java.lang.String getThreadKey() {
+      java.lang.Object ref = threadKey_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        threadKey_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Index key for the thread message stream.
+     * For thread root messages: same value as chat_key.
+     * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
+     * Absent when the message does not belong to a thread.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string thread_key = 4 [json_name = "threadKey"];</code>
+     * @return The bytes for threadKey.
+     */
+    public com.google.protobuf.ByteString
+        getThreadKeyBytes() {
+      java.lang.Object ref = threadKey_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        threadKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Index key for the thread message stream.
+     * For thread root messages: same value as chat_key.
+     * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
+     * Absent when the message does not belong to a thread.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string thread_key = 4 [json_name = "threadKey"];</code>
+     * @param value The threadKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setThreadKey(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      threadKey_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Index key for the thread message stream.
+     * For thread root messages: same value as chat_key.
+     * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
+     * Absent when the message does not belong to a thread.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string thread_key = 4 [json_name = "threadKey"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearThreadKey() {
+      
+      threadKey_ = getDefaultInstance().getThreadKey();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Index key for the thread message stream.
+     * For thread root messages: same value as chat_key.
+     * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
+     * Absent when the message does not belong to a thread.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string thread_key = 4 [json_name = "threadKey"];</code>
+     * @param value The bytes for threadKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setThreadKeyBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      threadKey_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object meetKey_ = "";
+    /**
+     * <pre>
+     * Index key for the meet message stream.
+     * For meet root messages: same value as chat_key.
+     * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
+     * Absent when the message is not associated with a meet session.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string meet_key = 5 [json_name = "meetKey"];</code>
+     * @return The meetKey.
+     */
+    public java.lang.String getMeetKey() {
+      java.lang.Object ref = meetKey_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        meetKey_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Index key for the meet message stream.
+     * For meet root messages: same value as chat_key.
+     * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
+     * Absent when the message is not associated with a meet session.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string meet_key = 5 [json_name = "meetKey"];</code>
+     * @return The bytes for meetKey.
+     */
+    public com.google.protobuf.ByteString
+        getMeetKeyBytes() {
+      java.lang.Object ref = meetKey_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        meetKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Index key for the meet message stream.
+     * For meet root messages: same value as chat_key.
+     * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
+     * Absent when the message is not associated with a meet session.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string meet_key = 5 [json_name = "meetKey"];</code>
+     * @param value The meetKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMeetKey(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      meetKey_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Index key for the meet message stream.
+     * For meet root messages: same value as chat_key.
+     * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
+     * Absent when the message is not associated with a meet session.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string meet_key = 5 [json_name = "meetKey"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMeetKey() {
+      
+      meetKey_ = getDefaultInstance().getMeetKey();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Index key for the meet message stream.
+     * For meet root messages: same value as chat_key.
+     * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
+     * Absent when the message is not associated with a meet session.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string meet_key = 5 [json_name = "meetKey"];</code>
+     * @param value The bytes for meetKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMeetKeyBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      meetKey_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object frontKey_ = "";
+    /**
+     * <pre>
+     * Index key for the front (user-facing) message stream.
+     * Same value as chat_key when the message appears in the front stream.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string front_key = 6 [json_name = "frontKey"];</code>
+     * @return The frontKey.
+     */
+    public java.lang.String getFrontKey() {
+      java.lang.Object ref = frontKey_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        frontKey_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Index key for the front (user-facing) message stream.
+     * Same value as chat_key when the message appears in the front stream.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string front_key = 6 [json_name = "frontKey"];</code>
+     * @return The bytes for frontKey.
+     */
+    public com.google.protobuf.ByteString
+        getFrontKeyBytes() {
+      java.lang.Object ref = frontKey_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        frontKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Index key for the front (user-facing) message stream.
+     * Same value as chat_key when the message appears in the front stream.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string front_key = 6 [json_name = "frontKey"];</code>
+     * @param value The frontKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFrontKey(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      frontKey_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Index key for the front (user-facing) message stream.
+     * Same value as chat_key when the message appears in the front stream.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string front_key = 6 [json_name = "frontKey"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFrontKey() {
+      
+      frontKey_ = getDefaultInstance().getFrontKey();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Index key for the front (user-facing) message stream.
+     * Same value as chat_key when the message appears in the front stream.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string front_key = 6 [json_name = "frontKey"];</code>
+     * @param value The bytes for frontKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFrontKeyBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      frontKey_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object alfThreadKey_ = "";
+    /**
+     * <pre>
+     * Index key for the ALF AI-assisted thread stream.
+     * For ALF thread root messages: same value as chat_key.
+     * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
+     * Absent when the message is not part of an ALF thread.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
+     * @return The alfThreadKey.
+     */
+    public java.lang.String getAlfThreadKey() {
+      java.lang.Object ref = alfThreadKey_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        alfThreadKey_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Index key for the ALF AI-assisted thread stream.
+     * For ALF thread root messages: same value as chat_key.
+     * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
+     * Absent when the message is not part of an ALF thread.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
+     * @return The bytes for alfThreadKey.
+     */
+    public com.google.protobuf.ByteString
+        getAlfThreadKeyBytes() {
+      java.lang.Object ref = alfThreadKey_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        alfThreadKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Index key for the ALF AI-assisted thread stream.
+     * For ALF thread root messages: same value as chat_key.
+     * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
+     * Absent when the message is not part of an ALF thread.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
+     * @param value The alfThreadKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAlfThreadKey(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      alfThreadKey_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Index key for the ALF AI-assisted thread stream.
+     * For ALF thread root messages: same value as chat_key.
+     * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
+     * Absent when the message is not part of an ALF thread.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAlfThreadKey() {
+      
+      alfThreadKey_ = getDefaultInstance().getAlfThreadKey();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Index key for the ALF AI-assisted thread stream.
+     * For ALF thread root messages: same value as chat_key.
+     * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
+     * Absent when the message is not part of an ALF thread.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
+     * @param value The bytes for alfThreadKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAlfThreadKeyBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      alfThreadKey_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object channelId_ = "";
     /**
      * <pre>
      * Channel ID this message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The channelId.
      */
     public java.lang.String getChannelId() {
@@ -2990,10 +4792,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for channelId.
      */
     public com.google.protobuf.ByteString
@@ -3013,10 +4815,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The channelId to set.
      * @return This builder for chaining.
      */
@@ -3034,10 +4836,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChannelId() {
@@ -3050,10 +4852,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for channelId to set.
      * @return This builder for chaining.
      */
@@ -3072,12 +4874,11 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object chatType_ = "";
     /**
      * <pre>
-     * Chat type containing this message (e.g. "userChat", "group").
+     * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
      * @return The chatType.
      */
     public java.lang.String getChatType() {
@@ -3094,12 +4895,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type containing this message (e.g. "userChat", "group").
+     * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
      * @return The bytes for chatType.
      */
     public com.google.protobuf.ByteString
@@ -3117,12 +4917,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type containing this message (e.g. "userChat", "group").
+     * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
      * @param value The chatType to set.
      * @return This builder for chaining.
      */
@@ -3138,12 +4937,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type containing this message (e.g. "userChat", "group").
+     * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChatType() {
@@ -3154,12 +4952,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type containing this message (e.g. "userChat", "group").
+     * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for chatType to set.
      * @return This builder for chaining.
      */
@@ -3178,12 +4975,11 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object chatId_ = "";
     /**
      * <pre>
-     * Chat ID containing this message.
+     * Chat ID of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_id = 4 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
      * @return The chatId.
      */
     public java.lang.String getChatId() {
@@ -3200,12 +4996,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat ID containing this message.
+     * Chat ID of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_id = 4 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for chatId.
      */
     public com.google.protobuf.ByteString
@@ -3223,12 +5018,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat ID containing this message.
+     * Chat ID of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_id = 4 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
      * @param value The chatId to set.
      * @return This builder for chaining.
      */
@@ -3244,12 +5038,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat ID containing this message.
+     * Chat ID of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_id = 4 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChatId() {
@@ -3260,12 +5053,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat ID containing this message.
+     * Chat ID of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_id = 4 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for chatId to set.
      * @return This builder for chaining.
      */
@@ -3284,12 +5076,11 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object personType_ = "";
     /**
      * <pre>
-     * Entity type of the message author (e.g. "manager", "bot", "user").
+     * Entity type of the message author (e.g., "manager", "user", "bot").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @return The personType.
      */
     public java.lang.String getPersonType() {
@@ -3306,12 +5097,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the message author (e.g. "manager", "bot", "user").
+     * Entity type of the message author (e.g., "manager", "user", "bot").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @return The bytes for personType.
      */
     public com.google.protobuf.ByteString
@@ -3329,12 +5119,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the message author (e.g. "manager", "bot", "user").
+     * Entity type of the message author (e.g., "manager", "user", "bot").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @param value The personType to set.
      * @return This builder for chaining.
      */
@@ -3350,12 +5139,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the message author (e.g. "manager", "bot", "user").
+     * Entity type of the message author (e.g., "manager", "user", "bot").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPersonType() {
@@ -3366,12 +5154,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the message author (e.g. "manager", "bot", "user").
+     * Entity type of the message author (e.g., "manager", "user", "bot").
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for personType to set.
      * @return This builder for chaining.
      */
@@ -3392,10 +5179,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity ID of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_id = 6 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+     * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
      * @return The personId.
      */
     public java.lang.String getPersonId() {
@@ -3414,10 +5200,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity ID of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_id = 6 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+     * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for personId.
      */
     public com.google.protobuf.ByteString
@@ -3437,10 +5222,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity ID of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_id = 6 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+     * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
      * @param value The personId to set.
      * @return This builder for chaining.
      */
@@ -3458,10 +5242,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity ID of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_id = 6 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+     * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPersonId() {
@@ -3474,10 +5257,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity ID of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string person_id = 6 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+     * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for personId to set.
      * @return This builder for chaining.
      */
@@ -3496,11 +5278,13 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object requestId_ = "";
     /**
      * <pre>
-     * Client-generated request identifier for idempotency.
+     * Client-generated identifier for deduplication.
+     * Allows matching a locally pre-rendered message with the server response.
+     * Immutable after creation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string request_id = 7 [json_name = "requestId"];</code>
+     * <code>string request_id = 13 [json_name = "requestId"];</code>
      * @return The requestId.
      */
     public java.lang.String getRequestId() {
@@ -3517,11 +5301,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Client-generated request identifier for idempotency.
+     * Client-generated identifier for deduplication.
+     * Allows matching a locally pre-rendered message with the server response.
+     * Immutable after creation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string request_id = 7 [json_name = "requestId"];</code>
+     * <code>string request_id = 13 [json_name = "requestId"];</code>
      * @return The bytes for requestId.
      */
     public com.google.protobuf.ByteString
@@ -3539,11 +5325,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Client-generated request identifier for idempotency.
+     * Client-generated identifier for deduplication.
+     * Allows matching a locally pre-rendered message with the server response.
+     * Immutable after creation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string request_id = 7 [json_name = "requestId"];</code>
+     * <code>string request_id = 13 [json_name = "requestId"];</code>
      * @param value The requestId to set.
      * @return This builder for chaining.
      */
@@ -3559,11 +5347,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Client-generated request identifier for idempotency.
+     * Client-generated identifier for deduplication.
+     * Allows matching a locally pre-rendered message with the server response.
+     * Immutable after creation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string request_id = 7 [json_name = "requestId"];</code>
+     * <code>string request_id = 13 [json_name = "requestId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
@@ -3574,11 +5364,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Client-generated request identifier for idempotency.
+     * Client-generated identifier for deduplication.
+     * Allows matching a locally pre-rendered message with the server response.
+     * Immutable after creation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string request_id = 7 [json_name = "requestId"];</code>
+     * <code>string request_id = 13 [json_name = "requestId"];</code>
      * @param value The bytes for requestId to set.
      * @return This builder for chaining.
      */
@@ -3597,11 +5389,11 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object language_ = "";
     /**
      * <pre>
-     * Language code of the message content.
+     * Detected language of the message content (e.g., "ko", "en", "ja").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string language = 8 [json_name = "language"];</code>
+     * <code>string language = 14 [json_name = "language"];</code>
      * @return The language.
      */
     public java.lang.String getLanguage() {
@@ -3618,11 +5410,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Language code of the message content.
+     * Detected language of the message content (e.g., "ko", "en", "ja").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string language = 8 [json_name = "language"];</code>
+     * <code>string language = 14 [json_name = "language"];</code>
      * @return The bytes for language.
      */
     public com.google.protobuf.ByteString
@@ -3640,11 +5432,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Language code of the message content.
+     * Detected language of the message content (e.g., "ko", "en", "ja").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string language = 8 [json_name = "language"];</code>
+     * <code>string language = 14 [json_name = "language"];</code>
      * @param value The language to set.
      * @return This builder for chaining.
      */
@@ -3660,11 +5452,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Language code of the message content.
+     * Detected language of the message content (e.g., "ko", "en", "ja").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string language = 8 [json_name = "language"];</code>
+     * <code>string language = 14 [json_name = "language"];</code>
      * @return This builder for chaining.
      */
     public Builder clearLanguage() {
@@ -3675,11 +5467,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Language code of the message content.
+     * Detected language of the message content (e.g., "ko", "en", "ja").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string language = 8 [json_name = "language"];</code>
+     * <code>string language = 14 [json_name = "language"];</code>
      * @param value The bytes for language to set.
      * @return This builder for chaining.
      */
@@ -3704,7 +5496,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      * @return Whether the createdAt field is set.
      */
     public boolean hasCreatedAt() {
@@ -3716,7 +5508,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      * @return The createdAt.
      */
     public com.google.protobuf.Timestamp getCreatedAt() {
@@ -3732,7 +5524,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -3753,7 +5545,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setCreatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -3772,7 +5564,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -3795,7 +5587,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearCreatedAt() {
       if (createdAtBuilder_ == null) {
@@ -3814,7 +5606,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
       
@@ -3827,7 +5619,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       if (createdAtBuilder_ != null) {
@@ -3843,7 +5635,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -3859,168 +5651,53 @@ private static final long serialVersionUID = 0L;
       return createdAtBuilder_;
     }
 
-    private com.google.protobuf.Timestamp updatedAt_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updatedAtBuilder_;
+    private long version_ ;
     /**
      * <pre>
-     * Message last update timestamp.
+     * Optimistic locking version.
+     * Incremented on every update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
-     * @return Whether the updatedAt field is set.
+     * <code>int64 version = 16 [json_name = "version"];</code>
+     * @return The version.
      */
-    public boolean hasUpdatedAt() {
-      return updatedAtBuilder_ != null || updatedAt_ != null;
+    @java.lang.Override
+    public long getVersion() {
+      return version_;
     }
     /**
      * <pre>
-     * Message last update timestamp.
+     * Optimistic locking version.
+     * Incremented on every update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
-     * @return The updatedAt.
+     * <code>int64 version = 16 [json_name = "version"];</code>
+     * @param value The version to set.
+     * @return This builder for chaining.
      */
-    public com.google.protobuf.Timestamp getUpdatedAt() {
-      if (updatedAtBuilder_ == null) {
-        return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
-      } else {
-        return updatedAtBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Message last update timestamp.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
-     */
-    public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
-      if (updatedAtBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        updatedAt_ = value;
-        onChanged();
-      } else {
-        updatedAtBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Message last update timestamp.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
-     */
-    public Builder setUpdatedAt(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (updatedAtBuilder_ == null) {
-        updatedAt_ = builderForValue.build();
-        onChanged();
-      } else {
-        updatedAtBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Message last update timestamp.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
-     */
-    public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
-      if (updatedAtBuilder_ == null) {
-        if (updatedAt_ != null) {
-          updatedAt_ =
-            com.google.protobuf.Timestamp.newBuilder(updatedAt_).mergeFrom(value).buildPartial();
-        } else {
-          updatedAt_ = value;
-        }
-        onChanged();
-      } else {
-        updatedAtBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Message last update timestamp.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
-     */
-    public Builder clearUpdatedAt() {
-      if (updatedAtBuilder_ == null) {
-        updatedAt_ = null;
-        onChanged();
-      } else {
-        updatedAt_ = null;
-        updatedAtBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Message last update timestamp.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
+    public Builder setVersion(long value) {
       
+      version_ = value;
       onChanged();
-      return getUpdatedAtFieldBuilder().getBuilder();
+      return this;
     }
     /**
      * <pre>
-     * Message last update timestamp.
+     * Optimistic locking version.
+     * Incremented on every update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+     * <code>int64 version = 16 [json_name = "version"];</code>
+     * @return This builder for chaining.
      */
-    public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
-      if (updatedAtBuilder_ != null) {
-        return updatedAtBuilder_.getMessageOrBuilder();
-      } else {
-        return updatedAt_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
-      }
-    }
-    /**
-     * <pre>
-     * Message last update timestamp.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getUpdatedAtFieldBuilder() {
-      if (updatedAtBuilder_ == null) {
-        updatedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getUpdatedAt(),
-                getParentForChildren(),
-                isClean());
-        updatedAt_ = null;
-      }
-      return updatedAtBuilder_;
+    public Builder clearVersion() {
+      
+      version_ = 0L;
+      onChanged();
+      return this;
     }
 
     private java.util.List<io.channel.api.proto.pub.coreapi.model.Block> blocks_ =
@@ -4037,11 +5714,12 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public java.util.List<io.channel.api.proto.pub.coreapi.model.Block> getBlocksList() {
       if (blocksBuilder_ == null) {
@@ -4052,11 +5730,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public int getBlocksCount() {
       if (blocksBuilder_ == null) {
@@ -4067,11 +5746,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.Block getBlocks(int index) {
       if (blocksBuilder_ == null) {
@@ -4082,11 +5762,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public Builder setBlocks(
         int index, io.channel.api.proto.pub.coreapi.model.Block value) {
@@ -4104,11 +5785,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public Builder setBlocks(
         int index, io.channel.api.proto.pub.coreapi.model.Block.Builder builderForValue) {
@@ -4123,11 +5805,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public Builder addBlocks(io.channel.api.proto.pub.coreapi.model.Block value) {
       if (blocksBuilder_ == null) {
@@ -4144,11 +5827,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public Builder addBlocks(
         int index, io.channel.api.proto.pub.coreapi.model.Block value) {
@@ -4166,11 +5850,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public Builder addBlocks(
         io.channel.api.proto.pub.coreapi.model.Block.Builder builderForValue) {
@@ -4185,11 +5870,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public Builder addBlocks(
         int index, io.channel.api.proto.pub.coreapi.model.Block.Builder builderForValue) {
@@ -4204,11 +5890,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public Builder addAllBlocks(
         java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.Block> values) {
@@ -4224,11 +5911,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public Builder clearBlocks() {
       if (blocksBuilder_ == null) {
@@ -4242,11 +5930,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public Builder removeBlocks(int index) {
       if (blocksBuilder_ == null) {
@@ -4260,11 +5949,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.Block.Builder getBlocksBuilder(
         int index) {
@@ -4272,11 +5962,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.BlockOrBuilder getBlocksOrBuilder(
         int index) {
@@ -4287,11 +5978,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.BlockOrBuilder> 
          getBlocksOrBuilderList() {
@@ -4303,11 +5995,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.Block.Builder addBlocksBuilder() {
       return getBlocksFieldBuilder().addBuilder(
@@ -4315,11 +6008,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.Block.Builder addBlocksBuilder(
         int index) {
@@ -4328,11 +6022,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Structured content blocks of the message.
+     * Structured content blocks composing the message body.
+     * Contains rich text, images, code snippets, and other block-level elements.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
      */
     public java.util.List<io.channel.api.proto.pub.coreapi.model.Block.Builder> 
          getBlocksBuilderList() {
@@ -4356,11 +6051,12 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object plainText_ = "";
     /**
      * <pre>
-     * Plain text representation of the message.
+     * Plain text representation of the message body.
+     * Stripped of all formatting from blocks.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string plain_text = 13 [json_name = "plainText"];</code>
+     * <code>string plain_text = 18 [json_name = "plainText"];</code>
      * @return The plainText.
      */
     public java.lang.String getPlainText() {
@@ -4377,11 +6073,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Plain text representation of the message.
+     * Plain text representation of the message body.
+     * Stripped of all formatting from blocks.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string plain_text = 13 [json_name = "plainText"];</code>
+     * <code>string plain_text = 18 [json_name = "plainText"];</code>
      * @return The bytes for plainText.
      */
     public com.google.protobuf.ByteString
@@ -4399,11 +6096,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Plain text representation of the message.
+     * Plain text representation of the message body.
+     * Stripped of all formatting from blocks.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string plain_text = 13 [json_name = "plainText"];</code>
+     * <code>string plain_text = 18 [json_name = "plainText"];</code>
      * @param value The plainText to set.
      * @return This builder for chaining.
      */
@@ -4419,11 +6117,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Plain text representation of the message.
+     * Plain text representation of the message body.
+     * Stripped of all formatting from blocks.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string plain_text = 13 [json_name = "plainText"];</code>
+     * <code>string plain_text = 18 [json_name = "plainText"];</code>
      * @return This builder for chaining.
      */
     public Builder clearPlainText() {
@@ -4434,11 +6133,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Plain text representation of the message.
+     * Plain text representation of the message body.
+     * Stripped of all formatting from blocks.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string plain_text = 13 [json_name = "plainText"];</code>
+     * <code>string plain_text = 18 [json_name = "plainText"];</code>
      * @param value The bytes for plainText to set.
      * @return This builder for chaining.
      */
@@ -4452,6 +6152,1044 @@ private static final long serialVersionUID = 0L;
       plainText_ = value;
       onChanged();
       return this;
+    }
+
+    private com.google.protobuf.Timestamp updatedAt_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updatedAtBuilder_;
+    /**
+     * <pre>
+     * Message last update timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
+     * @return Whether the updatedAt field is set.
+     */
+    public boolean hasUpdatedAt() {
+      return updatedAtBuilder_ != null || updatedAt_ != null;
+    }
+    /**
+     * <pre>
+     * Message last update timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
+     * @return The updatedAt.
+     */
+    public com.google.protobuf.Timestamp getUpdatedAt() {
+      if (updatedAtBuilder_ == null) {
+        return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+      } else {
+        return updatedAtBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Message last update timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
+     */
+    public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
+      if (updatedAtBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        updatedAt_ = value;
+        onChanged();
+      } else {
+        updatedAtBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Message last update timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
+     */
+    public Builder setUpdatedAt(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (updatedAtBuilder_ == null) {
+        updatedAt_ = builderForValue.build();
+        onChanged();
+      } else {
+        updatedAtBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Message last update timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
+     */
+    public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
+      if (updatedAtBuilder_ == null) {
+        if (updatedAt_ != null) {
+          updatedAt_ =
+            com.google.protobuf.Timestamp.newBuilder(updatedAt_).mergeFrom(value).buildPartial();
+        } else {
+          updatedAt_ = value;
+        }
+        onChanged();
+      } else {
+        updatedAtBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Message last update timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
+     */
+    public Builder clearUpdatedAt() {
+      if (updatedAtBuilder_ == null) {
+        updatedAt_ = null;
+        onChanged();
+      } else {
+        updatedAt_ = null;
+        updatedAtBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Message last update timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
+      
+      onChanged();
+      return getUpdatedAtFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Message last update timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
+      if (updatedAtBuilder_ != null) {
+        return updatedAtBuilder_.getMessageOrBuilder();
+      } else {
+        return updatedAt_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+      }
+    }
+    /**
+     * <pre>
+     * Message last update timestamp.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getUpdatedAtFieldBuilder() {
+      if (updatedAtBuilder_ == null) {
+        updatedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getUpdatedAt(),
+                getParentForChildren(),
+                isClean());
+        updatedAt_ = null;
+      }
+      return updatedAtBuilder_;
+    }
+
+    private io.channel.api.proto.pub.coreapi.model.MessageThread thread_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.MessageThread, io.channel.api.proto.pub.coreapi.model.MessageThread.Builder, io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder> threadBuilder_;
+    /**
+     * <pre>
+     * Thread metadata present only on thread root messages.
+     * Contains reply count, last reply timestamp, and participant summary.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
+     * @return Whether the thread field is set.
+     */
+    public boolean hasThread() {
+      return threadBuilder_ != null || thread_ != null;
+    }
+    /**
+     * <pre>
+     * Thread metadata present only on thread root messages.
+     * Contains reply count, last reply timestamp, and participant summary.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
+     * @return The thread.
+     */
+    public io.channel.api.proto.pub.coreapi.model.MessageThread getThread() {
+      if (threadBuilder_ == null) {
+        return thread_ == null ? io.channel.api.proto.pub.coreapi.model.MessageThread.getDefaultInstance() : thread_;
+      } else {
+        return threadBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Thread metadata present only on thread root messages.
+     * Contains reply count, last reply timestamp, and participant summary.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
+     */
+    public Builder setThread(io.channel.api.proto.pub.coreapi.model.MessageThread value) {
+      if (threadBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        thread_ = value;
+        onChanged();
+      } else {
+        threadBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Thread metadata present only on thread root messages.
+     * Contains reply count, last reply timestamp, and participant summary.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
+     */
+    public Builder setThread(
+        io.channel.api.proto.pub.coreapi.model.MessageThread.Builder builderForValue) {
+      if (threadBuilder_ == null) {
+        thread_ = builderForValue.build();
+        onChanged();
+      } else {
+        threadBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Thread metadata present only on thread root messages.
+     * Contains reply count, last reply timestamp, and participant summary.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
+     */
+    public Builder mergeThread(io.channel.api.proto.pub.coreapi.model.MessageThread value) {
+      if (threadBuilder_ == null) {
+        if (thread_ != null) {
+          thread_ =
+            io.channel.api.proto.pub.coreapi.model.MessageThread.newBuilder(thread_).mergeFrom(value).buildPartial();
+        } else {
+          thread_ = value;
+        }
+        onChanged();
+      } else {
+        threadBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Thread metadata present only on thread root messages.
+     * Contains reply count, last reply timestamp, and participant summary.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
+     */
+    public Builder clearThread() {
+      if (threadBuilder_ == null) {
+        thread_ = null;
+        onChanged();
+      } else {
+        thread_ = null;
+        threadBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Thread metadata present only on thread root messages.
+     * Contains reply count, last reply timestamp, and participant summary.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.MessageThread.Builder getThreadBuilder() {
+      
+      onChanged();
+      return getThreadFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Thread metadata present only on thread root messages.
+     * Contains reply count, last reply timestamp, and participant summary.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder getThreadOrBuilder() {
+      if (threadBuilder_ != null) {
+        return threadBuilder_.getMessageOrBuilder();
+      } else {
+        return thread_ == null ?
+            io.channel.api.proto.pub.coreapi.model.MessageThread.getDefaultInstance() : thread_;
+      }
+    }
+    /**
+     * <pre>
+     * Thread metadata present only on thread root messages.
+     * Contains reply count, last reply timestamp, and participant summary.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.MessageThread, io.channel.api.proto.pub.coreapi.model.MessageThread.Builder, io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder> 
+        getThreadFieldBuilder() {
+      if (threadBuilder_ == null) {
+        threadBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.model.MessageThread, io.channel.api.proto.pub.coreapi.model.MessageThread.Builder, io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder>(
+                getThread(),
+                getParentForChildren(),
+                isClean());
+        thread_ = null;
+      }
+      return threadBuilder_;
+    }
+
+    private com.google.protobuf.Struct meet_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> meetBuilder_;
+    /**
+     * <pre>
+     * Meet session metadata for messages associated with a video/voice meet.
+     * Contains session ID, participants, and call state.
+     * Present only on meet-related messages.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
+     * @return Whether the meet field is set.
+     */
+    public boolean hasMeet() {
+      return meetBuilder_ != null || meet_ != null;
+    }
+    /**
+     * <pre>
+     * Meet session metadata for messages associated with a video/voice meet.
+     * Contains session ID, participants, and call state.
+     * Present only on meet-related messages.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
+     * @return The meet.
+     */
+    public com.google.protobuf.Struct getMeet() {
+      if (meetBuilder_ == null) {
+        return meet_ == null ? com.google.protobuf.Struct.getDefaultInstance() : meet_;
+      } else {
+        return meetBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Meet session metadata for messages associated with a video/voice meet.
+     * Contains session ID, participants, and call state.
+     * Present only on meet-related messages.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
+     */
+    public Builder setMeet(com.google.protobuf.Struct value) {
+      if (meetBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        meet_ = value;
+        onChanged();
+      } else {
+        meetBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Meet session metadata for messages associated with a video/voice meet.
+     * Contains session ID, participants, and call state.
+     * Present only on meet-related messages.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
+     */
+    public Builder setMeet(
+        com.google.protobuf.Struct.Builder builderForValue) {
+      if (meetBuilder_ == null) {
+        meet_ = builderForValue.build();
+        onChanged();
+      } else {
+        meetBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Meet session metadata for messages associated with a video/voice meet.
+     * Contains session ID, participants, and call state.
+     * Present only on meet-related messages.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
+     */
+    public Builder mergeMeet(com.google.protobuf.Struct value) {
+      if (meetBuilder_ == null) {
+        if (meet_ != null) {
+          meet_ =
+            com.google.protobuf.Struct.newBuilder(meet_).mergeFrom(value).buildPartial();
+        } else {
+          meet_ = value;
+        }
+        onChanged();
+      } else {
+        meetBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Meet session metadata for messages associated with a video/voice meet.
+     * Contains session ID, participants, and call state.
+     * Present only on meet-related messages.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
+     */
+    public Builder clearMeet() {
+      if (meetBuilder_ == null) {
+        meet_ = null;
+        onChanged();
+      } else {
+        meet_ = null;
+        meetBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Meet session metadata for messages associated with a video/voice meet.
+     * Contains session ID, participants, and call state.
+     * Present only on meet-related messages.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
+     */
+    public com.google.protobuf.Struct.Builder getMeetBuilder() {
+      
+      onChanged();
+      return getMeetFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Meet session metadata for messages associated with a video/voice meet.
+     * Contains session ID, participants, and call state.
+     * Present only on meet-related messages.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
+     */
+    public com.google.protobuf.StructOrBuilder getMeetOrBuilder() {
+      if (meetBuilder_ != null) {
+        return meetBuilder_.getMessageOrBuilder();
+      } else {
+        return meet_ == null ?
+            com.google.protobuf.Struct.getDefaultInstance() : meet_;
+      }
+    }
+    /**
+     * <pre>
+     * Meet session metadata for messages associated with a video/voice meet.
+     * Contains session ID, participants, and call state.
+     * Present only on meet-related messages.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        getMeetFieldBuilder() {
+      if (meetBuilder_ == null) {
+        meetBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                getMeet(),
+                getParentForChildren(),
+                isClean());
+        meet_ = null;
+      }
+      return meetBuilder_;
+    }
+
+    private com.google.protobuf.Struct email_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> emailBuilder_;
+    /**
+     * <pre>
+     * Email metadata for messages sent or received via email integration.
+     * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
+     * @return Whether the email field is set.
+     */
+    public boolean hasEmail() {
+      return emailBuilder_ != null || email_ != null;
+    }
+    /**
+     * <pre>
+     * Email metadata for messages sent or received via email integration.
+     * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
+     * @return The email.
+     */
+    public com.google.protobuf.Struct getEmail() {
+      if (emailBuilder_ == null) {
+        return email_ == null ? com.google.protobuf.Struct.getDefaultInstance() : email_;
+      } else {
+        return emailBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Email metadata for messages sent or received via email integration.
+     * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
+     */
+    public Builder setEmail(com.google.protobuf.Struct value) {
+      if (emailBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        email_ = value;
+        onChanged();
+      } else {
+        emailBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Email metadata for messages sent or received via email integration.
+     * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
+     */
+    public Builder setEmail(
+        com.google.protobuf.Struct.Builder builderForValue) {
+      if (emailBuilder_ == null) {
+        email_ = builderForValue.build();
+        onChanged();
+      } else {
+        emailBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Email metadata for messages sent or received via email integration.
+     * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
+     */
+    public Builder mergeEmail(com.google.protobuf.Struct value) {
+      if (emailBuilder_ == null) {
+        if (email_ != null) {
+          email_ =
+            com.google.protobuf.Struct.newBuilder(email_).mergeFrom(value).buildPartial();
+        } else {
+          email_ = value;
+        }
+        onChanged();
+      } else {
+        emailBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Email metadata for messages sent or received via email integration.
+     * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
+     */
+    public Builder clearEmail() {
+      if (emailBuilder_ == null) {
+        email_ = null;
+        onChanged();
+      } else {
+        email_ = null;
+        emailBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Email metadata for messages sent or received via email integration.
+     * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
+     */
+    public com.google.protobuf.Struct.Builder getEmailBuilder() {
+      
+      onChanged();
+      return getEmailFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Email metadata for messages sent or received via email integration.
+     * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
+     */
+    public com.google.protobuf.StructOrBuilder getEmailOrBuilder() {
+      if (emailBuilder_ != null) {
+        return emailBuilder_.getMessageOrBuilder();
+      } else {
+        return email_ == null ?
+            com.google.protobuf.Struct.getDefaultInstance() : email_;
+      }
+    }
+    /**
+     * <pre>
+     * Email metadata for messages sent or received via email integration.
+     * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        getEmailFieldBuilder() {
+      if (emailBuilder_ == null) {
+        emailBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                getEmail(),
+                getParentForChildren(),
+                isClean());
+        email_ = null;
+      }
+      return emailBuilder_;
+    }
+
+    private com.google.protobuf.Struct alfThread_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> alfThreadBuilder_;
+    /**
+     * <pre>
+     * ALF (AI agent) thread metadata for AI-assisted conversation threads.
+     * Contains ALF session state and context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
+     * @return Whether the alfThread field is set.
+     */
+    public boolean hasAlfThread() {
+      return alfThreadBuilder_ != null || alfThread_ != null;
+    }
+    /**
+     * <pre>
+     * ALF (AI agent) thread metadata for AI-assisted conversation threads.
+     * Contains ALF session state and context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
+     * @return The alfThread.
+     */
+    public com.google.protobuf.Struct getAlfThread() {
+      if (alfThreadBuilder_ == null) {
+        return alfThread_ == null ? com.google.protobuf.Struct.getDefaultInstance() : alfThread_;
+      } else {
+        return alfThreadBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * ALF (AI agent) thread metadata for AI-assisted conversation threads.
+     * Contains ALF session state and context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
+     */
+    public Builder setAlfThread(com.google.protobuf.Struct value) {
+      if (alfThreadBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        alfThread_ = value;
+        onChanged();
+      } else {
+        alfThreadBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * ALF (AI agent) thread metadata for AI-assisted conversation threads.
+     * Contains ALF session state and context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
+     */
+    public Builder setAlfThread(
+        com.google.protobuf.Struct.Builder builderForValue) {
+      if (alfThreadBuilder_ == null) {
+        alfThread_ = builderForValue.build();
+        onChanged();
+      } else {
+        alfThreadBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * ALF (AI agent) thread metadata for AI-assisted conversation threads.
+     * Contains ALF session state and context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
+     */
+    public Builder mergeAlfThread(com.google.protobuf.Struct value) {
+      if (alfThreadBuilder_ == null) {
+        if (alfThread_ != null) {
+          alfThread_ =
+            com.google.protobuf.Struct.newBuilder(alfThread_).mergeFrom(value).buildPartial();
+        } else {
+          alfThread_ = value;
+        }
+        onChanged();
+      } else {
+        alfThreadBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * ALF (AI agent) thread metadata for AI-assisted conversation threads.
+     * Contains ALF session state and context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
+     */
+    public Builder clearAlfThread() {
+      if (alfThreadBuilder_ == null) {
+        alfThread_ = null;
+        onChanged();
+      } else {
+        alfThread_ = null;
+        alfThreadBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * ALF (AI agent) thread metadata for AI-assisted conversation threads.
+     * Contains ALF session state and context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
+     */
+    public com.google.protobuf.Struct.Builder getAlfThreadBuilder() {
+      
+      onChanged();
+      return getAlfThreadFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * ALF (AI agent) thread metadata for AI-assisted conversation threads.
+     * Contains ALF session state and context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
+     */
+    public com.google.protobuf.StructOrBuilder getAlfThreadOrBuilder() {
+      if (alfThreadBuilder_ != null) {
+        return alfThreadBuilder_.getMessageOrBuilder();
+      } else {
+        return alfThread_ == null ?
+            com.google.protobuf.Struct.getDefaultInstance() : alfThread_;
+      }
+    }
+    /**
+     * <pre>
+     * ALF (AI agent) thread metadata for AI-assisted conversation threads.
+     * Contains ALF session state and context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        getAlfThreadFieldBuilder() {
+      if (alfThreadBuilder_ == null) {
+        alfThreadBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                getAlfThread(),
+                getParentForChildren(),
+                isClean());
+        alfThread_ = null;
+      }
+      return alfThreadBuilder_;
+    }
+
+    private com.google.protobuf.Timestamp editedAt_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> editedAtBuilder_;
+    /**
+     * <pre>
+     * Timestamp when the message content was last edited by a person.
+     * Absent if the message has never been edited.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
+     * @return Whether the editedAt field is set.
+     */
+    public boolean hasEditedAt() {
+      return editedAtBuilder_ != null || editedAt_ != null;
+    }
+    /**
+     * <pre>
+     * Timestamp when the message content was last edited by a person.
+     * Absent if the message has never been edited.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
+     * @return The editedAt.
+     */
+    public com.google.protobuf.Timestamp getEditedAt() {
+      if (editedAtBuilder_ == null) {
+        return editedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : editedAt_;
+      } else {
+        return editedAtBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the message content was last edited by a person.
+     * Absent if the message has never been edited.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
+     */
+    public Builder setEditedAt(com.google.protobuf.Timestamp value) {
+      if (editedAtBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        editedAt_ = value;
+        onChanged();
+      } else {
+        editedAtBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the message content was last edited by a person.
+     * Absent if the message has never been edited.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
+     */
+    public Builder setEditedAt(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (editedAtBuilder_ == null) {
+        editedAt_ = builderForValue.build();
+        onChanged();
+      } else {
+        editedAtBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the message content was last edited by a person.
+     * Absent if the message has never been edited.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
+     */
+    public Builder mergeEditedAt(com.google.protobuf.Timestamp value) {
+      if (editedAtBuilder_ == null) {
+        if (editedAt_ != null) {
+          editedAt_ =
+            com.google.protobuf.Timestamp.newBuilder(editedAt_).mergeFrom(value).buildPartial();
+        } else {
+          editedAt_ = value;
+        }
+        onChanged();
+      } else {
+        editedAtBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the message content was last edited by a person.
+     * Absent if the message has never been edited.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
+     */
+    public Builder clearEditedAt() {
+      if (editedAtBuilder_ == null) {
+        editedAt_ = null;
+        onChanged();
+      } else {
+        editedAt_ = null;
+        editedAtBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the message content was last edited by a person.
+     * Absent if the message has never been edited.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getEditedAtBuilder() {
+      
+      onChanged();
+      return getEditedAtFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Timestamp when the message content was last edited by a person.
+     * Absent if the message has never been edited.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getEditedAtOrBuilder() {
+      if (editedAtBuilder_ != null) {
+        return editedAtBuilder_.getMessageOrBuilder();
+      } else {
+        return editedAt_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : editedAt_;
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the message content was last edited by a person.
+     * Absent if the message has never been edited.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getEditedAtFieldBuilder() {
+      if (editedAtBuilder_ == null) {
+        editedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getEditedAt(),
+                getParentForChildren(),
+                isClean());
+        editedAt_ = null;
+      }
+      return editedAtBuilder_;
     }
 
     private java.util.List<io.channel.api.proto.pub.coreapi.model.MessageButton> buttons_ =
@@ -4468,12 +7206,13 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public java.util.List<io.channel.api.proto.pub.coreapi.model.MessageButton> getButtonsList() {
       if (buttonsBuilder_ == null) {
@@ -4484,12 +7223,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public int getButtonsCount() {
       if (buttonsBuilder_ == null) {
@@ -4500,12 +7240,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageButton getButtons(int index) {
       if (buttonsBuilder_ == null) {
@@ -4516,12 +7257,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public Builder setButtons(
         int index, io.channel.api.proto.pub.coreapi.model.MessageButton value) {
@@ -4539,12 +7281,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public Builder setButtons(
         int index, io.channel.api.proto.pub.coreapi.model.MessageButton.Builder builderForValue) {
@@ -4559,12 +7302,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public Builder addButtons(io.channel.api.proto.pub.coreapi.model.MessageButton value) {
       if (buttonsBuilder_ == null) {
@@ -4581,12 +7325,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public Builder addButtons(
         int index, io.channel.api.proto.pub.coreapi.model.MessageButton value) {
@@ -4604,12 +7349,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public Builder addButtons(
         io.channel.api.proto.pub.coreapi.model.MessageButton.Builder builderForValue) {
@@ -4624,12 +7370,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public Builder addButtons(
         int index, io.channel.api.proto.pub.coreapi.model.MessageButton.Builder builderForValue) {
@@ -4644,12 +7391,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public Builder addAllButtons(
         java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.MessageButton> values) {
@@ -4665,12 +7413,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public Builder clearButtons() {
       if (buttonsBuilder_ == null) {
@@ -4684,12 +7433,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public Builder removeButtons(int index) {
       if (buttonsBuilder_ == null) {
@@ -4703,12 +7453,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageButton.Builder getButtonsBuilder(
         int index) {
@@ -4716,12 +7467,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageButtonOrBuilder getButtonsOrBuilder(
         int index) {
@@ -4732,12 +7484,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.MessageButtonOrBuilder> 
          getButtonsOrBuilderList() {
@@ -4749,12 +7502,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageButton.Builder addButtonsBuilder() {
       return getButtonsFieldBuilder().addBuilder(
@@ -4762,12 +7516,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageButton.Builder addButtonsBuilder(
         int index) {
@@ -4776,12 +7531,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Interactive buttons attached to the message.
+     * Interactive action buttons displayed below the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * +kubebuilder:validation:MaxItems=2
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
      */
     public java.util.List<io.channel.api.proto.pub.coreapi.model.MessageButton.Builder> 
          getButtonsBuilderList() {
@@ -4818,9 +7574,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public java.util.List<io.channel.api.proto.pub.coreapi.model.MessageFile> getFilesList() {
       if (filesBuilder_ == null) {
@@ -4833,9 +7591,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public int getFilesCount() {
       if (filesBuilder_ == null) {
@@ -4848,9 +7608,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageFile getFiles(int index) {
       if (filesBuilder_ == null) {
@@ -4863,9 +7625,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public Builder setFiles(
         int index, io.channel.api.proto.pub.coreapi.model.MessageFile value) {
@@ -4885,9 +7649,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public Builder setFiles(
         int index, io.channel.api.proto.pub.coreapi.model.MessageFile.Builder builderForValue) {
@@ -4904,9 +7670,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public Builder addFiles(io.channel.api.proto.pub.coreapi.model.MessageFile value) {
       if (filesBuilder_ == null) {
@@ -4925,9 +7693,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public Builder addFiles(
         int index, io.channel.api.proto.pub.coreapi.model.MessageFile value) {
@@ -4947,9 +7717,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public Builder addFiles(
         io.channel.api.proto.pub.coreapi.model.MessageFile.Builder builderForValue) {
@@ -4966,9 +7738,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public Builder addFiles(
         int index, io.channel.api.proto.pub.coreapi.model.MessageFile.Builder builderForValue) {
@@ -4985,9 +7759,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public Builder addAllFiles(
         java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.MessageFile> values) {
@@ -5005,9 +7781,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public Builder clearFiles() {
       if (filesBuilder_ == null) {
@@ -5023,9 +7801,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public Builder removeFiles(int index) {
       if (filesBuilder_ == null) {
@@ -5041,9 +7821,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageFile.Builder getFilesBuilder(
         int index) {
@@ -5053,9 +7835,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageFileOrBuilder getFilesOrBuilder(
         int index) {
@@ -5068,9 +7852,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.MessageFileOrBuilder> 
          getFilesOrBuilderList() {
@@ -5084,9 +7870,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageFile.Builder addFilesBuilder() {
       return getFilesFieldBuilder().addBuilder(
@@ -5096,9 +7884,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageFile.Builder addFilesBuilder(
         int index) {
@@ -5109,9 +7899,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File attachments included in the message.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:validation:MaxItems=30
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+     * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
      */
     public java.util.List<io.channel.api.proto.pub.coreapi.model.MessageFile.Builder> 
          getFilesBuilderList() {
@@ -5137,11 +7929,11 @@ private static final long serialVersionUID = 0L;
         io.channel.api.proto.pub.coreapi.model.MessageWebPage, io.channel.api.proto.pub.coreapi.model.MessageWebPage.Builder, io.channel.api.proto.pub.coreapi.model.MessageWebPageOrBuilder> webPageBuilder_;
     /**
      * <pre>
-     * Web page link preview attached to the message.
+     * Link preview extracted from the first URL found in the message content.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageWebPage web_page = 16 [json_name = "webPage"];</code>
+     * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
      * @return Whether the webPage field is set.
      */
     public boolean hasWebPage() {
@@ -5149,11 +7941,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Web page link preview attached to the message.
+     * Link preview extracted from the first URL found in the message content.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageWebPage web_page = 16 [json_name = "webPage"];</code>
+     * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
      * @return The webPage.
      */
     public io.channel.api.proto.pub.coreapi.model.MessageWebPage getWebPage() {
@@ -5165,11 +7957,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Web page link preview attached to the message.
+     * Link preview extracted from the first URL found in the message content.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageWebPage web_page = 16 [json_name = "webPage"];</code>
+     * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
      */
     public Builder setWebPage(io.channel.api.proto.pub.coreapi.model.MessageWebPage value) {
       if (webPageBuilder_ == null) {
@@ -5186,11 +7978,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Web page link preview attached to the message.
+     * Link preview extracted from the first URL found in the message content.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageWebPage web_page = 16 [json_name = "webPage"];</code>
+     * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
      */
     public Builder setWebPage(
         io.channel.api.proto.pub.coreapi.model.MessageWebPage.Builder builderForValue) {
@@ -5205,11 +7997,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Web page link preview attached to the message.
+     * Link preview extracted from the first URL found in the message content.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageWebPage web_page = 16 [json_name = "webPage"];</code>
+     * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
      */
     public Builder mergeWebPage(io.channel.api.proto.pub.coreapi.model.MessageWebPage value) {
       if (webPageBuilder_ == null) {
@@ -5228,11 +8020,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Web page link preview attached to the message.
+     * Link preview extracted from the first URL found in the message content.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageWebPage web_page = 16 [json_name = "webPage"];</code>
+     * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
      */
     public Builder clearWebPage() {
       if (webPageBuilder_ == null) {
@@ -5247,11 +8039,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Web page link preview attached to the message.
+     * Link preview extracted from the first URL found in the message content.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageWebPage web_page = 16 [json_name = "webPage"];</code>
+     * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageWebPage.Builder getWebPageBuilder() {
       
@@ -5260,11 +8052,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Web page link preview attached to the message.
+     * Link preview extracted from the first URL found in the message content.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageWebPage web_page = 16 [json_name = "webPage"];</code>
+     * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageWebPageOrBuilder getWebPageOrBuilder() {
       if (webPageBuilder_ != null) {
@@ -5276,11 +8068,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Web page link preview attached to the message.
+     * Link preview extracted from the first URL found in the message content.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageWebPage web_page = 16 [json_name = "webPage"];</code>
+     * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         io.channel.api.proto.pub.coreapi.model.MessageWebPage, io.channel.api.proto.pub.coreapi.model.MessageWebPage.Builder, io.channel.api.proto.pub.coreapi.model.MessageWebPageOrBuilder> 
@@ -5296,468 +8088,17 @@ private static final long serialVersionUID = 0L;
       return webPageBuilder_;
     }
 
-    private com.google.protobuf.Struct form_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> formBuilder_;
-    /**
-     * <pre>
-     * Interactive form attached to the message.
-     * The structure depends on the form type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct form = 17 [json_name = "form"];</code>
-     * @return Whether the form field is set.
-     */
-    public boolean hasForm() {
-      return formBuilder_ != null || form_ != null;
-    }
-    /**
-     * <pre>
-     * Interactive form attached to the message.
-     * The structure depends on the form type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct form = 17 [json_name = "form"];</code>
-     * @return The form.
-     */
-    public com.google.protobuf.Struct getForm() {
-      if (formBuilder_ == null) {
-        return form_ == null ? com.google.protobuf.Struct.getDefaultInstance() : form_;
-      } else {
-        return formBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Interactive form attached to the message.
-     * The structure depends on the form type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct form = 17 [json_name = "form"];</code>
-     */
-    public Builder setForm(com.google.protobuf.Struct value) {
-      if (formBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        form_ = value;
-        onChanged();
-      } else {
-        formBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Interactive form attached to the message.
-     * The structure depends on the form type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct form = 17 [json_name = "form"];</code>
-     */
-    public Builder setForm(
-        com.google.protobuf.Struct.Builder builderForValue) {
-      if (formBuilder_ == null) {
-        form_ = builderForValue.build();
-        onChanged();
-      } else {
-        formBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Interactive form attached to the message.
-     * The structure depends on the form type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct form = 17 [json_name = "form"];</code>
-     */
-    public Builder mergeForm(com.google.protobuf.Struct value) {
-      if (formBuilder_ == null) {
-        if (form_ != null) {
-          form_ =
-            com.google.protobuf.Struct.newBuilder(form_).mergeFrom(value).buildPartial();
-        } else {
-          form_ = value;
-        }
-        onChanged();
-      } else {
-        formBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Interactive form attached to the message.
-     * The structure depends on the form type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct form = 17 [json_name = "form"];</code>
-     */
-    public Builder clearForm() {
-      if (formBuilder_ == null) {
-        form_ = null;
-        onChanged();
-      } else {
-        form_ = null;
-        formBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Interactive form attached to the message.
-     * The structure depends on the form type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct form = 17 [json_name = "form"];</code>
-     */
-    public com.google.protobuf.Struct.Builder getFormBuilder() {
-      
-      onChanged();
-      return getFormFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Interactive form attached to the message.
-     * The structure depends on the form type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct form = 17 [json_name = "form"];</code>
-     */
-    public com.google.protobuf.StructOrBuilder getFormOrBuilder() {
-      if (formBuilder_ != null) {
-        return formBuilder_.getMessageOrBuilder();
-      } else {
-        return form_ == null ?
-            com.google.protobuf.Struct.getDefaultInstance() : form_;
-      }
-    }
-    /**
-     * <pre>
-     * Interactive form attached to the message.
-     * The structure depends on the form type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct form = 17 [json_name = "form"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
-        getFormFieldBuilder() {
-      if (formBuilder_ == null) {
-        formBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
-                getForm(),
-                getParentForChildren(),
-                isClean());
-        form_ = null;
-      }
-      return formBuilder_;
-    }
-
-    private java.util.List<java.lang.Integer> options_ =
-      java.util.Collections.emptyList();
-    private void ensureOptionsIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
-        options_ = new java.util.ArrayList<java.lang.Integer>(options_);
-        bitField0_ |= 0x00000008;
-      }
-    }
-    /**
-     * <pre>
-     * Option flags that modify message delivery and display behavior.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-     * @return A list containing the options.
-     */
-    public java.util.List<io.channel.api.proto.pub.coreapi.model.MessageOption> getOptionsList() {
-      return new com.google.protobuf.Internal.ListAdapter<
-          java.lang.Integer, io.channel.api.proto.pub.coreapi.model.MessageOption>(options_, options_converter_);
-    }
-    /**
-     * <pre>
-     * Option flags that modify message delivery and display behavior.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-     * @return The count of options.
-     */
-    public int getOptionsCount() {
-      return options_.size();
-    }
-    /**
-     * <pre>
-     * Option flags that modify message delivery and display behavior.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-     * @param index The index of the element to return.
-     * @return The options at the given index.
-     */
-    public io.channel.api.proto.pub.coreapi.model.MessageOption getOptions(int index) {
-      return options_converter_.convert(options_.get(index));
-    }
-    /**
-     * <pre>
-     * Option flags that modify message delivery and display behavior.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-     * @param index The index to set the value at.
-     * @param value The options to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOptions(
-        int index, io.channel.api.proto.pub.coreapi.model.MessageOption value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      ensureOptionsIsMutable();
-      options_.set(index, value.getNumber());
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Option flags that modify message delivery and display behavior.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-     * @param value The options to add.
-     * @return This builder for chaining.
-     */
-    public Builder addOptions(io.channel.api.proto.pub.coreapi.model.MessageOption value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      ensureOptionsIsMutable();
-      options_.add(value.getNumber());
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Option flags that modify message delivery and display behavior.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-     * @param values The options to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllOptions(
-        java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.MessageOption> values) {
-      ensureOptionsIsMutable();
-      for (io.channel.api.proto.pub.coreapi.model.MessageOption value : values) {
-        options_.add(value.getNumber());
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Option flags that modify message delivery and display behavior.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearOptions() {
-      options_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000008);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Option flags that modify message delivery and display behavior.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-     * @return A list containing the enum numeric values on the wire for options.
-     */
-    public java.util.List<java.lang.Integer>
-    getOptionsValueList() {
-      return java.util.Collections.unmodifiableList(options_);
-    }
-    /**
-     * <pre>
-     * Option flags that modify message delivery and display behavior.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-     * @param index The index of the value to return.
-     * @return The enum numeric value on the wire of options at the given index.
-     */
-    public int getOptionsValue(int index) {
-      return options_.get(index);
-    }
-    /**
-     * <pre>
-     * Option flags that modify message delivery and display behavior.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-     * @param index The index of the value to return.
-     * @return The enum numeric value on the wire of options at the given index.
-     * @return This builder for chaining.
-     */
-    public Builder setOptionsValue(
-        int index, int value) {
-      ensureOptionsIsMutable();
-      options_.set(index, value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Option flags that modify message delivery and display behavior.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-     * @param value The enum numeric value on the wire for options to add.
-     * @return This builder for chaining.
-     */
-    public Builder addOptionsValue(int value) {
-      ensureOptionsIsMutable();
-      options_.add(value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Option flags that modify message delivery and display behavior.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-     * @param values The enum numeric values on the wire for options to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllOptionsValue(
-        java.lang.Iterable<java.lang.Integer> values) {
-      ensureOptionsIsMutable();
-      for (int value : values) {
-        options_.add(value);
-      }
-      onChanged();
-      return this;
-    }
-
-    private int state_ = 0;
-    /**
-     * <pre>
-     * Current lifecycle state of the message.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MessageState state = 19 [json_name = "state"];</code>
-     * @return The enum numeric value on the wire for state.
-     */
-    @java.lang.Override public int getStateValue() {
-      return state_;
-    }
-    /**
-     * <pre>
-     * Current lifecycle state of the message.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MessageState state = 19 [json_name = "state"];</code>
-     * @param value The enum numeric value on the wire for state to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStateValue(int value) {
-      
-      state_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Current lifecycle state of the message.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MessageState state = 19 [json_name = "state"];</code>
-     * @return The state.
-     */
-    @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.MessageState getState() {
-      @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.MessageState result = io.channel.api.proto.pub.coreapi.model.MessageState.valueOf(state_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.MessageState.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Current lifecycle state of the message.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MessageState state = 19 [json_name = "state"];</code>
-     * @param value The state to set.
-     * @return This builder for chaining.
-     */
-    public Builder setState(io.channel.api.proto.pub.coreapi.model.MessageState value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      state_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Current lifecycle state of the message.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MessageState state = 19 [json_name = "state"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearState() {
-      
-      state_ = 0;
-      onChanged();
-      return this;
-    }
-
     private io.channel.api.proto.pub.coreapi.model.MessageLog log_;
     private com.google.protobuf.SingleFieldBuilderV3<
         io.channel.api.proto.pub.coreapi.model.MessageLog, io.channel.api.proto.pub.coreapi.model.MessageLog.Builder, io.channel.api.proto.pub.coreapi.model.MessageLogOrBuilder> logBuilder_;
     /**
      * <pre>
-     * System log data for log-type messages.
+     * System log entry for automated events (e.g., chat opened, assigned, closed).
+     * Present only on system-generated messages.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageLog log = 21 [json_name = "log"];</code>
+     * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
      * @return Whether the log field is set.
      */
     public boolean hasLog() {
@@ -5765,11 +8106,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * System log data for log-type messages.
+     * System log entry for automated events (e.g., chat opened, assigned, closed).
+     * Present only on system-generated messages.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageLog log = 21 [json_name = "log"];</code>
+     * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
      * @return The log.
      */
     public io.channel.api.proto.pub.coreapi.model.MessageLog getLog() {
@@ -5781,11 +8123,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * System log data for log-type messages.
+     * System log entry for automated events (e.g., chat opened, assigned, closed).
+     * Present only on system-generated messages.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageLog log = 21 [json_name = "log"];</code>
+     * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
      */
     public Builder setLog(io.channel.api.proto.pub.coreapi.model.MessageLog value) {
       if (logBuilder_ == null) {
@@ -5802,11 +8145,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * System log data for log-type messages.
+     * System log entry for automated events (e.g., chat opened, assigned, closed).
+     * Present only on system-generated messages.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageLog log = 21 [json_name = "log"];</code>
+     * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
      */
     public Builder setLog(
         io.channel.api.proto.pub.coreapi.model.MessageLog.Builder builderForValue) {
@@ -5821,11 +8165,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * System log data for log-type messages.
+     * System log entry for automated events (e.g., chat opened, assigned, closed).
+     * Present only on system-generated messages.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageLog log = 21 [json_name = "log"];</code>
+     * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
      */
     public Builder mergeLog(io.channel.api.proto.pub.coreapi.model.MessageLog value) {
       if (logBuilder_ == null) {
@@ -5844,11 +8189,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * System log data for log-type messages.
+     * System log entry for automated events (e.g., chat opened, assigned, closed).
+     * Present only on system-generated messages.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageLog log = 21 [json_name = "log"];</code>
+     * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
      */
     public Builder clearLog() {
       if (logBuilder_ == null) {
@@ -5863,11 +8209,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * System log data for log-type messages.
+     * System log entry for automated events (e.g., chat opened, assigned, closed).
+     * Present only on system-generated messages.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageLog log = 21 [json_name = "log"];</code>
+     * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageLog.Builder getLogBuilder() {
       
@@ -5876,11 +8223,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * System log data for log-type messages.
+     * System log entry for automated events (e.g., chat opened, assigned, closed).
+     * Present only on system-generated messages.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageLog log = 21 [json_name = "log"];</code>
+     * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageLogOrBuilder getLogOrBuilder() {
       if (logBuilder_ != null) {
@@ -5892,11 +8240,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * System log data for log-type messages.
+     * System log entry for automated events (e.g., chat opened, assigned, closed).
+     * Present only on system-generated messages.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.MessageLog log = 21 [json_name = "log"];</code>
+     * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         io.channel.api.proto.pub.coreapi.model.MessageLog, io.channel.api.proto.pub.coreapi.model.MessageLog.Builder, io.channel.api.proto.pub.coreapi.model.MessageLogOrBuilder> 
@@ -5915,9 +8264,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.channel.api.proto.pub.coreapi.model.MessageReaction> reactions_ =
       java.util.Collections.emptyList();
     private void ensureReactionsIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         reactions_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.MessageReaction>(reactions_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -5926,11 +8275,11 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public java.util.List<io.channel.api.proto.pub.coreapi.model.MessageReaction> getReactionsList() {
       if (reactionsBuilder_ == null) {
@@ -5941,11 +8290,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public int getReactionsCount() {
       if (reactionsBuilder_ == null) {
@@ -5956,11 +8305,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageReaction getReactions(int index) {
       if (reactionsBuilder_ == null) {
@@ -5971,11 +8320,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public Builder setReactions(
         int index, io.channel.api.proto.pub.coreapi.model.MessageReaction value) {
@@ -5993,11 +8342,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public Builder setReactions(
         int index, io.channel.api.proto.pub.coreapi.model.MessageReaction.Builder builderForValue) {
@@ -6012,11 +8361,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public Builder addReactions(io.channel.api.proto.pub.coreapi.model.MessageReaction value) {
       if (reactionsBuilder_ == null) {
@@ -6033,11 +8382,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public Builder addReactions(
         int index, io.channel.api.proto.pub.coreapi.model.MessageReaction value) {
@@ -6055,11 +8404,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public Builder addReactions(
         io.channel.api.proto.pub.coreapi.model.MessageReaction.Builder builderForValue) {
@@ -6074,11 +8423,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public Builder addReactions(
         int index, io.channel.api.proto.pub.coreapi.model.MessageReaction.Builder builderForValue) {
@@ -6093,11 +8442,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public Builder addAllReactions(
         java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.MessageReaction> values) {
@@ -6113,16 +8462,16 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public Builder clearReactions() {
       if (reactionsBuilder_ == null) {
         reactions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         reactionsBuilder_.clear();
@@ -6131,11 +8480,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public Builder removeReactions(int index) {
       if (reactionsBuilder_ == null) {
@@ -6149,11 +8498,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageReaction.Builder getReactionsBuilder(
         int index) {
@@ -6161,11 +8510,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageReactionOrBuilder getReactionsOrBuilder(
         int index) {
@@ -6176,11 +8525,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.MessageReactionOrBuilder> 
          getReactionsOrBuilderList() {
@@ -6192,11 +8541,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageReaction.Builder addReactionsBuilder() {
       return getReactionsFieldBuilder().addBuilder(
@@ -6204,11 +8553,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public io.channel.api.proto.pub.coreapi.model.MessageReaction.Builder addReactionsBuilder(
         int index) {
@@ -6217,11 +8566,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji reactions on this message.
+     * Emoji reactions added to this message by participants.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+     * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
      */
     public java.util.List<io.channel.api.proto.pub.coreapi.model.MessageReaction.Builder> 
          getReactionsBuilderList() {
@@ -6234,7 +8583,7 @@ private static final long serialVersionUID = 0L;
         reactionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.channel.api.proto.pub.coreapi.model.MessageReaction, io.channel.api.proto.pub.coreapi.model.MessageReaction.Builder, io.channel.api.proto.pub.coreapi.model.MessageReactionOrBuilder>(
                 reactions_,
-                ((bitField0_ & 0x00000010) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         reactions_ = null;
@@ -6242,351 +8591,609 @@ private static final long serialVersionUID = 0L;
       return reactionsBuilder_;
     }
 
-    private java.lang.Object chatKey_ = "";
+    private com.google.protobuf.Struct alfProgress_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> alfProgressBuilder_;
     /**
      * <pre>
-     * Composite key for the chat this message belongs to.
+     * Progress indicator for an ALF AI response being streamed.
+     * Contains the partial content generated so far.
+     * Transient; replaced by the final message content when streaming completes.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string chat_key = 24 [json_name = "chatKey"];</code>
-     * @return The chatKey.
+     * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
+     * @return Whether the alfProgress field is set.
      */
-    public java.lang.String getChatKey() {
-      java.lang.Object ref = chatKey_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        chatKey_ = s;
-        return s;
+    public boolean hasAlfProgress() {
+      return alfProgressBuilder_ != null || alfProgress_ != null;
+    }
+    /**
+     * <pre>
+     * Progress indicator for an ALF AI response being streamed.
+     * Contains the partial content generated so far.
+     * Transient; replaced by the final message content when streaming completes.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
+     * @return The alfProgress.
+     */
+    public com.google.protobuf.Struct getAlfProgress() {
+      if (alfProgressBuilder_ == null) {
+        return alfProgress_ == null ? com.google.protobuf.Struct.getDefaultInstance() : alfProgress_;
       } else {
-        return (java.lang.String) ref;
+        return alfProgressBuilder_.getMessage();
       }
     }
     /**
      * <pre>
-     * Composite key for the chat this message belongs to.
+     * Progress indicator for an ALF AI response being streamed.
+     * Contains the partial content generated so far.
+     * Transient; replaced by the final message content when streaming completes.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string chat_key = 24 [json_name = "chatKey"];</code>
-     * @return The bytes for chatKey.
+     * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
      */
-    public com.google.protobuf.ByteString
-        getChatKeyBytes() {
-      java.lang.Object ref = chatKey_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        chatKey_ = b;
-        return b;
+    public Builder setAlfProgress(com.google.protobuf.Struct value) {
+      if (alfProgressBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        alfProgress_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        alfProgressBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Progress indicator for an ALF AI response being streamed.
+     * Contains the partial content generated so far.
+     * Transient; replaced by the final message content when streaming completes.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
+     */
+    public Builder setAlfProgress(
+        com.google.protobuf.Struct.Builder builderForValue) {
+      if (alfProgressBuilder_ == null) {
+        alfProgress_ = builderForValue.build();
+        onChanged();
+      } else {
+        alfProgressBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Progress indicator for an ALF AI response being streamed.
+     * Contains the partial content generated so far.
+     * Transient; replaced by the final message content when streaming completes.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
+     */
+    public Builder mergeAlfProgress(com.google.protobuf.Struct value) {
+      if (alfProgressBuilder_ == null) {
+        if (alfProgress_ != null) {
+          alfProgress_ =
+            com.google.protobuf.Struct.newBuilder(alfProgress_).mergeFrom(value).buildPartial();
+        } else {
+          alfProgress_ = value;
+        }
+        onChanged();
+      } else {
+        alfProgressBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Progress indicator for an ALF AI response being streamed.
+     * Contains the partial content generated so far.
+     * Transient; replaced by the final message content when streaming completes.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
+     */
+    public Builder clearAlfProgress() {
+      if (alfProgressBuilder_ == null) {
+        alfProgress_ = null;
+        onChanged();
+      } else {
+        alfProgress_ = null;
+        alfProgressBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Progress indicator for an ALF AI response being streamed.
+     * Contains the partial content generated so far.
+     * Transient; replaced by the final message content when streaming completes.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
+     */
+    public com.google.protobuf.Struct.Builder getAlfProgressBuilder() {
+      
+      onChanged();
+      return getAlfProgressFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Progress indicator for an ALF AI response being streamed.
+     * Contains the partial content generated so far.
+     * Transient; replaced by the final message content when streaming completes.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
+     */
+    public com.google.protobuf.StructOrBuilder getAlfProgressOrBuilder() {
+      if (alfProgressBuilder_ != null) {
+        return alfProgressBuilder_.getMessageOrBuilder();
+      } else {
+        return alfProgress_ == null ?
+            com.google.protobuf.Struct.getDefaultInstance() : alfProgress_;
       }
     }
     /**
      * <pre>
-     * Composite key for the chat this message belongs to.
+     * Progress indicator for an ALF AI response being streamed.
+     * Contains the partial content generated so far.
+     * Transient; replaced by the final message content when streaming completes.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string chat_key = 24 [json_name = "chatKey"];</code>
-     * @param value The chatKey to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
      */
-    public Builder setChatKey(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      chatKey_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Composite key for the chat this message belongs to.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string chat_key = 24 [json_name = "chatKey"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearChatKey() {
-      
-      chatKey_ = getDefaultInstance().getChatKey();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Composite key for the chat this message belongs to.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string chat_key = 24 [json_name = "chatKey"];</code>
-     * @param value The bytes for chatKey to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChatKeyBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      chatKey_ = value;
-      onChanged();
-      return this;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        getAlfProgressFieldBuilder() {
+      if (alfProgressBuilder_ == null) {
+        alfProgressBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                getAlfProgress(),
+                getParentForChildren(),
+                isClean());
+        alfProgress_ = null;
+      }
+      return alfProgressBuilder_;
     }
 
-    private java.lang.Object mainKey_ = "";
+    private com.google.protobuf.Struct form_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> formBuilder_;
     /**
      * <pre>
-     * Key of the main conversation thread.
+     * Interactive form (e.g., input fields, dropdowns) attached to the message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string main_key = 25 [json_name = "mainKey"];</code>
-     * @return The mainKey.
+     * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
+     * @return Whether the form field is set.
      */
-    public java.lang.String getMainKey() {
-      java.lang.Object ref = mainKey_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        mainKey_ = s;
-        return s;
+    public boolean hasForm() {
+      return formBuilder_ != null || form_ != null;
+    }
+    /**
+     * <pre>
+     * Interactive form (e.g., input fields, dropdowns) attached to the message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
+     * @return The form.
+     */
+    public com.google.protobuf.Struct getForm() {
+      if (formBuilder_ == null) {
+        return form_ == null ? com.google.protobuf.Struct.getDefaultInstance() : form_;
       } else {
-        return (java.lang.String) ref;
+        return formBuilder_.getMessage();
       }
     }
     /**
      * <pre>
-     * Key of the main conversation thread.
+     * Interactive form (e.g., input fields, dropdowns) attached to the message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string main_key = 25 [json_name = "mainKey"];</code>
-     * @return The bytes for mainKey.
+     * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
      */
-    public com.google.protobuf.ByteString
-        getMainKeyBytes() {
-      java.lang.Object ref = mainKey_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        mainKey_ = b;
-        return b;
+    public Builder setForm(com.google.protobuf.Struct value) {
+      if (formBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        form_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        formBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Interactive form (e.g., input fields, dropdowns) attached to the message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
+     */
+    public Builder setForm(
+        com.google.protobuf.Struct.Builder builderForValue) {
+      if (formBuilder_ == null) {
+        form_ = builderForValue.build();
+        onChanged();
+      } else {
+        formBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Interactive form (e.g., input fields, dropdowns) attached to the message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
+     */
+    public Builder mergeForm(com.google.protobuf.Struct value) {
+      if (formBuilder_ == null) {
+        if (form_ != null) {
+          form_ =
+            com.google.protobuf.Struct.newBuilder(form_).mergeFrom(value).buildPartial();
+        } else {
+          form_ = value;
+        }
+        onChanged();
+      } else {
+        formBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Interactive form (e.g., input fields, dropdowns) attached to the message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
+     */
+    public Builder clearForm() {
+      if (formBuilder_ == null) {
+        form_ = null;
+        onChanged();
+      } else {
+        form_ = null;
+        formBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Interactive form (e.g., input fields, dropdowns) attached to the message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
+     */
+    public com.google.protobuf.Struct.Builder getFormBuilder() {
+      
+      onChanged();
+      return getFormFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Interactive form (e.g., input fields, dropdowns) attached to the message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
+     */
+    public com.google.protobuf.StructOrBuilder getFormOrBuilder() {
+      if (formBuilder_ != null) {
+        return formBuilder_.getMessageOrBuilder();
+      } else {
+        return form_ == null ?
+            com.google.protobuf.Struct.getDefaultInstance() : form_;
       }
     }
     /**
      * <pre>
-     * Key of the main conversation thread.
+     * Interactive form (e.g., input fields, dropdowns) attached to the message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string main_key = 25 [json_name = "mainKey"];</code>
-     * @param value The mainKey to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
      */
-    public Builder setMainKey(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      mainKey_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Key of the main conversation thread.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string main_key = 25 [json_name = "mainKey"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMainKey() {
-      
-      mainKey_ = getDefaultInstance().getMainKey();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Key of the main conversation thread.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string main_key = 25 [json_name = "mainKey"];</code>
-     * @param value The bytes for mainKey to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMainKeyBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      mainKey_ = value;
-      onChanged();
-      return this;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        getFormFieldBuilder() {
+      if (formBuilder_ == null) {
+        formBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                getForm(),
+                getParentForChildren(),
+                isClean());
+        form_ = null;
+      }
+      return formBuilder_;
     }
 
-    private java.lang.Object threadKey_ = "";
+    private int state_ = 0;
     /**
      * <pre>
-     * Key of the sub-thread this message belongs to.
+     * Current lifecycle state of this message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string thread_key = 26 [json_name = "threadKey"];</code>
-     * @return The threadKey.
+     * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+     * @return The enum numeric value on the wire for state.
      */
-    public java.lang.String getThreadKey() {
-      java.lang.Object ref = threadKey_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        threadKey_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override public int getStateValue() {
+      return state_;
     }
     /**
      * <pre>
-     * Key of the sub-thread this message belongs to.
+     * Current lifecycle state of this message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string thread_key = 26 [json_name = "threadKey"];</code>
-     * @return The bytes for threadKey.
-     */
-    public com.google.protobuf.ByteString
-        getThreadKeyBytes() {
-      java.lang.Object ref = threadKey_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        threadKey_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Key of the sub-thread this message belongs to.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string thread_key = 26 [json_name = "threadKey"];</code>
-     * @param value The threadKey to set.
+     * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+     * @param value The enum numeric value on the wire for state to set.
      * @return This builder for chaining.
      */
-    public Builder setThreadKey(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      threadKey_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Key of the sub-thread this message belongs to.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string thread_key = 26 [json_name = "threadKey"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearThreadKey() {
+    public Builder setStateValue(int value) {
       
-      threadKey_ = getDefaultInstance().getThreadKey();
+      state_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Key of the sub-thread this message belongs to.
+     * Current lifecycle state of this message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string thread_key = 26 [json_name = "threadKey"];</code>
-     * @param value The bytes for threadKey to set.
-     * @return This builder for chaining.
-     */
-    public Builder setThreadKeyBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      threadKey_ = value;
-      onChanged();
-      return this;
-    }
-
-    private long version_ ;
-    /**
-     * <pre>
-     * Message data version number.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>int64 version = 27 [json_name = "version"];</code>
-     * @return The version.
+     * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+     * @return The state.
      */
     @java.lang.Override
-    public long getVersion() {
-      return version_;
+    public io.channel.api.proto.pub.coreapi.model.MessageState getState() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.MessageState result = io.channel.api.proto.pub.coreapi.model.MessageState.valueOf(state_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.MessageState.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Message data version number.
+     * Current lifecycle state of this message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int64 version = 27 [json_name = "version"];</code>
-     * @param value The version to set.
+     * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+     * @param value The state to set.
      * @return This builder for chaining.
      */
-    public Builder setVersion(long value) {
+    public Builder setState(io.channel.api.proto.pub.coreapi.model.MessageState value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
       
-      version_ = value;
+      state_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Message data version number.
+     * Current lifecycle state of this message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int64 version = 27 [json_name = "version"];</code>
+     * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearVersion() {
+    public Builder clearState() {
       
-      version_ = 0L;
+      state_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringList options_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureOptionsIsMutable() {
+      if (!((bitField0_ & 0x00000010) != 0)) {
+        options_ = new com.google.protobuf.LazyStringArrayList(options_);
+        bitField0_ |= 0x00000010;
+       }
+    }
+    /**
+     * <pre>
+     * Delivery and visibility options applied to this message.
+     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+     * Some options are only applicable in user chats.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * </pre>
+     *
+     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * @return A list containing the options.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getOptionsList() {
+      return options_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * Delivery and visibility options applied to this message.
+     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+     * Some options are only applicable in user chats.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * </pre>
+     *
+     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * @return The count of options.
+     */
+    public int getOptionsCount() {
+      return options_.size();
+    }
+    /**
+     * <pre>
+     * Delivery and visibility options applied to this message.
+     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+     * Some options are only applicable in user chats.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * </pre>
+     *
+     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * @param index The index of the element to return.
+     * @return The options at the given index.
+     */
+    public java.lang.String getOptions(int index) {
+      return options_.get(index);
+    }
+    /**
+     * <pre>
+     * Delivery and visibility options applied to this message.
+     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+     * Some options are only applicable in user chats.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * </pre>
+     *
+     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the options at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getOptionsBytes(int index) {
+      return options_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * Delivery and visibility options applied to this message.
+     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+     * Some options are only applicable in user chats.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * </pre>
+     *
+     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * @param index The index to set the value at.
+     * @param value The options to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOptions(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureOptionsIsMutable();
+      options_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Delivery and visibility options applied to this message.
+     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+     * Some options are only applicable in user chats.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * </pre>
+     *
+     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * @param value The options to add.
+     * @return This builder for chaining.
+     */
+    public Builder addOptions(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureOptionsIsMutable();
+      options_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Delivery and visibility options applied to this message.
+     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+     * Some options are only applicable in user chats.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * </pre>
+     *
+     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * @param values The options to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllOptions(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureOptionsIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, options_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Delivery and visibility options applied to this message.
+     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+     * Some options are only applicable in user chats.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * </pre>
+     *
+     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOptions() {
+      options_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Delivery and visibility options applied to this message.
+     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+     * Some options are only applicable in user chats.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
+     * </pre>
+     *
+     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * @param value The bytes of the options to add.
+     * @return This builder for chaining.
+     */
+    public Builder addOptionsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureOptionsIsMutable();
+      options_.add(value);
       onChanged();
       return this;
     }
@@ -6596,11 +9203,12 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> marketingBuilder_;
     /**
      * <pre>
-     * Marketing campaign metadata associated with this message.
+     * Marketing campaign metadata for outbound promotional messages.
+     * Contains campaign type and tracking attributes.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+     * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
      * @return Whether the marketing field is set.
      */
     public boolean hasMarketing() {
@@ -6608,11 +9216,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Marketing campaign metadata associated with this message.
+     * Marketing campaign metadata for outbound promotional messages.
+     * Contains campaign type and tracking attributes.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+     * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
      * @return The marketing.
      */
     public com.google.protobuf.Struct getMarketing() {
@@ -6624,11 +9233,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Marketing campaign metadata associated with this message.
+     * Marketing campaign metadata for outbound promotional messages.
+     * Contains campaign type and tracking attributes.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+     * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
      */
     public Builder setMarketing(com.google.protobuf.Struct value) {
       if (marketingBuilder_ == null) {
@@ -6645,11 +9255,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Marketing campaign metadata associated with this message.
+     * Marketing campaign metadata for outbound promotional messages.
+     * Contains campaign type and tracking attributes.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+     * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
      */
     public Builder setMarketing(
         com.google.protobuf.Struct.Builder builderForValue) {
@@ -6664,11 +9275,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Marketing campaign metadata associated with this message.
+     * Marketing campaign metadata for outbound promotional messages.
+     * Contains campaign type and tracking attributes.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+     * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
      */
     public Builder mergeMarketing(com.google.protobuf.Struct value) {
       if (marketingBuilder_ == null) {
@@ -6687,11 +9299,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Marketing campaign metadata associated with this message.
+     * Marketing campaign metadata for outbound promotional messages.
+     * Contains campaign type and tracking attributes.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+     * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
      */
     public Builder clearMarketing() {
       if (marketingBuilder_ == null) {
@@ -6706,11 +9319,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Marketing campaign metadata associated with this message.
+     * Marketing campaign metadata for outbound promotional messages.
+     * Contains campaign type and tracking attributes.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+     * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
      */
     public com.google.protobuf.Struct.Builder getMarketingBuilder() {
       
@@ -6719,11 +9333,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Marketing campaign metadata associated with this message.
+     * Marketing campaign metadata for outbound promotional messages.
+     * Contains campaign type and tracking attributes.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+     * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
      */
     public com.google.protobuf.StructOrBuilder getMarketingOrBuilder() {
       if (marketingBuilder_ != null) {
@@ -6735,11 +9350,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Marketing campaign metadata associated with this message.
+     * Marketing campaign metadata for outbound promotional messages.
+     * Contains campaign type and tracking attributes.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+     * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
@@ -6760,11 +9376,12 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> supportBotBuilder_;
     /**
      * <pre>
-     * Support bot metadata associated with this message.
+     * Legacy support bot metadata.
+     * Retained for backward compatibility with older workflow implementations.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
      * @return Whether the supportBot field is set.
      */
     public boolean hasSupportBot() {
@@ -6772,11 +9389,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Support bot metadata associated with this message.
+     * Legacy support bot metadata.
+     * Retained for backward compatibility with older workflow implementations.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
      * @return The supportBot.
      */
     public com.google.protobuf.Struct getSupportBot() {
@@ -6788,11 +9406,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Support bot metadata associated with this message.
+     * Legacy support bot metadata.
+     * Retained for backward compatibility with older workflow implementations.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
      */
     public Builder setSupportBot(com.google.protobuf.Struct value) {
       if (supportBotBuilder_ == null) {
@@ -6809,11 +9428,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Support bot metadata associated with this message.
+     * Legacy support bot metadata.
+     * Retained for backward compatibility with older workflow implementations.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
      */
     public Builder setSupportBot(
         com.google.protobuf.Struct.Builder builderForValue) {
@@ -6828,11 +9448,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Support bot metadata associated with this message.
+     * Legacy support bot metadata.
+     * Retained for backward compatibility with older workflow implementations.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
      */
     public Builder mergeSupportBot(com.google.protobuf.Struct value) {
       if (supportBotBuilder_ == null) {
@@ -6851,11 +9472,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Support bot metadata associated with this message.
+     * Legacy support bot metadata.
+     * Retained for backward compatibility with older workflow implementations.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
      */
     public Builder clearSupportBot() {
       if (supportBotBuilder_ == null) {
@@ -6870,11 +9492,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Support bot metadata associated with this message.
+     * Legacy support bot metadata.
+     * Retained for backward compatibility with older workflow implementations.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
      */
     public com.google.protobuf.Struct.Builder getSupportBotBuilder() {
       
@@ -6883,11 +9506,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Support bot metadata associated with this message.
+     * Legacy support bot metadata.
+     * Retained for backward compatibility with older workflow implementations.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
      */
     public com.google.protobuf.StructOrBuilder getSupportBotOrBuilder() {
       if (supportBotBuilder_ != null) {
@@ -6899,11 +9523,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Support bot metadata associated with this message.
+     * Legacy support bot metadata.
+     * Retained for backward compatibility with older workflow implementations.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
@@ -6919,14 +9544,707 @@ private static final long serialVersionUID = 0L;
       return supportBotBuilder_;
     }
 
-    private boolean threadMsg_ ;
+    private com.google.protobuf.Struct workflow_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> workflowBuilder_;
     /**
      * <pre>
-     * Whether this message is a thread reply.
+     * Workflow automation metadata linking this message to a workflow step.
+     * Contains workflow ID, step ID, and button submission context.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>bool thread_msg = 30 [json_name = "threadMsg"];</code>
+     * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
+     * @return Whether the workflow field is set.
+     */
+    public boolean hasWorkflow() {
+      return workflowBuilder_ != null || workflow_ != null;
+    }
+    /**
+     * <pre>
+     * Workflow automation metadata linking this message to a workflow step.
+     * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
+     * @return The workflow.
+     */
+    public com.google.protobuf.Struct getWorkflow() {
+      if (workflowBuilder_ == null) {
+        return workflow_ == null ? com.google.protobuf.Struct.getDefaultInstance() : workflow_;
+      } else {
+        return workflowBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Workflow automation metadata linking this message to a workflow step.
+     * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
+     */
+    public Builder setWorkflow(com.google.protobuf.Struct value) {
+      if (workflowBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        workflow_ = value;
+        onChanged();
+      } else {
+        workflowBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Workflow automation metadata linking this message to a workflow step.
+     * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
+     */
+    public Builder setWorkflow(
+        com.google.protobuf.Struct.Builder builderForValue) {
+      if (workflowBuilder_ == null) {
+        workflow_ = builderForValue.build();
+        onChanged();
+      } else {
+        workflowBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Workflow automation metadata linking this message to a workflow step.
+     * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
+     */
+    public Builder mergeWorkflow(com.google.protobuf.Struct value) {
+      if (workflowBuilder_ == null) {
+        if (workflow_ != null) {
+          workflow_ =
+            com.google.protobuf.Struct.newBuilder(workflow_).mergeFrom(value).buildPartial();
+        } else {
+          workflow_ = value;
+        }
+        onChanged();
+      } else {
+        workflowBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Workflow automation metadata linking this message to a workflow step.
+     * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
+     */
+    public Builder clearWorkflow() {
+      if (workflowBuilder_ == null) {
+        workflow_ = null;
+        onChanged();
+      } else {
+        workflow_ = null;
+        workflowBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Workflow automation metadata linking this message to a workflow step.
+     * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
+     */
+    public com.google.protobuf.Struct.Builder getWorkflowBuilder() {
+      
+      onChanged();
+      return getWorkflowFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Workflow automation metadata linking this message to a workflow step.
+     * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
+     */
+    public com.google.protobuf.StructOrBuilder getWorkflowOrBuilder() {
+      if (workflowBuilder_ != null) {
+        return workflowBuilder_.getMessageOrBuilder();
+      } else {
+        return workflow_ == null ?
+            com.google.protobuf.Struct.getDefaultInstance() : workflow_;
+      }
+    }
+    /**
+     * <pre>
+     * Workflow automation metadata linking this message to a workflow step.
+     * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        getWorkflowFieldBuilder() {
+      if (workflowBuilder_ == null) {
+        workflowBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                getWorkflow(),
+                getParentForChildren(),
+                isClean());
+        workflow_ = null;
+      }
+      return workflowBuilder_;
+    }
+
+    private int alertLevel_ = 0;
+    /**
+     * <pre>
+     * Notification priority level controlling client-side popup behavior.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
+     * @return The enum numeric value on the wire for alertLevel.
+     */
+    @java.lang.Override public int getAlertLevelValue() {
+      return alertLevel_;
+    }
+    /**
+     * <pre>
+     * Notification priority level controlling client-side popup behavior.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
+     * @param value The enum numeric value on the wire for alertLevel to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAlertLevelValue(int value) {
+      
+      alertLevel_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Notification priority level controlling client-side popup behavior.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
+     * @return The alertLevel.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.AlertLevel getAlertLevel() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.AlertLevel result = io.channel.api.proto.pub.coreapi.model.AlertLevel.valueOf(alertLevel_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.AlertLevel.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Notification priority level controlling client-side popup behavior.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
+     * @param value The alertLevel to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAlertLevel(io.channel.api.proto.pub.coreapi.model.AlertLevel value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      alertLevel_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Notification priority level controlling client-side popup behavior.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAlertLevel() {
+      
+      alertLevel_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Struct ivr_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> ivrBuilder_;
+    /**
+     * <pre>
+     * IVR (Interactive Voice Response) call metadata for phone-based messages.
+     * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
+     * @return Whether the ivr field is set.
+     */
+    public boolean hasIvr() {
+      return ivrBuilder_ != null || ivr_ != null;
+    }
+    /**
+     * <pre>
+     * IVR (Interactive Voice Response) call metadata for phone-based messages.
+     * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
+     * @return The ivr.
+     */
+    public com.google.protobuf.Struct getIvr() {
+      if (ivrBuilder_ == null) {
+        return ivr_ == null ? com.google.protobuf.Struct.getDefaultInstance() : ivr_;
+      } else {
+        return ivrBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * IVR (Interactive Voice Response) call metadata for phone-based messages.
+     * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
+     */
+    public Builder setIvr(com.google.protobuf.Struct value) {
+      if (ivrBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ivr_ = value;
+        onChanged();
+      } else {
+        ivrBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * IVR (Interactive Voice Response) call metadata for phone-based messages.
+     * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
+     */
+    public Builder setIvr(
+        com.google.protobuf.Struct.Builder builderForValue) {
+      if (ivrBuilder_ == null) {
+        ivr_ = builderForValue.build();
+        onChanged();
+      } else {
+        ivrBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * IVR (Interactive Voice Response) call metadata for phone-based messages.
+     * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
+     */
+    public Builder mergeIvr(com.google.protobuf.Struct value) {
+      if (ivrBuilder_ == null) {
+        if (ivr_ != null) {
+          ivr_ =
+            com.google.protobuf.Struct.newBuilder(ivr_).mergeFrom(value).buildPartial();
+        } else {
+          ivr_ = value;
+        }
+        onChanged();
+      } else {
+        ivrBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * IVR (Interactive Voice Response) call metadata for phone-based messages.
+     * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
+     */
+    public Builder clearIvr() {
+      if (ivrBuilder_ == null) {
+        ivr_ = null;
+        onChanged();
+      } else {
+        ivr_ = null;
+        ivrBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * IVR (Interactive Voice Response) call metadata for phone-based messages.
+     * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
+     */
+    public com.google.protobuf.Struct.Builder getIvrBuilder() {
+      
+      onChanged();
+      return getIvrFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * IVR (Interactive Voice Response) call metadata for phone-based messages.
+     * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
+     */
+    public com.google.protobuf.StructOrBuilder getIvrOrBuilder() {
+      if (ivrBuilder_ != null) {
+        return ivrBuilder_.getMessageOrBuilder();
+      } else {
+        return ivr_ == null ?
+            com.google.protobuf.Struct.getDefaultInstance() : ivr_;
+      }
+    }
+    /**
+     * <pre>
+     * IVR (Interactive Voice Response) call metadata for phone-based messages.
+     * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        getIvrFieldBuilder() {
+      if (ivrBuilder_ == null) {
+        ivrBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                getIvr(),
+                getParentForChildren(),
+                isClean());
+        ivr_ = null;
+      }
+      return ivrBuilder_;
+    }
+
+    private com.google.protobuf.Struct customPayload_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> customPayloadBuilder_;
+    /**
+     * <pre>
+     * Custom rendering payload for third-party integrations.
+     * Structure and content are defined by the integration provider.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
+     * @return Whether the customPayload field is set.
+     */
+    public boolean hasCustomPayload() {
+      return customPayloadBuilder_ != null || customPayload_ != null;
+    }
+    /**
+     * <pre>
+     * Custom rendering payload for third-party integrations.
+     * Structure and content are defined by the integration provider.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
+     * @return The customPayload.
+     */
+    public com.google.protobuf.Struct getCustomPayload() {
+      if (customPayloadBuilder_ == null) {
+        return customPayload_ == null ? com.google.protobuf.Struct.getDefaultInstance() : customPayload_;
+      } else {
+        return customPayloadBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Custom rendering payload for third-party integrations.
+     * Structure and content are defined by the integration provider.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
+     */
+    public Builder setCustomPayload(com.google.protobuf.Struct value) {
+      if (customPayloadBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        customPayload_ = value;
+        onChanged();
+      } else {
+        customPayloadBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Custom rendering payload for third-party integrations.
+     * Structure and content are defined by the integration provider.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
+     */
+    public Builder setCustomPayload(
+        com.google.protobuf.Struct.Builder builderForValue) {
+      if (customPayloadBuilder_ == null) {
+        customPayload_ = builderForValue.build();
+        onChanged();
+      } else {
+        customPayloadBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Custom rendering payload for third-party integrations.
+     * Structure and content are defined by the integration provider.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
+     */
+    public Builder mergeCustomPayload(com.google.protobuf.Struct value) {
+      if (customPayloadBuilder_ == null) {
+        if (customPayload_ != null) {
+          customPayload_ =
+            com.google.protobuf.Struct.newBuilder(customPayload_).mergeFrom(value).buildPartial();
+        } else {
+          customPayload_ = value;
+        }
+        onChanged();
+      } else {
+        customPayloadBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Custom rendering payload for third-party integrations.
+     * Structure and content are defined by the integration provider.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
+     */
+    public Builder clearCustomPayload() {
+      if (customPayloadBuilder_ == null) {
+        customPayload_ = null;
+        onChanged();
+      } else {
+        customPayload_ = null;
+        customPayloadBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Custom rendering payload for third-party integrations.
+     * Structure and content are defined by the integration provider.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
+     */
+    public com.google.protobuf.Struct.Builder getCustomPayloadBuilder() {
+      
+      onChanged();
+      return getCustomPayloadFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Custom rendering payload for third-party integrations.
+     * Structure and content are defined by the integration provider.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
+     */
+    public com.google.protobuf.StructOrBuilder getCustomPayloadOrBuilder() {
+      if (customPayloadBuilder_ != null) {
+        return customPayloadBuilder_.getMessageOrBuilder();
+      } else {
+        return customPayload_ == null ?
+            com.google.protobuf.Struct.getDefaultInstance() : customPayload_;
+      }
+    }
+    /**
+     * <pre>
+     * Custom rendering payload for third-party integrations.
+     * Structure and content are defined by the integration provider.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        getCustomPayloadFieldBuilder() {
+      if (customPayloadBuilder_ == null) {
+        customPayloadBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                getCustomPayload(),
+                getParentForChildren(),
+                isClean());
+        customPayload_ = null;
+      }
+      return customPayloadBuilder_;
+    }
+
+    private int writingType_ = 0;
+    /**
+     * <pre>
+     * Composition method that determines how clients render this message.
+     * Automatically derived from the message content when not explicitly set:
+     * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
+     * and STANDARD otherwise.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
+     * @return The enum numeric value on the wire for writingType.
+     */
+    @java.lang.Override public int getWritingTypeValue() {
+      return writingType_;
+    }
+    /**
+     * <pre>
+     * Composition method that determines how clients render this message.
+     * Automatically derived from the message content when not explicitly set:
+     * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
+     * and STANDARD otherwise.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
+     * @param value The enum numeric value on the wire for writingType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWritingTypeValue(int value) {
+      
+      writingType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Composition method that determines how clients render this message.
+     * Automatically derived from the message content when not explicitly set:
+     * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
+     * and STANDARD otherwise.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
+     * @return The writingType.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.WritingType getWritingType() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.WritingType result = io.channel.api.proto.pub.coreapi.model.WritingType.valueOf(writingType_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.WritingType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Composition method that determines how clients render this message.
+     * Automatically derived from the message content when not explicitly set:
+     * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
+     * and STANDARD otherwise.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
+     * @param value The writingType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWritingType(io.channel.api.proto.pub.coreapi.model.WritingType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      writingType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Composition method that determines how clients render this message.
+     * Automatically derived from the message content when not explicitly set:
+     * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
+     * and STANDARD otherwise.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearWritingType() {
+      
+      writingType_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean threadMsg_ ;
+    /**
+     * <pre>
+     * Whether this message is a reply within a thread (not the root).
+     * True when thread_key is present and the message is not a thread root.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>bool thread_msg = 41 [json_name = "threadMsg", (.buf.validate.field) = { ... }</code>
      * @return The threadMsg.
      */
     @java.lang.Override
@@ -6935,11 +10253,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether this message is a thread reply.
-     * +kubebuilder:validation:Nullable
+     * Whether this message is a reply within a thread (not the root).
+     * True when thread_key is present and the message is not a thread root.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool thread_msg = 30 [json_name = "threadMsg"];</code>
+     * <code>bool thread_msg = 41 [json_name = "threadMsg", (.buf.validate.field) = { ... }</code>
      * @param value The threadMsg to set.
      * @return This builder for chaining.
      */
@@ -6951,11 +10270,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether this message is a thread reply.
-     * +kubebuilder:validation:Nullable
+     * Whether this message is a reply within a thread (not the root).
+     * True when thread_key is present and the message is not a thread root.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool thread_msg = 30 [json_name = "threadMsg"];</code>
+     * <code>bool thread_msg = 41 [json_name = "threadMsg", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearThreadMsg() {
@@ -6965,60 +10285,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean broadcastedMsg_ ;
-    /**
-     * <pre>
-     * Whether this message was broadcasted.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool broadcasted_msg = 31 [json_name = "broadcastedMsg"];</code>
-     * @return The broadcastedMsg.
-     */
-    @java.lang.Override
-    public boolean getBroadcastedMsg() {
-      return broadcastedMsg_;
-    }
-    /**
-     * <pre>
-     * Whether this message was broadcasted.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool broadcasted_msg = 31 [json_name = "broadcastedMsg"];</code>
-     * @param value The broadcastedMsg to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBroadcastedMsg(boolean value) {
-      
-      broadcastedMsg_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether this message was broadcasted.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool broadcasted_msg = 31 [json_name = "broadcastedMsg"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBroadcastedMsg() {
-      
-      broadcastedMsg_ = false;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object rootMessageId_ = "";
     /**
      * <pre>
-     * ID of the parent message this is a reply to.
+     * ID of the root message when this message belongs to a thread, meet, or ALF thread.
+     * Parsed from thread_key, meet_key, or alf_thread_key respectively.
+     * Absent for root messages and standalone messages.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string root_message_id = 32 [json_name = "rootMessageId"];</code>
+     * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
      * @return The rootMessageId.
      */
     public java.lang.String getRootMessageId() {
@@ -7035,11 +10311,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the parent message this is a reply to.
+     * ID of the root message when this message belongs to a thread, meet, or ALF thread.
+     * Parsed from thread_key, meet_key, or alf_thread_key respectively.
+     * Absent for root messages and standalone messages.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string root_message_id = 32 [json_name = "rootMessageId"];</code>
+     * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
      * @return The bytes for rootMessageId.
      */
     public com.google.protobuf.ByteString
@@ -7057,11 +10335,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the parent message this is a reply to.
+     * ID of the root message when this message belongs to a thread, meet, or ALF thread.
+     * Parsed from thread_key, meet_key, or alf_thread_key respectively.
+     * Absent for root messages and standalone messages.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string root_message_id = 32 [json_name = "rootMessageId"];</code>
+     * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
      * @param value The rootMessageId to set.
      * @return This builder for chaining.
      */
@@ -7077,11 +10357,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the parent message this is a reply to.
+     * ID of the root message when this message belongs to a thread, meet, or ALF thread.
+     * Parsed from thread_key, meet_key, or alf_thread_key respectively.
+     * Absent for root messages and standalone messages.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string root_message_id = 32 [json_name = "rootMessageId"];</code>
+     * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearRootMessageId() {
@@ -7092,11 +10374,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the parent message this is a reply to.
+     * ID of the root message when this message belongs to a thread, meet, or ALF thread.
+     * Parsed from thread_key, meet_key, or alf_thread_key respectively.
+     * Absent for root messages and standalone messages.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string root_message_id = 32 [json_name = "rootMessageId"];</code>
+     * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
      * @param value The bytes for rootMessageId to set.
      * @return This builder for chaining.
      */
@@ -7112,168 +10396,154 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private io.channel.api.proto.pub.coreapi.model.MessageThread thread_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.MessageThread, io.channel.api.proto.pub.coreapi.model.MessageThread.Builder, io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder> threadBuilder_;
+    private boolean threadRoot_ ;
     /**
      * <pre>
-     * Thread metadata if this message is a thread root.
-     * +kubebuilder:validation:Nullable
+     * Whether this message is the root of a thread.
+     * True when the thread field is present.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
-     * @return Whether the thread field is set.
+     * <code>bool thread_root = 43 [json_name = "threadRoot", (.buf.validate.field) = { ... }</code>
+     * @return The threadRoot.
      */
-    public boolean hasThread() {
-      return threadBuilder_ != null || thread_ != null;
+    @java.lang.Override
+    public boolean getThreadRoot() {
+      return threadRoot_;
     }
     /**
      * <pre>
-     * Thread metadata if this message is a thread root.
-     * +kubebuilder:validation:Nullable
+     * Whether this message is the root of a thread.
+     * True when the thread field is present.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
-     * @return The thread.
+     * <code>bool thread_root = 43 [json_name = "threadRoot", (.buf.validate.field) = { ... }</code>
+     * @param value The threadRoot to set.
+     * @return This builder for chaining.
      */
-    public io.channel.api.proto.pub.coreapi.model.MessageThread getThread() {
-      if (threadBuilder_ == null) {
-        return thread_ == null ? io.channel.api.proto.pub.coreapi.model.MessageThread.getDefaultInstance() : thread_;
-      } else {
-        return threadBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Thread metadata if this message is a thread root.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
-     */
-    public Builder setThread(io.channel.api.proto.pub.coreapi.model.MessageThread value) {
-      if (threadBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        thread_ = value;
-        onChanged();
-      } else {
-        threadBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Thread metadata if this message is a thread root.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
-     */
-    public Builder setThread(
-        io.channel.api.proto.pub.coreapi.model.MessageThread.Builder builderForValue) {
-      if (threadBuilder_ == null) {
-        thread_ = builderForValue.build();
-        onChanged();
-      } else {
-        threadBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Thread metadata if this message is a thread root.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
-     */
-    public Builder mergeThread(io.channel.api.proto.pub.coreapi.model.MessageThread value) {
-      if (threadBuilder_ == null) {
-        if (thread_ != null) {
-          thread_ =
-            io.channel.api.proto.pub.coreapi.model.MessageThread.newBuilder(thread_).mergeFrom(value).buildPartial();
-        } else {
-          thread_ = value;
-        }
-        onChanged();
-      } else {
-        threadBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Thread metadata if this message is a thread root.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
-     */
-    public Builder clearThread() {
-      if (threadBuilder_ == null) {
-        thread_ = null;
-        onChanged();
-      } else {
-        thread_ = null;
-        threadBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Thread metadata if this message is a thread root.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.MessageThread.Builder getThreadBuilder() {
+    public Builder setThreadRoot(boolean value) {
       
+      threadRoot_ = value;
       onChanged();
-      return getThreadFieldBuilder().getBuilder();
+      return this;
     }
     /**
      * <pre>
-     * Thread metadata if this message is a thread root.
-     * +kubebuilder:validation:Nullable
+     * Whether this message is the root of a thread.
+     * True when the thread field is present.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+     * <code>bool thread_root = 43 [json_name = "threadRoot", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
      */
-    public io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder getThreadOrBuilder() {
-      if (threadBuilder_ != null) {
-        return threadBuilder_.getMessageOrBuilder();
-      } else {
-        return thread_ == null ?
-            io.channel.api.proto.pub.coreapi.model.MessageThread.getDefaultInstance() : thread_;
-      }
+    public Builder clearThreadRoot() {
+      
+      threadRoot_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean broadcastedMsg_ ;
+    /**
+     * <pre>
+     * Whether this thread reply is also visible in the main message stream.
+     * True when the message has both thread_key and main_key, but is not a thread root.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg", (.buf.validate.field) = { ... }</code>
+     * @return The broadcastedMsg.
+     */
+    @java.lang.Override
+    public boolean getBroadcastedMsg() {
+      return broadcastedMsg_;
     }
     /**
      * <pre>
-     * Thread metadata if this message is a thread root.
-     * +kubebuilder:validation:Nullable
+     * Whether this thread reply is also visible in the main message stream.
+     * True when the message has both thread_key and main_key, but is not a thread root.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+     * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg", (.buf.validate.field) = { ... }</code>
+     * @param value The broadcastedMsg to set.
+     * @return This builder for chaining.
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.MessageThread, io.channel.api.proto.pub.coreapi.model.MessageThread.Builder, io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder> 
-        getThreadFieldBuilder() {
-      if (threadBuilder_ == null) {
-        threadBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            io.channel.api.proto.pub.coreapi.model.MessageThread, io.channel.api.proto.pub.coreapi.model.MessageThread.Builder, io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder>(
-                getThread(),
-                getParentForChildren(),
-                isClean());
-        thread_ = null;
-      }
-      return threadBuilder_;
+    public Builder setBroadcastedMsg(boolean value) {
+      
+      broadcastedMsg_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether this thread reply is also visible in the main message stream.
+     * True when the message has both thread_key and main_key, but is not a thread root.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBroadcastedMsg() {
+      
+      broadcastedMsg_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean removedByWriter_ ;
+    /**
+     * <pre>
+     * Whether the message was removed by its original author.
+     * True when the message state is REMOVED and the remover matches the author,
+     * or when no specific remover is recorded.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>bool removed_by_writer = 45 [json_name = "removedByWriter", (.buf.validate.field) = { ... }</code>
+     * @return The removedByWriter.
+     */
+    @java.lang.Override
+    public boolean getRemovedByWriter() {
+      return removedByWriter_;
+    }
+    /**
+     * <pre>
+     * Whether the message was removed by its original author.
+     * True when the message state is REMOVED and the remover matches the author,
+     * or when no specific remover is recorded.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>bool removed_by_writer = 45 [json_name = "removedByWriter", (.buf.validate.field) = { ... }</code>
+     * @param value The removedByWriter to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRemovedByWriter(boolean value) {
+      
+      removedByWriter_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the message was removed by its original author.
+     * True when the message state is REMOVED and the remover matches the author,
+     * or when no specific remover is recorded.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>bool removed_by_writer = 45 [json_name = "removedByWriter", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRemovedByWriter() {
+      
+      removedByWriter_ = false;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -7290,6 +10560,29 @@ private static final long serialVersionUID = 0L;
 
     /* Generated by protoc-gen-java-set-or-clear */
     
+    /**
+     * @param value The chat_key to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearChatKey(java.lang.String value) {
+    	if (value == null)
+    		return clearChatKey();
+    	else
+    		return setChatKey(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearChatKey(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearChatKey();
+    	else
+    		return setChatKey(mapFunc.apply(value));
+    }
+    	
     /**
      * @param value The id to set.
      * @return This builder for chaining.
@@ -7311,6 +10604,121 @@ private static final long serialVersionUID = 0L;
     		return clearId();
     	else
     		return setId(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The main_key to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearMainKey(java.lang.String value) {
+    	if (value == null)
+    		return clearMainKey();
+    	else
+    		return setMainKey(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearMainKey(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearMainKey();
+    	else
+    		return setMainKey(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The thread_key to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearThreadKey(java.lang.String value) {
+    	if (value == null)
+    		return clearThreadKey();
+    	else
+    		return setThreadKey(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearThreadKey(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearThreadKey();
+    	else
+    		return setThreadKey(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The meet_key to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearMeetKey(java.lang.String value) {
+    	if (value == null)
+    		return clearMeetKey();
+    	else
+    		return setMeetKey(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearMeetKey(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearMeetKey();
+    	else
+    		return setMeetKey(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The front_key to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearFrontKey(java.lang.String value) {
+    	if (value == null)
+    		return clearFrontKey();
+    	else
+    		return setFrontKey(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearFrontKey(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearFrontKey();
+    	else
+    		return setFrontKey(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The alf_thread_key to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearAlfThreadKey(java.lang.String value) {
+    	if (value == null)
+    		return clearAlfThreadKey();
+    	else
+    		return setAlfThreadKey(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearAlfThreadKey(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearAlfThreadKey();
+    	else
+    		return setAlfThreadKey(mapFunc.apply(value));
     }
     	
     /**
@@ -7498,14 +10906,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The updated_at to set.
+     * @param value The version to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearUpdatedAt(com.google.protobuf.Timestamp value) {
+    public Builder setOrClearVersion(java.lang.Long value) {
     	if (value == null)
-    		return clearUpdatedAt();
+    		return clearVersion();
     	else
-    		return setUpdatedAt(value);
+    		return setVersion(value);
     }
     	
     /**
@@ -7513,11 +10921,11 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearUpdatedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
     	if (value == null)
-    		return clearUpdatedAt();
+    		return clearVersion();
     	else
-    		return setUpdatedAt(mapFunc.apply(value));
+    		return setVersion(mapFunc.apply(value));
     }
     	
     /**
@@ -7566,6 +10974,144 @@ private static final long serialVersionUID = 0L;
     		return clearPlainText();
     	else
     		return setPlainText(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The updated_at to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearUpdatedAt(com.google.protobuf.Timestamp value) {
+    	if (value == null)
+    		return clearUpdatedAt();
+    	else
+    		return setUpdatedAt(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearUpdatedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    	if (value == null)
+    		return clearUpdatedAt();
+    	else
+    		return setUpdatedAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The thread to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearThread(io.channel.api.proto.pub.coreapi.model.MessageThread value) {
+    	if (value == null)
+    		return clearThread();
+    	else
+    		return setThread(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearThread(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.MessageThread> mapFunc) {
+    	if (value == null)
+    		return clearThread();
+    	else
+    		return setThread(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The meet to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearMeet(com.google.protobuf.Struct value) {
+    	if (value == null)
+    		return clearMeet();
+    	else
+    		return setMeet(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearMeet(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+    	if (value == null)
+    		return clearMeet();
+    	else
+    		return setMeet(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The email to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearEmail(com.google.protobuf.Struct value) {
+    	if (value == null)
+    		return clearEmail();
+    	else
+    		return setEmail(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearEmail(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+    	if (value == null)
+    		return clearEmail();
+    	else
+    		return setEmail(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The alf_thread to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearAlfThread(com.google.protobuf.Struct value) {
+    	if (value == null)
+    		return clearAlfThread();
+    	else
+    		return setAlfThread(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearAlfThread(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+    	if (value == null)
+    		return clearAlfThread();
+    	else
+    		return setAlfThread(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The edited_at to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearEditedAt(com.google.protobuf.Timestamp value) {
+    	if (value == null)
+    		return clearEditedAt();
+    	else
+    		return setEditedAt(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearEditedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    	if (value == null)
+    		return clearEditedAt();
+    	else
+    		return setEditedAt(mapFunc.apply(value));
     }
     	
     /**
@@ -7642,77 +11188,6 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The form to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearForm(com.google.protobuf.Struct value) {
-    	if (value == null)
-    		return clearForm();
-    	else
-    		return setForm(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearForm(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
-    	if (value == null)
-    		return clearForm();
-    	else
-    		return setForm(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param values The options to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllOrClearOptions(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.MessageOption> values) {
-    	if (values == null)
-    		return clearOptions();
-    	else
-    		return addAllOptions(values);
-    }
-    	
-    /**
-     * @param values The values to map.
-     * @param mapFunc The function to map the values into each proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapAllOrClearOptions(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.MessageOption> mapFunc) {
-    	if (values == null)
-    		return clearOptions();
-    	else {
-    		values.forEach(value -> addOptions(mapFunc.apply(value)));
-    		return this;
-    	}
-    }
-    	
-    /**
-     * @param value The state to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearState(io.channel.api.proto.pub.coreapi.model.MessageState value) {
-    	if (value == null)
-    		return clearState();
-    	else
-    		return setState(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearState(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.MessageState> mapFunc) {
-    	if (value == null)
-    		return clearState();
-    	else
-    		return setState(mapFunc.apply(value));
-    }
-    	
-    /**
      * @param value The log to set.
      * @return This builder for chaining.
      */
@@ -7761,14 +11236,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The chat_key to set.
+     * @param value The alf_progress to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearChatKey(java.lang.String value) {
+    public Builder setOrClearAlfProgress(com.google.protobuf.Struct value) {
     	if (value == null)
-    		return clearChatKey();
+    		return clearAlfProgress();
     	else
-    		return setChatKey(value);
+    		return setAlfProgress(value);
     }
     	
     /**
@@ -7776,45 +11251,22 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearChatKey(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearAlfProgress(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
     	if (value == null)
-    		return clearChatKey();
+    		return clearAlfProgress();
     	else
-    		return setChatKey(mapFunc.apply(value));
+    		return setAlfProgress(mapFunc.apply(value));
     }
     	
     /**
-     * @param value The main_key to set.
+     * @param value The form to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearMainKey(java.lang.String value) {
+    public Builder setOrClearForm(com.google.protobuf.Struct value) {
     	if (value == null)
-    		return clearMainKey();
+    		return clearForm();
     	else
-    		return setMainKey(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearMainKey(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearMainKey();
-    	else
-    		return setMainKey(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The thread_key to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearThreadKey(java.lang.String value) {
-    	if (value == null)
-    		return clearThreadKey();
-    	else
-    		return setThreadKey(value);
+    		return setForm(value);
     }
     	
     /**
@@ -7822,22 +11274,22 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearThreadKey(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearForm(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
     	if (value == null)
-    		return clearThreadKey();
+    		return clearForm();
     	else
-    		return setThreadKey(mapFunc.apply(value));
+    		return setForm(mapFunc.apply(value));
     }
     	
     /**
-     * @param value The version to set.
+     * @param value The state to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearVersion(java.lang.Long value) {
+    public Builder setOrClearState(io.channel.api.proto.pub.coreapi.model.MessageState value) {
     	if (value == null)
-    		return clearVersion();
+    		return clearState();
     	else
-    		return setVersion(value);
+    		return setState(value);
     }
     	
     /**
@@ -7845,11 +11297,36 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
+    public <T> Builder mapOrClearState(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.MessageState> mapFunc) {
     	if (value == null)
-    		return clearVersion();
+    		return clearState();
     	else
-    		return setVersion(mapFunc.apply(value));
+    		return setState(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param values The options to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllOrClearOptions(java.lang.Iterable<java.lang.String> values) {
+    	if (values == null)
+    		return clearOptions();
+    	else
+    		return addAllOptions(values);
+    }
+    	
+    /**
+     * @param values The values to map.
+     * @param mapFunc The function to map the values into each proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapAllOrClearOptions(java.lang.Iterable<T> values, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (values == null)
+    		return clearOptions();
+    	else {
+    		values.forEach(value -> addOptions(mapFunc.apply(value)));
+    		return this;
+    	}
     }
     	
     /**
@@ -7899,6 +11376,121 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
+     * @param value The workflow to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearWorkflow(com.google.protobuf.Struct value) {
+    	if (value == null)
+    		return clearWorkflow();
+    	else
+    		return setWorkflow(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearWorkflow(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+    	if (value == null)
+    		return clearWorkflow();
+    	else
+    		return setWorkflow(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The alert_level to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearAlertLevel(io.channel.api.proto.pub.coreapi.model.AlertLevel value) {
+    	if (value == null)
+    		return clearAlertLevel();
+    	else
+    		return setAlertLevel(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearAlertLevel(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.AlertLevel> mapFunc) {
+    	if (value == null)
+    		return clearAlertLevel();
+    	else
+    		return setAlertLevel(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The ivr to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearIvr(com.google.protobuf.Struct value) {
+    	if (value == null)
+    		return clearIvr();
+    	else
+    		return setIvr(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearIvr(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+    	if (value == null)
+    		return clearIvr();
+    	else
+    		return setIvr(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The custom_payload to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearCustomPayload(com.google.protobuf.Struct value) {
+    	if (value == null)
+    		return clearCustomPayload();
+    	else
+    		return setCustomPayload(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearCustomPayload(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+    	if (value == null)
+    		return clearCustomPayload();
+    	else
+    		return setCustomPayload(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The writing_type to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearWritingType(io.channel.api.proto.pub.coreapi.model.WritingType value) {
+    	if (value == null)
+    		return clearWritingType();
+    	else
+    		return setWritingType(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearWritingType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.WritingType> mapFunc) {
+    	if (value == null)
+    		return clearWritingType();
+    	else
+    		return setWritingType(mapFunc.apply(value));
+    }
+    	
+    /**
      * @param value The thread_msg to set.
      * @return This builder for chaining.
      */
@@ -7919,29 +11511,6 @@ private static final long serialVersionUID = 0L;
     		return clearThreadMsg();
     	else
     		return setThreadMsg(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The broadcasted_msg to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearBroadcastedMsg(java.lang.Boolean value) {
-    	if (value == null)
-    		return clearBroadcastedMsg();
-    	else
-    		return setBroadcastedMsg(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearBroadcastedMsg(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
-    	if (value == null)
-    		return clearBroadcastedMsg();
-    	else
-    		return setBroadcastedMsg(mapFunc.apply(value));
     }
     	
     /**
@@ -7968,14 +11537,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The thread to set.
+     * @param value The thread_root to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearThread(io.channel.api.proto.pub.coreapi.model.MessageThread value) {
+    public Builder setOrClearThreadRoot(java.lang.Boolean value) {
     	if (value == null)
-    		return clearThread();
+    		return clearThreadRoot();
     	else
-    		return setThread(value);
+    		return setThreadRoot(value);
     }
     	
     /**
@@ -7983,11 +11552,57 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearThread(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.MessageThread> mapFunc) {
+    public <T> Builder mapOrClearThreadRoot(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
     	if (value == null)
-    		return clearThread();
+    		return clearThreadRoot();
     	else
-    		return setThread(mapFunc.apply(value));
+    		return setThreadRoot(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The broadcasted_msg to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearBroadcastedMsg(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearBroadcastedMsg();
+    	else
+    		return setBroadcastedMsg(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearBroadcastedMsg(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearBroadcastedMsg();
+    	else
+    		return setBroadcastedMsg(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The removed_by_writer to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearRemovedByWriter(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearRemovedByWriter();
+    	else
+    		return setRemovedByWriter(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearRemovedByWriter(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearRemovedByWriter();
+    	else
+    		return setRemovedByWriter(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Message)

@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * MessageContent represents the content of a message sent via the Open API.
+ * MessageContent represents the content payload for sending a message via the API.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.MessageContent}
@@ -922,7 +922,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * MessageContent represents the content of a message sent via the Open API.
+   * MessageContent represents the content payload for sending a message via the API.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.MessageContent}

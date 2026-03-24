@@ -11,7 +11,7 @@ public interface OnlineOrBuilder extends
    * <pre>
    * Channel ID this online record belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface OnlineOrBuilder extends
    * <pre>
    * Channel ID this online record belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -78,4 +78,26 @@ public interface OnlineOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPersonIdBytes();
+
+  /**
+   * <pre>
+   * Composite presence record identifier derived from person type and person ID.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string id = 4 [json_name = "id"];</code>
+   * @return The id.
+   */
+  java.lang.String getId();
+  /**
+   * <pre>
+   * Composite presence record identifier derived from person type and person ID.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string id = 4 [json_name = "id"];</code>
+   * @return The bytes for id.
+   */
+  com.google.protobuf.ByteString
+      getIdBytes();
 }

@@ -5,7 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * App segment for user targeting within a specific app extension.
+ * AppSegment represents a user segment defined by an app extension.
+ * Used in campaigns and one-time messages to target users that belong to a specific segment managed by an external app.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.AppSegment}
@@ -109,9 +110,10 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object appId_;
   /**
    * <pre>
-   * App identifier.
+   * App that owns the segment definition.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="app-001"
    * </pre>
    *
    * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -132,9 +134,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * App identifier.
+   * App that owns the segment definition.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="app-001"
    * </pre>
    *
    * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -159,9 +162,10 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object extensionId_;
   /**
    * <pre>
-   * Extension identifier.
+   * Extension within the app that provides the segmentation logic.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ext-001"
    * </pre>
    *
    * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>
@@ -182,9 +186,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Extension identifier.
+   * Extension within the app that provides the segmentation logic.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ext-001"
    * </pre>
    *
    * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>
@@ -209,9 +214,10 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object segmentId_;
   /**
    * <pre>
-   * Segment identifier.
+   * Specific segment within the extension that users must belong to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="seg-001"
    * </pre>
    *
    * <code>string segment_id = 3 [json_name = "segmentId", (.buf.validate.field) = { ... }</code>
@@ -232,9 +238,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Segment identifier.
+   * Specific segment within the extension that users must belong to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="seg-001"
    * </pre>
    *
    * <code>string segment_id = 3 [json_name = "segmentId", (.buf.validate.field) = { ... }</code>
@@ -431,7 +438,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * App segment for user targeting within a specific app extension.
+   * AppSegment represents a user segment defined by an app extension.
+   * Used in campaigns and one-time messages to target users that belong to a specific segment managed by an external app.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.AppSegment}
@@ -598,9 +606,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object appId_ = "";
     /**
      * <pre>
-     * App identifier.
+     * App that owns the segment definition.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="app-001"
      * </pre>
      *
      * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -620,9 +629,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * App identifier.
+     * App that owns the segment definition.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="app-001"
      * </pre>
      *
      * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -643,9 +653,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * App identifier.
+     * App that owns the segment definition.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="app-001"
      * </pre>
      *
      * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -664,9 +675,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * App identifier.
+     * App that owns the segment definition.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="app-001"
      * </pre>
      *
      * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -680,9 +692,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * App identifier.
+     * App that owns the segment definition.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="app-001"
      * </pre>
      *
      * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -704,9 +717,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object extensionId_ = "";
     /**
      * <pre>
-     * Extension identifier.
+     * Extension within the app that provides the segmentation logic.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ext-001"
      * </pre>
      *
      * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>
@@ -726,9 +740,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Extension identifier.
+     * Extension within the app that provides the segmentation logic.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ext-001"
      * </pre>
      *
      * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>
@@ -749,9 +764,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Extension identifier.
+     * Extension within the app that provides the segmentation logic.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ext-001"
      * </pre>
      *
      * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>
@@ -770,9 +786,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Extension identifier.
+     * Extension within the app that provides the segmentation logic.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ext-001"
      * </pre>
      *
      * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>
@@ -786,9 +803,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Extension identifier.
+     * Extension within the app that provides the segmentation logic.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ext-001"
      * </pre>
      *
      * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>
@@ -810,9 +828,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object segmentId_ = "";
     /**
      * <pre>
-     * Segment identifier.
+     * Specific segment within the extension that users must belong to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="seg-001"
      * </pre>
      *
      * <code>string segment_id = 3 [json_name = "segmentId", (.buf.validate.field) = { ... }</code>
@@ -832,9 +851,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Segment identifier.
+     * Specific segment within the extension that users must belong to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="seg-001"
      * </pre>
      *
      * <code>string segment_id = 3 [json_name = "segmentId", (.buf.validate.field) = { ... }</code>
@@ -855,9 +875,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Segment identifier.
+     * Specific segment within the extension that users must belong to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="seg-001"
      * </pre>
      *
      * <code>string segment_id = 3 [json_name = "segmentId", (.buf.validate.field) = { ... }</code>
@@ -876,9 +897,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Segment identifier.
+     * Specific segment within the extension that users must belong to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="seg-001"
      * </pre>
      *
      * <code>string segment_id = 3 [json_name = "segmentId", (.buf.validate.field) = { ... }</code>
@@ -892,9 +914,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Segment identifier.
+     * Specific segment within the extension that users must belong to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="seg-001"
      * </pre>
      *
      * <code>string segment_id = 3 [json_name = "segmentId", (.buf.validate.field) = { ... }</code>

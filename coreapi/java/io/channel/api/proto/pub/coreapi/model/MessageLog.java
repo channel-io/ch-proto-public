@@ -5,8 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * MessageLog represents a system-generated log entry within a message.
- * Log messages record chat lifecycle events such as opening, closing, and assignments.
+ * MessageLog represents a system-generated log entry attached to a message,
+ * recording an automated or manual action that occurred in a chat.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.MessageLog}
@@ -120,15 +120,496 @@ private static final long serialVersionUID = 0L;
             io.channel.api.proto.pub.coreapi.model.MessageLog.class, io.channel.api.proto.pub.coreapi.model.MessageLog.Builder.class);
   }
 
+  /**
+   * <pre>
+   * Action types recorded in system log messages.
+   * </pre>
+   *
+   * Protobuf enum {@code coreapi.model.MessageLog.MessageLogAction}
+   */
+  public enum MessageLogAction
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>MESSAGE_LOG_ACTION_UNSPECIFIED = 0;</code>
+     */
+    MESSAGE_LOG_ACTION_UNSPECIFIED(0),
+    /**
+     * <code>MESSAGE_LOG_ACTION_CHANGE_NAME = 1;</code>
+     */
+    MESSAGE_LOG_ACTION_CHANGE_NAME(1),
+    /**
+     * <code>MESSAGE_LOG_ACTION_CHANGE_SCOPE = 2;</code>
+     */
+    MESSAGE_LOG_ACTION_CHANGE_SCOPE(2),
+    /**
+     * <code>MESSAGE_LOG_ACTION_CLOSE = 3;</code>
+     */
+    MESSAGE_LOG_ACTION_CLOSE(3),
+    /**
+     * <code>MESSAGE_LOG_ACTION_AUTO_CLOSE = 4;</code>
+     */
+    MESSAGE_LOG_ACTION_AUTO_CLOSE(4),
+    /**
+     * <code>MESSAGE_LOG_ACTION_CREATE = 5;</code>
+     */
+    MESSAGE_LOG_ACTION_CREATE(5),
+    /**
+     * <code>MESSAGE_LOG_ACTION_INVITE = 6;</code>
+     */
+    MESSAGE_LOG_ACTION_INVITE(6),
+    /**
+     * <code>MESSAGE_LOG_ACTION_JOIN = 7;</code>
+     */
+    MESSAGE_LOG_ACTION_JOIN(7),
+    /**
+     * <code>MESSAGE_LOG_ACTION_ASSIGN = 8;</code>
+     */
+    MESSAGE_LOG_ACTION_ASSIGN(8),
+    /**
+     * <code>MESSAGE_LOG_ACTION_AUTO_ASSIGN = 9;</code>
+     */
+    MESSAGE_LOG_ACTION_AUTO_ASSIGN(9),
+    /**
+     * <code>MESSAGE_LOG_ACTION_UNASSIGN = 10;</code>
+     */
+    MESSAGE_LOG_ACTION_UNASSIGN(10),
+    /**
+     * <code>MESSAGE_LOG_ACTION_LEAVE = 11;</code>
+     */
+    MESSAGE_LOG_ACTION_LEAVE(11),
+    /**
+     * <code>MESSAGE_LOG_ACTION_OPEN = 12;</code>
+     */
+    MESSAGE_LOG_ACTION_OPEN(12),
+    /**
+     * <code>MESSAGE_LOG_ACTION_AUTO_OPEN = 13;</code>
+     */
+    MESSAGE_LOG_ACTION_AUTO_OPEN(13),
+    /**
+     * <code>MESSAGE_LOG_ACTION_ENQUEUE = 14;</code>
+     */
+    MESSAGE_LOG_ACTION_ENQUEUE(14),
+    /**
+     * <code>MESSAGE_LOG_ACTION_MISS = 15;</code>
+     */
+    MESSAGE_LOG_ACTION_MISS(15),
+    /**
+     * <code>MESSAGE_LOG_ACTION_REMOVE = 16;</code>
+     */
+    MESSAGE_LOG_ACTION_REMOVE(16),
+    /**
+     * <code>MESSAGE_LOG_ACTION_SNOOZE = 17;</code>
+     */
+    MESSAGE_LOG_ACTION_SNOOZE(17),
+    /**
+     * <code>MESSAGE_LOG_ACTION_ADD_TAGS = 18;</code>
+     */
+    MESSAGE_LOG_ACTION_ADD_TAGS(18),
+    /**
+     * <code>MESSAGE_LOG_ACTION_REMOVE_TAGS = 19;</code>
+     */
+    MESSAGE_LOG_ACTION_REMOVE_TAGS(19),
+    /**
+     * <code>MESSAGE_LOG_ACTION_ASSIGN_TEAM = 20;</code>
+     */
+    MESSAGE_LOG_ACTION_ASSIGN_TEAM(20),
+    /**
+     * <code>MESSAGE_LOG_ACTION_UNASSIGN_TEAM = 21;</code>
+     */
+    MESSAGE_LOG_ACTION_UNASSIGN_TEAM(21),
+    /**
+     * <code>MESSAGE_LOG_ACTION_JOIN_MEET = 22;</code>
+     */
+    MESSAGE_LOG_ACTION_JOIN_MEET(22),
+    /**
+     * <code>MESSAGE_LOG_ACTION_LEAVE_MEET = 23;</code>
+     */
+    MESSAGE_LOG_ACTION_LEAVE_MEET(23),
+    /**
+     * <code>MESSAGE_LOG_ACTION_INVITE_MEET = 24;</code>
+     */
+    MESSAGE_LOG_ACTION_INVITE_MEET(24),
+    /**
+     * <code>MESSAGE_LOG_ACTION_MISS_MEET = 25;</code>
+     */
+    MESSAGE_LOG_ACTION_MISS_MEET(25),
+    /**
+     * <code>MESSAGE_LOG_ACTION_CALLBACK_MEET = 26;</code>
+     */
+    MESSAGE_LOG_ACTION_CALLBACK_MEET(26),
+    /**
+     * <code>MESSAGE_LOG_ACTION_TRY_CONNECT_CALL = 27;</code>
+     */
+    MESSAGE_LOG_ACTION_TRY_CONNECT_CALL(27),
+    /**
+     * <code>MESSAGE_LOG_ACTION_PROCESS_BY_MISS = 28;</code>
+     */
+    MESSAGE_LOG_ACTION_PROCESS_BY_MISS(28),
+    /**
+     * <code>MESSAGE_LOG_ACTION_PROCESS_BRANCH = 29;</code>
+     */
+    MESSAGE_LOG_ACTION_PROCESS_BRANCH(29),
+    /**
+     * <code>MESSAGE_LOG_ACTION_SEND_XMS = 30;</code>
+     */
+    MESSAGE_LOG_ACTION_SEND_XMS(30),
+    /**
+     * <code>MESSAGE_LOG_ACTION_ADD_USER_TAGS = 31;</code>
+     */
+    MESSAGE_LOG_ACTION_ADD_USER_TAGS(31),
+    /**
+     * <code>MESSAGE_LOG_ACTION_REMOVE_USER_TAGS = 32;</code>
+     */
+    MESSAGE_LOG_ACTION_REMOVE_USER_TAGS(32),
+    /**
+     * <code>MESSAGE_LOG_ACTION_UPDATE_PRIORITY = 33;</code>
+     */
+    MESSAGE_LOG_ACTION_UPDATE_PRIORITY(33),
+    /**
+     * <code>MESSAGE_LOG_ACTION_START_WORKFLOW = 34;</code>
+     */
+    MESSAGE_LOG_ACTION_START_WORKFLOW(34),
+    /**
+     * <code>MESSAGE_LOG_ACTION_END_WORKFLOW = 35;</code>
+     */
+    MESSAGE_LOG_ACTION_END_WORKFLOW(35),
+    /**
+     * <code>MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW = 36;</code>
+     */
+    MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW(36),
+    /**
+     * <code>MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT = 37;</code>
+     */
+    MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT(37),
+    /**
+     * <code>MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF = 38;</code>
+     */
+    MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF(38),
+    /**
+     * <code>MESSAGE_LOG_ACTION_START_TASK = 39;</code>
+     */
+    MESSAGE_LOG_ACTION_START_TASK(39),
+    /**
+     * <code>MESSAGE_LOG_ACTION_APPLY_RULES = 40;</code>
+     */
+    MESSAGE_LOG_ACTION_APPLY_RULES(40),
+    /**
+     * <code>MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER = 41;</code>
+     */
+    MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER(41),
+    /**
+     * <code>MESSAGE_LOG_ACTION_FALLBACK_CALL = 42;</code>
+     */
+    MESSAGE_LOG_ACTION_FALLBACK_CALL(42),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>MESSAGE_LOG_ACTION_UNSPECIFIED = 0;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_UNSPECIFIED_VALUE = 0;
+    /**
+     * <code>MESSAGE_LOG_ACTION_CHANGE_NAME = 1;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_CHANGE_NAME_VALUE = 1;
+    /**
+     * <code>MESSAGE_LOG_ACTION_CHANGE_SCOPE = 2;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_CHANGE_SCOPE_VALUE = 2;
+    /**
+     * <code>MESSAGE_LOG_ACTION_CLOSE = 3;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_CLOSE_VALUE = 3;
+    /**
+     * <code>MESSAGE_LOG_ACTION_AUTO_CLOSE = 4;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_AUTO_CLOSE_VALUE = 4;
+    /**
+     * <code>MESSAGE_LOG_ACTION_CREATE = 5;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_CREATE_VALUE = 5;
+    /**
+     * <code>MESSAGE_LOG_ACTION_INVITE = 6;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_INVITE_VALUE = 6;
+    /**
+     * <code>MESSAGE_LOG_ACTION_JOIN = 7;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_JOIN_VALUE = 7;
+    /**
+     * <code>MESSAGE_LOG_ACTION_ASSIGN = 8;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_ASSIGN_VALUE = 8;
+    /**
+     * <code>MESSAGE_LOG_ACTION_AUTO_ASSIGN = 9;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_AUTO_ASSIGN_VALUE = 9;
+    /**
+     * <code>MESSAGE_LOG_ACTION_UNASSIGN = 10;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_UNASSIGN_VALUE = 10;
+    /**
+     * <code>MESSAGE_LOG_ACTION_LEAVE = 11;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_LEAVE_VALUE = 11;
+    /**
+     * <code>MESSAGE_LOG_ACTION_OPEN = 12;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_OPEN_VALUE = 12;
+    /**
+     * <code>MESSAGE_LOG_ACTION_AUTO_OPEN = 13;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_AUTO_OPEN_VALUE = 13;
+    /**
+     * <code>MESSAGE_LOG_ACTION_ENQUEUE = 14;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_ENQUEUE_VALUE = 14;
+    /**
+     * <code>MESSAGE_LOG_ACTION_MISS = 15;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_MISS_VALUE = 15;
+    /**
+     * <code>MESSAGE_LOG_ACTION_REMOVE = 16;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_REMOVE_VALUE = 16;
+    /**
+     * <code>MESSAGE_LOG_ACTION_SNOOZE = 17;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_SNOOZE_VALUE = 17;
+    /**
+     * <code>MESSAGE_LOG_ACTION_ADD_TAGS = 18;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_ADD_TAGS_VALUE = 18;
+    /**
+     * <code>MESSAGE_LOG_ACTION_REMOVE_TAGS = 19;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_REMOVE_TAGS_VALUE = 19;
+    /**
+     * <code>MESSAGE_LOG_ACTION_ASSIGN_TEAM = 20;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_ASSIGN_TEAM_VALUE = 20;
+    /**
+     * <code>MESSAGE_LOG_ACTION_UNASSIGN_TEAM = 21;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_UNASSIGN_TEAM_VALUE = 21;
+    /**
+     * <code>MESSAGE_LOG_ACTION_JOIN_MEET = 22;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_JOIN_MEET_VALUE = 22;
+    /**
+     * <code>MESSAGE_LOG_ACTION_LEAVE_MEET = 23;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_LEAVE_MEET_VALUE = 23;
+    /**
+     * <code>MESSAGE_LOG_ACTION_INVITE_MEET = 24;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_INVITE_MEET_VALUE = 24;
+    /**
+     * <code>MESSAGE_LOG_ACTION_MISS_MEET = 25;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_MISS_MEET_VALUE = 25;
+    /**
+     * <code>MESSAGE_LOG_ACTION_CALLBACK_MEET = 26;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_CALLBACK_MEET_VALUE = 26;
+    /**
+     * <code>MESSAGE_LOG_ACTION_TRY_CONNECT_CALL = 27;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_TRY_CONNECT_CALL_VALUE = 27;
+    /**
+     * <code>MESSAGE_LOG_ACTION_PROCESS_BY_MISS = 28;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_PROCESS_BY_MISS_VALUE = 28;
+    /**
+     * <code>MESSAGE_LOG_ACTION_PROCESS_BRANCH = 29;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_PROCESS_BRANCH_VALUE = 29;
+    /**
+     * <code>MESSAGE_LOG_ACTION_SEND_XMS = 30;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_SEND_XMS_VALUE = 30;
+    /**
+     * <code>MESSAGE_LOG_ACTION_ADD_USER_TAGS = 31;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_ADD_USER_TAGS_VALUE = 31;
+    /**
+     * <code>MESSAGE_LOG_ACTION_REMOVE_USER_TAGS = 32;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_REMOVE_USER_TAGS_VALUE = 32;
+    /**
+     * <code>MESSAGE_LOG_ACTION_UPDATE_PRIORITY = 33;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_UPDATE_PRIORITY_VALUE = 33;
+    /**
+     * <code>MESSAGE_LOG_ACTION_START_WORKFLOW = 34;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_START_WORKFLOW_VALUE = 34;
+    /**
+     * <code>MESSAGE_LOG_ACTION_END_WORKFLOW = 35;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_END_WORKFLOW_VALUE = 35;
+    /**
+     * <code>MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW = 36;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_VALUE = 36;
+    /**
+     * <code>MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT = 37;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT_VALUE = 37;
+    /**
+     * <code>MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF = 38;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF_VALUE = 38;
+    /**
+     * <code>MESSAGE_LOG_ACTION_START_TASK = 39;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_START_TASK_VALUE = 39;
+    /**
+     * <code>MESSAGE_LOG_ACTION_APPLY_RULES = 40;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_APPLY_RULES_VALUE = 40;
+    /**
+     * <code>MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER = 41;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER_VALUE = 41;
+    /**
+     * <code>MESSAGE_LOG_ACTION_FALLBACK_CALL = 42;</code>
+     */
+    public static final int MESSAGE_LOG_ACTION_FALLBACK_CALL_VALUE = 42;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static MessageLogAction valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static MessageLogAction forNumber(int value) {
+      switch (value) {
+        case 0: return MESSAGE_LOG_ACTION_UNSPECIFIED;
+        case 1: return MESSAGE_LOG_ACTION_CHANGE_NAME;
+        case 2: return MESSAGE_LOG_ACTION_CHANGE_SCOPE;
+        case 3: return MESSAGE_LOG_ACTION_CLOSE;
+        case 4: return MESSAGE_LOG_ACTION_AUTO_CLOSE;
+        case 5: return MESSAGE_LOG_ACTION_CREATE;
+        case 6: return MESSAGE_LOG_ACTION_INVITE;
+        case 7: return MESSAGE_LOG_ACTION_JOIN;
+        case 8: return MESSAGE_LOG_ACTION_ASSIGN;
+        case 9: return MESSAGE_LOG_ACTION_AUTO_ASSIGN;
+        case 10: return MESSAGE_LOG_ACTION_UNASSIGN;
+        case 11: return MESSAGE_LOG_ACTION_LEAVE;
+        case 12: return MESSAGE_LOG_ACTION_OPEN;
+        case 13: return MESSAGE_LOG_ACTION_AUTO_OPEN;
+        case 14: return MESSAGE_LOG_ACTION_ENQUEUE;
+        case 15: return MESSAGE_LOG_ACTION_MISS;
+        case 16: return MESSAGE_LOG_ACTION_REMOVE;
+        case 17: return MESSAGE_LOG_ACTION_SNOOZE;
+        case 18: return MESSAGE_LOG_ACTION_ADD_TAGS;
+        case 19: return MESSAGE_LOG_ACTION_REMOVE_TAGS;
+        case 20: return MESSAGE_LOG_ACTION_ASSIGN_TEAM;
+        case 21: return MESSAGE_LOG_ACTION_UNASSIGN_TEAM;
+        case 22: return MESSAGE_LOG_ACTION_JOIN_MEET;
+        case 23: return MESSAGE_LOG_ACTION_LEAVE_MEET;
+        case 24: return MESSAGE_LOG_ACTION_INVITE_MEET;
+        case 25: return MESSAGE_LOG_ACTION_MISS_MEET;
+        case 26: return MESSAGE_LOG_ACTION_CALLBACK_MEET;
+        case 27: return MESSAGE_LOG_ACTION_TRY_CONNECT_CALL;
+        case 28: return MESSAGE_LOG_ACTION_PROCESS_BY_MISS;
+        case 29: return MESSAGE_LOG_ACTION_PROCESS_BRANCH;
+        case 30: return MESSAGE_LOG_ACTION_SEND_XMS;
+        case 31: return MESSAGE_LOG_ACTION_ADD_USER_TAGS;
+        case 32: return MESSAGE_LOG_ACTION_REMOVE_USER_TAGS;
+        case 33: return MESSAGE_LOG_ACTION_UPDATE_PRIORITY;
+        case 34: return MESSAGE_LOG_ACTION_START_WORKFLOW;
+        case 35: return MESSAGE_LOG_ACTION_END_WORKFLOW;
+        case 36: return MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW;
+        case 37: return MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT;
+        case 38: return MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF;
+        case 39: return MESSAGE_LOG_ACTION_START_TASK;
+        case 40: return MESSAGE_LOG_ACTION_APPLY_RULES;
+        case 41: return MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER;
+        case 42: return MESSAGE_LOG_ACTION_FALLBACK_CALL;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<MessageLogAction>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        MessageLogAction> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<MessageLogAction>() {
+            public MessageLogAction findValueByNumber(int number) {
+              return MessageLogAction.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return io.channel.api.proto.pub.coreapi.model.MessageLog.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final MessageLogAction[] VALUES = values();
+
+    public static MessageLogAction valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private MessageLogAction(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:coreapi.model.MessageLog.MessageLogAction)
+  }
+
   public static final int ACTION_FIELD_NUMBER = 1;
   private int action_;
   /**
    * <pre>
-   * Type of action that generated this log.
+   * Type of action that was recorded.
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.LogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
    * @return The enum numeric value on the wire for action.
    */
   @java.lang.Override public int getActionValue() {
@@ -136,25 +617,25 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Type of action that generated this log.
+   * Type of action that was recorded.
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.LogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
    * @return The action.
    */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.LogAction getAction() {
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.MessageLog.MessageLogAction getAction() {
     @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.LogAction result = io.channel.api.proto.pub.coreapi.model.LogAction.valueOf(action_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.LogAction.UNRECOGNIZED : result;
+    io.channel.api.proto.pub.coreapi.model.MessageLog.MessageLogAction result = io.channel.api.proto.pub.coreapi.model.MessageLog.MessageLogAction.valueOf(action_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.MessageLog.MessageLogAction.UNRECOGNIZED : result;
   }
 
   public static final int VALUES_FIELD_NUMBER = 2;
   private com.google.protobuf.LazyStringList values_;
   /**
    * <pre>
-   * Context values associated with the action.
-   * Interpretation depends on the action type.
+   * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+   * Interpretation depends on the `action` type.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -167,8 +648,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Context values associated with the action.
-   * Interpretation depends on the action type.
+   * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+   * Interpretation depends on the `action` type.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -180,8 +661,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Context values associated with the action.
-   * Interpretation depends on the action type.
+   * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+   * Interpretation depends on the `action` type.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -194,8 +675,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Context values associated with the action.
-   * Interpretation depends on the action type.
+   * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+   * Interpretation depends on the `action` type.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -212,7 +693,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object triggerType_;
   /**
    * <pre>
-   * Entity type that triggered the action.
+   * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -234,7 +715,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Entity type that triggered the action.
+   * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -260,7 +741,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object triggerId_;
   /**
    * <pre>
-   * Entity identifier that triggered the action.
+   * Identifier of the entity that triggered this action.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -282,7 +763,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Entity identifier that triggered the action.
+   * Identifier of the entity that triggered this action.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -318,7 +799,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (action_ != io.channel.api.proto.pub.coreapi.model.LogAction.LOG_ACTION_UNSPECIFIED.getNumber()) {
+    if (action_ != io.channel.api.proto.pub.coreapi.model.MessageLog.MessageLogAction.MESSAGE_LOG_ACTION_UNSPECIFIED.getNumber()) {
       output.writeEnum(1, action_);
     }
     for (int i = 0; i < values_.size(); i++) {
@@ -339,7 +820,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (action_ != io.channel.api.proto.pub.coreapi.model.LogAction.LOG_ACTION_UNSPECIFIED.getNumber()) {
+    if (action_ != io.channel.api.proto.pub.coreapi.model.MessageLog.MessageLogAction.MESSAGE_LOG_ACTION_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, action_);
     }
@@ -497,8 +978,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * MessageLog represents a system-generated log entry within a message.
-   * Log messages record chat lifecycle events such as opening, closing, and assignments.
+   * MessageLog represents a system-generated log entry attached to a message,
+   * recording an automated or manual action that occurred in a chat.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.MessageLog}
@@ -683,11 +1164,11 @@ private static final long serialVersionUID = 0L;
     private int action_ = 0;
     /**
      * <pre>
-     * Type of action that generated this log.
+     * Type of action that was recorded.
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.LogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
      * @return The enum numeric value on the wire for action.
      */
     @java.lang.Override public int getActionValue() {
@@ -695,11 +1176,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of action that generated this log.
+     * Type of action that was recorded.
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.LogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
      * @param value The enum numeric value on the wire for action to set.
      * @return This builder for chaining.
      */
@@ -711,30 +1192,30 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of action that generated this log.
+     * Type of action that was recorded.
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.LogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
      * @return The action.
      */
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.LogAction getAction() {
+    public io.channel.api.proto.pub.coreapi.model.MessageLog.MessageLogAction getAction() {
       @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.LogAction result = io.channel.api.proto.pub.coreapi.model.LogAction.valueOf(action_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.LogAction.UNRECOGNIZED : result;
+      io.channel.api.proto.pub.coreapi.model.MessageLog.MessageLogAction result = io.channel.api.proto.pub.coreapi.model.MessageLog.MessageLogAction.valueOf(action_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.MessageLog.MessageLogAction.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Type of action that generated this log.
+     * Type of action that was recorded.
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.LogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
      * @param value The action to set.
      * @return This builder for chaining.
      */
-    public Builder setAction(io.channel.api.proto.pub.coreapi.model.LogAction value) {
+    public Builder setAction(io.channel.api.proto.pub.coreapi.model.MessageLog.MessageLogAction value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -745,11 +1226,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of action that generated this log.
+     * Type of action that was recorded.
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.LogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearAction() {
@@ -768,8 +1249,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Context values associated with the action.
-     * Interpretation depends on the action type.
+     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Interpretation depends on the `action` type.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -782,8 +1263,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Context values associated with the action.
-     * Interpretation depends on the action type.
+     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Interpretation depends on the `action` type.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -795,8 +1276,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Context values associated with the action.
-     * Interpretation depends on the action type.
+     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Interpretation depends on the `action` type.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -809,8 +1290,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Context values associated with the action.
-     * Interpretation depends on the action type.
+     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Interpretation depends on the `action` type.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -824,8 +1305,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Context values associated with the action.
-     * Interpretation depends on the action type.
+     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Interpretation depends on the `action` type.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -846,8 +1327,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Context values associated with the action.
-     * Interpretation depends on the action type.
+     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Interpretation depends on the `action` type.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -867,8 +1348,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Context values associated with the action.
-     * Interpretation depends on the action type.
+     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Interpretation depends on the `action` type.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -886,8 +1367,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Context values associated with the action.
-     * Interpretation depends on the action type.
+     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Interpretation depends on the `action` type.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -902,8 +1383,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Context values associated with the action.
-     * Interpretation depends on the action type.
+     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Interpretation depends on the `action` type.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -926,7 +1407,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object triggerType_ = "";
     /**
      * <pre>
-     * Entity type that triggered the action.
+     * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -947,7 +1428,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type that triggered the action.
+     * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -969,7 +1450,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type that triggered the action.
+     * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -989,7 +1470,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type that triggered the action.
+     * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1004,7 +1485,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type that triggered the action.
+     * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1027,7 +1508,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object triggerId_ = "";
     /**
      * <pre>
-     * Entity identifier that triggered the action.
+     * Identifier of the entity that triggered this action.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1048,7 +1529,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity identifier that triggered the action.
+     * Identifier of the entity that triggered this action.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1070,7 +1551,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity identifier that triggered the action.
+     * Identifier of the entity that triggered this action.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1090,7 +1571,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity identifier that triggered the action.
+     * Identifier of the entity that triggered this action.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1105,7 +1586,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity identifier that triggered the action.
+     * Identifier of the entity that triggered this action.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1143,7 +1624,7 @@ private static final long serialVersionUID = 0L;
      * @param value The action to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearAction(io.channel.api.proto.pub.coreapi.model.LogAction value) {
+    public Builder setOrClearAction(io.channel.api.proto.pub.coreapi.model.MessageLog.MessageLogAction value) {
     	if (value == null)
     		return clearAction();
     	else
@@ -1155,7 +1636,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearAction(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.LogAction> mapFunc) {
+    public <T> Builder mapOrClearAction(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.MessageLog.MessageLogAction> mapFunc) {
     	if (value == null)
     		return clearAction();
     	else

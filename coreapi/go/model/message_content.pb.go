@@ -23,141 +23,35 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Content type of a message block.
-type BlockType int32
-
-const (
-	BlockType_BLOCK_TYPE_UNSPECIFIED BlockType = 0
-	BlockType_BLOCK_TYPE_TEXT        BlockType = 1
-	BlockType_BLOCK_TYPE_CODE        BlockType = 2
-	BlockType_BLOCK_TYPE_BULLETS     BlockType = 3
-)
-
-// Enum value maps for BlockType.
-var (
-	BlockType_name = map[int32]string{
-		0: "BLOCK_TYPE_UNSPECIFIED",
-		1: "BLOCK_TYPE_TEXT",
-		2: "BLOCK_TYPE_CODE",
-		3: "BLOCK_TYPE_BULLETS",
-	}
-	BlockType_value = map[string]int32{
-		"BLOCK_TYPE_UNSPECIFIED": 0,
-		"BLOCK_TYPE_TEXT":        1,
-		"BLOCK_TYPE_CODE":        2,
-		"BLOCK_TYPE_BULLETS":     3,
-	}
-)
-
-func (x BlockType) Enum() *BlockType {
-	p := new(BlockType)
-	*p = x
-	return p
-}
-
-func (x BlockType) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (BlockType) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_message_content_proto_enumTypes[0].Descriptor()
-}
-
-func (BlockType) Type() protoreflect.EnumType {
-	return &file_coreapi_model_message_content_proto_enumTypes[0]
-}
-
-func (x BlockType) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use BlockType.Descriptor instead.
-func (BlockType) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_message_content_proto_rawDescGZIP(), []int{0}
-}
-
-// Visual color variant for message buttons.
-type ButtonColorVariant int32
-
-const (
-	ButtonColorVariant_BUTTON_COLOR_VARIANT_UNSPECIFIED ButtonColorVariant = 0
-	ButtonColorVariant_BUTTON_COLOR_VARIANT_COBALT      ButtonColorVariant = 1
-	ButtonColorVariant_BUTTON_COLOR_VARIANT_GREEN       ButtonColorVariant = 2
-	ButtonColorVariant_BUTTON_COLOR_VARIANT_ORANGE      ButtonColorVariant = 3
-	ButtonColorVariant_BUTTON_COLOR_VARIANT_RED         ButtonColorVariant = 4
-	ButtonColorVariant_BUTTON_COLOR_VARIANT_BLACK       ButtonColorVariant = 5
-	ButtonColorVariant_BUTTON_COLOR_VARIANT_PINK        ButtonColorVariant = 6
-	ButtonColorVariant_BUTTON_COLOR_VARIANT_PURPLE      ButtonColorVariant = 7
-)
-
-// Enum value maps for ButtonColorVariant.
-var (
-	ButtonColorVariant_name = map[int32]string{
-		0: "BUTTON_COLOR_VARIANT_UNSPECIFIED",
-		1: "BUTTON_COLOR_VARIANT_COBALT",
-		2: "BUTTON_COLOR_VARIANT_GREEN",
-		3: "BUTTON_COLOR_VARIANT_ORANGE",
-		4: "BUTTON_COLOR_VARIANT_RED",
-		5: "BUTTON_COLOR_VARIANT_BLACK",
-		6: "BUTTON_COLOR_VARIANT_PINK",
-		7: "BUTTON_COLOR_VARIANT_PURPLE",
-	}
-	ButtonColorVariant_value = map[string]int32{
-		"BUTTON_COLOR_VARIANT_UNSPECIFIED": 0,
-		"BUTTON_COLOR_VARIANT_COBALT":      1,
-		"BUTTON_COLOR_VARIANT_GREEN":       2,
-		"BUTTON_COLOR_VARIANT_ORANGE":      3,
-		"BUTTON_COLOR_VARIANT_RED":         4,
-		"BUTTON_COLOR_VARIANT_BLACK":       5,
-		"BUTTON_COLOR_VARIANT_PINK":        6,
-		"BUTTON_COLOR_VARIANT_PURPLE":      7,
-	}
-)
-
-func (x ButtonColorVariant) Enum() *ButtonColorVariant {
-	p := new(ButtonColorVariant)
-	*p = x
-	return p
-}
-
-func (x ButtonColorVariant) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (ButtonColorVariant) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_message_content_proto_enumTypes[1].Descriptor()
-}
-
-func (ButtonColorVariant) Type() protoreflect.EnumType {
-	return &file_coreapi_model_message_content_proto_enumTypes[1]
-}
-
-func (x ButtonColorVariant) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use ButtonColorVariant.Descriptor instead.
-func (ButtonColorVariant) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_message_content_proto_rawDescGZIP(), []int{1}
-}
-
 // Message option flags that modify message delivery and display behavior.
 type MessageOption int32
 
 const (
-	MessageOption_MESSAGE_OPTION_UNSPECIFIED        MessageOption = 0
-	MessageOption_MESSAGE_OPTION_ACT_AS_MANAGER     MessageOption = 1
+	MessageOption_MESSAGE_OPTION_UNSPECIFIED MessageOption = 0
+	// Deliver the message as if sent by a manager instead of a bot.
+	MessageOption_MESSAGE_OPTION_ACT_AS_MANAGER MessageOption = 1
+	// Display the bot as the channel identity instead of its own profile.
 	MessageOption_MESSAGE_OPTION_DISPLAY_AS_CHANNEL MessageOption = 2
-	MessageOption_MESSAGE_OPTION_DO_NOT_POST        MessageOption = 3
-	MessageOption_MESSAGE_OPTION_DO_NOT_SEARCH      MessageOption = 4
-	MessageOption_MESSAGE_OPTION_DO_NOT_SEND_APP    MessageOption = 5
+	// Do not post the message to the chat timeline.
+	MessageOption_MESSAGE_OPTION_DO_NOT_POST MessageOption = 3
+	// Exclude the message from search results.
+	MessageOption_MESSAGE_OPTION_DO_NOT_SEARCH MessageOption = 4
+	// Do not deliver the message via app push notification.
+	MessageOption_MESSAGE_OPTION_DO_NOT_SEND_APP MessageOption = 5
+	// Do not update the Desk inbox timestamp for this message.
 	MessageOption_MESSAGE_OPTION_DO_NOT_UPDATE_DESK MessageOption = 6
-	MessageOption_MESSAGE_OPTION_IMMUTABLE          MessageOption = 7
-	MessageOption_MESSAGE_OPTION_PRIVATE            MessageOption = 8
-	MessageOption_MESSAGE_OPTION_SILENT             MessageOption = 9
-	MessageOption_MESSAGE_OPTION_SILENT_TO_MANAGER  MessageOption = 10
-	MessageOption_MESSAGE_OPTION_SILENT_TO_USER     MessageOption = 11
-	MessageOption_MESSAGE_OPTION_ALERT_TO_WRITER    MessageOption = 12
+	// Prevent the message from being edited or deleted after sending.
+	MessageOption_MESSAGE_OPTION_IMMUTABLE MessageOption = 7
+	// Mark the message as a private internal note visible only to managers.
+	MessageOption_MESSAGE_OPTION_PRIVATE MessageOption = 8
+	// Suppress all notifications for this message.
+	MessageOption_MESSAGE_OPTION_SILENT MessageOption = 9
+	// Suppress notifications to managers only.
+	MessageOption_MESSAGE_OPTION_SILENT_TO_MANAGER MessageOption = 10
+	// Suppress notifications to the user only.
+	MessageOption_MESSAGE_OPTION_SILENT_TO_USER MessageOption = 11
+	// Send an alert notification to the message writer.
+	MessageOption_MESSAGE_OPTION_ALERT_TO_WRITER MessageOption = 12
 )
 
 // Enum value maps for MessageOption.
@@ -205,11 +99,11 @@ func (x MessageOption) String() string {
 }
 
 func (MessageOption) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_message_content_proto_enumTypes[2].Descriptor()
+	return file_coreapi_model_message_content_proto_enumTypes[0].Descriptor()
 }
 
 func (MessageOption) Type() protoreflect.EnumType {
-	return &file_coreapi_model_message_content_proto_enumTypes[2]
+	return &file_coreapi_model_message_content_proto_enumTypes[0]
 }
 
 func (x MessageOption) Number() protoreflect.EnumNumber {
@@ -218,27 +112,208 @@ func (x MessageOption) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MessageOption.Descriptor instead.
 func (MessageOption) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_message_content_proto_rawDescGZIP(), []int{2}
+	return file_coreapi_model_message_content_proto_rawDescGZIP(), []int{0}
 }
 
-// Block represents a unit of structured content within a message.
-// Text and code blocks are leaf nodes containing a value.
-// Bullet blocks are container nodes containing child blocks.
+// Type of content block.
+// TEXT and CODE are leaf types that hold text in `value`.
+// BULLETS is a container type that holds child blocks in `blocks`.
+type Block_BlockType int32
+
+const (
+	Block_BLOCK_TYPE_UNSPECIFIED Block_BlockType = 0
+	// Container for nested child blocks forming a bullet list.
+	Block_BLOCK_TYPE_BULLETS Block_BlockType = 1
+	// Code snippet with optional syntax highlighting via `language`.
+	Block_BLOCK_TYPE_CODE Block_BlockType = 2
+	// Rich text content with inline markup support.
+	Block_BLOCK_TYPE_TEXT Block_BlockType = 3
+)
+
+// Enum value maps for Block_BlockType.
+var (
+	Block_BlockType_name = map[int32]string{
+		0: "BLOCK_TYPE_UNSPECIFIED",
+		1: "BLOCK_TYPE_BULLETS",
+		2: "BLOCK_TYPE_CODE",
+		3: "BLOCK_TYPE_TEXT",
+	}
+	Block_BlockType_value = map[string]int32{
+		"BLOCK_TYPE_UNSPECIFIED": 0,
+		"BLOCK_TYPE_BULLETS":     1,
+		"BLOCK_TYPE_CODE":        2,
+		"BLOCK_TYPE_TEXT":        3,
+	}
+)
+
+func (x Block_BlockType) Enum() *Block_BlockType {
+	p := new(Block_BlockType)
+	*p = x
+	return p
+}
+
+func (x Block_BlockType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Block_BlockType) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_message_content_proto_enumTypes[1].Descriptor()
+}
+
+func (Block_BlockType) Type() protoreflect.EnumType {
+	return &file_coreapi_model_message_content_proto_enumTypes[1]
+}
+
+func (x Block_BlockType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Block_BlockType.Descriptor instead.
+func (Block_BlockType) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_message_content_proto_rawDescGZIP(), []int{0, 0}
+}
+
+// Visual color theme for a button.
+type MessageButton_ColorVariant int32
+
+const (
+	MessageButton_COLOR_VARIANT_UNSPECIFIED MessageButton_ColorVariant = 0
+	MessageButton_COLOR_VARIANT_COBALT      MessageButton_ColorVariant = 1
+	MessageButton_COLOR_VARIANT_GREEN       MessageButton_ColorVariant = 2
+	MessageButton_COLOR_VARIANT_ORANGE      MessageButton_ColorVariant = 3
+	MessageButton_COLOR_VARIANT_RED         MessageButton_ColorVariant = 4
+	MessageButton_COLOR_VARIANT_BLACK       MessageButton_ColorVariant = 5
+	MessageButton_COLOR_VARIANT_PINK        MessageButton_ColorVariant = 6
+	MessageButton_COLOR_VARIANT_PURPLE      MessageButton_ColorVariant = 7
+)
+
+// Enum value maps for MessageButton_ColorVariant.
+var (
+	MessageButton_ColorVariant_name = map[int32]string{
+		0: "COLOR_VARIANT_UNSPECIFIED",
+		1: "COLOR_VARIANT_COBALT",
+		2: "COLOR_VARIANT_GREEN",
+		3: "COLOR_VARIANT_ORANGE",
+		4: "COLOR_VARIANT_RED",
+		5: "COLOR_VARIANT_BLACK",
+		6: "COLOR_VARIANT_PINK",
+		7: "COLOR_VARIANT_PURPLE",
+	}
+	MessageButton_ColorVariant_value = map[string]int32{
+		"COLOR_VARIANT_UNSPECIFIED": 0,
+		"COLOR_VARIANT_COBALT":      1,
+		"COLOR_VARIANT_GREEN":       2,
+		"COLOR_VARIANT_ORANGE":      3,
+		"COLOR_VARIANT_RED":         4,
+		"COLOR_VARIANT_BLACK":       5,
+		"COLOR_VARIANT_PINK":        6,
+		"COLOR_VARIANT_PURPLE":      7,
+	}
+)
+
+func (x MessageButton_ColorVariant) Enum() *MessageButton_ColorVariant {
+	p := new(MessageButton_ColorVariant)
+	*p = x
+	return p
+}
+
+func (x MessageButton_ColorVariant) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (MessageButton_ColorVariant) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_message_content_proto_enumTypes[2].Descriptor()
+}
+
+func (MessageButton_ColorVariant) Type() protoreflect.EnumType {
+	return &file_coreapi_model_message_content_proto_enumTypes[2]
+}
+
+func (x MessageButton_ColorVariant) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use MessageButton_ColorVariant.Descriptor instead.
+func (MessageButton_ColorVariant) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_message_content_proto_rawDescGZIP(), []int{1, 0}
+}
+
+// Access scope for private file visibility.
+type MessageFile_PrivateFileScope int32
+
+const (
+	MessageFile_PRIVATE_FILE_SCOPE_UNSPECIFIED MessageFile_PrivateFileScope = 0
+	// Visible only to participants of the specific chat.
+	MessageFile_PRIVATE_FILE_SCOPE_CHAT MessageFile_PrivateFileScope = 1
+	// Visible only to the owning manager.
+	MessageFile_PRIVATE_FILE_SCOPE_MANAGER MessageFile_PrivateFileScope = 2
+	// Visible to all members of the channel.
+	MessageFile_PRIVATE_FILE_SCOPE_CHANNEL MessageFile_PrivateFileScope = 3
+)
+
+// Enum value maps for MessageFile_PrivateFileScope.
+var (
+	MessageFile_PrivateFileScope_name = map[int32]string{
+		0: "PRIVATE_FILE_SCOPE_UNSPECIFIED",
+		1: "PRIVATE_FILE_SCOPE_CHAT",
+		2: "PRIVATE_FILE_SCOPE_MANAGER",
+		3: "PRIVATE_FILE_SCOPE_CHANNEL",
+	}
+	MessageFile_PrivateFileScope_value = map[string]int32{
+		"PRIVATE_FILE_SCOPE_UNSPECIFIED": 0,
+		"PRIVATE_FILE_SCOPE_CHAT":        1,
+		"PRIVATE_FILE_SCOPE_MANAGER":     2,
+		"PRIVATE_FILE_SCOPE_CHANNEL":     3,
+	}
+)
+
+func (x MessageFile_PrivateFileScope) Enum() *MessageFile_PrivateFileScope {
+	p := new(MessageFile_PrivateFileScope)
+	*p = x
+	return p
+}
+
+func (x MessageFile_PrivateFileScope) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (MessageFile_PrivateFileScope) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_message_content_proto_enumTypes[3].Descriptor()
+}
+
+func (MessageFile_PrivateFileScope) Type() protoreflect.EnumType {
+	return &file_coreapi_model_message_content_proto_enumTypes[3]
+}
+
+func (x MessageFile_PrivateFileScope) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use MessageFile_PrivateFileScope.Descriptor instead.
+func (MessageFile_PrivateFileScope) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_message_content_proto_rawDescGZIP(), []int{2, 0}
+}
+
+// Block represents a structured content block within a message.
+// Blocks can be nested to form bullet lists.
 type Block struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Content type of this block.
+	// Content block type that determines how the block is rendered and which fields are applicable.
 	//
 	// +kubebuilder:validation:Required
-	Type BlockType `protobuf:"varint,1,opt,name=type,proto3,enum=coreapi.model.BlockType" json:"type,omitempty"`
-	// Programming language identifier for code blocks.
+	Type Block_BlockType `protobuf:"varint,1,opt,name=type,proto3,enum=coreapi.model.Block_BlockType" json:"type,omitempty"`
+	// Programming language identifier for syntax highlighting.
+	// Only applicable when type is CODE.
 	//
 	// +kubebuilder:validation:Nullable
 	Language string `protobuf:"bytes,2,opt,name=language,proto3" json:"language,omitempty"`
-	// Text content for leaf blocks (text, code).
+	// Text content of the block.
+	// Applicable for TEXT and CODE block types; ignored for BULLETS.
 	//
 	// +kubebuilder:validation:Nullable
 	Value string `protobuf:"bytes,3,opt,name=value,proto3" json:"value,omitempty"`
-	// Child blocks for container blocks (bullets).
+	// Nested child blocks that form a hierarchical list structure.
+	// Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
 	//
 	// +kubebuilder:validation:Nullable
 	Blocks        []*Block `protobuf:"bytes,4,rep,name=blocks,proto3" json:"blocks,omitempty"`
@@ -276,11 +351,11 @@ func (*Block) Descriptor() ([]byte, []int) {
 	return file_coreapi_model_message_content_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Block) GetType() BlockType {
+func (x *Block) GetType() Block_BlockType {
 	if x != nil {
 		return x.Type
 	}
-	return BlockType_BLOCK_TYPE_UNSPECIFIED
+	return Block_BLOCK_TYPE_UNSPECIFIED
 }
 
 func (x *Block) GetLanguage() string {
@@ -305,20 +380,22 @@ func (x *Block) GetBlocks() []*Block {
 }
 
 // MessageButton represents an interactive button attached to a message.
+// A message can have up to 2 buttons.
 type MessageButton struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Button display text.
+	// Button label shown to the user.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
 	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
-	// Visual color variant of the button.
+	// Visual color theme applied to the button.
+	// Defaults to the channel's primary color when not specified.
 	//
 	// +kubebuilder:validation:Nullable
-	ColorVariant ButtonColorVariant `protobuf:"varint,2,opt,name=color_variant,json=colorVariant,proto3,enum=coreapi.model.ButtonColorVariant" json:"color_variant,omitempty"`
-	// Action to perform when the button is clicked.
-	// The structure depends on the action type (web, command, wam).
+	ColorVariant MessageButton_ColorVariant `protobuf:"varint,2,opt,name=color_variant,json=colorVariant,proto3,enum=coreapi.model.MessageButton_ColorVariant" json:"color_variant,omitempty"`
+	// Action payload executed when the button is clicked.
+	// Contains the action type and its attributes (e.g. URL to open, WAM to launch).
 	//
 	// +kubebuilder:validation:Required
 	Action        *structpb.Struct `protobuf:"bytes,3,opt,name=action,proto3" json:"action,omitempty"`
@@ -363,11 +440,11 @@ func (x *MessageButton) GetTitle() string {
 	return ""
 }
 
-func (x *MessageButton) GetColorVariant() ButtonColorVariant {
+func (x *MessageButton) GetColorVariant() MessageButton_ColorVariant {
 	if x != nil {
 		return x.ColorVariant
 	}
-	return ButtonColorVariant_BUTTON_COLOR_VARIANT_UNSPECIFIED
+	return MessageButton_COLOR_VARIANT_UNSPECIFIED
 }
 
 func (x *MessageButton) GetAction() *structpb.Struct {
@@ -377,19 +454,18 @@ func (x *MessageButton) GetAction() *structpb.Struct {
 	return nil
 }
 
-// MessageFile represents a file attachment in a message.
+// MessageFile represents a file attached to a message.
 type MessageFile struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique file identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// File category such as image, video, or audio.
+	// High-level media category derived from the MIME type (e.g. "image", "video", "audio").
 	//
 	// +kubebuilder:validation:Nullable
 	Type string `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	// Original file name.
+	// Original file name including the extension (e.g. "report.pdf").
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
@@ -398,11 +474,12 @@ type MessageFile struct {
 	//
 	// +kubebuilder:validation:Required
 	Size int64 `protobuf:"varint,4,opt,name=size,proto3" json:"size,omitempty"`
-	// MIME content type of the file.
+	// MIME content type (e.g. "image/png", "application/pdf").
 	//
 	// +kubebuilder:validation:Nullable
 	ContentType string `protobuf:"bytes,5,opt,name=content_type,json=contentType,proto3" json:"content_type,omitempty"`
-	// Duration in seconds for audio and video files.
+	// Media playback duration in seconds.
+	// Present only for audio or video files.
 	//
 	// +kubebuilder:validation:Nullable
 	Duration float64 `protobuf:"fixed64,6,opt,name=duration,proto3" json:"duration,omitempty"`
@@ -414,28 +491,60 @@ type MessageFile struct {
 	//
 	// +kubebuilder:validation:Nullable
 	Height int32 `protobuf:"varint,8,opt,name=height,proto3" json:"height,omitempty"`
-	// EXIF orientation value for images.
+	// EXIF orientation value (1-8) indicating how the image should be rotated for display.
+	// Present only for image files with EXIF metadata.
 	//
 	// +kubebuilder:validation:Nullable
 	Orientation int32 `protobuf:"varint,9,opt,name=orientation,proto3" json:"orientation,omitempty"`
-	// Whether the image is animated (e.g., GIF).
+	// Whether the image is an animated format (e.g. GIF, APNG).
 	//
 	// +kubebuilder:validation:Nullable
 	Animated bool `protobuf:"varint,10,opt,name=animated,proto3" json:"animated,omitempty"`
-	// Storage bucket name where the file is stored.
+	// Storage bucket name where the file is hosted.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	Bucket string `protobuf:"bytes,11,opt,name=bucket,proto3" json:"bucket,omitempty"`
-	// Storage key identifying the file within the bucket.
+	// Storage object key used to locate the file within the bucket.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	Key string `protobuf:"bytes,12,opt,name=key,proto3" json:"key,omitempty"`
-	// Storage key for the file preview thumbnail.
+	// Storage key for the preview thumbnail.
+	// Falls back to `key` when not set.
 	//
 	// +kubebuilder:validation:Nullable
-	PreviewKey    string `protobuf:"bytes,13,opt,name=preview_key,json=previewKey,proto3" json:"preview_key,omitempty"`
+	PreviewKey string `protobuf:"bytes,13,opt,name=preview_key,json=previewKey,proto3" json:"preview_key,omitempty"`
+	// Access scope that determines who can view this private file.
+	// Derived from the storage key pattern.
+	//
+	// +kubebuilder:validation:Nullable
+	PrivateFileScope MessageFile_PrivateFileScope `protobuf:"varint,14,opt,name=private_file_scope,json=privateFileScope,proto3,enum=coreapi.model.MessageFile_PrivateFileScope" json:"private_file_scope,omitempty"`
+	// Domain identifier for channel-scoped private files.
+	// Derived from the storage key pattern.
+	//
+	// +kubebuilder:validation:Nullable
+	SharedDomain string `protobuf:"bytes,15,opt,name=shared_domain,json=sharedDomain,proto3" json:"shared_domain,omitempty"`
+	// Channel ID that owns this private file.
+	// Derived from the storage key pattern.
+	//
+	// +kubebuilder:validation:Nullable
+	ChannelId string `protobuf:"bytes,16,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Manager ID that owns this private file.
+	// Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+	//
+	// +kubebuilder:validation:Nullable
+	ManagerId string `protobuf:"bytes,17,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
+	// Chat type for chat-scoped private files.
+	// Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+	//
+	// +kubebuilder:validation:Nullable
+	ChatType string `protobuf:"bytes,18,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
+	// Chat ID for chat-scoped private files.
+	// Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+	//
+	// +kubebuilder:validation:Nullable
+	ChatId        string `protobuf:"bytes,19,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -561,40 +670,82 @@ func (x *MessageFile) GetPreviewKey() string {
 	return ""
 }
 
-// MessageWebPage represents a web page link preview attached to a message.
+func (x *MessageFile) GetPrivateFileScope() MessageFile_PrivateFileScope {
+	if x != nil {
+		return x.PrivateFileScope
+	}
+	return MessageFile_PRIVATE_FILE_SCOPE_UNSPECIFIED
+}
+
+func (x *MessageFile) GetSharedDomain() string {
+	if x != nil {
+		return x.SharedDomain
+	}
+	return ""
+}
+
+func (x *MessageFile) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *MessageFile) GetManagerId() string {
+	if x != nil {
+		return x.ManagerId
+	}
+	return ""
+}
+
+func (x *MessageFile) GetChatType() string {
+	if x != nil {
+		return x.ChatType
+	}
+	return ""
+}
+
+func (x *MessageFile) GetChatId() string {
+	if x != nil {
+		return x.ChatId
+	}
+	return ""
+}
+
+// MessageWebPage represents a link preview card embedded in a message,
+// populated from Open Graph and HTML meta tags of the target URL.
 type MessageWebPage struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Unique web page identifier.
+	// Unique web page preview identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// URL of the web page.
+	// Target URL of the linked web page.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	Url string `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
-	// Title of the web page.
+	// Page title extracted from Open Graph `og:title` or HTML `<title>` tag.
 	//
 	// +kubebuilder:validation:Nullable
 	Title string `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
-	// Short description of the web page content.
+	// Page summary extracted from Open Graph `og:description` or HTML meta description.
 	//
 	// +kubebuilder:validation:Nullable
 	Description string `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
-	// URL of the preview image.
+	// Primary image URL from Open Graph `og:image` metadata.
 	//
 	// +kubebuilder:validation:Nullable
 	ImageUrl string `protobuf:"bytes,5,opt,name=image_url,json=imageUrl,proto3" json:"image_url,omitempty"`
-	// URL of the preview video.
+	// Embedded video URL from Open Graph `og:video` metadata.
 	//
 	// +kubebuilder:validation:Nullable
 	VideoUrl string `protobuf:"bytes,6,opt,name=video_url,json=videoUrl,proto3" json:"video_url,omitempty"`
-	// Publisher name of the web page.
+	// Publisher or site name extracted from page metadata.
 	//
 	// +kubebuilder:validation:Nullable
 	Publisher string `protobuf:"bytes,7,opt,name=publisher,proto3" json:"publisher,omitempty"`
-	// Author name of the web page content.
+	// Content author name extracted from page metadata.
 	//
 	// +kubebuilder:validation:Nullable
 	Author string `protobuf:"bytes,8,opt,name=author,proto3" json:"author,omitempty"`
@@ -610,15 +761,15 @@ type MessageWebPage struct {
 	//
 	// +kubebuilder:validation:Nullable
 	Bucket string `protobuf:"bytes,11,opt,name=bucket,proto3" json:"bucket,omitempty"`
-	// Storage key for the cached preview image.
+	// Storage key for the locally cached preview image.
 	//
 	// +kubebuilder:validation:Nullable
 	PreviewKey string `protobuf:"bytes,12,opt,name=preview_key,json=previewKey,proto3" json:"preview_key,omitempty"`
-	// Logo URL of the web page publisher.
+	// Publisher logo URL extracted from page metadata.
 	//
 	// +kubebuilder:validation:Nullable
 	Logo string `protobuf:"bytes,13,opt,name=logo,proto3" json:"logo,omitempty"`
-	// Site name of the web page.
+	// Site name from Open Graph `og:site_name` metadata.
 	//
 	// +kubebuilder:validation:Nullable
 	Name          string `protobuf:"bytes,14,opt,name=name,proto3" json:"name,omitempty"`
@@ -754,7 +905,7 @@ func (x *MessageWebPage) GetName() string {
 	return ""
 }
 
-// MessageContent represents the content of a message sent via the Open API.
+// MessageContent represents the content payload for sending a message via the API.
 type MessageContent struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Structured content blocks of the message.
@@ -886,21 +1037,34 @@ var File_coreapi_model_message_content_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_message_content_proto_rawDesc = "" +
 	"\n" +
-	"#coreapi/model/message_content.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x9d\x01\n" +
-	"\x05Block\x124\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x18.coreapi.model.BlockTypeB\x06\xbaH\x03\xc8\x01\x01R\x04type\x12\x1a\n" +
+	"#coreapi/model/message_content.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x8e\x02\n" +
+	"\x05Block\x12:\n" +
+	"\x04type\x18\x01 \x01(\x0e2\x1e.coreapi.model.Block.BlockTypeB\x06\xbaH\x03\xc8\x01\x01R\x04type\x12\x1a\n" +
 	"\blanguage\x18\x02 \x01(\tR\blanguage\x12\x14\n" +
 	"\x05value\x18\x03 \x01(\tR\x05value\x12,\n" +
-	"\x06blocks\x18\x04 \x03(\v2\x14.coreapi.model.BlockR\x06blocks\"\xc6\x02\n" +
+	"\x06blocks\x18\x04 \x03(\v2\x14.coreapi.model.BlockR\x06blocks\"i\n" +
+	"\tBlockType\x12\x1a\n" +
+	"\x16BLOCK_TYPE_UNSPECIFIED\x10\x00\x12\x16\n" +
+	"\x12BLOCK_TYPE_BULLETS\x10\x01\x12\x13\n" +
+	"\x0fBLOCK_TYPE_CODE\x10\x02\x12\x13\n" +
+	"\x0fBLOCK_TYPE_TEXT\x10\x03\"\xad\x04\n" +
 	"\rMessageButton\x12\xb3\x01\n" +
 	"\x05title\x18\x01 \x01(\tB\x9c\x01\xbaH\x98\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01K\n" +
-	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01R\x05title\x12F\n" +
-	"\rcolor_variant\x18\x02 \x01(\x0e2!.coreapi.model.ButtonColorVariantR\fcolorVariant\x127\n" +
-	"\x06action\x18\x03 \x01(\v2\x17.google.protobuf.StructB\x06\xbaH\x03\xc8\x01\x01R\x06action\"\x93\x05\n" +
-	"\vMessageFile\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12\x12\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01R\x05title\x12N\n" +
+	"\rcolor_variant\x18\x02 \x01(\x0e2).coreapi.model.MessageButton.ColorVariantR\fcolorVariant\x127\n" +
+	"\x06action\x18\x03 \x01(\v2\x17.google.protobuf.StructB\x06\xbaH\x03\xc8\x01\x01R\x06action\"\xdc\x01\n" +
+	"\fColorVariant\x12\x1d\n" +
+	"\x19COLOR_VARIANT_UNSPECIFIED\x10\x00\x12\x18\n" +
+	"\x14COLOR_VARIANT_COBALT\x10\x01\x12\x17\n" +
+	"\x13COLOR_VARIANT_GREEN\x10\x02\x12\x18\n" +
+	"\x14COLOR_VARIANT_ORANGE\x10\x03\x12\x15\n" +
+	"\x11COLOR_VARIANT_RED\x10\x04\x12\x17\n" +
+	"\x13COLOR_VARIANT_BLACK\x10\x05\x12\x16\n" +
+	"\x12COLOR_VARIANT_PINK\x10\x06\x12\x18\n" +
+	"\x14COLOR_VARIANT_PURPLE\x10\a\"\xd6\a\n" +
+	"\vMessageFile\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12\x12\n" +
 	"\x04type\x18\x02 \x01(\tR\x04type\x12a\n" +
 	"\x04name\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x04name\x12\x1a\n" +
@@ -917,10 +1081,22 @@ const file_coreapi_model_message_content_proto_rawDesc = "" +
 	"\x03key\x18\f \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x03key\x12\x1f\n" +
 	"\vpreview_key\x18\r \x01(\tR\n" +
-	"previewKey\"\x87\x04\n" +
-	"\x0eMessageWebPage\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12_\n" +
+	"previewKey\x12Y\n" +
+	"\x12private_file_scope\x18\x0e \x01(\x0e2+.coreapi.model.MessageFile.PrivateFileScopeR\x10privateFileScope\x12#\n" +
+	"\rshared_domain\x18\x0f \x01(\tR\fsharedDomain\x12\x1d\n" +
+	"\n" +
+	"channel_id\x18\x10 \x01(\tR\tchannelId\x12\x1d\n" +
+	"\n" +
+	"manager_id\x18\x11 \x01(\tR\tmanagerId\x12\x1b\n" +
+	"\tchat_type\x18\x12 \x01(\tR\bchatType\x12\x17\n" +
+	"\achat_id\x18\x13 \x01(\tR\x06chatId\"\x93\x01\n" +
+	"\x10PrivateFileScope\x12\"\n" +
+	"\x1ePRIVATE_FILE_SCOPE_UNSPECIFIED\x10\x00\x12\x1b\n" +
+	"\x17PRIVATE_FILE_SCOPE_CHAT\x10\x01\x12\x1e\n" +
+	"\x1aPRIVATE_FILE_SCOPE_MANAGER\x10\x02\x12\x1e\n" +
+	"\x1aPRIVATE_FILE_SCOPE_CHANNEL\x10\x03\"\xc0\x03\n" +
+	"\x0eMessageWebPage\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12_\n" +
 	"\x03url\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x03url\x12\x14\n" +
 	"\x05title\x18\x03 \x01(\tR\x05title\x12 \n" +
@@ -948,21 +1124,7 @@ const file_coreapi_model_message_content_proto_rawDesc = "" +
 	"\x04form\x18\x06 \x01(\v2\x17.google.protobuf.StructR\x04form\x126\n" +
 	"\aoptions\x18\a \x03(\x0e2\x1c.coreapi.model.MessageOptionR\aoptions\x12\x1d\n" +
 	"\n" +
-	"request_id\x18\b \x01(\tR\trequestId*i\n" +
-	"\tBlockType\x12\x1a\n" +
-	"\x16BLOCK_TYPE_UNSPECIFIED\x10\x00\x12\x13\n" +
-	"\x0fBLOCK_TYPE_TEXT\x10\x01\x12\x13\n" +
-	"\x0fBLOCK_TYPE_CODE\x10\x02\x12\x16\n" +
-	"\x12BLOCK_TYPE_BULLETS\x10\x03*\x9a\x02\n" +
-	"\x12ButtonColorVariant\x12$\n" +
-	" BUTTON_COLOR_VARIANT_UNSPECIFIED\x10\x00\x12\x1f\n" +
-	"\x1bBUTTON_COLOR_VARIANT_COBALT\x10\x01\x12\x1e\n" +
-	"\x1aBUTTON_COLOR_VARIANT_GREEN\x10\x02\x12\x1f\n" +
-	"\x1bBUTTON_COLOR_VARIANT_ORANGE\x10\x03\x12\x1c\n" +
-	"\x18BUTTON_COLOR_VARIANT_RED\x10\x04\x12\x1e\n" +
-	"\x1aBUTTON_COLOR_VARIANT_BLACK\x10\x05\x12\x1d\n" +
-	"\x19BUTTON_COLOR_VARIANT_PINK\x10\x06\x12\x1f\n" +
-	"\x1bBUTTON_COLOR_VARIANT_PURPLE\x10\a*\xc8\x03\n" +
+	"request_id\x18\b \x01(\tR\trequestId*\xc8\x03\n" +
 	"\rMessageOption\x12\x1e\n" +
 	"\x1aMESSAGE_OPTION_UNSPECIFIED\x10\x00\x12!\n" +
 	"\x1dMESSAGE_OPTION_ACT_AS_MANAGER\x10\x01\x12%\n" +
@@ -992,35 +1154,37 @@ func file_coreapi_model_message_content_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_message_content_proto_rawDescData
 }
 
-var file_coreapi_model_message_content_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
+var file_coreapi_model_message_content_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
 var file_coreapi_model_message_content_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_coreapi_model_message_content_proto_goTypes = []any{
-	(BlockType)(0),          // 0: coreapi.model.BlockType
-	(ButtonColorVariant)(0), // 1: coreapi.model.ButtonColorVariant
-	(MessageOption)(0),      // 2: coreapi.model.MessageOption
-	(*Block)(nil),           // 3: coreapi.model.Block
-	(*MessageButton)(nil),   // 4: coreapi.model.MessageButton
-	(*MessageFile)(nil),     // 5: coreapi.model.MessageFile
-	(*MessageWebPage)(nil),  // 6: coreapi.model.MessageWebPage
-	(*MessageContent)(nil),  // 7: coreapi.model.MessageContent
-	(*structpb.Struct)(nil), // 8: google.protobuf.Struct
+	(MessageOption)(0),                // 0: coreapi.model.MessageOption
+	(Block_BlockType)(0),              // 1: coreapi.model.Block.BlockType
+	(MessageButton_ColorVariant)(0),   // 2: coreapi.model.MessageButton.ColorVariant
+	(MessageFile_PrivateFileScope)(0), // 3: coreapi.model.MessageFile.PrivateFileScope
+	(*Block)(nil),                     // 4: coreapi.model.Block
+	(*MessageButton)(nil),             // 5: coreapi.model.MessageButton
+	(*MessageFile)(nil),               // 6: coreapi.model.MessageFile
+	(*MessageWebPage)(nil),            // 7: coreapi.model.MessageWebPage
+	(*MessageContent)(nil),            // 8: coreapi.model.MessageContent
+	(*structpb.Struct)(nil),           // 9: google.protobuf.Struct
 }
 var file_coreapi_model_message_content_proto_depIdxs = []int32{
-	0,  // 0: coreapi.model.Block.type:type_name -> coreapi.model.BlockType
-	3,  // 1: coreapi.model.Block.blocks:type_name -> coreapi.model.Block
-	1,  // 2: coreapi.model.MessageButton.color_variant:type_name -> coreapi.model.ButtonColorVariant
-	8,  // 3: coreapi.model.MessageButton.action:type_name -> google.protobuf.Struct
-	3,  // 4: coreapi.model.MessageContent.blocks:type_name -> coreapi.model.Block
-	4,  // 5: coreapi.model.MessageContent.buttons:type_name -> coreapi.model.MessageButton
-	5,  // 6: coreapi.model.MessageContent.files:type_name -> coreapi.model.MessageFile
-	6,  // 7: coreapi.model.MessageContent.web_page:type_name -> coreapi.model.MessageWebPage
-	8,  // 8: coreapi.model.MessageContent.form:type_name -> google.protobuf.Struct
-	2,  // 9: coreapi.model.MessageContent.options:type_name -> coreapi.model.MessageOption
-	10, // [10:10] is the sub-list for method output_type
-	10, // [10:10] is the sub-list for method input_type
-	10, // [10:10] is the sub-list for extension type_name
-	10, // [10:10] is the sub-list for extension extendee
-	0,  // [0:10] is the sub-list for field type_name
+	1,  // 0: coreapi.model.Block.type:type_name -> coreapi.model.Block.BlockType
+	4,  // 1: coreapi.model.Block.blocks:type_name -> coreapi.model.Block
+	2,  // 2: coreapi.model.MessageButton.color_variant:type_name -> coreapi.model.MessageButton.ColorVariant
+	9,  // 3: coreapi.model.MessageButton.action:type_name -> google.protobuf.Struct
+	3,  // 4: coreapi.model.MessageFile.private_file_scope:type_name -> coreapi.model.MessageFile.PrivateFileScope
+	4,  // 5: coreapi.model.MessageContent.blocks:type_name -> coreapi.model.Block
+	5,  // 6: coreapi.model.MessageContent.buttons:type_name -> coreapi.model.MessageButton
+	6,  // 7: coreapi.model.MessageContent.files:type_name -> coreapi.model.MessageFile
+	7,  // 8: coreapi.model.MessageContent.web_page:type_name -> coreapi.model.MessageWebPage
+	9,  // 9: coreapi.model.MessageContent.form:type_name -> google.protobuf.Struct
+	0,  // 10: coreapi.model.MessageContent.options:type_name -> coreapi.model.MessageOption
+	11, // [11:11] is the sub-list for method output_type
+	11, // [11:11] is the sub-list for method input_type
+	11, // [11:11] is the sub-list for extension type_name
+	11, // [11:11] is the sub-list for extension extendee
+	0,  // [0:11] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_message_content_proto_init() }
@@ -1033,7 +1197,7 @@ func file_coreapi_model_message_content_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_message_content_proto_rawDesc), len(file_coreapi_model_message_content_proto_rawDesc)),
-			NumEnums:      3,
+			NumEnums:      4,
 			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   0,

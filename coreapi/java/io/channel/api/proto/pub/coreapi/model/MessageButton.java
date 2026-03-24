@@ -6,6 +6,7 @@ package io.channel.api.proto.pub.coreapi.model;
 /**
  * <pre>
  * MessageButton represents an interactive button attached to a message.
+ * A message can have up to 2 buttons.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.MessageButton}
@@ -111,11 +112,177 @@ private static final long serialVersionUID = 0L;
             io.channel.api.proto.pub.coreapi.model.MessageButton.class, io.channel.api.proto.pub.coreapi.model.MessageButton.Builder.class);
   }
 
+  /**
+   * <pre>
+   * Visual color theme for a button.
+   * </pre>
+   *
+   * Protobuf enum {@code coreapi.model.MessageButton.ColorVariant}
+   */
+  public enum ColorVariant
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>COLOR_VARIANT_UNSPECIFIED = 0;</code>
+     */
+    COLOR_VARIANT_UNSPECIFIED(0),
+    /**
+     * <code>COLOR_VARIANT_COBALT = 1;</code>
+     */
+    COLOR_VARIANT_COBALT(1),
+    /**
+     * <code>COLOR_VARIANT_GREEN = 2;</code>
+     */
+    COLOR_VARIANT_GREEN(2),
+    /**
+     * <code>COLOR_VARIANT_ORANGE = 3;</code>
+     */
+    COLOR_VARIANT_ORANGE(3),
+    /**
+     * <code>COLOR_VARIANT_RED = 4;</code>
+     */
+    COLOR_VARIANT_RED(4),
+    /**
+     * <code>COLOR_VARIANT_BLACK = 5;</code>
+     */
+    COLOR_VARIANT_BLACK(5),
+    /**
+     * <code>COLOR_VARIANT_PINK = 6;</code>
+     */
+    COLOR_VARIANT_PINK(6),
+    /**
+     * <code>COLOR_VARIANT_PURPLE = 7;</code>
+     */
+    COLOR_VARIANT_PURPLE(7),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>COLOR_VARIANT_UNSPECIFIED = 0;</code>
+     */
+    public static final int COLOR_VARIANT_UNSPECIFIED_VALUE = 0;
+    /**
+     * <code>COLOR_VARIANT_COBALT = 1;</code>
+     */
+    public static final int COLOR_VARIANT_COBALT_VALUE = 1;
+    /**
+     * <code>COLOR_VARIANT_GREEN = 2;</code>
+     */
+    public static final int COLOR_VARIANT_GREEN_VALUE = 2;
+    /**
+     * <code>COLOR_VARIANT_ORANGE = 3;</code>
+     */
+    public static final int COLOR_VARIANT_ORANGE_VALUE = 3;
+    /**
+     * <code>COLOR_VARIANT_RED = 4;</code>
+     */
+    public static final int COLOR_VARIANT_RED_VALUE = 4;
+    /**
+     * <code>COLOR_VARIANT_BLACK = 5;</code>
+     */
+    public static final int COLOR_VARIANT_BLACK_VALUE = 5;
+    /**
+     * <code>COLOR_VARIANT_PINK = 6;</code>
+     */
+    public static final int COLOR_VARIANT_PINK_VALUE = 6;
+    /**
+     * <code>COLOR_VARIANT_PURPLE = 7;</code>
+     */
+    public static final int COLOR_VARIANT_PURPLE_VALUE = 7;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static ColorVariant valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static ColorVariant forNumber(int value) {
+      switch (value) {
+        case 0: return COLOR_VARIANT_UNSPECIFIED;
+        case 1: return COLOR_VARIANT_COBALT;
+        case 2: return COLOR_VARIANT_GREEN;
+        case 3: return COLOR_VARIANT_ORANGE;
+        case 4: return COLOR_VARIANT_RED;
+        case 5: return COLOR_VARIANT_BLACK;
+        case 6: return COLOR_VARIANT_PINK;
+        case 7: return COLOR_VARIANT_PURPLE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<ColorVariant>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        ColorVariant> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<ColorVariant>() {
+            public ColorVariant findValueByNumber(int number) {
+              return ColorVariant.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return io.channel.api.proto.pub.coreapi.model.MessageButton.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final ColorVariant[] VALUES = values();
+
+    public static ColorVariant valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private ColorVariant(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:coreapi.model.MessageButton.ColorVariant)
+  }
+
   public static final int TITLE_FIELD_NUMBER = 1;
   private volatile java.lang.Object title_;
   /**
    * <pre>
-   * Button display text.
+   * Button label shown to the user.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
@@ -139,7 +306,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Button display text.
+   * Button label shown to the user.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
@@ -167,11 +334,12 @@ private static final long serialVersionUID = 0L;
   private int colorVariant_;
   /**
    * <pre>
-   * Visual color variant of the button.
+   * Visual color theme applied to the button.
+   * Defaults to the channel's primary color when not specified.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.ButtonColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
+   * <code>.coreapi.model.MessageButton.ColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
    * @return The enum numeric value on the wire for colorVariant.
    */
   @java.lang.Override public int getColorVariantValue() {
@@ -179,25 +347,26 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Visual color variant of the button.
+   * Visual color theme applied to the button.
+   * Defaults to the channel's primary color when not specified.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.ButtonColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
+   * <code>.coreapi.model.MessageButton.ColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
    * @return The colorVariant.
    */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.ButtonColorVariant getColorVariant() {
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.MessageButton.ColorVariant getColorVariant() {
     @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.ButtonColorVariant result = io.channel.api.proto.pub.coreapi.model.ButtonColorVariant.valueOf(colorVariant_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.ButtonColorVariant.UNRECOGNIZED : result;
+    io.channel.api.proto.pub.coreapi.model.MessageButton.ColorVariant result = io.channel.api.proto.pub.coreapi.model.MessageButton.ColorVariant.valueOf(colorVariant_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.MessageButton.ColorVariant.UNRECOGNIZED : result;
   }
 
   public static final int ACTION_FIELD_NUMBER = 3;
   private com.google.protobuf.Struct action_;
   /**
    * <pre>
-   * Action to perform when the button is clicked.
-   * The structure depends on the action type (web, command, wam).
+   * Action payload executed when the button is clicked.
+   * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
    * +kubebuilder:validation:Required
    * </pre>
    *
@@ -210,8 +379,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Action to perform when the button is clicked.
-   * The structure depends on the action type (web, command, wam).
+   * Action payload executed when the button is clicked.
+   * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
    * +kubebuilder:validation:Required
    * </pre>
    *
@@ -224,8 +393,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Action to perform when the button is clicked.
-   * The structure depends on the action type (web, command, wam).
+   * Action payload executed when the button is clicked.
+   * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
    * +kubebuilder:validation:Required
    * </pre>
    *
@@ -253,7 +422,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, title_);
     }
-    if (colorVariant_ != io.channel.api.proto.pub.coreapi.model.ButtonColorVariant.BUTTON_COLOR_VARIANT_UNSPECIFIED.getNumber()) {
+    if (colorVariant_ != io.channel.api.proto.pub.coreapi.model.MessageButton.ColorVariant.COLOR_VARIANT_UNSPECIFIED.getNumber()) {
       output.writeEnum(2, colorVariant_);
     }
     if (action_ != null) {
@@ -271,7 +440,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, title_);
     }
-    if (colorVariant_ != io.channel.api.proto.pub.coreapi.model.ButtonColorVariant.BUTTON_COLOR_VARIANT_UNSPECIFIED.getNumber()) {
+    if (colorVariant_ != io.channel.api.proto.pub.coreapi.model.MessageButton.ColorVariant.COLOR_VARIANT_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, colorVariant_);
     }
@@ -419,6 +588,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * MessageButton represents an interactive button attached to a message.
+   * A message can have up to 2 buttons.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.MessageButton}
@@ -591,7 +761,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object title_ = "";
     /**
      * <pre>
-     * Button display text.
+     * Button label shown to the user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
@@ -614,7 +784,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Button display text.
+     * Button label shown to the user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
@@ -638,7 +808,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Button display text.
+     * Button label shown to the user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
@@ -660,7 +830,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Button display text.
+     * Button label shown to the user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
@@ -677,7 +847,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Button display text.
+     * Button label shown to the user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
@@ -702,11 +872,12 @@ private static final long serialVersionUID = 0L;
     private int colorVariant_ = 0;
     /**
      * <pre>
-     * Visual color variant of the button.
+     * Visual color theme applied to the button.
+     * Defaults to the channel's primary color when not specified.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.ButtonColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
+     * <code>.coreapi.model.MessageButton.ColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
      * @return The enum numeric value on the wire for colorVariant.
      */
     @java.lang.Override public int getColorVariantValue() {
@@ -714,11 +885,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Visual color variant of the button.
+     * Visual color theme applied to the button.
+     * Defaults to the channel's primary color when not specified.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.ButtonColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
+     * <code>.coreapi.model.MessageButton.ColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
      * @param value The enum numeric value on the wire for colorVariant to set.
      * @return This builder for chaining.
      */
@@ -730,30 +902,32 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Visual color variant of the button.
+     * Visual color theme applied to the button.
+     * Defaults to the channel's primary color when not specified.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.ButtonColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
+     * <code>.coreapi.model.MessageButton.ColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
      * @return The colorVariant.
      */
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.ButtonColorVariant getColorVariant() {
+    public io.channel.api.proto.pub.coreapi.model.MessageButton.ColorVariant getColorVariant() {
       @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.ButtonColorVariant result = io.channel.api.proto.pub.coreapi.model.ButtonColorVariant.valueOf(colorVariant_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.ButtonColorVariant.UNRECOGNIZED : result;
+      io.channel.api.proto.pub.coreapi.model.MessageButton.ColorVariant result = io.channel.api.proto.pub.coreapi.model.MessageButton.ColorVariant.valueOf(colorVariant_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.MessageButton.ColorVariant.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Visual color variant of the button.
+     * Visual color theme applied to the button.
+     * Defaults to the channel's primary color when not specified.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.ButtonColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
+     * <code>.coreapi.model.MessageButton.ColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
      * @param value The colorVariant to set.
      * @return This builder for chaining.
      */
-    public Builder setColorVariant(io.channel.api.proto.pub.coreapi.model.ButtonColorVariant value) {
+    public Builder setColorVariant(io.channel.api.proto.pub.coreapi.model.MessageButton.ColorVariant value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -764,11 +938,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Visual color variant of the button.
+     * Visual color theme applied to the button.
+     * Defaults to the channel's primary color when not specified.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.ButtonColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
+     * <code>.coreapi.model.MessageButton.ColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
      * @return This builder for chaining.
      */
     public Builder clearColorVariant() {
@@ -783,8 +958,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> actionBuilder_;
     /**
      * <pre>
-     * Action to perform when the button is clicked.
-     * The structure depends on the action type (web, command, wam).
+     * Action payload executed when the button is clicked.
+     * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -796,8 +971,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Action to perform when the button is clicked.
-     * The structure depends on the action type (web, command, wam).
+     * Action payload executed when the button is clicked.
+     * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -813,8 +988,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Action to perform when the button is clicked.
-     * The structure depends on the action type (web, command, wam).
+     * Action payload executed when the button is clicked.
+     * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -835,8 +1010,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Action to perform when the button is clicked.
-     * The structure depends on the action type (web, command, wam).
+     * Action payload executed when the button is clicked.
+     * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -855,8 +1030,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Action to perform when the button is clicked.
-     * The structure depends on the action type (web, command, wam).
+     * Action payload executed when the button is clicked.
+     * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -879,8 +1054,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Action to perform when the button is clicked.
-     * The structure depends on the action type (web, command, wam).
+     * Action payload executed when the button is clicked.
+     * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -899,8 +1074,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Action to perform when the button is clicked.
-     * The structure depends on the action type (web, command, wam).
+     * Action payload executed when the button is clicked.
+     * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -913,8 +1088,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Action to perform when the button is clicked.
-     * The structure depends on the action type (web, command, wam).
+     * Action payload executed when the button is clicked.
+     * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -930,8 +1105,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Action to perform when the button is clicked.
-     * The structure depends on the action type (web, command, wam).
+     * Action payload executed when the button is clicked.
+     * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -992,7 +1167,7 @@ private static final long serialVersionUID = 0L;
      * @param value The color_variant to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearColorVariant(io.channel.api.proto.pub.coreapi.model.ButtonColorVariant value) {
+    public Builder setOrClearColorVariant(io.channel.api.proto.pub.coreapi.model.MessageButton.ColorVariant value) {
     	if (value == null)
     		return clearColorVariant();
     	else
@@ -1004,7 +1179,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearColorVariant(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ButtonColorVariant> mapFunc) {
+    public <T> Builder mapOrClearColorVariant(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.MessageButton.ColorVariant> mapFunc) {
     	if (value == null)
     		return clearColorVariant();
     	else

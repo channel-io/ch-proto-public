@@ -5,12 +5,14 @@ package model
 // GetString returns the canonical string for ChatTagColorVariant.
 func (x ChatTagColorVariant) GetString() string {
 	switch x {
-	case ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_BLACK:
-		return "black"
 	case ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_COBALT:
 		return "cobalt"
 	case ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_GREEN:
 		return "green"
+	case ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_NAVY:
+		return "navy"
+	case ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_OLIVE:
+		return "olive"
 	case ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_ORANGE:
 		return "orange"
 	case ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_PINK:
@@ -19,6 +21,8 @@ func (x ChatTagColorVariant) GetString() string {
 		return "purple"
 	case ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_RED:
 		return "red"
+	case ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_YELLOW:
+		return "yellow"
 	default:
 		return ""
 	}
@@ -27,12 +31,14 @@ func (x ChatTagColorVariant) GetString() string {
 // ChatTagColorVariantForString returns the ChatTagColorVariant enum for the given canonical string.
 func ChatTagColorVariantForString(value string) ChatTagColorVariant {
 	switch value {
-	case "black":
-		return ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_BLACK
 	case "cobalt":
 		return ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_COBALT
 	case "green":
 		return ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_GREEN
+	case "navy":
+		return ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_NAVY
+	case "olive":
+		return ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_OLIVE
 	case "orange":
 		return ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_ORANGE
 	case "pink":
@@ -41,6 +47,8 @@ func ChatTagColorVariantForString(value string) ChatTagColorVariant {
 		return ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_PURPLE
 	case "red":
 		return ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_RED
+	case "yellow":
+		return ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_YELLOW
 	default:
 		return ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_UNSPECIFIED
 	}

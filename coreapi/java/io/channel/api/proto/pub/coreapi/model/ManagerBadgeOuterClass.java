@@ -30,24 +30,22 @@ public final class ManagerBadgeOuterClass {
     java.lang.String[] descriptorData = {
       "\n!coreapi/model/manager_badge.proto\022\rcor" +
       "eapi.model\032\033buf/validate/validate.proto\032" +
-      "\037google/protobuf/timestamp.proto\"\237\004\n\014Man" +
-      "agerBadge\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.mi" +
-      "nLen\022\"value must be at least 1 character" +
-      "\032\017size(this) >= 1\310\001\001R\002id\022&\n\017team_chat_al" +
-      "ert\030\002 \001(\005R\rteamChatAlert\022(\n\020team_chat_un" +
-      "read\030\003 \001(\005R\016teamChatUnread\022&\n\017user_chat_" +
-      "alert\030\004 \001(\005R\ruserChatAlert\022(\n\020user_chat_" +
-      "unread\030\005 \001(\005R\016userChatUnread\0223\n\026team_cha" +
-      "t_thread_alert\030\006 \001(\005R\023teamChatThreadAler" +
-      "t\0225\n\027team_chat_thread_unread\030\007 \001(\005R\024team" +
-      "ChatThreadUnread\0229\n\nupdated_at\030\010 \001(\0132\032.g" +
-      "oogle.protobuf.TimestampR\tupdatedAt\022\030\n\007v" +
-      "ersion\030\t \001(\003R\007version\022\024\n\005alert\030\n \001(\005R\005al" +
-      "ert\022\026\n\006unread\030\013 \001(\005R\006unread\022\035\n\nmanager_i" +
-      "d\030\014 \001(\tR\tmanagerIdBb\n&io.channel.api.pro" +
-      "to.pub.coreapi.modelP\001Z6github.com/chann" +
-      "el-io/ch-proto-public/coreapi/go/modelb\006" +
-      "proto3"
+      "\037google/protobuf/timestamp.proto\"\330\003\n\014Man" +
+      "agerBadge\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022&\n\017tea" +
+      "m_chat_alert\030\002 \001(\005R\rteamChatAlert\022(\n\020tea" +
+      "m_chat_unread\030\003 \001(\005R\016teamChatUnread\022&\n\017u" +
+      "ser_chat_alert\030\004 \001(\005R\ruserChatAlert\022(\n\020u" +
+      "ser_chat_unread\030\005 \001(\005R\016userChatUnread\0223\n" +
+      "\026team_chat_thread_alert\030\006 \001(\005R\023teamChatT" +
+      "hreadAlert\0225\n\027team_chat_thread_unread\030\007 " +
+      "\001(\005R\024teamChatThreadUnread\0229\n\nupdated_at\030" +
+      "\010 \001(\0132\032.google.protobuf.TimestampR\tupdat" +
+      "edAt\022\030\n\007version\030\t \001(\003R\007version\022\035\n\nmanage" +
+      "r_id\030\n \001(\tR\tmanagerId\022\024\n\005alert\030\013 \001(\005R\005al" +
+      "ert\022\026\n\006unread\030\014 \001(\005R\006unreadBb\n&io.channe" +
+      "l.api.proto.pub.coreapi.modelP\001Z6github." +
+      "com/channel-io/ch-proto-public/coreapi/g" +
+      "o/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -60,7 +58,7 @@ public final class ManagerBadgeOuterClass {
     internal_static_coreapi_model_ManagerBadge_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_ManagerBadge_descriptor,
-        new java.lang.String[] { "Id", "TeamChatAlert", "TeamChatUnread", "UserChatAlert", "UserChatUnread", "TeamChatThreadAlert", "TeamChatThreadUnread", "UpdatedAt", "Version", "Alert", "Unread", "ManagerId", });
+        new java.lang.String[] { "Id", "TeamChatAlert", "TeamChatUnread", "UserChatAlert", "UserChatUnread", "TeamChatThreadAlert", "TeamChatThreadUnread", "UpdatedAt", "Version", "ManagerId", "Alert", "Unread", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);

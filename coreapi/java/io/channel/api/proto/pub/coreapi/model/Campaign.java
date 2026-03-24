@@ -5,8 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Campaign represents a recurring automated message that is sent to users
- * when they trigger a specific event.
+ * Campaign represents a recurring marketing campaign triggered by user events.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.Campaign}
@@ -25,18 +24,17 @@ private static final long serialVersionUID = 0L;
     channelId_ = "";
     name_ = "";
     state_ = 0;
+    mediumType_ = 0;
+    mediumId_ = "";
+    appSegments_ = java.util.Collections.emptyList();
     triggerEventName_ = "";
     filterEventName_ = "";
     filterMatch_ = 0;
     goalEventName_ = "";
     sendMode_ = 0;
-    sendTimeRanges_ = java.util.Collections.emptyList();
-    sendMedium_ = "";
-    managerId_ = "";
-    mediumType_ = 0;
-    mediumId_ = "";
-    appSegments_ = java.util.Collections.emptyList();
     channelOperationId_ = "";
+    sendTimeRanges_ = java.util.Collections.emptyList();
+    managerId_ = "";
   }
 
   @java.lang.Override
@@ -94,6 +92,18 @@ private static final long serialVersionUID = 0L;
             state_ = rawValue;
             break;
           }
+          case 40: {
+            int rawValue = input.readEnum();
+
+            mediumType_ = rawValue;
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            mediumId_ = s;
+            break;
+          }
           case 58: {
             com.google.protobuf.Struct.Builder subBuilder = null;
             if (userQuery_ != null) {
@@ -105,6 +115,15 @@ private static final long serialVersionUID = 0L;
               userQuery_ = subBuilder.buildPartial();
             }
 
+            break;
+          }
+          case 66: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              appSegments_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.AppSegment>();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            appSegments_.add(
+                input.readMessage(io.channel.api.proto.pub.coreapi.model.AppSegment.parser(), extensionRegistry));
             break;
           }
           case 74: {
@@ -164,6 +183,32 @@ private static final long serialVersionUID = 0L;
             filterMatch_ = rawValue;
             break;
           }
+          case 122: {
+            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder subBuilder = null;
+            if (filterHpc_ != null) {
+              subBuilder = filterHpc_.toBuilder();
+            }
+            filterHpc_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(filterHpc_);
+              filterHpc_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 130: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              conversionWindows_ = com.google.protobuf.MapField.newMapField(
+                  ConversionWindowsDefaultEntryHolder.defaultEntry);
+              mutable_bitField0_ |= 0x00000002;
+            }
+            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Duration>
+            conversionWindows__ = input.readMessage(
+                ConversionWindowsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            conversionWindows_.getMutableMap().put(
+                conversionWindows__.getKey(), conversionWindows__.getValue());
+            break;
+          }
           case 138: {
             java.lang.String s = input.readStringRequireUtf8();
 
@@ -192,6 +237,19 @@ private static final long serialVersionUID = 0L;
             if (subBuilder != null) {
               subBuilder.mergeFrom(goalEventDuration_);
               goalEventDuration_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 162: {
+            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder subBuilder = null;
+            if (goalHpc_ != null) {
+              subBuilder = goalHpc_.toBuilder();
+            }
+            goalHpc_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(goalHpc_);
+              goalHpc_ = subBuilder.buildPartial();
             }
 
             break;
@@ -230,10 +288,16 @@ private static final long serialVersionUID = 0L;
             sendMode_ = rawValue;
             break;
           }
+          case 210: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            channelOperationId_ = s;
+            break;
+          }
           case 218: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
               sendTimeRanges_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.TimeRange>();
-              mutable_bitField0_ |= 0x00000001;
+              mutable_bitField0_ |= 0x00000004;
             }
             sendTimeRanges_.add(
                 input.readMessage(io.channel.api.proto.pub.coreapi.model.TimeRange.parser(), extensionRegistry));
@@ -325,12 +389,6 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 298: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sendMedium_ = s;
-            break;
-          }
-          case 306: {
             com.google.protobuf.Duration.Builder subBuilder = null;
             if (userChatExpireDuration_ != null) {
               subBuilder = userChatExpireDuration_.toBuilder();
@@ -343,76 +401,10 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 314: {
+          case 306: {
             java.lang.String s = input.readStringRequireUtf8();
 
             managerId_ = s;
-            break;
-          }
-          case 320: {
-            int rawValue = input.readEnum();
-
-            mediumType_ = rawValue;
-            break;
-          }
-          case 330: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            mediumId_ = s;
-            break;
-          }
-          case 338: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              appSegments_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.AppSegment>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            appSegments_.add(
-                input.readMessage(io.channel.api.proto.pub.coreapi.model.AppSegment.parser(), extensionRegistry));
-            break;
-          }
-          case 346: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            channelOperationId_ = s;
-            break;
-          }
-          case 354: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              conversionWindows_ = com.google.protobuf.MapField.newMapField(
-                  ConversionWindowsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Duration>
-            conversionWindows__ = input.readMessage(
-                ConversionWindowsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            conversionWindows_.getMutableMap().put(
-                conversionWindows__.getKey(), conversionWindows__.getValue());
-            break;
-          }
-          case 362: {
-            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder subBuilder = null;
-            if (filterHpc_ != null) {
-              subBuilder = filterHpc_.toBuilder();
-            }
-            filterHpc_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(filterHpc_);
-              filterHpc_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 370: {
-            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder subBuilder = null;
-            if (goalHpc_ != null) {
-              subBuilder = goalHpc_.toBuilder();
-            }
-            goalHpc_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(goalHpc_);
-              goalHpc_ = subBuilder.buildPartial();
-            }
-
             break;
           }
           default: {
@@ -431,10 +423,10 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        sendTimeRanges_ = java.util.Collections.unmodifiableList(sendTimeRanges_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
         appSegments_ = java.util.Collections.unmodifiableList(appSegments_);
+      }
+      if (((mutable_bitField0_ & 0x00000004) != 0)) {
+        sendTimeRanges_ = java.util.Collections.unmodifiableList(sendTimeRanges_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -450,7 +442,7 @@ private static final long serialVersionUID = 0L;
   protected com.google.protobuf.MapField internalGetMapField(
       int number) {
     switch (number) {
-      case 44:
+      case 16:
         return internalGetConversionWindows();
       default:
         throw new RuntimeException(
@@ -471,7 +463,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique campaign identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="cpn-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -494,7 +486,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique campaign identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="cpn-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -521,7 +513,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this campaign belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -544,7 +536,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this campaign belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -569,7 +561,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   * Display name of the campaign.
+   * Human-readable label for the campaign.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
@@ -593,7 +585,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Display name of the campaign.
+   * Human-readable label for the campaign.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
@@ -621,7 +613,7 @@ private static final long serialVersionUID = 0L;
   private int state_;
   /**
    * <pre>
-   * Current lifecycle state.
+   * Current lifecycle state of the campaign.
    * +kubebuilder:validation:Required
    * </pre>
    *
@@ -633,7 +625,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Current lifecycle state.
+   * Current lifecycle state of the campaign.
    * +kubebuilder:validation:Required
    * </pre>
    *
@@ -646,11 +638,91 @@ private static final long serialVersionUID = 0L;
     return result == null ? io.channel.api.proto.pub.coreapi.model.CampaignState.UNRECOGNIZED : result;
   }
 
+  public static final int MEDIUM_TYPE_FIELD_NUMBER = 5;
+  private int mediumType_;
+  /**
+   * <pre>
+   * Channel through which the campaign message is delivered.
+   * Cannot be changed after creation.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
+   * @return The enum numeric value on the wire for mediumType.
+   */
+  @java.lang.Override public int getMediumTypeValue() {
+    return mediumType_;
+  }
+  /**
+   * <pre>
+   * Channel through which the campaign message is delivered.
+   * Cannot be changed after creation.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
+   * @return The mediumType.
+   */
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.MediumType getMediumType() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.MediumType result = io.channel.api.proto.pub.coreapi.model.MediumType.valueOf(mediumType_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.MediumType.UNRECOGNIZED : result;
+  }
+
+  public static final int MEDIUM_ID_FIELD_NUMBER = 6;
+  private volatile java.lang.Object mediumId_;
+  /**
+   * <pre>
+   * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string medium_id = 6 [json_name = "mediumId"];</code>
+   * @return The mediumId.
+   */
+  @java.lang.Override
+  public java.lang.String getMediumId() {
+    java.lang.Object ref = mediumId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      mediumId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string medium_id = 6 [json_name = "mediumId"];</code>
+   * @return The bytes for mediumId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getMediumIdBytes() {
+    java.lang.Object ref = mediumId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      mediumId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int USER_QUERY_FIELD_NUMBER = 7;
   private com.google.protobuf.Struct userQuery_;
   /**
    * <pre>
-   * User targeting query for audience filtering.
+   * Query expression that defines the target user segment.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -663,7 +735,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * User targeting query for audience filtering.
+   * Query expression that defines the target user segment.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -676,7 +749,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * User targeting query for audience filtering.
+   * Query expression that defines the target user segment.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -687,16 +761,80 @@ private static final long serialVersionUID = 0L;
     return getUserQuery();
   }
 
+  public static final int APP_SEGMENTS_FIELD_NUMBER = 8;
+  private java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> appSegments_;
+  /**
+   * <pre>
+   * App-defined user segments used alongside user_query for targeting.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> getAppSegmentsList() {
+    return appSegments_;
+  }
+  /**
+   * <pre>
+   * App-defined user segments used alongside user_query for targeting.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> 
+      getAppSegmentsOrBuilderList() {
+    return appSegments_;
+  }
+  /**
+   * <pre>
+   * App-defined user segments used alongside user_query for targeting.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+   */
+  @java.lang.Override
+  public int getAppSegmentsCount() {
+    return appSegments_.size();
+  }
+  /**
+   * <pre>
+   * App-defined user segments used alongside user_query for targeting.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.AppSegment getAppSegments(int index) {
+    return appSegments_.get(index);
+  }
+  /**
+   * <pre>
+   * App-defined user segments used alongside user_query for targeting.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder getAppSegmentsOrBuilder(
+      int index) {
+    return appSegments_.get(index);
+  }
+
   public static final int TRIGGER_EVENT_NAME_FIELD_NUMBER = 9;
   private volatile java.lang.Object triggerEventName_;
   /**
    * <pre>
-   * Name of the event that triggers the campaign.
-   * May be unset for draft campaigns.
-   * +kubebuilder:validation:Nullable
+   * Name of the user event that triggers this campaign.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string trigger_event_name = 9 [json_name = "triggerEventName"];</code>
+   * <code>string trigger_event_name = 9 [json_name = "triggerEventName", (.buf.validate.field) = { ... }</code>
    * @return The triggerEventName.
    */
   @java.lang.Override
@@ -714,12 +852,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Name of the event that triggers the campaign.
-   * May be unset for draft campaigns.
-   * +kubebuilder:validation:Nullable
+   * Name of the user event that triggers this campaign.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string trigger_event_name = 9 [json_name = "triggerEventName"];</code>
+   * <code>string trigger_event_name = 9 [json_name = "triggerEventName", (.buf.validate.field) = { ... }</code>
    * @return The bytes for triggerEventName.
    */
   @java.lang.Override
@@ -741,7 +878,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Struct triggerEventQuery_;
   /**
    * <pre>
-   * Filtering query for the trigger event.
+   * Query expression to further filter matching trigger events by their properties.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -754,7 +892,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Filtering query for the trigger event.
+   * Query expression to further filter matching trigger events by their properties.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -767,7 +906,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Filtering query for the trigger event.
+   * Query expression to further filter matching trigger events by their properties.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -782,9 +922,10 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Duration waitingTime_;
   /**
    * <pre>
-   * Delay between trigger event and message delivery.
+   * Delay between the trigger event and message delivery, in ISO 8601 duration format.
    * Maximum 90 days.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
    * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -796,9 +937,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Delay between trigger event and message delivery.
+   * Delay between the trigger event and message delivery, in ISO 8601 duration format.
    * Maximum 90 days.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
    * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -810,9 +952,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Delay between trigger event and message delivery.
+   * Delay between the trigger event and message delivery, in ISO 8601 duration format.
    * Maximum 90 days.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
    * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -826,8 +969,8 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object filterEventName_;
   /**
    * <pre>
-   * Name of the additional filter event.
-   * When set, waiting_time must be non-zero.
+   * Name of an additional event used to filter users before delivery.
+   * When set, filter_match determines whether the event must occur or must not occur.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -849,8 +992,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Name of the additional filter event.
-   * When set, waiting_time must be non-zero.
+   * Name of an additional event used to filter users before delivery.
+   * When set, filter_match determines whether the event must occur or must not occur.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -876,7 +1019,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Struct filterEventQuery_;
   /**
    * <pre>
-   * Filtering query for the additional filter event.
+   * Query expression to filter the additional filter events by their properties.
+   * Represented as a structured filter object. Applicable when filter_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -889,7 +1033,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Filtering query for the additional filter event.
+   * Query expression to filter the additional filter events by their properties.
+   * Represented as a structured filter object. Applicable when filter_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -902,7 +1047,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Filtering query for the additional filter event.
+   * Query expression to filter the additional filter events by their properties.
+   * Represented as a structured filter object. Applicable when filter_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -917,7 +1063,8 @@ private static final long serialVersionUID = 0L;
   private int filterMatch_;
   /**
    * <pre>
-   * Match logic for the additional event filter.
+   * Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
+   * Applicable when filter_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -929,7 +1076,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Match logic for the additional event filter.
+   * Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
+   * Applicable when filter_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -942,11 +1090,160 @@ private static final long serialVersionUID = 0L;
     return result == null ? io.channel.api.proto.pub.coreapi.model.CampaignFilterMatch.UNRECOGNIZED : result;
   }
 
+  public static final int FILTER_HPC_FIELD_NUMBER = 15;
+  private io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant filterHpc_;
+  /**
+   * <pre>
+   * Holds a property value from the trigger event constant for consistent additional event filtering.
+   * Applicable when filter_event_name is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
+   * @return Whether the filterHpc field is set.
+   */
+  @java.lang.Override
+  public boolean hasFilterHpc() {
+    return filterHpc_ != null;
+  }
+  /**
+   * <pre>
+   * Holds a property value from the trigger event constant for consistent additional event filtering.
+   * Applicable when filter_event_name is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
+   * @return The filterHpc.
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant getFilterHpc() {
+    return filterHpc_ == null ? io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.getDefaultInstance() : filterHpc_;
+  }
+  /**
+   * <pre>
+   * Holds a property value from the trigger event constant for consistent additional event filtering.
+   * Applicable when filter_event_name is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder getFilterHpcOrBuilder() {
+    return getFilterHpc();
+  }
+
+  public static final int CONVERSION_WINDOWS_FIELD_NUMBER = 16;
+  private static final class ConversionWindowsDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, com.google.protobuf.Duration> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, com.google.protobuf.Duration>newDefaultInstance(
+                io.channel.api.proto.pub.coreapi.model.CampaignOuterClass.internal_static_coreapi_model_Campaign_ConversionWindowsEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                com.google.protobuf.Duration.getDefaultInstance());
+  }
+  private com.google.protobuf.MapField<
+      java.lang.String, com.google.protobuf.Duration> conversionWindows_;
+  private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Duration>
+  internalGetConversionWindows() {
+    if (conversionWindows_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          ConversionWindowsDefaultEntryHolder.defaultEntry);
+    }
+    return conversionWindows_;
+  }
+
+  public int getConversionWindowsCount() {
+    return internalGetConversionWindows().getMap().size();
+  }
+  /**
+   * <pre>
+   * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+   * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+   */
+
+  @java.lang.Override
+  public boolean containsConversionWindows(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetConversionWindows().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getConversionWindowsMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindows() {
+    return getConversionWindowsMap();
+  }
+  /**
+   * <pre>
+   * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+   * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+   */
+  @java.lang.Override
+
+  public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindowsMap() {
+    return internalGetConversionWindows().getMap();
+  }
+  /**
+   * <pre>
+   * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+   * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+   */
+  @java.lang.Override
+
+  public com.google.protobuf.Duration getConversionWindowsOrDefault(
+      java.lang.String key,
+      com.google.protobuf.Duration defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
+        internalGetConversionWindows().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+   * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+   */
+  @java.lang.Override
+
+  public com.google.protobuf.Duration getConversionWindowsOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
+        internalGetConversionWindows().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
   public static final int GOAL_EVENT_NAME_FIELD_NUMBER = 17;
   private volatile java.lang.Object goalEventName_;
   /**
    * <pre>
-   * Name of the event tracked as a conversion goal.
+   * Name of the event that counts as a goal completion.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -968,7 +1265,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Name of the event tracked as a conversion goal.
+   * Name of the event that counts as a goal completion.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -994,7 +1291,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Struct goalEventQuery_;
   /**
    * <pre>
-   * Filtering query for the goal event.
+   * Query expression to filter goal events by their properties.
+   * Represented as a structured filter object. Applicable when goal_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1007,7 +1305,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Filtering query for the goal event.
+   * Query expression to filter goal events by their properties.
+   * Represented as a structured filter object. Applicable when goal_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1020,7 +1319,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Filtering query for the goal event.
+   * Query expression to filter goal events by their properties.
+   * Represented as a structured filter object. Applicable when goal_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1035,12 +1335,13 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Duration goalEventDuration_;
   /**
    * <pre>
-   * Duration window for goal event tracking.
-   * Valid range is 1 to 30 days. Defaults to 7 days.
+   * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+   * Between 1 and 30 days. Defaults to 7 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
    * @return Whether the goalEventDuration field is set.
    */
   @java.lang.Override
@@ -1049,12 +1350,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Duration window for goal event tracking.
-   * Valid range is 1 to 30 days. Defaults to 7 days.
+   * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+   * Between 1 and 30 days. Defaults to 7 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
    * @return The goalEventDuration.
    */
   @java.lang.Override
@@ -1063,27 +1365,72 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Duration window for goal event tracking.
-   * Valid range is 1 to 30 days. Defaults to 7 days.
+   * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+   * Between 1 and 30 days. Defaults to 7 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getGoalEventDurationOrBuilder() {
     return getGoalEventDuration();
   }
 
+  public static final int GOAL_HPC_FIELD_NUMBER = 20;
+  private io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant goalHpc_;
+  /**
+   * <pre>
+   * Holds a property value from the trigger or filter event constant for consistent goal checking.
+   * Applicable when goal_event_name is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
+   * @return Whether the goalHpc field is set.
+   */
+  @java.lang.Override
+  public boolean hasGoalHpc() {
+    return goalHpc_ != null;
+  }
+  /**
+   * <pre>
+   * Holds a property value from the trigger or filter event constant for consistent goal checking.
+   * Applicable when goal_event_name is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
+   * @return The goalHpc.
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant getGoalHpc() {
+    return goalHpc_ == null ? io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.getDefaultInstance() : goalHpc_;
+  }
+  /**
+   * <pre>
+   * Holds a property value from the trigger or filter event constant for consistent goal checking.
+   * Applicable when goal_event_name is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder getGoalHpcOrBuilder() {
+    return getGoalHpc();
+  }
+
   public static final int ADVERTISING_FIELD_NUMBER = 21;
   private boolean advertising_;
   /**
    * <pre>
-   * Whether this campaign contains advertising content.
-   * +kubebuilder:validation:Nullable
+   * Whether the campaign message contains advertising content subject to opt-out regulations.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool advertising = 21 [json_name = "advertising"];</code>
+   * <code>bool advertising = 21 [json_name = "advertising", (.buf.validate.field) = { ... }</code>
    * @return The advertising.
    */
   @java.lang.Override
@@ -1095,7 +1442,7 @@ private static final long serialVersionUID = 0L;
   private boolean sendToOfflineXms_;
   /**
    * <pre>
-   * Whether to send via XMS (SMS/LMS/MMS) to offline users.
+   * Whether to fall back to XMS (text message) delivery when the user is offline.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1111,7 +1458,7 @@ private static final long serialVersionUID = 0L;
   private boolean sendToOfflineEmail_;
   /**
    * <pre>
-   * Whether to send via email to offline users.
+   * Whether to fall back to email delivery when the user is offline.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1127,12 +1474,13 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Duration cooldown_;
   /**
    * <pre>
-   * Minimum interval between consecutive sends to the same user.
-   * Valid range is 0 to 30 days.
+   * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+   * Between 0 seconds and 30 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
    * @return Whether the cooldown field is set.
    */
   @java.lang.Override
@@ -1141,12 +1489,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Minimum interval between consecutive sends to the same user.
-   * Valid range is 0 to 30 days.
+   * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+   * Between 0 seconds and 30 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
    * @return The cooldown.
    */
   @java.lang.Override
@@ -1155,12 +1504,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Minimum interval between consecutive sends to the same user.
-   * Valid range is 0 to 30 days.
+   * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+   * Between 0 seconds and 30 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getCooldownOrBuilder() {
@@ -1171,12 +1521,11 @@ private static final long serialVersionUID = 0L;
   private int sendMode_;
   /**
    * <pre>
-   * Send timing mode that determines when messages are delivered.
-   * May be unset for draft campaigns.
-   * +kubebuilder:validation:Nullable
+   * Controls when messages are delivered relative to operation hours or custom time ranges.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode"];</code>
+   * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode", (.buf.validate.field) = { ... }</code>
    * @return The enum numeric value on the wire for sendMode.
    */
   @java.lang.Override public int getSendModeValue() {
@@ -1184,12 +1533,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Send timing mode that determines when messages are delivered.
-   * May be unset for draft campaigns.
-   * +kubebuilder:validation:Nullable
+   * Controls when messages are delivered relative to operation hours or custom time ranges.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode"];</code>
+   * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode", (.buf.validate.field) = { ... }</code>
    * @return The sendMode.
    */
   @java.lang.Override public io.channel.api.proto.pub.coreapi.model.CampaignSendMode getSendMode() {
@@ -1198,12 +1546,62 @@ private static final long serialVersionUID = 0L;
     return result == null ? io.channel.api.proto.pub.coreapi.model.CampaignSendMode.UNRECOGNIZED : result;
   }
 
+  public static final int CHANNEL_OPERATION_ID_FIELD_NUMBER = 26;
+  private volatile java.lang.Object channelOperationId_;
+  /**
+   * <pre>
+   * Channel operation schedule used to determine delivery timing.
+   * Applicable when send_mode is IN_OPERATION or AWAY.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string channel_operation_id = 26 [json_name = "channelOperationId"];</code>
+   * @return The channelOperationId.
+   */
+  @java.lang.Override
+  public java.lang.String getChannelOperationId() {
+    java.lang.Object ref = channelOperationId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      channelOperationId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Channel operation schedule used to determine delivery timing.
+   * Applicable when send_mode is IN_OPERATION or AWAY.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string channel_operation_id = 26 [json_name = "channelOperationId"];</code>
+   * @return The bytes for channelOperationId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getChannelOperationIdBytes() {
+    java.lang.Object ref = channelOperationId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      channelOperationId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int SEND_TIME_RANGES_FIELD_NUMBER = 27;
   private java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> sendTimeRanges_;
   /**
    * <pre>
-   * Custom time ranges for message delivery.
-   * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+   * Custom time windows for delivery scheduling.
+   * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1215,8 +1613,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Custom time ranges for message delivery.
-   * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+   * Custom time windows for delivery scheduling.
+   * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1229,8 +1627,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Custom time ranges for message delivery.
-   * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+   * Custom time windows for delivery scheduling.
+   * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1242,8 +1640,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Custom time ranges for message delivery.
-   * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+   * Custom time windows for delivery scheduling.
+   * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1255,8 +1653,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Custom time ranges for message delivery.
-   * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+   * Custom time windows for delivery scheduling.
+   * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1272,7 +1670,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp startAt_;
   /**
    * <pre>
-   * Campaign start time.
+   * Timestamp when the campaign becomes eligible to trigger.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1285,7 +1683,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Campaign start time.
+   * Timestamp when the campaign becomes eligible to trigger.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1298,7 +1696,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Campaign start time.
+   * Timestamp when the campaign becomes eligible to trigger.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1313,8 +1711,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp endAt_;
   /**
    * <pre>
-   * Scheduled campaign end timestamp.
-   * Campaign automatically stops after this time.
+   * Timestamp when the campaign automatically stops.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1327,8 +1724,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Scheduled campaign end timestamp.
-   * Campaign automatically stops after this time.
+   * Timestamp when the campaign automatically stops.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1341,8 +1737,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Scheduled campaign end timestamp.
-   * Campaign automatically stops after this time.
+   * Timestamp when the campaign automatically stops.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1357,7 +1752,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Struct draft_;
   /**
    * <pre>
-   * Draft snapshot of the campaign saved before activation.
+   * Snapshot of the campaign configuration captured before activation.
+   * Represented as a free-form JSON object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1370,7 +1766,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Draft snapshot of the campaign saved before activation.
+   * Snapshot of the campaign configuration captured before activation.
+   * Represented as a free-form JSON object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1383,7 +1780,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Draft snapshot of the campaign saved before activation.
+   * Snapshot of the campaign configuration captured before activation.
+   * Represented as a free-form JSON object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1480,7 +1878,7 @@ private static final long serialVersionUID = 0L;
   private int sent_;
   /**
    * <pre>
-   * Total number of messages sent.
+   * Cumulative count of messages delivered.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1496,7 +1894,7 @@ private static final long serialVersionUID = 0L;
   private int view_;
   /**
    * <pre>
-   * Total number of message views.
+   * Cumulative count of message views by recipients.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1512,7 +1910,7 @@ private static final long serialVersionUID = 0L;
   private int goal_;
   /**
    * <pre>
-   * Total number of goal conversions achieved.
+   * Cumulative count of goal event completions attributed to this campaign.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1528,7 +1926,7 @@ private static final long serialVersionUID = 0L;
   private int click_;
   /**
    * <pre>
-   * Total number of message link clicks.
+   * Cumulative count of message link clicks.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1540,63 +1938,17 @@ private static final long serialVersionUID = 0L;
     return click_;
   }
 
-  public static final int SEND_MEDIUM_FIELD_NUMBER = 37;
-  private volatile java.lang.Object sendMedium_;
-  /**
-   * <pre>
-   * Delivery medium type identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string send_medium = 37 [json_name = "sendMedium"];</code>
-   * @return The sendMedium.
-   */
-  @java.lang.Override
-  public java.lang.String getSendMedium() {
-    java.lang.Object ref = sendMedium_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      sendMedium_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Delivery medium type identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string send_medium = 37 [json_name = "sendMedium"];</code>
-   * @return The bytes for sendMedium.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getSendMediumBytes() {
-    java.lang.Object ref = sendMedium_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      sendMedium_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int USER_CHAT_EXPIRE_DURATION_FIELD_NUMBER = 38;
+  public static final int USER_CHAT_EXPIRE_DURATION_FIELD_NUMBER = 37;
   private com.google.protobuf.Duration userChatExpireDuration_;
   /**
    * <pre>
-   * Duration after which user chat sessions expire.
+   * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+   * Defaults to 31 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration user_chat_expire_duration = 38 [json_name = "userChatExpireDuration"];</code>
+   * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
    * @return Whether the userChatExpireDuration field is set.
    */
   @java.lang.Override
@@ -1605,11 +1957,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Duration after which user chat sessions expire.
+   * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+   * Defaults to 31 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration user_chat_expire_duration = 38 [json_name = "userChatExpireDuration"];</code>
+   * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
    * @return The userChatExpireDuration.
    */
   @java.lang.Override
@@ -1618,26 +1972,28 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Duration after which user chat sessions expire.
+   * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+   * Defaults to 31 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration user_chat_expire_duration = 38 [json_name = "userChatExpireDuration"];</code>
+   * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getUserChatExpireDurationOrBuilder() {
     return getUserChatExpireDuration();
   }
 
-  public static final int MANAGER_ID_FIELD_NUMBER = 39;
+  public static final int MANAGER_ID_FIELD_NUMBER = 38;
   private volatile java.lang.Object managerId_;
   /**
    * <pre>
-   * Manager ID responsible for this campaign.
+   * Manager assigned to handle user responses from this campaign.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string manager_id = 39 [json_name = "managerId"];</code>
+   * <code>string manager_id = 38 [json_name = "managerId"];</code>
    * @return The managerId.
    */
   @java.lang.Override
@@ -1655,11 +2011,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Manager ID responsible for this campaign.
+   * Manager assigned to handle user responses from this campaign.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string manager_id = 39 [json_name = "managerId"];</code>
+   * <code>string manager_id = 38 [json_name = "managerId"];</code>
    * @return The bytes for managerId.
    */
   @java.lang.Override
@@ -1675,379 +2031,6 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
-  }
-
-  public static final int MEDIUM_TYPE_FIELD_NUMBER = 40;
-  private int mediumType_;
-  /**
-   * <pre>
-   * Delivery medium type.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MediumType medium_type = 40 [json_name = "mediumType"];</code>
-   * @return The enum numeric value on the wire for mediumType.
-   */
-  @java.lang.Override public int getMediumTypeValue() {
-    return mediumType_;
-  }
-  /**
-   * <pre>
-   * Delivery medium type.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MediumType medium_type = 40 [json_name = "mediumType"];</code>
-   * @return The mediumType.
-   */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.MediumType getMediumType() {
-    @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.MediumType result = io.channel.api.proto.pub.coreapi.model.MediumType.valueOf(mediumType_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.MediumType.UNRECOGNIZED : result;
-  }
-
-  public static final int MEDIUM_ID_FIELD_NUMBER = 41;
-  private volatile java.lang.Object mediumId_;
-  /**
-   * <pre>
-   * Identifier of the specific medium instance.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string medium_id = 41 [json_name = "mediumId"];</code>
-   * @return The mediumId.
-   */
-  @java.lang.Override
-  public java.lang.String getMediumId() {
-    java.lang.Object ref = mediumId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      mediumId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Identifier of the specific medium instance.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string medium_id = 41 [json_name = "mediumId"];</code>
-   * @return The bytes for mediumId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getMediumIdBytes() {
-    java.lang.Object ref = mediumId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      mediumId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int APP_SEGMENTS_FIELD_NUMBER = 42;
-  private java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> appSegments_;
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-   */
-  @java.lang.Override
-  public java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> getAppSegmentsList() {
-    return appSegments_;
-  }
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-   */
-  @java.lang.Override
-  public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> 
-      getAppSegmentsOrBuilderList() {
-    return appSegments_;
-  }
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-   */
-  @java.lang.Override
-  public int getAppSegmentsCount() {
-    return appSegments_.size();
-  }
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.AppSegment getAppSegments(int index) {
-    return appSegments_.get(index);
-  }
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder getAppSegmentsOrBuilder(
-      int index) {
-    return appSegments_.get(index);
-  }
-
-  public static final int CHANNEL_OPERATION_ID_FIELD_NUMBER = 43;
-  private volatile java.lang.Object channelOperationId_;
-  /**
-   * <pre>
-   * Channel operation ID for business hours scheduling.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string channel_operation_id = 43 [json_name = "channelOperationId"];</code>
-   * @return The channelOperationId.
-   */
-  @java.lang.Override
-  public java.lang.String getChannelOperationId() {
-    java.lang.Object ref = channelOperationId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      channelOperationId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Channel operation ID for business hours scheduling.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string channel_operation_id = 43 [json_name = "channelOperationId"];</code>
-   * @return The bytes for channelOperationId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getChannelOperationIdBytes() {
-    java.lang.Object ref = channelOperationId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      channelOperationId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int CONVERSION_WINDOWS_FIELD_NUMBER = 44;
-  private static final class ConversionWindowsDefaultEntryHolder {
-    static final com.google.protobuf.MapEntry<
-        java.lang.String, com.google.protobuf.Duration> defaultEntry =
-            com.google.protobuf.MapEntry
-            .<java.lang.String, com.google.protobuf.Duration>newDefaultInstance(
-                io.channel.api.proto.pub.coreapi.model.CampaignOuterClass.internal_static_coreapi_model_Campaign_ConversionWindowsEntry_descriptor, 
-                com.google.protobuf.WireFormat.FieldType.STRING,
-                "",
-                com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                com.google.protobuf.Duration.getDefaultInstance());
-  }
-  private com.google.protobuf.MapField<
-      java.lang.String, com.google.protobuf.Duration> conversionWindows_;
-  private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Duration>
-  internalGetConversionWindows() {
-    if (conversionWindows_ == null) {
-      return com.google.protobuf.MapField.emptyMapField(
-          ConversionWindowsDefaultEntryHolder.defaultEntry);
-    }
-    return conversionWindows_;
-  }
-
-  public int getConversionWindowsCount() {
-    return internalGetConversionWindows().getMap().size();
-  }
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-   */
-
-  @java.lang.Override
-  public boolean containsConversionWindows(
-      java.lang.String key) {
-    if (key == null) { throw new NullPointerException("map key"); }
-    return internalGetConversionWindows().getMap().containsKey(key);
-  }
-  /**
-   * Use {@link #getConversionWindowsMap()} instead.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated
-  public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindows() {
-    return getConversionWindowsMap();
-  }
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-   */
-  @java.lang.Override
-
-  public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindowsMap() {
-    return internalGetConversionWindows().getMap();
-  }
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-   */
-  @java.lang.Override
-
-  public com.google.protobuf.Duration getConversionWindowsOrDefault(
-      java.lang.String key,
-      com.google.protobuf.Duration defaultValue) {
-    if (key == null) { throw new NullPointerException("map key"); }
-    java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
-        internalGetConversionWindows().getMap();
-    return map.containsKey(key) ? map.get(key) : defaultValue;
-  }
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-   */
-  @java.lang.Override
-
-  public com.google.protobuf.Duration getConversionWindowsOrThrow(
-      java.lang.String key) {
-    if (key == null) { throw new NullPointerException("map key"); }
-    java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
-        internalGetConversionWindows().getMap();
-    if (!map.containsKey(key)) {
-      throw new java.lang.IllegalArgumentException();
-    }
-    return map.get(key);
-  }
-
-  public static final int FILTER_HPC_FIELD_NUMBER = 45;
-  private io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant filterHpc_;
-  /**
-   * <pre>
-   * Holding property constant for the additional event filter.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
-   * @return Whether the filterHpc field is set.
-   */
-  @java.lang.Override
-  public boolean hasFilterHpc() {
-    return filterHpc_ != null;
-  }
-  /**
-   * <pre>
-   * Holding property constant for the additional event filter.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
-   * @return The filterHpc.
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant getFilterHpc() {
-    return filterHpc_ == null ? io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.getDefaultInstance() : filterHpc_;
-  }
-  /**
-   * <pre>
-   * Holding property constant for the additional event filter.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder getFilterHpcOrBuilder() {
-    return getFilterHpc();
-  }
-
-  public static final int GOAL_HPC_FIELD_NUMBER = 46;
-  private io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant goalHpc_;
-  /**
-   * <pre>
-   * Holding property constant for the goal event.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
-   * @return Whether the goalHpc field is set.
-   */
-  @java.lang.Override
-  public boolean hasGoalHpc() {
-    return goalHpc_ != null;
-  }
-  /**
-   * <pre>
-   * Holding property constant for the goal event.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
-   * @return The goalHpc.
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant getGoalHpc() {
-    return goalHpc_ == null ? io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.getDefaultInstance() : goalHpc_;
-  }
-  /**
-   * <pre>
-   * Holding property constant for the goal event.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder getGoalHpcOrBuilder() {
-    return getGoalHpc();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -2076,8 +2059,17 @@ private static final long serialVersionUID = 0L;
     if (state_ != io.channel.api.proto.pub.coreapi.model.CampaignState.CAMPAIGN_STATE_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, state_);
     }
+    if (mediumType_ != io.channel.api.proto.pub.coreapi.model.MediumType.MEDIUM_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(5, mediumType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediumId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, mediumId_);
+    }
     if (userQuery_ != null) {
       output.writeMessage(7, getUserQuery());
+    }
+    for (int i = 0; i < appSegments_.size(); i++) {
+      output.writeMessage(8, appSegments_.get(i));
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(triggerEventName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, triggerEventName_);
@@ -2097,6 +2089,15 @@ private static final long serialVersionUID = 0L;
     if (filterMatch_ != io.channel.api.proto.pub.coreapi.model.CampaignFilterMatch.CAMPAIGN_FILTER_MATCH_UNSPECIFIED.getNumber()) {
       output.writeEnum(14, filterMatch_);
     }
+    if (filterHpc_ != null) {
+      output.writeMessage(15, getFilterHpc());
+    }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetConversionWindows(),
+        ConversionWindowsDefaultEntryHolder.defaultEntry,
+        16);
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(goalEventName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 17, goalEventName_);
     }
@@ -2105,6 +2106,9 @@ private static final long serialVersionUID = 0L;
     }
     if (goalEventDuration_ != null) {
       output.writeMessage(19, getGoalEventDuration());
+    }
+    if (goalHpc_ != null) {
+      output.writeMessage(20, getGoalHpc());
     }
     if (advertising_ != false) {
       output.writeBool(21, advertising_);
@@ -2120,6 +2124,9 @@ private static final long serialVersionUID = 0L;
     }
     if (sendMode_ != io.channel.api.proto.pub.coreapi.model.CampaignSendMode.CAMPAIGN_SEND_MODE_UNSPECIFIED.getNumber()) {
       output.writeEnum(25, sendMode_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelOperationId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 26, channelOperationId_);
     }
     for (int i = 0; i < sendTimeRanges_.size(); i++) {
       output.writeMessage(27, sendTimeRanges_.get(i));
@@ -2151,38 +2158,11 @@ private static final long serialVersionUID = 0L;
     if (click_ != 0) {
       output.writeInt32(36, click_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sendMedium_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 37, sendMedium_);
-    }
     if (userChatExpireDuration_ != null) {
-      output.writeMessage(38, getUserChatExpireDuration());
+      output.writeMessage(37, getUserChatExpireDuration());
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(managerId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 39, managerId_);
-    }
-    if (mediumType_ != io.channel.api.proto.pub.coreapi.model.MediumType.MEDIUM_TYPE_UNSPECIFIED.getNumber()) {
-      output.writeEnum(40, mediumType_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediumId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 41, mediumId_);
-    }
-    for (int i = 0; i < appSegments_.size(); i++) {
-      output.writeMessage(42, appSegments_.get(i));
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelOperationId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 43, channelOperationId_);
-    }
-    com.google.protobuf.GeneratedMessageV3
-      .serializeStringMapTo(
-        output,
-        internalGetConversionWindows(),
-        ConversionWindowsDefaultEntryHolder.defaultEntry,
-        44);
-    if (filterHpc_ != null) {
-      output.writeMessage(45, getFilterHpc());
-    }
-    if (goalHpc_ != null) {
-      output.writeMessage(46, getGoalHpc());
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 38, managerId_);
     }
     unknownFields.writeTo(output);
   }
@@ -2206,9 +2186,20 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, state_);
     }
+    if (mediumType_ != io.channel.api.proto.pub.coreapi.model.MediumType.MEDIUM_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(5, mediumType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediumId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, mediumId_);
+    }
     if (userQuery_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getUserQuery());
+    }
+    for (int i = 0; i < appSegments_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, appSegments_.get(i));
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(triggerEventName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, triggerEventName_);
@@ -2232,6 +2223,20 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(14, filterMatch_);
     }
+    if (filterHpc_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(15, getFilterHpc());
+    }
+    for (java.util.Map.Entry<java.lang.String, com.google.protobuf.Duration> entry
+         : internalGetConversionWindows().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Duration>
+      conversionWindows__ = ConversionWindowsDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(16, conversionWindows__);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(goalEventName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, goalEventName_);
     }
@@ -2242,6 +2247,10 @@ private static final long serialVersionUID = 0L;
     if (goalEventDuration_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(19, getGoalEventDuration());
+    }
+    if (goalHpc_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(20, getGoalHpc());
     }
     if (advertising_ != false) {
       size += com.google.protobuf.CodedOutputStream
@@ -2262,6 +2271,9 @@ private static final long serialVersionUID = 0L;
     if (sendMode_ != io.channel.api.proto.pub.coreapi.model.CampaignSendMode.CAMPAIGN_SEND_MODE_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(25, sendMode_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelOperationId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(26, channelOperationId_);
     }
     for (int i = 0; i < sendTimeRanges_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
@@ -2303,47 +2315,12 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(36, click_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sendMedium_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(37, sendMedium_);
-    }
     if (userChatExpireDuration_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(38, getUserChatExpireDuration());
+        .computeMessageSize(37, getUserChatExpireDuration());
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(managerId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(39, managerId_);
-    }
-    if (mediumType_ != io.channel.api.proto.pub.coreapi.model.MediumType.MEDIUM_TYPE_UNSPECIFIED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(40, mediumType_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediumId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(41, mediumId_);
-    }
-    for (int i = 0; i < appSegments_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(42, appSegments_.get(i));
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelOperationId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(43, channelOperationId_);
-    }
-    for (java.util.Map.Entry<java.lang.String, com.google.protobuf.Duration> entry
-         : internalGetConversionWindows().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Duration>
-      conversionWindows__ = ConversionWindowsDefaultEntryHolder.defaultEntry.newBuilderForType()
-          .setKey(entry.getKey())
-          .setValue(entry.getValue())
-          .build();
-      size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(44, conversionWindows__);
-    }
-    if (filterHpc_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(45, getFilterHpc());
-    }
-    if (goalHpc_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(46, getGoalHpc());
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(38, managerId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -2367,11 +2344,16 @@ private static final long serialVersionUID = 0L;
     if (!getName()
         .equals(other.getName())) return false;
     if (state_ != other.state_) return false;
+    if (mediumType_ != other.mediumType_) return false;
+    if (!getMediumId()
+        .equals(other.getMediumId())) return false;
     if (hasUserQuery() != other.hasUserQuery()) return false;
     if (hasUserQuery()) {
       if (!getUserQuery()
           .equals(other.getUserQuery())) return false;
     }
+    if (!getAppSegmentsList()
+        .equals(other.getAppSegmentsList())) return false;
     if (!getTriggerEventName()
         .equals(other.getTriggerEventName())) return false;
     if (hasTriggerEventQuery() != other.hasTriggerEventQuery()) return false;
@@ -2392,6 +2374,13 @@ private static final long serialVersionUID = 0L;
           .equals(other.getFilterEventQuery())) return false;
     }
     if (filterMatch_ != other.filterMatch_) return false;
+    if (hasFilterHpc() != other.hasFilterHpc()) return false;
+    if (hasFilterHpc()) {
+      if (!getFilterHpc()
+          .equals(other.getFilterHpc())) return false;
+    }
+    if (!internalGetConversionWindows().equals(
+        other.internalGetConversionWindows())) return false;
     if (!getGoalEventName()
         .equals(other.getGoalEventName())) return false;
     if (hasGoalEventQuery() != other.hasGoalEventQuery()) return false;
@@ -2403,6 +2392,11 @@ private static final long serialVersionUID = 0L;
     if (hasGoalEventDuration()) {
       if (!getGoalEventDuration()
           .equals(other.getGoalEventDuration())) return false;
+    }
+    if (hasGoalHpc() != other.hasGoalHpc()) return false;
+    if (hasGoalHpc()) {
+      if (!getGoalHpc()
+          .equals(other.getGoalHpc())) return false;
     }
     if (getAdvertising()
         != other.getAdvertising()) return false;
@@ -2416,6 +2410,8 @@ private static final long serialVersionUID = 0L;
           .equals(other.getCooldown())) return false;
     }
     if (sendMode_ != other.sendMode_) return false;
+    if (!getChannelOperationId()
+        .equals(other.getChannelOperationId())) return false;
     if (!getSendTimeRangesList()
         .equals(other.getSendTimeRangesList())) return false;
     if (hasStartAt() != other.hasStartAt()) return false;
@@ -2451,8 +2447,6 @@ private static final long serialVersionUID = 0L;
         != other.getGoal()) return false;
     if (getClick()
         != other.getClick()) return false;
-    if (!getSendMedium()
-        .equals(other.getSendMedium())) return false;
     if (hasUserChatExpireDuration() != other.hasUserChatExpireDuration()) return false;
     if (hasUserChatExpireDuration()) {
       if (!getUserChatExpireDuration()
@@ -2460,25 +2454,6 @@ private static final long serialVersionUID = 0L;
     }
     if (!getManagerId()
         .equals(other.getManagerId())) return false;
-    if (mediumType_ != other.mediumType_) return false;
-    if (!getMediumId()
-        .equals(other.getMediumId())) return false;
-    if (!getAppSegmentsList()
-        .equals(other.getAppSegmentsList())) return false;
-    if (!getChannelOperationId()
-        .equals(other.getChannelOperationId())) return false;
-    if (!internalGetConversionWindows().equals(
-        other.internalGetConversionWindows())) return false;
-    if (hasFilterHpc() != other.hasFilterHpc()) return false;
-    if (hasFilterHpc()) {
-      if (!getFilterHpc()
-          .equals(other.getFilterHpc())) return false;
-    }
-    if (hasGoalHpc() != other.hasGoalHpc()) return false;
-    if (hasGoalHpc()) {
-      if (!getGoalHpc()
-          .equals(other.getGoalHpc())) return false;
-    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -2498,9 +2473,17 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + STATE_FIELD_NUMBER;
     hash = (53 * hash) + state_;
+    hash = (37 * hash) + MEDIUM_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + mediumType_;
+    hash = (37 * hash) + MEDIUM_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getMediumId().hashCode();
     if (hasUserQuery()) {
       hash = (37 * hash) + USER_QUERY_FIELD_NUMBER;
       hash = (53 * hash) + getUserQuery().hashCode();
+    }
+    if (getAppSegmentsCount() > 0) {
+      hash = (37 * hash) + APP_SEGMENTS_FIELD_NUMBER;
+      hash = (53 * hash) + getAppSegmentsList().hashCode();
     }
     hash = (37 * hash) + TRIGGER_EVENT_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getTriggerEventName().hashCode();
@@ -2520,6 +2503,14 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + FILTER_MATCH_FIELD_NUMBER;
     hash = (53 * hash) + filterMatch_;
+    if (hasFilterHpc()) {
+      hash = (37 * hash) + FILTER_HPC_FIELD_NUMBER;
+      hash = (53 * hash) + getFilterHpc().hashCode();
+    }
+    if (!internalGetConversionWindows().getMap().isEmpty()) {
+      hash = (37 * hash) + CONVERSION_WINDOWS_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetConversionWindows().hashCode();
+    }
     hash = (37 * hash) + GOAL_EVENT_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getGoalEventName().hashCode();
     if (hasGoalEventQuery()) {
@@ -2529,6 +2520,10 @@ private static final long serialVersionUID = 0L;
     if (hasGoalEventDuration()) {
       hash = (37 * hash) + GOAL_EVENT_DURATION_FIELD_NUMBER;
       hash = (53 * hash) + getGoalEventDuration().hashCode();
+    }
+    if (hasGoalHpc()) {
+      hash = (37 * hash) + GOAL_HPC_FIELD_NUMBER;
+      hash = (53 * hash) + getGoalHpc().hashCode();
     }
     hash = (37 * hash) + ADVERTISING_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
@@ -2545,6 +2540,8 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + SEND_MODE_FIELD_NUMBER;
     hash = (53 * hash) + sendMode_;
+    hash = (37 * hash) + CHANNEL_OPERATION_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getChannelOperationId().hashCode();
     if (getSendTimeRangesCount() > 0) {
       hash = (37 * hash) + SEND_TIME_RANGES_FIELD_NUMBER;
       hash = (53 * hash) + getSendTimeRangesList().hashCode();
@@ -2577,36 +2574,12 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getGoal();
     hash = (37 * hash) + CLICK_FIELD_NUMBER;
     hash = (53 * hash) + getClick();
-    hash = (37 * hash) + SEND_MEDIUM_FIELD_NUMBER;
-    hash = (53 * hash) + getSendMedium().hashCode();
     if (hasUserChatExpireDuration()) {
       hash = (37 * hash) + USER_CHAT_EXPIRE_DURATION_FIELD_NUMBER;
       hash = (53 * hash) + getUserChatExpireDuration().hashCode();
     }
     hash = (37 * hash) + MANAGER_ID_FIELD_NUMBER;
     hash = (53 * hash) + getManagerId().hashCode();
-    hash = (37 * hash) + MEDIUM_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + mediumType_;
-    hash = (37 * hash) + MEDIUM_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getMediumId().hashCode();
-    if (getAppSegmentsCount() > 0) {
-      hash = (37 * hash) + APP_SEGMENTS_FIELD_NUMBER;
-      hash = (53 * hash) + getAppSegmentsList().hashCode();
-    }
-    hash = (37 * hash) + CHANNEL_OPERATION_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getChannelOperationId().hashCode();
-    if (!internalGetConversionWindows().getMap().isEmpty()) {
-      hash = (37 * hash) + CONVERSION_WINDOWS_FIELD_NUMBER;
-      hash = (53 * hash) + internalGetConversionWindows().hashCode();
-    }
-    if (hasFilterHpc()) {
-      hash = (37 * hash) + FILTER_HPC_FIELD_NUMBER;
-      hash = (53 * hash) + getFilterHpc().hashCode();
-    }
-    if (hasGoalHpc()) {
-      hash = (37 * hash) + GOAL_HPC_FIELD_NUMBER;
-      hash = (53 * hash) + getGoalHpc().hashCode();
-    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -2704,8 +2677,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Campaign represents a recurring automated message that is sent to users
-   * when they trigger a specific event.
+   * Campaign represents a recurring marketing campaign triggered by user events.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.Campaign}
@@ -2723,7 +2695,7 @@ private static final long serialVersionUID = 0L;
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 44:
+        case 16:
           return internalGetConversionWindows();
         default:
           throw new RuntimeException(
@@ -2734,7 +2706,7 @@ private static final long serialVersionUID = 0L;
     protected com.google.protobuf.MapField internalGetMutableMapField(
         int number) {
       switch (number) {
-        case 44:
+        case 16:
           return internalGetMutableConversionWindows();
         default:
           throw new RuntimeException(
@@ -2762,8 +2734,8 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getSendTimeRangesFieldBuilder();
         getAppSegmentsFieldBuilder();
+        getSendTimeRangesFieldBuilder();
       }
     }
     @java.lang.Override
@@ -2777,11 +2749,21 @@ private static final long serialVersionUID = 0L;
 
       state_ = 0;
 
+      mediumType_ = 0;
+
+      mediumId_ = "";
+
       if (userQueryBuilder_ == null) {
         userQuery_ = null;
       } else {
         userQuery_ = null;
         userQueryBuilder_ = null;
+      }
+      if (appSegmentsBuilder_ == null) {
+        appSegments_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      } else {
+        appSegmentsBuilder_.clear();
       }
       triggerEventName_ = "";
 
@@ -2807,6 +2789,13 @@ private static final long serialVersionUID = 0L;
       }
       filterMatch_ = 0;
 
+      if (filterHpcBuilder_ == null) {
+        filterHpc_ = null;
+      } else {
+        filterHpc_ = null;
+        filterHpcBuilder_ = null;
+      }
+      internalGetMutableConversionWindows().clear();
       goalEventName_ = "";
 
       if (goalEventQueryBuilder_ == null) {
@@ -2820,6 +2809,12 @@ private static final long serialVersionUID = 0L;
       } else {
         goalEventDuration_ = null;
         goalEventDurationBuilder_ = null;
+      }
+      if (goalHpcBuilder_ == null) {
+        goalHpc_ = null;
+      } else {
+        goalHpc_ = null;
+        goalHpcBuilder_ = null;
       }
       advertising_ = false;
 
@@ -2835,9 +2830,11 @@ private static final long serialVersionUID = 0L;
       }
       sendMode_ = 0;
 
+      channelOperationId_ = "";
+
       if (sendTimeRangesBuilder_ == null) {
         sendTimeRanges_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
         sendTimeRangesBuilder_.clear();
       }
@@ -2879,8 +2876,6 @@ private static final long serialVersionUID = 0L;
 
       click_ = 0;
 
-      sendMedium_ = "";
-
       if (userChatExpireDurationBuilder_ == null) {
         userChatExpireDuration_ = null;
       } else {
@@ -2889,31 +2884,6 @@ private static final long serialVersionUID = 0L;
       }
       managerId_ = "";
 
-      mediumType_ = 0;
-
-      mediumId_ = "";
-
-      if (appSegmentsBuilder_ == null) {
-        appSegments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      } else {
-        appSegmentsBuilder_.clear();
-      }
-      channelOperationId_ = "";
-
-      internalGetMutableConversionWindows().clear();
-      if (filterHpcBuilder_ == null) {
-        filterHpc_ = null;
-      } else {
-        filterHpc_ = null;
-        filterHpcBuilder_ = null;
-      }
-      if (goalHpcBuilder_ == null) {
-        goalHpc_ = null;
-      } else {
-        goalHpc_ = null;
-        goalHpcBuilder_ = null;
-      }
       return this;
     }
 
@@ -2945,10 +2915,21 @@ private static final long serialVersionUID = 0L;
       result.channelId_ = channelId_;
       result.name_ = name_;
       result.state_ = state_;
+      result.mediumType_ = mediumType_;
+      result.mediumId_ = mediumId_;
       if (userQueryBuilder_ == null) {
         result.userQuery_ = userQuery_;
       } else {
         result.userQuery_ = userQueryBuilder_.build();
+      }
+      if (appSegmentsBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          appSegments_ = java.util.Collections.unmodifiableList(appSegments_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.appSegments_ = appSegments_;
+      } else {
+        result.appSegments_ = appSegmentsBuilder_.build();
       }
       result.triggerEventName_ = triggerEventName_;
       if (triggerEventQueryBuilder_ == null) {
@@ -2968,6 +2949,13 @@ private static final long serialVersionUID = 0L;
         result.filterEventQuery_ = filterEventQueryBuilder_.build();
       }
       result.filterMatch_ = filterMatch_;
+      if (filterHpcBuilder_ == null) {
+        result.filterHpc_ = filterHpc_;
+      } else {
+        result.filterHpc_ = filterHpcBuilder_.build();
+      }
+      result.conversionWindows_ = internalGetConversionWindows();
+      result.conversionWindows_.makeImmutable();
       result.goalEventName_ = goalEventName_;
       if (goalEventQueryBuilder_ == null) {
         result.goalEventQuery_ = goalEventQuery_;
@@ -2979,6 +2967,11 @@ private static final long serialVersionUID = 0L;
       } else {
         result.goalEventDuration_ = goalEventDurationBuilder_.build();
       }
+      if (goalHpcBuilder_ == null) {
+        result.goalHpc_ = goalHpc_;
+      } else {
+        result.goalHpc_ = goalHpcBuilder_.build();
+      }
       result.advertising_ = advertising_;
       result.sendToOfflineXms_ = sendToOfflineXms_;
       result.sendToOfflineEmail_ = sendToOfflineEmail_;
@@ -2988,10 +2981,11 @@ private static final long serialVersionUID = 0L;
         result.cooldown_ = cooldownBuilder_.build();
       }
       result.sendMode_ = sendMode_;
+      result.channelOperationId_ = channelOperationId_;
       if (sendTimeRangesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           sendTimeRanges_ = java.util.Collections.unmodifiableList(sendTimeRanges_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.sendTimeRanges_ = sendTimeRanges_;
       } else {
@@ -3026,37 +3020,12 @@ private static final long serialVersionUID = 0L;
       result.view_ = view_;
       result.goal_ = goal_;
       result.click_ = click_;
-      result.sendMedium_ = sendMedium_;
       if (userChatExpireDurationBuilder_ == null) {
         result.userChatExpireDuration_ = userChatExpireDuration_;
       } else {
         result.userChatExpireDuration_ = userChatExpireDurationBuilder_.build();
       }
       result.managerId_ = managerId_;
-      result.mediumType_ = mediumType_;
-      result.mediumId_ = mediumId_;
-      if (appSegmentsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
-          appSegments_ = java.util.Collections.unmodifiableList(appSegments_);
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.appSegments_ = appSegments_;
-      } else {
-        result.appSegments_ = appSegmentsBuilder_.build();
-      }
-      result.channelOperationId_ = channelOperationId_;
-      result.conversionWindows_ = internalGetConversionWindows();
-      result.conversionWindows_.makeImmutable();
-      if (filterHpcBuilder_ == null) {
-        result.filterHpc_ = filterHpc_;
-      } else {
-        result.filterHpc_ = filterHpcBuilder_.build();
-      }
-      if (goalHpcBuilder_ == null) {
-        result.goalHpc_ = goalHpc_;
-      } else {
-        result.goalHpc_ = goalHpcBuilder_.build();
-      }
       onBuilt();
       return result;
     }
@@ -3120,8 +3089,41 @@ private static final long serialVersionUID = 0L;
       if (other.state_ != 0) {
         setStateValue(other.getStateValue());
       }
+      if (other.mediumType_ != 0) {
+        setMediumTypeValue(other.getMediumTypeValue());
+      }
+      if (!other.getMediumId().isEmpty()) {
+        mediumId_ = other.mediumId_;
+        onChanged();
+      }
       if (other.hasUserQuery()) {
         mergeUserQuery(other.getUserQuery());
+      }
+      if (appSegmentsBuilder_ == null) {
+        if (!other.appSegments_.isEmpty()) {
+          if (appSegments_.isEmpty()) {
+            appSegments_ = other.appSegments_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureAppSegmentsIsMutable();
+            appSegments_.addAll(other.appSegments_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.appSegments_.isEmpty()) {
+          if (appSegmentsBuilder_.isEmpty()) {
+            appSegmentsBuilder_.dispose();
+            appSegmentsBuilder_ = null;
+            appSegments_ = other.appSegments_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            appSegmentsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getAppSegmentsFieldBuilder() : null;
+          } else {
+            appSegmentsBuilder_.addAllMessages(other.appSegments_);
+          }
+        }
       }
       if (!other.getTriggerEventName().isEmpty()) {
         triggerEventName_ = other.triggerEventName_;
@@ -3143,6 +3145,11 @@ private static final long serialVersionUID = 0L;
       if (other.filterMatch_ != 0) {
         setFilterMatchValue(other.getFilterMatchValue());
       }
+      if (other.hasFilterHpc()) {
+        mergeFilterHpc(other.getFilterHpc());
+      }
+      internalGetMutableConversionWindows().mergeFrom(
+          other.internalGetConversionWindows());
       if (!other.getGoalEventName().isEmpty()) {
         goalEventName_ = other.goalEventName_;
         onChanged();
@@ -3152,6 +3159,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasGoalEventDuration()) {
         mergeGoalEventDuration(other.getGoalEventDuration());
+      }
+      if (other.hasGoalHpc()) {
+        mergeGoalHpc(other.getGoalHpc());
       }
       if (other.getAdvertising() != false) {
         setAdvertising(other.getAdvertising());
@@ -3168,11 +3178,15 @@ private static final long serialVersionUID = 0L;
       if (other.sendMode_ != 0) {
         setSendModeValue(other.getSendModeValue());
       }
+      if (!other.getChannelOperationId().isEmpty()) {
+        channelOperationId_ = other.channelOperationId_;
+        onChanged();
+      }
       if (sendTimeRangesBuilder_ == null) {
         if (!other.sendTimeRanges_.isEmpty()) {
           if (sendTimeRanges_.isEmpty()) {
             sendTimeRanges_ = other.sendTimeRanges_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureSendTimeRangesIsMutable();
             sendTimeRanges_.addAll(other.sendTimeRanges_);
@@ -3185,7 +3199,7 @@ private static final long serialVersionUID = 0L;
             sendTimeRangesBuilder_.dispose();
             sendTimeRangesBuilder_ = null;
             sendTimeRanges_ = other.sendTimeRanges_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             sendTimeRangesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSendTimeRangesFieldBuilder() : null;
@@ -3221,61 +3235,12 @@ private static final long serialVersionUID = 0L;
       if (other.getClick() != 0) {
         setClick(other.getClick());
       }
-      if (!other.getSendMedium().isEmpty()) {
-        sendMedium_ = other.sendMedium_;
-        onChanged();
-      }
       if (other.hasUserChatExpireDuration()) {
         mergeUserChatExpireDuration(other.getUserChatExpireDuration());
       }
       if (!other.getManagerId().isEmpty()) {
         managerId_ = other.managerId_;
         onChanged();
-      }
-      if (other.mediumType_ != 0) {
-        setMediumTypeValue(other.getMediumTypeValue());
-      }
-      if (!other.getMediumId().isEmpty()) {
-        mediumId_ = other.mediumId_;
-        onChanged();
-      }
-      if (appSegmentsBuilder_ == null) {
-        if (!other.appSegments_.isEmpty()) {
-          if (appSegments_.isEmpty()) {
-            appSegments_ = other.appSegments_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-          } else {
-            ensureAppSegmentsIsMutable();
-            appSegments_.addAll(other.appSegments_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.appSegments_.isEmpty()) {
-          if (appSegmentsBuilder_.isEmpty()) {
-            appSegmentsBuilder_.dispose();
-            appSegmentsBuilder_ = null;
-            appSegments_ = other.appSegments_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-            appSegmentsBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getAppSegmentsFieldBuilder() : null;
-          } else {
-            appSegmentsBuilder_.addAllMessages(other.appSegments_);
-          }
-        }
-      }
-      if (!other.getChannelOperationId().isEmpty()) {
-        channelOperationId_ = other.channelOperationId_;
-        onChanged();
-      }
-      internalGetMutableConversionWindows().mergeFrom(
-          other.internalGetConversionWindows());
-      if (other.hasFilterHpc()) {
-        mergeFilterHpc(other.getFilterHpc());
-      }
-      if (other.hasGoalHpc()) {
-        mergeGoalHpc(other.getGoalHpc());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -3312,7 +3277,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique campaign identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3334,7 +3299,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique campaign identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3357,7 +3322,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique campaign identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3378,7 +3343,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique campaign identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3394,7 +3359,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique campaign identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3418,7 +3383,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this campaign belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3440,7 +3405,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this campaign belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3463,7 +3428,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this campaign belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3484,7 +3449,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this campaign belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3500,7 +3465,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this campaign belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3522,7 +3487,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Display name of the campaign.
+     * Human-readable label for the campaign.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
@@ -3545,7 +3510,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name of the campaign.
+     * Human-readable label for the campaign.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
@@ -3569,7 +3534,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name of the campaign.
+     * Human-readable label for the campaign.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
@@ -3591,7 +3556,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name of the campaign.
+     * Human-readable label for the campaign.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
@@ -3608,7 +3573,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name of the campaign.
+     * Human-readable label for the campaign.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
@@ -3633,7 +3598,7 @@ private static final long serialVersionUID = 0L;
     private int state_ = 0;
     /**
      * <pre>
-     * Current lifecycle state.
+     * Current lifecycle state of the campaign.
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -3645,7 +3610,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current lifecycle state.
+     * Current lifecycle state of the campaign.
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -3661,7 +3626,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current lifecycle state.
+     * Current lifecycle state of the campaign.
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -3676,7 +3641,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current lifecycle state.
+     * Current lifecycle state of the campaign.
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -3695,7 +3660,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current lifecycle state.
+     * Current lifecycle state of the campaign.
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -3709,12 +3674,198 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int mediumType_ = 0;
+    /**
+     * <pre>
+     * Channel through which the campaign message is delivered.
+     * Cannot be changed after creation.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
+     * @return The enum numeric value on the wire for mediumType.
+     */
+    @java.lang.Override public int getMediumTypeValue() {
+      return mediumType_;
+    }
+    /**
+     * <pre>
+     * Channel through which the campaign message is delivered.
+     * Cannot be changed after creation.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
+     * @param value The enum numeric value on the wire for mediumType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMediumTypeValue(int value) {
+      
+      mediumType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Channel through which the campaign message is delivered.
+     * Cannot be changed after creation.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
+     * @return The mediumType.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.MediumType getMediumType() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.MediumType result = io.channel.api.proto.pub.coreapi.model.MediumType.valueOf(mediumType_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.MediumType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Channel through which the campaign message is delivered.
+     * Cannot be changed after creation.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
+     * @param value The mediumType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMediumType(io.channel.api.proto.pub.coreapi.model.MediumType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      mediumType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Channel through which the campaign message is delivered.
+     * Cannot be changed after creation.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMediumType() {
+      
+      mediumType_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object mediumId_ = "";
+    /**
+     * <pre>
+     * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string medium_id = 6 [json_name = "mediumId"];</code>
+     * @return The mediumId.
+     */
+    public java.lang.String getMediumId() {
+      java.lang.Object ref = mediumId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        mediumId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string medium_id = 6 [json_name = "mediumId"];</code>
+     * @return The bytes for mediumId.
+     */
+    public com.google.protobuf.ByteString
+        getMediumIdBytes() {
+      java.lang.Object ref = mediumId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        mediumId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string medium_id = 6 [json_name = "mediumId"];</code>
+     * @param value The mediumId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMediumId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      mediumId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string medium_id = 6 [json_name = "mediumId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMediumId() {
+      
+      mediumId_ = getDefaultInstance().getMediumId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string medium_id = 6 [json_name = "mediumId"];</code>
+     * @param value The bytes for mediumId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMediumIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      mediumId_ = value;
+      onChanged();
+      return this;
+    }
+
     private com.google.protobuf.Struct userQuery_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> userQueryBuilder_;
     /**
      * <pre>
-     * User targeting query for audience filtering.
+     * Query expression that defines the target user segment.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3726,7 +3877,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User targeting query for audience filtering.
+     * Query expression that defines the target user segment.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3742,7 +3894,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User targeting query for audience filtering.
+     * Query expression that defines the target user segment.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3763,7 +3916,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User targeting query for audience filtering.
+     * Query expression that defines the target user segment.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3782,7 +3936,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User targeting query for audience filtering.
+     * Query expression that defines the target user segment.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3805,7 +3960,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User targeting query for audience filtering.
+     * Query expression that defines the target user segment.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3824,7 +3980,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User targeting query for audience filtering.
+     * Query expression that defines the target user segment.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3837,7 +3994,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User targeting query for audience filtering.
+     * Query expression that defines the target user segment.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3853,7 +4011,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User targeting query for audience filtering.
+     * Query expression that defines the target user segment.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3873,15 +4032,344 @@ private static final long serialVersionUID = 0L;
       return userQueryBuilder_;
     }
 
-    private java.lang.Object triggerEventName_ = "";
+    private java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> appSegments_ =
+      java.util.Collections.emptyList();
+    private void ensureAppSegmentsIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        appSegments_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.AppSegment>(appSegments_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.AppSegment, io.channel.api.proto.pub.coreapi.model.AppSegment.Builder, io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> appSegmentsBuilder_;
+
     /**
      * <pre>
-     * Name of the event that triggers the campaign.
-     * May be unset for draft campaigns.
+     * App-defined user segments used alongside user_query for targeting.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string trigger_event_name = 9 [json_name = "triggerEventName"];</code>
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> getAppSegmentsList() {
+      if (appSegmentsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(appSegments_);
+      } else {
+        return appSegmentsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public int getAppSegmentsCount() {
+      if (appSegmentsBuilder_ == null) {
+        return appSegments_.size();
+      } else {
+        return appSegmentsBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.AppSegment getAppSegments(int index) {
+      if (appSegmentsBuilder_ == null) {
+        return appSegments_.get(index);
+      } else {
+        return appSegmentsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public Builder setAppSegments(
+        int index, io.channel.api.proto.pub.coreapi.model.AppSegment value) {
+      if (appSegmentsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAppSegmentsIsMutable();
+        appSegments_.set(index, value);
+        onChanged();
+      } else {
+        appSegmentsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public Builder setAppSegments(
+        int index, io.channel.api.proto.pub.coreapi.model.AppSegment.Builder builderForValue) {
+      if (appSegmentsBuilder_ == null) {
+        ensureAppSegmentsIsMutable();
+        appSegments_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        appSegmentsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public Builder addAppSegments(io.channel.api.proto.pub.coreapi.model.AppSegment value) {
+      if (appSegmentsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAppSegmentsIsMutable();
+        appSegments_.add(value);
+        onChanged();
+      } else {
+        appSegmentsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public Builder addAppSegments(
+        int index, io.channel.api.proto.pub.coreapi.model.AppSegment value) {
+      if (appSegmentsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAppSegmentsIsMutable();
+        appSegments_.add(index, value);
+        onChanged();
+      } else {
+        appSegmentsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public Builder addAppSegments(
+        io.channel.api.proto.pub.coreapi.model.AppSegment.Builder builderForValue) {
+      if (appSegmentsBuilder_ == null) {
+        ensureAppSegmentsIsMutable();
+        appSegments_.add(builderForValue.build());
+        onChanged();
+      } else {
+        appSegmentsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public Builder addAppSegments(
+        int index, io.channel.api.proto.pub.coreapi.model.AppSegment.Builder builderForValue) {
+      if (appSegmentsBuilder_ == null) {
+        ensureAppSegmentsIsMutable();
+        appSegments_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        appSegmentsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public Builder addAllAppSegments(
+        java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.AppSegment> values) {
+      if (appSegmentsBuilder_ == null) {
+        ensureAppSegmentsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, appSegments_);
+        onChanged();
+      } else {
+        appSegmentsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public Builder clearAppSegments() {
+      if (appSegmentsBuilder_ == null) {
+        appSegments_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        appSegmentsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public Builder removeAppSegments(int index) {
+      if (appSegmentsBuilder_ == null) {
+        ensureAppSegmentsIsMutable();
+        appSegments_.remove(index);
+        onChanged();
+      } else {
+        appSegmentsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.AppSegment.Builder getAppSegmentsBuilder(
+        int index) {
+      return getAppSegmentsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder getAppSegmentsOrBuilder(
+        int index) {
+      if (appSegmentsBuilder_ == null) {
+        return appSegments_.get(index);  } else {
+        return appSegmentsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> 
+         getAppSegmentsOrBuilderList() {
+      if (appSegmentsBuilder_ != null) {
+        return appSegmentsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(appSegments_);
+      }
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.AppSegment.Builder addAppSegmentsBuilder() {
+      return getAppSegmentsFieldBuilder().addBuilder(
+          io.channel.api.proto.pub.coreapi.model.AppSegment.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.AppSegment.Builder addAppSegmentsBuilder(
+        int index) {
+      return getAppSegmentsFieldBuilder().addBuilder(
+          index, io.channel.api.proto.pub.coreapi.model.AppSegment.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * App-defined user segments used alongside user_query for targeting.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+     */
+    public java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment.Builder> 
+         getAppSegmentsBuilderList() {
+      return getAppSegmentsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.AppSegment, io.channel.api.proto.pub.coreapi.model.AppSegment.Builder, io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> 
+        getAppSegmentsFieldBuilder() {
+      if (appSegmentsBuilder_ == null) {
+        appSegmentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.model.AppSegment, io.channel.api.proto.pub.coreapi.model.AppSegment.Builder, io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder>(
+                appSegments_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        appSegments_ = null;
+      }
+      return appSegmentsBuilder_;
+    }
+
+    private java.lang.Object triggerEventName_ = "";
+    /**
+     * <pre>
+     * Name of the user event that triggers this campaign.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string trigger_event_name = 9 [json_name = "triggerEventName", (.buf.validate.field) = { ... }</code>
      * @return The triggerEventName.
      */
     public java.lang.String getTriggerEventName() {
@@ -3898,12 +4386,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the event that triggers the campaign.
-     * May be unset for draft campaigns.
-     * +kubebuilder:validation:Nullable
+     * Name of the user event that triggers this campaign.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string trigger_event_name = 9 [json_name = "triggerEventName"];</code>
+     * <code>string trigger_event_name = 9 [json_name = "triggerEventName", (.buf.validate.field) = { ... }</code>
      * @return The bytes for triggerEventName.
      */
     public com.google.protobuf.ByteString
@@ -3921,12 +4408,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the event that triggers the campaign.
-     * May be unset for draft campaigns.
-     * +kubebuilder:validation:Nullable
+     * Name of the user event that triggers this campaign.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string trigger_event_name = 9 [json_name = "triggerEventName"];</code>
+     * <code>string trigger_event_name = 9 [json_name = "triggerEventName", (.buf.validate.field) = { ... }</code>
      * @param value The triggerEventName to set.
      * @return This builder for chaining.
      */
@@ -3942,12 +4428,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the event that triggers the campaign.
-     * May be unset for draft campaigns.
-     * +kubebuilder:validation:Nullable
+     * Name of the user event that triggers this campaign.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string trigger_event_name = 9 [json_name = "triggerEventName"];</code>
+     * <code>string trigger_event_name = 9 [json_name = "triggerEventName", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearTriggerEventName() {
@@ -3958,12 +4443,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the event that triggers the campaign.
-     * May be unset for draft campaigns.
-     * +kubebuilder:validation:Nullable
+     * Name of the user event that triggers this campaign.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>string trigger_event_name = 9 [json_name = "triggerEventName"];</code>
+     * <code>string trigger_event_name = 9 [json_name = "triggerEventName", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for triggerEventName to set.
      * @return This builder for chaining.
      */
@@ -3984,7 +4468,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> triggerEventQueryBuilder_;
     /**
      * <pre>
-     * Filtering query for the trigger event.
+     * Query expression to further filter matching trigger events by their properties.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -3996,7 +4481,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the trigger event.
+     * Query expression to further filter matching trigger events by their properties.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4012,7 +4498,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the trigger event.
+     * Query expression to further filter matching trigger events by their properties.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4033,7 +4520,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the trigger event.
+     * Query expression to further filter matching trigger events by their properties.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4052,7 +4540,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the trigger event.
+     * Query expression to further filter matching trigger events by their properties.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4075,7 +4564,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the trigger event.
+     * Query expression to further filter matching trigger events by their properties.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4094,7 +4584,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the trigger event.
+     * Query expression to further filter matching trigger events by their properties.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4107,7 +4598,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the trigger event.
+     * Query expression to further filter matching trigger events by their properties.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4123,7 +4615,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the trigger event.
+     * Query expression to further filter matching trigger events by their properties.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4148,9 +4641,10 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> waitingTimeBuilder_;
     /**
      * <pre>
-     * Delay between trigger event and message delivery.
+     * Delay between the trigger event and message delivery, in ISO 8601 duration format.
      * Maximum 90 days.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
      * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -4161,9 +4655,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delay between trigger event and message delivery.
+     * Delay between the trigger event and message delivery, in ISO 8601 duration format.
      * Maximum 90 days.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
      * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -4178,9 +4673,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delay between trigger event and message delivery.
+     * Delay between the trigger event and message delivery, in ISO 8601 duration format.
      * Maximum 90 days.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
      * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -4200,9 +4696,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delay between trigger event and message delivery.
+     * Delay between the trigger event and message delivery, in ISO 8601 duration format.
      * Maximum 90 days.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
      * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -4220,9 +4717,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delay between trigger event and message delivery.
+     * Delay between the trigger event and message delivery, in ISO 8601 duration format.
      * Maximum 90 days.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
      * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -4244,9 +4742,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delay between trigger event and message delivery.
+     * Delay between the trigger event and message delivery, in ISO 8601 duration format.
      * Maximum 90 days.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
      * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -4264,9 +4763,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delay between trigger event and message delivery.
+     * Delay between the trigger event and message delivery, in ISO 8601 duration format.
      * Maximum 90 days.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
      * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -4278,9 +4778,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delay between trigger event and message delivery.
+     * Delay between the trigger event and message delivery, in ISO 8601 duration format.
      * Maximum 90 days.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
      * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -4295,9 +4796,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delay between trigger event and message delivery.
+     * Delay between the trigger event and message delivery, in ISO 8601 duration format.
      * Maximum 90 days.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
      * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -4319,8 +4821,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object filterEventName_ = "";
     /**
      * <pre>
-     * Name of the additional filter event.
-     * When set, waiting_time must be non-zero.
+     * Name of an additional event used to filter users before delivery.
+     * When set, filter_match determines whether the event must occur or must not occur.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4341,8 +4843,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the additional filter event.
-     * When set, waiting_time must be non-zero.
+     * Name of an additional event used to filter users before delivery.
+     * When set, filter_match determines whether the event must occur or must not occur.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4364,8 +4866,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the additional filter event.
-     * When set, waiting_time must be non-zero.
+     * Name of an additional event used to filter users before delivery.
+     * When set, filter_match determines whether the event must occur or must not occur.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4385,8 +4887,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the additional filter event.
-     * When set, waiting_time must be non-zero.
+     * Name of an additional event used to filter users before delivery.
+     * When set, filter_match determines whether the event must occur or must not occur.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4401,8 +4903,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the additional filter event.
-     * When set, waiting_time must be non-zero.
+     * Name of an additional event used to filter users before delivery.
+     * When set, filter_match determines whether the event must occur or must not occur.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4427,7 +4929,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> filterEventQueryBuilder_;
     /**
      * <pre>
-     * Filtering query for the additional filter event.
+     * Query expression to filter the additional filter events by their properties.
+     * Represented as a structured filter object. Applicable when filter_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4439,7 +4942,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the additional filter event.
+     * Query expression to filter the additional filter events by their properties.
+     * Represented as a structured filter object. Applicable when filter_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4455,7 +4959,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the additional filter event.
+     * Query expression to filter the additional filter events by their properties.
+     * Represented as a structured filter object. Applicable when filter_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4476,7 +4981,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the additional filter event.
+     * Query expression to filter the additional filter events by their properties.
+     * Represented as a structured filter object. Applicable when filter_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4495,7 +5001,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the additional filter event.
+     * Query expression to filter the additional filter events by their properties.
+     * Represented as a structured filter object. Applicable when filter_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4518,7 +5025,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the additional filter event.
+     * Query expression to filter the additional filter events by their properties.
+     * Represented as a structured filter object. Applicable when filter_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4537,7 +5045,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the additional filter event.
+     * Query expression to filter the additional filter events by their properties.
+     * Represented as a structured filter object. Applicable when filter_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4550,7 +5059,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the additional filter event.
+     * Query expression to filter the additional filter events by their properties.
+     * Represented as a structured filter object. Applicable when filter_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4566,7 +5076,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the additional filter event.
+     * Query expression to filter the additional filter events by their properties.
+     * Represented as a structured filter object. Applicable when filter_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4589,7 +5100,8 @@ private static final long serialVersionUID = 0L;
     private int filterMatch_ = 0;
     /**
      * <pre>
-     * Match logic for the additional event filter.
+     * Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
+     * Applicable when filter_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4601,7 +5113,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Match logic for the additional event filter.
+     * Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
+     * Applicable when filter_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4617,7 +5130,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Match logic for the additional event filter.
+     * Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
+     * Applicable when filter_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4632,7 +5146,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Match logic for the additional event filter.
+     * Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
+     * Applicable when filter_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4651,7 +5166,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Match logic for the additional event filter.
+     * Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
+     * Applicable when filter_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4665,10 +5181,356 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant filterHpc_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder> filterHpcBuilder_;
+    /**
+     * <pre>
+     * Holds a property value from the trigger event constant for consistent additional event filtering.
+     * Applicable when filter_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
+     * @return Whether the filterHpc field is set.
+     */
+    public boolean hasFilterHpc() {
+      return filterHpcBuilder_ != null || filterHpc_ != null;
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger event constant for consistent additional event filtering.
+     * Applicable when filter_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
+     * @return The filterHpc.
+     */
+    public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant getFilterHpc() {
+      if (filterHpcBuilder_ == null) {
+        return filterHpc_ == null ? io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.getDefaultInstance() : filterHpc_;
+      } else {
+        return filterHpcBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger event constant for consistent additional event filtering.
+     * Applicable when filter_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
+     */
+    public Builder setFilterHpc(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant value) {
+      if (filterHpcBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        filterHpc_ = value;
+        onChanged();
+      } else {
+        filterHpcBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger event constant for consistent additional event filtering.
+     * Applicable when filter_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
+     */
+    public Builder setFilterHpc(
+        io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder builderForValue) {
+      if (filterHpcBuilder_ == null) {
+        filterHpc_ = builderForValue.build();
+        onChanged();
+      } else {
+        filterHpcBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger event constant for consistent additional event filtering.
+     * Applicable when filter_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
+     */
+    public Builder mergeFilterHpc(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant value) {
+      if (filterHpcBuilder_ == null) {
+        if (filterHpc_ != null) {
+          filterHpc_ =
+            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.newBuilder(filterHpc_).mergeFrom(value).buildPartial();
+        } else {
+          filterHpc_ = value;
+        }
+        onChanged();
+      } else {
+        filterHpcBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger event constant for consistent additional event filtering.
+     * Applicable when filter_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
+     */
+    public Builder clearFilterHpc() {
+      if (filterHpcBuilder_ == null) {
+        filterHpc_ = null;
+        onChanged();
+      } else {
+        filterHpc_ = null;
+        filterHpcBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger event constant for consistent additional event filtering.
+     * Applicable when filter_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder getFilterHpcBuilder() {
+      
+      onChanged();
+      return getFilterHpcFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger event constant for consistent additional event filtering.
+     * Applicable when filter_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder getFilterHpcOrBuilder() {
+      if (filterHpcBuilder_ != null) {
+        return filterHpcBuilder_.getMessageOrBuilder();
+      } else {
+        return filterHpc_ == null ?
+            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.getDefaultInstance() : filterHpc_;
+      }
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger event constant for consistent additional event filtering.
+     * Applicable when filter_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder> 
+        getFilterHpcFieldBuilder() {
+      if (filterHpcBuilder_ == null) {
+        filterHpcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder>(
+                getFilterHpc(),
+                getParentForChildren(),
+                isClean());
+        filterHpc_ = null;
+      }
+      return filterHpcBuilder_;
+    }
+
+    private com.google.protobuf.MapField<
+        java.lang.String, com.google.protobuf.Duration> conversionWindows_;
+    private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Duration>
+    internalGetConversionWindows() {
+      if (conversionWindows_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ConversionWindowsDefaultEntryHolder.defaultEntry);
+      }
+      return conversionWindows_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Duration>
+    internalGetMutableConversionWindows() {
+      onChanged();;
+      if (conversionWindows_ == null) {
+        conversionWindows_ = com.google.protobuf.MapField.newMapField(
+            ConversionWindowsDefaultEntryHolder.defaultEntry);
+      }
+      if (!conversionWindows_.isMutable()) {
+        conversionWindows_ = conversionWindows_.copy();
+      }
+      return conversionWindows_;
+    }
+
+    public int getConversionWindowsCount() {
+      return internalGetConversionWindows().getMap().size();
+    }
+    /**
+     * <pre>
+     * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+     * Defines how long after delivery each conversion event is counted.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+     */
+
+    @java.lang.Override
+    public boolean containsConversionWindows(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetConversionWindows().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getConversionWindowsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindows() {
+      return getConversionWindowsMap();
+    }
+    /**
+     * <pre>
+     * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+     * Defines how long after delivery each conversion event is counted.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindowsMap() {
+      return internalGetConversionWindows().getMap();
+    }
+    /**
+     * <pre>
+     * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+     * Defines how long after delivery each conversion event is counted.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+     */
+    @java.lang.Override
+
+    public com.google.protobuf.Duration getConversionWindowsOrDefault(
+        java.lang.String key,
+        com.google.protobuf.Duration defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
+          internalGetConversionWindows().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+     * Defines how long after delivery each conversion event is counted.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+     */
+    @java.lang.Override
+
+    public com.google.protobuf.Duration getConversionWindowsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
+          internalGetConversionWindows().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public Builder clearConversionWindows() {
+      internalGetMutableConversionWindows().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <pre>
+     * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+     * Defines how long after delivery each conversion event is counted.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+     */
+
+    public Builder removeConversionWindows(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableConversionWindows().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, com.google.protobuf.Duration>
+    getMutableConversionWindows() {
+      return internalGetMutableConversionWindows().getMutableMap();
+    }
+    /**
+     * <pre>
+     * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+     * Defines how long after delivery each conversion event is counted.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+     */
+    public Builder putConversionWindows(
+        java.lang.String key,
+        com.google.protobuf.Duration value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+      internalGetMutableConversionWindows().getMutableMap()
+          .put(key, value);
+      return this;
+    }
+    /**
+     * <pre>
+     * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+     * Defines how long after delivery each conversion event is counted.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+     */
+
+    public Builder putAllConversionWindows(
+        java.util.Map<java.lang.String, com.google.protobuf.Duration> values) {
+      internalGetMutableConversionWindows().getMutableMap()
+          .putAll(values);
+      return this;
+    }
+
     private java.lang.Object goalEventName_ = "";
     /**
      * <pre>
-     * Name of the event tracked as a conversion goal.
+     * Name of the event that counts as a goal completion.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4689,7 +5551,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the event tracked as a conversion goal.
+     * Name of the event that counts as a goal completion.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4711,7 +5573,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the event tracked as a conversion goal.
+     * Name of the event that counts as a goal completion.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4731,7 +5593,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the event tracked as a conversion goal.
+     * Name of the event that counts as a goal completion.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4746,7 +5608,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the event tracked as a conversion goal.
+     * Name of the event that counts as a goal completion.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4771,7 +5633,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> goalEventQueryBuilder_;
     /**
      * <pre>
-     * Filtering query for the goal event.
+     * Query expression to filter goal events by their properties.
+     * Represented as a structured filter object. Applicable when goal_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4783,7 +5646,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the goal event.
+     * Query expression to filter goal events by their properties.
+     * Represented as a structured filter object. Applicable when goal_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4799,7 +5663,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the goal event.
+     * Query expression to filter goal events by their properties.
+     * Represented as a structured filter object. Applicable when goal_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4820,7 +5685,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the goal event.
+     * Query expression to filter goal events by their properties.
+     * Represented as a structured filter object. Applicable when goal_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4839,7 +5705,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the goal event.
+     * Query expression to filter goal events by their properties.
+     * Represented as a structured filter object. Applicable when goal_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4862,7 +5729,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the goal event.
+     * Query expression to filter goal events by their properties.
+     * Represented as a structured filter object. Applicable when goal_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4881,7 +5749,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the goal event.
+     * Query expression to filter goal events by their properties.
+     * Represented as a structured filter object. Applicable when goal_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4894,7 +5763,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the goal event.
+     * Query expression to filter goal events by their properties.
+     * Represented as a structured filter object. Applicable when goal_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4910,7 +5780,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filtering query for the goal event.
+     * Query expression to filter goal events by their properties.
+     * Represented as a structured filter object. Applicable when goal_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -4935,12 +5806,13 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> goalEventDurationBuilder_;
     /**
      * <pre>
-     * Duration window for goal event tracking.
-     * Valid range is 1 to 30 days. Defaults to 7 days.
+     * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+     * Between 1 and 30 days. Defaults to 7 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
      * @return Whether the goalEventDuration field is set.
      */
     public boolean hasGoalEventDuration() {
@@ -4948,12 +5820,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration window for goal event tracking.
-     * Valid range is 1 to 30 days. Defaults to 7 days.
+     * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+     * Between 1 and 30 days. Defaults to 7 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
      * @return The goalEventDuration.
      */
     public com.google.protobuf.Duration getGoalEventDuration() {
@@ -4965,12 +5838,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration window for goal event tracking.
-     * Valid range is 1 to 30 days. Defaults to 7 days.
+     * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+     * Between 1 and 30 days. Defaults to 7 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
      */
     public Builder setGoalEventDuration(com.google.protobuf.Duration value) {
       if (goalEventDurationBuilder_ == null) {
@@ -4987,12 +5861,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration window for goal event tracking.
-     * Valid range is 1 to 30 days. Defaults to 7 days.
+     * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+     * Between 1 and 30 days. Defaults to 7 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
      */
     public Builder setGoalEventDuration(
         com.google.protobuf.Duration.Builder builderForValue) {
@@ -5007,12 +5882,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration window for goal event tracking.
-     * Valid range is 1 to 30 days. Defaults to 7 days.
+     * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+     * Between 1 and 30 days. Defaults to 7 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
      */
     public Builder mergeGoalEventDuration(com.google.protobuf.Duration value) {
       if (goalEventDurationBuilder_ == null) {
@@ -5031,12 +5907,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration window for goal event tracking.
-     * Valid range is 1 to 30 days. Defaults to 7 days.
+     * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+     * Between 1 and 30 days. Defaults to 7 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
      */
     public Builder clearGoalEventDuration() {
       if (goalEventDurationBuilder_ == null) {
@@ -5051,12 +5928,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration window for goal event tracking.
-     * Valid range is 1 to 30 days. Defaults to 7 days.
+     * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+     * Between 1 and 30 days. Defaults to 7 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
      */
     public com.google.protobuf.Duration.Builder getGoalEventDurationBuilder() {
       
@@ -5065,12 +5943,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration window for goal event tracking.
-     * Valid range is 1 to 30 days. Defaults to 7 days.
+     * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+     * Between 1 and 30 days. Defaults to 7 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
      */
     public com.google.protobuf.DurationOrBuilder getGoalEventDurationOrBuilder() {
       if (goalEventDurationBuilder_ != null) {
@@ -5082,12 +5961,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration window for goal event tracking.
-     * Valid range is 1 to 30 days. Defaults to 7 days.
+     * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+     * Between 1 and 30 days. Defaults to 7 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
@@ -5103,14 +5983,187 @@ private static final long serialVersionUID = 0L;
       return goalEventDurationBuilder_;
     }
 
-    private boolean advertising_ ;
+    private io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant goalHpc_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder> goalHpcBuilder_;
     /**
      * <pre>
-     * Whether this campaign contains advertising content.
+     * Holds a property value from the trigger or filter event constant for consistent goal checking.
+     * Applicable when goal_event_name is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>bool advertising = 21 [json_name = "advertising"];</code>
+     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
+     * @return Whether the goalHpc field is set.
+     */
+    public boolean hasGoalHpc() {
+      return goalHpcBuilder_ != null || goalHpc_ != null;
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger or filter event constant for consistent goal checking.
+     * Applicable when goal_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
+     * @return The goalHpc.
+     */
+    public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant getGoalHpc() {
+      if (goalHpcBuilder_ == null) {
+        return goalHpc_ == null ? io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.getDefaultInstance() : goalHpc_;
+      } else {
+        return goalHpcBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger or filter event constant for consistent goal checking.
+     * Applicable when goal_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
+     */
+    public Builder setGoalHpc(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant value) {
+      if (goalHpcBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        goalHpc_ = value;
+        onChanged();
+      } else {
+        goalHpcBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger or filter event constant for consistent goal checking.
+     * Applicable when goal_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
+     */
+    public Builder setGoalHpc(
+        io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder builderForValue) {
+      if (goalHpcBuilder_ == null) {
+        goalHpc_ = builderForValue.build();
+        onChanged();
+      } else {
+        goalHpcBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger or filter event constant for consistent goal checking.
+     * Applicable when goal_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
+     */
+    public Builder mergeGoalHpc(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant value) {
+      if (goalHpcBuilder_ == null) {
+        if (goalHpc_ != null) {
+          goalHpc_ =
+            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.newBuilder(goalHpc_).mergeFrom(value).buildPartial();
+        } else {
+          goalHpc_ = value;
+        }
+        onChanged();
+      } else {
+        goalHpcBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger or filter event constant for consistent goal checking.
+     * Applicable when goal_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
+     */
+    public Builder clearGoalHpc() {
+      if (goalHpcBuilder_ == null) {
+        goalHpc_ = null;
+        onChanged();
+      } else {
+        goalHpc_ = null;
+        goalHpcBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger or filter event constant for consistent goal checking.
+     * Applicable when goal_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder getGoalHpcBuilder() {
+      
+      onChanged();
+      return getGoalHpcFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger or filter event constant for consistent goal checking.
+     * Applicable when goal_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder getGoalHpcOrBuilder() {
+      if (goalHpcBuilder_ != null) {
+        return goalHpcBuilder_.getMessageOrBuilder();
+      } else {
+        return goalHpc_ == null ?
+            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.getDefaultInstance() : goalHpc_;
+      }
+    }
+    /**
+     * <pre>
+     * Holds a property value from the trigger or filter event constant for consistent goal checking.
+     * Applicable when goal_event_name is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder> 
+        getGoalHpcFieldBuilder() {
+      if (goalHpcBuilder_ == null) {
+        goalHpcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder>(
+                getGoalHpc(),
+                getParentForChildren(),
+                isClean());
+        goalHpc_ = null;
+      }
+      return goalHpcBuilder_;
+    }
+
+    private boolean advertising_ ;
+    /**
+     * <pre>
+     * Whether the campaign message contains advertising content subject to opt-out regulations.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>bool advertising = 21 [json_name = "advertising", (.buf.validate.field) = { ... }</code>
      * @return The advertising.
      */
     @java.lang.Override
@@ -5119,11 +6172,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether this campaign contains advertising content.
-     * +kubebuilder:validation:Nullable
+     * Whether the campaign message contains advertising content subject to opt-out regulations.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool advertising = 21 [json_name = "advertising"];</code>
+     * <code>bool advertising = 21 [json_name = "advertising", (.buf.validate.field) = { ... }</code>
      * @param value The advertising to set.
      * @return This builder for chaining.
      */
@@ -5135,11 +6188,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether this campaign contains advertising content.
-     * +kubebuilder:validation:Nullable
+     * Whether the campaign message contains advertising content subject to opt-out regulations.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool advertising = 21 [json_name = "advertising"];</code>
+     * <code>bool advertising = 21 [json_name = "advertising", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearAdvertising() {
@@ -5152,7 +6205,7 @@ private static final long serialVersionUID = 0L;
     private boolean sendToOfflineXms_ ;
     /**
      * <pre>
-     * Whether to send via XMS (SMS/LMS/MMS) to offline users.
+     * Whether to fall back to XMS (text message) delivery when the user is offline.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5165,7 +6218,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether to send via XMS (SMS/LMS/MMS) to offline users.
+     * Whether to fall back to XMS (text message) delivery when the user is offline.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5181,7 +6234,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether to send via XMS (SMS/LMS/MMS) to offline users.
+     * Whether to fall back to XMS (text message) delivery when the user is offline.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5198,7 +6251,7 @@ private static final long serialVersionUID = 0L;
     private boolean sendToOfflineEmail_ ;
     /**
      * <pre>
-     * Whether to send via email to offline users.
+     * Whether to fall back to email delivery when the user is offline.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5211,7 +6264,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether to send via email to offline users.
+     * Whether to fall back to email delivery when the user is offline.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5227,7 +6280,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether to send via email to offline users.
+     * Whether to fall back to email delivery when the user is offline.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5246,12 +6299,13 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> cooldownBuilder_;
     /**
      * <pre>
-     * Minimum interval between consecutive sends to the same user.
-     * Valid range is 0 to 30 days.
+     * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+     * Between 0 seconds and 30 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
      * @return Whether the cooldown field is set.
      */
     public boolean hasCooldown() {
@@ -5259,12 +6313,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Minimum interval between consecutive sends to the same user.
-     * Valid range is 0 to 30 days.
+     * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+     * Between 0 seconds and 30 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
      * @return The cooldown.
      */
     public com.google.protobuf.Duration getCooldown() {
@@ -5276,12 +6331,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Minimum interval between consecutive sends to the same user.
-     * Valid range is 0 to 30 days.
+     * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+     * Between 0 seconds and 30 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
      */
     public Builder setCooldown(com.google.protobuf.Duration value) {
       if (cooldownBuilder_ == null) {
@@ -5298,12 +6354,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Minimum interval between consecutive sends to the same user.
-     * Valid range is 0 to 30 days.
+     * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+     * Between 0 seconds and 30 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
      */
     public Builder setCooldown(
         com.google.protobuf.Duration.Builder builderForValue) {
@@ -5318,12 +6375,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Minimum interval between consecutive sends to the same user.
-     * Valid range is 0 to 30 days.
+     * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+     * Between 0 seconds and 30 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
      */
     public Builder mergeCooldown(com.google.protobuf.Duration value) {
       if (cooldownBuilder_ == null) {
@@ -5342,12 +6400,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Minimum interval between consecutive sends to the same user.
-     * Valid range is 0 to 30 days.
+     * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+     * Between 0 seconds and 30 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
      */
     public Builder clearCooldown() {
       if (cooldownBuilder_ == null) {
@@ -5362,12 +6421,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Minimum interval between consecutive sends to the same user.
-     * Valid range is 0 to 30 days.
+     * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+     * Between 0 seconds and 30 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
      */
     public com.google.protobuf.Duration.Builder getCooldownBuilder() {
       
@@ -5376,12 +6436,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Minimum interval between consecutive sends to the same user.
-     * Valid range is 0 to 30 days.
+     * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+     * Between 0 seconds and 30 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
      */
     public com.google.protobuf.DurationOrBuilder getCooldownOrBuilder() {
       if (cooldownBuilder_ != null) {
@@ -5393,12 +6454,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Minimum interval between consecutive sends to the same user.
-     * Valid range is 0 to 30 days.
+     * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+     * Between 0 seconds and 30 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
@@ -5417,12 +6479,11 @@ private static final long serialVersionUID = 0L;
     private int sendMode_ = 0;
     /**
      * <pre>
-     * Send timing mode that determines when messages are delivered.
-     * May be unset for draft campaigns.
-     * +kubebuilder:validation:Nullable
+     * Controls when messages are delivered relative to operation hours or custom time ranges.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode"];</code>
+     * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode", (.buf.validate.field) = { ... }</code>
      * @return The enum numeric value on the wire for sendMode.
      */
     @java.lang.Override public int getSendModeValue() {
@@ -5430,12 +6491,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Send timing mode that determines when messages are delivered.
-     * May be unset for draft campaigns.
-     * +kubebuilder:validation:Nullable
+     * Controls when messages are delivered relative to operation hours or custom time ranges.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode"];</code>
+     * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode", (.buf.validate.field) = { ... }</code>
      * @param value The enum numeric value on the wire for sendMode to set.
      * @return This builder for chaining.
      */
@@ -5447,12 +6507,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Send timing mode that determines when messages are delivered.
-     * May be unset for draft campaigns.
-     * +kubebuilder:validation:Nullable
+     * Controls when messages are delivered relative to operation hours or custom time ranges.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode"];</code>
+     * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode", (.buf.validate.field) = { ... }</code>
      * @return The sendMode.
      */
     @java.lang.Override
@@ -5463,12 +6522,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Send timing mode that determines when messages are delivered.
-     * May be unset for draft campaigns.
-     * +kubebuilder:validation:Nullable
+     * Controls when messages are delivered relative to operation hours or custom time ranges.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode"];</code>
+     * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode", (.buf.validate.field) = { ... }</code>
      * @param value The sendMode to set.
      * @return This builder for chaining.
      */
@@ -5483,12 +6541,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Send timing mode that determines when messages are delivered.
-     * May be unset for draft campaigns.
-     * +kubebuilder:validation:Nullable
+     * Controls when messages are delivered relative to operation hours or custom time ranges.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode"];</code>
+     * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearSendMode() {
@@ -5498,12 +6555,118 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object channelOperationId_ = "";
+    /**
+     * <pre>
+     * Channel operation schedule used to determine delivery timing.
+     * Applicable when send_mode is IN_OPERATION or AWAY.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string channel_operation_id = 26 [json_name = "channelOperationId"];</code>
+     * @return The channelOperationId.
+     */
+    public java.lang.String getChannelOperationId() {
+      java.lang.Object ref = channelOperationId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        channelOperationId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Channel operation schedule used to determine delivery timing.
+     * Applicable when send_mode is IN_OPERATION or AWAY.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string channel_operation_id = 26 [json_name = "channelOperationId"];</code>
+     * @return The bytes for channelOperationId.
+     */
+    public com.google.protobuf.ByteString
+        getChannelOperationIdBytes() {
+      java.lang.Object ref = channelOperationId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        channelOperationId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Channel operation schedule used to determine delivery timing.
+     * Applicable when send_mode is IN_OPERATION or AWAY.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string channel_operation_id = 26 [json_name = "channelOperationId"];</code>
+     * @param value The channelOperationId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChannelOperationId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      channelOperationId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Channel operation schedule used to determine delivery timing.
+     * Applicable when send_mode is IN_OPERATION or AWAY.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string channel_operation_id = 26 [json_name = "channelOperationId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChannelOperationId() {
+      
+      channelOperationId_ = getDefaultInstance().getChannelOperationId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Channel operation schedule used to determine delivery timing.
+     * Applicable when send_mode is IN_OPERATION or AWAY.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string channel_operation_id = 26 [json_name = "channelOperationId"];</code>
+     * @param value The bytes for channelOperationId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChannelOperationIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      channelOperationId_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> sendTimeRanges_ =
       java.util.Collections.emptyList();
     private void ensureSendTimeRangesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         sendTimeRanges_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.TimeRange>(sendTimeRanges_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -5512,8 +6675,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5528,8 +6691,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5544,8 +6707,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5560,8 +6723,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5583,8 +6746,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5603,8 +6766,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5625,8 +6788,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5648,8 +6811,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5668,8 +6831,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5688,8 +6851,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5709,8 +6872,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5719,7 +6882,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSendTimeRanges() {
       if (sendTimeRangesBuilder_ == null) {
         sendTimeRanges_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         sendTimeRangesBuilder_.clear();
@@ -5728,8 +6891,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5747,8 +6910,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5760,8 +6923,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5776,8 +6939,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5793,8 +6956,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5806,8 +6969,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5820,8 +6983,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom time ranges for message delivery.
-     * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+     * Custom time windows for delivery scheduling.
+     * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5838,7 +7001,7 @@ private static final long serialVersionUID = 0L;
         sendTimeRangesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.channel.api.proto.pub.coreapi.model.TimeRange, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder, io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder>(
                 sendTimeRanges_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         sendTimeRanges_ = null;
@@ -5851,7 +7014,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> startAtBuilder_;
     /**
      * <pre>
-     * Campaign start time.
+     * Timestamp when the campaign becomes eligible to trigger.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5863,7 +7026,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Campaign start time.
+     * Timestamp when the campaign becomes eligible to trigger.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5879,7 +7042,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Campaign start time.
+     * Timestamp when the campaign becomes eligible to trigger.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5900,7 +7063,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Campaign start time.
+     * Timestamp when the campaign becomes eligible to trigger.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5919,7 +7082,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Campaign start time.
+     * Timestamp when the campaign becomes eligible to trigger.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5942,7 +7105,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Campaign start time.
+     * Timestamp when the campaign becomes eligible to trigger.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5961,7 +7124,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Campaign start time.
+     * Timestamp when the campaign becomes eligible to trigger.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5974,7 +7137,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Campaign start time.
+     * Timestamp when the campaign becomes eligible to trigger.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -5990,7 +7153,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Campaign start time.
+     * Timestamp when the campaign becomes eligible to trigger.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6015,8 +7178,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> endAtBuilder_;
     /**
      * <pre>
-     * Scheduled campaign end timestamp.
-     * Campaign automatically stops after this time.
+     * Timestamp when the campaign automatically stops.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6028,8 +7190,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Scheduled campaign end timestamp.
-     * Campaign automatically stops after this time.
+     * Timestamp when the campaign automatically stops.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6045,8 +7206,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Scheduled campaign end timestamp.
-     * Campaign automatically stops after this time.
+     * Timestamp when the campaign automatically stops.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6067,8 +7227,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Scheduled campaign end timestamp.
-     * Campaign automatically stops after this time.
+     * Timestamp when the campaign automatically stops.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6087,8 +7246,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Scheduled campaign end timestamp.
-     * Campaign automatically stops after this time.
+     * Timestamp when the campaign automatically stops.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6111,8 +7269,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Scheduled campaign end timestamp.
-     * Campaign automatically stops after this time.
+     * Timestamp when the campaign automatically stops.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6131,8 +7288,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Scheduled campaign end timestamp.
-     * Campaign automatically stops after this time.
+     * Timestamp when the campaign automatically stops.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6145,8 +7301,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Scheduled campaign end timestamp.
-     * Campaign automatically stops after this time.
+     * Timestamp when the campaign automatically stops.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6162,8 +7317,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Scheduled campaign end timestamp.
-     * Campaign automatically stops after this time.
+     * Timestamp when the campaign automatically stops.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6188,7 +7342,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> draftBuilder_;
     /**
      * <pre>
-     * Draft snapshot of the campaign saved before activation.
+     * Snapshot of the campaign configuration captured before activation.
+     * Represented as a free-form JSON object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6200,7 +7355,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Draft snapshot of the campaign saved before activation.
+     * Snapshot of the campaign configuration captured before activation.
+     * Represented as a free-form JSON object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6216,7 +7372,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Draft snapshot of the campaign saved before activation.
+     * Snapshot of the campaign configuration captured before activation.
+     * Represented as a free-form JSON object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6237,7 +7394,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Draft snapshot of the campaign saved before activation.
+     * Snapshot of the campaign configuration captured before activation.
+     * Represented as a free-form JSON object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6256,7 +7414,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Draft snapshot of the campaign saved before activation.
+     * Snapshot of the campaign configuration captured before activation.
+     * Represented as a free-form JSON object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6279,7 +7438,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Draft snapshot of the campaign saved before activation.
+     * Snapshot of the campaign configuration captured before activation.
+     * Represented as a free-form JSON object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6298,7 +7458,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Draft snapshot of the campaign saved before activation.
+     * Snapshot of the campaign configuration captured before activation.
+     * Represented as a free-form JSON object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6311,7 +7472,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Draft snapshot of the campaign saved before activation.
+     * Snapshot of the campaign configuration captured before activation.
+     * Represented as a free-form JSON object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6327,7 +7489,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Draft snapshot of the campaign saved before activation.
+     * Snapshot of the campaign configuration captured before activation.
+     * Represented as a free-form JSON object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6678,7 +7841,7 @@ private static final long serialVersionUID = 0L;
     private int sent_ ;
     /**
      * <pre>
-     * Total number of messages sent.
+     * Cumulative count of messages delivered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6691,7 +7854,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of messages sent.
+     * Cumulative count of messages delivered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6707,7 +7870,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of messages sent.
+     * Cumulative count of messages delivered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6724,7 +7887,7 @@ private static final long serialVersionUID = 0L;
     private int view_ ;
     /**
      * <pre>
-     * Total number of message views.
+     * Cumulative count of message views by recipients.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6737,7 +7900,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of message views.
+     * Cumulative count of message views by recipients.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6753,7 +7916,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of message views.
+     * Cumulative count of message views by recipients.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6770,7 +7933,7 @@ private static final long serialVersionUID = 0L;
     private int goal_ ;
     /**
      * <pre>
-     * Total number of goal conversions achieved.
+     * Cumulative count of goal event completions attributed to this campaign.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6783,7 +7946,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of goal conversions achieved.
+     * Cumulative count of goal event completions attributed to this campaign.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6799,7 +7962,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of goal conversions achieved.
+     * Cumulative count of goal event completions attributed to this campaign.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6816,7 +7979,7 @@ private static final long serialVersionUID = 0L;
     private int click_ ;
     /**
      * <pre>
-     * Total number of message link clicks.
+     * Cumulative count of message link clicks.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6829,7 +7992,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of message link clicks.
+     * Cumulative count of message link clicks.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6845,7 +8008,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of message link clicks.
+     * Cumulative count of message link clicks.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -6859,117 +8022,18 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object sendMedium_ = "";
-    /**
-     * <pre>
-     * Delivery medium type identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string send_medium = 37 [json_name = "sendMedium"];</code>
-     * @return The sendMedium.
-     */
-    public java.lang.String getSendMedium() {
-      java.lang.Object ref = sendMedium_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        sendMedium_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Delivery medium type identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string send_medium = 37 [json_name = "sendMedium"];</code>
-     * @return The bytes for sendMedium.
-     */
-    public com.google.protobuf.ByteString
-        getSendMediumBytes() {
-      java.lang.Object ref = sendMedium_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        sendMedium_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Delivery medium type identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string send_medium = 37 [json_name = "sendMedium"];</code>
-     * @param value The sendMedium to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSendMedium(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      sendMedium_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Delivery medium type identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string send_medium = 37 [json_name = "sendMedium"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSendMedium() {
-      
-      sendMedium_ = getDefaultInstance().getSendMedium();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Delivery medium type identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string send_medium = 37 [json_name = "sendMedium"];</code>
-     * @param value The bytes for sendMedium to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSendMediumBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      sendMedium_ = value;
-      onChanged();
-      return this;
-    }
-
     private com.google.protobuf.Duration userChatExpireDuration_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> userChatExpireDurationBuilder_;
     /**
      * <pre>
-     * Duration after which user chat sessions expire.
+     * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+     * Defaults to 31 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration user_chat_expire_duration = 38 [json_name = "userChatExpireDuration"];</code>
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
      * @return Whether the userChatExpireDuration field is set.
      */
     public boolean hasUserChatExpireDuration() {
@@ -6977,11 +8041,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration after which user chat sessions expire.
+     * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+     * Defaults to 31 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration user_chat_expire_duration = 38 [json_name = "userChatExpireDuration"];</code>
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
      * @return The userChatExpireDuration.
      */
     public com.google.protobuf.Duration getUserChatExpireDuration() {
@@ -6993,11 +8059,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration after which user chat sessions expire.
+     * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+     * Defaults to 31 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration user_chat_expire_duration = 38 [json_name = "userChatExpireDuration"];</code>
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
      */
     public Builder setUserChatExpireDuration(com.google.protobuf.Duration value) {
       if (userChatExpireDurationBuilder_ == null) {
@@ -7014,11 +8082,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration after which user chat sessions expire.
+     * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+     * Defaults to 31 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration user_chat_expire_duration = 38 [json_name = "userChatExpireDuration"];</code>
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
      */
     public Builder setUserChatExpireDuration(
         com.google.protobuf.Duration.Builder builderForValue) {
@@ -7033,11 +8103,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration after which user chat sessions expire.
+     * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+     * Defaults to 31 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration user_chat_expire_duration = 38 [json_name = "userChatExpireDuration"];</code>
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
      */
     public Builder mergeUserChatExpireDuration(com.google.protobuf.Duration value) {
       if (userChatExpireDurationBuilder_ == null) {
@@ -7056,11 +8128,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration after which user chat sessions expire.
+     * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+     * Defaults to 31 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration user_chat_expire_duration = 38 [json_name = "userChatExpireDuration"];</code>
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
      */
     public Builder clearUserChatExpireDuration() {
       if (userChatExpireDurationBuilder_ == null) {
@@ -7075,11 +8149,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration after which user chat sessions expire.
+     * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+     * Defaults to 31 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration user_chat_expire_duration = 38 [json_name = "userChatExpireDuration"];</code>
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
      */
     public com.google.protobuf.Duration.Builder getUserChatExpireDurationBuilder() {
       
@@ -7088,11 +8164,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration after which user chat sessions expire.
+     * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+     * Defaults to 31 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration user_chat_expire_duration = 38 [json_name = "userChatExpireDuration"];</code>
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
      */
     public com.google.protobuf.DurationOrBuilder getUserChatExpireDurationOrBuilder() {
       if (userChatExpireDurationBuilder_ != null) {
@@ -7104,11 +8182,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration after which user chat sessions expire.
+     * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+     * Defaults to 31 days.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="PT23H50M"
      * </pre>
      *
-     * <code>.google.protobuf.Duration user_chat_expire_duration = 38 [json_name = "userChatExpireDuration"];</code>
+     * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
@@ -7127,11 +8207,11 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object managerId_ = "";
     /**
      * <pre>
-     * Manager ID responsible for this campaign.
+     * Manager assigned to handle user responses from this campaign.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string manager_id = 39 [json_name = "managerId"];</code>
+     * <code>string manager_id = 38 [json_name = "managerId"];</code>
      * @return The managerId.
      */
     public java.lang.String getManagerId() {
@@ -7148,11 +8228,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager ID responsible for this campaign.
+     * Manager assigned to handle user responses from this campaign.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string manager_id = 39 [json_name = "managerId"];</code>
+     * <code>string manager_id = 38 [json_name = "managerId"];</code>
      * @return The bytes for managerId.
      */
     public com.google.protobuf.ByteString
@@ -7170,11 +8250,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager ID responsible for this campaign.
+     * Manager assigned to handle user responses from this campaign.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string manager_id = 39 [json_name = "managerId"];</code>
+     * <code>string manager_id = 38 [json_name = "managerId"];</code>
      * @param value The managerId to set.
      * @return This builder for chaining.
      */
@@ -7190,11 +8270,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager ID responsible for this campaign.
+     * Manager assigned to handle user responses from this campaign.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string manager_id = 39 [json_name = "managerId"];</code>
+     * <code>string manager_id = 38 [json_name = "managerId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearManagerId() {
@@ -7205,11 +8285,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager ID responsible for this campaign.
+     * Manager assigned to handle user responses from this campaign.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string manager_id = 39 [json_name = "managerId"];</code>
+     * <code>string manager_id = 38 [json_name = "managerId"];</code>
      * @param value The bytes for managerId to set.
      * @return This builder for chaining.
      */
@@ -7223,1111 +8303,6 @@ private static final long serialVersionUID = 0L;
       managerId_ = value;
       onChanged();
       return this;
-    }
-
-    private int mediumType_ = 0;
-    /**
-     * <pre>
-     * Delivery medium type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MediumType medium_type = 40 [json_name = "mediumType"];</code>
-     * @return The enum numeric value on the wire for mediumType.
-     */
-    @java.lang.Override public int getMediumTypeValue() {
-      return mediumType_;
-    }
-    /**
-     * <pre>
-     * Delivery medium type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MediumType medium_type = 40 [json_name = "mediumType"];</code>
-     * @param value The enum numeric value on the wire for mediumType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMediumTypeValue(int value) {
-      
-      mediumType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Delivery medium type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MediumType medium_type = 40 [json_name = "mediumType"];</code>
-     * @return The mediumType.
-     */
-    @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.MediumType getMediumType() {
-      @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.MediumType result = io.channel.api.proto.pub.coreapi.model.MediumType.valueOf(mediumType_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.MediumType.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Delivery medium type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MediumType medium_type = 40 [json_name = "mediumType"];</code>
-     * @param value The mediumType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMediumType(io.channel.api.proto.pub.coreapi.model.MediumType value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      mediumType_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Delivery medium type.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.MediumType medium_type = 40 [json_name = "mediumType"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMediumType() {
-      
-      mediumType_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object mediumId_ = "";
-    /**
-     * <pre>
-     * Identifier of the specific medium instance.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string medium_id = 41 [json_name = "mediumId"];</code>
-     * @return The mediumId.
-     */
-    public java.lang.String getMediumId() {
-      java.lang.Object ref = mediumId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        mediumId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Identifier of the specific medium instance.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string medium_id = 41 [json_name = "mediumId"];</code>
-     * @return The bytes for mediumId.
-     */
-    public com.google.protobuf.ByteString
-        getMediumIdBytes() {
-      java.lang.Object ref = mediumId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        mediumId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Identifier of the specific medium instance.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string medium_id = 41 [json_name = "mediumId"];</code>
-     * @param value The mediumId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMediumId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      mediumId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Identifier of the specific medium instance.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string medium_id = 41 [json_name = "mediumId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMediumId() {
-      
-      mediumId_ = getDefaultInstance().getMediumId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Identifier of the specific medium instance.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string medium_id = 41 [json_name = "mediumId"];</code>
-     * @param value The bytes for mediumId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMediumIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      mediumId_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> appSegments_ =
-      java.util.Collections.emptyList();
-    private void ensureAppSegmentsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
-        appSegments_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.AppSegment>(appSegments_);
-        bitField0_ |= 0x00000002;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.AppSegment, io.channel.api.proto.pub.coreapi.model.AppSegment.Builder, io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> appSegmentsBuilder_;
-
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> getAppSegmentsList() {
-      if (appSegmentsBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(appSegments_);
-      } else {
-        return appSegmentsBuilder_.getMessageList();
-      }
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public int getAppSegmentsCount() {
-      if (appSegmentsBuilder_ == null) {
-        return appSegments_.size();
-      } else {
-        return appSegmentsBuilder_.getCount();
-      }
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.AppSegment getAppSegments(int index) {
-      if (appSegmentsBuilder_ == null) {
-        return appSegments_.get(index);
-      } else {
-        return appSegmentsBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public Builder setAppSegments(
-        int index, io.channel.api.proto.pub.coreapi.model.AppSegment value) {
-      if (appSegmentsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureAppSegmentsIsMutable();
-        appSegments_.set(index, value);
-        onChanged();
-      } else {
-        appSegmentsBuilder_.setMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public Builder setAppSegments(
-        int index, io.channel.api.proto.pub.coreapi.model.AppSegment.Builder builderForValue) {
-      if (appSegmentsBuilder_ == null) {
-        ensureAppSegmentsIsMutable();
-        appSegments_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        appSegmentsBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public Builder addAppSegments(io.channel.api.proto.pub.coreapi.model.AppSegment value) {
-      if (appSegmentsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureAppSegmentsIsMutable();
-        appSegments_.add(value);
-        onChanged();
-      } else {
-        appSegmentsBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public Builder addAppSegments(
-        int index, io.channel.api.proto.pub.coreapi.model.AppSegment value) {
-      if (appSegmentsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureAppSegmentsIsMutable();
-        appSegments_.add(index, value);
-        onChanged();
-      } else {
-        appSegmentsBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public Builder addAppSegments(
-        io.channel.api.proto.pub.coreapi.model.AppSegment.Builder builderForValue) {
-      if (appSegmentsBuilder_ == null) {
-        ensureAppSegmentsIsMutable();
-        appSegments_.add(builderForValue.build());
-        onChanged();
-      } else {
-        appSegmentsBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public Builder addAppSegments(
-        int index, io.channel.api.proto.pub.coreapi.model.AppSegment.Builder builderForValue) {
-      if (appSegmentsBuilder_ == null) {
-        ensureAppSegmentsIsMutable();
-        appSegments_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        appSegmentsBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public Builder addAllAppSegments(
-        java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.AppSegment> values) {
-      if (appSegmentsBuilder_ == null) {
-        ensureAppSegmentsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, appSegments_);
-        onChanged();
-      } else {
-        appSegmentsBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public Builder clearAppSegments() {
-      if (appSegmentsBuilder_ == null) {
-        appSegments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-      } else {
-        appSegmentsBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public Builder removeAppSegments(int index) {
-      if (appSegmentsBuilder_ == null) {
-        ensureAppSegmentsIsMutable();
-        appSegments_.remove(index);
-        onChanged();
-      } else {
-        appSegmentsBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.AppSegment.Builder getAppSegmentsBuilder(
-        int index) {
-      return getAppSegmentsFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder getAppSegmentsOrBuilder(
-        int index) {
-      if (appSegmentsBuilder_ == null) {
-        return appSegments_.get(index);  } else {
-        return appSegmentsBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> 
-         getAppSegmentsOrBuilderList() {
-      if (appSegmentsBuilder_ != null) {
-        return appSegmentsBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(appSegments_);
-      }
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.AppSegment.Builder addAppSegmentsBuilder() {
-      return getAppSegmentsFieldBuilder().addBuilder(
-          io.channel.api.proto.pub.coreapi.model.AppSegment.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.AppSegment.Builder addAppSegmentsBuilder(
-        int index) {
-      return getAppSegmentsFieldBuilder().addBuilder(
-          index, io.channel.api.proto.pub.coreapi.model.AppSegment.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * App segments for user targeting.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-     */
-    public java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment.Builder> 
-         getAppSegmentsBuilderList() {
-      return getAppSegmentsFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.AppSegment, io.channel.api.proto.pub.coreapi.model.AppSegment.Builder, io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> 
-        getAppSegmentsFieldBuilder() {
-      if (appSegmentsBuilder_ == null) {
-        appSegmentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            io.channel.api.proto.pub.coreapi.model.AppSegment, io.channel.api.proto.pub.coreapi.model.AppSegment.Builder, io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder>(
-                appSegments_,
-                ((bitField0_ & 0x00000002) != 0),
-                getParentForChildren(),
-                isClean());
-        appSegments_ = null;
-      }
-      return appSegmentsBuilder_;
-    }
-
-    private java.lang.Object channelOperationId_ = "";
-    /**
-     * <pre>
-     * Channel operation ID for business hours scheduling.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string channel_operation_id = 43 [json_name = "channelOperationId"];</code>
-     * @return The channelOperationId.
-     */
-    public java.lang.String getChannelOperationId() {
-      java.lang.Object ref = channelOperationId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        channelOperationId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel operation ID for business hours scheduling.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string channel_operation_id = 43 [json_name = "channelOperationId"];</code>
-     * @return The bytes for channelOperationId.
-     */
-    public com.google.protobuf.ByteString
-        getChannelOperationIdBytes() {
-      java.lang.Object ref = channelOperationId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        channelOperationId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel operation ID for business hours scheduling.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string channel_operation_id = 43 [json_name = "channelOperationId"];</code>
-     * @param value The channelOperationId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChannelOperationId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      channelOperationId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel operation ID for business hours scheduling.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string channel_operation_id = 43 [json_name = "channelOperationId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearChannelOperationId() {
-      
-      channelOperationId_ = getDefaultInstance().getChannelOperationId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel operation ID for business hours scheduling.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string channel_operation_id = 43 [json_name = "channelOperationId"];</code>
-     * @param value The bytes for channelOperationId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChannelOperationIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      channelOperationId_ = value;
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.MapField<
-        java.lang.String, com.google.protobuf.Duration> conversionWindows_;
-    private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Duration>
-    internalGetConversionWindows() {
-      if (conversionWindows_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            ConversionWindowsDefaultEntryHolder.defaultEntry);
-      }
-      return conversionWindows_;
-    }
-    private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Duration>
-    internalGetMutableConversionWindows() {
-      onChanged();;
-      if (conversionWindows_ == null) {
-        conversionWindows_ = com.google.protobuf.MapField.newMapField(
-            ConversionWindowsDefaultEntryHolder.defaultEntry);
-      }
-      if (!conversionWindows_.isMutable()) {
-        conversionWindows_ = conversionWindows_.copy();
-      }
-      return conversionWindows_;
-    }
-
-    public int getConversionWindowsCount() {
-      return internalGetConversionWindows().getMap().size();
-    }
-    /**
-     * <pre>
-     * Conversion tracking windows keyed by feature name.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-     */
-
-    @java.lang.Override
-    public boolean containsConversionWindows(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      return internalGetConversionWindows().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getConversionWindowsMap()} instead.
-     */
-    @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindows() {
-      return getConversionWindowsMap();
-    }
-    /**
-     * <pre>
-     * Conversion tracking windows keyed by feature name.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-     */
-    @java.lang.Override
-
-    public java.util.Map<java.lang.String, com.google.protobuf.Duration> getConversionWindowsMap() {
-      return internalGetConversionWindows().getMap();
-    }
-    /**
-     * <pre>
-     * Conversion tracking windows keyed by feature name.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-     */
-    @java.lang.Override
-
-    public com.google.protobuf.Duration getConversionWindowsOrDefault(
-        java.lang.String key,
-        com.google.protobuf.Duration defaultValue) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
-          internalGetConversionWindows().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * Conversion tracking windows keyed by feature name.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-     */
-    @java.lang.Override
-
-    public com.google.protobuf.Duration getConversionWindowsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
-          internalGetConversionWindows().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public Builder clearConversionWindows() {
-      internalGetMutableConversionWindows().getMutableMap()
-          .clear();
-      return this;
-    }
-    /**
-     * <pre>
-     * Conversion tracking windows keyed by feature name.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-     */
-
-    public Builder removeConversionWindows(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      internalGetMutableConversionWindows().getMutableMap()
-          .remove(key);
-      return this;
-    }
-    /**
-     * Use alternate mutation accessors instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, com.google.protobuf.Duration>
-    getMutableConversionWindows() {
-      return internalGetMutableConversionWindows().getMutableMap();
-    }
-    /**
-     * <pre>
-     * Conversion tracking windows keyed by feature name.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-     */
-    public Builder putConversionWindows(
-        java.lang.String key,
-        com.google.protobuf.Duration value) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
-      internalGetMutableConversionWindows().getMutableMap()
-          .put(key, value);
-      return this;
-    }
-    /**
-     * <pre>
-     * Conversion tracking windows keyed by feature name.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-     */
-
-    public Builder putAllConversionWindows(
-        java.util.Map<java.lang.String, com.google.protobuf.Duration> values) {
-      internalGetMutableConversionWindows().getMutableMap()
-          .putAll(values);
-      return this;
-    }
-
-    private io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant filterHpc_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder> filterHpcBuilder_;
-    /**
-     * <pre>
-     * Holding property constant for the additional event filter.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
-     * @return Whether the filterHpc field is set.
-     */
-    public boolean hasFilterHpc() {
-      return filterHpcBuilder_ != null || filterHpc_ != null;
-    }
-    /**
-     * <pre>
-     * Holding property constant for the additional event filter.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
-     * @return The filterHpc.
-     */
-    public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant getFilterHpc() {
-      if (filterHpcBuilder_ == null) {
-        return filterHpc_ == null ? io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.getDefaultInstance() : filterHpc_;
-      } else {
-        return filterHpcBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Holding property constant for the additional event filter.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
-     */
-    public Builder setFilterHpc(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant value) {
-      if (filterHpcBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        filterHpc_ = value;
-        onChanged();
-      } else {
-        filterHpcBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Holding property constant for the additional event filter.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
-     */
-    public Builder setFilterHpc(
-        io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder builderForValue) {
-      if (filterHpcBuilder_ == null) {
-        filterHpc_ = builderForValue.build();
-        onChanged();
-      } else {
-        filterHpcBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Holding property constant for the additional event filter.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
-     */
-    public Builder mergeFilterHpc(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant value) {
-      if (filterHpcBuilder_ == null) {
-        if (filterHpc_ != null) {
-          filterHpc_ =
-            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.newBuilder(filterHpc_).mergeFrom(value).buildPartial();
-        } else {
-          filterHpc_ = value;
-        }
-        onChanged();
-      } else {
-        filterHpcBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Holding property constant for the additional event filter.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
-     */
-    public Builder clearFilterHpc() {
-      if (filterHpcBuilder_ == null) {
-        filterHpc_ = null;
-        onChanged();
-      } else {
-        filterHpc_ = null;
-        filterHpcBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Holding property constant for the additional event filter.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder getFilterHpcBuilder() {
-      
-      onChanged();
-      return getFilterHpcFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Holding property constant for the additional event filter.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder getFilterHpcOrBuilder() {
-      if (filterHpcBuilder_ != null) {
-        return filterHpcBuilder_.getMessageOrBuilder();
-      } else {
-        return filterHpc_ == null ?
-            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.getDefaultInstance() : filterHpc_;
-      }
-    }
-    /**
-     * <pre>
-     * Holding property constant for the additional event filter.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder> 
-        getFilterHpcFieldBuilder() {
-      if (filterHpcBuilder_ == null) {
-        filterHpcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder>(
-                getFilterHpc(),
-                getParentForChildren(),
-                isClean());
-        filterHpc_ = null;
-      }
-      return filterHpcBuilder_;
-    }
-
-    private io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant goalHpc_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder> goalHpcBuilder_;
-    /**
-     * <pre>
-     * Holding property constant for the goal event.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
-     * @return Whether the goalHpc field is set.
-     */
-    public boolean hasGoalHpc() {
-      return goalHpcBuilder_ != null || goalHpc_ != null;
-    }
-    /**
-     * <pre>
-     * Holding property constant for the goal event.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
-     * @return The goalHpc.
-     */
-    public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant getGoalHpc() {
-      if (goalHpcBuilder_ == null) {
-        return goalHpc_ == null ? io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.getDefaultInstance() : goalHpc_;
-      } else {
-        return goalHpcBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Holding property constant for the goal event.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
-     */
-    public Builder setGoalHpc(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant value) {
-      if (goalHpcBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        goalHpc_ = value;
-        onChanged();
-      } else {
-        goalHpcBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Holding property constant for the goal event.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
-     */
-    public Builder setGoalHpc(
-        io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder builderForValue) {
-      if (goalHpcBuilder_ == null) {
-        goalHpc_ = builderForValue.build();
-        onChanged();
-      } else {
-        goalHpcBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Holding property constant for the goal event.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
-     */
-    public Builder mergeGoalHpc(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant value) {
-      if (goalHpcBuilder_ == null) {
-        if (goalHpc_ != null) {
-          goalHpc_ =
-            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.newBuilder(goalHpc_).mergeFrom(value).buildPartial();
-        } else {
-          goalHpc_ = value;
-        }
-        onChanged();
-      } else {
-        goalHpcBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Holding property constant for the goal event.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
-     */
-    public Builder clearGoalHpc() {
-      if (goalHpcBuilder_ == null) {
-        goalHpc_ = null;
-        onChanged();
-      } else {
-        goalHpc_ = null;
-        goalHpcBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Holding property constant for the goal event.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder getGoalHpcBuilder() {
-      
-      onChanged();
-      return getGoalHpcFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Holding property constant for the goal event.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder getGoalHpcOrBuilder() {
-      if (goalHpcBuilder_ != null) {
-        return goalHpcBuilder_.getMessageOrBuilder();
-      } else {
-        return goalHpc_ == null ?
-            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.getDefaultInstance() : goalHpc_;
-      }
-    }
-    /**
-     * <pre>
-     * Holding property constant for the goal event.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder> 
-        getGoalHpcFieldBuilder() {
-      if (goalHpcBuilder_ == null) {
-        goalHpcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant.Builder, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder>(
-                getGoalHpc(),
-                getParentForChildren(),
-                isClean());
-        goalHpc_ = null;
-      }
-      return goalHpcBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -8437,6 +8412,52 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
+     * @param value The medium_type to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearMediumType(io.channel.api.proto.pub.coreapi.model.MediumType value) {
+    	if (value == null)
+    		return clearMediumType();
+    	else
+    		return setMediumType(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearMediumType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.MediumType> mapFunc) {
+    	if (value == null)
+    		return clearMediumType();
+    	else
+    		return setMediumType(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The medium_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearMediumId(java.lang.String value) {
+    	if (value == null)
+    		return clearMediumId();
+    	else
+    		return setMediumId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearMediumId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearMediumId();
+    	else
+    		return setMediumId(mapFunc.apply(value));
+    }
+    	
+    /**
      * @param value The user_query to set.
      * @return This builder for chaining.
      */
@@ -8457,6 +8478,31 @@ private static final long serialVersionUID = 0L;
     		return clearUserQuery();
     	else
     		return setUserQuery(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param values The app_segments to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllOrClearAppSegments(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.AppSegment> values) {
+    	if (values == null)
+    		return clearAppSegments();
+    	else
+    		return addAllAppSegments(values);
+    }
+    	
+    /**
+     * @param values The values to map.
+     * @param mapFunc The function to map the values into each proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapAllOrClearAppSegments(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.AppSegment> mapFunc) {
+    	if (values == null)
+    		return clearAppSegments();
+    	else {
+    		values.forEach(value -> addAppSegments(mapFunc.apply(value)));
+    		return this;
+    	}
     }
     	
     /**
@@ -8598,6 +8644,40 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
+     * @param value The filter_hpc to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearFilterHpc(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant value) {
+    	if (value == null)
+    		return clearFilterHpc();
+    	else
+    		return setFilterHpc(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearFilterHpc(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant> mapFunc) {
+    	if (value == null)
+    		return clearFilterHpc();
+    	else
+    		return setFilterHpc(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param map The map to put.
+     * @return This builder for chaining.
+     */
+    public Builder putAllOrClearConversionWindows(java.util.Map<java.lang.String, com.google.protobuf.Duration> map) {
+    	if (map == null)
+    		return clearConversionWindows();
+    	else
+    		return putAllConversionWindows(map);
+    }
+    	
+    /**
      * @param value The goal_event_name to set.
      * @return This builder for chaining.
      */
@@ -8664,6 +8744,29 @@ private static final long serialVersionUID = 0L;
     		return clearGoalEventDuration();
     	else
     		return setGoalEventDuration(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The goal_hpc to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearGoalHpc(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant value) {
+    	if (value == null)
+    		return clearGoalHpc();
+    	else
+    		return setGoalHpc(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearGoalHpc(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant> mapFunc) {
+    	if (value == null)
+    		return clearGoalHpc();
+    	else
+    		return setGoalHpc(mapFunc.apply(value));
     }
     	
     /**
@@ -8779,6 +8882,29 @@ private static final long serialVersionUID = 0L;
     		return clearSendMode();
     	else
     		return setSendMode(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The channel_operation_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearChannelOperationId(java.lang.String value) {
+    	if (value == null)
+    		return clearChannelOperationId();
+    	else
+    		return setChannelOperationId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearChannelOperationId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearChannelOperationId();
+    	else
+    		return setChannelOperationId(mapFunc.apply(value));
     }
     	
     /**
@@ -9014,29 +9140,6 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The send_medium to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearSendMedium(java.lang.String value) {
-    	if (value == null)
-    		return clearSendMedium();
-    	else
-    		return setSendMedium(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearSendMedium(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearSendMedium();
-    	else
-    		return setSendMedium(mapFunc.apply(value));
-    }
-    	
-    /**
      * @param value The user_chat_expire_duration to set.
      * @return This builder for chaining.
      */
@@ -9080,157 +9183,6 @@ private static final long serialVersionUID = 0L;
     		return clearManagerId();
     	else
     		return setManagerId(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The medium_type to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearMediumType(io.channel.api.proto.pub.coreapi.model.MediumType value) {
-    	if (value == null)
-    		return clearMediumType();
-    	else
-    		return setMediumType(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearMediumType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.MediumType> mapFunc) {
-    	if (value == null)
-    		return clearMediumType();
-    	else
-    		return setMediumType(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The medium_id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearMediumId(java.lang.String value) {
-    	if (value == null)
-    		return clearMediumId();
-    	else
-    		return setMediumId(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearMediumId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearMediumId();
-    	else
-    		return setMediumId(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param values The app_segments to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllOrClearAppSegments(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.AppSegment> values) {
-    	if (values == null)
-    		return clearAppSegments();
-    	else
-    		return addAllAppSegments(values);
-    }
-    	
-    /**
-     * @param values The values to map.
-     * @param mapFunc The function to map the values into each proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapAllOrClearAppSegments(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.AppSegment> mapFunc) {
-    	if (values == null)
-    		return clearAppSegments();
-    	else {
-    		values.forEach(value -> addAppSegments(mapFunc.apply(value)));
-    		return this;
-    	}
-    }
-    	
-    /**
-     * @param value The channel_operation_id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearChannelOperationId(java.lang.String value) {
-    	if (value == null)
-    		return clearChannelOperationId();
-    	else
-    		return setChannelOperationId(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearChannelOperationId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearChannelOperationId();
-    	else
-    		return setChannelOperationId(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param map The map to put.
-     * @return This builder for chaining.
-     */
-    public Builder putAllOrClearConversionWindows(java.util.Map<java.lang.String, com.google.protobuf.Duration> map) {
-    	if (map == null)
-    		return clearConversionWindows();
-    	else
-    		return putAllConversionWindows(map);
-    }
-    	
-    /**
-     * @param value The filter_hpc to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearFilterHpc(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant value) {
-    	if (value == null)
-    		return clearFilterHpc();
-    	else
-    		return setFilterHpc(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearFilterHpc(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant> mapFunc) {
-    	if (value == null)
-    		return clearFilterHpc();
-    	else
-    		return setFilterHpc(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The goal_hpc to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearGoalHpc(io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant value) {
-    	if (value == null)
-    		return clearGoalHpc();
-    	else
-    		return setGoalHpc(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearGoalHpc(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant> mapFunc) {
-    	if (value == null)
-    		return clearGoalHpc();
-    	else
-    		return setGoalHpc(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Campaign)

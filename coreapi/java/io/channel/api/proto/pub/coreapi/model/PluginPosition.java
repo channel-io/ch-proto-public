@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Horizontal position of the plugin widget.
+ * Horizontal position of the plugin widget on screen.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.PluginPosition}
@@ -98,7 +98,7 @@ public enum PluginPosition
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return io.channel.api.proto.pub.coreapi.model.PluginOuterClass.getDescriptor().getEnumTypes().get(2);
+    return io.channel.api.proto.pub.coreapi.model.PluginOuterClass.getDescriptor().getEnumTypes().get(4);
   }
 
   private static final PluginPosition[] VALUES = values();

@@ -11,7 +11,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Channel ID where the call occurred.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Channel ID where the call occurred.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -34,7 +34,7 @@ public interface CallLogOrBuilder extends
   /**
    * <pre>
    * Reason the call was missed.
-   * Only present for missed calls.
+   * Only present when the call ended without being answered.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -45,7 +45,7 @@ public interface CallLogOrBuilder extends
   /**
    * <pre>
    * Reason the call was missed.
-   * Only present for missed calls.
+   * Only present when the call ended without being answered.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -56,7 +56,7 @@ public interface CallLogOrBuilder extends
 
   /**
    * <pre>
-   * Direction of the call relative to the channel.
+   * Whether the call was inbound (received) or outbound (initiated).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -66,7 +66,7 @@ public interface CallLogOrBuilder extends
   int getDirectionValue();
   /**
    * <pre>
-   * Direction of the call relative to the channel.
+   * Whether the call was inbound (received) or outbound (initiated).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -77,7 +77,7 @@ public interface CallLogOrBuilder extends
 
   /**
    * <pre>
-   * Current state of the call.
+   * Current lifecycle state indicating whether the call is waiting or connected.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -87,7 +87,7 @@ public interface CallLogOrBuilder extends
   int getStateValue();
   /**
    * <pre>
-   * Current state of the call.
+   * Current lifecycle state indicating whether the call is waiting or connected.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -98,7 +98,7 @@ public interface CallLogOrBuilder extends
 
   /**
    * <pre>
-   * Caller phone number or identifier.
+   * Originating phone number or caller identifier.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -108,7 +108,7 @@ public interface CallLogOrBuilder extends
   java.lang.String getFrom();
   /**
    * <pre>
-   * Caller phone number or identifier.
+   * Originating phone number or caller identifier.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -120,7 +120,7 @@ public interface CallLogOrBuilder extends
 
   /**
    * <pre>
-   * Callee phone number or identifier.
+   * Destination phone number or callee identifier.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -130,7 +130,7 @@ public interface CallLogOrBuilder extends
   java.lang.String getTo();
   /**
    * <pre>
-   * Callee phone number or identifier.
+   * Destination phone number or callee identifier.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -202,7 +202,8 @@ public interface CallLogOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the call was answered.
+   * Timestamp when the call was answered and the conversation began.
+   * Absent if the call was never answered.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -212,7 +213,8 @@ public interface CallLogOrBuilder extends
   boolean hasEngagedAt();
   /**
    * <pre>
-   * Timestamp when the call was answered.
+   * Timestamp when the call was answered and the conversation began.
+   * Absent if the call was never answered.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -222,7 +224,8 @@ public interface CallLogOrBuilder extends
   com.google.protobuf.Timestamp getEngagedAt();
   /**
    * <pre>
-   * Timestamp when the call was answered.
+   * Timestamp when the call was answered and the conversation began.
+   * Absent if the call was never answered.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -232,7 +235,8 @@ public interface CallLogOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the call ended.
+   * Timestamp when the call ended and the connection was terminated.
+   * Absent if the call is still active or was never connected.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -242,7 +246,8 @@ public interface CallLogOrBuilder extends
   boolean hasClosedAt();
   /**
    * <pre>
-   * Timestamp when the call ended.
+   * Timestamp when the call ended and the connection was terminated.
+   * Absent if the call is still active or was never connected.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -252,7 +257,8 @@ public interface CallLogOrBuilder extends
   com.google.protobuf.Timestamp getClosedAt();
   /**
    * <pre>
-   * Timestamp when the call ended.
+   * Timestamp when the call ended and the connection was terminated.
+   * Absent if the call is still active or was never connected.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -262,7 +268,8 @@ public interface CallLogOrBuilder extends
 
   /**
    * <pre>
-   * User chat ID associated with this call.
+   * User chat ID linked to this call.
+   * Present when the call is associated with a user chat conversation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -272,7 +279,8 @@ public interface CallLogOrBuilder extends
   java.lang.String getUserChatId();
   /**
    * <pre>
-   * User chat ID associated with this call.
+   * User chat ID linked to this call.
+   * Present when the call is associated with a user chat conversation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -284,7 +292,7 @@ public interface CallLogOrBuilder extends
 
   /**
    * <pre>
-   * Manager IDs who participated in the call.
+   * List of manager IDs who participated in or handled the call.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -295,7 +303,7 @@ public interface CallLogOrBuilder extends
       getManagerIdsList();
   /**
    * <pre>
-   * Manager IDs who participated in the call.
+   * List of manager IDs who participated in or handled the call.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -305,7 +313,7 @@ public interface CallLogOrBuilder extends
   int getManagerIdsCount();
   /**
    * <pre>
-   * Manager IDs who participated in the call.
+   * List of manager IDs who participated in or handled the call.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -316,7 +324,7 @@ public interface CallLogOrBuilder extends
   java.lang.String getManagerIds(int index);
   /**
    * <pre>
-   * Manager IDs who participated in the call.
+   * List of manager IDs who participated in or handled the call.
    * +kubebuilder:validation:Nullable
    * </pre>
    *

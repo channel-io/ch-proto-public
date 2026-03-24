@@ -23,7 +23,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Lifecycle state of a plugin.
+// Plugin state in the activation lifecycle.
 type PluginState int32
 
 const (
@@ -73,7 +73,7 @@ func (PluginState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{0}
 }
 
-// Visual theme of the plugin widget.
+// Visual appearance mode for the plugin widget.
 type PluginAppearance int32
 
 const (
@@ -126,57 +126,7 @@ func (PluginAppearance) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{1}
 }
 
-// Horizontal position of the plugin widget.
-type PluginPosition int32
-
-const (
-	PluginPosition_PLUGIN_POSITION_UNSPECIFIED PluginPosition = 0
-	PluginPosition_PLUGIN_POSITION_LEFT        PluginPosition = 1
-	PluginPosition_PLUGIN_POSITION_RIGHT       PluginPosition = 2
-)
-
-// Enum value maps for PluginPosition.
-var (
-	PluginPosition_name = map[int32]string{
-		0: "PLUGIN_POSITION_UNSPECIFIED",
-		1: "PLUGIN_POSITION_LEFT",
-		2: "PLUGIN_POSITION_RIGHT",
-	}
-	PluginPosition_value = map[string]int32{
-		"PLUGIN_POSITION_UNSPECIFIED": 0,
-		"PLUGIN_POSITION_LEFT":        1,
-		"PLUGIN_POSITION_RIGHT":       2,
-	}
-)
-
-func (x PluginPosition) Enum() *PluginPosition {
-	p := new(PluginPosition)
-	*p = x
-	return p
-}
-
-func (x PluginPosition) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (PluginPosition) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_plugin_proto_enumTypes[2].Descriptor()
-}
-
-func (PluginPosition) Type() protoreflect.EnumType {
-	return &file_coreapi_model_plugin_proto_enumTypes[2]
-}
-
-func (x PluginPosition) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use PluginPosition.Descriptor instead.
-func (PluginPosition) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{2}
-}
-
-// Type of the plugin launcher button.
+// Button rendering type for the plugin launcher.
 type PluginButtonType int32
 
 const (
@@ -213,11 +163,11 @@ func (x PluginButtonType) String() string {
 }
 
 func (PluginButtonType) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_plugin_proto_enumTypes[3].Descriptor()
+	return file_coreapi_model_plugin_proto_enumTypes[2].Descriptor()
 }
 
 func (PluginButtonType) Type() protoreflect.EnumType {
-	return &file_coreapi_model_plugin_proto_enumTypes[3]
+	return &file_coreapi_model_plugin_proto_enumTypes[2]
 }
 
 func (x PluginButtonType) Number() protoreflect.EnumNumber {
@@ -226,7 +176,7 @@ func (x PluginButtonType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PluginButtonType.Descriptor instead.
 func (PluginButtonType) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{3}
+	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{2}
 }
 
 // Predefined icon for the plugin launcher button.
@@ -314,11 +264,11 @@ func (x PluginIconButton) String() string {
 }
 
 func (PluginIconButton) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_plugin_proto_enumTypes[4].Descriptor()
+	return file_coreapi_model_plugin_proto_enumTypes[3].Descriptor()
 }
 
 func (PluginIconButton) Type() protoreflect.EnumType {
-	return &file_coreapi_model_plugin_proto_enumTypes[4]
+	return &file_coreapi_model_plugin_proto_enumTypes[3]
 }
 
 func (x PluginIconButton) Number() protoreflect.EnumNumber {
@@ -327,6 +277,56 @@ func (x PluginIconButton) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PluginIconButton.Descriptor instead.
 func (PluginIconButton) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{3}
+}
+
+// Horizontal position of the plugin widget on screen.
+type PluginPosition int32
+
+const (
+	PluginPosition_PLUGIN_POSITION_UNSPECIFIED PluginPosition = 0
+	PluginPosition_PLUGIN_POSITION_LEFT        PluginPosition = 1
+	PluginPosition_PLUGIN_POSITION_RIGHT       PluginPosition = 2
+)
+
+// Enum value maps for PluginPosition.
+var (
+	PluginPosition_name = map[int32]string{
+		0: "PLUGIN_POSITION_UNSPECIFIED",
+		1: "PLUGIN_POSITION_LEFT",
+		2: "PLUGIN_POSITION_RIGHT",
+	}
+	PluginPosition_value = map[string]int32{
+		"PLUGIN_POSITION_UNSPECIFIED": 0,
+		"PLUGIN_POSITION_LEFT":        1,
+		"PLUGIN_POSITION_RIGHT":       2,
+	}
+)
+
+func (x PluginPosition) Enum() *PluginPosition {
+	p := new(PluginPosition)
+	*p = x
+	return p
+}
+
+func (x PluginPosition) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (PluginPosition) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_plugin_proto_enumTypes[4].Descriptor()
+}
+
+func (PluginPosition) Type() protoreflect.EnumType {
+	return &file_coreapi_model_plugin_proto_enumTypes[4]
+}
+
+func (x PluginPosition) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use PluginPosition.Descriptor instead.
+func (PluginPosition) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{4}
 }
 
@@ -380,149 +380,154 @@ func (PluginBubblePosition) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{5}
 }
 
-// Plugin represents a channel's web chat widget configuration.
-// Each channel has one plugin that controls the appearance and behavior
-// of the embedded chat widget.
+// Plugin represents the channel plugin (chat widget) configuration.
 type Plugin struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique plugin identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="plg-001"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Plugin API key in UUID format.
+	//
+	// +kubebuilder:validation:Nullable
+	Key string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
 	// Channel ID this plugin belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Plugin display name.
+	// +kubebuilder:example="ch-12345"
+	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Current activation lifecycle state.
+	//
+	// +kubebuilder:validation:Required
+	State PluginState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.PluginState" json:"state,omitempty"`
+	// Widget display name shown to end users.
+	// Defaults to the channel name on creation.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
-	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	// Current lifecycle state.
+	Name string `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`
+	// Plugin creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	State PluginState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.PluginState" json:"state,omitempty"`
-	// Whether the label button is displayed on the widget.
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Color theme of the widget.
+	// Defaults to LIGHT.
 	//
-	// +kubebuilder:validation:Nullable
-	LabelButton bool `protobuf:"varint,6,opt,name=label_button,json=labelButton,proto3" json:"label_button,omitempty"`
-	// Text displayed on the label button.
+	// +kubebuilder:validation:Required
+	Appearance PluginAppearance `protobuf:"varint,7,opt,name=appearance,proto3,enum=coreapi.model.PluginAppearance" json:"appearance,omitempty"`
+	// Whether the text label is displayed alongside the launcher button.
+	// Defaults to true.
+	//
+	// +kubebuilder:validation:Required
+	LabelButton bool `protobuf:"varint,8,opt,name=label_button,json=labelButton,proto3" json:"label_button,omitempty"`
+	// Text shown on the label next to the launcher button.
+	// Applicable when label_button is true.
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MinLength=4
 	// +kubebuilder:validation:MaxLength=30
-	LabelButtonText string `protobuf:"bytes,7,opt,name=label_button_text,json=labelButtonText,proto3" json:"label_button_text,omitempty"`
-	// Internationalized label button text keyed by locale.
-	// Each value must be between 4 and 30 characters.
+	LabelButtonText string `protobuf:"bytes,9,opt,name=label_button_text,json=labelButtonText,proto3" json:"label_button_text,omitempty"`
+	// Localized label button text, keyed by locale code (e.g., "en", "ko").
+	// Overrides label_button_text for matching locales.
 	//
 	// +kubebuilder:validation:Nullable
-	LabelButtonTextI18NMap map[string]string `protobuf:"bytes,8,rep,name=label_button_text_i18n_map,json=labelButtonTextI18nMap,proto3" json:"label_button_text_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// URL of the desktop launcher button image.
+	LabelButtonTextI18NMap map[string]string `protobuf:"bytes,10,rep,name=label_button_text_i18n_map,json=labelButtonTextI18nMap,proto3" json:"label_button_text_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Determines how the launcher button is rendered.
+	// Defaults to ICON_BUTTON. When set to CUSTOM_IMAGE, the custom_image field must be provided.
+	//
+	// +kubebuilder:validation:Required
+	ButtonType PluginButtonType `protobuf:"varint,11,opt,name=button_type,json=buttonType,proto3,enum=coreapi.model.PluginButtonType" json:"button_type,omitempty"`
+	// Predefined icon used for the launcher button.
+	// Applicable when button_type is ICON_BUTTON. Defaults to CHANNEL_FILLED.
+	//
+	// +kubebuilder:validation:Required
+	IconButton PluginIconButton `protobuf:"varint,12,opt,name=icon_button,json=iconButton,proto3,enum=coreapi.model.PluginIconButton" json:"icon_button,omitempty"`
+	// Uploaded image for the launcher button.
+	// Applicable when button_type is CUSTOM_IMAGE.
 	//
 	// +kubebuilder:validation:Nullable
-	DeskImageUrl string `protobuf:"bytes,12,opt,name=desk_image_url,json=deskImageUrl,proto3" json:"desk_image_url,omitempty"`
-	// Horizontal margin in pixels for the desktop widget.
+	CustomImage *ImageFile `protobuf:"bytes,13,opt,name=custom_image,json=customImage,proto3" json:"custom_image,omitempty"`
+	// Uploaded desktop launcher image.
+	// Applicable when button_type is LEGACY.
 	//
 	// +kubebuilder:validation:Nullable
-	DeskMarginX int32 `protobuf:"varint,13,opt,name=desk_margin_x,json=deskMarginX,proto3" json:"desk_margin_x,omitempty"`
-	// Vertical margin in pixels for the desktop widget.
+	DeskImage *TinyFile `protobuf:"bytes,14,opt,name=desk_image,json=deskImage,proto3" json:"desk_image,omitempty"`
+	// Horizontal offset of the desktop widget from its anchored edge, in pixels.
 	//
 	// +kubebuilder:validation:Nullable
-	DeskMarginY int32 `protobuf:"varint,14,opt,name=desk_margin_y,json=deskMarginY,proto3" json:"desk_margin_y,omitempty"`
-	// Horizontal position of the widget on desktop.
+	DeskMarginX int32 `protobuf:"varint,15,opt,name=desk_margin_x,json=deskMarginX,proto3" json:"desk_margin_x,omitempty"`
+	// Vertical offset of the desktop widget from the bottom edge, in pixels.
 	//
 	// +kubebuilder:validation:Nullable
-	DeskPosition PluginPosition `protobuf:"varint,16,opt,name=desk_position,json=deskPosition,proto3,enum=coreapi.model.PluginPosition" json:"desk_position,omitempty"`
-	// URL of the mobile launcher button image.
+	DeskMarginY int32 `protobuf:"varint,16,opt,name=desk_margin_y,json=deskMarginY,proto3" json:"desk_margin_y,omitempty"`
+	// Whether the desktop launcher button is hidden while the widget remains accessible.
 	//
 	// +kubebuilder:validation:Nullable
-	MobileImageUrl string `protobuf:"bytes,17,opt,name=mobile_image_url,json=mobileImageUrl,proto3" json:"mobile_image_url,omitempty"`
-	// Horizontal margin in pixels for the mobile widget.
+	DeskHideButton bool `protobuf:"varint,17,opt,name=desk_hide_button,json=deskHideButton,proto3" json:"desk_hide_button,omitempty"`
+	// Horizontal anchor position of the desktop widget.
 	//
 	// +kubebuilder:validation:Nullable
-	MobileMarginX int32 `protobuf:"varint,18,opt,name=mobile_margin_x,json=mobileMarginX,proto3" json:"mobile_margin_x,omitempty"`
-	// Vertical margin in pixels for the mobile widget.
+	DeskPosition PluginPosition `protobuf:"varint,18,opt,name=desk_position,json=deskPosition,proto3,enum=coreapi.model.PluginPosition" json:"desk_position,omitempty"`
+	// Uploaded mobile launcher image.
+	// Applicable when button_type is LEGACY.
 	//
 	// +kubebuilder:validation:Nullable
-	MobileMarginY int32 `protobuf:"varint,19,opt,name=mobile_margin_y,json=mobileMarginY,proto3" json:"mobile_margin_y,omitempty"`
-	// Horizontal position of the widget on mobile.
+	MobileImage *TinyFile `protobuf:"bytes,19,opt,name=mobile_image,json=mobileImage,proto3" json:"mobile_image,omitempty"`
+	// Horizontal offset of the mobile widget from its anchored edge, in pixels.
 	//
 	// +kubebuilder:validation:Nullable
-	MobilePosition PluginPosition `protobuf:"varint,20,opt,name=mobile_position,json=mobilePosition,proto3,enum=coreapi.model.PluginPosition" json:"mobile_position,omitempty"`
-	// Whether the launcher button is hidden on mobile.
+	MobileMarginX int32 `protobuf:"varint,20,opt,name=mobile_margin_x,json=mobileMarginX,proto3" json:"mobile_margin_x,omitempty"`
+	// Vertical offset of the mobile widget from the bottom edge, in pixels.
 	//
 	// +kubebuilder:validation:Nullable
-	MobileHideButton bool `protobuf:"varint,21,opt,name=mobile_hide_button,json=mobileHideButton,proto3" json:"mobile_hide_button,omitempty"`
-	// Vertical position of the chat bubble on mobile.
+	MobileMarginY int32 `protobuf:"varint,21,opt,name=mobile_margin_y,json=mobileMarginY,proto3" json:"mobile_margin_y,omitempty"`
+	// Horizontal anchor position of the mobile widget.
 	//
 	// +kubebuilder:validation:Nullable
-	MobileBubblePosition PluginBubblePosition `protobuf:"varint,22,opt,name=mobile_bubble_position,json=mobileBubblePosition,proto3,enum=coreapi.model.PluginBubblePosition" json:"mobile_bubble_position,omitempty"`
-	// Ratio of website visitors who see the plugin widget.
+	MobilePosition PluginPosition `protobuf:"varint,22,opt,name=mobile_position,json=mobilePosition,proto3,enum=coreapi.model.PluginPosition" json:"mobile_position,omitempty"`
+	// Whether the mobile launcher button is hidden while the widget remains accessible.
+	//
+	// +kubebuilder:validation:Nullable
+	MobileHideButton bool `protobuf:"varint,23,opt,name=mobile_hide_button,json=mobileHideButton,proto3" json:"mobile_hide_button,omitempty"`
+	// Vertical position of the chat bubble on mobile devices.
+	//
+	// +kubebuilder:validation:Nullable
+	MobileBubblePosition PluginBubblePosition `protobuf:"varint,24,opt,name=mobile_bubble_position,json=mobileBubblePosition,proto3,enum=coreapi.model.PluginBubblePosition" json:"mobile_bubble_position,omitempty"`
+	// URL patterns that restrict where the plugin is displayed.
+	// When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MaxItems=5
+	UrlWhitelist []string `protobuf:"bytes,25,rep,name=url_whitelist,json=urlWhitelist,proto3" json:"url_whitelist,omitempty"`
+	// Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:Minimum=0
 	// +kubebuilder:validation:Maximum=1
-	RunRate float32 `protobuf:"fixed32,23,opt,name=run_rate,json=runRate,proto3" json:"run_rate,omitempty"`
-	// Facebook Pixel identifier for conversion tracking.
+	RunRate float32 `protobuf:"fixed32,26,opt,name=run_rate,json=runRate,proto3" json:"run_rate,omitempty"`
+	// Facebook Pixel ID linked for conversion tracking.
 	//
 	// +kubebuilder:validation:Nullable
-	FacebookPixelId string `protobuf:"bytes,24,opt,name=facebook_pixel_id,json=facebookPixelId,proto3" json:"facebook_pixel_id,omitempty"`
-	// Plugin creation timestamp.
-	//
-	// +kubebuilder:validation:Required
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// Unique plugin key in UUID format.
+	FacebookPixelId string `protobuf:"bytes,27,opt,name=facebook_pixel_id,json=facebookPixelId,proto3" json:"facebook_pixel_id,omitempty"`
+	// Resolved URL of the custom launcher button image.
+	// Automatically derived from custom_image.
 	//
 	// +kubebuilder:validation:Nullable
-	// +kubebuilder:validation:Format="uuid"
-	Key string `protobuf:"bytes,26,opt,name=key,proto3" json:"key,omitempty"`
-	// Desktop launcher button image reference.
+	CustomImageUrl string `protobuf:"bytes,28,opt,name=custom_image_url,json=customImageUrl,proto3" json:"custom_image_url,omitempty"`
+	// Resolved URL of the desktop launcher image.
+	// Automatically derived from desk_image.
 	//
 	// +kubebuilder:validation:Nullable
-	DeskImage *TinyFile `protobuf:"bytes,27,opt,name=desk_image,json=deskImage,proto3" json:"desk_image,omitempty"`
-	// Mobile launcher button image reference.
+	DeskImageUrl string `protobuf:"bytes,29,opt,name=desk_image_url,json=deskImageUrl,proto3" json:"desk_image_url,omitempty"`
+	// Resolved URL of the mobile launcher image.
+	// Automatically derived from mobile_image.
 	//
 	// +kubebuilder:validation:Nullable
-	MobileImage *TinyFile `protobuf:"bytes,28,opt,name=mobile_image,json=mobileImage,proto3" json:"mobile_image,omitempty"`
-	// Allowed URL patterns for the plugin widget.
-	//
-	// +kubebuilder:validation:Nullable
-	// +kubebuilder:validation:MaxItems=5
-	UrlWhitelist []string `protobuf:"bytes,29,rep,name=url_whitelist,json=urlWhitelist,proto3" json:"url_whitelist,omitempty"`
-	// Whether the label button text is valid.
-	//
-	// +kubebuilder:validation:Nullable
-	ValidLabelButtonText bool `protobuf:"varint,30,opt,name=valid_label_button_text,json=validLabelButtonText,proto3" json:"valid_label_button_text,omitempty"`
-	// Whether the internationalized label button text map is valid.
-	//
-	// +kubebuilder:validation:Nullable
-	ValidLabelButtonTextI18NMap bool `protobuf:"varint,31,opt,name=valid_label_button_text_i18n_map,json=validLabelButtonTextI18nMap,proto3" json:"valid_label_button_text_i18n_map,omitempty"`
-	// Visual theme of the widget.
-	//
-	// +kubebuilder:validation:Nullable
-	Appearance PluginAppearance `protobuf:"varint,32,opt,name=appearance,proto3,enum=coreapi.model.PluginAppearance" json:"appearance,omitempty"`
-	// Type of the launcher button.
-	//
-	// +kubebuilder:validation:Nullable
-	ButtonType PluginButtonType `protobuf:"varint,33,opt,name=button_type,json=buttonType,proto3,enum=coreapi.model.PluginButtonType" json:"button_type,omitempty"`
-	// URL of the custom launcher button image.
-	//
-	// +kubebuilder:validation:Nullable
-	CustomImageUrl string `protobuf:"bytes,34,opt,name=custom_image_url,json=customImageUrl,proto3" json:"custom_image_url,omitempty"`
-	// Whether the launcher button is hidden on desktop.
-	//
-	// +kubebuilder:validation:Nullable
-	DeskHideButton bool `protobuf:"varint,35,opt,name=desk_hide_button,json=deskHideButton,proto3" json:"desk_hide_button,omitempty"`
-	// Predefined icon for the launcher button.
-	// Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-	//
-	// +kubebuilder:validation:Nullable
-	IconButton    PluginIconButton `protobuf:"varint,36,opt,name=icon_button,json=iconButton,proto3,enum=coreapi.model.PluginIconButton" json:"icon_button,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	MobileImageUrl string `protobuf:"bytes,30,opt,name=mobile_image_url,json=mobileImageUrl,proto3" json:"mobile_image_url,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *Plugin) Reset() {
@@ -562,16 +567,16 @@ func (x *Plugin) GetId() string {
 	return ""
 }
 
-func (x *Plugin) GetChannelId() string {
+func (x *Plugin) GetKey() string {
 	if x != nil {
-		return x.ChannelId
+		return x.Key
 	}
 	return ""
 }
 
-func (x *Plugin) GetName() string {
+func (x *Plugin) GetChannelId() string {
 	if x != nil {
-		return x.Name
+		return x.ChannelId
 	}
 	return ""
 }
@@ -581,6 +586,27 @@ func (x *Plugin) GetState() PluginState {
 		return x.State
 	}
 	return PluginState_PLUGIN_STATE_UNSPECIFIED
+}
+
+func (x *Plugin) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Plugin) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
+}
+
+func (x *Plugin) GetAppearance() PluginAppearance {
+	if x != nil {
+		return x.Appearance
+	}
+	return PluginAppearance_PLUGIN_APPEARANCE_UNSPECIFIED
 }
 
 func (x *Plugin) GetLabelButton() bool {
@@ -604,11 +630,32 @@ func (x *Plugin) GetLabelButtonTextI18NMap() map[string]string {
 	return nil
 }
 
-func (x *Plugin) GetDeskImageUrl() string {
+func (x *Plugin) GetButtonType() PluginButtonType {
 	if x != nil {
-		return x.DeskImageUrl
+		return x.ButtonType
 	}
-	return ""
+	return PluginButtonType_PLUGIN_BUTTON_TYPE_UNSPECIFIED
+}
+
+func (x *Plugin) GetIconButton() PluginIconButton {
+	if x != nil {
+		return x.IconButton
+	}
+	return PluginIconButton_PLUGIN_ICON_BUTTON_UNSPECIFIED
+}
+
+func (x *Plugin) GetCustomImage() *ImageFile {
+	if x != nil {
+		return x.CustomImage
+	}
+	return nil
+}
+
+func (x *Plugin) GetDeskImage() *TinyFile {
+	if x != nil {
+		return x.DeskImage
+	}
+	return nil
 }
 
 func (x *Plugin) GetDeskMarginX() int32 {
@@ -625,6 +672,13 @@ func (x *Plugin) GetDeskMarginY() int32 {
 	return 0
 }
 
+func (x *Plugin) GetDeskHideButton() bool {
+	if x != nil {
+		return x.DeskHideButton
+	}
+	return false
+}
+
 func (x *Plugin) GetDeskPosition() PluginPosition {
 	if x != nil {
 		return x.DeskPosition
@@ -632,11 +686,11 @@ func (x *Plugin) GetDeskPosition() PluginPosition {
 	return PluginPosition_PLUGIN_POSITION_UNSPECIFIED
 }
 
-func (x *Plugin) GetMobileImageUrl() string {
+func (x *Plugin) GetMobileImage() *TinyFile {
 	if x != nil {
-		return x.MobileImageUrl
+		return x.MobileImage
 	}
-	return ""
+	return nil
 }
 
 func (x *Plugin) GetMobileMarginX() int32 {
@@ -674,6 +728,13 @@ func (x *Plugin) GetMobileBubblePosition() PluginBubblePosition {
 	return PluginBubblePosition_PLUGIN_BUBBLE_POSITION_UNSPECIFIED
 }
 
+func (x *Plugin) GetUrlWhitelist() []string {
+	if x != nil {
+		return x.UrlWhitelist
+	}
+	return nil
+}
+
 func (x *Plugin) GetRunRate() float32 {
 	if x != nil {
 		return x.RunRate
@@ -688,69 +749,6 @@ func (x *Plugin) GetFacebookPixelId() string {
 	return ""
 }
 
-func (x *Plugin) GetCreatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.CreatedAt
-	}
-	return nil
-}
-
-func (x *Plugin) GetKey() string {
-	if x != nil {
-		return x.Key
-	}
-	return ""
-}
-
-func (x *Plugin) GetDeskImage() *TinyFile {
-	if x != nil {
-		return x.DeskImage
-	}
-	return nil
-}
-
-func (x *Plugin) GetMobileImage() *TinyFile {
-	if x != nil {
-		return x.MobileImage
-	}
-	return nil
-}
-
-func (x *Plugin) GetUrlWhitelist() []string {
-	if x != nil {
-		return x.UrlWhitelist
-	}
-	return nil
-}
-
-func (x *Plugin) GetValidLabelButtonText() bool {
-	if x != nil {
-		return x.ValidLabelButtonText
-	}
-	return false
-}
-
-func (x *Plugin) GetValidLabelButtonTextI18NMap() bool {
-	if x != nil {
-		return x.ValidLabelButtonTextI18NMap
-	}
-	return false
-}
-
-func (x *Plugin) GetAppearance() PluginAppearance {
-	if x != nil {
-		return x.Appearance
-	}
-	return PluginAppearance_PLUGIN_APPEARANCE_UNSPECIFIED
-}
-
-func (x *Plugin) GetButtonType() PluginButtonType {
-	if x != nil {
-		return x.ButtonType
-	}
-	return PluginButtonType_PLUGIN_BUTTON_TYPE_UNSPECIFIED
-}
-
 func (x *Plugin) GetCustomImageUrl() string {
 	if x != nil {
 		return x.CustomImageUrl
@@ -758,72 +756,70 @@ func (x *Plugin) GetCustomImageUrl() string {
 	return ""
 }
 
-func (x *Plugin) GetDeskHideButton() bool {
+func (x *Plugin) GetDeskImageUrl() string {
 	if x != nil {
-		return x.DeskHideButton
+		return x.DeskImageUrl
 	}
-	return false
+	return ""
 }
 
-func (x *Plugin) GetIconButton() PluginIconButton {
+func (x *Plugin) GetMobileImageUrl() string {
 	if x != nil {
-		return x.IconButton
+		return x.MobileImageUrl
 	}
-	return PluginIconButton_PLUGIN_ICON_BUTTON_UNSPECIFIED
+	return ""
 }
 
 var File_coreapi_model_plugin_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_plugin_proto_rawDesc = "" +
 	"\n" +
-	"\x1acoreapi/model/plugin.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/tiny_file.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf9\x10\n" +
-	"\x06Plugin\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"\x1acoreapi/model/plugin.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ecoreapi/model/image_file.proto\x1a\x1dcoreapi/model/tiny_file.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9d\x10\n" +
+	"\x06Plugin\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12\x10\n" +
+	"\x03key\x18\x02 \x01(\tR\x03key\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\xb1\x01\n" +
-	"\x04name\x18\x03 \x01(\tB\x9c\x01\xbaH\x98\x01\xba\x01D\n" +
+	"channel_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x128\n" +
+	"\x05state\x18\x04 \x01(\x0e2\x1a.coreapi.model.PluginStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12\xb1\x01\n" +
+	"\x04name\x18\x05 \x01(\tB\x9c\x01\xbaH\x98\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01K\n" +
-	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01R\x04name\x128\n" +
-	"\x05state\x18\x04 \x01(\x0e2\x1a.coreapi.model.PluginStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12!\n" +
-	"\flabel_button\x18\x06 \x01(\bR\vlabelButton\x12\x9e\x01\n" +
-	"\x11label_button_text\x18\a \x01(\tBr\xbaHo\xba\x01l\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01R\x04name\x12A\n" +
 	"\n" +
-	"string.len\x12)value must be between 4 and 30 characters\x1a3this == '' || (size(this) >= 4 && size(this) <= 30)R\x0flabelButtonText\x12m\n" +
-	"\x1alabel_button_text_i18n_map\x18\b \x03(\v21.coreapi.model.Plugin.LabelButtonTextI18nMapEntryR\x16labelButtonTextI18nMap\x12$\n" +
-	"\x0edesk_image_url\x18\f \x01(\tR\fdeskImageUrl\x12\"\n" +
-	"\rdesk_margin_x\x18\r \x01(\x05R\vdeskMarginX\x12\"\n" +
-	"\rdesk_margin_y\x18\x0e \x01(\x05R\vdeskMarginY\x12B\n" +
-	"\rdesk_position\x18\x10 \x01(\x0e2\x1d.coreapi.model.PluginPositionR\fdeskPosition\x12(\n" +
-	"\x10mobile_image_url\x18\x11 \x01(\tR\x0emobileImageUrl\x12&\n" +
-	"\x0fmobile_margin_x\x18\x12 \x01(\x05R\rmobileMarginX\x12&\n" +
-	"\x0fmobile_margin_y\x18\x13 \x01(\x05R\rmobileMarginY\x12F\n" +
-	"\x0fmobile_position\x18\x14 \x01(\x0e2\x1d.coreapi.model.PluginPositionR\x0emobilePosition\x12,\n" +
-	"\x12mobile_hide_button\x18\x15 \x01(\bR\x10mobileHideButton\x12Y\n" +
-	"\x16mobile_bubble_position\x18\x16 \x01(\x0e2#.coreapi.model.PluginBubblePositionR\x14mobileBubblePosition\x12\x87\x01\n" +
-	"\brun_rate\x18\x17 \x01(\x02Bl\xbaHi\xba\x012\n" +
-	"\tfloat.gte\x12\x18value must be at least 0\x1a\vthis >= 0.0\xba\x011\n" +
-	"\tfloat.lte\x12\x17value must be at most 1\x1a\vthis <= 1.0R\arunRate\x12*\n" +
-	"\x11facebook_pixel_id\x18\x18 \x01(\tR\x0ffacebookPixelId\x12A\n" +
+	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12G\n" +
 	"\n" +
-	"created_at\x18\x19 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12\x10\n" +
-	"\x03key\x18\x1a \x01(\tR\x03key\x126\n" +
+	"appearance\x18\a \x01(\x0e2\x1f.coreapi.model.PluginAppearanceB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"appearance\x12)\n" +
+	"\flabel_button\x18\b \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\vlabelButton\x12\xc7\x01\n" +
+	"\x11label_button_text\x18\t \x01(\tB\x9a\x01\xbaH\x96\x01\xba\x01E\n" +
+	"\rstring.minLen\x12#value must be at least 4 characters\x1a\x0fsize(this) >= 4\xba\x01K\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30R\x0flabelButtonText\x12m\n" +
+	"\x1alabel_button_text_i18n_map\x18\n" +
+	" \x03(\v21.coreapi.model.Plugin.LabelButtonTextI18nMapEntryR\x16labelButtonTextI18nMap\x12H\n" +
+	"\vbutton_type\x18\v \x01(\x0e2\x1f.coreapi.model.PluginButtonTypeB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"buttonType\x12H\n" +
+	"\vicon_button\x18\f \x01(\x0e2\x1f.coreapi.model.PluginIconButtonB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"iconButton\x12;\n" +
+	"\fcustom_image\x18\r \x01(\v2\x18.coreapi.model.ImageFileR\vcustomImage\x126\n" +
 	"\n" +
-	"desk_image\x18\x1b \x01(\v2\x17.coreapi.model.TinyFileR\tdeskImage\x12:\n" +
-	"\fmobile_image\x18\x1c \x01(\v2\x17.coreapi.model.TinyFileR\vmobileImage\x12#\n" +
-	"\rurl_whitelist\x18\x1d \x03(\tR\furlWhitelist\x125\n" +
-	"\x17valid_label_button_text\x18\x1e \x01(\bR\x14validLabelButtonText\x12E\n" +
-	" valid_label_button_text_i18n_map\x18\x1f \x01(\bR\x1bvalidLabelButtonTextI18nMap\x12?\n" +
-	"\n" +
-	"appearance\x18  \x01(\x0e2\x1f.coreapi.model.PluginAppearanceR\n" +
-	"appearance\x12@\n" +
-	"\vbutton_type\x18! \x01(\x0e2\x1f.coreapi.model.PluginButtonTypeR\n" +
-	"buttonType\x12(\n" +
-	"\x10custom_image_url\x18\" \x01(\tR\x0ecustomImageUrl\x12(\n" +
-	"\x10desk_hide_button\x18# \x01(\bR\x0edeskHideButton\x12@\n" +
-	"\vicon_button\x18$ \x01(\x0e2\x1f.coreapi.model.PluginIconButtonR\n" +
-	"iconButton\x1aI\n" +
+	"desk_image\x18\x0e \x01(\v2\x17.coreapi.model.TinyFileR\tdeskImage\x12\"\n" +
+	"\rdesk_margin_x\x18\x0f \x01(\x05R\vdeskMarginX\x12\"\n" +
+	"\rdesk_margin_y\x18\x10 \x01(\x05R\vdeskMarginY\x12(\n" +
+	"\x10desk_hide_button\x18\x11 \x01(\bR\x0edeskHideButton\x12B\n" +
+	"\rdesk_position\x18\x12 \x01(\x0e2\x1d.coreapi.model.PluginPositionR\fdeskPosition\x12:\n" +
+	"\fmobile_image\x18\x13 \x01(\v2\x17.coreapi.model.TinyFileR\vmobileImage\x12&\n" +
+	"\x0fmobile_margin_x\x18\x14 \x01(\x05R\rmobileMarginX\x12&\n" +
+	"\x0fmobile_margin_y\x18\x15 \x01(\x05R\rmobileMarginY\x12F\n" +
+	"\x0fmobile_position\x18\x16 \x01(\x0e2\x1d.coreapi.model.PluginPositionR\x0emobilePosition\x12,\n" +
+	"\x12mobile_hide_button\x18\x17 \x01(\bR\x10mobileHideButton\x12Y\n" +
+	"\x16mobile_bubble_position\x18\x18 \x01(\x0e2#.coreapi.model.PluginBubblePositionR\x14mobileBubblePosition\x12-\n" +
+	"\rurl_whitelist\x18\x19 \x03(\tB\b\xbaH\x05\x92\x01\x02\x10\x05R\furlWhitelist\x12\xa7\x01\n" +
+	"\brun_rate\x18\x1a \x01(\x02B\x8b\x01\xbaH\x87\x01\xba\x01B\n" +
+	"\tfloat.gte\x12(value must be greater than or equal to 0\x1a\vthis >= 0.0\xba\x01?\n" +
+	"\tfloat.lte\x12%value must be less than or equal to 1\x1a\vthis <= 1.0R\arunRate\x12*\n" +
+	"\x11facebook_pixel_id\x18\x1b \x01(\tR\x0ffacebookPixelId\x12(\n" +
+	"\x10custom_image_url\x18\x1c \x01(\tR\x0ecustomImageUrl\x12$\n" +
+	"\x0edesk_image_url\x18\x1d \x01(\tR\fdeskImageUrl\x12(\n" +
+	"\x10mobile_image_url\x18\x1e \x01(\tR\x0emobileImageUrl\x1aI\n" +
 	"\x1bLabelButtonTextI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01*^\n" +
@@ -835,11 +831,7 @@ const file_coreapi_model_plugin_proto_rawDesc = "" +
 	"\x1dPLUGIN_APPEARANCE_UNSPECIFIED\x10\x00\x12\x1b\n" +
 	"\x17PLUGIN_APPEARANCE_LIGHT\x10\x01\x12\x1a\n" +
 	"\x16PLUGIN_APPEARANCE_DARK\x10\x02\x12\x1c\n" +
-	"\x18PLUGIN_APPEARANCE_SYSTEM\x10\x03*f\n" +
-	"\x0ePluginPosition\x12\x1f\n" +
-	"\x1bPLUGIN_POSITION_UNSPECIFIED\x10\x00\x12\x18\n" +
-	"\x14PLUGIN_POSITION_LEFT\x10\x01\x12\x19\n" +
-	"\x15PLUGIN_POSITION_RIGHT\x10\x02*\x9e\x01\n" +
+	"\x18PLUGIN_APPEARANCE_SYSTEM\x10\x03*\x9e\x01\n" +
 	"\x10PluginButtonType\x12\"\n" +
 	"\x1ePLUGIN_BUTTON_TYPE_UNSPECIFIED\x10\x00\x12\x1d\n" +
 	"\x19PLUGIN_BUTTON_TYPE_LEGACY\x10\x01\x12#\n" +
@@ -866,7 +858,11 @@ const file_coreapi_model_plugin_proto_rawDesc = "" +
 	"\x1fPLUGIN_ICON_BUTTON_SEND_FORWARD\x10\x10\x12*\n" +
 	"&PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED\x10\x11\x12\x1a\n" +
 	"\x16PLUGIN_ICON_BUTTON_SMS\x10\x12\x12!\n" +
-	"\x1dPLUGIN_ICON_BUTTON_SMS_FILLED\x10\x13*\x81\x01\n" +
+	"\x1dPLUGIN_ICON_BUTTON_SMS_FILLED\x10\x13*f\n" +
+	"\x0ePluginPosition\x12\x1f\n" +
+	"\x1bPLUGIN_POSITION_UNSPECIFIED\x10\x00\x12\x18\n" +
+	"\x14PLUGIN_POSITION_LEFT\x10\x01\x12\x19\n" +
+	"\x15PLUGIN_POSITION_RIGHT\x10\x02*\x81\x01\n" +
 	"\x14PluginBubblePosition\x12&\n" +
 	"\"PLUGIN_BUBBLE_POSITION_UNSPECIFIED\x10\x00\x12\x1e\n" +
 	"\x1aPLUGIN_BUBBLE_POSITION_TOP\x10\x01\x12!\n" +
@@ -890,32 +886,34 @@ var file_coreapi_model_plugin_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_coreapi_model_plugin_proto_goTypes = []any{
 	(PluginState)(0),              // 0: coreapi.model.PluginState
 	(PluginAppearance)(0),         // 1: coreapi.model.PluginAppearance
-	(PluginPosition)(0),           // 2: coreapi.model.PluginPosition
-	(PluginButtonType)(0),         // 3: coreapi.model.PluginButtonType
-	(PluginIconButton)(0),         // 4: coreapi.model.PluginIconButton
+	(PluginButtonType)(0),         // 2: coreapi.model.PluginButtonType
+	(PluginIconButton)(0),         // 3: coreapi.model.PluginIconButton
+	(PluginPosition)(0),           // 4: coreapi.model.PluginPosition
 	(PluginBubblePosition)(0),     // 5: coreapi.model.PluginBubblePosition
 	(*Plugin)(nil),                // 6: coreapi.model.Plugin
 	nil,                           // 7: coreapi.model.Plugin.LabelButtonTextI18nMapEntry
 	(*timestamppb.Timestamp)(nil), // 8: google.protobuf.Timestamp
-	(*TinyFile)(nil),              // 9: coreapi.model.TinyFile
+	(*ImageFile)(nil),             // 9: coreapi.model.ImageFile
+	(*TinyFile)(nil),              // 10: coreapi.model.TinyFile
 }
 var file_coreapi_model_plugin_proto_depIdxs = []int32{
 	0,  // 0: coreapi.model.Plugin.state:type_name -> coreapi.model.PluginState
-	7,  // 1: coreapi.model.Plugin.label_button_text_i18n_map:type_name -> coreapi.model.Plugin.LabelButtonTextI18nMapEntry
-	2,  // 2: coreapi.model.Plugin.desk_position:type_name -> coreapi.model.PluginPosition
-	2,  // 3: coreapi.model.Plugin.mobile_position:type_name -> coreapi.model.PluginPosition
-	5,  // 4: coreapi.model.Plugin.mobile_bubble_position:type_name -> coreapi.model.PluginBubblePosition
-	8,  // 5: coreapi.model.Plugin.created_at:type_name -> google.protobuf.Timestamp
-	9,  // 6: coreapi.model.Plugin.desk_image:type_name -> coreapi.model.TinyFile
-	9,  // 7: coreapi.model.Plugin.mobile_image:type_name -> coreapi.model.TinyFile
-	1,  // 8: coreapi.model.Plugin.appearance:type_name -> coreapi.model.PluginAppearance
-	3,  // 9: coreapi.model.Plugin.button_type:type_name -> coreapi.model.PluginButtonType
-	4,  // 10: coreapi.model.Plugin.icon_button:type_name -> coreapi.model.PluginIconButton
-	11, // [11:11] is the sub-list for method output_type
-	11, // [11:11] is the sub-list for method input_type
-	11, // [11:11] is the sub-list for extension type_name
-	11, // [11:11] is the sub-list for extension extendee
-	0,  // [0:11] is the sub-list for field type_name
+	8,  // 1: coreapi.model.Plugin.created_at:type_name -> google.protobuf.Timestamp
+	1,  // 2: coreapi.model.Plugin.appearance:type_name -> coreapi.model.PluginAppearance
+	7,  // 3: coreapi.model.Plugin.label_button_text_i18n_map:type_name -> coreapi.model.Plugin.LabelButtonTextI18nMapEntry
+	2,  // 4: coreapi.model.Plugin.button_type:type_name -> coreapi.model.PluginButtonType
+	3,  // 5: coreapi.model.Plugin.icon_button:type_name -> coreapi.model.PluginIconButton
+	9,  // 6: coreapi.model.Plugin.custom_image:type_name -> coreapi.model.ImageFile
+	10, // 7: coreapi.model.Plugin.desk_image:type_name -> coreapi.model.TinyFile
+	4,  // 8: coreapi.model.Plugin.desk_position:type_name -> coreapi.model.PluginPosition
+	10, // 9: coreapi.model.Plugin.mobile_image:type_name -> coreapi.model.TinyFile
+	4,  // 10: coreapi.model.Plugin.mobile_position:type_name -> coreapi.model.PluginPosition
+	5,  // 11: coreapi.model.Plugin.mobile_bubble_position:type_name -> coreapi.model.PluginBubblePosition
+	12, // [12:12] is the sub-list for method output_type
+	12, // [12:12] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_plugin_proto_init() }
@@ -923,6 +921,7 @@ func file_coreapi_model_plugin_proto_init() {
 	if File_coreapi_model_plugin_proto != nil {
 		return
 	}
+	file_coreapi_model_image_file_proto_init()
 	file_coreapi_model_tiny_file_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

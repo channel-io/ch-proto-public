@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Expected response speed indicator.
+ * Expected response speed indicator shown to end users.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.ResponseDelayType}

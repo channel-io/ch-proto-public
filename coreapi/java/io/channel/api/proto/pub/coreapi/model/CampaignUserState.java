@@ -5,8 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Interaction state used to filter campaign user records.
- * Determines which delivery or engagement metric is used for sorting and filtering.
+ * Filter state for querying campaign user delivery results.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.CampaignUserState}

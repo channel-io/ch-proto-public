@@ -5,8 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * CampaignUser represents a user who received a campaign message.
- * Tracks delivery, view, click, and goal conversion timestamps.
+ * CampaignUser represents a per-user delivery and engagement record for a campaign.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.CampaignUser}
@@ -21,11 +20,12 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private CampaignUser() {
-    campaignId_ = "";
     userId_ = "";
+    campaignId_ = "";
     msgId_ = "";
     userChatId_ = "";
     revenue_ = "";
+    id_ = "";
   }
 
   @java.lang.Override
@@ -61,13 +61,13 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            campaignId_ = s;
+            userId_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            userId_ = s;
+            campaignId_ = s;
             break;
           }
           case 26: {
@@ -140,6 +140,12 @@ private static final long serialVersionUID = 0L;
             revenue_ = s;
             break;
           }
+          case 82: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            id_ = s;
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -172,66 +178,17 @@ private static final long serialVersionUID = 0L;
             io.channel.api.proto.pub.coreapi.model.CampaignUser.class, io.channel.api.proto.pub.coreapi.model.CampaignUser.Builder.class);
   }
 
-  public static final int CAMPAIGN_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object campaignId_;
-  /**
-   * <pre>
-   * Campaign ID this user record belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string campaign_id = 1 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
-   * @return The campaignId.
-   */
-  @java.lang.Override
-  public java.lang.String getCampaignId() {
-    java.lang.Object ref = campaignId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      campaignId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Campaign ID this user record belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string campaign_id = 1 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for campaignId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getCampaignIdBytes() {
-    java.lang.Object ref = campaignId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      campaignId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int USER_ID_FIELD_NUMBER = 2;
+  public static final int USER_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object userId_;
   /**
    * <pre>
-   * ID of the user who received the campaign message.
+   * Target user identifier.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="u-abc123"
    * </pre>
    *
-   * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+   * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -249,12 +206,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * ID of the user who received the campaign message.
+   * Target user identifier.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="u-abc123"
    * </pre>
    *
-   * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+   * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for userId.
    */
   @java.lang.Override
@@ -272,11 +230,63 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int CAMPAIGN_ID_FIELD_NUMBER = 2;
+  private volatile java.lang.Object campaignId_;
+  /**
+   * <pre>
+   * Campaign that delivered the message.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="cpn-001"
+   * </pre>
+   *
+   * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
+   * @return The campaignId.
+   */
+  @java.lang.Override
+  public java.lang.String getCampaignId() {
+    java.lang.Object ref = campaignId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      campaignId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Campaign that delivered the message.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="cpn-001"
+   * </pre>
+   *
+   * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for campaignId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCampaignIdBytes() {
+    java.lang.Object ref = campaignId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      campaignId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int MSG_ID_FIELD_NUMBER = 3;
   private volatile java.lang.Object msgId_;
   /**
    * <pre>
-   * ID of the campaign message that was sent to the user.
+   * Message variant that was delivered to this user.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -298,7 +308,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * ID of the campaign message that was sent to the user.
+   * Message variant that was delivered to this user.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -324,7 +334,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object userChatId_;
   /**
    * <pre>
-   * ID of the user chat created by this campaign message.
+   * User chat conversation created by the campaign delivery.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -346,7 +356,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * ID of the user chat created by this campaign message.
+   * User chat conversation created by the campaign delivery.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -372,7 +382,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp sent_;
   /**
    * <pre>
-   * Timestamp when the message was delivered to the user.
+   * Timestamp when the campaign message was delivered to the user.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -385,7 +395,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the message was delivered to the user.
+   * Timestamp when the campaign message was delivered to the user.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -398,7 +408,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the message was delivered to the user.
+   * Timestamp when the campaign message was delivered to the user.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -413,7 +423,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp view_;
   /**
    * <pre>
-   * Timestamp when the user viewed the message.
+   * Timestamp when the user first viewed the delivered message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -426,7 +436,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the user viewed the message.
+   * Timestamp when the user first viewed the delivered message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -439,7 +449,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the user viewed the message.
+   * Timestamp when the user first viewed the delivered message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -454,7 +464,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp click_;
   /**
    * <pre>
-   * Timestamp when the user clicked a link in the message.
+   * Timestamp when the user first clicked a link in the message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -467,7 +477,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the user clicked a link in the message.
+   * Timestamp when the user first clicked a link in the message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -480,7 +490,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the user clicked a link in the message.
+   * Timestamp when the user first clicked a link in the message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -495,7 +505,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp goal_;
   /**
    * <pre>
-   * Timestamp when the user achieved the conversion goal.
+   * Timestamp when the user completed the campaign goal event.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -508,7 +518,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the user achieved the conversion goal.
+   * Timestamp when the user completed the campaign goal event.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -521,7 +531,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the user achieved the conversion goal.
+   * Timestamp when the user completed the campaign goal event.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -536,8 +546,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object revenue_;
   /**
    * <pre>
-   * Revenue amount attributed to this user from the campaign.
-   * Decimal number represented as a string for precision.
+   * Cumulative revenue attributed to this user from the campaign.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -559,8 +568,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Revenue amount attributed to this user from the campaign.
-   * Decimal number represented as a string for precision.
+   * Cumulative revenue attributed to this user from the campaign.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -582,6 +590,54 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ID_FIELD_NUMBER = 10;
+  private volatile java.lang.Object id_;
+  /**
+   * <pre>
+   * Composite identifier in the format "{campaign_id}-{user_id}".
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * @return The id.
+   */
+  @java.lang.Override
+  public java.lang.String getId() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      id_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Composite identifier in the format "{campaign_id}-{user_id}".
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for id.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getIdBytes() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      id_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -596,11 +652,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(campaignId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, campaignId_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userId_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(campaignId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, campaignId_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, msgId_);
@@ -623,6 +679,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(revenue_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, revenue_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, id_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -632,11 +691,11 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(campaignId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, campaignId_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(campaignId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, campaignId_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, msgId_);
@@ -663,6 +722,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(revenue_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, revenue_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, id_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -678,10 +740,10 @@ private static final long serialVersionUID = 0L;
     }
     io.channel.api.proto.pub.coreapi.model.CampaignUser other = (io.channel.api.proto.pub.coreapi.model.CampaignUser) obj;
 
-    if (!getCampaignId()
-        .equals(other.getCampaignId())) return false;
     if (!getUserId()
         .equals(other.getUserId())) return false;
+    if (!getCampaignId()
+        .equals(other.getCampaignId())) return false;
     if (!getMsgId()
         .equals(other.getMsgId())) return false;
     if (!getUserChatId()
@@ -708,6 +770,8 @@ private static final long serialVersionUID = 0L;
     }
     if (!getRevenue()
         .equals(other.getRevenue())) return false;
+    if (!getId()
+        .equals(other.getId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -719,10 +783,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + CAMPAIGN_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getCampaignId().hashCode();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + getUserId().hashCode();
+    hash = (37 * hash) + CAMPAIGN_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getCampaignId().hashCode();
     hash = (37 * hash) + MSG_ID_FIELD_NUMBER;
     hash = (53 * hash) + getMsgId().hashCode();
     hash = (37 * hash) + USER_CHAT_ID_FIELD_NUMBER;
@@ -745,6 +809,8 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + REVENUE_FIELD_NUMBER;
     hash = (53 * hash) + getRevenue().hashCode();
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -842,8 +908,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * CampaignUser represents a user who received a campaign message.
-   * Tracks delivery, view, click, and goal conversion timestamps.
+   * CampaignUser represents a per-user delivery and engagement record for a campaign.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.CampaignUser}
@@ -883,9 +948,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      campaignId_ = "";
-
       userId_ = "";
+
+      campaignId_ = "";
 
       msgId_ = "";
 
@@ -917,6 +982,8 @@ private static final long serialVersionUID = 0L;
       }
       revenue_ = "";
 
+      id_ = "";
+
       return this;
     }
 
@@ -943,8 +1010,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.channel.api.proto.pub.coreapi.model.CampaignUser buildPartial() {
       io.channel.api.proto.pub.coreapi.model.CampaignUser result = new io.channel.api.proto.pub.coreapi.model.CampaignUser(this);
-      result.campaignId_ = campaignId_;
       result.userId_ = userId_;
+      result.campaignId_ = campaignId_;
       result.msgId_ = msgId_;
       result.userChatId_ = userChatId_;
       if (sentBuilder_ == null) {
@@ -968,6 +1035,7 @@ private static final long serialVersionUID = 0L;
         result.goal_ = goalBuilder_.build();
       }
       result.revenue_ = revenue_;
+      result.id_ = id_;
       onBuilt();
       return result;
     }
@@ -1016,12 +1084,12 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(io.channel.api.proto.pub.coreapi.model.CampaignUser other) {
       if (other == io.channel.api.proto.pub.coreapi.model.CampaignUser.getDefaultInstance()) return this;
-      if (!other.getCampaignId().isEmpty()) {
-        campaignId_ = other.campaignId_;
-        onChanged();
-      }
       if (!other.getUserId().isEmpty()) {
         userId_ = other.userId_;
+        onChanged();
+      }
+      if (!other.getCampaignId().isEmpty()) {
+        campaignId_ = other.campaignId_;
         onChanged();
       }
       if (!other.getMsgId().isEmpty()) {
@@ -1046,6 +1114,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRevenue().isEmpty()) {
         revenue_ = other.revenue_;
+        onChanged();
+      }
+      if (!other.getId().isEmpty()) {
+        id_ = other.id_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1077,121 +1149,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object campaignId_ = "";
-    /**
-     * <pre>
-     * Campaign ID this user record belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string campaign_id = 1 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
-     * @return The campaignId.
-     */
-    public java.lang.String getCampaignId() {
-      java.lang.Object ref = campaignId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        campaignId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Campaign ID this user record belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string campaign_id = 1 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for campaignId.
-     */
-    public com.google.protobuf.ByteString
-        getCampaignIdBytes() {
-      java.lang.Object ref = campaignId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        campaignId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Campaign ID this user record belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string campaign_id = 1 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
-     * @param value The campaignId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCampaignId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      campaignId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Campaign ID this user record belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string campaign_id = 1 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCampaignId() {
-      
-      campaignId_ = getDefaultInstance().getCampaignId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Campaign ID this user record belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string campaign_id = 1 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for campaignId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCampaignIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      campaignId_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object userId_ = "";
     /**
      * <pre>
-     * ID of the user who received the campaign message.
+     * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
-     * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+     * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
      * @return The userId.
      */
     public java.lang.String getUserId() {
@@ -1208,12 +1175,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the user who received the campaign message.
+     * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
-     * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+     * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for userId.
      */
     public com.google.protobuf.ByteString
@@ -1231,12 +1199,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the user who received the campaign message.
+     * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
-     * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+     * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -1252,12 +1221,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the user who received the campaign message.
+     * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
-     * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+     * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -1268,12 +1238,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the user who received the campaign message.
+     * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
-     * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+     * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for userId to set.
      * @return This builder for chaining.
      */
@@ -1289,10 +1260,121 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object campaignId_ = "";
+    /**
+     * <pre>
+     * Campaign that delivered the message.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
+     * </pre>
+     *
+     * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
+     * @return The campaignId.
+     */
+    public java.lang.String getCampaignId() {
+      java.lang.Object ref = campaignId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        campaignId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Campaign that delivered the message.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
+     * </pre>
+     *
+     * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
+     * @return The bytes for campaignId.
+     */
+    public com.google.protobuf.ByteString
+        getCampaignIdBytes() {
+      java.lang.Object ref = campaignId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        campaignId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Campaign that delivered the message.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
+     * </pre>
+     *
+     * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
+     * @param value The campaignId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCampaignId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      campaignId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Campaign that delivered the message.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
+     * </pre>
+     *
+     * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCampaignId() {
+      
+      campaignId_ = getDefaultInstance().getCampaignId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Campaign that delivered the message.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
+     * </pre>
+     *
+     * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
+     * @param value The bytes for campaignId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCampaignIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      campaignId_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object msgId_ = "";
     /**
      * <pre>
-     * ID of the campaign message that was sent to the user.
+     * Message variant that was delivered to this user.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1313,7 +1395,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the campaign message that was sent to the user.
+     * Message variant that was delivered to this user.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1335,7 +1417,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the campaign message that was sent to the user.
+     * Message variant that was delivered to this user.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1355,7 +1437,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the campaign message that was sent to the user.
+     * Message variant that was delivered to this user.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1370,7 +1452,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the campaign message that was sent to the user.
+     * Message variant that was delivered to this user.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1393,7 +1475,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object userChatId_ = "";
     /**
      * <pre>
-     * ID of the user chat created by this campaign message.
+     * User chat conversation created by the campaign delivery.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1414,7 +1496,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the user chat created by this campaign message.
+     * User chat conversation created by the campaign delivery.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1436,7 +1518,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the user chat created by this campaign message.
+     * User chat conversation created by the campaign delivery.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1456,7 +1538,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the user chat created by this campaign message.
+     * User chat conversation created by the campaign delivery.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1471,7 +1553,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the user chat created by this campaign message.
+     * User chat conversation created by the campaign delivery.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1496,7 +1578,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> sentBuilder_;
     /**
      * <pre>
-     * Timestamp when the message was delivered to the user.
+     * Timestamp when the campaign message was delivered to the user.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1508,7 +1590,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the message was delivered to the user.
+     * Timestamp when the campaign message was delivered to the user.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1524,7 +1606,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the message was delivered to the user.
+     * Timestamp when the campaign message was delivered to the user.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1545,7 +1627,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the message was delivered to the user.
+     * Timestamp when the campaign message was delivered to the user.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1564,7 +1646,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the message was delivered to the user.
+     * Timestamp when the campaign message was delivered to the user.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1587,7 +1669,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the message was delivered to the user.
+     * Timestamp when the campaign message was delivered to the user.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1606,7 +1688,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the message was delivered to the user.
+     * Timestamp when the campaign message was delivered to the user.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1619,7 +1701,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the message was delivered to the user.
+     * Timestamp when the campaign message was delivered to the user.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1635,7 +1717,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the message was delivered to the user.
+     * Timestamp when the campaign message was delivered to the user.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1660,7 +1742,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> viewBuilder_;
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1672,7 +1754,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1688,7 +1770,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1709,7 +1791,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1728,7 +1810,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1751,7 +1833,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1770,7 +1852,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1783,7 +1865,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1799,7 +1881,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1824,7 +1906,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> clickBuilder_;
     /**
      * <pre>
-     * Timestamp when the user clicked a link in the message.
+     * Timestamp when the user first clicked a link in the message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1836,7 +1918,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user clicked a link in the message.
+     * Timestamp when the user first clicked a link in the message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1852,7 +1934,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user clicked a link in the message.
+     * Timestamp when the user first clicked a link in the message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1873,7 +1955,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user clicked a link in the message.
+     * Timestamp when the user first clicked a link in the message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1892,7 +1974,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user clicked a link in the message.
+     * Timestamp when the user first clicked a link in the message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1915,7 +1997,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user clicked a link in the message.
+     * Timestamp when the user first clicked a link in the message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1934,7 +2016,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user clicked a link in the message.
+     * Timestamp when the user first clicked a link in the message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1947,7 +2029,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user clicked a link in the message.
+     * Timestamp when the user first clicked a link in the message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1963,7 +2045,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user clicked a link in the message.
+     * Timestamp when the user first clicked a link in the message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1988,7 +2070,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> goalBuilder_;
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the campaign goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2000,7 +2082,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the campaign goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2016,7 +2098,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the campaign goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2037,7 +2119,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the campaign goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2056,7 +2138,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the campaign goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2079,7 +2161,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the campaign goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2098,7 +2180,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the campaign goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2111,7 +2193,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the campaign goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2127,7 +2209,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the campaign goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2150,8 +2232,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object revenue_ = "";
     /**
      * <pre>
-     * Revenue amount attributed to this user from the campaign.
-     * Decimal number represented as a string for precision.
+     * Cumulative revenue attributed to this user from the campaign.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2172,8 +2253,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Revenue amount attributed to this user from the campaign.
-     * Decimal number represented as a string for precision.
+     * Cumulative revenue attributed to this user from the campaign.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2195,8 +2275,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Revenue amount attributed to this user from the campaign.
-     * Decimal number represented as a string for precision.
+     * Cumulative revenue attributed to this user from the campaign.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2216,8 +2295,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Revenue amount attributed to this user from the campaign.
-     * Decimal number represented as a string for precision.
+     * Cumulative revenue attributed to this user from the campaign.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2232,8 +2310,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Revenue amount attributed to this user from the campaign.
-     * Decimal number represented as a string for precision.
+     * Cumulative revenue attributed to this user from the campaign.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2252,6 +2329,107 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+
+    private java.lang.Object id_ = "";
+    /**
+     * <pre>
+     * Composite identifier in the format "{campaign_id}-{user_id}".
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * @return The id.
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Composite identifier in the format "{campaign_id}-{user_id}".
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * @return The bytes for id.
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Composite identifier in the format "{campaign_id}-{user_id}".
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * @param value The id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      id_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Composite identifier in the format "{campaign_id}-{user_id}".
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearId() {
+      
+      id_ = getDefaultInstance().getId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Composite identifier in the format "{campaign_id}-{user_id}".
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * @param value The bytes for id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      id_ = value;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2267,29 +2445,6 @@ private static final long serialVersionUID = 0L;
 
     /* Generated by protoc-gen-java-set-or-clear */
     
-    /**
-     * @param value The campaign_id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearCampaignId(java.lang.String value) {
-    	if (value == null)
-    		return clearCampaignId();
-    	else
-    		return setCampaignId(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearCampaignId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearCampaignId();
-    	else
-    		return setCampaignId(mapFunc.apply(value));
-    }
-    	
     /**
      * @param value The user_id to set.
      * @return This builder for chaining.
@@ -2311,6 +2466,29 @@ private static final long serialVersionUID = 0L;
     		return clearUserId();
     	else
     		return setUserId(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The campaign_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearCampaignId(java.lang.String value) {
+    	if (value == null)
+    		return clearCampaignId();
+    	else
+    		return setCampaignId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearCampaignId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearCampaignId();
+    	else
+    		return setCampaignId(mapFunc.apply(value));
     }
     	
     /**
@@ -2472,6 +2650,29 @@ private static final long serialVersionUID = 0L;
     		return clearRevenue();
     	else
     		return setRevenue(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearId(java.lang.String value) {
+    	if (value == null)
+    		return clearId();
+    	else
+    		return setId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearId();
+    	else
+    		return setId(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.CampaignUser)

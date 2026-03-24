@@ -35,84 +35,115 @@ public final class ManagerOuterClass {
     java.lang.String[] descriptorData = {
       "\n\033coreapi/model/manager.proto\022\rcoreapi.m" +
       "odel\032\033buf/validate/validate.proto\032\035corea" +
-      "pi/model/name_desc.proto\032\035coreapi/model/" +
-      "tiny_file.proto\032\034google/protobuf/struct." +
-      "proto\032\037google/protobuf/timestamp.proto\"\216" +
-      "\024\n\007Manager\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.m" +
-      "inLen\022\"value must be at least 1 characte" +
-      "r\032\017size(this) >= 1\310\001\001R\002id\022l\n\nchannel_id\030" +
-      "\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must" +
-      " be at least 1 character\032\017size(this) >= " +
-      "1\310\001\001R\tchannelId\022l\n\naccount_id\030\003 \001(\tBM\272HJ" +
-      "\272\001D\n\rstring.minLen\022\"value must be at lea" +
-      "st 1 character\032\017size(this) >= 1\310\001\001R\tacco" +
-      "untId\022\303\001\n\004name\030\004 \001(\tB\256\001\272H\252\001\272\001D\n\rstring.m" +
-      "inLen\022\"value must be at least 1 characte" +
-      "r\032\017size(this) >= 1\272\001K\n\rstring.maxLen\022(va" +
-      "lue must be no more than 30 characters\032\020" +
-      "size(this) <= 30\310\001\001r\0202\016^[^@#$%:/\\\\]+$R\004n" +
-      "ame\022u\n\013description\030\005 \001(\tBS\272HP\272\001M\n\rstring" +
-      ".maxLen\022)value must be no more than 180 " +
-      "characters\032\021size(this) <= 180R\013descripti" +
-      "on\0229\n\031show_description_to_front\030\006 \001(\010R\026s" +
-      "howDescriptionToFront\022X\n\022name_desc_i18n_" +
-      "map\030\007 \003(\0132+.coreapi.model.Manager.NameDe" +
-      "scI18nMapEntryR\017nameDescI18nMap\022\035\n\navata" +
-      "r_url\030\010 \001(\tR\tavatarUrl\022,\n\022display_as_cha" +
-      "nnel\030\t \001(\010R\020displayAsChannel\022\221\001\n\024auto_as" +
-      "sign_capacity\030\013 \001(\005B_\272H\\\272\001Y\n\rint32.betwe" +
-      "en\022.auto_assign_capacity must be between" +
-      " 0 and 200\032\030this >= 0 && this <= 200R\022au" +
-      "toAssignCapacity\022!\n\014status_emoji\030\014 \001(\tR\013" +
-      "statusEmoji\022t\n\013status_text\030\r \001(\tBS\272HP\272\001M" +
-      "\n\rstring.maxLen\022)value must be no more t" +
-      "han 128 characters\032\021size(this) <= 128R\ns" +
-      "tatusText\022B\n\017status_clear_at\030\016 \001(\0132\032.goo" +
-      "gle.protobuf.TimestampR\rstatusClearAt\022$\n" +
-      "\016do_not_disturb\030\017 \001(\010R\014doNotDisturb\022P\n\027d" +
-      "o_not_disturb_clear_at\030\020 \001(\0132\032.google.pr" +
-      "otobuf.TimestampR\023doNotDisturbClearAt\022\030\n" +
-      "\007removed\030\033 \001(\010R\007removed\022A\n\ncreated_at\030\034 " +
-      "\001(\0132\032.google.protobuf.TimestampB\006\272H\003\310\001\001R" +
-      "\tcreatedAt\0221\n\007profile\030\037 \001(\0132\027.google.pro" +
-      "tobuf.StructR\007profile\022\024\n\005email\030  \001(\tR\005em" +
-      "ail\022-\n\023show_email_to_front\030! \001(\010R\020showEm" +
-      "ailToFront\022#\n\rmobile_number\030\" \001(\tR\014mobil" +
-      "eNumber\022<\n\033show_mobile_number_to_front\030#" +
-      " \001(\010R\027showMobileNumberToFront\022.\n\023default" +
-      "_group_watch\030$ \001(\tR\021defaultGroupWatch\0229\n" +
-      "\031default_direct_chat_watch\030% \001(\tR\026defaul" +
-      "tDirectChatWatch\0225\n\027default_user_chat_wa" +
-      "tch\030& \001(\tR\024defaultUserChatWatch\022(\n\020chat_" +
-      "alert_sound\030\' \001(\tR\016chatAlertSound\022?\n\034sho" +
-      "w_private_message_preview\030( \001(\010R\031showPri" +
-      "vateMessagePreview\022%\n\016operator_score\030) \001" +
-      "(\002R\roperatorScore\022\037\n\013touch_score\030* \001(\002R\n" +
-      "touchScore\022/\n\006avatar\030+ \001(\0132\027.coreapi.mod" +
-      "el.TinyFileR\006avatar\0226\n\027operator_email_re" +
-      "minder\030, \001(\010R\025operatorEmailReminder\022\032\n\010o" +
-      "perator\030- \001(\010R\010operator\022A\n\035default_all_m" +
-      "ention_important\030. \001(\010R\032defaultAllMentio" +
-      "nImportant\0224\n\026user_message_important\030/ \001" +
-      "(\010R\024userMessageImportant\022\035\n\nmanager_id\0300" +
-      " \001(\tR\tmanagerId\022&\n\017email_for_front\0301 \001(\t" +
-      "R\remailForFront\0225\n\027mobile_number_for_fro" +
-      "nt\0302 \001(\tR\024mobileNumberForFront\022\027\n\007role_i" +
-      "d\0303 \001(\tR\006roleId\022A\n\nupdated_at\0306 \001(\0132\032.go" +
-      "ogle.protobuf.TimestampB\006\272H\003\310\001\001R\tupdated" +
-      "At\032[\n\024NameDescI18nMapEntry\022\020\n\003key\030\001 \001(\tR" +
-      "\003key\022-\n\005value\030\002 \001(\0132\027.coreapi.model.Name" +
-      "DescR\005value:\0028\001Bb\n&io.channel.api.proto." +
-      "pub.coreapi.modelP\001Z6github.com/channel-" +
-      "io/ch-proto-public/coreapi/go/modelb\006pro" +
-      "to3"
+      "pi/model/name_desc.proto\032\034google/protobu" +
+      "f/struct.proto\032\037google/protobuf/timestam" +
+      "p.proto\"\336\031\n\007Manager\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R" +
+      "\002id\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannel" +
+      "Id\022%\n\naccount_id\030\003 \001(\tB\006\272H\003\310\001\001R\taccountI" +
+      "d\022\303\001\n\004name\030\004 \001(\tB\256\001\272H\252\001\272\001D\n\rstring.minLe" +
+      "n\022\"value must be at least 1 character\032\017s" +
+      "ize(this) >= 1\272\001K\n\rstring.maxLen\022(value " +
+      "must be no more than 30 characters\032\020size" +
+      "(this) <= 30\310\001\001r\0202\016^[^@#$%:/\\\\]+$R\004name\022" +
+      "u\n\013description\030\005 \001(\tBS\272HP\272\001M\n\rstring.max" +
+      "Len\022)value must be no more than 180 char" +
+      "acters\032\021size(this) <= 180R\013description\022A" +
+      "\n\031show_description_to_front\030\006 \001(\010B\006\272H\003\310\001" +
+      "\001R\026showDescriptionToFront\022X\n\022name_desc_i" +
+      "18n_map\030\007 \003(\0132+.coreapi.model.Manager.Na" +
+      "meDescI18nMapEntryR\017nameDescI18nMap\0221\n\007p" +
+      "rofile\030\010 \001(\0132\027.google.protobuf.StructR\007p" +
+      "rofile\022\024\n\005email\030\t \001(\tR\005email\0225\n\023show_ema" +
+      "il_to_front\030\n \001(\010B\006\272H\003\310\001\001R\020showEmailToFr" +
+      "ont\022#\n\rmobile_number\030\013 \001(\tR\014mobileNumber" +
+      "\022D\n\033show_mobile_number_to_front\030\014 \001(\010B\006\272" +
+      "H\003\310\001\001R\027showMobileNumberToFront\022\027\n\007role_i" +
+      "d\030\r \001(\tR\006roleId\022 \n\007removed\030\016 \001(\010B\006\272H\003\310\001\001" +
+      "R\007removed\022A\n\ncreated_at\030\017 \001(\0132\032.google.p" +
+      "rotobuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt\022A\n\n" +
+      "updated_at\030\020 \001(\0132\032.google.protobuf.Times" +
+      "tampB\006\272H\003\310\001\001R\tupdatedAt\0229\n\nremoved_at\030\021 " +
+      "\001(\0132\032.google.protobuf.TimestampR\tremoved" +
+      "At\0224\n\022display_as_channel\030\022 \001(\010B\006\272H\003\310\001\001R\020" +
+      "displayAsChannel\022K\n\023default_group_watch\030" +
+      "\023 \001(\0162\033.coreapi.model.SessionWatchR\021defa" +
+      "ultGroupWatch\022V\n\031default_direct_chat_wat" +
+      "ch\030\024 \001(\0162\033.coreapi.model.SessionWatchR\026d" +
+      "efaultDirectChatWatch\022R\n\027default_user_ch" +
+      "at_watch\030\025 \001(\0162\033.coreapi.model.SessionWa" +
+      "tchR\024defaultUserChatWatch\022G\n\020chat_alert_" +
+      "sound\030\026 \001(\0162\035.coreapi.model.ChatAlertSou" +
+      "ndR\016chatAlertSound\022G\n\020meet_alert_sound\030\027" +
+      " \001(\0162\035.coreapi.model.MeetAlertSoundR\016mee" +
+      "tAlertSound\022L\n\037receive_mobile_push_when_" +
+      "online\030\030 \001(\010B\006\272H\003\310\001\001R\033receiveMobilePushW" +
+      "henOnline\022G\n\034show_private_message_previe" +
+      "w\030\031 \001(\010B\006\272H\003\310\001\001R\031showPrivateMessagePrevi" +
+      "ew\022%\n\016operator_score\030\032 \001(\002R\roperatorScor" +
+      "e\022\037\n\013touch_score\030\033 \001(\002R\ntouchScore\022>\n\027op" +
+      "erator_email_reminder\030\034 \001(\010B\006\272H\003\310\001\001R\025ope" +
+      "ratorEmailReminder\022@\n\030receive_unassigned" +
+      "_alert\030\035 \001(\010B\006\272H\003\310\001\001R\026receiveUnassignedA" +
+      "lert\022A\n\031receive_missed_chat_alert\030\036 \001(\010B" +
+      "\006\272H\003\310\001\001R\026receiveMissedChatAlert\022I\n\035recei" +
+      "ve_unassigned_chat_alert\030\037 \001(\010B\006\272H\003\310\001\001R\032" +
+      "receiveUnassignedChatAlert\022I\n\035receive_un" +
+      "assigned_meet_alert\030  \001(\010B\006\272H\003\310\001\001R\032recei" +
+      "veUnassignedMeetAlert\022\"\n\010operator\030! \001(\010B" +
+      "\006\272H\003\310\001\001R\010operator\022,\n\022operator_status_id\030" +
+      "\" \001(\tR\020operatorStatusId\022I\n\035default_all_m" +
+      "ention_important\030# \001(\010B\006\272H\003\310\001\001R\032defaultA" +
+      "llMentionImportant\022<\n\026user_message_impor" +
+      "tant\030$ \001(\010B\006\272H\003\310\001\001R\024userMessageImportant" +
+      "\022;\n\032assignable_user_chat_types\030% \003(\tR\027as" +
+      "signableUserChatTypes\022\221\001\n\024auto_assign_ca" +
+      "pacity\030& \001(\005B_\272H\\\272\001Y\n\rint32.between\022.aut" +
+      "o_assign_capacity must be between 0 and " +
+      "200\032\030this >= 0 && this <= 200R\022autoAssig" +
+      "nCapacity\022B\n\032enable_auto_assign_on_sync\030" +
+      "\' \001(\010B\006\272H\003\310\001\001R\026enableAutoAssignOnSync\022!\n" +
+      "\014status_emoji\030( \001(\tR\013statusEmoji\022t\n\013stat" +
+      "us_text\030) \001(\tBS\272HP\272\001M\n\rstring.maxLen\022)va" +
+      "lue must be no more than 128 characters\032" +
+      "\021size(this) <= 128R\nstatusText\022B\n\017status" +
+      "_clear_at\030* \001(\0132\032.google.protobuf.Timest" +
+      "ampR\rstatusClearAt\022,\n\016do_not_disturb\030+ \001" +
+      "(\010B\006\272H\003\310\001\001R\014doNotDisturb\022P\n\027do_not_distu" +
+      "rb_clear_at\030, \001(\0132\032.google.protobuf.Time" +
+      "stampR\023doNotDisturbClearAt\022;\n\026account_do" +
+      "_not_disturb\030- \001(\010B\006\272H\003\310\001\001R\023accountDoNot" +
+      "Disturb\022_\n\037account_do_not_disturb_clear_" +
+      "at\030. \001(\0132\032.google.protobuf.TimestampR\032ac" +
+      "countDoNotDisturbClearAt\022J\n\023operator_upd" +
+      "ated_at\030/ \001(\0132\032.google.protobuf.Timestam" +
+      "pR\021operatorUpdatedAt\022\035\n\navatar_url\0300 \001(\t" +
+      "R\tavatarUrl\032[\n\024NameDescI18nMapEntry\022\020\n\003k" +
+      "ey\030\001 \001(\tR\003key\022-\n\005value\030\002 \001(\0132\027.coreapi.m" +
+      "odel.NameDescR\005value:\0028\001*t\n\014SessionWatch" +
+      "\022\035\n\031SESSION_WATCH_UNSPECIFIED\020\000\022\025\n\021SESSI" +
+      "ON_WATCH_ALL\020\001\022\026\n\022SESSION_WATCH_INFO\020\002\022\026" +
+      "\n\022SESSION_WATCH_NONE\020\003*\264\002\n\016ChatAlertSoun" +
+      "d\022 \n\034CHAT_ALERT_SOUND_UNSPECIFIED\020\000\022\031\n\025C" +
+      "HAT_ALERT_SOUND_NONE\020\001\022\031\n\025CHAT_ALERT_SOU" +
+      "ND_DROP\020\002\022\032\n\026CHAT_ALERT_SOUND_WOODY\020\003\022\033\n" +
+      "\027CHAT_ALERT_SOUND_BOUNCE\020\004\022\034\n\030CHAT_ALERT" +
+      "_SOUND_CRYSTAL\020\005\022\031\n\025CHAT_ALERT_SOUND_XYL" +
+      "O\020\006\022 \n\034CHAT_ALERT_SOUND_QUICK_KNOCK\020\007\022\032\n" +
+      "\026CHAT_ALERT_SOUND_CANDY\020\010\022\032\n\026CHAT_ALERT_" +
+      "SOUND_SHINE\020\t*\244\001\n\016MeetAlertSound\022 \n\034MEET" +
+      "_ALERT_SOUND_UNSPECIFIED\020\000\022\031\n\025MEET_ALERT" +
+      "_SOUND_CUTE\020\001\022\032\n\026MEET_ALERT_SOUND_BASIC\020" +
+      "\002\022\033\n\027MEET_ALERT_SOUND_GENTLE\020\003\022\034\n\030MEET_A" +
+      "LERT_SOUND_MARIMBA\020\004Bb\n&io.channel.api.p" +
+      "roto.pub.coreapi.modelP\001Z6github.com/cha" +
+      "nnel-io/ch-proto-public/coreapi/go/model" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
           io.channel.api.proto.pub.coreapi.model.NameDescOuterClass.getDescriptor(),
-          io.channel.api.proto.pub.coreapi.model.TinyFileOuterClass.getDescriptor(),
           com.google.protobuf.StructProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
@@ -121,7 +152,7 @@ public final class ManagerOuterClass {
     internal_static_coreapi_model_Manager_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Manager_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "AccountId", "Name", "Description", "ShowDescriptionToFront", "NameDescI18NMap", "AvatarUrl", "DisplayAsChannel", "AutoAssignCapacity", "StatusEmoji", "StatusText", "StatusClearAt", "DoNotDisturb", "DoNotDisturbClearAt", "Removed", "CreatedAt", "Profile", "Email", "ShowEmailToFront", "MobileNumber", "ShowMobileNumberToFront", "DefaultGroupWatch", "DefaultDirectChatWatch", "DefaultUserChatWatch", "ChatAlertSound", "ShowPrivateMessagePreview", "OperatorScore", "TouchScore", "Avatar", "OperatorEmailReminder", "Operator", "DefaultAllMentionImportant", "UserMessageImportant", "ManagerId", "EmailForFront", "MobileNumberForFront", "RoleId", "UpdatedAt", });
+        new java.lang.String[] { "Id", "ChannelId", "AccountId", "Name", "Description", "ShowDescriptionToFront", "NameDescI18NMap", "Profile", "Email", "ShowEmailToFront", "MobileNumber", "ShowMobileNumberToFront", "RoleId", "Removed", "CreatedAt", "UpdatedAt", "RemovedAt", "DisplayAsChannel", "DefaultGroupWatch", "DefaultDirectChatWatch", "DefaultUserChatWatch", "ChatAlertSound", "MeetAlertSound", "ReceiveMobilePushWhenOnline", "ShowPrivateMessagePreview", "OperatorScore", "TouchScore", "OperatorEmailReminder", "ReceiveUnassignedAlert", "ReceiveMissedChatAlert", "ReceiveUnassignedChatAlert", "ReceiveUnassignedMeetAlert", "Operator", "OperatorStatusId", "DefaultAllMentionImportant", "UserMessageImportant", "AssignableUserChatTypes", "AutoAssignCapacity", "EnableAutoAssignOnSync", "StatusEmoji", "StatusText", "StatusClearAt", "DoNotDisturb", "DoNotDisturbClearAt", "AccountDoNotDisturb", "AccountDoNotDisturbClearAt", "OperatorUpdatedAt", "AvatarUrl", });
     internal_static_coreapi_model_Manager_NameDescI18nMapEntry_descriptor =
       internal_static_coreapi_model_Manager_descriptor.getNestedTypes().get(0);
     internal_static_coreapi_model_Manager_NameDescI18nMapEntry_fieldAccessorTable = new
@@ -135,7 +166,6 @@ public final class ManagerOuterClass {
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
     io.channel.api.proto.pub.coreapi.model.NameDescOuterClass.getDescriptor();
-    io.channel.api.proto.pub.coreapi.model.TinyFileOuterClass.getDescriptor();
     com.google.protobuf.StructProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }

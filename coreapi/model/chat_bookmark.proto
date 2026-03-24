@@ -12,9 +12,11 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 // Tracks the last-read location per person within a specific chat context.
 message ChatBookmark {
   // Unique bookmark identifier.
+  // Format: "{personType}-{personId}-{chatType}".
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="manager-m001-userChat"
   string key = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -28,6 +30,7 @@ message ChatBookmark {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="uc-abc123"
   string chat_id = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -38,6 +41,7 @@ message ChatBookmark {
   ];
 
   // Composite key for the associated chat.
+  // Format: "{chatType}-{chatId}".
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -66,18 +70,13 @@ message ChatBookmark {
   // Channel ID this bookmark belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string channel_id = 5 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  // +kubebuilder:example="ch-12345"
+  string channel_id = 5 [(buf.validate.field).required = true];
 
   // Entity version number for optimistic concurrency control.
-  int32 version = 6;
+  //
+  // +kubebuilder:validation:Nullable
+  int64 version = 6;
 
   // Type of the bookmark owner (e.g. "manager").
   //

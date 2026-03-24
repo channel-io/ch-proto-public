@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Delivery timing mode for a one-time message.
+ * Send mode for one-time messages.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.OneTimeMsgSendMode}

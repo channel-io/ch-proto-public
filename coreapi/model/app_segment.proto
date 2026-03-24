@@ -8,12 +8,14 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// App segment for user targeting within a specific app extension.
+// AppSegment represents a user segment defined by an app extension.
+// Used in campaigns and one-time messages to target users that belong to a specific segment managed by an external app.
 message AppSegment {
-  // App identifier.
+  // App that owns the segment definition.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="app-001"
   string app_id = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -23,10 +25,11 @@ message AppSegment {
     (buf.validate.field).required = true
   ];
 
-  // Extension identifier.
+  // Extension within the app that provides the segmentation logic.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="ext-001"
   string extension_id = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -36,10 +39,11 @@ message AppSegment {
     (buf.validate.field).required = true
   ];
 
-  // Segment identifier.
+  // Specific segment within the extension that users must belong to.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="seg-001"
   string segment_id = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"

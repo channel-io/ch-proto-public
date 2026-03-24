@@ -11,7 +11,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Unique channel identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Unique channel identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -33,814 +33,50 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * Channel display name.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:validation:MaxLength=30
-   * </pre>
-   *
-   * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
-   * @return The name.
-   */
-  java.lang.String getName();
-  /**
-   * <pre>
-   * Channel display name.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:validation:MaxLength=30
-   * </pre>
-   *
-   * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for name.
-   */
-  com.google.protobuf.ByteString
-      getNameBytes();
-
-  /**
-   * <pre>
-   * Channel description.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MaxLength=180
-   * </pre>
-   *
-   * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
-   * @return The description.
-   */
-  java.lang.String getDescription();
-  /**
-   * <pre>
-   * Channel description.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MaxLength=180
-   * </pre>
-   *
-   * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for description.
-   */
-  com.google.protobuf.ByteString
-      getDescriptionBytes();
-
-  /**
-   * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-   */
-  int getNameDescI18NMapCount();
-  /**
-   * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-   */
-  boolean containsNameDescI18NMap(
-      java.lang.String key);
-  /**
-   * Use {@link #getNameDescI18NMapMap()} instead.
-   */
-  @java.lang.Deprecated
-  java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
-  getNameDescI18NMap();
-  /**
-   * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-   */
-  java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
-  getNameDescI18NMapMap();
-  /**
-   * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-   */
-
-  io.channel.api.proto.pub.coreapi.model.NameDesc getNameDescI18NMapOrDefault(
-      java.lang.String key,
-      io.channel.api.proto.pub.coreapi.model.NameDesc defaultValue);
-  /**
-   * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-   */
-
-  io.channel.api.proto.pub.coreapi.model.NameDesc getNameDescI18NMapOrThrow(
-      java.lang.String key);
-
-  /**
-   * <pre>
-   * Channel avatar image URL.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string avatar_url = 5 [json_name = "avatarUrl"];</code>
-   * @return The avatarUrl.
-   */
-  java.lang.String getAvatarUrl();
-  /**
-   * <pre>
-   * Channel avatar image URL.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string avatar_url = 5 [json_name = "avatarUrl"];</code>
-   * @return The bytes for avatarUrl.
-   */
-  com.google.protobuf.ByteString
-      getAvatarUrlBytes();
-
-  /**
-   * <pre>
-   * Channel theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="#3B82F6"
-   * </pre>
-   *
-   * <code>string color = 6 [json_name = "color"];</code>
-   * @return The color.
-   */
-  java.lang.String getColor();
-  /**
-   * <pre>
-   * Channel theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="#3B82F6"
-   * </pre>
-   *
-   * <code>string color = 6 [json_name = "color"];</code>
-   * @return The bytes for color.
-   */
-  com.google.protobuf.ByteString
-      getColorBytes();
-
-  /**
-   * <pre>
-   * Bot display name shown to end users in conversations.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string bot_name = 7 [json_name = "botName"];</code>
-   * @return The botName.
-   */
-  java.lang.String getBotName();
-  /**
-   * <pre>
-   * Bot display name shown to end users in conversations.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string bot_name = 7 [json_name = "botName"];</code>
-   * @return The bytes for botName.
-   */
-  com.google.protobuf.ByteString
-      getBotNameBytes();
-
-  /**
-   * <pre>
-   * ISO 3166-1 alpha-2 country code.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="KR"
-   * </pre>
-   *
-   * <code>string country = 8 [json_name = "country"];</code>
-   * @return The country.
-   */
-  java.lang.String getCountry();
-  /**
-   * <pre>
-   * ISO 3166-1 alpha-2 country code.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="KR"
-   * </pre>
-   *
-   * <code>string country = 8 [json_name = "country"];</code>
-   * @return The bytes for country.
-   */
-  com.google.protobuf.ByteString
-      getCountryBytes();
-
-  /**
-   * <pre>
-   * Custom domain for the channel.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string domain = 9 [json_name = "domain"];</code>
-   * @return The domain.
-   */
-  java.lang.String getDomain();
-  /**
-   * <pre>
-   * Custom domain for the channel.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string domain = 9 [json_name = "domain"];</code>
-   * @return The bytes for domain.
-   */
-  com.google.protobuf.ByteString
-      getDomainBytes();
-
-  /**
-   * <pre>
-   * Resolved domain for the channel.
-   * Returns the custom domain if set, otherwise the system-generated default.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string system_domain = 11 [json_name = "systemDomain"];</code>
-   * @return The systemDomain.
-   */
-  java.lang.String getSystemDomain();
-  /**
-   * <pre>
-   * Resolved domain for the channel.
-   * Returns the custom domain if set, otherwise the system-generated default.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string system_domain = 11 [json_name = "systemDomain"];</code>
-   * @return The bytes for systemDomain.
-   */
-  com.google.protobuf.ByteString
-      getSystemDomainBytes();
-
-  /**
-   * <pre>
-   * Channel homepage URL.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string homepage_url = 12 [json_name = "homepageUrl"];</code>
-   * @return The homepageUrl.
-   */
-  java.lang.String getHomepageUrl();
-  /**
-   * <pre>
-   * Channel homepage URL.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string homepage_url = 12 [json_name = "homepageUrl"];</code>
-   * @return The bytes for homepageUrl.
-   */
-  com.google.protobuf.ByteString
-      getHomepageUrlBytes();
-
-  /**
-   * <pre>
-   * Channel phone number in E.164 format.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="+821012345678"
-   * </pre>
-   *
-   * <code>string phone_number = 13 [json_name = "phoneNumber"];</code>
-   * @return The phoneNumber.
-   */
-  java.lang.String getPhoneNumber();
-  /**
-   * <pre>
-   * Channel phone number in E.164 format.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="+821012345678"
-   * </pre>
-   *
-   * <code>string phone_number = 13 [json_name = "phoneNumber"];</code>
-   * @return The bytes for phoneNumber.
-   */
-  com.google.protobuf.ByteString
-      getPhoneNumberBytes();
-
-  /**
-   * <pre>
-   * IANA timezone identifier.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="Asia/Seoul"
-   * </pre>
-   *
-   * <code>string time_zone = 14 [json_name = "timeZone"];</code>
-   * @return The timeZone.
-   */
-  java.lang.String getTimeZone();
-  /**
-   * <pre>
-   * IANA timezone identifier.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="Asia/Seoul"
-   * </pre>
-   *
-   * <code>string time_zone = 14 [json_name = "timeZone"];</code>
-   * @return The bytes for timeZone.
-   */
-  com.google.protobuf.ByteString
-      getTimeZoneBytes();
-
-  /**
-   * <pre>
-   * UTC offset in ISO 8601 format, derived from the timezone.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="+09:00"
-   * </pre>
-   *
-   * <code>string utc_offset = 15 [json_name = "utcOffset"];</code>
-   * @return The utcOffset.
-   */
-  java.lang.String getUtcOffset();
-  /**
-   * <pre>
-   * UTC offset in ISO 8601 format, derived from the timezone.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="+09:00"
-   * </pre>
-   *
-   * <code>string utc_offset = 15 [json_name = "utcOffset"];</code>
-   * @return The bytes for utcOffset.
-   */
-  com.google.protobuf.ByteString
-      getUtcOffsetBytes();
-
-  /**
-   * <pre>
-   * Current lifecycle state of the channel.
+   * Default welcome message shown to end users when a new conversation starts.
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.ChannelState state = 16 [json_name = "state", (.buf.validate.field) = { ... }</code>
-   * @return The enum numeric value on the wire for state.
-   */
-  int getStateValue();
-  /**
-   * <pre>
-   * Current lifecycle state of the channel.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.coreapi.model.ChannelState state = 16 [json_name = "state", (.buf.validate.field) = { ... }</code>
-   * @return The state.
-   */
-  io.channel.api.proto.pub.coreapi.model.ChannelState getState();
-
-  /**
-   * <pre>
-   * Expected response delay indicator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.ResponseDelayType expected_response_delay = 17 [json_name = "expectedResponseDelay"];</code>
-   * @return The enum numeric value on the wire for expectedResponseDelay.
-   */
-  int getExpectedResponseDelayValue();
-  /**
-   * <pre>
-   * Expected response delay indicator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.ResponseDelayType expected_response_delay = 17 [json_name = "expectedResponseDelay"];</code>
-   * @return The expectedResponseDelay.
-   */
-  io.channel.api.proto.pub.coreapi.model.ResponseDelayType getExpectedResponseDelay();
-
-  /**
-   * <pre>
-   * Behavior when the channel is outside of operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.ChannelAwayOption away_option = 18 [json_name = "awayOption"];</code>
-   * @return The enum numeric value on the wire for awayOption.
-   */
-  int getAwayOptionValue();
-  /**
-   * <pre>
-   * Behavior when the channel is outside of operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.ChannelAwayOption away_option = 18 [json_name = "awayOption"];</code>
-   * @return The awayOption.
-   */
-  io.channel.api.proto.pub.coreapi.model.ChannelAwayOption getAwayOption();
-
-  /**
-   * <pre>
-   * Whether the channel is currently within operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool in_operation = 19 [json_name = "inOperation"];</code>
-   * @return The inOperation.
-   */
-  boolean getInOperation();
-
-  /**
-   * <pre>
-   * Whether the channel is currently accepting conversations.
-   * A channel is working when it is not blocked and within operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool working = 20 [json_name = "working"];</code>
-   * @return The working.
-   */
-  boolean getWorking();
-
-  /**
-   * <pre>
-   * Whether SMS/text follow-up is enabled for missed conversations.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool follow_up_texting = 23 [json_name = "followUpTexting"];</code>
-   * @return The followUpTexting.
-   */
-  boolean getFollowUpTexting();
-
-  /**
-   * <pre>
-   * Whether email follow-up is enabled for missed conversations.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool follow_up_email = 24 [json_name = "followUpEmail"];</code>
-   * @return The followUpEmail.
-   */
-  boolean getFollowUpEmail();
-
-  /**
-   * <pre>
-   * Whether to ask for the user's name in follow-up forms.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool follow_up_ask_name = 25 [json_name = "followUpAskName"];</code>
-   * @return The followUpAskName.
-   */
-  boolean getFollowUpAskName();
-
-  /**
-   * <pre>
-   * Whether follow-up contact information is mandatory before starting a conversation.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool follow_up_mandatory = 26 [json_name = "followUpMandatory"];</code>
-   * @return The followUpMandatory.
-   */
-  boolean getFollowUpMandatory();
-
-  /**
-   * <pre>
-   * Whether the messenger widget is hidden from end users.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool hide_app_messenger = 27 [json_name = "hideAppMessenger"];</code>
-   * @return The hideAppMessenger.
-   */
-  boolean getHideAppMessenger();
-
-  /**
-   * <pre>
-   * Default plugin identifier for this channel.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
-   * @return The defaultPluginId.
-   */
-  java.lang.String getDefaultPluginId();
-  /**
-   * <pre>
-   * Default plugin identifier for this channel.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
-   * @return The bytes for defaultPluginId.
-   */
-  com.google.protobuf.ByteString
-      getDefaultPluginIdBytes();
-
-  /**
-   * <pre>
-   * Channel creation timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp created_at = 29 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-   * @return Whether the createdAt field is set.
-   */
-  boolean hasCreatedAt();
-  /**
-   * <pre>
-   * Channel creation timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp created_at = 29 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-   * @return The createdAt.
-   */
-  com.google.protobuf.Timestamp getCreatedAt();
-  /**
-   * <pre>
-   * Channel creation timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp created_at = 29 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
-
-  /**
-   * <pre>
-   * Border color derived from the theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string border_color = 35 [json_name = "borderColor"];</code>
-   * @return The borderColor.
-   */
-  java.lang.String getBorderColor();
-  /**
-   * <pre>
-   * Border color derived from the theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string border_color = 35 [json_name = "borderColor"];</code>
-   * @return The bytes for borderColor.
-   */
-  com.google.protobuf.ByteString
-      getBorderColorBytes();
-
-  /**
-   * <pre>
-   * Gradient color derived from the theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string gradient_color = 36 [json_name = "gradientColor"];</code>
-   * @return The gradientColor.
-   */
-  java.lang.String getGradientColor();
-  /**
-   * <pre>
-   * Gradient color derived from the theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string gradient_color = 36 [json_name = "gradientColor"];</code>
-   * @return The bytes for gradientColor.
-   */
-  com.google.protobuf.ByteString
-      getGradientColorBytes();
-
-  /**
-   * <pre>
-   * Text color derived from the theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string text_color = 37 [json_name = "textColor"];</code>
-   * @return The textColor.
-   */
-  java.lang.String getTextColor();
-  /**
-   * <pre>
-   * Text color derived from the theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string text_color = 37 [json_name = "textColor"];</code>
-   * @return The bytes for textColor.
-   */
-  com.google.protobuf.ByteString
-      getTextColorBytes();
-
-  /**
-   * <pre>
-   * First character of the channel name, used as an avatar fallback.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string initial = 39 [json_name = "initial"];</code>
-   * @return The initial.
-   */
-  java.lang.String getInitial();
-  /**
-   * <pre>
-   * First character of the channel name, used as an avatar fallback.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string initial = 39 [json_name = "initial"];</code>
-   * @return The bytes for initial.
-   */
-  com.google.protobuf.ByteString
-      getInitialBytes();
-
-  /**
-   * <pre>
-   * Whether operation time scheduling is enabled.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool operation_time_scheduling = 40 [json_name = "operationTimeScheduling"];</code>
-   * @return The operationTimeScheduling.
-   */
-  boolean getOperationTimeScheduling();
-
-  /**
-   * <pre>
-   * Recurring time ranges that define the channel operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-   */
-  java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> 
-      getOperationTimeRangesList();
-  /**
-   * <pre>
-   * Recurring time ranges that define the channel operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.TimeRange getOperationTimeRanges(int index);
-  /**
-   * <pre>
-   * Recurring time ranges that define the channel operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-   */
-  int getOperationTimeRangesCount();
-  /**
-   * <pre>
-   * Recurring time ranges that define the channel operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-   */
-  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder> 
-      getOperationTimeRangesOrBuilderList();
-  /**
-   * <pre>
-   * Recurring time ranges that define the channel operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder getOperationTimeRangesOrBuilder(
-      int index);
-
-  /**
-   * <pre>
-   * Timestamp when the channel will next enter operating hours.
-   * Present only when the channel is currently outside operating hours
-   * and operation time scheduling is enabled.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp next_operating_at = 42 [json_name = "nextOperatingAt"];</code>
-   * @return Whether the nextOperatingAt field is set.
-   */
-  boolean hasNextOperatingAt();
-  /**
-   * <pre>
-   * Timestamp when the channel will next enter operating hours.
-   * Present only when the channel is currently outside operating hours
-   * and operation time scheduling is enabled.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp next_operating_at = 42 [json_name = "nextOperatingAt"];</code>
-   * @return The nextOperatingAt.
-   */
-  com.google.protobuf.Timestamp getNextOperatingAt();
-  /**
-   * <pre>
-   * Timestamp when the channel will next enter operating hours.
-   * Present only when the channel is currently outside operating hours
-   * and operation time scheduling is enabled.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp next_operating_at = 42 [json_name = "nextOperatingAt"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getNextOperatingAtOrBuilder();
-
-  /**
-   * <pre>
-   * Whether replying is blocked after the conversation is closed.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool block_replying_after_closed = 45 [json_name = "blockReplyingAfterClosed"];</code>
-   * @return The blockReplyingAfterClosed.
-   */
-  boolean getBlockReplyingAfterClosed();
-
-  /**
-   * <pre>
-   * Duration after which replying is blocked once the conversation is closed.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Duration block_replying_after_closed_time = 46 [json_name = "blockReplyingAfterClosedTime"];</code>
-   * @return Whether the blockReplyingAfterClosedTime field is set.
-   */
-  boolean hasBlockReplyingAfterClosedTime();
-  /**
-   * <pre>
-   * Duration after which replying is blocked once the conversation is closed.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Duration block_replying_after_closed_time = 46 [json_name = "blockReplyingAfterClosedTime"];</code>
-   * @return The blockReplyingAfterClosedTime.
-   */
-  com.google.protobuf.Duration getBlockReplyingAfterClosedTime();
-  /**
-   * <pre>
-   * Duration after which replying is blocked once the conversation is closed.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Duration block_replying_after_closed_time = 46 [json_name = "blockReplyingAfterClosedTime"];</code>
-   */
-  com.google.protobuf.DurationOrBuilder getBlockReplyingAfterClosedTimeOrBuilder();
-
-  /**
-   * <pre>
-   * Default welcome message shown when a new conversation starts.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct welcome_message = 47 [json_name = "welcomeMessage"];</code>
+   * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
    * @return Whether the welcomeMessage field is set.
    */
   boolean hasWelcomeMessage();
   /**
    * <pre>
-   * Default welcome message shown when a new conversation starts.
-   * +kubebuilder:validation:Nullable
+   * Default welcome message shown to end users when a new conversation starts.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Struct welcome_message = 47 [json_name = "welcomeMessage"];</code>
+   * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
    * @return The welcomeMessage.
    */
   com.google.protobuf.Struct getWelcomeMessage();
   /**
    * <pre>
-   * Default welcome message shown when a new conversation starts.
-   * +kubebuilder:validation:Nullable
+   * Default welcome message shown to end users when a new conversation starts.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Struct welcome_message = 47 [json_name = "welcomeMessage"];</code>
+   * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.StructOrBuilder getWelcomeMessageOrBuilder();
 
   /**
    * <pre>
-   * Internationalized welcome messages keyed by locale.
+   * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
    */
   int getWelcomeMessageI18NMapCount();
   /**
    * <pre>
-   * Internationalized welcome messages keyed by locale.
+   * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
    */
   boolean containsWelcomeMessageI18NMap(
       java.lang.String key);
@@ -852,21 +88,21 @@ public interface ChannelOrBuilder extends
   getWelcomeMessageI18NMap();
   /**
    * <pre>
-   * Internationalized welcome messages keyed by locale.
+   * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
    */
   java.util.Map<java.lang.String, com.google.protobuf.Struct>
   getWelcomeMessageI18NMapMap();
   /**
    * <pre>
-   * Internationalized welcome messages keyed by locale.
+   * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
    */
 
   com.google.protobuf.Struct getWelcomeMessageI18NMapOrDefault(
@@ -874,11 +110,11 @@ public interface ChannelOrBuilder extends
       com.google.protobuf.Struct defaultValue);
   /**
    * <pre>
-   * Internationalized welcome messages keyed by locale.
+   * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
    */
 
   com.google.protobuf.Struct getWelcomeMessageI18NMapOrThrow(
@@ -886,453 +122,33 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * URL for retrieving user information.
-   * +kubebuilder:validation:Nullable
+   * Channel creation timestamp.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string user_info_url = 49 [json_name = "userInfoUrl"];</code>
-   * @return The userInfoUrl.
+   * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * @return Whether the createdAt field is set.
    */
-  java.lang.String getUserInfoUrl();
+  boolean hasCreatedAt();
   /**
    * <pre>
-   * URL for retrieving user information.
-   * +kubebuilder:validation:Nullable
+   * Channel creation timestamp.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string user_info_url = 49 [json_name = "userInfoUrl"];</code>
-   * @return The bytes for userInfoUrl.
+   * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * @return The createdAt.
    */
-  com.google.protobuf.ByteString
-      getUserInfoUrlBytes();
-
+  com.google.protobuf.Timestamp getCreatedAt();
   /**
    * <pre>
-   * Traffic source tracking data.
-   * +kubebuilder:validation:Nullable
+   * Channel creation timestamp.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Struct traffic_source = 50 [json_name = "trafficSource"];</code>
-   * @return Whether the trafficSource field is set.
+   * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
-  boolean hasTrafficSource();
-  /**
-   * <pre>
-   * Traffic source tracking data.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct traffic_source = 50 [json_name = "trafficSource"];</code>
-   * @return The trafficSource.
-   */
-  com.google.protobuf.Struct getTrafficSource();
-  /**
-   * <pre>
-   * Traffic source tracking data.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct traffic_source = 50 [json_name = "trafficSource"];</code>
-   */
-  com.google.protobuf.StructOrBuilder getTrafficSourceOrBuilder();
-
-  /**
-   * <pre>
-   * Billing account identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string bill_account_id = 51 [json_name = "billAccountId"];</code>
-   * @return The billAccountId.
-   */
-  java.lang.String getBillAccountId();
-  /**
-   * <pre>
-   * Billing account identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string bill_account_id = 51 [json_name = "billAccountId"];</code>
-   * @return The bytes for billAccountId.
-   */
-  com.google.protobuf.ByteString
-      getBillAccountIdBytes();
-
-  /**
-   * <pre>
-   * Business grade rating.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string biz_grade = 52 [json_name = "bizGrade"];</code>
-   * @return The bizGrade.
-   */
-  java.lang.String getBizGrade();
-  /**
-   * <pre>
-   * Business grade rating.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string biz_grade = 52 [json_name = "bizGrade"];</code>
-   * @return The bytes for bizGrade.
-   */
-  com.google.protobuf.ByteString
-      getBizGradeBytes();
-
-  /**
-   * <pre>
-   * Source survey tracking data.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct source_survey = 53 [json_name = "sourceSurvey"];</code>
-   * @return Whether the sourceSurvey field is set.
-   */
-  boolean hasSourceSurvey();
-  /**
-   * <pre>
-   * Source survey tracking data.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct source_survey = 53 [json_name = "sourceSurvey"];</code>
-   * @return The sourceSurvey.
-   */
-  com.google.protobuf.Struct getSourceSurvey();
-  /**
-   * <pre>
-   * Source survey tracking data.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct source_survey = 53 [json_name = "sourceSurvey"];</code>
-   */
-  com.google.protobuf.StructOrBuilder getSourceSurveyOrBuilder();
-
-  /**
-   * <pre>
-   * Business industry category.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string biz_category = 54 [json_name = "bizCategory"];</code>
-   * @return The bizCategory.
-   */
-  java.lang.String getBizCategory();
-  /**
-   * <pre>
-   * Business industry category.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string biz_category = 54 [json_name = "bizCategory"];</code>
-   * @return The bytes for bizCategory.
-   */
-  com.google.protobuf.ByteString
-      getBizCategoryBytes();
-
-  /**
-   * <pre>
-   * Number of team members in the channel.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>int32 staffs = 55 [json_name = "staffs"];</code>
-   * @return The staffs.
-   */
-  int getStaffs();
-
-  /**
-   * <pre>
-   * Commerce app integration identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string app_commerce_id = 56 [json_name = "appCommerceId"];</code>
-   * @return The appCommerceId.
-   */
-  java.lang.String getAppCommerceId();
-  /**
-   * <pre>
-   * Commerce app integration identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string app_commerce_id = 56 [json_name = "appCommerceId"];</code>
-   * @return The bytes for appCommerceId.
-   */
-  com.google.protobuf.ByteString
-      getAppCommerceIdBytes();
-
-  /**
-   * <pre>
-   * Type of commerce platform integrated.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string app_commerce_type = 57 [json_name = "appCommerceType"];</code>
-   * @return The appCommerceType.
-   */
-  java.lang.String getAppCommerceType();
-  /**
-   * <pre>
-   * Type of commerce platform integrated.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string app_commerce_type = 57 [json_name = "appCommerceType"];</code>
-   * @return The bytes for appCommerceType.
-   */
-  com.google.protobuf.ByteString
-      getAppCommerceTypeBytes();
-
-  /**
-   * <pre>
-   * Whether member hash authentication is enabled.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool enable_member_hash = 58 [json_name = "enableMemberHash"];</code>
-   * @return The enableMemberHash.
-   */
-  boolean getEnableMemberHash();
-
-  /**
-   * <pre>
-   * Default email domain identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string default_email_domain_id = 59 [json_name = "defaultEmailDomainId"];</code>
-   * @return The defaultEmailDomainId.
-   */
-  java.lang.String getDefaultEmailDomainId();
-  /**
-   * <pre>
-   * Default email domain identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string default_email_domain_id = 59 [json_name = "defaultEmailDomainId"];</code>
-   * @return The bytes for defaultEmailDomainId.
-   */
-  com.google.protobuf.ByteString
-      getDefaultEmailDomainIdBytes();
-
-  /**
-   * <pre>
-   * Whether multi-factor authentication is enabled.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool enable_mfa = 60 [json_name = "enableMfa"];</code>
-   * @return The enableMfa.
-   */
-  boolean getEnableMfa();
-
-  /**
-   * <pre>
-   * Whether the channel account is blocked.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool blocked = 61 [json_name = "blocked"];</code>
-   * @return The blocked.
-   */
-  boolean getBlocked();
-
-  /**
-   * <pre>
-   * Whether the theme has a bright color.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool bright = 62 [json_name = "bright"];</code>
-   * @return The bright.
-   */
-  boolean getBright();
-
-  /**
-   * <pre>
-   * Whether follow-up feature is active.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool using_follow_up = 63 [json_name = "usingFollowUp"];</code>
-   * @return The usingFollowUp.
-   */
-  boolean getUsingFollowUp();
-
-  /**
-   * <pre>
-   * Theme color brightness value normalized to 0.0-1.0 range.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>float brightness = 64 [json_name = "brightness"];</code>
-   * @return The brightness.
-   */
-  float getBrightness();
-
-  /**
-   * <pre>
-   * Whether the cover image has a bright tone.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool cover_image_bright = 65 [json_name = "coverImageBright"];</code>
-   * @return The coverImageBright.
-   */
-  boolean getCoverImageBright();
-
-  /**
-   * <pre>
-   * Cover image dominant color in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
-   * @return The coverImageColor.
-   */
-  java.lang.String getCoverImageColor();
-  /**
-   * <pre>
-   * Cover image dominant color in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
-   * @return The bytes for coverImageColor.
-   */
-  com.google.protobuf.ByteString
-      getCoverImageColorBytes();
-
-  /**
-   * <pre>
-   * Cover image URL for the channel profile.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
-   * @return The coverImageUrl.
-   */
-  java.lang.String getCoverImageUrl();
-  /**
-   * <pre>
-   * Cover image URL for the channel profile.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
-   * @return The bytes for coverImageUrl.
-   */
-  com.google.protobuf.ByteString
-      getCoverImageUrlBytes();
-
-  /**
-   * <pre>
-   * Whether to hide the new chat button from end users.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool disable_new_chat_button = 68 [json_name = "disableNewChatButton"];</code>
-   * @return The disableNewChatButton.
-   */
-  boolean getDisableNewChatButton();
-
-  /**
-   * <pre>
-   * Timestamp when the next away period starts.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
-   * @return Whether the nextAwayTime field is set.
-   */
-  boolean hasNextAwayTime();
-  /**
-   * <pre>
-   * Timestamp when the next away period starts.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
-   * @return The nextAwayTime.
-   */
-  com.google.protobuf.Timestamp getNextAwayTime();
-  /**
-   * <pre>
-   * Timestamp when the next away period starts.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getNextAwayTimeOrBuilder();
-
-  /**
-   * <pre>
-   * Timestamp when the next operating period starts.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
-   * @return Whether the nextWorkingTime field is set.
-   */
-  boolean hasNextWorkingTime();
-  /**
-   * <pre>
-   * Timestamp when the next operating period starts.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
-   * @return The nextWorkingTime.
-   */
-  com.google.protobuf.Timestamp getNextWorkingTime();
-  /**
-   * <pre>
-   * Timestamp when the next operating period starts.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getNextWorkingTimeOrBuilder();
-
-  /**
-   * <pre>
-   * Icon color for the channel plugin widget in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
-   * @return The pluginIconColor.
-   */
-  java.lang.String getPluginIconColor();
-  /**
-   * <pre>
-   * Icon color for the channel plugin widget in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
-   * @return The bytes for pluginIconColor.
-   */
-  com.google.protobuf.ByteString
-      getPluginIconColorBytes();
-
-  /**
-   * <pre>
-   * Whether to display individual operator profiles to end users.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool show_operator_profile = 72 [json_name = "showOperatorProfile"];</code>
-   * @return The showOperatorProfile.
-   */
-  boolean getShowOperatorProfile();
+  com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 
   /**
    * <pre>
@@ -1340,7 +156,7 @@ public interface ChannelOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the updatedAt field is set.
    */
   boolean hasUpdatedAt();
@@ -1350,7 +166,7 @@ public interface ChannelOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return The updatedAt.
    */
   com.google.protobuf.Timestamp getUpdatedAt();
@@ -1360,7 +176,1209 @@ public interface ChannelOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Webhook URL called to retrieve additional user information from your server.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://example.com/api/user-info"
+   * </pre>
+   *
+   * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
+   * @return The userInfoUrl.
+   */
+  java.lang.String getUserInfoUrl();
+  /**
+   * <pre>
+   * Webhook URL called to retrieve additional user information from your server.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://example.com/api/user-info"
+   * </pre>
+   *
+   * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
+   * @return The bytes for userInfoUrl.
+   */
+  com.google.protobuf.ByteString
+      getUserInfoUrlBytes();
+
+  /**
+   * <pre>
+   * Channel display name visible to end users.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:example="Channel Corp"
+   * </pre>
+   *
+   * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * @return The name.
+   */
+  java.lang.String getName();
+  /**
+   * <pre>
+   * Channel display name visible to end users.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:example="Channel Corp"
+   * </pre>
+   *
+   * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for name.
+   */
+  com.google.protobuf.ByteString
+      getNameBytes();
+
+  /**
+   * <pre>
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+   */
+  int getNameDescI18NMapCount();
+  /**
+   * <pre>
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+   */
+  boolean containsNameDescI18NMap(
+      java.lang.String key);
+  /**
+   * Use {@link #getNameDescI18NMapMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
+  getNameDescI18NMap();
+  /**
+   * <pre>
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+   */
+  java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
+  getNameDescI18NMapMap();
+  /**
+   * <pre>
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+   */
+
+  io.channel.api.proto.pub.coreapi.model.NameDesc getNameDescI18NMapOrDefault(
+      java.lang.String key,
+      io.channel.api.proto.pub.coreapi.model.NameDesc defaultValue);
+  /**
+   * <pre>
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+   */
+
+  io.channel.api.proto.pub.coreapi.model.NameDesc getNameDescI18NMapOrThrow(
+      java.lang.String key);
+
+  /**
+   * <pre>
+   * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
+   * @return The coverImageColor.
+   */
+  java.lang.String getCoverImageColor();
+  /**
+   * <pre>
+   * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
+   * @return The bytes for coverImageColor.
+   */
+  com.google.protobuf.ByteString
+      getCoverImageColorBytes();
+
+  /**
+   * <pre>
+   * Default bot display name shown to end users in conversations.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="Support Bot"
+   * </pre>
+   *
+   * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
+   * @return The botName.
+   */
+  java.lang.String getBotName();
+  /**
+   * <pre>
+   * Default bot display name shown to end users in conversations.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="Support Bot"
+   * </pre>
+   *
+   * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for botName.
+   */
+  com.google.protobuf.ByteString
+      getBotNameBytes();
+
+  /**
+   * <pre>
+   * Channel theme color in hex format (e.g., #3B82F6).
+   * Used to derive border, gradient, text, and plugin icon colors.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="#3B82F6"
+   * </pre>
+   *
+   * <code>string color = 11 [json_name = "color", (.buf.validate.field) = { ... }</code>
+   * @return The color.
+   */
+  java.lang.String getColor();
+  /**
+   * <pre>
+   * Channel theme color in hex format (e.g., #3B82F6).
+   * Used to derive border, gradient, text, and plugin icon colors.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="#3B82F6"
+   * </pre>
+   *
+   * <code>string color = 11 [json_name = "color", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for color.
+   */
+  com.google.protobuf.ByteString
+      getColorBytes();
+
+  /**
+   * <pre>
+   * Free-text summary displayed on the channel profile.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxLength=180
+   * +kubebuilder:example="We help businesses connect with customers."
+   * </pre>
+   *
+   * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * @return The description.
+   */
+  java.lang.String getDescription();
+  /**
+   * <pre>
+   * Free-text summary displayed on the channel profile.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxLength=180
+   * +kubebuilder:example="We help businesses connect with customers."
+   * </pre>
+   *
+   * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for description.
+   */
+  com.google.protobuf.ByteString
+      getDescriptionBytes();
+
+  /**
+   * <pre>
+   * ISO 3166-1 alpha-2 country code (e.g., KR, US).
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="KR"
+   * </pre>
+   *
+   * <code>string country = 13 [json_name = "country"];</code>
+   * @return The country.
+   */
+  java.lang.String getCountry();
+  /**
+   * <pre>
+   * ISO 3166-1 alpha-2 country code (e.g., KR, US).
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="KR"
+   * </pre>
+   *
+   * <code>string country = 13 [json_name = "country"];</code>
+   * @return The bytes for country.
+   */
+  com.google.protobuf.ByteString
+      getCountryBytes();
+
+  /**
+   * <pre>
+   * Custom domain slug for the channel.
+   * Globally unique across all channels.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="my-company"
+   * </pre>
+   *
+   * <code>string domain = 14 [json_name = "domain"];</code>
+   * @return The domain.
+   */
+  java.lang.String getDomain();
+  /**
+   * <pre>
+   * Custom domain slug for the channel.
+   * Globally unique across all channels.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="my-company"
+   * </pre>
+   *
+   * <code>string domain = 14 [json_name = "domain"];</code>
+   * @return The bytes for domain.
+   */
+  com.google.protobuf.ByteString
+      getDomainBytes();
+
+  /**
+   * <pre>
+   * System-assigned default domain.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
+   * </pre>
+   *
+   * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
+   * @return The defaultDomain.
+   */
+  java.lang.String getDefaultDomain();
+  /**
+   * <pre>
+   * System-assigned default domain.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
+   * </pre>
+   *
+   * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for defaultDomain.
+   */
+  com.google.protobuf.ByteString
+      getDefaultDomainBytes();
+
+  /**
+   * <pre>
+   * Business homepage URL associated with the channel.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://channel.io"
+   * </pre>
+   *
+   * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
+   * @return The homepageUrl.
+   */
+  java.lang.String getHomepageUrl();
+  /**
+   * <pre>
+   * Business homepage URL associated with the channel.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://channel.io"
+   * </pre>
+   *
+   * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
+   * @return The bytes for homepageUrl.
+   */
+  com.google.protobuf.ByteString
+      getHomepageUrlBytes();
+
+  /**
+   * <pre>
+   * Business contact phone number in E.164 format (e.g., +821012345678).
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="+821012345678"
+   * </pre>
+   *
+   * <code>string phone_number = 17 [json_name = "phoneNumber"];</code>
+   * @return The phoneNumber.
+   */
+  java.lang.String getPhoneNumber();
+  /**
+   * <pre>
+   * Business contact phone number in E.164 format (e.g., +821012345678).
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="+821012345678"
+   * </pre>
+   *
+   * <code>string phone_number = 17 [json_name = "phoneNumber"];</code>
+   * @return The bytes for phoneNumber.
+   */
+  com.google.protobuf.ByteString
+      getPhoneNumberBytes();
+
+  /**
+   * <pre>
+   * IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="Asia/Seoul"
+   * </pre>
+   *
+   * <code>string time_zone = 18 [json_name = "timeZone", (.buf.validate.field) = { ... }</code>
+   * @return The timeZone.
+   */
+  java.lang.String getTimeZone();
+  /**
+   * <pre>
+   * IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="Asia/Seoul"
+   * </pre>
+   *
+   * <code>string time_zone = 18 [json_name = "timeZone", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for timeZone.
+   */
+  com.google.protobuf.ByteString
+      getTimeZoneBytes();
+
+  /**
+   * <pre>
+   * Whether to display individual operator profiles instead of the channel identity to end users.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile", (.buf.validate.field) = { ... }</code>
+   * @return The showOperatorProfile.
+   */
+  boolean getShowOperatorProfile();
+
+  /**
+   * <pre>
+   * Whether the new chat button is hidden from end users.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton", (.buf.validate.field) = { ... }</code>
+   * @return The disableNewChatButton.
+   */
+  boolean getDisableNewChatButton();
+
+  /**
+   * <pre>
+   * Due date for payment before the channel transitions to an indebted state.
+   * ISO 8601 date format (e.g., 2026-12-31).
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="2026-12-31"
+   * </pre>
+   *
+   * <code>string indebted_due_date = 21 [json_name = "indebtedDueDate"];</code>
+   * @return The indebtedDueDate.
+   */
+  java.lang.String getIndebtedDueDate();
+  /**
+   * <pre>
+   * Due date for payment before the channel transitions to an indebted state.
+   * ISO 8601 date format (e.g., 2026-12-31).
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="2026-12-31"
+   * </pre>
+   *
+   * <code>string indebted_due_date = 21 [json_name = "indebtedDueDate"];</code>
+   * @return The bytes for indebtedDueDate.
+   */
+  com.google.protobuf.ByteString
+      getIndebtedDueDateBytes();
+
+  /**
+   * <pre>
+   * Whether SMS/text follow-up is enabled for offline conversations.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool follow_up_texting = 22 [json_name = "followUpTexting", (.buf.validate.field) = { ... }</code>
+   * @return The followUpTexting.
+   */
+  boolean getFollowUpTexting();
+
+  /**
+   * <pre>
+   * Whether email follow-up is enabled for offline conversations.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool follow_up_email = 23 [json_name = "followUpEmail", (.buf.validate.field) = { ... }</code>
+   * @return The followUpEmail.
+   */
+  boolean getFollowUpEmail();
+
+  /**
+   * <pre>
+   * Whether the follow-up form asks for the user's name.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName", (.buf.validate.field) = { ... }</code>
+   * @return The followUpAskName.
+   */
+  boolean getFollowUpAskName();
+
+  /**
+   * <pre>
+   * Whether the follow-up form must be completed before the user can start a conversation.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory", (.buf.validate.field) = { ... }</code>
+   * @return The followUpMandatory.
+   */
+  boolean getFollowUpMandatory();
+
+  /**
+   * <pre>
+   * Current lifecycle state of the channel.
+   * See ChannelState for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+   * @return The enum numeric value on the wire for state.
+   */
+  int getStateValue();
+  /**
+   * <pre>
+   * Current lifecycle state of the channel.
+   * See ChannelState for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+   * @return The state.
+   */
+  io.channel.api.proto.pub.coreapi.model.ChannelState getState();
+
+  /**
+   * <pre>
+   * Whether the channel is verified as an enterprise account.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool ent_verified = 27 [json_name = "entVerified", (.buf.validate.field) = { ... }</code>
+   * @return The entVerified.
+   */
+  boolean getEntVerified();
+
+  /**
+   * <pre>
+   * Default plugin identifier used by the messenger widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
+   * @return The defaultPluginId.
+   */
+  java.lang.String getDefaultPluginId();
+  /**
+   * <pre>
+   * Default plugin identifier used by the messenger widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
+   * @return The bytes for defaultPluginId.
+   */
+  com.google.protobuf.ByteString
+      getDefaultPluginIdBytes();
+
+  /**
+   * <pre>
+   * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="E-commerce"
+   * </pre>
+   *
+   * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
+   * @return The bizCategory.
+   */
+  java.lang.String getBizCategory();
+  /**
+   * <pre>
+   * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="E-commerce"
+   * </pre>
+   *
+   * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
+   * @return The bytes for bizCategory.
+   */
+  com.google.protobuf.ByteString
+      getBizCategoryBytes();
+
+  /**
+   * <pre>
+   * Number of staff members in the organization.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int32 staffs = 30 [json_name = "staffs"];</code>
+   * @return The staffs.
+   */
+  int getStaffs();
+
+  /**
+   * <pre>
+   * Integrated e-commerce platform app identifier.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string app_commerce_id = 31 [json_name = "appCommerceId"];</code>
+   * @return The appCommerceId.
+   */
+  java.lang.String getAppCommerceId();
+  /**
+   * <pre>
+   * Integrated e-commerce platform app identifier.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string app_commerce_id = 31 [json_name = "appCommerceId"];</code>
+   * @return The bytes for appCommerceId.
+   */
+  com.google.protobuf.ByteString
+      getAppCommerceIdBytes();
+
+  /**
+   * <pre>
+   * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
+   * @return The appCommerceType.
+   */
+  java.lang.String getAppCommerceType();
+  /**
+   * <pre>
+   * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
+   * @return The bytes for appCommerceType.
+   */
+  com.google.protobuf.ByteString
+      getAppCommerceTypeBytes();
+
+  /**
+   * <pre>
+   * Domain of the integrated e-commerce platform.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string app_commerce_domain = 33 [json_name = "appCommerceDomain"];</code>
+   * @return The appCommerceDomain.
+   */
+  java.lang.String getAppCommerceDomain();
+  /**
+   * <pre>
+   * Domain of the integrated e-commerce platform.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string app_commerce_domain = 33 [json_name = "appCommerceDomain"];</code>
+   * @return The bytes for appCommerceDomain.
+   */
+  com.google.protobuf.ByteString
+      getAppCommerceDomainBytes();
+
+  /**
+   * <pre>
+   * Whether member identity hash verification is enabled.
+   * When enabled, member logins require an HMAC hash to prevent impersonation.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool enable_member_hash = 34 [json_name = "enableMemberHash"];</code>
+   * @return The enableMemberHash.
+   */
+  boolean getEnableMemberHash();
+
+  /**
+   * <pre>
+   * Default email domain identifier used for outbound emails sent from this channel.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
+   * @return The defaultEmailDomainId.
+   */
+  java.lang.String getDefaultEmailDomainId();
+  /**
+   * <pre>
+   * Default email domain identifier used for outbound emails sent from this channel.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
+   * @return The bytes for defaultEmailDomainId.
+   */
+  com.google.protobuf.ByteString
+      getDefaultEmailDomainIdBytes();
+
+  /**
+   * <pre>
+   * Whether multi-factor authentication is required for managers in this channel.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool enable_mfa = 36 [json_name = "enableMfa", (.buf.validate.field) = { ... }</code>
+   * @return The enableMfa.
+   */
+  boolean getEnableMfa();
+
+  /**
+   * <pre>
+   * Whether the messenger widget is hidden from end users on the website.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger", (.buf.validate.field) = { ... }</code>
+   * @return The hideAppMessenger.
+   */
+  boolean getHideAppMessenger();
+
+  /**
+   * <pre>
+   * Whether the channel holds a business certification.
+   * Derived from biz_certificated_countries; true when at least one country is certified.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool biz_certificated = 38 [json_name = "bizCertificated", (.buf.validate.field) = { ... }</code>
+   * @return The bizCertificated.
+   */
+  boolean getBizCertificated();
+
+  /**
+   * <pre>
+   * Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed", (.buf.validate.field) = { ... }</code>
+   * @return The mktAlimtalkAllowed.
+   */
+  boolean getMktAlimtalkAllowed();
+
+  /**
+   * <pre>
+   * Countries where the channel has obtained business certification.
+   * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+   * @return A list containing the bizCertificatedCountries.
+   */
+  java.util.List<java.lang.String>
+      getBizCertificatedCountriesList();
+  /**
+   * <pre>
+   * Countries where the channel has obtained business certification.
+   * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+   * @return The count of bizCertificatedCountries.
+   */
+  int getBizCertificatedCountriesCount();
+  /**
+   * <pre>
+   * Countries where the channel has obtained business certification.
+   * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+   * @param index The index of the element to return.
+   * @return The bizCertificatedCountries at the given index.
+   */
+  java.lang.String getBizCertificatedCountries(int index);
+  /**
+   * <pre>
+   * Countries where the channel has obtained business certification.
+   * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the bizCertificatedCountries at the given index.
+   */
+  com.google.protobuf.ByteString
+      getBizCertificatedCountriesBytes(int index);
+
+  /**
+   * <pre>
+   * Whether the front-end ALF v2 AI assistant is enabled for end users.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2", (.buf.validate.field) = { ... }</code>
+   * @return The enableFrontAlfV2.
+   */
+  boolean getEnableFrontAlfV2();
+
+  /**
+   * <pre>
+   * Whether the channel is currently blocked.
+   * Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool blocked = 42 [json_name = "blocked", (.buf.validate.field) = { ... }</code>
+   * @return The blocked.
+   */
+  boolean getBlocked();
+
+  /**
+   * <pre>
+   * Whether the channel is currently accepting new conversations.
+   * True when the channel is not blocked and is within operating hours.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool working = 43 [json_name = "working", (.buf.validate.field) = { ... }</code>
+   * @return The working.
+   */
+  boolean getWorking();
+
+  /**
+   * <pre>
+   * Channel avatar image URL.
+   * Falls back to a system-generated default when no custom avatar is set.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
+   * </pre>
+   *
+   * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
+   * @return The avatarUrl.
+   */
+  java.lang.String getAvatarUrl();
+  /**
+   * <pre>
+   * Channel avatar image URL.
+   * Falls back to a system-generated default when no custom avatar is set.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
+   * </pre>
+   *
+   * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
+   * @return The bytes for avatarUrl.
+   */
+  com.google.protobuf.ByteString
+      getAvatarUrlBytes();
+
+  /**
+   * <pre>
+   * Expected response delay indicator shown to end users.
+   * Derived from the channel operating configuration.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.ResponseDelayType expected_response_delay = 45 [json_name = "expectedResponseDelay"];</code>
+   * @return The enum numeric value on the wire for expectedResponseDelay.
+   */
+  int getExpectedResponseDelayValue();
+  /**
+   * <pre>
+   * Expected response delay indicator shown to end users.
+   * Derived from the channel operating configuration.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.ResponseDelayType expected_response_delay = 45 [json_name = "expectedResponseDelay"];</code>
+   * @return The expectedResponseDelay.
+   */
+  io.channel.api.proto.pub.coreapi.model.ResponseDelayType getExpectedResponseDelay();
+
+  /**
+   * <pre>
+   * Whether the channel is currently within operating hours.
+   * Derived from the operating schedule configuration.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool in_operation = 46 [json_name = "inOperation", (.buf.validate.field) = { ... }</code>
+   * @return The inOperation.
+   */
+  boolean getInOperation();
+
+  /**
+   * <pre>
+   * Whether operating hour scheduling is enabled.
+   * When false, the channel is always considered in operation.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling", (.buf.validate.field) = { ... }</code>
+   * @return The operationTimeScheduling.
+   */
+  boolean getOperationTimeScheduling();
+
+  /**
+   * <pre>
+   * Timestamp when the next operating period starts.
+   * Present only when the channel is currently outside operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
+   * @return Whether the nextWorkingTime field is set.
+   */
+  boolean hasNextWorkingTime();
+  /**
+   * <pre>
+   * Timestamp when the next operating period starts.
+   * Present only when the channel is currently outside operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
+   * @return The nextWorkingTime.
+   */
+  com.google.protobuf.Timestamp getNextWorkingTime();
+  /**
+   * <pre>
+   * Timestamp when the next operating period starts.
+   * Present only when the channel is currently outside operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getNextWorkingTimeOrBuilder();
+
+  /**
+   * <pre>
+   * Timestamp when the next away (non-operating) period starts.
+   * Present only when the channel is currently within operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
+   * @return Whether the nextAwayTime field is set.
+   */
+  boolean hasNextAwayTime();
+  /**
+   * <pre>
+   * Timestamp when the next away (non-operating) period starts.
+   * Present only when the channel is currently within operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
+   * @return The nextAwayTime.
+   */
+  com.google.protobuf.Timestamp getNextAwayTime();
+  /**
+   * <pre>
+   * Timestamp when the next away (non-operating) period starts.
+   * Present only when the channel is currently within operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getNextAwayTimeOrBuilder();
+
+  /**
+   * <pre>
+   * Recurring weekly time ranges that define the channel operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+   */
+  java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> 
+      getOperationTimeRangesList();
+  /**
+   * <pre>
+   * Recurring weekly time ranges that define the channel operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.TimeRange getOperationTimeRanges(int index);
+  /**
+   * <pre>
+   * Recurring weekly time ranges that define the channel operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+   */
+  int getOperationTimeRangesCount();
+  /**
+   * <pre>
+   * Recurring weekly time ranges that define the channel operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+   */
+  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder> 
+      getOperationTimeRangesOrBuilderList();
+  /**
+   * <pre>
+   * Recurring weekly time ranges that define the channel operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder getOperationTimeRangesOrBuilder(
+      int index);
+
+  /**
+   * <pre>
+   * Messenger behavior when the channel is outside of operating hours.
+   * See ChannelAwayOption for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.ChannelAwayOption away_option = 51 [json_name = "awayOption"];</code>
+   * @return The enum numeric value on the wire for awayOption.
+   */
+  int getAwayOptionValue();
+  /**
+   * <pre>
+   * Messenger behavior when the channel is outside of operating hours.
+   * See ChannelAwayOption for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.ChannelAwayOption away_option = 51 [json_name = "awayOption"];</code>
+   * @return The awayOption.
+   */
+  io.channel.api.proto.pub.coreapi.model.ChannelAwayOption getAwayOption();
+
+  /**
+   * <pre>
+   * Whether end-user replying is blocked after a conversation is closed.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed", (.buf.validate.field) = { ... }</code>
+   * @return The blockReplyingAfterClosed.
+   */
+  boolean getBlockReplyingAfterClosed();
+
+  /**
+   * <pre>
+   * Grace period after conversation closure during which the end user may still reply.
+   * Applicable only when block_replying_after_closed is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
+   * @return Whether the blockReplyingAfterClosedTime field is set.
+   */
+  boolean hasBlockReplyingAfterClosedTime();
+  /**
+   * <pre>
+   * Grace period after conversation closure during which the end user may still reply.
+   * Applicable only when block_replying_after_closed is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
+   * @return The blockReplyingAfterClosedTime.
+   */
+  com.google.protobuf.Duration getBlockReplyingAfterClosedTime();
+  /**
+   * <pre>
+   * Grace period after conversation closure during which the end user may still reply.
+   * Applicable only when block_replying_after_closed is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
+   */
+  com.google.protobuf.DurationOrBuilder getBlockReplyingAfterClosedTimeOrBuilder();
+
+  /**
+   * <pre>
+   * Border accent color derived from the theme color, in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string border_color = 54 [json_name = "borderColor"];</code>
+   * @return The borderColor.
+   */
+  java.lang.String getBorderColor();
+  /**
+   * <pre>
+   * Border accent color derived from the theme color, in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string border_color = 54 [json_name = "borderColor"];</code>
+   * @return The bytes for borderColor.
+   */
+  com.google.protobuf.ByteString
+      getBorderColorBytes();
+
+  /**
+   * <pre>
+   * Gradient accent color derived from the theme color, in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
+   * @return The gradientColor.
+   */
+  java.lang.String getGradientColor();
+  /**
+   * <pre>
+   * Gradient accent color derived from the theme color, in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
+   * @return The bytes for gradientColor.
+   */
+  com.google.protobuf.ByteString
+      getGradientColorBytes();
+
+  /**
+   * <pre>
+   * Text color for contrast against the theme color, in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string text_color = 56 [json_name = "textColor"];</code>
+   * @return The textColor.
+   */
+  java.lang.String getTextColor();
+  /**
+   * <pre>
+   * Text color for contrast against the theme color, in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string text_color = 56 [json_name = "textColor"];</code>
+   * @return The bytes for textColor.
+   */
+  com.google.protobuf.ByteString
+      getTextColorBytes();
+
+  /**
+   * <pre>
+   * First character of the channel name, used as a fallback when no avatar is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string initial = 57 [json_name = "initial"];</code>
+   * @return The initial.
+   */
+  java.lang.String getInitial();
+  /**
+   * <pre>
+   * First character of the channel name, used as a fallback when no avatar is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string initial = 57 [json_name = "initial"];</code>
+   * @return The bytes for initial.
+   */
+  com.google.protobuf.ByteString
+      getInitialBytes();
+
+  /**
+   * <pre>
+   * Resolved domain for the channel.
+   * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
+   * @return The systemDomain.
+   */
+  java.lang.String getSystemDomain();
+  /**
+   * <pre>
+   * Resolved domain for the channel.
+   * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
+   * @return The bytes for systemDomain.
+   */
+  com.google.protobuf.ByteString
+      getSystemDomainBytes();
+
+  /**
+   * <pre>
+   * Icon color for the messenger plugin widget, derived from the theme color, in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string plugin_icon_color = 59 [json_name = "pluginIconColor"];</code>
+   * @return The pluginIconColor.
+   */
+  java.lang.String getPluginIconColor();
+  /**
+   * <pre>
+   * Icon color for the messenger plugin widget, derived from the theme color, in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string plugin_icon_color = 59 [json_name = "pluginIconColor"];</code>
+   * @return The bytes for pluginIconColor.
+   */
+  com.google.protobuf.ByteString
+      getPluginIconColorBytes();
+
+  /**
+   * <pre>
+   * Theme color brightness value normalized to 0.0 -- 1.0 range.
+   * Derived from the theme color.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>float brightness = 60 [json_name = "brightness"];</code>
+   * @return The brightness.
+   */
+  float getBrightness();
+
+  /**
+   * <pre>
+   * Cover image URL for the channel profile page.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
+   * @return The coverImageUrl.
+   */
+  java.lang.String getCoverImageUrl();
+  /**
+   * <pre>
+   * Cover image URL for the channel profile page.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
+   * @return The bytes for coverImageUrl.
+   */
+  com.google.protobuf.ByteString
+      getCoverImageUrlBytes();
+
+  /**
+   * <pre>
+   * Whether the cover image has a bright tone.
+   * Derived from the cover_image_color field.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool cover_image_bright = 62 [json_name = "coverImageBright"];</code>
+   * @return The coverImageBright.
+   */
+  boolean getCoverImageBright();
 }

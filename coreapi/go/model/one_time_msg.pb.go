@@ -25,15 +25,16 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Lifecycle state of a one-time message.
+// One-time message lifecycle state.
 type OneTimeMsgState int32
 
 const (
 	OneTimeMsgState_ONE_TIME_MSG_STATE_UNSPECIFIED OneTimeMsgState = 0
 	OneTimeMsgState_ONE_TIME_MSG_STATE_DRAFT       OneTimeMsgState = 1
-	OneTimeMsgState_ONE_TIME_MSG_STATE_ACTIVE      OneTimeMsgState = 2
+	OneTimeMsgState_ONE_TIME_MSG_STATE_WAITING     OneTimeMsgState = 2
 	OneTimeMsgState_ONE_TIME_MSG_STATE_SENT        OneTimeMsgState = 3
-	OneTimeMsgState_ONE_TIME_MSG_STATE_STOPPED     OneTimeMsgState = 4
+	OneTimeMsgState_ONE_TIME_MSG_STATE_CANCELED    OneTimeMsgState = 4
+	OneTimeMsgState_ONE_TIME_MSG_STATE_REMOVED     OneTimeMsgState = 5
 )
 
 // Enum value maps for OneTimeMsgState.
@@ -41,16 +42,18 @@ var (
 	OneTimeMsgState_name = map[int32]string{
 		0: "ONE_TIME_MSG_STATE_UNSPECIFIED",
 		1: "ONE_TIME_MSG_STATE_DRAFT",
-		2: "ONE_TIME_MSG_STATE_ACTIVE",
+		2: "ONE_TIME_MSG_STATE_WAITING",
 		3: "ONE_TIME_MSG_STATE_SENT",
-		4: "ONE_TIME_MSG_STATE_STOPPED",
+		4: "ONE_TIME_MSG_STATE_CANCELED",
+		5: "ONE_TIME_MSG_STATE_REMOVED",
 	}
 	OneTimeMsgState_value = map[string]int32{
 		"ONE_TIME_MSG_STATE_UNSPECIFIED": 0,
 		"ONE_TIME_MSG_STATE_DRAFT":       1,
-		"ONE_TIME_MSG_STATE_ACTIVE":      2,
+		"ONE_TIME_MSG_STATE_WAITING":     2,
 		"ONE_TIME_MSG_STATE_SENT":        3,
-		"ONE_TIME_MSG_STATE_STOPPED":     4,
+		"ONE_TIME_MSG_STATE_CANCELED":    4,
+		"ONE_TIME_MSG_STATE_REMOVED":     5,
 	}
 )
 
@@ -81,7 +84,7 @@ func (OneTimeMsgState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_one_time_msg_proto_rawDescGZIP(), []int{0}
 }
 
-// Delivery timing mode for a one-time message.
+// Send mode for one-time messages.
 type OneTimeMsgSendMode int32
 
 const (
@@ -134,68 +137,113 @@ func (OneTimeMsgSendMode) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_one_time_msg_proto_rawDescGZIP(), []int{1}
 }
 
-// OneTimeMsg represents a one-time message that is sent to targeted users once.
+// OneTimeMsg represents a one-time marketing message sent to a targeted user segment.
 type OneTimeMsg struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique one-time message identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="otm-001"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this one-time message belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Display name of the one-time message.
+	// Human-readable label for the one-time message.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=128
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	// Current lifecycle state.
+	// Current lifecycle state of the one-time message.
 	//
 	// +kubebuilder:validation:Required
 	State OneTimeMsgState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.OneTimeMsgState" json:"state,omitempty"`
-	// Delivery configuration specific to the chosen medium type.
+	// Controls when the message is delivered.
+	// Automatically inferred from start_at and local_start_at if not explicitly set.
 	//
 	// +kubebuilder:validation:Nullable
-	Settings *structpb.Struct `protobuf:"bytes,12,opt,name=settings,proto3" json:"settings,omitempty"`
-	// User targeting query for audience filtering.
+	SendMode OneTimeMsgSendMode `protobuf:"varint,5,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.OneTimeMsgSendMode" json:"send_mode,omitempty"`
+	// Channel operation schedule referenced for delivery timing.
 	//
 	// +kubebuilder:validation:Nullable
-	UserQuery *structpb.Struct `protobuf:"bytes,13,opt,name=user_query,json=userQuery,proto3" json:"user_query,omitempty"`
-	// Name of the event tracked as a conversion goal.
+	ChannelOperationId string `protobuf:"bytes,6,opt,name=channel_operation_id,json=channelOperationId,proto3" json:"channel_operation_id,omitempty"`
+	// Channel through which the message is delivered.
+	// Cannot be changed after creation.
+	//
+	// +kubebuilder:validation:Required
+	MediumType MediumType `protobuf:"varint,7,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
+	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+	//
+	// +kubebuilder:validation:Nullable
+	MediumId string `protobuf:"bytes,8,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
+	// Key for selecting the message topic template within the medium.
+	//
+	// +kubebuilder:validation:Nullable
+	MediumTopicBuildKey string `protobuf:"bytes,9,opt,name=medium_topic_build_key,json=mediumTopicBuildKey,proto3" json:"medium_topic_build_key,omitempty"`
+	// Labels for categorizing the message topic within the medium.
+	//
+	// +kubebuilder:validation:Nullable
+	MediumTopicBuildLabels []string `protobuf:"bytes,10,rep,name=medium_topic_build_labels,json=mediumTopicBuildLabels,proto3" json:"medium_topic_build_labels,omitempty"`
+	// Message content and medium-specific delivery configuration.
+	// Structure varies by medium_type.
+	//
+	// +kubebuilder:validation:Nullable
+	Settings *structpb.Struct `protobuf:"bytes,11,opt,name=settings,proto3" json:"settings,omitempty"`
+	// Query expression that defines the target user segment.
+	// Represented as a structured filter object.
+	//
+	// +kubebuilder:validation:Nullable
+	UserQuery *structpb.Struct `protobuf:"bytes,12,opt,name=user_query,json=userQuery,proto3" json:"user_query,omitempty"`
+	// App-defined user segments used alongside user_query for targeting.
+	//
+	// +kubebuilder:validation:Nullable
+	AppSegments []*AppSegment `protobuf:"bytes,13,rep,name=app_segments,json=appSegments,proto3" json:"app_segments,omitempty"`
+	// Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+	// Defines how long after delivery each conversion event is counted.
+	//
+	// +kubebuilder:validation:Nullable
+	ConversionWindows map[string]*durationpb.Duration `protobuf:"bytes,14,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Name of the event that counts as a goal completion.
 	//
 	// +kubebuilder:validation:Nullable
 	GoalEventName string `protobuf:"bytes,15,opt,name=goal_event_name,json=goalEventName,proto3" json:"goal_event_name,omitempty"`
-	// Filtering query for the goal event.
+	// Query expression to filter goal events by their properties.
+	// Represented as a structured filter object. Applicable when goal_event_name is set.
 	//
 	// +kubebuilder:validation:Nullable
 	GoalEventQuery *structpb.Struct `protobuf:"bytes,16,opt,name=goal_event_query,json=goalEventQuery,proto3" json:"goal_event_query,omitempty"`
-	// Duration window for goal event tracking.
-	// Valid range is 1 to 30 days. Defaults to 7 days.
+	// Time window for attributing goal events after delivery, in ISO 8601 duration format.
+	// Between 1 and 30 days. Defaults to 7 days.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="PT23H50M"
 	GoalEventDuration *durationpb.Duration `protobuf:"bytes,17,opt,name=goal_event_duration,json=goalEventDuration,proto3" json:"goal_event_duration,omitempty"`
-	// Whether this message contains advertising content.
+	// Whether the message contains advertising content subject to opt-out regulations.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	Advertising bool `protobuf:"varint,18,opt,name=advertising,proto3" json:"advertising,omitempty"`
-	// Whether to send via XMS (SMS/LMS/MMS) to offline users.
+	// Whether to fall back to XMS (text message) delivery when the user is offline.
 	//
 	// +kubebuilder:validation:Nullable
 	SendToOfflineXms bool `protobuf:"varint,19,opt,name=send_to_offline_xms,json=sendToOfflineXms,proto3" json:"send_to_offline_xms,omitempty"`
-	// Whether to send via email to offline users.
+	// Whether to fall back to email delivery when the user is offline.
 	//
 	// +kubebuilder:validation:Nullable
 	SendToOfflineEmail bool `protobuf:"varint,20,opt,name=send_to_offline_email,json=sendToOfflineEmail,proto3" json:"send_to_offline_email,omitempty"`
-	// Scheduled send time in UTC.
+	// Scheduled send timestamp in UTC.
 	// Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
 	//
 	// +kubebuilder:validation:Nullable
 	StartAt *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=start_at,json=startAt,proto3" json:"start_at,omitempty"`
-	// Draft snapshot of the message saved before activation.
+	// Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
+	// Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
+	//
+	// +kubebuilder:validation:Nullable
+	LocalStartAt string `protobuf:"bytes,22,opt,name=local_start_at,json=localStartAt,proto3" json:"local_start_at,omitempty"`
+	// Snapshot of the message configuration captured before sending.
+	// Represented as a free-form JSON object.
 	//
 	// +kubebuilder:validation:Nullable
 	Draft *structpb.Struct `protobuf:"bytes,23,opt,name=draft,proto3" json:"draft,omitempty"`
@@ -207,70 +255,30 @@ type OneTimeMsg struct {
 	//
 	// +kubebuilder:validation:Required
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Total number of messages sent.
+	// Cumulative count of messages delivered.
 	//
 	// +kubebuilder:validation:Nullable
 	Sent int32 `protobuf:"varint,26,opt,name=sent,proto3" json:"sent,omitempty"`
-	// Total number of message views.
+	// Cumulative count of message views by recipients.
 	//
 	// +kubebuilder:validation:Nullable
 	View int32 `protobuf:"varint,27,opt,name=view,proto3" json:"view,omitempty"`
-	// Total number of goal conversions achieved.
+	// Cumulative count of goal event completions attributed to this message.
 	//
 	// +kubebuilder:validation:Nullable
 	Goal int32 `protobuf:"varint,28,opt,name=goal,proto3" json:"goal,omitempty"`
-	// Total number of message link clicks.
+	// Cumulative count of message link clicks.
 	//
 	// +kubebuilder:validation:Nullable
 	Click int32 `protobuf:"varint,29,opt,name=click,proto3" json:"click,omitempty"`
-	// Duration after which the user chat created by this message expires.
+	// Duration before the user chat created by this message expires, in ISO 8601 format.
 	// Defaults to 31 days.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="PT23H50M"
 	UserChatExpireDuration *durationpb.Duration `protobuf:"bytes,30,opt,name=user_chat_expire_duration,json=userChatExpireDuration,proto3" json:"user_chat_expire_duration,omitempty"`
-	// Delivery medium type identifier.
-	//
-	// +kubebuilder:validation:Nullable
-	SendMedium string `protobuf:"bytes,32,opt,name=send_medium,json=sendMedium,proto3" json:"send_medium,omitempty"`
-	// Delivery timing mode.
-	//
-	// +kubebuilder:validation:Nullable
-	SendMode OneTimeMsgSendMode `protobuf:"varint,33,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.OneTimeMsgSendMode" json:"send_mode,omitempty"`
-	// Channel operation ID for business hours scheduling.
-	//
-	// +kubebuilder:validation:Nullable
-	ChannelOperationId string `protobuf:"bytes,34,opt,name=channel_operation_id,json=channelOperationId,proto3" json:"channel_operation_id,omitempty"`
-	// Delivery medium type.
-	//
-	// +kubebuilder:validation:Nullable
-	MediumType MediumType `protobuf:"varint,35,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
-	// Identifier of the specific medium instance.
-	//
-	// +kubebuilder:validation:Nullable
-	MediumId string `protobuf:"bytes,36,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
-	// Key for selecting the message topic template within the medium.
-	//
-	// +kubebuilder:validation:Nullable
-	MediumTopicBuildKey string `protobuf:"bytes,37,opt,name=medium_topic_build_key,json=mediumTopicBuildKey,proto3" json:"medium_topic_build_key,omitempty"`
-	// Labels for categorizing the message topic within the medium.
-	//
-	// +kubebuilder:validation:Nullable
-	MediumTopicBuildLabels []string `protobuf:"bytes,38,rep,name=medium_topic_build_labels,json=mediumTopicBuildLabels,proto3" json:"medium_topic_build_labels,omitempty"`
-	// Conversion tracking windows keyed by feature name.
-	//
-	// +kubebuilder:validation:Nullable
-	ConversionWindows map[string]*durationpb.Duration `protobuf:"bytes,39,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Scheduled send time in receiver's local timezone.
-	// ISO 8601 date-time without timezone offset.
-	//
-	// +kubebuilder:validation:Nullable
-	LocalStartAt string `protobuf:"bytes,40,opt,name=local_start_at,json=localStartAt,proto3" json:"local_start_at,omitempty"`
-	// App segments for user targeting.
-	//
-	// +kubebuilder:validation:Nullable
-	AppSegments   []*AppSegment `protobuf:"bytes,41,rep,name=app_segments,json=appSegments,proto3" json:"app_segments,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *OneTimeMsg) Reset() {
@@ -331,6 +339,48 @@ func (x *OneTimeMsg) GetState() OneTimeMsgState {
 	return OneTimeMsgState_ONE_TIME_MSG_STATE_UNSPECIFIED
 }
 
+func (x *OneTimeMsg) GetSendMode() OneTimeMsgSendMode {
+	if x != nil {
+		return x.SendMode
+	}
+	return OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_UNSPECIFIED
+}
+
+func (x *OneTimeMsg) GetChannelOperationId() string {
+	if x != nil {
+		return x.ChannelOperationId
+	}
+	return ""
+}
+
+func (x *OneTimeMsg) GetMediumType() MediumType {
+	if x != nil {
+		return x.MediumType
+	}
+	return MediumType_MEDIUM_TYPE_UNSPECIFIED
+}
+
+func (x *OneTimeMsg) GetMediumId() string {
+	if x != nil {
+		return x.MediumId
+	}
+	return ""
+}
+
+func (x *OneTimeMsg) GetMediumTopicBuildKey() string {
+	if x != nil {
+		return x.MediumTopicBuildKey
+	}
+	return ""
+}
+
+func (x *OneTimeMsg) GetMediumTopicBuildLabels() []string {
+	if x != nil {
+		return x.MediumTopicBuildLabels
+	}
+	return nil
+}
+
 func (x *OneTimeMsg) GetSettings() *structpb.Struct {
 	if x != nil {
 		return x.Settings
@@ -341,6 +391,20 @@ func (x *OneTimeMsg) GetSettings() *structpb.Struct {
 func (x *OneTimeMsg) GetUserQuery() *structpb.Struct {
 	if x != nil {
 		return x.UserQuery
+	}
+	return nil
+}
+
+func (x *OneTimeMsg) GetAppSegments() []*AppSegment {
+	if x != nil {
+		return x.AppSegments
+	}
+	return nil
+}
+
+func (x *OneTimeMsg) GetConversionWindows() map[string]*durationpb.Duration {
+	if x != nil {
+		return x.ConversionWindows
 	}
 	return nil
 }
@@ -392,6 +456,13 @@ func (x *OneTimeMsg) GetStartAt() *timestamppb.Timestamp {
 		return x.StartAt
 	}
 	return nil
+}
+
+func (x *OneTimeMsg) GetLocalStartAt() string {
+	if x != nil {
+		return x.LocalStartAt
+	}
+	return ""
 }
 
 func (x *OneTimeMsg) GetDraft() *structpb.Struct {
@@ -450,103 +521,41 @@ func (x *OneTimeMsg) GetUserChatExpireDuration() *durationpb.Duration {
 	return nil
 }
 
-func (x *OneTimeMsg) GetSendMedium() string {
-	if x != nil {
-		return x.SendMedium
-	}
-	return ""
-}
-
-func (x *OneTimeMsg) GetSendMode() OneTimeMsgSendMode {
-	if x != nil {
-		return x.SendMode
-	}
-	return OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_UNSPECIFIED
-}
-
-func (x *OneTimeMsg) GetChannelOperationId() string {
-	if x != nil {
-		return x.ChannelOperationId
-	}
-	return ""
-}
-
-func (x *OneTimeMsg) GetMediumType() MediumType {
-	if x != nil {
-		return x.MediumType
-	}
-	return MediumType_MEDIUM_TYPE_UNSPECIFIED
-}
-
-func (x *OneTimeMsg) GetMediumId() string {
-	if x != nil {
-		return x.MediumId
-	}
-	return ""
-}
-
-func (x *OneTimeMsg) GetMediumTopicBuildKey() string {
-	if x != nil {
-		return x.MediumTopicBuildKey
-	}
-	return ""
-}
-
-func (x *OneTimeMsg) GetMediumTopicBuildLabels() []string {
-	if x != nil {
-		return x.MediumTopicBuildLabels
-	}
-	return nil
-}
-
-func (x *OneTimeMsg) GetConversionWindows() map[string]*durationpb.Duration {
-	if x != nil {
-		return x.ConversionWindows
-	}
-	return nil
-}
-
-func (x *OneTimeMsg) GetLocalStartAt() string {
-	if x != nil {
-		return x.LocalStartAt
-	}
-	return ""
-}
-
-func (x *OneTimeMsg) GetAppSegments() []*AppSegment {
-	if x != nil {
-		return x.AppSegments
-	}
-	return nil
-}
-
 var File_coreapi_model_one_time_msg_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_one_time_msg_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/one_time_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa3\x10\n" +
+	" coreapi/model/one_time_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xeb\r\n" +
 	"\n" +
-	"OneTimeMsg\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"OneTimeMsg\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\xb3\x01\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xb3\x01\n" +
 	"\x04name\x18\x03 \x01(\tB\x9e\x01\xbaH\x9a\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128\xc8\x01\x01R\x04name\x12<\n" +
-	"\x05state\x18\x04 \x01(\x0e2\x1e.coreapi.model.OneTimeMsgStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x123\n" +
-	"\bsettings\x18\f \x01(\v2\x17.google.protobuf.StructR\bsettings\x126\n" +
+	"\x05state\x18\x04 \x01(\x0e2\x1e.coreapi.model.OneTimeMsgStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12>\n" +
+	"\tsend_mode\x18\x05 \x01(\x0e2!.coreapi.model.OneTimeMsgSendModeR\bsendMode\x120\n" +
+	"\x14channel_operation_id\x18\x06 \x01(\tR\x12channelOperationId\x12B\n" +
+	"\vmedium_type\x18\a \x01(\x0e2\x19.coreapi.model.MediumTypeB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"mediumType\x12\x1b\n" +
+	"\tmedium_id\x18\b \x01(\tR\bmediumId\x123\n" +
+	"\x16medium_topic_build_key\x18\t \x01(\tR\x13mediumTopicBuildKey\x129\n" +
+	"\x19medium_topic_build_labels\x18\n" +
+	" \x03(\tR\x16mediumTopicBuildLabels\x123\n" +
+	"\bsettings\x18\v \x01(\v2\x17.google.protobuf.StructR\bsettings\x126\n" +
 	"\n" +
-	"user_query\x18\r \x01(\v2\x17.google.protobuf.StructR\tuserQuery\x12&\n" +
+	"user_query\x18\f \x01(\v2\x17.google.protobuf.StructR\tuserQuery\x12<\n" +
+	"\fapp_segments\x18\r \x03(\v2\x19.coreapi.model.AppSegmentR\vappSegments\x12_\n" +
+	"\x12conversion_windows\x18\x0e \x03(\v20.coreapi.model.OneTimeMsg.ConversionWindowsEntryR\x11conversionWindows\x12&\n" +
 	"\x0fgoal_event_name\x18\x0f \x01(\tR\rgoalEventName\x12A\n" +
-	"\x10goal_event_query\x18\x10 \x01(\v2\x17.google.protobuf.StructR\x0egoalEventQuery\x12\xe1\x01\n" +
-	"\x13goal_event_duration\x18\x11 \x01(\v2\x19.google.protobuf.DurationB\x95\x01\xbaH\x91\x01\xba\x01\x8d\x01\n" +
-	"\x0eduration.range\x12#value must be between 1 and 30 days\x1aVthis == duration('0s') || (this >= duration('86400s') && this <= duration('2592000s'))R\x11goalEventDuration\x12 \n" +
-	"\vadvertising\x18\x12 \x01(\bR\vadvertising\x12-\n" +
+	"\x10goal_event_query\x18\x10 \x01(\v2\x17.google.protobuf.StructR\x0egoalEventQuery\x12I\n" +
+	"\x13goal_event_duration\x18\x11 \x01(\v2\x19.google.protobuf.DurationR\x11goalEventDuration\x12(\n" +
+	"\vadvertising\x18\x12 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\vadvertising\x12-\n" +
 	"\x13send_to_offline_xms\x18\x13 \x01(\bR\x10sendToOfflineXms\x121\n" +
 	"\x15send_to_offline_email\x18\x14 \x01(\bR\x12sendToOfflineEmail\x125\n" +
-	"\bstart_at\x18\x15 \x01(\v2\x1a.google.protobuf.TimestampR\astartAt\x12-\n" +
+	"\bstart_at\x18\x15 \x01(\v2\x1a.google.protobuf.TimestampR\astartAt\x12$\n" +
+	"\x0elocal_start_at\x18\x16 \x01(\tR\flocalStartAt\x12-\n" +
 	"\x05draft\x18\x17 \x01(\v2\x17.google.protobuf.StructR\x05draft\x12A\n" +
 	"\n" +
 	"created_at\x18\x18 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
@@ -556,28 +565,17 @@ const file_coreapi_model_one_time_msg_proto_rawDesc = "" +
 	"\x04view\x18\x1b \x01(\x05R\x04view\x12\x12\n" +
 	"\x04goal\x18\x1c \x01(\x05R\x04goal\x12\x14\n" +
 	"\x05click\x18\x1d \x01(\x05R\x05click\x12T\n" +
-	"\x19user_chat_expire_duration\x18\x1e \x01(\v2\x19.google.protobuf.DurationR\x16userChatExpireDuration\x12\x1f\n" +
-	"\vsend_medium\x18  \x01(\tR\n" +
-	"sendMedium\x12>\n" +
-	"\tsend_mode\x18! \x01(\x0e2!.coreapi.model.OneTimeMsgSendModeR\bsendMode\x120\n" +
-	"\x14channel_operation_id\x18\" \x01(\tR\x12channelOperationId\x12:\n" +
-	"\vmedium_type\x18# \x01(\x0e2\x19.coreapi.model.MediumTypeR\n" +
-	"mediumType\x12\x1b\n" +
-	"\tmedium_id\x18$ \x01(\tR\bmediumId\x123\n" +
-	"\x16medium_topic_build_key\x18% \x01(\tR\x13mediumTopicBuildKey\x129\n" +
-	"\x19medium_topic_build_labels\x18& \x03(\tR\x16mediumTopicBuildLabels\x12_\n" +
-	"\x12conversion_windows\x18' \x03(\v20.coreapi.model.OneTimeMsg.ConversionWindowsEntryR\x11conversionWindows\x12$\n" +
-	"\x0elocal_start_at\x18( \x01(\tR\flocalStartAt\x12<\n" +
-	"\fapp_segments\x18) \x03(\v2\x19.coreapi.model.AppSegmentR\vappSegments\x1a_\n" +
+	"\x19user_chat_expire_duration\x18\x1e \x01(\v2\x19.google.protobuf.DurationR\x16userChatExpireDuration\x1a_\n" +
 	"\x16ConversionWindowsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12/\n" +
-	"\x05value\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x05value:\x028\x01*\xaf\x01\n" +
+	"\x05value\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x05value:\x028\x01*\xd1\x01\n" +
 	"\x0fOneTimeMsgState\x12\"\n" +
 	"\x1eONE_TIME_MSG_STATE_UNSPECIFIED\x10\x00\x12\x1c\n" +
-	"\x18ONE_TIME_MSG_STATE_DRAFT\x10\x01\x12\x1d\n" +
-	"\x19ONE_TIME_MSG_STATE_ACTIVE\x10\x02\x12\x1b\n" +
-	"\x17ONE_TIME_MSG_STATE_SENT\x10\x03\x12\x1e\n" +
-	"\x1aONE_TIME_MSG_STATE_STOPPED\x10\x04*\xd2\x01\n" +
+	"\x18ONE_TIME_MSG_STATE_DRAFT\x10\x01\x12\x1e\n" +
+	"\x1aONE_TIME_MSG_STATE_WAITING\x10\x02\x12\x1b\n" +
+	"\x17ONE_TIME_MSG_STATE_SENT\x10\x03\x12\x1f\n" +
+	"\x1bONE_TIME_MSG_STATE_CANCELED\x10\x04\x12\x1e\n" +
+	"\x1aONE_TIME_MSG_STATE_REMOVED\x10\x05*\xd2\x01\n" +
 	"\x12OneTimeMsgSendMode\x12&\n" +
 	"\"ONE_TIME_MSG_SEND_MODE_UNSPECIFIED\x10\x00\x12&\n" +
 	"\"ONE_TIME_MSG_SEND_MODE_IMMEDIATELY\x10\x01\x124\n" +
@@ -604,28 +602,28 @@ var file_coreapi_model_one_time_msg_proto_goTypes = []any{
 	(OneTimeMsgSendMode)(0),       // 1: coreapi.model.OneTimeMsgSendMode
 	(*OneTimeMsg)(nil),            // 2: coreapi.model.OneTimeMsg
 	nil,                           // 3: coreapi.model.OneTimeMsg.ConversionWindowsEntry
-	(*structpb.Struct)(nil),       // 4: google.protobuf.Struct
-	(*durationpb.Duration)(nil),   // 5: google.protobuf.Duration
-	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
-	(MediumType)(0),               // 7: coreapi.model.MediumType
-	(*AppSegment)(nil),            // 8: coreapi.model.AppSegment
+	(MediumType)(0),               // 4: coreapi.model.MediumType
+	(*structpb.Struct)(nil),       // 5: google.protobuf.Struct
+	(*AppSegment)(nil),            // 6: coreapi.model.AppSegment
+	(*durationpb.Duration)(nil),   // 7: google.protobuf.Duration
+	(*timestamppb.Timestamp)(nil), // 8: google.protobuf.Timestamp
 }
 var file_coreapi_model_one_time_msg_proto_depIdxs = []int32{
 	0,  // 0: coreapi.model.OneTimeMsg.state:type_name -> coreapi.model.OneTimeMsgState
-	4,  // 1: coreapi.model.OneTimeMsg.settings:type_name -> google.protobuf.Struct
-	4,  // 2: coreapi.model.OneTimeMsg.user_query:type_name -> google.protobuf.Struct
-	4,  // 3: coreapi.model.OneTimeMsg.goal_event_query:type_name -> google.protobuf.Struct
-	5,  // 4: coreapi.model.OneTimeMsg.goal_event_duration:type_name -> google.protobuf.Duration
-	6,  // 5: coreapi.model.OneTimeMsg.start_at:type_name -> google.protobuf.Timestamp
-	4,  // 6: coreapi.model.OneTimeMsg.draft:type_name -> google.protobuf.Struct
-	6,  // 7: coreapi.model.OneTimeMsg.created_at:type_name -> google.protobuf.Timestamp
-	6,  // 8: coreapi.model.OneTimeMsg.updated_at:type_name -> google.protobuf.Timestamp
-	5,  // 9: coreapi.model.OneTimeMsg.user_chat_expire_duration:type_name -> google.protobuf.Duration
-	1,  // 10: coreapi.model.OneTimeMsg.send_mode:type_name -> coreapi.model.OneTimeMsgSendMode
-	7,  // 11: coreapi.model.OneTimeMsg.medium_type:type_name -> coreapi.model.MediumType
-	3,  // 12: coreapi.model.OneTimeMsg.conversion_windows:type_name -> coreapi.model.OneTimeMsg.ConversionWindowsEntry
-	8,  // 13: coreapi.model.OneTimeMsg.app_segments:type_name -> coreapi.model.AppSegment
-	5,  // 14: coreapi.model.OneTimeMsg.ConversionWindowsEntry.value:type_name -> google.protobuf.Duration
+	1,  // 1: coreapi.model.OneTimeMsg.send_mode:type_name -> coreapi.model.OneTimeMsgSendMode
+	4,  // 2: coreapi.model.OneTimeMsg.medium_type:type_name -> coreapi.model.MediumType
+	5,  // 3: coreapi.model.OneTimeMsg.settings:type_name -> google.protobuf.Struct
+	5,  // 4: coreapi.model.OneTimeMsg.user_query:type_name -> google.protobuf.Struct
+	6,  // 5: coreapi.model.OneTimeMsg.app_segments:type_name -> coreapi.model.AppSegment
+	3,  // 6: coreapi.model.OneTimeMsg.conversion_windows:type_name -> coreapi.model.OneTimeMsg.ConversionWindowsEntry
+	5,  // 7: coreapi.model.OneTimeMsg.goal_event_query:type_name -> google.protobuf.Struct
+	7,  // 8: coreapi.model.OneTimeMsg.goal_event_duration:type_name -> google.protobuf.Duration
+	8,  // 9: coreapi.model.OneTimeMsg.start_at:type_name -> google.protobuf.Timestamp
+	5,  // 10: coreapi.model.OneTimeMsg.draft:type_name -> google.protobuf.Struct
+	8,  // 11: coreapi.model.OneTimeMsg.created_at:type_name -> google.protobuf.Timestamp
+	8,  // 12: coreapi.model.OneTimeMsg.updated_at:type_name -> google.protobuf.Timestamp
+	7,  // 13: coreapi.model.OneTimeMsg.user_chat_expire_duration:type_name -> google.protobuf.Duration
+	7,  // 14: coreapi.model.OneTimeMsg.ConversionWindowsEntry.value:type_name -> google.protobuf.Duration
 	15, // [15:15] is the sub-list for method output_type
 	15, // [15:15] is the sub-list for method input_type
 	15, // [15:15] is the sub-list for extension type_name

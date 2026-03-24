@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * MessageThread represents thread metadata on a root message.
+ * MessageThread represents a threaded reply chain attached to a root message within a chat.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.MessageThread}
@@ -23,6 +23,9 @@ private static final long serialVersionUID = 0L;
     id_ = "";
     managerIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     repliedManagerIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    chatType_ = "";
+    chatId_ = "";
+    rootMessageId_ = "";
   }
 
   @java.lang.Override
@@ -85,6 +88,24 @@ private static final long serialVersionUID = 0L;
             replyCount_ = input.readInt32();
             break;
           }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            chatType_ = s;
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            chatId_ = s;
+            break;
+          }
+          case 58: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            rootMessageId_ = s;
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -127,12 +148,12 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object id_;
   /**
    * <pre>
-   * Unique thread identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
+   * Encodes the parent chat context and the root message that started the thread.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   @java.lang.Override
@@ -150,12 +171,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Unique thread identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
+   * Encodes the parent chat context and the root message that started the thread.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   @java.lang.Override
@@ -177,11 +198,12 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.LazyStringList managerIds_;
   /**
    * <pre>
-   * Manager IDs assigned to this thread.
+   * Manager IDs assigned to handle this thread.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated string manager_ids = 2 [json_name = "managerIds"];</code>
+   * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
    * @return A list containing the managerIds.
    */
   public com.google.protobuf.ProtocolStringList
@@ -190,11 +212,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Manager IDs assigned to this thread.
+   * Manager IDs assigned to handle this thread.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated string manager_ids = 2 [json_name = "managerIds"];</code>
+   * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
    * @return The count of managerIds.
    */
   public int getManagerIdsCount() {
@@ -202,11 +225,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Manager IDs assigned to this thread.
+   * Manager IDs assigned to handle this thread.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated string manager_ids = 2 [json_name = "managerIds"];</code>
+   * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
    * @param index The index of the element to return.
    * @return The managerIds at the given index.
    */
@@ -215,11 +239,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Manager IDs assigned to this thread.
+   * Manager IDs assigned to handle this thread.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated string manager_ids = 2 [json_name = "managerIds"];</code>
+   * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
    * @param index The index of the value to return.
    * @return The bytes of the managerIds at the given index.
    */
@@ -232,7 +257,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.LazyStringList repliedManagerIds_;
   /**
    * <pre>
-   * Ordered list of manager IDs who have replied in this thread.
+   * Manager IDs who have posted replies in this thread, ordered by first reply time.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -245,7 +270,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Ordered list of manager IDs who have replied in this thread.
+   * Manager IDs who have posted replies in this thread, ordered by first reply time.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -257,7 +282,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Ordered list of manager IDs who have replied in this thread.
+   * Manager IDs who have posted replies in this thread, ordered by first reply time.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -270,7 +295,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Ordered list of manager IDs who have replied in this thread.
+   * Manager IDs who have posted replies in this thread, ordered by first reply time.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -288,15 +313,160 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Total number of replies in this thread.
-   * +kubebuilder:validation:Nullable
+   * Defaults to 0.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>int32 reply_count = 4 [json_name = "replyCount"];</code>
+   * <code>int32 reply_count = 4 [json_name = "replyCount", (.buf.validate.field) = { ... }</code>
    * @return The replyCount.
    */
   @java.lang.Override
   public int getReplyCount() {
     return replyCount_;
+  }
+
+  public static final int CHAT_TYPE_FIELD_NUMBER = 5;
+  private volatile java.lang.Object chatType_;
+  /**
+   * <pre>
+   * Chat type component extracted from the thread `id`.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string chat_type = 5 [json_name = "chatType"];</code>
+   * @return The chatType.
+   */
+  @java.lang.Override
+  public java.lang.String getChatType() {
+    java.lang.Object ref = chatType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      chatType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Chat type component extracted from the thread `id`.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string chat_type = 5 [json_name = "chatType"];</code>
+   * @return The bytes for chatType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getChatTypeBytes() {
+    java.lang.Object ref = chatType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      chatType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CHAT_ID_FIELD_NUMBER = 6;
+  private volatile java.lang.Object chatId_;
+  /**
+   * <pre>
+   * Chat ID component extracted from the thread `id`.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string chat_id = 6 [json_name = "chatId"];</code>
+   * @return The chatId.
+   */
+  @java.lang.Override
+  public java.lang.String getChatId() {
+    java.lang.Object ref = chatId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      chatId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Chat ID component extracted from the thread `id`.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string chat_id = 6 [json_name = "chatId"];</code>
+   * @return The bytes for chatId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getChatIdBytes() {
+    java.lang.Object ref = chatId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      chatId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ROOT_MESSAGE_ID_FIELD_NUMBER = 7;
+  private volatile java.lang.Object rootMessageId_;
+  /**
+   * <pre>
+   * ID of the root message that started this thread, extracted from the thread `id`.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string root_message_id = 7 [json_name = "rootMessageId"];</code>
+   * @return The rootMessageId.
+   */
+  @java.lang.Override
+  public java.lang.String getRootMessageId() {
+    java.lang.Object ref = rootMessageId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      rootMessageId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * ID of the root message that started this thread, extracted from the thread `id`.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string root_message_id = 7 [json_name = "rootMessageId"];</code>
+   * @return The bytes for rootMessageId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getRootMessageIdBytes() {
+    java.lang.Object ref = rootMessageId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      rootMessageId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -324,6 +494,15 @@ private static final long serialVersionUID = 0L;
     }
     if (replyCount_ != 0) {
       output.writeInt32(4, replyCount_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, chatType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, chatId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rootMessageId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, rootMessageId_);
     }
     unknownFields.writeTo(output);
   }
@@ -357,6 +536,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(4, replyCount_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, chatType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, chatId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rootMessageId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, rootMessageId_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -380,6 +568,12 @@ private static final long serialVersionUID = 0L;
         .equals(other.getRepliedManagerIdsList())) return false;
     if (getReplyCount()
         != other.getReplyCount()) return false;
+    if (!getChatType()
+        .equals(other.getChatType())) return false;
+    if (!getChatId()
+        .equals(other.getChatId())) return false;
+    if (!getRootMessageId()
+        .equals(other.getRootMessageId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -403,6 +597,12 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + REPLY_COUNT_FIELD_NUMBER;
     hash = (53 * hash) + getReplyCount();
+    hash = (37 * hash) + CHAT_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getChatType().hashCode();
+    hash = (37 * hash) + CHAT_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getChatId().hashCode();
+    hash = (37 * hash) + ROOT_MESSAGE_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getRootMessageId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -500,7 +700,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * MessageThread represents thread metadata on a root message.
+   * MessageThread represents a threaded reply chain attached to a root message within a chat.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.MessageThread}
@@ -548,6 +748,12 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000002);
       replyCount_ = 0;
 
+      chatType_ = "";
+
+      chatId_ = "";
+
+      rootMessageId_ = "";
+
       return this;
     }
 
@@ -587,6 +793,9 @@ private static final long serialVersionUID = 0L;
       }
       result.repliedManagerIds_ = repliedManagerIds_;
       result.replyCount_ = replyCount_;
+      result.chatType_ = chatType_;
+      result.chatId_ = chatId_;
+      result.rootMessageId_ = rootMessageId_;
       onBuilt();
       return result;
     }
@@ -662,6 +871,18 @@ private static final long serialVersionUID = 0L;
       if (other.getReplyCount() != 0) {
         setReplyCount(other.getReplyCount());
       }
+      if (!other.getChatType().isEmpty()) {
+        chatType_ = other.chatType_;
+        onChanged();
+      }
+      if (!other.getChatId().isEmpty()) {
+        chatId_ = other.chatId_;
+        onChanged();
+      }
+      if (!other.getRootMessageId().isEmpty()) {
+        rootMessageId_ = other.rootMessageId_;
+        onChanged();
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -695,12 +916,12 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object id_ = "";
     /**
      * <pre>
-     * Unique thread identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
+     * Encodes the parent chat context and the root message that started the thread.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return The id.
      */
     public java.lang.String getId() {
@@ -717,12 +938,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique thread identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
+     * Encodes the parent chat context and the root message that started the thread.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
@@ -740,12 +961,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique thread identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
+     * Encodes the parent chat context and the root message that started the thread.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -761,12 +982,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique thread identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
+     * Encodes the parent chat context and the root message that started the thread.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -777,12 +998,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique thread identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
+     * Encodes the parent chat context and the root message that started the thread.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -807,11 +1028,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs assigned to this thread.
+     * Manager IDs assigned to handle this thread.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated string manager_ids = 2 [json_name = "managerIds"];</code>
+     * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
      * @return A list containing the managerIds.
      */
     public com.google.protobuf.ProtocolStringList
@@ -820,11 +1042,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs assigned to this thread.
+     * Manager IDs assigned to handle this thread.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated string manager_ids = 2 [json_name = "managerIds"];</code>
+     * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
      * @return The count of managerIds.
      */
     public int getManagerIdsCount() {
@@ -832,11 +1055,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs assigned to this thread.
+     * Manager IDs assigned to handle this thread.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated string manager_ids = 2 [json_name = "managerIds"];</code>
+     * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
      * @param index The index of the element to return.
      * @return The managerIds at the given index.
      */
@@ -845,11 +1069,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs assigned to this thread.
+     * Manager IDs assigned to handle this thread.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated string manager_ids = 2 [json_name = "managerIds"];</code>
+     * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
      * @param index The index of the value to return.
      * @return The bytes of the managerIds at the given index.
      */
@@ -859,11 +1084,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs assigned to this thread.
+     * Manager IDs assigned to handle this thread.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated string manager_ids = 2 [json_name = "managerIds"];</code>
+     * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
      * @param index The index to set the value at.
      * @param value The managerIds to set.
      * @return This builder for chaining.
@@ -880,11 +1106,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs assigned to this thread.
+     * Manager IDs assigned to handle this thread.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated string manager_ids = 2 [json_name = "managerIds"];</code>
+     * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
      * @param value The managerIds to add.
      * @return This builder for chaining.
      */
@@ -900,11 +1127,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs assigned to this thread.
+     * Manager IDs assigned to handle this thread.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated string manager_ids = 2 [json_name = "managerIds"];</code>
+     * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
      * @param values The managerIds to add.
      * @return This builder for chaining.
      */
@@ -918,11 +1146,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs assigned to this thread.
+     * Manager IDs assigned to handle this thread.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated string manager_ids = 2 [json_name = "managerIds"];</code>
+     * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearManagerIds() {
@@ -933,11 +1162,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs assigned to this thread.
+     * Manager IDs assigned to handle this thread.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated string manager_ids = 2 [json_name = "managerIds"];</code>
+     * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
      * @param value The bytes of the managerIds to add.
      * @return This builder for chaining.
      */
@@ -962,7 +1192,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of manager IDs who have replied in this thread.
+     * Manager IDs who have posted replies in this thread, ordered by first reply time.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -975,7 +1205,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of manager IDs who have replied in this thread.
+     * Manager IDs who have posted replies in this thread, ordered by first reply time.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -987,7 +1217,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of manager IDs who have replied in this thread.
+     * Manager IDs who have posted replies in this thread, ordered by first reply time.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1000,7 +1230,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of manager IDs who have replied in this thread.
+     * Manager IDs who have posted replies in this thread, ordered by first reply time.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1014,7 +1244,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of manager IDs who have replied in this thread.
+     * Manager IDs who have posted replies in this thread, ordered by first reply time.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1035,7 +1265,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of manager IDs who have replied in this thread.
+     * Manager IDs who have posted replies in this thread, ordered by first reply time.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1055,7 +1285,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of manager IDs who have replied in this thread.
+     * Manager IDs who have posted replies in this thread, ordered by first reply time.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1073,7 +1303,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of manager IDs who have replied in this thread.
+     * Manager IDs who have posted replies in this thread, ordered by first reply time.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1088,7 +1318,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of manager IDs who have replied in this thread.
+     * Manager IDs who have posted replies in this thread, ordered by first reply time.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1112,10 +1342,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of replies in this thread.
-     * +kubebuilder:validation:Nullable
+     * Defaults to 0.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>int32 reply_count = 4 [json_name = "replyCount"];</code>
+     * <code>int32 reply_count = 4 [json_name = "replyCount", (.buf.validate.field) = { ... }</code>
      * @return The replyCount.
      */
     @java.lang.Override
@@ -1125,10 +1356,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of replies in this thread.
-     * +kubebuilder:validation:Nullable
+     * Defaults to 0.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>int32 reply_count = 4 [json_name = "replyCount"];</code>
+     * <code>int32 reply_count = 4 [json_name = "replyCount", (.buf.validate.field) = { ... }</code>
      * @param value The replyCount to set.
      * @return This builder for chaining.
      */
@@ -1141,15 +1373,319 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of replies in this thread.
-     * +kubebuilder:validation:Nullable
+     * Defaults to 0.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>int32 reply_count = 4 [json_name = "replyCount"];</code>
+     * <code>int32 reply_count = 4 [json_name = "replyCount", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearReplyCount() {
       
       replyCount_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object chatType_ = "";
+    /**
+     * <pre>
+     * Chat type component extracted from the thread `id`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 5 [json_name = "chatType"];</code>
+     * @return The chatType.
+     */
+    public java.lang.String getChatType() {
+      java.lang.Object ref = chatType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        chatType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Chat type component extracted from the thread `id`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 5 [json_name = "chatType"];</code>
+     * @return The bytes for chatType.
+     */
+    public com.google.protobuf.ByteString
+        getChatTypeBytes() {
+      java.lang.Object ref = chatType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        chatType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Chat type component extracted from the thread `id`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 5 [json_name = "chatType"];</code>
+     * @param value The chatType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      chatType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat type component extracted from the thread `id`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 5 [json_name = "chatType"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChatType() {
+      
+      chatType_ = getDefaultInstance().getChatType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat type component extracted from the thread `id`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 5 [json_name = "chatType"];</code>
+     * @param value The bytes for chatType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      chatType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object chatId_ = "";
+    /**
+     * <pre>
+     * Chat ID component extracted from the thread `id`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_id = 6 [json_name = "chatId"];</code>
+     * @return The chatId.
+     */
+    public java.lang.String getChatId() {
+      java.lang.Object ref = chatId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        chatId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Chat ID component extracted from the thread `id`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_id = 6 [json_name = "chatId"];</code>
+     * @return The bytes for chatId.
+     */
+    public com.google.protobuf.ByteString
+        getChatIdBytes() {
+      java.lang.Object ref = chatId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        chatId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Chat ID component extracted from the thread `id`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_id = 6 [json_name = "chatId"];</code>
+     * @param value The chatId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      chatId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat ID component extracted from the thread `id`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_id = 6 [json_name = "chatId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChatId() {
+      
+      chatId_ = getDefaultInstance().getChatId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat ID component extracted from the thread `id`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_id = 6 [json_name = "chatId"];</code>
+     * @param value The bytes for chatId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      chatId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object rootMessageId_ = "";
+    /**
+     * <pre>
+     * ID of the root message that started this thread, extracted from the thread `id`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string root_message_id = 7 [json_name = "rootMessageId"];</code>
+     * @return The rootMessageId.
+     */
+    public java.lang.String getRootMessageId() {
+      java.lang.Object ref = rootMessageId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        rootMessageId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * ID of the root message that started this thread, extracted from the thread `id`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string root_message_id = 7 [json_name = "rootMessageId"];</code>
+     * @return The bytes for rootMessageId.
+     */
+    public com.google.protobuf.ByteString
+        getRootMessageIdBytes() {
+      java.lang.Object ref = rootMessageId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        rootMessageId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * ID of the root message that started this thread, extracted from the thread `id`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string root_message_id = 7 [json_name = "rootMessageId"];</code>
+     * @param value The rootMessageId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRootMessageId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      rootMessageId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * ID of the root message that started this thread, extracted from the thread `id`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string root_message_id = 7 [json_name = "rootMessageId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRootMessageId() {
+      
+      rootMessageId_ = getDefaultInstance().getRootMessageId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * ID of the root message that started this thread, extracted from the thread `id`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string root_message_id = 7 [json_name = "rootMessageId"];</code>
+     * @param value The bytes for rootMessageId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRootMessageIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      rootMessageId_ = value;
       onChanged();
       return this;
     }
@@ -1262,6 +1798,75 @@ private static final long serialVersionUID = 0L;
     		return clearReplyCount();
     	else
     		return setReplyCount(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The chat_type to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearChatType(java.lang.String value) {
+    	if (value == null)
+    		return clearChatType();
+    	else
+    		return setChatType(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearChatType();
+    	else
+    		return setChatType(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The chat_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearChatId(java.lang.String value) {
+    	if (value == null)
+    		return clearChatId();
+    	else
+    		return setChatId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearChatId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearChatId();
+    	else
+    		return setChatId(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The root_message_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearRootMessageId(java.lang.String value) {
+    	if (value == null)
+    		return clearRootMessageId();
+    	else
+    		return setRootMessageId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearRootMessageId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearRootMessageId();
+    	else
+    		return setRootMessageId(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.MessageThread)

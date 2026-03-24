@@ -5,8 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * CampaignMsg represents a message template within a campaign.
- * Each campaign can have multiple messages.
+ * CampaignMsg represents a message variant within a campaign.
+ * Each campaign can have multiple message variants for A/B testing.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.CampaignMsg}
@@ -191,8 +191,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique campaign message identifier.
+   * Client-assigned on creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="cm-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -214,8 +215,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique campaign message identifier.
+   * Client-assigned on creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="cm-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -240,7 +242,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object campaignId_;
   /**
    * <pre>
-   * Campaign ID this message belongs to.
+   * Campaign ID this message variant belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -263,7 +265,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Campaign ID this message belongs to.
+   * Campaign ID this message variant belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -292,7 +294,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this campaign message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -315,7 +317,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this campaign message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -340,7 +342,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   * Display name of the campaign message.
+   * Human-readable label for this message variant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -363,7 +365,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Display name of the campaign message.
+   * Human-readable label for this message variant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -390,11 +392,12 @@ private static final long serialVersionUID = 0L;
   private int mediumType_;
   /**
    * <pre>
-   * Delivery medium type.
-   * +kubebuilder:validation:Nullable
+   * Channel through which this message is delivered.
+   * Cannot be changed after creation.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType"];</code>
+   * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
    * @return The enum numeric value on the wire for mediumType.
    */
   @java.lang.Override public int getMediumTypeValue() {
@@ -402,11 +405,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Delivery medium type.
-   * +kubebuilder:validation:Nullable
+   * Channel through which this message is delivered.
+   * Cannot be changed after creation.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType"];</code>
+   * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
    * @return The mediumType.
    */
   @java.lang.Override public io.channel.api.proto.pub.coreapi.model.MediumType getMediumType() {
@@ -419,7 +423,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object mediumId_;
   /**
    * <pre>
-   * Identifier of the specific medium instance.
+   * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -441,7 +445,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Identifier of the specific medium instance.
+   * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -467,11 +471,12 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Struct settings_;
   /**
    * <pre>
-   * Delivery configuration specific to the chosen medium type.
-   * +kubebuilder:validation:Nullable
+   * Message content and medium-specific delivery configuration.
+   * Structure varies by medium_type.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Struct settings = 7 [json_name = "settings"];</code>
+   * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
    * @return Whether the settings field is set.
    */
   @java.lang.Override
@@ -480,11 +485,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Delivery configuration specific to the chosen medium type.
-   * +kubebuilder:validation:Nullable
+   * Message content and medium-specific delivery configuration.
+   * Structure varies by medium_type.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Struct settings = 7 [json_name = "settings"];</code>
+   * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
    * @return The settings.
    */
   @java.lang.Override
@@ -493,11 +499,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Delivery configuration specific to the chosen medium type.
-   * +kubebuilder:validation:Nullable
+   * Message content and medium-specific delivery configuration.
+   * Structure varies by medium_type.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Struct settings = 7 [json_name = "settings"];</code>
+   * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getSettingsOrBuilder() {
@@ -590,7 +597,7 @@ private static final long serialVersionUID = 0L;
   private int sent_;
   /**
    * <pre>
-   * Total number of messages sent.
+   * Cumulative count of messages delivered for this variant.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -606,7 +613,7 @@ private static final long serialVersionUID = 0L;
   private int view_;
   /**
    * <pre>
-   * Total number of message views.
+   * Cumulative count of message views by recipients for this variant.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -622,7 +629,7 @@ private static final long serialVersionUID = 0L;
   private int goal_;
   /**
    * <pre>
-   * Total number of goal conversions achieved.
+   * Cumulative count of goal event completions attributed to this variant.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -638,7 +645,7 @@ private static final long serialVersionUID = 0L;
   private int click_;
   /**
    * <pre>
-   * Total number of message link clicks.
+   * Cumulative count of message link clicks for this variant.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -948,8 +955,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * CampaignMsg represents a message template within a campaign.
-   * Each campaign can have multiple messages.
+   * CampaignMsg represents a message variant within a campaign.
+   * Each campaign can have multiple message variants for A/B testing.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.CampaignMsg}
@@ -1203,8 +1210,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique campaign message identifier.
+     * Client-assigned on creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cm-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1225,8 +1233,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique campaign message identifier.
+     * Client-assigned on creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cm-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1248,8 +1257,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique campaign message identifier.
+     * Client-assigned on creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cm-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1269,8 +1279,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique campaign message identifier.
+     * Client-assigned on creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cm-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1285,8 +1296,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique campaign message identifier.
+     * Client-assigned on creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cm-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1308,7 +1320,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object campaignId_ = "";
     /**
      * <pre>
-     * Campaign ID this message belongs to.
+     * Campaign ID this message variant belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1330,7 +1342,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Campaign ID this message belongs to.
+     * Campaign ID this message variant belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1353,7 +1365,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Campaign ID this message belongs to.
+     * Campaign ID this message variant belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1374,7 +1386,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Campaign ID this message belongs to.
+     * Campaign ID this message variant belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1390,7 +1402,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Campaign ID this message belongs to.
+     * Campaign ID this message variant belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1416,7 +1428,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this campaign message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1438,7 +1450,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this campaign message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1461,7 +1473,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this campaign message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1482,7 +1494,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this campaign message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1498,7 +1510,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this campaign message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1520,7 +1532,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Display name of the campaign message.
+     * Human-readable label for this message variant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1542,7 +1554,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name of the campaign message.
+     * Human-readable label for this message variant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1565,7 +1577,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name of the campaign message.
+     * Human-readable label for this message variant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1586,7 +1598,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name of the campaign message.
+     * Human-readable label for this message variant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1602,7 +1614,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name of the campaign message.
+     * Human-readable label for this message variant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1626,11 +1638,12 @@ private static final long serialVersionUID = 0L;
     private int mediumType_ = 0;
     /**
      * <pre>
-     * Delivery medium type.
-     * +kubebuilder:validation:Nullable
+     * Channel through which this message is delivered.
+     * Cannot be changed after creation.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType"];</code>
+     * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
      * @return The enum numeric value on the wire for mediumType.
      */
     @java.lang.Override public int getMediumTypeValue() {
@@ -1638,11 +1651,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delivery medium type.
-     * +kubebuilder:validation:Nullable
+     * Channel through which this message is delivered.
+     * Cannot be changed after creation.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType"];</code>
+     * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
      * @param value The enum numeric value on the wire for mediumType to set.
      * @return This builder for chaining.
      */
@@ -1654,11 +1668,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delivery medium type.
-     * +kubebuilder:validation:Nullable
+     * Channel through which this message is delivered.
+     * Cannot be changed after creation.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType"];</code>
+     * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
      * @return The mediumType.
      */
     @java.lang.Override
@@ -1669,11 +1684,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delivery medium type.
-     * +kubebuilder:validation:Nullable
+     * Channel through which this message is delivered.
+     * Cannot be changed after creation.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType"];</code>
+     * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
      * @param value The mediumType to set.
      * @return This builder for chaining.
      */
@@ -1688,11 +1704,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delivery medium type.
-     * +kubebuilder:validation:Nullable
+     * Channel through which this message is delivered.
+     * Cannot be changed after creation.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType"];</code>
+     * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearMediumType() {
@@ -1705,7 +1722,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object mediumId_ = "";
     /**
      * <pre>
-     * Identifier of the specific medium instance.
+     * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1726,7 +1743,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Identifier of the specific medium instance.
+     * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1748,7 +1765,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Identifier of the specific medium instance.
+     * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1768,7 +1785,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Identifier of the specific medium instance.
+     * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1783,7 +1800,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Identifier of the specific medium instance.
+     * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1808,11 +1825,12 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> settingsBuilder_;
     /**
      * <pre>
-     * Delivery configuration specific to the chosen medium type.
-     * +kubebuilder:validation:Nullable
+     * Message content and medium-specific delivery configuration.
+     * Structure varies by medium_type.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings"];</code>
+     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
      * @return Whether the settings field is set.
      */
     public boolean hasSettings() {
@@ -1820,11 +1838,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delivery configuration specific to the chosen medium type.
-     * +kubebuilder:validation:Nullable
+     * Message content and medium-specific delivery configuration.
+     * Structure varies by medium_type.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings"];</code>
+     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
      * @return The settings.
      */
     public com.google.protobuf.Struct getSettings() {
@@ -1836,11 +1855,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delivery configuration specific to the chosen medium type.
-     * +kubebuilder:validation:Nullable
+     * Message content and medium-specific delivery configuration.
+     * Structure varies by medium_type.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings"];</code>
+     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
      */
     public Builder setSettings(com.google.protobuf.Struct value) {
       if (settingsBuilder_ == null) {
@@ -1857,11 +1877,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delivery configuration specific to the chosen medium type.
-     * +kubebuilder:validation:Nullable
+     * Message content and medium-specific delivery configuration.
+     * Structure varies by medium_type.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings"];</code>
+     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
      */
     public Builder setSettings(
         com.google.protobuf.Struct.Builder builderForValue) {
@@ -1876,11 +1897,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delivery configuration specific to the chosen medium type.
-     * +kubebuilder:validation:Nullable
+     * Message content and medium-specific delivery configuration.
+     * Structure varies by medium_type.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings"];</code>
+     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeSettings(com.google.protobuf.Struct value) {
       if (settingsBuilder_ == null) {
@@ -1899,11 +1921,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delivery configuration specific to the chosen medium type.
-     * +kubebuilder:validation:Nullable
+     * Message content and medium-specific delivery configuration.
+     * Structure varies by medium_type.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings"];</code>
+     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearSettings() {
       if (settingsBuilder_ == null) {
@@ -1918,11 +1941,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delivery configuration specific to the chosen medium type.
-     * +kubebuilder:validation:Nullable
+     * Message content and medium-specific delivery configuration.
+     * Structure varies by medium_type.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings"];</code>
+     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Struct.Builder getSettingsBuilder() {
       
@@ -1931,11 +1955,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delivery configuration specific to the chosen medium type.
-     * +kubebuilder:validation:Nullable
+     * Message content and medium-specific delivery configuration.
+     * Structure varies by medium_type.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings"];</code>
+     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.StructOrBuilder getSettingsOrBuilder() {
       if (settingsBuilder_ != null) {
@@ -1947,11 +1972,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Delivery configuration specific to the chosen medium type.
-     * +kubebuilder:validation:Nullable
+     * Message content and medium-specific delivery configuration.
+     * Structure varies by medium_type.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings"];</code>
+     * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
@@ -2298,7 +2324,7 @@ private static final long serialVersionUID = 0L;
     private int sent_ ;
     /**
      * <pre>
-     * Total number of messages sent.
+     * Cumulative count of messages delivered for this variant.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2311,7 +2337,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of messages sent.
+     * Cumulative count of messages delivered for this variant.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2327,7 +2353,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of messages sent.
+     * Cumulative count of messages delivered for this variant.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2344,7 +2370,7 @@ private static final long serialVersionUID = 0L;
     private int view_ ;
     /**
      * <pre>
-     * Total number of message views.
+     * Cumulative count of message views by recipients for this variant.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2357,7 +2383,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of message views.
+     * Cumulative count of message views by recipients for this variant.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2373,7 +2399,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of message views.
+     * Cumulative count of message views by recipients for this variant.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2390,7 +2416,7 @@ private static final long serialVersionUID = 0L;
     private int goal_ ;
     /**
      * <pre>
-     * Total number of goal conversions achieved.
+     * Cumulative count of goal event completions attributed to this variant.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2403,7 +2429,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of goal conversions achieved.
+     * Cumulative count of goal event completions attributed to this variant.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2419,7 +2445,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of goal conversions achieved.
+     * Cumulative count of goal event completions attributed to this variant.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2436,7 +2462,7 @@ private static final long serialVersionUID = 0L;
     private int click_ ;
     /**
      * <pre>
-     * Total number of message link clicks.
+     * Cumulative count of message link clicks for this variant.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2449,7 +2475,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of message link clicks.
+     * Cumulative count of message link clicks for this variant.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2465,7 +2491,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total number of message link clicks.
+     * Cumulative count of message link clicks for this variant.
      * +kubebuilder:validation:Nullable
      * </pre>
      *

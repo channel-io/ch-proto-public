@@ -93,7 +93,7 @@ private static final long serialVersionUID = 0L;
           }
           case 48: {
 
-            version_ = input.readInt32();
+            version_ = input.readInt64();
             break;
           }
           case 58: {
@@ -151,8 +151,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique bookmark identifier.
+   * Format: "{personType}-{personId}-{chatType}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="manager-m001-userChat"
    * </pre>
    *
    * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -174,8 +176,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique bookmark identifier.
+   * Format: "{personType}-{personId}-{chatType}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="manager-m001-userChat"
    * </pre>
    *
    * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -203,6 +207,7 @@ private static final long serialVersionUID = 0L;
    * Chat ID this bookmark belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -226,6 +231,7 @@ private static final long serialVersionUID = 0L;
    * Chat ID this bookmark belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -251,6 +257,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Composite key for the associated chat.
+   * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -274,6 +281,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Composite key for the associated chat.
+   * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -352,7 +360,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this bookmark belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -375,7 +383,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this bookmark belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -397,17 +405,18 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSION_FIELD_NUMBER = 6;
-  private int version_;
+  private long version_;
   /**
    * <pre>
    * Entity version number for optimistic concurrency control.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>int32 version = 6 [json_name = "version"];</code>
+   * <code>int64 version = 6 [json_name = "version"];</code>
    * @return The version.
    */
   @java.lang.Override
-  public int getVersion() {
+  public long getVersion() {
     return version_;
   }
 
@@ -590,8 +599,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, channelId_);
     }
-    if (version_ != 0) {
-      output.writeInt32(6, version_);
+    if (version_ != 0L) {
+      output.writeInt64(6, version_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, personType_);
@@ -626,9 +635,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, channelId_);
     }
-    if (version_ != 0) {
+    if (version_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(6, version_);
+        .computeInt64Size(6, version_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, personType_);
@@ -694,7 +703,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChannelId().hashCode();
     hash = (37 * hash) + VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + getVersion();
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getVersion());
     hash = (37 * hash) + PERSON_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getPersonType().hashCode();
     hash = (37 * hash) + PERSON_ID_FIELD_NUMBER;
@@ -849,7 +859,7 @@ private static final long serialVersionUID = 0L;
 
       channelId_ = "";
 
-      version_ = 0;
+      version_ = 0L;
 
       personType_ = "";
 
@@ -960,7 +970,7 @@ private static final long serialVersionUID = 0L;
         channelId_ = other.channelId_;
         onChanged();
       }
-      if (other.getVersion() != 0) {
+      if (other.getVersion() != 0L) {
         setVersion(other.getVersion());
       }
       if (!other.getPersonType().isEmpty()) {
@@ -1008,8 +1018,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique bookmark identifier.
+     * Format: "{personType}-{personId}-{chatType}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
      * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1030,8 +1042,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique bookmark identifier.
+     * Format: "{personType}-{personId}-{chatType}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
      * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1053,8 +1067,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique bookmark identifier.
+     * Format: "{personType}-{personId}-{chatType}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
      * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1074,8 +1090,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique bookmark identifier.
+     * Format: "{personType}-{personId}-{chatType}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
      * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1090,8 +1108,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique bookmark identifier.
+     * Format: "{personType}-{personId}-{chatType}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
      * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1116,6 +1136,7 @@ private static final long serialVersionUID = 0L;
      * Chat ID this bookmark belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -1138,6 +1159,7 @@ private static final long serialVersionUID = 0L;
      * Chat ID this bookmark belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -1161,6 +1183,7 @@ private static final long serialVersionUID = 0L;
      * Chat ID this bookmark belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -1182,6 +1205,7 @@ private static final long serialVersionUID = 0L;
      * Chat ID this bookmark belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -1198,6 +1222,7 @@ private static final long serialVersionUID = 0L;
      * Chat ID this bookmark belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -1220,6 +1245,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite key for the associated chat.
+     * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1242,6 +1268,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite key for the associated chat.
+     * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1265,6 +1292,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite key for the associated chat.
+     * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1286,6 +1314,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite key for the associated chat.
+     * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1302,6 +1331,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite key for the associated chat.
+     * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1433,7 +1463,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this bookmark belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1455,7 +1485,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this bookmark belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1478,7 +1508,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this bookmark belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1499,7 +1529,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this bookmark belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1515,7 +1545,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this bookmark belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1534,29 +1564,31 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int version_ ;
+    private long version_ ;
     /**
      * <pre>
      * Entity version number for optimistic concurrency control.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 version = 6 [json_name = "version"];</code>
+     * <code>int64 version = 6 [json_name = "version"];</code>
      * @return The version.
      */
     @java.lang.Override
-    public int getVersion() {
+    public long getVersion() {
       return version_;
     }
     /**
      * <pre>
      * Entity version number for optimistic concurrency control.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 version = 6 [json_name = "version"];</code>
+     * <code>int64 version = 6 [json_name = "version"];</code>
      * @param value The version to set.
      * @return This builder for chaining.
      */
-    public Builder setVersion(int value) {
+    public Builder setVersion(long value) {
       
       version_ = value;
       onChanged();
@@ -1565,14 +1597,15 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Entity version number for optimistic concurrency control.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 version = 6 [json_name = "version"];</code>
+     * <code>int64 version = 6 [json_name = "version"];</code>
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
       
-      version_ = 0;
+      version_ = 0L;
       onChanged();
       return this;
     }
@@ -2028,7 +2061,7 @@ private static final long serialVersionUID = 0L;
      * @param value The version to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearVersion(java.lang.Integer value) {
+    public Builder setOrClearVersion(java.lang.Long value) {
     	if (value == null)
     		return clearVersion();
     	else
@@ -2040,7 +2073,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Integer> mapFunc) {
+    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
     	if (value == null)
     		return clearVersion();
     	else

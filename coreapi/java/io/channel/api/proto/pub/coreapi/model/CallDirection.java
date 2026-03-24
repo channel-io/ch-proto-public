@@ -6,6 +6,8 @@ package io.channel.api.proto.pub.coreapi.model;
 /**
  * <pre>
  * Direction of a phone call relative to the channel.
+ * - INBOUND: Call received from an external caller.
+ * - OUTBOUND: Call initiated by a manager to an external number.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.CallDirection}

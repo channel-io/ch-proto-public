@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * MessageFile represents a file attachment in a message.
+ * MessageFile represents a file attached to a message.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.MessageFile}
@@ -27,6 +27,12 @@ private static final long serialVersionUID = 0L;
     bucket_ = "";
     key_ = "";
     previewKey_ = "";
+    privateFileScope_ = 0;
+    sharedDomain_ = "";
+    channelId_ = "";
+    managerId_ = "";
+    chatType_ = "";
+    chatId_ = "";
   }
 
   @java.lang.Override
@@ -131,6 +137,42 @@ private static final long serialVersionUID = 0L;
             previewKey_ = s;
             break;
           }
+          case 112: {
+            int rawValue = input.readEnum();
+
+            privateFileScope_ = rawValue;
+            break;
+          }
+          case 122: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            sharedDomain_ = s;
+            break;
+          }
+          case 130: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            channelId_ = s;
+            break;
+          }
+          case 138: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            managerId_ = s;
+            break;
+          }
+          case 146: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            chatType_ = s;
+            break;
+          }
+          case 154: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            chatId_ = s;
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -163,13 +205,166 @@ private static final long serialVersionUID = 0L;
             io.channel.api.proto.pub.coreapi.model.MessageFile.class, io.channel.api.proto.pub.coreapi.model.MessageFile.Builder.class);
   }
 
+  /**
+   * <pre>
+   * Access scope for private file visibility.
+   * </pre>
+   *
+   * Protobuf enum {@code coreapi.model.MessageFile.PrivateFileScope}
+   */
+  public enum PrivateFileScope
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>PRIVATE_FILE_SCOPE_UNSPECIFIED = 0;</code>
+     */
+    PRIVATE_FILE_SCOPE_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * Visible only to participants of the specific chat.
+     * </pre>
+     *
+     * <code>PRIVATE_FILE_SCOPE_CHAT = 1;</code>
+     */
+    PRIVATE_FILE_SCOPE_CHAT(1),
+    /**
+     * <pre>
+     * Visible only to the owning manager.
+     * </pre>
+     *
+     * <code>PRIVATE_FILE_SCOPE_MANAGER = 2;</code>
+     */
+    PRIVATE_FILE_SCOPE_MANAGER(2),
+    /**
+     * <pre>
+     * Visible to all members of the channel.
+     * </pre>
+     *
+     * <code>PRIVATE_FILE_SCOPE_CHANNEL = 3;</code>
+     */
+    PRIVATE_FILE_SCOPE_CHANNEL(3),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>PRIVATE_FILE_SCOPE_UNSPECIFIED = 0;</code>
+     */
+    public static final int PRIVATE_FILE_SCOPE_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * Visible only to participants of the specific chat.
+     * </pre>
+     *
+     * <code>PRIVATE_FILE_SCOPE_CHAT = 1;</code>
+     */
+    public static final int PRIVATE_FILE_SCOPE_CHAT_VALUE = 1;
+    /**
+     * <pre>
+     * Visible only to the owning manager.
+     * </pre>
+     *
+     * <code>PRIVATE_FILE_SCOPE_MANAGER = 2;</code>
+     */
+    public static final int PRIVATE_FILE_SCOPE_MANAGER_VALUE = 2;
+    /**
+     * <pre>
+     * Visible to all members of the channel.
+     * </pre>
+     *
+     * <code>PRIVATE_FILE_SCOPE_CHANNEL = 3;</code>
+     */
+    public static final int PRIVATE_FILE_SCOPE_CHANNEL_VALUE = 3;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static PrivateFileScope valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static PrivateFileScope forNumber(int value) {
+      switch (value) {
+        case 0: return PRIVATE_FILE_SCOPE_UNSPECIFIED;
+        case 1: return PRIVATE_FILE_SCOPE_CHAT;
+        case 2: return PRIVATE_FILE_SCOPE_MANAGER;
+        case 3: return PRIVATE_FILE_SCOPE_CHANNEL;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<PrivateFileScope>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        PrivateFileScope> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<PrivateFileScope>() {
+            public PrivateFileScope findValueByNumber(int number) {
+              return PrivateFileScope.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return io.channel.api.proto.pub.coreapi.model.MessageFile.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final PrivateFileScope[] VALUES = values();
+
+    public static PrivateFileScope valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private PrivateFileScope(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:coreapi.model.MessageFile.PrivateFileScope)
+  }
+
   public static final int ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object id_;
   /**
    * <pre>
    * Unique file identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -192,7 +387,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique file identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -217,7 +411,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object type_;
   /**
    * <pre>
-   * File category such as image, video, or audio.
+   * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -239,7 +433,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * File category such as image, video, or audio.
+   * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -265,7 +459,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   * Original file name.
+   * Original file name including the extension (e.g. "report.pdf").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -288,7 +482,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Original file name.
+   * Original file name including the extension (e.g. "report.pdf").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -331,7 +525,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object contentType_;
   /**
    * <pre>
-   * MIME content type of the file.
+   * MIME content type (e.g. "image/png", "application/pdf").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -353,7 +547,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * MIME content type of the file.
+   * MIME content type (e.g. "image/png", "application/pdf").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -379,7 +573,8 @@ private static final long serialVersionUID = 0L;
   private double duration_;
   /**
    * <pre>
-   * Duration in seconds for audio and video files.
+   * Media playback duration in seconds.
+   * Present only for audio or video files.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -427,7 +622,8 @@ private static final long serialVersionUID = 0L;
   private int orientation_;
   /**
    * <pre>
-   * EXIF orientation value for images.
+   * EXIF orientation value (1-8) indicating how the image should be rotated for display.
+   * Present only for image files with EXIF metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -443,7 +639,7 @@ private static final long serialVersionUID = 0L;
   private boolean animated_;
   /**
    * <pre>
-   * Whether the image is animated (e.g., GIF).
+   * Whether the image is an animated format (e.g. GIF, APNG).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -459,7 +655,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object bucket_;
   /**
    * <pre>
-   * Storage bucket name where the file is stored.
+   * Storage bucket name where the file is hosted.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -482,7 +678,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Storage bucket name where the file is stored.
+   * Storage bucket name where the file is hosted.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -509,7 +705,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object key_;
   /**
    * <pre>
-   * Storage key identifying the file within the bucket.
+   * Storage object key used to locate the file within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -532,7 +728,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Storage key identifying the file within the bucket.
+   * Storage object key used to locate the file within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -559,7 +755,8 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object previewKey_;
   /**
    * <pre>
-   * Storage key for the file preview thumbnail.
+   * Storage key for the preview thumbnail.
+   * Falls back to `key` when not set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -581,7 +778,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Storage key for the file preview thumbnail.
+   * Storage key for the preview thumbnail.
+   * Falls back to `key` when not set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -597,6 +795,287 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       previewKey_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PRIVATE_FILE_SCOPE_FIELD_NUMBER = 14;
+  private int privateFileScope_;
+  /**
+   * <pre>
+   * Access scope that determines who can view this private file.
+   * Derived from the storage key pattern.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
+   * @return The enum numeric value on the wire for privateFileScope.
+   */
+  @java.lang.Override public int getPrivateFileScopeValue() {
+    return privateFileScope_;
+  }
+  /**
+   * <pre>
+   * Access scope that determines who can view this private file.
+   * Derived from the storage key pattern.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
+   * @return The privateFileScope.
+   */
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.MessageFile.PrivateFileScope getPrivateFileScope() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.MessageFile.PrivateFileScope result = io.channel.api.proto.pub.coreapi.model.MessageFile.PrivateFileScope.valueOf(privateFileScope_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.MessageFile.PrivateFileScope.UNRECOGNIZED : result;
+  }
+
+  public static final int SHARED_DOMAIN_FIELD_NUMBER = 15;
+  private volatile java.lang.Object sharedDomain_;
+  /**
+   * <pre>
+   * Domain identifier for channel-scoped private files.
+   * Derived from the storage key pattern.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
+   * @return The sharedDomain.
+   */
+  @java.lang.Override
+  public java.lang.String getSharedDomain() {
+    java.lang.Object ref = sharedDomain_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      sharedDomain_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Domain identifier for channel-scoped private files.
+   * Derived from the storage key pattern.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
+   * @return The bytes for sharedDomain.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getSharedDomainBytes() {
+    java.lang.Object ref = sharedDomain_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      sharedDomain_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CHANNEL_ID_FIELD_NUMBER = 16;
+  private volatile java.lang.Object channelId_;
+  /**
+   * <pre>
+   * Channel ID that owns this private file.
+   * Derived from the storage key pattern.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string channel_id = 16 [json_name = "channelId"];</code>
+   * @return The channelId.
+   */
+  @java.lang.Override
+  public java.lang.String getChannelId() {
+    java.lang.Object ref = channelId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      channelId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Channel ID that owns this private file.
+   * Derived from the storage key pattern.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string channel_id = 16 [json_name = "channelId"];</code>
+   * @return The bytes for channelId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getChannelIdBytes() {
+    java.lang.Object ref = channelId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      channelId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int MANAGER_ID_FIELD_NUMBER = 17;
+  private volatile java.lang.Object managerId_;
+  /**
+   * <pre>
+   * Manager ID that owns this private file.
+   * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string manager_id = 17 [json_name = "managerId"];</code>
+   * @return The managerId.
+   */
+  @java.lang.Override
+  public java.lang.String getManagerId() {
+    java.lang.Object ref = managerId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      managerId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Manager ID that owns this private file.
+   * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string manager_id = 17 [json_name = "managerId"];</code>
+   * @return The bytes for managerId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getManagerIdBytes() {
+    java.lang.Object ref = managerId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      managerId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CHAT_TYPE_FIELD_NUMBER = 18;
+  private volatile java.lang.Object chatType_;
+  /**
+   * <pre>
+   * Chat type for chat-scoped private files.
+   * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string chat_type = 18 [json_name = "chatType"];</code>
+   * @return The chatType.
+   */
+  @java.lang.Override
+  public java.lang.String getChatType() {
+    java.lang.Object ref = chatType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      chatType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Chat type for chat-scoped private files.
+   * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string chat_type = 18 [json_name = "chatType"];</code>
+   * @return The bytes for chatType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getChatTypeBytes() {
+    java.lang.Object ref = chatType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      chatType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CHAT_ID_FIELD_NUMBER = 19;
+  private volatile java.lang.Object chatId_;
+  /**
+   * <pre>
+   * Chat ID for chat-scoped private files.
+   * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string chat_id = 19 [json_name = "chatId"];</code>
+   * @return The chatId.
+   */
+  @java.lang.Override
+  public java.lang.String getChatId() {
+    java.lang.Object ref = chatId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      chatId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Chat ID for chat-scoped private files.
+   * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string chat_id = 19 [json_name = "chatId"];</code>
+   * @return The bytes for chatId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getChatIdBytes() {
+    java.lang.Object ref = chatId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      chatId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -656,6 +1135,24 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(previewKey_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 13, previewKey_);
     }
+    if (privateFileScope_ != io.channel.api.proto.pub.coreapi.model.MessageFile.PrivateFileScope.PRIVATE_FILE_SCOPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(14, privateFileScope_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sharedDomain_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, sharedDomain_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 16, channelId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(managerId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 17, managerId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 18, chatType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 19, chatId_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -710,6 +1207,25 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(previewKey_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, previewKey_);
     }
+    if (privateFileScope_ != io.channel.api.proto.pub.coreapi.model.MessageFile.PrivateFileScope.PRIVATE_FILE_SCOPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(14, privateFileScope_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sharedDomain_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, sharedDomain_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, channelId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(managerId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, managerId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, chatType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(19, chatId_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -752,6 +1268,17 @@ private static final long serialVersionUID = 0L;
         .equals(other.getKey())) return false;
     if (!getPreviewKey()
         .equals(other.getPreviewKey())) return false;
+    if (privateFileScope_ != other.privateFileScope_) return false;
+    if (!getSharedDomain()
+        .equals(other.getSharedDomain())) return false;
+    if (!getChannelId()
+        .equals(other.getChannelId())) return false;
+    if (!getManagerId()
+        .equals(other.getManagerId())) return false;
+    if (!getChatType()
+        .equals(other.getChatType())) return false;
+    if (!getChatId()
+        .equals(other.getChatId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -792,6 +1319,18 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getKey().hashCode();
     hash = (37 * hash) + PREVIEW_KEY_FIELD_NUMBER;
     hash = (53 * hash) + getPreviewKey().hashCode();
+    hash = (37 * hash) + PRIVATE_FILE_SCOPE_FIELD_NUMBER;
+    hash = (53 * hash) + privateFileScope_;
+    hash = (37 * hash) + SHARED_DOMAIN_FIELD_NUMBER;
+    hash = (53 * hash) + getSharedDomain().hashCode();
+    hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getChannelId().hashCode();
+    hash = (37 * hash) + MANAGER_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getManagerId().hashCode();
+    hash = (37 * hash) + CHAT_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getChatType().hashCode();
+    hash = (37 * hash) + CHAT_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getChatId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -889,7 +1428,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * MessageFile represents a file attachment in a message.
+   * MessageFile represents a file attached to a message.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.MessageFile}
@@ -955,6 +1494,18 @@ private static final long serialVersionUID = 0L;
 
       previewKey_ = "";
 
+      privateFileScope_ = 0;
+
+      sharedDomain_ = "";
+
+      channelId_ = "";
+
+      managerId_ = "";
+
+      chatType_ = "";
+
+      chatId_ = "";
+
       return this;
     }
 
@@ -994,6 +1545,12 @@ private static final long serialVersionUID = 0L;
       result.bucket_ = bucket_;
       result.key_ = key_;
       result.previewKey_ = previewKey_;
+      result.privateFileScope_ = privateFileScope_;
+      result.sharedDomain_ = sharedDomain_;
+      result.channelId_ = channelId_;
+      result.managerId_ = managerId_;
+      result.chatType_ = chatType_;
+      result.chatId_ = chatId_;
       onBuilt();
       return result;
     }
@@ -1088,6 +1645,29 @@ private static final long serialVersionUID = 0L;
         previewKey_ = other.previewKey_;
         onChanged();
       }
+      if (other.privateFileScope_ != 0) {
+        setPrivateFileScopeValue(other.getPrivateFileScopeValue());
+      }
+      if (!other.getSharedDomain().isEmpty()) {
+        sharedDomain_ = other.sharedDomain_;
+        onChanged();
+      }
+      if (!other.getChannelId().isEmpty()) {
+        channelId_ = other.channelId_;
+        onChanged();
+      }
+      if (!other.getManagerId().isEmpty()) {
+        managerId_ = other.managerId_;
+        onChanged();
+      }
+      if (!other.getChatType().isEmpty()) {
+        chatType_ = other.chatType_;
+        onChanged();
+      }
+      if (!other.getChatId().isEmpty()) {
+        chatId_ = other.chatId_;
+        onChanged();
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -1122,7 +1702,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique file identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1144,7 +1723,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique file identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1167,7 +1745,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique file identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1188,7 +1765,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique file identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1204,7 +1780,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique file identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1226,7 +1801,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object type_ = "";
     /**
      * <pre>
-     * File category such as image, video, or audio.
+     * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1247,7 +1822,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * File category such as image, video, or audio.
+     * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1269,7 +1844,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * File category such as image, video, or audio.
+     * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1289,7 +1864,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * File category such as image, video, or audio.
+     * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1304,7 +1879,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * File category such as image, video, or audio.
+     * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1327,7 +1902,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Original file name.
+     * Original file name including the extension (e.g. "report.pdf").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1349,7 +1924,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Original file name.
+     * Original file name including the extension (e.g. "report.pdf").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1372,7 +1947,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Original file name.
+     * Original file name including the extension (e.g. "report.pdf").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1393,7 +1968,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Original file name.
+     * Original file name including the extension (e.g. "report.pdf").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1409,7 +1984,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Original file name.
+     * Original file name including the extension (e.g. "report.pdf").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1479,7 +2054,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object contentType_ = "";
     /**
      * <pre>
-     * MIME content type of the file.
+     * MIME content type (e.g. "image/png", "application/pdf").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1500,7 +2075,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type of the file.
+     * MIME content type (e.g. "image/png", "application/pdf").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1522,7 +2097,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type of the file.
+     * MIME content type (e.g. "image/png", "application/pdf").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1542,7 +2117,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type of the file.
+     * MIME content type (e.g. "image/png", "application/pdf").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1557,7 +2132,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type of the file.
+     * MIME content type (e.g. "image/png", "application/pdf").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1580,7 +2155,8 @@ private static final long serialVersionUID = 0L;
     private double duration_ ;
     /**
      * <pre>
-     * Duration in seconds for audio and video files.
+     * Media playback duration in seconds.
+     * Present only for audio or video files.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1593,7 +2169,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration in seconds for audio and video files.
+     * Media playback duration in seconds.
+     * Present only for audio or video files.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1609,7 +2186,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration in seconds for audio and video files.
+     * Media playback duration in seconds.
+     * Present only for audio or video files.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1718,7 +2296,8 @@ private static final long serialVersionUID = 0L;
     private int orientation_ ;
     /**
      * <pre>
-     * EXIF orientation value for images.
+     * EXIF orientation value (1-8) indicating how the image should be rotated for display.
+     * Present only for image files with EXIF metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1731,7 +2310,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * EXIF orientation value for images.
+     * EXIF orientation value (1-8) indicating how the image should be rotated for display.
+     * Present only for image files with EXIF metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1747,7 +2327,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * EXIF orientation value for images.
+     * EXIF orientation value (1-8) indicating how the image should be rotated for display.
+     * Present only for image files with EXIF metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1764,7 +2345,7 @@ private static final long serialVersionUID = 0L;
     private boolean animated_ ;
     /**
      * <pre>
-     * Whether the image is animated (e.g., GIF).
+     * Whether the image is an animated format (e.g. GIF, APNG).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1777,7 +2358,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the image is animated (e.g., GIF).
+     * Whether the image is an animated format (e.g. GIF, APNG).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1793,7 +2374,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the image is animated (e.g., GIF).
+     * Whether the image is an animated format (e.g. GIF, APNG).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1810,7 +2391,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object bucket_ = "";
     /**
      * <pre>
-     * Storage bucket name where the file is stored.
+     * Storage bucket name where the file is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1832,7 +2413,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage bucket name where the file is stored.
+     * Storage bucket name where the file is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1855,7 +2436,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage bucket name where the file is stored.
+     * Storage bucket name where the file is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1876,7 +2457,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage bucket name where the file is stored.
+     * Storage bucket name where the file is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1892,7 +2473,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage bucket name where the file is stored.
+     * Storage bucket name where the file is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1916,7 +2497,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object key_ = "";
     /**
      * <pre>
-     * Storage key identifying the file within the bucket.
+     * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1938,7 +2519,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage key identifying the file within the bucket.
+     * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1961,7 +2542,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage key identifying the file within the bucket.
+     * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1982,7 +2563,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage key identifying the file within the bucket.
+     * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1998,7 +2579,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage key identifying the file within the bucket.
+     * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -2022,7 +2603,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object previewKey_ = "";
     /**
      * <pre>
-     * Storage key for the file preview thumbnail.
+     * Storage key for the preview thumbnail.
+     * Falls back to `key` when not set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2043,7 +2625,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage key for the file preview thumbnail.
+     * Storage key for the preview thumbnail.
+     * Falls back to `key` when not set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2065,7 +2648,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage key for the file preview thumbnail.
+     * Storage key for the preview thumbnail.
+     * Falls back to `key` when not set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2085,7 +2669,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage key for the file preview thumbnail.
+     * Storage key for the preview thumbnail.
+     * Falls back to `key` when not set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2100,7 +2685,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage key for the file preview thumbnail.
+     * Storage key for the preview thumbnail.
+     * Falls back to `key` when not set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2116,6 +2702,620 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       previewKey_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int privateFileScope_ = 0;
+    /**
+     * <pre>
+     * Access scope that determines who can view this private file.
+     * Derived from the storage key pattern.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
+     * @return The enum numeric value on the wire for privateFileScope.
+     */
+    @java.lang.Override public int getPrivateFileScopeValue() {
+      return privateFileScope_;
+    }
+    /**
+     * <pre>
+     * Access scope that determines who can view this private file.
+     * Derived from the storage key pattern.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
+     * @param value The enum numeric value on the wire for privateFileScope to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPrivateFileScopeValue(int value) {
+      
+      privateFileScope_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Access scope that determines who can view this private file.
+     * Derived from the storage key pattern.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
+     * @return The privateFileScope.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.MessageFile.PrivateFileScope getPrivateFileScope() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.MessageFile.PrivateFileScope result = io.channel.api.proto.pub.coreapi.model.MessageFile.PrivateFileScope.valueOf(privateFileScope_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.MessageFile.PrivateFileScope.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Access scope that determines who can view this private file.
+     * Derived from the storage key pattern.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
+     * @param value The privateFileScope to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPrivateFileScope(io.channel.api.proto.pub.coreapi.model.MessageFile.PrivateFileScope value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      privateFileScope_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Access scope that determines who can view this private file.
+     * Derived from the storage key pattern.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPrivateFileScope() {
+      
+      privateFileScope_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object sharedDomain_ = "";
+    /**
+     * <pre>
+     * Domain identifier for channel-scoped private files.
+     * Derived from the storage key pattern.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
+     * @return The sharedDomain.
+     */
+    public java.lang.String getSharedDomain() {
+      java.lang.Object ref = sharedDomain_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sharedDomain_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Domain identifier for channel-scoped private files.
+     * Derived from the storage key pattern.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
+     * @return The bytes for sharedDomain.
+     */
+    public com.google.protobuf.ByteString
+        getSharedDomainBytes() {
+      java.lang.Object ref = sharedDomain_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sharedDomain_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Domain identifier for channel-scoped private files.
+     * Derived from the storage key pattern.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
+     * @param value The sharedDomain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSharedDomain(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      sharedDomain_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Domain identifier for channel-scoped private files.
+     * Derived from the storage key pattern.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSharedDomain() {
+      
+      sharedDomain_ = getDefaultInstance().getSharedDomain();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Domain identifier for channel-scoped private files.
+     * Derived from the storage key pattern.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
+     * @param value The bytes for sharedDomain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSharedDomainBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      sharedDomain_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object channelId_ = "";
+    /**
+     * <pre>
+     * Channel ID that owns this private file.
+     * Derived from the storage key pattern.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string channel_id = 16 [json_name = "channelId"];</code>
+     * @return The channelId.
+     */
+    public java.lang.String getChannelId() {
+      java.lang.Object ref = channelId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        channelId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Channel ID that owns this private file.
+     * Derived from the storage key pattern.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string channel_id = 16 [json_name = "channelId"];</code>
+     * @return The bytes for channelId.
+     */
+    public com.google.protobuf.ByteString
+        getChannelIdBytes() {
+      java.lang.Object ref = channelId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        channelId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Channel ID that owns this private file.
+     * Derived from the storage key pattern.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string channel_id = 16 [json_name = "channelId"];</code>
+     * @param value The channelId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChannelId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      channelId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Channel ID that owns this private file.
+     * Derived from the storage key pattern.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string channel_id = 16 [json_name = "channelId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChannelId() {
+      
+      channelId_ = getDefaultInstance().getChannelId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Channel ID that owns this private file.
+     * Derived from the storage key pattern.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string channel_id = 16 [json_name = "channelId"];</code>
+     * @param value The bytes for channelId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChannelIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      channelId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object managerId_ = "";
+    /**
+     * <pre>
+     * Manager ID that owns this private file.
+     * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string manager_id = 17 [json_name = "managerId"];</code>
+     * @return The managerId.
+     */
+    public java.lang.String getManagerId() {
+      java.lang.Object ref = managerId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        managerId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Manager ID that owns this private file.
+     * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string manager_id = 17 [json_name = "managerId"];</code>
+     * @return The bytes for managerId.
+     */
+    public com.google.protobuf.ByteString
+        getManagerIdBytes() {
+      java.lang.Object ref = managerId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        managerId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Manager ID that owns this private file.
+     * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string manager_id = 17 [json_name = "managerId"];</code>
+     * @param value The managerId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setManagerId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      managerId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Manager ID that owns this private file.
+     * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string manager_id = 17 [json_name = "managerId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearManagerId() {
+      
+      managerId_ = getDefaultInstance().getManagerId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Manager ID that owns this private file.
+     * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string manager_id = 17 [json_name = "managerId"];</code>
+     * @param value The bytes for managerId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setManagerIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      managerId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object chatType_ = "";
+    /**
+     * <pre>
+     * Chat type for chat-scoped private files.
+     * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 18 [json_name = "chatType"];</code>
+     * @return The chatType.
+     */
+    public java.lang.String getChatType() {
+      java.lang.Object ref = chatType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        chatType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Chat type for chat-scoped private files.
+     * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 18 [json_name = "chatType"];</code>
+     * @return The bytes for chatType.
+     */
+    public com.google.protobuf.ByteString
+        getChatTypeBytes() {
+      java.lang.Object ref = chatType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        chatType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Chat type for chat-scoped private files.
+     * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 18 [json_name = "chatType"];</code>
+     * @param value The chatType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      chatType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat type for chat-scoped private files.
+     * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 18 [json_name = "chatType"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChatType() {
+      
+      chatType_ = getDefaultInstance().getChatType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat type for chat-scoped private files.
+     * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 18 [json_name = "chatType"];</code>
+     * @param value The bytes for chatType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      chatType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object chatId_ = "";
+    /**
+     * <pre>
+     * Chat ID for chat-scoped private files.
+     * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_id = 19 [json_name = "chatId"];</code>
+     * @return The chatId.
+     */
+    public java.lang.String getChatId() {
+      java.lang.Object ref = chatId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        chatId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Chat ID for chat-scoped private files.
+     * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_id = 19 [json_name = "chatId"];</code>
+     * @return The bytes for chatId.
+     */
+    public com.google.protobuf.ByteString
+        getChatIdBytes() {
+      java.lang.Object ref = chatId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        chatId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Chat ID for chat-scoped private files.
+     * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_id = 19 [json_name = "chatId"];</code>
+     * @param value The chatId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      chatId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat ID for chat-scoped private files.
+     * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_id = 19 [json_name = "chatId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChatId() {
+      
+      chatId_ = getDefaultInstance().getChatId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat ID for chat-scoped private files.
+     * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_id = 19 [json_name = "chatId"];</code>
+     * @param value The bytes for chatId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      chatId_ = value;
       onChanged();
       return this;
     }
@@ -2431,6 +3631,144 @@ private static final long serialVersionUID = 0L;
     		return clearPreviewKey();
     	else
     		return setPreviewKey(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The private_file_scope to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearPrivateFileScope(io.channel.api.proto.pub.coreapi.model.MessageFile.PrivateFileScope value) {
+    	if (value == null)
+    		return clearPrivateFileScope();
+    	else
+    		return setPrivateFileScope(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearPrivateFileScope(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.MessageFile.PrivateFileScope> mapFunc) {
+    	if (value == null)
+    		return clearPrivateFileScope();
+    	else
+    		return setPrivateFileScope(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The shared_domain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearSharedDomain(java.lang.String value) {
+    	if (value == null)
+    		return clearSharedDomain();
+    	else
+    		return setSharedDomain(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearSharedDomain(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearSharedDomain();
+    	else
+    		return setSharedDomain(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The channel_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearChannelId(java.lang.String value) {
+    	if (value == null)
+    		return clearChannelId();
+    	else
+    		return setChannelId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearChannelId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearChannelId();
+    	else
+    		return setChannelId(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The manager_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearManagerId(java.lang.String value) {
+    	if (value == null)
+    		return clearManagerId();
+    	else
+    		return setManagerId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearManagerId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearManagerId();
+    	else
+    		return setManagerId(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The chat_type to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearChatType(java.lang.String value) {
+    	if (value == null)
+    		return clearChatType();
+    	else
+    		return setChatType(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearChatType();
+    	else
+    		return setChatType(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The chat_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearChatId(java.lang.String value) {
+    	if (value == null)
+    		return clearChatId();
+    	else
+    		return setChatId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearChatId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearChatId();
+    	else
+    		return setChatId(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.MessageFile)

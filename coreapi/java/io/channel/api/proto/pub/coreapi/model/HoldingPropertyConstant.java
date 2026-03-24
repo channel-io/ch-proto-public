@@ -5,8 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * HoldingPropertyConstant enables dynamic property-based filtering
- * by holding a constant value from a base event for use in event queries.
+ * HoldingPropertyConstant captures a property value from a base event at trigger time
+ * so that downstream filtering or goal checking uses a consistent snapshot rather than the latest value.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.HoldingPropertyConstant}
@@ -87,6 +87,32 @@ private static final long serialVersionUID = 0L;
             baseEventType_ = rawValue;
             break;
           }
+          case 42: {
+            com.google.protobuf.Struct.Builder subBuilder = null;
+            if (operator_ != null) {
+              subBuilder = operator_.toBuilder();
+            }
+            operator_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(operator_);
+              operator_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 50: {
+            com.google.protobuf.Struct.Builder subBuilder = null;
+            if (values_ != null) {
+              subBuilder = values_.toBuilder();
+            }
+            values_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(values_);
+              values_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -123,7 +149,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object baseEventName_;
   /**
    * <pre>
-   * Name of the base event to extract the property value from.
+   * Name of the base event from which the property value is captured.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -146,7 +172,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Name of the base event to extract the property value from.
+   * Name of the base event from which the property value is captured.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -173,7 +199,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object baseEventKey_;
   /**
    * <pre>
-   * Property key to extract from the base event.
+   * Property key within the base event whose value is held constant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -196,7 +222,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Property key to extract from the base event.
+   * Property key within the base event whose value is held constant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -223,7 +249,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Struct eventQuery_;
   /**
    * <pre>
-   * Query expression for matching the held property value.
+   * Query expression applied to the held property value for matching.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -236,7 +263,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Query expression for matching the held property value.
+   * Query expression applied to the held property value for matching.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -249,7 +277,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Query expression for matching the held property value.
+   * Query expression applied to the held property value for matching.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -264,7 +293,7 @@ private static final long serialVersionUID = 0L;
   private int baseEventType_;
   /**
    * <pre>
-   * Type of base event this holding property constant is associated with.
+   * Indicates whether the property is captured from the trigger event or the additional filter event.
    * +kubebuilder:validation:Required
    * </pre>
    *
@@ -276,7 +305,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Type of base event this holding property constant is associated with.
+   * Indicates whether the property is captured from the trigger event or the additional filter event.
    * +kubebuilder:validation:Required
    * </pre>
    *
@@ -287,6 +316,94 @@ private static final long serialVersionUID = 0L;
     @SuppressWarnings("deprecation")
     io.channel.api.proto.pub.coreapi.model.CampaignBaseEventType result = io.channel.api.proto.pub.coreapi.model.CampaignBaseEventType.valueOf(baseEventType_);
     return result == null ? io.channel.api.proto.pub.coreapi.model.CampaignBaseEventType.UNRECOGNIZED : result;
+  }
+
+  public static final int OPERATOR_FIELD_NUMBER = 5;
+  private com.google.protobuf.Struct operator_;
+  /**
+   * <pre>
+   * Comparison operator schema used to evaluate the held property value.
+   * Represented as a structured object describing the operator type and configuration.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
+   * @return Whether the operator field is set.
+   */
+  @java.lang.Override
+  public boolean hasOperator() {
+    return operator_ != null;
+  }
+  /**
+   * <pre>
+   * Comparison operator schema used to evaluate the held property value.
+   * Represented as a structured object describing the operator type and configuration.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
+   * @return The operator.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Struct getOperator() {
+    return operator_ == null ? com.google.protobuf.Struct.getDefaultInstance() : operator_;
+  }
+  /**
+   * <pre>
+   * Comparison operator schema used to evaluate the held property value.
+   * Represented as a structured object describing the operator type and configuration.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StructOrBuilder getOperatorOrBuilder() {
+    return getOperator();
+  }
+
+  public static final int VALUES_FIELD_NUMBER = 6;
+  private com.google.protobuf.Struct values_;
+  /**
+   * <pre>
+   * Property values captured from the base event at trigger time.
+   * Represented as a structured object holding the snapshot values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
+   * @return Whether the values field is set.
+   */
+  @java.lang.Override
+  public boolean hasValues() {
+    return values_ != null;
+  }
+  /**
+   * <pre>
+   * Property values captured from the base event at trigger time.
+   * Represented as a structured object holding the snapshot values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
+   * @return The values.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Struct getValues() {
+    return values_ == null ? com.google.protobuf.Struct.getDefaultInstance() : values_;
+  }
+  /**
+   * <pre>
+   * Property values captured from the base event at trigger time.
+   * Represented as a structured object holding the snapshot values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StructOrBuilder getValuesOrBuilder() {
+    return getValues();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -315,6 +432,12 @@ private static final long serialVersionUID = 0L;
     if (baseEventType_ != io.channel.api.proto.pub.coreapi.model.CampaignBaseEventType.CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, baseEventType_);
     }
+    if (operator_ != null) {
+      output.writeMessage(5, getOperator());
+    }
+    if (values_ != null) {
+      output.writeMessage(6, getValues());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -337,6 +460,14 @@ private static final long serialVersionUID = 0L;
     if (baseEventType_ != io.channel.api.proto.pub.coreapi.model.CampaignBaseEventType.CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, baseEventType_);
+    }
+    if (operator_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getOperator());
+    }
+    if (values_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getValues());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -363,6 +494,16 @@ private static final long serialVersionUID = 0L;
           .equals(other.getEventQuery())) return false;
     }
     if (baseEventType_ != other.baseEventType_) return false;
+    if (hasOperator() != other.hasOperator()) return false;
+    if (hasOperator()) {
+      if (!getOperator()
+          .equals(other.getOperator())) return false;
+    }
+    if (hasValues() != other.hasValues()) return false;
+    if (hasValues()) {
+      if (!getValues()
+          .equals(other.getValues())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -384,6 +525,14 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + BASE_EVENT_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + baseEventType_;
+    if (hasOperator()) {
+      hash = (37 * hash) + OPERATOR_FIELD_NUMBER;
+      hash = (53 * hash) + getOperator().hashCode();
+    }
+    if (hasValues()) {
+      hash = (37 * hash) + VALUES_FIELD_NUMBER;
+      hash = (53 * hash) + getValues().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -481,8 +630,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * HoldingPropertyConstant enables dynamic property-based filtering
-   * by holding a constant value from a base event for use in event queries.
+   * HoldingPropertyConstant captures a property value from a base event at trigger time
+   * so that downstream filtering or goal checking uses a consistent snapshot rather than the latest value.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.HoldingPropertyConstant}
@@ -534,6 +683,18 @@ private static final long serialVersionUID = 0L;
       }
       baseEventType_ = 0;
 
+      if (operatorBuilder_ == null) {
+        operator_ = null;
+      } else {
+        operator_ = null;
+        operatorBuilder_ = null;
+      }
+      if (valuesBuilder_ == null) {
+        values_ = null;
+      } else {
+        values_ = null;
+        valuesBuilder_ = null;
+      }
       return this;
     }
 
@@ -568,6 +729,16 @@ private static final long serialVersionUID = 0L;
         result.eventQuery_ = eventQueryBuilder_.build();
       }
       result.baseEventType_ = baseEventType_;
+      if (operatorBuilder_ == null) {
+        result.operator_ = operator_;
+      } else {
+        result.operator_ = operatorBuilder_.build();
+      }
+      if (valuesBuilder_ == null) {
+        result.values_ = values_;
+      } else {
+        result.values_ = valuesBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -630,6 +801,12 @@ private static final long serialVersionUID = 0L;
       if (other.baseEventType_ != 0) {
         setBaseEventTypeValue(other.getBaseEventTypeValue());
       }
+      if (other.hasOperator()) {
+        mergeOperator(other.getOperator());
+      }
+      if (other.hasValues()) {
+        mergeValues(other.getValues());
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -662,7 +839,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object baseEventName_ = "";
     /**
      * <pre>
-     * Name of the base event to extract the property value from.
+     * Name of the base event from which the property value is captured.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -684,7 +861,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the base event to extract the property value from.
+     * Name of the base event from which the property value is captured.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -707,7 +884,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the base event to extract the property value from.
+     * Name of the base event from which the property value is captured.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -728,7 +905,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the base event to extract the property value from.
+     * Name of the base event from which the property value is captured.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -744,7 +921,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the base event to extract the property value from.
+     * Name of the base event from which the property value is captured.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -768,7 +945,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object baseEventKey_ = "";
     /**
      * <pre>
-     * Property key to extract from the base event.
+     * Property key within the base event whose value is held constant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -790,7 +967,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Property key to extract from the base event.
+     * Property key within the base event whose value is held constant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -813,7 +990,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Property key to extract from the base event.
+     * Property key within the base event whose value is held constant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -834,7 +1011,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Property key to extract from the base event.
+     * Property key within the base event whose value is held constant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -850,7 +1027,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Property key to extract from the base event.
+     * Property key within the base event whose value is held constant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -876,7 +1053,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> eventQueryBuilder_;
     /**
      * <pre>
-     * Query expression for matching the held property value.
+     * Query expression applied to the held property value for matching.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -888,7 +1066,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Query expression for matching the held property value.
+     * Query expression applied to the held property value for matching.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -904,7 +1083,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Query expression for matching the held property value.
+     * Query expression applied to the held property value for matching.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -925,7 +1105,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Query expression for matching the held property value.
+     * Query expression applied to the held property value for matching.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -944,7 +1125,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Query expression for matching the held property value.
+     * Query expression applied to the held property value for matching.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -967,7 +1149,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Query expression for matching the held property value.
+     * Query expression applied to the held property value for matching.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -986,7 +1169,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Query expression for matching the held property value.
+     * Query expression applied to the held property value for matching.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -999,7 +1183,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Query expression for matching the held property value.
+     * Query expression applied to the held property value for matching.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1015,7 +1200,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Query expression for matching the held property value.
+     * Query expression applied to the held property value for matching.
+     * Represented as a structured filter object.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1038,7 +1224,7 @@ private static final long serialVersionUID = 0L;
     private int baseEventType_ = 0;
     /**
      * <pre>
-     * Type of base event this holding property constant is associated with.
+     * Indicates whether the property is captured from the trigger event or the additional filter event.
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -1050,7 +1236,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of base event this holding property constant is associated with.
+     * Indicates whether the property is captured from the trigger event or the additional filter event.
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -1066,7 +1252,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of base event this holding property constant is associated with.
+     * Indicates whether the property is captured from the trigger event or the additional filter event.
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -1081,7 +1267,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of base event this holding property constant is associated with.
+     * Indicates whether the property is captured from the trigger event or the additional filter event.
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -1100,7 +1286,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of base event this holding property constant is associated with.
+     * Indicates whether the property is captured from the trigger event or the additional filter event.
      * +kubebuilder:validation:Required
      * </pre>
      *
@@ -1112,6 +1298,352 @@ private static final long serialVersionUID = 0L;
       baseEventType_ = 0;
       onChanged();
       return this;
+    }
+
+    private com.google.protobuf.Struct operator_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> operatorBuilder_;
+    /**
+     * <pre>
+     * Comparison operator schema used to evaluate the held property value.
+     * Represented as a structured object describing the operator type and configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
+     * @return Whether the operator field is set.
+     */
+    public boolean hasOperator() {
+      return operatorBuilder_ != null || operator_ != null;
+    }
+    /**
+     * <pre>
+     * Comparison operator schema used to evaluate the held property value.
+     * Represented as a structured object describing the operator type and configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
+     * @return The operator.
+     */
+    public com.google.protobuf.Struct getOperator() {
+      if (operatorBuilder_ == null) {
+        return operator_ == null ? com.google.protobuf.Struct.getDefaultInstance() : operator_;
+      } else {
+        return operatorBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Comparison operator schema used to evaluate the held property value.
+     * Represented as a structured object describing the operator type and configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
+     */
+    public Builder setOperator(com.google.protobuf.Struct value) {
+      if (operatorBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        operator_ = value;
+        onChanged();
+      } else {
+        operatorBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Comparison operator schema used to evaluate the held property value.
+     * Represented as a structured object describing the operator type and configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
+     */
+    public Builder setOperator(
+        com.google.protobuf.Struct.Builder builderForValue) {
+      if (operatorBuilder_ == null) {
+        operator_ = builderForValue.build();
+        onChanged();
+      } else {
+        operatorBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Comparison operator schema used to evaluate the held property value.
+     * Represented as a structured object describing the operator type and configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
+     */
+    public Builder mergeOperator(com.google.protobuf.Struct value) {
+      if (operatorBuilder_ == null) {
+        if (operator_ != null) {
+          operator_ =
+            com.google.protobuf.Struct.newBuilder(operator_).mergeFrom(value).buildPartial();
+        } else {
+          operator_ = value;
+        }
+        onChanged();
+      } else {
+        operatorBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Comparison operator schema used to evaluate the held property value.
+     * Represented as a structured object describing the operator type and configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
+     */
+    public Builder clearOperator() {
+      if (operatorBuilder_ == null) {
+        operator_ = null;
+        onChanged();
+      } else {
+        operator_ = null;
+        operatorBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Comparison operator schema used to evaluate the held property value.
+     * Represented as a structured object describing the operator type and configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
+     */
+    public com.google.protobuf.Struct.Builder getOperatorBuilder() {
+      
+      onChanged();
+      return getOperatorFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Comparison operator schema used to evaluate the held property value.
+     * Represented as a structured object describing the operator type and configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
+     */
+    public com.google.protobuf.StructOrBuilder getOperatorOrBuilder() {
+      if (operatorBuilder_ != null) {
+        return operatorBuilder_.getMessageOrBuilder();
+      } else {
+        return operator_ == null ?
+            com.google.protobuf.Struct.getDefaultInstance() : operator_;
+      }
+    }
+    /**
+     * <pre>
+     * Comparison operator schema used to evaluate the held property value.
+     * Represented as a structured object describing the operator type and configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        getOperatorFieldBuilder() {
+      if (operatorBuilder_ == null) {
+        operatorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                getOperator(),
+                getParentForChildren(),
+                isClean());
+        operator_ = null;
+      }
+      return operatorBuilder_;
+    }
+
+    private com.google.protobuf.Struct values_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> valuesBuilder_;
+    /**
+     * <pre>
+     * Property values captured from the base event at trigger time.
+     * Represented as a structured object holding the snapshot values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
+     * @return Whether the values field is set.
+     */
+    public boolean hasValues() {
+      return valuesBuilder_ != null || values_ != null;
+    }
+    /**
+     * <pre>
+     * Property values captured from the base event at trigger time.
+     * Represented as a structured object holding the snapshot values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
+     * @return The values.
+     */
+    public com.google.protobuf.Struct getValues() {
+      if (valuesBuilder_ == null) {
+        return values_ == null ? com.google.protobuf.Struct.getDefaultInstance() : values_;
+      } else {
+        return valuesBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Property values captured from the base event at trigger time.
+     * Represented as a structured object holding the snapshot values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
+     */
+    public Builder setValues(com.google.protobuf.Struct value) {
+      if (valuesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        values_ = value;
+        onChanged();
+      } else {
+        valuesBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Property values captured from the base event at trigger time.
+     * Represented as a structured object holding the snapshot values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
+     */
+    public Builder setValues(
+        com.google.protobuf.Struct.Builder builderForValue) {
+      if (valuesBuilder_ == null) {
+        values_ = builderForValue.build();
+        onChanged();
+      } else {
+        valuesBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Property values captured from the base event at trigger time.
+     * Represented as a structured object holding the snapshot values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
+     */
+    public Builder mergeValues(com.google.protobuf.Struct value) {
+      if (valuesBuilder_ == null) {
+        if (values_ != null) {
+          values_ =
+            com.google.protobuf.Struct.newBuilder(values_).mergeFrom(value).buildPartial();
+        } else {
+          values_ = value;
+        }
+        onChanged();
+      } else {
+        valuesBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Property values captured from the base event at trigger time.
+     * Represented as a structured object holding the snapshot values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
+     */
+    public Builder clearValues() {
+      if (valuesBuilder_ == null) {
+        values_ = null;
+        onChanged();
+      } else {
+        values_ = null;
+        valuesBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Property values captured from the base event at trigger time.
+     * Represented as a structured object holding the snapshot values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
+     */
+    public com.google.protobuf.Struct.Builder getValuesBuilder() {
+      
+      onChanged();
+      return getValuesFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Property values captured from the base event at trigger time.
+     * Represented as a structured object holding the snapshot values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
+     */
+    public com.google.protobuf.StructOrBuilder getValuesOrBuilder() {
+      if (valuesBuilder_ != null) {
+        return valuesBuilder_.getMessageOrBuilder();
+      } else {
+        return values_ == null ?
+            com.google.protobuf.Struct.getDefaultInstance() : values_;
+      }
+    }
+    /**
+     * <pre>
+     * Property values captured from the base event at trigger time.
+     * Represented as a structured object holding the snapshot values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        getValuesFieldBuilder() {
+      if (valuesBuilder_ == null) {
+        valuesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                getValues(),
+                getParentForChildren(),
+                isClean());
+        values_ = null;
+      }
+      return valuesBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1218,6 +1750,52 @@ private static final long serialVersionUID = 0L;
     		return clearBaseEventType();
     	else
     		return setBaseEventType(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The operator to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearOperator(com.google.protobuf.Struct value) {
+    	if (value == null)
+    		return clearOperator();
+    	else
+    		return setOperator(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearOperator(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+    	if (value == null)
+    		return clearOperator();
+    	else
+    		return setOperator(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The values to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearValues(com.google.protobuf.Struct value) {
+    	if (value == null)
+    		return clearValues();
+    	else
+    		return setValues(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearValues(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+    	if (value == null)
+    		return clearValues();
+    	else
+    		return setValues(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.HoldingPropertyConstant)

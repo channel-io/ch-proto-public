@@ -5,7 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * MessageReaction represents emoji reactions on a message.
+ * MessageReaction represents a single emoji reaction on a message,
+ * aggregating all people who used the same emoji.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.MessageReaction}
@@ -109,7 +110,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object emojiName_;
   /**
    * <pre>
-   * Emoji identifier.
+   * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -132,7 +133,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Emoji identifier.
+   * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -159,8 +160,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.LazyStringList personKeys_;
   /**
    * <pre>
-   * Ordered list of person keys who reacted with this emoji.
-   * Each key is in the format "{personType}-{personId}".
+   * Person keys of everyone who reacted with this emoji,
+   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -173,8 +174,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Ordered list of person keys who reacted with this emoji.
-   * Each key is in the format "{personType}-{personId}".
+   * Person keys of everyone who reacted with this emoji,
+   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -186,8 +187,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Ordered list of person keys who reacted with this emoji.
-   * Each key is in the format "{personType}-{personId}".
+   * Person keys of everyone who reacted with this emoji,
+   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -200,8 +201,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Ordered list of person keys who reacted with this emoji.
-   * Each key is in the format "{personType}-{personId}".
+   * Person keys of everyone who reacted with this emoji,
+   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -387,7 +388,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * MessageReaction represents emoji reactions on a message.
+   * MessageReaction represents a single emoji reaction on a message,
+   * aggregating all people who used the same emoji.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.MessageReaction}
@@ -559,7 +561,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object emojiName_ = "";
     /**
      * <pre>
-     * Emoji identifier.
+     * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -581,7 +583,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji identifier.
+     * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -604,7 +606,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji identifier.
+     * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -625,7 +627,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji identifier.
+     * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -641,7 +643,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji identifier.
+     * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -671,8 +673,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of person keys who reacted with this emoji.
-     * Each key is in the format "{personType}-{personId}".
+     * Person keys of everyone who reacted with this emoji,
+     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -685,8 +687,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of person keys who reacted with this emoji.
-     * Each key is in the format "{personType}-{personId}".
+     * Person keys of everyone who reacted with this emoji,
+     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -698,8 +700,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of person keys who reacted with this emoji.
-     * Each key is in the format "{personType}-{personId}".
+     * Person keys of everyone who reacted with this emoji,
+     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -712,8 +714,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of person keys who reacted with this emoji.
-     * Each key is in the format "{personType}-{personId}".
+     * Person keys of everyone who reacted with this emoji,
+     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -727,8 +729,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of person keys who reacted with this emoji.
-     * Each key is in the format "{personType}-{personId}".
+     * Person keys of everyone who reacted with this emoji,
+     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -749,8 +751,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of person keys who reacted with this emoji.
-     * Each key is in the format "{personType}-{personId}".
+     * Person keys of everyone who reacted with this emoji,
+     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -770,8 +772,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of person keys who reacted with this emoji.
-     * Each key is in the format "{personType}-{personId}".
+     * Person keys of everyone who reacted with this emoji,
+     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -789,8 +791,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of person keys who reacted with this emoji.
-     * Each key is in the format "{personType}-{personId}".
+     * Person keys of everyone who reacted with this emoji,
+     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -805,8 +807,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Ordered list of person keys who reacted with this emoji.
-     * Each key is in the format "{personType}-{personId}".
+     * Person keys of everyone who reacted with this emoji,
+     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
      * +kubebuilder:validation:Nullable
      * </pre>
      *

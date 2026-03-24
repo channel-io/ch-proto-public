@@ -5,7 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * OperatorStatus represents the operational status of a manager.
+ * OperatorStatus represents a manager's real-time operational state within a channel,
+ * tracking availability and current activity for chat routing decisions.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.OperatorStatus}
@@ -124,6 +125,11 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 72: {
+
+            version_ = input.readInt64();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -160,10 +166,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object id_;
   /**
    * <pre>
-   * Unique operator status identifier.
-   * Same as the manager ID.
+   * Unique operator status identifier, matching the associated manager ID.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -184,10 +189,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Unique operator status identifier.
-   * Same as the manager ID.
+   * Unique operator status identifier, matching the associated manager ID.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -212,7 +216,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object managerId_;
   /**
    * <pre>
-   * ID of the manager this status belongs to.
+   * Manager ID this operator status belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -235,7 +239,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * ID of the manager this status belongs to.
+   * Manager ID this operator status belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -264,7 +268,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this operator status belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -287,7 +291,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this operator status belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -312,7 +316,7 @@ private static final long serialVersionUID = 0L;
   private int operatorStatusType_;
   /**
    * <pre>
-   * Current activity type of the operator.
+   * Current activity state of the manager, used for chat routing and workload management.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -324,7 +328,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Current activity type of the operator.
+   * Current activity state of the manager, used for chat routing and workload management.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -341,11 +345,12 @@ private static final long serialVersionUID = 0L;
   private boolean enable_;
   /**
    * <pre>
-   * Whether the operator is enabled for assignment.
-   * +kubebuilder:validation:Nullable
+   * Whether the manager is enabled to receive and handle chats.
+   * Disabled managers are excluded from auto-assignment.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool enable = 5 [json_name = "enable"];</code>
+   * <code>bool enable = 5 [json_name = "enable", (.buf.validate.field) = { ... }</code>
    * @return The enable.
    */
   @java.lang.Override
@@ -439,7 +444,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp typeUpdatedAt_;
   /**
    * <pre>
-   * Timestamp when the operator status type was last changed.
+   * Timestamp when `operator_status_type` was last changed.
+   * Differs from `updated_at` which tracks any field update.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -452,7 +458,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the operator status type was last changed.
+   * Timestamp when `operator_status_type` was last changed.
+   * Differs from `updated_at` which tracks any field update.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -465,7 +472,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the operator status type was last changed.
+   * Timestamp when `operator_status_type` was last changed.
+   * Differs from `updated_at` which tracks any field update.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -474,6 +482,22 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getTypeUpdatedAtOrBuilder() {
     return getTypeUpdatedAt();
+  }
+
+  public static final int VERSION_FIELD_NUMBER = 9;
+  private long version_;
+  /**
+   * <pre>
+   * Optimistic locking version for concurrent update detection.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int64 version = 9 [json_name = "version"];</code>
+   * @return The version.
+   */
+  @java.lang.Override
+  public long getVersion() {
+    return version_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -514,6 +538,9 @@ private static final long serialVersionUID = 0L;
     if (typeUpdatedAt_ != null) {
       output.writeMessage(8, getTypeUpdatedAt());
     }
+    if (version_ != 0L) {
+      output.writeInt64(9, version_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -551,6 +578,10 @@ private static final long serialVersionUID = 0L;
     if (typeUpdatedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getTypeUpdatedAt());
+    }
+    if (version_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(9, version_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -591,6 +622,8 @@ private static final long serialVersionUID = 0L;
       if (!getTypeUpdatedAt()
           .equals(other.getTypeUpdatedAt())) return false;
     }
+    if (getVersion()
+        != other.getVersion()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -625,6 +658,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TYPE_UPDATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getTypeUpdatedAt().hashCode();
     }
+    hash = (37 * hash) + VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getVersion());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -722,7 +758,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * OperatorStatus represents the operational status of a manager.
+   * OperatorStatus represents a manager's real-time operational state within a channel,
+   * tracking availability and current activity for chat routing decisions.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.OperatorStatus}
@@ -790,6 +827,8 @@ private static final long serialVersionUID = 0L;
         typeUpdatedAt_ = null;
         typeUpdatedAtBuilder_ = null;
       }
+      version_ = 0L;
+
       return this;
     }
 
@@ -836,6 +875,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.typeUpdatedAt_ = typeUpdatedAtBuilder_.build();
       }
+      result.version_ = version_;
       onBuilt();
       return result;
     }
@@ -911,6 +951,9 @@ private static final long serialVersionUID = 0L;
       if (other.hasTypeUpdatedAt()) {
         mergeTypeUpdatedAt(other.getTypeUpdatedAt());
       }
+      if (other.getVersion() != 0L) {
+        setVersion(other.getVersion());
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -943,10 +986,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object id_ = "";
     /**
      * <pre>
-     * Unique operator status identifier.
-     * Same as the manager ID.
+     * Unique operator status identifier, matching the associated manager ID.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -966,10 +1008,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique operator status identifier.
-     * Same as the manager ID.
+     * Unique operator status identifier, matching the associated manager ID.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -990,10 +1031,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique operator status identifier.
-     * Same as the manager ID.
+     * Unique operator status identifier, matching the associated manager ID.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1012,10 +1052,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique operator status identifier.
-     * Same as the manager ID.
+     * Unique operator status identifier, matching the associated manager ID.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1029,10 +1068,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique operator status identifier.
-     * Same as the manager ID.
+     * Unique operator status identifier, matching the associated manager ID.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1054,7 +1092,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object managerId_ = "";
     /**
      * <pre>
-     * ID of the manager this status belongs to.
+     * Manager ID this operator status belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1076,7 +1114,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the manager this status belongs to.
+     * Manager ID this operator status belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1099,7 +1137,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the manager this status belongs to.
+     * Manager ID this operator status belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1120,7 +1158,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the manager this status belongs to.
+     * Manager ID this operator status belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1136,7 +1174,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the manager this status belongs to.
+     * Manager ID this operator status belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1162,7 +1200,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this operator status belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1184,7 +1222,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this operator status belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1207,7 +1245,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this operator status belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1228,7 +1266,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this operator status belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1244,7 +1282,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this operator status belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1266,7 +1304,7 @@ private static final long serialVersionUID = 0L;
     private int operatorStatusType_ = 0;
     /**
      * <pre>
-     * Current activity type of the operator.
+     * Current activity state of the manager, used for chat routing and workload management.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1278,7 +1316,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current activity type of the operator.
+     * Current activity state of the manager, used for chat routing and workload management.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1294,7 +1332,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current activity type of the operator.
+     * Current activity state of the manager, used for chat routing and workload management.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1309,7 +1347,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current activity type of the operator.
+     * Current activity state of the manager, used for chat routing and workload management.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1328,7 +1366,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current activity type of the operator.
+     * Current activity state of the manager, used for chat routing and workload management.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1345,11 +1383,12 @@ private static final long serialVersionUID = 0L;
     private boolean enable_ ;
     /**
      * <pre>
-     * Whether the operator is enabled for assignment.
-     * +kubebuilder:validation:Nullable
+     * Whether the manager is enabled to receive and handle chats.
+     * Disabled managers are excluded from auto-assignment.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool enable = 5 [json_name = "enable"];</code>
+     * <code>bool enable = 5 [json_name = "enable", (.buf.validate.field) = { ... }</code>
      * @return The enable.
      */
     @java.lang.Override
@@ -1358,11 +1397,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the operator is enabled for assignment.
-     * +kubebuilder:validation:Nullable
+     * Whether the manager is enabled to receive and handle chats.
+     * Disabled managers are excluded from auto-assignment.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool enable = 5 [json_name = "enable"];</code>
+     * <code>bool enable = 5 [json_name = "enable", (.buf.validate.field) = { ... }</code>
      * @param value The enable to set.
      * @return This builder for chaining.
      */
@@ -1374,11 +1414,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the operator is enabled for assignment.
-     * +kubebuilder:validation:Nullable
+     * Whether the manager is enabled to receive and handle chats.
+     * Disabled managers are excluded from auto-assignment.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool enable = 5 [json_name = "enable"];</code>
+     * <code>bool enable = 5 [json_name = "enable", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearEnable() {
@@ -1721,7 +1762,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> typeUpdatedAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1733,7 +1775,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1749,7 +1792,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1770,7 +1814,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1789,7 +1834,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1812,7 +1858,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1831,7 +1878,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1844,7 +1892,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1860,7 +1909,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1878,6 +1928,52 @@ private static final long serialVersionUID = 0L;
         typeUpdatedAt_ = null;
       }
       return typeUpdatedAtBuilder_;
+    }
+
+    private long version_ ;
+    /**
+     * <pre>
+     * Optimistic locking version for concurrent update detection.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int64 version = 9 [json_name = "version"];</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public long getVersion() {
+      return version_;
+    }
+    /**
+     * <pre>
+     * Optimistic locking version for concurrent update detection.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int64 version = 9 [json_name = "version"];</code>
+     * @param value The version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVersion(long value) {
+      
+      version_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optimistic locking version for concurrent update detection.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int64 version = 9 [json_name = "version"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVersion() {
+      
+      version_ = 0L;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -2076,6 +2172,29 @@ private static final long serialVersionUID = 0L;
     		return clearTypeUpdatedAt();
     	else
     		return setTypeUpdatedAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearVersion(java.lang.Long value) {
+    	if (value == null)
+    		return clearVersion();
+    	else
+    		return setVersion(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
+    	if (value == null)
+    		return clearVersion();
+    	else
+    		return setVersion(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.OperatorStatus)

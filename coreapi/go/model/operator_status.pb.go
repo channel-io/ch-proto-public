@@ -23,23 +23,36 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Operator status type representing the current activity state.
+// Activity state of a manager for operational tracking and chat routing.
+// States are grouped into "active" (eligible for chat assignment) and "inactive".
 type OperatorStatusType int32
 
 const (
 	OperatorStatusType_OPERATOR_STATUS_TYPE_UNSPECIFIED OperatorStatusType = 0
-	OperatorStatusType_OPERATOR_STATUS_TYPE_WAITING     OperatorStatusType = 1
-	OperatorStatusType_OPERATOR_STATUS_TYPE_CHAT        OperatorStatusType = 2
-	OperatorStatusType_OPERATOR_STATUS_TYPE_CALL        OperatorStatusType = 3
-	OperatorStatusType_OPERATOR_STATUS_TYPE_POST_CALL   OperatorStatusType = 4
-	OperatorStatusType_OPERATOR_STATUS_TYPE_MEET        OperatorStatusType = 5
-	OperatorStatusType_OPERATOR_STATUS_TYPE_EAT         OperatorStatusType = 6
-	OperatorStatusType_OPERATOR_STATUS_TYPE_REST        OperatorStatusType = 7
-	OperatorStatusType_OPERATOR_STATUS_TYPE_IN_MEETING  OperatorStatusType = 8
-	OperatorStatusType_OPERATOR_STATUS_TYPE_EDUCATION   OperatorStatusType = 9
-	OperatorStatusType_OPERATOR_STATUS_TYPE_OTHER_WORK  OperatorStatusType = 10
-	OperatorStatusType_OPERATOR_STATUS_TYPE_OFF         OperatorStatusType = 11
-	OperatorStatusType_OPERATOR_STATUS_TYPE_VACATION    OperatorStatusType = 12
+	// Idle and ready to receive new chats (active).
+	OperatorStatusType_OPERATOR_STATUS_TYPE_WAITING OperatorStatusType = 1
+	// Currently handling a chat (active).
+	OperatorStatusType_OPERATOR_STATUS_TYPE_CHAT OperatorStatusType = 2
+	// On a phone call (active).
+	OperatorStatusType_OPERATOR_STATUS_TYPE_CALL OperatorStatusType = 3
+	// Wrapping up after a phone call (active).
+	OperatorStatusType_OPERATOR_STATUS_TYPE_POST_CALL OperatorStatusType = 4
+	// In a video/audio meet (active).
+	OperatorStatusType_OPERATOR_STATUS_TYPE_MEET OperatorStatusType = 5
+	// On a meal break (inactive).
+	OperatorStatusType_OPERATOR_STATUS_TYPE_EAT OperatorStatusType = 6
+	// On a short break (inactive).
+	OperatorStatusType_OPERATOR_STATUS_TYPE_REST OperatorStatusType = 7
+	// In a scheduled meeting (inactive).
+	OperatorStatusType_OPERATOR_STATUS_TYPE_IN_MEETING OperatorStatusType = 8
+	// In a training or education session (inactive).
+	OperatorStatusType_OPERATOR_STATUS_TYPE_EDUCATION OperatorStatusType = 9
+	// Performing non-chat work (inactive).
+	OperatorStatusType_OPERATOR_STATUS_TYPE_OTHER_WORK OperatorStatusType = 10
+	// Signed off for the day (inactive).
+	OperatorStatusType_OPERATOR_STATUS_TYPE_OFF OperatorStatusType = 11
+	// On vacation leave (inactive).
+	OperatorStatusType_OPERATOR_STATUS_TYPE_VACATION OperatorStatusType = 12
 )
 
 // Enum value maps for OperatorStatusType.
@@ -103,16 +116,16 @@ func (OperatorStatusType) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_operator_status_proto_rawDescGZIP(), []int{0}
 }
 
-// OperatorStatus represents the operational status of a manager.
+// OperatorStatus represents a manager's real-time operational state within a channel,
+// tracking availability and current activity for chat routing decisions.
 type OperatorStatus struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Unique operator status identifier.
-	// Same as the manager ID.
+	// Unique operator status identifier, matching the associated manager ID.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="m-abc123"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// ID of the manager this status belongs to.
+	// Manager ID this operator status belongs to.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
@@ -120,15 +133,16 @@ type OperatorStatus struct {
 	// Channel ID this operator status belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Current activity type of the operator.
+	// Current activity state of the manager, used for chat routing and workload management.
 	//
 	// +kubebuilder:validation:Nullable
 	OperatorStatusType OperatorStatusType `protobuf:"varint,4,opt,name=operator_status_type,json=operatorStatusType,proto3,enum=coreapi.model.OperatorStatusType" json:"operator_status_type,omitempty"`
-	// Whether the operator is enabled for assignment.
+	// Whether the manager is enabled to receive and handle chats.
+	// Disabled managers are excluded from auto-assignment.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	Enable bool `protobuf:"varint,5,opt,name=enable,proto3" json:"enable,omitempty"`
 	// Operator status creation timestamp.
 	//
@@ -138,10 +152,15 @@ type OperatorStatus struct {
 	//
 	// +kubebuilder:validation:Required
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Timestamp when the operator status type was last changed.
+	// Timestamp when `operator_status_type` was last changed.
+	// Differs from `updated_at` which tracks any field update.
 	//
 	// +kubebuilder:validation:Nullable
 	TypeUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=type_updated_at,json=typeUpdatedAt,proto3" json:"type_updated_at,omitempty"`
+	// Optimistic locking version for concurrent update detection.
+	//
+	// +kubebuilder:validation:Nullable
+	Version       int64 `protobuf:"varint,9,opt,name=version,proto3" json:"version,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -232,27 +251,33 @@ func (x *OperatorStatus) GetTypeUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
+func (x *OperatorStatus) GetVersion() int64 {
+	if x != nil {
+		return x.Version
+	}
+	return 0
+}
+
 var File_coreapi_model_operator_status_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_operator_status_proto_rawDesc = "" +
 	"\n" +
-	"#coreapi/model/operator_status.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x82\x05\n" +
-	"\x0eOperatorStatus\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"#coreapi/model/operator_status.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x96\x04\n" +
+	"\x0eOperatorStatus\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12l\n" +
 	"\n" +
 	"manager_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tmanagerId\x12l\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tmanagerId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12S\n" +
-	"\x14operator_status_type\x18\x04 \x01(\x0e2!.coreapi.model.OperatorStatusTypeR\x12operatorStatusType\x12\x16\n" +
-	"\x06enable\x18\x05 \x01(\bR\x06enable\x12A\n" +
+	"channel_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12S\n" +
+	"\x14operator_status_type\x18\x04 \x01(\x0e2!.coreapi.model.OperatorStatusTypeR\x12operatorStatusType\x12\x1e\n" +
+	"\x06enable\x18\x05 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x06enable\x12A\n" +
 	"\n" +
 	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
 	"updated_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12B\n" +
-	"\x0ftype_updated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\rtypeUpdatedAt*\xc9\x03\n" +
+	"\x0ftype_updated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\rtypeUpdatedAt\x12\x18\n" +
+	"\aversion\x18\t \x01(\x03R\aversion*\xc9\x03\n" +
 	"\x12OperatorStatusType\x12$\n" +
 	" OPERATOR_STATUS_TYPE_UNSPECIFIED\x10\x00\x12 \n" +
 	"\x1cOPERATOR_STATUS_TYPE_WAITING\x10\x01\x12\x1d\n" +

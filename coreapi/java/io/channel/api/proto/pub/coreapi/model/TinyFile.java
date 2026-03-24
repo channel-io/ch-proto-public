@@ -5,7 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Compact file reference for avatar and image assets.
+ * TinyFile represents a lightweight file reference containing only the storage location
+ * and optional image dimensions, without full file metadata.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.TinyFile}
@@ -112,7 +113,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object bucket_;
   /**
    * <pre>
-   * Storage bucket identifier.
+   * Storage bucket name where the file is hosted.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -135,7 +136,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Storage bucket identifier.
+   * Storage bucket name where the file is hosted.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -162,7 +163,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object key_;
   /**
    * <pre>
-   * Storage object key.
+   * Storage object key used to locate the file within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -185,7 +186,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Storage object key.
+   * Storage object key used to locate the file within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -213,6 +214,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Image width in pixels.
+   * Present only when the file is an image.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -229,6 +231,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Image height in pixels.
+   * Present only when the file is an image.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -428,7 +431,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Compact file reference for avatar and image assets.
+   * TinyFile represents a lightweight file reference containing only the storage location
+   * and optional image dimensions, without full file metadata.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.TinyFile}
@@ -600,7 +604,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object bucket_ = "";
     /**
      * <pre>
-     * Storage bucket identifier.
+     * Storage bucket name where the file is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -622,7 +626,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage bucket identifier.
+     * Storage bucket name where the file is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -645,7 +649,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage bucket identifier.
+     * Storage bucket name where the file is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -666,7 +670,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage bucket identifier.
+     * Storage bucket name where the file is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -682,7 +686,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage bucket identifier.
+     * Storage bucket name where the file is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -706,7 +710,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object key_ = "";
     /**
      * <pre>
-     * Storage object key.
+     * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -728,7 +732,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage object key.
+     * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -751,7 +755,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage object key.
+     * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -772,7 +776,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage object key.
+     * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -788,7 +792,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage object key.
+     * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -813,6 +817,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image width in pixels.
+     * Present only when the file is an image.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -826,6 +831,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image width in pixels.
+     * Present only when the file is an image.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -842,6 +848,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image width in pixels.
+     * Present only when the file is an image.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -859,6 +866,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image height in pixels.
+     * Present only when the file is an image.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -872,6 +880,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image height in pixels.
+     * Present only when the file is an image.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -888,6 +897,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image height in pixels.
+     * Present only when the file is an image.
      * +kubebuilder:validation:Nullable
      * </pre>
      *

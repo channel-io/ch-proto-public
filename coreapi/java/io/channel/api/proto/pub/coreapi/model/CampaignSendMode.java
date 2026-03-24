@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Send timing mode for a campaign.
+ * Campaign send mode controlling delivery timing.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.CampaignSendMode}
@@ -134,7 +134,7 @@ public enum CampaignSendMode
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return io.channel.api.proto.pub.coreapi.model.CampaignOuterClass.getDescriptor().getEnumTypes().get(1);
+    return io.channel.api.proto.pub.coreapi.model.CampaignOuterClass.getDescriptor().getEnumTypes().get(2);
   }
 
   private static final CampaignSendMode[] VALUES = values();

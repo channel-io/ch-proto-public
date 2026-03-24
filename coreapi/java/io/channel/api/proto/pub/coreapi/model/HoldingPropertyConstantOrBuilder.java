@@ -9,7 +9,7 @@ public interface HoldingPropertyConstantOrBuilder extends
 
   /**
    * <pre>
-   * Name of the base event to extract the property value from.
+   * Name of the base event from which the property value is captured.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -20,7 +20,7 @@ public interface HoldingPropertyConstantOrBuilder extends
   java.lang.String getBaseEventName();
   /**
    * <pre>
-   * Name of the base event to extract the property value from.
+   * Name of the base event from which the property value is captured.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -33,7 +33,7 @@ public interface HoldingPropertyConstantOrBuilder extends
 
   /**
    * <pre>
-   * Property key to extract from the base event.
+   * Property key within the base event whose value is held constant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -44,7 +44,7 @@ public interface HoldingPropertyConstantOrBuilder extends
   java.lang.String getBaseEventKey();
   /**
    * <pre>
-   * Property key to extract from the base event.
+   * Property key within the base event whose value is held constant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -57,7 +57,8 @@ public interface HoldingPropertyConstantOrBuilder extends
 
   /**
    * <pre>
-   * Query expression for matching the held property value.
+   * Query expression applied to the held property value for matching.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -67,7 +68,8 @@ public interface HoldingPropertyConstantOrBuilder extends
   boolean hasEventQuery();
   /**
    * <pre>
-   * Query expression for matching the held property value.
+   * Query expression applied to the held property value for matching.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -77,7 +79,8 @@ public interface HoldingPropertyConstantOrBuilder extends
   com.google.protobuf.Struct getEventQuery();
   /**
    * <pre>
-   * Query expression for matching the held property value.
+   * Query expression applied to the held property value for matching.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -87,7 +90,7 @@ public interface HoldingPropertyConstantOrBuilder extends
 
   /**
    * <pre>
-   * Type of base event this holding property constant is associated with.
+   * Indicates whether the property is captured from the trigger event or the additional filter event.
    * +kubebuilder:validation:Required
    * </pre>
    *
@@ -97,7 +100,7 @@ public interface HoldingPropertyConstantOrBuilder extends
   int getBaseEventTypeValue();
   /**
    * <pre>
-   * Type of base event this holding property constant is associated with.
+   * Indicates whether the property is captured from the trigger event or the additional filter event.
    * +kubebuilder:validation:Required
    * </pre>
    *
@@ -105,4 +108,70 @@ public interface HoldingPropertyConstantOrBuilder extends
    * @return The baseEventType.
    */
   io.channel.api.proto.pub.coreapi.model.CampaignBaseEventType getBaseEventType();
+
+  /**
+   * <pre>
+   * Comparison operator schema used to evaluate the held property value.
+   * Represented as a structured object describing the operator type and configuration.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
+   * @return Whether the operator field is set.
+   */
+  boolean hasOperator();
+  /**
+   * <pre>
+   * Comparison operator schema used to evaluate the held property value.
+   * Represented as a structured object describing the operator type and configuration.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
+   * @return The operator.
+   */
+  com.google.protobuf.Struct getOperator();
+  /**
+   * <pre>
+   * Comparison operator schema used to evaluate the held property value.
+   * Represented as a structured object describing the operator type and configuration.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getOperatorOrBuilder();
+
+  /**
+   * <pre>
+   * Property values captured from the base event at trigger time.
+   * Represented as a structured object holding the snapshot values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
+   * @return Whether the values field is set.
+   */
+  boolean hasValues();
+  /**
+   * <pre>
+   * Property values captured from the base event at trigger time.
+   * Represented as a structured object holding the snapshot values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
+   * @return The values.
+   */
+  com.google.protobuf.Struct getValues();
+  /**
+   * <pre>
+   * Property values captured from the base event at trigger time.
+   * Represented as a structured object holding the snapshot values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getValuesOrBuilder();
 }

@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * CallLog represents a record of a phone call in a channel.
+ * CallLog represents a record of a phone call associated with a channel.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.CallLog}
@@ -205,7 +205,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID where the call occurred.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -228,7 +228,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID where the call occurred.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -254,7 +254,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Reason the call was missed.
-   * Only present for missed calls.
+   * Only present when the call ended without being answered.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -267,7 +267,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Reason the call was missed.
-   * Only present for missed calls.
+   * Only present when the call ended without being answered.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -284,7 +284,7 @@ private static final long serialVersionUID = 0L;
   private int direction_;
   /**
    * <pre>
-   * Direction of the call relative to the channel.
+   * Whether the call was inbound (received) or outbound (initiated).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -296,7 +296,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Direction of the call relative to the channel.
+   * Whether the call was inbound (received) or outbound (initiated).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -313,7 +313,7 @@ private static final long serialVersionUID = 0L;
   private int state_;
   /**
    * <pre>
-   * Current state of the call.
+   * Current lifecycle state indicating whether the call is waiting or connected.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -325,7 +325,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Current state of the call.
+   * Current lifecycle state indicating whether the call is waiting or connected.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -342,7 +342,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object from_;
   /**
    * <pre>
-   * Caller phone number or identifier.
+   * Originating phone number or caller identifier.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -364,7 +364,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Caller phone number or identifier.
+   * Originating phone number or caller identifier.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -390,7 +390,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object to_;
   /**
    * <pre>
-   * Callee phone number or identifier.
+   * Destination phone number or callee identifier.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -412,7 +412,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Callee phone number or identifier.
+   * Destination phone number or callee identifier.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -520,7 +520,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp engagedAt_;
   /**
    * <pre>
-   * Timestamp when the call was answered.
+   * Timestamp when the call was answered and the conversation began.
+   * Absent if the call was never answered.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -533,7 +534,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the call was answered.
+   * Timestamp when the call was answered and the conversation began.
+   * Absent if the call was never answered.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -546,7 +548,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the call was answered.
+   * Timestamp when the call was answered and the conversation began.
+   * Absent if the call was never answered.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -561,7 +564,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp closedAt_;
   /**
    * <pre>
-   * Timestamp when the call ended.
+   * Timestamp when the call ended and the connection was terminated.
+   * Absent if the call is still active or was never connected.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -574,7 +578,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the call ended.
+   * Timestamp when the call ended and the connection was terminated.
+   * Absent if the call is still active or was never connected.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -587,7 +592,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the call ended.
+   * Timestamp when the call ended and the connection was terminated.
+   * Absent if the call is still active or was never connected.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -602,7 +608,8 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object userChatId_;
   /**
    * <pre>
-   * User chat ID associated with this call.
+   * User chat ID linked to this call.
+   * Present when the call is associated with a user chat conversation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -624,7 +631,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * User chat ID associated with this call.
+   * User chat ID linked to this call.
+   * Present when the call is associated with a user chat conversation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -650,7 +658,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.LazyStringList managerIds_;
   /**
    * <pre>
-   * Manager IDs who participated in the call.
+   * List of manager IDs who participated in or handled the call.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -663,7 +671,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Manager IDs who participated in the call.
+   * List of manager IDs who participated in or handled the call.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -675,7 +683,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Manager IDs who participated in the call.
+   * List of manager IDs who participated in or handled the call.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -688,7 +696,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Manager IDs who participated in the call.
+   * List of manager IDs who participated in or handled the call.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -998,7 +1006,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * CallLog represents a record of a phone call in a channel.
+   * CallLog represents a record of a phone call associated with a channel.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.CallLog}
@@ -1267,7 +1275,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID where the call occurred.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1289,7 +1297,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID where the call occurred.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1312,7 +1320,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID where the call occurred.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1333,7 +1341,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID where the call occurred.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1349,7 +1357,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID where the call occurred.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1372,7 +1380,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Reason the call was missed.
-     * Only present for missed calls.
+     * Only present when the call ended without being answered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1385,7 +1393,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Reason the call was missed.
-     * Only present for missed calls.
+     * Only present when the call ended without being answered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1402,7 +1410,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Reason the call was missed.
-     * Only present for missed calls.
+     * Only present when the call ended without being answered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1418,7 +1426,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Reason the call was missed.
-     * Only present for missed calls.
+     * Only present when the call ended without being answered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1438,7 +1446,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Reason the call was missed.
-     * Only present for missed calls.
+     * Only present when the call ended without being answered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1455,7 +1463,7 @@ private static final long serialVersionUID = 0L;
     private int direction_ = 0;
     /**
      * <pre>
-     * Direction of the call relative to the channel.
+     * Whether the call was inbound (received) or outbound (initiated).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1467,7 +1475,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Direction of the call relative to the channel.
+     * Whether the call was inbound (received) or outbound (initiated).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1483,7 +1491,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Direction of the call relative to the channel.
+     * Whether the call was inbound (received) or outbound (initiated).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1498,7 +1506,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Direction of the call relative to the channel.
+     * Whether the call was inbound (received) or outbound (initiated).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1517,7 +1525,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Direction of the call relative to the channel.
+     * Whether the call was inbound (received) or outbound (initiated).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1534,7 +1542,7 @@ private static final long serialVersionUID = 0L;
     private int state_ = 0;
     /**
      * <pre>
-     * Current state of the call.
+     * Current lifecycle state indicating whether the call is waiting or connected.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1546,7 +1554,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current state of the call.
+     * Current lifecycle state indicating whether the call is waiting or connected.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1562,7 +1570,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current state of the call.
+     * Current lifecycle state indicating whether the call is waiting or connected.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1577,7 +1585,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current state of the call.
+     * Current lifecycle state indicating whether the call is waiting or connected.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1596,7 +1604,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current state of the call.
+     * Current lifecycle state indicating whether the call is waiting or connected.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1613,7 +1621,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object from_ = "";
     /**
      * <pre>
-     * Caller phone number or identifier.
+     * Originating phone number or caller identifier.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1634,7 +1642,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Caller phone number or identifier.
+     * Originating phone number or caller identifier.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1656,7 +1664,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Caller phone number or identifier.
+     * Originating phone number or caller identifier.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1676,7 +1684,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Caller phone number or identifier.
+     * Originating phone number or caller identifier.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1691,7 +1699,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Caller phone number or identifier.
+     * Originating phone number or caller identifier.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1714,7 +1722,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object to_ = "";
     /**
      * <pre>
-     * Callee phone number or identifier.
+     * Destination phone number or callee identifier.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1735,7 +1743,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Callee phone number or identifier.
+     * Destination phone number or callee identifier.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1757,7 +1765,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Callee phone number or identifier.
+     * Destination phone number or callee identifier.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1777,7 +1785,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Callee phone number or identifier.
+     * Destination phone number or callee identifier.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1792,7 +1800,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Callee phone number or identifier.
+     * Destination phone number or callee identifier.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2145,7 +2153,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> engagedAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the call was answered.
+     * Timestamp when the call was answered and the conversation began.
+     * Absent if the call was never answered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2157,7 +2166,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call was answered.
+     * Timestamp when the call was answered and the conversation began.
+     * Absent if the call was never answered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2173,7 +2183,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call was answered.
+     * Timestamp when the call was answered and the conversation began.
+     * Absent if the call was never answered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2194,7 +2205,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call was answered.
+     * Timestamp when the call was answered and the conversation began.
+     * Absent if the call was never answered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2213,7 +2225,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call was answered.
+     * Timestamp when the call was answered and the conversation began.
+     * Absent if the call was never answered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2236,7 +2249,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call was answered.
+     * Timestamp when the call was answered and the conversation began.
+     * Absent if the call was never answered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2255,7 +2269,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call was answered.
+     * Timestamp when the call was answered and the conversation began.
+     * Absent if the call was never answered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2268,7 +2283,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call was answered.
+     * Timestamp when the call was answered and the conversation began.
+     * Absent if the call was never answered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2284,7 +2300,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call was answered.
+     * Timestamp when the call was answered and the conversation began.
+     * Absent if the call was never answered.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2309,7 +2326,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> closedAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the call ended.
+     * Timestamp when the call ended and the connection was terminated.
+     * Absent if the call is still active or was never connected.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2321,7 +2339,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call ended.
+     * Timestamp when the call ended and the connection was terminated.
+     * Absent if the call is still active or was never connected.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2337,7 +2356,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call ended.
+     * Timestamp when the call ended and the connection was terminated.
+     * Absent if the call is still active or was never connected.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2358,7 +2378,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call ended.
+     * Timestamp when the call ended and the connection was terminated.
+     * Absent if the call is still active or was never connected.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2377,7 +2398,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call ended.
+     * Timestamp when the call ended and the connection was terminated.
+     * Absent if the call is still active or was never connected.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2400,7 +2422,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call ended.
+     * Timestamp when the call ended and the connection was terminated.
+     * Absent if the call is still active or was never connected.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2419,7 +2442,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call ended.
+     * Timestamp when the call ended and the connection was terminated.
+     * Absent if the call is still active or was never connected.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2432,7 +2456,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call ended.
+     * Timestamp when the call ended and the connection was terminated.
+     * Absent if the call is still active or was never connected.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2448,7 +2473,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the call ended.
+     * Timestamp when the call ended and the connection was terminated.
+     * Absent if the call is still active or was never connected.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2471,7 +2497,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object userChatId_ = "";
     /**
      * <pre>
-     * User chat ID associated with this call.
+     * User chat ID linked to this call.
+     * Present when the call is associated with a user chat conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2492,7 +2519,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User chat ID associated with this call.
+     * User chat ID linked to this call.
+     * Present when the call is associated with a user chat conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2514,7 +2542,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User chat ID associated with this call.
+     * User chat ID linked to this call.
+     * Present when the call is associated with a user chat conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2534,7 +2563,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User chat ID associated with this call.
+     * User chat ID linked to this call.
+     * Present when the call is associated with a user chat conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2549,7 +2579,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User chat ID associated with this call.
+     * User chat ID linked to this call.
+     * Present when the call is associated with a user chat conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2578,7 +2609,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs who participated in the call.
+     * List of manager IDs who participated in or handled the call.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2591,7 +2622,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs who participated in the call.
+     * List of manager IDs who participated in or handled the call.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2603,7 +2634,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs who participated in the call.
+     * List of manager IDs who participated in or handled the call.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2616,7 +2647,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs who participated in the call.
+     * List of manager IDs who participated in or handled the call.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2630,7 +2661,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs who participated in the call.
+     * List of manager IDs who participated in or handled the call.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2651,7 +2682,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs who participated in the call.
+     * List of manager IDs who participated in or handled the call.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2671,7 +2702,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs who participated in the call.
+     * List of manager IDs who participated in or handled the call.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2689,7 +2720,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs who participated in the call.
+     * List of manager IDs who participated in or handled the call.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2704,7 +2735,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager IDs who participated in the call.
+     * List of manager IDs who participated in or handled the call.
      * +kubebuilder:validation:Nullable
      * </pre>
      *

@@ -3,8 +3,8 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
-import "coreapi/model/campaign.proto";
 import "coreapi/model/name_desc.proto";
+import "coreapi/model/time_range.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
@@ -33,7 +33,7 @@ enum ChannelAwayOption {
   CHANNEL_AWAY_OPTION_HIDDEN = 3;
 }
 
-// Expected response speed indicator.
+// Expected response speed indicator shown to end users.
 enum ResponseDelayType {
   RESPONSE_DELAY_TYPE_UNSPECIFIED = 0;
   RESPONSE_DELAY_TYPE_INSTANT = 1;
@@ -46,22 +46,42 @@ message Channel {
   // Unique channel identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 1 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  // +kubebuilder:example="ch-12345"
+  string id = 1 [(buf.validate.field).required = true];
 
-  // Channel display name.
+  // Default welcome message shown to end users when a new conversation starts.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Struct welcome_message = 2 [(buf.validate.field).required = true];
+
+  // Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+  //
+  // +kubebuilder:validation:Nullable
+  map<string, google.protobuf.Struct> welcome_message_i18n_map = 3;
+
+  // Channel creation timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp created_at = 4 [(buf.validate.field).required = true];
+
+  // Channel last update timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp updated_at = 5 [(buf.validate.field).required = true];
+
+  // Webhook URL called to retrieve additional user information from your server.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="https://example.com/api/user-info"
+  string user_info_url = 6;
+
+  // Channel display name visible to end users.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
-  string name = 2 [
+  // +kubebuilder:example="Channel Corp"
+  string name = 7 [
     (buf.validate.field).cel = {
       id: "string.minLen"
       message: "value must be at least 1 character"
@@ -75,322 +95,315 @@ message Channel {
     (buf.validate.field).required = true
   ];
 
-  // Channel description.
+  // Internationalized name and description overrides keyed by locale (e.g., en, ko).
+  //
+  // +kubebuilder:validation:Nullable
+  map<string, coreapi.model.NameDesc> name_desc_i18n_map = 8;
+
+  // Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+  //
+  // +kubebuilder:validation:Nullable
+  string cover_image_color = 9;
+
+  // Default bot display name shown to end users in conversations.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:example="Support Bot"
+  string bot_name = 10 [(buf.validate.field).required = true];
+
+  // Channel theme color in hex format (e.g., #3B82F6).
+  // Used to derive border, gradient, text, and plugin icon colors.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:example="#3B82F6"
+  string color = 11 [(buf.validate.field).required = true];
+
+  // Free-text summary displayed on the channel profile.
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxLength=180
-  string description = 3 [(buf.validate.field).cel = {
+  // +kubebuilder:example="We help businesses connect with customers."
+  string description = 12 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 180 characters"
     expression: "size(this) <= 180"
   }];
 
-  // Internationalized name and description map.
-  // Keyed by locale.
-  //
-  // +kubebuilder:validation:Nullable
-  map<string, coreapi.model.NameDesc> name_desc_i18n_map = 4;
-
-  // Channel avatar image URL.
-  //
-  // +kubebuilder:validation:Nullable
-  string avatar_url = 5;
-
-  // Channel theme color in hex format.
-  //
-  // +kubebuilder:validation:Nullable
-  // +kubebuilder:example="#3B82F6"
-  string color = 6;
-
-  // Bot display name shown to end users in conversations.
-  //
-  // +kubebuilder:validation:Nullable
-  string bot_name = 7;
-
-  // ISO 3166-1 alpha-2 country code.
+  // ISO 3166-1 alpha-2 country code (e.g., KR, US).
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:example="KR"
-  string country = 8;
+  string country = 13;
 
-  // Custom domain for the channel.
+  // Custom domain slug for the channel.
+  // Globally unique across all channels.
   //
   // +kubebuilder:validation:Nullable
-  string domain = 9;
+  // +kubebuilder:example="my-company"
+  string domain = 14;
 
-  // Resolved domain for the channel.
-  // Returns the custom domain if set, otherwise the system-generated default.
+  // System-assigned default domain.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:example="ch-12345"
+  string default_domain = 15 [(buf.validate.field).required = true];
+
+  // Business homepage URL associated with the channel.
   //
   // +kubebuilder:validation:Nullable
-  string system_domain = 11;
+  // +kubebuilder:example="https://channel.io"
+  string homepage_url = 16;
 
-  // Channel homepage URL.
-  //
-  // +kubebuilder:validation:Nullable
-  string homepage_url = 12;
-
-  // Channel phone number in E.164 format.
+  // Business contact phone number in E.164 format (e.g., +821012345678).
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:example="+821012345678"
-  string phone_number = 13;
+  string phone_number = 17;
 
-  // IANA timezone identifier.
-  //
-  // +kubebuilder:validation:Nullable
-  // +kubebuilder:example="Asia/Seoul"
-  string time_zone = 14;
-
-  // UTC offset in ISO 8601 format, derived from the timezone.
-  //
-  // +kubebuilder:validation:Nullable
-  // +kubebuilder:example="+09:00"
-  string utc_offset = 15;
-
-  // Current lifecycle state of the channel.
+  // IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
   //
   // +kubebuilder:validation:Required
-  ChannelState state = 16 [(buf.validate.field).required = true];
+  // +kubebuilder:example="Asia/Seoul"
+  string time_zone = 18 [(buf.validate.field).required = true];
 
-  // Expected response delay indicator.
+  // Whether to display individual operator profiles instead of the channel identity to end users.
+  //
+  // +kubebuilder:validation:Required
+  bool show_operator_profile = 19 [(buf.validate.field).required = true];
+
+  // Whether the new chat button is hidden from end users.
+  //
+  // +kubebuilder:validation:Required
+  bool disable_new_chat_button = 20 [(buf.validate.field).required = true];
+
+  // Due date for payment before the channel transitions to an indebted state.
+  // ISO 8601 date format (e.g., 2026-12-31).
   //
   // +kubebuilder:validation:Nullable
-  ResponseDelayType expected_response_delay = 17;
+  // +kubebuilder:example="2026-12-31"
+  string indebted_due_date = 21;
 
-  // Behavior when the channel is outside of operating hours.
+  // Whether SMS/text follow-up is enabled for offline conversations.
+  //
+  // +kubebuilder:validation:Required
+  bool follow_up_texting = 22 [(buf.validate.field).required = true];
+
+  // Whether email follow-up is enabled for offline conversations.
+  //
+  // +kubebuilder:validation:Required
+  bool follow_up_email = 23 [(buf.validate.field).required = true];
+
+  // Whether the follow-up form asks for the user's name.
+  //
+  // +kubebuilder:validation:Required
+  bool follow_up_ask_name = 24 [(buf.validate.field).required = true];
+
+  // Whether the follow-up form must be completed before the user can start a conversation.
+  //
+  // +kubebuilder:validation:Required
+  bool follow_up_mandatory = 25 [(buf.validate.field).required = true];
+
+  // Current lifecycle state of the channel.
+  // See ChannelState for possible values.
   //
   // +kubebuilder:validation:Nullable
-  ChannelAwayOption away_option = 18;
+  ChannelState state = 26;
 
-  // Whether the channel is currently within operating hours.
+  // Whether the channel is verified as an enterprise account.
   //
-  // +kubebuilder:validation:Nullable
-  bool in_operation = 19;
+  // +kubebuilder:validation:Required
+  bool ent_verified = 27 [(buf.validate.field).required = true];
 
-  // Whether the channel is currently accepting conversations.
-  // A channel is working when it is not blocked and within operating hours.
-  //
-  // +kubebuilder:validation:Nullable
-  bool working = 20;
-
-  // Whether SMS/text follow-up is enabled for missed conversations.
-  //
-  // +kubebuilder:validation:Nullable
-  bool follow_up_texting = 23;
-
-  // Whether email follow-up is enabled for missed conversations.
-  //
-  // +kubebuilder:validation:Nullable
-  bool follow_up_email = 24;
-
-  // Whether to ask for the user's name in follow-up forms.
-  //
-  // +kubebuilder:validation:Nullable
-  bool follow_up_ask_name = 25;
-
-  // Whether follow-up contact information is mandatory before starting a conversation.
-  //
-  // +kubebuilder:validation:Nullable
-  bool follow_up_mandatory = 26;
-
-  // Whether the messenger widget is hidden from end users.
-  //
-  // +kubebuilder:validation:Nullable
-  bool hide_app_messenger = 27;
-
-  // Default plugin identifier for this channel.
+  // Default plugin identifier used by the messenger widget.
   //
   // +kubebuilder:validation:Nullable
   string default_plugin_id = 28;
 
-  // Channel creation timestamp.
+  // Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="E-commerce"
+  string biz_category = 29;
+
+  // Number of staff members in the organization.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 staffs = 30;
+
+  // Integrated e-commerce platform app identifier.
+  //
+  // +kubebuilder:validation:Nullable
+  string app_commerce_id = 31;
+
+  // Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+  //
+  // +kubebuilder:validation:Nullable
+  string app_commerce_type = 32;
+
+  // Domain of the integrated e-commerce platform.
+  //
+  // +kubebuilder:validation:Nullable
+  string app_commerce_domain = 33;
+
+  // Whether member identity hash verification is enabled.
+  // When enabled, member logins require an HMAC hash to prevent impersonation.
+  //
+  // +kubebuilder:validation:Nullable
+  bool enable_member_hash = 34;
+
+  // Default email domain identifier used for outbound emails sent from this channel.
+  //
+  // +kubebuilder:validation:Nullable
+  string default_email_domain_id = 35;
+
+  // Whether multi-factor authentication is required for managers in this channel.
   //
   // +kubebuilder:validation:Required
-  google.protobuf.Timestamp created_at = 29 [(buf.validate.field).required = true];
+  bool enable_mfa = 36 [(buf.validate.field).required = true];
 
-  // Border color derived from the theme color in hex format.
+  // Whether the messenger widget is hidden from end users on the website.
+  //
+  // +kubebuilder:validation:Required
+  bool hide_app_messenger = 37 [(buf.validate.field).required = true];
+
+  // Whether the channel holds a business certification.
+  // Derived from biz_certificated_countries; true when at least one country is certified.
+  //
+  // +kubebuilder:validation:Required
+  bool biz_certificated = 38 [(buf.validate.field).required = true];
+
+  // Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
+  //
+  // +kubebuilder:validation:Required
+  bool mkt_alimtalk_allowed = 39 [(buf.validate.field).required = true];
+
+  // Countries where the channel has obtained business certification.
+  // Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
   //
   // +kubebuilder:validation:Nullable
-  string border_color = 35;
+  repeated string biz_certificated_countries = 40;
 
-  // Gradient color derived from the theme color in hex format.
+  // Whether the front-end ALF v2 AI assistant is enabled for end users.
+  //
+  // +kubebuilder:validation:Required
+  bool enable_front_alf_v2 = 41 [(buf.validate.field).required = true];
+
+  // Whether the channel is currently blocked.
+  // Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
+  //
+  // +kubebuilder:validation:Required
+  bool blocked = 42 [(buf.validate.field).required = true];
+
+  // Whether the channel is currently accepting new conversations.
+  // True when the channel is not blocked and is within operating hours.
+  //
+  // +kubebuilder:validation:Required
+  bool working = 43 [(buf.validate.field).required = true];
+
+  // Channel avatar image URL.
+  // Falls back to a system-generated default when no custom avatar is set.
   //
   // +kubebuilder:validation:Nullable
-  string gradient_color = 36;
+  // +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
+  string avatar_url = 44;
 
-  // Text color derived from the theme color in hex format.
+  // Expected response delay indicator shown to end users.
+  // Derived from the channel operating configuration.
   //
   // +kubebuilder:validation:Nullable
-  string text_color = 37;
+  ResponseDelayType expected_response_delay = 45;
 
-  // First character of the channel name, used as an avatar fallback.
+  // Whether the channel is currently within operating hours.
+  // Derived from the operating schedule configuration.
   //
-  // +kubebuilder:validation:Nullable
-  string initial = 39;
+  // +kubebuilder:validation:Required
+  bool in_operation = 46 [(buf.validate.field).required = true];
 
-  /// Operation scheduling
-
-  // Whether operation time scheduling is enabled.
+  // Whether operating hour scheduling is enabled.
+  // When false, the channel is always considered in operation.
   //
-  // +kubebuilder:validation:Nullable
-  bool operation_time_scheduling = 40;
-
-  // Recurring time ranges that define the channel operating hours.
-  //
-  // +kubebuilder:validation:Nullable
-  repeated coreapi.model.TimeRange operation_time_ranges = 41;
-
-  // Timestamp when the channel will next enter operating hours.
-  // Present only when the channel is currently outside operating hours
-  // and operation time scheduling is enabled.
-  //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp next_operating_at = 42;
-
-  // Whether replying is blocked after the conversation is closed.
-  //
-  // +kubebuilder:validation:Nullable
-  bool block_replying_after_closed = 45;
-
-  // Duration after which replying is blocked once the conversation is closed.
-  //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Duration block_replying_after_closed_time = 46;
-
-  /// Welcome message
-
-  // Default welcome message shown when a new conversation starts.
-  //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Struct welcome_message = 47;
-
-  // Internationalized welcome messages keyed by locale.
-  //
-  // +kubebuilder:validation:Nullable
-  map<string, google.protobuf.Struct> welcome_message_i18n_map = 48;
-
-  // URL for retrieving user information.
-  //
-  // +kubebuilder:validation:Nullable
-  string user_info_url = 49;
-
-  // Traffic source tracking data.
-  //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Struct traffic_source = 50;
-
-  // Billing account identifier.
-  //
-  // +kubebuilder:validation:Nullable
-  string bill_account_id = 51;
-
-  // Business grade rating.
-  //
-  // +kubebuilder:validation:Nullable
-  string biz_grade = 52;
-
-  // Source survey tracking data.
-  //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Struct source_survey = 53;
-
-  // Business industry category.
-  //
-  // +kubebuilder:validation:Nullable
-  string biz_category = 54;
-
-  // Number of team members in the channel.
-  //
-  // +kubebuilder:validation:Nullable
-  int32 staffs = 55;
-
-  // Commerce app integration identifier.
-  //
-  // +kubebuilder:validation:Nullable
-  string app_commerce_id = 56;
-
-  // Type of commerce platform integrated.
-  //
-  // +kubebuilder:validation:Nullable
-  string app_commerce_type = 57;
-
-  // Whether member hash authentication is enabled.
-  //
-  // +kubebuilder:validation:Nullable
-  bool enable_member_hash = 58;
-
-  // Default email domain identifier.
-  //
-  // +kubebuilder:validation:Nullable
-  string default_email_domain_id = 59;
-
-  // Whether multi-factor authentication is enabled.
-  //
-  // +kubebuilder:validation:Nullable
-  bool enable_mfa = 60;
-
-  // Whether the channel account is blocked.
-  //
-  // +kubebuilder:validation:Nullable
-  bool blocked = 61;
-
-  // Whether the theme has a bright color.
-  //
-  // +kubebuilder:validation:Nullable
-  bool bright = 62;
-
-  // Whether follow-up feature is active.
-  //
-  // +kubebuilder:validation:Nullable
-  bool using_follow_up = 63;
-
-  // Theme color brightness value normalized to 0.0-1.0 range.
-  //
-  // +kubebuilder:validation:Nullable
-  float brightness = 64;
-
-  // Whether the cover image has a bright tone.
-  //
-  // +kubebuilder:validation:Nullable
-  bool cover_image_bright = 65;
-
-  // Cover image dominant color in hex format.
-  //
-  // +kubebuilder:validation:Nullable
-  string cover_image_color = 66;
-
-  // Cover image URL for the channel profile.
-  //
-  // +kubebuilder:validation:Nullable
-  string cover_image_url = 67;
-
-  // Whether to hide the new chat button from end users.
-  //
-  // +kubebuilder:validation:Nullable
-  bool disable_new_chat_button = 68;
-
-  // Timestamp when the next away period starts.
-  //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp next_away_time = 69;
+  // +kubebuilder:validation:Required
+  bool operation_time_scheduling = 47 [(buf.validate.field).required = true];
 
   // Timestamp when the next operating period starts.
+  // Present only when the channel is currently outside operating hours.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp next_working_time = 70;
+  google.protobuf.Timestamp next_working_time = 48;
 
-  // Icon color for the channel plugin widget in hex format.
+  // Timestamp when the next away (non-operating) period starts.
+  // Present only when the channel is currently within operating hours.
   //
   // +kubebuilder:validation:Nullable
-  string plugin_icon_color = 71;
+  google.protobuf.Timestamp next_away_time = 49;
 
-  // Whether to display individual operator profiles to end users.
+  // Recurring weekly time ranges that define the channel operating hours.
   //
   // +kubebuilder:validation:Nullable
-  bool show_operator_profile = 72;
+  repeated coreapi.model.TimeRange operation_time_ranges = 50;
 
-  // Channel last update timestamp.
+  // Messenger behavior when the channel is outside of operating hours.
+  // See ChannelAwayOption for possible values.
+  //
+  // +kubebuilder:validation:Nullable
+  ChannelAwayOption away_option = 51;
+
+  // Whether end-user replying is blocked after a conversation is closed.
   //
   // +kubebuilder:validation:Required
-  google.protobuf.Timestamp updated_at = 73 [(buf.validate.field).required = true];
+  bool block_replying_after_closed = 52 [(buf.validate.field).required = true];
+
+  // Grace period after conversation closure during which the end user may still reply.
+  // Applicable only when block_replying_after_closed is true.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Duration block_replying_after_closed_time = 53;
+
+  // Border accent color derived from the theme color, in hex format.
+  //
+  // +kubebuilder:validation:Nullable
+  string border_color = 54;
+
+  // Gradient accent color derived from the theme color, in hex format.
+  //
+  // +kubebuilder:validation:Nullable
+  string gradient_color = 55;
+
+  // Text color for contrast against the theme color, in hex format.
+  //
+  // +kubebuilder:validation:Nullable
+  string text_color = 56;
+
+  // First character of the channel name, used as a fallback when no avatar is set.
+  //
+  // +kubebuilder:validation:Nullable
+  string initial = 57;
+
+  // Resolved domain for the channel.
+  // Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+  //
+  // +kubebuilder:validation:Nullable
+  string system_domain = 58;
+
+  // Icon color for the messenger plugin widget, derived from the theme color, in hex format.
+  //
+  // +kubebuilder:validation:Nullable
+  string plugin_icon_color = 59;
+
+  // Theme color brightness value normalized to 0.0 -- 1.0 range.
+  // Derived from the theme color.
+  //
+  // +kubebuilder:validation:Nullable
+  float brightness = 60;
+
+  // Cover image URL for the channel profile page.
+  //
+  // +kubebuilder:validation:Nullable
+  string cover_image_url = 61;
+
+  // Whether the cover image has a bright tone.
+  // Derived from the cover_image_color field.
+  //
+  // +kubebuilder:validation:Nullable
+  bool cover_image_bright = 62;
 }

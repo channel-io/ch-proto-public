@@ -11,7 +11,7 @@ public interface ChatTagOrBuilder extends
    * <pre>
    * Unique chat tag identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="tag-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface ChatTagOrBuilder extends
    * <pre>
    * Unique chat tag identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="tag-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +35,7 @@ public interface ChatTagOrBuilder extends
    * <pre>
    * Channel ID this chat tag belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -46,7 +46,7 @@ public interface ChatTagOrBuilder extends
    * <pre>
    * Channel ID this chat tag belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -80,7 +80,6 @@ public interface ChatTagOrBuilder extends
    * <pre>
    * Display name of the chat tag.
    * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
-   * Cannot contain ".", "&#92;", "$", "%" or whitespace characters.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
@@ -94,7 +93,6 @@ public interface ChatTagOrBuilder extends
    * <pre>
    * Display name of the chat tag.
    * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
-   * Cannot contain ".", "&#92;", "$", "%" or whitespace characters.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
@@ -155,51 +153,6 @@ public interface ChatTagOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDescriptionBytes();
-
-  /**
-   * <pre>
-   * Manager IDs following this chat tag for notifications.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-   * @return A list containing the followerIds.
-   */
-  java.util.List<java.lang.String>
-      getFollowerIdsList();
-  /**
-   * <pre>
-   * Manager IDs following this chat tag for notifications.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-   * @return The count of followerIds.
-   */
-  int getFollowerIdsCount();
-  /**
-   * <pre>
-   * Manager IDs following this chat tag for notifications.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-   * @param index The index of the element to return.
-   * @return The followerIds at the given index.
-   */
-  java.lang.String getFollowerIds(int index);
-  /**
-   * <pre>
-   * Manager IDs following this chat tag for notifications.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the followerIds at the given index.
-   */
-  com.google.protobuf.ByteString
-      getFollowerIdsBytes(int index);
 
   /**
    * <pre>

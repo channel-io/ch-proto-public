@@ -9,54 +9,58 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// Content type of a message block.
-enum BlockType {
-  BLOCK_TYPE_UNSPECIFIED = 0;
-  BLOCK_TYPE_TEXT = 1;
-  BLOCK_TYPE_CODE = 2;
-  BLOCK_TYPE_BULLETS = 3;
-}
+// =====================================================
+// Block
+// =====================================================
 
-// Block represents a unit of structured content within a message.
-// Text and code blocks are leaf nodes containing a value.
-// Bullet blocks are container nodes containing child blocks.
+// Block represents a structured content block within a message.
+// Blocks can be nested to form bullet lists.
 message Block {
-  // Content type of this block.
+  // Content block type that determines how the block is rendered and which fields are applicable.
   //
   // +kubebuilder:validation:Required
   BlockType type = 1 [(buf.validate.field).required = true];
 
-  // Programming language identifier for code blocks.
+  // Programming language identifier for syntax highlighting.
+  // Only applicable when type is CODE.
   //
   // +kubebuilder:validation:Nullable
   string language = 2;
 
-  // Text content for leaf blocks (text, code).
+  // Text content of the block.
+  // Applicable for TEXT and CODE block types; ignored for BULLETS.
   //
   // +kubebuilder:validation:Nullable
   string value = 3;
 
-  // Child blocks for container blocks (bullets).
+  // Nested child blocks that form a hierarchical list structure.
+  // Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
   //
   // +kubebuilder:validation:Nullable
   repeated Block blocks = 4;
+
+  // Type of content block.
+  // TEXT and CODE are leaf types that hold text in `value`.
+  // BULLETS is a container type that holds child blocks in `blocks`.
+  enum BlockType {
+    BLOCK_TYPE_UNSPECIFIED = 0;
+    // Container for nested child blocks forming a bullet list.
+    BLOCK_TYPE_BULLETS = 1;
+    // Code snippet with optional syntax highlighting via `language`.
+    BLOCK_TYPE_CODE = 2;
+    // Rich text content with inline markup support.
+    BLOCK_TYPE_TEXT = 3;
+  }
 }
 
-// Visual color variant for message buttons.
-enum ButtonColorVariant {
-  BUTTON_COLOR_VARIANT_UNSPECIFIED = 0;
-  BUTTON_COLOR_VARIANT_COBALT = 1;
-  BUTTON_COLOR_VARIANT_GREEN = 2;
-  BUTTON_COLOR_VARIANT_ORANGE = 3;
-  BUTTON_COLOR_VARIANT_RED = 4;
-  BUTTON_COLOR_VARIANT_BLACK = 5;
-  BUTTON_COLOR_VARIANT_PINK = 6;
-  BUTTON_COLOR_VARIANT_PURPLE = 7;
-}
+// =====================================================
+// MessageButton
+// =====================================================
 
 // MessageButton represents an interactive button attached to a message.
+// A message can have up to 2 buttons.
 message MessageButton {
-  // Button display text.
+  // Button label shown to the user.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -75,39 +79,48 @@ message MessageButton {
     (buf.validate.field).required = true
   ];
 
-  // Visual color variant of the button.
+  // Visual color theme applied to the button.
+  // Defaults to the channel's primary color when not specified.
   //
   // +kubebuilder:validation:Nullable
-  ButtonColorVariant color_variant = 2;
+  ColorVariant color_variant = 2;
 
-  // Action to perform when the button is clicked.
-  // The structure depends on the action type (web, command, wam).
+  // Action payload executed when the button is clicked.
+  // Contains the action type and its attributes (e.g. URL to open, WAM to launch).
   //
   // +kubebuilder:validation:Required
   google.protobuf.Struct action = 3 [(buf.validate.field).required = true];
+
+  // Visual color theme for a button.
+  enum ColorVariant {
+    COLOR_VARIANT_UNSPECIFIED = 0;
+    COLOR_VARIANT_COBALT = 1;
+    COLOR_VARIANT_GREEN = 2;
+    COLOR_VARIANT_ORANGE = 3;
+    COLOR_VARIANT_RED = 4;
+    COLOR_VARIANT_BLACK = 5;
+    COLOR_VARIANT_PINK = 6;
+    COLOR_VARIANT_PURPLE = 7;
+  }
 }
 
-// MessageFile represents a file attachment in a message.
+// =====================================================
+// MessageFile
+// =====================================================
+
+// MessageFile represents a file attached to a message.
 message MessageFile {
   // Unique file identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 1 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string id = 1 [(buf.validate.field).required = true];
 
-  // File category such as image, video, or audio.
+  // High-level media category derived from the MIME type (e.g. "image", "video", "audio").
   //
   // +kubebuilder:validation:Nullable
   string type = 2;
 
-  // Original file name.
+  // Original file name including the extension (e.g. "report.pdf").
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -125,12 +138,13 @@ message MessageFile {
   // +kubebuilder:validation:Required
   int64 size = 4 [(buf.validate.field).required = true];
 
-  // MIME content type of the file.
+  // MIME content type (e.g. "image/png", "application/pdf").
   //
   // +kubebuilder:validation:Nullable
   string content_type = 5;
 
-  // Duration in seconds for audio and video files.
+  // Media playback duration in seconds.
+  // Present only for audio or video files.
   //
   // +kubebuilder:validation:Nullable
   double duration = 6;
@@ -145,17 +159,18 @@ message MessageFile {
   // +kubebuilder:validation:Nullable
   int32 height = 8;
 
-  // EXIF orientation value for images.
+  // EXIF orientation value (1-8) indicating how the image should be rotated for display.
+  // Present only for image files with EXIF metadata.
   //
   // +kubebuilder:validation:Nullable
   int32 orientation = 9;
 
-  // Whether the image is animated (e.g., GIF).
+  // Whether the image is an animated format (e.g. GIF, APNG).
   //
   // +kubebuilder:validation:Nullable
   bool animated = 10;
 
-  // Storage bucket name where the file is stored.
+  // Storage bucket name where the file is hosted.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -168,7 +183,7 @@ message MessageFile {
     (buf.validate.field).required = true
   ];
 
-  // Storage key identifying the file within the bucket.
+  // Storage object key used to locate the file within the bucket.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -181,28 +196,73 @@ message MessageFile {
     (buf.validate.field).required = true
   ];
 
-  // Storage key for the file preview thumbnail.
+  // Storage key for the preview thumbnail.
+  // Falls back to `key` when not set.
   //
   // +kubebuilder:validation:Nullable
   string preview_key = 13;
+
+  // Access scope that determines who can view this private file.
+  // Derived from the storage key pattern.
+  //
+  // +kubebuilder:validation:Nullable
+  PrivateFileScope private_file_scope = 14;
+
+  // Domain identifier for channel-scoped private files.
+  // Derived from the storage key pattern.
+  //
+  // +kubebuilder:validation:Nullable
+  string shared_domain = 15;
+
+  // Channel ID that owns this private file.
+  // Derived from the storage key pattern.
+  //
+  // +kubebuilder:validation:Nullable
+  string channel_id = 16;
+
+  // Manager ID that owns this private file.
+  // Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+  //
+  // +kubebuilder:validation:Nullable
+  string manager_id = 17;
+
+  // Chat type for chat-scoped private files.
+  // Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+  //
+  // +kubebuilder:validation:Nullable
+  string chat_type = 18;
+
+  // Chat ID for chat-scoped private files.
+  // Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+  //
+  // +kubebuilder:validation:Nullable
+  string chat_id = 19;
+
+  // Access scope for private file visibility.
+  enum PrivateFileScope {
+    PRIVATE_FILE_SCOPE_UNSPECIFIED = 0;
+    // Visible only to participants of the specific chat.
+    PRIVATE_FILE_SCOPE_CHAT = 1;
+    // Visible only to the owning manager.
+    PRIVATE_FILE_SCOPE_MANAGER = 2;
+    // Visible to all members of the channel.
+    PRIVATE_FILE_SCOPE_CHANNEL = 3;
+  }
 }
 
-// MessageWebPage represents a web page link preview attached to a message.
+// =====================================================
+// MessageWebPage
+// =====================================================
+
+// MessageWebPage represents a link preview card embedded in a message,
+// populated from Open Graph and HTML meta tags of the target URL.
 message MessageWebPage {
-  // Unique web page identifier.
+  // Unique web page preview identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 1 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string id = 1 [(buf.validate.field).required = true];
 
-  // URL of the web page.
+  // Target URL of the linked web page.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -215,32 +275,32 @@ message MessageWebPage {
     (buf.validate.field).required = true
   ];
 
-  // Title of the web page.
+  // Page title extracted from Open Graph `og:title` or HTML `<title>` tag.
   //
   // +kubebuilder:validation:Nullable
   string title = 3;
 
-  // Short description of the web page content.
+  // Page summary extracted from Open Graph `og:description` or HTML meta description.
   //
   // +kubebuilder:validation:Nullable
   string description = 4;
 
-  // URL of the preview image.
+  // Primary image URL from Open Graph `og:image` metadata.
   //
   // +kubebuilder:validation:Nullable
   string image_url = 5;
 
-  // URL of the preview video.
+  // Embedded video URL from Open Graph `og:video` metadata.
   //
   // +kubebuilder:validation:Nullable
   string video_url = 6;
 
-  // Publisher name of the web page.
+  // Publisher or site name extracted from page metadata.
   //
   // +kubebuilder:validation:Nullable
   string publisher = 7;
 
-  // Author name of the web page content.
+  // Content author name extracted from page metadata.
   //
   // +kubebuilder:validation:Nullable
   string author = 8;
@@ -260,40 +320,56 @@ message MessageWebPage {
   // +kubebuilder:validation:Nullable
   string bucket = 11;
 
-  // Storage key for the cached preview image.
+  // Storage key for the locally cached preview image.
   //
   // +kubebuilder:validation:Nullable
   string preview_key = 12;
 
-  // Logo URL of the web page publisher.
+  // Publisher logo URL extracted from page metadata.
   //
   // +kubebuilder:validation:Nullable
   string logo = 13;
 
-  // Site name of the web page.
+  // Site name from Open Graph `og:site_name` metadata.
   //
   // +kubebuilder:validation:Nullable
   string name = 14;
 }
 
+// =====================================================
+// MessageContent (service-level message payload)
+// =====================================================
+
 // Message option flags that modify message delivery and display behavior.
 enum MessageOption {
   MESSAGE_OPTION_UNSPECIFIED = 0;
+  // Deliver the message as if sent by a manager instead of a bot.
   MESSAGE_OPTION_ACT_AS_MANAGER = 1;
+  // Display the bot as the channel identity instead of its own profile.
   MESSAGE_OPTION_DISPLAY_AS_CHANNEL = 2;
+  // Do not post the message to the chat timeline.
   MESSAGE_OPTION_DO_NOT_POST = 3;
+  // Exclude the message from search results.
   MESSAGE_OPTION_DO_NOT_SEARCH = 4;
+  // Do not deliver the message via app push notification.
   MESSAGE_OPTION_DO_NOT_SEND_APP = 5;
+  // Do not update the Desk inbox timestamp for this message.
   MESSAGE_OPTION_DO_NOT_UPDATE_DESK = 6;
+  // Prevent the message from being edited or deleted after sending.
   MESSAGE_OPTION_IMMUTABLE = 7;
+  // Mark the message as a private internal note visible only to managers.
   MESSAGE_OPTION_PRIVATE = 8;
+  // Suppress all notifications for this message.
   MESSAGE_OPTION_SILENT = 9;
+  // Suppress notifications to managers only.
   MESSAGE_OPTION_SILENT_TO_MANAGER = 10;
+  // Suppress notifications to the user only.
   MESSAGE_OPTION_SILENT_TO_USER = 11;
+  // Send an alert notification to the message writer.
   MESSAGE_OPTION_ALERT_TO_WRITER = 12;
 }
 
-// MessageContent represents the content of a message sent via the Open API.
+// MessageContent represents the content payload for sending a message via the API.
 message MessageContent {
   // Structured content blocks of the message.
   //

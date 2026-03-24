@@ -27,16 +27,20 @@ const (
 type ChatBookmark struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique bookmark identifier.
+	// Format: "{personType}-{personId}-{chatType}".
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="manager-m001-userChat"
 	Key string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
 	// Chat ID this bookmark belongs to.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="uc-abc123"
 	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	// Composite key for the associated chat.
+	// Format: "{chatType}-{chatId}".
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
@@ -49,10 +53,12 @@ type ChatBookmark struct {
 	// Channel ID this bookmark belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,5,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Entity version number for optimistic concurrency control.
-	Version int32 `protobuf:"varint,6,opt,name=version,proto3" json:"version,omitempty"`
+	//
+	// +kubebuilder:validation:Nullable
+	Version int64 `protobuf:"varint,6,opt,name=version,proto3" json:"version,omitempty"`
 	// Type of the bookmark owner (e.g. "manager").
 	//
 	// +kubebuilder:validation:Required
@@ -137,7 +143,7 @@ func (x *ChatBookmark) GetChannelId() string {
 	return ""
 }
 
-func (x *ChatBookmark) GetVersion() int32 {
+func (x *ChatBookmark) GetVersion() int64 {
 	if x != nil {
 		return x.Version
 	}
@@ -169,7 +175,7 @@ var File_coreapi_model_chat_bookmark_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_chat_bookmark_proto_rawDesc = "" +
 	"\n" +
-	"!coreapi/model/chat_bookmark.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\x83\a\n" +
+	"!coreapi/model/chat_bookmark.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\xbc\x06\n" +
 	"\fChatBookmark\x12_\n" +
 	"\x03key\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x03key\x12f\n" +
@@ -178,11 +184,10 @@ const file_coreapi_model_chat_bookmark_proto_rawDesc = "" +
 	"\bchat_key\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\achatKey\x12p\n" +
 	"\fbookmark_key\x18\x04 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\vbookmarkKey\x12l\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\vbookmarkKey\x12%\n" +
 	"\n" +
-	"channel_id\x18\x05 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\x18\n" +
-	"\aversion\x18\x06 \x01(\x05R\aversion\x12n\n" +
+	"channel_id\x18\x05 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x18\n" +
+	"\aversion\x18\x06 \x01(\x03R\aversion\x12n\n" +
 	"\vperson_type\x18\a \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
 	"personType\x12j\n" +

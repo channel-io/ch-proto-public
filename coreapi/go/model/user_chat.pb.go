@@ -24,38 +24,36 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Lifecycle state of a user chat.
+// State of a user chat conversation.
 type UserChatState int32
 
 const (
 	UserChatState_USER_CHAT_STATE_UNSPECIFIED UserChatState = 0
-	UserChatState_USER_CHAT_STATE_OPENED      UserChatState = 1
-	UserChatState_USER_CHAT_STATE_CLOSED      UserChatState = 2
-	UserChatState_USER_CHAT_STATE_SNOOZED     UserChatState = 3
-	UserChatState_USER_CHAT_STATE_QUEUED      UserChatState = 4
-	UserChatState_USER_CHAT_STATE_INITIAL     UserChatState = 5
-	UserChatState_USER_CHAT_STATE_MISSED      UserChatState = 6
+	// The chat has been resolved and closed.
+	UserChatState_USER_CHAT_STATE_CLOSED UserChatState = 1
+	// The chat is actively being handled by a manager.
+	UserChatState_USER_CHAT_STATE_OPENED UserChatState = 2
+	// The chat is temporarily paused and will reopen at a scheduled time.
+	UserChatState_USER_CHAT_STATE_SNOOZED UserChatState = 3
+	// The chat is waiting in the assignment queue for an available manager.
+	UserChatState_USER_CHAT_STATE_QUEUED UserChatState = 4
 )
 
 // Enum value maps for UserChatState.
 var (
 	UserChatState_name = map[int32]string{
 		0: "USER_CHAT_STATE_UNSPECIFIED",
-		1: "USER_CHAT_STATE_OPENED",
-		2: "USER_CHAT_STATE_CLOSED",
+		1: "USER_CHAT_STATE_CLOSED",
+		2: "USER_CHAT_STATE_OPENED",
 		3: "USER_CHAT_STATE_SNOOZED",
 		4: "USER_CHAT_STATE_QUEUED",
-		5: "USER_CHAT_STATE_INITIAL",
-		6: "USER_CHAT_STATE_MISSED",
 	}
 	UserChatState_value = map[string]int32{
 		"USER_CHAT_STATE_UNSPECIFIED": 0,
-		"USER_CHAT_STATE_OPENED":      1,
-		"USER_CHAT_STATE_CLOSED":      2,
+		"USER_CHAT_STATE_CLOSED":      1,
+		"USER_CHAT_STATE_OPENED":      2,
 		"USER_CHAT_STATE_SNOOZED":     3,
 		"USER_CHAT_STATE_QUEUED":      4,
-		"USER_CHAT_STATE_INITIAL":     5,
-		"USER_CHAT_STATE_MISSED":      6,
 	}
 )
 
@@ -86,198 +84,522 @@ func (UserChatState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{0}
 }
 
-// UserChat represents a conversation between a user and the channel's team.
+// Reason why an inbound call or chat was missed.
+type MissedReason int32
+
+const (
+	MissedReason_MISSED_REASON_UNSPECIFIED MissedReason = 0
+	// The channel was outside of operating hours.
+	MissedReason_MISSED_REASON_NOT_IN_OPERATION MissedReason = 1
+	// The user left before a manager could respond.
+	MissedReason_MISSED_REASON_USER_LEFT MissedReason = 2
+	// The ring time expired without any manager answering.
+	MissedReason_MISSED_REASON_RING_TIME_OVER MissedReason = 3
+	// The inbound request was rate-limited.
+	MissedReason_MISSED_REASON_INBOUND_RATE_LIMIT MissedReason = 4
+	// No operator was available to handle the chat.
+	MissedReason_MISSED_REASON_NO_OPERATOR MissedReason = 5
+	// The assignment queue capacity was exceeded.
+	MissedReason_MISSED_REASON_EXCEEDED_QUEUE MissedReason = 6
+	// The user abandoned the chat while waiting in the queue.
+	MissedReason_MISSED_REASON_ABANDONED_IN_QUEUE MissedReason = 7
+	// The workflow automation determined the chat should be missed.
+	MissedReason_MISSED_REASON_WORKFLOW MissedReason = 8
+	// The assigned manager left the chat without resolving it.
+	MissedReason_MISSED_REASON_MANAGER_LEFT MissedReason = 9
+	// No fallback client was available to receive the call.
+	MissedReason_MISSED_REASON_NO_FALLBACK_CLIENT MissedReason = 10
+	// The phone number is reserved and cannot receive inbound calls.
+	MissedReason_MISSED_REASON_PRESERVED_NUMBER MissedReason = 11
+	// The phone number is not registered in the system.
+	MissedReason_MISSED_REASON_UNREGISTERED_NUMBER MissedReason = 12
+	// The user has been blocked from initiating chats.
+	MissedReason_MISSED_REASON_BLOCKED_USER MissedReason = 13
+)
+
+// Enum value maps for MissedReason.
+var (
+	MissedReason_name = map[int32]string{
+		0:  "MISSED_REASON_UNSPECIFIED",
+		1:  "MISSED_REASON_NOT_IN_OPERATION",
+		2:  "MISSED_REASON_USER_LEFT",
+		3:  "MISSED_REASON_RING_TIME_OVER",
+		4:  "MISSED_REASON_INBOUND_RATE_LIMIT",
+		5:  "MISSED_REASON_NO_OPERATOR",
+		6:  "MISSED_REASON_EXCEEDED_QUEUE",
+		7:  "MISSED_REASON_ABANDONED_IN_QUEUE",
+		8:  "MISSED_REASON_WORKFLOW",
+		9:  "MISSED_REASON_MANAGER_LEFT",
+		10: "MISSED_REASON_NO_FALLBACK_CLIENT",
+		11: "MISSED_REASON_PRESERVED_NUMBER",
+		12: "MISSED_REASON_UNREGISTERED_NUMBER",
+		13: "MISSED_REASON_BLOCKED_USER",
+	}
+	MissedReason_value = map[string]int32{
+		"MISSED_REASON_UNSPECIFIED":         0,
+		"MISSED_REASON_NOT_IN_OPERATION":    1,
+		"MISSED_REASON_USER_LEFT":           2,
+		"MISSED_REASON_RING_TIME_OVER":      3,
+		"MISSED_REASON_INBOUND_RATE_LIMIT":  4,
+		"MISSED_REASON_NO_OPERATOR":         5,
+		"MISSED_REASON_EXCEEDED_QUEUE":      6,
+		"MISSED_REASON_ABANDONED_IN_QUEUE":  7,
+		"MISSED_REASON_WORKFLOW":            8,
+		"MISSED_REASON_MANAGER_LEFT":        9,
+		"MISSED_REASON_NO_FALLBACK_CLIENT":  10,
+		"MISSED_REASON_PRESERVED_NUMBER":    11,
+		"MISSED_REASON_UNREGISTERED_NUMBER": 12,
+		"MISSED_REASON_BLOCKED_USER":        13,
+	}
+)
+
+func (x MissedReason) Enum() *MissedReason {
+	p := new(MissedReason)
+	*p = x
+	return p
+}
+
+func (x MissedReason) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (MissedReason) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_user_chat_proto_enumTypes[1].Descriptor()
+}
+
+func (MissedReason) Type() protoreflect.EnumType {
+	return &file_coreapi_model_user_chat_proto_enumTypes[1]
+}
+
+func (x MissedReason) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use MissedReason.Descriptor instead.
+func (MissedReason) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{1}
+}
+
+// Priority level for auto-assignment routing.
+type AutoAssignPriority int32
+
+const (
+	AutoAssignPriority_AUTO_ASSIGN_PRIORITY_UNSPECIFIED AutoAssignPriority = 0
+	// Low priority; assigned after medium and high priority chats.
+	AutoAssignPriority_AUTO_ASSIGN_PRIORITY_LOW AutoAssignPriority = 1
+	// Default priority level.
+	AutoAssignPriority_AUTO_ASSIGN_PRIORITY_MEDIUM AutoAssignPriority = 2
+	// High priority; assigned before lower priority chats.
+	AutoAssignPriority_AUTO_ASSIGN_PRIORITY_HIGH AutoAssignPriority = 3
+)
+
+// Enum value maps for AutoAssignPriority.
+var (
+	AutoAssignPriority_name = map[int32]string{
+		0: "AUTO_ASSIGN_PRIORITY_UNSPECIFIED",
+		1: "AUTO_ASSIGN_PRIORITY_LOW",
+		2: "AUTO_ASSIGN_PRIORITY_MEDIUM",
+		3: "AUTO_ASSIGN_PRIORITY_HIGH",
+	}
+	AutoAssignPriority_value = map[string]int32{
+		"AUTO_ASSIGN_PRIORITY_UNSPECIFIED": 0,
+		"AUTO_ASSIGN_PRIORITY_LOW":         1,
+		"AUTO_ASSIGN_PRIORITY_MEDIUM":      2,
+		"AUTO_ASSIGN_PRIORITY_HIGH":        3,
+	}
+)
+
+func (x AutoAssignPriority) Enum() *AutoAssignPriority {
+	p := new(AutoAssignPriority)
+	*p = x
+	return p
+}
+
+func (x AutoAssignPriority) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (AutoAssignPriority) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_user_chat_proto_enumTypes[2].Descriptor()
+}
+
+func (AutoAssignPriority) Type() protoreflect.EnumType {
+	return &file_coreapi_model_user_chat_proto_enumTypes[2]
+}
+
+func (x AutoAssignPriority) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use AutoAssignPriority.Descriptor instead.
+func (AutoAssignPriority) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{2}
+}
+
+// Goal achievement state of a user chat.
+type UserChatGoalState int32
+
+const (
+	UserChatGoalState_USER_CHAT_GOAL_STATE_UNSPECIFIED UserChatGoalState = 0
+	// The tracked goal event has been achieved.
+	UserChatGoalState_USER_CHAT_GOAL_STATE_ACHIEVED UserChatGoalState = 1
+	// The tracked goal event was not achieved before the chat closed.
+	UserChatGoalState_USER_CHAT_GOAL_STATE_NOT_ACHIEVED UserChatGoalState = 2
+	// The goal event is still being tracked.
+	UserChatGoalState_USER_CHAT_GOAL_STATE_WAITING UserChatGoalState = 3
+	// No goal event is configured for this chat.
+	UserChatGoalState_USER_CHAT_GOAL_STATE_NONE UserChatGoalState = 4
+)
+
+// Enum value maps for UserChatGoalState.
+var (
+	UserChatGoalState_name = map[int32]string{
+		0: "USER_CHAT_GOAL_STATE_UNSPECIFIED",
+		1: "USER_CHAT_GOAL_STATE_ACHIEVED",
+		2: "USER_CHAT_GOAL_STATE_NOT_ACHIEVED",
+		3: "USER_CHAT_GOAL_STATE_WAITING",
+		4: "USER_CHAT_GOAL_STATE_NONE",
+	}
+	UserChatGoalState_value = map[string]int32{
+		"USER_CHAT_GOAL_STATE_UNSPECIFIED":  0,
+		"USER_CHAT_GOAL_STATE_ACHIEVED":     1,
+		"USER_CHAT_GOAL_STATE_NOT_ACHIEVED": 2,
+		"USER_CHAT_GOAL_STATE_WAITING":      3,
+		"USER_CHAT_GOAL_STATE_NONE":         4,
+	}
+)
+
+func (x UserChatGoalState) Enum() *UserChatGoalState {
+	p := new(UserChatGoalState)
+	*p = x
+	return p
+}
+
+func (x UserChatGoalState) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (UserChatGoalState) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_user_chat_proto_enumTypes[3].Descriptor()
+}
+
+func (UserChatGoalState) Type() protoreflect.EnumType {
+	return &file_coreapi_model_user_chat_proto_enumTypes[3]
+}
+
+func (x UserChatGoalState) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use UserChatGoalState.Descriptor instead.
+func (UserChatGoalState) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{3}
+}
+
+// Type of subtext displayed below the chat title.
+type UserChatSubtextType int32
+
+const (
+	UserChatSubtextType_USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED UserChatSubtextType = 0
+	// Shows the chat description as the subtext.
+	UserChatSubtextType_USER_CHAT_SUBTEXT_TYPE_DESCRIPTION UserChatSubtextType = 1
+	// Shows the incoming message preview as the subtext.
+	UserChatSubtextType_USER_CHAT_SUBTEXT_TYPE_INCOMING UserChatSubtextType = 2
+)
+
+// Enum value maps for UserChatSubtextType.
+var (
+	UserChatSubtextType_name = map[int32]string{
+		0: "USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED",
+		1: "USER_CHAT_SUBTEXT_TYPE_DESCRIPTION",
+		2: "USER_CHAT_SUBTEXT_TYPE_INCOMING",
+	}
+	UserChatSubtextType_value = map[string]int32{
+		"USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED": 0,
+		"USER_CHAT_SUBTEXT_TYPE_DESCRIPTION": 1,
+		"USER_CHAT_SUBTEXT_TYPE_INCOMING":    2,
+	}
+)
+
+func (x UserChatSubtextType) Enum() *UserChatSubtextType {
+	p := new(UserChatSubtextType)
+	*p = x
+	return p
+}
+
+func (x UserChatSubtextType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (UserChatSubtextType) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_user_chat_proto_enumTypes[4].Descriptor()
+}
+
+func (UserChatSubtextType) Type() protoreflect.EnumType {
+	return &file_coreapi_model_user_chat_proto_enumTypes[4]
+}
+
+func (x UserChatSubtextType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use UserChatSubtextType.Descriptor instead.
+func (UserChatSubtextType) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{4}
+}
+
+// UserChat represents a conversation between a user and managers.
 type UserChat struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique user chat identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="uc-abc123"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this user chat belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Current lifecycle state.
+	// Contact medium type identifier for chats originating from external
+	// messenger integrations (e.g., "appKakao", "mobileNumber").
+	//
+	// +kubebuilder:validation:Nullable
+	ContactMediumType string `protobuf:"bytes,3,opt,name=contact_medium_type,json=contactMediumType,proto3" json:"contact_medium_type,omitempty"`
+	// ID of the active live meet session attached to this chat.
+	//
+	// +kubebuilder:validation:Nullable
+	LiveMeetId string `protobuf:"bytes,4,opt,name=live_meet_id,json=liveMeetId,proto3" json:"live_meet_id,omitempty"`
+	// Current lifecycle state of the chat conversation.
 	//
 	// +kubebuilder:validation:Required
-	State UserChatState `protobuf:"varint,3,opt,name=state,proto3,enum=coreapi.model.UserChatState" json:"state,omitempty"`
-	// ID of the user who initiated this chat.
+	State UserChatState `protobuf:"varint,5,opt,name=state,proto3,enum=coreapi.model.UserChatState" json:"state,omitempty"`
+	// Reason the chat was missed.
+	// Only present when the chat transitioned to a missed state.
 	//
 	// +kubebuilder:validation:Nullable
-	UserId string `protobuf:"bytes,4,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	// ID of the manager currently assigned to this chat.
+	MissedReason MissedReason `protobuf:"varint,6,opt,name=missed_reason,json=missedReason,proto3,enum=coreapi.model.MissedReason" json:"missed_reason,omitempty"`
+	// Whether the chat is managed and visible in the Desk inbox.
+	// Unmanaged chats are only visible to the user.
+	//
+	// +kubebuilder:validation:Required
+	Managed bool `protobuf:"varint,7,opt,name=managed,proto3" json:"managed,omitempty"`
+	// Priority level used by the auto-assignment system to order this chat
+	// in the queue. Defaults to medium.
 	//
 	// +kubebuilder:validation:Nullable
-	AssigneeId string `protobuf:"bytes,6,opt,name=assignee_id,json=assigneeId,proto3" json:"assignee_id,omitempty"`
-	// ID of the team this chat is routed to.
+	Priority AutoAssignPriority `protobuf:"varint,8,opt,name=priority,proto3,enum=coreapi.model.AutoAssignPriority" json:"priority,omitempty"`
+	// ID of the user who owns this chat conversation.
 	//
 	// +kubebuilder:validation:Nullable
-	TeamId string `protobuf:"bytes,7,opt,name=team_id,json=teamId,proto3" json:"team_id,omitempty"`
-	// User chat description.
+	// +kubebuilder:example="u-abc123"
+	UserId string `protobuf:"bytes,9,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// ID of the external service user linked to this chat
+	// via a messenger integration.
+	//
+	// +kubebuilder:validation:Nullable
+	XerId string `protobuf:"bytes,10,opt,name=xer_id,json=xerId,proto3" json:"xer_id,omitempty"`
+	// Display name of this chat shown to managers in the Desk.
+	//
+	// +kubebuilder:validation:Nullable
+	Name string `protobuf:"bytes,11,opt,name=name,proto3" json:"name,omitempty"`
+	// Title of the chat conversation displayed in the Desk inbox list.
+	//
+	// +kubebuilder:validation:Nullable
+	Title string `protobuf:"bytes,12,opt,name=title,proto3" json:"title,omitempty"`
+	// Free-text note or summary attached to this chat by a manager.
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=1000
-	Description string `protobuf:"bytes,8,opt,name=description,proto3" json:"description,omitempty"`
-	// Medium type used for the initial contact.
+	Description string `protobuf:"bytes,13,opt,name=description,proto3" json:"description,omitempty"`
+	// Type of subtext shown below the chat title in the Desk inbox list.
 	//
 	// +kubebuilder:validation:Nullable
-	ContactMediumType string `protobuf:"bytes,9,opt,name=contact_medium_type,json=contactMediumType,proto3" json:"contact_medium_type,omitempty"`
-	// Automated handling state of this chat.
-	// Varies by handling type (workflow, ALF, support bot, etc.).
+	SubtextType UserChatSubtextType `protobuf:"varint,14,opt,name=subtext_type,json=subtextType,proto3,enum=coreapi.model.UserChatSubtextType" json:"subtext_type,omitempty"`
+	// Current handling state that controls the chat's input behavior
+	// (e.g., workflow step, follow-up collection).
 	//
 	// +kubebuilder:validation:Nullable
-	Handling *structpb.Struct `protobuf:"bytes,12,opt,name=handling,proto3" json:"handling,omitempty"`
-	// Source information describing how this chat was created.
+	Handling *structpb.Struct `protobuf:"bytes,15,opt,name=handling,proto3" json:"handling,omitempty"`
+	// Origin information describing how this chat was created
+	// (e.g., user-initiated, workflow-triggered, support bot).
 	//
 	// +kubebuilder:validation:Nullable
-	Source *structpb.Struct `protobuf:"bytes,13,opt,name=source,proto3" json:"source,omitempty"`
-	// Timestamp when the chat was first opened.
+	Source *structpb.Struct `protobuf:"bytes,16,opt,name=source,proto3" json:"source,omitempty"`
+	// IDs of managers currently participating in this chat.
 	//
 	// +kubebuilder:validation:Nullable
-	FirstOpenedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=first_opened_at,json=firstOpenedAt,proto3" json:"first_opened_at,omitempty"`
+	// +kubebuilder:validation:MinItems=1
+	ManagerIds []string `protobuf:"bytes,17,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
+	// ID of the manager currently assigned as the primary responder.
+	//
+	// +kubebuilder:validation:Nullable
+	AssigneeId string `protobuf:"bytes,18,opt,name=assignee_id,json=assigneeId,proto3" json:"assignee_id,omitempty"`
+	// ID of the team this chat is routed to for handling.
+	//
+	// +kubebuilder:validation:Nullable
+	TeamId string `protobuf:"bytes,19,opt,name=team_id,json=teamId,proto3" json:"team_id,omitempty"`
+	// Classification tags attached to this chat for filtering and reporting.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MinItems=1
+	// +kubebuilder:validation:MaxItems=8
+	Tags []string `protobuf:"bytes,20,rep,name=tags,proto3" json:"tags,omitempty"`
+	// Custom key-value profile data associated with this chat.
+	//
+	// +kubebuilder:validation:Nullable
+	Profile *structpb.Struct `protobuf:"bytes,21,opt,name=profile,proto3" json:"profile,omitempty"`
+	// Name of the goal event being tracked for conversion measurement.
+	//
+	// +kubebuilder:validation:Nullable
+	GoalEventName string `protobuf:"bytes,22,opt,name=goal_event_name,json=goalEventName,proto3" json:"goal_event_name,omitempty"`
+	// Query expression defining the conditions for the goal event to match.
+	//
+	// +kubebuilder:validation:Nullable
+	GoalEventQuery *structpb.Struct `protobuf:"bytes,23,opt,name=goal_event_query,json=goalEventQuery,proto3" json:"goal_event_query,omitempty"`
+	// Timestamp when the goal achievement was last evaluated.
+	//
+	// +kubebuilder:validation:Nullable
+	GoalCheckedAt *timestamppb.Timestamp `protobuf:"bytes,24,opt,name=goal_checked_at,json=goalCheckedAt,proto3" json:"goal_checked_at,omitempty"`
+	// Current achievement state of the tracked goal.
+	//
+	// +kubebuilder:validation:Nullable
+	GoalState UserChatGoalState `protobuf:"varint,25,opt,name=goal_state,json=goalState,proto3,enum=coreapi.model.UserChatGoalState" json:"goal_state,omitempty"`
+	// Timestamp when the chat was first opened by a manager.
+	//
+	// +kubebuilder:validation:Nullable
+	FirstOpenedAt *timestamppb.Timestamp `protobuf:"bytes,26,opt,name=first_opened_at,json=firstOpenedAt,proto3" json:"first_opened_at,omitempty"`
 	// Timestamp when the chat was most recently opened.
+	// Reset each time the chat transitions to the opened state.
 	//
 	// +kubebuilder:validation:Nullable
-	OpenedAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=opened_at,json=openedAt,proto3" json:"opened_at,omitempty"`
-	// Timestamp when the user first asked a question.
+	OpenedAt *timestamppb.Timestamp `protobuf:"bytes,27,opt,name=opened_at,json=openedAt,proto3" json:"opened_at,omitempty"`
+	// Timestamp when the chat was first placed in the assignment queue.
 	//
 	// +kubebuilder:validation:Nullable
-	FirstAskedAt *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=first_asked_at,json=firstAskedAt,proto3" json:"first_asked_at,omitempty"`
-	// Timestamp when the user most recently asked a question.
+	FirstQueuedAt *timestamppb.Timestamp `protobuf:"bytes,28,opt,name=first_queued_at,json=firstQueuedAt,proto3" json:"first_queued_at,omitempty"`
+	// Timestamp when the chat was most recently placed in the assignment queue.
 	//
 	// +kubebuilder:validation:Nullable
-	AskedAt *timestamppb.Timestamp `protobuf:"bytes,20,opt,name=asked_at,json=askedAt,proto3" json:"asked_at,omitempty"`
+	QueuedAt *timestamppb.Timestamp `protobuf:"bytes,29,opt,name=queued_at,json=queuedAt,proto3" json:"queued_at,omitempty"`
+	// Chat creation timestamp.
+	//
+	// +kubebuilder:validation:Required
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,30,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Chat last update timestamp.
+	//
+	// +kubebuilder:validation:Required
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,31,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// ID of the latest message visible to the user (front side).
+	//
+	// +kubebuilder:validation:Nullable
+	FrontMessageId string `protobuf:"bytes,32,opt,name=front_message_id,json=frontMessageId,proto3" json:"front_message_id,omitempty"`
+	// Timestamp when the front-side (user-visible) message list was last updated.
+	//
+	// +kubebuilder:validation:Nullable
+	FrontUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,33,opt,name=front_updated_at,json=frontUpdatedAt,proto3" json:"front_updated_at,omitempty"`
+	// ID of the latest message visible on the Desk (manager) side.
+	//
+	// +kubebuilder:validation:Nullable
+	DeskMessageId string `protobuf:"bytes,34,opt,name=desk_message_id,json=deskMessageId,proto3" json:"desk_message_id,omitempty"`
+	// Timestamp when the Desk-side message list was last updated.
+	//
+	// +kubebuilder:validation:Nullable
+	DeskUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,35,opt,name=desk_updated_at,json=deskUpdatedAt,proto3" json:"desk_updated_at,omitempty"`
+	// ID of the most recent message sent by the user.
+	//
+	// +kubebuilder:validation:Nullable
+	UserLastMessageId string `protobuf:"bytes,36,opt,name=user_last_message_id,json=userLastMessageId,proto3" json:"user_last_message_id,omitempty"`
+	// ID of the first manager assigned after the chat was opened.
+	// Used for tracking initial response ownership.
+	//
+	// +kubebuilder:validation:Nullable
+	FirstAssigneeIdAfterOpen string `protobuf:"bytes,37,opt,name=first_assignee_id_after_open,json=firstAssigneeIdAfterOpen,proto3" json:"first_assignee_id_after_open,omitempty"`
+	// Timestamp of the first-ever manager reply in this chat,
+	// across all open/close cycles.
+	//
+	// +kubebuilder:validation:Nullable
+	FirstRepliedAt *timestamppb.Timestamp `protobuf:"bytes,38,opt,name=first_replied_at,json=firstRepliedAt,proto3" json:"first_replied_at,omitempty"`
+	// Timestamp of the first manager reply after the most recent open.
+	// Reset each time the chat is reopened.
+	//
+	// +kubebuilder:validation:Nullable
+	FirstRepliedAtAfterOpen *timestamppb.Timestamp `protobuf:"bytes,39,opt,name=first_replied_at_after_open,json=firstRepliedAtAfterOpen,proto3" json:"first_replied_at_after_open,omitempty"`
+	// Whether the chat was resolved by a single assignee without being
+	// transferred to another manager.
+	//
+	// +kubebuilder:validation:Nullable
+	OneStop bool `protobuf:"varint,40,opt,name=one_stop,json=oneStop,proto3" json:"one_stop,omitempty"`
+	// Duration from chat open to the first manager reply (in milliseconds).
+	//
+	// +kubebuilder:validation:Nullable
+	WaitingTime int64 `protobuf:"varint,41,opt,name=waiting_time,json=waitingTime,proto3" json:"waiting_time,omitempty"`
+	// Average time between a user's question and the manager's reply
+	// (in milliseconds).
+	//
+	// +kubebuilder:validation:Nullable
+	AvgReplyTime int64 `protobuf:"varint,42,opt,name=avg_reply_time,json=avgReplyTime,proto3" json:"avg_reply_time,omitempty"`
+	// Sum of all individual reply durations across manager responses
+	// (in milliseconds).
+	//
+	// +kubebuilder:validation:Nullable
+	TotalReplyTime int64 `protobuf:"varint,43,opt,name=total_reply_time,json=totalReplyTime,proto3" json:"total_reply_time,omitempty"`
+	// Total number of manager replies in this chat.
+	//
+	// +kubebuilder:validation:Nullable
+	ReplyCount int32 `protobuf:"varint,44,opt,name=reply_count,json=replyCount,proto3" json:"reply_count,omitempty"`
+	// Total duration from the first open to close (in milliseconds).
+	//
+	// +kubebuilder:validation:Nullable
+	ResolutionTime int64 `protobuf:"varint,45,opt,name=resolution_time,json=resolutionTime,proto3" json:"resolution_time,omitempty"`
+	// Duration from open to the first manager reply, counting only
+	// operating hours (in milliseconds).
+	//
+	// +kubebuilder:validation:Nullable
+	OperationWaitingTime int64 `protobuf:"varint,46,opt,name=operation_waiting_time,json=operationWaitingTime,proto3" json:"operation_waiting_time,omitempty"`
+	// Average reply time counting only operating hours (in milliseconds).
+	//
+	// +kubebuilder:validation:Nullable
+	OperationAvgReplyTime int64 `protobuf:"varint,47,opt,name=operation_avg_reply_time,json=operationAvgReplyTime,proto3" json:"operation_avg_reply_time,omitempty"`
+	// Sum of all reply durations counting only operating hours
+	// (in milliseconds).
+	//
+	// +kubebuilder:validation:Nullable
+	OperationTotalReplyTime int64 `protobuf:"varint,48,opt,name=operation_total_reply_time,json=operationTotalReplyTime,proto3" json:"operation_total_reply_time,omitempty"`
+	// Total number of manager replies during operating hours.
+	//
+	// +kubebuilder:validation:Nullable
+	OperationReplyCount int32 `protobuf:"varint,49,opt,name=operation_reply_count,json=operationReplyCount,proto3" json:"operation_reply_count,omitempty"`
+	// Total resolution time counting only operating hours (in milliseconds).
+	//
+	// +kubebuilder:validation:Nullable
+	OperationResolutionTime int64 `protobuf:"varint,50,opt,name=operation_resolution_time,json=operationResolutionTime,proto3" json:"operation_resolution_time,omitempty"`
+	// Timestamp when the user last sent a message that is awaiting
+	// a manager's reply. Cleared when the manager responds.
+	//
+	// +kubebuilder:validation:Nullable
+	AskedAt *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=asked_at,json=askedAt,proto3" json:"asked_at,omitempty"`
+	// Timestamp when the user sent the first message in this chat.
+	//
+	// +kubebuilder:validation:Nullable
+	FirstAskedAt *timestamppb.Timestamp `protobuf:"bytes,52,opt,name=first_asked_at,json=firstAskedAt,proto3" json:"first_asked_at,omitempty"`
 	// Timestamp when the chat was closed.
 	//
 	// +kubebuilder:validation:Nullable
-	ClosedAt *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=closed_at,json=closedAt,proto3" json:"closed_at,omitempty"`
-	// Timestamp when a manager first replied after the chat was opened.
-	//
-	// +kubebuilder:validation:Nullable
-	FirstRepliedAtAfterOpen *timestamppb.Timestamp `protobuf:"bytes,23,opt,name=first_replied_at_after_open,json=firstRepliedAtAfterOpen,proto3" json:"first_replied_at_after_open,omitempty"`
-	// ID of the first manager assigned after the chat was opened.
-	//
-	// +kubebuilder:validation:Nullable
-	FirstAssigneeIdAfterOpen string `protobuf:"bytes,24,opt,name=first_assignee_id_after_open,json=firstAssigneeIdAfterOpen,proto3" json:"first_assignee_id_after_open,omitempty"`
-	// Whether the chat was resolved without reassignment.
-	//
-	// +kubebuilder:validation:Nullable
-	OneStop bool `protobuf:"varint,25,opt,name=one_stop,json=oneStop,proto3" json:"one_stop,omitempty"`
-	// Time in milliseconds the user waited before first reply.
-	//
-	// +kubebuilder:validation:Nullable
-	WaitingTime int64 `protobuf:"varint,26,opt,name=waiting_time,json=waitingTime,proto3" json:"waiting_time,omitempty"`
-	// Average reply time in milliseconds.
-	//
-	// +kubebuilder:validation:Nullable
-	AvgReplyTime int64 `protobuf:"varint,27,opt,name=avg_reply_time,json=avgReplyTime,proto3" json:"avg_reply_time,omitempty"`
-	// Total reply time in milliseconds.
-	//
-	// +kubebuilder:validation:Nullable
-	TotalReplyTime int64 `protobuf:"varint,28,opt,name=total_reply_time,json=totalReplyTime,proto3" json:"total_reply_time,omitempty"`
-	// Total number of manager replies.
-	//
-	// +kubebuilder:validation:Nullable
-	ReplyCount int32 `protobuf:"varint,29,opt,name=reply_count,json=replyCount,proto3" json:"reply_count,omitempty"`
-	// Total resolution time from open to close in milliseconds.
-	//
-	// +kubebuilder:validation:Nullable
-	ResolutionTime int64 `protobuf:"varint,30,opt,name=resolution_time,json=resolutionTime,proto3" json:"resolution_time,omitempty"`
-	// Waiting time in milliseconds during business hours only.
-	//
-	// +kubebuilder:validation:Nullable
-	OperationWaitingTime int64 `protobuf:"varint,31,opt,name=operation_waiting_time,json=operationWaitingTime,proto3" json:"operation_waiting_time,omitempty"`
-	// Average reply time in milliseconds during business hours only.
-	//
-	// +kubebuilder:validation:Nullable
-	OperationAvgReplyTime int64 `protobuf:"varint,32,opt,name=operation_avg_reply_time,json=operationAvgReplyTime,proto3" json:"operation_avg_reply_time,omitempty"`
-	// Total reply time in milliseconds during business hours only.
-	//
-	// +kubebuilder:validation:Nullable
-	OperationTotalReplyTime int64 `protobuf:"varint,33,opt,name=operation_total_reply_time,json=operationTotalReplyTime,proto3" json:"operation_total_reply_time,omitempty"`
-	// Number of manager replies during business hours only.
-	//
-	// +kubebuilder:validation:Nullable
-	OperationReplyCount int32 `protobuf:"varint,34,opt,name=operation_reply_count,json=operationReplyCount,proto3" json:"operation_reply_count,omitempty"`
-	// Resolution time in milliseconds during business hours only.
-	//
-	// +kubebuilder:validation:Nullable
-	OperationResolutionTime int64 `protobuf:"varint,35,opt,name=operation_resolution_time,json=operationResolutionTime,proto3" json:"operation_resolution_time,omitempty"`
-	// ID of the most recent user-facing message.
-	//
-	// +kubebuilder:validation:Nullable
-	FrontMessageId string `protobuf:"bytes,36,opt,name=front_message_id,json=frontMessageId,proto3" json:"front_message_id,omitempty"`
-	// Timestamp when the user-facing content was last updated.
-	//
-	// +kubebuilder:validation:Nullable
-	FrontUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,37,opt,name=front_updated_at,json=frontUpdatedAt,proto3" json:"front_updated_at,omitempty"`
-	// User chat creation timestamp.
-	//
-	// +kubebuilder:validation:Required
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,38,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// User chat last update timestamp.
-	//
-	// +kubebuilder:validation:Required
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,39,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Chat tag names attached to this user chat.
-	//
-	// +kubebuilder:validation:Nullable
-	// +kubebuilder:validation:MaxItems=8
-	Tags []string `protobuf:"bytes,40,rep,name=tags,proto3" json:"tags,omitempty"`
-	// Whether this chat is in managed state.
-	//
-	// +kubebuilder:validation:Nullable
-	Managed bool `protobuf:"varint,41,opt,name=managed,proto3" json:"managed,omitempty"`
-	// Display name of this chat.
-	//
-	// +kubebuilder:validation:Nullable
-	Name string `protobuf:"bytes,42,opt,name=name,proto3" json:"name,omitempty"`
-	// IDs of managers participating in this chat.
-	//
-	// +kubebuilder:validation:Nullable
-	ManagerIds []string `protobuf:"bytes,43,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
-	// Name of the event tracked as a conversion goal.
-	//
-	// +kubebuilder:validation:Nullable
-	GoalEventName string `protobuf:"bytes,44,opt,name=goal_event_name,json=goalEventName,proto3" json:"goal_event_name,omitempty"`
-	// Filtering query for the goal event.
-	//
-	// +kubebuilder:validation:Nullable
-	GoalEventQuery *structpb.Struct `protobuf:"bytes,45,opt,name=goal_event_query,json=goalEventQuery,proto3" json:"goal_event_query,omitempty"`
-	// Timestamp when the goal was last checked.
-	//
-	// +kubebuilder:validation:Nullable
-	GoalCheckedAt *timestamppb.Timestamp `protobuf:"bytes,46,opt,name=goal_checked_at,json=goalCheckedAt,proto3" json:"goal_checked_at,omitempty"`
-	// Current goal achievement state.
-	//
-	// +kubebuilder:validation:Nullable
-	GoalState string `protobuf:"bytes,47,opt,name=goal_state,json=goalState,proto3" json:"goal_state,omitempty"`
-	// ID of the most recent desk-facing message.
-	//
-	// +kubebuilder:validation:Nullable
-	DeskMessageId string `protobuf:"bytes,48,opt,name=desk_message_id,json=deskMessageId,proto3" json:"desk_message_id,omitempty"`
-	// Timestamp when the desk-facing content was last updated.
-	//
-	// +kubebuilder:validation:Nullable
-	DeskUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,49,opt,name=desk_updated_at,json=deskUpdatedAt,proto3" json:"desk_updated_at,omitempty"`
+	ClosedAt *timestamppb.Timestamp `protobuf:"bytes,53,opt,name=closed_at,json=closedAt,proto3" json:"closed_at,omitempty"`
 	// Timestamp when the chat was snoozed.
 	//
 	// +kubebuilder:validation:Nullable
-	SnoozedAt *timestamppb.Timestamp `protobuf:"bytes,50,opt,name=snoozed_at,json=snoozedAt,proto3" json:"snoozed_at,omitempty"`
-	// Timestamp when the chat expires.
+	SnoozedAt *timestamppb.Timestamp `protobuf:"bytes,54,opt,name=snoozed_at,json=snoozedAt,proto3" json:"snoozed_at,omitempty"`
+	// Timestamp when the chat is scheduled to automatically expire and close.
 	//
 	// +kubebuilder:validation:Nullable
-	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
-	// Chat data version number.
+	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,55,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
+	// Optimistic locking version incremented on every update.
+	// Supply the current value when updating to prevent overwriting concurrent changes.
 	//
 	// +kubebuilder:validation:Nullable
-	Version int64 `protobuf:"varint,52,opt,name=version,proto3" json:"version,omitempty"`
-	// Custom profile data associated with this chat.
-	//
-	// +kubebuilder:validation:Nullable
-	Profile       *structpb.Struct `protobuf:"bytes,53,opt,name=profile,proto3" json:"profile,omitempty"`
+	Version       int64 `protobuf:"varint,56,opt,name=version,proto3" json:"version,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -326,11 +648,46 @@ func (x *UserChat) GetChannelId() string {
 	return ""
 }
 
+func (x *UserChat) GetContactMediumType() string {
+	if x != nil {
+		return x.ContactMediumType
+	}
+	return ""
+}
+
+func (x *UserChat) GetLiveMeetId() string {
+	if x != nil {
+		return x.LiveMeetId
+	}
+	return ""
+}
+
 func (x *UserChat) GetState() UserChatState {
 	if x != nil {
 		return x.State
 	}
 	return UserChatState_USER_CHAT_STATE_UNSPECIFIED
+}
+
+func (x *UserChat) GetMissedReason() MissedReason {
+	if x != nil {
+		return x.MissedReason
+	}
+	return MissedReason_MISSED_REASON_UNSPECIFIED
+}
+
+func (x *UserChat) GetManaged() bool {
+	if x != nil {
+		return x.Managed
+	}
+	return false
+}
+
+func (x *UserChat) GetPriority() AutoAssignPriority {
+	if x != nil {
+		return x.Priority
+	}
+	return AutoAssignPriority_AUTO_ASSIGN_PRIORITY_UNSPECIFIED
 }
 
 func (x *UserChat) GetUserId() string {
@@ -340,16 +697,23 @@ func (x *UserChat) GetUserId() string {
 	return ""
 }
 
-func (x *UserChat) GetAssigneeId() string {
+func (x *UserChat) GetXerId() string {
 	if x != nil {
-		return x.AssigneeId
+		return x.XerId
 	}
 	return ""
 }
 
-func (x *UserChat) GetTeamId() string {
+func (x *UserChat) GetName() string {
 	if x != nil {
-		return x.TeamId
+		return x.Name
+	}
+	return ""
+}
+
+func (x *UserChat) GetTitle() string {
+	if x != nil {
+		return x.Title
 	}
 	return ""
 }
@@ -361,11 +725,11 @@ func (x *UserChat) GetDescription() string {
 	return ""
 }
 
-func (x *UserChat) GetContactMediumType() string {
+func (x *UserChat) GetSubtextType() UserChatSubtextType {
 	if x != nil {
-		return x.ContactMediumType
+		return x.SubtextType
 	}
-	return ""
+	return UserChatSubtextType_USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED
 }
 
 func (x *UserChat) GetHandling() *structpb.Struct {
@@ -382,6 +746,69 @@ func (x *UserChat) GetSource() *structpb.Struct {
 	return nil
 }
 
+func (x *UserChat) GetManagerIds() []string {
+	if x != nil {
+		return x.ManagerIds
+	}
+	return nil
+}
+
+func (x *UserChat) GetAssigneeId() string {
+	if x != nil {
+		return x.AssigneeId
+	}
+	return ""
+}
+
+func (x *UserChat) GetTeamId() string {
+	if x != nil {
+		return x.TeamId
+	}
+	return ""
+}
+
+func (x *UserChat) GetTags() []string {
+	if x != nil {
+		return x.Tags
+	}
+	return nil
+}
+
+func (x *UserChat) GetProfile() *structpb.Struct {
+	if x != nil {
+		return x.Profile
+	}
+	return nil
+}
+
+func (x *UserChat) GetGoalEventName() string {
+	if x != nil {
+		return x.GoalEventName
+	}
+	return ""
+}
+
+func (x *UserChat) GetGoalEventQuery() *structpb.Struct {
+	if x != nil {
+		return x.GoalEventQuery
+	}
+	return nil
+}
+
+func (x *UserChat) GetGoalCheckedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.GoalCheckedAt
+	}
+	return nil
+}
+
+func (x *UserChat) GetGoalState() UserChatGoalState {
+	if x != nil {
+		return x.GoalState
+	}
+	return UserChatGoalState_USER_CHAT_GOAL_STATE_UNSPECIFIED
+}
+
 func (x *UserChat) GetFirstOpenedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.FirstOpenedAt
@@ -396,23 +823,79 @@ func (x *UserChat) GetOpenedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *UserChat) GetFirstAskedAt() *timestamppb.Timestamp {
+func (x *UserChat) GetFirstQueuedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.FirstAskedAt
+		return x.FirstQueuedAt
 	}
 	return nil
 }
 
-func (x *UserChat) GetAskedAt() *timestamppb.Timestamp {
+func (x *UserChat) GetQueuedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.AskedAt
+		return x.QueuedAt
 	}
 	return nil
 }
 
-func (x *UserChat) GetClosedAt() *timestamppb.Timestamp {
+func (x *UserChat) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.ClosedAt
+		return x.CreatedAt
+	}
+	return nil
+}
+
+func (x *UserChat) GetUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return nil
+}
+
+func (x *UserChat) GetFrontMessageId() string {
+	if x != nil {
+		return x.FrontMessageId
+	}
+	return ""
+}
+
+func (x *UserChat) GetFrontUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FrontUpdatedAt
+	}
+	return nil
+}
+
+func (x *UserChat) GetDeskMessageId() string {
+	if x != nil {
+		return x.DeskMessageId
+	}
+	return ""
+}
+
+func (x *UserChat) GetDeskUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.DeskUpdatedAt
+	}
+	return nil
+}
+
+func (x *UserChat) GetUserLastMessageId() string {
+	if x != nil {
+		return x.UserLastMessageId
+	}
+	return ""
+}
+
+func (x *UserChat) GetFirstAssigneeIdAfterOpen() string {
+	if x != nil {
+		return x.FirstAssigneeIdAfterOpen
+	}
+	return ""
+}
+
+func (x *UserChat) GetFirstRepliedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FirstRepliedAt
 	}
 	return nil
 }
@@ -422,13 +905,6 @@ func (x *UserChat) GetFirstRepliedAtAfterOpen() *timestamppb.Timestamp {
 		return x.FirstRepliedAtAfterOpen
 	}
 	return nil
-}
-
-func (x *UserChat) GetFirstAssigneeIdAfterOpen() string {
-	if x != nil {
-		return x.FirstAssigneeIdAfterOpen
-	}
-	return ""
 }
 
 func (x *UserChat) GetOneStop() bool {
@@ -508,100 +984,23 @@ func (x *UserChat) GetOperationResolutionTime() int64 {
 	return 0
 }
 
-func (x *UserChat) GetFrontMessageId() string {
+func (x *UserChat) GetAskedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.FrontMessageId
-	}
-	return ""
-}
-
-func (x *UserChat) GetFrontUpdatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.FrontUpdatedAt
+		return x.AskedAt
 	}
 	return nil
 }
 
-func (x *UserChat) GetCreatedAt() *timestamppb.Timestamp {
+func (x *UserChat) GetFirstAskedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.CreatedAt
+		return x.FirstAskedAt
 	}
 	return nil
 }
 
-func (x *UserChat) GetUpdatedAt() *timestamppb.Timestamp {
+func (x *UserChat) GetClosedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.UpdatedAt
-	}
-	return nil
-}
-
-func (x *UserChat) GetTags() []string {
-	if x != nil {
-		return x.Tags
-	}
-	return nil
-}
-
-func (x *UserChat) GetManaged() bool {
-	if x != nil {
-		return x.Managed
-	}
-	return false
-}
-
-func (x *UserChat) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *UserChat) GetManagerIds() []string {
-	if x != nil {
-		return x.ManagerIds
-	}
-	return nil
-}
-
-func (x *UserChat) GetGoalEventName() string {
-	if x != nil {
-		return x.GoalEventName
-	}
-	return ""
-}
-
-func (x *UserChat) GetGoalEventQuery() *structpb.Struct {
-	if x != nil {
-		return x.GoalEventQuery
-	}
-	return nil
-}
-
-func (x *UserChat) GetGoalCheckedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.GoalCheckedAt
-	}
-	return nil
-}
-
-func (x *UserChat) GetGoalState() string {
-	if x != nil {
-		return x.GoalState
-	}
-	return ""
-}
-
-func (x *UserChat) GetDeskMessageId() string {
-	if x != nil {
-		return x.DeskMessageId
-	}
-	return ""
-}
-
-func (x *UserChat) GetDeskUpdatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.DeskUpdatedAt
+		return x.ClosedAt
 	}
 	return nil
 }
@@ -627,85 +1026,117 @@ func (x *UserChat) GetVersion() int64 {
 	return 0
 }
 
-func (x *UserChat) GetProfile() *structpb.Struct {
-	if x != nil {
-		return x.Profile
-	}
-	return nil
-}
-
 var File_coreapi_model_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x88\x13\n" +
-	"\bUserChat\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xaf\x16\n" +
+	"\bUserChat\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12:\n" +
-	"\x05state\x18\x03 \x01(\x0e2\x1c.coreapi.model.UserChatStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12\x17\n" +
-	"\auser_id\x18\x04 \x01(\tR\x06userId\x12\x1f\n" +
-	"\vassignee_id\x18\x06 \x01(\tR\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12.\n" +
+	"\x13contact_medium_type\x18\x03 \x01(\tR\x11contactMediumType\x12 \n" +
+	"\flive_meet_id\x18\x04 \x01(\tR\n" +
+	"liveMeetId\x12:\n" +
+	"\x05state\x18\x05 \x01(\x0e2\x1c.coreapi.model.UserChatStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12@\n" +
+	"\rmissed_reason\x18\x06 \x01(\x0e2\x1b.coreapi.model.MissedReasonR\fmissedReason\x12 \n" +
+	"\amanaged\x18\a \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\amanaged\x12=\n" +
+	"\bpriority\x18\b \x01(\x0e2!.coreapi.model.AutoAssignPriorityR\bpriority\x12\x17\n" +
+	"\auser_id\x18\t \x01(\tR\x06userId\x12\x15\n" +
+	"\x06xer_id\x18\n" +
+	" \x01(\tR\x05xerId\x12\x12\n" +
+	"\x04name\x18\v \x01(\tR\x04name\x12\x14\n" +
+	"\x05title\x18\f \x01(\tR\x05title\x12w\n" +
+	"\vdescription\x18\r \x01(\tBU\xbaHR\xba\x01O\n" +
+	"\rstring.maxLen\x12*value must be no more than 1000 characters\x1a\x12size(this) <= 1000R\vdescription\x12E\n" +
+	"\fsubtext_type\x18\x0e \x01(\x0e2\".coreapi.model.UserChatSubtextTypeR\vsubtextType\x123\n" +
+	"\bhandling\x18\x0f \x01(\v2\x17.google.protobuf.StructR\bhandling\x12/\n" +
+	"\x06source\x18\x10 \x01(\v2\x17.google.protobuf.StructR\x06source\x12\x1f\n" +
+	"\vmanager_ids\x18\x11 \x03(\tR\n" +
+	"managerIds\x12\x1f\n" +
+	"\vassignee_id\x18\x12 \x01(\tR\n" +
 	"assigneeId\x12\x17\n" +
-	"\ateam_id\x18\a \x01(\tR\x06teamId\x12w\n" +
-	"\vdescription\x18\b \x01(\tBU\xbaHR\xba\x01O\n" +
-	"\rstring.maxLen\x12*value must be no more than 1000 characters\x1a\x12size(this) <= 1000R\vdescription\x12.\n" +
-	"\x13contact_medium_type\x18\t \x01(\tR\x11contactMediumType\x123\n" +
-	"\bhandling\x18\f \x01(\v2\x17.google.protobuf.StructR\bhandling\x12/\n" +
-	"\x06source\x18\r \x01(\v2\x17.google.protobuf.StructR\x06source\x12B\n" +
-	"\x0ffirst_opened_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampR\rfirstOpenedAt\x127\n" +
-	"\topened_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampR\bopenedAt\x12@\n" +
-	"\x0efirst_asked_at\x18\x13 \x01(\v2\x1a.google.protobuf.TimestampR\ffirstAskedAt\x125\n" +
-	"\basked_at\x18\x14 \x01(\v2\x1a.google.protobuf.TimestampR\aaskedAt\x127\n" +
-	"\tclosed_at\x18\x15 \x01(\v2\x1a.google.protobuf.TimestampR\bclosedAt\x12X\n" +
-	"\x1bfirst_replied_at_after_open\x18\x17 \x01(\v2\x1a.google.protobuf.TimestampR\x17firstRepliedAtAfterOpen\x12>\n" +
-	"\x1cfirst_assignee_id_after_open\x18\x18 \x01(\tR\x18firstAssigneeIdAfterOpen\x12\x19\n" +
-	"\bone_stop\x18\x19 \x01(\bR\aoneStop\x12!\n" +
-	"\fwaiting_time\x18\x1a \x01(\x03R\vwaitingTime\x12$\n" +
-	"\x0eavg_reply_time\x18\x1b \x01(\x03R\favgReplyTime\x12(\n" +
-	"\x10total_reply_time\x18\x1c \x01(\x03R\x0etotalReplyTime\x12\x1f\n" +
-	"\vreply_count\x18\x1d \x01(\x05R\n" +
+	"\ateam_id\x18\x13 \x01(\tR\x06teamId\x12\x12\n" +
+	"\x04tags\x18\x14 \x03(\tR\x04tags\x121\n" +
+	"\aprofile\x18\x15 \x01(\v2\x17.google.protobuf.StructR\aprofile\x12&\n" +
+	"\x0fgoal_event_name\x18\x16 \x01(\tR\rgoalEventName\x12A\n" +
+	"\x10goal_event_query\x18\x17 \x01(\v2\x17.google.protobuf.StructR\x0egoalEventQuery\x12B\n" +
+	"\x0fgoal_checked_at\x18\x18 \x01(\v2\x1a.google.protobuf.TimestampR\rgoalCheckedAt\x12?\n" +
+	"\n" +
+	"goal_state\x18\x19 \x01(\x0e2 .coreapi.model.UserChatGoalStateR\tgoalState\x12B\n" +
+	"\x0ffirst_opened_at\x18\x1a \x01(\v2\x1a.google.protobuf.TimestampR\rfirstOpenedAt\x127\n" +
+	"\topened_at\x18\x1b \x01(\v2\x1a.google.protobuf.TimestampR\bopenedAt\x12B\n" +
+	"\x0ffirst_queued_at\x18\x1c \x01(\v2\x1a.google.protobuf.TimestampR\rfirstQueuedAt\x127\n" +
+	"\tqueued_at\x18\x1d \x01(\v2\x1a.google.protobuf.TimestampR\bqueuedAt\x12A\n" +
+	"\n" +
+	"created_at\x18\x1e \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
+	"\n" +
+	"updated_at\x18\x1f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12(\n" +
+	"\x10front_message_id\x18  \x01(\tR\x0efrontMessageId\x12D\n" +
+	"\x10front_updated_at\x18! \x01(\v2\x1a.google.protobuf.TimestampR\x0efrontUpdatedAt\x12&\n" +
+	"\x0fdesk_message_id\x18\" \x01(\tR\rdeskMessageId\x12B\n" +
+	"\x0fdesk_updated_at\x18# \x01(\v2\x1a.google.protobuf.TimestampR\rdeskUpdatedAt\x12/\n" +
+	"\x14user_last_message_id\x18$ \x01(\tR\x11userLastMessageId\x12>\n" +
+	"\x1cfirst_assignee_id_after_open\x18% \x01(\tR\x18firstAssigneeIdAfterOpen\x12D\n" +
+	"\x10first_replied_at\x18& \x01(\v2\x1a.google.protobuf.TimestampR\x0efirstRepliedAt\x12X\n" +
+	"\x1bfirst_replied_at_after_open\x18' \x01(\v2\x1a.google.protobuf.TimestampR\x17firstRepliedAtAfterOpen\x12\x19\n" +
+	"\bone_stop\x18( \x01(\bR\aoneStop\x12!\n" +
+	"\fwaiting_time\x18) \x01(\x03R\vwaitingTime\x12$\n" +
+	"\x0eavg_reply_time\x18* \x01(\x03R\favgReplyTime\x12(\n" +
+	"\x10total_reply_time\x18+ \x01(\x03R\x0etotalReplyTime\x12\x1f\n" +
+	"\vreply_count\x18, \x01(\x05R\n" +
 	"replyCount\x12'\n" +
-	"\x0fresolution_time\x18\x1e \x01(\x03R\x0eresolutionTime\x124\n" +
-	"\x16operation_waiting_time\x18\x1f \x01(\x03R\x14operationWaitingTime\x127\n" +
-	"\x18operation_avg_reply_time\x18  \x01(\x03R\x15operationAvgReplyTime\x12;\n" +
-	"\x1aoperation_total_reply_time\x18! \x01(\x03R\x17operationTotalReplyTime\x122\n" +
-	"\x15operation_reply_count\x18\" \x01(\x05R\x13operationReplyCount\x12:\n" +
-	"\x19operation_resolution_time\x18# \x01(\x03R\x17operationResolutionTime\x12(\n" +
-	"\x10front_message_id\x18$ \x01(\tR\x0efrontMessageId\x12D\n" +
-	"\x10front_updated_at\x18% \x01(\v2\x1a.google.protobuf.TimestampR\x0efrontUpdatedAt\x12A\n" +
+	"\x0fresolution_time\x18- \x01(\x03R\x0eresolutionTime\x124\n" +
+	"\x16operation_waiting_time\x18. \x01(\x03R\x14operationWaitingTime\x127\n" +
+	"\x18operation_avg_reply_time\x18/ \x01(\x03R\x15operationAvgReplyTime\x12;\n" +
+	"\x1aoperation_total_reply_time\x180 \x01(\x03R\x17operationTotalReplyTime\x122\n" +
+	"\x15operation_reply_count\x181 \x01(\x05R\x13operationReplyCount\x12:\n" +
+	"\x19operation_resolution_time\x182 \x01(\x03R\x17operationResolutionTime\x125\n" +
+	"\basked_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\aaskedAt\x12@\n" +
+	"\x0efirst_asked_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\ffirstAskedAt\x127\n" +
+	"\tclosed_at\x185 \x01(\v2\x1a.google.protobuf.TimestampR\bclosedAt\x129\n" +
 	"\n" +
-	"created_at\x18& \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
+	"snoozed_at\x186 \x01(\v2\x1a.google.protobuf.TimestampR\tsnoozedAt\x129\n" +
 	"\n" +
-	"updated_at\x18' \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12\x12\n" +
-	"\x04tags\x18( \x03(\tR\x04tags\x12\x18\n" +
-	"\amanaged\x18) \x01(\bR\amanaged\x12\x12\n" +
-	"\x04name\x18* \x01(\tR\x04name\x12\x1f\n" +
-	"\vmanager_ids\x18+ \x03(\tR\n" +
-	"managerIds\x12&\n" +
-	"\x0fgoal_event_name\x18, \x01(\tR\rgoalEventName\x12A\n" +
-	"\x10goal_event_query\x18- \x01(\v2\x17.google.protobuf.StructR\x0egoalEventQuery\x12B\n" +
-	"\x0fgoal_checked_at\x18. \x01(\v2\x1a.google.protobuf.TimestampR\rgoalCheckedAt\x12\x1d\n" +
-	"\n" +
-	"goal_state\x18/ \x01(\tR\tgoalState\x12&\n" +
-	"\x0fdesk_message_id\x180 \x01(\tR\rdeskMessageId\x12B\n" +
-	"\x0fdesk_updated_at\x181 \x01(\v2\x1a.google.protobuf.TimestampR\rdeskUpdatedAt\x129\n" +
-	"\n" +
-	"snoozed_at\x182 \x01(\v2\x1a.google.protobuf.TimestampR\tsnoozedAt\x129\n" +
-	"\n" +
-	"expires_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12\x18\n" +
-	"\aversion\x184 \x01(\x03R\aversion\x121\n" +
-	"\aprofile\x185 \x01(\v2\x17.google.protobuf.StructR\aprofile*\xda\x01\n" +
+	"expires_at\x187 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12\x18\n" +
+	"\aversion\x188 \x01(\x03R\aversion*\xa1\x01\n" +
 	"\rUserChatState\x12\x1f\n" +
 	"\x1bUSER_CHAT_STATE_UNSPECIFIED\x10\x00\x12\x1a\n" +
-	"\x16USER_CHAT_STATE_OPENED\x10\x01\x12\x1a\n" +
-	"\x16USER_CHAT_STATE_CLOSED\x10\x02\x12\x1b\n" +
+	"\x16USER_CHAT_STATE_CLOSED\x10\x01\x12\x1a\n" +
+	"\x16USER_CHAT_STATE_OPENED\x10\x02\x12\x1b\n" +
 	"\x17USER_CHAT_STATE_SNOOZED\x10\x03\x12\x1a\n" +
-	"\x16USER_CHAT_STATE_QUEUED\x10\x04\x12\x1b\n" +
-	"\x17USER_CHAT_STATE_INITIAL\x10\x05\x12\x1a\n" +
-	"\x16USER_CHAT_STATE_MISSED\x10\x06Bb\n" +
+	"\x16USER_CHAT_STATE_QUEUED\x10\x04*\xea\x03\n" +
+	"\fMissedReason\x12\x1d\n" +
+	"\x19MISSED_REASON_UNSPECIFIED\x10\x00\x12\"\n" +
+	"\x1eMISSED_REASON_NOT_IN_OPERATION\x10\x01\x12\x1b\n" +
+	"\x17MISSED_REASON_USER_LEFT\x10\x02\x12 \n" +
+	"\x1cMISSED_REASON_RING_TIME_OVER\x10\x03\x12$\n" +
+	" MISSED_REASON_INBOUND_RATE_LIMIT\x10\x04\x12\x1d\n" +
+	"\x19MISSED_REASON_NO_OPERATOR\x10\x05\x12 \n" +
+	"\x1cMISSED_REASON_EXCEEDED_QUEUE\x10\x06\x12$\n" +
+	" MISSED_REASON_ABANDONED_IN_QUEUE\x10\a\x12\x1a\n" +
+	"\x16MISSED_REASON_WORKFLOW\x10\b\x12\x1e\n" +
+	"\x1aMISSED_REASON_MANAGER_LEFT\x10\t\x12$\n" +
+	" MISSED_REASON_NO_FALLBACK_CLIENT\x10\n" +
+	"\x12\"\n" +
+	"\x1eMISSED_REASON_PRESERVED_NUMBER\x10\v\x12%\n" +
+	"!MISSED_REASON_UNREGISTERED_NUMBER\x10\f\x12\x1e\n" +
+	"\x1aMISSED_REASON_BLOCKED_USER\x10\r*\x98\x01\n" +
+	"\x12AutoAssignPriority\x12$\n" +
+	" AUTO_ASSIGN_PRIORITY_UNSPECIFIED\x10\x00\x12\x1c\n" +
+	"\x18AUTO_ASSIGN_PRIORITY_LOW\x10\x01\x12\x1f\n" +
+	"\x1bAUTO_ASSIGN_PRIORITY_MEDIUM\x10\x02\x12\x1d\n" +
+	"\x19AUTO_ASSIGN_PRIORITY_HIGH\x10\x03*\xc4\x01\n" +
+	"\x11UserChatGoalState\x12$\n" +
+	" USER_CHAT_GOAL_STATE_UNSPECIFIED\x10\x00\x12!\n" +
+	"\x1dUSER_CHAT_GOAL_STATE_ACHIEVED\x10\x01\x12%\n" +
+	"!USER_CHAT_GOAL_STATE_NOT_ACHIEVED\x10\x02\x12 \n" +
+	"\x1cUSER_CHAT_GOAL_STATE_WAITING\x10\x03\x12\x1d\n" +
+	"\x19USER_CHAT_GOAL_STATE_NONE\x10\x04*\x8a\x01\n" +
+	"\x13UserChatSubtextType\x12&\n" +
+	"\"USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED\x10\x00\x12&\n" +
+	"\"USER_CHAT_SUBTEXT_TYPE_DESCRIPTION\x10\x01\x12#\n" +
+	"\x1fUSER_CHAT_SUBTEXT_TYPE_INCOMING\x10\x02Bb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -720,38 +1151,49 @@ func file_coreapi_model_user_chat_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_user_chat_proto_rawDescData
 }
 
-var file_coreapi_model_user_chat_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_coreapi_model_user_chat_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
 var file_coreapi_model_user_chat_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_coreapi_model_user_chat_proto_goTypes = []any{
 	(UserChatState)(0),            // 0: coreapi.model.UserChatState
-	(*UserChat)(nil),              // 1: coreapi.model.UserChat
-	(*structpb.Struct)(nil),       // 2: google.protobuf.Struct
-	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
+	(MissedReason)(0),             // 1: coreapi.model.MissedReason
+	(AutoAssignPriority)(0),       // 2: coreapi.model.AutoAssignPriority
+	(UserChatGoalState)(0),        // 3: coreapi.model.UserChatGoalState
+	(UserChatSubtextType)(0),      // 4: coreapi.model.UserChatSubtextType
+	(*UserChat)(nil),              // 5: coreapi.model.UserChat
+	(*structpb.Struct)(nil),       // 6: google.protobuf.Struct
+	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
 }
 var file_coreapi_model_user_chat_proto_depIdxs = []int32{
 	0,  // 0: coreapi.model.UserChat.state:type_name -> coreapi.model.UserChatState
-	2,  // 1: coreapi.model.UserChat.handling:type_name -> google.protobuf.Struct
-	2,  // 2: coreapi.model.UserChat.source:type_name -> google.protobuf.Struct
-	3,  // 3: coreapi.model.UserChat.first_opened_at:type_name -> google.protobuf.Timestamp
-	3,  // 4: coreapi.model.UserChat.opened_at:type_name -> google.protobuf.Timestamp
-	3,  // 5: coreapi.model.UserChat.first_asked_at:type_name -> google.protobuf.Timestamp
-	3,  // 6: coreapi.model.UserChat.asked_at:type_name -> google.protobuf.Timestamp
-	3,  // 7: coreapi.model.UserChat.closed_at:type_name -> google.protobuf.Timestamp
-	3,  // 8: coreapi.model.UserChat.first_replied_at_after_open:type_name -> google.protobuf.Timestamp
-	3,  // 9: coreapi.model.UserChat.front_updated_at:type_name -> google.protobuf.Timestamp
-	3,  // 10: coreapi.model.UserChat.created_at:type_name -> google.protobuf.Timestamp
-	3,  // 11: coreapi.model.UserChat.updated_at:type_name -> google.protobuf.Timestamp
-	2,  // 12: coreapi.model.UserChat.goal_event_query:type_name -> google.protobuf.Struct
-	3,  // 13: coreapi.model.UserChat.goal_checked_at:type_name -> google.protobuf.Timestamp
-	3,  // 14: coreapi.model.UserChat.desk_updated_at:type_name -> google.protobuf.Timestamp
-	3,  // 15: coreapi.model.UserChat.snoozed_at:type_name -> google.protobuf.Timestamp
-	3,  // 16: coreapi.model.UserChat.expires_at:type_name -> google.protobuf.Timestamp
-	2,  // 17: coreapi.model.UserChat.profile:type_name -> google.protobuf.Struct
-	18, // [18:18] is the sub-list for method output_type
-	18, // [18:18] is the sub-list for method input_type
-	18, // [18:18] is the sub-list for extension type_name
-	18, // [18:18] is the sub-list for extension extendee
-	0,  // [0:18] is the sub-list for field type_name
+	1,  // 1: coreapi.model.UserChat.missed_reason:type_name -> coreapi.model.MissedReason
+	2,  // 2: coreapi.model.UserChat.priority:type_name -> coreapi.model.AutoAssignPriority
+	4,  // 3: coreapi.model.UserChat.subtext_type:type_name -> coreapi.model.UserChatSubtextType
+	6,  // 4: coreapi.model.UserChat.handling:type_name -> google.protobuf.Struct
+	6,  // 5: coreapi.model.UserChat.source:type_name -> google.protobuf.Struct
+	6,  // 6: coreapi.model.UserChat.profile:type_name -> google.protobuf.Struct
+	6,  // 7: coreapi.model.UserChat.goal_event_query:type_name -> google.protobuf.Struct
+	7,  // 8: coreapi.model.UserChat.goal_checked_at:type_name -> google.protobuf.Timestamp
+	3,  // 9: coreapi.model.UserChat.goal_state:type_name -> coreapi.model.UserChatGoalState
+	7,  // 10: coreapi.model.UserChat.first_opened_at:type_name -> google.protobuf.Timestamp
+	7,  // 11: coreapi.model.UserChat.opened_at:type_name -> google.protobuf.Timestamp
+	7,  // 12: coreapi.model.UserChat.first_queued_at:type_name -> google.protobuf.Timestamp
+	7,  // 13: coreapi.model.UserChat.queued_at:type_name -> google.protobuf.Timestamp
+	7,  // 14: coreapi.model.UserChat.created_at:type_name -> google.protobuf.Timestamp
+	7,  // 15: coreapi.model.UserChat.updated_at:type_name -> google.protobuf.Timestamp
+	7,  // 16: coreapi.model.UserChat.front_updated_at:type_name -> google.protobuf.Timestamp
+	7,  // 17: coreapi.model.UserChat.desk_updated_at:type_name -> google.protobuf.Timestamp
+	7,  // 18: coreapi.model.UserChat.first_replied_at:type_name -> google.protobuf.Timestamp
+	7,  // 19: coreapi.model.UserChat.first_replied_at_after_open:type_name -> google.protobuf.Timestamp
+	7,  // 20: coreapi.model.UserChat.asked_at:type_name -> google.protobuf.Timestamp
+	7,  // 21: coreapi.model.UserChat.first_asked_at:type_name -> google.protobuf.Timestamp
+	7,  // 22: coreapi.model.UserChat.closed_at:type_name -> google.protobuf.Timestamp
+	7,  // 23: coreapi.model.UserChat.snoozed_at:type_name -> google.protobuf.Timestamp
+	7,  // 24: coreapi.model.UserChat.expires_at:type_name -> google.protobuf.Timestamp
+	25, // [25:25] is the sub-list for method output_type
+	25, // [25:25] is the sub-list for method input_type
+	25, // [25:25] is the sub-list for extension type_name
+	25, // [25:25] is the sub-list for extension extendee
+	0,  // [0:25] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_user_chat_proto_init() }
@@ -764,7 +1206,7 @@ func file_coreapi_model_user_chat_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_user_chat_proto_rawDesc), len(file_coreapi_model_user_chat_proto_rawDesc)),
-			NumEnums:      1,
+			NumEnums:      5,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,

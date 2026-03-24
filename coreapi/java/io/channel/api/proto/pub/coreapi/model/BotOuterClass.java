@@ -37,31 +37,28 @@ public final class BotOuterClass {
       "\032\033buf/validate/validate.proto\032\035coreapi/m" +
       "odel/name_desc.proto\032\035coreapi/model/tiny" +
       "_file.proto\032\037google/protobuf/timestamp.p" +
-      "roto\"\331\006\n\003Bot\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring" +
-      ".minLen\022\"value must be at least 1 charac" +
-      "ter\032\017size(this) >= 1\310\001\001R\002id\022l\n\nchannel_i" +
-      "d\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value mu" +
-      "st be at least 1 character\032\017size(this) >" +
-      "= 1\310\001\001R\tchannelId\022\261\001\n\004name\030\003 \001(\tB\234\001\272H\230\001\272" +
-      "\001D\n\rstring.minLen\022\"value must be at leas" +
-      "t 1 character\032\017size(this) >= 1\272\001K\n\rstrin" +
-      "g.maxLen\022(value must be no more than 30 " +
-      "characters\032\020size(this) <= 30\310\001\001R\004name\022u\n" +
-      "\013description\030\004 \001(\tBS\272HP\272\001M\n\rstring.maxLe" +
-      "n\022)value must be no more than 180 charac" +
-      "ters\032\021size(this) <= 180R\013description\022T\n\022" +
-      "name_desc_i18n_map\030\005 \003(\0132\'.coreapi.model" +
-      ".Bot.NameDescI18nMapEntryR\017nameDescI18nM" +
-      "ap\022\024\n\005color\030\006 \001(\tR\005color\022\035\n\navatar_url\030\007" +
-      " \001(\tR\tavatarUrl\022A\n\ncreated_at\030\010 \001(\0132\032.go" +
-      "ogle.protobuf.TimestampB\006\272H\003\310\001\001R\tcreated" +
-      "At\022/\n\006avatar\030\t \001(\0132\027.coreapi.model.TinyF" +
-      "ileR\006avatar\032[\n\024NameDescI18nMapEntry\022\020\n\003k" +
-      "ey\030\001 \001(\tR\003key\022-\n\005value\030\002 \001(\0132\027.coreapi.m" +
-      "odel.NameDescR\005value:\0028\001Bb\n&io.channel.a" +
-      "pi.proto.pub.coreapi.modelP\001Z6github.com" +
-      "/channel-io/ch-proto-public/coreapi/go/m" +
-      "odelb\006proto3"
+      "roto\"\345\005\n\003Bot\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022%\n\n" +
+      "channel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\303\001\n\004" +
+      "name\030\003 \001(\tB\256\001\272H\252\001\272\001D\n\rstring.minLen\022\"val" +
+      "ue must be at least 1 character\032\017size(th" +
+      "is) >= 1\272\001K\n\rstring.maxLen\022(value must b" +
+      "e no more than 30 characters\032\020size(this)" +
+      " <= 30\310\001\001r\0202\016^[^@#$%:/\\\\]+$R\004name\022u\n\013des" +
+      "cription\030\004 \001(\tBS\272HP\272\001M\n\rstring.maxLen\022)v" +
+      "alue must be no more than 180 characters" +
+      "\032\021size(this) <= 180R\013description\022T\n\022name" +
+      "_desc_i18n_map\030\005 \003(\0132\'.coreapi.model.Bot" +
+      ".NameDescI18nMapEntryR\017nameDescI18nMap\022\034" +
+      "\n\005color\030\006 \001(\tB\006\272H\003\310\001\001R\005color\022\035\n\navatar_u" +
+      "rl\030\007 \001(\tR\tavatarUrl\022A\n\ncreated_at\030\010 \001(\0132" +
+      "\032.google.protobuf.TimestampB\006\272H\003\310\001\001R\tcre" +
+      "atedAt\022/\n\006avatar\030\t \001(\0132\027.coreapi.model.T" +
+      "inyFileR\006avatar\032[\n\024NameDescI18nMapEntry\022" +
+      "\020\n\003key\030\001 \001(\tR\003key\022-\n\005value\030\002 \001(\0132\027.corea" +
+      "pi.model.NameDescR\005value:\0028\001Bb\n&io.chann" +
+      "el.api.proto.pub.coreapi.modelP\001Z6github" +
+      ".com/channel-io/ch-proto-public/coreapi/" +
+      "go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -23,8 +23,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Interaction state used to filter campaign user records.
-// Determines which delivery or engagement metric is used for sorting and filtering.
+// Filter state for querying campaign user delivery results.
 type CampaignUserState int32
 
 const (
@@ -80,49 +79,53 @@ func (CampaignUserState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_campaign_user_proto_rawDescGZIP(), []int{0}
 }
 
-// CampaignUser represents a user who received a campaign message.
-// Tracks delivery, view, click, and goal conversion timestamps.
+// CampaignUser represents a per-user delivery and engagement record for a campaign.
 type CampaignUser struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Campaign ID this user record belongs to.
+	// Target user identifier.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	CampaignId string `protobuf:"bytes,1,opt,name=campaign_id,json=campaignId,proto3" json:"campaign_id,omitempty"`
-	// ID of the user who received the campaign message.
+	// +kubebuilder:example="u-abc123"
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Campaign that delivered the message.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	UserId string `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	// ID of the campaign message that was sent to the user.
+	// +kubebuilder:example="cpn-001"
+	CampaignId string `protobuf:"bytes,2,opt,name=campaign_id,json=campaignId,proto3" json:"campaign_id,omitempty"`
+	// Message variant that was delivered to this user.
 	//
 	// +kubebuilder:validation:Nullable
 	MsgId string `protobuf:"bytes,3,opt,name=msg_id,json=msgId,proto3" json:"msg_id,omitempty"`
-	// ID of the user chat created by this campaign message.
+	// User chat conversation created by the campaign delivery.
 	//
 	// +kubebuilder:validation:Nullable
 	UserChatId string `protobuf:"bytes,4,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
-	// Timestamp when the message was delivered to the user.
+	// Timestamp when the campaign message was delivered to the user.
 	//
 	// +kubebuilder:validation:Nullable
 	Sent *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=sent,proto3" json:"sent,omitempty"`
-	// Timestamp when the user viewed the message.
+	// Timestamp when the user first viewed the delivered message.
 	//
 	// +kubebuilder:validation:Nullable
 	View *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=view,proto3" json:"view,omitempty"`
-	// Timestamp when the user clicked a link in the message.
+	// Timestamp when the user first clicked a link in the message.
 	//
 	// +kubebuilder:validation:Nullable
 	Click *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=click,proto3" json:"click,omitempty"`
-	// Timestamp when the user achieved the conversion goal.
+	// Timestamp when the user completed the campaign goal event.
 	//
 	// +kubebuilder:validation:Nullable
 	Goal *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=goal,proto3" json:"goal,omitempty"`
-	// Revenue amount attributed to this user from the campaign.
-	// Decimal number represented as a string for precision.
+	// Cumulative revenue attributed to this user from the campaign.
 	//
 	// +kubebuilder:validation:Nullable
-	Revenue       string `protobuf:"bytes,9,opt,name=revenue,proto3" json:"revenue,omitempty"`
+	Revenue string `protobuf:"bytes,9,opt,name=revenue,proto3" json:"revenue,omitempty"`
+	// Composite identifier in the format "{campaign_id}-{user_id}".
+	//
+	// +kubebuilder:validation:Required
+	Id            string `protobuf:"bytes,10,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -157,16 +160,16 @@ func (*CampaignUser) Descriptor() ([]byte, []int) {
 	return file_coreapi_model_campaign_user_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CampaignUser) GetCampaignId() string {
+func (x *CampaignUser) GetUserId() string {
 	if x != nil {
-		return x.CampaignId
+		return x.UserId
 	}
 	return ""
 }
 
-func (x *CampaignUser) GetUserId() string {
+func (x *CampaignUser) GetCampaignId() string {
 	if x != nil {
-		return x.UserId
+		return x.CampaignId
 	}
 	return ""
 }
@@ -220,17 +223,24 @@ func (x *CampaignUser) GetRevenue() string {
 	return ""
 }
 
+func (x *CampaignUser) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
 var File_coreapi_model_campaign_user_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_campaign_user_proto_rawDesc = "" +
 	"\n" +
-	"!coreapi/model/campaign_user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfb\x03\n" +
-	"\fCampaignUser\x12n\n" +
-	"\vcampaign_id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"!coreapi/model/campaign_user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x93\x04\n" +
+	"\fCampaignUser\x12f\n" +
+	"\auser_id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x06userId\x12n\n" +
+	"\vcampaign_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
-	"campaignId\x12f\n" +
-	"\auser_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x06userId\x12\x15\n" +
+	"campaignId\x12\x15\n" +
 	"\x06msg_id\x18\x03 \x01(\tR\x05msgId\x12 \n" +
 	"\fuser_chat_id\x18\x04 \x01(\tR\n" +
 	"userChatId\x12.\n" +
@@ -238,7 +248,9 @@ const file_coreapi_model_campaign_user_proto_rawDesc = "" +
 	"\x04view\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x04view\x120\n" +
 	"\x05click\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\x05click\x12.\n" +
 	"\x04goal\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\x04goal\x12\x18\n" +
-	"\arevenue\x18\t \x01(\tR\arevenue*\xb1\x01\n" +
+	"\arevenue\x18\t \x01(\tR\arevenue\x12\x16\n" +
+	"\x02id\x18\n" +
+	" \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id*\xb1\x01\n" +
 	"\x11CampaignUserState\x12#\n" +
 	"\x1fCAMPAIGN_USER_STATE_UNSPECIFIED\x10\x00\x12\x1c\n" +
 	"\x18CAMPAIGN_USER_STATE_SENT\x10\x01\x12\x1c\n" +

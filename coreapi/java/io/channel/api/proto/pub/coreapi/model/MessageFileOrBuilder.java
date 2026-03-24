@@ -11,7 +11,6 @@ public interface MessageFileOrBuilder extends
    * <pre>
    * Unique file identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +21,6 @@ public interface MessageFileOrBuilder extends
    * <pre>
    * Unique file identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -33,7 +31,7 @@ public interface MessageFileOrBuilder extends
 
   /**
    * <pre>
-   * File category such as image, video, or audio.
+   * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -43,7 +41,7 @@ public interface MessageFileOrBuilder extends
   java.lang.String getType();
   /**
    * <pre>
-   * File category such as image, video, or audio.
+   * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -55,7 +53,7 @@ public interface MessageFileOrBuilder extends
 
   /**
    * <pre>
-   * Original file name.
+   * Original file name including the extension (e.g. "report.pdf").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -66,7 +64,7 @@ public interface MessageFileOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Original file name.
+   * Original file name including the extension (e.g. "report.pdf").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -90,7 +88,7 @@ public interface MessageFileOrBuilder extends
 
   /**
    * <pre>
-   * MIME content type of the file.
+   * MIME content type (e.g. "image/png", "application/pdf").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -100,7 +98,7 @@ public interface MessageFileOrBuilder extends
   java.lang.String getContentType();
   /**
    * <pre>
-   * MIME content type of the file.
+   * MIME content type (e.g. "image/png", "application/pdf").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -112,7 +110,8 @@ public interface MessageFileOrBuilder extends
 
   /**
    * <pre>
-   * Duration in seconds for audio and video files.
+   * Media playback duration in seconds.
+   * Present only for audio or video files.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -145,7 +144,8 @@ public interface MessageFileOrBuilder extends
 
   /**
    * <pre>
-   * EXIF orientation value for images.
+   * EXIF orientation value (1-8) indicating how the image should be rotated for display.
+   * Present only for image files with EXIF metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -156,7 +156,7 @@ public interface MessageFileOrBuilder extends
 
   /**
    * <pre>
-   * Whether the image is animated (e.g., GIF).
+   * Whether the image is an animated format (e.g. GIF, APNG).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -167,7 +167,7 @@ public interface MessageFileOrBuilder extends
 
   /**
    * <pre>
-   * Storage bucket name where the file is stored.
+   * Storage bucket name where the file is hosted.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -178,7 +178,7 @@ public interface MessageFileOrBuilder extends
   java.lang.String getBucket();
   /**
    * <pre>
-   * Storage bucket name where the file is stored.
+   * Storage bucket name where the file is hosted.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -191,7 +191,7 @@ public interface MessageFileOrBuilder extends
 
   /**
    * <pre>
-   * Storage key identifying the file within the bucket.
+   * Storage object key used to locate the file within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -202,7 +202,7 @@ public interface MessageFileOrBuilder extends
   java.lang.String getKey();
   /**
    * <pre>
-   * Storage key identifying the file within the bucket.
+   * Storage object key used to locate the file within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -215,7 +215,8 @@ public interface MessageFileOrBuilder extends
 
   /**
    * <pre>
-   * Storage key for the file preview thumbnail.
+   * Storage key for the preview thumbnail.
+   * Falls back to `key` when not set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -225,7 +226,8 @@ public interface MessageFileOrBuilder extends
   java.lang.String getPreviewKey();
   /**
    * <pre>
-   * Storage key for the file preview thumbnail.
+   * Storage key for the preview thumbnail.
+   * Falls back to `key` when not set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -234,4 +236,147 @@ public interface MessageFileOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPreviewKeyBytes();
+
+  /**
+   * <pre>
+   * Access scope that determines who can view this private file.
+   * Derived from the storage key pattern.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
+   * @return The enum numeric value on the wire for privateFileScope.
+   */
+  int getPrivateFileScopeValue();
+  /**
+   * <pre>
+   * Access scope that determines who can view this private file.
+   * Derived from the storage key pattern.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
+   * @return The privateFileScope.
+   */
+  io.channel.api.proto.pub.coreapi.model.MessageFile.PrivateFileScope getPrivateFileScope();
+
+  /**
+   * <pre>
+   * Domain identifier for channel-scoped private files.
+   * Derived from the storage key pattern.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
+   * @return The sharedDomain.
+   */
+  java.lang.String getSharedDomain();
+  /**
+   * <pre>
+   * Domain identifier for channel-scoped private files.
+   * Derived from the storage key pattern.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
+   * @return The bytes for sharedDomain.
+   */
+  com.google.protobuf.ByteString
+      getSharedDomainBytes();
+
+  /**
+   * <pre>
+   * Channel ID that owns this private file.
+   * Derived from the storage key pattern.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string channel_id = 16 [json_name = "channelId"];</code>
+   * @return The channelId.
+   */
+  java.lang.String getChannelId();
+  /**
+   * <pre>
+   * Channel ID that owns this private file.
+   * Derived from the storage key pattern.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string channel_id = 16 [json_name = "channelId"];</code>
+   * @return The bytes for channelId.
+   */
+  com.google.protobuf.ByteString
+      getChannelIdBytes();
+
+  /**
+   * <pre>
+   * Manager ID that owns this private file.
+   * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string manager_id = 17 [json_name = "managerId"];</code>
+   * @return The managerId.
+   */
+  java.lang.String getManagerId();
+  /**
+   * <pre>
+   * Manager ID that owns this private file.
+   * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string manager_id = 17 [json_name = "managerId"];</code>
+   * @return The bytes for managerId.
+   */
+  com.google.protobuf.ByteString
+      getManagerIdBytes();
+
+  /**
+   * <pre>
+   * Chat type for chat-scoped private files.
+   * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string chat_type = 18 [json_name = "chatType"];</code>
+   * @return The chatType.
+   */
+  java.lang.String getChatType();
+  /**
+   * <pre>
+   * Chat type for chat-scoped private files.
+   * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string chat_type = 18 [json_name = "chatType"];</code>
+   * @return The bytes for chatType.
+   */
+  com.google.protobuf.ByteString
+      getChatTypeBytes();
+
+  /**
+   * <pre>
+   * Chat ID for chat-scoped private files.
+   * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string chat_id = 19 [json_name = "chatId"];</code>
+   * @return The chatId.
+   */
+  java.lang.String getChatId();
+  /**
+   * <pre>
+   * Chat ID for chat-scoped private files.
+   * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string chat_id = 19 [json_name = "chatId"];</code>
+   * @return The bytes for chatId.
+   */
+  com.google.protobuf.ByteString
+      getChatIdBytes();
 }

@@ -11,7 +11,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Unique campaign identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="cpn-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Unique campaign identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="cpn-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +35,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Channel ID this campaign belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -46,7 +46,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Channel ID this campaign belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -57,7 +57,7 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Display name of the campaign.
+   * Human-readable label for the campaign.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
@@ -69,7 +69,7 @@ public interface CampaignOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Display name of the campaign.
+   * Human-readable label for the campaign.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
@@ -83,7 +83,7 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Current lifecycle state.
+   * Current lifecycle state of the campaign.
    * +kubebuilder:validation:Required
    * </pre>
    *
@@ -93,7 +93,7 @@ public interface CampaignOrBuilder extends
   int getStateValue();
   /**
    * <pre>
-   * Current lifecycle state.
+   * Current lifecycle state of the campaign.
    * +kubebuilder:validation:Required
    * </pre>
    *
@@ -104,7 +104,53 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * User targeting query for audience filtering.
+   * Channel through which the campaign message is delivered.
+   * Cannot be changed after creation.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
+   * @return The enum numeric value on the wire for mediumType.
+   */
+  int getMediumTypeValue();
+  /**
+   * <pre>
+   * Channel through which the campaign message is delivered.
+   * Cannot be changed after creation.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
+   * @return The mediumType.
+   */
+  io.channel.api.proto.pub.coreapi.model.MediumType getMediumType();
+
+  /**
+   * <pre>
+   * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string medium_id = 6 [json_name = "mediumId"];</code>
+   * @return The mediumId.
+   */
+  java.lang.String getMediumId();
+  /**
+   * <pre>
+   * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string medium_id = 6 [json_name = "mediumId"];</code>
+   * @return The bytes for mediumId.
+   */
+  com.google.protobuf.ByteString
+      getMediumIdBytes();
+
+  /**
+   * <pre>
+   * Query expression that defines the target user segment.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -114,7 +160,8 @@ public interface CampaignOrBuilder extends
   boolean hasUserQuery();
   /**
    * <pre>
-   * User targeting query for audience filtering.
+   * Query expression that defines the target user segment.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -124,7 +171,8 @@ public interface CampaignOrBuilder extends
   com.google.protobuf.Struct getUserQuery();
   /**
    * <pre>
-   * User targeting query for audience filtering.
+   * Query expression that defines the target user segment.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -134,23 +182,70 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Name of the event that triggers the campaign.
-   * May be unset for draft campaigns.
+   * App-defined user segments used alongside user_query for targeting.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string trigger_event_name = 9 [json_name = "triggerEventName"];</code>
+   * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+   */
+  java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> 
+      getAppSegmentsList();
+  /**
+   * <pre>
+   * App-defined user segments used alongside user_query for targeting.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.AppSegment getAppSegments(int index);
+  /**
+   * <pre>
+   * App-defined user segments used alongside user_query for targeting.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+   */
+  int getAppSegmentsCount();
+  /**
+   * <pre>
+   * App-defined user segments used alongside user_query for targeting.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+   */
+  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> 
+      getAppSegmentsOrBuilderList();
+  /**
+   * <pre>
+   * App-defined user segments used alongside user_query for targeting.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.AppSegment app_segments = 8 [json_name = "appSegments"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder getAppSegmentsOrBuilder(
+      int index);
+
+  /**
+   * <pre>
+   * Name of the user event that triggers this campaign.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>string trigger_event_name = 9 [json_name = "triggerEventName", (.buf.validate.field) = { ... }</code>
    * @return The triggerEventName.
    */
   java.lang.String getTriggerEventName();
   /**
    * <pre>
-   * Name of the event that triggers the campaign.
-   * May be unset for draft campaigns.
-   * +kubebuilder:validation:Nullable
+   * Name of the user event that triggers this campaign.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string trigger_event_name = 9 [json_name = "triggerEventName"];</code>
+   * <code>string trigger_event_name = 9 [json_name = "triggerEventName", (.buf.validate.field) = { ... }</code>
    * @return The bytes for triggerEventName.
    */
   com.google.protobuf.ByteString
@@ -158,7 +253,8 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Filtering query for the trigger event.
+   * Query expression to further filter matching trigger events by their properties.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -168,7 +264,8 @@ public interface CampaignOrBuilder extends
   boolean hasTriggerEventQuery();
   /**
    * <pre>
-   * Filtering query for the trigger event.
+   * Query expression to further filter matching trigger events by their properties.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -178,7 +275,8 @@ public interface CampaignOrBuilder extends
   com.google.protobuf.Struct getTriggerEventQuery();
   /**
    * <pre>
-   * Filtering query for the trigger event.
+   * Query expression to further filter matching trigger events by their properties.
+   * Represented as a structured filter object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -188,9 +286,10 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Delay between trigger event and message delivery.
+   * Delay between the trigger event and message delivery, in ISO 8601 duration format.
    * Maximum 90 days.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
    * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -199,9 +298,10 @@ public interface CampaignOrBuilder extends
   boolean hasWaitingTime();
   /**
    * <pre>
-   * Delay between trigger event and message delivery.
+   * Delay between the trigger event and message delivery, in ISO 8601 duration format.
    * Maximum 90 days.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
    * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -210,9 +310,10 @@ public interface CampaignOrBuilder extends
   com.google.protobuf.Duration getWaitingTime();
   /**
    * <pre>
-   * Delay between trigger event and message delivery.
+   * Delay between the trigger event and message delivery, in ISO 8601 duration format.
    * Maximum 90 days.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
    * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -221,8 +322,8 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Name of the additional filter event.
-   * When set, waiting_time must be non-zero.
+   * Name of an additional event used to filter users before delivery.
+   * When set, filter_match determines whether the event must occur or must not occur.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -232,8 +333,8 @@ public interface CampaignOrBuilder extends
   java.lang.String getFilterEventName();
   /**
    * <pre>
-   * Name of the additional filter event.
-   * When set, waiting_time must be non-zero.
+   * Name of an additional event used to filter users before delivery.
+   * When set, filter_match determines whether the event must occur or must not occur.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -245,7 +346,8 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Filtering query for the additional filter event.
+   * Query expression to filter the additional filter events by their properties.
+   * Represented as a structured filter object. Applicable when filter_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -255,7 +357,8 @@ public interface CampaignOrBuilder extends
   boolean hasFilterEventQuery();
   /**
    * <pre>
-   * Filtering query for the additional filter event.
+   * Query expression to filter the additional filter events by their properties.
+   * Represented as a structured filter object. Applicable when filter_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -265,7 +368,8 @@ public interface CampaignOrBuilder extends
   com.google.protobuf.Struct getFilterEventQuery();
   /**
    * <pre>
-   * Filtering query for the additional filter event.
+   * Query expression to filter the additional filter events by their properties.
+   * Represented as a structured filter object. Applicable when filter_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -275,7 +379,8 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Match logic for the additional event filter.
+   * Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
+   * Applicable when filter_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -285,7 +390,8 @@ public interface CampaignOrBuilder extends
   int getFilterMatchValue();
   /**
    * <pre>
-   * Match logic for the additional event filter.
+   * Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
+   * Applicable when filter_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -296,7 +402,104 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Name of the event tracked as a conversion goal.
+   * Holds a property value from the trigger event constant for consistent additional event filtering.
+   * Applicable when filter_event_name is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
+   * @return Whether the filterHpc field is set.
+   */
+  boolean hasFilterHpc();
+  /**
+   * <pre>
+   * Holds a property value from the trigger event constant for consistent additional event filtering.
+   * Applicable when filter_event_name is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
+   * @return The filterHpc.
+   */
+  io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant getFilterHpc();
+  /**
+   * <pre>
+   * Holds a property value from the trigger event constant for consistent additional event filtering.
+   * Applicable when filter_event_name is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 15 [json_name = "filterHpc"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder getFilterHpcOrBuilder();
+
+  /**
+   * <pre>
+   * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+   * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+   */
+  int getConversionWindowsCount();
+  /**
+   * <pre>
+   * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+   * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+   */
+  boolean containsConversionWindows(
+      java.lang.String key);
+  /**
+   * Use {@link #getConversionWindowsMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, com.google.protobuf.Duration>
+  getConversionWindows();
+  /**
+   * <pre>
+   * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+   * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+   */
+  java.util.Map<java.lang.String, com.google.protobuf.Duration>
+  getConversionWindowsMap();
+  /**
+   * <pre>
+   * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+   * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+   */
+
+  com.google.protobuf.Duration getConversionWindowsOrDefault(
+      java.lang.String key,
+      com.google.protobuf.Duration defaultValue);
+  /**
+   * <pre>
+   * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+   * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
+   */
+
+  com.google.protobuf.Duration getConversionWindowsOrThrow(
+      java.lang.String key);
+
+  /**
+   * <pre>
+   * Name of the event that counts as a goal completion.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -306,7 +509,7 @@ public interface CampaignOrBuilder extends
   java.lang.String getGoalEventName();
   /**
    * <pre>
-   * Name of the event tracked as a conversion goal.
+   * Name of the event that counts as a goal completion.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -318,7 +521,8 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Filtering query for the goal event.
+   * Query expression to filter goal events by their properties.
+   * Represented as a structured filter object. Applicable when goal_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -328,7 +532,8 @@ public interface CampaignOrBuilder extends
   boolean hasGoalEventQuery();
   /**
    * <pre>
-   * Filtering query for the goal event.
+   * Query expression to filter goal events by their properties.
+   * Represented as a structured filter object. Applicable when goal_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -338,7 +543,8 @@ public interface CampaignOrBuilder extends
   com.google.protobuf.Struct getGoalEventQuery();
   /**
    * <pre>
-   * Filtering query for the goal event.
+   * Query expression to filter goal events by their properties.
+   * Represented as a structured filter object. Applicable when goal_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -348,51 +554,87 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Duration window for goal event tracking.
-   * Valid range is 1 to 30 days. Defaults to 7 days.
+   * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+   * Between 1 and 30 days. Defaults to 7 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
    * @return Whether the goalEventDuration field is set.
    */
   boolean hasGoalEventDuration();
   /**
    * <pre>
-   * Duration window for goal event tracking.
-   * Valid range is 1 to 30 days. Defaults to 7 days.
+   * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+   * Between 1 and 30 days. Defaults to 7 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
    * @return The goalEventDuration.
    */
   com.google.protobuf.Duration getGoalEventDuration();
   /**
    * <pre>
-   * Duration window for goal event tracking.
-   * Valid range is 1 to 30 days. Defaults to 7 days.
+   * Time window for attributing goal events after delivery, in ISO 8601 duration format.
+   * Between 1 and 30 days. Defaults to 7 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
    */
   com.google.protobuf.DurationOrBuilder getGoalEventDurationOrBuilder();
 
   /**
    * <pre>
-   * Whether this campaign contains advertising content.
+   * Holds a property value from the trigger or filter event constant for consistent goal checking.
+   * Applicable when goal_event_name is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>bool advertising = 21 [json_name = "advertising"];</code>
+   * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
+   * @return Whether the goalHpc field is set.
+   */
+  boolean hasGoalHpc();
+  /**
+   * <pre>
+   * Holds a property value from the trigger or filter event constant for consistent goal checking.
+   * Applicable when goal_event_name is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
+   * @return The goalHpc.
+   */
+  io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant getGoalHpc();
+  /**
+   * <pre>
+   * Holds a property value from the trigger or filter event constant for consistent goal checking.
+   * Applicable when goal_event_name is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 20 [json_name = "goalHpc"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder getGoalHpcOrBuilder();
+
+  /**
+   * <pre>
+   * Whether the campaign message contains advertising content subject to opt-out regulations.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool advertising = 21 [json_name = "advertising", (.buf.validate.field) = { ... }</code>
    * @return The advertising.
    */
   boolean getAdvertising();
 
   /**
    * <pre>
-   * Whether to send via XMS (SMS/LMS/MMS) to offline users.
+   * Whether to fall back to XMS (text message) delivery when the user is offline.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -403,7 +645,7 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Whether to send via email to offline users.
+   * Whether to fall back to email delivery when the user is offline.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -414,64 +656,89 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Minimum interval between consecutive sends to the same user.
-   * Valid range is 0 to 30 days.
+   * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+   * Between 0 seconds and 30 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
    * @return Whether the cooldown field is set.
    */
   boolean hasCooldown();
   /**
    * <pre>
-   * Minimum interval between consecutive sends to the same user.
-   * Valid range is 0 to 30 days.
+   * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+   * Between 0 seconds and 30 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
    * @return The cooldown.
    */
   com.google.protobuf.Duration getCooldown();
   /**
    * <pre>
-   * Minimum interval between consecutive sends to the same user.
-   * Valid range is 0 to 30 days.
+   * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+   * Between 0 seconds and 30 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
    */
   com.google.protobuf.DurationOrBuilder getCooldownOrBuilder();
 
   /**
    * <pre>
-   * Send timing mode that determines when messages are delivered.
-   * May be unset for draft campaigns.
-   * +kubebuilder:validation:Nullable
+   * Controls when messages are delivered relative to operation hours or custom time ranges.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode"];</code>
+   * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode", (.buf.validate.field) = { ... }</code>
    * @return The enum numeric value on the wire for sendMode.
    */
   int getSendModeValue();
   /**
    * <pre>
-   * Send timing mode that determines when messages are delivered.
-   * May be unset for draft campaigns.
-   * +kubebuilder:validation:Nullable
+   * Controls when messages are delivered relative to operation hours or custom time ranges.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode"];</code>
+   * <code>.coreapi.model.CampaignSendMode send_mode = 25 [json_name = "sendMode", (.buf.validate.field) = { ... }</code>
    * @return The sendMode.
    */
   io.channel.api.proto.pub.coreapi.model.CampaignSendMode getSendMode();
 
   /**
    * <pre>
-   * Custom time ranges for message delivery.
-   * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+   * Channel operation schedule used to determine delivery timing.
+   * Applicable when send_mode is IN_OPERATION or AWAY.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string channel_operation_id = 26 [json_name = "channelOperationId"];</code>
+   * @return The channelOperationId.
+   */
+  java.lang.String getChannelOperationId();
+  /**
+   * <pre>
+   * Channel operation schedule used to determine delivery timing.
+   * Applicable when send_mode is IN_OPERATION or AWAY.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string channel_operation_id = 26 [json_name = "channelOperationId"];</code>
+   * @return The bytes for channelOperationId.
+   */
+  com.google.protobuf.ByteString
+      getChannelOperationIdBytes();
+
+  /**
+   * <pre>
+   * Custom time windows for delivery scheduling.
+   * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -481,8 +748,8 @@ public interface CampaignOrBuilder extends
       getSendTimeRangesList();
   /**
    * <pre>
-   * Custom time ranges for message delivery.
-   * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+   * Custom time windows for delivery scheduling.
+   * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -491,8 +758,8 @@ public interface CampaignOrBuilder extends
   io.channel.api.proto.pub.coreapi.model.TimeRange getSendTimeRanges(int index);
   /**
    * <pre>
-   * Custom time ranges for message delivery.
-   * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+   * Custom time windows for delivery scheduling.
+   * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -501,8 +768,8 @@ public interface CampaignOrBuilder extends
   int getSendTimeRangesCount();
   /**
    * <pre>
-   * Custom time ranges for message delivery.
-   * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+   * Custom time windows for delivery scheduling.
+   * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -512,8 +779,8 @@ public interface CampaignOrBuilder extends
       getSendTimeRangesOrBuilderList();
   /**
    * <pre>
-   * Custom time ranges for message delivery.
-   * Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+   * Custom time windows for delivery scheduling.
+   * Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -524,7 +791,7 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Campaign start time.
+   * Timestamp when the campaign becomes eligible to trigger.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -534,7 +801,7 @@ public interface CampaignOrBuilder extends
   boolean hasStartAt();
   /**
    * <pre>
-   * Campaign start time.
+   * Timestamp when the campaign becomes eligible to trigger.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -544,7 +811,7 @@ public interface CampaignOrBuilder extends
   com.google.protobuf.Timestamp getStartAt();
   /**
    * <pre>
-   * Campaign start time.
+   * Timestamp when the campaign becomes eligible to trigger.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -554,8 +821,7 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Scheduled campaign end timestamp.
-   * Campaign automatically stops after this time.
+   * Timestamp when the campaign automatically stops.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -565,8 +831,7 @@ public interface CampaignOrBuilder extends
   boolean hasEndAt();
   /**
    * <pre>
-   * Scheduled campaign end timestamp.
-   * Campaign automatically stops after this time.
+   * Timestamp when the campaign automatically stops.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -576,8 +841,7 @@ public interface CampaignOrBuilder extends
   com.google.protobuf.Timestamp getEndAt();
   /**
    * <pre>
-   * Scheduled campaign end timestamp.
-   * Campaign automatically stops after this time.
+   * Timestamp when the campaign automatically stops.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -587,7 +851,8 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Draft snapshot of the campaign saved before activation.
+   * Snapshot of the campaign configuration captured before activation.
+   * Represented as a free-form JSON object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -597,7 +862,8 @@ public interface CampaignOrBuilder extends
   boolean hasDraft();
   /**
    * <pre>
-   * Draft snapshot of the campaign saved before activation.
+   * Snapshot of the campaign configuration captured before activation.
+   * Represented as a free-form JSON object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -607,7 +873,8 @@ public interface CampaignOrBuilder extends
   com.google.protobuf.Struct getDraft();
   /**
    * <pre>
-   * Draft snapshot of the campaign saved before activation.
+   * Snapshot of the campaign configuration captured before activation.
+   * Represented as a free-form JSON object.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -677,7 +944,7 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Total number of messages sent.
+   * Cumulative count of messages delivered.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -688,7 +955,7 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Total number of message views.
+   * Cumulative count of message views by recipients.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -699,7 +966,7 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Total number of goal conversions achieved.
+   * Cumulative count of goal event completions attributed to this campaign.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -710,7 +977,7 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Total number of message link clicks.
+   * Cumulative count of message link clicks.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -721,308 +988,59 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Delivery medium type identifier.
+   * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+   * Defaults to 31 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>string send_medium = 37 [json_name = "sendMedium"];</code>
-   * @return The sendMedium.
-   */
-  java.lang.String getSendMedium();
-  /**
-   * <pre>
-   * Delivery medium type identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string send_medium = 37 [json_name = "sendMedium"];</code>
-   * @return The bytes for sendMedium.
-   */
-  com.google.protobuf.ByteString
-      getSendMediumBytes();
-
-  /**
-   * <pre>
-   * Duration after which user chat sessions expire.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Duration user_chat_expire_duration = 38 [json_name = "userChatExpireDuration"];</code>
+   * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
    * @return Whether the userChatExpireDuration field is set.
    */
   boolean hasUserChatExpireDuration();
   /**
    * <pre>
-   * Duration after which user chat sessions expire.
+   * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+   * Defaults to 31 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration user_chat_expire_duration = 38 [json_name = "userChatExpireDuration"];</code>
+   * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
    * @return The userChatExpireDuration.
    */
   com.google.protobuf.Duration getUserChatExpireDuration();
   /**
    * <pre>
-   * Duration after which user chat sessions expire.
+   * Duration before the user chat created by this campaign expires, in ISO 8601 format.
+   * Defaults to 31 days.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="PT23H50M"
    * </pre>
    *
-   * <code>.google.protobuf.Duration user_chat_expire_duration = 38 [json_name = "userChatExpireDuration"];</code>
+   * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
    */
   com.google.protobuf.DurationOrBuilder getUserChatExpireDurationOrBuilder();
 
   /**
    * <pre>
-   * Manager ID responsible for this campaign.
+   * Manager assigned to handle user responses from this campaign.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string manager_id = 39 [json_name = "managerId"];</code>
+   * <code>string manager_id = 38 [json_name = "managerId"];</code>
    * @return The managerId.
    */
   java.lang.String getManagerId();
   /**
    * <pre>
-   * Manager ID responsible for this campaign.
+   * Manager assigned to handle user responses from this campaign.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string manager_id = 39 [json_name = "managerId"];</code>
+   * <code>string manager_id = 38 [json_name = "managerId"];</code>
    * @return The bytes for managerId.
    */
   com.google.protobuf.ByteString
       getManagerIdBytes();
-
-  /**
-   * <pre>
-   * Delivery medium type.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MediumType medium_type = 40 [json_name = "mediumType"];</code>
-   * @return The enum numeric value on the wire for mediumType.
-   */
-  int getMediumTypeValue();
-  /**
-   * <pre>
-   * Delivery medium type.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MediumType medium_type = 40 [json_name = "mediumType"];</code>
-   * @return The mediumType.
-   */
-  io.channel.api.proto.pub.coreapi.model.MediumType getMediumType();
-
-  /**
-   * <pre>
-   * Identifier of the specific medium instance.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string medium_id = 41 [json_name = "mediumId"];</code>
-   * @return The mediumId.
-   */
-  java.lang.String getMediumId();
-  /**
-   * <pre>
-   * Identifier of the specific medium instance.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string medium_id = 41 [json_name = "mediumId"];</code>
-   * @return The bytes for mediumId.
-   */
-  com.google.protobuf.ByteString
-      getMediumIdBytes();
-
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-   */
-  java.util.List<io.channel.api.proto.pub.coreapi.model.AppSegment> 
-      getAppSegmentsList();
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.AppSegment getAppSegments(int index);
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-   */
-  int getAppSegmentsCount();
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-   */
-  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder> 
-      getAppSegmentsOrBuilderList();
-  /**
-   * <pre>
-   * App segments for user targeting.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.AppSegment app_segments = 42 [json_name = "appSegments"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.AppSegmentOrBuilder getAppSegmentsOrBuilder(
-      int index);
-
-  /**
-   * <pre>
-   * Channel operation ID for business hours scheduling.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string channel_operation_id = 43 [json_name = "channelOperationId"];</code>
-   * @return The channelOperationId.
-   */
-  java.lang.String getChannelOperationId();
-  /**
-   * <pre>
-   * Channel operation ID for business hours scheduling.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string channel_operation_id = 43 [json_name = "channelOperationId"];</code>
-   * @return The bytes for channelOperationId.
-   */
-  com.google.protobuf.ByteString
-      getChannelOperationIdBytes();
-
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-   */
-  int getConversionWindowsCount();
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-   */
-  boolean containsConversionWindows(
-      java.lang.String key);
-  /**
-   * Use {@link #getConversionWindowsMap()} instead.
-   */
-  @java.lang.Deprecated
-  java.util.Map<java.lang.String, com.google.protobuf.Duration>
-  getConversionWindows();
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-   */
-  java.util.Map<java.lang.String, com.google.protobuf.Duration>
-  getConversionWindowsMap();
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-   */
-
-  com.google.protobuf.Duration getConversionWindowsOrDefault(
-      java.lang.String key,
-      com.google.protobuf.Duration defaultValue);
-  /**
-   * <pre>
-   * Conversion tracking windows keyed by feature name.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 44 [json_name = "conversionWindows"];</code>
-   */
-
-  com.google.protobuf.Duration getConversionWindowsOrThrow(
-      java.lang.String key);
-
-  /**
-   * <pre>
-   * Holding property constant for the additional event filter.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
-   * @return Whether the filterHpc field is set.
-   */
-  boolean hasFilterHpc();
-  /**
-   * <pre>
-   * Holding property constant for the additional event filter.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
-   * @return The filterHpc.
-   */
-  io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant getFilterHpc();
-  /**
-   * <pre>
-   * Holding property constant for the additional event filter.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.HoldingPropertyConstant filter_hpc = 45 [json_name = "filterHpc"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder getFilterHpcOrBuilder();
-
-  /**
-   * <pre>
-   * Holding property constant for the goal event.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
-   * @return Whether the goalHpc field is set.
-   */
-  boolean hasGoalHpc();
-  /**
-   * <pre>
-   * Holding property constant for the goal event.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
-   * @return The goalHpc.
-   */
-  io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstant getGoalHpc();
-  /**
-   * <pre>
-   * Holding property constant for the goal event.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.HoldingPropertyConstant goal_hpc = 46 [json_name = "goalHpc"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.HoldingPropertyConstantOrBuilder getGoalHpcOrBuilder();
 }

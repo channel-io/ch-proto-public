@@ -17,50 +17,98 @@ public enum MessageOption
    */
   MESSAGE_OPTION_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Deliver the message as if sent by a manager instead of a bot.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_ACT_AS_MANAGER = 1;</code>
    */
   MESSAGE_OPTION_ACT_AS_MANAGER(1),
   /**
+   * <pre>
+   * Display the bot as the channel identity instead of its own profile.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_DISPLAY_AS_CHANNEL = 2;</code>
    */
   MESSAGE_OPTION_DISPLAY_AS_CHANNEL(2),
   /**
+   * <pre>
+   * Do not post the message to the chat timeline.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_DO_NOT_POST = 3;</code>
    */
   MESSAGE_OPTION_DO_NOT_POST(3),
   /**
+   * <pre>
+   * Exclude the message from search results.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_DO_NOT_SEARCH = 4;</code>
    */
   MESSAGE_OPTION_DO_NOT_SEARCH(4),
   /**
+   * <pre>
+   * Do not deliver the message via app push notification.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_DO_NOT_SEND_APP = 5;</code>
    */
   MESSAGE_OPTION_DO_NOT_SEND_APP(5),
   /**
+   * <pre>
+   * Do not update the Desk inbox timestamp for this message.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_DO_NOT_UPDATE_DESK = 6;</code>
    */
   MESSAGE_OPTION_DO_NOT_UPDATE_DESK(6),
   /**
+   * <pre>
+   * Prevent the message from being edited or deleted after sending.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_IMMUTABLE = 7;</code>
    */
   MESSAGE_OPTION_IMMUTABLE(7),
   /**
+   * <pre>
+   * Mark the message as a private internal note visible only to managers.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_PRIVATE = 8;</code>
    */
   MESSAGE_OPTION_PRIVATE(8),
   /**
+   * <pre>
+   * Suppress all notifications for this message.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_SILENT = 9;</code>
    */
   MESSAGE_OPTION_SILENT(9),
   /**
+   * <pre>
+   * Suppress notifications to managers only.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_SILENT_TO_MANAGER = 10;</code>
    */
   MESSAGE_OPTION_SILENT_TO_MANAGER(10),
   /**
+   * <pre>
+   * Suppress notifications to the user only.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_SILENT_TO_USER = 11;</code>
    */
   MESSAGE_OPTION_SILENT_TO_USER(11),
   /**
+   * <pre>
+   * Send an alert notification to the message writer.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_ALERT_TO_WRITER = 12;</code>
    */
   MESSAGE_OPTION_ALERT_TO_WRITER(12),
@@ -72,50 +120,98 @@ public enum MessageOption
    */
   public static final int MESSAGE_OPTION_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Deliver the message as if sent by a manager instead of a bot.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_ACT_AS_MANAGER = 1;</code>
    */
   public static final int MESSAGE_OPTION_ACT_AS_MANAGER_VALUE = 1;
   /**
+   * <pre>
+   * Display the bot as the channel identity instead of its own profile.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_DISPLAY_AS_CHANNEL = 2;</code>
    */
   public static final int MESSAGE_OPTION_DISPLAY_AS_CHANNEL_VALUE = 2;
   /**
+   * <pre>
+   * Do not post the message to the chat timeline.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_DO_NOT_POST = 3;</code>
    */
   public static final int MESSAGE_OPTION_DO_NOT_POST_VALUE = 3;
   /**
+   * <pre>
+   * Exclude the message from search results.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_DO_NOT_SEARCH = 4;</code>
    */
   public static final int MESSAGE_OPTION_DO_NOT_SEARCH_VALUE = 4;
   /**
+   * <pre>
+   * Do not deliver the message via app push notification.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_DO_NOT_SEND_APP = 5;</code>
    */
   public static final int MESSAGE_OPTION_DO_NOT_SEND_APP_VALUE = 5;
   /**
+   * <pre>
+   * Do not update the Desk inbox timestamp for this message.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_DO_NOT_UPDATE_DESK = 6;</code>
    */
   public static final int MESSAGE_OPTION_DO_NOT_UPDATE_DESK_VALUE = 6;
   /**
+   * <pre>
+   * Prevent the message from being edited or deleted after sending.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_IMMUTABLE = 7;</code>
    */
   public static final int MESSAGE_OPTION_IMMUTABLE_VALUE = 7;
   /**
+   * <pre>
+   * Mark the message as a private internal note visible only to managers.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_PRIVATE = 8;</code>
    */
   public static final int MESSAGE_OPTION_PRIVATE_VALUE = 8;
   /**
+   * <pre>
+   * Suppress all notifications for this message.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_SILENT = 9;</code>
    */
   public static final int MESSAGE_OPTION_SILENT_VALUE = 9;
   /**
+   * <pre>
+   * Suppress notifications to managers only.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_SILENT_TO_MANAGER = 10;</code>
    */
   public static final int MESSAGE_OPTION_SILENT_TO_MANAGER_VALUE = 10;
   /**
+   * <pre>
+   * Suppress notifications to the user only.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_SILENT_TO_USER = 11;</code>
    */
   public static final int MESSAGE_OPTION_SILENT_TO_USER_VALUE = 11;
   /**
+   * <pre>
+   * Send an alert notification to the message writer.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_ALERT_TO_WRITER = 12;</code>
    */
   public static final int MESSAGE_OPTION_ALERT_TO_WRITER_VALUE = 12;
@@ -188,7 +284,7 @@ public enum MessageOption
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return io.channel.api.proto.pub.coreapi.model.MessageContentOuterClass.getDescriptor().getEnumTypes().get(2);
+    return io.channel.api.proto.pub.coreapi.model.MessageContentOuterClass.getDescriptor().getEnumTypes().get(0);
   }
 
   private static final MessageOption[] VALUES = values();

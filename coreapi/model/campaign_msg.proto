@@ -11,23 +11,17 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// CampaignMsg represents a message template within a campaign.
-// Each campaign can have multiple messages.
+// CampaignMsg represents a message variant within a campaign.
+// Each campaign can have multiple message variants for A/B testing.
 message CampaignMsg {
   // Unique campaign message identifier.
+  // Client-assigned on creation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 1 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  // +kubebuilder:example="cm-001"
+  string id = 1 [(buf.validate.field).required = true];
 
-  // Campaign ID this message belongs to.
+  // Campaign ID this message variant belongs to.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -43,17 +37,10 @@ message CampaignMsg {
   // Channel ID this campaign message belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string channel_id = 3 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  // +kubebuilder:example="ch-12345"
+  string channel_id = 3 [(buf.validate.field).required = true];
 
-  // Display name of the campaign message.
+  // Human-readable label for this message variant.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -66,20 +53,22 @@ message CampaignMsg {
     (buf.validate.field).required = true
   ];
 
-  // Delivery medium type.
+  // Channel through which this message is delivered.
+  // Cannot be changed after creation.
   //
-  // +kubebuilder:validation:Nullable
-  MediumType medium_type = 5;
+  // +kubebuilder:validation:Required
+  MediumType medium_type = 5 [(buf.validate.field).required = true];
 
-  // Identifier of the specific medium instance.
+  // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
   //
   // +kubebuilder:validation:Nullable
   string medium_id = 6;
 
-  // Delivery configuration specific to the chosen medium type.
+  // Message content and medium-specific delivery configuration.
+  // Structure varies by medium_type.
   //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Struct settings = 7;
+  // +kubebuilder:validation:Required
+  google.protobuf.Struct settings = 7 [(buf.validate.field).required = true];
 
   // Campaign message creation timestamp.
   //
@@ -91,22 +80,22 @@ message CampaignMsg {
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp updated_at = 9 [(buf.validate.field).required = true];
 
-  // Total number of messages sent.
+  // Cumulative count of messages delivered for this variant.
   //
   // +kubebuilder:validation:Nullable
   int32 sent = 10;
 
-  // Total number of message views.
+  // Cumulative count of message views by recipients for this variant.
   //
   // +kubebuilder:validation:Nullable
   int32 view = 11;
 
-  // Total number of goal conversions achieved.
+  // Cumulative count of goal event completions attributed to this variant.
   //
   // +kubebuilder:validation:Nullable
   int32 goal = 12;
 
-  // Total number of message link clicks.
+  // Cumulative count of message link clicks for this variant.
   //
   // +kubebuilder:validation:Nullable
   int32 click = 13;

@@ -5,14 +5,16 @@ package model
 // GetString returns the canonical string for OneTimeMsgState.
 func (x OneTimeMsgState) GetString() string {
 	switch x {
-	case OneTimeMsgState_ONE_TIME_MSG_STATE_ACTIVE:
-		return "active"
+	case OneTimeMsgState_ONE_TIME_MSG_STATE_CANCELED:
+		return "canceled"
 	case OneTimeMsgState_ONE_TIME_MSG_STATE_DRAFT:
 		return "draft"
+	case OneTimeMsgState_ONE_TIME_MSG_STATE_REMOVED:
+		return "removed"
 	case OneTimeMsgState_ONE_TIME_MSG_STATE_SENT:
 		return "sent"
-	case OneTimeMsgState_ONE_TIME_MSG_STATE_STOPPED:
-		return "stopped"
+	case OneTimeMsgState_ONE_TIME_MSG_STATE_WAITING:
+		return "waiting"
 	default:
 		return ""
 	}
@@ -21,14 +23,16 @@ func (x OneTimeMsgState) GetString() string {
 // OneTimeMsgStateForString returns the OneTimeMsgState enum for the given canonical string.
 func OneTimeMsgStateForString(value string) OneTimeMsgState {
 	switch value {
-	case "active":
-		return OneTimeMsgState_ONE_TIME_MSG_STATE_ACTIVE
+	case "canceled":
+		return OneTimeMsgState_ONE_TIME_MSG_STATE_CANCELED
 	case "draft":
 		return OneTimeMsgState_ONE_TIME_MSG_STATE_DRAFT
+	case "removed":
+		return OneTimeMsgState_ONE_TIME_MSG_STATE_REMOVED
 	case "sent":
 		return OneTimeMsgState_ONE_TIME_MSG_STATE_SENT
-	case "stopped":
-		return OneTimeMsgState_ONE_TIME_MSG_STATE_STOPPED
+	case "waiting":
+		return OneTimeMsgState_ONE_TIME_MSG_STATE_WAITING
 	default:
 		return OneTimeMsgState_ONE_TIME_MSG_STATE_UNSPECIFIED
 	}

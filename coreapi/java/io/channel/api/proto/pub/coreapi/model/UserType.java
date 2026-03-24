@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * User type representing the registration state.
+ * Type of user identity.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.UserType}
@@ -17,14 +17,26 @@ public enum UserType
    */
   USER_TYPE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Registered member with an external member ID.
+   * </pre>
+   *
    * <code>USER_TYPE_MEMBER = 1;</code>
    */
   USER_TYPE_MEMBER(1),
   /**
+   * <pre>
+   * Unregistered visitor or manually created contact.
+   * </pre>
+   *
    * <code>USER_TYPE_LEAD = 2;</code>
    */
   USER_TYPE_LEAD(2),
   /**
+   * <pre>
+   * Unified identity merging multiple user records.
+   * </pre>
+   *
    * <code>USER_TYPE_UNIFIED = 3;</code>
    */
   USER_TYPE_UNIFIED(3),
@@ -36,14 +48,26 @@ public enum UserType
    */
   public static final int USER_TYPE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Registered member with an external member ID.
+   * </pre>
+   *
    * <code>USER_TYPE_MEMBER = 1;</code>
    */
   public static final int USER_TYPE_MEMBER_VALUE = 1;
   /**
+   * <pre>
+   * Unregistered visitor or manually created contact.
+   * </pre>
+   *
    * <code>USER_TYPE_LEAD = 2;</code>
    */
   public static final int USER_TYPE_LEAD_VALUE = 2;
   /**
+   * <pre>
+   * Unified identity merging multiple user records.
+   * </pre>
+   *
    * <code>USER_TYPE_UNIFIED = 3;</code>
    */
   public static final int USER_TYPE_UNIFIED_VALUE = 3;

@@ -11,7 +11,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Unique manager identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Unique manager identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +35,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Channel ID this manager belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -46,7 +46,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Channel ID this manager belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -57,9 +57,10 @@ public interface ManagerOrBuilder extends
 
   /**
    * <pre>
-   * Account ID linked to this manager.
+   * Account ID of the person linked to this manager.
+   * Unique per channel among non-removed managers.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="a-xyz789"
    * </pre>
    *
    * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -68,9 +69,10 @@ public interface ManagerOrBuilder extends
   java.lang.String getAccountId();
   /**
    * <pre>
-   * Account ID linked to this manager.
+   * Account ID of the person linked to this manager.
+   * Unique per channel among non-removed managers.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="a-xyz789"
    * </pre>
    *
    * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -81,11 +83,11 @@ public interface ManagerOrBuilder extends
 
   /**
    * <pre>
-   * Manager display name.
+   * Manager display name shown to end users and teammates.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
+   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -94,11 +96,11 @@ public interface ManagerOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Manager display name.
+   * Manager display name shown to end users and teammates.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
+   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -109,9 +111,11 @@ public interface ManagerOrBuilder extends
 
   /**
    * <pre>
-   * Manager description.
+   * Free-text summary displayed on the manager profile.
+   * Visible to end users only when show_description_to_front is true.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
+   * +kubebuilder:example="Product team lead"
    * </pre>
    *
    * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -120,9 +124,11 @@ public interface ManagerOrBuilder extends
   java.lang.String getDescription();
   /**
    * <pre>
-   * Manager description.
+   * Free-text summary displayed on the manager profile.
+   * Visible to end users only when show_description_to_front is true.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
+   * +kubebuilder:example="Product team lead"
    * </pre>
    *
    * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -133,19 +139,18 @@ public interface ManagerOrBuilder extends
 
   /**
    * <pre>
-   * Whether to display the description to front (end-user) visitors.
-   * +kubebuilder:validation:Nullable
+   * Whether the description is visible to end-user visitors.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront"];</code>
+   * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront", (.buf.validate.field) = { ... }</code>
    * @return The showDescriptionToFront.
    */
   boolean getShowDescriptionToFront();
 
   /**
    * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -154,8 +159,7 @@ public interface ManagerOrBuilder extends
   int getNameDescI18NMapCount();
   /**
    * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -171,8 +175,7 @@ public interface ManagerOrBuilder extends
   getNameDescI18NMap();
   /**
    * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -182,8 +185,7 @@ public interface ManagerOrBuilder extends
   getNameDescI18NMapMap();
   /**
    * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -195,8 +197,7 @@ public interface ManagerOrBuilder extends
       io.channel.api.proto.pub.coreapi.model.NameDesc defaultValue);
   /**
    * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -208,174 +209,137 @@ public interface ManagerOrBuilder extends
 
   /**
    * <pre>
-   * Manager avatar image URL.
+   * Custom profile data as key-value pairs for additional manager information.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string avatar_url = 8 [json_name = "avatarUrl"];</code>
-   * @return The avatarUrl.
+   * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
+   * @return Whether the profile field is set.
    */
-  java.lang.String getAvatarUrl();
+  boolean hasProfile();
   /**
    * <pre>
-   * Manager avatar image URL.
+   * Custom profile data as key-value pairs for additional manager information.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string avatar_url = 8 [json_name = "avatarUrl"];</code>
-   * @return The bytes for avatarUrl.
+   * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
+   * @return The profile.
+   */
+  com.google.protobuf.Struct getProfile();
+  /**
+   * <pre>
+   * Custom profile data as key-value pairs for additional manager information.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getProfileOrBuilder();
+
+  /**
+   * <pre>
+   * Manager email address.
+   * Unique per channel among non-removed managers.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="manager&#64;example.com"
+   * </pre>
+   *
+   * <code>string email = 9 [json_name = "email"];</code>
+   * @return The email.
+   */
+  java.lang.String getEmail();
+  /**
+   * <pre>
+   * Manager email address.
+   * Unique per channel among non-removed managers.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="manager&#64;example.com"
+   * </pre>
+   *
+   * <code>string email = 9 [json_name = "email"];</code>
+   * @return The bytes for email.
    */
   com.google.protobuf.ByteString
-      getAvatarUrlBytes();
+      getEmailBytes();
 
   /**
    * <pre>
-   * Whether this manager is displayed as the channel identity.
-   * +kubebuilder:validation:Nullable
+   * Whether the email address is visible to end-user visitors.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool display_as_channel = 9 [json_name = "displayAsChannel"];</code>
-   * @return The displayAsChannel.
+   * <code>bool show_email_to_front = 10 [json_name = "showEmailToFront", (.buf.validate.field) = { ... }</code>
+   * @return The showEmailToFront.
    */
-  boolean getDisplayAsChannel();
+  boolean getShowEmailToFront();
 
   /**
    * <pre>
-   * Maximum number of user chats that can be auto-assigned.
+   * Manager mobile phone number in E.164 format (e.g., +821012345678).
    * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:Minimum=0
-   * +kubebuilder:validation:Maximum=200
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
-   * <code>int32 auto_assign_capacity = 11 [json_name = "autoAssignCapacity", (.buf.validate.field) = { ... }</code>
-   * @return The autoAssignCapacity.
+   * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
+   * @return The mobileNumber.
    */
-  int getAutoAssignCapacity();
-
+  java.lang.String getMobileNumber();
   /**
    * <pre>
-   * Status emoji displayed alongside the manager name.
+   * Manager mobile phone number in E.164 format (e.g., +821012345678).
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
-   * <code>string status_emoji = 12 [json_name = "statusEmoji"];</code>
-   * @return The statusEmoji.
-   */
-  java.lang.String getStatusEmoji();
-  /**
-   * <pre>
-   * Status emoji displayed alongside the manager name.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string status_emoji = 12 [json_name = "statusEmoji"];</code>
-   * @return The bytes for statusEmoji.
+   * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
+   * @return The bytes for mobileNumber.
    */
   com.google.protobuf.ByteString
-      getStatusEmojiBytes();
+      getMobileNumberBytes();
 
   /**
    * <pre>
-   * Status text displayed alongside the manager name.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MaxLength=128
+   * Whether the mobile number is visible to end-user visitors.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string status_text = 13 [json_name = "statusText", (.buf.validate.field) = { ... }</code>
-   * @return The statusText.
+   * <code>bool show_mobile_number_to_front = 12 [json_name = "showMobileNumberToFront", (.buf.validate.field) = { ... }</code>
+   * @return The showMobileNumberToFront.
    */
-  java.lang.String getStatusText();
+  boolean getShowMobileNumberToFront();
+
   /**
    * <pre>
-   * Status text displayed alongside the manager name.
+   * Role ID assigned to this manager, defining permissions and access levels.
    * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="role-owner"
    * </pre>
    *
-   * <code>string status_text = 13 [json_name = "statusText", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for statusText.
+   * <code>string role_id = 13 [json_name = "roleId"];</code>
+   * @return The roleId.
+   */
+  java.lang.String getRoleId();
+  /**
+   * <pre>
+   * Role ID assigned to this manager, defining permissions and access levels.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="role-owner"
+   * </pre>
+   *
+   * <code>string role_id = 13 [json_name = "roleId"];</code>
+   * @return The bytes for roleId.
    */
   com.google.protobuf.ByteString
-      getStatusTextBytes();
+      getRoleIdBytes();
 
   /**
    * <pre>
-   * Timestamp when the status automatically clears.
-   * +kubebuilder:validation:Nullable
+   * Whether this manager has been soft-deleted from the channel.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp status_clear_at = 14 [json_name = "statusClearAt"];</code>
-   * @return Whether the statusClearAt field is set.
-   */
-  boolean hasStatusClearAt();
-  /**
-   * <pre>
-   * Timestamp when the status automatically clears.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp status_clear_at = 14 [json_name = "statusClearAt"];</code>
-   * @return The statusClearAt.
-   */
-  com.google.protobuf.Timestamp getStatusClearAt();
-  /**
-   * <pre>
-   * Timestamp when the status automatically clears.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp status_clear_at = 14 [json_name = "statusClearAt"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getStatusClearAtOrBuilder();
-
-  /**
-   * <pre>
-   * Whether do-not-disturb mode is active for this manager.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool do_not_disturb = 15 [json_name = "doNotDisturb"];</code>
-   * @return The doNotDisturb.
-   */
-  boolean getDoNotDisturb();
-
-  /**
-   * <pre>
-   * Timestamp when do-not-disturb mode automatically clears.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 16 [json_name = "doNotDisturbClearAt"];</code>
-   * @return Whether the doNotDisturbClearAt field is set.
-   */
-  boolean hasDoNotDisturbClearAt();
-  /**
-   * <pre>
-   * Timestamp when do-not-disturb mode automatically clears.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 16 [json_name = "doNotDisturbClearAt"];</code>
-   * @return The doNotDisturbClearAt.
-   */
-  com.google.protobuf.Timestamp getDoNotDisturbClearAt();
-  /**
-   * <pre>
-   * Timestamp when do-not-disturb mode automatically clears.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 16 [json_name = "doNotDisturbClearAt"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getDoNotDisturbClearAtOrBuilder();
-
-  /**
-   * <pre>
-   * Whether this manager has been soft-deleted.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool removed = 27 [json_name = "removed"];</code>
+   * <code>bool removed = 14 [json_name = "removed", (.buf.validate.field) = { ... }</code>
    * @return The removed.
    */
   boolean getRemoved();
@@ -386,7 +350,7 @@ public interface ManagerOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 28 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
@@ -396,7 +360,7 @@ public interface ManagerOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 28 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
@@ -406,388 +370,9 @@ public interface ManagerOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 28 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
-
-  /**
-   * <pre>
-   * Custom key-value profile data.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct profile = 31 [json_name = "profile"];</code>
-   * @return Whether the profile field is set.
-   */
-  boolean hasProfile();
-  /**
-   * <pre>
-   * Custom key-value profile data.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct profile = 31 [json_name = "profile"];</code>
-   * @return The profile.
-   */
-  com.google.protobuf.Struct getProfile();
-  /**
-   * <pre>
-   * Custom key-value profile data.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct profile = 31 [json_name = "profile"];</code>
-   */
-  com.google.protobuf.StructOrBuilder getProfileOrBuilder();
-
-  /**
-   * <pre>
-   * Manager email address.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string email = 32 [json_name = "email"];</code>
-   * @return The email.
-   */
-  java.lang.String getEmail();
-  /**
-   * <pre>
-   * Manager email address.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string email = 32 [json_name = "email"];</code>
-   * @return The bytes for email.
-   */
-  com.google.protobuf.ByteString
-      getEmailBytes();
-
-  /**
-   * <pre>
-   * Whether to display the email to end users.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool show_email_to_front = 33 [json_name = "showEmailToFront"];</code>
-   * @return The showEmailToFront.
-   */
-  boolean getShowEmailToFront();
-
-  /**
-   * <pre>
-   * Manager mobile phone number.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string mobile_number = 34 [json_name = "mobileNumber"];</code>
-   * @return The mobileNumber.
-   */
-  java.lang.String getMobileNumber();
-  /**
-   * <pre>
-   * Manager mobile phone number.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string mobile_number = 34 [json_name = "mobileNumber"];</code>
-   * @return The bytes for mobileNumber.
-   */
-  com.google.protobuf.ByteString
-      getMobileNumberBytes();
-
-  /**
-   * <pre>
-   * Whether to display the mobile number to end users.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool show_mobile_number_to_front = 35 [json_name = "showMobileNumberToFront"];</code>
-   * @return The showMobileNumberToFront.
-   */
-  boolean getShowMobileNumberToFront();
-
-  /**
-   * <pre>
-   * Default notification level for group chats.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string default_group_watch = 36 [json_name = "defaultGroupWatch"];</code>
-   * @return The defaultGroupWatch.
-   */
-  java.lang.String getDefaultGroupWatch();
-  /**
-   * <pre>
-   * Default notification level for group chats.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string default_group_watch = 36 [json_name = "defaultGroupWatch"];</code>
-   * @return The bytes for defaultGroupWatch.
-   */
-  com.google.protobuf.ByteString
-      getDefaultGroupWatchBytes();
-
-  /**
-   * <pre>
-   * Default notification level for direct chats.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string default_direct_chat_watch = 37 [json_name = "defaultDirectChatWatch"];</code>
-   * @return The defaultDirectChatWatch.
-   */
-  java.lang.String getDefaultDirectChatWatch();
-  /**
-   * <pre>
-   * Default notification level for direct chats.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string default_direct_chat_watch = 37 [json_name = "defaultDirectChatWatch"];</code>
-   * @return The bytes for defaultDirectChatWatch.
-   */
-  com.google.protobuf.ByteString
-      getDefaultDirectChatWatchBytes();
-
-  /**
-   * <pre>
-   * Default notification level for user chats.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string default_user_chat_watch = 38 [json_name = "defaultUserChatWatch"];</code>
-   * @return The defaultUserChatWatch.
-   */
-  java.lang.String getDefaultUserChatWatch();
-  /**
-   * <pre>
-   * Default notification level for user chats.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string default_user_chat_watch = 38 [json_name = "defaultUserChatWatch"];</code>
-   * @return The bytes for defaultUserChatWatch.
-   */
-  com.google.protobuf.ByteString
-      getDefaultUserChatWatchBytes();
-
-  /**
-   * <pre>
-   * Chat notification alert sound.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string chat_alert_sound = 39 [json_name = "chatAlertSound"];</code>
-   * @return The chatAlertSound.
-   */
-  java.lang.String getChatAlertSound();
-  /**
-   * <pre>
-   * Chat notification alert sound.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string chat_alert_sound = 39 [json_name = "chatAlertSound"];</code>
-   * @return The bytes for chatAlertSound.
-   */
-  com.google.protobuf.ByteString
-      getChatAlertSoundBytes();
-
-  /**
-   * <pre>
-   * Whether to show private message previews in notifications.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool show_private_message_preview = 40 [json_name = "showPrivateMessagePreview"];</code>
-   * @return The showPrivateMessagePreview.
-   */
-  boolean getShowPrivateMessagePreview();
-
-  /**
-   * <pre>
-   * Operator performance score.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>float operator_score = 41 [json_name = "operatorScore"];</code>
-   * @return The operatorScore.
-   */
-  float getOperatorScore();
-
-  /**
-   * <pre>
-   * User engagement score.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>float touch_score = 42 [json_name = "touchScore"];</code>
-   * @return The touchScore.
-   */
-  float getTouchScore();
-
-  /**
-   * <pre>
-   * Manager avatar image reference.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.TinyFile avatar = 43 [json_name = "avatar"];</code>
-   * @return Whether the avatar field is set.
-   */
-  boolean hasAvatar();
-  /**
-   * <pre>
-   * Manager avatar image reference.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.TinyFile avatar = 43 [json_name = "avatar"];</code>
-   * @return The avatar.
-   */
-  io.channel.api.proto.pub.coreapi.model.TinyFile getAvatar();
-  /**
-   * <pre>
-   * Manager avatar image reference.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.TinyFile avatar = 43 [json_name = "avatar"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder getAvatarOrBuilder();
-
-  /**
-   * <pre>
-   * Whether email reminders are enabled for this operator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool operator_email_reminder = 44 [json_name = "operatorEmailReminder"];</code>
-   * @return The operatorEmailReminder.
-   */
-  boolean getOperatorEmailReminder();
-
-  /**
-   * <pre>
-   * Whether this manager is an active operator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool operator = 45 [json_name = "operator"];</code>
-   * @return The operator.
-   */
-  boolean getOperator();
-
-  /**
-   * <pre>
-   * Whether &#64;all mentions are marked as important.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool default_all_mention_important = 46 [json_name = "defaultAllMentionImportant"];</code>
-   * @return The defaultAllMentionImportant.
-   */
-  boolean getDefaultAllMentionImportant();
-
-  /**
-   * <pre>
-   * Whether user messages are marked as important.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool user_message_important = 47 [json_name = "userMessageImportant"];</code>
-   * @return The userMessageImportant.
-   */
-  boolean getUserMessageImportant();
-
-  /**
-   * <pre>
-   * Manager reference identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string manager_id = 48 [json_name = "managerId"];</code>
-   * @return The managerId.
-   */
-  java.lang.String getManagerId();
-  /**
-   * <pre>
-   * Manager reference identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string manager_id = 48 [json_name = "managerId"];</code>
-   * @return The bytes for managerId.
-   */
-  com.google.protobuf.ByteString
-      getManagerIdBytes();
-
-  /**
-   * <pre>
-   * Email address displayed to end users.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string email_for_front = 49 [json_name = "emailForFront"];</code>
-   * @return The emailForFront.
-   */
-  java.lang.String getEmailForFront();
-  /**
-   * <pre>
-   * Email address displayed to end users.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string email_for_front = 49 [json_name = "emailForFront"];</code>
-   * @return The bytes for emailForFront.
-   */
-  com.google.protobuf.ByteString
-      getEmailForFrontBytes();
-
-  /**
-   * <pre>
-   * Mobile number displayed to end users.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string mobile_number_for_front = 50 [json_name = "mobileNumberForFront"];</code>
-   * @return The mobileNumberForFront.
-   */
-  java.lang.String getMobileNumberForFront();
-  /**
-   * <pre>
-   * Mobile number displayed to end users.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string mobile_number_for_front = 50 [json_name = "mobileNumberForFront"];</code>
-   * @return The bytes for mobileNumberForFront.
-   */
-  com.google.protobuf.ByteString
-      getMobileNumberForFrontBytes();
-
-  /**
-   * <pre>
-   * Role ID assigned to this manager.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string role_id = 51 [json_name = "roleId"];</code>
-   * @return The roleId.
-   */
-  java.lang.String getRoleId();
-  /**
-   * <pre>
-   * Role ID assigned to this manager.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string role_id = 51 [json_name = "roleId"];</code>
-   * @return The bytes for roleId.
-   */
-  com.google.protobuf.ByteString
-      getRoleIdBytes();
 
   /**
    * <pre>
@@ -795,7 +380,7 @@ public interface ManagerOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the updatedAt field is set.
    */
   boolean hasUpdatedAt();
@@ -805,7 +390,7 @@ public interface ManagerOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    * @return The updatedAt.
    */
   com.google.protobuf.Timestamp getUpdatedAt();
@@ -815,7 +400,613 @@ public interface ManagerOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 54 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Timestamp when the manager was soft-deleted.
+   * Present only when removed is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
+   * @return Whether the removedAt field is set.
+   */
+  boolean hasRemovedAt();
+  /**
+   * <pre>
+   * Timestamp when the manager was soft-deleted.
+   * Present only when removed is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
+   * @return The removedAt.
+   */
+  com.google.protobuf.Timestamp getRemovedAt();
+  /**
+   * <pre>
+   * Timestamp when the manager was soft-deleted.
+   * Present only when removed is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getRemovedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Whether this manager appears as the channel identity instead of their personal profile.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool display_as_channel = 18 [json_name = "displayAsChannel", (.buf.validate.field) = { ... }</code>
+   * @return The displayAsChannel.
+   */
+  boolean getDisplayAsChannel();
+
+  /**
+   * <pre>
+   * Default notification level for group chat sessions.
+   * See SessionWatch for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.SessionWatch default_group_watch = 19 [json_name = "defaultGroupWatch"];</code>
+   * @return The enum numeric value on the wire for defaultGroupWatch.
+   */
+  int getDefaultGroupWatchValue();
+  /**
+   * <pre>
+   * Default notification level for group chat sessions.
+   * See SessionWatch for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.SessionWatch default_group_watch = 19 [json_name = "defaultGroupWatch"];</code>
+   * @return The defaultGroupWatch.
+   */
+  io.channel.api.proto.pub.coreapi.model.SessionWatch getDefaultGroupWatch();
+
+  /**
+   * <pre>
+   * Default notification level for direct message sessions.
+   * See SessionWatch for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.SessionWatch default_direct_chat_watch = 20 [json_name = "defaultDirectChatWatch"];</code>
+   * @return The enum numeric value on the wire for defaultDirectChatWatch.
+   */
+  int getDefaultDirectChatWatchValue();
+  /**
+   * <pre>
+   * Default notification level for direct message sessions.
+   * See SessionWatch for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.SessionWatch default_direct_chat_watch = 20 [json_name = "defaultDirectChatWatch"];</code>
+   * @return The defaultDirectChatWatch.
+   */
+  io.channel.api.proto.pub.coreapi.model.SessionWatch getDefaultDirectChatWatch();
+
+  /**
+   * <pre>
+   * Default notification level for user (customer) chat sessions.
+   * See SessionWatch for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.SessionWatch default_user_chat_watch = 21 [json_name = "defaultUserChatWatch"];</code>
+   * @return The enum numeric value on the wire for defaultUserChatWatch.
+   */
+  int getDefaultUserChatWatchValue();
+  /**
+   * <pre>
+   * Default notification level for user (customer) chat sessions.
+   * See SessionWatch for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.SessionWatch default_user_chat_watch = 21 [json_name = "defaultUserChatWatch"];</code>
+   * @return The defaultUserChatWatch.
+   */
+  io.channel.api.proto.pub.coreapi.model.SessionWatch getDefaultUserChatWatch();
+
+  /**
+   * <pre>
+   * Sound effect for incoming chat message notifications.
+   * See ChatAlertSound for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatAlertSound chat_alert_sound = 22 [json_name = "chatAlertSound"];</code>
+   * @return The enum numeric value on the wire for chatAlertSound.
+   */
+  int getChatAlertSoundValue();
+  /**
+   * <pre>
+   * Sound effect for incoming chat message notifications.
+   * See ChatAlertSound for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.ChatAlertSound chat_alert_sound = 22 [json_name = "chatAlertSound"];</code>
+   * @return The chatAlertSound.
+   */
+  io.channel.api.proto.pub.coreapi.model.ChatAlertSound getChatAlertSound();
+
+  /**
+   * <pre>
+   * Sound effect for incoming meet (call) notifications.
+   * See MeetAlertSound for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MeetAlertSound meet_alert_sound = 23 [json_name = "meetAlertSound"];</code>
+   * @return The enum numeric value on the wire for meetAlertSound.
+   */
+  int getMeetAlertSoundValue();
+  /**
+   * <pre>
+   * Sound effect for incoming meet (call) notifications.
+   * See MeetAlertSound for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MeetAlertSound meet_alert_sound = 23 [json_name = "meetAlertSound"];</code>
+   * @return The meetAlertSound.
+   */
+  io.channel.api.proto.pub.coreapi.model.MeetAlertSound getMeetAlertSound();
+
+  /**
+   * <pre>
+   * Whether to receive mobile push notifications even while the manager is online on desktop.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool receive_mobile_push_when_online = 24 [json_name = "receiveMobilePushWhenOnline", (.buf.validate.field) = { ... }</code>
+   * @return The receiveMobilePushWhenOnline.
+   */
+  boolean getReceiveMobilePushWhenOnline();
+
+  /**
+   * <pre>
+   * Whether to include a preview of internal (private) messages in push notifications.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool show_private_message_preview = 25 [json_name = "showPrivateMessagePreview", (.buf.validate.field) = { ... }</code>
+   * @return The showPrivateMessagePreview.
+   */
+  boolean getShowPrivateMessagePreview();
+
+  /**
+   * <pre>
+   * Performance score reflecting the manager's conversation handling efficiency.
+   * Decays over time when the manager is inactive.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>float operator_score = 26 [json_name = "operatorScore"];</code>
+   * @return The operatorScore.
+   */
+  float getOperatorScore();
+
+  /**
+   * <pre>
+   * Engagement score reflecting the frequency of customer interactions.
+   * Decays over time when the manager is inactive.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>float touch_score = 27 [json_name = "touchScore"];</code>
+   * @return The touchScore.
+   */
+  float getTouchScore();
+
+  /**
+   * <pre>
+   * Whether periodic email reminders for unhandled conversations are enabled.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool operator_email_reminder = 28 [json_name = "operatorEmailReminder", (.buf.validate.field) = { ... }</code>
+   * @return The operatorEmailReminder.
+   */
+  boolean getOperatorEmailReminder();
+
+  /**
+   * <pre>
+   * Whether to receive alerts when a new conversation is waiting to be assigned.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool receive_unassigned_alert = 29 [json_name = "receiveUnassignedAlert", (.buf.validate.field) = { ... }</code>
+   * @return The receiveUnassignedAlert.
+   */
+  boolean getReceiveUnassignedAlert();
+
+  /**
+   * <pre>
+   * Whether to receive alerts for conversations that were not responded to in time.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool receive_missed_chat_alert = 30 [json_name = "receiveMissedChatAlert", (.buf.validate.field) = { ... }</code>
+   * @return The receiveMissedChatAlert.
+   */
+  boolean getReceiveMissedChatAlert();
+
+  /**
+   * <pre>
+   * Whether to receive alerts specifically for unassigned chat conversations.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool receive_unassigned_chat_alert = 31 [json_name = "receiveUnassignedChatAlert", (.buf.validate.field) = { ... }</code>
+   * @return The receiveUnassignedChatAlert.
+   */
+  boolean getReceiveUnassignedChatAlert();
+
+  /**
+   * <pre>
+   * Whether to receive alerts for unassigned meet (call) sessions.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool receive_unassigned_meet_alert = 32 [json_name = "receiveUnassignedMeetAlert", (.buf.validate.field) = { ... }</code>
+   * @return The receiveUnassignedMeetAlert.
+   */
+  boolean getReceiveUnassignedMeetAlert();
+
+  /**
+   * <pre>
+   * Whether this manager is currently active as an operator handling customer conversations.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool operator = 33 [json_name = "operator", (.buf.validate.field) = { ... }</code>
+   * @return The operator.
+   */
+  boolean getOperator();
+
+  /**
+   * <pre>
+   * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
+   * @return The operatorStatusId.
+   */
+  java.lang.String getOperatorStatusId();
+  /**
+   * <pre>
+   * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
+   * @return The bytes for operatorStatusId.
+   */
+  com.google.protobuf.ByteString
+      getOperatorStatusIdBytes();
+
+  /**
+   * <pre>
+   * Whether &#64;all mentions in conversations are automatically marked as important.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool default_all_mention_important = 35 [json_name = "defaultAllMentionImportant", (.buf.validate.field) = { ... }</code>
+   * @return The defaultAllMentionImportant.
+   */
+  boolean getDefaultAllMentionImportant();
+
+  /**
+   * <pre>
+   * Whether incoming user messages are automatically marked as important.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool user_message_important = 36 [json_name = "userMessageImportant", (.buf.validate.field) = { ... }</code>
+   * @return The userMessageImportant.
+   */
+  boolean getUserMessageImportant();
+
+  /**
+   * <pre>
+   * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
+   * @return A list containing the assignableUserChatTypes.
+   */
+  java.util.List<java.lang.String>
+      getAssignableUserChatTypesList();
+  /**
+   * <pre>
+   * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
+   * @return The count of assignableUserChatTypes.
+   */
+  int getAssignableUserChatTypesCount();
+  /**
+   * <pre>
+   * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
+   * @param index The index of the element to return.
+   * @return The assignableUserChatTypes at the given index.
+   */
+  java.lang.String getAssignableUserChatTypes(int index);
+  /**
+   * <pre>
+   * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the assignableUserChatTypes at the given index.
+   */
+  com.google.protobuf.ByteString
+      getAssignableUserChatTypesBytes(int index);
+
+  /**
+   * <pre>
+   * Maximum number of concurrent user chats that can be auto-assigned to this manager.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Minimum=0
+   * +kubebuilder:validation:Maximum=200
+   * </pre>
+   *
+   * <code>int32 auto_assign_capacity = 38 [json_name = "autoAssignCapacity", (.buf.validate.field) = { ... }</code>
+   * @return The autoAssignCapacity.
+   */
+  int getAutoAssignCapacity();
+
+  /**
+   * <pre>
+   * Whether auto-assignment is enabled when the manager joins a synchronous chat session.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool enable_auto_assign_on_sync = 39 [json_name = "enableAutoAssignOnSync", (.buf.validate.field) = { ... }</code>
+   * @return The enableAutoAssignOnSync.
+   */
+  boolean getEnableAutoAssignOnSync();
+
+  /**
+   * <pre>
+   * Emoji displayed alongside the manager name as a status indicator.
+   * Must be set together with status_text; both or neither should be present.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="coffee"
+   * </pre>
+   *
+   * <code>string status_emoji = 40 [json_name = "statusEmoji"];</code>
+   * @return The statusEmoji.
+   */
+  java.lang.String getStatusEmoji();
+  /**
+   * <pre>
+   * Emoji displayed alongside the manager name as a status indicator.
+   * Must be set together with status_text; both or neither should be present.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="coffee"
+   * </pre>
+   *
+   * <code>string status_emoji = 40 [json_name = "statusEmoji"];</code>
+   * @return The bytes for statusEmoji.
+   */
+  com.google.protobuf.ByteString
+      getStatusEmojiBytes();
+
+  /**
+   * <pre>
+   * Short text displayed alongside the manager name as a status indicator.
+   * Must be set together with status_emoji; both or neither should be present.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="In a meeting until 3pm"
+   * </pre>
+   *
+   * <code>string status_text = 41 [json_name = "statusText", (.buf.validate.field) = { ... }</code>
+   * @return The statusText.
+   */
+  java.lang.String getStatusText();
+  /**
+   * <pre>
+   * Short text displayed alongside the manager name as a status indicator.
+   * Must be set together with status_emoji; both or neither should be present.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="In a meeting until 3pm"
+   * </pre>
+   *
+   * <code>string status_text = 41 [json_name = "statusText", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for statusText.
+   */
+  com.google.protobuf.ByteString
+      getStatusTextBytes();
+
+  /**
+   * <pre>
+   * Timestamp when the custom status (emoji + text) automatically clears.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
+   * @return Whether the statusClearAt field is set.
+   */
+  boolean hasStatusClearAt();
+  /**
+   * <pre>
+   * Timestamp when the custom status (emoji + text) automatically clears.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
+   * @return The statusClearAt.
+   */
+  com.google.protobuf.Timestamp getStatusClearAt();
+  /**
+   * <pre>
+   * Timestamp when the custom status (emoji + text) automatically clears.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getStatusClearAtOrBuilder();
+
+  /**
+   * <pre>
+   * Whether do-not-disturb mode is active, suppressing all notifications for this manager.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool do_not_disturb = 43 [json_name = "doNotDisturb", (.buf.validate.field) = { ... }</code>
+   * @return The doNotDisturb.
+   */
+  boolean getDoNotDisturb();
+
+  /**
+   * <pre>
+   * Timestamp when do-not-disturb mode automatically deactivates.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
+   * @return Whether the doNotDisturbClearAt field is set.
+   */
+  boolean hasDoNotDisturbClearAt();
+  /**
+   * <pre>
+   * Timestamp when do-not-disturb mode automatically deactivates.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
+   * @return The doNotDisturbClearAt.
+   */
+  com.google.protobuf.Timestamp getDoNotDisturbClearAt();
+  /**
+   * <pre>
+   * Timestamp when do-not-disturb mode automatically deactivates.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getDoNotDisturbClearAtOrBuilder();
+
+  /**
+   * <pre>
+   * Whether account-level do-not-disturb mode is active across all channels.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool account_do_not_disturb = 45 [json_name = "accountDoNotDisturb", (.buf.validate.field) = { ... }</code>
+   * @return The accountDoNotDisturb.
+   */
+  boolean getAccountDoNotDisturb();
+
+  /**
+   * <pre>
+   * Timestamp when account-level do-not-disturb mode automatically deactivates.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
+   * @return Whether the accountDoNotDisturbClearAt field is set.
+   */
+  boolean hasAccountDoNotDisturbClearAt();
+  /**
+   * <pre>
+   * Timestamp when account-level do-not-disturb mode automatically deactivates.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
+   * @return The accountDoNotDisturbClearAt.
+   */
+  com.google.protobuf.Timestamp getAccountDoNotDisturbClearAt();
+  /**
+   * <pre>
+   * Timestamp when account-level do-not-disturb mode automatically deactivates.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getAccountDoNotDisturbClearAtOrBuilder();
+
+  /**
+   * <pre>
+   * Timestamp when the operator status was last toggled on or off.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
+   * @return Whether the operatorUpdatedAt field is set.
+   */
+  boolean hasOperatorUpdatedAt();
+  /**
+   * <pre>
+   * Timestamp when the operator status was last toggled on or off.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
+   * @return The operatorUpdatedAt.
+   */
+  com.google.protobuf.Timestamp getOperatorUpdatedAt();
+  /**
+   * <pre>
+   * Timestamp when the operator status was last toggled on or off.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getOperatorUpdatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Manager avatar image URL.
+   * Falls back to a system-generated default when no custom avatar is set.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
+   * </pre>
+   *
+   * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>
+   * @return The avatarUrl.
+   */
+  java.lang.String getAvatarUrl();
+  /**
+   * <pre>
+   * Manager avatar image URL.
+   * Falls back to a system-generated default when no custom avatar is set.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
+   * </pre>
+   *
+   * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>
+   * @return The bytes for avatarUrl.
+   */
+  com.google.protobuf.ByteString
+      getAvatarUrlBytes();
 }

@@ -28,9 +28,12 @@ type GroupScope int32
 
 const (
 	GroupScope_GROUP_SCOPE_UNSPECIFIED GroupScope = 0
-	GroupScope_GROUP_SCOPE_ALL         GroupScope = 1
-	GroupScope_GROUP_SCOPE_PUBLIC      GroupScope = 2
-	GroupScope_GROUP_SCOPE_PRIVATE     GroupScope = 3
+	// Visible to all managers in the channel regardless of membership.
+	GroupScope_GROUP_SCOPE_ALL GroupScope = 1
+	// Listed publicly; any manager can join.
+	GroupScope_GROUP_SCOPE_PUBLIC GroupScope = 2
+	// Hidden from non-members; only invited managers can access.
+	GroupScope_GROUP_SCOPE_PRIVATE GroupScope = 3
 )
 
 // Enum value maps for GroupScope.
@@ -76,39 +79,49 @@ func (GroupScope) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_group_proto_rawDescGZIP(), []int{0}
 }
 
-// Group represents a team chat room where managers collaborate.
+// Group represents a team chat room for internal manager communication.
 type Group struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique group identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="g-abc123"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this group belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Group display name.
+	// Display title of the group.
 	// Unique within the channel (case-insensitive).
+	// Allowed characters: letters, numbers, hyphens, underscores,
+	// and parentheses.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=2
 	// +kubebuilder:validation:MaxLength=30
+	// +kubebuilder:validation:Pattern="[\p{L}\p{N}\-_()]+"
 	Title string `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
-	// Visibility scope of the group.
+	// Visibility scope determining who can discover and access the group.
 	//
 	// +kubebuilder:validation:Required
 	Scope GroupScope `protobuf:"varint,4,opt,name=scope,proto3,enum=coreapi.model.GroupScope" json:"scope,omitempty"`
-	// Manager IDs who are members of this group.
+	// IDs of managers who are members of this group.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MinItems=1
 	ManagerIds []string `protobuf:"bytes,5,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
-	// Group icon identifier.
+	// Icon identifier or emoji representing the group visually.
+	// Must not contain whitespace.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Pattern="\S+"
 	Icon string `protobuf:"bytes,6,opt,name=icon,proto3" json:"icon,omitempty"`
-	// Group description.
+	// ID of the active live meet session in this group.
+	//
+	// +kubebuilder:validation:Nullable
+	LiveMeetId string `protobuf:"bytes,7,opt,name=live_meet_id,json=liveMeetId,proto3" json:"live_meet_id,omitempty"`
+	// Free-text description explaining the group's purpose or topic.
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=200
@@ -120,11 +133,7 @@ type Group struct {
 	// Group last update timestamp.
 	//
 	// +kubebuilder:validation:Required
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Whether this group is currently active.
-	//
-	// +kubebuilder:validation:Nullable
-	Active        bool `protobuf:"varint,11,opt,name=active,proto3" json:"active,omitempty"`
+	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -201,6 +210,13 @@ func (x *Group) GetIcon() string {
 	return ""
 }
 
+func (x *Group) GetLiveMeetId() string {
+	if x != nil {
+		return x.LiveMeetId
+	}
+	return ""
+}
+
 func (x *Group) GetDescription() string {
 	if x != nil {
 		return x.Description
@@ -222,39 +238,32 @@ func (x *Group) GetUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Group) GetActive() bool {
-	if x != nil {
-		return x.Active
-	}
-	return false
-}
-
 var File_coreapi_model_group_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_group_proto_rawDesc = "" +
 	"\n" +
-	"\x19coreapi/model/group.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8e\x06\n" +
-	"\x05Group\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"\x19coreapi/model/group.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xac\x05\n" +
+	"\x05Group\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\xb4\x01\n" +
-	"\x05title\x18\x03 \x01(\tB\x9d\x01\xbaH\x99\x01\xba\x01E\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xca\x01\n" +
+	"\x05title\x18\x03 \x01(\tB\xb3\x01\xbaH\xaf\x01\xba\x01E\n" +
 	"\rstring.minLen\x12#value must be at least 2 characters\x1a\x0fsize(this) >= 2\xba\x01K\n" +
-	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01R\x05title\x127\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01r\x142\x12[\\p{L}\\p{N}\\-_()]+R\x05title\x127\n" +
 	"\x05scope\x18\x04 \x01(\x0e2\x19.coreapi.model.GroupScopeB\x06\xbaH\x03\xc8\x01\x01R\x05scope\x12\x1f\n" +
 	"\vmanager_ids\x18\x05 \x03(\tR\n" +
-	"managerIds\x12\x12\n" +
-	"\x04icon\x18\x06 \x01(\tR\x04icon\x12u\n" +
+	"managerIds\x12\x1e\n" +
+	"\x04icon\x18\x06 \x01(\tB\n" +
+	"\xbaH\ar\x052\x03\\S+R\x04icon\x12 \n" +
+	"\flive_meet_id\x18\a \x01(\tR\n" +
+	"liveMeetId\x12u\n" +
 	"\vdescription\x18\b \x01(\tBS\xbaHP\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 200 characters\x1a\x11size(this) <= 200R\vdescription\x12A\n" +
 	"\n" +
 	"created_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
 	"updated_at\x18\n" +
-	" \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12\x16\n" +
-	"\x06active\x18\v \x01(\bR\x06active*o\n" +
+	" \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt*o\n" +
 	"\n" +
 	"GroupScope\x12\x1b\n" +
 	"\x17GROUP_SCOPE_UNSPECIFIED\x10\x00\x12\x13\n" +

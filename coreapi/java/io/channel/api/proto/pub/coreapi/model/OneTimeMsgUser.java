@@ -5,8 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * OneTimeMsgUser represents a user who received a one-time message.
- * Tracks delivery, view, click, and goal conversion timestamps.
+ * OneTimeMsgUser represents a per-user delivery and engagement record for a one-time message.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.OneTimeMsgUser}
@@ -24,6 +23,7 @@ private static final long serialVersionUID = 0L;
     oneTimeMsgId_ = "";
     userId_ = "";
     revenue_ = "";
+    id_ = "";
   }
 
   @java.lang.Override
@@ -96,19 +96,6 @@ private static final long serialVersionUID = 0L;
           }
           case 42: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (click_ != null) {
-              subBuilder = click_.toBuilder();
-            }
-            click_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(click_);
-              click_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (goal_ != null) {
               subBuilder = goal_.toBuilder();
             }
@@ -120,10 +107,29 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 50: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (click_ != null) {
+              subBuilder = click_.toBuilder();
+            }
+            click_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(click_);
+              click_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
             revenue_ = s;
+            break;
+          }
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            id_ = s;
             break;
           }
           default: {
@@ -162,9 +168,10 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object oneTimeMsgId_;
   /**
    * <pre>
-   * One-time message ID this user record belongs to.
+   * One-time message that was delivered to this user.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="otm-001"
    * </pre>
    *
    * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -185,9 +192,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * One-time message ID this user record belongs to.
+   * One-time message that was delivered to this user.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="otm-001"
    * </pre>
    *
    * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -212,9 +220,10 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object userId_;
   /**
    * <pre>
-   * ID of the user who received the one-time message.
+   * Target user identifier.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="u-abc123"
    * </pre>
    *
    * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -235,9 +244,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * ID of the user who received the one-time message.
+   * Target user identifier.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="u-abc123"
    * </pre>
    *
    * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -303,7 +313,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp view_;
   /**
    * <pre>
-   * Timestamp when the user viewed the message.
+   * Timestamp when the user first viewed the delivered message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -316,7 +326,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the user viewed the message.
+   * Timestamp when the user first viewed the delivered message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -329,7 +339,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the user viewed the message.
+   * Timestamp when the user first viewed the delivered message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -340,56 +350,15 @@ private static final long serialVersionUID = 0L;
     return getView();
   }
 
-  public static final int CLICK_FIELD_NUMBER = 5;
-  private com.google.protobuf.Timestamp click_;
-  /**
-   * <pre>
-   * Timestamp when the user clicked a link in the message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp click = 5 [json_name = "click"];</code>
-   * @return Whether the click field is set.
-   */
-  @java.lang.Override
-  public boolean hasClick() {
-    return click_ != null;
-  }
-  /**
-   * <pre>
-   * Timestamp when the user clicked a link in the message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp click = 5 [json_name = "click"];</code>
-   * @return The click.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getClick() {
-    return click_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : click_;
-  }
-  /**
-   * <pre>
-   * Timestamp when the user clicked a link in the message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp click = 5 [json_name = "click"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getClickOrBuilder() {
-    return getClick();
-  }
-
-  public static final int GOAL_FIELD_NUMBER = 6;
+  public static final int GOAL_FIELD_NUMBER = 5;
   private com.google.protobuf.Timestamp goal_;
   /**
    * <pre>
-   * Timestamp when the user achieved the conversion goal.
+   * Timestamp when the user completed the goal event.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp goal = 6 [json_name = "goal"];</code>
+   * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
    * @return Whether the goal field is set.
    */
   @java.lang.Override
@@ -398,11 +367,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the user achieved the conversion goal.
+   * Timestamp when the user completed the goal event.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp goal = 6 [json_name = "goal"];</code>
+   * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
    * @return The goal.
    */
   @java.lang.Override
@@ -411,23 +380,63 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the user achieved the conversion goal.
+   * Timestamp when the user completed the goal event.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp goal = 6 [json_name = "goal"];</code>
+   * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getGoalOrBuilder() {
     return getGoal();
   }
 
+  public static final int CLICK_FIELD_NUMBER = 6;
+  private com.google.protobuf.Timestamp click_;
+  /**
+   * <pre>
+   * Timestamp when the user first clicked a link in the message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
+   * @return Whether the click field is set.
+   */
+  @java.lang.Override
+  public boolean hasClick() {
+    return click_ != null;
+  }
+  /**
+   * <pre>
+   * Timestamp when the user first clicked a link in the message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
+   * @return The click.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getClick() {
+    return click_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : click_;
+  }
+  /**
+   * <pre>
+   * Timestamp when the user first clicked a link in the message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getClickOrBuilder() {
+    return getClick();
+  }
+
   public static final int REVENUE_FIELD_NUMBER = 7;
   private volatile java.lang.Object revenue_;
   /**
    * <pre>
-   * Revenue amount attributed to this user from the message.
-   * Decimal number represented as a string for precision.
+   * Cumulative revenue attributed to this user from the one-time message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -449,8 +458,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Revenue amount attributed to this user from the message.
-   * Decimal number represented as a string for precision.
+   * Cumulative revenue attributed to this user from the one-time message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -466,6 +474,54 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       revenue_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ID_FIELD_NUMBER = 8;
+  private volatile java.lang.Object id_;
+  /**
+   * <pre>
+   * Composite identifier in the format "{one_time_msg_id}-{user_id}".
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * @return The id.
+   */
+  @java.lang.Override
+  public java.lang.String getId() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      id_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Composite identifier in the format "{one_time_msg_id}-{user_id}".
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for id.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getIdBytes() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      id_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -498,14 +554,17 @@ private static final long serialVersionUID = 0L;
     if (view_ != null) {
       output.writeMessage(4, getView());
     }
-    if (click_ != null) {
-      output.writeMessage(5, getClick());
-    }
     if (goal_ != null) {
-      output.writeMessage(6, getGoal());
+      output.writeMessage(5, getGoal());
+    }
+    if (click_ != null) {
+      output.writeMessage(6, getClick());
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(revenue_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, revenue_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, id_);
     }
     unknownFields.writeTo(output);
   }
@@ -530,16 +589,19 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getView());
     }
-    if (click_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, getClick());
-    }
     if (goal_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, getGoal());
+        .computeMessageSize(5, getGoal());
+    }
+    if (click_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getClick());
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(revenue_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, revenue_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, id_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -570,18 +632,20 @@ private static final long serialVersionUID = 0L;
       if (!getView()
           .equals(other.getView())) return false;
     }
-    if (hasClick() != other.hasClick()) return false;
-    if (hasClick()) {
-      if (!getClick()
-          .equals(other.getClick())) return false;
-    }
     if (hasGoal() != other.hasGoal()) return false;
     if (hasGoal()) {
       if (!getGoal()
           .equals(other.getGoal())) return false;
     }
+    if (hasClick() != other.hasClick()) return false;
+    if (hasClick()) {
+      if (!getClick()
+          .equals(other.getClick())) return false;
+    }
     if (!getRevenue()
         .equals(other.getRevenue())) return false;
+    if (!getId()
+        .equals(other.getId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -605,16 +669,18 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VIEW_FIELD_NUMBER;
       hash = (53 * hash) + getView().hashCode();
     }
-    if (hasClick()) {
-      hash = (37 * hash) + CLICK_FIELD_NUMBER;
-      hash = (53 * hash) + getClick().hashCode();
-    }
     if (hasGoal()) {
       hash = (37 * hash) + GOAL_FIELD_NUMBER;
       hash = (53 * hash) + getGoal().hashCode();
     }
+    if (hasClick()) {
+      hash = (37 * hash) + CLICK_FIELD_NUMBER;
+      hash = (53 * hash) + getClick().hashCode();
+    }
     hash = (37 * hash) + REVENUE_FIELD_NUMBER;
     hash = (53 * hash) + getRevenue().hashCode();
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -712,8 +778,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * OneTimeMsgUser represents a user who received a one-time message.
-   * Tracks delivery, view, click, and goal conversion timestamps.
+   * OneTimeMsgUser represents a per-user delivery and engagement record for a one-time message.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.OneTimeMsgUser}
@@ -769,19 +834,21 @@ private static final long serialVersionUID = 0L;
         view_ = null;
         viewBuilder_ = null;
       }
-      if (clickBuilder_ == null) {
-        click_ = null;
-      } else {
-        click_ = null;
-        clickBuilder_ = null;
-      }
       if (goalBuilder_ == null) {
         goal_ = null;
       } else {
         goal_ = null;
         goalBuilder_ = null;
       }
+      if (clickBuilder_ == null) {
+        click_ = null;
+      } else {
+        click_ = null;
+        clickBuilder_ = null;
+      }
       revenue_ = "";
+
+      id_ = "";
 
       return this;
     }
@@ -821,17 +888,18 @@ private static final long serialVersionUID = 0L;
       } else {
         result.view_ = viewBuilder_.build();
       }
-      if (clickBuilder_ == null) {
-        result.click_ = click_;
-      } else {
-        result.click_ = clickBuilder_.build();
-      }
       if (goalBuilder_ == null) {
         result.goal_ = goal_;
       } else {
         result.goal_ = goalBuilder_.build();
       }
+      if (clickBuilder_ == null) {
+        result.click_ = click_;
+      } else {
+        result.click_ = clickBuilder_.build();
+      }
       result.revenue_ = revenue_;
+      result.id_ = id_;
       onBuilt();
       return result;
     }
@@ -894,14 +962,18 @@ private static final long serialVersionUID = 0L;
       if (other.hasView()) {
         mergeView(other.getView());
       }
-      if (other.hasClick()) {
-        mergeClick(other.getClick());
-      }
       if (other.hasGoal()) {
         mergeGoal(other.getGoal());
       }
+      if (other.hasClick()) {
+        mergeClick(other.getClick());
+      }
       if (!other.getRevenue().isEmpty()) {
         revenue_ = other.revenue_;
+        onChanged();
+      }
+      if (!other.getId().isEmpty()) {
+        id_ = other.id_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -936,9 +1008,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object oneTimeMsgId_ = "";
     /**
      * <pre>
-     * One-time message ID this user record belongs to.
+     * One-time message that was delivered to this user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="otm-001"
      * </pre>
      *
      * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -958,9 +1031,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * One-time message ID this user record belongs to.
+     * One-time message that was delivered to this user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="otm-001"
      * </pre>
      *
      * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -981,9 +1055,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * One-time message ID this user record belongs to.
+     * One-time message that was delivered to this user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="otm-001"
      * </pre>
      *
      * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -1002,9 +1077,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * One-time message ID this user record belongs to.
+     * One-time message that was delivered to this user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="otm-001"
      * </pre>
      *
      * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -1018,9 +1094,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * One-time message ID this user record belongs to.
+     * One-time message that was delivered to this user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="otm-001"
      * </pre>
      *
      * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -1042,9 +1119,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object userId_ = "";
     /**
      * <pre>
-     * ID of the user who received the one-time message.
+     * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1064,9 +1142,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the user who received the one-time message.
+     * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1087,9 +1166,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the user who received the one-time message.
+     * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1108,9 +1188,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the user who received the one-time message.
+     * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1124,9 +1205,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the user who received the one-time message.
+     * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="u-abc123"
      * </pre>
      *
      * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1314,7 +1396,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> viewBuilder_;
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1326,7 +1408,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1342,7 +1424,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1363,7 +1445,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1382,7 +1464,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1405,7 +1487,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1424,7 +1506,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1437,7 +1519,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1453,7 +1535,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user viewed the message.
+     * Timestamp when the user first viewed the delivered message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1473,180 +1555,16 @@ private static final long serialVersionUID = 0L;
       return viewBuilder_;
     }
 
-    private com.google.protobuf.Timestamp click_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> clickBuilder_;
-    /**
-     * <pre>
-     * Timestamp when the user clicked a link in the message.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp click = 5 [json_name = "click"];</code>
-     * @return Whether the click field is set.
-     */
-    public boolean hasClick() {
-      return clickBuilder_ != null || click_ != null;
-    }
-    /**
-     * <pre>
-     * Timestamp when the user clicked a link in the message.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp click = 5 [json_name = "click"];</code>
-     * @return The click.
-     */
-    public com.google.protobuf.Timestamp getClick() {
-      if (clickBuilder_ == null) {
-        return click_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : click_;
-      } else {
-        return clickBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the user clicked a link in the message.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp click = 5 [json_name = "click"];</code>
-     */
-    public Builder setClick(com.google.protobuf.Timestamp value) {
-      if (clickBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        click_ = value;
-        onChanged();
-      } else {
-        clickBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the user clicked a link in the message.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp click = 5 [json_name = "click"];</code>
-     */
-    public Builder setClick(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (clickBuilder_ == null) {
-        click_ = builderForValue.build();
-        onChanged();
-      } else {
-        clickBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the user clicked a link in the message.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp click = 5 [json_name = "click"];</code>
-     */
-    public Builder mergeClick(com.google.protobuf.Timestamp value) {
-      if (clickBuilder_ == null) {
-        if (click_ != null) {
-          click_ =
-            com.google.protobuf.Timestamp.newBuilder(click_).mergeFrom(value).buildPartial();
-        } else {
-          click_ = value;
-        }
-        onChanged();
-      } else {
-        clickBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the user clicked a link in the message.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp click = 5 [json_name = "click"];</code>
-     */
-    public Builder clearClick() {
-      if (clickBuilder_ == null) {
-        click_ = null;
-        onChanged();
-      } else {
-        click_ = null;
-        clickBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the user clicked a link in the message.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp click = 5 [json_name = "click"];</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getClickBuilder() {
-      
-      onChanged();
-      return getClickFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Timestamp when the user clicked a link in the message.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp click = 5 [json_name = "click"];</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getClickOrBuilder() {
-      if (clickBuilder_ != null) {
-        return clickBuilder_.getMessageOrBuilder();
-      } else {
-        return click_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : click_;
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the user clicked a link in the message.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp click = 5 [json_name = "click"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getClickFieldBuilder() {
-      if (clickBuilder_ == null) {
-        clickBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getClick(),
-                getParentForChildren(),
-                isClean());
-        click_ = null;
-      }
-      return clickBuilder_;
-    }
-
     private com.google.protobuf.Timestamp goal_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> goalBuilder_;
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp goal = 6 [json_name = "goal"];</code>
+     * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
      * @return Whether the goal field is set.
      */
     public boolean hasGoal() {
@@ -1654,11 +1572,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp goal = 6 [json_name = "goal"];</code>
+     * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
      * @return The goal.
      */
     public com.google.protobuf.Timestamp getGoal() {
@@ -1670,11 +1588,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp goal = 6 [json_name = "goal"];</code>
+     * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
      */
     public Builder setGoal(com.google.protobuf.Timestamp value) {
       if (goalBuilder_ == null) {
@@ -1691,11 +1609,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp goal = 6 [json_name = "goal"];</code>
+     * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
      */
     public Builder setGoal(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1710,11 +1628,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp goal = 6 [json_name = "goal"];</code>
+     * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
      */
     public Builder mergeGoal(com.google.protobuf.Timestamp value) {
       if (goalBuilder_ == null) {
@@ -1733,11 +1651,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp goal = 6 [json_name = "goal"];</code>
+     * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
      */
     public Builder clearGoal() {
       if (goalBuilder_ == null) {
@@ -1752,11 +1670,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp goal = 6 [json_name = "goal"];</code>
+     * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getGoalBuilder() {
       
@@ -1765,11 +1683,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp goal = 6 [json_name = "goal"];</code>
+     * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getGoalOrBuilder() {
       if (goalBuilder_ != null) {
@@ -1781,11 +1699,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user achieved the conversion goal.
+     * Timestamp when the user completed the goal event.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp goal = 6 [json_name = "goal"];</code>
+     * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -1801,11 +1719,174 @@ private static final long serialVersionUID = 0L;
       return goalBuilder_;
     }
 
+    private com.google.protobuf.Timestamp click_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> clickBuilder_;
+    /**
+     * <pre>
+     * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
+     * @return Whether the click field is set.
+     */
+    public boolean hasClick() {
+      return clickBuilder_ != null || click_ != null;
+    }
+    /**
+     * <pre>
+     * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
+     * @return The click.
+     */
+    public com.google.protobuf.Timestamp getClick() {
+      if (clickBuilder_ == null) {
+        return click_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : click_;
+      } else {
+        return clickBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
+     */
+    public Builder setClick(com.google.protobuf.Timestamp value) {
+      if (clickBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        click_ = value;
+        onChanged();
+      } else {
+        clickBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
+     */
+    public Builder setClick(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (clickBuilder_ == null) {
+        click_ = builderForValue.build();
+        onChanged();
+      } else {
+        clickBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
+     */
+    public Builder mergeClick(com.google.protobuf.Timestamp value) {
+      if (clickBuilder_ == null) {
+        if (click_ != null) {
+          click_ =
+            com.google.protobuf.Timestamp.newBuilder(click_).mergeFrom(value).buildPartial();
+        } else {
+          click_ = value;
+        }
+        onChanged();
+      } else {
+        clickBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
+     */
+    public Builder clearClick() {
+      if (clickBuilder_ == null) {
+        click_ = null;
+        onChanged();
+      } else {
+        click_ = null;
+        clickBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getClickBuilder() {
+      
+      onChanged();
+      return getClickFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getClickOrBuilder() {
+      if (clickBuilder_ != null) {
+        return clickBuilder_.getMessageOrBuilder();
+      } else {
+        return click_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : click_;
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getClickFieldBuilder() {
+      if (clickBuilder_ == null) {
+        clickBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getClick(),
+                getParentForChildren(),
+                isClean());
+        click_ = null;
+      }
+      return clickBuilder_;
+    }
+
     private java.lang.Object revenue_ = "";
     /**
      * <pre>
-     * Revenue amount attributed to this user from the message.
-     * Decimal number represented as a string for precision.
+     * Cumulative revenue attributed to this user from the one-time message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1826,8 +1907,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Revenue amount attributed to this user from the message.
-     * Decimal number represented as a string for precision.
+     * Cumulative revenue attributed to this user from the one-time message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1849,8 +1929,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Revenue amount attributed to this user from the message.
-     * Decimal number represented as a string for precision.
+     * Cumulative revenue attributed to this user from the one-time message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1870,8 +1949,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Revenue amount attributed to this user from the message.
-     * Decimal number represented as a string for precision.
+     * Cumulative revenue attributed to this user from the one-time message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1886,8 +1964,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Revenue amount attributed to this user from the message.
-     * Decimal number represented as a string for precision.
+     * Cumulative revenue attributed to this user from the one-time message.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1903,6 +1980,107 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       revenue_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object id_ = "";
+    /**
+     * <pre>
+     * Composite identifier in the format "{one_time_msg_id}-{user_id}".
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * @return The id.
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Composite identifier in the format "{one_time_msg_id}-{user_id}".
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * @return The bytes for id.
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Composite identifier in the format "{one_time_msg_id}-{user_id}".
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * @param value The id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      id_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Composite identifier in the format "{one_time_msg_id}-{user_id}".
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearId() {
+      
+      id_ = getDefaultInstance().getId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Composite identifier in the format "{one_time_msg_id}-{user_id}".
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * @param value The bytes for id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      id_ = value;
       onChanged();
       return this;
     }
@@ -2014,29 +2192,6 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The click to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearClick(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearClick();
-    	else
-    		return setClick(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearClick(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearClick();
-    	else
-    		return setClick(mapFunc.apply(value));
-    }
-    	
-    /**
      * @param value The goal to set.
      * @return This builder for chaining.
      */
@@ -2060,6 +2215,29 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
+     * @param value The click to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearClick(com.google.protobuf.Timestamp value) {
+    	if (value == null)
+    		return clearClick();
+    	else
+    		return setClick(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearClick(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    	if (value == null)
+    		return clearClick();
+    	else
+    		return setClick(mapFunc.apply(value));
+    }
+    	
+    /**
      * @param value The revenue to set.
      * @return This builder for chaining.
      */
@@ -2080,6 +2258,29 @@ private static final long serialVersionUID = 0L;
     		return clearRevenue();
     	else
     		return setRevenue(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearId(java.lang.String value) {
+    	if (value == null)
+    		return clearId();
+    	else
+    		return setId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearId();
+    	else
+    		return setId(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.OneTimeMsgUser)

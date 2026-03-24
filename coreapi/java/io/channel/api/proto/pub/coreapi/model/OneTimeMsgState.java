@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Lifecycle state of a one-time message.
+ * One-time message lifecycle state.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.OneTimeMsgState}
@@ -21,17 +21,21 @@ public enum OneTimeMsgState
    */
   ONE_TIME_MSG_STATE_DRAFT(1),
   /**
-   * <code>ONE_TIME_MSG_STATE_ACTIVE = 2;</code>
+   * <code>ONE_TIME_MSG_STATE_WAITING = 2;</code>
    */
-  ONE_TIME_MSG_STATE_ACTIVE(2),
+  ONE_TIME_MSG_STATE_WAITING(2),
   /**
    * <code>ONE_TIME_MSG_STATE_SENT = 3;</code>
    */
   ONE_TIME_MSG_STATE_SENT(3),
   /**
-   * <code>ONE_TIME_MSG_STATE_STOPPED = 4;</code>
+   * <code>ONE_TIME_MSG_STATE_CANCELED = 4;</code>
    */
-  ONE_TIME_MSG_STATE_STOPPED(4),
+  ONE_TIME_MSG_STATE_CANCELED(4),
+  /**
+   * <code>ONE_TIME_MSG_STATE_REMOVED = 5;</code>
+   */
+  ONE_TIME_MSG_STATE_REMOVED(5),
   UNRECOGNIZED(-1),
   ;
 
@@ -44,17 +48,21 @@ public enum OneTimeMsgState
    */
   public static final int ONE_TIME_MSG_STATE_DRAFT_VALUE = 1;
   /**
-   * <code>ONE_TIME_MSG_STATE_ACTIVE = 2;</code>
+   * <code>ONE_TIME_MSG_STATE_WAITING = 2;</code>
    */
-  public static final int ONE_TIME_MSG_STATE_ACTIVE_VALUE = 2;
+  public static final int ONE_TIME_MSG_STATE_WAITING_VALUE = 2;
   /**
    * <code>ONE_TIME_MSG_STATE_SENT = 3;</code>
    */
   public static final int ONE_TIME_MSG_STATE_SENT_VALUE = 3;
   /**
-   * <code>ONE_TIME_MSG_STATE_STOPPED = 4;</code>
+   * <code>ONE_TIME_MSG_STATE_CANCELED = 4;</code>
    */
-  public static final int ONE_TIME_MSG_STATE_STOPPED_VALUE = 4;
+  public static final int ONE_TIME_MSG_STATE_CANCELED_VALUE = 4;
+  /**
+   * <code>ONE_TIME_MSG_STATE_REMOVED = 5;</code>
+   */
+  public static final int ONE_TIME_MSG_STATE_REMOVED_VALUE = 5;
 
 
   public final int getNumber() {
@@ -83,9 +91,10 @@ public enum OneTimeMsgState
     switch (value) {
       case 0: return ONE_TIME_MSG_STATE_UNSPECIFIED;
       case 1: return ONE_TIME_MSG_STATE_DRAFT;
-      case 2: return ONE_TIME_MSG_STATE_ACTIVE;
+      case 2: return ONE_TIME_MSG_STATE_WAITING;
       case 3: return ONE_TIME_MSG_STATE_SENT;
-      case 4: return ONE_TIME_MSG_STATE_STOPPED;
+      case 4: return ONE_TIME_MSG_STATE_CANCELED;
+      case 5: return ONE_TIME_MSG_STATE_REMOVED;
       default: return null;
     }
   }
@@ -147,10 +156,11 @@ public enum OneTimeMsgState
    */
   public static OneTimeMsgState forString(String value) {
   	switch (value) {
-      case "active": return ONE_TIME_MSG_STATE_ACTIVE;
+      case "canceled": return ONE_TIME_MSG_STATE_CANCELED;
       case "draft": return ONE_TIME_MSG_STATE_DRAFT;
+      case "removed": return ONE_TIME_MSG_STATE_REMOVED;
       case "sent": return ONE_TIME_MSG_STATE_SENT;
-      case "stopped": return ONE_TIME_MSG_STATE_STOPPED;
+      case "waiting": return ONE_TIME_MSG_STATE_WAITING;
   		default: return ONE_TIME_MSG_STATE_UNSPECIFIED;
   	}
   }
@@ -160,10 +170,11 @@ public enum OneTimeMsgState
    */
   public final String getString() {
   	switch (this) {
-      case ONE_TIME_MSG_STATE_ACTIVE: return "active";
+      case ONE_TIME_MSG_STATE_CANCELED: return "canceled";
       case ONE_TIME_MSG_STATE_DRAFT: return "draft";
+      case ONE_TIME_MSG_STATE_REMOVED: return "removed";
       case ONE_TIME_MSG_STATE_SENT: return "sent";
-      case ONE_TIME_MSG_STATE_STOPPED: return "stopped";
+      case ONE_TIME_MSG_STATE_WAITING: return "waiting";
   		default: return null;
   	}
   }

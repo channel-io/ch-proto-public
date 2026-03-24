@@ -11,7 +11,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Unique group identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="g-abc123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Unique group identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="g-abc123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +35,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Channel ID this group belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -46,7 +46,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Channel ID this group belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -57,11 +57,14 @@ public interface GroupOrBuilder extends
 
   /**
    * <pre>
-   * Group display name.
+   * Display title of the group.
    * Unique within the channel (case-insensitive).
+   * Allowed characters: letters, numbers, hyphens, underscores,
+   * and parentheses.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=2
    * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -70,11 +73,14 @@ public interface GroupOrBuilder extends
   java.lang.String getTitle();
   /**
    * <pre>
-   * Group display name.
+   * Display title of the group.
    * Unique within the channel (case-insensitive).
+   * Allowed characters: letters, numbers, hyphens, underscores,
+   * and parentheses.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=2
    * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -85,7 +91,7 @@ public interface GroupOrBuilder extends
 
   /**
    * <pre>
-   * Visibility scope of the group.
+   * Visibility scope determining who can discover and access the group.
    * +kubebuilder:validation:Required
    * </pre>
    *
@@ -95,7 +101,7 @@ public interface GroupOrBuilder extends
   int getScopeValue();
   /**
    * <pre>
-   * Visibility scope of the group.
+   * Visibility scope determining who can discover and access the group.
    * +kubebuilder:validation:Required
    * </pre>
    *
@@ -106,8 +112,9 @@ public interface GroupOrBuilder extends
 
   /**
    * <pre>
-   * Manager IDs who are members of this group.
+   * IDs of managers who are members of this group.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
    * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -117,8 +124,9 @@ public interface GroupOrBuilder extends
       getManagerIdsList();
   /**
    * <pre>
-   * Manager IDs who are members of this group.
+   * IDs of managers who are members of this group.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
    * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -127,8 +135,9 @@ public interface GroupOrBuilder extends
   int getManagerIdsCount();
   /**
    * <pre>
-   * Manager IDs who are members of this group.
+   * IDs of managers who are members of this group.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
    * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -138,8 +147,9 @@ public interface GroupOrBuilder extends
   java.lang.String getManagerIds(int index);
   /**
    * <pre>
-   * Manager IDs who are members of this group.
+   * IDs of managers who are members of this group.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
    * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -151,21 +161,25 @@ public interface GroupOrBuilder extends
 
   /**
    * <pre>
-   * Group icon identifier.
+   * Icon identifier or emoji representing the group visually.
+   * Must not contain whitespace.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Pattern="&#92;S+"
    * </pre>
    *
-   * <code>string icon = 6 [json_name = "icon"];</code>
+   * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
    * @return The icon.
    */
   java.lang.String getIcon();
   /**
    * <pre>
-   * Group icon identifier.
+   * Icon identifier or emoji representing the group visually.
+   * Must not contain whitespace.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Pattern="&#92;S+"
    * </pre>
    *
-   * <code>string icon = 6 [json_name = "icon"];</code>
+   * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
    * @return The bytes for icon.
    */
   com.google.protobuf.ByteString
@@ -173,7 +187,29 @@ public interface GroupOrBuilder extends
 
   /**
    * <pre>
-   * Group description.
+   * ID of the active live meet session in this group.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
+   * @return The liveMeetId.
+   */
+  java.lang.String getLiveMeetId();
+  /**
+   * <pre>
+   * ID of the active live meet session in this group.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
+   * @return The bytes for liveMeetId.
+   */
+  com.google.protobuf.ByteString
+      getLiveMeetIdBytes();
+
+  /**
+   * <pre>
+   * Free-text description explaining the group's purpose or topic.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=200
    * </pre>
@@ -184,7 +220,7 @@ public interface GroupOrBuilder extends
   java.lang.String getDescription();
   /**
    * <pre>
-   * Group description.
+   * Free-text description explaining the group's purpose or topic.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=200
    * </pre>
@@ -254,15 +290,4 @@ public interface GroupOrBuilder extends
    * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
-
-  /**
-   * <pre>
-   * Whether this group is currently active.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool active = 11 [json_name = "active"];</code>
-   * @return The active.
-   */
-  boolean getActive();
 }

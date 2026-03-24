@@ -7,10 +7,6 @@ func (x UserChatState) GetString() string {
 	switch x {
 	case UserChatState_USER_CHAT_STATE_CLOSED:
 		return "closed"
-	case UserChatState_USER_CHAT_STATE_INITIAL:
-		return "initial"
-	case UserChatState_USER_CHAT_STATE_MISSED:
-		return "missed"
 	case UserChatState_USER_CHAT_STATE_OPENED:
 		return "opened"
 	case UserChatState_USER_CHAT_STATE_QUEUED:
@@ -27,10 +23,6 @@ func UserChatStateForString(value string) UserChatState {
 	switch value {
 	case "closed":
 		return UserChatState_USER_CHAT_STATE_CLOSED
-	case "initial":
-		return UserChatState_USER_CHAT_STATE_INITIAL
-	case "missed":
-		return UserChatState_USER_CHAT_STATE_MISSED
 	case "opened":
 		return UserChatState_USER_CHAT_STATE_OPENED
 	case "queued":
@@ -39,6 +31,158 @@ func UserChatStateForString(value string) UserChatState {
 		return UserChatState_USER_CHAT_STATE_SNOOZED
 	default:
 		return UserChatState_USER_CHAT_STATE_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for MissedReason.
+func (x MissedReason) GetString() string {
+	switch x {
+	case MissedReason_MISSED_REASON_ABANDONED_IN_QUEUE:
+		return "abandonedInQueue"
+	case MissedReason_MISSED_REASON_BLOCKED_USER:
+		return "blockedUser"
+	case MissedReason_MISSED_REASON_EXCEEDED_QUEUE:
+		return "exceededQueue"
+	case MissedReason_MISSED_REASON_INBOUND_RATE_LIMIT:
+		return "inboundRateLimit"
+	case MissedReason_MISSED_REASON_MANAGER_LEFT:
+		return "managerLeft"
+	case MissedReason_MISSED_REASON_NO_FALLBACK_CLIENT:
+		return "noFallbackClient"
+	case MissedReason_MISSED_REASON_NO_OPERATOR:
+		return "noOperator"
+	case MissedReason_MISSED_REASON_NOT_IN_OPERATION:
+		return "notInOperation"
+	case MissedReason_MISSED_REASON_PRESERVED_NUMBER:
+		return "preservedNumber"
+	case MissedReason_MISSED_REASON_RING_TIME_OVER:
+		return "ringTimeOver"
+	case MissedReason_MISSED_REASON_UNREGISTERED_NUMBER:
+		return "unregisteredNumber"
+	case MissedReason_MISSED_REASON_USER_LEFT:
+		return "userLeft"
+	case MissedReason_MISSED_REASON_WORKFLOW:
+		return "workflow"
+	default:
+		return ""
+	}
+}
+
+// MissedReasonForString returns the MissedReason enum for the given canonical string.
+func MissedReasonForString(value string) MissedReason {
+	switch value {
+	case "abandonedInQueue":
+		return MissedReason_MISSED_REASON_ABANDONED_IN_QUEUE
+	case "blockedUser":
+		return MissedReason_MISSED_REASON_BLOCKED_USER
+	case "exceededQueue":
+		return MissedReason_MISSED_REASON_EXCEEDED_QUEUE
+	case "inboundRateLimit":
+		return MissedReason_MISSED_REASON_INBOUND_RATE_LIMIT
+	case "managerLeft":
+		return MissedReason_MISSED_REASON_MANAGER_LEFT
+	case "noFallbackClient":
+		return MissedReason_MISSED_REASON_NO_FALLBACK_CLIENT
+	case "noOperator":
+		return MissedReason_MISSED_REASON_NO_OPERATOR
+	case "notInOperation":
+		return MissedReason_MISSED_REASON_NOT_IN_OPERATION
+	case "preservedNumber":
+		return MissedReason_MISSED_REASON_PRESERVED_NUMBER
+	case "ringTimeOver":
+		return MissedReason_MISSED_REASON_RING_TIME_OVER
+	case "unregisteredNumber":
+		return MissedReason_MISSED_REASON_UNREGISTERED_NUMBER
+	case "userLeft":
+		return MissedReason_MISSED_REASON_USER_LEFT
+	case "workflow":
+		return MissedReason_MISSED_REASON_WORKFLOW
+	default:
+		return MissedReason_MISSED_REASON_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for AutoAssignPriority.
+func (x AutoAssignPriority) GetString() string {
+	switch x {
+	case AutoAssignPriority_AUTO_ASSIGN_PRIORITY_HIGH:
+		return "high"
+	case AutoAssignPriority_AUTO_ASSIGN_PRIORITY_LOW:
+		return "low"
+	case AutoAssignPriority_AUTO_ASSIGN_PRIORITY_MEDIUM:
+		return "medium"
+	default:
+		return ""
+	}
+}
+
+// AutoAssignPriorityForString returns the AutoAssignPriority enum for the given canonical string.
+func AutoAssignPriorityForString(value string) AutoAssignPriority {
+	switch value {
+	case "high":
+		return AutoAssignPriority_AUTO_ASSIGN_PRIORITY_HIGH
+	case "low":
+		return AutoAssignPriority_AUTO_ASSIGN_PRIORITY_LOW
+	case "medium":
+		return AutoAssignPriority_AUTO_ASSIGN_PRIORITY_MEDIUM
+	default:
+		return AutoAssignPriority_AUTO_ASSIGN_PRIORITY_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for UserChatGoalState.
+func (x UserChatGoalState) GetString() string {
+	switch x {
+	case UserChatGoalState_USER_CHAT_GOAL_STATE_ACHIEVED:
+		return "achieved"
+	case UserChatGoalState_USER_CHAT_GOAL_STATE_NONE:
+		return "none"
+	case UserChatGoalState_USER_CHAT_GOAL_STATE_NOT_ACHIEVED:
+		return "notAchieved"
+	case UserChatGoalState_USER_CHAT_GOAL_STATE_WAITING:
+		return "waiting"
+	default:
+		return ""
+	}
+}
+
+// UserChatGoalStateForString returns the UserChatGoalState enum for the given canonical string.
+func UserChatGoalStateForString(value string) UserChatGoalState {
+	switch value {
+	case "achieved":
+		return UserChatGoalState_USER_CHAT_GOAL_STATE_ACHIEVED
+	case "none":
+		return UserChatGoalState_USER_CHAT_GOAL_STATE_NONE
+	case "notAchieved":
+		return UserChatGoalState_USER_CHAT_GOAL_STATE_NOT_ACHIEVED
+	case "waiting":
+		return UserChatGoalState_USER_CHAT_GOAL_STATE_WAITING
+	default:
+		return UserChatGoalState_USER_CHAT_GOAL_STATE_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for UserChatSubtextType.
+func (x UserChatSubtextType) GetString() string {
+	switch x {
+	case UserChatSubtextType_USER_CHAT_SUBTEXT_TYPE_DESCRIPTION:
+		return "description"
+	case UserChatSubtextType_USER_CHAT_SUBTEXT_TYPE_INCOMING:
+		return "incoming"
+	default:
+		return ""
+	}
+}
+
+// UserChatSubtextTypeForString returns the UserChatSubtextType enum for the given canonical string.
+func UserChatSubtextTypeForString(value string) UserChatSubtextType {
+	switch value {
+	case "description":
+		return UserChatSubtextType_USER_CHAT_SUBTEXT_TYPE_DESCRIPTION
+	case "incoming":
+		return UserChatSubtextType_USER_CHAT_SUBTEXT_TYPE_INCOMING
+	default:
+		return UserChatSubtextType_USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED
 	}
 }
 

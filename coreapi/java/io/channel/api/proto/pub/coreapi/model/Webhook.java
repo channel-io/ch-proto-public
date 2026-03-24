@@ -191,7 +191,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique webhook identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="100"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -214,7 +214,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique webhook identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="100"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -241,7 +241,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this webhook belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -264,7 +264,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this webhook belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -344,6 +344,7 @@ private static final long serialVersionUID = 0L;
    * Destination URL that receives webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="https://example.com/webhook"
    * </pre>
    *
    * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -367,6 +368,7 @@ private static final long serialVersionUID = 0L;
    * Destination URL that receives webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="https://example.com/webhook"
    * </pre>
    *
    * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -394,6 +396,7 @@ private static final long serialVersionUID = 0L;
    * Auto-generated HMAC token for verifying webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="whk_abc123xyz789"
    * </pre>
    *
    * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
@@ -417,6 +420,7 @@ private static final long serialVersionUID = 0L;
    * Auto-generated HMAC token for verifying webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="whk_abc123xyz789"
    * </pre>
    *
    * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
@@ -662,10 +666,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the webhook is currently blocked due to excessive delivery failures.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool blocked = 10 [json_name = "blocked"];</code>
+   * <code>bool blocked = 10 [json_name = "blocked", (.buf.validate.field) = { ... }</code>
    * @return The blocked.
    */
   @java.lang.Override
@@ -1191,7 +1195,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique webhook identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1213,7 +1217,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique webhook identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1236,7 +1240,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique webhook identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1257,7 +1261,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique webhook identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1273,7 +1277,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique webhook identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1297,7 +1301,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this webhook belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1319,7 +1323,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this webhook belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1342,7 +1346,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this webhook belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1363,7 +1367,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this webhook belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1379,7 +1383,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this webhook belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1515,6 +1519,7 @@ private static final long serialVersionUID = 0L;
      * Destination URL that receives webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="https://example.com/webhook"
      * </pre>
      *
      * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -1537,6 +1542,7 @@ private static final long serialVersionUID = 0L;
      * Destination URL that receives webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="https://example.com/webhook"
      * </pre>
      *
      * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -1560,6 +1566,7 @@ private static final long serialVersionUID = 0L;
      * Destination URL that receives webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="https://example.com/webhook"
      * </pre>
      *
      * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -1581,6 +1588,7 @@ private static final long serialVersionUID = 0L;
      * Destination URL that receives webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="https://example.com/webhook"
      * </pre>
      *
      * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -1597,6 +1605,7 @@ private static final long serialVersionUID = 0L;
      * Destination URL that receives webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="https://example.com/webhook"
      * </pre>
      *
      * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -1621,6 +1630,7 @@ private static final long serialVersionUID = 0L;
      * Auto-generated HMAC token for verifying webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="whk_abc123xyz789"
      * </pre>
      *
      * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
@@ -1643,6 +1653,7 @@ private static final long serialVersionUID = 0L;
      * Auto-generated HMAC token for verifying webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="whk_abc123xyz789"
      * </pre>
      *
      * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
@@ -1666,6 +1677,7 @@ private static final long serialVersionUID = 0L;
      * Auto-generated HMAC token for verifying webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="whk_abc123xyz789"
      * </pre>
      *
      * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
@@ -1687,6 +1699,7 @@ private static final long serialVersionUID = 0L;
      * Auto-generated HMAC token for verifying webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="whk_abc123xyz789"
      * </pre>
      *
      * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
@@ -1703,6 +1716,7 @@ private static final long serialVersionUID = 0L;
      * Auto-generated HMAC token for verifying webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="whk_abc123xyz789"
      * </pre>
      *
      * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
@@ -2371,10 +2385,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the webhook is currently blocked due to excessive delivery failures.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool blocked = 10 [json_name = "blocked"];</code>
+     * <code>bool blocked = 10 [json_name = "blocked", (.buf.validate.field) = { ... }</code>
      * @return The blocked.
      */
     @java.lang.Override
@@ -2384,10 +2398,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the webhook is currently blocked due to excessive delivery failures.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool blocked = 10 [json_name = "blocked"];</code>
+     * <code>bool blocked = 10 [json_name = "blocked", (.buf.validate.field) = { ... }</code>
      * @param value The blocked to set.
      * @return This builder for chaining.
      */
@@ -2400,10 +2414,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the webhook is currently blocked due to excessive delivery failures.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool blocked = 10 [json_name = "blocked"];</code>
+     * <code>bool blocked = 10 [json_name = "blocked", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearBlocked() {

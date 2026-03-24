@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+import "buf/validate/validate.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// TimeRange represents a recurring weekly time window used for scheduling
+// (e.g. operating hours). Defined by selected days and a minute-of-day range.
+message TimeRange {
+  // Days of the week this time range applies to.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinItems=1
+  repeated DayOfWeek day_of_weeks = 1 [
+    (buf.validate.field).repeated.min_items = 1,
+    (buf.validate.field).required = true
+  ];
+
+  // Start time as minutes from midnight (e.g. 540 = 09:00).
+  // Must be less than `to`.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:Minimum=0
+  // +kubebuilder:validation:Maximum=1440
+  int32 from = 2 [
+    (buf.validate.field).cel = {
+      id: "int.gte"
+      message: "value must be at least 0"
+      expression: "this >= 0"
+    },
+    (buf.validate.field).cel = {
+      id: "int.lte"
+      message: "value must be at most 1440"
+      expression: "this <= 1440"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // End time as minutes from midnight (e.g. 1080 = 18:00).
+  // Must be greater than `from`.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:Minimum=0
+  // +kubebuilder:validation:Maximum=1440
+  int32 to = 3 [
+    (buf.validate.field).cel = {
+      id: "int.gte"
+      message: "value must be at least 0"
+      expression: "this >= 0"
+    },
+    (buf.validate.field).cel = {
+      id: "int.lte"
+      message: "value must be at most 1440"
+      expression: "this <= 1440"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Day of the week.
+  enum DayOfWeek {
+    DAY_OF_WEEK_UNSPECIFIED = 0;
+    DAY_OF_WEEK_MON = 1;
+    DAY_OF_WEEK_TUE = 2;
+    DAY_OF_WEEK_WED = 3;
+    DAY_OF_WEEK_THU = 4;
+    DAY_OF_WEEK_FRI = 5;
+    DAY_OF_WEEK_SAT = 6;
+    DAY_OF_WEEK_SUN = 7;
+  }
+}

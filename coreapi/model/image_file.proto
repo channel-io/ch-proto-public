@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+import "buf/validate/validate.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// ImageFile represents an image file reference with storage location,
+// dimensions, and content type restricted to image MIME types.
+message ImageFile {
+  // Storage bucket name where the image is hosted.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string bucket = 1 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Storage object key used to locate the image within the bucket.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string key = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Image width in pixels.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 width = 3;
+
+  // Image height in pixels.
+  //
+  // +kubebuilder:validation:Nullable
+  int32 height = 4;
+
+  // MIME content type of the image (e.g. "image/png", "image/jpeg").
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:Pattern="^image/.*"
+  string content_type = 5 [(buf.validate.field).string.pattern = "^image/.*"];
+}

@@ -7,6 +7,7 @@
 package model
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -21,12 +22,22 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Localized name and description pair for internationalization.
+// NameDesc represents a localized name-description pair
+// used for internationalized entity metadata (e.g. bot names per locale).
 type NameDesc struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Display name.
+	// Display name of the entity.
+	// Must not contain @, #, $, %, :, /, or \ characters.
+	//
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:validation:MaxLength=30
+	// +kubebuilder:validation:Pattern="^[^@#$%:/\]+$"
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	// Description text.
+	// Short description of the entity.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MaxLength=180
 	Description   string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -80,10 +91,13 @@ var File_coreapi_model_name_desc_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_name_desc_proto_rawDesc = "" +
 	"\n" +
-	"\x1dcoreapi/model/name_desc.proto\x12\rcoreapi.model\"@\n" +
-	"\bNameDesc\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
-	"\vdescription\x18\x02 \x01(\tR\vdescriptionBb\n" +
+	"\x1dcoreapi/model/name_desc.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\xc7\x02\n" +
+	"\bNameDesc\x12\xc3\x01\n" +
+	"\x04name\x18\x01 \x01(\tB\xae\x01\xbaH\xaa\x01\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01K\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01r\x102\x0e^[^@#$%:/\\\\]+$R\x04name\x12u\n" +
+	"\vdescription\x18\x02 \x01(\tBS\xbaHP\xba\x01M\n" +
+	"\rstring.maxLen\x12)value must be no more than 180 characters\x1a\x11size(this) <= 180R\vdescriptionBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (

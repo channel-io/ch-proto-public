@@ -28,7 +28,7 @@ type Online struct {
 	// Channel ID this online record belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Type of the person (e.g., manager, user).
 	//
@@ -39,7 +39,11 @@ type Online struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	PersonId      string `protobuf:"bytes,3,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
+	PersonId string `protobuf:"bytes,3,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
+	// Composite presence record identifier derived from person type and person ID.
+	//
+	// +kubebuilder:validation:Nullable
+	Id            string `protobuf:"bytes,4,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -95,20 +99,27 @@ func (x *Online) GetPersonId() string {
 	return ""
 }
 
+func (x *Online) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
 var File_coreapi_model_online_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_online_proto_rawDesc = "" +
 	"\n" +
-	"\x1acoreapi/model/online.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\xd2\x02\n" +
-	"\x06Online\x12l\n" +
+	"\x1acoreapi/model/online.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\x9b\x02\n" +
+	"\x06Online\x12%\n" +
 	"\n" +
-	"channel_id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12n\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12n\n" +
 	"\vperson_type\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
 	"personType\x12j\n" +
 	"\tperson_id\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bpersonIdBb\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bpersonId\x12\x0e\n" +
+	"\x02id\x18\x04 \x01(\tR\x02idBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (

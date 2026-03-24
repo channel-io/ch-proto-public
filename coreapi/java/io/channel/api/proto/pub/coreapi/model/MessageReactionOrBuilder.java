@@ -9,7 +9,7 @@ public interface MessageReactionOrBuilder extends
 
   /**
    * <pre>
-   * Emoji identifier.
+   * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -20,7 +20,7 @@ public interface MessageReactionOrBuilder extends
   java.lang.String getEmojiName();
   /**
    * <pre>
-   * Emoji identifier.
+   * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -33,8 +33,8 @@ public interface MessageReactionOrBuilder extends
 
   /**
    * <pre>
-   * Ordered list of person keys who reacted with this emoji.
-   * Each key is in the format "{personType}-{personId}".
+   * Person keys of everyone who reacted with this emoji,
+   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -45,8 +45,8 @@ public interface MessageReactionOrBuilder extends
       getPersonKeysList();
   /**
    * <pre>
-   * Ordered list of person keys who reacted with this emoji.
-   * Each key is in the format "{personType}-{personId}".
+   * Person keys of everyone who reacted with this emoji,
+   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -56,8 +56,8 @@ public interface MessageReactionOrBuilder extends
   int getPersonKeysCount();
   /**
    * <pre>
-   * Ordered list of person keys who reacted with this emoji.
-   * Each key is in the format "{personType}-{personId}".
+   * Person keys of everyone who reacted with this emoji,
+   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -68,8 +68,8 @@ public interface MessageReactionOrBuilder extends
   java.lang.String getPersonKeys(int index);
   /**
    * <pre>
-   * Ordered list of person keys who reacted with this emoji.
-   * Each key is in the format "{personType}-{personId}".
+   * Person keys of everyone who reacted with this emoji,
+   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
    * +kubebuilder:validation:Nullable
    * </pre>
    *

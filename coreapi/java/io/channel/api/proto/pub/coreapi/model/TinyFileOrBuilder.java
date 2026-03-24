@@ -9,7 +9,7 @@ public interface TinyFileOrBuilder extends
 
   /**
    * <pre>
-   * Storage bucket identifier.
+   * Storage bucket name where the file is hosted.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -20,7 +20,7 @@ public interface TinyFileOrBuilder extends
   java.lang.String getBucket();
   /**
    * <pre>
-   * Storage bucket identifier.
+   * Storage bucket name where the file is hosted.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -33,7 +33,7 @@ public interface TinyFileOrBuilder extends
 
   /**
    * <pre>
-   * Storage object key.
+   * Storage object key used to locate the file within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -44,7 +44,7 @@ public interface TinyFileOrBuilder extends
   java.lang.String getKey();
   /**
    * <pre>
-   * Storage object key.
+   * Storage object key used to locate the file within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -58,6 +58,7 @@ public interface TinyFileOrBuilder extends
   /**
    * <pre>
    * Image width in pixels.
+   * Present only when the file is an image.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -69,6 +70,7 @@ public interface TinyFileOrBuilder extends
   /**
    * <pre>
    * Image height in pixels.
+   * Present only when the file is an image.
    * +kubebuilder:validation:Nullable
    * </pre>
    *

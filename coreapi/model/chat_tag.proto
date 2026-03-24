@@ -9,46 +9,33 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// Color theme for a chat tag.
+// Color variant for visual labeling of chat tags.
 enum ChatTagColorVariant {
   CHAT_TAG_COLOR_VARIANT_UNSPECIFIED = 0;
-  CHAT_TAG_COLOR_VARIANT_COBALT = 1;
-  CHAT_TAG_COLOR_VARIANT_GREEN = 2;
-  CHAT_TAG_COLOR_VARIANT_ORANGE = 3;
-  CHAT_TAG_COLOR_VARIANT_RED = 4;
-  CHAT_TAG_COLOR_VARIANT_BLACK = 5;
-  CHAT_TAG_COLOR_VARIANT_PINK = 6;
+  CHAT_TAG_COLOR_VARIANT_RED = 1;
+  CHAT_TAG_COLOR_VARIANT_ORANGE = 2;
+  CHAT_TAG_COLOR_VARIANT_YELLOW = 3;
+  CHAT_TAG_COLOR_VARIANT_OLIVE = 4;
+  CHAT_TAG_COLOR_VARIANT_GREEN = 5;
+  CHAT_TAG_COLOR_VARIANT_COBALT = 6;
   CHAT_TAG_COLOR_VARIANT_PURPLE = 7;
+  CHAT_TAG_COLOR_VARIANT_PINK = 8;
+  CHAT_TAG_COLOR_VARIANT_NAVY = 9;
 }
 
 // ChatTag represents a label that can be attached to user chats for categorization.
-// Tags support up to 3 levels of hierarchy using "/" as a depth separator (e.g. "billing/refund/urgent").
 message ChatTag {
   // Unique chat tag identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 1 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  // +kubebuilder:example="tag-001"
+  string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this chat tag belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string channel_id = 2 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  // +kubebuilder:example="ch-12345"
+  string channel_id = 2 [(buf.validate.field).required = true];
 
   // Color theme of the chat tag.
   //
@@ -57,7 +44,6 @@ message ChatTag {
 
   // Display name of the chat tag.
   // Supports hierarchical naming with "/" as a depth separator (max 3 levels).
-  // Cannot contain ".", "\", "$", "%" or whitespace characters.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -100,11 +86,6 @@ message ChatTag {
     message: "value must be no more than 128 characters"
     expression: "size(this) <= 128"
   }];
-
-  // Manager IDs following this chat tag for notifications.
-  //
-  // +kubebuilder:validation:Nullable
-  repeated string follower_ids = 8;
 
   // Chat tag creation timestamp.
   //

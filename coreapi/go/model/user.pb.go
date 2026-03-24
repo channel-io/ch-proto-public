@@ -24,14 +24,17 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// User type representing the registration state.
+// Type of user identity.
 type UserType int32
 
 const (
 	UserType_USER_TYPE_UNSPECIFIED UserType = 0
-	UserType_USER_TYPE_MEMBER      UserType = 1
-	UserType_USER_TYPE_LEAD        UserType = 2
-	UserType_USER_TYPE_UNIFIED     UserType = 3
+	// Registered member with an external member ID.
+	UserType_USER_TYPE_MEMBER UserType = 1
+	// Unregistered visitor or manually created contact.
+	UserType_USER_TYPE_LEAD UserType = 2
+	// Unified identity merging multiple user records.
+	UserType_USER_TYPE_UNIFIED UserType = 3
 )
 
 // Enum value maps for UserType.
@@ -77,34 +80,632 @@ func (UserType) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_user_proto_rawDescGZIP(), []int{0}
 }
 
-// Web session device and browser information.
+// User represents a customer or visitor in a channel.
+type User struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Unique user identifier.
+	//
+	// +kubebuilder:validation:Required
+	// +kubebuilder:example="u-abc123"
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Channel ID this user belongs to.
+	//
+	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
+	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// External member ID provided at boot or manual creation.
+	// Present for member-type users; for anonymous visitors, this matches
+	// the veil_id.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="member-001"
+	MemberId string `protobuf:"bytes,3,opt,name=member_id,json=memberId,proto3" json:"member_id,omitempty"`
+	// Cookie-based device identifier assigned to anonymous visitors.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
+	VeilId string `protobuf:"bytes,4,opt,name=veil_id,json=veilId,proto3" json:"veil_id,omitempty"`
+	// ID of the unified identity when multiple user records have been merged.
+	//
+	// +kubebuilder:validation:Nullable
+	UnifiedId string `protobuf:"bytes,5,opt,name=unified_id,json=unifiedId,proto3" json:"unified_id,omitempty"`
+	// Identity type of this user.
+	//
+	// +kubebuilder:validation:Nullable
+	Type UserType `protobuf:"varint,6,opt,name=type,proto3,enum=coreapi.model.UserType" json:"type,omitempty"`
+	// Tags that were automatically applied during a user import operation.
+	//
+	// +kubebuilder:validation:Nullable
+	UserImportTags []string `protobuf:"bytes,7,rep,name=user_import_tags,json=userImportTags,proto3" json:"user_import_tags,omitempty"`
+	// Number of chats with unread messages that have alert notifications enabled.
+	//
+	// +kubebuilder:validation:Nullable
+	Alert int32 `protobuf:"varint,8,opt,name=alert,proto3" json:"alert,omitempty"`
+	// Total number of unread messages across all of the user's chats.
+	//
+	// +kubebuilder:validation:Nullable
+	Unread int32 `protobuf:"varint,9,opt,name=unread,proto3" json:"unread,omitempty"`
+	// ID of the chat currently displayed as a pop-up widget to the user.
+	//
+	// +kubebuilder:validation:Nullable
+	PopUpChatId string `protobuf:"bytes,10,opt,name=pop_up_chat_id,json=popUpChatId,proto3" json:"pop_up_chat_id,omitempty"`
+	// ID of the chat pinned as the primary conversation in the messenger.
+	//
+	// +kubebuilder:validation:Nullable
+	MainChatId string `protobuf:"bytes,11,opt,name=main_chat_id,json=mainChatId,proto3" json:"main_chat_id,omitempty"`
+	// ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
+	// (e.g., "KR", "US").
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="KR"
+	Country string `protobuf:"bytes,12,opt,name=country,proto3" json:"country,omitempty"`
+	// IANA time zone identifier derived from the user's IP geolocation
+	// (e.g., "Asia/Seoul").
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="Asia/Seoul"
+	TimeZone string `protobuf:"bytes,13,opt,name=time_zone,json=timeZone,proto3" json:"time_zone,omitempty"`
+	// User creation timestamp.
+	//
+	// +kubebuilder:validation:Required
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// User last update timestamp.
+	//
+	// +kubebuilder:validation:Required
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// Optimistic locking version incremented on every update.
+	// Supply the current value when updating to prevent overwriting concurrent changes.
+	//
+	// +kubebuilder:validation:Nullable
+	Version int64 `protobuf:"varint,16,opt,name=version,proto3" json:"version,omitempty"`
+	// Custom key-value profile data.
+	// Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
+	// arbitrary keys are also supported.
+	//
+	// +kubebuilder:validation:Nullable
+	Profile *structpb.Struct `protobuf:"bytes,17,opt,name=profile,proto3" json:"profile,omitempty"`
+	// Classification tags attached to the user for segmentation and filtering.
+	// Supports hierarchical tags using "/" as a depth separator.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MaxItems=20
+	Tags []string `protobuf:"bytes,18,rep,name=tags,proto3" json:"tags,omitempty"`
+	// Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="ko"
+	Language string `protobuf:"bytes,19,opt,name=language,proto3" json:"language,omitempty"`
+	// Whether the user has opted out of email notifications.
+	//
+	// +kubebuilder:validation:Required
+	UnsubscribeEmail bool `protobuf:"varint,20,opt,name=unsubscribe_email,json=unsubscribeEmail,proto3" json:"unsubscribe_email,omitempty"`
+	// Timestamp when the email opt-out preference was last changed.
+	//
+	// +kubebuilder:validation:Nullable
+	UnsubscribeEmailUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=unsubscribe_email_updated_at,json=unsubscribeEmailUpdatedAt,proto3" json:"unsubscribe_email_updated_at,omitempty"`
+	// Whether the user has opted out of SMS/text notifications.
+	//
+	// +kubebuilder:validation:Required
+	UnsubscribeTexting bool `protobuf:"varint,22,opt,name=unsubscribe_texting,json=unsubscribeTexting,proto3" json:"unsubscribe_texting,omitempty"`
+	// Timestamp when the SMS/text opt-out preference was last changed.
+	//
+	// +kubebuilder:validation:Nullable
+	UnsubscribeTextingUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,23,opt,name=unsubscribe_texting_updated_at,json=unsubscribeTextingUpdatedAt,proto3" json:"unsubscribe_texting_updated_at,omitempty"`
+	// Whether the user has opted out of mobile app push notifications.
+	//
+	// +kubebuilder:validation:Nullable
+	UnsubscribeAppPush bool `protobuf:"varint,24,opt,name=unsubscribe_app_push,json=unsubscribeAppPush,proto3" json:"unsubscribe_app_push,omitempty"`
+	// Timestamp when the app push opt-out preference was last changed.
+	//
+	// +kubebuilder:validation:Nullable
+	UnsubscribeAppPushUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=unsubscribe_app_push_updated_at,json=unsubscribeAppPushUpdatedAt,proto3" json:"unsubscribe_app_push_updated_at,omitempty"`
+	// URL of the user's avatar image.
+	// Falls back to an auto-generated default avatar when no custom avatar is set
+	// in the profile.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
+	AvatarUrl string `protobuf:"bytes,26,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
+	// Whether the user has a display name set in the profile
+	// (name, firstName, or lastName).
+	//
+	// +kubebuilder:validation:Required
+	Named bool `protobuf:"varint,27,opt,name=named,proto3" json:"named,omitempty"`
+	// Language detected from the user's browser or device settings,
+	// as a BCP 47 locale code.
+	//
+	// +kubebuilder:validation:Nullable
+	SystemLanguage string `protobuf:"bytes,28,opt,name=system_language,json=systemLanguage,proto3" json:"system_language,omitempty"`
+	// Whether the user's mobile number has passed format validation
+	// and is eligible for SMS delivery.
+	//
+	// +kubebuilder:validation:Required
+	MobileNumberQualified bool `protobuf:"varint,29,opt,name=mobile_number_qualified,json=mobileNumberQualified,proto3" json:"mobile_number_qualified,omitempty"`
+	// Whether the user's email address has passed format validation
+	// and is eligible for email delivery.
+	//
+	// +kubebuilder:validation:Required
+	EmailQualified bool `protobuf:"varint,30,opt,name=email_qualified,json=emailQualified,proto3" json:"email_qualified,omitempty"`
+	// Display name of the user, derived from the profile's name field.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="John Doe"
+	Name string `protobuf:"bytes,31,opt,name=name,proto3" json:"name,omitempty"`
+	// Whether the user has at least one managed chat conversation.
+	//
+	// +kubebuilder:validation:Required
+	HasChat bool `protobuf:"varint,32,opt,name=has_chat,json=hasChat,proto3" json:"has_chat,omitempty"`
+	// Whether the user has a registered device token for push notifications.
+	//
+	// +kubebuilder:validation:Required
+	HasPushToken bool `protobuf:"varint,33,opt,name=has_push_token,json=hasPushToken,proto3" json:"has_push_token,omitempty"`
+	// Province or state name derived from IP geolocation.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="Seoul"
+	Province string `protobuf:"bytes,34,opt,name=province,proto3" json:"province,omitempty"`
+	// City name derived from IP geolocation.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="Gangnam-gu"
+	City string `protobuf:"bytes,35,opt,name=city,proto3" json:"city,omitempty"`
+	// Latitude coordinate derived from IP geolocation.
+	//
+	// +kubebuilder:validation:Nullable
+	Latitude float64 `protobuf:"fixed64,36,opt,name=latitude,proto3" json:"latitude,omitempty"`
+	// Longitude coordinate derived from IP geolocation.
+	//
+	// +kubebuilder:validation:Nullable
+	Longitude float64 `protobuf:"fixed64,37,opt,name=longitude,proto3" json:"longitude,omitempty"`
+	// Web browser and page tracking information from the user's latest session.
+	//
+	// +kubebuilder:validation:Nullable
+	Web *WebInfo `protobuf:"bytes,38,opt,name=web,proto3" json:"web,omitempty"`
+	// Mobile device information from the user's latest session.
+	//
+	// +kubebuilder:validation:Nullable
+	Mobile *MobileInfo `protobuf:"bytes,39,opt,name=mobile,proto3" json:"mobile,omitempty"`
+	// Total number of chat sessions the user has initiated in this channel.
+	//
+	// +kubebuilder:validation:Nullable
+	SessionsCount int32 `protobuf:"varint,40,opt,name=sessions_count,json=sessionsCount,proto3" json:"sessions_count,omitempty"`
+	// Timestamp when the user was last seen online in the channel.
+	//
+	// +kubebuilder:validation:Nullable
+	LastSeenAt *timestamppb.Timestamp `protobuf:"bytes,41,opt,name=last_seen_at,json=lastSeenAt,proto3" json:"last_seen_at,omitempty"`
+	// Whether the user is blocked from initiating new chats.
+	//
+	// +kubebuilder:validation:Required
+	Blocked bool `protobuf:"varint,42,opt,name=blocked,proto3" json:"blocked,omitempty"`
+	// Identifier key associated with the block action,
+	// used to look up block details.
+	//
+	// +kubebuilder:validation:Nullable
+	BlockedKey string `protobuf:"bytes,43,opt,name=blocked_key,json=blockedKey,proto3" json:"blocked_key,omitempty"`
+	// Sort key used for ordering users in the managed contact list.
+	//
+	// +kubebuilder:validation:Nullable
+	ManagedKey int64 `protobuf:"varint,44,opt,name=managed_key,json=managedKey,proto3" json:"managed_key,omitempty"`
+	// Whether the user's type is member.
+	// Derived from the type field.
+	//
+	// +kubebuilder:validation:Required
+	Member bool `protobuf:"varint,45,opt,name=member,proto3" json:"member,omitempty"`
+	// Email address extracted from the user's profile data.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="user@example.com"
+	Email string `protobuf:"bytes,46,opt,name=email,proto3" json:"email,omitempty"`
+	// Mobile phone number extracted from the user's profile data.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="+821012345678"
+	MobileNumber string `protobuf:"bytes,47,opt,name=mobile_number,json=mobileNumber,proto3" json:"mobile_number,omitempty"`
+	// Landline phone number extracted from the user's profile data.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="+8221234567"
+	LandlineNumber string `protobuf:"bytes,48,opt,name=landline_number,json=landlineNumber,proto3" json:"landline_number,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *User) Reset() {
+	*x = User{}
+	mi := &file_coreapi_model_user_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *User) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*User) ProtoMessage() {}
+
+func (x *User) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_model_user_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use User.ProtoReflect.Descriptor instead.
+func (*User) Descriptor() ([]byte, []int) {
+	return file_coreapi_model_user_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *User) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *User) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *User) GetMemberId() string {
+	if x != nil {
+		return x.MemberId
+	}
+	return ""
+}
+
+func (x *User) GetVeilId() string {
+	if x != nil {
+		return x.VeilId
+	}
+	return ""
+}
+
+func (x *User) GetUnifiedId() string {
+	if x != nil {
+		return x.UnifiedId
+	}
+	return ""
+}
+
+func (x *User) GetType() UserType {
+	if x != nil {
+		return x.Type
+	}
+	return UserType_USER_TYPE_UNSPECIFIED
+}
+
+func (x *User) GetUserImportTags() []string {
+	if x != nil {
+		return x.UserImportTags
+	}
+	return nil
+}
+
+func (x *User) GetAlert() int32 {
+	if x != nil {
+		return x.Alert
+	}
+	return 0
+}
+
+func (x *User) GetUnread() int32 {
+	if x != nil {
+		return x.Unread
+	}
+	return 0
+}
+
+func (x *User) GetPopUpChatId() string {
+	if x != nil {
+		return x.PopUpChatId
+	}
+	return ""
+}
+
+func (x *User) GetMainChatId() string {
+	if x != nil {
+		return x.MainChatId
+	}
+	return ""
+}
+
+func (x *User) GetCountry() string {
+	if x != nil {
+		return x.Country
+	}
+	return ""
+}
+
+func (x *User) GetTimeZone() string {
+	if x != nil {
+		return x.TimeZone
+	}
+	return ""
+}
+
+func (x *User) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
+}
+
+func (x *User) GetUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return nil
+}
+
+func (x *User) GetVersion() int64 {
+	if x != nil {
+		return x.Version
+	}
+	return 0
+}
+
+func (x *User) GetProfile() *structpb.Struct {
+	if x != nil {
+		return x.Profile
+	}
+	return nil
+}
+
+func (x *User) GetTags() []string {
+	if x != nil {
+		return x.Tags
+	}
+	return nil
+}
+
+func (x *User) GetLanguage() string {
+	if x != nil {
+		return x.Language
+	}
+	return ""
+}
+
+func (x *User) GetUnsubscribeEmail() bool {
+	if x != nil {
+		return x.UnsubscribeEmail
+	}
+	return false
+}
+
+func (x *User) GetUnsubscribeEmailUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UnsubscribeEmailUpdatedAt
+	}
+	return nil
+}
+
+func (x *User) GetUnsubscribeTexting() bool {
+	if x != nil {
+		return x.UnsubscribeTexting
+	}
+	return false
+}
+
+func (x *User) GetUnsubscribeTextingUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UnsubscribeTextingUpdatedAt
+	}
+	return nil
+}
+
+func (x *User) GetUnsubscribeAppPush() bool {
+	if x != nil {
+		return x.UnsubscribeAppPush
+	}
+	return false
+}
+
+func (x *User) GetUnsubscribeAppPushUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UnsubscribeAppPushUpdatedAt
+	}
+	return nil
+}
+
+func (x *User) GetAvatarUrl() string {
+	if x != nil {
+		return x.AvatarUrl
+	}
+	return ""
+}
+
+func (x *User) GetNamed() bool {
+	if x != nil {
+		return x.Named
+	}
+	return false
+}
+
+func (x *User) GetSystemLanguage() string {
+	if x != nil {
+		return x.SystemLanguage
+	}
+	return ""
+}
+
+func (x *User) GetMobileNumberQualified() bool {
+	if x != nil {
+		return x.MobileNumberQualified
+	}
+	return false
+}
+
+func (x *User) GetEmailQualified() bool {
+	if x != nil {
+		return x.EmailQualified
+	}
+	return false
+}
+
+func (x *User) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *User) GetHasChat() bool {
+	if x != nil {
+		return x.HasChat
+	}
+	return false
+}
+
+func (x *User) GetHasPushToken() bool {
+	if x != nil {
+		return x.HasPushToken
+	}
+	return false
+}
+
+func (x *User) GetProvince() string {
+	if x != nil {
+		return x.Province
+	}
+	return ""
+}
+
+func (x *User) GetCity() string {
+	if x != nil {
+		return x.City
+	}
+	return ""
+}
+
+func (x *User) GetLatitude() float64 {
+	if x != nil {
+		return x.Latitude
+	}
+	return 0
+}
+
+func (x *User) GetLongitude() float64 {
+	if x != nil {
+		return x.Longitude
+	}
+	return 0
+}
+
+func (x *User) GetWeb() *WebInfo {
+	if x != nil {
+		return x.Web
+	}
+	return nil
+}
+
+func (x *User) GetMobile() *MobileInfo {
+	if x != nil {
+		return x.Mobile
+	}
+	return nil
+}
+
+func (x *User) GetSessionsCount() int32 {
+	if x != nil {
+		return x.SessionsCount
+	}
+	return 0
+}
+
+func (x *User) GetLastSeenAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.LastSeenAt
+	}
+	return nil
+}
+
+func (x *User) GetBlocked() bool {
+	if x != nil {
+		return x.Blocked
+	}
+	return false
+}
+
+func (x *User) GetBlockedKey() string {
+	if x != nil {
+		return x.BlockedKey
+	}
+	return ""
+}
+
+func (x *User) GetManagedKey() int64 {
+	if x != nil {
+		return x.ManagedKey
+	}
+	return 0
+}
+
+func (x *User) GetMember() bool {
+	if x != nil {
+		return x.Member
+	}
+	return false
+}
+
+func (x *User) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *User) GetMobileNumber() string {
+	if x != nil {
+		return x.MobileNumber
+	}
+	return ""
+}
+
+func (x *User) GetLandlineNumber() string {
+	if x != nil {
+		return x.LandlineNumber
+	}
+	return ""
+}
+
+// WebInfo represents web browser environment and session data
+// collected from a user visiting the channel via a web browser.
 type WebInfo struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Device identifier.
+	// Device form factor (e.g. "desktop", "tablet", "mobile").
 	//
 	// +kubebuilder:validation:Nullable
 	Device string `protobuf:"bytes,1,opt,name=device,proto3" json:"device,omitempty"`
-	// Operating system identifier.
+	// Operating system version string (e.g. "10.15.7", "11").
 	//
 	// +kubebuilder:validation:Nullable
 	Os string `protobuf:"bytes,2,opt,name=os,proto3" json:"os,omitempty"`
-	// Operating system display name.
+	// Operating system name (e.g. "Windows", "macOS", "Linux").
 	//
 	// +kubebuilder:validation:Nullable
 	OsName string `protobuf:"bytes,3,opt,name=os_name,json=osName,proto3" json:"os_name,omitempty"`
-	// Browser identifier.
+	// Browser version string (e.g. "120.0.6099.109").
 	//
 	// +kubebuilder:validation:Nullable
 	Browser string `protobuf:"bytes,4,opt,name=browser,proto3" json:"browser,omitempty"`
-	// Browser display name.
+	// Browser name (e.g. "Chrome", "Safari", "Firefox").
 	//
 	// +kubebuilder:validation:Nullable
 	BrowserName string `protobuf:"bytes,5,opt,name=browser_name,json=browserName,proto3" json:"browser_name,omitempty"`
-	// Number of web sessions.
+	// Cumulative number of web sessions recorded for this user.
+	// Incremented on each new session.
 	//
 	// +kubebuilder:validation:Nullable
 	SessionsCount int32 `protobuf:"varint,6,opt,name=sessions_count,json=sessionsCount,proto3" json:"sessions_count,omitempty"`
-	// Timestamp of the last web session.
+	// Timestamp of the user's most recent web session start.
 	//
 	// +kubebuilder:validation:Nullable
 	LastSeenAt    *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=last_seen_at,json=lastSeenAt,proto3" json:"last_seen_at,omitempty"`
@@ -114,7 +715,7 @@ type WebInfo struct {
 
 func (x *WebInfo) Reset() {
 	*x = WebInfo{}
-	mi := &file_coreapi_model_user_proto_msgTypes[0]
+	mi := &file_coreapi_model_user_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -126,7 +727,7 @@ func (x *WebInfo) String() string {
 func (*WebInfo) ProtoMessage() {}
 
 func (x *WebInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_user_proto_msgTypes[0]
+	mi := &file_coreapi_model_user_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -139,7 +740,7 @@ func (x *WebInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WebInfo.ProtoReflect.Descriptor instead.
 func (*WebInfo) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_user_proto_rawDescGZIP(), []int{0}
+	return file_coreapi_model_user_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *WebInfo) GetDevice() string {
@@ -191,42 +792,44 @@ func (x *WebInfo) GetLastSeenAt() *timestamppb.Timestamp {
 	return nil
 }
 
-// Mobile session device and app information.
+// MobileInfo represents mobile app environment and session data
+// collected from a user accessing the channel via a mobile SDK.
 type MobileInfo struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Device identifier.
+	// Device model name (e.g. "iPhone 15", "Galaxy S24").
 	//
 	// +kubebuilder:validation:Nullable
 	Device string `protobuf:"bytes,1,opt,name=device,proto3" json:"device,omitempty"`
-	// Operating system identifier.
+	// Operating system version string (e.g. "17.2", "14").
 	//
 	// +kubebuilder:validation:Nullable
 	Os string `protobuf:"bytes,2,opt,name=os,proto3" json:"os,omitempty"`
-	// Operating system display name.
+	// Operating system name (e.g. "iOS", "Android").
 	//
 	// +kubebuilder:validation:Nullable
 	OsName string `protobuf:"bytes,3,opt,name=os_name,json=osName,proto3" json:"os_name,omitempty"`
-	// Host application name.
+	// Name of the host application embedding the Channel SDK.
 	//
 	// +kubebuilder:validation:Nullable
 	AppName string `protobuf:"bytes,4,opt,name=app_name,json=appName,proto3" json:"app_name,omitempty"`
-	// Host application version.
+	// Version of the host application embedding the Channel SDK.
 	//
 	// +kubebuilder:validation:Nullable
 	AppVersion string `protobuf:"bytes,5,opt,name=app_version,json=appVersion,proto3" json:"app_version,omitempty"`
-	// SDK name.
+	// Channel SDK platform name (e.g. "ios", "android", "react-native").
 	//
 	// +kubebuilder:validation:Nullable
 	SdkName string `protobuf:"bytes,6,opt,name=sdk_name,json=sdkName,proto3" json:"sdk_name,omitempty"`
-	// SDK version.
+	// Channel SDK version string.
 	//
 	// +kubebuilder:validation:Nullable
 	SdkVersion string `protobuf:"bytes,7,opt,name=sdk_version,json=sdkVersion,proto3" json:"sdk_version,omitempty"`
-	// Number of mobile sessions.
+	// Cumulative number of mobile sessions recorded for this user.
+	// Incremented on each new session.
 	//
 	// +kubebuilder:validation:Nullable
 	SessionsCount int32 `protobuf:"varint,8,opt,name=sessions_count,json=sessionsCount,proto3" json:"sessions_count,omitempty"`
-	// Timestamp of the last mobile session.
+	// Timestamp of the user's most recent mobile session start.
 	//
 	// +kubebuilder:validation:Nullable
 	LastSeenAt    *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=last_seen_at,json=lastSeenAt,proto3" json:"last_seen_at,omitempty"`
@@ -236,7 +839,7 @@ type MobileInfo struct {
 
 func (x *MobileInfo) Reset() {
 	*x = MobileInfo{}
-	mi := &file_coreapi_model_user_proto_msgTypes[1]
+	mi := &file_coreapi_model_user_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -248,7 +851,7 @@ func (x *MobileInfo) String() string {
 func (*MobileInfo) ProtoMessage() {}
 
 func (x *MobileInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_user_proto_msgTypes[1]
+	mi := &file_coreapi_model_user_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -261,7 +864,7 @@ func (x *MobileInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MobileInfo.ProtoReflect.Descriptor instead.
 func (*MobileInfo) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_user_proto_rawDescGZIP(), []int{1}
+	return file_coreapi_model_user_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *MobileInfo) GetDevice() string {
@@ -327,595 +930,70 @@ func (x *MobileInfo) GetLastSeenAt() *timestamppb.Timestamp {
 	return nil
 }
 
-// User represents a customer or visitor in a channel.
-type User struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Unique user identifier.
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Channel ID this user belongs to.
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// External member identifier provided during user creation or login.
-	//
-	// +kubebuilder:validation:Nullable
-	MemberId string `protobuf:"bytes,3,opt,name=member_id,json=memberId,proto3" json:"member_id,omitempty"`
-	// Cookie-based device identifier assigned to anonymous visitors.
-	//
-	// +kubebuilder:validation:Nullable
-	VeilId string `protobuf:"bytes,4,opt,name=veil_id,json=veilId,proto3" json:"veil_id,omitempty"`
-	// Unified user identifier linking multiple user records.
-	//
-	// +kubebuilder:validation:Nullable
-	UnifiedId string `protobuf:"bytes,5,opt,name=unified_id,json=unifiedId,proto3" json:"unified_id,omitempty"`
-	// Registration state of the user.
-	//
-	// +kubebuilder:validation:Nullable
-	Type UserType `protobuf:"varint,6,opt,name=type,proto3,enum=coreapi.model.UserType" json:"type,omitempty"`
-	// Custom key-value profile data.
-	// Standard keys include name, email, mobileNumber, avatarUrl, and more.
-	// Supports additional custom properties.
-	//
-	// +kubebuilder:validation:Nullable
-	Profile *structpb.Struct `protobuf:"bytes,7,opt,name=profile,proto3" json:"profile,omitempty"`
-	// User display name extracted from profile.
-	//
-	// +kubebuilder:validation:Nullable
-	Name string `protobuf:"bytes,8,opt,name=name,proto3" json:"name,omitempty"`
-	// User avatar image URL.
-	//
-	// +kubebuilder:validation:Nullable
-	AvatarUrl string `protobuf:"bytes,9,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
-	// Whether the user has a name set in their profile.
-	//
-	// +kubebuilder:validation:Nullable
-	Named bool `protobuf:"varint,10,opt,name=named,proto3" json:"named,omitempty"`
-	// User classification tags.
-	//
-	// +kubebuilder:validation:Nullable
-	// +kubebuilder:validation:MaxItems=20
-	Tags []string `protobuf:"bytes,11,rep,name=tags,proto3" json:"tags,omitempty"`
-	// Tags assigned during user data import.
-	//
-	// +kubebuilder:validation:Nullable
-	UserImportTags []string `protobuf:"bytes,12,rep,name=user_import_tags,json=userImportTags,proto3" json:"user_import_tags,omitempty"`
-	// Number of unread notifications.
-	//
-	// +kubebuilder:validation:Nullable
-	Alert int32 `protobuf:"varint,13,opt,name=alert,proto3" json:"alert,omitempty"`
-	// Number of unread messages.
-	//
-	// +kubebuilder:validation:Nullable
-	Unread int32 `protobuf:"varint,14,opt,name=unread,proto3" json:"unread,omitempty"`
-	// Active pop-up chat identifier.
-	//
-	// +kubebuilder:validation:Nullable
-	PopUpChatId string `protobuf:"bytes,15,opt,name=pop_up_chat_id,json=popUpChatId,proto3" json:"pop_up_chat_id,omitempty"`
-	// Active main chat identifier.
-	//
-	// +kubebuilder:validation:Nullable
-	MainChatId string `protobuf:"bytes,16,opt,name=main_chat_id,json=mainChatId,proto3" json:"main_chat_id,omitempty"`
-	// Country code of the user.
-	//
-	// +kubebuilder:validation:Nullable
-	Country string `protobuf:"bytes,17,opt,name=country,proto3" json:"country,omitempty"`
-	// IANA timezone of the user.
-	//
-	// +kubebuilder:validation:Nullable
-	TimeZone string `protobuf:"bytes,18,opt,name=time_zone,json=timeZone,proto3" json:"time_zone,omitempty"`
-	// Province or state.
-	//
-	// +kubebuilder:validation:Nullable
-	Province string `protobuf:"bytes,19,opt,name=province,proto3" json:"province,omitempty"`
-	// City name.
-	//
-	// +kubebuilder:validation:Nullable
-	City string `protobuf:"bytes,20,opt,name=city,proto3" json:"city,omitempty"`
-	// Geographic latitude.
-	//
-	// +kubebuilder:validation:Nullable
-	Latitude float64 `protobuf:"fixed64,21,opt,name=latitude,proto3" json:"latitude,omitempty"`
-	// Geographic longitude.
-	//
-	// +kubebuilder:validation:Nullable
-	Longitude float64 `protobuf:"fixed64,22,opt,name=longitude,proto3" json:"longitude,omitempty"`
-	// Web session information.
-	//
-	// +kubebuilder:validation:Nullable
-	Web *WebInfo `protobuf:"bytes,23,opt,name=web,proto3" json:"web,omitempty"`
-	// Mobile session information.
-	//
-	// +kubebuilder:validation:Nullable
-	Mobile *MobileInfo `protobuf:"bytes,24,opt,name=mobile,proto3" json:"mobile,omitempty"`
-	// Total number of sessions across all platforms.
-	//
-	// +kubebuilder:validation:Nullable
-	SessionsCount int32 `protobuf:"varint,25,opt,name=sessions_count,json=sessionsCount,proto3" json:"sessions_count,omitempty"`
-	// Timestamp of the last user activity.
-	//
-	// +kubebuilder:validation:Nullable
-	LastSeenAt *timestamppb.Timestamp `protobuf:"bytes,26,opt,name=last_seen_at,json=lastSeenAt,proto3" json:"last_seen_at,omitempty"`
-	// Whether the user has an active chat.
-	//
-	// +kubebuilder:validation:Nullable
-	HasChat bool `protobuf:"varint,27,opt,name=has_chat,json=hasChat,proto3" json:"has_chat,omitempty"`
-	// Whether the user has a registered push token.
-	//
-	// +kubebuilder:validation:Nullable
-	HasPushToken bool `protobuf:"varint,28,opt,name=has_push_token,json=hasPushToken,proto3" json:"has_push_token,omitempty"`
-	// Email address from user profile.
-	//
-	// +kubebuilder:validation:Nullable
-	Email string `protobuf:"bytes,29,opt,name=email,proto3" json:"email,omitempty"`
-	// Mobile phone number in E.164 format.
-	//
-	// +kubebuilder:validation:Nullable
-	MobileNumber string `protobuf:"bytes,30,opt,name=mobile_number,json=mobileNumber,proto3" json:"mobile_number,omitempty"`
-	// Landline phone number in E.164 format.
-	//
-	// +kubebuilder:validation:Nullable
-	LandlineNumber string `protobuf:"bytes,31,opt,name=landline_number,json=landlineNumber,proto3" json:"landline_number,omitempty"`
-	// Whether the mobile number has been verified.
-	//
-	// +kubebuilder:validation:Nullable
-	MobileNumberQualified bool `protobuf:"varint,32,opt,name=mobile_number_qualified,json=mobileNumberQualified,proto3" json:"mobile_number_qualified,omitempty"`
-	// Whether the email address has been verified.
-	//
-	// +kubebuilder:validation:Nullable
-	EmailQualified bool `protobuf:"varint,33,opt,name=email_qualified,json=emailQualified,proto3" json:"email_qualified,omitempty"`
-	// Whether the user is blocked.
-	//
-	// +kubebuilder:validation:Nullable
-	Blocked bool `protobuf:"varint,34,opt,name=blocked,proto3" json:"blocked,omitempty"`
-	// Unique key for the block record.
-	//
-	// +kubebuilder:validation:Nullable
-	BlockedKey string `protobuf:"bytes,35,opt,name=blocked_key,json=blockedKey,proto3" json:"blocked_key,omitempty"`
-	// Sort key for managed user ordering.
-	//
-	// +kubebuilder:validation:Nullable
-	ManagedKey int64 `protobuf:"varint,36,opt,name=managed_key,json=managedKey,proto3" json:"managed_key,omitempty"`
-	// Whether the user is a registered member.
-	//
-	// +kubebuilder:validation:Nullable
-	Member bool `protobuf:"varint,37,opt,name=member,proto3" json:"member,omitempty"`
-	// Whether the user is access-restricted from the front.
-	//
-	// +kubebuilder:validation:Nullable
-	Constrainted bool `protobuf:"varint,38,opt,name=constrainted,proto3" json:"constrainted,omitempty"`
-	// Whether the user opted out of email notifications.
-	//
-	// +kubebuilder:validation:Nullable
-	UnsubscribeEmail bool `protobuf:"varint,39,opt,name=unsubscribe_email,json=unsubscribeEmail,proto3" json:"unsubscribe_email,omitempty"`
-	// Timestamp when email subscription preference was last changed.
-	//
-	// +kubebuilder:validation:Nullable
-	UnsubscribeEmailUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,40,opt,name=unsubscribe_email_updated_at,json=unsubscribeEmailUpdatedAt,proto3" json:"unsubscribe_email_updated_at,omitempty"`
-	// Whether the user opted out of SMS/text notifications.
-	//
-	// +kubebuilder:validation:Nullable
-	UnsubscribeTexting bool `protobuf:"varint,41,opt,name=unsubscribe_texting,json=unsubscribeTexting,proto3" json:"unsubscribe_texting,omitempty"`
-	// Timestamp when SMS subscription preference was last changed.
-	//
-	// +kubebuilder:validation:Nullable
-	UnsubscribeTextingUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,42,opt,name=unsubscribe_texting_updated_at,json=unsubscribeTextingUpdatedAt,proto3" json:"unsubscribe_texting_updated_at,omitempty"`
-	// User's preferred language locale.
-	//
-	// +kubebuilder:validation:Nullable
-	Language string `protobuf:"bytes,45,opt,name=language,proto3" json:"language,omitempty"`
-	// System-detected language locale.
-	//
-	// +kubebuilder:validation:Nullable
-	SystemLanguage string `protobuf:"bytes,46,opt,name=system_language,json=systemLanguage,proto3" json:"system_language,omitempty"`
-	// Optimistic lock version.
-	//
-	// +kubebuilder:validation:Nullable
-	Version int64 `protobuf:"varint,47,opt,name=version,proto3" json:"version,omitempty"`
-	// User creation timestamp.
-	//
-	// +kubebuilder:validation:Required
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,48,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// User last update timestamp.
-	//
-	// +kubebuilder:validation:Required
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,49,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Timestamp when app push subscription preference was last changed.
-	//
-	// +kubebuilder:validation:Nullable
-	// Whether the user opted out of app push notifications.
-	//
-	// +kubebuilder:validation:Nullable
-	UnsubscribeAppPush bool `protobuf:"varint,50,opt,name=unsubscribe_app_push,json=unsubscribeAppPush,proto3" json:"unsubscribe_app_push,omitempty"`
-	// Timestamp when app push subscription preference was last changed.
-	//
-	// +kubebuilder:validation:Nullable
-	UnsubscribeAppPushUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=unsubscribe_app_push_updated_at,json=unsubscribeAppPushUpdatedAt,proto3" json:"unsubscribe_app_push_updated_at,omitempty"`
-	unknownFields               protoimpl.UnknownFields
-	sizeCache                   protoimpl.SizeCache
-}
-
-func (x *User) Reset() {
-	*x = User{}
-	mi := &file_coreapi_model_user_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *User) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*User) ProtoMessage() {}
-
-func (x *User) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_user_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use User.ProtoReflect.Descriptor instead.
-func (*User) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_user_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *User) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-func (x *User) GetChannelId() string {
-	if x != nil {
-		return x.ChannelId
-	}
-	return ""
-}
-
-func (x *User) GetMemberId() string {
-	if x != nil {
-		return x.MemberId
-	}
-	return ""
-}
-
-func (x *User) GetVeilId() string {
-	if x != nil {
-		return x.VeilId
-	}
-	return ""
-}
-
-func (x *User) GetUnifiedId() string {
-	if x != nil {
-		return x.UnifiedId
-	}
-	return ""
-}
-
-func (x *User) GetType() UserType {
-	if x != nil {
-		return x.Type
-	}
-	return UserType_USER_TYPE_UNSPECIFIED
-}
-
-func (x *User) GetProfile() *structpb.Struct {
-	if x != nil {
-		return x.Profile
-	}
-	return nil
-}
-
-func (x *User) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *User) GetAvatarUrl() string {
-	if x != nil {
-		return x.AvatarUrl
-	}
-	return ""
-}
-
-func (x *User) GetNamed() bool {
-	if x != nil {
-		return x.Named
-	}
-	return false
-}
-
-func (x *User) GetTags() []string {
-	if x != nil {
-		return x.Tags
-	}
-	return nil
-}
-
-func (x *User) GetUserImportTags() []string {
-	if x != nil {
-		return x.UserImportTags
-	}
-	return nil
-}
-
-func (x *User) GetAlert() int32 {
-	if x != nil {
-		return x.Alert
-	}
-	return 0
-}
-
-func (x *User) GetUnread() int32 {
-	if x != nil {
-		return x.Unread
-	}
-	return 0
-}
-
-func (x *User) GetPopUpChatId() string {
-	if x != nil {
-		return x.PopUpChatId
-	}
-	return ""
-}
-
-func (x *User) GetMainChatId() string {
-	if x != nil {
-		return x.MainChatId
-	}
-	return ""
-}
-
-func (x *User) GetCountry() string {
-	if x != nil {
-		return x.Country
-	}
-	return ""
-}
-
-func (x *User) GetTimeZone() string {
-	if x != nil {
-		return x.TimeZone
-	}
-	return ""
-}
-
-func (x *User) GetProvince() string {
-	if x != nil {
-		return x.Province
-	}
-	return ""
-}
-
-func (x *User) GetCity() string {
-	if x != nil {
-		return x.City
-	}
-	return ""
-}
-
-func (x *User) GetLatitude() float64 {
-	if x != nil {
-		return x.Latitude
-	}
-	return 0
-}
-
-func (x *User) GetLongitude() float64 {
-	if x != nil {
-		return x.Longitude
-	}
-	return 0
-}
-
-func (x *User) GetWeb() *WebInfo {
-	if x != nil {
-		return x.Web
-	}
-	return nil
-}
-
-func (x *User) GetMobile() *MobileInfo {
-	if x != nil {
-		return x.Mobile
-	}
-	return nil
-}
-
-func (x *User) GetSessionsCount() int32 {
-	if x != nil {
-		return x.SessionsCount
-	}
-	return 0
-}
-
-func (x *User) GetLastSeenAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.LastSeenAt
-	}
-	return nil
-}
-
-func (x *User) GetHasChat() bool {
-	if x != nil {
-		return x.HasChat
-	}
-	return false
-}
-
-func (x *User) GetHasPushToken() bool {
-	if x != nil {
-		return x.HasPushToken
-	}
-	return false
-}
-
-func (x *User) GetEmail() string {
-	if x != nil {
-		return x.Email
-	}
-	return ""
-}
-
-func (x *User) GetMobileNumber() string {
-	if x != nil {
-		return x.MobileNumber
-	}
-	return ""
-}
-
-func (x *User) GetLandlineNumber() string {
-	if x != nil {
-		return x.LandlineNumber
-	}
-	return ""
-}
-
-func (x *User) GetMobileNumberQualified() bool {
-	if x != nil {
-		return x.MobileNumberQualified
-	}
-	return false
-}
-
-func (x *User) GetEmailQualified() bool {
-	if x != nil {
-		return x.EmailQualified
-	}
-	return false
-}
-
-func (x *User) GetBlocked() bool {
-	if x != nil {
-		return x.Blocked
-	}
-	return false
-}
-
-func (x *User) GetBlockedKey() string {
-	if x != nil {
-		return x.BlockedKey
-	}
-	return ""
-}
-
-func (x *User) GetManagedKey() int64 {
-	if x != nil {
-		return x.ManagedKey
-	}
-	return 0
-}
-
-func (x *User) GetMember() bool {
-	if x != nil {
-		return x.Member
-	}
-	return false
-}
-
-func (x *User) GetConstrainted() bool {
-	if x != nil {
-		return x.Constrainted
-	}
-	return false
-}
-
-func (x *User) GetUnsubscribeEmail() bool {
-	if x != nil {
-		return x.UnsubscribeEmail
-	}
-	return false
-}
-
-func (x *User) GetUnsubscribeEmailUpdatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.UnsubscribeEmailUpdatedAt
-	}
-	return nil
-}
-
-func (x *User) GetUnsubscribeTexting() bool {
-	if x != nil {
-		return x.UnsubscribeTexting
-	}
-	return false
-}
-
-func (x *User) GetUnsubscribeTextingUpdatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.UnsubscribeTextingUpdatedAt
-	}
-	return nil
-}
-
-func (x *User) GetLanguage() string {
-	if x != nil {
-		return x.Language
-	}
-	return ""
-}
-
-func (x *User) GetSystemLanguage() string {
-	if x != nil {
-		return x.SystemLanguage
-	}
-	return ""
-}
-
-func (x *User) GetVersion() int64 {
-	if x != nil {
-		return x.Version
-	}
-	return 0
-}
-
-func (x *User) GetCreatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.CreatedAt
-	}
-	return nil
-}
-
-func (x *User) GetUpdatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.UpdatedAt
-	}
-	return nil
-}
-
-func (x *User) GetUnsubscribeAppPush() bool {
-	if x != nil {
-		return x.UnsubscribeAppPush
-	}
-	return false
-}
-
-func (x *User) GetUnsubscribeAppPushUpdatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.UnsubscribeAppPushUpdatedAt
-	}
-	return nil
-}
-
 var File_coreapi_model_user_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_user_proto_rawDesc = "" +
 	"\n" +
-	"\x18coreapi/model/user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xec\x01\n" +
+	"\x18coreapi/model/user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb0\x0f\n" +
+	"\x04User\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
+	"\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x1b\n" +
+	"\tmember_id\x18\x03 \x01(\tR\bmemberId\x12\x17\n" +
+	"\aveil_id\x18\x04 \x01(\tR\x06veilId\x12\x1d\n" +
+	"\n" +
+	"unified_id\x18\x05 \x01(\tR\tunifiedId\x12+\n" +
+	"\x04type\x18\x06 \x01(\x0e2\x17.coreapi.model.UserTypeR\x04type\x12(\n" +
+	"\x10user_import_tags\x18\a \x03(\tR\x0euserImportTags\x12\x14\n" +
+	"\x05alert\x18\b \x01(\x05R\x05alert\x12\x16\n" +
+	"\x06unread\x18\t \x01(\x05R\x06unread\x12#\n" +
+	"\x0epop_up_chat_id\x18\n" +
+	" \x01(\tR\vpopUpChatId\x12 \n" +
+	"\fmain_chat_id\x18\v \x01(\tR\n" +
+	"mainChatId\x12\x18\n" +
+	"\acountry\x18\f \x01(\tR\acountry\x12\x1b\n" +
+	"\ttime_zone\x18\r \x01(\tR\btimeZone\x12A\n" +
+	"\n" +
+	"created_at\x18\x0e \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
+	"\n" +
+	"updated_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12\x18\n" +
+	"\aversion\x18\x10 \x01(\x03R\aversion\x121\n" +
+	"\aprofile\x18\x11 \x01(\v2\x17.google.protobuf.StructR\aprofile\x12\x12\n" +
+	"\x04tags\x18\x12 \x03(\tR\x04tags\x12\x1a\n" +
+	"\blanguage\x18\x13 \x01(\tR\blanguage\x123\n" +
+	"\x11unsubscribe_email\x18\x14 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x10unsubscribeEmail\x12[\n" +
+	"\x1cunsubscribe_email_updated_at\x18\x15 \x01(\v2\x1a.google.protobuf.TimestampR\x19unsubscribeEmailUpdatedAt\x127\n" +
+	"\x13unsubscribe_texting\x18\x16 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x12unsubscribeTexting\x12_\n" +
+	"\x1eunsubscribe_texting_updated_at\x18\x17 \x01(\v2\x1a.google.protobuf.TimestampR\x1bunsubscribeTextingUpdatedAt\x120\n" +
+	"\x14unsubscribe_app_push\x18\x18 \x01(\bR\x12unsubscribeAppPush\x12`\n" +
+	"\x1funsubscribe_app_push_updated_at\x18\x19 \x01(\v2\x1a.google.protobuf.TimestampR\x1bunsubscribeAppPushUpdatedAt\x12\x1d\n" +
+	"\n" +
+	"avatar_url\x18\x1a \x01(\tR\tavatarUrl\x12\x1c\n" +
+	"\x05named\x18\x1b \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x05named\x12'\n" +
+	"\x0fsystem_language\x18\x1c \x01(\tR\x0esystemLanguage\x12>\n" +
+	"\x17mobile_number_qualified\x18\x1d \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x15mobileNumberQualified\x12/\n" +
+	"\x0femail_qualified\x18\x1e \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0eemailQualified\x12\x12\n" +
+	"\x04name\x18\x1f \x01(\tR\x04name\x12!\n" +
+	"\bhas_chat\x18  \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\ahasChat\x12,\n" +
+	"\x0ehas_push_token\x18! \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\fhasPushToken\x12\x1a\n" +
+	"\bprovince\x18\" \x01(\tR\bprovince\x12\x12\n" +
+	"\x04city\x18# \x01(\tR\x04city\x12\x1a\n" +
+	"\blatitude\x18$ \x01(\x01R\blatitude\x12\x1c\n" +
+	"\tlongitude\x18% \x01(\x01R\tlongitude\x12(\n" +
+	"\x03web\x18& \x01(\v2\x16.coreapi.model.WebInfoR\x03web\x121\n" +
+	"\x06mobile\x18' \x01(\v2\x19.coreapi.model.MobileInfoR\x06mobile\x12%\n" +
+	"\x0esessions_count\x18( \x01(\x05R\rsessionsCount\x12<\n" +
+	"\flast_seen_at\x18) \x01(\v2\x1a.google.protobuf.TimestampR\n" +
+	"lastSeenAt\x12 \n" +
+	"\ablocked\x18* \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\ablocked\x12\x1f\n" +
+	"\vblocked_key\x18+ \x01(\tR\n" +
+	"blockedKey\x12\x1f\n" +
+	"\vmanaged_key\x18, \x01(\x03R\n" +
+	"managedKey\x12\x1e\n" +
+	"\x06member\x18- \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x06member\x12\x14\n" +
+	"\x05email\x18. \x01(\tR\x05email\x12#\n" +
+	"\rmobile_number\x18/ \x01(\tR\fmobileNumber\x12'\n" +
+	"\x0flandline_number\x180 \x01(\tR\x0elandlineNumber\"\xec\x01\n" +
 	"\aWebInfo\x12\x16\n" +
 	"\x06device\x18\x01 \x01(\tR\x06device\x12\x0e\n" +
 	"\x02os\x18\x02 \x01(\tR\x02os\x12\x17\n" +
@@ -938,69 +1016,7 @@ const file_coreapi_model_user_proto_rawDesc = "" +
 	"sdkVersion\x12%\n" +
 	"\x0esessions_count\x18\b \x01(\x05R\rsessionsCount\x12<\n" +
 	"\flast_seen_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\n" +
-	"lastSeenAt\"\x9a\x10\n" +
-	"\x04User\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
-	"\n" +
-	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\x1b\n" +
-	"\tmember_id\x18\x03 \x01(\tR\bmemberId\x12\x17\n" +
-	"\aveil_id\x18\x04 \x01(\tR\x06veilId\x12\x1d\n" +
-	"\n" +
-	"unified_id\x18\x05 \x01(\tR\tunifiedId\x12+\n" +
-	"\x04type\x18\x06 \x01(\x0e2\x17.coreapi.model.UserTypeR\x04type\x121\n" +
-	"\aprofile\x18\a \x01(\v2\x17.google.protobuf.StructR\aprofile\x12\x12\n" +
-	"\x04name\x18\b \x01(\tR\x04name\x12\x1d\n" +
-	"\n" +
-	"avatar_url\x18\t \x01(\tR\tavatarUrl\x12\x14\n" +
-	"\x05named\x18\n" +
-	" \x01(\bR\x05named\x12\x12\n" +
-	"\x04tags\x18\v \x03(\tR\x04tags\x12(\n" +
-	"\x10user_import_tags\x18\f \x03(\tR\x0euserImportTags\x12\x14\n" +
-	"\x05alert\x18\r \x01(\x05R\x05alert\x12\x16\n" +
-	"\x06unread\x18\x0e \x01(\x05R\x06unread\x12#\n" +
-	"\x0epop_up_chat_id\x18\x0f \x01(\tR\vpopUpChatId\x12 \n" +
-	"\fmain_chat_id\x18\x10 \x01(\tR\n" +
-	"mainChatId\x12\x18\n" +
-	"\acountry\x18\x11 \x01(\tR\acountry\x12\x1b\n" +
-	"\ttime_zone\x18\x12 \x01(\tR\btimeZone\x12\x1a\n" +
-	"\bprovince\x18\x13 \x01(\tR\bprovince\x12\x12\n" +
-	"\x04city\x18\x14 \x01(\tR\x04city\x12\x1a\n" +
-	"\blatitude\x18\x15 \x01(\x01R\blatitude\x12\x1c\n" +
-	"\tlongitude\x18\x16 \x01(\x01R\tlongitude\x12(\n" +
-	"\x03web\x18\x17 \x01(\v2\x16.coreapi.model.WebInfoR\x03web\x121\n" +
-	"\x06mobile\x18\x18 \x01(\v2\x19.coreapi.model.MobileInfoR\x06mobile\x12%\n" +
-	"\x0esessions_count\x18\x19 \x01(\x05R\rsessionsCount\x12<\n" +
-	"\flast_seen_at\x18\x1a \x01(\v2\x1a.google.protobuf.TimestampR\n" +
-	"lastSeenAt\x12\x19\n" +
-	"\bhas_chat\x18\x1b \x01(\bR\ahasChat\x12$\n" +
-	"\x0ehas_push_token\x18\x1c \x01(\bR\fhasPushToken\x12\x14\n" +
-	"\x05email\x18\x1d \x01(\tR\x05email\x12#\n" +
-	"\rmobile_number\x18\x1e \x01(\tR\fmobileNumber\x12'\n" +
-	"\x0flandline_number\x18\x1f \x01(\tR\x0elandlineNumber\x126\n" +
-	"\x17mobile_number_qualified\x18  \x01(\bR\x15mobileNumberQualified\x12'\n" +
-	"\x0femail_qualified\x18! \x01(\bR\x0eemailQualified\x12\x18\n" +
-	"\ablocked\x18\" \x01(\bR\ablocked\x12\x1f\n" +
-	"\vblocked_key\x18# \x01(\tR\n" +
-	"blockedKey\x12\x1f\n" +
-	"\vmanaged_key\x18$ \x01(\x03R\n" +
-	"managedKey\x12\x16\n" +
-	"\x06member\x18% \x01(\bR\x06member\x12\"\n" +
-	"\fconstrainted\x18& \x01(\bR\fconstrainted\x12+\n" +
-	"\x11unsubscribe_email\x18' \x01(\bR\x10unsubscribeEmail\x12[\n" +
-	"\x1cunsubscribe_email_updated_at\x18( \x01(\v2\x1a.google.protobuf.TimestampR\x19unsubscribeEmailUpdatedAt\x12/\n" +
-	"\x13unsubscribe_texting\x18) \x01(\bR\x12unsubscribeTexting\x12_\n" +
-	"\x1eunsubscribe_texting_updated_at\x18* \x01(\v2\x1a.google.protobuf.TimestampR\x1bunsubscribeTextingUpdatedAt\x12\x1a\n" +
-	"\blanguage\x18- \x01(\tR\blanguage\x12'\n" +
-	"\x0fsystem_language\x18. \x01(\tR\x0esystemLanguage\x12\x18\n" +
-	"\aversion\x18/ \x01(\x03R\aversion\x12A\n" +
-	"\n" +
-	"created_at\x180 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
-	"\n" +
-	"updated_at\x181 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x120\n" +
-	"\x14unsubscribe_app_push\x182 \x01(\bR\x12unsubscribeAppPush\x12`\n" +
-	"\x1funsubscribe_app_push_updated_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\x1bunsubscribeAppPushUpdatedAt*f\n" +
+	"lastSeenAt*f\n" +
 	"\bUserType\x12\x19\n" +
 	"\x15USER_TYPE_UNSPECIFIED\x10\x00\x12\x14\n" +
 	"\x10USER_TYPE_MEMBER\x10\x01\x12\x12\n" +
@@ -1024,25 +1040,25 @@ var file_coreapi_model_user_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_coreapi_model_user_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_coreapi_model_user_proto_goTypes = []any{
 	(UserType)(0),                 // 0: coreapi.model.UserType
-	(*WebInfo)(nil),               // 1: coreapi.model.WebInfo
-	(*MobileInfo)(nil),            // 2: coreapi.model.MobileInfo
-	(*User)(nil),                  // 3: coreapi.model.User
+	(*User)(nil),                  // 1: coreapi.model.User
+	(*WebInfo)(nil),               // 2: coreapi.model.WebInfo
+	(*MobileInfo)(nil),            // 3: coreapi.model.MobileInfo
 	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
 	(*structpb.Struct)(nil),       // 5: google.protobuf.Struct
 }
 var file_coreapi_model_user_proto_depIdxs = []int32{
-	4,  // 0: coreapi.model.WebInfo.last_seen_at:type_name -> google.protobuf.Timestamp
-	4,  // 1: coreapi.model.MobileInfo.last_seen_at:type_name -> google.protobuf.Timestamp
-	0,  // 2: coreapi.model.User.type:type_name -> coreapi.model.UserType
+	0,  // 0: coreapi.model.User.type:type_name -> coreapi.model.UserType
+	4,  // 1: coreapi.model.User.created_at:type_name -> google.protobuf.Timestamp
+	4,  // 2: coreapi.model.User.updated_at:type_name -> google.protobuf.Timestamp
 	5,  // 3: coreapi.model.User.profile:type_name -> google.protobuf.Struct
-	1,  // 4: coreapi.model.User.web:type_name -> coreapi.model.WebInfo
-	2,  // 5: coreapi.model.User.mobile:type_name -> coreapi.model.MobileInfo
-	4,  // 6: coreapi.model.User.last_seen_at:type_name -> google.protobuf.Timestamp
-	4,  // 7: coreapi.model.User.unsubscribe_email_updated_at:type_name -> google.protobuf.Timestamp
-	4,  // 8: coreapi.model.User.unsubscribe_texting_updated_at:type_name -> google.protobuf.Timestamp
-	4,  // 9: coreapi.model.User.created_at:type_name -> google.protobuf.Timestamp
-	4,  // 10: coreapi.model.User.updated_at:type_name -> google.protobuf.Timestamp
-	4,  // 11: coreapi.model.User.unsubscribe_app_push_updated_at:type_name -> google.protobuf.Timestamp
+	4,  // 4: coreapi.model.User.unsubscribe_email_updated_at:type_name -> google.protobuf.Timestamp
+	4,  // 5: coreapi.model.User.unsubscribe_texting_updated_at:type_name -> google.protobuf.Timestamp
+	4,  // 6: coreapi.model.User.unsubscribe_app_push_updated_at:type_name -> google.protobuf.Timestamp
+	2,  // 7: coreapi.model.User.web:type_name -> coreapi.model.WebInfo
+	3,  // 8: coreapi.model.User.mobile:type_name -> coreapi.model.MobileInfo
+	4,  // 9: coreapi.model.User.last_seen_at:type_name -> google.protobuf.Timestamp
+	4,  // 10: coreapi.model.WebInfo.last_seen_at:type_name -> google.protobuf.Timestamp
+	4,  // 11: coreapi.model.MobileInfo.last_seen_at:type_name -> google.protobuf.Timestamp
 	12, // [12:12] is the sub-list for method output_type
 	12, // [12:12] is the sub-list for method input_type
 	12, // [12:12] is the sub-list for extension type_name

@@ -32,29 +32,26 @@ public final class CampaignMsgOuterClass {
       "api.model\032\033buf/validate/validate.proto\032\037" +
       "coreapi/model/medium_type.proto\032\034google/" +
       "protobuf/struct.proto\032\037google/protobuf/t" +
-      "imestamp.proto\"\223\006\n\013CampaignMsg\022]\n\002id\030\001 \001" +
-      "(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must be" +
-      " at least 1 character\032\017size(this) >= 1\310\001" +
-      "\001R\002id\022n\n\013campaign_id\030\002 \001(\tBM\272HJ\272\001D\n\rstri" +
-      "ng.minLen\022\"value must be at least 1 char" +
-      "acter\032\017size(this) >= 1\310\001\001R\ncampaignId\022l\n" +
-      "\nchannel_id\030\003 \001(\tBM\272HJ\272\001D\n\rstring.minLen" +
-      "\022\"value must be at least 1 character\032\017si" +
-      "ze(this) >= 1\310\001\001R\tchannelId\022a\n\004name\030\004 \001(" +
-      "\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must be " +
-      "at least 1 character\032\017size(this) >= 1\310\001\001" +
-      "R\004name\022:\n\013medium_type\030\005 \001(\0162\031.coreapi.mo" +
-      "del.MediumTypeR\nmediumType\022\033\n\tmedium_id\030" +
-      "\006 \001(\tR\010mediumId\0223\n\010settings\030\007 \001(\0132\027.goog" +
-      "le.protobuf.StructR\010settings\022A\n\ncreated_" +
-      "at\030\010 \001(\0132\032.google.protobuf.TimestampB\006\272H" +
-      "\003\310\001\001R\tcreatedAt\022A\n\nupdated_at\030\t \001(\0132\032.go" +
-      "ogle.protobuf.TimestampB\006\272H\003\310\001\001R\tupdated" +
-      "At\022\022\n\004sent\030\n \001(\005R\004sent\022\022\n\004view\030\013 \001(\005R\004vi" +
-      "ew\022\022\n\004goal\030\014 \001(\005R\004goal\022\024\n\005click\030\r \001(\005R\005c" +
-      "lickBb\n&io.channel.api.proto.pub.coreapi" +
-      ".modelP\001Z6github.com/channel-io/ch-proto" +
-      "-public/coreapi/go/modelb\006proto3"
+      "imestamp.proto\"\225\005\n\013CampaignMsg\022\026\n\002id\030\001 \001" +
+      "(\tB\006\272H\003\310\001\001R\002id\022n\n\013campaign_id\030\002 \001(\tBM\272HJ" +
+      "\272\001D\n\rstring.minLen\022\"value must be at lea" +
+      "st 1 character\032\017size(this) >= 1\310\001\001R\ncamp" +
+      "aignId\022%\n\nchannel_id\030\003 \001(\tB\006\272H\003\310\001\001R\tchan" +
+      "nelId\022a\n\004name\030\004 \001(\tBM\272HJ\272\001D\n\rstring.minL" +
+      "en\022\"value must be at least 1 character\032\017" +
+      "size(this) >= 1\310\001\001R\004name\022B\n\013medium_type\030" +
+      "\005 \001(\0162\031.coreapi.model.MediumTypeB\006\272H\003\310\001\001" +
+      "R\nmediumType\022\033\n\tmedium_id\030\006 \001(\tR\010mediumI" +
+      "d\022;\n\010settings\030\007 \001(\0132\027.google.protobuf.St" +
+      "ructB\006\272H\003\310\001\001R\010settings\022A\n\ncreated_at\030\010 \001" +
+      "(\0132\032.google.protobuf.TimestampB\006\272H\003\310\001\001R\t" +
+      "createdAt\022A\n\nupdated_at\030\t \001(\0132\032.google.p" +
+      "rotobuf.TimestampB\006\272H\003\310\001\001R\tupdatedAt\022\022\n\004" +
+      "sent\030\n \001(\005R\004sent\022\022\n\004view\030\013 \001(\005R\004view\022\022\n\004" +
+      "goal\030\014 \001(\005R\004goal\022\024\n\005click\030\r \001(\005R\005clickBb" +
+      "\n&io.channel.api.proto.pub.coreapi.model" +
+      "P\001Z6github.com/channel-io/ch-proto-publi" +
+      "c/coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

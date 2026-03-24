@@ -23,41 +23,47 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Color theme for a chat tag.
+// Color variant for visual labeling of chat tags.
 type ChatTagColorVariant int32
 
 const (
 	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_UNSPECIFIED ChatTagColorVariant = 0
-	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_COBALT      ChatTagColorVariant = 1
-	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_GREEN       ChatTagColorVariant = 2
-	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_ORANGE      ChatTagColorVariant = 3
-	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_RED         ChatTagColorVariant = 4
-	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_BLACK       ChatTagColorVariant = 5
-	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_PINK        ChatTagColorVariant = 6
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_RED         ChatTagColorVariant = 1
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_ORANGE      ChatTagColorVariant = 2
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_YELLOW      ChatTagColorVariant = 3
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_OLIVE       ChatTagColorVariant = 4
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_GREEN       ChatTagColorVariant = 5
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_COBALT      ChatTagColorVariant = 6
 	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_PURPLE      ChatTagColorVariant = 7
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_PINK        ChatTagColorVariant = 8
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_NAVY        ChatTagColorVariant = 9
 )
 
 // Enum value maps for ChatTagColorVariant.
 var (
 	ChatTagColorVariant_name = map[int32]string{
 		0: "CHAT_TAG_COLOR_VARIANT_UNSPECIFIED",
-		1: "CHAT_TAG_COLOR_VARIANT_COBALT",
-		2: "CHAT_TAG_COLOR_VARIANT_GREEN",
-		3: "CHAT_TAG_COLOR_VARIANT_ORANGE",
-		4: "CHAT_TAG_COLOR_VARIANT_RED",
-		5: "CHAT_TAG_COLOR_VARIANT_BLACK",
-		6: "CHAT_TAG_COLOR_VARIANT_PINK",
+		1: "CHAT_TAG_COLOR_VARIANT_RED",
+		2: "CHAT_TAG_COLOR_VARIANT_ORANGE",
+		3: "CHAT_TAG_COLOR_VARIANT_YELLOW",
+		4: "CHAT_TAG_COLOR_VARIANT_OLIVE",
+		5: "CHAT_TAG_COLOR_VARIANT_GREEN",
+		6: "CHAT_TAG_COLOR_VARIANT_COBALT",
 		7: "CHAT_TAG_COLOR_VARIANT_PURPLE",
+		8: "CHAT_TAG_COLOR_VARIANT_PINK",
+		9: "CHAT_TAG_COLOR_VARIANT_NAVY",
 	}
 	ChatTagColorVariant_value = map[string]int32{
 		"CHAT_TAG_COLOR_VARIANT_UNSPECIFIED": 0,
-		"CHAT_TAG_COLOR_VARIANT_COBALT":      1,
-		"CHAT_TAG_COLOR_VARIANT_GREEN":       2,
-		"CHAT_TAG_COLOR_VARIANT_ORANGE":      3,
-		"CHAT_TAG_COLOR_VARIANT_RED":         4,
-		"CHAT_TAG_COLOR_VARIANT_BLACK":       5,
-		"CHAT_TAG_COLOR_VARIANT_PINK":        6,
+		"CHAT_TAG_COLOR_VARIANT_RED":         1,
+		"CHAT_TAG_COLOR_VARIANT_ORANGE":      2,
+		"CHAT_TAG_COLOR_VARIANT_YELLOW":      3,
+		"CHAT_TAG_COLOR_VARIANT_OLIVE":       4,
+		"CHAT_TAG_COLOR_VARIANT_GREEN":       5,
+		"CHAT_TAG_COLOR_VARIANT_COBALT":      6,
 		"CHAT_TAG_COLOR_VARIANT_PURPLE":      7,
+		"CHAT_TAG_COLOR_VARIANT_PINK":        8,
+		"CHAT_TAG_COLOR_VARIANT_NAVY":        9,
 	}
 )
 
@@ -89,18 +95,17 @@ func (ChatTagColorVariant) EnumDescriptor() ([]byte, []int) {
 }
 
 // ChatTag represents a label that can be attached to user chats for categorization.
-// Tags support up to 3 levels of hierarchy using "/" as a depth separator (e.g. "billing/refund/urgent").
 type ChatTag struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique chat tag identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="tag-001"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this chat tag belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Color theme of the chat tag.
 	//
@@ -108,7 +113,6 @@ type ChatTag struct {
 	ColorVariant ChatTagColorVariant `protobuf:"varint,3,opt,name=color_variant,json=colorVariant,proto3,enum=coreapi.model.ChatTagColorVariant" json:"color_variant,omitempty"`
 	// Display name of the chat tag.
 	// Supports hierarchical naming with "/" as a depth separator (max 3 levels).
-	// Cannot contain ".", "\", "$", "%" or whitespace characters.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
@@ -125,10 +129,6 @@ type ChatTag struct {
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=128
 	Description string `protobuf:"bytes,6,opt,name=description,proto3" json:"description,omitempty"`
-	// Manager IDs following this chat tag for notifications.
-	//
-	// +kubebuilder:validation:Nullable
-	FollowerIds []string `protobuf:"bytes,8,rep,name=follower_ids,json=followerIds,proto3" json:"follower_ids,omitempty"`
 	// Chat tag creation timestamp.
 	//
 	// +kubebuilder:validation:Required
@@ -209,13 +209,6 @@ func (x *ChatTag) GetDescription() string {
 	return ""
 }
 
-func (x *ChatTag) GetFollowerIds() []string {
-	if x != nil {
-		return x.FollowerIds
-	}
-	return nil
-}
-
 func (x *ChatTag) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.CreatedAt
@@ -227,13 +220,11 @@ var File_coreapi_model_chat_tag_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_chat_tag_proto_rawDesc = "" +
 	"\n" +
-	"\x1ccoreapi/model/chat_tag.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa4\x06\n" +
-	"\aChatTag\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"\x1ccoreapi/model/chat_tag.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf3\x04\n" +
+	"\aChatTag\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12G\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12G\n" +
 	"\rcolor_variant\x18\x03 \x01(\x0e2\".coreapi.model.ChatTagColorVariantR\fcolorVariant\x12\xc4\x01\n" +
 	"\x04name\x18\x04 \x01(\tB\xaf\x01\xbaH\xab\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01M\n" +
@@ -241,19 +232,20 @@ const file_coreapi_model_chat_tag_proto_rawDesc = "" +
 	"\x03key\x18\x05 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x03key\x12u\n" +
 	"\vdescription\x18\x06 \x01(\tBS\xbaHP\xba\x01M\n" +
-	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128R\vdescription\x12!\n" +
-	"\ffollower_ids\x18\b \x03(\tR\vfollowerIds\x12A\n" +
+	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128R\vdescription\x12A\n" +
 	"\n" +
-	"created_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt*\xab\x02\n" +
+	"created_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt*\xef\x02\n" +
 	"\x13ChatTagColorVariant\x12&\n" +
-	"\"CHAT_TAG_COLOR_VARIANT_UNSPECIFIED\x10\x00\x12!\n" +
-	"\x1dCHAT_TAG_COLOR_VARIANT_COBALT\x10\x01\x12 \n" +
-	"\x1cCHAT_TAG_COLOR_VARIANT_GREEN\x10\x02\x12!\n" +
-	"\x1dCHAT_TAG_COLOR_VARIANT_ORANGE\x10\x03\x12\x1e\n" +
-	"\x1aCHAT_TAG_COLOR_VARIANT_RED\x10\x04\x12 \n" +
-	"\x1cCHAT_TAG_COLOR_VARIANT_BLACK\x10\x05\x12\x1f\n" +
-	"\x1bCHAT_TAG_COLOR_VARIANT_PINK\x10\x06\x12!\n" +
-	"\x1dCHAT_TAG_COLOR_VARIANT_PURPLE\x10\aBb\n" +
+	"\"CHAT_TAG_COLOR_VARIANT_UNSPECIFIED\x10\x00\x12\x1e\n" +
+	"\x1aCHAT_TAG_COLOR_VARIANT_RED\x10\x01\x12!\n" +
+	"\x1dCHAT_TAG_COLOR_VARIANT_ORANGE\x10\x02\x12!\n" +
+	"\x1dCHAT_TAG_COLOR_VARIANT_YELLOW\x10\x03\x12 \n" +
+	"\x1cCHAT_TAG_COLOR_VARIANT_OLIVE\x10\x04\x12 \n" +
+	"\x1cCHAT_TAG_COLOR_VARIANT_GREEN\x10\x05\x12!\n" +
+	"\x1dCHAT_TAG_COLOR_VARIANT_COBALT\x10\x06\x12!\n" +
+	"\x1dCHAT_TAG_COLOR_VARIANT_PURPLE\x10\a\x12\x1f\n" +
+	"\x1bCHAT_TAG_COLOR_VARIANT_PINK\x10\b\x12\x1f\n" +
+	"\x1bCHAT_TAG_COLOR_VARIANT_NAVY\x10\tBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (

@@ -5,7 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Filter match logic for the additional event filter.
+ * Messaging medium type for marketing delivery.
+ * Additional event filter matching strategy.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.CampaignFilterMatch}
@@ -98,7 +99,7 @@ public enum CampaignFilterMatch
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return io.channel.api.proto.pub.coreapi.model.CampaignOuterClass.getDescriptor().getEnumTypes().get(2);
+    return io.channel.api.proto.pub.coreapi.model.CampaignOuterClass.getDescriptor().getEnumTypes().get(1);
   }
 
   private static final CampaignFilterMatch[] VALUES = values();

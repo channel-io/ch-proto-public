@@ -5,8 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Interaction state used to filter one-time message user records.
- * Determines which delivery or engagement metric is used for sorting and filtering.
+ * Filter state for querying one-time message user delivery results.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.OneTimeMsgUserState}

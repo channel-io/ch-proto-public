@@ -10,9 +10,9 @@ public interface ManagerBadgeOrBuilder extends
   /**
    * <pre>
    * Unique badge identifier.
-   * Same as the manager ID.
+   * Uses the same value as the owning manager's ID.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,9 +22,9 @@ public interface ManagerBadgeOrBuilder extends
   /**
    * <pre>
    * Unique badge identifier.
-   * Same as the manager ID.
+   * Uses the same value as the owning manager's ID.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +35,8 @@ public interface ManagerBadgeOrBuilder extends
 
   /**
    * <pre>
-   * Number of team chat alerts.
+   * Alert-level unread count in team chat main conversations.
+   * Defaults to 0.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -46,7 +47,8 @@ public interface ManagerBadgeOrBuilder extends
 
   /**
    * <pre>
-   * Number of unread team chat messages.
+   * Total unread count in team chat main conversations.
+   * Defaults to 0.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -57,7 +59,8 @@ public interface ManagerBadgeOrBuilder extends
 
   /**
    * <pre>
-   * Number of user chat alerts.
+   * Alert-level unread count in user chat conversations.
+   * Defaults to 0.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -68,7 +71,8 @@ public interface ManagerBadgeOrBuilder extends
 
   /**
    * <pre>
-   * Number of unread user chat messages.
+   * Total unread count in user chat conversations.
+   * Defaults to 0.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -79,7 +83,8 @@ public interface ManagerBadgeOrBuilder extends
 
   /**
    * <pre>
-   * Number of team chat thread alerts.
+   * Alert-level unread count in team chat thread replies.
+   * Defaults to 0.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -90,7 +95,8 @@ public interface ManagerBadgeOrBuilder extends
 
   /**
    * <pre>
-   * Number of unread team chat thread messages.
+   * Total unread count in team chat thread replies.
+   * Defaults to 0.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -131,7 +137,8 @@ public interface ManagerBadgeOrBuilder extends
 
   /**
    * <pre>
-   * Badge data version number.
+   * Optimistic locking version.
+   * Incremented on every update.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -142,45 +149,49 @@ public interface ManagerBadgeOrBuilder extends
 
   /**
    * <pre>
-   * Total alert count across all chat types.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>int32 alert = 10 [json_name = "alert"];</code>
-   * @return The alert.
-   */
-  int getAlert();
-
-  /**
-   * <pre>
-   * Total unread count across all chat types.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>int32 unread = 11 [json_name = "unread"];</code>
-   * @return The unread.
-   */
-  int getUnread();
-
-  /**
-   * <pre>
    * Manager ID this badge belongs to.
+   * Same value as the badge id.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string manager_id = 12 [json_name = "managerId"];</code>
+   * <code>string manager_id = 10 [json_name = "managerId"];</code>
    * @return The managerId.
    */
   java.lang.String getManagerId();
   /**
    * <pre>
    * Manager ID this badge belongs to.
+   * Same value as the badge id.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string manager_id = 12 [json_name = "managerId"];</code>
+   * <code>string manager_id = 10 [json_name = "managerId"];</code>
    * @return The bytes for managerId.
    */
   com.google.protobuf.ByteString
       getManagerIdBytes();
+
+  /**
+   * <pre>
+   * Aggregated alert count across all chat types.
+   * Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int32 alert = 11 [json_name = "alert"];</code>
+   * @return The alert.
+   */
+  int getAlert();
+
+  /**
+   * <pre>
+   * Aggregated unread count across all chat types.
+   * Equals team_chat_unread + team_chat_thread_unread + user_chat_unread.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int32 unread = 12 [json_name = "unread"];</code>
+   * @return The unread.
+   */
+  int getUnread();
 }

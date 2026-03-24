@@ -3,29 +3,23 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
+import "coreapi/model/manager.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// Notification watch preference for a chat session.
-enum SessionWatch {
-  SESSION_WATCH_UNSPECIFIED = 0;
-  SESSION_WATCH_ALL = 1;
-  SESSION_WATCH_INFO = 2;
-  SESSION_WATCH_NONE = 3;
-}
-
-// ChatSession represents a participant's membership and reading state in a chat.
-// Each session tracks an individual member's reading position, unread counts,
-// and notification preferences.
+// ChatSession represents a per-person view of a chat conversation,
+// tracking read state, notification counts, and preferences.
 message ChatSession {
-  // Unique session identifier.
+  // Composite partition key identifying the person and chat type scope.
+  // Format: "{personType}-{personId}-{chatType}".
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  string id = 1 [
+  // +kubebuilder:example="manager-m001-userChat"
+  string key = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
       message: "value must be at least 1 character"
@@ -34,11 +28,57 @@ message ChatSession {
     (buf.validate.field).required = true
   ];
 
-  // Session key identifying the participant and chat type.
+  // Chat ID of the conversation this session tracks.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  string key = 2 [
+  // +kubebuilder:example="uc-abc123"
+  string chat_id = 2 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Section ID used to organize team chat conversations into custom groups.
+  //
+  // +kubebuilder:validation:Nullable
+  string team_chat_section_id = 3;
+
+  // Composite key identifying the conversation.
+  // Format: "{chatType}-{chatId}".
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string chat_key = 4 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Opaque sort key for ordering sessions by last activity.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string updated_key = 5 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Opaque sort key for filtering and ordering sessions with unread messages.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string unread_key = 6 [
     (buf.validate.field).cel = {
       id: "string.minLen"
       message: "value must be at least 1 character"
@@ -50,150 +90,104 @@ message ChatSession {
   // Channel ID this session belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string channel_id = 3 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  // +kubebuilder:example="ch-12345"
+  string channel_id = 7 [(buf.validate.field).required = true];
 
-  // Chat type this session belongs to (e.g. "userChat", "group").
-  //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string chat_type = 4 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
-
-  // Chat ID this session is associated with.
-  //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string chat_id = 5 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
-
-  // Composite key for the associated chat.
-  //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string chat_key = 6 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
-
-  // Type of the session participant (e.g. "manager", "user").
-  //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string person_type = 7 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
-
-  // Identifier of the session participant.
-  //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string person_id = 8 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
-
-  // Opaque key used for ordering sessions by last update time.
-  //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string updated_key = 9 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
-
-  // Opaque key used for ordering sessions by unread status.
-  //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string unread_key = 10 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
-
-  // Number of unread alert notifications.
-  int32 alert = 11;
-
-  // Number of unread messages.
-  int32 unread = 12;
-
-  // Notification watch preference for this session.
+  // Number of unread messages with alert-level notification priority.
+  // Defaults to 0.
   //
   // +kubebuilder:validation:Nullable
-  SessionWatch watch = 13;
+  int32 alert = 8;
 
-  // Whether @all mentions are treated as important.
+  // Total number of unread messages in this session.
+  // Defaults to 0.
   //
   // +kubebuilder:validation:Nullable
-  bool all_mention_important = 14;
+  int32 unread = 9;
 
-  // Timestamp when the participant last read the chat.
+  // Notification preference controlling which messages trigger alerts in this session.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp read_at = 15;
+  SessionWatch watch = 10;
 
-  // Timestamp when the last message was received.
+  // Whether @all mentions trigger alert-level notifications in this session.
+  // When absent, inherits from the manager-level default setting.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp received_at = 16;
+  bool all_mention_important = 11;
 
-  // Timestamp when the participant last posted a message.
+  // Timestamp when the person last read messages in this session.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp posted_at = 17;
+  google.protobuf.Timestamp read_at = 12;
+
+  // Timestamp when the last message was received in this conversation.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp received_at = 13;
+
+  // Timestamp when the last message was posted in this conversation.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp posted_at = 14;
 
   // Session last update timestamp.
   //
   // +kubebuilder:validation:Required
-  google.protobuf.Timestamp updated_at = 18 [(buf.validate.field).required = true];
+  google.protobuf.Timestamp updated_at = 15 [(buf.validate.field).required = true];
 
   // Session creation timestamp.
   //
   // +kubebuilder:validation:Required
-  google.protobuf.Timestamp created_at = 19 [(buf.validate.field).required = true];
+  google.protobuf.Timestamp created_at = 16 [(buf.validate.field).required = true];
 
-  // Entity version number.
+  // Optimistic locking version.
   //
   // +kubebuilder:validation:Required
-  int64 version = 20 [(buf.validate.field).required = true];
+  int64 version = 17 [(buf.validate.field).required = true];
+
+  // Unique session identifier.
+  // Format: "{key}-{chatId}".
+  //
+  // +kubebuilder:validation:Required
+  string id = 18 [(buf.validate.field).required = true];
+
+  // Chat type of the conversation (e.g., "userChat", "group", "directChat").
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string chat_type = 19 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Entity type of the session owner (e.g., "manager", "user").
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string person_type = 20 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Entity ID of the session owner.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinLength=1
+  string person_id = 21 [
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 1 character"
+      expression: "size(this) >= 1"
+    },
+    (buf.validate.field).required = true
+  ];
 }

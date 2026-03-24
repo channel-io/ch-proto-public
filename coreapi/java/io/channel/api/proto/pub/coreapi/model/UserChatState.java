@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Lifecycle state of a user chat.
+ * State of a user chat conversation.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.UserChatState}
@@ -17,29 +17,37 @@ public enum UserChatState
    */
   USER_CHAT_STATE_UNSPECIFIED(0),
   /**
-   * <code>USER_CHAT_STATE_OPENED = 1;</code>
+   * <pre>
+   * The chat has been resolved and closed.
+   * </pre>
+   *
+   * <code>USER_CHAT_STATE_CLOSED = 1;</code>
    */
-  USER_CHAT_STATE_OPENED(1),
+  USER_CHAT_STATE_CLOSED(1),
   /**
-   * <code>USER_CHAT_STATE_CLOSED = 2;</code>
+   * <pre>
+   * The chat is actively being handled by a manager.
+   * </pre>
+   *
+   * <code>USER_CHAT_STATE_OPENED = 2;</code>
    */
-  USER_CHAT_STATE_CLOSED(2),
+  USER_CHAT_STATE_OPENED(2),
   /**
+   * <pre>
+   * The chat is temporarily paused and will reopen at a scheduled time.
+   * </pre>
+   *
    * <code>USER_CHAT_STATE_SNOOZED = 3;</code>
    */
   USER_CHAT_STATE_SNOOZED(3),
   /**
+   * <pre>
+   * The chat is waiting in the assignment queue for an available manager.
+   * </pre>
+   *
    * <code>USER_CHAT_STATE_QUEUED = 4;</code>
    */
   USER_CHAT_STATE_QUEUED(4),
-  /**
-   * <code>USER_CHAT_STATE_INITIAL = 5;</code>
-   */
-  USER_CHAT_STATE_INITIAL(5),
-  /**
-   * <code>USER_CHAT_STATE_MISSED = 6;</code>
-   */
-  USER_CHAT_STATE_MISSED(6),
   UNRECOGNIZED(-1),
   ;
 
@@ -48,29 +56,37 @@ public enum UserChatState
    */
   public static final int USER_CHAT_STATE_UNSPECIFIED_VALUE = 0;
   /**
-   * <code>USER_CHAT_STATE_OPENED = 1;</code>
+   * <pre>
+   * The chat has been resolved and closed.
+   * </pre>
+   *
+   * <code>USER_CHAT_STATE_CLOSED = 1;</code>
    */
-  public static final int USER_CHAT_STATE_OPENED_VALUE = 1;
+  public static final int USER_CHAT_STATE_CLOSED_VALUE = 1;
   /**
-   * <code>USER_CHAT_STATE_CLOSED = 2;</code>
+   * <pre>
+   * The chat is actively being handled by a manager.
+   * </pre>
+   *
+   * <code>USER_CHAT_STATE_OPENED = 2;</code>
    */
-  public static final int USER_CHAT_STATE_CLOSED_VALUE = 2;
+  public static final int USER_CHAT_STATE_OPENED_VALUE = 2;
   /**
+   * <pre>
+   * The chat is temporarily paused and will reopen at a scheduled time.
+   * </pre>
+   *
    * <code>USER_CHAT_STATE_SNOOZED = 3;</code>
    */
   public static final int USER_CHAT_STATE_SNOOZED_VALUE = 3;
   /**
+   * <pre>
+   * The chat is waiting in the assignment queue for an available manager.
+   * </pre>
+   *
    * <code>USER_CHAT_STATE_QUEUED = 4;</code>
    */
   public static final int USER_CHAT_STATE_QUEUED_VALUE = 4;
-  /**
-   * <code>USER_CHAT_STATE_INITIAL = 5;</code>
-   */
-  public static final int USER_CHAT_STATE_INITIAL_VALUE = 5;
-  /**
-   * <code>USER_CHAT_STATE_MISSED = 6;</code>
-   */
-  public static final int USER_CHAT_STATE_MISSED_VALUE = 6;
 
 
   public final int getNumber() {
@@ -98,12 +114,10 @@ public enum UserChatState
   public static UserChatState forNumber(int value) {
     switch (value) {
       case 0: return USER_CHAT_STATE_UNSPECIFIED;
-      case 1: return USER_CHAT_STATE_OPENED;
-      case 2: return USER_CHAT_STATE_CLOSED;
+      case 1: return USER_CHAT_STATE_CLOSED;
+      case 2: return USER_CHAT_STATE_OPENED;
       case 3: return USER_CHAT_STATE_SNOOZED;
       case 4: return USER_CHAT_STATE_QUEUED;
-      case 5: return USER_CHAT_STATE_INITIAL;
-      case 6: return USER_CHAT_STATE_MISSED;
       default: return null;
     }
   }
@@ -166,8 +180,6 @@ public enum UserChatState
   public static UserChatState forString(String value) {
   	switch (value) {
       case "closed": return USER_CHAT_STATE_CLOSED;
-      case "initial": return USER_CHAT_STATE_INITIAL;
-      case "missed": return USER_CHAT_STATE_MISSED;
       case "opened": return USER_CHAT_STATE_OPENED;
       case "queued": return USER_CHAT_STATE_QUEUED;
       case "snoozed": return USER_CHAT_STATE_SNOOZED;
@@ -181,8 +193,6 @@ public enum UserChatState
   public final String getString() {
   	switch (this) {
       case USER_CHAT_STATE_CLOSED: return "closed";
-      case USER_CHAT_STATE_INITIAL: return "initial";
-      case USER_CHAT_STATE_MISSED: return "missed";
       case USER_CHAT_STATE_OPENED: return "opened";
       case USER_CHAT_STATE_QUEUED: return "queued";
       case USER_CHAT_STATE_SNOOZED: return "snoozed";

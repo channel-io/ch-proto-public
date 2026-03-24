@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Base event type for holding property constants.
+ * Source event type from which the property value is captured.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.CampaignBaseEventType}

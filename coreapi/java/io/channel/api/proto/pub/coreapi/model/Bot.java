@@ -185,7 +185,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique bot identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="100"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -208,7 +208,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique bot identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="100"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -235,7 +235,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this bot belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -258,7 +258,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this bot belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -288,6 +288,8 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
+   * +kubebuilder:example="Support Bot"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -313,6 +315,8 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
+   * +kubebuilder:example="Support Bot"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -340,6 +344,7 @@ private static final long serialVersionUID = 0L;
    * Bot description.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
+   * +kubebuilder:example="Handles billing and payment inquiries."
    * </pre>
    *
    * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -363,6 +368,7 @@ private static final long serialVersionUID = 0L;
    * Bot description.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
+   * +kubebuilder:example="Handles billing and payment inquiries."
    * </pre>
    *
    * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -494,11 +500,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Bot color in hex format.
    * Randomly assigned if not specified on creation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * +kubebuilder:example="#3B82F6"
    * </pre>
    *
-   * <code>string color = 6 [json_name = "color"];</code>
+   * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
    * @return The color.
    */
   @java.lang.Override
@@ -518,11 +524,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Bot color in hex format.
    * Randomly assigned if not specified on creation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * +kubebuilder:example="#3B82F6"
    * </pre>
    *
-   * <code>string color = 6 [json_name = "color"];</code>
+   * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
    * @return The bytes for color.
    */
   @java.lang.Override
@@ -546,6 +552,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Bot avatar image URL.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
    * </pre>
    *
    * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
@@ -568,6 +575,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Bot avatar image URL.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
    * </pre>
    *
    * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
@@ -1178,7 +1186,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique bot identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1200,7 +1208,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique bot identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1223,7 +1231,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique bot identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1244,7 +1252,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique bot identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1260,7 +1268,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique bot identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1284,7 +1292,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this bot belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1306,7 +1314,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this bot belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1329,7 +1337,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this bot belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1350,7 +1358,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this bot belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1366,7 +1374,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this bot belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1393,6 +1401,8 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
+     * +kubebuilder:example="Support Bot"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1417,6 +1427,8 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
+     * +kubebuilder:example="Support Bot"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1442,6 +1454,8 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
+     * +kubebuilder:example="Support Bot"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1465,6 +1479,8 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
+     * +kubebuilder:example="Support Bot"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1483,6 +1499,8 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
+     * +kubebuilder:example="Support Bot"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1507,6 +1525,7 @@ private static final long serialVersionUID = 0L;
      * Bot description.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
+     * +kubebuilder:example="Handles billing and payment inquiries."
      * </pre>
      *
      * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1529,6 +1548,7 @@ private static final long serialVersionUID = 0L;
      * Bot description.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
+     * +kubebuilder:example="Handles billing and payment inquiries."
      * </pre>
      *
      * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1552,6 +1572,7 @@ private static final long serialVersionUID = 0L;
      * Bot description.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
+     * +kubebuilder:example="Handles billing and payment inquiries."
      * </pre>
      *
      * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1573,6 +1594,7 @@ private static final long serialVersionUID = 0L;
      * Bot description.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
+     * +kubebuilder:example="Handles billing and payment inquiries."
      * </pre>
      *
      * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1589,6 +1611,7 @@ private static final long serialVersionUID = 0L;
      * Bot description.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
+     * +kubebuilder:example="Handles billing and payment inquiries."
      * </pre>
      *
      * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1785,11 +1808,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot color in hex format.
      * Randomly assigned if not specified on creation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * +kubebuilder:example="#3B82F6"
      * </pre>
      *
-     * <code>string color = 6 [json_name = "color"];</code>
+     * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
      * @return The color.
      */
     public java.lang.String getColor() {
@@ -1808,11 +1831,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot color in hex format.
      * Randomly assigned if not specified on creation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * +kubebuilder:example="#3B82F6"
      * </pre>
      *
-     * <code>string color = 6 [json_name = "color"];</code>
+     * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
      * @return The bytes for color.
      */
     public com.google.protobuf.ByteString
@@ -1832,11 +1855,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot color in hex format.
      * Randomly assigned if not specified on creation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * +kubebuilder:example="#3B82F6"
      * </pre>
      *
-     * <code>string color = 6 [json_name = "color"];</code>
+     * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
      * @param value The color to set.
      * @return This builder for chaining.
      */
@@ -1854,11 +1877,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot color in hex format.
      * Randomly assigned if not specified on creation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * +kubebuilder:example="#3B82F6"
      * </pre>
      *
-     * <code>string color = 6 [json_name = "color"];</code>
+     * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearColor() {
@@ -1871,11 +1894,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot color in hex format.
      * Randomly assigned if not specified on creation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * +kubebuilder:example="#3B82F6"
      * </pre>
      *
-     * <code>string color = 6 [json_name = "color"];</code>
+     * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for color to set.
      * @return This builder for chaining.
      */
@@ -1896,6 +1919,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot avatar image URL.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
      * </pre>
      *
      * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
@@ -1917,6 +1941,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot avatar image URL.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
      * </pre>
      *
      * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
@@ -1939,6 +1964,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot avatar image URL.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
      * </pre>
      *
      * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
@@ -1959,6 +1985,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot avatar image URL.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
      * </pre>
      *
      * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>
@@ -1974,6 +2001,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot avatar image URL.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
      * </pre>
      *
      * <code>string avatar_url = 7 [json_name = "avatarUrl"];</code>

@@ -5,7 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * MessageWebPage represents a web page link preview attached to a message.
+ * MessageWebPage represents a link preview card embedded in a message,
+ * populated from Open Graph and HTML meta tags of the target URL.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.MessageWebPage}
@@ -182,9 +183,8 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object id_;
   /**
    * <pre>
-   * Unique web page identifier.
+   * Unique web page preview identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -205,9 +205,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Unique web page identifier.
+   * Unique web page preview identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -232,7 +231,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object url_;
   /**
    * <pre>
-   * URL of the web page.
+   * Target URL of the linked web page.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -255,7 +254,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * URL of the web page.
+   * Target URL of the linked web page.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -282,7 +281,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object title_;
   /**
    * <pre>
-   * Title of the web page.
+   * Page title extracted from Open Graph `og:title` or HTML `&lt;title&gt;` tag.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -304,7 +303,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Title of the web page.
+   * Page title extracted from Open Graph `og:title` or HTML `&lt;title&gt;` tag.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -330,7 +329,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object description_;
   /**
    * <pre>
-   * Short description of the web page content.
+   * Page summary extracted from Open Graph `og:description` or HTML meta description.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -352,7 +351,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Short description of the web page content.
+   * Page summary extracted from Open Graph `og:description` or HTML meta description.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -378,7 +377,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object imageUrl_;
   /**
    * <pre>
-   * URL of the preview image.
+   * Primary image URL from Open Graph `og:image` metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -400,7 +399,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * URL of the preview image.
+   * Primary image URL from Open Graph `og:image` metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -426,7 +425,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object videoUrl_;
   /**
    * <pre>
-   * URL of the preview video.
+   * Embedded video URL from Open Graph `og:video` metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -448,7 +447,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * URL of the preview video.
+   * Embedded video URL from Open Graph `og:video` metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -474,7 +473,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object publisher_;
   /**
    * <pre>
-   * Publisher name of the web page.
+   * Publisher or site name extracted from page metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -496,7 +495,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Publisher name of the web page.
+   * Publisher or site name extracted from page metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -522,7 +521,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object author_;
   /**
    * <pre>
-   * Author name of the web page content.
+   * Content author name extracted from page metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -544,7 +543,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Author name of the web page content.
+   * Content author name extracted from page metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -650,7 +649,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object previewKey_;
   /**
    * <pre>
-   * Storage key for the cached preview image.
+   * Storage key for the locally cached preview image.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -672,7 +671,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Storage key for the cached preview image.
+   * Storage key for the locally cached preview image.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -698,7 +697,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object logo_;
   /**
    * <pre>
-   * Logo URL of the web page publisher.
+   * Publisher logo URL extracted from page metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -720,7 +719,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Logo URL of the web page publisher.
+   * Publisher logo URL extracted from page metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -746,7 +745,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   * Site name of the web page.
+   * Site name from Open Graph `og:site_name` metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -768,7 +767,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Site name of the web page.
+   * Site name from Open Graph `og:site_name` metadata.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1078,7 +1077,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * MessageWebPage represents a web page link preview attached to a message.
+   * MessageWebPage represents a link preview card embedded in a message,
+   * populated from Open Graph and HTML meta tags of the target URL.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.MessageWebPage}
@@ -1320,9 +1320,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object id_ = "";
     /**
      * <pre>
-     * Unique web page identifier.
+     * Unique web page preview identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1342,9 +1341,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique web page identifier.
+     * Unique web page preview identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1365,9 +1363,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique web page identifier.
+     * Unique web page preview identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1386,9 +1383,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique web page identifier.
+     * Unique web page preview identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1402,9 +1398,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique web page identifier.
+     * Unique web page preview identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1426,7 +1421,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object url_ = "";
     /**
      * <pre>
-     * URL of the web page.
+     * Target URL of the linked web page.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1448,7 +1443,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * URL of the web page.
+     * Target URL of the linked web page.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1471,7 +1466,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * URL of the web page.
+     * Target URL of the linked web page.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1492,7 +1487,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * URL of the web page.
+     * Target URL of the linked web page.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1508,7 +1503,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * URL of the web page.
+     * Target URL of the linked web page.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1532,7 +1527,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object title_ = "";
     /**
      * <pre>
-     * Title of the web page.
+     * Page title extracted from Open Graph `og:title` or HTML `&lt;title&gt;` tag.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1553,7 +1548,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Title of the web page.
+     * Page title extracted from Open Graph `og:title` or HTML `&lt;title&gt;` tag.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1575,7 +1570,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Title of the web page.
+     * Page title extracted from Open Graph `og:title` or HTML `&lt;title&gt;` tag.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1595,7 +1590,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Title of the web page.
+     * Page title extracted from Open Graph `og:title` or HTML `&lt;title&gt;` tag.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1610,7 +1605,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Title of the web page.
+     * Page title extracted from Open Graph `og:title` or HTML `&lt;title&gt;` tag.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1633,7 +1628,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object description_ = "";
     /**
      * <pre>
-     * Short description of the web page content.
+     * Page summary extracted from Open Graph `og:description` or HTML meta description.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1654,7 +1649,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Short description of the web page content.
+     * Page summary extracted from Open Graph `og:description` or HTML meta description.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1676,7 +1671,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Short description of the web page content.
+     * Page summary extracted from Open Graph `og:description` or HTML meta description.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1696,7 +1691,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Short description of the web page content.
+     * Page summary extracted from Open Graph `og:description` or HTML meta description.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1711,7 +1706,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Short description of the web page content.
+     * Page summary extracted from Open Graph `og:description` or HTML meta description.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1734,7 +1729,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object imageUrl_ = "";
     /**
      * <pre>
-     * URL of the preview image.
+     * Primary image URL from Open Graph `og:image` metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1755,7 +1750,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * URL of the preview image.
+     * Primary image URL from Open Graph `og:image` metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1777,7 +1772,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * URL of the preview image.
+     * Primary image URL from Open Graph `og:image` metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1797,7 +1792,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * URL of the preview image.
+     * Primary image URL from Open Graph `og:image` metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1812,7 +1807,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * URL of the preview image.
+     * Primary image URL from Open Graph `og:image` metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1835,7 +1830,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object videoUrl_ = "";
     /**
      * <pre>
-     * URL of the preview video.
+     * Embedded video URL from Open Graph `og:video` metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1856,7 +1851,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * URL of the preview video.
+     * Embedded video URL from Open Graph `og:video` metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1878,7 +1873,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * URL of the preview video.
+     * Embedded video URL from Open Graph `og:video` metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1898,7 +1893,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * URL of the preview video.
+     * Embedded video URL from Open Graph `og:video` metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1913,7 +1908,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * URL of the preview video.
+     * Embedded video URL from Open Graph `og:video` metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1936,7 +1931,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object publisher_ = "";
     /**
      * <pre>
-     * Publisher name of the web page.
+     * Publisher or site name extracted from page metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1957,7 +1952,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Publisher name of the web page.
+     * Publisher or site name extracted from page metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1979,7 +1974,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Publisher name of the web page.
+     * Publisher or site name extracted from page metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1999,7 +1994,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Publisher name of the web page.
+     * Publisher or site name extracted from page metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2014,7 +2009,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Publisher name of the web page.
+     * Publisher or site name extracted from page metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2037,7 +2032,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object author_ = "";
     /**
      * <pre>
-     * Author name of the web page content.
+     * Content author name extracted from page metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2058,7 +2053,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Author name of the web page content.
+     * Content author name extracted from page metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2080,7 +2075,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Author name of the web page content.
+     * Content author name extracted from page metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2100,7 +2095,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Author name of the web page content.
+     * Content author name extracted from page metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2115,7 +2110,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Author name of the web page content.
+     * Content author name extracted from page metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2331,7 +2326,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object previewKey_ = "";
     /**
      * <pre>
-     * Storage key for the cached preview image.
+     * Storage key for the locally cached preview image.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2352,7 +2347,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage key for the cached preview image.
+     * Storage key for the locally cached preview image.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2374,7 +2369,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage key for the cached preview image.
+     * Storage key for the locally cached preview image.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2394,7 +2389,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage key for the cached preview image.
+     * Storage key for the locally cached preview image.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2409,7 +2404,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Storage key for the cached preview image.
+     * Storage key for the locally cached preview image.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2432,7 +2427,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object logo_ = "";
     /**
      * <pre>
-     * Logo URL of the web page publisher.
+     * Publisher logo URL extracted from page metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2453,7 +2448,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Logo URL of the web page publisher.
+     * Publisher logo URL extracted from page metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2475,7 +2470,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Logo URL of the web page publisher.
+     * Publisher logo URL extracted from page metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2495,7 +2490,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Logo URL of the web page publisher.
+     * Publisher logo URL extracted from page metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2510,7 +2505,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Logo URL of the web page publisher.
+     * Publisher logo URL extracted from page metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2533,7 +2528,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Site name of the web page.
+     * Site name from Open Graph `og:site_name` metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2554,7 +2549,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Site name of the web page.
+     * Site name from Open Graph `og:site_name` metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2576,7 +2571,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Site name of the web page.
+     * Site name from Open Graph `og:site_name` metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2596,7 +2591,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Site name of the web page.
+     * Site name from Open Graph `og:site_name` metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2611,7 +2606,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Site name of the web page.
+     * Site name from Open Graph `og:site_name` metadata.
      * +kubebuilder:validation:Nullable
      * </pre>
      *

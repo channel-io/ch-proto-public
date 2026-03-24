@@ -34,187 +34,59 @@ func MessageStateForString(value string) MessageState {
 	}
 }
 
-// GetString returns the canonical string for LogAction.
-func (x LogAction) GetString() string {
+// GetString returns the canonical string for AlertLevel.
+func (x AlertLevel) GetString() string {
 	switch x {
-	case LogAction_LOG_ACTION_ADD_TAGS:
-		return "addTags"
-	case LogAction_LOG_ACTION_ADD_USER_TAGS:
-		return "addUserTags"
-	case LogAction_LOG_ACTION_APPLY_RULES:
-		return "applyRules"
-	case LogAction_LOG_ACTION_ASSIGN:
-		return "assign"
-	case LogAction_LOG_ACTION_ASSIGN_TEAM:
-		return "assignTeam"
-	case LogAction_LOG_ACTION_AUTO_ASSIGN:
-		return "autoAssign"
-	case LogAction_LOG_ACTION_AUTO_CLOSE:
-		return "autoClose"
-	case LogAction_LOG_ACTION_AUTO_OPEN:
-		return "autoOpen"
-	case LogAction_LOG_ACTION_CALLBACK_MEET:
-		return "callbackMeet"
-	case LogAction_LOG_ACTION_CANCEL_ALF_BY_USER:
-		return "cancelAlfByUser"
-	case LogAction_LOG_ACTION_CHANGE_NAME:
-		return "changeName"
-	case LogAction_LOG_ACTION_CHANGE_SCOPE:
-		return "changeScope"
-	case LogAction_LOG_ACTION_CLOSE:
-		return "close"
-	case LogAction_LOG_ACTION_CREATE:
-		return "create"
-	case LogAction_LOG_ACTION_END_WORKFLOW:
-		return "endWorkflow"
-	case LogAction_LOG_ACTION_ENQUEUE:
-		return "enqueue"
-	case LogAction_LOG_ACTION_FALLBACK_CALL:
-		return "fallbackCall"
-	case LogAction_LOG_ACTION_INTERRUPT_WORKFLOW:
-		return "interruptWorkflow"
-	case LogAction_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT:
-		return "interruptWorkflowByBot"
-	case LogAction_LOG_ACTION_INVITE:
-		return "invite"
-	case LogAction_LOG_ACTION_INVITE_MEET:
-		return "inviteMeet"
-	case LogAction_LOG_ACTION_JOIN:
-		return "join"
-	case LogAction_LOG_ACTION_JOIN_MEET:
-		return "joinMeet"
-	case LogAction_LOG_ACTION_LEAVE:
-		return "leave"
-	case LogAction_LOG_ACTION_LEAVE_MEET:
-		return "leaveMeet"
-	case LogAction_LOG_ACTION_MISS:
-		return "miss"
-	case LogAction_LOG_ACTION_MISS_MEET:
-		return "missMeet"
-	case LogAction_LOG_ACTION_OPEN:
-		return "open"
-	case LogAction_LOG_ACTION_PROCESS_BRANCH:
-		return "processBranch"
-	case LogAction_LOG_ACTION_PROCESS_BY_MISS:
-		return "processByMiss"
-	case LogAction_LOG_ACTION_REMOVE:
-		return "remove"
-	case LogAction_LOG_ACTION_REMOVE_TAGS:
-		return "removeTags"
-	case LogAction_LOG_ACTION_REMOVE_USER_TAGS:
-		return "removeUserTags"
-	case LogAction_LOG_ACTION_SEND_XMS:
-		return "sendXms"
-	case LogAction_LOG_ACTION_SNOOZE:
-		return "snooze"
-	case LogAction_LOG_ACTION_START_TASK:
-		return "startTask"
-	case LogAction_LOG_ACTION_START_WORKFLOW:
-		return "startWorkflow"
-	case LogAction_LOG_ACTION_TRY_CONNECT_CALL:
-		return "tryConnectCall"
-	case LogAction_LOG_ACTION_TRY_OPEN_WITH_ALF:
-		return "tryOpenWithAlf"
-	case LogAction_LOG_ACTION_UNASSIGN:
-		return "unassign"
-	case LogAction_LOG_ACTION_UNASSIGN_TEAM:
-		return "unassignTeam"
-	case LogAction_LOG_ACTION_UPDATE_PRIORITY:
-		return "updatePriority"
+	case AlertLevel_ALERT_LEVEL_ALERT:
+		return "alert"
+	case AlertLevel_ALERT_LEVEL_NONE:
+		return "none"
+	case AlertLevel_ALERT_LEVEL_UNREAD:
+		return "unread"
 	default:
 		return ""
 	}
 }
 
-// LogActionForString returns the LogAction enum for the given canonical string.
-func LogActionForString(value string) LogAction {
+// AlertLevelForString returns the AlertLevel enum for the given canonical string.
+func AlertLevelForString(value string) AlertLevel {
 	switch value {
-	case "addTags":
-		return LogAction_LOG_ACTION_ADD_TAGS
-	case "addUserTags":
-		return LogAction_LOG_ACTION_ADD_USER_TAGS
-	case "applyRules":
-		return LogAction_LOG_ACTION_APPLY_RULES
-	case "assign":
-		return LogAction_LOG_ACTION_ASSIGN
-	case "assignTeam":
-		return LogAction_LOG_ACTION_ASSIGN_TEAM
-	case "autoAssign":
-		return LogAction_LOG_ACTION_AUTO_ASSIGN
-	case "autoClose":
-		return LogAction_LOG_ACTION_AUTO_CLOSE
-	case "autoOpen":
-		return LogAction_LOG_ACTION_AUTO_OPEN
-	case "callbackMeet":
-		return LogAction_LOG_ACTION_CALLBACK_MEET
-	case "cancelAlfByUser":
-		return LogAction_LOG_ACTION_CANCEL_ALF_BY_USER
-	case "changeName":
-		return LogAction_LOG_ACTION_CHANGE_NAME
-	case "changeScope":
-		return LogAction_LOG_ACTION_CHANGE_SCOPE
-	case "close":
-		return LogAction_LOG_ACTION_CLOSE
-	case "create":
-		return LogAction_LOG_ACTION_CREATE
-	case "endWorkflow":
-		return LogAction_LOG_ACTION_END_WORKFLOW
-	case "enqueue":
-		return LogAction_LOG_ACTION_ENQUEUE
-	case "fallbackCall":
-		return LogAction_LOG_ACTION_FALLBACK_CALL
-	case "interruptWorkflow":
-		return LogAction_LOG_ACTION_INTERRUPT_WORKFLOW
-	case "interruptWorkflowByBot":
-		return LogAction_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT
-	case "invite":
-		return LogAction_LOG_ACTION_INVITE
-	case "inviteMeet":
-		return LogAction_LOG_ACTION_INVITE_MEET
-	case "join":
-		return LogAction_LOG_ACTION_JOIN
-	case "joinMeet":
-		return LogAction_LOG_ACTION_JOIN_MEET
-	case "leave":
-		return LogAction_LOG_ACTION_LEAVE
-	case "leaveMeet":
-		return LogAction_LOG_ACTION_LEAVE_MEET
-	case "miss":
-		return LogAction_LOG_ACTION_MISS
-	case "missMeet":
-		return LogAction_LOG_ACTION_MISS_MEET
-	case "open":
-		return LogAction_LOG_ACTION_OPEN
-	case "processBranch":
-		return LogAction_LOG_ACTION_PROCESS_BRANCH
-	case "processByMiss":
-		return LogAction_LOG_ACTION_PROCESS_BY_MISS
-	case "remove":
-		return LogAction_LOG_ACTION_REMOVE
-	case "removeTags":
-		return LogAction_LOG_ACTION_REMOVE_TAGS
-	case "removeUserTags":
-		return LogAction_LOG_ACTION_REMOVE_USER_TAGS
-	case "sendXms":
-		return LogAction_LOG_ACTION_SEND_XMS
-	case "snooze":
-		return LogAction_LOG_ACTION_SNOOZE
-	case "startTask":
-		return LogAction_LOG_ACTION_START_TASK
-	case "startWorkflow":
-		return LogAction_LOG_ACTION_START_WORKFLOW
-	case "tryConnectCall":
-		return LogAction_LOG_ACTION_TRY_CONNECT_CALL
-	case "tryOpenWithAlf":
-		return LogAction_LOG_ACTION_TRY_OPEN_WITH_ALF
-	case "unassign":
-		return LogAction_LOG_ACTION_UNASSIGN
-	case "unassignTeam":
-		return LogAction_LOG_ACTION_UNASSIGN_TEAM
-	case "updatePriority":
-		return LogAction_LOG_ACTION_UPDATE_PRIORITY
+	case "alert":
+		return AlertLevel_ALERT_LEVEL_ALERT
+	case "none":
+		return AlertLevel_ALERT_LEVEL_NONE
+	case "unread":
+		return AlertLevel_ALERT_LEVEL_UNREAD
 	default:
-		return LogAction_LOG_ACTION_UNSPECIFIED
+		return AlertLevel_ALERT_LEVEL_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for WritingType.
+func (x WritingType) GetString() string {
+	switch x {
+	case WritingType_WRITING_TYPE_CUSTOM:
+		return "custom"
+	case WritingType_WRITING_TYPE_EMAIL:
+		return "email"
+	case WritingType_WRITING_TYPE_STANDARD:
+		return "standard"
+	default:
+		return ""
+	}
+}
+
+// WritingTypeForString returns the WritingType enum for the given canonical string.
+func WritingTypeForString(value string) WritingType {
+	switch value {
+	case "custom":
+		return WritingType_WRITING_TYPE_CUSTOM
+	case "email":
+		return WritingType_WRITING_TYPE_EMAIL
+	case "standard":
+		return WritingType_WRITING_TYPE_STANDARD
+	default:
+		return WritingType_WRITING_TYPE_UNSPECIFIED
 	}
 }
 

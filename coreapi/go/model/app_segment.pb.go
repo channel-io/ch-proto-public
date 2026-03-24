@@ -22,23 +22,27 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// App segment for user targeting within a specific app extension.
+// AppSegment represents a user segment defined by an app extension.
+// Used in campaigns and one-time messages to target users that belong to a specific segment managed by an external app.
 type AppSegment struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// App identifier.
+	// App that owns the segment definition.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="app-001"
 	AppId string `protobuf:"bytes,1,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"`
-	// Extension identifier.
+	// Extension within the app that provides the segmentation logic.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="ext-001"
 	ExtensionId string `protobuf:"bytes,2,opt,name=extension_id,json=extensionId,proto3" json:"extension_id,omitempty"`
-	// Segment identifier.
+	// Specific segment within the extension that users must belong to.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="seg-001"
 	SegmentId     string `protobuf:"bytes,3,opt,name=segment_id,json=segmentId,proto3" json:"segment_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

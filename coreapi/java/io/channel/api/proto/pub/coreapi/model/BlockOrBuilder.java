@@ -9,28 +9,29 @@ public interface BlockOrBuilder extends
 
   /**
    * <pre>
-   * Content type of this block.
+   * Content block type that determines how the block is rendered and which fields are applicable.
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.BlockType type = 1 [json_name = "type", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.Block.BlockType type = 1 [json_name = "type", (.buf.validate.field) = { ... }</code>
    * @return The enum numeric value on the wire for type.
    */
   int getTypeValue();
   /**
    * <pre>
-   * Content type of this block.
+   * Content block type that determines how the block is rendered and which fields are applicable.
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.BlockType type = 1 [json_name = "type", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.model.Block.BlockType type = 1 [json_name = "type", (.buf.validate.field) = { ... }</code>
    * @return The type.
    */
-  io.channel.api.proto.pub.coreapi.model.BlockType getType();
+  io.channel.api.proto.pub.coreapi.model.Block.BlockType getType();
 
   /**
    * <pre>
-   * Programming language identifier for code blocks.
+   * Programming language identifier for syntax highlighting.
+   * Only applicable when type is CODE.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -40,7 +41,8 @@ public interface BlockOrBuilder extends
   java.lang.String getLanguage();
   /**
    * <pre>
-   * Programming language identifier for code blocks.
+   * Programming language identifier for syntax highlighting.
+   * Only applicable when type is CODE.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -52,7 +54,8 @@ public interface BlockOrBuilder extends
 
   /**
    * <pre>
-   * Text content for leaf blocks (text, code).
+   * Text content of the block.
+   * Applicable for TEXT and CODE block types; ignored for BULLETS.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -62,7 +65,8 @@ public interface BlockOrBuilder extends
   java.lang.String getValue();
   /**
    * <pre>
-   * Text content for leaf blocks (text, code).
+   * Text content of the block.
+   * Applicable for TEXT and CODE block types; ignored for BULLETS.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -74,7 +78,8 @@ public interface BlockOrBuilder extends
 
   /**
    * <pre>
-   * Child blocks for container blocks (bullets).
+   * Nested child blocks that form a hierarchical list structure.
+   * Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -84,7 +89,8 @@ public interface BlockOrBuilder extends
       getBlocksList();
   /**
    * <pre>
-   * Child blocks for container blocks (bullets).
+   * Nested child blocks that form a hierarchical list structure.
+   * Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -93,7 +99,8 @@ public interface BlockOrBuilder extends
   io.channel.api.proto.pub.coreapi.model.Block getBlocks(int index);
   /**
    * <pre>
-   * Child blocks for container blocks (bullets).
+   * Nested child blocks that form a hierarchical list structure.
+   * Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -102,7 +109,8 @@ public interface BlockOrBuilder extends
   int getBlocksCount();
   /**
    * <pre>
-   * Child blocks for container blocks (bullets).
+   * Nested child blocks that form a hierarchical list structure.
+   * Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -112,7 +120,8 @@ public interface BlockOrBuilder extends
       getBlocksOrBuilderList();
   /**
    * <pre>
-   * Child blocks for container blocks (bullets).
+   * Nested child blocks that form a hierarchical list structure.
+   * Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
    * +kubebuilder:validation:Nullable
    * </pre>
    *

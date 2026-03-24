@@ -5,7 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Web session device and browser information.
+ * WebInfo represents web browser environment and session data
+ * collected from a user visiting the channel via a web browser.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.WebInfo}
@@ -141,7 +142,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object device_;
   /**
    * <pre>
-   * Device identifier.
+   * Device form factor (e.g. "desktop", "tablet", "mobile").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -163,7 +164,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Device identifier.
+   * Device form factor (e.g. "desktop", "tablet", "mobile").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -189,7 +190,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object os_;
   /**
    * <pre>
-   * Operating system identifier.
+   * Operating system version string (e.g. "10.15.7", "11").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -211,7 +212,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Operating system identifier.
+   * Operating system version string (e.g. "10.15.7", "11").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -237,7 +238,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object osName_;
   /**
    * <pre>
-   * Operating system display name.
+   * Operating system name (e.g. "Windows", "macOS", "Linux").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -259,7 +260,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Operating system display name.
+   * Operating system name (e.g. "Windows", "macOS", "Linux").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -285,7 +286,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object browser_;
   /**
    * <pre>
-   * Browser identifier.
+   * Browser version string (e.g. "120.0.6099.109").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -307,7 +308,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Browser identifier.
+   * Browser version string (e.g. "120.0.6099.109").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -333,7 +334,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object browserName_;
   /**
    * <pre>
-   * Browser display name.
+   * Browser name (e.g. "Chrome", "Safari", "Firefox").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -355,7 +356,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Browser display name.
+   * Browser name (e.g. "Chrome", "Safari", "Firefox").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -381,7 +382,8 @@ private static final long serialVersionUID = 0L;
   private int sessionsCount_;
   /**
    * <pre>
-   * Number of web sessions.
+   * Cumulative number of web sessions recorded for this user.
+   * Incremented on each new session.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -397,7 +399,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp lastSeenAt_;
   /**
    * <pre>
-   * Timestamp of the last web session.
+   * Timestamp of the user's most recent web session start.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -410,7 +412,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp of the last web session.
+   * Timestamp of the user's most recent web session start.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -423,7 +425,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp of the last web session.
+   * Timestamp of the user's most recent web session start.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -657,7 +659,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Web session device and browser information.
+   * WebInfo represents web browser environment and session data
+   * collected from a user visiting the channel via a web browser.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.WebInfo}
@@ -858,7 +861,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object device_ = "";
     /**
      * <pre>
-     * Device identifier.
+     * Device form factor (e.g. "desktop", "tablet", "mobile").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -879,7 +882,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device identifier.
+     * Device form factor (e.g. "desktop", "tablet", "mobile").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -901,7 +904,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device identifier.
+     * Device form factor (e.g. "desktop", "tablet", "mobile").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -921,7 +924,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device identifier.
+     * Device form factor (e.g. "desktop", "tablet", "mobile").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -936,7 +939,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device identifier.
+     * Device form factor (e.g. "desktop", "tablet", "mobile").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -959,7 +962,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object os_ = "";
     /**
      * <pre>
-     * Operating system identifier.
+     * Operating system version string (e.g. "10.15.7", "11").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -980,7 +983,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system identifier.
+     * Operating system version string (e.g. "10.15.7", "11").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1002,7 +1005,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system identifier.
+     * Operating system version string (e.g. "10.15.7", "11").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1022,7 +1025,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system identifier.
+     * Operating system version string (e.g. "10.15.7", "11").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1037,7 +1040,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system identifier.
+     * Operating system version string (e.g. "10.15.7", "11").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1060,7 +1063,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object osName_ = "";
     /**
      * <pre>
-     * Operating system display name.
+     * Operating system name (e.g. "Windows", "macOS", "Linux").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1081,7 +1084,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system display name.
+     * Operating system name (e.g. "Windows", "macOS", "Linux").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1103,7 +1106,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system display name.
+     * Operating system name (e.g. "Windows", "macOS", "Linux").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1123,7 +1126,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system display name.
+     * Operating system name (e.g. "Windows", "macOS", "Linux").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1138,7 +1141,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system display name.
+     * Operating system name (e.g. "Windows", "macOS", "Linux").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1161,7 +1164,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object browser_ = "";
     /**
      * <pre>
-     * Browser identifier.
+     * Browser version string (e.g. "120.0.6099.109").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1182,7 +1185,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser identifier.
+     * Browser version string (e.g. "120.0.6099.109").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1204,7 +1207,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser identifier.
+     * Browser version string (e.g. "120.0.6099.109").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1224,7 +1227,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser identifier.
+     * Browser version string (e.g. "120.0.6099.109").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1239,7 +1242,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser identifier.
+     * Browser version string (e.g. "120.0.6099.109").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1262,7 +1265,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object browserName_ = "";
     /**
      * <pre>
-     * Browser display name.
+     * Browser name (e.g. "Chrome", "Safari", "Firefox").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1283,7 +1286,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser display name.
+     * Browser name (e.g. "Chrome", "Safari", "Firefox").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1305,7 +1308,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser display name.
+     * Browser name (e.g. "Chrome", "Safari", "Firefox").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1325,7 +1328,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser display name.
+     * Browser name (e.g. "Chrome", "Safari", "Firefox").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1340,7 +1343,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser display name.
+     * Browser name (e.g. "Chrome", "Safari", "Firefox").
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1363,7 +1366,8 @@ private static final long serialVersionUID = 0L;
     private int sessionsCount_ ;
     /**
      * <pre>
-     * Number of web sessions.
+     * Cumulative number of web sessions recorded for this user.
+     * Incremented on each new session.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1376,7 +1380,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of web sessions.
+     * Cumulative number of web sessions recorded for this user.
+     * Incremented on each new session.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1392,7 +1397,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of web sessions.
+     * Cumulative number of web sessions recorded for this user.
+     * Incremented on each new session.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1411,7 +1417,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> lastSeenAtBuilder_;
     /**
      * <pre>
-     * Timestamp of the last web session.
+     * Timestamp of the user's most recent web session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1423,7 +1429,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last web session.
+     * Timestamp of the user's most recent web session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1439,7 +1445,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last web session.
+     * Timestamp of the user's most recent web session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1460,7 +1466,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last web session.
+     * Timestamp of the user's most recent web session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1479,7 +1485,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last web session.
+     * Timestamp of the user's most recent web session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1502,7 +1508,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last web session.
+     * Timestamp of the user's most recent web session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1521,7 +1527,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last web session.
+     * Timestamp of the user's most recent web session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1534,7 +1540,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last web session.
+     * Timestamp of the user's most recent web session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1550,7 +1556,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp of the last web session.
+     * Timestamp of the user's most recent web session start.
      * +kubebuilder:validation:Nullable
      * </pre>
      *

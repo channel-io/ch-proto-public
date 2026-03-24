@@ -10,8 +10,9 @@ public interface CampaignMsgOrBuilder extends
   /**
    * <pre>
    * Unique campaign message identifier.
+   * Client-assigned on creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="cm-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -21,8 +22,9 @@ public interface CampaignMsgOrBuilder extends
   /**
    * <pre>
    * Unique campaign message identifier.
+   * Client-assigned on creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="cm-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -33,7 +35,7 @@ public interface CampaignMsgOrBuilder extends
 
   /**
    * <pre>
-   * Campaign ID this message belongs to.
+   * Campaign ID this message variant belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -44,7 +46,7 @@ public interface CampaignMsgOrBuilder extends
   java.lang.String getCampaignId();
   /**
    * <pre>
-   * Campaign ID this message belongs to.
+   * Campaign ID this message variant belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -59,7 +61,7 @@ public interface CampaignMsgOrBuilder extends
    * <pre>
    * Channel ID this campaign message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -70,7 +72,7 @@ public interface CampaignMsgOrBuilder extends
    * <pre>
    * Channel ID this campaign message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -81,7 +83,7 @@ public interface CampaignMsgOrBuilder extends
 
   /**
    * <pre>
-   * Display name of the campaign message.
+   * Human-readable label for this message variant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -92,7 +94,7 @@ public interface CampaignMsgOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Display name of the campaign message.
+   * Human-readable label for this message variant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -105,28 +107,30 @@ public interface CampaignMsgOrBuilder extends
 
   /**
    * <pre>
-   * Delivery medium type.
-   * +kubebuilder:validation:Nullable
+   * Channel through which this message is delivered.
+   * Cannot be changed after creation.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType"];</code>
+   * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
    * @return The enum numeric value on the wire for mediumType.
    */
   int getMediumTypeValue();
   /**
    * <pre>
-   * Delivery medium type.
-   * +kubebuilder:validation:Nullable
+   * Channel through which this message is delivered.
+   * Cannot be changed after creation.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType"];</code>
+   * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
    * @return The mediumType.
    */
   io.channel.api.proto.pub.coreapi.model.MediumType getMediumType();
 
   /**
    * <pre>
-   * Identifier of the specific medium instance.
+   * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -136,7 +140,7 @@ public interface CampaignMsgOrBuilder extends
   java.lang.String getMediumId();
   /**
    * <pre>
-   * Identifier of the specific medium instance.
+   * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -148,31 +152,34 @@ public interface CampaignMsgOrBuilder extends
 
   /**
    * <pre>
-   * Delivery configuration specific to the chosen medium type.
-   * +kubebuilder:validation:Nullable
+   * Message content and medium-specific delivery configuration.
+   * Structure varies by medium_type.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Struct settings = 7 [json_name = "settings"];</code>
+   * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
    * @return Whether the settings field is set.
    */
   boolean hasSettings();
   /**
    * <pre>
-   * Delivery configuration specific to the chosen medium type.
-   * +kubebuilder:validation:Nullable
+   * Message content and medium-specific delivery configuration.
+   * Structure varies by medium_type.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Struct settings = 7 [json_name = "settings"];</code>
+   * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
    * @return The settings.
    */
   com.google.protobuf.Struct getSettings();
   /**
    * <pre>
-   * Delivery configuration specific to the chosen medium type.
-   * +kubebuilder:validation:Nullable
+   * Message content and medium-specific delivery configuration.
+   * Structure varies by medium_type.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Struct settings = 7 [json_name = "settings"];</code>
+   * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.StructOrBuilder getSettingsOrBuilder();
 
@@ -238,7 +245,7 @@ public interface CampaignMsgOrBuilder extends
 
   /**
    * <pre>
-   * Total number of messages sent.
+   * Cumulative count of messages delivered for this variant.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -249,7 +256,7 @@ public interface CampaignMsgOrBuilder extends
 
   /**
    * <pre>
-   * Total number of message views.
+   * Cumulative count of message views by recipients for this variant.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -260,7 +267,7 @@ public interface CampaignMsgOrBuilder extends
 
   /**
    * <pre>
-   * Total number of goal conversions achieved.
+   * Cumulative count of goal event completions attributed to this variant.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -271,7 +278,7 @@ public interface CampaignMsgOrBuilder extends
 
   /**
    * <pre>
-   * Total number of message link clicks.
+   * Cumulative count of message link clicks for this variant.
    * +kubebuilder:validation:Nullable
    * </pre>
    *

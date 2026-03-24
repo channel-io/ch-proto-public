@@ -54,30 +54,6 @@ func PluginAppearanceForString(value string) PluginAppearance {
 	}
 }
 
-// GetString returns the canonical string for PluginPosition.
-func (x PluginPosition) GetString() string {
-	switch x {
-	case PluginPosition_PLUGIN_POSITION_LEFT:
-		return "left"
-	case PluginPosition_PLUGIN_POSITION_RIGHT:
-		return "right"
-	default:
-		return ""
-	}
-}
-
-// PluginPositionForString returns the PluginPosition enum for the given canonical string.
-func PluginPositionForString(value string) PluginPosition {
-	switch value {
-	case "left":
-		return PluginPosition_PLUGIN_POSITION_LEFT
-	case "right":
-		return PluginPosition_PLUGIN_POSITION_RIGHT
-	default:
-		return PluginPosition_PLUGIN_POSITION_UNSPECIFIED
-	}
-}
-
 // GetString returns the canonical string for PluginButtonType.
 func (x PluginButtonType) GetString() string {
 	switch x {
@@ -195,6 +171,30 @@ func PluginIconButtonForString(value string) PluginIconButton {
 		return PluginIconButton_PLUGIN_ICON_BUTTON_SMS_FILLED
 	default:
 		return PluginIconButton_PLUGIN_ICON_BUTTON_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for PluginPosition.
+func (x PluginPosition) GetString() string {
+	switch x {
+	case PluginPosition_PLUGIN_POSITION_LEFT:
+		return "left"
+	case PluginPosition_PLUGIN_POSITION_RIGHT:
+		return "right"
+	default:
+		return ""
+	}
+}
+
+// PluginPositionForString returns the PluginPosition enum for the given canonical string.
+func PluginPositionForString(value string) PluginPosition {
+	switch value {
+	case "left":
+		return PluginPosition_PLUGIN_POSITION_LEFT
+	case "right":
+		return PluginPosition_PLUGIN_POSITION_RIGHT
+	default:
+		return PluginPosition_PLUGIN_POSITION_UNSPECIFIED
 	}
 }
 

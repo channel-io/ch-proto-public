@@ -29,15 +29,23 @@ public final class NameDescOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\035coreapi/model/name_desc.proto\022\rcoreapi" +
-      ".model\"@\n\010NameDesc\022\022\n\004name\030\001 \001(\tR\004name\022 " +
-      "\n\013description\030\002 \001(\tR\013descriptionBb\n&io.c" +
-      "hannel.api.proto.pub.coreapi.modelP\001Z6gi" +
-      "thub.com/channel-io/ch-proto-public/core" +
-      "api/go/modelb\006proto3"
+      ".model\032\033buf/validate/validate.proto\"\307\002\n\010" +
+      "NameDesc\022\303\001\n\004name\030\001 \001(\tB\256\001\272H\252\001\272\001D\n\rstrin" +
+      "g.minLen\022\"value must be at least 1 chara" +
+      "cter\032\017size(this) >= 1\272\001K\n\rstring.maxLen\022" +
+      "(value must be no more than 30 character" +
+      "s\032\020size(this) <= 30\310\001\001r\0202\016^[^@#$%:/\\\\]+$" +
+      "R\004name\022u\n\013description\030\002 \001(\tBS\272HP\272\001M\n\rstr" +
+      "ing.maxLen\022)value must be no more than 1" +
+      "80 characters\032\021size(this) <= 180R\013descri" +
+      "ptionBb\n&io.channel.api.proto.pub.coreap" +
+      "i.modelP\001Z6github.com/channel-io/ch-prot" +
+      "o-public/coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          build.buf.validate.ValidateProto.getDescriptor(),
         });
     internal_static_coreapi_model_NameDesc_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -45,6 +53,12 @@ public final class NameDescOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_NameDesc_descriptor,
         new java.lang.String[] { "Name", "Description", });
+    com.google.protobuf.ExtensionRegistry registry =
+        com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(build.buf.validate.ValidateProto.field);
+    com.google.protobuf.Descriptors.FileDescriptor
+        .internalUpdateFileDescriptor(descriptor, registry);
+    build.buf.validate.ValidateProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

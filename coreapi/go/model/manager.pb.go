@@ -24,176 +24,412 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Notification level for chat sessions.
+type SessionWatch int32
+
+const (
+	SessionWatch_SESSION_WATCH_UNSPECIFIED SessionWatch = 0
+	SessionWatch_SESSION_WATCH_ALL         SessionWatch = 1
+	SessionWatch_SESSION_WATCH_INFO        SessionWatch = 2
+	SessionWatch_SESSION_WATCH_NONE        SessionWatch = 3
+)
+
+// Enum value maps for SessionWatch.
+var (
+	SessionWatch_name = map[int32]string{
+		0: "SESSION_WATCH_UNSPECIFIED",
+		1: "SESSION_WATCH_ALL",
+		2: "SESSION_WATCH_INFO",
+		3: "SESSION_WATCH_NONE",
+	}
+	SessionWatch_value = map[string]int32{
+		"SESSION_WATCH_UNSPECIFIED": 0,
+		"SESSION_WATCH_ALL":         1,
+		"SESSION_WATCH_INFO":        2,
+		"SESSION_WATCH_NONE":        3,
+	}
+)
+
+func (x SessionWatch) Enum() *SessionWatch {
+	p := new(SessionWatch)
+	*p = x
+	return p
+}
+
+func (x SessionWatch) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (SessionWatch) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_manager_proto_enumTypes[0].Descriptor()
+}
+
+func (SessionWatch) Type() protoreflect.EnumType {
+	return &file_coreapi_model_manager_proto_enumTypes[0]
+}
+
+func (x SessionWatch) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use SessionWatch.Descriptor instead.
+func (SessionWatch) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_manager_proto_rawDescGZIP(), []int{0}
+}
+
+// Sound played for incoming chat notifications.
+type ChatAlertSound int32
+
+const (
+	ChatAlertSound_CHAT_ALERT_SOUND_UNSPECIFIED ChatAlertSound = 0
+	ChatAlertSound_CHAT_ALERT_SOUND_NONE        ChatAlertSound = 1
+	ChatAlertSound_CHAT_ALERT_SOUND_DROP        ChatAlertSound = 2
+	ChatAlertSound_CHAT_ALERT_SOUND_WOODY       ChatAlertSound = 3
+	ChatAlertSound_CHAT_ALERT_SOUND_BOUNCE      ChatAlertSound = 4
+	ChatAlertSound_CHAT_ALERT_SOUND_CRYSTAL     ChatAlertSound = 5
+	ChatAlertSound_CHAT_ALERT_SOUND_XYLO        ChatAlertSound = 6
+	ChatAlertSound_CHAT_ALERT_SOUND_QUICK_KNOCK ChatAlertSound = 7
+	ChatAlertSound_CHAT_ALERT_SOUND_CANDY       ChatAlertSound = 8
+	ChatAlertSound_CHAT_ALERT_SOUND_SHINE       ChatAlertSound = 9
+)
+
+// Enum value maps for ChatAlertSound.
+var (
+	ChatAlertSound_name = map[int32]string{
+		0: "CHAT_ALERT_SOUND_UNSPECIFIED",
+		1: "CHAT_ALERT_SOUND_NONE",
+		2: "CHAT_ALERT_SOUND_DROP",
+		3: "CHAT_ALERT_SOUND_WOODY",
+		4: "CHAT_ALERT_SOUND_BOUNCE",
+		5: "CHAT_ALERT_SOUND_CRYSTAL",
+		6: "CHAT_ALERT_SOUND_XYLO",
+		7: "CHAT_ALERT_SOUND_QUICK_KNOCK",
+		8: "CHAT_ALERT_SOUND_CANDY",
+		9: "CHAT_ALERT_SOUND_SHINE",
+	}
+	ChatAlertSound_value = map[string]int32{
+		"CHAT_ALERT_SOUND_UNSPECIFIED": 0,
+		"CHAT_ALERT_SOUND_NONE":        1,
+		"CHAT_ALERT_SOUND_DROP":        2,
+		"CHAT_ALERT_SOUND_WOODY":       3,
+		"CHAT_ALERT_SOUND_BOUNCE":      4,
+		"CHAT_ALERT_SOUND_CRYSTAL":     5,
+		"CHAT_ALERT_SOUND_XYLO":        6,
+		"CHAT_ALERT_SOUND_QUICK_KNOCK": 7,
+		"CHAT_ALERT_SOUND_CANDY":       8,
+		"CHAT_ALERT_SOUND_SHINE":       9,
+	}
+)
+
+func (x ChatAlertSound) Enum() *ChatAlertSound {
+	p := new(ChatAlertSound)
+	*p = x
+	return p
+}
+
+func (x ChatAlertSound) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ChatAlertSound) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_manager_proto_enumTypes[1].Descriptor()
+}
+
+func (ChatAlertSound) Type() protoreflect.EnumType {
+	return &file_coreapi_model_manager_proto_enumTypes[1]
+}
+
+func (x ChatAlertSound) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use ChatAlertSound.Descriptor instead.
+func (ChatAlertSound) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_manager_proto_rawDescGZIP(), []int{1}
+}
+
+// Sound played for incoming meet (call) notifications.
+type MeetAlertSound int32
+
+const (
+	MeetAlertSound_MEET_ALERT_SOUND_UNSPECIFIED MeetAlertSound = 0
+	MeetAlertSound_MEET_ALERT_SOUND_CUTE        MeetAlertSound = 1
+	MeetAlertSound_MEET_ALERT_SOUND_BASIC       MeetAlertSound = 2
+	MeetAlertSound_MEET_ALERT_SOUND_GENTLE      MeetAlertSound = 3
+	MeetAlertSound_MEET_ALERT_SOUND_MARIMBA     MeetAlertSound = 4
+)
+
+// Enum value maps for MeetAlertSound.
+var (
+	MeetAlertSound_name = map[int32]string{
+		0: "MEET_ALERT_SOUND_UNSPECIFIED",
+		1: "MEET_ALERT_SOUND_CUTE",
+		2: "MEET_ALERT_SOUND_BASIC",
+		3: "MEET_ALERT_SOUND_GENTLE",
+		4: "MEET_ALERT_SOUND_MARIMBA",
+	}
+	MeetAlertSound_value = map[string]int32{
+		"MEET_ALERT_SOUND_UNSPECIFIED": 0,
+		"MEET_ALERT_SOUND_CUTE":        1,
+		"MEET_ALERT_SOUND_BASIC":       2,
+		"MEET_ALERT_SOUND_GENTLE":      3,
+		"MEET_ALERT_SOUND_MARIMBA":     4,
+	}
+)
+
+func (x MeetAlertSound) Enum() *MeetAlertSound {
+	p := new(MeetAlertSound)
+	*p = x
+	return p
+}
+
+func (x MeetAlertSound) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (MeetAlertSound) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_manager_proto_enumTypes[2].Descriptor()
+}
+
+func (MeetAlertSound) Type() protoreflect.EnumType {
+	return &file_coreapi_model_manager_proto_enumTypes[2]
+}
+
+func (x MeetAlertSound) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use MeetAlertSound.Descriptor instead.
+func (MeetAlertSound) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_manager_proto_rawDescGZIP(), []int{2}
+}
+
 // Manager represents an operator or administrator in a channel.
 type Manager struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique manager identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="m-abc123"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this manager belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Account ID linked to this manager.
+	// Account ID of the person linked to this manager.
+	// Unique per channel among non-removed managers.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="a-xyz789"
 	AccountId string `protobuf:"bytes,3,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
-	// Manager display name.
+	// Manager display name shown to end users and teammates.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
-	// +kubebuilder:validation:Pattern="^[^@#$%:/\\]+$"
+	// +kubebuilder:validation:Pattern="^[^@#$%:/\]+$"
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
-	// Manager description.
+	// Free-text summary displayed on the manager profile.
+	// Visible to end users only when show_description_to_front is true.
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=180
+	// +kubebuilder:example="Product team lead"
 	Description string `protobuf:"bytes,5,opt,name=description,proto3" json:"description,omitempty"`
-	// Whether to display the description to front (end-user) visitors.
+	// Whether the description is visible to end-user visitors.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	ShowDescriptionToFront bool `protobuf:"varint,6,opt,name=show_description_to_front,json=showDescriptionToFront,proto3" json:"show_description_to_front,omitempty"`
-	// Internationalized name and description map.
-	// Keyed by locale.
+	// Internationalized name and description overrides keyed by locale (e.g., en, ko).
 	//
 	// +kubebuilder:validation:Nullable
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,7,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Manager avatar image URL.
+	// Custom profile data as key-value pairs for additional manager information.
 	//
 	// +kubebuilder:validation:Nullable
-	AvatarUrl string `protobuf:"bytes,8,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
-	// Whether this manager is displayed as the channel identity.
+	Profile *structpb.Struct `protobuf:"bytes,8,opt,name=profile,proto3" json:"profile,omitempty"`
+	// Manager email address.
+	// Unique per channel among non-removed managers.
 	//
 	// +kubebuilder:validation:Nullable
-	DisplayAsChannel bool `protobuf:"varint,9,opt,name=display_as_channel,json=displayAsChannel,proto3" json:"display_as_channel,omitempty"`
-	// Maximum number of user chats that can be auto-assigned.
+	// +kubebuilder:example="manager@example.com"
+	Email string `protobuf:"bytes,9,opt,name=email,proto3" json:"email,omitempty"`
+	// Whether the email address is visible to end-user visitors.
+	//
+	// +kubebuilder:validation:Required
+	ShowEmailToFront bool `protobuf:"varint,10,opt,name=show_email_to_front,json=showEmailToFront,proto3" json:"show_email_to_front,omitempty"`
+	// Manager mobile phone number in E.164 format (e.g., +821012345678).
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="+821012345678"
+	MobileNumber string `protobuf:"bytes,11,opt,name=mobile_number,json=mobileNumber,proto3" json:"mobile_number,omitempty"`
+	// Whether the mobile number is visible to end-user visitors.
+	//
+	// +kubebuilder:validation:Required
+	ShowMobileNumberToFront bool `protobuf:"varint,12,opt,name=show_mobile_number_to_front,json=showMobileNumberToFront,proto3" json:"show_mobile_number_to_front,omitempty"`
+	// Role ID assigned to this manager, defining permissions and access levels.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="role-owner"
+	RoleId string `protobuf:"bytes,13,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
+	// Whether this manager has been soft-deleted from the channel.
+	//
+	// +kubebuilder:validation:Required
+	Removed bool `protobuf:"varint,14,opt,name=removed,proto3" json:"removed,omitempty"`
+	// Manager creation timestamp.
+	//
+	// +kubebuilder:validation:Required
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Manager last update timestamp.
+	//
+	// +kubebuilder:validation:Required
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// Timestamp when the manager was soft-deleted.
+	// Present only when removed is true.
+	//
+	// +kubebuilder:validation:Nullable
+	RemovedAt *timestamppb.Timestamp `protobuf:"bytes,17,opt,name=removed_at,json=removedAt,proto3" json:"removed_at,omitempty"`
+	// Whether this manager appears as the channel identity instead of their personal profile.
+	//
+	// +kubebuilder:validation:Required
+	DisplayAsChannel bool `protobuf:"varint,18,opt,name=display_as_channel,json=displayAsChannel,proto3" json:"display_as_channel,omitempty"`
+	// Default notification level for group chat sessions.
+	// See SessionWatch for possible values.
+	//
+	// +kubebuilder:validation:Nullable
+	DefaultGroupWatch SessionWatch `protobuf:"varint,19,opt,name=default_group_watch,json=defaultGroupWatch,proto3,enum=coreapi.model.SessionWatch" json:"default_group_watch,omitempty"`
+	// Default notification level for direct message sessions.
+	// See SessionWatch for possible values.
+	//
+	// +kubebuilder:validation:Nullable
+	DefaultDirectChatWatch SessionWatch `protobuf:"varint,20,opt,name=default_direct_chat_watch,json=defaultDirectChatWatch,proto3,enum=coreapi.model.SessionWatch" json:"default_direct_chat_watch,omitempty"`
+	// Default notification level for user (customer) chat sessions.
+	// See SessionWatch for possible values.
+	//
+	// +kubebuilder:validation:Nullable
+	DefaultUserChatWatch SessionWatch `protobuf:"varint,21,opt,name=default_user_chat_watch,json=defaultUserChatWatch,proto3,enum=coreapi.model.SessionWatch" json:"default_user_chat_watch,omitempty"`
+	// Sound effect for incoming chat message notifications.
+	// See ChatAlertSound for possible values.
+	//
+	// +kubebuilder:validation:Nullable
+	ChatAlertSound ChatAlertSound `protobuf:"varint,22,opt,name=chat_alert_sound,json=chatAlertSound,proto3,enum=coreapi.model.ChatAlertSound" json:"chat_alert_sound,omitempty"`
+	// Sound effect for incoming meet (call) notifications.
+	// See MeetAlertSound for possible values.
+	//
+	// +kubebuilder:validation:Nullable
+	MeetAlertSound MeetAlertSound `protobuf:"varint,23,opt,name=meet_alert_sound,json=meetAlertSound,proto3,enum=coreapi.model.MeetAlertSound" json:"meet_alert_sound,omitempty"`
+	// Whether to receive mobile push notifications even while the manager is online on desktop.
+	//
+	// +kubebuilder:validation:Required
+	ReceiveMobilePushWhenOnline bool `protobuf:"varint,24,opt,name=receive_mobile_push_when_online,json=receiveMobilePushWhenOnline,proto3" json:"receive_mobile_push_when_online,omitempty"`
+	// Whether to include a preview of internal (private) messages in push notifications.
+	//
+	// +kubebuilder:validation:Required
+	ShowPrivateMessagePreview bool `protobuf:"varint,25,opt,name=show_private_message_preview,json=showPrivateMessagePreview,proto3" json:"show_private_message_preview,omitempty"`
+	// Performance score reflecting the manager's conversation handling efficiency.
+	// Decays over time when the manager is inactive.
+	//
+	// +kubebuilder:validation:Nullable
+	OperatorScore float32 `protobuf:"fixed32,26,opt,name=operator_score,json=operatorScore,proto3" json:"operator_score,omitempty"`
+	// Engagement score reflecting the frequency of customer interactions.
+	// Decays over time when the manager is inactive.
+	//
+	// +kubebuilder:validation:Nullable
+	TouchScore float32 `protobuf:"fixed32,27,opt,name=touch_score,json=touchScore,proto3" json:"touch_score,omitempty"`
+	// Whether periodic email reminders for unhandled conversations are enabled.
+	//
+	// +kubebuilder:validation:Required
+	OperatorEmailReminder bool `protobuf:"varint,28,opt,name=operator_email_reminder,json=operatorEmailReminder,proto3" json:"operator_email_reminder,omitempty"`
+	// Whether to receive alerts when a new conversation is waiting to be assigned.
+	//
+	// +kubebuilder:validation:Required
+	ReceiveUnassignedAlert bool `protobuf:"varint,29,opt,name=receive_unassigned_alert,json=receiveUnassignedAlert,proto3" json:"receive_unassigned_alert,omitempty"`
+	// Whether to receive alerts for conversations that were not responded to in time.
+	//
+	// +kubebuilder:validation:Required
+	ReceiveMissedChatAlert bool `protobuf:"varint,30,opt,name=receive_missed_chat_alert,json=receiveMissedChatAlert,proto3" json:"receive_missed_chat_alert,omitempty"`
+	// Whether to receive alerts specifically for unassigned chat conversations.
+	//
+	// +kubebuilder:validation:Required
+	ReceiveUnassignedChatAlert bool `protobuf:"varint,31,opt,name=receive_unassigned_chat_alert,json=receiveUnassignedChatAlert,proto3" json:"receive_unassigned_chat_alert,omitempty"`
+	// Whether to receive alerts for unassigned meet (call) sessions.
+	//
+	// +kubebuilder:validation:Required
+	ReceiveUnassignedMeetAlert bool `protobuf:"varint,32,opt,name=receive_unassigned_meet_alert,json=receiveUnassignedMeetAlert,proto3" json:"receive_unassigned_meet_alert,omitempty"`
+	// Whether this manager is currently active as an operator handling customer conversations.
+	//
+	// +kubebuilder:validation:Required
+	Operator bool `protobuf:"varint,33,opt,name=operator,proto3" json:"operator,omitempty"`
+	// Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+	//
+	// +kubebuilder:validation:Nullable
+	OperatorStatusId string `protobuf:"bytes,34,opt,name=operator_status_id,json=operatorStatusId,proto3" json:"operator_status_id,omitempty"`
+	// Whether @all mentions in conversations are automatically marked as important.
+	//
+	// +kubebuilder:validation:Required
+	DefaultAllMentionImportant bool `protobuf:"varint,35,opt,name=default_all_mention_important,json=defaultAllMentionImportant,proto3" json:"default_all_mention_important,omitempty"`
+	// Whether incoming user messages are automatically marked as important.
+	//
+	// +kubebuilder:validation:Required
+	UserMessageImportant bool `protobuf:"varint,36,opt,name=user_message_important,json=userMessageImportant,proto3" json:"user_message_important,omitempty"`
+	// User chat types this manager can be auto-assigned to (e.g., sync, async).
+	//
+	// +kubebuilder:validation:Nullable
+	AssignableUserChatTypes []string `protobuf:"bytes,37,rep,name=assignable_user_chat_types,json=assignableUserChatTypes,proto3" json:"assignable_user_chat_types,omitempty"`
+	// Maximum number of concurrent user chats that can be auto-assigned to this manager.
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:Minimum=0
 	// +kubebuilder:validation:Maximum=200
-	AutoAssignCapacity int32 `protobuf:"varint,11,opt,name=auto_assign_capacity,json=autoAssignCapacity,proto3" json:"auto_assign_capacity,omitempty"`
-	// Status emoji displayed alongside the manager name.
+	AutoAssignCapacity int32 `protobuf:"varint,38,opt,name=auto_assign_capacity,json=autoAssignCapacity,proto3" json:"auto_assign_capacity,omitempty"`
+	// Whether auto-assignment is enabled when the manager joins a synchronous chat session.
+	//
+	// +kubebuilder:validation:Required
+	EnableAutoAssignOnSync bool `protobuf:"varint,39,opt,name=enable_auto_assign_on_sync,json=enableAutoAssignOnSync,proto3" json:"enable_auto_assign_on_sync,omitempty"`
+	// Emoji displayed alongside the manager name as a status indicator.
+	// Must be set together with status_text; both or neither should be present.
 	//
 	// +kubebuilder:validation:Nullable
-	StatusEmoji string `protobuf:"bytes,12,opt,name=status_emoji,json=statusEmoji,proto3" json:"status_emoji,omitempty"`
-	// Status text displayed alongside the manager name.
+	// +kubebuilder:example="coffee"
+	StatusEmoji string `protobuf:"bytes,40,opt,name=status_emoji,json=statusEmoji,proto3" json:"status_emoji,omitempty"`
+	// Short text displayed alongside the manager name as a status indicator.
+	// Must be set together with status_emoji; both or neither should be present.
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=128
-	StatusText string `protobuf:"bytes,13,opt,name=status_text,json=statusText,proto3" json:"status_text,omitempty"`
-	// Timestamp when the status automatically clears.
+	// +kubebuilder:example="In a meeting until 3pm"
+	StatusText string `protobuf:"bytes,41,opt,name=status_text,json=statusText,proto3" json:"status_text,omitempty"`
+	// Timestamp when the custom status (emoji + text) automatically clears.
 	//
 	// +kubebuilder:validation:Nullable
-	StatusClearAt *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=status_clear_at,json=statusClearAt,proto3" json:"status_clear_at,omitempty"`
-	// Whether do-not-disturb mode is active for this manager.
-	//
-	// +kubebuilder:validation:Nullable
-	DoNotDisturb bool `protobuf:"varint,15,opt,name=do_not_disturb,json=doNotDisturb,proto3" json:"do_not_disturb,omitempty"`
-	// Timestamp when do-not-disturb mode automatically clears.
-	//
-	// +kubebuilder:validation:Nullable
-	DoNotDisturbClearAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=do_not_disturb_clear_at,json=doNotDisturbClearAt,proto3" json:"do_not_disturb_clear_at,omitempty"`
-	// Whether this manager has been soft-deleted.
-	//
-	// +kubebuilder:validation:Nullable
-	Removed bool `protobuf:"varint,27,opt,name=removed,proto3" json:"removed,omitempty"`
-	// Manager creation timestamp.
+	StatusClearAt *timestamppb.Timestamp `protobuf:"bytes,42,opt,name=status_clear_at,json=statusClearAt,proto3" json:"status_clear_at,omitempty"`
+	// Whether do-not-disturb mode is active, suppressing all notifications for this manager.
 	//
 	// +kubebuilder:validation:Required
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,28,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// Custom key-value profile data.
+	DoNotDisturb bool `protobuf:"varint,43,opt,name=do_not_disturb,json=doNotDisturb,proto3" json:"do_not_disturb,omitempty"`
+	// Timestamp when do-not-disturb mode automatically deactivates.
 	//
 	// +kubebuilder:validation:Nullable
-	Profile *structpb.Struct `protobuf:"bytes,31,opt,name=profile,proto3" json:"profile,omitempty"`
-	// Manager email address.
-	//
-	// +kubebuilder:validation:Nullable
-	Email string `protobuf:"bytes,32,opt,name=email,proto3" json:"email,omitempty"`
-	// Whether to display the email to end users.
-	//
-	// +kubebuilder:validation:Nullable
-	ShowEmailToFront bool `protobuf:"varint,33,opt,name=show_email_to_front,json=showEmailToFront,proto3" json:"show_email_to_front,omitempty"`
-	// Manager mobile phone number.
-	//
-	// +kubebuilder:validation:Nullable
-	MobileNumber string `protobuf:"bytes,34,opt,name=mobile_number,json=mobileNumber,proto3" json:"mobile_number,omitempty"`
-	// Whether to display the mobile number to end users.
-	//
-	// +kubebuilder:validation:Nullable
-	ShowMobileNumberToFront bool `protobuf:"varint,35,opt,name=show_mobile_number_to_front,json=showMobileNumberToFront,proto3" json:"show_mobile_number_to_front,omitempty"`
-	// Default notification level for group chats.
-	//
-	// +kubebuilder:validation:Nullable
-	DefaultGroupWatch string `protobuf:"bytes,36,opt,name=default_group_watch,json=defaultGroupWatch,proto3" json:"default_group_watch,omitempty"`
-	// Default notification level for direct chats.
-	//
-	// +kubebuilder:validation:Nullable
-	DefaultDirectChatWatch string `protobuf:"bytes,37,opt,name=default_direct_chat_watch,json=defaultDirectChatWatch,proto3" json:"default_direct_chat_watch,omitempty"`
-	// Default notification level for user chats.
-	//
-	// +kubebuilder:validation:Nullable
-	DefaultUserChatWatch string `protobuf:"bytes,38,opt,name=default_user_chat_watch,json=defaultUserChatWatch,proto3" json:"default_user_chat_watch,omitempty"`
-	// Chat notification alert sound.
-	//
-	// +kubebuilder:validation:Nullable
-	ChatAlertSound string `protobuf:"bytes,39,opt,name=chat_alert_sound,json=chatAlertSound,proto3" json:"chat_alert_sound,omitempty"`
-	// Whether to show private message previews in notifications.
-	//
-	// +kubebuilder:validation:Nullable
-	ShowPrivateMessagePreview bool `protobuf:"varint,40,opt,name=show_private_message_preview,json=showPrivateMessagePreview,proto3" json:"show_private_message_preview,omitempty"`
-	// Operator performance score.
-	//
-	// +kubebuilder:validation:Nullable
-	OperatorScore float32 `protobuf:"fixed32,41,opt,name=operator_score,json=operatorScore,proto3" json:"operator_score,omitempty"`
-	// User engagement score.
-	//
-	// +kubebuilder:validation:Nullable
-	TouchScore float32 `protobuf:"fixed32,42,opt,name=touch_score,json=touchScore,proto3" json:"touch_score,omitempty"`
-	// Manager avatar image reference.
-	//
-	// +kubebuilder:validation:Nullable
-	Avatar *TinyFile `protobuf:"bytes,43,opt,name=avatar,proto3" json:"avatar,omitempty"`
-	// Whether email reminders are enabled for this operator.
-	//
-	// +kubebuilder:validation:Nullable
-	OperatorEmailReminder bool `protobuf:"varint,44,opt,name=operator_email_reminder,json=operatorEmailReminder,proto3" json:"operator_email_reminder,omitempty"`
-	// Whether this manager is an active operator.
-	//
-	// +kubebuilder:validation:Nullable
-	Operator bool `protobuf:"varint,45,opt,name=operator,proto3" json:"operator,omitempty"`
-	// Whether @all mentions are marked as important.
-	//
-	// +kubebuilder:validation:Nullable
-	DefaultAllMentionImportant bool `protobuf:"varint,46,opt,name=default_all_mention_important,json=defaultAllMentionImportant,proto3" json:"default_all_mention_important,omitempty"`
-	// Whether user messages are marked as important.
-	//
-	// +kubebuilder:validation:Nullable
-	UserMessageImportant bool `protobuf:"varint,47,opt,name=user_message_important,json=userMessageImportant,proto3" json:"user_message_important,omitempty"`
-	// Manager reference identifier.
-	//
-	// +kubebuilder:validation:Nullable
-	ManagerId string `protobuf:"bytes,48,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
-	// Email address displayed to end users.
-	//
-	// +kubebuilder:validation:Nullable
-	EmailForFront string `protobuf:"bytes,49,opt,name=email_for_front,json=emailForFront,proto3" json:"email_for_front,omitempty"`
-	// Mobile number displayed to end users.
-	//
-	// +kubebuilder:validation:Nullable
-	MobileNumberForFront string `protobuf:"bytes,50,opt,name=mobile_number_for_front,json=mobileNumberForFront,proto3" json:"mobile_number_for_front,omitempty"`
-	// Role ID assigned to this manager.
-	//
-	// +kubebuilder:validation:Nullable
-	RoleId string `protobuf:"bytes,51,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
-	// Manager last update timestamp.
+	DoNotDisturbClearAt *timestamppb.Timestamp `protobuf:"bytes,44,opt,name=do_not_disturb_clear_at,json=doNotDisturbClearAt,proto3" json:"do_not_disturb_clear_at,omitempty"`
+	// Whether account-level do-not-disturb mode is active across all channels.
 	//
 	// +kubebuilder:validation:Required
-	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,54,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	AccountDoNotDisturb bool `protobuf:"varint,45,opt,name=account_do_not_disturb,json=accountDoNotDisturb,proto3" json:"account_do_not_disturb,omitempty"`
+	// Timestamp when account-level do-not-disturb mode automatically deactivates.
+	//
+	// +kubebuilder:validation:Nullable
+	AccountDoNotDisturbClearAt *timestamppb.Timestamp `protobuf:"bytes,46,opt,name=account_do_not_disturb_clear_at,json=accountDoNotDisturbClearAt,proto3" json:"account_do_not_disturb_clear_at,omitempty"`
+	// Timestamp when the operator status was last toggled on or off.
+	//
+	// +kubebuilder:validation:Nullable
+	OperatorUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,47,opt,name=operator_updated_at,json=operatorUpdatedAt,proto3" json:"operator_updated_at,omitempty"`
+	// Manager avatar image URL.
+	// Falls back to a system-generated default when no custom avatar is set.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
+	AvatarUrl     string `protobuf:"bytes,48,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -277,11 +513,74 @@ func (x *Manager) GetNameDescI18NMap() map[string]*NameDesc {
 	return nil
 }
 
-func (x *Manager) GetAvatarUrl() string {
+func (x *Manager) GetProfile() *structpb.Struct {
 	if x != nil {
-		return x.AvatarUrl
+		return x.Profile
+	}
+	return nil
+}
+
+func (x *Manager) GetEmail() string {
+	if x != nil {
+		return x.Email
 	}
 	return ""
+}
+
+func (x *Manager) GetShowEmailToFront() bool {
+	if x != nil {
+		return x.ShowEmailToFront
+	}
+	return false
+}
+
+func (x *Manager) GetMobileNumber() string {
+	if x != nil {
+		return x.MobileNumber
+	}
+	return ""
+}
+
+func (x *Manager) GetShowMobileNumberToFront() bool {
+	if x != nil {
+		return x.ShowMobileNumberToFront
+	}
+	return false
+}
+
+func (x *Manager) GetRoleId() string {
+	if x != nil {
+		return x.RoleId
+	}
+	return ""
+}
+
+func (x *Manager) GetRemoved() bool {
+	if x != nil {
+		return x.Removed
+	}
+	return false
+}
+
+func (x *Manager) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
+}
+
+func (x *Manager) GetUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return nil
+}
+
+func (x *Manager) GetRemovedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.RemovedAt
+	}
+	return nil
 }
 
 func (x *Manager) GetDisplayAsChannel() bool {
@@ -291,11 +590,151 @@ func (x *Manager) GetDisplayAsChannel() bool {
 	return false
 }
 
+func (x *Manager) GetDefaultGroupWatch() SessionWatch {
+	if x != nil {
+		return x.DefaultGroupWatch
+	}
+	return SessionWatch_SESSION_WATCH_UNSPECIFIED
+}
+
+func (x *Manager) GetDefaultDirectChatWatch() SessionWatch {
+	if x != nil {
+		return x.DefaultDirectChatWatch
+	}
+	return SessionWatch_SESSION_WATCH_UNSPECIFIED
+}
+
+func (x *Manager) GetDefaultUserChatWatch() SessionWatch {
+	if x != nil {
+		return x.DefaultUserChatWatch
+	}
+	return SessionWatch_SESSION_WATCH_UNSPECIFIED
+}
+
+func (x *Manager) GetChatAlertSound() ChatAlertSound {
+	if x != nil {
+		return x.ChatAlertSound
+	}
+	return ChatAlertSound_CHAT_ALERT_SOUND_UNSPECIFIED
+}
+
+func (x *Manager) GetMeetAlertSound() MeetAlertSound {
+	if x != nil {
+		return x.MeetAlertSound
+	}
+	return MeetAlertSound_MEET_ALERT_SOUND_UNSPECIFIED
+}
+
+func (x *Manager) GetReceiveMobilePushWhenOnline() bool {
+	if x != nil {
+		return x.ReceiveMobilePushWhenOnline
+	}
+	return false
+}
+
+func (x *Manager) GetShowPrivateMessagePreview() bool {
+	if x != nil {
+		return x.ShowPrivateMessagePreview
+	}
+	return false
+}
+
+func (x *Manager) GetOperatorScore() float32 {
+	if x != nil {
+		return x.OperatorScore
+	}
+	return 0
+}
+
+func (x *Manager) GetTouchScore() float32 {
+	if x != nil {
+		return x.TouchScore
+	}
+	return 0
+}
+
+func (x *Manager) GetOperatorEmailReminder() bool {
+	if x != nil {
+		return x.OperatorEmailReminder
+	}
+	return false
+}
+
+func (x *Manager) GetReceiveUnassignedAlert() bool {
+	if x != nil {
+		return x.ReceiveUnassignedAlert
+	}
+	return false
+}
+
+func (x *Manager) GetReceiveMissedChatAlert() bool {
+	if x != nil {
+		return x.ReceiveMissedChatAlert
+	}
+	return false
+}
+
+func (x *Manager) GetReceiveUnassignedChatAlert() bool {
+	if x != nil {
+		return x.ReceiveUnassignedChatAlert
+	}
+	return false
+}
+
+func (x *Manager) GetReceiveUnassignedMeetAlert() bool {
+	if x != nil {
+		return x.ReceiveUnassignedMeetAlert
+	}
+	return false
+}
+
+func (x *Manager) GetOperator() bool {
+	if x != nil {
+		return x.Operator
+	}
+	return false
+}
+
+func (x *Manager) GetOperatorStatusId() string {
+	if x != nil {
+		return x.OperatorStatusId
+	}
+	return ""
+}
+
+func (x *Manager) GetDefaultAllMentionImportant() bool {
+	if x != nil {
+		return x.DefaultAllMentionImportant
+	}
+	return false
+}
+
+func (x *Manager) GetUserMessageImportant() bool {
+	if x != nil {
+		return x.UserMessageImportant
+	}
+	return false
+}
+
+func (x *Manager) GetAssignableUserChatTypes() []string {
+	if x != nil {
+		return x.AssignableUserChatTypes
+	}
+	return nil
+}
+
 func (x *Manager) GetAutoAssignCapacity() int32 {
 	if x != nil {
 		return x.AutoAssignCapacity
 	}
 	return 0
+}
+
+func (x *Manager) GetEnableAutoAssignOnSync() bool {
+	if x != nil {
+		return x.EnableAutoAssignOnSync
+	}
+	return false
 }
 
 func (x *Manager) GetStatusEmoji() string {
@@ -333,238 +772,127 @@ func (x *Manager) GetDoNotDisturbClearAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Manager) GetRemoved() bool {
+func (x *Manager) GetAccountDoNotDisturb() bool {
 	if x != nil {
-		return x.Removed
+		return x.AccountDoNotDisturb
 	}
 	return false
 }
 
-func (x *Manager) GetCreatedAt() *timestamppb.Timestamp {
+func (x *Manager) GetAccountDoNotDisturbClearAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.CreatedAt
+		return x.AccountDoNotDisturbClearAt
 	}
 	return nil
 }
 
-func (x *Manager) GetProfile() *structpb.Struct {
+func (x *Manager) GetOperatorUpdatedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.Profile
+		return x.OperatorUpdatedAt
 	}
 	return nil
 }
 
-func (x *Manager) GetEmail() string {
+func (x *Manager) GetAvatarUrl() string {
 	if x != nil {
-		return x.Email
+		return x.AvatarUrl
 	}
 	return ""
-}
-
-func (x *Manager) GetShowEmailToFront() bool {
-	if x != nil {
-		return x.ShowEmailToFront
-	}
-	return false
-}
-
-func (x *Manager) GetMobileNumber() string {
-	if x != nil {
-		return x.MobileNumber
-	}
-	return ""
-}
-
-func (x *Manager) GetShowMobileNumberToFront() bool {
-	if x != nil {
-		return x.ShowMobileNumberToFront
-	}
-	return false
-}
-
-func (x *Manager) GetDefaultGroupWatch() string {
-	if x != nil {
-		return x.DefaultGroupWatch
-	}
-	return ""
-}
-
-func (x *Manager) GetDefaultDirectChatWatch() string {
-	if x != nil {
-		return x.DefaultDirectChatWatch
-	}
-	return ""
-}
-
-func (x *Manager) GetDefaultUserChatWatch() string {
-	if x != nil {
-		return x.DefaultUserChatWatch
-	}
-	return ""
-}
-
-func (x *Manager) GetChatAlertSound() string {
-	if x != nil {
-		return x.ChatAlertSound
-	}
-	return ""
-}
-
-func (x *Manager) GetShowPrivateMessagePreview() bool {
-	if x != nil {
-		return x.ShowPrivateMessagePreview
-	}
-	return false
-}
-
-func (x *Manager) GetOperatorScore() float32 {
-	if x != nil {
-		return x.OperatorScore
-	}
-	return 0
-}
-
-func (x *Manager) GetTouchScore() float32 {
-	if x != nil {
-		return x.TouchScore
-	}
-	return 0
-}
-
-func (x *Manager) GetAvatar() *TinyFile {
-	if x != nil {
-		return x.Avatar
-	}
-	return nil
-}
-
-func (x *Manager) GetOperatorEmailReminder() bool {
-	if x != nil {
-		return x.OperatorEmailReminder
-	}
-	return false
-}
-
-func (x *Manager) GetOperator() bool {
-	if x != nil {
-		return x.Operator
-	}
-	return false
-}
-
-func (x *Manager) GetDefaultAllMentionImportant() bool {
-	if x != nil {
-		return x.DefaultAllMentionImportant
-	}
-	return false
-}
-
-func (x *Manager) GetUserMessageImportant() bool {
-	if x != nil {
-		return x.UserMessageImportant
-	}
-	return false
-}
-
-func (x *Manager) GetManagerId() string {
-	if x != nil {
-		return x.ManagerId
-	}
-	return ""
-}
-
-func (x *Manager) GetEmailForFront() string {
-	if x != nil {
-		return x.EmailForFront
-	}
-	return ""
-}
-
-func (x *Manager) GetMobileNumberForFront() string {
-	if x != nil {
-		return x.MobileNumberForFront
-	}
-	return ""
-}
-
-func (x *Manager) GetRoleId() string {
-	if x != nil {
-		return x.RoleId
-	}
-	return ""
-}
-
-func (x *Manager) GetUpdatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.UpdatedAt
-	}
-	return nil
 }
 
 var File_coreapi_model_manager_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_manager_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/manager.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1dcoreapi/model/tiny_file.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8e\x14\n" +
-	"\aManager\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
+	"\x1bcoreapi/model/manager.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xde\x19\n" +
+	"\aManager\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12l\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12%\n" +
 	"\n" +
-	"account_id\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\taccountId\x12\xc3\x01\n" +
+	"account_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\taccountId\x12\xc3\x01\n" +
 	"\x04name\x18\x04 \x01(\tB\xae\x01\xbaH\xaa\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30\xc8\x01\x01r\x102\x0e^[^@#$%:/\\\\]+$R\x04name\x12u\n" +
 	"\vdescription\x18\x05 \x01(\tBS\xbaHP\xba\x01M\n" +
-	"\rstring.maxLen\x12)value must be no more than 180 characters\x1a\x11size(this) <= 180R\vdescription\x129\n" +
-	"\x19show_description_to_front\x18\x06 \x01(\bR\x16showDescriptionToFront\x12X\n" +
-	"\x12name_desc_i18n_map\x18\a \x03(\v2+.coreapi.model.Manager.NameDescI18nMapEntryR\x0fnameDescI18nMap\x12\x1d\n" +
+	"\rstring.maxLen\x12)value must be no more than 180 characters\x1a\x11size(this) <= 180R\vdescription\x12A\n" +
+	"\x19show_description_to_front\x18\x06 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x16showDescriptionToFront\x12X\n" +
+	"\x12name_desc_i18n_map\x18\a \x03(\v2+.coreapi.model.Manager.NameDescI18nMapEntryR\x0fnameDescI18nMap\x121\n" +
+	"\aprofile\x18\b \x01(\v2\x17.google.protobuf.StructR\aprofile\x12\x14\n" +
+	"\x05email\x18\t \x01(\tR\x05email\x125\n" +
+	"\x13show_email_to_front\x18\n" +
+	" \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x10showEmailToFront\x12#\n" +
+	"\rmobile_number\x18\v \x01(\tR\fmobileNumber\x12D\n" +
+	"\x1bshow_mobile_number_to_front\x18\f \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x17showMobileNumberToFront\x12\x17\n" +
+	"\arole_id\x18\r \x01(\tR\x06roleId\x12 \n" +
+	"\aremoved\x18\x0e \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\aremoved\x12A\n" +
 	"\n" +
-	"avatar_url\x18\b \x01(\tR\tavatarUrl\x12,\n" +
-	"\x12display_as_channel\x18\t \x01(\bR\x10displayAsChannel\x12\x91\x01\n" +
-	"\x14auto_assign_capacity\x18\v \x01(\x05B_\xbaH\\\xba\x01Y\n" +
-	"\rint32.between\x12.auto_assign_capacity must be between 0 and 200\x1a\x18this >= 0 && this <= 200R\x12autoAssignCapacity\x12!\n" +
-	"\fstatus_emoji\x18\f \x01(\tR\vstatusEmoji\x12t\n" +
-	"\vstatus_text\x18\r \x01(\tBS\xbaHP\xba\x01M\n" +
+	"created_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
+	"\n" +
+	"updated_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x129\n" +
+	"\n" +
+	"removed_at\x18\x11 \x01(\v2\x1a.google.protobuf.TimestampR\tremovedAt\x124\n" +
+	"\x12display_as_channel\x18\x12 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x10displayAsChannel\x12K\n" +
+	"\x13default_group_watch\x18\x13 \x01(\x0e2\x1b.coreapi.model.SessionWatchR\x11defaultGroupWatch\x12V\n" +
+	"\x19default_direct_chat_watch\x18\x14 \x01(\x0e2\x1b.coreapi.model.SessionWatchR\x16defaultDirectChatWatch\x12R\n" +
+	"\x17default_user_chat_watch\x18\x15 \x01(\x0e2\x1b.coreapi.model.SessionWatchR\x14defaultUserChatWatch\x12G\n" +
+	"\x10chat_alert_sound\x18\x16 \x01(\x0e2\x1d.coreapi.model.ChatAlertSoundR\x0echatAlertSound\x12G\n" +
+	"\x10meet_alert_sound\x18\x17 \x01(\x0e2\x1d.coreapi.model.MeetAlertSoundR\x0emeetAlertSound\x12L\n" +
+	"\x1freceive_mobile_push_when_online\x18\x18 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x1breceiveMobilePushWhenOnline\x12G\n" +
+	"\x1cshow_private_message_preview\x18\x19 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x19showPrivateMessagePreview\x12%\n" +
+	"\x0eoperator_score\x18\x1a \x01(\x02R\roperatorScore\x12\x1f\n" +
+	"\vtouch_score\x18\x1b \x01(\x02R\n" +
+	"touchScore\x12>\n" +
+	"\x17operator_email_reminder\x18\x1c \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x15operatorEmailReminder\x12@\n" +
+	"\x18receive_unassigned_alert\x18\x1d \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x16receiveUnassignedAlert\x12A\n" +
+	"\x19receive_missed_chat_alert\x18\x1e \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x16receiveMissedChatAlert\x12I\n" +
+	"\x1dreceive_unassigned_chat_alert\x18\x1f \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x1areceiveUnassignedChatAlert\x12I\n" +
+	"\x1dreceive_unassigned_meet_alert\x18  \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x1areceiveUnassignedMeetAlert\x12\"\n" +
+	"\boperator\x18! \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\boperator\x12,\n" +
+	"\x12operator_status_id\x18\" \x01(\tR\x10operatorStatusId\x12I\n" +
+	"\x1ddefault_all_mention_important\x18# \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x1adefaultAllMentionImportant\x12<\n" +
+	"\x16user_message_important\x18$ \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x14userMessageImportant\x12;\n" +
+	"\x1aassignable_user_chat_types\x18% \x03(\tR\x17assignableUserChatTypes\x12\x91\x01\n" +
+	"\x14auto_assign_capacity\x18& \x01(\x05B_\xbaH\\\xba\x01Y\n" +
+	"\rint32.between\x12.auto_assign_capacity must be between 0 and 200\x1a\x18this >= 0 && this <= 200R\x12autoAssignCapacity\x12B\n" +
+	"\x1aenable_auto_assign_on_sync\x18' \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x16enableAutoAssignOnSync\x12!\n" +
+	"\fstatus_emoji\x18( \x01(\tR\vstatusEmoji\x12t\n" +
+	"\vstatus_text\x18) \x01(\tBS\xbaHP\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128R\n" +
 	"statusText\x12B\n" +
-	"\x0fstatus_clear_at\x18\x0e \x01(\v2\x1a.google.protobuf.TimestampR\rstatusClearAt\x12$\n" +
-	"\x0edo_not_disturb\x18\x0f \x01(\bR\fdoNotDisturb\x12P\n" +
-	"\x17do_not_disturb_clear_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampR\x13doNotDisturbClearAt\x12\x18\n" +
-	"\aremoved\x18\x1b \x01(\bR\aremoved\x12A\n" +
+	"\x0fstatus_clear_at\x18* \x01(\v2\x1a.google.protobuf.TimestampR\rstatusClearAt\x12,\n" +
+	"\x0edo_not_disturb\x18+ \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\fdoNotDisturb\x12P\n" +
+	"\x17do_not_disturb_clear_at\x18, \x01(\v2\x1a.google.protobuf.TimestampR\x13doNotDisturbClearAt\x12;\n" +
+	"\x16account_do_not_disturb\x18- \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x13accountDoNotDisturb\x12_\n" +
+	"\x1faccount_do_not_disturb_clear_at\x18. \x01(\v2\x1a.google.protobuf.TimestampR\x1aaccountDoNotDisturbClearAt\x12J\n" +
+	"\x13operator_updated_at\x18/ \x01(\v2\x1a.google.protobuf.TimestampR\x11operatorUpdatedAt\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x1c \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x121\n" +
-	"\aprofile\x18\x1f \x01(\v2\x17.google.protobuf.StructR\aprofile\x12\x14\n" +
-	"\x05email\x18  \x01(\tR\x05email\x12-\n" +
-	"\x13show_email_to_front\x18! \x01(\bR\x10showEmailToFront\x12#\n" +
-	"\rmobile_number\x18\" \x01(\tR\fmobileNumber\x12<\n" +
-	"\x1bshow_mobile_number_to_front\x18# \x01(\bR\x17showMobileNumberToFront\x12.\n" +
-	"\x13default_group_watch\x18$ \x01(\tR\x11defaultGroupWatch\x129\n" +
-	"\x19default_direct_chat_watch\x18% \x01(\tR\x16defaultDirectChatWatch\x125\n" +
-	"\x17default_user_chat_watch\x18& \x01(\tR\x14defaultUserChatWatch\x12(\n" +
-	"\x10chat_alert_sound\x18' \x01(\tR\x0echatAlertSound\x12?\n" +
-	"\x1cshow_private_message_preview\x18( \x01(\bR\x19showPrivateMessagePreview\x12%\n" +
-	"\x0eoperator_score\x18) \x01(\x02R\roperatorScore\x12\x1f\n" +
-	"\vtouch_score\x18* \x01(\x02R\n" +
-	"touchScore\x12/\n" +
-	"\x06avatar\x18+ \x01(\v2\x17.coreapi.model.TinyFileR\x06avatar\x126\n" +
-	"\x17operator_email_reminder\x18, \x01(\bR\x15operatorEmailReminder\x12\x1a\n" +
-	"\boperator\x18- \x01(\bR\boperator\x12A\n" +
-	"\x1ddefault_all_mention_important\x18. \x01(\bR\x1adefaultAllMentionImportant\x124\n" +
-	"\x16user_message_important\x18/ \x01(\bR\x14userMessageImportant\x12\x1d\n" +
-	"\n" +
-	"manager_id\x180 \x01(\tR\tmanagerId\x12&\n" +
-	"\x0femail_for_front\x181 \x01(\tR\remailForFront\x125\n" +
-	"\x17mobile_number_for_front\x182 \x01(\tR\x14mobileNumberForFront\x12\x17\n" +
-	"\arole_id\x183 \x01(\tR\x06roleId\x12A\n" +
-	"\n" +
-	"updated_at\x186 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x1a[\n" +
+	"avatar_url\x180 \x01(\tR\tavatarUrl\x1a[\n" +
 	"\x14NameDescI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12-\n" +
-	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01Bb\n" +
+	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01*t\n" +
+	"\fSessionWatch\x12\x1d\n" +
+	"\x19SESSION_WATCH_UNSPECIFIED\x10\x00\x12\x15\n" +
+	"\x11SESSION_WATCH_ALL\x10\x01\x12\x16\n" +
+	"\x12SESSION_WATCH_INFO\x10\x02\x12\x16\n" +
+	"\x12SESSION_WATCH_NONE\x10\x03*\xb4\x02\n" +
+	"\x0eChatAlertSound\x12 \n" +
+	"\x1cCHAT_ALERT_SOUND_UNSPECIFIED\x10\x00\x12\x19\n" +
+	"\x15CHAT_ALERT_SOUND_NONE\x10\x01\x12\x19\n" +
+	"\x15CHAT_ALERT_SOUND_DROP\x10\x02\x12\x1a\n" +
+	"\x16CHAT_ALERT_SOUND_WOODY\x10\x03\x12\x1b\n" +
+	"\x17CHAT_ALERT_SOUND_BOUNCE\x10\x04\x12\x1c\n" +
+	"\x18CHAT_ALERT_SOUND_CRYSTAL\x10\x05\x12\x19\n" +
+	"\x15CHAT_ALERT_SOUND_XYLO\x10\x06\x12 \n" +
+	"\x1cCHAT_ALERT_SOUND_QUICK_KNOCK\x10\a\x12\x1a\n" +
+	"\x16CHAT_ALERT_SOUND_CANDY\x10\b\x12\x1a\n" +
+	"\x16CHAT_ALERT_SOUND_SHINE\x10\t*\xa4\x01\n" +
+	"\x0eMeetAlertSound\x12 \n" +
+	"\x1cMEET_ALERT_SOUND_UNSPECIFIED\x10\x00\x12\x19\n" +
+	"\x15MEET_ALERT_SOUND_CUTE\x10\x01\x12\x1a\n" +
+	"\x16MEET_ALERT_SOUND_BASIC\x10\x02\x12\x1b\n" +
+	"\x17MEET_ALERT_SOUND_GENTLE\x10\x03\x12\x1c\n" +
+	"\x18MEET_ALERT_SOUND_MARIMBA\x10\x04Bb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -579,29 +907,39 @@ func file_coreapi_model_manager_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_manager_proto_rawDescData
 }
 
+var file_coreapi_model_manager_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_coreapi_model_manager_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_coreapi_model_manager_proto_goTypes = []any{
-	(*Manager)(nil),               // 0: coreapi.model.Manager
-	nil,                           // 1: coreapi.model.Manager.NameDescI18nMapEntry
-	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(*structpb.Struct)(nil),       // 3: google.protobuf.Struct
-	(*TinyFile)(nil),              // 4: coreapi.model.TinyFile
-	(*NameDesc)(nil),              // 5: coreapi.model.NameDesc
+	(SessionWatch)(0),             // 0: coreapi.model.SessionWatch
+	(ChatAlertSound)(0),           // 1: coreapi.model.ChatAlertSound
+	(MeetAlertSound)(0),           // 2: coreapi.model.MeetAlertSound
+	(*Manager)(nil),               // 3: coreapi.model.Manager
+	nil,                           // 4: coreapi.model.Manager.NameDescI18nMapEntry
+	(*structpb.Struct)(nil),       // 5: google.protobuf.Struct
+	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
+	(*NameDesc)(nil),              // 7: coreapi.model.NameDesc
 }
 var file_coreapi_model_manager_proto_depIdxs = []int32{
-	1, // 0: coreapi.model.Manager.name_desc_i18n_map:type_name -> coreapi.model.Manager.NameDescI18nMapEntry
-	2, // 1: coreapi.model.Manager.status_clear_at:type_name -> google.protobuf.Timestamp
-	2, // 2: coreapi.model.Manager.do_not_disturb_clear_at:type_name -> google.protobuf.Timestamp
-	2, // 3: coreapi.model.Manager.created_at:type_name -> google.protobuf.Timestamp
-	3, // 4: coreapi.model.Manager.profile:type_name -> google.protobuf.Struct
-	4, // 5: coreapi.model.Manager.avatar:type_name -> coreapi.model.TinyFile
-	2, // 6: coreapi.model.Manager.updated_at:type_name -> google.protobuf.Timestamp
-	5, // 7: coreapi.model.Manager.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
-	8, // [8:8] is the sub-list for method output_type
-	8, // [8:8] is the sub-list for method input_type
-	8, // [8:8] is the sub-list for extension type_name
-	8, // [8:8] is the sub-list for extension extendee
-	0, // [0:8] is the sub-list for field type_name
+	4,  // 0: coreapi.model.Manager.name_desc_i18n_map:type_name -> coreapi.model.Manager.NameDescI18nMapEntry
+	5,  // 1: coreapi.model.Manager.profile:type_name -> google.protobuf.Struct
+	6,  // 2: coreapi.model.Manager.created_at:type_name -> google.protobuf.Timestamp
+	6,  // 3: coreapi.model.Manager.updated_at:type_name -> google.protobuf.Timestamp
+	6,  // 4: coreapi.model.Manager.removed_at:type_name -> google.protobuf.Timestamp
+	0,  // 5: coreapi.model.Manager.default_group_watch:type_name -> coreapi.model.SessionWatch
+	0,  // 6: coreapi.model.Manager.default_direct_chat_watch:type_name -> coreapi.model.SessionWatch
+	0,  // 7: coreapi.model.Manager.default_user_chat_watch:type_name -> coreapi.model.SessionWatch
+	1,  // 8: coreapi.model.Manager.chat_alert_sound:type_name -> coreapi.model.ChatAlertSound
+	2,  // 9: coreapi.model.Manager.meet_alert_sound:type_name -> coreapi.model.MeetAlertSound
+	6,  // 10: coreapi.model.Manager.status_clear_at:type_name -> google.protobuf.Timestamp
+	6,  // 11: coreapi.model.Manager.do_not_disturb_clear_at:type_name -> google.protobuf.Timestamp
+	6,  // 12: coreapi.model.Manager.account_do_not_disturb_clear_at:type_name -> google.protobuf.Timestamp
+	6,  // 13: coreapi.model.Manager.operator_updated_at:type_name -> google.protobuf.Timestamp
+	7,  // 14: coreapi.model.Manager.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
+	15, // [15:15] is the sub-list for method output_type
+	15, // [15:15] is the sub-list for method input_type
+	15, // [15:15] is the sub-list for extension type_name
+	15, // [15:15] is the sub-list for extension extendee
+	0,  // [0:15] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_manager_proto_init() }
@@ -610,19 +948,19 @@ func file_coreapi_model_manager_proto_init() {
 		return
 	}
 	file_coreapi_model_name_desc_proto_init()
-	file_coreapi_model_tiny_file_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_manager_proto_rawDesc), len(file_coreapi_model_manager_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      3,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_coreapi_model_manager_proto_goTypes,
 		DependencyIndexes: file_coreapi_model_manager_proto_depIdxs,
+		EnumInfos:         file_coreapi_model_manager_proto_enumTypes,
 		MessageInfos:      file_coreapi_model_manager_proto_msgTypes,
 	}.Build()
 	File_coreapi_model_manager_proto = out.File
