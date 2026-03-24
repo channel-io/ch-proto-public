@@ -34,6 +34,7 @@ message CallLog {
   // Channel ID where the call occurred.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="ch-12345"
   string channel_id = 1 [(buf.validate.field).required = true];
 
   // Reason the call was missed.

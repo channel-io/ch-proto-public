@@ -52,11 +52,13 @@ message Message {
   // Format: "{chatType}-{chatId}".
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="userChat-uc-abc123"
   string chat_key = 1 [(buf.validate.field).required = true];
 
   // Unique message identifier.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="msg-001"
   string id = 2 [(buf.validate.field).required = true];
 
   // Index key for the main (top-level) message stream.
@@ -98,6 +100,7 @@ message Message {
   // Channel ID this message belongs to.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="ch-12345"
   string channel_id = 8 [(buf.validate.field).required = true];
 
   // Chat type of the parent conversation (e.g., "userChat", "group", "directChat").

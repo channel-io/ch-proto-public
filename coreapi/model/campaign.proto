@@ -47,11 +47,13 @@ message Campaign {
   // Unique campaign identifier.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="cpn-001"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this campaign belongs to.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="ch-12345"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Human-readable label for the campaign.

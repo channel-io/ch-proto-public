@@ -25,11 +25,13 @@ message Group {
   // Unique group identifier.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="g-abc123"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this group belongs to.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="ch-12345"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Display title of the group.

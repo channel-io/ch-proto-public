@@ -77,6 +77,7 @@ message Plugin {
   // Unique plugin identifier.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="plg-001"
   string id = 1 [(buf.validate.field).required = true];
 
   // Plugin API key in UUID format.
@@ -87,6 +88,7 @@ message Plugin {
   // Channel ID this plugin belongs to.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="ch-12345"
   string channel_id = 3 [(buf.validate.field).required = true];
 
   // Current activation lifecycle state.

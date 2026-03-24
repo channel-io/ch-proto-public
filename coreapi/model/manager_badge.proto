@@ -16,6 +16,7 @@ message ManagerBadge {
   // Uses the same value as the owning manager's ID.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="m-abc123"
   string id = 1 [(buf.validate.field).required = true];
 
   // Alert-level unread count in team chat main conversations.

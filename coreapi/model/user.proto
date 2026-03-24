@@ -26,11 +26,13 @@ message User {
   // Unique user identifier.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="u-abc123"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this user belongs to.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="ch-12345"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // External member ID provided at boot or manual creation.
@@ -38,11 +40,13 @@ message User {
   // the veil_id.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="member-001"
   string member_id = 3;
 
   // Cookie-based device identifier assigned to anonymous visitors.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
   string veil_id = 4;
 
   // ID of the unified identity when multiple user records have been merged.
@@ -84,12 +88,14 @@ message User {
   // (e.g., "KR", "US").
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="KR"
   string country = 12;
 
   // IANA time zone identifier derived from the user's IP geolocation
   // (e.g., "Asia/Seoul").
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="Asia/Seoul"
   string time_zone = 13;
 
   // User creation timestamp.
@@ -125,6 +131,7 @@ message User {
   // Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="ko"
   string language = 19;
 
   // Whether the user has opted out of email notifications.
@@ -162,6 +169,7 @@ message User {
   // in the profile.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
   string avatar_url = 26;
 
   // Whether the user has a display name set in the profile
@@ -191,6 +199,7 @@ message User {
   // Display name of the user, derived from the profile's name field.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="John Doe"
   string name = 31;
 
   // Whether the user has at least one managed chat conversation.
@@ -206,11 +215,13 @@ message User {
   // Province or state name derived from IP geolocation.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="Seoul"
   string province = 34;
 
   // City name derived from IP geolocation.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="Gangnam-gu"
   string city = 35;
 
   // Latitude coordinate derived from IP geolocation.
@@ -268,16 +279,19 @@ message User {
   // Email address extracted from the user's profile data.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="user@example.com"
   string email = 46;
 
   // Mobile phone number extracted from the user's profile data.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="+821012345678"
   string mobile_number = 47;
 
   // Landline phone number extracted from the user's profile data.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="+8221234567"
   string landline_number = 48;
 }
 

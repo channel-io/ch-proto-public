@@ -92,11 +92,13 @@ message UserChat {
   // Unique user chat identifier.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="uc-abc123"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this user chat belongs to.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="ch-12345"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Contact medium type identifier for chats originating from external
@@ -136,6 +138,7 @@ message UserChat {
   // ID of the user who owns this chat conversation.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="u-abc123"
   string user_id = 9;
 
   // ID of the external service user linked to this chat

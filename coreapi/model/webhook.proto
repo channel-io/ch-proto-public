@@ -28,11 +28,13 @@ message Webhook {
   // Unique webhook identifier.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="100"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this webhook belongs to.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="ch-12345"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Webhook display name.
@@ -53,6 +55,7 @@ message Webhook {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="https://example.com/webhook"
   string url = 4 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -66,6 +69,7 @@ message Webhook {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="whk_abc123xyz789"
   string token = 5 [
     (buf.validate.field).cel = {
       id: "string.minLen"

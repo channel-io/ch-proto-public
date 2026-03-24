@@ -47,17 +47,20 @@ message Manager {
   // Unique manager identifier.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="m-abc123"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this manager belongs to.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="ch-12345"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Account ID of the person linked to this manager.
   // Unique per channel among non-removed managers.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="a-xyz789"
   string account_id = 3 [(buf.validate.field).required = true];
 
   // Manager display name shown to end users and teammates.
@@ -86,6 +89,7 @@ message Manager {
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxLength=180
+  // +kubebuilder:example="Product team lead"
   string description = 5 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 180 characters"
@@ -111,6 +115,7 @@ message Manager {
   // Unique per channel among non-removed managers.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="manager@example.com"
   string email = 9;
 
   // Whether the email address is visible to end-user visitors.
@@ -121,6 +126,7 @@ message Manager {
   // Manager mobile phone number in E.164 format (e.g., +821012345678).
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="+821012345678"
   string mobile_number = 11;
 
   // Whether the mobile number is visible to end-user visitors.
@@ -131,6 +137,7 @@ message Manager {
   // Role ID assigned to this manager, defining permissions and access levels.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="role-owner"
   string role_id = 13;
 
   // Whether this manager has been soft-deleted from the channel.
@@ -281,6 +288,7 @@ message Manager {
   // Must be set together with status_text; both or neither should be present.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="coffee"
   string status_emoji = 40;
 
   // Short text displayed alongside the manager name as a status indicator.
@@ -288,6 +296,7 @@ message Manager {
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxLength=128
+  // +kubebuilder:example="In a meeting until 3pm"
   string status_text = 41 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 128 characters"
@@ -328,5 +337,6 @@ message Manager {
   // Falls back to a system-generated default when no custom avatar is set.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
   string avatar_url = 48;
 }

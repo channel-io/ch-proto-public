@@ -28,11 +28,13 @@ message ChatTag {
   // Unique chat tag identifier.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="tag-001"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this chat tag belongs to.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="ch-12345"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Color theme of the chat tag.

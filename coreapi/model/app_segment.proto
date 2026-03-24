@@ -15,6 +15,7 @@ message AppSegment {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="app-001"
   string app_id = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -28,6 +29,7 @@ message AppSegment {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="ext-001"
   string extension_id = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -41,6 +43,7 @@ message AppSegment {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="seg-001"
   string segment_id = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"

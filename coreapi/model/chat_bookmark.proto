@@ -16,6 +16,7 @@ message ChatBookmark {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="manager-m001-userChat"
   string key = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -29,6 +30,7 @@ message ChatBookmark {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="uc-abc123"
   string chat_id = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -68,6 +70,7 @@ message ChatBookmark {
   // Channel ID this bookmark belongs to.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="ch-12345"
   string channel_id = 5 [(buf.validate.field).required = true];
 
   // Entity version number for optimistic concurrency control.
