@@ -3,7 +3,8 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
-import "coreapi/model/message_content.proto";
+import "coreapi/model/block.proto";
+import "coreapi/model/user_chat.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
@@ -11,35 +12,24 @@ option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
 // Direction of a phone call relative to the channel.
+// - INBOUND: Call received from an external caller.
+// - OUTBOUND: Call initiated by a manager to an external number.
 enum CallDirection {
   CALL_DIRECTION_UNSPECIFIED = 0;
   CALL_DIRECTION_INBOUND = 1;
   CALL_DIRECTION_OUTBOUND = 2;
 }
 
-// Current state of a phone call.
+// Current state of a phone call in its lifecycle.
+// - WAITING: The call is ringing or queued, not yet answered.
+// - ENGAGED: The call is actively connected between participants.
 enum CallState {
   CALL_STATE_UNSPECIFIED = 0;
   CALL_STATE_WAITING = 1;
   CALL_STATE_ENGAGED = 2;
 }
 
-// Reason why a call was missed without being answered.
-enum MissedReason {
-  MISSED_REASON_UNSPECIFIED = 0;
-  MISSED_REASON_NOT_IN_OPERATION = 1;
-  MISSED_REASON_USER_LEFT = 2;
-  MISSED_REASON_RING_TIME_OVER = 3;
-  MISSED_REASON_INBOUND_RATE_LIMIT = 4;
-  MISSED_REASON_NO_OPERATOR = 5;
-  MISSED_REASON_EXCEEDED_QUEUE = 6;
-  MISSED_REASON_ABANDONED_IN_QUEUE = 7;
-  MISSED_REASON_WORKFLOW = 8;
-  MISSED_REASON_MANAGER_LEFT = 9;
-  MISSED_REASON_NO_FALLBACK_CLIENT = 10;
-}
-
-// CallLog represents a record of a phone call in a channel.
+// CallLog represents a record of a phone call associated with a channel.
 message CallLog {
   // Channel ID where the call occurred.
   //
@@ -55,27 +45,27 @@ message CallLog {
   ];
 
   // Reason the call was missed.
-  // Only present for missed calls.
+  // Only present when the call ended without being answered.
   //
   // +kubebuilder:validation:Nullable
   MissedReason missed_reason = 2;
 
-  // Direction of the call relative to the channel.
+  // Whether the call was inbound (received) or outbound (initiated).
   //
   // +kubebuilder:validation:Nullable
   CallDirection direction = 3;
 
-  // Current state of the call.
+  // Current lifecycle state indicating whether the call is waiting or connected.
   //
   // +kubebuilder:validation:Nullable
   CallState state = 4;
 
-  // Caller phone number or identifier.
+  // Originating phone number or caller identifier.
   //
   // +kubebuilder:validation:Nullable
   string from = 5;
 
-  // Callee phone number or identifier.
+  // Destination phone number or callee identifier.
   //
   // +kubebuilder:validation:Nullable
   string to = 6;
@@ -90,22 +80,25 @@ message CallLog {
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp updated_at = 8 [(buf.validate.field).required = true];
 
-  // Timestamp when the call was answered.
+  // Timestamp when the call was answered and the conversation began.
+  // Absent if the call was never answered.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp engaged_at = 9;
 
-  // Timestamp when the call ended.
+  // Timestamp when the call ended and the connection was terminated.
+  // Absent if the call is still active or was never connected.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp closed_at = 10;
 
-  // User chat ID associated with this call.
+  // User chat ID linked to this call.
+  // Present when the call is associated with a user chat conversation.
   //
   // +kubebuilder:validation:Nullable
   string user_chat_id = 11;
 
-  // Manager IDs who participated in the call.
+  // List of manager IDs who participated in or handled the call.
   //
   // +kubebuilder:validation:Nullable
   repeated string manager_ids = 12;

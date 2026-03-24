@@ -34,107 +34,110 @@ public final class PluginOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\032coreapi/model/plugin.proto\022\rcoreapi.mo" +
-      "del\032\033buf/validate/validate.proto\032\035coreap" +
-      "i/model/tiny_file.proto\032\037google/protobuf" +
-      "/timestamp.proto\"\371\020\n\006Plugin\022]\n\002id\030\001 \001(\tB" +
-      "M\272HJ\272\001D\n\rstring.minLen\022\"value must be at" +
-      " least 1 character\032\017size(this) >= 1\310\001\001R\002" +
-      "id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.m" +
-      "inLen\022\"value must be at least 1 characte" +
-      "r\032\017size(this) >= 1\310\001\001R\tchannelId\022\261\001\n\004nam" +
-      "e\030\003 \001(\tB\234\001\272H\230\001\272\001D\n\rstring.minLen\022\"value " +
-      "must be at least 1 character\032\017size(this)" +
-      " >= 1\272\001K\n\rstring.maxLen\022(value must be n" +
-      "o more than 30 characters\032\020size(this) <=" +
-      " 30\310\001\001R\004name\0228\n\005state\030\004 \001(\0162\032.coreapi.mo" +
-      "del.PluginStateB\006\272H\003\310\001\001R\005state\022!\n\014label_" +
-      "button\030\006 \001(\010R\013labelButton\022\236\001\n\021label_butt" +
-      "on_text\030\007 \001(\tBr\272Ho\272\001l\n\nstring.len\022)value" +
-      " must be between 4 and 30 characters\0323th" +
-      "is == \'\' || (size(this) >= 4 && size(thi" +
-      "s) <= 30)R\017labelButtonText\022m\n\032label_butt" +
-      "on_text_i18n_map\030\010 \003(\01321.coreapi.model.P" +
-      "lugin.LabelButtonTextI18nMapEntryR\026label" +
-      "ButtonTextI18nMap\022$\n\016desk_image_url\030\014 \001(" +
-      "\tR\014deskImageUrl\022\"\n\rdesk_margin_x\030\r \001(\005R\013" +
-      "deskMarginX\022\"\n\rdesk_margin_y\030\016 \001(\005R\013desk" +
-      "MarginY\022B\n\rdesk_position\030\020 \001(\0162\035.coreapi" +
-      ".model.PluginPositionR\014deskPosition\022(\n\020m" +
-      "obile_image_url\030\021 \001(\tR\016mobileImageUrl\022&\n" +
-      "\017mobile_margin_x\030\022 \001(\005R\rmobileMarginX\022&\n" +
-      "\017mobile_margin_y\030\023 \001(\005R\rmobileMarginY\022F\n" +
-      "\017mobile_position\030\024 \001(\0162\035.coreapi.model.P" +
-      "luginPositionR\016mobilePosition\022,\n\022mobile_" +
-      "hide_button\030\025 \001(\010R\020mobileHideButton\022Y\n\026m" +
-      "obile_bubble_position\030\026 \001(\0162#.coreapi.mo" +
-      "del.PluginBubblePositionR\024mobileBubblePo" +
-      "sition\022\207\001\n\010run_rate\030\027 \001(\002Bl\272Hi\272\0012\n\tfloat" +
-      ".gte\022\030value must be at least 0\032\013this >= " +
-      "0.0\272\0011\n\tfloat.lte\022\027value must be at most" +
-      " 1\032\013this <= 1.0R\007runRate\022*\n\021facebook_pix" +
-      "el_id\030\030 \001(\tR\017facebookPixelId\022A\n\ncreated_" +
-      "at\030\031 \001(\0132\032.google.protobuf.TimestampB\006\272H" +
-      "\003\310\001\001R\tcreatedAt\022\020\n\003key\030\032 \001(\tR\003key\0226\n\ndes" +
-      "k_image\030\033 \001(\0132\027.coreapi.model.TinyFileR\t" +
-      "deskImage\022:\n\014mobile_image\030\034 \001(\0132\027.coreap" +
-      "i.model.TinyFileR\013mobileImage\022#\n\rurl_whi" +
-      "telist\030\035 \003(\tR\014urlWhitelist\0225\n\027valid_labe" +
-      "l_button_text\030\036 \001(\010R\024validLabelButtonTex" +
-      "t\022E\n valid_label_button_text_i18n_map\030\037 " +
-      "\001(\010R\033validLabelButtonTextI18nMap\022?\n\nappe" +
-      "arance\030  \001(\0162\037.coreapi.model.PluginAppea" +
-      "ranceR\nappearance\022@\n\013button_type\030! \001(\0162\037" +
-      ".coreapi.model.PluginButtonTypeR\nbuttonT" +
-      "ype\022(\n\020custom_image_url\030\" \001(\tR\016customIma" +
-      "geUrl\022(\n\020desk_hide_button\030# \001(\010R\016deskHid" +
-      "eButton\022@\n\013icon_button\030$ \001(\0162\037.coreapi.m" +
-      "odel.PluginIconButtonR\niconButton\032I\n\033Lab" +
-      "elButtonTextI18nMapEntry\022\020\n\003key\030\001 \001(\tR\003k" +
-      "ey\022\024\n\005value\030\002 \001(\tR\005value:\0028\001*^\n\013PluginSt" +
-      "ate\022\034\n\030PLUGIN_STATE_UNSPECIFIED\020\000\022\030\n\024PLU" +
-      "GIN_STATE_WAITING\020\001\022\027\n\023PLUGIN_STATE_ACTI" +
-      "VE\020\002*\214\001\n\020PluginAppearance\022!\n\035PLUGIN_APPE" +
-      "ARANCE_UNSPECIFIED\020\000\022\033\n\027PLUGIN_APPEARANC" +
-      "E_LIGHT\020\001\022\032\n\026PLUGIN_APPEARANCE_DARK\020\002\022\034\n" +
-      "\030PLUGIN_APPEARANCE_SYSTEM\020\003*f\n\016PluginPos" +
-      "ition\022\037\n\033PLUGIN_POSITION_UNSPECIFIED\020\000\022\030" +
-      "\n\024PLUGIN_POSITION_LEFT\020\001\022\031\n\025PLUGIN_POSIT" +
-      "ION_RIGHT\020\002*\236\001\n\020PluginButtonType\022\"\n\036PLUG" +
-      "IN_BUTTON_TYPE_UNSPECIFIED\020\000\022\035\n\031PLUGIN_B" +
-      "UTTON_TYPE_LEGACY\020\001\022#\n\037PLUGIN_BUTTON_TYP" +
-      "E_CUSTOM_IMAGE\020\002\022\"\n\036PLUGIN_BUTTON_TYPE_I" +
-      "CON_BUTTON\020\003*\224\006\n\020PluginIconButton\022\"\n\036PLU" +
-      "GIN_ICON_BUTTON_UNSPECIFIED\020\000\022\036\n\032PLUGIN_" +
-      "ICON_BUTTON_CHANNEL\020\001\022%\n!PLUGIN_ICON_BUT" +
-      "TON_CHANNEL_FILLED\020\002\022&\n\"PLUGIN_ICON_BUTT" +
-      "ON_CHAT_BUBBLE_ALT\020\003\022-\n)PLUGIN_ICON_BUTT" +
-      "ON_CHAT_BUBBLE_ALT_FILLED\020\004\022)\n%PLUGIN_IC" +
-      "ON_BUTTON_CHAT_BUBBLE_FILLED\020\005\022,\n(PLUGIN" +
-      "_ICON_BUTTON_CHAT_LIGHTNING_FILLED\020\006\022$\n " +
-      "PLUGIN_ICON_BUTTON_CHAT_PROGRESS\020\007\022+\n\'PL" +
-      "UGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED\020\010\022" +
-      "$\n PLUGIN_ICON_BUTTON_CHAT_QUESTION\020\t\022+\n" +
-      "\'PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED" +
-      "\020\n\022\036\n\032PLUGIN_ICON_BUTTON_COMMENT\020\013\022%\n!PL" +
-      "UGIN_ICON_BUTTON_COMMENT_FILLED\020\014\022$\n PLU" +
-      "GIN_ICON_BUTTON_COMMUNICATION\020\r\022\036\n\032PLUGI" +
-      "N_ICON_BUTTON_HEADSET\020\016\022\"\n\036PLUGIN_ICON_B" +
-      "UTTON_HELP_FILLED\020\017\022#\n\037PLUGIN_ICON_BUTTO" +
-      "N_SEND_FORWARD\020\020\022*\n&PLUGIN_ICON_BUTTON_S" +
-      "END_FORWARD_FILLED\020\021\022\032\n\026PLUGIN_ICON_BUTT" +
-      "ON_SMS\020\022\022!\n\035PLUGIN_ICON_BUTTON_SMS_FILLE" +
-      "D\020\023*\201\001\n\024PluginBubblePosition\022&\n\"PLUGIN_B" +
-      "UBBLE_POSITION_UNSPECIFIED\020\000\022\036\n\032PLUGIN_B" +
-      "UBBLE_POSITION_TOP\020\001\022!\n\035PLUGIN_BUBBLE_PO" +
-      "SITION_BOTTOM\020\002Bb\n&io.channel.api.proto." +
-      "pub.coreapi.modelP\001Z6github.com/channel-" +
-      "io/ch-proto-public/coreapi/go/modelb\006pro" +
-      "to3"
+      "del\032\033buf/validate/validate.proto\032\036coreap" +
+      "i/model/image_file.proto\032\035coreapi/model/" +
+      "tiny_file.proto\032\037google/protobuf/timesta" +
+      "mp.proto\"\253\021\n\006Plugin\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n" +
+      "\rstring.minLen\022\"value must be at least 1" +
+      " character\032\017size(this) >= 1\310\001\001R\002id\022\030\n\003ke" +
+      "y\030\002 \001(\tB\006\272H\003\310\001\001R\003key\022l\n\nchannel_id\030\003 \001(\t" +
+      "BM\272HJ\272\001D\n\rstring.minLen\022\"value must be a" +
+      "t least 1 character\032\017size(this) >= 1\310\001\001R" +
+      "\tchannelId\0220\n\005state\030\004 \001(\0162\032.coreapi.mode" +
+      "l.PluginStateR\005state\022\261\001\n\004name\030\005 \001(\tB\234\001\272H" +
+      "\230\001\272\001D\n\rstring.minLen\022\"value must be at l" +
+      "east 1 character\032\017size(this) >= 1\272\001K\n\rst" +
+      "ring.maxLen\022(value must be no more than " +
+      "30 characters\032\020size(this) <= 30\310\001\001R\004name" +
+      "\022A\n\ncreated_at\030\006 \001(\0132\032.google.protobuf.T" +
+      "imestampB\006\272H\003\310\001\001R\tcreatedAt\022G\n\nappearanc" +
+      "e\030\007 \001(\0162\037.coreapi.model.PluginAppearance" +
+      "B\006\272H\003\310\001\001R\nappearance\022)\n\014label_button\030\010 \001" +
+      "(\010B\006\272H\003\310\001\001R\013labelButton\022\307\001\n\021label_button" +
+      "_text\030\t \001(\tB\232\001\272H\226\001\272\001E\n\rstring.minLen\022#va" +
+      "lue must be at least 4 characters\032\017size(" +
+      "this) >= 4\272\001K\n\rstring.maxLen\022(value must" +
+      " be no more than 30 characters\032\020size(thi" +
+      "s) <= 30R\017labelButtonText\022m\n\032label_butto" +
+      "n_text_i18n_map\030\n \003(\01321.coreapi.model.Pl" +
+      "ugin.LabelButtonTextI18nMapEntryR\026labelB" +
+      "uttonTextI18nMap\022H\n\013button_type\030\013 \001(\0162\037." +
+      "coreapi.model.PluginButtonTypeB\006\272H\003\310\001\001R\n" +
+      "buttonType\022H\n\013icon_button\030\014 \001(\0162\037.coreap" +
+      "i.model.PluginIconButtonB\006\272H\003\310\001\001R\niconBu" +
+      "tton\022;\n\014custom_image\030\r \001(\0132\030.coreapi.mod" +
+      "el.ImageFileR\013customImage\0226\n\ndesk_image\030" +
+      "\016 \001(\0132\027.coreapi.model.TinyFileR\tdeskImag" +
+      "e\022\"\n\rdesk_margin_x\030\017 \001(\005R\013deskMarginX\022\"\n" +
+      "\rdesk_margin_y\030\020 \001(\005R\013deskMarginY\022(\n\020des" +
+      "k_hide_button\030\021 \001(\010R\016deskHideButton\022B\n\rd" +
+      "esk_position\030\022 \001(\0162\035.coreapi.model.Plugi" +
+      "nPositionR\014deskPosition\022:\n\014mobile_image\030" +
+      "\023 \001(\0132\027.coreapi.model.TinyFileR\013mobileIm" +
+      "age\022&\n\017mobile_margin_x\030\024 \001(\005R\rmobileMarg" +
+      "inX\022&\n\017mobile_margin_y\030\025 \001(\005R\rmobileMarg" +
+      "inY\022F\n\017mobile_position\030\026 \001(\0162\035.coreapi.m" +
+      "odel.PluginPositionR\016mobilePosition\022,\n\022m" +
+      "obile_hide_button\030\027 \001(\010R\020mobileHideButto" +
+      "n\022Y\n\026mobile_bubble_position\030\030 \001(\0162#.core" +
+      "api.model.PluginBubblePositionR\024mobileBu" +
+      "bblePosition\022-\n\rurl_whitelist\030\031 \003(\tB\010\272H\005" +
+      "\222\001\002\020\005R\014urlWhitelist\022\247\001\n\010run_rate\030\032 \001(\002B\213" +
+      "\001\272H\207\001\272\001B\n\tfloat.gte\022(value must be great" +
+      "er than or equal to 0\032\013this >= 0.0\272\001?\n\tf" +
+      "loat.lte\022%value must be less than or equ" +
+      "al to 1\032\013this <= 1.0R\007runRate\022*\n\021faceboo" +
+      "k_pixel_id\030\033 \001(\tR\017facebookPixelId\022(\n\020cus" +
+      "tom_image_url\030\034 \001(\tR\016customImageUrl\022$\n\016d" +
+      "esk_image_url\030\035 \001(\tR\014deskImageUrl\022(\n\020mob" +
+      "ile_image_url\030\036 \001(\tR\016mobileImageUrl\032I\n\033L" +
+      "abelButtonTextI18nMapEntry\022\020\n\003key\030\001 \001(\tR" +
+      "\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001*^\n\013Plugin" +
+      "State\022\034\n\030PLUGIN_STATE_UNSPECIFIED\020\000\022\030\n\024P" +
+      "LUGIN_STATE_WAITING\020\001\022\027\n\023PLUGIN_STATE_AC" +
+      "TIVE\020\002*\214\001\n\020PluginAppearance\022!\n\035PLUGIN_AP" +
+      "PEARANCE_UNSPECIFIED\020\000\022\033\n\027PLUGIN_APPEARA" +
+      "NCE_LIGHT\020\001\022\032\n\026PLUGIN_APPEARANCE_DARK\020\002\022" +
+      "\034\n\030PLUGIN_APPEARANCE_SYSTEM\020\003*\236\001\n\020Plugin" +
+      "ButtonType\022\"\n\036PLUGIN_BUTTON_TYPE_UNSPECI" +
+      "FIED\020\000\022\035\n\031PLUGIN_BUTTON_TYPE_LEGACY\020\001\022#\n" +
+      "\037PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE\020\002\022\"\n\036PL" +
+      "UGIN_BUTTON_TYPE_ICON_BUTTON\020\003*\224\006\n\020Plugi" +
+      "nIconButton\022\"\n\036PLUGIN_ICON_BUTTON_UNSPEC" +
+      "IFIED\020\000\022\036\n\032PLUGIN_ICON_BUTTON_CHANNEL\020\001\022" +
+      "%\n!PLUGIN_ICON_BUTTON_CHANNEL_FILLED\020\002\022&" +
+      "\n\"PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT\020\003\022-" +
+      "\n)PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_FIL" +
+      "LED\020\004\022)\n%PLUGIN_ICON_BUTTON_CHAT_BUBBLE_" +
+      "FILLED\020\005\022,\n(PLUGIN_ICON_BUTTON_CHAT_LIGH" +
+      "TNING_FILLED\020\006\022$\n PLUGIN_ICON_BUTTON_CHA" +
+      "T_PROGRESS\020\007\022+\n\'PLUGIN_ICON_BUTTON_CHAT_" +
+      "PROGRESS_FILLED\020\010\022$\n PLUGIN_ICON_BUTTON_" +
+      "CHAT_QUESTION\020\t\022+\n\'PLUGIN_ICON_BUTTON_CH" +
+      "AT_QUESTION_FILLED\020\n\022\036\n\032PLUGIN_ICON_BUTT" +
+      "ON_COMMENT\020\013\022%\n!PLUGIN_ICON_BUTTON_COMME" +
+      "NT_FILLED\020\014\022$\n PLUGIN_ICON_BUTTON_COMMUN" +
+      "ICATION\020\r\022\036\n\032PLUGIN_ICON_BUTTON_HEADSET\020" +
+      "\016\022\"\n\036PLUGIN_ICON_BUTTON_HELP_FILLED\020\017\022#\n" +
+      "\037PLUGIN_ICON_BUTTON_SEND_FORWARD\020\020\022*\n&PL" +
+      "UGIN_ICON_BUTTON_SEND_FORWARD_FILLED\020\021\022\032" +
+      "\n\026PLUGIN_ICON_BUTTON_SMS\020\022\022!\n\035PLUGIN_ICO" +
+      "N_BUTTON_SMS_FILLED\020\023*f\n\016PluginPosition\022" +
+      "\037\n\033PLUGIN_POSITION_UNSPECIFIED\020\000\022\030\n\024PLUG" +
+      "IN_POSITION_LEFT\020\001\022\031\n\025PLUGIN_POSITION_RI" +
+      "GHT\020\002*\201\001\n\024PluginBubblePosition\022&\n\"PLUGIN" +
+      "_BUBBLE_POSITION_UNSPECIFIED\020\000\022\036\n\032PLUGIN" +
+      "_BUBBLE_POSITION_TOP\020\001\022!\n\035PLUGIN_BUBBLE_" +
+      "POSITION_BOTTOM\020\002Bb\n&io.channel.api.prot" +
+      "o.pub.coreapi.modelP\001Z6github.com/channe" +
+      "l-io/ch-proto-public/coreapi/go/modelb\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.ImageFileOuterClass.getDescriptor(),
           io.channel.api.proto.pub.coreapi.model.TinyFileOuterClass.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
@@ -143,7 +146,7 @@ public final class PluginOuterClass {
     internal_static_coreapi_model_Plugin_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Plugin_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "Name", "State", "LabelButton", "LabelButtonText", "LabelButtonTextI18NMap", "DeskImageUrl", "DeskMarginX", "DeskMarginY", "DeskPosition", "MobileImageUrl", "MobileMarginX", "MobileMarginY", "MobilePosition", "MobileHideButton", "MobileBubblePosition", "RunRate", "FacebookPixelId", "CreatedAt", "Key", "DeskImage", "MobileImage", "UrlWhitelist", "ValidLabelButtonText", "ValidLabelButtonTextI18NMap", "Appearance", "ButtonType", "CustomImageUrl", "DeskHideButton", "IconButton", });
+        new java.lang.String[] { "Id", "Key", "ChannelId", "State", "Name", "CreatedAt", "Appearance", "LabelButton", "LabelButtonText", "LabelButtonTextI18NMap", "ButtonType", "IconButton", "CustomImage", "DeskImage", "DeskMarginX", "DeskMarginY", "DeskHideButton", "DeskPosition", "MobileImage", "MobileMarginX", "MobileMarginY", "MobilePosition", "MobileHideButton", "MobileBubblePosition", "UrlWhitelist", "RunRate", "FacebookPixelId", "CustomImageUrl", "DeskImageUrl", "MobileImageUrl", });
     internal_static_coreapi_model_Plugin_LabelButtonTextI18nMapEntry_descriptor =
       internal_static_coreapi_model_Plugin_descriptor.getNestedTypes().get(0);
     internal_static_coreapi_model_Plugin_LabelButtonTextI18nMapEntry_fieldAccessorTable = new
@@ -156,6 +159,7 @@ public final class PluginOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.ImageFileOuterClass.getDescriptor();
     io.channel.api.proto.pub.coreapi.model.TinyFileOuterClass.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }

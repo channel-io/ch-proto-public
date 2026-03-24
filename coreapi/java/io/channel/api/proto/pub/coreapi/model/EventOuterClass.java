@@ -19,6 +19,11 @@ public final class EventOuterClass {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_coreapi_model_Event_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_model_Event_NameI18nMapEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_model_Event_NameI18nMapEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -31,12 +36,12 @@ public final class EventOuterClass {
       "\n\031coreapi/model/event.proto\022\rcoreapi.mod" +
       "el\032\033buf/validate/validate.proto\032\034google/" +
       "protobuf/struct.proto\032\037google/protobuf/t" +
-      "imestamp.proto\"\273\005\n\005Event\022]\n\002id\030\001 \001(\tBM\272H" +
-      "J\272\001D\n\rstring.minLen\022\"value must be at le" +
-      "ast 1 character\032\017size(this) >= 1\310\001\001R\002id\022" +
-      "f\n\007user_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022" +
-      "\"value must be at least 1 character\032\017siz" +
-      "e(this) >= 1\310\001\001R\006userId\022l\n\nchannel_id\030\003 " +
+      "imestamp.proto\"\306\006\n\005Event\022f\n\007user_id\030\001 \001(" +
+      "\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must be " +
+      "at least 1 character\032\017size(this) >= 1\310\001\001" +
+      "R\006userId\022]\n\002id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.min" +
+      "Len\022\"value must be at least 1 character\032" +
+      "\017size(this) >= 1\310\001\001R\002id\022l\n\nchannel_id\030\003 " +
       "\001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must b" +
       "e at least 1 character\032\017size(this) >= 1\310" +
       "\001\001R\tchannelId\022\261\001\n\004name\030\004 \001(\tB\234\001\272H\230\001\272\001D\n\r" +
@@ -48,10 +53,14 @@ public final class EventOuterClass {
       "operty\022A\n\ncreated_at\030\006 \001(\0132\032.google.prot" +
       "obuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt\0227\n\texp" +
       "ire_at\030\007 \001(\0132\032.google.protobuf.Timestamp" +
-      "R\010expireAt\022\030\n\007version\030\010 \001(\003R\007versionBb\n&" +
-      "io.channel.api.proto.pub.coreapi.modelP\001" +
-      "Z6github.com/channel-io/ch-proto-public/" +
-      "coreapi/go/modelb\006proto3"
+      "R\010expireAt\022\030\n\007version\030\010 \001(\003R\007version\022I\n\r" +
+      "name_i18n_map\030\t \003(\0132%.coreapi.model.Even" +
+      "t.NameI18nMapEntryR\013nameI18nMap\032>\n\020NameI" +
+      "18nMapEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002" +
+      " \001(\tR\005value:\0028\001Bb\n&io.channel.api.proto." +
+      "pub.coreapi.modelP\001Z6github.com/channel-" +
+      "io/ch-proto-public/coreapi/go/modelb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -65,7 +74,13 @@ public final class EventOuterClass {
     internal_static_coreapi_model_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Event_descriptor,
-        new java.lang.String[] { "Id", "UserId", "ChannelId", "Name", "Property", "CreatedAt", "ExpireAt", "Version", });
+        new java.lang.String[] { "UserId", "Id", "ChannelId", "Name", "Property", "CreatedAt", "ExpireAt", "Version", "NameI18NMap", });
+    internal_static_coreapi_model_Event_NameI18nMapEntry_descriptor =
+      internal_static_coreapi_model_Event_descriptor.getNestedTypes().get(0);
+    internal_static_coreapi_model_Event_NameI18nMapEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_model_Event_NameI18nMapEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);

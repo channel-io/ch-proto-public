@@ -9,8 +9,7 @@ public interface OperatorStatusOrBuilder extends
 
   /**
    * <pre>
-   * Unique operator status identifier.
-   * Same as the manager ID.
+   * Unique operator status identifier, matching the associated manager ID.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -21,8 +20,7 @@ public interface OperatorStatusOrBuilder extends
   java.lang.String getId();
   /**
    * <pre>
-   * Unique operator status identifier.
-   * Same as the manager ID.
+   * Unique operator status identifier, matching the associated manager ID.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -35,7 +33,7 @@ public interface OperatorStatusOrBuilder extends
 
   /**
    * <pre>
-   * ID of the manager this status belongs to.
+   * Manager ID this operator status belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -46,7 +44,7 @@ public interface OperatorStatusOrBuilder extends
   java.lang.String getManagerId();
   /**
    * <pre>
-   * ID of the manager this status belongs to.
+   * Manager ID this operator status belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -83,32 +81,33 @@ public interface OperatorStatusOrBuilder extends
 
   /**
    * <pre>
-   * Current activity type of the operator.
+   * Current activity state of the manager, used for chat routing and workload management.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+   * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
    * @return The enum numeric value on the wire for operatorStatusType.
    */
   int getOperatorStatusTypeValue();
   /**
    * <pre>
-   * Current activity type of the operator.
+   * Current activity state of the manager, used for chat routing and workload management.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+   * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
    * @return The operatorStatusType.
    */
-  io.channel.api.proto.pub.coreapi.model.OperatorStatusType getOperatorStatusType();
+  io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType getOperatorStatusType();
 
   /**
    * <pre>
-   * Whether the operator is enabled for assignment.
-   * +kubebuilder:validation:Nullable
+   * Whether the manager is enabled to receive and handle chats.
+   * Disabled managers are excluded from auto-assignment.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool enable = 5 [json_name = "enable"];</code>
+   * <code>bool enable = 5 [json_name = "enable", (.buf.validate.field) = { ... }</code>
    * @return The enable.
    */
   boolean getEnable();
@@ -175,7 +174,8 @@ public interface OperatorStatusOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the operator status type was last changed.
+   * Timestamp when `operator_status_type` was last changed.
+   * Differs from `updated_at` which tracks any field update.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -185,7 +185,8 @@ public interface OperatorStatusOrBuilder extends
   boolean hasTypeUpdatedAt();
   /**
    * <pre>
-   * Timestamp when the operator status type was last changed.
+   * Timestamp when `operator_status_type` was last changed.
+   * Differs from `updated_at` which tracks any field update.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -195,11 +196,23 @@ public interface OperatorStatusOrBuilder extends
   com.google.protobuf.Timestamp getTypeUpdatedAt();
   /**
    * <pre>
-   * Timestamp when the operator status type was last changed.
+   * Timestamp when `operator_status_type` was last changed.
+   * Differs from `updated_at` which tracks any field update.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>.google.protobuf.Timestamp type_updated_at = 8 [json_name = "typeUpdatedAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getTypeUpdatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Optimistic locking version for concurrent update detection.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int64 version = 9 [json_name = "version"];</code>
+   * @return The version.
+   */
+  long getVersion();
 }

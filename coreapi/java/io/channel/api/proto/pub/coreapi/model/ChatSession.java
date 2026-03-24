@@ -5,9 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * ChatSession represents a participant's membership and reading state in a chat.
- * Each session tracks an individual member's reading position, unread counts,
- * and notification preferences.
+ * ChatSession represents a per-person view of a chat conversation,
+ * tracking read state, notification counts, and preferences.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.ChatSession}
@@ -22,17 +21,18 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ChatSession() {
-    id_ = "";
     key_ = "";
-    channelId_ = "";
-    chatType_ = "";
     chatId_ = "";
+    teamChatSectionId_ = "";
     chatKey_ = "";
-    personType_ = "";
-    personId_ = "";
     updatedKey_ = "";
     unreadKey_ = "";
+    channelId_ = "";
     watch_ = 0;
+    id_ = "";
+    chatType_ = "";
+    personType_ = "";
+    personId_ = "";
   }
 
   @java.lang.Override
@@ -68,85 +68,67 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            id_ = s;
+            key_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            key_ = s;
+            chatId_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            channelId_ = s;
+            teamChatSectionId_ = s;
             break;
           }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            chatType_ = s;
+            chatKey_ = s;
             break;
           }
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            chatId_ = s;
+            updatedKey_ = s;
             break;
           }
           case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            chatKey_ = s;
+            unreadKey_ = s;
             break;
           }
           case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            personType_ = s;
+            channelId_ = s;
             break;
           }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            personId_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            updatedKey_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            unreadKey_ = s;
-            break;
-          }
-          case 88: {
+          case 64: {
 
             alert_ = input.readInt32();
             break;
           }
-          case 96: {
+          case 72: {
 
             unread_ = input.readInt32();
             break;
           }
-          case 104: {
+          case 80: {
             int rawValue = input.readEnum();
 
             watch_ = rawValue;
             break;
           }
-          case 112: {
+          case 88: {
 
             allMentionImportant_ = input.readBool();
             break;
           }
-          case 122: {
+          case 98: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (readAt_ != null) {
               subBuilder = readAt_.toBuilder();
@@ -159,7 +141,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 130: {
+          case 106: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (receivedAt_ != null) {
               subBuilder = receivedAt_.toBuilder();
@@ -172,7 +154,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 138: {
+          case 114: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (postedAt_ != null) {
               subBuilder = postedAt_.toBuilder();
@@ -185,7 +167,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 146: {
+          case 122: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (updatedAt_ != null) {
               subBuilder = updatedAt_.toBuilder();
@@ -198,7 +180,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 154: {
+          case 130: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (createdAt_ != null) {
               subBuilder = createdAt_.toBuilder();
@@ -211,9 +193,33 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 160: {
+          case 136: {
 
             version_ = input.readInt64();
+            break;
+          }
+          case 146: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            id_ = s;
+            break;
+          }
+          case 154: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            chatType_ = s;
+            break;
+          }
+          case 162: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            personType_ = s;
+            break;
+          }
+          case 170: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            personId_ = s;
             break;
           }
           default: {
@@ -248,66 +254,17 @@ private static final long serialVersionUID = 0L;
             io.channel.api.proto.pub.coreapi.model.ChatSession.class, io.channel.api.proto.pub.coreapi.model.ChatSession.Builder.class);
   }
 
-  public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
-  /**
-   * <pre>
-   * Unique session identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-   * @return The id.
-   */
-  @java.lang.Override
-  public java.lang.String getId() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      id_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Unique session identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for id.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getIdBytes() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      id_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int KEY_FIELD_NUMBER = 2;
+  public static final int KEY_FIELD_NUMBER = 1;
   private volatile java.lang.Object key_;
   /**
    * <pre>
-   * Session key identifying the participant and chat type.
+   * Composite partition key identifying the person and chat type scope.
+   * Format: "{personType}-{personId}-{chatType}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+   * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
    * @return The key.
    */
   @java.lang.Override
@@ -325,12 +282,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Session key identifying the participant and chat type.
+   * Composite partition key identifying the person and chat type scope.
+   * Format: "{personType}-{personId}-{chatType}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+   * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
    * @return The bytes for key.
    */
   @java.lang.Override
@@ -348,16 +306,259 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CHANNEL_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object channelId_;
+  public static final int CHAT_ID_FIELD_NUMBER = 2;
+  private volatile java.lang.Object chatId_;
   /**
    * <pre>
-   * Channel ID this session belongs to.
+   * Chat ID of the conversation this session tracks.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+   * @return The chatId.
+   */
+  @java.lang.Override
+  public java.lang.String getChatId() {
+    java.lang.Object ref = chatId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      chatId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Chat ID of the conversation this session tracks.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * </pre>
+   *
+   * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for chatId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getChatIdBytes() {
+    java.lang.Object ref = chatId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      chatId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TEAM_CHAT_SECTION_ID_FIELD_NUMBER = 3;
+  private volatile java.lang.Object teamChatSectionId_;
+  /**
+   * <pre>
+   * Section ID used to organize team chat conversations into custom groups.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
+   * @return The teamChatSectionId.
+   */
+  @java.lang.Override
+  public java.lang.String getTeamChatSectionId() {
+    java.lang.Object ref = teamChatSectionId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      teamChatSectionId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Section ID used to organize team chat conversations into custom groups.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
+   * @return The bytes for teamChatSectionId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTeamChatSectionIdBytes() {
+    java.lang.Object ref = teamChatSectionId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      teamChatSectionId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CHAT_KEY_FIELD_NUMBER = 4;
+  private volatile java.lang.Object chatKey_;
+  /**
+   * <pre>
+   * Composite key identifying the conversation.
+   * Format: "{chatType}-{chatId}".
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string chat_key = 4 [json_name = "chatKey"];</code>
+   * @return The chatKey.
+   */
+  @java.lang.Override
+  public java.lang.String getChatKey() {
+    java.lang.Object ref = chatKey_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      chatKey_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Composite key identifying the conversation.
+   * Format: "{chatType}-{chatId}".
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string chat_key = 4 [json_name = "chatKey"];</code>
+   * @return The bytes for chatKey.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getChatKeyBytes() {
+    java.lang.Object ref = chatKey_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      chatKey_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int UPDATED_KEY_FIELD_NUMBER = 5;
+  private volatile java.lang.Object updatedKey_;
+  /**
+   * <pre>
+   * Opaque sort key for ordering sessions by last activity.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
+   * @return The updatedKey.
+   */
+  @java.lang.Override
+  public java.lang.String getUpdatedKey() {
+    java.lang.Object ref = updatedKey_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      updatedKey_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Opaque sort key for ordering sessions by last activity.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
+   * @return The bytes for updatedKey.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUpdatedKeyBytes() {
+    java.lang.Object ref = updatedKey_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      updatedKey_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int UNREAD_KEY_FIELD_NUMBER = 6;
+  private volatile java.lang.Object unreadKey_;
+  /**
+   * <pre>
+   * Opaque sort key for filtering and ordering sessions with unread messages.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
+   * @return The unreadKey.
+   */
+  @java.lang.Override
+  public java.lang.String getUnreadKey() {
+    java.lang.Object ref = unreadKey_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      unreadKey_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Opaque sort key for filtering and ordering sessions with unread messages.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
+   * @return The bytes for unreadKey.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUnreadKeyBytes() {
+    java.lang.Object ref = unreadKey_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      unreadKey_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CHANNEL_ID_FIELD_NUMBER = 7;
+  private volatile java.lang.Object channelId_;
+  /**
+   * <pre>
+   * Channel ID this session belongs to.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string channel_id = 7 [json_name = "channelId"];</code>
    * @return The channelId.
    */
   @java.lang.Override
@@ -376,11 +577,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this session belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 7 [json_name = "channelId"];</code>
    * @return The bytes for channelId.
    */
   @java.lang.Override
@@ -398,16 +598,374 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CHAT_TYPE_FIELD_NUMBER = 4;
+  public static final int ALERT_FIELD_NUMBER = 8;
+  private int alert_;
+  /**
+   * <pre>
+   * Number of unread messages with alert-level notification priority.
+   * Defaults to 0.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int32 alert = 8 [json_name = "alert"];</code>
+   * @return The alert.
+   */
+  @java.lang.Override
+  public int getAlert() {
+    return alert_;
+  }
+
+  public static final int UNREAD_FIELD_NUMBER = 9;
+  private int unread_;
+  /**
+   * <pre>
+   * Total number of unread messages in this session.
+   * Includes both alert-level and regular unread messages.
+   * Defaults to 0.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int32 unread = 9 [json_name = "unread"];</code>
+   * @return The unread.
+   */
+  @java.lang.Override
+  public int getUnread() {
+    return unread_;
+  }
+
+  public static final int WATCH_FIELD_NUMBER = 10;
+  private int watch_;
+  /**
+   * <pre>
+   * Notification preference controlling which messages trigger alerts in this session.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.SessionWatch watch = 10 [json_name = "watch"];</code>
+   * @return The enum numeric value on the wire for watch.
+   */
+  @java.lang.Override public int getWatchValue() {
+    return watch_;
+  }
+  /**
+   * <pre>
+   * Notification preference controlling which messages trigger alerts in this session.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.SessionWatch watch = 10 [json_name = "watch"];</code>
+   * @return The watch.
+   */
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.SessionWatch getWatch() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.SessionWatch result = io.channel.api.proto.pub.coreapi.model.SessionWatch.valueOf(watch_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.SessionWatch.UNRECOGNIZED : result;
+  }
+
+  public static final int ALL_MENTION_IMPORTANT_FIELD_NUMBER = 11;
+  private boolean allMentionImportant_;
+  /**
+   * <pre>
+   * Whether &#64;all mentions trigger alert-level notifications in this session.
+   * When absent, inherits from the manager-level default setting.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool all_mention_important = 11 [json_name = "allMentionImportant"];</code>
+   * @return The allMentionImportant.
+   */
+  @java.lang.Override
+  public boolean getAllMentionImportant() {
+    return allMentionImportant_;
+  }
+
+  public static final int READ_AT_FIELD_NUMBER = 12;
+  private com.google.protobuf.Timestamp readAt_;
+  /**
+   * <pre>
+   * Timestamp when the person last read messages in this session.
+   * Messages created after this timestamp are considered unread.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
+   * @return Whether the readAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasReadAt() {
+    return readAt_ != null;
+  }
+  /**
+   * <pre>
+   * Timestamp when the person last read messages in this session.
+   * Messages created after this timestamp are considered unread.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
+   * @return The readAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getReadAt() {
+    return readAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : readAt_;
+  }
+  /**
+   * <pre>
+   * Timestamp when the person last read messages in this session.
+   * Messages created after this timestamp are considered unread.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getReadAtOrBuilder() {
+    return getReadAt();
+  }
+
+  public static final int RECEIVED_AT_FIELD_NUMBER = 13;
+  private com.google.protobuf.Timestamp receivedAt_;
+  /**
+   * <pre>
+   * Timestamp when the last message was received in this conversation.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
+   * @return Whether the receivedAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasReceivedAt() {
+    return receivedAt_ != null;
+  }
+  /**
+   * <pre>
+   * Timestamp when the last message was received in this conversation.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
+   * @return The receivedAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getReceivedAt() {
+    return receivedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : receivedAt_;
+  }
+  /**
+   * <pre>
+   * Timestamp when the last message was received in this conversation.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getReceivedAtOrBuilder() {
+    return getReceivedAt();
+  }
+
+  public static final int POSTED_AT_FIELD_NUMBER = 14;
+  private com.google.protobuf.Timestamp postedAt_;
+  /**
+   * <pre>
+   * Timestamp when the last message was posted (sent by any participant) in this conversation.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
+   * @return Whether the postedAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasPostedAt() {
+    return postedAt_ != null;
+  }
+  /**
+   * <pre>
+   * Timestamp when the last message was posted (sent by any participant) in this conversation.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
+   * @return The postedAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getPostedAt() {
+    return postedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : postedAt_;
+  }
+  /**
+   * <pre>
+   * Timestamp when the last message was posted (sent by any participant) in this conversation.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getPostedAtOrBuilder() {
+    return getPostedAt();
+  }
+
+  public static final int UPDATED_AT_FIELD_NUMBER = 15;
+  private com.google.protobuf.Timestamp updatedAt_;
+  /**
+   * <pre>
+   * Session last update timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+   * @return Whether the updatedAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasUpdatedAt() {
+    return updatedAt_ != null;
+  }
+  /**
+   * <pre>
+   * Session last update timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+   * @return The updatedAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getUpdatedAt() {
+    return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+  }
+  /**
+   * <pre>
+   * Session last update timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
+    return getUpdatedAt();
+  }
+
+  public static final int CREATED_AT_FIELD_NUMBER = 16;
+  private com.google.protobuf.Timestamp createdAt_;
+  /**
+   * <pre>
+   * Session creation timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+   * @return Whether the createdAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasCreatedAt() {
+    return createdAt_ != null;
+  }
+  /**
+   * <pre>
+   * Session creation timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+   * @return The createdAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getCreatedAt() {
+    return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
+  }
+  /**
+   * <pre>
+   * Session creation timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
+    return getCreatedAt();
+  }
+
+  public static final int VERSION_FIELD_NUMBER = 17;
+  private long version_;
+  /**
+   * <pre>
+   * Optimistic locking version.
+   * Incremented on every update.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int64 version = 17 [json_name = "version"];</code>
+   * @return The version.
+   */
+  @java.lang.Override
+  public long getVersion() {
+    return version_;
+  }
+
+  public static final int ID_FIELD_NUMBER = 18;
+  private volatile java.lang.Object id_;
+  /**
+   * <pre>
+   * Unique session identifier.
+   * Format: "{key}-{chatId}".
+   * Derived from key and chat_id.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string id = 18 [json_name = "id"];</code>
+   * @return The id.
+   */
+  @java.lang.Override
+  public java.lang.String getId() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      id_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Unique session identifier.
+   * Format: "{key}-{chatId}".
+   * Derived from key and chat_id.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string id = 18 [json_name = "id"];</code>
+   * @return The bytes for id.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getIdBytes() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      id_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CHAT_TYPE_FIELD_NUMBER = 19;
   private volatile java.lang.Object chatType_;
   /**
    * <pre>
-   * Chat type this session belongs to (e.g. "userChat", "group").
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+   * Derived from the third segment of the session key.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string chat_type = 4 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_type = 19 [json_name = "chatType"];</code>
    * @return The chatType.
    */
   @java.lang.Override
@@ -425,12 +983,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Chat type this session belongs to (e.g. "userChat", "group").
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+   * Derived from the third segment of the session key.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string chat_type = 4 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_type = 19 [json_name = "chatType"];</code>
    * @return The bytes for chatType.
    */
   @java.lang.Override
@@ -448,116 +1006,16 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CHAT_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object chatId_;
-  /**
-   * <pre>
-   * Chat ID this session is associated with.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string chat_id = 5 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
-   * @return The chatId.
-   */
-  @java.lang.Override
-  public java.lang.String getChatId() {
-    java.lang.Object ref = chatId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      chatId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Chat ID this session is associated with.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string chat_id = 5 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for chatId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getChatIdBytes() {
-    java.lang.Object ref = chatId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      chatId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int CHAT_KEY_FIELD_NUMBER = 6;
-  private volatile java.lang.Object chatKey_;
-  /**
-   * <pre>
-   * Composite key for the associated chat.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string chat_key = 6 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
-   * @return The chatKey.
-   */
-  @java.lang.Override
-  public java.lang.String getChatKey() {
-    java.lang.Object ref = chatKey_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      chatKey_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Composite key for the associated chat.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string chat_key = 6 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for chatKey.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getChatKeyBytes() {
-    java.lang.Object ref = chatKey_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      chatKey_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int PERSON_TYPE_FIELD_NUMBER = 7;
+  public static final int PERSON_TYPE_FIELD_NUMBER = 20;
   private volatile java.lang.Object personType_;
   /**
    * <pre>
-   * Type of the session participant (e.g. "manager", "user").
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Entity type of the session owner (e.g., "manager", "user").
+   * Derived from the first segment of the session key.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * <code>string person_type = 20 [json_name = "personType"];</code>
    * @return The personType.
    */
   @java.lang.Override
@@ -575,12 +1033,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Type of the session participant (e.g. "manager", "user").
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Entity type of the session owner (e.g., "manager", "user").
+   * Derived from the first segment of the session key.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * <code>string person_type = 20 [json_name = "personType"];</code>
    * @return The bytes for personType.
    */
   @java.lang.Override
@@ -598,16 +1056,16 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int PERSON_ID_FIELD_NUMBER = 8;
+  public static final int PERSON_ID_FIELD_NUMBER = 21;
   private volatile java.lang.Object personId_;
   /**
    * <pre>
-   * Identifier of the session participant.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Entity ID of the session owner.
+   * Derived from the second segment of the session key.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+   * <code>string person_id = 21 [json_name = "personId"];</code>
    * @return The personId.
    */
   @java.lang.Override
@@ -625,12 +1083,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Identifier of the session participant.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Entity ID of the session owner.
+   * Derived from the second segment of the session key.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+   * <code>string person_id = 21 [json_name = "personId"];</code>
    * @return The bytes for personId.
    */
   @java.lang.Override
@@ -648,402 +1106,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int UPDATED_KEY_FIELD_NUMBER = 9;
-  private volatile java.lang.Object updatedKey_;
-  /**
-   * <pre>
-   * Opaque key used for ordering sessions by last update time.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string updated_key = 9 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
-   * @return The updatedKey.
-   */
-  @java.lang.Override
-  public java.lang.String getUpdatedKey() {
-    java.lang.Object ref = updatedKey_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      updatedKey_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Opaque key used for ordering sessions by last update time.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string updated_key = 9 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for updatedKey.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getUpdatedKeyBytes() {
-    java.lang.Object ref = updatedKey_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      updatedKey_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int UNREAD_KEY_FIELD_NUMBER = 10;
-  private volatile java.lang.Object unreadKey_;
-  /**
-   * <pre>
-   * Opaque key used for ordering sessions by unread status.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string unread_key = 10 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
-   * @return The unreadKey.
-   */
-  @java.lang.Override
-  public java.lang.String getUnreadKey() {
-    java.lang.Object ref = unreadKey_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      unreadKey_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Opaque key used for ordering sessions by unread status.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string unread_key = 10 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for unreadKey.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getUnreadKeyBytes() {
-    java.lang.Object ref = unreadKey_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      unreadKey_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int ALERT_FIELD_NUMBER = 11;
-  private int alert_;
-  /**
-   * <pre>
-   * Number of unread alert notifications.
-   * </pre>
-   *
-   * <code>int32 alert = 11 [json_name = "alert"];</code>
-   * @return The alert.
-   */
-  @java.lang.Override
-  public int getAlert() {
-    return alert_;
-  }
-
-  public static final int UNREAD_FIELD_NUMBER = 12;
-  private int unread_;
-  /**
-   * <pre>
-   * Number of unread messages.
-   * </pre>
-   *
-   * <code>int32 unread = 12 [json_name = "unread"];</code>
-   * @return The unread.
-   */
-  @java.lang.Override
-  public int getUnread() {
-    return unread_;
-  }
-
-  public static final int WATCH_FIELD_NUMBER = 13;
-  private int watch_;
-  /**
-   * <pre>
-   * Notification watch preference for this session.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.SessionWatch watch = 13 [json_name = "watch"];</code>
-   * @return The enum numeric value on the wire for watch.
-   */
-  @java.lang.Override public int getWatchValue() {
-    return watch_;
-  }
-  /**
-   * <pre>
-   * Notification watch preference for this session.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.SessionWatch watch = 13 [json_name = "watch"];</code>
-   * @return The watch.
-   */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.SessionWatch getWatch() {
-    @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.SessionWatch result = io.channel.api.proto.pub.coreapi.model.SessionWatch.valueOf(watch_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.SessionWatch.UNRECOGNIZED : result;
-  }
-
-  public static final int ALL_MENTION_IMPORTANT_FIELD_NUMBER = 14;
-  private boolean allMentionImportant_;
-  /**
-   * <pre>
-   * Whether &#64;all mentions are treated as important.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool all_mention_important = 14 [json_name = "allMentionImportant"];</code>
-   * @return The allMentionImportant.
-   */
-  @java.lang.Override
-  public boolean getAllMentionImportant() {
-    return allMentionImportant_;
-  }
-
-  public static final int READ_AT_FIELD_NUMBER = 15;
-  private com.google.protobuf.Timestamp readAt_;
-  /**
-   * <pre>
-   * Timestamp when the participant last read the chat.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp read_at = 15 [json_name = "readAt"];</code>
-   * @return Whether the readAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasReadAt() {
-    return readAt_ != null;
-  }
-  /**
-   * <pre>
-   * Timestamp when the participant last read the chat.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp read_at = 15 [json_name = "readAt"];</code>
-   * @return The readAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getReadAt() {
-    return readAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : readAt_;
-  }
-  /**
-   * <pre>
-   * Timestamp when the participant last read the chat.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp read_at = 15 [json_name = "readAt"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getReadAtOrBuilder() {
-    return getReadAt();
-  }
-
-  public static final int RECEIVED_AT_FIELD_NUMBER = 16;
-  private com.google.protobuf.Timestamp receivedAt_;
-  /**
-   * <pre>
-   * Timestamp when the last message was received.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp received_at = 16 [json_name = "receivedAt"];</code>
-   * @return Whether the receivedAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasReceivedAt() {
-    return receivedAt_ != null;
-  }
-  /**
-   * <pre>
-   * Timestamp when the last message was received.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp received_at = 16 [json_name = "receivedAt"];</code>
-   * @return The receivedAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getReceivedAt() {
-    return receivedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : receivedAt_;
-  }
-  /**
-   * <pre>
-   * Timestamp when the last message was received.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp received_at = 16 [json_name = "receivedAt"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getReceivedAtOrBuilder() {
-    return getReceivedAt();
-  }
-
-  public static final int POSTED_AT_FIELD_NUMBER = 17;
-  private com.google.protobuf.Timestamp postedAt_;
-  /**
-   * <pre>
-   * Timestamp when the participant last posted a message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp posted_at = 17 [json_name = "postedAt"];</code>
-   * @return Whether the postedAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasPostedAt() {
-    return postedAt_ != null;
-  }
-  /**
-   * <pre>
-   * Timestamp when the participant last posted a message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp posted_at = 17 [json_name = "postedAt"];</code>
-   * @return The postedAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getPostedAt() {
-    return postedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : postedAt_;
-  }
-  /**
-   * <pre>
-   * Timestamp when the participant last posted a message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp posted_at = 17 [json_name = "postedAt"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getPostedAtOrBuilder() {
-    return getPostedAt();
-  }
-
-  public static final int UPDATED_AT_FIELD_NUMBER = 18;
-  private com.google.protobuf.Timestamp updatedAt_;
-  /**
-   * <pre>
-   * Session last update timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp updated_at = 18 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
-   * @return Whether the updatedAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasUpdatedAt() {
-    return updatedAt_ != null;
-  }
-  /**
-   * <pre>
-   * Session last update timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp updated_at = 18 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
-   * @return The updatedAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getUpdatedAt() {
-    return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
-  }
-  /**
-   * <pre>
-   * Session last update timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp updated_at = 18 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
-    return getUpdatedAt();
-  }
-
-  public static final int CREATED_AT_FIELD_NUMBER = 19;
-  private com.google.protobuf.Timestamp createdAt_;
-  /**
-   * <pre>
-   * Session creation timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp created_at = 19 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-   * @return Whether the createdAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasCreatedAt() {
-    return createdAt_ != null;
-  }
-  /**
-   * <pre>
-   * Session creation timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp created_at = 19 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-   * @return The createdAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getCreatedAt() {
-    return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
-  }
-  /**
-   * <pre>
-   * Session creation timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp created_at = 19 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
-    return getCreatedAt();
-  }
-
-  public static final int VERSION_FIELD_NUMBER = 20;
-  private long version_;
-  /**
-   * <pre>
-   * Entity version number.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>int64 version = 20 [json_name = "version", (.buf.validate.field) = { ... }</code>
-   * @return The version.
-   */
-  @java.lang.Override
-  public long getVersion() {
-    return version_;
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1058,65 +1120,68 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, key_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, channelId_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, chatType_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, chatId_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, chatId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(teamChatSectionId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, teamChatSectionId_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatKey_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, chatKey_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, personType_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, personId_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, chatKey_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(updatedKey_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, updatedKey_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, updatedKey_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(unreadKey_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, unreadKey_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, unreadKey_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, channelId_);
     }
     if (alert_ != 0) {
-      output.writeInt32(11, alert_);
+      output.writeInt32(8, alert_);
     }
     if (unread_ != 0) {
-      output.writeInt32(12, unread_);
+      output.writeInt32(9, unread_);
     }
     if (watch_ != io.channel.api.proto.pub.coreapi.model.SessionWatch.SESSION_WATCH_UNSPECIFIED.getNumber()) {
-      output.writeEnum(13, watch_);
+      output.writeEnum(10, watch_);
     }
     if (allMentionImportant_ != false) {
-      output.writeBool(14, allMentionImportant_);
+      output.writeBool(11, allMentionImportant_);
     }
     if (readAt_ != null) {
-      output.writeMessage(15, getReadAt());
+      output.writeMessage(12, getReadAt());
     }
     if (receivedAt_ != null) {
-      output.writeMessage(16, getReceivedAt());
+      output.writeMessage(13, getReceivedAt());
     }
     if (postedAt_ != null) {
-      output.writeMessage(17, getPostedAt());
+      output.writeMessage(14, getPostedAt());
     }
     if (updatedAt_ != null) {
-      output.writeMessage(18, getUpdatedAt());
+      output.writeMessage(15, getUpdatedAt());
     }
     if (createdAt_ != null) {
-      output.writeMessage(19, getCreatedAt());
+      output.writeMessage(16, getCreatedAt());
     }
     if (version_ != 0L) {
-      output.writeInt64(20, version_);
+      output.writeInt64(17, version_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 18, id_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 19, chatType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 20, personType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 21, personId_);
     }
     unknownFields.writeTo(output);
   }
@@ -1127,75 +1192,78 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, key_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, channelId_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, chatType_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, chatId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, chatId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(teamChatSectionId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, teamChatSectionId_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatKey_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, chatKey_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, personType_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, personId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, chatKey_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(updatedKey_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, updatedKey_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, updatedKey_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(unreadKey_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, unreadKey_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, unreadKey_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, channelId_);
     }
     if (alert_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(11, alert_);
+        .computeInt32Size(8, alert_);
     }
     if (unread_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(12, unread_);
+        .computeInt32Size(9, unread_);
     }
     if (watch_ != io.channel.api.proto.pub.coreapi.model.SessionWatch.SESSION_WATCH_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(13, watch_);
+        .computeEnumSize(10, watch_);
     }
     if (allMentionImportant_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(14, allMentionImportant_);
+        .computeBoolSize(11, allMentionImportant_);
     }
     if (readAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(15, getReadAt());
+        .computeMessageSize(12, getReadAt());
     }
     if (receivedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(16, getReceivedAt());
+        .computeMessageSize(13, getReceivedAt());
     }
     if (postedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(17, getPostedAt());
+        .computeMessageSize(14, getPostedAt());
     }
     if (updatedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(18, getUpdatedAt());
+        .computeMessageSize(15, getUpdatedAt());
     }
     if (createdAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(19, getCreatedAt());
+        .computeMessageSize(16, getCreatedAt());
     }
     if (version_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(20, version_);
+        .computeInt64Size(17, version_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, id_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(19, chatType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, personType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(21, personId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -1212,26 +1280,20 @@ private static final long serialVersionUID = 0L;
     }
     io.channel.api.proto.pub.coreapi.model.ChatSession other = (io.channel.api.proto.pub.coreapi.model.ChatSession) obj;
 
-    if (!getId()
-        .equals(other.getId())) return false;
     if (!getKey()
         .equals(other.getKey())) return false;
-    if (!getChannelId()
-        .equals(other.getChannelId())) return false;
-    if (!getChatType()
-        .equals(other.getChatType())) return false;
     if (!getChatId()
         .equals(other.getChatId())) return false;
+    if (!getTeamChatSectionId()
+        .equals(other.getTeamChatSectionId())) return false;
     if (!getChatKey()
         .equals(other.getChatKey())) return false;
-    if (!getPersonType()
-        .equals(other.getPersonType())) return false;
-    if (!getPersonId()
-        .equals(other.getPersonId())) return false;
     if (!getUpdatedKey()
         .equals(other.getUpdatedKey())) return false;
     if (!getUnreadKey()
         .equals(other.getUnreadKey())) return false;
+    if (!getChannelId()
+        .equals(other.getChannelId())) return false;
     if (getAlert()
         != other.getAlert()) return false;
     if (getUnread()
@@ -1266,6 +1328,14 @@ private static final long serialVersionUID = 0L;
     }
     if (getVersion()
         != other.getVersion()) return false;
+    if (!getId()
+        .equals(other.getId())) return false;
+    if (!getChatType()
+        .equals(other.getChatType())) return false;
+    if (!getPersonType()
+        .equals(other.getPersonType())) return false;
+    if (!getPersonId()
+        .equals(other.getPersonId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1277,26 +1347,20 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId().hashCode();
     hash = (37 * hash) + KEY_FIELD_NUMBER;
     hash = (53 * hash) + getKey().hashCode();
-    hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getChannelId().hashCode();
-    hash = (37 * hash) + CHAT_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getChatType().hashCode();
     hash = (37 * hash) + CHAT_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChatId().hashCode();
+    hash = (37 * hash) + TEAM_CHAT_SECTION_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getTeamChatSectionId().hashCode();
     hash = (37 * hash) + CHAT_KEY_FIELD_NUMBER;
     hash = (53 * hash) + getChatKey().hashCode();
-    hash = (37 * hash) + PERSON_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getPersonType().hashCode();
-    hash = (37 * hash) + PERSON_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getPersonId().hashCode();
     hash = (37 * hash) + UPDATED_KEY_FIELD_NUMBER;
     hash = (53 * hash) + getUpdatedKey().hashCode();
     hash = (37 * hash) + UNREAD_KEY_FIELD_NUMBER;
     hash = (53 * hash) + getUnreadKey().hashCode();
+    hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getChannelId().hashCode();
     hash = (37 * hash) + ALERT_FIELD_NUMBER;
     hash = (53 * hash) + getAlert();
     hash = (37 * hash) + UNREAD_FIELD_NUMBER;
@@ -1329,6 +1393,14 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + VERSION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getVersion());
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId().hashCode();
+    hash = (37 * hash) + CHAT_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getChatType().hashCode();
+    hash = (37 * hash) + PERSON_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getPersonType().hashCode();
+    hash = (37 * hash) + PERSON_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getPersonId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1426,9 +1498,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * ChatSession represents a participant's membership and reading state in a chat.
-   * Each session tracks an individual member's reading position, unread counts,
-   * and notification preferences.
+   * ChatSession represents a per-person view of a chat conversation,
+   * tracking read state, notification counts, and preferences.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.ChatSession}
@@ -1468,25 +1539,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      id_ = "";
-
       key_ = "";
-
-      channelId_ = "";
-
-      chatType_ = "";
 
       chatId_ = "";
 
+      teamChatSectionId_ = "";
+
       chatKey_ = "";
-
-      personType_ = "";
-
-      personId_ = "";
 
       updatedKey_ = "";
 
       unreadKey_ = "";
+
+      channelId_ = "";
 
       alert_ = 0;
 
@@ -1528,6 +1593,14 @@ private static final long serialVersionUID = 0L;
       }
       version_ = 0L;
 
+      id_ = "";
+
+      chatType_ = "";
+
+      personType_ = "";
+
+      personId_ = "";
+
       return this;
     }
 
@@ -1554,16 +1627,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.channel.api.proto.pub.coreapi.model.ChatSession buildPartial() {
       io.channel.api.proto.pub.coreapi.model.ChatSession result = new io.channel.api.proto.pub.coreapi.model.ChatSession(this);
-      result.id_ = id_;
       result.key_ = key_;
-      result.channelId_ = channelId_;
-      result.chatType_ = chatType_;
       result.chatId_ = chatId_;
+      result.teamChatSectionId_ = teamChatSectionId_;
       result.chatKey_ = chatKey_;
-      result.personType_ = personType_;
-      result.personId_ = personId_;
       result.updatedKey_ = updatedKey_;
       result.unreadKey_ = unreadKey_;
+      result.channelId_ = channelId_;
       result.alert_ = alert_;
       result.unread_ = unread_;
       result.watch_ = watch_;
@@ -1594,6 +1664,10 @@ private static final long serialVersionUID = 0L;
         result.createdAt_ = createdAtBuilder_.build();
       }
       result.version_ = version_;
+      result.id_ = id_;
+      result.chatType_ = chatType_;
+      result.personType_ = personType_;
+      result.personId_ = personId_;
       onBuilt();
       return result;
     }
@@ -1642,36 +1716,20 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(io.channel.api.proto.pub.coreapi.model.ChatSession other) {
       if (other == io.channel.api.proto.pub.coreapi.model.ChatSession.getDefaultInstance()) return this;
-      if (!other.getId().isEmpty()) {
-        id_ = other.id_;
-        onChanged();
-      }
       if (!other.getKey().isEmpty()) {
         key_ = other.key_;
-        onChanged();
-      }
-      if (!other.getChannelId().isEmpty()) {
-        channelId_ = other.channelId_;
-        onChanged();
-      }
-      if (!other.getChatType().isEmpty()) {
-        chatType_ = other.chatType_;
         onChanged();
       }
       if (!other.getChatId().isEmpty()) {
         chatId_ = other.chatId_;
         onChanged();
       }
+      if (!other.getTeamChatSectionId().isEmpty()) {
+        teamChatSectionId_ = other.teamChatSectionId_;
+        onChanged();
+      }
       if (!other.getChatKey().isEmpty()) {
         chatKey_ = other.chatKey_;
-        onChanged();
-      }
-      if (!other.getPersonType().isEmpty()) {
-        personType_ = other.personType_;
-        onChanged();
-      }
-      if (!other.getPersonId().isEmpty()) {
-        personId_ = other.personId_;
         onChanged();
       }
       if (!other.getUpdatedKey().isEmpty()) {
@@ -1680,6 +1738,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getUnreadKey().isEmpty()) {
         unreadKey_ = other.unreadKey_;
+        onChanged();
+      }
+      if (!other.getChannelId().isEmpty()) {
+        channelId_ = other.channelId_;
         onChanged();
       }
       if (other.getAlert() != 0) {
@@ -1712,6 +1774,22 @@ private static final long serialVersionUID = 0L;
       if (other.getVersion() != 0L) {
         setVersion(other.getVersion());
       }
+      if (!other.getId().isEmpty()) {
+        id_ = other.id_;
+        onChanged();
+      }
+      if (!other.getChatType().isEmpty()) {
+        chatType_ = other.chatType_;
+        onChanged();
+      }
+      if (!other.getPersonType().isEmpty()) {
+        personType_ = other.personType_;
+        onChanged();
+      }
+      if (!other.getPersonId().isEmpty()) {
+        personId_ = other.personId_;
+        onChanged();
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -1741,121 +1819,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object id_ = "";
-    /**
-     * <pre>
-     * Unique session identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-     * @return The id.
-     */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Unique session identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for id.
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Unique session identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-     * @param value The id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      id_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Unique session identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearId() {
-      
-      id_ = getDefaultInstance().getId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Unique session identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      id_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object key_ = "";
     /**
      * <pre>
-     * Session key identifying the participant and chat type.
+     * Composite partition key identifying the person and chat type scope.
+     * Format: "{personType}-{personId}-{chatType}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+     * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
      * @return The key.
      */
     public java.lang.String getKey() {
@@ -1872,12 +1845,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Session key identifying the participant and chat type.
+     * Composite partition key identifying the person and chat type scope.
+     * Format: "{personType}-{personId}-{chatType}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+     * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
      * @return The bytes for key.
      */
     public com.google.protobuf.ByteString
@@ -1895,12 +1869,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Session key identifying the participant and chat type.
+     * Composite partition key identifying the person and chat type scope.
+     * Format: "{personType}-{personId}-{chatType}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+     * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
      * @param value The key to set.
      * @return This builder for chaining.
      */
@@ -1916,12 +1891,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Session key identifying the participant and chat type.
+     * Composite partition key identifying the person and chat type scope.
+     * Format: "{personType}-{personId}-{chatType}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+     * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearKey() {
@@ -1932,12 +1908,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Session key identifying the participant and chat type.
+     * Composite partition key identifying the person and chat type scope.
+     * Format: "{personType}-{personId}-{chatType}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
+     * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for key to set.
      * @return This builder for chaining.
      */
@@ -1953,227 +1930,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object channelId_ = "";
-    /**
-     * <pre>
-     * Channel ID this session belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
-     * @return The channelId.
-     */
-    public java.lang.String getChannelId() {
-      java.lang.Object ref = channelId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        channelId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel ID this session belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for channelId.
-     */
-    public com.google.protobuf.ByteString
-        getChannelIdBytes() {
-      java.lang.Object ref = channelId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        channelId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel ID this session belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
-     * @param value The channelId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChannelId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      channelId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel ID this session belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearChannelId() {
-      
-      channelId_ = getDefaultInstance().getChannelId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel ID this session belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for channelId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChannelIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      channelId_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object chatType_ = "";
-    /**
-     * <pre>
-     * Chat type this session belongs to (e.g. "userChat", "group").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string chat_type = 4 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @return The chatType.
-     */
-    public java.lang.String getChatType() {
-      java.lang.Object ref = chatType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        chatType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Chat type this session belongs to (e.g. "userChat", "group").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string chat_type = 4 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for chatType.
-     */
-    public com.google.protobuf.ByteString
-        getChatTypeBytes() {
-      java.lang.Object ref = chatType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        chatType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Chat type this session belongs to (e.g. "userChat", "group").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string chat_type = 4 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @param value The chatType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChatType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      chatType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Chat type this session belongs to (e.g. "userChat", "group").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string chat_type = 4 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearChatType() {
-      
-      chatType_ = getDefaultInstance().getChatType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Chat type this session belongs to (e.g. "userChat", "group").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string chat_type = 4 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for chatType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChatTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      chatType_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object chatId_ = "";
     /**
      * <pre>
-     * Chat ID this session is associated with.
+     * Chat ID of the conversation this session tracks.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_id = 5 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
      * @return The chatId.
      */
     public java.lang.String getChatId() {
@@ -2190,12 +1955,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat ID this session is associated with.
+     * Chat ID of the conversation this session tracks.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_id = 5 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for chatId.
      */
     public com.google.protobuf.ByteString
@@ -2213,12 +1978,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat ID this session is associated with.
+     * Chat ID of the conversation this session tracks.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_id = 5 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
      * @param value The chatId to set.
      * @return This builder for chaining.
      */
@@ -2234,12 +1999,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat ID this session is associated with.
+     * Chat ID of the conversation this session tracks.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_id = 5 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChatId() {
@@ -2250,12 +2015,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat ID this session is associated with.
+     * Chat ID of the conversation this session tracks.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string chat_id = 5 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for chatId to set.
      * @return This builder for chaining.
      */
@@ -2271,15 +2036,116 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object teamChatSectionId_ = "";
+    /**
+     * <pre>
+     * Section ID used to organize team chat conversations into custom groups.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
+     * @return The teamChatSectionId.
+     */
+    public java.lang.String getTeamChatSectionId() {
+      java.lang.Object ref = teamChatSectionId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        teamChatSectionId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Section ID used to organize team chat conversations into custom groups.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
+     * @return The bytes for teamChatSectionId.
+     */
+    public com.google.protobuf.ByteString
+        getTeamChatSectionIdBytes() {
+      java.lang.Object ref = teamChatSectionId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        teamChatSectionId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Section ID used to organize team chat conversations into custom groups.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
+     * @param value The teamChatSectionId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTeamChatSectionId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      teamChatSectionId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Section ID used to organize team chat conversations into custom groups.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTeamChatSectionId() {
+      
+      teamChatSectionId_ = getDefaultInstance().getTeamChatSectionId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Section ID used to organize team chat conversations into custom groups.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
+     * @param value The bytes for teamChatSectionId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTeamChatSectionIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      teamChatSectionId_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object chatKey_ = "";
     /**
      * <pre>
-     * Composite key for the associated chat.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Composite key identifying the conversation.
+     * Format: "{chatType}-{chatId}".
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string chat_key = 6 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_key = 4 [json_name = "chatKey"];</code>
      * @return The chatKey.
      */
     public java.lang.String getChatKey() {
@@ -2296,12 +2162,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Composite key for the associated chat.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Composite key identifying the conversation.
+     * Format: "{chatType}-{chatId}".
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string chat_key = 6 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_key = 4 [json_name = "chatKey"];</code>
      * @return The bytes for chatKey.
      */
     public com.google.protobuf.ByteString
@@ -2319,12 +2185,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Composite key for the associated chat.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Composite key identifying the conversation.
+     * Format: "{chatType}-{chatId}".
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string chat_key = 6 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_key = 4 [json_name = "chatKey"];</code>
      * @param value The chatKey to set.
      * @return This builder for chaining.
      */
@@ -2340,12 +2206,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Composite key for the associated chat.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Composite key identifying the conversation.
+     * Format: "{chatType}-{chatId}".
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string chat_key = 6 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_key = 4 [json_name = "chatKey"];</code>
      * @return This builder for chaining.
      */
     public Builder clearChatKey() {
@@ -2356,12 +2222,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Composite key for the associated chat.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Composite key identifying the conversation.
+     * Format: "{chatType}-{chatId}".
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string chat_key = 6 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_key = 4 [json_name = "chatKey"];</code>
      * @param value The bytes for chatKey to set.
      * @return This builder for chaining.
      */
@@ -2377,227 +2243,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object personType_ = "";
-    /**
-     * <pre>
-     * Type of the session participant (e.g. "manager", "user").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @return The personType.
-     */
-    public java.lang.String getPersonType() {
-      java.lang.Object ref = personType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        personType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Type of the session participant (e.g. "manager", "user").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for personType.
-     */
-    public com.google.protobuf.ByteString
-        getPersonTypeBytes() {
-      java.lang.Object ref = personType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        personType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Type of the session participant (e.g. "manager", "user").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @param value The personType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPersonType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      personType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Type of the session participant (e.g. "manager", "user").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPersonType() {
-      
-      personType_ = getDefaultInstance().getPersonType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Type of the session participant (e.g. "manager", "user").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for personType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPersonTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      personType_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object personId_ = "";
-    /**
-     * <pre>
-     * Identifier of the session participant.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
-     * @return The personId.
-     */
-    public java.lang.String getPersonId() {
-      java.lang.Object ref = personId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        personId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Identifier of the session participant.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for personId.
-     */
-    public com.google.protobuf.ByteString
-        getPersonIdBytes() {
-      java.lang.Object ref = personId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        personId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Identifier of the session participant.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
-     * @param value The personId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPersonId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      personId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Identifier of the session participant.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPersonId() {
-      
-      personId_ = getDefaultInstance().getPersonId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Identifier of the session participant.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for personId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPersonIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      personId_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object updatedKey_ = "";
     /**
      * <pre>
-     * Opaque key used for ordering sessions by last update time.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Opaque sort key for ordering sessions by last activity.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string updated_key = 9 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
+     * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
      * @return The updatedKey.
      */
     public java.lang.String getUpdatedKey() {
@@ -2614,12 +2267,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Opaque key used for ordering sessions by last update time.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Opaque sort key for ordering sessions by last activity.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string updated_key = 9 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
+     * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
      * @return The bytes for updatedKey.
      */
     public com.google.protobuf.ByteString
@@ -2637,12 +2289,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Opaque key used for ordering sessions by last update time.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Opaque sort key for ordering sessions by last activity.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string updated_key = 9 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
+     * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
      * @param value The updatedKey to set.
      * @return This builder for chaining.
      */
@@ -2658,12 +2309,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Opaque key used for ordering sessions by last update time.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Opaque sort key for ordering sessions by last activity.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string updated_key = 9 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
+     * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUpdatedKey() {
@@ -2674,12 +2324,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Opaque key used for ordering sessions by last update time.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Opaque sort key for ordering sessions by last activity.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string updated_key = 9 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
+     * <code>string updated_key = 5 [json_name = "updatedKey"];</code>
      * @param value The bytes for updatedKey to set.
      * @return This builder for chaining.
      */
@@ -2698,12 +2347,11 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object unreadKey_ = "";
     /**
      * <pre>
-     * Opaque key used for ordering sessions by unread status.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Opaque sort key for filtering and ordering sessions with unread messages.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string unread_key = 10 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
+     * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
      * @return The unreadKey.
      */
     public java.lang.String getUnreadKey() {
@@ -2720,12 +2368,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Opaque key used for ordering sessions by unread status.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Opaque sort key for filtering and ordering sessions with unread messages.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string unread_key = 10 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
+     * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
      * @return The bytes for unreadKey.
      */
     public com.google.protobuf.ByteString
@@ -2743,12 +2390,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Opaque key used for ordering sessions by unread status.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Opaque sort key for filtering and ordering sessions with unread messages.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string unread_key = 10 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
+     * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
      * @param value The unreadKey to set.
      * @return This builder for chaining.
      */
@@ -2764,12 +2410,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Opaque key used for ordering sessions by unread status.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Opaque sort key for filtering and ordering sessions with unread messages.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string unread_key = 10 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
+     * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUnreadKey() {
@@ -2780,12 +2425,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Opaque key used for ordering sessions by unread status.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Opaque sort key for filtering and ordering sessions with unread messages.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string unread_key = 10 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
+     * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
      * @param value The bytes for unreadKey to set.
      * @return This builder for chaining.
      */
@@ -2801,13 +2445,116 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object channelId_ = "";
+    /**
+     * <pre>
+     * Channel ID this session belongs to.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string channel_id = 7 [json_name = "channelId"];</code>
+     * @return The channelId.
+     */
+    public java.lang.String getChannelId() {
+      java.lang.Object ref = channelId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        channelId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Channel ID this session belongs to.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string channel_id = 7 [json_name = "channelId"];</code>
+     * @return The bytes for channelId.
+     */
+    public com.google.protobuf.ByteString
+        getChannelIdBytes() {
+      java.lang.Object ref = channelId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        channelId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Channel ID this session belongs to.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string channel_id = 7 [json_name = "channelId"];</code>
+     * @param value The channelId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChannelId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      channelId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Channel ID this session belongs to.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string channel_id = 7 [json_name = "channelId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChannelId() {
+      
+      channelId_ = getDefaultInstance().getChannelId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Channel ID this session belongs to.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string channel_id = 7 [json_name = "channelId"];</code>
+     * @param value The bytes for channelId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChannelIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      channelId_ = value;
+      onChanged();
+      return this;
+    }
+
     private int alert_ ;
     /**
      * <pre>
-     * Number of unread alert notifications.
+     * Number of unread messages with alert-level notification priority.
+     * Defaults to 0.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 alert = 11 [json_name = "alert"];</code>
+     * <code>int32 alert = 8 [json_name = "alert"];</code>
      * @return The alert.
      */
     @java.lang.Override
@@ -2816,10 +2563,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of unread alert notifications.
+     * Number of unread messages with alert-level notification priority.
+     * Defaults to 0.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 alert = 11 [json_name = "alert"];</code>
+     * <code>int32 alert = 8 [json_name = "alert"];</code>
      * @param value The alert to set.
      * @return This builder for chaining.
      */
@@ -2831,10 +2580,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of unread alert notifications.
+     * Number of unread messages with alert-level notification priority.
+     * Defaults to 0.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 alert = 11 [json_name = "alert"];</code>
+     * <code>int32 alert = 8 [json_name = "alert"];</code>
      * @return This builder for chaining.
      */
     public Builder clearAlert() {
@@ -2847,10 +2598,13 @@ private static final long serialVersionUID = 0L;
     private int unread_ ;
     /**
      * <pre>
-     * Number of unread messages.
+     * Total number of unread messages in this session.
+     * Includes both alert-level and regular unread messages.
+     * Defaults to 0.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 unread = 12 [json_name = "unread"];</code>
+     * <code>int32 unread = 9 [json_name = "unread"];</code>
      * @return The unread.
      */
     @java.lang.Override
@@ -2859,10 +2613,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of unread messages.
+     * Total number of unread messages in this session.
+     * Includes both alert-level and regular unread messages.
+     * Defaults to 0.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 unread = 12 [json_name = "unread"];</code>
+     * <code>int32 unread = 9 [json_name = "unread"];</code>
      * @param value The unread to set.
      * @return This builder for chaining.
      */
@@ -2874,10 +2631,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of unread messages.
+     * Total number of unread messages in this session.
+     * Includes both alert-level and regular unread messages.
+     * Defaults to 0.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 unread = 12 [json_name = "unread"];</code>
+     * <code>int32 unread = 9 [json_name = "unread"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUnread() {
@@ -2890,11 +2650,11 @@ private static final long serialVersionUID = 0L;
     private int watch_ = 0;
     /**
      * <pre>
-     * Notification watch preference for this session.
+     * Notification preference controlling which messages trigger alerts in this session.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.SessionWatch watch = 13 [json_name = "watch"];</code>
+     * <code>.coreapi.model.SessionWatch watch = 10 [json_name = "watch"];</code>
      * @return The enum numeric value on the wire for watch.
      */
     @java.lang.Override public int getWatchValue() {
@@ -2902,11 +2662,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Notification watch preference for this session.
+     * Notification preference controlling which messages trigger alerts in this session.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.SessionWatch watch = 13 [json_name = "watch"];</code>
+     * <code>.coreapi.model.SessionWatch watch = 10 [json_name = "watch"];</code>
      * @param value The enum numeric value on the wire for watch to set.
      * @return This builder for chaining.
      */
@@ -2918,11 +2678,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Notification watch preference for this session.
+     * Notification preference controlling which messages trigger alerts in this session.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.SessionWatch watch = 13 [json_name = "watch"];</code>
+     * <code>.coreapi.model.SessionWatch watch = 10 [json_name = "watch"];</code>
      * @return The watch.
      */
     @java.lang.Override
@@ -2933,11 +2693,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Notification watch preference for this session.
+     * Notification preference controlling which messages trigger alerts in this session.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.SessionWatch watch = 13 [json_name = "watch"];</code>
+     * <code>.coreapi.model.SessionWatch watch = 10 [json_name = "watch"];</code>
      * @param value The watch to set.
      * @return This builder for chaining.
      */
@@ -2952,11 +2712,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Notification watch preference for this session.
+     * Notification preference controlling which messages trigger alerts in this session.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.SessionWatch watch = 13 [json_name = "watch"];</code>
+     * <code>.coreapi.model.SessionWatch watch = 10 [json_name = "watch"];</code>
      * @return This builder for chaining.
      */
     public Builder clearWatch() {
@@ -2969,11 +2729,12 @@ private static final long serialVersionUID = 0L;
     private boolean allMentionImportant_ ;
     /**
      * <pre>
-     * Whether &#64;all mentions are treated as important.
+     * Whether &#64;all mentions trigger alert-level notifications in this session.
+     * When absent, inherits from the manager-level default setting.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>bool all_mention_important = 14 [json_name = "allMentionImportant"];</code>
+     * <code>bool all_mention_important = 11 [json_name = "allMentionImportant"];</code>
      * @return The allMentionImportant.
      */
     @java.lang.Override
@@ -2982,11 +2743,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether &#64;all mentions are treated as important.
+     * Whether &#64;all mentions trigger alert-level notifications in this session.
+     * When absent, inherits from the manager-level default setting.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>bool all_mention_important = 14 [json_name = "allMentionImportant"];</code>
+     * <code>bool all_mention_important = 11 [json_name = "allMentionImportant"];</code>
      * @param value The allMentionImportant to set.
      * @return This builder for chaining.
      */
@@ -2998,11 +2760,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether &#64;all mentions are treated as important.
+     * Whether &#64;all mentions trigger alert-level notifications in this session.
+     * When absent, inherits from the manager-level default setting.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>bool all_mention_important = 14 [json_name = "allMentionImportant"];</code>
+     * <code>bool all_mention_important = 11 [json_name = "allMentionImportant"];</code>
      * @return This builder for chaining.
      */
     public Builder clearAllMentionImportant() {
@@ -3017,11 +2780,12 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> readAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the participant last read the chat.
+     * Timestamp when the person last read messages in this session.
+     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp read_at = 15 [json_name = "readAt"];</code>
+     * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
      * @return Whether the readAt field is set.
      */
     public boolean hasReadAt() {
@@ -3029,11 +2793,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last read the chat.
+     * Timestamp when the person last read messages in this session.
+     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp read_at = 15 [json_name = "readAt"];</code>
+     * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
      * @return The readAt.
      */
     public com.google.protobuf.Timestamp getReadAt() {
@@ -3045,11 +2810,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last read the chat.
+     * Timestamp when the person last read messages in this session.
+     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp read_at = 15 [json_name = "readAt"];</code>
+     * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
      */
     public Builder setReadAt(com.google.protobuf.Timestamp value) {
       if (readAtBuilder_ == null) {
@@ -3066,11 +2832,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last read the chat.
+     * Timestamp when the person last read messages in this session.
+     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp read_at = 15 [json_name = "readAt"];</code>
+     * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
      */
     public Builder setReadAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -3085,11 +2852,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last read the chat.
+     * Timestamp when the person last read messages in this session.
+     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp read_at = 15 [json_name = "readAt"];</code>
+     * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
      */
     public Builder mergeReadAt(com.google.protobuf.Timestamp value) {
       if (readAtBuilder_ == null) {
@@ -3108,11 +2876,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last read the chat.
+     * Timestamp when the person last read messages in this session.
+     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp read_at = 15 [json_name = "readAt"];</code>
+     * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
      */
     public Builder clearReadAt() {
       if (readAtBuilder_ == null) {
@@ -3127,11 +2896,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last read the chat.
+     * Timestamp when the person last read messages in this session.
+     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp read_at = 15 [json_name = "readAt"];</code>
+     * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getReadAtBuilder() {
       
@@ -3140,11 +2910,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last read the chat.
+     * Timestamp when the person last read messages in this session.
+     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp read_at = 15 [json_name = "readAt"];</code>
+     * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getReadAtOrBuilder() {
       if (readAtBuilder_ != null) {
@@ -3156,11 +2927,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last read the chat.
+     * Timestamp when the person last read messages in this session.
+     * Messages created after this timestamp are considered unread.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp read_at = 15 [json_name = "readAt"];</code>
+     * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -3181,11 +2953,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> receivedAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the last message was received.
+     * Timestamp when the last message was received in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp received_at = 16 [json_name = "receivedAt"];</code>
+     * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
      * @return Whether the receivedAt field is set.
      */
     public boolean hasReceivedAt() {
@@ -3193,11 +2965,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was received.
+     * Timestamp when the last message was received in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp received_at = 16 [json_name = "receivedAt"];</code>
+     * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
      * @return The receivedAt.
      */
     public com.google.protobuf.Timestamp getReceivedAt() {
@@ -3209,11 +2981,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was received.
+     * Timestamp when the last message was received in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp received_at = 16 [json_name = "receivedAt"];</code>
+     * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
      */
     public Builder setReceivedAt(com.google.protobuf.Timestamp value) {
       if (receivedAtBuilder_ == null) {
@@ -3230,11 +3002,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was received.
+     * Timestamp when the last message was received in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp received_at = 16 [json_name = "receivedAt"];</code>
+     * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
      */
     public Builder setReceivedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -3249,11 +3021,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was received.
+     * Timestamp when the last message was received in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp received_at = 16 [json_name = "receivedAt"];</code>
+     * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
      */
     public Builder mergeReceivedAt(com.google.protobuf.Timestamp value) {
       if (receivedAtBuilder_ == null) {
@@ -3272,11 +3044,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was received.
+     * Timestamp when the last message was received in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp received_at = 16 [json_name = "receivedAt"];</code>
+     * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
      */
     public Builder clearReceivedAt() {
       if (receivedAtBuilder_ == null) {
@@ -3291,11 +3063,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was received.
+     * Timestamp when the last message was received in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp received_at = 16 [json_name = "receivedAt"];</code>
+     * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getReceivedAtBuilder() {
       
@@ -3304,11 +3076,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was received.
+     * Timestamp when the last message was received in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp received_at = 16 [json_name = "receivedAt"];</code>
+     * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getReceivedAtOrBuilder() {
       if (receivedAtBuilder_ != null) {
@@ -3320,11 +3092,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the last message was received.
+     * Timestamp when the last message was received in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp received_at = 16 [json_name = "receivedAt"];</code>
+     * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -3345,11 +3117,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> postedAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the participant last posted a message.
+     * Timestamp when the last message was posted (sent by any participant) in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp posted_at = 17 [json_name = "postedAt"];</code>
+     * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
      * @return Whether the postedAt field is set.
      */
     public boolean hasPostedAt() {
@@ -3357,11 +3129,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last posted a message.
+     * Timestamp when the last message was posted (sent by any participant) in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp posted_at = 17 [json_name = "postedAt"];</code>
+     * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
      * @return The postedAt.
      */
     public com.google.protobuf.Timestamp getPostedAt() {
@@ -3373,11 +3145,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last posted a message.
+     * Timestamp when the last message was posted (sent by any participant) in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp posted_at = 17 [json_name = "postedAt"];</code>
+     * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
      */
     public Builder setPostedAt(com.google.protobuf.Timestamp value) {
       if (postedAtBuilder_ == null) {
@@ -3394,11 +3166,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last posted a message.
+     * Timestamp when the last message was posted (sent by any participant) in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp posted_at = 17 [json_name = "postedAt"];</code>
+     * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
      */
     public Builder setPostedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -3413,11 +3185,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last posted a message.
+     * Timestamp when the last message was posted (sent by any participant) in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp posted_at = 17 [json_name = "postedAt"];</code>
+     * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
      */
     public Builder mergePostedAt(com.google.protobuf.Timestamp value) {
       if (postedAtBuilder_ == null) {
@@ -3436,11 +3208,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last posted a message.
+     * Timestamp when the last message was posted (sent by any participant) in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp posted_at = 17 [json_name = "postedAt"];</code>
+     * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
      */
     public Builder clearPostedAt() {
       if (postedAtBuilder_ == null) {
@@ -3455,11 +3227,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last posted a message.
+     * Timestamp when the last message was posted (sent by any participant) in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp posted_at = 17 [json_name = "postedAt"];</code>
+     * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getPostedAtBuilder() {
       
@@ -3468,11 +3240,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last posted a message.
+     * Timestamp when the last message was posted (sent by any participant) in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp posted_at = 17 [json_name = "postedAt"];</code>
+     * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getPostedAtOrBuilder() {
       if (postedAtBuilder_ != null) {
@@ -3484,11 +3256,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the participant last posted a message.
+     * Timestamp when the last message was posted (sent by any participant) in this conversation.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp posted_at = 17 [json_name = "postedAt"];</code>
+     * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -3510,10 +3282,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 18 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
      * @return Whether the updatedAt field is set.
      */
     public boolean hasUpdatedAt() {
@@ -3522,10 +3294,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 18 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
      * @return The updatedAt.
      */
     public com.google.protobuf.Timestamp getUpdatedAt() {
@@ -3538,10 +3310,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 18 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
      */
     public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
@@ -3559,10 +3331,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 18 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
      */
     public Builder setUpdatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -3578,10 +3350,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 18 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
      */
     public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
@@ -3601,10 +3373,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 18 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
      */
     public Builder clearUpdatedAt() {
       if (updatedAtBuilder_ == null) {
@@ -3620,10 +3392,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 18 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
       
@@ -3633,10 +3405,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 18 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
       if (updatedAtBuilder_ != null) {
@@ -3649,10 +3421,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session last update timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 18 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -3674,10 +3446,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 19 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
      * @return Whether the createdAt field is set.
      */
     public boolean hasCreatedAt() {
@@ -3686,10 +3458,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 19 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
      * @return The createdAt.
      */
     public com.google.protobuf.Timestamp getCreatedAt() {
@@ -3702,10 +3474,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 19 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
      */
     public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -3723,10 +3495,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 19 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
      */
     public Builder setCreatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -3742,10 +3514,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 19 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
      */
     public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -3765,10 +3537,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 19 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
      */
     public Builder clearCreatedAt() {
       if (createdAtBuilder_ == null) {
@@ -3784,10 +3556,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 19 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
       
@@ -3797,10 +3569,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 19 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       if (createdAtBuilder_ != null) {
@@ -3813,10 +3585,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Session creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 19 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -3835,11 +3607,12 @@ private static final long serialVersionUID = 0L;
     private long version_ ;
     /**
      * <pre>
-     * Entity version number.
-     * +kubebuilder:validation:Required
+     * Optimistic locking version.
+     * Incremented on every update.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int64 version = 20 [json_name = "version", (.buf.validate.field) = { ... }</code>
+     * <code>int64 version = 17 [json_name = "version"];</code>
      * @return The version.
      */
     @java.lang.Override
@@ -3848,11 +3621,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity version number.
-     * +kubebuilder:validation:Required
+     * Optimistic locking version.
+     * Incremented on every update.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int64 version = 20 [json_name = "version", (.buf.validate.field) = { ... }</code>
+     * <code>int64 version = 17 [json_name = "version"];</code>
      * @param value The version to set.
      * @return This builder for chaining.
      */
@@ -3864,16 +3638,446 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity version number.
-     * +kubebuilder:validation:Required
+     * Optimistic locking version.
+     * Incremented on every update.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int64 version = 20 [json_name = "version", (.buf.validate.field) = { ... }</code>
+     * <code>int64 version = 17 [json_name = "version"];</code>
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
       
       version_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object id_ = "";
+    /**
+     * <pre>
+     * Unique session identifier.
+     * Format: "{key}-{chatId}".
+     * Derived from key and chat_id.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string id = 18 [json_name = "id"];</code>
+     * @return The id.
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Unique session identifier.
+     * Format: "{key}-{chatId}".
+     * Derived from key and chat_id.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string id = 18 [json_name = "id"];</code>
+     * @return The bytes for id.
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Unique session identifier.
+     * Format: "{key}-{chatId}".
+     * Derived from key and chat_id.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string id = 18 [json_name = "id"];</code>
+     * @param value The id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      id_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Unique session identifier.
+     * Format: "{key}-{chatId}".
+     * Derived from key and chat_id.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string id = 18 [json_name = "id"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearId() {
+      
+      id_ = getDefaultInstance().getId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Unique session identifier.
+     * Format: "{key}-{chatId}".
+     * Derived from key and chat_id.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string id = 18 [json_name = "id"];</code>
+     * @param value The bytes for id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      id_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object chatType_ = "";
+    /**
+     * <pre>
+     * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+     * Derived from the third segment of the session key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 19 [json_name = "chatType"];</code>
+     * @return The chatType.
+     */
+    public java.lang.String getChatType() {
+      java.lang.Object ref = chatType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        chatType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+     * Derived from the third segment of the session key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 19 [json_name = "chatType"];</code>
+     * @return The bytes for chatType.
+     */
+    public com.google.protobuf.ByteString
+        getChatTypeBytes() {
+      java.lang.Object ref = chatType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        chatType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+     * Derived from the third segment of the session key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 19 [json_name = "chatType"];</code>
+     * @param value The chatType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      chatType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+     * Derived from the third segment of the session key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 19 [json_name = "chatType"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChatType() {
+      
+      chatType_ = getDefaultInstance().getChatType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+     * Derived from the third segment of the session key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 19 [json_name = "chatType"];</code>
+     * @param value The bytes for chatType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      chatType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object personType_ = "";
+    /**
+     * <pre>
+     * Entity type of the session owner (e.g., "manager", "user").
+     * Derived from the first segment of the session key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string person_type = 20 [json_name = "personType"];</code>
+     * @return The personType.
+     */
+    public java.lang.String getPersonType() {
+      java.lang.Object ref = personType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        personType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Entity type of the session owner (e.g., "manager", "user").
+     * Derived from the first segment of the session key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string person_type = 20 [json_name = "personType"];</code>
+     * @return The bytes for personType.
+     */
+    public com.google.protobuf.ByteString
+        getPersonTypeBytes() {
+      java.lang.Object ref = personType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        personType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Entity type of the session owner (e.g., "manager", "user").
+     * Derived from the first segment of the session key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string person_type = 20 [json_name = "personType"];</code>
+     * @param value The personType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPersonType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      personType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Entity type of the session owner (e.g., "manager", "user").
+     * Derived from the first segment of the session key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string person_type = 20 [json_name = "personType"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPersonType() {
+      
+      personType_ = getDefaultInstance().getPersonType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Entity type of the session owner (e.g., "manager", "user").
+     * Derived from the first segment of the session key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string person_type = 20 [json_name = "personType"];</code>
+     * @param value The bytes for personType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPersonTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      personType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object personId_ = "";
+    /**
+     * <pre>
+     * Entity ID of the session owner.
+     * Derived from the second segment of the session key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string person_id = 21 [json_name = "personId"];</code>
+     * @return The personId.
+     */
+    public java.lang.String getPersonId() {
+      java.lang.Object ref = personId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        personId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Entity ID of the session owner.
+     * Derived from the second segment of the session key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string person_id = 21 [json_name = "personId"];</code>
+     * @return The bytes for personId.
+     */
+    public com.google.protobuf.ByteString
+        getPersonIdBytes() {
+      java.lang.Object ref = personId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        personId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Entity ID of the session owner.
+     * Derived from the second segment of the session key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string person_id = 21 [json_name = "personId"];</code>
+     * @param value The personId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPersonId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      personId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Entity ID of the session owner.
+     * Derived from the second segment of the session key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string person_id = 21 [json_name = "personId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPersonId() {
+      
+      personId_ = getDefaultInstance().getPersonId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Entity ID of the session owner.
+     * Derived from the second segment of the session key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string person_id = 21 [json_name = "personId"];</code>
+     * @param value The bytes for personId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPersonIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      personId_ = value;
       onChanged();
       return this;
     }
@@ -3892,29 +4096,6 @@ private static final long serialVersionUID = 0L;
 
     /* Generated by protoc-gen-java-set-or-clear */
     
-    /**
-     * @param value The id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearId(java.lang.String value) {
-    	if (value == null)
-    		return clearId();
-    	else
-    		return setId(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearId();
-    	else
-    		return setId(mapFunc.apply(value));
-    }
-    	
     /**
      * @param value The key to set.
      * @return This builder for chaining.
@@ -3936,52 +4117,6 @@ private static final long serialVersionUID = 0L;
     		return clearKey();
     	else
     		return setKey(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The channel_id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearChannelId(java.lang.String value) {
-    	if (value == null)
-    		return clearChannelId();
-    	else
-    		return setChannelId(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearChannelId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearChannelId();
-    	else
-    		return setChannelId(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The chat_type to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearChatType(java.lang.String value) {
-    	if (value == null)
-    		return clearChatType();
-    	else
-    		return setChatType(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearChatType();
-    	else
-    		return setChatType(mapFunc.apply(value));
     }
     	
     /**
@@ -4008,6 +4143,29 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
+     * @param value The team_chat_section_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearTeamChatSectionId(java.lang.String value) {
+    	if (value == null)
+    		return clearTeamChatSectionId();
+    	else
+    		return setTeamChatSectionId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearTeamChatSectionId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearTeamChatSectionId();
+    	else
+    		return setTeamChatSectionId(mapFunc.apply(value));
+    }
+    	
+    /**
      * @param value The chat_key to set.
      * @return This builder for chaining.
      */
@@ -4028,52 +4186,6 @@ private static final long serialVersionUID = 0L;
     		return clearChatKey();
     	else
     		return setChatKey(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The person_type to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearPersonType(java.lang.String value) {
-    	if (value == null)
-    		return clearPersonType();
-    	else
-    		return setPersonType(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearPersonType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearPersonType();
-    	else
-    		return setPersonType(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The person_id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearPersonId(java.lang.String value) {
-    	if (value == null)
-    		return clearPersonId();
-    	else
-    		return setPersonId(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearPersonId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearPersonId();
-    	else
-    		return setPersonId(mapFunc.apply(value));
     }
     	
     /**
@@ -4120,6 +4232,29 @@ private static final long serialVersionUID = 0L;
     		return clearUnreadKey();
     	else
     		return setUnreadKey(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The channel_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearChannelId(java.lang.String value) {
+    	if (value == null)
+    		return clearChannelId();
+    	else
+    		return setChannelId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearChannelId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearChannelId();
+    	else
+    		return setChannelId(mapFunc.apply(value));
     }
     	
     /**
@@ -4350,6 +4485,98 @@ private static final long serialVersionUID = 0L;
     		return clearVersion();
     	else
     		return setVersion(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearId(java.lang.String value) {
+    	if (value == null)
+    		return clearId();
+    	else
+    		return setId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearId();
+    	else
+    		return setId(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The chat_type to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearChatType(java.lang.String value) {
+    	if (value == null)
+    		return clearChatType();
+    	else
+    		return setChatType(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearChatType();
+    	else
+    		return setChatType(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The person_type to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearPersonType(java.lang.String value) {
+    	if (value == null)
+    		return clearPersonType();
+    	else
+    		return setPersonType(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearPersonType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearPersonType();
+    	else
+    		return setPersonType(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The person_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearPersonId(java.lang.String value) {
+    	if (value == null)
+    		return clearPersonId();
+    	else
+    		return setPersonId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearPersonId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearPersonId();
+    	else
+    		return setPersonId(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.ChatSession)

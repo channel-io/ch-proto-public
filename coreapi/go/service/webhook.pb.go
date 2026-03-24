@@ -275,7 +275,7 @@ type CreateWebhookRequest struct {
 	// Destination URL that receives webhook payloads.
 	Url string `protobuf:"bytes,3,opt,name=url,proto3" json:"url,omitempty"`
 	// Event scopes that trigger this webhook.
-	Scopes []model.WebhookScope `protobuf:"varint,4,rep,packed,name=scopes,proto3,enum=coreapi.model.WebhookScope" json:"scopes,omitempty"`
+	Scopes []string `protobuf:"bytes,4,rep,name=scopes,proto3" json:"scopes,omitempty"`
 	// API version for webhook payloads.
 	//
 	// +kubebuilder:validation:Enum={"v4","v5"}
@@ -335,7 +335,7 @@ func (x *CreateWebhookRequest) GetUrl() string {
 	return ""
 }
 
-func (x *CreateWebhookRequest) GetScopes() []model.WebhookScope {
+func (x *CreateWebhookRequest) GetScopes() []string {
 	if x != nil {
 		return x.Scopes
 	}
@@ -407,7 +407,7 @@ type PatchWebhookRequest struct {
 	// Destination URL that receives webhook payloads.
 	Url string `protobuf:"bytes,4,opt,name=url,proto3" json:"url,omitempty"`
 	// Event scopes that trigger this webhook.
-	Scopes []model.WebhookScope `protobuf:"varint,5,rep,packed,name=scopes,proto3,enum=coreapi.model.WebhookScope" json:"scopes,omitempty"`
+	Scopes []string `protobuf:"bytes,5,rep,name=scopes,proto3" json:"scopes,omitempty"`
 	// API version for webhook payloads.
 	//
 	// +kubebuilder:validation:Enum={"v4","v5"}
@@ -474,7 +474,7 @@ func (x *PatchWebhookRequest) GetUrl() string {
 	return ""
 }
 
-func (x *PatchWebhookRequest) GetScopes() []model.WebhookScope {
+func (x *PatchWebhookRequest) GetScopes() []string {
 	if x != nil {
 		return x.Scopes
 	}
@@ -649,25 +649,25 @@ const file_coreapi_service_webhook_proto_rawDesc = "" +
 	"\n" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"D\n" +
 	"\x10GetWebhookResult\x120\n" +
-	"\awebhook\x18\x01 \x01(\v2\x16.coreapi.model.WebhookR\awebhook\"\xd9\x01\n" +
+	"\awebhook\x18\x01 \x01(\v2\x16.coreapi.model.WebhookR\awebhook\"\xbc\x01\n" +
 	"\x14CreateWebhookRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x1a\n" +
 	"\x04name\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x04name\x12\x18\n" +
-	"\x03url\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x03url\x12;\n" +
-	"\x06scopes\x18\x04 \x03(\x0e2\x1b.coreapi.model.WebhookScopeB\x06\xbaH\x03\xc8\x01\x01R\x06scopes\x12'\n" +
+	"\x03url\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x03url\x12\x1e\n" +
+	"\x06scopes\x18\x04 \x03(\tB\x06\xbaH\x03\xc8\x01\x01R\x06scopes\x12'\n" +
 	"\vapi_version\x18\x05 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"apiVersion\"G\n" +
 	"\x13CreateWebhookResult\x120\n" +
-	"\awebhook\x18\x01 \x01(\v2\x16.coreapi.model.WebhookR\awebhook\"\xdf\x01\n" +
+	"\awebhook\x18\x01 \x01(\v2\x16.coreapi.model.WebhookR\awebhook\"\xc2\x01\n" +
 	"\x13PatchWebhookRequest\x12%\n" +
 	"\n" +
 	"webhook_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\twebhookId\x12%\n" +
 	"\n" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x12\n" +
 	"\x04name\x18\x03 \x01(\tR\x04name\x12\x10\n" +
-	"\x03url\x18\x04 \x01(\tR\x03url\x123\n" +
-	"\x06scopes\x18\x05 \x03(\x0e2\x1b.coreapi.model.WebhookScopeR\x06scopes\x12\x1f\n" +
+	"\x03url\x18\x04 \x01(\tR\x03url\x12\x16\n" +
+	"\x06scopes\x18\x05 \x03(\tR\x06scopes\x12\x1f\n" +
 	"\vapi_version\x18\x06 \x01(\tR\n" +
 	"apiVersion\"F\n" +
 	"\x12PatchWebhookResult\x120\n" +
@@ -705,20 +705,17 @@ var file_coreapi_service_webhook_proto_goTypes = []any{
 	(*DeleteWebhookRequest)(nil),  // 8: coreapi.service.DeleteWebhookRequest
 	(*DeleteWebhookResult)(nil),   // 9: coreapi.service.DeleteWebhookResult
 	(*model.Webhook)(nil),         // 10: coreapi.model.Webhook
-	(model.WebhookScope)(0),       // 11: coreapi.model.WebhookScope
 }
 var file_coreapi_service_webhook_proto_depIdxs = []int32{
 	10, // 0: coreapi.service.SearchWebhooksResult.webhooks:type_name -> coreapi.model.Webhook
 	10, // 1: coreapi.service.GetWebhookResult.webhook:type_name -> coreapi.model.Webhook
-	11, // 2: coreapi.service.CreateWebhookRequest.scopes:type_name -> coreapi.model.WebhookScope
-	10, // 3: coreapi.service.CreateWebhookResult.webhook:type_name -> coreapi.model.Webhook
-	11, // 4: coreapi.service.PatchWebhookRequest.scopes:type_name -> coreapi.model.WebhookScope
-	10, // 5: coreapi.service.PatchWebhookResult.webhook:type_name -> coreapi.model.Webhook
-	6,  // [6:6] is the sub-list for method output_type
-	6,  // [6:6] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+	10, // 2: coreapi.service.CreateWebhookResult.webhook:type_name -> coreapi.model.Webhook
+	10, // 3: coreapi.service.PatchWebhookResult.webhook:type_name -> coreapi.model.Webhook
+	4,  // [4:4] is the sub-list for method output_type
+	4,  // [4:4] is the sub-list for method input_type
+	4,  // [4:4] is the sub-list for extension type_name
+	4,  // [4:4] is the sub-list for extension extendee
+	0,  // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_webhook_proto_init() }

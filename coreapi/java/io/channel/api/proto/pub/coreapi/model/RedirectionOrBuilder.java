@@ -9,23 +9,21 @@ public interface RedirectionOrBuilder extends
 
   /**
    * <pre>
-   * The original URL that this redirection points to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Full destination URL that the short URL redirects to.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
+   * <code>string original_url = 1 [json_name = "originalUrl"];</code>
    * @return The originalUrl.
    */
   java.lang.String getOriginalUrl();
   /**
    * <pre>
-   * The original URL that this redirection points to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Full destination URL that the short URL redirects to.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
+   * <code>string original_url = 1 [json_name = "originalUrl"];</code>
    * @return The bytes for originalUrl.
    */
   com.google.protobuf.ByteString
@@ -33,55 +31,53 @@ public interface RedirectionOrBuilder extends
 
   /**
    * <pre>
-   * The shortened redirect URL.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Timestamp after which the short URL is no longer valid.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
-   * @return The shortUrl.
-   */
-  java.lang.String getShortUrl();
-  /**
-   * <pre>
-   * The shortened redirect URL.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for shortUrl.
-   */
-  com.google.protobuf.ByteString
-      getShortUrlBytes();
-
-  /**
-   * <pre>
-   * Redirection expiration timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp expire_at = 2 [json_name = "expireAt"];</code>
    * @return Whether the expireAt field is set.
    */
   boolean hasExpireAt();
   /**
    * <pre>
-   * Redirection expiration timestamp.
-   * +kubebuilder:validation:Required
+   * Timestamp after which the short URL is no longer valid.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp expire_at = 2 [json_name = "expireAt"];</code>
    * @return The expireAt.
    */
   com.google.protobuf.Timestamp getExpireAt();
   /**
    * <pre>
-   * Redirection expiration timestamp.
-   * +kubebuilder:validation:Required
+   * Timestamp after which the short URL is no longer valid.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp expire_at = 2 [json_name = "expireAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getExpireAtOrBuilder();
+
+  /**
+   * <pre>
+   * Shortened URL that redirects to `original_url` until `expire_at`.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string short_url = 3 [json_name = "shortUrl"];</code>
+   * @return The shortUrl.
+   */
+  java.lang.String getShortUrl();
+  /**
+   * <pre>
+   * Shortened URL that redirects to `original_url` until `expire_at`.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string short_url = 3 [json_name = "shortUrl"];</code>
+   * @return The bytes for shortUrl.
+   */
+  com.google.protobuf.ByteString
+      getShortUrlBytes();
 }

@@ -9,47 +9,23 @@ public interface CampaignUserOrBuilder extends
 
   /**
    * <pre>
-   * Campaign ID this user record belongs to.
+   * Target user identifier.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string campaign_id = 1 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
-   * @return The campaignId.
-   */
-  java.lang.String getCampaignId();
-  /**
-   * <pre>
-   * Campaign ID this user record belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string campaign_id = 1 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for campaignId.
-   */
-  com.google.protobuf.ByteString
-      getCampaignIdBytes();
-
-  /**
-   * <pre>
-   * ID of the user who received the campaign message.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+   * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
    * @return The userId.
    */
   java.lang.String getUserId();
   /**
    * <pre>
-   * ID of the user who received the campaign message.
+   * Target user identifier.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+   * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for userId.
    */
   com.google.protobuf.ByteString
@@ -57,7 +33,31 @@ public interface CampaignUserOrBuilder extends
 
   /**
    * <pre>
-   * ID of the campaign message that was sent to the user.
+   * Campaign that delivered the message.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * </pre>
+   *
+   * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
+   * @return The campaignId.
+   */
+  java.lang.String getCampaignId();
+  /**
+   * <pre>
+   * Campaign that delivered the message.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * </pre>
+   *
+   * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for campaignId.
+   */
+  com.google.protobuf.ByteString
+      getCampaignIdBytes();
+
+  /**
+   * <pre>
+   * Message variant that was delivered to this user.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -67,7 +67,7 @@ public interface CampaignUserOrBuilder extends
   java.lang.String getMsgId();
   /**
    * <pre>
-   * ID of the campaign message that was sent to the user.
+   * Message variant that was delivered to this user.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -79,7 +79,7 @@ public interface CampaignUserOrBuilder extends
 
   /**
    * <pre>
-   * ID of the user chat created by this campaign message.
+   * User chat conversation created by the campaign delivery.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -89,7 +89,7 @@ public interface CampaignUserOrBuilder extends
   java.lang.String getUserChatId();
   /**
    * <pre>
-   * ID of the user chat created by this campaign message.
+   * User chat conversation created by the campaign delivery.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -101,7 +101,7 @@ public interface CampaignUserOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the message was delivered to the user.
+   * Timestamp when the campaign message was delivered to the user.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -111,7 +111,7 @@ public interface CampaignUserOrBuilder extends
   boolean hasSent();
   /**
    * <pre>
-   * Timestamp when the message was delivered to the user.
+   * Timestamp when the campaign message was delivered to the user.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -121,7 +121,7 @@ public interface CampaignUserOrBuilder extends
   com.google.protobuf.Timestamp getSent();
   /**
    * <pre>
-   * Timestamp when the message was delivered to the user.
+   * Timestamp when the campaign message was delivered to the user.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -131,7 +131,7 @@ public interface CampaignUserOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the user viewed the message.
+   * Timestamp when the user first viewed the delivered message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -141,7 +141,7 @@ public interface CampaignUserOrBuilder extends
   boolean hasView();
   /**
    * <pre>
-   * Timestamp when the user viewed the message.
+   * Timestamp when the user first viewed the delivered message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -151,7 +151,7 @@ public interface CampaignUserOrBuilder extends
   com.google.protobuf.Timestamp getView();
   /**
    * <pre>
-   * Timestamp when the user viewed the message.
+   * Timestamp when the user first viewed the delivered message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -161,7 +161,7 @@ public interface CampaignUserOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the user clicked a link in the message.
+   * Timestamp when the user first clicked a link in the message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -171,7 +171,7 @@ public interface CampaignUserOrBuilder extends
   boolean hasClick();
   /**
    * <pre>
-   * Timestamp when the user clicked a link in the message.
+   * Timestamp when the user first clicked a link in the message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -181,7 +181,7 @@ public interface CampaignUserOrBuilder extends
   com.google.protobuf.Timestamp getClick();
   /**
    * <pre>
-   * Timestamp when the user clicked a link in the message.
+   * Timestamp when the user first clicked a link in the message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -191,7 +191,7 @@ public interface CampaignUserOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the user achieved the conversion goal.
+   * Timestamp when the user completed the campaign goal event.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -201,7 +201,7 @@ public interface CampaignUserOrBuilder extends
   boolean hasGoal();
   /**
    * <pre>
-   * Timestamp when the user achieved the conversion goal.
+   * Timestamp when the user completed the campaign goal event.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -211,7 +211,7 @@ public interface CampaignUserOrBuilder extends
   com.google.protobuf.Timestamp getGoal();
   /**
    * <pre>
-   * Timestamp when the user achieved the conversion goal.
+   * Timestamp when the user completed the campaign goal event.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -221,25 +221,36 @@ public interface CampaignUserOrBuilder extends
 
   /**
    * <pre>
-   * Revenue amount attributed to this user from the campaign.
-   * Decimal number represented as a string for precision.
+   * Cumulative revenue attributed to this user from the campaign.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string revenue = 9 [json_name = "revenue"];</code>
+   * <code>double revenue = 9 [json_name = "revenue"];</code>
    * @return The revenue.
    */
-  java.lang.String getRevenue();
+  double getRevenue();
+
   /**
    * <pre>
-   * Revenue amount attributed to this user from the campaign.
-   * Decimal number represented as a string for precision.
-   * +kubebuilder:validation:Nullable
+   * Composite identifier in the format "{campaign_id}-{user_id}".
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string revenue = 9 [json_name = "revenue"];</code>
-   * @return The bytes for revenue.
+   * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * @return The id.
+   */
+  java.lang.String getId();
+  /**
+   * <pre>
+   * Composite identifier in the format "{campaign_id}-{user_id}".
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * </pre>
+   *
+   * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for id.
    */
   com.google.protobuf.ByteString
-      getRevenueBytes();
+      getIdBytes();
 }

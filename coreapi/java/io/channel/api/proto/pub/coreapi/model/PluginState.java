@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Lifecycle state of a plugin.
+ * Plugin state in the activation lifecycle.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.PluginState}

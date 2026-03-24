@@ -9,19 +9,29 @@ public interface NameDescOrBuilder extends
 
   /**
    * <pre>
-   * Display name.
+   * Display name of the entity.
+   * Must not contain &#64;, #, $, %, :, /, or &#92; characters.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
    * </pre>
    *
-   * <code>string name = 1 [json_name = "name"];</code>
+   * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
    * @return The name.
    */
   java.lang.String getName();
   /**
    * <pre>
-   * Display name.
+   * Display name of the entity.
+   * Must not contain &#64;, #, $, %, :, /, or &#92; characters.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
    * </pre>
    *
-   * <code>string name = 1 [json_name = "name"];</code>
+   * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
@@ -29,19 +39,23 @@ public interface NameDescOrBuilder extends
 
   /**
    * <pre>
-   * Description text.
+   * Short description of the entity.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxLength=180
    * </pre>
    *
-   * <code>string description = 2 [json_name = "description"];</code>
+   * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
    * @return The description.
    */
   java.lang.String getDescription();
   /**
    * <pre>
-   * Description text.
+   * Short description of the entity.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxLength=180
    * </pre>
    *
-   * <code>string description = 2 [json_name = "description"];</code>
+   * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
    * @return The bytes for description.
    */
   com.google.protobuf.ByteString

@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Filter match logic for the additional event filter.
+ * Additional event filter matching strategy.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.CampaignFilterMatch}

@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Visual theme of the plugin widget.
+ * Visual appearance mode for the plugin widget.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.PluginAppearance}

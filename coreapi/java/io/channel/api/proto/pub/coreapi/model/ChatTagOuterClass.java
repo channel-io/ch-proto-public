@@ -30,38 +30,28 @@ public final class ChatTagOuterClass {
     java.lang.String[] descriptorData = {
       "\n\034coreapi/model/chat_tag.proto\022\rcoreapi." +
       "model\032\033buf/validate/validate.proto\032\037goog" +
-      "le/protobuf/timestamp.proto\"\244\006\n\007ChatTag\022" +
-      "]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"valu" +
-      "e must be at least 1 character\032\017size(thi" +
-      "s) >= 1\310\001\001R\002id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272" +
-      "\001D\n\rstring.minLen\022\"value must be at leas" +
-      "t 1 character\032\017size(this) >= 1\310\001\001R\tchann" +
-      "elId\022G\n\rcolor_variant\030\003 \001(\0162\".coreapi.mo" +
-      "del.ChatTagColorVariantR\014colorVariant\022\304\001" +
-      "\n\004name\030\004 \001(\tB\257\001\272H\253\001\272\001D\n\rstring.minLen\022\"v" +
-      "alue must be at least 1 character\032\017size(" +
-      "this) >= 1\272\001M\n\rstring.maxLen\022)value must" +
-      " be no more than 128 characters\032\021size(th" +
-      "is) <= 128\310\001\001r\0172\r^[^.\\\\$%\\s]+$R\004name\022_\n\003" +
-      "key\030\005 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value " +
-      "must be at least 1 character\032\017size(this)" +
-      " >= 1\310\001\001R\003key\022u\n\013description\030\006 \001(\tBS\272HP\272" +
+      "le/protobuf/timestamp.proto\"\351\002\n\007ChatTag\022" +
+      "\016\n\002id\030\001 \001(\tR\002id\022\035\n\nchannel_id\030\002 \001(\tR\tcha" +
+      "nnelId\022G\n\rcolor_variant\030\003 \001(\0162\".coreapi." +
+      "model.ChatTagColorVariantR\014colorVariant\022" +
+      "\032\n\004name\030\004 \001(\tB\006\272H\003\310\001\001R\004name\022\030\n\003key\030\005 \001(\t" +
+      "B\006\272H\003\310\001\001R\003key\022u\n\013description\030\006 \001(\tBS\272HP\272" +
       "\001M\n\rstring.maxLen\022)value must be no more" +
       " than 128 characters\032\021size(this) <= 128R" +
-      "\013description\022!\n\014follower_ids\030\010 \003(\tR\013foll" +
-      "owerIds\022A\n\ncreated_at\030\007 \001(\0132\032.google.pro" +
-      "tobuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt*\253\002\n\023C" +
-      "hatTagColorVariant\022&\n\"CHAT_TAG_COLOR_VAR" +
-      "IANT_UNSPECIFIED\020\000\022!\n\035CHAT_TAG_COLOR_VAR" +
-      "IANT_COBALT\020\001\022 \n\034CHAT_TAG_COLOR_VARIANT_" +
-      "GREEN\020\002\022!\n\035CHAT_TAG_COLOR_VARIANT_ORANGE" +
-      "\020\003\022\036\n\032CHAT_TAG_COLOR_VARIANT_RED\020\004\022 \n\034CH" +
-      "AT_TAG_COLOR_VARIANT_BLACK\020\005\022\037\n\033CHAT_TAG" +
-      "_COLOR_VARIANT_PINK\020\006\022!\n\035CHAT_TAG_COLOR_" +
-      "VARIANT_PURPLE\020\007Bb\n&io.channel.api.proto" +
-      ".pub.coreapi.modelP\001Z6github.com/channel" +
-      "-io/ch-proto-public/coreapi/go/modelb\006pr" +
-      "oto3"
+      "\013description\0229\n\ncreated_at\030\007 \001(\0132\032.googl" +
+      "e.protobuf.TimestampR\tcreatedAt*\357\002\n\023Chat" +
+      "TagColorVariant\022&\n\"CHAT_TAG_COLOR_VARIAN" +
+      "T_UNSPECIFIED\020\000\022\036\n\032CHAT_TAG_COLOR_VARIAN" +
+      "T_RED\020\001\022!\n\035CHAT_TAG_COLOR_VARIANT_ORANGE" +
+      "\020\002\022!\n\035CHAT_TAG_COLOR_VARIANT_YELLOW\020\003\022 \n" +
+      "\034CHAT_TAG_COLOR_VARIANT_OLIVE\020\004\022 \n\034CHAT_" +
+      "TAG_COLOR_VARIANT_GREEN\020\005\022!\n\035CHAT_TAG_CO" +
+      "LOR_VARIANT_COBALT\020\006\022!\n\035CHAT_TAG_COLOR_V" +
+      "ARIANT_PURPLE\020\007\022\037\n\033CHAT_TAG_COLOR_VARIAN" +
+      "T_PINK\020\010\022\037\n\033CHAT_TAG_COLOR_VARIANT_NAVY\020" +
+      "\tBb\n&io.channel.api.proto.pub.coreapi.mo" +
+      "delP\001Z6github.com/channel-io/ch-proto-pu" +
+      "blic/coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -74,7 +64,7 @@ public final class ChatTagOuterClass {
     internal_static_coreapi_model_ChatTag_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_ChatTag_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "ColorVariant", "Name", "Key", "Description", "FollowerIds", "CreatedAt", });
+        new java.lang.String[] { "Id", "ChannelId", "ColorVariant", "Name", "Key", "Description", "CreatedAt", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);

@@ -100,7 +100,7 @@ message SearchCampaignUsersRequest {
   string campaign_id = 2 [(buf.validate.field).required = true];
 
   // Interaction state to filter and sort users by.
-  coreapi.model.CampaignUserState state = 3 [(buf.validate.field).required = true];
+  string state = 3 [(buf.validate.field).required = true];
 
   // Opaque pagination cursor from a previous response.
   string cursor = 4;

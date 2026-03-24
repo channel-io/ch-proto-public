@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+import "buf/validate/validate.proto";
+import "google/protobuf/struct.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// MessageAlf represents ALF (AI assistant) metadata attached to a message,
+// tracking the AI session context and source references used to generate the response.
+message MessageAlf {
+  // Identifier of the handling session that triggered this ALF response.
+  //
+  // +kubebuilder:validation:Nullable
+  string handling_id = 1;
+
+  // Identifier of the ALF conversation session spanning multiple turns.
+  //
+  // +kubebuilder:validation:Nullable
+  string alf_session_id = 2;
+
+  // Source documents or articles cited by ALF in its response.
+  // Each entry contains reference metadata such as title, URL, and relevance score.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated google.protobuf.Struct references = 3;
+
+  // Whether this message is ALF's reply to a direct @mention.
+  // Defaults to false.
+  //
+  // +kubebuilder:validation:Required
+  bool mention_alf_answered = 4 [(buf.validate.field).required = true];
+}

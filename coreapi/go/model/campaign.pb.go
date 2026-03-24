@@ -10,7 +10,6 @@ import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	structpb "google.golang.org/protobuf/types/known/structpb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
@@ -25,7 +24,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Lifecycle state of a campaign.
+// Campaign lifecycle state.
 type CampaignState int32
 
 const (
@@ -81,69 +80,63 @@ func (CampaignState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{0}
 }
 
-// Send timing mode for a campaign.
-type CampaignSendMode int32
+// Messaging medium type for marketing delivery.
+type MediumType int32
 
 const (
-	CampaignSendMode_CAMPAIGN_SEND_MODE_UNSPECIFIED                CampaignSendMode = 0
-	CampaignSendMode_CAMPAIGN_SEND_MODE_ALWAYS                     CampaignSendMode = 1
-	CampaignSendMode_CAMPAIGN_SEND_MODE_AWAY                       CampaignSendMode = 2
-	CampaignSendMode_CAMPAIGN_SEND_MODE_IN_OPERATION               CampaignSendMode = 3
-	CampaignSendMode_CAMPAIGN_SEND_MODE_CUSTOM_USING_SENDER_TIME   CampaignSendMode = 4
-	CampaignSendMode_CAMPAIGN_SEND_MODE_CUSTOM_USING_RECEIVER_TIME CampaignSendMode = 5
-	CampaignSendMode_CAMPAIGN_SEND_MODE_CUSTOM                     CampaignSendMode = 6
+	MediumType_MEDIUM_TYPE_UNSPECIFIED MediumType = 0
+	MediumType_MEDIUM_TYPE_NATIVE      MediumType = 1
+	MediumType_MEDIUM_TYPE_PHONE       MediumType = 2
+	MediumType_MEDIUM_TYPE_EMAIL       MediumType = 3
+	MediumType_MEDIUM_TYPE_APP         MediumType = 4
 )
 
-// Enum value maps for CampaignSendMode.
+// Enum value maps for MediumType.
 var (
-	CampaignSendMode_name = map[int32]string{
-		0: "CAMPAIGN_SEND_MODE_UNSPECIFIED",
-		1: "CAMPAIGN_SEND_MODE_ALWAYS",
-		2: "CAMPAIGN_SEND_MODE_AWAY",
-		3: "CAMPAIGN_SEND_MODE_IN_OPERATION",
-		4: "CAMPAIGN_SEND_MODE_CUSTOM_USING_SENDER_TIME",
-		5: "CAMPAIGN_SEND_MODE_CUSTOM_USING_RECEIVER_TIME",
-		6: "CAMPAIGN_SEND_MODE_CUSTOM",
+	MediumType_name = map[int32]string{
+		0: "MEDIUM_TYPE_UNSPECIFIED",
+		1: "MEDIUM_TYPE_NATIVE",
+		2: "MEDIUM_TYPE_PHONE",
+		3: "MEDIUM_TYPE_EMAIL",
+		4: "MEDIUM_TYPE_APP",
 	}
-	CampaignSendMode_value = map[string]int32{
-		"CAMPAIGN_SEND_MODE_UNSPECIFIED":                0,
-		"CAMPAIGN_SEND_MODE_ALWAYS":                     1,
-		"CAMPAIGN_SEND_MODE_AWAY":                       2,
-		"CAMPAIGN_SEND_MODE_IN_OPERATION":               3,
-		"CAMPAIGN_SEND_MODE_CUSTOM_USING_SENDER_TIME":   4,
-		"CAMPAIGN_SEND_MODE_CUSTOM_USING_RECEIVER_TIME": 5,
-		"CAMPAIGN_SEND_MODE_CUSTOM":                     6,
+	MediumType_value = map[string]int32{
+		"MEDIUM_TYPE_UNSPECIFIED": 0,
+		"MEDIUM_TYPE_NATIVE":      1,
+		"MEDIUM_TYPE_PHONE":       2,
+		"MEDIUM_TYPE_EMAIL":       3,
+		"MEDIUM_TYPE_APP":         4,
 	}
 )
 
-func (x CampaignSendMode) Enum() *CampaignSendMode {
-	p := new(CampaignSendMode)
+func (x MediumType) Enum() *MediumType {
+	p := new(MediumType)
 	*p = x
 	return p
 }
 
-func (x CampaignSendMode) String() string {
+func (x MediumType) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (CampaignSendMode) Descriptor() protoreflect.EnumDescriptor {
+func (MediumType) Descriptor() protoreflect.EnumDescriptor {
 	return file_coreapi_model_campaign_proto_enumTypes[1].Descriptor()
 }
 
-func (CampaignSendMode) Type() protoreflect.EnumType {
+func (MediumType) Type() protoreflect.EnumType {
 	return &file_coreapi_model_campaign_proto_enumTypes[1]
 }
 
-func (x CampaignSendMode) Number() protoreflect.EnumNumber {
+func (x MediumType) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use CampaignSendMode.Descriptor instead.
-func (CampaignSendMode) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use MediumType.Descriptor instead.
+func (MediumType) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{1}
 }
 
-// Filter match logic for the additional event filter.
+// Additional event filter matching strategy.
 type CampaignFilterMatch int32
 
 const (
@@ -193,279 +186,69 @@ func (CampaignFilterMatch) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{2}
 }
 
-// Base event type for holding property constants.
-type CampaignBaseEventType int32
+// Campaign send mode controlling delivery timing.
+type CampaignSendMode int32
 
 const (
-	CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED       CampaignBaseEventType = 0
-	CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT     CampaignBaseEventType = 1
-	CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER CampaignBaseEventType = 2
+	CampaignSendMode_CAMPAIGN_SEND_MODE_UNSPECIFIED                CampaignSendMode = 0
+	CampaignSendMode_CAMPAIGN_SEND_MODE_ALWAYS                     CampaignSendMode = 1
+	CampaignSendMode_CAMPAIGN_SEND_MODE_AWAY                       CampaignSendMode = 2
+	CampaignSendMode_CAMPAIGN_SEND_MODE_IN_OPERATION               CampaignSendMode = 3
+	CampaignSendMode_CAMPAIGN_SEND_MODE_CUSTOM_USING_SENDER_TIME   CampaignSendMode = 4
+	CampaignSendMode_CAMPAIGN_SEND_MODE_CUSTOM_USING_RECEIVER_TIME CampaignSendMode = 5
+	CampaignSendMode_CAMPAIGN_SEND_MODE_CUSTOM                     CampaignSendMode = 6
 )
 
-// Enum value maps for CampaignBaseEventType.
+// Enum value maps for CampaignSendMode.
 var (
-	CampaignBaseEventType_name = map[int32]string{
-		0: "CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED",
-		1: "CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT",
-		2: "CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER",
+	CampaignSendMode_name = map[int32]string{
+		0: "CAMPAIGN_SEND_MODE_UNSPECIFIED",
+		1: "CAMPAIGN_SEND_MODE_ALWAYS",
+		2: "CAMPAIGN_SEND_MODE_AWAY",
+		3: "CAMPAIGN_SEND_MODE_IN_OPERATION",
+		4: "CAMPAIGN_SEND_MODE_CUSTOM_USING_SENDER_TIME",
+		5: "CAMPAIGN_SEND_MODE_CUSTOM_USING_RECEIVER_TIME",
+		6: "CAMPAIGN_SEND_MODE_CUSTOM",
 	}
-	CampaignBaseEventType_value = map[string]int32{
-		"CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED":       0,
-		"CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT":     1,
-		"CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER": 2,
+	CampaignSendMode_value = map[string]int32{
+		"CAMPAIGN_SEND_MODE_UNSPECIFIED":                0,
+		"CAMPAIGN_SEND_MODE_ALWAYS":                     1,
+		"CAMPAIGN_SEND_MODE_AWAY":                       2,
+		"CAMPAIGN_SEND_MODE_IN_OPERATION":               3,
+		"CAMPAIGN_SEND_MODE_CUSTOM_USING_SENDER_TIME":   4,
+		"CAMPAIGN_SEND_MODE_CUSTOM_USING_RECEIVER_TIME": 5,
+		"CAMPAIGN_SEND_MODE_CUSTOM":                     6,
 	}
 )
 
-func (x CampaignBaseEventType) Enum() *CampaignBaseEventType {
-	p := new(CampaignBaseEventType)
+func (x CampaignSendMode) Enum() *CampaignSendMode {
+	p := new(CampaignSendMode)
 	*p = x
 	return p
 }
 
-func (x CampaignBaseEventType) String() string {
+func (x CampaignSendMode) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (CampaignBaseEventType) Descriptor() protoreflect.EnumDescriptor {
+func (CampaignSendMode) Descriptor() protoreflect.EnumDescriptor {
 	return file_coreapi_model_campaign_proto_enumTypes[3].Descriptor()
 }
 
-func (CampaignBaseEventType) Type() protoreflect.EnumType {
+func (CampaignSendMode) Type() protoreflect.EnumType {
 	return &file_coreapi_model_campaign_proto_enumTypes[3]
 }
 
-func (x CampaignBaseEventType) Number() protoreflect.EnumNumber {
+func (x CampaignSendMode) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use CampaignBaseEventType.Descriptor instead.
-func (CampaignBaseEventType) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use CampaignSendMode.Descriptor instead.
+func (CampaignSendMode) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{3}
 }
 
-// Day of the week.
-type DayOfWeek int32
-
-const (
-	DayOfWeek_DAY_OF_WEEK_UNSPECIFIED DayOfWeek = 0
-	DayOfWeek_DAY_OF_WEEK_MON         DayOfWeek = 1
-	DayOfWeek_DAY_OF_WEEK_TUE         DayOfWeek = 2
-	DayOfWeek_DAY_OF_WEEK_WED         DayOfWeek = 3
-	DayOfWeek_DAY_OF_WEEK_THU         DayOfWeek = 4
-	DayOfWeek_DAY_OF_WEEK_FRI         DayOfWeek = 5
-	DayOfWeek_DAY_OF_WEEK_SAT         DayOfWeek = 6
-	DayOfWeek_DAY_OF_WEEK_SUN         DayOfWeek = 7
-)
-
-// Enum value maps for DayOfWeek.
-var (
-	DayOfWeek_name = map[int32]string{
-		0: "DAY_OF_WEEK_UNSPECIFIED",
-		1: "DAY_OF_WEEK_MON",
-		2: "DAY_OF_WEEK_TUE",
-		3: "DAY_OF_WEEK_WED",
-		4: "DAY_OF_WEEK_THU",
-		5: "DAY_OF_WEEK_FRI",
-		6: "DAY_OF_WEEK_SAT",
-		7: "DAY_OF_WEEK_SUN",
-	}
-	DayOfWeek_value = map[string]int32{
-		"DAY_OF_WEEK_UNSPECIFIED": 0,
-		"DAY_OF_WEEK_MON":         1,
-		"DAY_OF_WEEK_TUE":         2,
-		"DAY_OF_WEEK_WED":         3,
-		"DAY_OF_WEEK_THU":         4,
-		"DAY_OF_WEEK_FRI":         5,
-		"DAY_OF_WEEK_SAT":         6,
-		"DAY_OF_WEEK_SUN":         7,
-	}
-)
-
-func (x DayOfWeek) Enum() *DayOfWeek {
-	p := new(DayOfWeek)
-	*p = x
-	return p
-}
-
-func (x DayOfWeek) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (DayOfWeek) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_campaign_proto_enumTypes[4].Descriptor()
-}
-
-func (DayOfWeek) Type() protoreflect.EnumType {
-	return &file_coreapi_model_campaign_proto_enumTypes[4]
-}
-
-func (x DayOfWeek) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use DayOfWeek.Descriptor instead.
-func (DayOfWeek) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{4}
-}
-
-// TimeRange represents a time window within specific days of the week.
-// From and to are expressed as minutes from midnight (0-1440).
-type TimeRange struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Days of the week this time range applies to.
-	DayOfWeeks []DayOfWeek `protobuf:"varint,1,rep,packed,name=day_of_weeks,json=dayOfWeeks,proto3,enum=coreapi.model.DayOfWeek" json:"day_of_weeks,omitempty"`
-	// Start time as minutes from midnight.
-	//
-	// +kubebuilder:validation:Minimum=0
-	// +kubebuilder:validation:Maximum=1440
-	From int32 `protobuf:"varint,2,opt,name=from,proto3" json:"from,omitempty"`
-	// End time as minutes from midnight.
-	// Must be greater than from.
-	//
-	// +kubebuilder:validation:Minimum=0
-	// +kubebuilder:validation:Maximum=1440
-	To            int32 `protobuf:"varint,3,opt,name=to,proto3" json:"to,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TimeRange) Reset() {
-	*x = TimeRange{}
-	mi := &file_coreapi_model_campaign_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TimeRange) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TimeRange) ProtoMessage() {}
-
-func (x *TimeRange) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_campaign_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TimeRange.ProtoReflect.Descriptor instead.
-func (*TimeRange) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *TimeRange) GetDayOfWeeks() []DayOfWeek {
-	if x != nil {
-		return x.DayOfWeeks
-	}
-	return nil
-}
-
-func (x *TimeRange) GetFrom() int32 {
-	if x != nil {
-		return x.From
-	}
-	return 0
-}
-
-func (x *TimeRange) GetTo() int32 {
-	if x != nil {
-		return x.To
-	}
-	return 0
-}
-
-// HoldingPropertyConstant enables dynamic property-based filtering
-// by holding a constant value from a base event for use in event queries.
-type HoldingPropertyConstant struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Name of the base event to extract the property value from.
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	BaseEventName string `protobuf:"bytes,1,opt,name=base_event_name,json=baseEventName,proto3" json:"base_event_name,omitempty"`
-	// Property key to extract from the base event.
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	BaseEventKey string `protobuf:"bytes,2,opt,name=base_event_key,json=baseEventKey,proto3" json:"base_event_key,omitempty"`
-	// Query expression for matching the held property value.
-	//
-	// +kubebuilder:validation:Nullable
-	EventQuery *structpb.Struct `protobuf:"bytes,3,opt,name=event_query,json=eventQuery,proto3" json:"event_query,omitempty"`
-	// Type of base event this holding property constant is associated with.
-	//
-	// +kubebuilder:validation:Required
-	BaseEventType CampaignBaseEventType `protobuf:"varint,4,opt,name=base_event_type,json=baseEventType,proto3,enum=coreapi.model.CampaignBaseEventType" json:"base_event_type,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HoldingPropertyConstant) Reset() {
-	*x = HoldingPropertyConstant{}
-	mi := &file_coreapi_model_campaign_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HoldingPropertyConstant) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HoldingPropertyConstant) ProtoMessage() {}
-
-func (x *HoldingPropertyConstant) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_campaign_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HoldingPropertyConstant.ProtoReflect.Descriptor instead.
-func (*HoldingPropertyConstant) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *HoldingPropertyConstant) GetBaseEventName() string {
-	if x != nil {
-		return x.BaseEventName
-	}
-	return ""
-}
-
-func (x *HoldingPropertyConstant) GetBaseEventKey() string {
-	if x != nil {
-		return x.BaseEventKey
-	}
-	return ""
-}
-
-func (x *HoldingPropertyConstant) GetEventQuery() *structpb.Struct {
-	if x != nil {
-		return x.EventQuery
-	}
-	return nil
-}
-
-func (x *HoldingPropertyConstant) GetBaseEventType() CampaignBaseEventType {
-	if x != nil {
-		return x.BaseEventType
-	}
-	return CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED
-}
-
-// Campaign represents a recurring automated message that is sent to users
-// when they trigger a specific event.
+// Campaign represents a recurring marketing campaign triggered by user events.
 type Campaign struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique campaign identifier.
@@ -478,97 +261,136 @@ type Campaign struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Display name of the campaign.
+	// Human-readable label for the campaign.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=128
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	// Current lifecycle state.
+	// Current lifecycle state of the campaign.
+	//
+	// +kubebuilder:validation:Nullable
+	State CampaignState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.CampaignState" json:"state,omitempty"`
+	// Channel through which the campaign message is delivered.
+	// Cannot be changed after creation.
 	//
 	// +kubebuilder:validation:Required
-	State CampaignState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.CampaignState" json:"state,omitempty"`
-	// User targeting query for audience filtering.
+	MediumType MediumType `protobuf:"varint,5,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
+	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+	//
+	// +kubebuilder:validation:Nullable
+	MediumId string `protobuf:"bytes,6,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
+	// Query expression that defines the target user segment.
+	// Represented as a structured filter object.
 	//
 	// +kubebuilder:validation:Nullable
 	UserQuery *structpb.Struct `protobuf:"bytes,7,opt,name=user_query,json=userQuery,proto3" json:"user_query,omitempty"`
-	// Name of the event that triggers the campaign.
-	// May be unset for draft campaigns.
+	// App-defined user segments used alongside user_query for targeting.
 	//
 	// +kubebuilder:validation:Nullable
+	AppSegments []*AppSegment `protobuf:"bytes,8,rep,name=app_segments,json=appSegments,proto3" json:"app_segments,omitempty"`
+	// Name of the user event that triggers this campaign.
+	//
+	// +kubebuilder:validation:Required
 	TriggerEventName string `protobuf:"bytes,9,opt,name=trigger_event_name,json=triggerEventName,proto3" json:"trigger_event_name,omitempty"`
-	// Filtering query for the trigger event.
+	// Query expression to further filter matching trigger events by their properties.
+	// Represented as a structured filter object.
 	//
 	// +kubebuilder:validation:Nullable
 	TriggerEventQuery *structpb.Struct `protobuf:"bytes,10,opt,name=trigger_event_query,json=triggerEventQuery,proto3" json:"trigger_event_query,omitempty"`
-	// Delay between trigger event and message delivery.
+	// Delay between the trigger event and message delivery, in ISO 8601 duration format.
 	// Maximum 90 days.
 	//
-	// +kubebuilder:validation:Nullable
-	WaitingTime *durationpb.Duration `protobuf:"bytes,11,opt,name=waiting_time,json=waitingTime,proto3" json:"waiting_time,omitempty"`
-	// Name of the additional filter event.
-	// When set, waiting_time must be non-zero.
+	// +kubebuilder:validation:Required
+	// +kubebuilder:example="PT23H50M"
+	WaitingTime string `protobuf:"bytes,11,opt,name=waiting_time,json=waitingTime,proto3" json:"waiting_time,omitempty"`
+	// Name of an additional event used to filter users before delivery.
+	// When set, filter_match determines whether the event must occur or must not occur.
 	//
 	// +kubebuilder:validation:Nullable
 	FilterEventName string `protobuf:"bytes,12,opt,name=filter_event_name,json=filterEventName,proto3" json:"filter_event_name,omitempty"`
-	// Filtering query for the additional filter event.
+	// Query expression to filter the additional filter events by their properties.
+	// Represented as a structured filter object. Applicable when filter_event_name is set.
 	//
 	// +kubebuilder:validation:Nullable
 	FilterEventQuery *structpb.Struct `protobuf:"bytes,13,opt,name=filter_event_query,json=filterEventQuery,proto3" json:"filter_event_query,omitempty"`
-	// Match logic for the additional event filter.
+	// Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
+	// Applicable when filter_event_name is set.
 	//
 	// +kubebuilder:validation:Nullable
 	FilterMatch CampaignFilterMatch `protobuf:"varint,14,opt,name=filter_match,json=filterMatch,proto3,enum=coreapi.model.CampaignFilterMatch" json:"filter_match,omitempty"`
-	// Name of the event tracked as a conversion goal.
+	// Holds a property value from the trigger event constant for consistent additional event filtering.
+	// Applicable when filter_event_name is set.
+	//
+	// +kubebuilder:validation:Nullable
+	FilterHpc *HoldingPropertyConstant `protobuf:"bytes,15,opt,name=filter_hpc,json=filterHpc,proto3" json:"filter_hpc,omitempty"`
+	// Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+	// Defines how long after delivery each conversion event is counted.
+	//
+	// +kubebuilder:validation:Nullable
+	ConversionWindows map[string]string `protobuf:"bytes,16,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Name of the event that counts as a goal completion.
 	//
 	// +kubebuilder:validation:Nullable
 	GoalEventName string `protobuf:"bytes,17,opt,name=goal_event_name,json=goalEventName,proto3" json:"goal_event_name,omitempty"`
-	// Filtering query for the goal event.
+	// Query expression to filter goal events by their properties.
+	// Represented as a structured filter object. Applicable when goal_event_name is set.
 	//
 	// +kubebuilder:validation:Nullable
 	GoalEventQuery *structpb.Struct `protobuf:"bytes,18,opt,name=goal_event_query,json=goalEventQuery,proto3" json:"goal_event_query,omitempty"`
-	// Duration window for goal event tracking.
-	// Valid range is 1 to 30 days. Defaults to 7 days.
+	// Time window for attributing goal events after delivery, in ISO 8601 duration format.
+	// Between 1 and 30 days. Defaults to 7 days.
 	//
 	// +kubebuilder:validation:Nullable
-	GoalEventDuration *durationpb.Duration `protobuf:"bytes,19,opt,name=goal_event_duration,json=goalEventDuration,proto3" json:"goal_event_duration,omitempty"`
-	// Whether this campaign contains advertising content.
+	// +kubebuilder:example="PT23H50M"
+	GoalEventDuration string `protobuf:"bytes,19,opt,name=goal_event_duration,json=goalEventDuration,proto3" json:"goal_event_duration,omitempty"`
+	// Holds a property value from the trigger or filter event constant for consistent goal checking.
+	// Applicable when goal_event_name is set.
 	//
 	// +kubebuilder:validation:Nullable
+	GoalHpc *HoldingPropertyConstant `protobuf:"bytes,20,opt,name=goal_hpc,json=goalHpc,proto3" json:"goal_hpc,omitempty"`
+	// Whether the campaign message contains advertising content subject to opt-out regulations.
+	//
+	// +kubebuilder:validation:Required
 	Advertising bool `protobuf:"varint,21,opt,name=advertising,proto3" json:"advertising,omitempty"`
-	// Whether to send via XMS (SMS/LMS/MMS) to offline users.
+	// Whether to fall back to XMS (text message) delivery when the user is offline.
 	//
 	// +kubebuilder:validation:Nullable
 	SendToOfflineXms bool `protobuf:"varint,22,opt,name=send_to_offline_xms,json=sendToOfflineXms,proto3" json:"send_to_offline_xms,omitempty"`
-	// Whether to send via email to offline users.
+	// Whether to fall back to email delivery when the user is offline.
 	//
 	// +kubebuilder:validation:Nullable
 	SendToOfflineEmail bool `protobuf:"varint,23,opt,name=send_to_offline_email,json=sendToOfflineEmail,proto3" json:"send_to_offline_email,omitempty"`
-	// Minimum interval between consecutive sends to the same user.
-	// Valid range is 0 to 30 days.
+	// Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+	// Between 0 seconds and 30 days.
 	//
 	// +kubebuilder:validation:Nullable
-	Cooldown *durationpb.Duration `protobuf:"bytes,24,opt,name=cooldown,proto3" json:"cooldown,omitempty"`
-	// Send timing mode that determines when messages are delivered.
-	// May be unset for draft campaigns.
+	// +kubebuilder:example="PT23H50M"
+	Cooldown string `protobuf:"bytes,24,opt,name=cooldown,proto3" json:"cooldown,omitempty"`
+	// Controls when messages are delivered relative to operation hours or custom time ranges.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	SendMode CampaignSendMode `protobuf:"varint,25,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.CampaignSendMode" json:"send_mode,omitempty"`
-	// Custom time ranges for message delivery.
-	// Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+	// Channel operation schedule used to determine delivery timing.
+	// Applicable when send_mode is IN_OPERATION or AWAY.
+	//
+	// +kubebuilder:validation:Nullable
+	ChannelOperationId string `protobuf:"bytes,26,opt,name=channel_operation_id,json=channelOperationId,proto3" json:"channel_operation_id,omitempty"`
+	// Custom time windows for delivery scheduling.
+	// Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
 	//
 	// +kubebuilder:validation:Nullable
 	SendTimeRanges []*TimeRange `protobuf:"bytes,27,rep,name=send_time_ranges,json=sendTimeRanges,proto3" json:"send_time_ranges,omitempty"`
-	// Campaign start time.
+	// Timestamp when the campaign becomes eligible to trigger.
 	//
 	// +kubebuilder:validation:Nullable
 	StartAt *timestamppb.Timestamp `protobuf:"bytes,28,opt,name=start_at,json=startAt,proto3" json:"start_at,omitempty"`
-	// Scheduled campaign end timestamp.
-	// Campaign automatically stops after this time.
+	// Timestamp when the campaign automatically stops.
 	//
 	// +kubebuilder:validation:Nullable
 	EndAt *timestamppb.Timestamp `protobuf:"bytes,29,opt,name=end_at,json=endAt,proto3" json:"end_at,omitempty"`
-	// Draft snapshot of the campaign saved before activation.
+	// Snapshot of the campaign configuration captured before activation.
+	// Represented as a free-form JSON object.
 	//
 	// +kubebuilder:validation:Nullable
 	Draft *structpb.Struct `protobuf:"bytes,30,opt,name=draft,proto3" json:"draft,omitempty"`
@@ -580,69 +402,39 @@ type Campaign struct {
 	//
 	// +kubebuilder:validation:Required
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,32,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Total number of messages sent.
+	// Cumulative count of messages delivered.
 	//
 	// +kubebuilder:validation:Nullable
 	Sent int32 `protobuf:"varint,33,opt,name=sent,proto3" json:"sent,omitempty"`
-	// Total number of message views.
+	// Cumulative count of message views by recipients.
 	//
 	// +kubebuilder:validation:Nullable
 	View int32 `protobuf:"varint,34,opt,name=view,proto3" json:"view,omitempty"`
-	// Total number of goal conversions achieved.
+	// Cumulative count of goal event completions attributed to this campaign.
 	//
 	// +kubebuilder:validation:Nullable
 	Goal int32 `protobuf:"varint,35,opt,name=goal,proto3" json:"goal,omitempty"`
-	// Total number of message link clicks.
+	// Cumulative count of message link clicks.
 	//
 	// +kubebuilder:validation:Nullable
 	Click int32 `protobuf:"varint,36,opt,name=click,proto3" json:"click,omitempty"`
-	// Delivery medium type identifier.
+	// Duration before the user chat created by this campaign expires, in ISO 8601 format.
+	// Defaults to 31 days.
 	//
 	// +kubebuilder:validation:Nullable
-	SendMedium string `protobuf:"bytes,37,opt,name=send_medium,json=sendMedium,proto3" json:"send_medium,omitempty"`
-	// Duration after which user chat sessions expire.
+	// +kubebuilder:example="PT23H50M"
+	UserChatExpireDuration string `protobuf:"bytes,37,opt,name=user_chat_expire_duration,json=userChatExpireDuration,proto3" json:"user_chat_expire_duration,omitempty"`
+	// Manager assigned to handle user responses from this campaign.
 	//
 	// +kubebuilder:validation:Nullable
-	UserChatExpireDuration *durationpb.Duration `protobuf:"bytes,38,opt,name=user_chat_expire_duration,json=userChatExpireDuration,proto3" json:"user_chat_expire_duration,omitempty"`
-	// Manager ID responsible for this campaign.
-	//
-	// +kubebuilder:validation:Nullable
-	ManagerId string `protobuf:"bytes,39,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
-	// Delivery medium type.
-	//
-	// +kubebuilder:validation:Nullable
-	MediumType MediumType `protobuf:"varint,40,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
-	// Identifier of the specific medium instance.
-	//
-	// +kubebuilder:validation:Nullable
-	MediumId string `protobuf:"bytes,41,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
-	// App segments for user targeting.
-	//
-	// +kubebuilder:validation:Nullable
-	AppSegments []*AppSegment `protobuf:"bytes,42,rep,name=app_segments,json=appSegments,proto3" json:"app_segments,omitempty"`
-	// Channel operation ID for business hours scheduling.
-	//
-	// +kubebuilder:validation:Nullable
-	ChannelOperationId string `protobuf:"bytes,43,opt,name=channel_operation_id,json=channelOperationId,proto3" json:"channel_operation_id,omitempty"`
-	// Conversion tracking windows keyed by feature name.
-	//
-	// +kubebuilder:validation:Nullable
-	ConversionWindows map[string]*durationpb.Duration `protobuf:"bytes,44,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Holding property constant for the additional event filter.
-	//
-	// +kubebuilder:validation:Nullable
-	FilterHpc *HoldingPropertyConstant `protobuf:"bytes,45,opt,name=filter_hpc,json=filterHpc,proto3" json:"filter_hpc,omitempty"`
-	// Holding property constant for the goal event.
-	//
-	// +kubebuilder:validation:Nullable
-	GoalHpc       *HoldingPropertyConstant `protobuf:"bytes,46,opt,name=goal_hpc,json=goalHpc,proto3" json:"goal_hpc,omitempty"`
+	ManagerId     string `protobuf:"bytes,38,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Campaign) Reset() {
 	*x = Campaign{}
-	mi := &file_coreapi_model_campaign_proto_msgTypes[2]
+	mi := &file_coreapi_model_campaign_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -654,7 +446,7 @@ func (x *Campaign) String() string {
 func (*Campaign) ProtoMessage() {}
 
 func (x *Campaign) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_campaign_proto_msgTypes[2]
+	mi := &file_coreapi_model_campaign_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -667,7 +459,7 @@ func (x *Campaign) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Campaign.ProtoReflect.Descriptor instead.
 func (*Campaign) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{2}
+	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Campaign) GetId() string {
@@ -698,9 +490,30 @@ func (x *Campaign) GetState() CampaignState {
 	return CampaignState_CAMPAIGN_STATE_UNSPECIFIED
 }
 
+func (x *Campaign) GetMediumType() MediumType {
+	if x != nil {
+		return x.MediumType
+	}
+	return MediumType_MEDIUM_TYPE_UNSPECIFIED
+}
+
+func (x *Campaign) GetMediumId() string {
+	if x != nil {
+		return x.MediumId
+	}
+	return ""
+}
+
 func (x *Campaign) GetUserQuery() *structpb.Struct {
 	if x != nil {
 		return x.UserQuery
+	}
+	return nil
+}
+
+func (x *Campaign) GetAppSegments() []*AppSegment {
+	if x != nil {
+		return x.AppSegments
 	}
 	return nil
 }
@@ -719,11 +532,11 @@ func (x *Campaign) GetTriggerEventQuery() *structpb.Struct {
 	return nil
 }
 
-func (x *Campaign) GetWaitingTime() *durationpb.Duration {
+func (x *Campaign) GetWaitingTime() string {
 	if x != nil {
 		return x.WaitingTime
 	}
-	return nil
+	return ""
 }
 
 func (x *Campaign) GetFilterEventName() string {
@@ -747,6 +560,20 @@ func (x *Campaign) GetFilterMatch() CampaignFilterMatch {
 	return CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_UNSPECIFIED
 }
 
+func (x *Campaign) GetFilterHpc() *HoldingPropertyConstant {
+	if x != nil {
+		return x.FilterHpc
+	}
+	return nil
+}
+
+func (x *Campaign) GetConversionWindows() map[string]string {
+	if x != nil {
+		return x.ConversionWindows
+	}
+	return nil
+}
+
 func (x *Campaign) GetGoalEventName() string {
 	if x != nil {
 		return x.GoalEventName
@@ -761,9 +588,16 @@ func (x *Campaign) GetGoalEventQuery() *structpb.Struct {
 	return nil
 }
 
-func (x *Campaign) GetGoalEventDuration() *durationpb.Duration {
+func (x *Campaign) GetGoalEventDuration() string {
 	if x != nil {
 		return x.GoalEventDuration
+	}
+	return ""
+}
+
+func (x *Campaign) GetGoalHpc() *HoldingPropertyConstant {
+	if x != nil {
+		return x.GoalHpc
 	}
 	return nil
 }
@@ -789,11 +623,11 @@ func (x *Campaign) GetSendToOfflineEmail() bool {
 	return false
 }
 
-func (x *Campaign) GetCooldown() *durationpb.Duration {
+func (x *Campaign) GetCooldown() string {
 	if x != nil {
 		return x.Cooldown
 	}
-	return nil
+	return ""
 }
 
 func (x *Campaign) GetSendMode() CampaignSendMode {
@@ -801,6 +635,13 @@ func (x *Campaign) GetSendMode() CampaignSendMode {
 		return x.SendMode
 	}
 	return CampaignSendMode_CAMPAIGN_SEND_MODE_UNSPECIFIED
+}
+
+func (x *Campaign) GetChannelOperationId() string {
+	if x != nil {
+		return x.ChannelOperationId
+	}
+	return ""
 }
 
 func (x *Campaign) GetSendTimeRanges() []*TimeRange {
@@ -873,18 +714,11 @@ func (x *Campaign) GetClick() int32 {
 	return 0
 }
 
-func (x *Campaign) GetSendMedium() string {
-	if x != nil {
-		return x.SendMedium
-	}
-	return ""
-}
-
-func (x *Campaign) GetUserChatExpireDuration() *durationpb.Duration {
+func (x *Campaign) GetUserChatExpireDuration() string {
 	if x != nil {
 		return x.UserChatExpireDuration
 	}
-	return nil
+	return ""
 }
 
 func (x *Campaign) GetManagerId() string {
@@ -894,75 +728,11 @@ func (x *Campaign) GetManagerId() string {
 	return ""
 }
 
-func (x *Campaign) GetMediumType() MediumType {
-	if x != nil {
-		return x.MediumType
-	}
-	return MediumType_MEDIUM_TYPE_UNSPECIFIED
-}
-
-func (x *Campaign) GetMediumId() string {
-	if x != nil {
-		return x.MediumId
-	}
-	return ""
-}
-
-func (x *Campaign) GetAppSegments() []*AppSegment {
-	if x != nil {
-		return x.AppSegments
-	}
-	return nil
-}
-
-func (x *Campaign) GetChannelOperationId() string {
-	if x != nil {
-		return x.ChannelOperationId
-	}
-	return ""
-}
-
-func (x *Campaign) GetConversionWindows() map[string]*durationpb.Duration {
-	if x != nil {
-		return x.ConversionWindows
-	}
-	return nil
-}
-
-func (x *Campaign) GetFilterHpc() *HoldingPropertyConstant {
-	if x != nil {
-		return x.FilterHpc
-	}
-	return nil
-}
-
-func (x *Campaign) GetGoalHpc() *HoldingPropertyConstant {
-	if x != nil {
-		return x.GoalHpc
-	}
-	return nil
-}
-
 var File_coreapi_model_campaign_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_campaign_proto_rawDesc = "" +
 	"\n" +
-	"\x1ccoreapi/model/campaign.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8f\x02\n" +
-	"\tTimeRange\x12:\n" +
-	"\fday_of_weeks\x18\x01 \x03(\x0e2\x18.coreapi.model.DayOfWeekR\n" +
-	"dayOfWeeks\x12d\n" +
-	"\x04from\x18\x02 \x01(\x05BP\xbaHM\xba\x01J\n" +
-	"\vint32.range\x12 value must be between 0 and 1440\x1a\x19this >= 0 && this <= 1440R\x04from\x12`\n" +
-	"\x02to\x18\x03 \x01(\x05BP\xbaHM\xba\x01J\n" +
-	"\vint32.range\x12 value must be between 0 and 1440\x1a\x19this >= 0 && this <= 1440R\x02to\"\x95\x03\n" +
-	"\x17HoldingPropertyConstant\x12u\n" +
-	"\x0fbase_event_name\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\rbaseEventName\x12s\n" +
-	"\x0ebase_event_key\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\fbaseEventKey\x128\n" +
-	"\vevent_query\x18\x03 \x01(\v2\x17.google.protobuf.StructR\n" +
-	"eventQuery\x12T\n" +
-	"\x0fbase_event_type\x18\x04 \x01(\x0e2$.coreapi.model.CampaignBaseEventTypeB\x06\xbaH\x03\xc8\x01\x01R\rbaseEventType\"\xfa\x15\n" +
+	"\x1ccoreapi/model/campaign.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a-coreapi/model/holding_property_constant.proto\x1a\x1ecoreapi/model/time_range.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf5\x11\n" +
 	"\bCampaign\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
@@ -971,28 +741,34 @@ const file_coreapi_model_campaign_proto_rawDesc = "" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\xb3\x01\n" +
 	"\x04name\x18\x03 \x01(\tB\x9e\x01\xbaH\x9a\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01M\n" +
-	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128\xc8\x01\x01R\x04name\x12:\n" +
-	"\x05state\x18\x04 \x01(\x0e2\x1c.coreapi.model.CampaignStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x126\n" +
+	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128\xc8\x01\x01R\x04name\x122\n" +
+	"\x05state\x18\x04 \x01(\x0e2\x1c.coreapi.model.CampaignStateR\x05state\x12B\n" +
+	"\vmedium_type\x18\x05 \x01(\x0e2\x19.coreapi.model.MediumTypeB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"mediumType\x12\x1b\n" +
+	"\tmedium_id\x18\x06 \x01(\tR\bmediumId\x126\n" +
 	"\n" +
-	"user_query\x18\a \x01(\v2\x17.google.protobuf.StructR\tuserQuery\x12,\n" +
-	"\x12trigger_event_name\x18\t \x01(\tR\x10triggerEventName\x12G\n" +
+	"user_query\x18\a \x01(\v2\x17.google.protobuf.StructR\tuserQuery\x12<\n" +
+	"\fapp_segments\x18\b \x03(\v2\x19.coreapi.model.AppSegmentR\vappSegments\x124\n" +
+	"\x12trigger_event_name\x18\t \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x10triggerEventName\x12G\n" +
 	"\x13trigger_event_query\x18\n" +
-	" \x01(\v2\x17.google.protobuf.StructR\x11triggerEventQuery\x12\xa9\x01\n" +
-	"\fwaiting_time\x18\v \x01(\v2\x19.google.protobuf.DurationBk\xbaHh\xba\x01e\n" +
-	"\fduration.max\x12\x1dvalue must be at most 90 days\x1a6this == duration('0s') || this <= duration('7776000s')R\vwaitingTime\x12*\n" +
+	" \x01(\v2\x17.google.protobuf.StructR\x11triggerEventQuery\x12)\n" +
+	"\fwaiting_time\x18\v \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\vwaitingTime\x12*\n" +
 	"\x11filter_event_name\x18\f \x01(\tR\x0ffilterEventName\x12E\n" +
 	"\x12filter_event_query\x18\r \x01(\v2\x17.google.protobuf.StructR\x10filterEventQuery\x12E\n" +
-	"\ffilter_match\x18\x0e \x01(\x0e2\".coreapi.model.CampaignFilterMatchR\vfilterMatch\x12&\n" +
+	"\ffilter_match\x18\x0e \x01(\x0e2\".coreapi.model.CampaignFilterMatchR\vfilterMatch\x12E\n" +
+	"\n" +
+	"filter_hpc\x18\x0f \x01(\v2&.coreapi.model.HoldingPropertyConstantR\tfilterHpc\x12]\n" +
+	"\x12conversion_windows\x18\x10 \x03(\v2..coreapi.model.Campaign.ConversionWindowsEntryR\x11conversionWindows\x12&\n" +
 	"\x0fgoal_event_name\x18\x11 \x01(\tR\rgoalEventName\x12A\n" +
-	"\x10goal_event_query\x18\x12 \x01(\v2\x17.google.protobuf.StructR\x0egoalEventQuery\x12\xe1\x01\n" +
-	"\x13goal_event_duration\x18\x13 \x01(\v2\x19.google.protobuf.DurationB\x95\x01\xbaH\x91\x01\xba\x01\x8d\x01\n" +
-	"\x0eduration.range\x12#value must be between 1 and 30 days\x1aVthis == duration('0s') || (this >= duration('86400s') && this <= duration('2592000s'))R\x11goalEventDuration\x12 \n" +
-	"\vadvertising\x18\x15 \x01(\bR\vadvertising\x12-\n" +
+	"\x10goal_event_query\x18\x12 \x01(\v2\x17.google.protobuf.StructR\x0egoalEventQuery\x12.\n" +
+	"\x13goal_event_duration\x18\x13 \x01(\tR\x11goalEventDuration\x12A\n" +
+	"\bgoal_hpc\x18\x14 \x01(\v2&.coreapi.model.HoldingPropertyConstantR\agoalHpc\x12(\n" +
+	"\vadvertising\x18\x15 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\vadvertising\x12-\n" +
 	"\x13send_to_offline_xms\x18\x16 \x01(\bR\x10sendToOfflineXms\x121\n" +
-	"\x15send_to_offline_email\x18\x17 \x01(\bR\x12sendToOfflineEmail\x12\xaa\x01\n" +
-	"\bcooldown\x18\x18 \x01(\v2\x19.google.protobuf.DurationBs\xbaHp\xba\x01m\n" +
-	"\x0eduration.range\x12#value must be between 0 and 30 days\x1a6this >= duration('0s') && this <= duration('2592000s')R\bcooldown\x12<\n" +
-	"\tsend_mode\x18\x19 \x01(\x0e2\x1f.coreapi.model.CampaignSendModeR\bsendMode\x12B\n" +
+	"\x15send_to_offline_email\x18\x17 \x01(\bR\x12sendToOfflineEmail\x12\x1a\n" +
+	"\bcooldown\x18\x18 \x01(\tR\bcooldown\x12D\n" +
+	"\tsend_mode\x18\x19 \x01(\x0e2\x1f.coreapi.model.CampaignSendModeB\x06\xbaH\x03\xc8\x01\x01R\bsendMode\x120\n" +
+	"\x14channel_operation_id\x18\x1a \x01(\tR\x12channelOperationId\x12B\n" +
 	"\x10send_time_ranges\x18\x1b \x03(\v2\x18.coreapi.model.TimeRangeR\x0esendTimeRanges\x125\n" +
 	"\bstart_at\x18\x1c \x01(\v2\x1a.google.protobuf.TimestampR\astartAt\x121\n" +
 	"\x06end_at\x18\x1d \x01(\v2\x1a.google.protobuf.TimestampR\x05endAt\x12-\n" +
@@ -1004,30 +780,30 @@ const file_coreapi_model_campaign_proto_rawDesc = "" +
 	"\x04sent\x18! \x01(\x05R\x04sent\x12\x12\n" +
 	"\x04view\x18\" \x01(\x05R\x04view\x12\x12\n" +
 	"\x04goal\x18# \x01(\x05R\x04goal\x12\x14\n" +
-	"\x05click\x18$ \x01(\x05R\x05click\x12\x1f\n" +
-	"\vsend_medium\x18% \x01(\tR\n" +
-	"sendMedium\x12T\n" +
-	"\x19user_chat_expire_duration\x18& \x01(\v2\x19.google.protobuf.DurationR\x16userChatExpireDuration\x12\x1d\n" +
+	"\x05click\x18$ \x01(\x05R\x05click\x129\n" +
+	"\x19user_chat_expire_duration\x18% \x01(\tR\x16userChatExpireDuration\x12\x1d\n" +
 	"\n" +
-	"manager_id\x18' \x01(\tR\tmanagerId\x12:\n" +
-	"\vmedium_type\x18( \x01(\x0e2\x19.coreapi.model.MediumTypeR\n" +
-	"mediumType\x12\x1b\n" +
-	"\tmedium_id\x18) \x01(\tR\bmediumId\x12<\n" +
-	"\fapp_segments\x18* \x03(\v2\x19.coreapi.model.AppSegmentR\vappSegments\x120\n" +
-	"\x14channel_operation_id\x18+ \x01(\tR\x12channelOperationId\x12]\n" +
-	"\x12conversion_windows\x18, \x03(\v2..coreapi.model.Campaign.ConversionWindowsEntryR\x11conversionWindows\x12E\n" +
-	"\n" +
-	"filter_hpc\x18- \x01(\v2&.coreapi.model.HoldingPropertyConstantR\tfilterHpc\x12A\n" +
-	"\bgoal_hpc\x18. \x01(\v2&.coreapi.model.HoldingPropertyConstantR\agoalHpc\x1a_\n" +
+	"manager_id\x18& \x01(\tR\tmanagerId\x1aD\n" +
 	"\x16ConversionWindowsEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12/\n" +
-	"\x05value\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x05value:\x028\x01*\x9c\x01\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01*\x9c\x01\n" +
 	"\rCampaignState\x12\x1e\n" +
 	"\x1aCAMPAIGN_STATE_UNSPECIFIED\x10\x00\x12\x18\n" +
 	"\x14CAMPAIGN_STATE_DRAFT\x10\x01\x12\x19\n" +
 	"\x15CAMPAIGN_STATE_ACTIVE\x10\x02\x12\x1a\n" +
 	"\x16CAMPAIGN_STATE_STOPPED\x10\x03\x12\x1a\n" +
-	"\x16CAMPAIGN_STATE_REMOVED\x10\x04*\x9a\x02\n" +
+	"\x16CAMPAIGN_STATE_REMOVED\x10\x04*\x84\x01\n" +
+	"\n" +
+	"MediumType\x12\x1b\n" +
+	"\x17MEDIUM_TYPE_UNSPECIFIED\x10\x00\x12\x16\n" +
+	"\x12MEDIUM_TYPE_NATIVE\x10\x01\x12\x15\n" +
+	"\x11MEDIUM_TYPE_PHONE\x10\x02\x12\x15\n" +
+	"\x11MEDIUM_TYPE_EMAIL\x10\x03\x12\x13\n" +
+	"\x0fMEDIUM_TYPE_APP\x10\x04*\x84\x01\n" +
+	"\x13CampaignFilterMatch\x12%\n" +
+	"!CAMPAIGN_FILTER_MATCH_UNSPECIFIED\x10\x00\x12\"\n" +
+	"\x1eCAMPAIGN_FILTER_MATCH_POSITIVE\x10\x01\x12\"\n" +
+	"\x1eCAMPAIGN_FILTER_MATCH_NEGATIVE\x10\x02*\x9a\x02\n" +
 	"\x10CampaignSendMode\x12\"\n" +
 	"\x1eCAMPAIGN_SEND_MODE_UNSPECIFIED\x10\x00\x12\x1d\n" +
 	"\x19CAMPAIGN_SEND_MODE_ALWAYS\x10\x01\x12\x1b\n" +
@@ -1035,24 +811,7 @@ const file_coreapi_model_campaign_proto_rawDesc = "" +
 	"\x1fCAMPAIGN_SEND_MODE_IN_OPERATION\x10\x03\x12/\n" +
 	"+CAMPAIGN_SEND_MODE_CUSTOM_USING_SENDER_TIME\x10\x04\x121\n" +
 	"-CAMPAIGN_SEND_MODE_CUSTOM_USING_RECEIVER_TIME\x10\x05\x12\x1d\n" +
-	"\x19CAMPAIGN_SEND_MODE_CUSTOM\x10\x06*\x84\x01\n" +
-	"\x13CampaignFilterMatch\x12%\n" +
-	"!CAMPAIGN_FILTER_MATCH_UNSPECIFIED\x10\x00\x12\"\n" +
-	"\x1eCAMPAIGN_FILTER_MATCH_POSITIVE\x10\x01\x12\"\n" +
-	"\x1eCAMPAIGN_FILTER_MATCH_NEGATIVE\x10\x02*\x9d\x01\n" +
-	"\x15CampaignBaseEventType\x12(\n" +
-	"$CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED\x10\x00\x12*\n" +
-	"&CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT\x10\x01\x12.\n" +
-	"*CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER\x10\x02*\xbb\x01\n" +
-	"\tDayOfWeek\x12\x1b\n" +
-	"\x17DAY_OF_WEEK_UNSPECIFIED\x10\x00\x12\x13\n" +
-	"\x0fDAY_OF_WEEK_MON\x10\x01\x12\x13\n" +
-	"\x0fDAY_OF_WEEK_TUE\x10\x02\x12\x13\n" +
-	"\x0fDAY_OF_WEEK_WED\x10\x03\x12\x13\n" +
-	"\x0fDAY_OF_WEEK_THU\x10\x04\x12\x13\n" +
-	"\x0fDAY_OF_WEEK_FRI\x10\x05\x12\x13\n" +
-	"\x0fDAY_OF_WEEK_SAT\x10\x06\x12\x13\n" +
-	"\x0fDAY_OF_WEEK_SUN\x10\aBb\n" +
+	"\x19CAMPAIGN_SEND_MODE_CUSTOM\x10\x06Bb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -1067,56 +826,45 @@ func file_coreapi_model_campaign_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_campaign_proto_rawDescData
 }
 
-var file_coreapi_model_campaign_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
-var file_coreapi_model_campaign_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_coreapi_model_campaign_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
+var file_coreapi_model_campaign_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_coreapi_model_campaign_proto_goTypes = []any{
 	(CampaignState)(0),              // 0: coreapi.model.CampaignState
-	(CampaignSendMode)(0),           // 1: coreapi.model.CampaignSendMode
+	(MediumType)(0),                 // 1: coreapi.model.MediumType
 	(CampaignFilterMatch)(0),        // 2: coreapi.model.CampaignFilterMatch
-	(CampaignBaseEventType)(0),      // 3: coreapi.model.CampaignBaseEventType
-	(DayOfWeek)(0),                  // 4: coreapi.model.DayOfWeek
-	(*TimeRange)(nil),               // 5: coreapi.model.TimeRange
-	(*HoldingPropertyConstant)(nil), // 6: coreapi.model.HoldingPropertyConstant
-	(*Campaign)(nil),                // 7: coreapi.model.Campaign
-	nil,                             // 8: coreapi.model.Campaign.ConversionWindowsEntry
-	(*structpb.Struct)(nil),         // 9: google.protobuf.Struct
-	(*durationpb.Duration)(nil),     // 10: google.protobuf.Duration
-	(*timestamppb.Timestamp)(nil),   // 11: google.protobuf.Timestamp
-	(MediumType)(0),                 // 12: coreapi.model.MediumType
-	(*AppSegment)(nil),              // 13: coreapi.model.AppSegment
+	(CampaignSendMode)(0),           // 3: coreapi.model.CampaignSendMode
+	(*Campaign)(nil),                // 4: coreapi.model.Campaign
+	nil,                             // 5: coreapi.model.Campaign.ConversionWindowsEntry
+	(*structpb.Struct)(nil),         // 6: google.protobuf.Struct
+	(*AppSegment)(nil),              // 7: coreapi.model.AppSegment
+	(*HoldingPropertyConstant)(nil), // 8: coreapi.model.HoldingPropertyConstant
+	(*TimeRange)(nil),               // 9: coreapi.model.TimeRange
+	(*timestamppb.Timestamp)(nil),   // 10: google.protobuf.Timestamp
 }
 var file_coreapi_model_campaign_proto_depIdxs = []int32{
-	4,  // 0: coreapi.model.TimeRange.day_of_weeks:type_name -> coreapi.model.DayOfWeek
-	9,  // 1: coreapi.model.HoldingPropertyConstant.event_query:type_name -> google.protobuf.Struct
-	3,  // 2: coreapi.model.HoldingPropertyConstant.base_event_type:type_name -> coreapi.model.CampaignBaseEventType
-	0,  // 3: coreapi.model.Campaign.state:type_name -> coreapi.model.CampaignState
-	9,  // 4: coreapi.model.Campaign.user_query:type_name -> google.protobuf.Struct
-	9,  // 5: coreapi.model.Campaign.trigger_event_query:type_name -> google.protobuf.Struct
-	10, // 6: coreapi.model.Campaign.waiting_time:type_name -> google.protobuf.Duration
-	9,  // 7: coreapi.model.Campaign.filter_event_query:type_name -> google.protobuf.Struct
-	2,  // 8: coreapi.model.Campaign.filter_match:type_name -> coreapi.model.CampaignFilterMatch
-	9,  // 9: coreapi.model.Campaign.goal_event_query:type_name -> google.protobuf.Struct
-	10, // 10: coreapi.model.Campaign.goal_event_duration:type_name -> google.protobuf.Duration
-	10, // 11: coreapi.model.Campaign.cooldown:type_name -> google.protobuf.Duration
-	1,  // 12: coreapi.model.Campaign.send_mode:type_name -> coreapi.model.CampaignSendMode
-	5,  // 13: coreapi.model.Campaign.send_time_ranges:type_name -> coreapi.model.TimeRange
-	11, // 14: coreapi.model.Campaign.start_at:type_name -> google.protobuf.Timestamp
-	11, // 15: coreapi.model.Campaign.end_at:type_name -> google.protobuf.Timestamp
-	9,  // 16: coreapi.model.Campaign.draft:type_name -> google.protobuf.Struct
-	11, // 17: coreapi.model.Campaign.created_at:type_name -> google.protobuf.Timestamp
-	11, // 18: coreapi.model.Campaign.updated_at:type_name -> google.protobuf.Timestamp
-	10, // 19: coreapi.model.Campaign.user_chat_expire_duration:type_name -> google.protobuf.Duration
-	12, // 20: coreapi.model.Campaign.medium_type:type_name -> coreapi.model.MediumType
-	13, // 21: coreapi.model.Campaign.app_segments:type_name -> coreapi.model.AppSegment
-	8,  // 22: coreapi.model.Campaign.conversion_windows:type_name -> coreapi.model.Campaign.ConversionWindowsEntry
-	6,  // 23: coreapi.model.Campaign.filter_hpc:type_name -> coreapi.model.HoldingPropertyConstant
-	6,  // 24: coreapi.model.Campaign.goal_hpc:type_name -> coreapi.model.HoldingPropertyConstant
-	10, // 25: coreapi.model.Campaign.ConversionWindowsEntry.value:type_name -> google.protobuf.Duration
-	26, // [26:26] is the sub-list for method output_type
-	26, // [26:26] is the sub-list for method input_type
-	26, // [26:26] is the sub-list for extension type_name
-	26, // [26:26] is the sub-list for extension extendee
-	0,  // [0:26] is the sub-list for field type_name
+	0,  // 0: coreapi.model.Campaign.state:type_name -> coreapi.model.CampaignState
+	1,  // 1: coreapi.model.Campaign.medium_type:type_name -> coreapi.model.MediumType
+	6,  // 2: coreapi.model.Campaign.user_query:type_name -> google.protobuf.Struct
+	7,  // 3: coreapi.model.Campaign.app_segments:type_name -> coreapi.model.AppSegment
+	6,  // 4: coreapi.model.Campaign.trigger_event_query:type_name -> google.protobuf.Struct
+	6,  // 5: coreapi.model.Campaign.filter_event_query:type_name -> google.protobuf.Struct
+	2,  // 6: coreapi.model.Campaign.filter_match:type_name -> coreapi.model.CampaignFilterMatch
+	8,  // 7: coreapi.model.Campaign.filter_hpc:type_name -> coreapi.model.HoldingPropertyConstant
+	5,  // 8: coreapi.model.Campaign.conversion_windows:type_name -> coreapi.model.Campaign.ConversionWindowsEntry
+	6,  // 9: coreapi.model.Campaign.goal_event_query:type_name -> google.protobuf.Struct
+	8,  // 10: coreapi.model.Campaign.goal_hpc:type_name -> coreapi.model.HoldingPropertyConstant
+	3,  // 11: coreapi.model.Campaign.send_mode:type_name -> coreapi.model.CampaignSendMode
+	9,  // 12: coreapi.model.Campaign.send_time_ranges:type_name -> coreapi.model.TimeRange
+	10, // 13: coreapi.model.Campaign.start_at:type_name -> google.protobuf.Timestamp
+	10, // 14: coreapi.model.Campaign.end_at:type_name -> google.protobuf.Timestamp
+	6,  // 15: coreapi.model.Campaign.draft:type_name -> google.protobuf.Struct
+	10, // 16: coreapi.model.Campaign.created_at:type_name -> google.protobuf.Timestamp
+	10, // 17: coreapi.model.Campaign.updated_at:type_name -> google.protobuf.Timestamp
+	18, // [18:18] is the sub-list for method output_type
+	18, // [18:18] is the sub-list for method input_type
+	18, // [18:18] is the sub-list for extension type_name
+	18, // [18:18] is the sub-list for extension extendee
+	0,  // [0:18] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_campaign_proto_init() }
@@ -1125,14 +873,15 @@ func file_coreapi_model_campaign_proto_init() {
 		return
 	}
 	file_coreapi_model_app_segment_proto_init()
-	file_coreapi_model_medium_type_proto_init()
+	file_coreapi_model_holding_property_constant_proto_init()
+	file_coreapi_model_time_range_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_campaign_proto_rawDesc), len(file_coreapi_model_campaign_proto_rawDesc)),
-			NumEnums:      5,
-			NumMessages:   4,
+			NumEnums:      4,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

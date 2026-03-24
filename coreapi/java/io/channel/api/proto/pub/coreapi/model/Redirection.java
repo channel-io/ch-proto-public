@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Redirection represents a shortened URL that redirects to an original URL.
+ * Redirection represents a shortened URL mapping with a time-limited validity.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.Redirection}
@@ -61,12 +61,6 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            shortUrl_ = s;
-            break;
-          }
-          case 26: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (expireAt_ != null) {
               subBuilder = expireAt_.toBuilder();
@@ -77,6 +71,12 @@ private static final long serialVersionUID = 0L;
               expireAt_ = subBuilder.buildPartial();
             }
 
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            shortUrl_ = s;
             break;
           }
           default: {
@@ -115,12 +115,11 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object originalUrl_;
   /**
    * <pre>
-   * The original URL that this redirection points to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Full destination URL that the short URL redirects to.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
+   * <code>string original_url = 1 [json_name = "originalUrl"];</code>
    * @return The originalUrl.
    */
   @java.lang.Override
@@ -138,12 +137,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The original URL that this redirection points to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Full destination URL that the short URL redirects to.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
+   * <code>string original_url = 1 [json_name = "originalUrl"];</code>
    * @return The bytes for originalUrl.
    */
   @java.lang.Override
@@ -161,16 +159,56 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int SHORT_URL_FIELD_NUMBER = 2;
+  public static final int EXPIRE_AT_FIELD_NUMBER = 2;
+  private com.google.protobuf.Timestamp expireAt_;
+  /**
+   * <pre>
+   * Timestamp after which the short URL is no longer valid.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp expire_at = 2 [json_name = "expireAt"];</code>
+   * @return Whether the expireAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasExpireAt() {
+    return expireAt_ != null;
+  }
+  /**
+   * <pre>
+   * Timestamp after which the short URL is no longer valid.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp expire_at = 2 [json_name = "expireAt"];</code>
+   * @return The expireAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getExpireAt() {
+    return expireAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expireAt_;
+  }
+  /**
+   * <pre>
+   * Timestamp after which the short URL is no longer valid.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp expire_at = 2 [json_name = "expireAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getExpireAtOrBuilder() {
+    return getExpireAt();
+  }
+
+  public static final int SHORT_URL_FIELD_NUMBER = 3;
   private volatile java.lang.Object shortUrl_;
   /**
    * <pre>
-   * The shortened redirect URL.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Shortened URL that redirects to `original_url` until `expire_at`.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
+   * <code>string short_url = 3 [json_name = "shortUrl"];</code>
    * @return The shortUrl.
    */
   @java.lang.Override
@@ -188,12 +226,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The shortened redirect URL.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Shortened URL that redirects to `original_url` until `expire_at`.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
+   * <code>string short_url = 3 [json_name = "shortUrl"];</code>
    * @return The bytes for shortUrl.
    */
   @java.lang.Override
@@ -209,47 +246,6 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
-  }
-
-  public static final int EXPIRE_AT_FIELD_NUMBER = 3;
-  private com.google.protobuf.Timestamp expireAt_;
-  /**
-   * <pre>
-   * Redirection expiration timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
-   * @return Whether the expireAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasExpireAt() {
-    return expireAt_ != null;
-  }
-  /**
-   * <pre>
-   * Redirection expiration timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
-   * @return The expireAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getExpireAt() {
-    return expireAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expireAt_;
-  }
-  /**
-   * <pre>
-   * Redirection expiration timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getExpireAtOrBuilder() {
-    return getExpireAt();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -269,11 +265,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(originalUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, originalUrl_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(shortUrl_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, shortUrl_);
-    }
     if (expireAt_ != null) {
-      output.writeMessage(3, getExpireAt());
+      output.writeMessage(2, getExpireAt());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(shortUrl_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, shortUrl_);
     }
     unknownFields.writeTo(output);
   }
@@ -287,12 +283,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(originalUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, originalUrl_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(shortUrl_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, shortUrl_);
-    }
     if (expireAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getExpireAt());
+        .computeMessageSize(2, getExpireAt());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(shortUrl_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, shortUrl_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -311,13 +307,13 @@ private static final long serialVersionUID = 0L;
 
     if (!getOriginalUrl()
         .equals(other.getOriginalUrl())) return false;
-    if (!getShortUrl()
-        .equals(other.getShortUrl())) return false;
     if (hasExpireAt() != other.hasExpireAt()) return false;
     if (hasExpireAt()) {
       if (!getExpireAt()
           .equals(other.getExpireAt())) return false;
     }
+    if (!getShortUrl()
+        .equals(other.getShortUrl())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -331,12 +327,12 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ORIGINAL_URL_FIELD_NUMBER;
     hash = (53 * hash) + getOriginalUrl().hashCode();
-    hash = (37 * hash) + SHORT_URL_FIELD_NUMBER;
-    hash = (53 * hash) + getShortUrl().hashCode();
     if (hasExpireAt()) {
       hash = (37 * hash) + EXPIRE_AT_FIELD_NUMBER;
       hash = (53 * hash) + getExpireAt().hashCode();
     }
+    hash = (37 * hash) + SHORT_URL_FIELD_NUMBER;
+    hash = (53 * hash) + getShortUrl().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -434,7 +430,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Redirection represents a shortened URL that redirects to an original URL.
+   * Redirection represents a shortened URL mapping with a time-limited validity.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.Redirection}
@@ -476,14 +472,14 @@ private static final long serialVersionUID = 0L;
       super.clear();
       originalUrl_ = "";
 
-      shortUrl_ = "";
-
       if (expireAtBuilder_ == null) {
         expireAt_ = null;
       } else {
         expireAt_ = null;
         expireAtBuilder_ = null;
       }
+      shortUrl_ = "";
+
       return this;
     }
 
@@ -511,12 +507,12 @@ private static final long serialVersionUID = 0L;
     public io.channel.api.proto.pub.coreapi.model.Redirection buildPartial() {
       io.channel.api.proto.pub.coreapi.model.Redirection result = new io.channel.api.proto.pub.coreapi.model.Redirection(this);
       result.originalUrl_ = originalUrl_;
-      result.shortUrl_ = shortUrl_;
       if (expireAtBuilder_ == null) {
         result.expireAt_ = expireAt_;
       } else {
         result.expireAt_ = expireAtBuilder_.build();
       }
+      result.shortUrl_ = shortUrl_;
       onBuilt();
       return result;
     }
@@ -569,12 +565,12 @@ private static final long serialVersionUID = 0L;
         originalUrl_ = other.originalUrl_;
         onChanged();
       }
+      if (other.hasExpireAt()) {
+        mergeExpireAt(other.getExpireAt());
+      }
       if (!other.getShortUrl().isEmpty()) {
         shortUrl_ = other.shortUrl_;
         onChanged();
-      }
-      if (other.hasExpireAt()) {
-        mergeExpireAt(other.getExpireAt());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -608,12 +604,11 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object originalUrl_ = "";
     /**
      * <pre>
-     * The original URL that this redirection points to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Full destination URL that the short URL redirects to.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
+     * <code>string original_url = 1 [json_name = "originalUrl"];</code>
      * @return The originalUrl.
      */
     public java.lang.String getOriginalUrl() {
@@ -630,12 +625,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The original URL that this redirection points to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Full destination URL that the short URL redirects to.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
+     * <code>string original_url = 1 [json_name = "originalUrl"];</code>
      * @return The bytes for originalUrl.
      */
     public com.google.protobuf.ByteString
@@ -653,12 +647,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The original URL that this redirection points to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Full destination URL that the short URL redirects to.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
+     * <code>string original_url = 1 [json_name = "originalUrl"];</code>
      * @param value The originalUrl to set.
      * @return This builder for chaining.
      */
@@ -674,12 +667,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The original URL that this redirection points to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Full destination URL that the short URL redirects to.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
+     * <code>string original_url = 1 [json_name = "originalUrl"];</code>
      * @return This builder for chaining.
      */
     public Builder clearOriginalUrl() {
@@ -690,12 +682,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The original URL that this redirection points to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Full destination URL that the short URL redirects to.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
+     * <code>string original_url = 1 [json_name = "originalUrl"];</code>
      * @param value The bytes for originalUrl to set.
      * @return This builder for chaining.
      */
@@ -711,122 +702,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object shortUrl_ = "";
-    /**
-     * <pre>
-     * The shortened redirect URL.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
-     * @return The shortUrl.
-     */
-    public java.lang.String getShortUrl() {
-      java.lang.Object ref = shortUrl_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        shortUrl_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * The shortened redirect URL.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for shortUrl.
-     */
-    public com.google.protobuf.ByteString
-        getShortUrlBytes() {
-      java.lang.Object ref = shortUrl_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        shortUrl_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * The shortened redirect URL.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
-     * @param value The shortUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setShortUrl(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      shortUrl_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The shortened redirect URL.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearShortUrl() {
-      
-      shortUrl_ = getDefaultInstance().getShortUrl();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The shortened redirect URL.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for shortUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setShortUrlBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      shortUrl_ = value;
-      onChanged();
-      return this;
-    }
-
     private com.google.protobuf.Timestamp expireAt_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> expireAtBuilder_;
     /**
      * <pre>
-     * Redirection expiration timestamp.
-     * +kubebuilder:validation:Required
+     * Timestamp after which the short URL is no longer valid.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expire_at = 2 [json_name = "expireAt"];</code>
      * @return Whether the expireAt field is set.
      */
     public boolean hasExpireAt() {
@@ -834,11 +719,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Redirection expiration timestamp.
-     * +kubebuilder:validation:Required
+     * Timestamp after which the short URL is no longer valid.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expire_at = 2 [json_name = "expireAt"];</code>
      * @return The expireAt.
      */
     public com.google.protobuf.Timestamp getExpireAt() {
@@ -850,11 +735,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Redirection expiration timestamp.
-     * +kubebuilder:validation:Required
+     * Timestamp after which the short URL is no longer valid.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expire_at = 2 [json_name = "expireAt"];</code>
      */
     public Builder setExpireAt(com.google.protobuf.Timestamp value) {
       if (expireAtBuilder_ == null) {
@@ -871,11 +756,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Redirection expiration timestamp.
-     * +kubebuilder:validation:Required
+     * Timestamp after which the short URL is no longer valid.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expire_at = 2 [json_name = "expireAt"];</code>
      */
     public Builder setExpireAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -890,11 +775,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Redirection expiration timestamp.
-     * +kubebuilder:validation:Required
+     * Timestamp after which the short URL is no longer valid.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expire_at = 2 [json_name = "expireAt"];</code>
      */
     public Builder mergeExpireAt(com.google.protobuf.Timestamp value) {
       if (expireAtBuilder_ == null) {
@@ -913,11 +798,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Redirection expiration timestamp.
-     * +kubebuilder:validation:Required
+     * Timestamp after which the short URL is no longer valid.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expire_at = 2 [json_name = "expireAt"];</code>
      */
     public Builder clearExpireAt() {
       if (expireAtBuilder_ == null) {
@@ -932,11 +817,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Redirection expiration timestamp.
-     * +kubebuilder:validation:Required
+     * Timestamp after which the short URL is no longer valid.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expire_at = 2 [json_name = "expireAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getExpireAtBuilder() {
       
@@ -945,11 +830,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Redirection expiration timestamp.
-     * +kubebuilder:validation:Required
+     * Timestamp after which the short URL is no longer valid.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expire_at = 2 [json_name = "expireAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getExpireAtOrBuilder() {
       if (expireAtBuilder_ != null) {
@@ -961,11 +846,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Redirection expiration timestamp.
-     * +kubebuilder:validation:Required
+     * Timestamp after which the short URL is no longer valid.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expire_at = 2 [json_name = "expireAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -979,6 +864,107 @@ private static final long serialVersionUID = 0L;
         expireAt_ = null;
       }
       return expireAtBuilder_;
+    }
+
+    private java.lang.Object shortUrl_ = "";
+    /**
+     * <pre>
+     * Shortened URL that redirects to `original_url` until `expire_at`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string short_url = 3 [json_name = "shortUrl"];</code>
+     * @return The shortUrl.
+     */
+    public java.lang.String getShortUrl() {
+      java.lang.Object ref = shortUrl_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        shortUrl_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Shortened URL that redirects to `original_url` until `expire_at`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string short_url = 3 [json_name = "shortUrl"];</code>
+     * @return The bytes for shortUrl.
+     */
+    public com.google.protobuf.ByteString
+        getShortUrlBytes() {
+      java.lang.Object ref = shortUrl_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        shortUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Shortened URL that redirects to `original_url` until `expire_at`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string short_url = 3 [json_name = "shortUrl"];</code>
+     * @param value The shortUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setShortUrl(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      shortUrl_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Shortened URL that redirects to `original_url` until `expire_at`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string short_url = 3 [json_name = "shortUrl"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearShortUrl() {
+      
+      shortUrl_ = getDefaultInstance().getShortUrl();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Shortened URL that redirects to `original_url` until `expire_at`.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string short_url = 3 [json_name = "shortUrl"];</code>
+     * @param value The bytes for shortUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setShortUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      shortUrl_ = value;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1019,29 +1005,6 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The short_url to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearShortUrl(java.lang.String value) {
-    	if (value == null)
-    		return clearShortUrl();
-    	else
-    		return setShortUrl(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearShortUrl(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearShortUrl();
-    	else
-    		return setShortUrl(mapFunc.apply(value));
-    }
-    	
-    /**
      * @param value The expire_at to set.
      * @return This builder for chaining.
      */
@@ -1062,6 +1025,29 @@ private static final long serialVersionUID = 0L;
     		return clearExpireAt();
     	else
     		return setExpireAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The short_url to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearShortUrl(java.lang.String value) {
+    	if (value == null)
+    		return clearShortUrl();
+    	else
+    		return setShortUrl(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearShortUrl(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearShortUrl();
+    	else
+    		return setShortUrl(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Redirection)

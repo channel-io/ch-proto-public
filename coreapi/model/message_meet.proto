@@ -1,0 +1,127 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// MessageMeet represents a meet (voice/video call) session attached to a message.
+message MessageMeet {
+  // Unique meet session identifier.
+  //
+  // +kubebuilder:validation:Nullable
+  string id = 1;
+
+  // Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
+  //
+  // +kubebuilder:validation:Nullable
+  string chat_type = 2;
+
+  // Channel ID this meet belongs to.
+  //
+  // +kubebuilder:validation:Nullable
+  string channel_id = 3;
+
+  // Current lifecycle state of the meet session.
+  //
+  // +kubebuilder:validation:Nullable
+  MeetState state = 4;
+
+  // Media mode indicating whether this is an audio-only or video meet.
+  //
+  // +kubebuilder:validation:Nullable
+  MeetMode mode = 5;
+
+  // Person keys of all participants who have ever joined this meet,
+  // in the format "{personType}-{personId}" (e.g. "manager-abc123").
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string amassed_persons = 6;
+
+  // Timestamp when the meet room was first opened.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp room_started_at = 7;
+
+  // Phone call session details.
+  // Present only when `meet_type` is CALL.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct call = 8;
+
+  // Video/audio front session details.
+  // Present only when `meet_type` is FRONT.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct front = 9;
+
+  // Recording details for the meet session.
+  // Present only when the session was recorded.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct recording = 10;
+
+  // ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
+  //
+  // +kubebuilder:validation:Nullable
+  string country = 11;
+
+  // Timestamp when the meet session ended.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp meet_ended_at = 12;
+
+  // Manager IDs extracted from `amassed_persons`.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string manager_ids = 13;
+
+  // Computed meet category determined by the presence of `call` or `front` data.
+  //
+  // +kubebuilder:validation:Nullable
+  MeetType meet_type = 14;
+
+  // Bot IDs extracted from `amassed_persons`.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string bot_ids = 15;
+
+  // Lifecycle state of a meet session.
+  enum MeetState {
+    MEET_STATE_UNSPECIFIED = 0;
+    // Meet is currently in progress.
+    MEET_STATE_LIVE = 1;
+    // Meet has ended normally.
+    MEET_STATE_ENDED = 2;
+    // Post-meet speech-to-text processing is in progress.
+    MEET_STATE_TRANSCRIBING = 3;
+    // Speech-to-text processing completed successfully.
+    MEET_STATE_TRANSCRIBED = 4;
+    // Speech-to-text processing failed.
+    MEET_STATE_TRANSCRIBE_FAILED = 5;
+  }
+
+  // Media mode for a meet session.
+  enum MeetMode {
+    MEET_MODE_UNSPECIFIED = 0;
+    // Audio-only session.
+    MEET_MODE_AUDIO = 1;
+    // Video session (may include audio).
+    MEET_MODE_VIDEO = 2;
+  }
+
+  // Category of a meet session, determined by the session type.
+  enum MeetType {
+    MEET_TYPE_UNSPECIFIED = 0;
+    // Browser-based video/audio meet.
+    MEET_TYPE_FRONT = 1;
+    // Phone call via telephony integration.
+    MEET_TYPE_CALL = 2;
+    // Internal team meet between managers.
+    MEET_TYPE_TEAM = 3;
+  }
+}

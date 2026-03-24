@@ -34,63 +34,55 @@ public final class Meet {
   static {
     java.lang.String[] descriptorData = {
       "\n\030coreapi/model/meet.proto\022\rcoreapi.mode" +
-      "l\032\033buf/validate/validate.proto\032#coreapi/" +
-      "model/message_content.proto\032\037google/prot" +
-      "obuf/timestamp.proto\"\206\005\n\007CallLog\022l\n\nchan" +
-      "nel_id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"val" +
-      "ue must be at least 1 character\032\017size(th" +
-      "is) >= 1\310\001\001R\tchannelId\022@\n\rmissed_reason\030" +
-      "\002 \001(\0162\033.coreapi.model.MissedReasonR\014miss" +
-      "edReason\022:\n\tdirection\030\003 \001(\0162\034.coreapi.mo" +
-      "del.CallDirectionR\tdirection\022.\n\005state\030\004 " +
-      "\001(\0162\030.coreapi.model.CallStateR\005state\022\022\n\004" +
-      "from\030\005 \001(\tR\004from\022\016\n\002to\030\006 \001(\tR\002to\022A\n\ncrea" +
-      "ted_at\030\007 \001(\0132\032.google.protobuf.Timestamp" +
-      "B\006\272H\003\310\001\001R\tcreatedAt\022A\n\nupdated_at\030\010 \001(\0132" +
-      "\032.google.protobuf.TimestampB\006\272H\003\310\001\001R\tupd" +
-      "atedAt\0229\n\nengaged_at\030\t \001(\0132\032.google.prot" +
-      "obuf.TimestampR\tengagedAt\0227\n\tclosed_at\030\n" +
-      " \001(\0132\032.google.protobuf.TimestampR\010closed" +
-      "At\022 \n\014user_chat_id\030\013 \001(\tR\nuserChatId\022\037\n\013" +
-      "manager_ids\030\014 \003(\tR\nmanagerIds\"\301\004\n\013MeetMe" +
-      "ssage\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen" +
-      "\022\"value must be at least 1 character\032\017si" +
-      "ze(this) >= 1\310\001\001R\002id\022l\n\nchannel_id\030\002 \001(\t" +
-      "BM\272HJ\272\001D\n\rstring.minLen\022\"value must be a" +
-      "t least 1 character\032\017size(this) >= 1\310\001\001R" +
-      "\tchannelId\022#\n\tchat_type\030\003 \001(\tB\006\272H\003\310\001\001R\010c" +
-      "hatType\022\037\n\007chat_id\030\004 \001(\tB\006\272H\003\310\001\001R\006chatId" +
-      "\022\'\n\013person_type\030\005 \001(\tB\006\272H\003\310\001\001R\npersonTyp" +
-      "e\022#\n\tperson_id\030\006 \001(\tB\006\272H\003\310\001\001R\010personId\022," +
-      "\n\006blocks\030\007 \003(\0132\024.coreapi.model.BlockR\006bl" +
-      "ocks\022\035\n\nplain_text\030\010 \001(\tR\tplainText\022A\n\nc" +
-      "reated_at\030\t \001(\0132\032.google.protobuf.Timest" +
-      "ampB\006\272H\003\310\001\001R\tcreatedAt\022A\n\nupdated_at\030\n \001" +
-      "(\0132\032.google.protobuf.TimestampB\006\272H\003\310\001\001R\t" +
-      "updatedAt*h\n\rCallDirection\022\036\n\032CALL_DIREC" +
-      "TION_UNSPECIFIED\020\000\022\032\n\026CALL_DIRECTION_INB" +
-      "OUND\020\001\022\033\n\027CALL_DIRECTION_OUTBOUND\020\002*W\n\tC" +
-      "allState\022\032\n\026CALL_STATE_UNSPECIFIED\020\000\022\026\n\022" +
-      "CALL_STATE_WAITING\020\001\022\026\n\022CALL_STATE_ENGAG" +
-      "ED\020\002*\377\002\n\014MissedReason\022\035\n\031MISSED_REASON_U" +
-      "NSPECIFIED\020\000\022\"\n\036MISSED_REASON_NOT_IN_OPE" +
-      "RATION\020\001\022\033\n\027MISSED_REASON_USER_LEFT\020\002\022 \n" +
-      "\034MISSED_REASON_RING_TIME_OVER\020\003\022$\n MISSE" +
-      "D_REASON_INBOUND_RATE_LIMIT\020\004\022\035\n\031MISSED_" +
-      "REASON_NO_OPERATOR\020\005\022 \n\034MISSED_REASON_EX" +
-      "CEEDED_QUEUE\020\006\022$\n MISSED_REASON_ABANDONE" +
-      "D_IN_QUEUE\020\007\022\032\n\026MISSED_REASON_WORKFLOW\020\010" +
-      "\022\036\n\032MISSED_REASON_MANAGER_LEFT\020\t\022$\n MISS" +
-      "ED_REASON_NO_FALLBACK_CLIENT\020\nBb\n&io.cha" +
-      "nnel.api.proto.pub.coreapi.modelP\001Z6gith" +
-      "ub.com/channel-io/ch-proto-public/coreap" +
-      "i/go/modelb\006proto3"
+      "l\032\033buf/validate/validate.proto\032\031coreapi/" +
+      "model/block.proto\032\035coreapi/model/user_ch" +
+      "at.proto\032\037google/protobuf/timestamp.prot" +
+      "o\"\206\005\n\007CallLog\022l\n\nchannel_id\030\001 \001(\tBM\272HJ\272\001" +
+      "D\n\rstring.minLen\022\"value must be at least" +
+      " 1 character\032\017size(this) >= 1\310\001\001R\tchanne" +
+      "lId\022@\n\rmissed_reason\030\002 \001(\0162\033.coreapi.mod" +
+      "el.MissedReasonR\014missedReason\022:\n\tdirecti" +
+      "on\030\003 \001(\0162\034.coreapi.model.CallDirectionR\t" +
+      "direction\022.\n\005state\030\004 \001(\0162\030.coreapi.model" +
+      ".CallStateR\005state\022\022\n\004from\030\005 \001(\tR\004from\022\016\n" +
+      "\002to\030\006 \001(\tR\002to\022A\n\ncreated_at\030\007 \001(\0132\032.goog" +
+      "le.protobuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt" +
+      "\022A\n\nupdated_at\030\010 \001(\0132\032.google.protobuf.T" +
+      "imestampB\006\272H\003\310\001\001R\tupdatedAt\0229\n\nengaged_a" +
+      "t\030\t \001(\0132\032.google.protobuf.TimestampR\teng" +
+      "agedAt\0227\n\tclosed_at\030\n \001(\0132\032.google.proto" +
+      "buf.TimestampR\010closedAt\022 \n\014user_chat_id\030" +
+      "\013 \001(\tR\nuserChatId\022\037\n\013manager_ids\030\014 \003(\tR\n" +
+      "managerIds\"\301\004\n\013MeetMessage\022]\n\002id\030\001 \001(\tBM" +
+      "\272HJ\272\001D\n\rstring.minLen\022\"value must be at " +
+      "least 1 character\032\017size(this) >= 1\310\001\001R\002i" +
+      "d\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.mi" +
+      "nLen\022\"value must be at least 1 character" +
+      "\032\017size(this) >= 1\310\001\001R\tchannelId\022#\n\tchat_" +
+      "type\030\003 \001(\tB\006\272H\003\310\001\001R\010chatType\022\037\n\007chat_id\030" +
+      "\004 \001(\tB\006\272H\003\310\001\001R\006chatId\022\'\n\013person_type\030\005 \001" +
+      "(\tB\006\272H\003\310\001\001R\npersonType\022#\n\tperson_id\030\006 \001(" +
+      "\tB\006\272H\003\310\001\001R\010personId\022,\n\006blocks\030\007 \003(\0132\024.co" +
+      "reapi.model.BlockR\006blocks\022\035\n\nplain_text\030" +
+      "\010 \001(\tR\tplainText\022A\n\ncreated_at\030\t \001(\0132\032.g" +
+      "oogle.protobuf.TimestampB\006\272H\003\310\001\001R\tcreate" +
+      "dAt\022A\n\nupdated_at\030\n \001(\0132\032.google.protobu" +
+      "f.TimestampB\006\272H\003\310\001\001R\tupdatedAt*h\n\rCallDi" +
+      "rection\022\036\n\032CALL_DIRECTION_UNSPECIFIED\020\000\022" +
+      "\032\n\026CALL_DIRECTION_INBOUND\020\001\022\033\n\027CALL_DIRE" +
+      "CTION_OUTBOUND\020\002*W\n\tCallState\022\032\n\026CALL_ST" +
+      "ATE_UNSPECIFIED\020\000\022\026\n\022CALL_STATE_WAITING\020" +
+      "\001\022\026\n\022CALL_STATE_ENGAGED\020\002Bb\n&io.channel." +
+      "api.proto.pub.coreapi.modelP\001Z6github.co" +
+      "m/channel-io/ch-proto-public/coreapi/go/" +
+      "modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
-          io.channel.api.proto.pub.coreapi.model.MessageContentOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.BlockOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.UserChatOuterClass.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_coreapi_model_CallLog_descriptor =
@@ -111,7 +103,8 @@ public final class Meet {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
-    io.channel.api.proto.pub.coreapi.model.MessageContentOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.BlockOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.UserChatOuterClass.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

@@ -15,21 +15,6 @@ public final class MessageOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_coreapi_model_MessageLog_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_coreapi_model_MessageLog_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_coreapi_model_MessageReaction_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_coreapi_model_MessageReaction_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_coreapi_model_MessageThread_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_coreapi_model_MessageThread_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_coreapi_model_Message_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -44,144 +29,124 @@ public final class MessageOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\033coreapi/model/message.proto\022\rcoreapi.m" +
-      "odel\032\033buf/validate/validate.proto\032#corea" +
-      "pi/model/message_content.proto\032\034google/p" +
-      "rotobuf/struct.proto\032\037google/protobuf/ti" +
-      "mestamp.proto\"\240\001\n\nMessageLog\0228\n\006action\030\001" +
-      " \001(\0162\030.coreapi.model.LogActionB\006\272H\003\310\001\001R\006" +
-      "action\022\026\n\006values\030\002 \003(\tR\006values\022!\n\014trigge" +
-      "r_type\030\003 \001(\tR\013triggerType\022\035\n\ntrigger_id\030" +
-      "\004 \001(\tR\ttriggerId\"\240\001\n\017MessageReaction\022l\n\n" +
-      "emoji_name\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022" +
-      "\"value must be at least 1 character\032\017siz" +
-      "e(this) >= 1\310\001\001R\temojiName\022\037\n\013person_key" +
-      "s\030\002 \003(\tR\npersonKeys\"\340\001\n\rMessageThread\022]\n" +
-      "\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value " +
-      "must be at least 1 character\032\017size(this)" +
-      " >= 1\310\001\001R\002id\022\037\n\013manager_ids\030\002 \003(\tR\nmanag" +
-      "erIds\022.\n\023replied_manager_ids\030\003 \003(\tR\021repl" +
-      "iedManagerIds\022\037\n\013reply_count\030\004 \001(\005R\nrepl" +
-      "yCount\"\303\r\n\007Message\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\r" +
-      "string.minLen\022\"value must be at least 1 " +
-      "character\032\017size(this) >= 1\310\001\001R\002id\022l\n\ncha" +
-      "nnel_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"va" +
-      "lue must be at least 1 character\032\017size(t" +
-      "his) >= 1\310\001\001R\tchannelId\022j\n\tchat_type\030\003 \001" +
-      "(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must be" +
-      " at least 1 character\032\017size(this) >= 1\310\001" +
-      "\001R\010chatType\022f\n\007chat_id\030\004 \001(\tBM\272HJ\272\001D\n\rst" +
+      "odel\032\033buf/validate/validate.proto\032\031corea" +
+      "pi/model/block.proto\032\"coreapi/model/mess" +
+      "age_button.proto\032 coreapi/model/message_" +
+      "file.proto\032\037coreapi/model/message_log.pr" +
+      "oto\032$coreapi/model/message_reaction.prot" +
+      "o\032\"coreapi/model/message_thread.proto\032$c" +
+      "oreapi/model/message_web_page.proto\032\034goo" +
+      "gle/protobuf/struct.proto\032\037google/protob" +
+      "uf/timestamp.proto\"\271\023\n\007Message\022h\n\010chat_k" +
+      "ey\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value m" +
+      "ust be at least 1 character\032\017size(this) " +
+      ">= 1\310\001\001R\007chatKey\022]\n\002id\030\002 \001(\tBM\272HJ\272\001D\n\rst" +
       "ring.minLen\022\"value must be at least 1 ch" +
-      "aracter\032\017size(this) >= 1\310\001\001R\006chatId\022n\n\013p" +
-      "erson_type\030\005 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022" +
-      "\"value must be at least 1 character\032\017siz" +
-      "e(this) >= 1\310\001\001R\npersonType\022j\n\tperson_id" +
-      "\030\006 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value mus" +
+      "aracter\032\017size(this) >= 1\310\001\001R\002id\022\031\n\010main_" +
+      "key\030\003 \001(\tR\007mainKey\022\035\n\nthread_key\030\004 \001(\tR\t" +
+      "threadKey\022\031\n\010meet_key\030\005 \001(\tR\007meetKey\022\033\n\t" +
+      "front_key\030\006 \001(\tR\010frontKey\022$\n\016alf_thread_" +
+      "key\030\007 \001(\tR\014alfThreadKey\022l\n\nchannel_id\030\010 " +
+      "\001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must b" +
+      "e at least 1 character\032\017size(this) >= 1\310" +
+      "\001\001R\tchannelId\022j\n\tchat_type\030\t \001(\tBM\272HJ\272\001D" +
+      "\n\rstring.minLen\022\"value must be at least " +
+      "1 character\032\017size(this) >= 1\310\001\001R\010chatTyp" +
+      "e\022f\n\007chat_id\030\n \001(\tBM\272HJ\272\001D\n\rstring.minLe" +
+      "n\022\"value must be at least 1 character\032\017s" +
+      "ize(this) >= 1\310\001\001R\006chatId\022n\n\013person_type" +
+      "\030\013 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value mus" +
       "t be at least 1 character\032\017size(this) >=" +
-      " 1\310\001\001R\010personId\022\035\n\nrequest_id\030\007 \001(\tR\treq" +
-      "uestId\022\032\n\010language\030\010 \001(\tR\010language\022A\n\ncr" +
-      "eated_at\030\t \001(\0132\032.google.protobuf.Timesta" +
-      "mpB\006\272H\003\310\001\001R\tcreatedAt\0229\n\nupdated_at\030\n \001(" +
-      "\0132\032.google.protobuf.TimestampR\tupdatedAt" +
-      "\022,\n\006blocks\030\014 \003(\0132\024.coreapi.model.BlockR\006" +
-      "blocks\022\035\n\nplain_text\030\r \001(\tR\tplainText\022@\n" +
-      "\007buttons\030\016 \003(\0132\034.coreapi.model.MessageBu" +
-      "ttonB\010\272H\005\222\001\002\020\002R\007buttons\0220\n\005files\030\017 \003(\0132\032" +
-      ".coreapi.model.MessageFileR\005files\0228\n\010web" +
-      "_page\030\020 \001(\0132\035.coreapi.model.MessageWebPa" +
-      "geR\007webPage\022+\n\004form\030\021 \001(\0132\027.google.proto" +
-      "buf.StructR\004form\0226\n\007options\030\022 \003(\0162\034.core" +
-      "api.model.MessageOptionR\007options\0221\n\005stat" +
-      "e\030\023 \001(\0162\033.coreapi.model.MessageStateR\005st" +
-      "ate\022+\n\003log\030\025 \001(\0132\031.coreapi.model.Message" +
-      "LogR\003log\022<\n\treactions\030\026 \003(\0132\036.coreapi.mo" +
-      "del.MessageReactionR\treactions\022\031\n\010chat_k" +
-      "ey\030\030 \001(\tR\007chatKey\022\031\n\010main_key\030\031 \001(\tR\007mai" +
-      "nKey\022\035\n\nthread_key\030\032 \001(\tR\tthreadKey\022\030\n\007v" +
-      "ersion\030\033 \001(\003R\007version\0225\n\tmarketing\030\034 \001(\013" +
-      "2\027.google.protobuf.StructR\tmarketing\0228\n\013" +
-      "support_bot\030\035 \001(\0132\027.google.protobuf.Stru" +
-      "ctR\nsupportBot\022\035\n\nthread_msg\030\036 \001(\010R\tthre" +
-      "adMsg\022\'\n\017broadcasted_msg\030\037 \001(\010R\016broadcas" +
-      "tedMsg\022&\n\017root_message_id\030  \001(\tR\rrootMes" +
-      "sageId\0224\n\006thread\030! \001(\0132\034.coreapi.model.M" +
-      "essageThreadR\006thread*\225\001\n\014MessageState\022\035\n" +
-      "\031MESSAGE_STATE_UNSPECIFIED\020\000\022\031\n\025MESSAGE_" +
-      "STATE_SENDING\020\001\022\026\n\022MESSAGE_STATE_SENT\020\002\022" +
-      "\030\n\024MESSAGE_STATE_FAILED\020\003\022\031\n\025MESSAGE_STA" +
-      "TE_REMOVED\020\004*\263\t\n\tLogAction\022\032\n\026LOG_ACTION" +
-      "_UNSPECIFIED\020\000\022\032\n\026LOG_ACTION_CHANGE_NAME" +
-      "\020\001\022\033\n\027LOG_ACTION_CHANGE_SCOPE\020\002\022\024\n\020LOG_A" +
-      "CTION_CLOSE\020\003\022\031\n\025LOG_ACTION_AUTO_CLOSE\020\004" +
-      "\022\025\n\021LOG_ACTION_CREATE\020\005\022\025\n\021LOG_ACTION_IN" +
-      "VITE\020\006\022\023\n\017LOG_ACTION_JOIN\020\007\022\025\n\021LOG_ACTIO" +
-      "N_ASSIGN\020\010\022\032\n\026LOG_ACTION_AUTO_ASSIGN\020\t\022\027" +
-      "\n\023LOG_ACTION_UNASSIGN\020\n\022\024\n\020LOG_ACTION_LE" +
-      "AVE\020\013\022\023\n\017LOG_ACTION_OPEN\020\014\022\030\n\024LOG_ACTION" +
-      "_AUTO_OPEN\020\r\022\026\n\022LOG_ACTION_ENQUEUE\020\016\022\023\n\017" +
-      "LOG_ACTION_MISS\020\017\022\025\n\021LOG_ACTION_REMOVE\020\020" +
-      "\022\025\n\021LOG_ACTION_SNOOZE\020\021\022\027\n\023LOG_ACTION_AD" +
-      "D_TAGS\020\022\022\032\n\026LOG_ACTION_REMOVE_TAGS\020\023\022\032\n\026" +
-      "LOG_ACTION_ASSIGN_TEAM\020\024\022\034\n\030LOG_ACTION_U" +
-      "NASSIGN_TEAM\020\025\022\030\n\024LOG_ACTION_JOIN_MEET\020\026" +
-      "\022\031\n\025LOG_ACTION_LEAVE_MEET\020\027\022\032\n\026LOG_ACTIO" +
-      "N_INVITE_MEET\020\030\022\030\n\024LOG_ACTION_MISS_MEET\020" +
-      "\031\022\034\n\030LOG_ACTION_CALLBACK_MEET\020\032\022\037\n\033LOG_A" +
-      "CTION_TRY_CONNECT_CALL\020\033\022\036\n\032LOG_ACTION_P" +
-      "ROCESS_BY_MISS\020\034\022\035\n\031LOG_ACTION_PROCESS_B" +
-      "RANCH\020\035\022\027\n\023LOG_ACTION_SEND_XMS\020\036\022\034\n\030LOG_" +
-      "ACTION_ADD_USER_TAGS\020\037\022\037\n\033LOG_ACTION_REM" +
-      "OVE_USER_TAGS\020 \022\036\n\032LOG_ACTION_UPDATE_PRI" +
-      "ORITY\020!\022\035\n\031LOG_ACTION_START_WORKFLOW\020\"\022\033" +
-      "\n\027LOG_ACTION_END_WORKFLOW\020#\022!\n\035LOG_ACTIO" +
-      "N_INTERRUPT_WORKFLOW\020$\022(\n$LOG_ACTION_INT" +
-      "ERRUPT_WORKFLOW_BY_BOT\020%\022 \n\034LOG_ACTION_T" +
-      "RY_OPEN_WITH_ALF\020&\022\031\n\025LOG_ACTION_START_T" +
-      "ASK\020\'\022\032\n\026LOG_ACTION_APPLY_RULES\020(\022!\n\035LOG" +
-      "_ACTION_CANCEL_ALF_BY_USER\020)\022\034\n\030LOG_ACTI" +
-      "ON_FALLBACK_CALL\020*Bb\n&io.channel.api.pro" +
-      "to.pub.coreapi.modelP\001Z6github.com/chann" +
-      "el-io/ch-proto-public/coreapi/go/modelb\006" +
-      "proto3"
+      " 1\310\001\001R\npersonType\022j\n\tperson_id\030\014 \001(\tBM\272H" +
+      "J\272\001D\n\rstring.minLen\022\"value must be at le" +
+      "ast 1 character\032\017size(this) >= 1\310\001\001R\010per" +
+      "sonId\022\035\n\nrequest_id\030\r \001(\tR\trequestId\022\032\n\010" +
+      "language\030\016 \001(\tR\010language\022A\n\ncreated_at\030\017" +
+      " \001(\0132\032.google.protobuf.TimestampB\006\272H\003\310\001\001" +
+      "R\tcreatedAt\022\030\n\007version\030\020 \001(\003R\007version\022,\n" +
+      "\006blocks\030\021 \003(\0132\024.coreapi.model.BlockR\006blo" +
+      "cks\022\035\n\nplain_text\030\022 \001(\tR\tplainText\0229\n\nup" +
+      "dated_at\030\023 \001(\0132\032.google.protobuf.Timesta" +
+      "mpR\tupdatedAt\0224\n\006thread\030\024 \001(\0132\034.coreapi." +
+      "model.MessageThreadR\006thread\022+\n\004meet\030\025 \001(" +
+      "\0132\027.google.protobuf.StructR\004meet\022-\n\005emai" +
+      "l\030\026 \001(\0132\027.google.protobuf.StructR\005email\022" +
+      "6\n\nalf_thread\030\027 \001(\0132\027.google.protobuf.St" +
+      "ructR\talfThread\0227\n\tedited_at\030\030 \001(\0132\032.goo" +
+      "gle.protobuf.TimestampR\010editedAt\0226\n\007butt" +
+      "ons\030\031 \003(\0132\034.coreapi.model.MessageButtonR" +
+      "\007buttons\0220\n\005files\030\032 \003(\0132\032.coreapi.model." +
+      "MessageFileR\005files\0228\n\010web_page\030\033 \001(\0132\035.c" +
+      "oreapi.model.MessageWebPageR\007webPage\022+\n\003" +
+      "log\030\034 \001(\0132\031.coreapi.model.MessageLogR\003lo" +
+      "g\022<\n\treactions\030\035 \003(\0132\036.coreapi.model.Mes" +
+      "sageReactionR\treactions\022:\n\014alf_progress\030" +
+      "\036 \001(\0132\027.google.protobuf.StructR\013alfProgr" +
+      "ess\022+\n\004form\030\037 \001(\0132\027.google.protobuf.Stru" +
+      "ctR\004form\0221\n\005state\030  \001(\0162\033.coreapi.model." +
+      "MessageStateR\005state\022\030\n\007options\030! \003(\tR\007op" +
+      "tions\0225\n\tmarketing\030\" \001(\0132\027.google.protob" +
+      "uf.StructR\tmarketing\0228\n\013support_bot\030# \001(" +
+      "\0132\027.google.protobuf.StructR\nsupportBot\0223" +
+      "\n\010workflow\030$ \001(\0132\027.google.protobuf.Struc" +
+      "tR\010workflow\022:\n\013alert_level\030% \001(\0162\031.corea" +
+      "pi.model.AlertLevelR\nalertLevel\022)\n\003ivr\030&" +
+      " \001(\0132\027.google.protobuf.StructR\003ivr\022>\n\016cu" +
+      "stom_payload\030\' \001(\0132\027.google.protobuf.Str" +
+      "uctR\rcustomPayload\022=\n\014writing_type\030( \001(\016" +
+      "2\032.coreapi.model.WritingTypeR\013writingTyp" +
+      "e\022\035\n\nthread_msg\030) \001(\010R\tthreadMsg\022&\n\017root" +
+      "_message_id\030* \001(\tR\rrootMessageId\022\037\n\013thre" +
+      "ad_root\030+ \001(\010R\nthreadRoot\022\'\n\017broadcasted" +
+      "_msg\030, \001(\010R\016broadcastedMsg\022*\n\021removed_by" +
+      "_writer\030- \001(\010R\017removedByWriter*\225\001\n\014Messa" +
+      "geState\022\035\n\031MESSAGE_STATE_UNSPECIFIED\020\000\022\031" +
+      "\n\025MESSAGE_STATE_SENDING\020\001\022\026\n\022MESSAGE_STA" +
+      "TE_SENT\020\002\022\030\n\024MESSAGE_STATE_FAILED\020\003\022\031\n\025M" +
+      "ESSAGE_STATE_REMOVED\020\004*n\n\nAlertLevel\022\033\n\027" +
+      "ALERT_LEVEL_UNSPECIFIED\020\000\022\025\n\021ALERT_LEVEL" +
+      "_ALERT\020\001\022\026\n\022ALERT_LEVEL_UNREAD\020\002\022\024\n\020ALER" +
+      "T_LEVEL_NONE\020\003*w\n\013WritingType\022\034\n\030WRITING" +
+      "_TYPE_UNSPECIFIED\020\000\022\031\n\025WRITING_TYPE_STAN" +
+      "DARD\020\001\022\027\n\023WRITING_TYPE_CUSTOM\020\002\022\026\n\022WRITI" +
+      "NG_TYPE_EMAIL\020\003Bb\n&io.channel.api.proto." +
+      "pub.coreapi.modelP\001Z6github.com/channel-" +
+      "io/ch-proto-public/coreapi/go/modelb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
-          io.channel.api.proto.pub.coreapi.model.MessageContentOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.BlockOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.MessageButtonOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.MessageFileOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.MessageLogOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.MessageReactionOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.MessageThreadOuterClass.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.MessageWebPageOuterClass.getDescriptor(),
           com.google.protobuf.StructProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
-    internal_static_coreapi_model_MessageLog_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_coreapi_model_MessageLog_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_coreapi_model_MessageLog_descriptor,
-        new java.lang.String[] { "Action", "Values", "TriggerType", "TriggerId", });
-    internal_static_coreapi_model_MessageReaction_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_coreapi_model_MessageReaction_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_coreapi_model_MessageReaction_descriptor,
-        new java.lang.String[] { "EmojiName", "PersonKeys", });
-    internal_static_coreapi_model_MessageThread_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_coreapi_model_MessageThread_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_coreapi_model_MessageThread_descriptor,
-        new java.lang.String[] { "Id", "ManagerIds", "RepliedManagerIds", "ReplyCount", });
     internal_static_coreapi_model_Message_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(0);
     internal_static_coreapi_model_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Message_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "ChatType", "ChatId", "PersonType", "PersonId", "RequestId", "Language", "CreatedAt", "UpdatedAt", "Blocks", "PlainText", "Buttons", "Files", "WebPage", "Form", "Options", "State", "Log", "Reactions", "ChatKey", "MainKey", "ThreadKey", "Version", "Marketing", "SupportBot", "ThreadMsg", "BroadcastedMsg", "RootMessageId", "Thread", });
+        new java.lang.String[] { "ChatKey", "Id", "MainKey", "ThreadKey", "MeetKey", "FrontKey", "AlfThreadKey", "ChannelId", "ChatType", "ChatId", "PersonType", "PersonId", "RequestId", "Language", "CreatedAt", "Version", "Blocks", "PlainText", "UpdatedAt", "Thread", "Meet", "Email", "AlfThread", "EditedAt", "Buttons", "Files", "WebPage", "Log", "Reactions", "AlfProgress", "Form", "State", "Options", "Marketing", "SupportBot", "Workflow", "AlertLevel", "Ivr", "CustomPayload", "WritingType", "ThreadMsg", "RootMessageId", "ThreadRoot", "BroadcastedMsg", "RemovedByWriter", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
-    io.channel.api.proto.pub.coreapi.model.MessageContentOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.BlockOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.MessageButtonOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.MessageFileOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.MessageLogOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.MessageReactionOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.MessageThreadOuterClass.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.MessageWebPageOuterClass.getDescriptor();
     com.google.protobuf.StructProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }

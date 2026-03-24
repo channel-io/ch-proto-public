@@ -17,14 +17,26 @@ public enum GroupScope
    */
   GROUP_SCOPE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Visible to all managers in the channel regardless of membership.
+   * </pre>
+   *
    * <code>GROUP_SCOPE_ALL = 1;</code>
    */
   GROUP_SCOPE_ALL(1),
   /**
+   * <pre>
+   * Listed publicly; any manager can join.
+   * </pre>
+   *
    * <code>GROUP_SCOPE_PUBLIC = 2;</code>
    */
   GROUP_SCOPE_PUBLIC(2),
   /**
+   * <pre>
+   * Hidden from non-members; only invited managers can access.
+   * </pre>
+   *
    * <code>GROUP_SCOPE_PRIVATE = 3;</code>
    */
   GROUP_SCOPE_PRIVATE(3),
@@ -36,14 +48,26 @@ public enum GroupScope
    */
   public static final int GROUP_SCOPE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Visible to all managers in the channel regardless of membership.
+   * </pre>
+   *
    * <code>GROUP_SCOPE_ALL = 1;</code>
    */
   public static final int GROUP_SCOPE_ALL_VALUE = 1;
   /**
+   * <pre>
+   * Listed publicly; any manager can join.
+   * </pre>
+   *
    * <code>GROUP_SCOPE_PUBLIC = 2;</code>
    */
   public static final int GROUP_SCOPE_PUBLIC_VALUE = 2;
   /**
+   * <pre>
+   * Hidden from non-members; only invited managers can access.
+   * </pre>
+   *
    * <code>GROUP_SCOPE_PRIVATE = 3;</code>
    */
   public static final int GROUP_SCOPE_PRIVATE_VALUE = 3;

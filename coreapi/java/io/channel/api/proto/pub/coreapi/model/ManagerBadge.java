@@ -5,8 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * ManagerBadge represents notification badge counters for a manager.
- * Tracks unread and alert counts across user chats, team chats, and threads.
+ * ManagerBadge holds per-chat-type notification badge counts for a manager,
+ * broken down by team chat, user chat, and thread categories.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.ManagerBadge}
@@ -109,20 +109,20 @@ private static final long serialVersionUID = 0L;
             version_ = input.readInt64();
             break;
           }
-          case 80: {
+          case 82: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            alert_ = input.readInt32();
+            managerId_ = s;
             break;
           }
           case 88: {
 
-            unread_ = input.readInt32();
+            alert_ = input.readInt32();
             break;
           }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 96: {
 
-            managerId_ = s;
+            unread_ = input.readInt32();
             break;
           }
           default: {
@@ -162,7 +162,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique badge identifier.
-   * Same as the manager ID.
+   * Uses the same value as the owning manager's ID.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -186,7 +186,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique badge identifier.
-   * Same as the manager ID.
+   * Uses the same value as the owning manager's ID.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -213,7 +213,8 @@ private static final long serialVersionUID = 0L;
   private int teamChatAlert_;
   /**
    * <pre>
-   * Number of team chat alerts.
+   * Alert-level unread count in team chat main conversations.
+   * Defaults to 0.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -229,7 +230,8 @@ private static final long serialVersionUID = 0L;
   private int teamChatUnread_;
   /**
    * <pre>
-   * Number of unread team chat messages.
+   * Total unread count in team chat main conversations.
+   * Defaults to 0.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -245,7 +247,8 @@ private static final long serialVersionUID = 0L;
   private int userChatAlert_;
   /**
    * <pre>
-   * Number of user chat alerts.
+   * Alert-level unread count in user chat conversations.
+   * Defaults to 0.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -261,7 +264,8 @@ private static final long serialVersionUID = 0L;
   private int userChatUnread_;
   /**
    * <pre>
-   * Number of unread user chat messages.
+   * Total unread count in user chat conversations.
+   * Defaults to 0.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -277,7 +281,8 @@ private static final long serialVersionUID = 0L;
   private int teamChatThreadAlert_;
   /**
    * <pre>
-   * Number of team chat thread alerts.
+   * Alert-level unread count in team chat thread replies.
+   * Defaults to 0.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -293,7 +298,8 @@ private static final long serialVersionUID = 0L;
   private int teamChatThreadUnread_;
   /**
    * <pre>
-   * Number of unread team chat thread messages.
+   * Total unread count in team chat thread replies.
+   * Defaults to 0.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -350,7 +356,8 @@ private static final long serialVersionUID = 0L;
   private long version_;
   /**
    * <pre>
-   * Badge data version number.
+   * Optimistic locking version.
+   * Incremented on every update.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -362,47 +369,16 @@ private static final long serialVersionUID = 0L;
     return version_;
   }
 
-  public static final int ALERT_FIELD_NUMBER = 10;
-  private int alert_;
-  /**
-   * <pre>
-   * Total alert count across all chat types.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>int32 alert = 10 [json_name = "alert"];</code>
-   * @return The alert.
-   */
-  @java.lang.Override
-  public int getAlert() {
-    return alert_;
-  }
-
-  public static final int UNREAD_FIELD_NUMBER = 11;
-  private int unread_;
-  /**
-   * <pre>
-   * Total unread count across all chat types.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>int32 unread = 11 [json_name = "unread"];</code>
-   * @return The unread.
-   */
-  @java.lang.Override
-  public int getUnread() {
-    return unread_;
-  }
-
-  public static final int MANAGER_ID_FIELD_NUMBER = 12;
+  public static final int MANAGER_ID_FIELD_NUMBER = 10;
   private volatile java.lang.Object managerId_;
   /**
    * <pre>
    * Manager ID this badge belongs to.
+   * Same value as the badge id.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string manager_id = 12 [json_name = "managerId"];</code>
+   * <code>string manager_id = 10 [json_name = "managerId"];</code>
    * @return The managerId.
    */
   @java.lang.Override
@@ -421,10 +397,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Manager ID this badge belongs to.
+   * Same value as the badge id.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string manager_id = 12 [json_name = "managerId"];</code>
+   * <code>string manager_id = 10 [json_name = "managerId"];</code>
    * @return The bytes for managerId.
    */
   @java.lang.Override
@@ -440,6 +417,40 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int ALERT_FIELD_NUMBER = 11;
+  private int alert_;
+  /**
+   * <pre>
+   * Aggregated alert count across all chat types.
+   * Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int32 alert = 11 [json_name = "alert"];</code>
+   * @return The alert.
+   */
+  @java.lang.Override
+  public int getAlert() {
+    return alert_;
+  }
+
+  public static final int UNREAD_FIELD_NUMBER = 12;
+  private int unread_;
+  /**
+   * <pre>
+   * Aggregated unread count across all chat types.
+   * Equals team_chat_unread + team_chat_thread_unread + user_chat_unread.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int32 unread = 12 [json_name = "unread"];</code>
+   * @return The unread.
+   */
+  @java.lang.Override
+  public int getUnread() {
+    return unread_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -483,14 +494,14 @@ private static final long serialVersionUID = 0L;
     if (version_ != 0L) {
       output.writeInt64(9, version_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(managerId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, managerId_);
+    }
     if (alert_ != 0) {
-      output.writeInt32(10, alert_);
+      output.writeInt32(11, alert_);
     }
     if (unread_ != 0) {
-      output.writeInt32(11, unread_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(managerId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, managerId_);
+      output.writeInt32(12, unread_);
     }
     unknownFields.writeTo(output);
   }
@@ -536,16 +547,16 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(9, version_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(managerId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, managerId_);
+    }
     if (alert_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(10, alert_);
+        .computeInt32Size(11, alert_);
     }
     if (unread_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(11, unread_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(managerId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, managerId_);
+        .computeInt32Size(12, unread_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -583,12 +594,12 @@ private static final long serialVersionUID = 0L;
     }
     if (getVersion()
         != other.getVersion()) return false;
+    if (!getManagerId()
+        .equals(other.getManagerId())) return false;
     if (getAlert()
         != other.getAlert()) return false;
     if (getUnread()
         != other.getUnread()) return false;
-    if (!getManagerId()
-        .equals(other.getManagerId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -621,12 +632,12 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + VERSION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getVersion());
+    hash = (37 * hash) + MANAGER_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getManagerId().hashCode();
     hash = (37 * hash) + ALERT_FIELD_NUMBER;
     hash = (53 * hash) + getAlert();
     hash = (37 * hash) + UNREAD_FIELD_NUMBER;
     hash = (53 * hash) + getUnread();
-    hash = (37 * hash) + MANAGER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getManagerId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -724,8 +735,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * ManagerBadge represents notification badge counters for a manager.
-   * Tracks unread and alert counts across user chats, team chats, and threads.
+   * ManagerBadge holds per-chat-type notification badge counts for a manager,
+   * broken down by team chat, user chat, and thread categories.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.ManagerBadge}
@@ -787,11 +798,11 @@ private static final long serialVersionUID = 0L;
       }
       version_ = 0L;
 
+      managerId_ = "";
+
       alert_ = 0;
 
       unread_ = 0;
-
-      managerId_ = "";
 
       return this;
     }
@@ -832,9 +843,9 @@ private static final long serialVersionUID = 0L;
         result.updatedAt_ = updatedAtBuilder_.build();
       }
       result.version_ = version_;
+      result.managerId_ = managerId_;
       result.alert_ = alert_;
       result.unread_ = unread_;
-      result.managerId_ = managerId_;
       onBuilt();
       return result;
     }
@@ -911,15 +922,15 @@ private static final long serialVersionUID = 0L;
       if (other.getVersion() != 0L) {
         setVersion(other.getVersion());
       }
+      if (!other.getManagerId().isEmpty()) {
+        managerId_ = other.managerId_;
+        onChanged();
+      }
       if (other.getAlert() != 0) {
         setAlert(other.getAlert());
       }
       if (other.getUnread() != 0) {
         setUnread(other.getUnread());
-      }
-      if (!other.getManagerId().isEmpty()) {
-        managerId_ = other.managerId_;
-        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -954,7 +965,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique badge identifier.
-     * Same as the manager ID.
+     * Uses the same value as the owning manager's ID.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -977,7 +988,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique badge identifier.
-     * Same as the manager ID.
+     * Uses the same value as the owning manager's ID.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1001,7 +1012,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique badge identifier.
-     * Same as the manager ID.
+     * Uses the same value as the owning manager's ID.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1023,7 +1034,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique badge identifier.
-     * Same as the manager ID.
+     * Uses the same value as the owning manager's ID.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1040,7 +1051,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique badge identifier.
-     * Same as the manager ID.
+     * Uses the same value as the owning manager's ID.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1064,7 +1075,8 @@ private static final long serialVersionUID = 0L;
     private int teamChatAlert_ ;
     /**
      * <pre>
-     * Number of team chat alerts.
+     * Alert-level unread count in team chat main conversations.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1077,7 +1089,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of team chat alerts.
+     * Alert-level unread count in team chat main conversations.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1093,7 +1106,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of team chat alerts.
+     * Alert-level unread count in team chat main conversations.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1110,7 +1124,8 @@ private static final long serialVersionUID = 0L;
     private int teamChatUnread_ ;
     /**
      * <pre>
-     * Number of unread team chat messages.
+     * Total unread count in team chat main conversations.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1123,7 +1138,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of unread team chat messages.
+     * Total unread count in team chat main conversations.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1139,7 +1155,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of unread team chat messages.
+     * Total unread count in team chat main conversations.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1156,7 +1173,8 @@ private static final long serialVersionUID = 0L;
     private int userChatAlert_ ;
     /**
      * <pre>
-     * Number of user chat alerts.
+     * Alert-level unread count in user chat conversations.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1169,7 +1187,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of user chat alerts.
+     * Alert-level unread count in user chat conversations.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1185,7 +1204,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of user chat alerts.
+     * Alert-level unread count in user chat conversations.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1202,7 +1222,8 @@ private static final long serialVersionUID = 0L;
     private int userChatUnread_ ;
     /**
      * <pre>
-     * Number of unread user chat messages.
+     * Total unread count in user chat conversations.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1215,7 +1236,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of unread user chat messages.
+     * Total unread count in user chat conversations.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1231,7 +1253,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of unread user chat messages.
+     * Total unread count in user chat conversations.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1248,7 +1271,8 @@ private static final long serialVersionUID = 0L;
     private int teamChatThreadAlert_ ;
     /**
      * <pre>
-     * Number of team chat thread alerts.
+     * Alert-level unread count in team chat thread replies.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1261,7 +1285,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of team chat thread alerts.
+     * Alert-level unread count in team chat thread replies.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1277,7 +1302,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of team chat thread alerts.
+     * Alert-level unread count in team chat thread replies.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1294,7 +1320,8 @@ private static final long serialVersionUID = 0L;
     private int teamChatThreadUnread_ ;
     /**
      * <pre>
-     * Number of unread team chat thread messages.
+     * Total unread count in team chat thread replies.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1307,7 +1334,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of unread team chat thread messages.
+     * Total unread count in team chat thread replies.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1323,7 +1351,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of unread team chat thread messages.
+     * Total unread count in team chat thread replies.
+     * Defaults to 0.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1504,7 +1533,8 @@ private static final long serialVersionUID = 0L;
     private long version_ ;
     /**
      * <pre>
-     * Badge data version number.
+     * Optimistic locking version.
+     * Incremented on every update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1517,7 +1547,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Badge data version number.
+     * Optimistic locking version.
+     * Incremented on every update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1533,7 +1564,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Badge data version number.
+     * Optimistic locking version.
+     * Incremented on every update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1547,106 +1579,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int alert_ ;
-    /**
-     * <pre>
-     * Total alert count across all chat types.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>int32 alert = 10 [json_name = "alert"];</code>
-     * @return The alert.
-     */
-    @java.lang.Override
-    public int getAlert() {
-      return alert_;
-    }
-    /**
-     * <pre>
-     * Total alert count across all chat types.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>int32 alert = 10 [json_name = "alert"];</code>
-     * @param value The alert to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAlert(int value) {
-      
-      alert_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Total alert count across all chat types.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>int32 alert = 10 [json_name = "alert"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearAlert() {
-      
-      alert_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int unread_ ;
-    /**
-     * <pre>
-     * Total unread count across all chat types.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>int32 unread = 11 [json_name = "unread"];</code>
-     * @return The unread.
-     */
-    @java.lang.Override
-    public int getUnread() {
-      return unread_;
-    }
-    /**
-     * <pre>
-     * Total unread count across all chat types.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>int32 unread = 11 [json_name = "unread"];</code>
-     * @param value The unread to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUnread(int value) {
-      
-      unread_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Total unread count across all chat types.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>int32 unread = 11 [json_name = "unread"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearUnread() {
-      
-      unread_ = 0;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object managerId_ = "";
     /**
      * <pre>
      * Manager ID this badge belongs to.
+     * Same value as the badge id.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string manager_id = 12 [json_name = "managerId"];</code>
+     * <code>string manager_id = 10 [json_name = "managerId"];</code>
      * @return The managerId.
      */
     public java.lang.String getManagerId() {
@@ -1664,10 +1605,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager ID this badge belongs to.
+     * Same value as the badge id.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string manager_id = 12 [json_name = "managerId"];</code>
+     * <code>string manager_id = 10 [json_name = "managerId"];</code>
      * @return The bytes for managerId.
      */
     public com.google.protobuf.ByteString
@@ -1686,10 +1628,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager ID this badge belongs to.
+     * Same value as the badge id.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string manager_id = 12 [json_name = "managerId"];</code>
+     * <code>string manager_id = 10 [json_name = "managerId"];</code>
      * @param value The managerId to set.
      * @return This builder for chaining.
      */
@@ -1706,10 +1649,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager ID this badge belongs to.
+     * Same value as the badge id.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string manager_id = 12 [json_name = "managerId"];</code>
+     * <code>string manager_id = 10 [json_name = "managerId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearManagerId() {
@@ -1721,10 +1665,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager ID this badge belongs to.
+     * Same value as the badge id.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string manager_id = 12 [json_name = "managerId"];</code>
+     * <code>string manager_id = 10 [json_name = "managerId"];</code>
      * @param value The bytes for managerId to set.
      * @return This builder for chaining.
      */
@@ -1736,6 +1681,104 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       managerId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int alert_ ;
+    /**
+     * <pre>
+     * Aggregated alert count across all chat types.
+     * Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int32 alert = 11 [json_name = "alert"];</code>
+     * @return The alert.
+     */
+    @java.lang.Override
+    public int getAlert() {
+      return alert_;
+    }
+    /**
+     * <pre>
+     * Aggregated alert count across all chat types.
+     * Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int32 alert = 11 [json_name = "alert"];</code>
+     * @param value The alert to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAlert(int value) {
+      
+      alert_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Aggregated alert count across all chat types.
+     * Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int32 alert = 11 [json_name = "alert"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAlert() {
+      
+      alert_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int unread_ ;
+    /**
+     * <pre>
+     * Aggregated unread count across all chat types.
+     * Equals team_chat_unread + team_chat_thread_unread + user_chat_unread.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int32 unread = 12 [json_name = "unread"];</code>
+     * @return The unread.
+     */
+    @java.lang.Override
+    public int getUnread() {
+      return unread_;
+    }
+    /**
+     * <pre>
+     * Aggregated unread count across all chat types.
+     * Equals team_chat_unread + team_chat_thread_unread + user_chat_unread.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int32 unread = 12 [json_name = "unread"];</code>
+     * @param value The unread to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUnread(int value) {
+      
+      unread_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Aggregated unread count across all chat types.
+     * Equals team_chat_unread + team_chat_thread_unread + user_chat_unread.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int32 unread = 12 [json_name = "unread"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUnread() {
+      
+      unread_ = 0;
       onChanged();
       return this;
     }
@@ -1962,6 +2005,29 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
+     * @param value The manager_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearManagerId(java.lang.String value) {
+    	if (value == null)
+    		return clearManagerId();
+    	else
+    		return setManagerId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearManagerId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearManagerId();
+    	else
+    		return setManagerId(mapFunc.apply(value));
+    }
+    	
+    /**
      * @param value The alert to set.
      * @return This builder for chaining.
      */
@@ -2005,29 +2071,6 @@ private static final long serialVersionUID = 0L;
     		return clearUnread();
     	else
     		return setUnread(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The manager_id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearManagerId(java.lang.String value) {
-    	if (value == null)
-    		return clearManagerId();
-    	else
-    		return setManagerId(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearManagerId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearManagerId();
-    	else
-    		return setManagerId(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.ManagerBadge)

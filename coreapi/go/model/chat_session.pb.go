@@ -23,150 +23,109 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Notification watch preference for a chat session.
-type SessionWatch int32
-
-const (
-	SessionWatch_SESSION_WATCH_UNSPECIFIED SessionWatch = 0
-	SessionWatch_SESSION_WATCH_ALL         SessionWatch = 1
-	SessionWatch_SESSION_WATCH_INFO        SessionWatch = 2
-	SessionWatch_SESSION_WATCH_NONE        SessionWatch = 3
-)
-
-// Enum value maps for SessionWatch.
-var (
-	SessionWatch_name = map[int32]string{
-		0: "SESSION_WATCH_UNSPECIFIED",
-		1: "SESSION_WATCH_ALL",
-		2: "SESSION_WATCH_INFO",
-		3: "SESSION_WATCH_NONE",
-	}
-	SessionWatch_value = map[string]int32{
-		"SESSION_WATCH_UNSPECIFIED": 0,
-		"SESSION_WATCH_ALL":         1,
-		"SESSION_WATCH_INFO":        2,
-		"SESSION_WATCH_NONE":        3,
-	}
-)
-
-func (x SessionWatch) Enum() *SessionWatch {
-	p := new(SessionWatch)
-	*p = x
-	return p
-}
-
-func (x SessionWatch) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (SessionWatch) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_chat_session_proto_enumTypes[0].Descriptor()
-}
-
-func (SessionWatch) Type() protoreflect.EnumType {
-	return &file_coreapi_model_chat_session_proto_enumTypes[0]
-}
-
-func (x SessionWatch) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use SessionWatch.Descriptor instead.
-func (SessionWatch) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_chat_session_proto_rawDescGZIP(), []int{0}
-}
-
-// ChatSession represents a participant's membership and reading state in a chat.
-// Each session tracks an individual member's reading position, unread counts,
-// and notification preferences.
+// ChatSession represents a per-person view of a chat conversation,
+// tracking read state, notification counts, and preferences.
 type ChatSession struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Unique session identifier.
+	// Composite partition key identifying the person and chat type scope.
+	// Format: "{personType}-{personId}-{chatType}".
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Session key identifying the participant and chat type.
+	Key string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	// Chat ID of the conversation this session tracks.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	Key string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
+	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Section ID used to organize team chat conversations into custom groups.
+	//
+	// +kubebuilder:validation:Nullable
+	TeamChatSectionId string `protobuf:"bytes,3,opt,name=team_chat_section_id,json=teamChatSectionId,proto3" json:"team_chat_section_id,omitempty"`
+	// Composite key identifying the conversation.
+	// Format: "{chatType}-{chatId}".
+	//
+	// +kubebuilder:validation:Nullable
+	ChatKey string `protobuf:"bytes,4,opt,name=chat_key,json=chatKey,proto3" json:"chat_key,omitempty"`
+	// Opaque sort key for ordering sessions by last activity.
+	//
+	// +kubebuilder:validation:Nullable
+	UpdatedKey string `protobuf:"bytes,5,opt,name=updated_key,json=updatedKey,proto3" json:"updated_key,omitempty"`
+	// Opaque sort key for filtering and ordering sessions with unread messages.
+	//
+	// +kubebuilder:validation:Nullable
+	UnreadKey string `protobuf:"bytes,6,opt,name=unread_key,json=unreadKey,proto3" json:"unread_key,omitempty"`
 	// Channel ID this session belongs to.
 	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Chat type this session belongs to (e.g. "userChat", "group").
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	ChatType string `protobuf:"bytes,4,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
-	// Chat ID this session is associated with.
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	ChatId string `protobuf:"bytes,5,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	// Composite key for the associated chat.
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	ChatKey string `protobuf:"bytes,6,opt,name=chat_key,json=chatKey,proto3" json:"chat_key,omitempty"`
-	// Type of the session participant (e.g. "manager", "user").
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	PersonType string `protobuf:"bytes,7,opt,name=person_type,json=personType,proto3" json:"person_type,omitempty"`
-	// Identifier of the session participant.
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	PersonId string `protobuf:"bytes,8,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
-	// Opaque key used for ordering sessions by last update time.
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	UpdatedKey string `protobuf:"bytes,9,opt,name=updated_key,json=updatedKey,proto3" json:"updated_key,omitempty"`
-	// Opaque key used for ordering sessions by unread status.
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	UnreadKey string `protobuf:"bytes,10,opt,name=unread_key,json=unreadKey,proto3" json:"unread_key,omitempty"`
-	// Number of unread alert notifications.
-	Alert int32 `protobuf:"varint,11,opt,name=alert,proto3" json:"alert,omitempty"`
-	// Number of unread messages.
-	Unread int32 `protobuf:"varint,12,opt,name=unread,proto3" json:"unread,omitempty"`
-	// Notification watch preference for this session.
+	// +kubebuilder:validation:Nullable
+	ChannelId string `protobuf:"bytes,7,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Number of unread messages with alert-level notification priority.
+	// Defaults to 0.
 	//
 	// +kubebuilder:validation:Nullable
-	Watch SessionWatch `protobuf:"varint,13,opt,name=watch,proto3,enum=coreapi.model.SessionWatch" json:"watch,omitempty"`
-	// Whether @all mentions are treated as important.
+	Alert int32 `protobuf:"varint,8,opt,name=alert,proto3" json:"alert,omitempty"`
+	// Total number of unread messages in this session.
+	// Includes both alert-level and regular unread messages.
+	// Defaults to 0.
 	//
 	// +kubebuilder:validation:Nullable
-	AllMentionImportant bool `protobuf:"varint,14,opt,name=all_mention_important,json=allMentionImportant,proto3" json:"all_mention_important,omitempty"`
-	// Timestamp when the participant last read the chat.
+	Unread int32 `protobuf:"varint,9,opt,name=unread,proto3" json:"unread,omitempty"`
+	// Notification preference controlling which messages trigger alerts in this session.
 	//
 	// +kubebuilder:validation:Nullable
-	ReadAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=read_at,json=readAt,proto3" json:"read_at,omitempty"`
-	// Timestamp when the last message was received.
+	Watch SessionWatch `protobuf:"varint,10,opt,name=watch,proto3,enum=coreapi.model.SessionWatch" json:"watch,omitempty"`
+	// Whether @all mentions trigger alert-level notifications in this session.
+	// When absent, inherits from the manager-level default setting.
 	//
 	// +kubebuilder:validation:Nullable
-	ReceivedAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=received_at,json=receivedAt,proto3" json:"received_at,omitempty"`
-	// Timestamp when the participant last posted a message.
+	AllMentionImportant bool `protobuf:"varint,11,opt,name=all_mention_important,json=allMentionImportant,proto3" json:"all_mention_important,omitempty"`
+	// Timestamp when the person last read messages in this session.
+	// Messages created after this timestamp are considered unread.
 	//
 	// +kubebuilder:validation:Nullable
-	PostedAt *timestamppb.Timestamp `protobuf:"bytes,17,opt,name=posted_at,json=postedAt,proto3" json:"posted_at,omitempty"`
+	ReadAt *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=read_at,json=readAt,proto3" json:"read_at,omitempty"`
+	// Timestamp when the last message was received in this conversation.
+	//
+	// +kubebuilder:validation:Nullable
+	ReceivedAt *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=received_at,json=receivedAt,proto3" json:"received_at,omitempty"`
+	// Timestamp when the last message was posted (sent by any participant) in this conversation.
+	//
+	// +kubebuilder:validation:Nullable
+	PostedAt *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=posted_at,json=postedAt,proto3" json:"posted_at,omitempty"`
 	// Session last update timestamp.
 	//
-	// +kubebuilder:validation:Required
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,18,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// +kubebuilder:validation:Nullable
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Session creation timestamp.
 	//
-	// +kubebuilder:validation:Required
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// Entity version number.
+	// +kubebuilder:validation:Nullable
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Optimistic locking version.
+	// Incremented on every update.
 	//
-	// +kubebuilder:validation:Required
-	Version       int64 `protobuf:"varint,20,opt,name=version,proto3" json:"version,omitempty"`
+	// +kubebuilder:validation:Nullable
+	Version int64 `protobuf:"varint,17,opt,name=version,proto3" json:"version,omitempty"`
+	// Unique session identifier.
+	// Format: "{key}-{chatId}".
+	// Derived from key and chat_id.
+	//
+	// +kubebuilder:validation:Nullable
+	Id string `protobuf:"bytes,18,opt,name=id,proto3" json:"id,omitempty"`
+	// Chat type of the conversation (e.g., "userChat", "group", "directChat").
+	// Derived from the third segment of the session key.
+	//
+	// +kubebuilder:validation:Nullable
+	ChatType string `protobuf:"bytes,19,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
+	// Entity type of the session owner (e.g., "manager", "user").
+	// Derived from the first segment of the session key.
+	//
+	// +kubebuilder:validation:Nullable
+	PersonType string `protobuf:"bytes,20,opt,name=person_type,json=personType,proto3" json:"person_type,omitempty"`
+	// Entity ID of the session owner.
+	// Derived from the second segment of the session key.
+	//
+	// +kubebuilder:validation:Nullable
+	PersonId      string `protobuf:"bytes,21,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -201,30 +160,9 @@ func (*ChatSession) Descriptor() ([]byte, []int) {
 	return file_coreapi_model_chat_session_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *ChatSession) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
 func (x *ChatSession) GetKey() string {
 	if x != nil {
 		return x.Key
-	}
-	return ""
-}
-
-func (x *ChatSession) GetChannelId() string {
-	if x != nil {
-		return x.ChannelId
-	}
-	return ""
-}
-
-func (x *ChatSession) GetChatType() string {
-	if x != nil {
-		return x.ChatType
 	}
 	return ""
 }
@@ -236,23 +174,16 @@ func (x *ChatSession) GetChatId() string {
 	return ""
 }
 
+func (x *ChatSession) GetTeamChatSectionId() string {
+	if x != nil {
+		return x.TeamChatSectionId
+	}
+	return ""
+}
+
 func (x *ChatSession) GetChatKey() string {
 	if x != nil {
 		return x.ChatKey
-	}
-	return ""
-}
-
-func (x *ChatSession) GetPersonType() string {
-	if x != nil {
-		return x.PersonType
-	}
-	return ""
-}
-
-func (x *ChatSession) GetPersonId() string {
-	if x != nil {
-		return x.PersonId
 	}
 	return ""
 }
@@ -267,6 +198,13 @@ func (x *ChatSession) GetUpdatedKey() string {
 func (x *ChatSession) GetUnreadKey() string {
 	if x != nil {
 		return x.UnreadKey
+	}
+	return ""
+}
+
+func (x *ChatSession) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
 	}
 	return ""
 }
@@ -341,55 +279,71 @@ func (x *ChatSession) GetVersion() int64 {
 	return 0
 }
 
+func (x *ChatSession) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *ChatSession) GetChatType() string {
+	if x != nil {
+		return x.ChatType
+	}
+	return ""
+}
+
+func (x *ChatSession) GetPersonType() string {
+	if x != nil {
+		return x.PersonType
+	}
+	return ""
+}
+
+func (x *ChatSession) GetPersonId() string {
+	if x != nil {
+		return x.PersonId
+	}
+	return ""
+}
+
 var File_coreapi_model_chat_session_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_chat_session_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/chat_session.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9b\f\n" +
-	"\vChatSession\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12_\n" +
-	"\x03key\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x03key\x12l\n" +
+	" coreapi/model/chat_session.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1bcoreapi/model/manager.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbc\a\n" +
+	"\vChatSession\x12_\n" +
+	"\x03key\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x03key\x12f\n" +
+	"\achat_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x06chatId\x12/\n" +
+	"\x14team_chat_section_id\x18\x03 \x01(\tR\x11teamChatSectionId\x12\x19\n" +
+	"\bchat_key\x18\x04 \x01(\tR\achatKey\x12\x1f\n" +
+	"\vupdated_key\x18\x05 \x01(\tR\n" +
+	"updatedKey\x12\x1d\n" +
 	"\n" +
-	"channel_id\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12j\n" +
-	"\tchat_type\x18\x04 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bchatType\x12f\n" +
-	"\achat_id\x18\x05 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x06chatId\x12h\n" +
-	"\bchat_key\x18\x06 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\achatKey\x12n\n" +
-	"\vperson_type\x18\a \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
-	"personType\x12j\n" +
-	"\tperson_id\x18\b \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bpersonId\x12n\n" +
-	"\vupdated_key\x18\t \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
-	"updatedKey\x12l\n" +
+	"unread_key\x18\x06 \x01(\tR\tunreadKey\x12\x1d\n" +
 	"\n" +
-	"unread_key\x18\n" +
-	" \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tunreadKey\x12\x14\n" +
-	"\x05alert\x18\v \x01(\x05R\x05alert\x12\x16\n" +
-	"\x06unread\x18\f \x01(\x05R\x06unread\x121\n" +
-	"\x05watch\x18\r \x01(\x0e2\x1b.coreapi.model.SessionWatchR\x05watch\x122\n" +
-	"\x15all_mention_important\x18\x0e \x01(\bR\x13allMentionImportant\x123\n" +
-	"\aread_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampR\x06readAt\x12;\n" +
-	"\vreceived_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
+	"channel_id\x18\a \x01(\tR\tchannelId\x12\x14\n" +
+	"\x05alert\x18\b \x01(\x05R\x05alert\x12\x16\n" +
+	"\x06unread\x18\t \x01(\x05R\x06unread\x121\n" +
+	"\x05watch\x18\n" +
+	" \x01(\x0e2\x1b.coreapi.model.SessionWatchR\x05watch\x122\n" +
+	"\x15all_mention_important\x18\v \x01(\bR\x13allMentionImportant\x123\n" +
+	"\aread_at\x18\f \x01(\v2\x1a.google.protobuf.TimestampR\x06readAt\x12;\n" +
+	"\vreceived_at\x18\r \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"receivedAt\x127\n" +
-	"\tposted_at\x18\x11 \x01(\v2\x1a.google.protobuf.TimestampR\bpostedAt\x12A\n" +
+	"\tposted_at\x18\x0e \x01(\v2\x1a.google.protobuf.TimestampR\bpostedAt\x129\n" +
 	"\n" +
-	"updated_at\x18\x12 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12A\n" +
+	"updated_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x129\n" +
 	"\n" +
-	"created_at\x18\x13 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12 \n" +
-	"\aversion\x18\x14 \x01(\x03B\x06\xbaH\x03\xc8\x01\x01R\aversion*t\n" +
-	"\fSessionWatch\x12\x1d\n" +
-	"\x19SESSION_WATCH_UNSPECIFIED\x10\x00\x12\x15\n" +
-	"\x11SESSION_WATCH_ALL\x10\x01\x12\x16\n" +
-	"\x12SESSION_WATCH_INFO\x10\x02\x12\x16\n" +
-	"\x12SESSION_WATCH_NONE\x10\x03Bb\n" +
+	"created_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x12\x18\n" +
+	"\aversion\x18\x11 \x01(\x03R\aversion\x12\x0e\n" +
+	"\x02id\x18\x12 \x01(\tR\x02id\x12\x1b\n" +
+	"\tchat_type\x18\x13 \x01(\tR\bchatType\x12\x1f\n" +
+	"\vperson_type\x18\x14 \x01(\tR\n" +
+	"personType\x12\x1b\n" +
+	"\tperson_id\x18\x15 \x01(\tR\bpersonIdBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -404,15 +358,14 @@ func file_coreapi_model_chat_session_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_chat_session_proto_rawDescData
 }
 
-var file_coreapi_model_chat_session_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_coreapi_model_chat_session_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_coreapi_model_chat_session_proto_goTypes = []any{
-	(SessionWatch)(0),             // 0: coreapi.model.SessionWatch
-	(*ChatSession)(nil),           // 1: coreapi.model.ChatSession
+	(*ChatSession)(nil),           // 0: coreapi.model.ChatSession
+	(SessionWatch)(0),             // 1: coreapi.model.SessionWatch
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_coreapi_model_chat_session_proto_depIdxs = []int32{
-	0, // 0: coreapi.model.ChatSession.watch:type_name -> coreapi.model.SessionWatch
+	1, // 0: coreapi.model.ChatSession.watch:type_name -> coreapi.model.SessionWatch
 	2, // 1: coreapi.model.ChatSession.read_at:type_name -> google.protobuf.Timestamp
 	2, // 2: coreapi.model.ChatSession.received_at:type_name -> google.protobuf.Timestamp
 	2, // 3: coreapi.model.ChatSession.posted_at:type_name -> google.protobuf.Timestamp
@@ -430,19 +383,19 @@ func file_coreapi_model_chat_session_proto_init() {
 	if File_coreapi_model_chat_session_proto != nil {
 		return
 	}
+	file_coreapi_model_manager_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_chat_session_proto_rawDesc), len(file_coreapi_model_chat_session_proto_rawDesc)),
-			NumEnums:      1,
+			NumEnums:      0,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_coreapi_model_chat_session_proto_goTypes,
 		DependencyIndexes: file_coreapi_model_chat_session_proto_depIdxs,
-		EnumInfos:         file_coreapi_model_chat_session_proto_enumTypes,
 		MessageInfos:      file_coreapi_model_chat_session_proto_msgTypes,
 	}.Build()
 	File_coreapi_model_chat_session_proto = out.File

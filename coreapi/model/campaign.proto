@@ -4,8 +4,8 @@ package coreapi.model;
 
 import "buf/validate/validate.proto";
 import "coreapi/model/app_segment.proto";
-import "coreapi/model/medium_type.proto";
-import "google/protobuf/duration.proto";
+import "coreapi/model/holding_property_constant.proto";
+import "coreapi/model/time_range.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -13,7 +13,7 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// Lifecycle state of a campaign.
+// Campaign lifecycle state.
 enum CampaignState {
   CAMPAIGN_STATE_UNSPECIFIED = 0;
   CAMPAIGN_STATE_DRAFT = 1;
@@ -22,7 +22,23 @@ enum CampaignState {
   CAMPAIGN_STATE_REMOVED = 4;
 }
 
-// Send timing mode for a campaign.
+// Messaging medium type for marketing delivery.
+enum MediumType {
+  MEDIUM_TYPE_UNSPECIFIED = 0;
+  MEDIUM_TYPE_NATIVE = 1;
+  MEDIUM_TYPE_PHONE = 2;
+  MEDIUM_TYPE_EMAIL = 3;
+  MEDIUM_TYPE_APP = 4;
+}
+
+// Additional event filter matching strategy.
+enum CampaignFilterMatch {
+  CAMPAIGN_FILTER_MATCH_UNSPECIFIED = 0;
+  CAMPAIGN_FILTER_MATCH_POSITIVE = 1;
+  CAMPAIGN_FILTER_MATCH_NEGATIVE = 2;
+}
+
+// Campaign send mode controlling delivery timing.
 enum CampaignSendMode {
   CAMPAIGN_SEND_MODE_UNSPECIFIED = 0;
   CAMPAIGN_SEND_MODE_ALWAYS = 1;
@@ -33,102 +49,7 @@ enum CampaignSendMode {
   CAMPAIGN_SEND_MODE_CUSTOM = 6;
 }
 
-// Filter match logic for the additional event filter.
-enum CampaignFilterMatch {
-  CAMPAIGN_FILTER_MATCH_UNSPECIFIED = 0;
-  CAMPAIGN_FILTER_MATCH_POSITIVE = 1;
-  CAMPAIGN_FILTER_MATCH_NEGATIVE = 2;
-}
-
-// Base event type for holding property constants.
-enum CampaignBaseEventType {
-  CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED = 0;
-  CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT = 1;
-  CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER = 2;
-}
-
-// Day of the week.
-enum DayOfWeek {
-  DAY_OF_WEEK_UNSPECIFIED = 0;
-  DAY_OF_WEEK_MON = 1;
-  DAY_OF_WEEK_TUE = 2;
-  DAY_OF_WEEK_WED = 3;
-  DAY_OF_WEEK_THU = 4;
-  DAY_OF_WEEK_FRI = 5;
-  DAY_OF_WEEK_SAT = 6;
-  DAY_OF_WEEK_SUN = 7;
-}
-
-// TimeRange represents a time window within specific days of the week.
-// From and to are expressed as minutes from midnight (0-1440).
-message TimeRange {
-  // Days of the week this time range applies to.
-  repeated DayOfWeek day_of_weeks = 1;
-
-  // Start time as minutes from midnight.
-  //
-  // +kubebuilder:validation:Minimum=0
-  // +kubebuilder:validation:Maximum=1440
-  int32 from = 2 [(buf.validate.field).cel = {
-    id: "int32.range"
-    message: "value must be between 0 and 1440"
-    expression: "this >= 0 && this <= 1440"
-  }];
-
-  // End time as minutes from midnight.
-  // Must be greater than from.
-  //
-  // +kubebuilder:validation:Minimum=0
-  // +kubebuilder:validation:Maximum=1440
-  int32 to = 3 [(buf.validate.field).cel = {
-    id: "int32.range"
-    message: "value must be between 0 and 1440"
-    expression: "this >= 0 && this <= 1440"
-  }];
-}
-
-// HoldingPropertyConstant enables dynamic property-based filtering
-// by holding a constant value from a base event for use in event queries.
-message HoldingPropertyConstant {
-  // Name of the base event to extract the property value from.
-  //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string base_event_name = 1 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
-
-  // Property key to extract from the base event.
-  //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string base_event_key = 2 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
-
-  // Query expression for matching the held property value.
-  //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Struct event_query = 3;
-
-  // Type of base event this holding property constant is associated with.
-  //
-  // +kubebuilder:validation:Required
-  CampaignBaseEventType base_event_type = 4 [(buf.validate.field).required = true];
-}
-
-// Campaign represents a recurring automated message that is sent to users
-// when they trigger a specific event.
+// Campaign represents a recurring marketing campaign triggered by user events.
 message Campaign {
   // Unique campaign identifier.
   //
@@ -156,7 +77,7 @@ message Campaign {
     (buf.validate.field).required = true
   ];
 
-  // Display name of the campaign.
+  // Human-readable label for the campaign.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -175,122 +96,156 @@ message Campaign {
     (buf.validate.field).required = true
   ];
 
-  // Current lifecycle state.
+  // Current lifecycle state of the campaign.
+  //
+  // +kubebuilder:validation:Nullable
+  CampaignState state = 4;
+
+  // Channel through which the campaign message is delivered.
+  // Cannot be changed after creation.
   //
   // +kubebuilder:validation:Required
-  CampaignState state = 4 [(buf.validate.field).required = true];
+  MediumType medium_type = 5 [(buf.validate.field).required = true];
 
-  // User targeting query for audience filtering.
+  // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+  //
+  // +kubebuilder:validation:Nullable
+  string medium_id = 6;
+
+  // Query expression that defines the target user segment.
+  // Represented as a structured filter object.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Struct user_query = 7;
 
-  // Name of the event that triggers the campaign.
-  // May be unset for draft campaigns.
+  // App-defined user segments used alongside user_query for targeting.
   //
   // +kubebuilder:validation:Nullable
-  string trigger_event_name = 9;
+  repeated coreapi.model.AppSegment app_segments = 8;
 
-  // Filtering query for the trigger event.
+  // Name of the user event that triggers this campaign.
+  //
+  // +kubebuilder:validation:Required
+  string trigger_event_name = 9 [(buf.validate.field).required = true];
+
+  // Query expression to further filter matching trigger events by their properties.
+  // Represented as a structured filter object.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Struct trigger_event_query = 10;
 
-  // Delay between trigger event and message delivery.
+  // Delay between the trigger event and message delivery, in ISO 8601 duration format.
   // Maximum 90 days.
   //
-  // +kubebuilder:validation:Nullable
-  google.protobuf.Duration waiting_time = 11 [(buf.validate.field).cel = {
-    id: "duration.max"
-    message: "value must be at most 90 days"
-    expression: "this == duration('0s') || this <= duration('7776000s')"
-  }];
+  // +kubebuilder:validation:Required
+  // +kubebuilder:example="PT23H50M"
+  string waiting_time = 11 [(buf.validate.field).required = true];
 
-  // Name of the additional filter event.
-  // When set, waiting_time must be non-zero.
+  // Name of an additional event used to filter users before delivery.
+  // When set, filter_match determines whether the event must occur or must not occur.
   //
   // +kubebuilder:validation:Nullable
   string filter_event_name = 12;
 
-  // Filtering query for the additional filter event.
+  // Query expression to filter the additional filter events by their properties.
+  // Represented as a structured filter object. Applicable when filter_event_name is set.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Struct filter_event_query = 13;
 
-  // Match logic for the additional event filter.
+  // Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
+  // Applicable when filter_event_name is set.
   //
   // +kubebuilder:validation:Nullable
   CampaignFilterMatch filter_match = 14;
 
-  // Name of the event tracked as a conversion goal.
+  // Holds a property value from the trigger event constant for consistent additional event filtering.
+  // Applicable when filter_event_name is set.
+  //
+  // +kubebuilder:validation:Nullable
+  coreapi.model.HoldingPropertyConstant filter_hpc = 15;
+
+  // Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+  // Defines how long after delivery each conversion event is counted.
+  //
+  // +kubebuilder:validation:Nullable
+  map<string, string> conversion_windows = 16;
+
+  // Name of the event that counts as a goal completion.
   //
   // +kubebuilder:validation:Nullable
   string goal_event_name = 17;
 
-  // Filtering query for the goal event.
+  // Query expression to filter goal events by their properties.
+  // Represented as a structured filter object. Applicable when goal_event_name is set.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Struct goal_event_query = 18;
 
-  // Duration window for goal event tracking.
-  // Valid range is 1 to 30 days. Defaults to 7 days.
+  // Time window for attributing goal events after delivery, in ISO 8601 duration format.
+  // Between 1 and 30 days. Defaults to 7 days.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Duration goal_event_duration = 19 [(buf.validate.field).cel = {
-    id: "duration.range"
-    message: "value must be between 1 and 30 days"
-    expression: "this == duration('0s') || (this >= duration('86400s') && this <= duration('2592000s'))"
-  }];
+  // +kubebuilder:example="PT23H50M"
+  string goal_event_duration = 19;
 
-  // Whether this campaign contains advertising content.
+  // Holds a property value from the trigger or filter event constant for consistent goal checking.
+  // Applicable when goal_event_name is set.
   //
   // +kubebuilder:validation:Nullable
-  bool advertising = 21;
+  coreapi.model.HoldingPropertyConstant goal_hpc = 20;
 
-  // Whether to send via XMS (SMS/LMS/MMS) to offline users.
+  // Whether the campaign message contains advertising content subject to opt-out regulations.
+  //
+  // +kubebuilder:validation:Required
+  bool advertising = 21 [(buf.validate.field).required = true];
+
+  // Whether to fall back to XMS (text message) delivery when the user is offline.
   //
   // +kubebuilder:validation:Nullable
   bool send_to_offline_xms = 22;
 
-  // Whether to send via email to offline users.
+  // Whether to fall back to email delivery when the user is offline.
   //
   // +kubebuilder:validation:Nullable
   bool send_to_offline_email = 23;
 
-  // Minimum interval between consecutive sends to the same user.
-  // Valid range is 0 to 30 days.
+  // Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
+  // Between 0 seconds and 30 days.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Duration cooldown = 24 [(buf.validate.field).cel = {
-    id: "duration.range"
-    message: "value must be between 0 and 30 days"
-    expression: "this >= duration('0s') && this <= duration('2592000s')"
-  }];
+  // +kubebuilder:example="PT23H50M"
+  string cooldown = 24;
 
-  // Send timing mode that determines when messages are delivered.
-  // May be unset for draft campaigns.
+  // Controls when messages are delivered relative to operation hours or custom time ranges.
+  //
+  // +kubebuilder:validation:Required
+  CampaignSendMode send_mode = 25 [(buf.validate.field).required = true];
+
+  // Channel operation schedule used to determine delivery timing.
+  // Applicable when send_mode is IN_OPERATION or AWAY.
   //
   // +kubebuilder:validation:Nullable
-  CampaignSendMode send_mode = 25;
+  string channel_operation_id = 26;
 
-  // Custom time ranges for message delivery.
-  // Applicable when send_mode is CUSTOM_USING_SENDER_TIME or CUSTOM_USING_RECEIVER_TIME.
+  // Custom time windows for delivery scheduling.
+  // Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
   //
   // +kubebuilder:validation:Nullable
-  repeated TimeRange send_time_ranges = 27;
+  repeated coreapi.model.TimeRange send_time_ranges = 27;
 
-  // Campaign start time.
+  // Timestamp when the campaign becomes eligible to trigger.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp start_at = 28;
 
-  // Scheduled campaign end timestamp.
-  // Campaign automatically stops after this time.
+  // Timestamp when the campaign automatically stops.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp end_at = 29;
 
-  // Draft snapshot of the campaign saved before activation.
+  // Snapshot of the campaign configuration captured before activation.
+  // Represented as a free-form JSON object.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Struct draft = 30;
@@ -305,73 +260,35 @@ message Campaign {
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp updated_at = 32 [(buf.validate.field).required = true];
 
-  // Total number of messages sent.
+  // Cumulative count of messages delivered.
   //
   // +kubebuilder:validation:Nullable
   int32 sent = 33;
 
-  // Total number of message views.
+  // Cumulative count of message views by recipients.
   //
   // +kubebuilder:validation:Nullable
   int32 view = 34;
 
-  // Total number of goal conversions achieved.
+  // Cumulative count of goal event completions attributed to this campaign.
   //
   // +kubebuilder:validation:Nullable
   int32 goal = 35;
 
-  // Total number of message link clicks.
+  // Cumulative count of message link clicks.
   //
   // +kubebuilder:validation:Nullable
   int32 click = 36;
 
-  // Delivery medium type identifier.
+  // Duration before the user chat created by this campaign expires, in ISO 8601 format.
+  // Defaults to 31 days.
   //
   // +kubebuilder:validation:Nullable
-  string send_medium = 37;
+  // +kubebuilder:example="PT23H50M"
+  string user_chat_expire_duration = 37;
 
-  // Duration after which user chat sessions expire.
+  // Manager assigned to handle user responses from this campaign.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Duration user_chat_expire_duration = 38;
-
-  // Manager ID responsible for this campaign.
-  //
-  // +kubebuilder:validation:Nullable
-  string manager_id = 39;
-
-  // Delivery medium type.
-  //
-  // +kubebuilder:validation:Nullable
-  MediumType medium_type = 40;
-
-  // Identifier of the specific medium instance.
-  //
-  // +kubebuilder:validation:Nullable
-  string medium_id = 41;
-
-  // App segments for user targeting.
-  //
-  // +kubebuilder:validation:Nullable
-  repeated coreapi.model.AppSegment app_segments = 42;
-
-  // Channel operation ID for business hours scheduling.
-  //
-  // +kubebuilder:validation:Nullable
-  string channel_operation_id = 43;
-
-  // Conversion tracking windows keyed by feature name.
-  //
-  // +kubebuilder:validation:Nullable
-  map<string, google.protobuf.Duration> conversion_windows = 44;
-
-  // Holding property constant for the additional event filter.
-  //
-  // +kubebuilder:validation:Nullable
-  HoldingPropertyConstant filter_hpc = 45;
-
-  // Holding property constant for the goal event.
-  //
-  // +kubebuilder:validation:Nullable
-  HoldingPropertyConstant goal_hpc = 46;
+  string manager_id = 38;
 }

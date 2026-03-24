@@ -24,7 +24,11 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Lifecycle state of a message.
+// State of a message in its lifecycle.
+// - SENDING: The message is being transmitted to the server.
+// - SENT: The message has been successfully delivered.
+// - FAILED: The message failed to send.
+// - REMOVED: The message has been deleted.
 type MessageState int32
 
 const (
@@ -80,540 +84,363 @@ func (MessageState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_proto_rawDescGZIP(), []int{0}
 }
 
-// Action type for system log messages.
-type LogAction int32
+// Alert level controlling how the client displays notifications for a message.
+// - ALERT: Triggers a push notification and visual alert.
+// - UNREAD: Increments the unread badge without a push notification.
+// - NONE: No notification or badge change.
+type AlertLevel int32
 
 const (
-	LogAction_LOG_ACTION_UNSPECIFIED               LogAction = 0
-	LogAction_LOG_ACTION_CHANGE_NAME               LogAction = 1
-	LogAction_LOG_ACTION_CHANGE_SCOPE              LogAction = 2
-	LogAction_LOG_ACTION_CLOSE                     LogAction = 3
-	LogAction_LOG_ACTION_AUTO_CLOSE                LogAction = 4
-	LogAction_LOG_ACTION_CREATE                    LogAction = 5
-	LogAction_LOG_ACTION_INVITE                    LogAction = 6
-	LogAction_LOG_ACTION_JOIN                      LogAction = 7
-	LogAction_LOG_ACTION_ASSIGN                    LogAction = 8
-	LogAction_LOG_ACTION_AUTO_ASSIGN               LogAction = 9
-	LogAction_LOG_ACTION_UNASSIGN                  LogAction = 10
-	LogAction_LOG_ACTION_LEAVE                     LogAction = 11
-	LogAction_LOG_ACTION_OPEN                      LogAction = 12
-	LogAction_LOG_ACTION_AUTO_OPEN                 LogAction = 13
-	LogAction_LOG_ACTION_ENQUEUE                   LogAction = 14
-	LogAction_LOG_ACTION_MISS                      LogAction = 15
-	LogAction_LOG_ACTION_REMOVE                    LogAction = 16
-	LogAction_LOG_ACTION_SNOOZE                    LogAction = 17
-	LogAction_LOG_ACTION_ADD_TAGS                  LogAction = 18
-	LogAction_LOG_ACTION_REMOVE_TAGS               LogAction = 19
-	LogAction_LOG_ACTION_ASSIGN_TEAM               LogAction = 20
-	LogAction_LOG_ACTION_UNASSIGN_TEAM             LogAction = 21
-	LogAction_LOG_ACTION_JOIN_MEET                 LogAction = 22
-	LogAction_LOG_ACTION_LEAVE_MEET                LogAction = 23
-	LogAction_LOG_ACTION_INVITE_MEET               LogAction = 24
-	LogAction_LOG_ACTION_MISS_MEET                 LogAction = 25
-	LogAction_LOG_ACTION_CALLBACK_MEET             LogAction = 26
-	LogAction_LOG_ACTION_TRY_CONNECT_CALL          LogAction = 27
-	LogAction_LOG_ACTION_PROCESS_BY_MISS           LogAction = 28
-	LogAction_LOG_ACTION_PROCESS_BRANCH            LogAction = 29
-	LogAction_LOG_ACTION_SEND_XMS                  LogAction = 30
-	LogAction_LOG_ACTION_ADD_USER_TAGS             LogAction = 31
-	LogAction_LOG_ACTION_REMOVE_USER_TAGS          LogAction = 32
-	LogAction_LOG_ACTION_UPDATE_PRIORITY           LogAction = 33
-	LogAction_LOG_ACTION_START_WORKFLOW            LogAction = 34
-	LogAction_LOG_ACTION_END_WORKFLOW              LogAction = 35
-	LogAction_LOG_ACTION_INTERRUPT_WORKFLOW        LogAction = 36
-	LogAction_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT LogAction = 37
-	LogAction_LOG_ACTION_TRY_OPEN_WITH_ALF         LogAction = 38
-	LogAction_LOG_ACTION_START_TASK                LogAction = 39
-	LogAction_LOG_ACTION_APPLY_RULES               LogAction = 40
-	LogAction_LOG_ACTION_CANCEL_ALF_BY_USER        LogAction = 41
-	LogAction_LOG_ACTION_FALLBACK_CALL             LogAction = 42
+	AlertLevel_ALERT_LEVEL_UNSPECIFIED AlertLevel = 0
+	AlertLevel_ALERT_LEVEL_ALERT       AlertLevel = 1
+	AlertLevel_ALERT_LEVEL_UNREAD      AlertLevel = 2
+	AlertLevel_ALERT_LEVEL_NONE        AlertLevel = 3
 )
 
-// Enum value maps for LogAction.
+// Enum value maps for AlertLevel.
 var (
-	LogAction_name = map[int32]string{
-		0:  "LOG_ACTION_UNSPECIFIED",
-		1:  "LOG_ACTION_CHANGE_NAME",
-		2:  "LOG_ACTION_CHANGE_SCOPE",
-		3:  "LOG_ACTION_CLOSE",
-		4:  "LOG_ACTION_AUTO_CLOSE",
-		5:  "LOG_ACTION_CREATE",
-		6:  "LOG_ACTION_INVITE",
-		7:  "LOG_ACTION_JOIN",
-		8:  "LOG_ACTION_ASSIGN",
-		9:  "LOG_ACTION_AUTO_ASSIGN",
-		10: "LOG_ACTION_UNASSIGN",
-		11: "LOG_ACTION_LEAVE",
-		12: "LOG_ACTION_OPEN",
-		13: "LOG_ACTION_AUTO_OPEN",
-		14: "LOG_ACTION_ENQUEUE",
-		15: "LOG_ACTION_MISS",
-		16: "LOG_ACTION_REMOVE",
-		17: "LOG_ACTION_SNOOZE",
-		18: "LOG_ACTION_ADD_TAGS",
-		19: "LOG_ACTION_REMOVE_TAGS",
-		20: "LOG_ACTION_ASSIGN_TEAM",
-		21: "LOG_ACTION_UNASSIGN_TEAM",
-		22: "LOG_ACTION_JOIN_MEET",
-		23: "LOG_ACTION_LEAVE_MEET",
-		24: "LOG_ACTION_INVITE_MEET",
-		25: "LOG_ACTION_MISS_MEET",
-		26: "LOG_ACTION_CALLBACK_MEET",
-		27: "LOG_ACTION_TRY_CONNECT_CALL",
-		28: "LOG_ACTION_PROCESS_BY_MISS",
-		29: "LOG_ACTION_PROCESS_BRANCH",
-		30: "LOG_ACTION_SEND_XMS",
-		31: "LOG_ACTION_ADD_USER_TAGS",
-		32: "LOG_ACTION_REMOVE_USER_TAGS",
-		33: "LOG_ACTION_UPDATE_PRIORITY",
-		34: "LOG_ACTION_START_WORKFLOW",
-		35: "LOG_ACTION_END_WORKFLOW",
-		36: "LOG_ACTION_INTERRUPT_WORKFLOW",
-		37: "LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT",
-		38: "LOG_ACTION_TRY_OPEN_WITH_ALF",
-		39: "LOG_ACTION_START_TASK",
-		40: "LOG_ACTION_APPLY_RULES",
-		41: "LOG_ACTION_CANCEL_ALF_BY_USER",
-		42: "LOG_ACTION_FALLBACK_CALL",
+	AlertLevel_name = map[int32]string{
+		0: "ALERT_LEVEL_UNSPECIFIED",
+		1: "ALERT_LEVEL_ALERT",
+		2: "ALERT_LEVEL_UNREAD",
+		3: "ALERT_LEVEL_NONE",
 	}
-	LogAction_value = map[string]int32{
-		"LOG_ACTION_UNSPECIFIED":               0,
-		"LOG_ACTION_CHANGE_NAME":               1,
-		"LOG_ACTION_CHANGE_SCOPE":              2,
-		"LOG_ACTION_CLOSE":                     3,
-		"LOG_ACTION_AUTO_CLOSE":                4,
-		"LOG_ACTION_CREATE":                    5,
-		"LOG_ACTION_INVITE":                    6,
-		"LOG_ACTION_JOIN":                      7,
-		"LOG_ACTION_ASSIGN":                    8,
-		"LOG_ACTION_AUTO_ASSIGN":               9,
-		"LOG_ACTION_UNASSIGN":                  10,
-		"LOG_ACTION_LEAVE":                     11,
-		"LOG_ACTION_OPEN":                      12,
-		"LOG_ACTION_AUTO_OPEN":                 13,
-		"LOG_ACTION_ENQUEUE":                   14,
-		"LOG_ACTION_MISS":                      15,
-		"LOG_ACTION_REMOVE":                    16,
-		"LOG_ACTION_SNOOZE":                    17,
-		"LOG_ACTION_ADD_TAGS":                  18,
-		"LOG_ACTION_REMOVE_TAGS":               19,
-		"LOG_ACTION_ASSIGN_TEAM":               20,
-		"LOG_ACTION_UNASSIGN_TEAM":             21,
-		"LOG_ACTION_JOIN_MEET":                 22,
-		"LOG_ACTION_LEAVE_MEET":                23,
-		"LOG_ACTION_INVITE_MEET":               24,
-		"LOG_ACTION_MISS_MEET":                 25,
-		"LOG_ACTION_CALLBACK_MEET":             26,
-		"LOG_ACTION_TRY_CONNECT_CALL":          27,
-		"LOG_ACTION_PROCESS_BY_MISS":           28,
-		"LOG_ACTION_PROCESS_BRANCH":            29,
-		"LOG_ACTION_SEND_XMS":                  30,
-		"LOG_ACTION_ADD_USER_TAGS":             31,
-		"LOG_ACTION_REMOVE_USER_TAGS":          32,
-		"LOG_ACTION_UPDATE_PRIORITY":           33,
-		"LOG_ACTION_START_WORKFLOW":            34,
-		"LOG_ACTION_END_WORKFLOW":              35,
-		"LOG_ACTION_INTERRUPT_WORKFLOW":        36,
-		"LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT": 37,
-		"LOG_ACTION_TRY_OPEN_WITH_ALF":         38,
-		"LOG_ACTION_START_TASK":                39,
-		"LOG_ACTION_APPLY_RULES":               40,
-		"LOG_ACTION_CANCEL_ALF_BY_USER":        41,
-		"LOG_ACTION_FALLBACK_CALL":             42,
+	AlertLevel_value = map[string]int32{
+		"ALERT_LEVEL_UNSPECIFIED": 0,
+		"ALERT_LEVEL_ALERT":       1,
+		"ALERT_LEVEL_UNREAD":      2,
+		"ALERT_LEVEL_NONE":        3,
 	}
 )
 
-func (x LogAction) Enum() *LogAction {
-	p := new(LogAction)
+func (x AlertLevel) Enum() *AlertLevel {
+	p := new(AlertLevel)
 	*p = x
 	return p
 }
 
-func (x LogAction) String() string {
+func (x AlertLevel) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (LogAction) Descriptor() protoreflect.EnumDescriptor {
+func (AlertLevel) Descriptor() protoreflect.EnumDescriptor {
 	return file_coreapi_model_message_proto_enumTypes[1].Descriptor()
 }
 
-func (LogAction) Type() protoreflect.EnumType {
+func (AlertLevel) Type() protoreflect.EnumType {
 	return &file_coreapi_model_message_proto_enumTypes[1]
 }
 
-func (x LogAction) Number() protoreflect.EnumNumber {
+func (x AlertLevel) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use LogAction.Descriptor instead.
-func (LogAction) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use AlertLevel.Descriptor instead.
+func (AlertLevel) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_proto_rawDescGZIP(), []int{1}
 }
 
-// MessageLog represents a system-generated log entry within a message.
-// Log messages record chat lifecycle events such as opening, closing, and assignments.
-type MessageLog struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Type of action that generated this log.
-	//
-	// +kubebuilder:validation:Required
-	Action LogAction `protobuf:"varint,1,opt,name=action,proto3,enum=coreapi.model.LogAction" json:"action,omitempty"`
-	// Context values associated with the action.
-	// Interpretation depends on the action type.
-	//
-	// +kubebuilder:validation:Nullable
-	Values []string `protobuf:"bytes,2,rep,name=values,proto3" json:"values,omitempty"`
-	// Entity type that triggered the action.
-	//
-	// +kubebuilder:validation:Nullable
-	TriggerType string `protobuf:"bytes,3,opt,name=trigger_type,json=triggerType,proto3" json:"trigger_type,omitempty"`
-	// Entity identifier that triggered the action.
-	//
-	// +kubebuilder:validation:Nullable
-	TriggerId     string `protobuf:"bytes,4,opt,name=trigger_id,json=triggerId,proto3" json:"trigger_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
+// Determines how the message was composed and how clients should render it.
+// - STANDARD: Regular text message composed via the chat input.
+// - CUSTOM: Message rendered using a third-party custom payload.
+// - EMAIL: Message composed or received via email integration.
+type WritingType int32
 
-func (x *MessageLog) Reset() {
-	*x = MessageLog{}
-	mi := &file_coreapi_model_message_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
+const (
+	WritingType_WRITING_TYPE_UNSPECIFIED WritingType = 0
+	WritingType_WRITING_TYPE_STANDARD    WritingType = 1
+	WritingType_WRITING_TYPE_CUSTOM      WritingType = 2
+	WritingType_WRITING_TYPE_EMAIL       WritingType = 3
+)
 
-func (x *MessageLog) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MessageLog) ProtoMessage() {}
-
-func (x *MessageLog) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_message_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
+// Enum value maps for WritingType.
+var (
+	WritingType_name = map[int32]string{
+		0: "WRITING_TYPE_UNSPECIFIED",
+		1: "WRITING_TYPE_STANDARD",
+		2: "WRITING_TYPE_CUSTOM",
+		3: "WRITING_TYPE_EMAIL",
 	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MessageLog.ProtoReflect.Descriptor instead.
-func (*MessageLog) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_message_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *MessageLog) GetAction() LogAction {
-	if x != nil {
-		return x.Action
+	WritingType_value = map[string]int32{
+		"WRITING_TYPE_UNSPECIFIED": 0,
+		"WRITING_TYPE_STANDARD":    1,
+		"WRITING_TYPE_CUSTOM":      2,
+		"WRITING_TYPE_EMAIL":       3,
 	}
-	return LogAction_LOG_ACTION_UNSPECIFIED
+)
+
+func (x WritingType) Enum() *WritingType {
+	p := new(WritingType)
+	*p = x
+	return p
 }
 
-func (x *MessageLog) GetValues() []string {
-	if x != nil {
-		return x.Values
-	}
-	return nil
+func (x WritingType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (x *MessageLog) GetTriggerType() string {
-	if x != nil {
-		return x.TriggerType
-	}
-	return ""
+func (WritingType) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_message_proto_enumTypes[2].Descriptor()
 }
 
-func (x *MessageLog) GetTriggerId() string {
-	if x != nil {
-		return x.TriggerId
-	}
-	return ""
+func (WritingType) Type() protoreflect.EnumType {
+	return &file_coreapi_model_message_proto_enumTypes[2]
 }
 
-// MessageReaction represents emoji reactions on a message.
-type MessageReaction struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Emoji identifier.
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	EmojiName string `protobuf:"bytes,1,opt,name=emoji_name,json=emojiName,proto3" json:"emoji_name,omitempty"`
-	// Ordered list of person keys who reacted with this emoji.
-	// Each key is in the format "{personType}-{personId}".
-	//
-	// +kubebuilder:validation:Nullable
-	PersonKeys    []string `protobuf:"bytes,2,rep,name=person_keys,json=personKeys,proto3" json:"person_keys,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+func (x WritingType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
 }
 
-func (x *MessageReaction) Reset() {
-	*x = MessageReaction{}
-	mi := &file_coreapi_model_message_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MessageReaction) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MessageReaction) ProtoMessage() {}
-
-func (x *MessageReaction) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_message_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MessageReaction.ProtoReflect.Descriptor instead.
-func (*MessageReaction) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_message_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *MessageReaction) GetEmojiName() string {
-	if x != nil {
-		return x.EmojiName
-	}
-	return ""
-}
-
-func (x *MessageReaction) GetPersonKeys() []string {
-	if x != nil {
-		return x.PersonKeys
-	}
-	return nil
-}
-
-// MessageThread represents thread metadata on a root message.
-type MessageThread struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Unique thread identifier.
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Manager IDs assigned to this thread.
-	//
-	// +kubebuilder:validation:Nullable
-	ManagerIds []string `protobuf:"bytes,2,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
-	// Ordered list of manager IDs who have replied in this thread.
-	//
-	// +kubebuilder:validation:Nullable
-	RepliedManagerIds []string `protobuf:"bytes,3,rep,name=replied_manager_ids,json=repliedManagerIds,proto3" json:"replied_manager_ids,omitempty"`
-	// Total number of replies in this thread.
-	//
-	// +kubebuilder:validation:Nullable
-	ReplyCount    int32 `protobuf:"varint,4,opt,name=reply_count,json=replyCount,proto3" json:"reply_count,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *MessageThread) Reset() {
-	*x = MessageThread{}
-	mi := &file_coreapi_model_message_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MessageThread) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MessageThread) ProtoMessage() {}
-
-func (x *MessageThread) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_message_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MessageThread.ProtoReflect.Descriptor instead.
-func (*MessageThread) Descriptor() ([]byte, []int) {
+// Deprecated: Use WritingType.Descriptor instead.
+func (WritingType) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *MessageThread) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-func (x *MessageThread) GetManagerIds() []string {
-	if x != nil {
-		return x.ManagerIds
-	}
-	return nil
-}
-
-func (x *MessageThread) GetRepliedManagerIds() []string {
-	if x != nil {
-		return x.RepliedManagerIds
-	}
-	return nil
-}
-
-func (x *MessageThread) GetReplyCount() int32 {
-	if x != nil {
-		return x.ReplyCount
-	}
-	return 0
-}
-
-// Message represents a single message within a chat.
+// Message represents a single chat message within a conversation.
 type Message struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
+	// Composite key identifying the parent conversation.
+	// Format: "{chatType}-{chatId}".
+	//
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
+	ChatKey string `protobuf:"bytes,1,opt,name=chat_key,json=chatKey,proto3" json:"chat_key,omitempty"`
 	// Unique message identifier.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id string `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	// Index key for the main (top-level) message stream.
+	// Same value as chat_key when the message appears in the main stream.
+	//
+	// +kubebuilder:validation:Nullable
+	MainKey string `protobuf:"bytes,3,opt,name=main_key,json=mainKey,proto3" json:"main_key,omitempty"`
+	// Index key for the thread message stream.
+	// For thread root messages: same value as chat_key.
+	// For thread replies: "{chatType}-{chatId}-{rootMessageId}".
+	// Absent when the message does not belong to a thread.
+	//
+	// +kubebuilder:validation:Nullable
+	ThreadKey string `protobuf:"bytes,4,opt,name=thread_key,json=threadKey,proto3" json:"thread_key,omitempty"`
+	// Index key for the meet message stream.
+	// For meet root messages: same value as chat_key.
+	// For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
+	// Absent when the message is not associated with a meet session.
+	//
+	// +kubebuilder:validation:Nullable
+	MeetKey string `protobuf:"bytes,5,opt,name=meet_key,json=meetKey,proto3" json:"meet_key,omitempty"`
+	// Index key for the front (user-facing) message stream.
+	// Same value as chat_key when the message appears in the front stream.
+	//
+	// +kubebuilder:validation:Nullable
+	FrontKey string `protobuf:"bytes,6,opt,name=front_key,json=frontKey,proto3" json:"front_key,omitempty"`
+	// Index key for the ALF AI-assisted thread stream.
+	// For ALF thread root messages: same value as chat_key.
+	// For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
+	// Absent when the message is not part of an ALF thread.
+	//
+	// +kubebuilder:validation:Nullable
+	AlfThreadKey string `protobuf:"bytes,7,opt,name=alf_thread_key,json=alfThreadKey,proto3" json:"alf_thread_key,omitempty"`
 	// Channel ID this message belongs to.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Chat type containing this message (e.g. "userChat", "group").
+	ChannelId string `protobuf:"bytes,8,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	ChatType string `protobuf:"bytes,3,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
-	// Chat ID containing this message.
+	ChatType string `protobuf:"bytes,9,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
+	// Chat ID of the parent conversation.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	ChatId string `protobuf:"bytes,4,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	// Entity type of the message author (e.g. "manager", "bot", "user").
+	ChatId string `protobuf:"bytes,10,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Entity type of the message author (e.g., "manager", "user", "bot").
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	PersonType string `protobuf:"bytes,5,opt,name=person_type,json=personType,proto3" json:"person_type,omitempty"`
+	PersonType string `protobuf:"bytes,11,opt,name=person_type,json=personType,proto3" json:"person_type,omitempty"`
 	// Entity ID of the message author.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	PersonId string `protobuf:"bytes,6,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
-	// Client-generated request identifier for idempotency.
+	PersonId string `protobuf:"bytes,12,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
+	// Client-generated identifier for deduplication.
+	// Allows matching a locally pre-rendered message with the server response.
+	// Immutable after creation.
 	//
 	// +kubebuilder:validation:Nullable
-	RequestId string `protobuf:"bytes,7,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
-	// Language code of the message content.
+	RequestId string `protobuf:"bytes,13,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	// Detected language of the message content (e.g., "ko", "en", "ja").
 	//
 	// +kubebuilder:validation:Nullable
-	Language string `protobuf:"bytes,8,opt,name=language,proto3" json:"language,omitempty"`
+	Language string `protobuf:"bytes,14,opt,name=language,proto3" json:"language,omitempty"`
 	// Message creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Optimistic locking version.
+	// Incremented on every update.
+	//
+	// +kubebuilder:validation:Nullable
+	Version int64 `protobuf:"varint,16,opt,name=version,proto3" json:"version,omitempty"`
+	// Structured content blocks composing the message body.
+	// Contains rich text, images, code snippets, and other block-level elements.
+	//
+	// +kubebuilder:validation:Nullable
+	Blocks []*Block `protobuf:"bytes,17,rep,name=blocks,proto3" json:"blocks,omitempty"`
+	// Plain text representation of the message body.
+	// Stripped of all formatting from blocks.
+	//
+	// +kubebuilder:validation:Nullable
+	PlainText string `protobuf:"bytes,18,opt,name=plain_text,json=plainText,proto3" json:"plain_text,omitempty"`
 	// Message last update timestamp.
 	//
 	// +kubebuilder:validation:Nullable
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Structured content blocks of the message.
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// Thread metadata present only on thread root messages.
+	// Contains reply count, last reply timestamp, and participant summary.
 	//
 	// +kubebuilder:validation:Nullable
-	Blocks []*Block `protobuf:"bytes,12,rep,name=blocks,proto3" json:"blocks,omitempty"`
-	// Plain text representation of the message.
+	Thread *MessageThread `protobuf:"bytes,20,opt,name=thread,proto3" json:"thread,omitempty"`
+	// Meet session metadata for messages associated with a video/voice meet.
+	// Contains session ID, participants, and call state.
+	// Present only on meet-related messages.
 	//
 	// +kubebuilder:validation:Nullable
-	PlainText string `protobuf:"bytes,13,opt,name=plain_text,json=plainText,proto3" json:"plain_text,omitempty"`
-	// Interactive buttons attached to the message.
+	Meet *structpb.Struct `protobuf:"bytes,21,opt,name=meet,proto3" json:"meet,omitempty"`
+	// Email metadata for messages sent or received via email integration.
+	// Contains email subject, recipients, and direction (inbound/outbound).
 	//
 	// +kubebuilder:validation:Nullable
+	Email *structpb.Struct `protobuf:"bytes,22,opt,name=email,proto3" json:"email,omitempty"`
+	// ALF (AI agent) thread metadata for AI-assisted conversation threads.
+	// Contains ALF session state and context.
+	//
+	// +kubebuilder:validation:Nullable
+	AlfThread *structpb.Struct `protobuf:"bytes,23,opt,name=alf_thread,json=alfThread,proto3" json:"alf_thread,omitempty"`
+	// Timestamp when the message content was last edited by a person.
+	// Absent if the message has never been edited.
+	//
+	// +kubebuilder:validation:Nullable
+	EditedAt *timestamppb.Timestamp `protobuf:"bytes,24,opt,name=edited_at,json=editedAt,proto3" json:"edited_at,omitempty"`
+	// Interactive action buttons displayed below the message.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MinItems=1
 	// +kubebuilder:validation:MaxItems=2
-	Buttons []*MessageButton `protobuf:"bytes,14,rep,name=buttons,proto3" json:"buttons,omitempty"`
+	Buttons []*MessageButton `protobuf:"bytes,25,rep,name=buttons,proto3" json:"buttons,omitempty"`
 	// File attachments included in the message.
 	//
 	// +kubebuilder:validation:Nullable
-	Files []*MessageFile `protobuf:"bytes,15,rep,name=files,proto3" json:"files,omitempty"`
-	// Web page link preview attached to the message.
+	// +kubebuilder:validation:MinItems=1
+	// +kubebuilder:validation:MaxItems=30
+	Files []*MessageFile `protobuf:"bytes,26,rep,name=files,proto3" json:"files,omitempty"`
+	// Link preview extracted from the first URL found in the message content.
 	//
 	// +kubebuilder:validation:Nullable
-	WebPage *MessageWebPage `protobuf:"bytes,16,opt,name=web_page,json=webPage,proto3" json:"web_page,omitempty"`
-	// Interactive form attached to the message.
-	// The structure depends on the form type.
+	WebPage *MessageWebPage `protobuf:"bytes,27,opt,name=web_page,json=webPage,proto3" json:"web_page,omitempty"`
+	// System log entry for automated events (e.g., chat opened, assigned, closed).
+	// Present only on system-generated messages.
 	//
 	// +kubebuilder:validation:Nullable
-	Form *structpb.Struct `protobuf:"bytes,17,opt,name=form,proto3" json:"form,omitempty"`
-	// Option flags that modify message delivery and display behavior.
+	Log *MessageLog `protobuf:"bytes,28,opt,name=log,proto3" json:"log,omitempty"`
+	// Emoji reactions added to this message by participants.
 	//
 	// +kubebuilder:validation:Nullable
-	Options []MessageOption `protobuf:"varint,18,rep,packed,name=options,proto3,enum=coreapi.model.MessageOption" json:"options,omitempty"`
-	// Current lifecycle state of the message.
+	Reactions []*MessageReaction `protobuf:"bytes,29,rep,name=reactions,proto3" json:"reactions,omitempty"`
+	// Progress indicator for an ALF AI response being streamed.
+	// Contains the partial content generated so far.
+	// Transient; replaced by the final message content when streaming completes.
 	//
 	// +kubebuilder:validation:Nullable
-	State MessageState `protobuf:"varint,19,opt,name=state,proto3,enum=coreapi.model.MessageState" json:"state,omitempty"`
-	// System log data for log-type messages.
+	AlfProgress *structpb.Struct `protobuf:"bytes,30,opt,name=alf_progress,json=alfProgress,proto3" json:"alf_progress,omitempty"`
+	// Interactive form (e.g., input fields, dropdowns) attached to the message.
 	//
 	// +kubebuilder:validation:Nullable
-	Log *MessageLog `protobuf:"bytes,21,opt,name=log,proto3" json:"log,omitempty"`
-	// Emoji reactions on this message.
+	Form *structpb.Struct `protobuf:"bytes,31,opt,name=form,proto3" json:"form,omitempty"`
+	// Current lifecycle state of this message.
 	//
 	// +kubebuilder:validation:Nullable
-	Reactions []*MessageReaction `protobuf:"bytes,22,rep,name=reactions,proto3" json:"reactions,omitempty"`
-	// Composite key for the chat this message belongs to.
+	State MessageState `protobuf:"varint,32,opt,name=state,proto3,enum=coreapi.model.MessageState" json:"state,omitempty"`
+	// Delivery and visibility options applied to this message.
+	// Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+	// Some options are only applicable in user chats.
 	//
 	// +kubebuilder:validation:Nullable
-	ChatKey string `protobuf:"bytes,24,opt,name=chat_key,json=chatKey,proto3" json:"chat_key,omitempty"`
-	// Key of the main conversation thread.
+	// +kubebuilder:validation:MinItems=1
+	Options []string `protobuf:"bytes,33,rep,name=options,proto3" json:"options,omitempty"`
+	// Marketing campaign metadata for outbound promotional messages.
+	// Contains campaign type and tracking attributes.
 	//
 	// +kubebuilder:validation:Nullable
-	MainKey string `protobuf:"bytes,25,opt,name=main_key,json=mainKey,proto3" json:"main_key,omitempty"`
-	// Key of the sub-thread this message belongs to.
+	Marketing *structpb.Struct `protobuf:"bytes,34,opt,name=marketing,proto3" json:"marketing,omitempty"`
+	// Legacy support bot metadata.
+	// Retained for backward compatibility with older workflow implementations.
 	//
 	// +kubebuilder:validation:Nullable
-	ThreadKey string `protobuf:"bytes,26,opt,name=thread_key,json=threadKey,proto3" json:"thread_key,omitempty"`
-	// Message data version number.
+	SupportBot *structpb.Struct `protobuf:"bytes,35,opt,name=support_bot,json=supportBot,proto3" json:"support_bot,omitempty"`
+	// Workflow automation metadata linking this message to a workflow step.
+	// Contains workflow ID, step ID, and button submission context.
 	//
 	// +kubebuilder:validation:Nullable
-	Version int64 `protobuf:"varint,27,opt,name=version,proto3" json:"version,omitempty"`
-	// Marketing campaign metadata associated with this message.
+	Workflow *structpb.Struct `protobuf:"bytes,36,opt,name=workflow,proto3" json:"workflow,omitempty"`
+	// Notification priority level controlling client-side popup behavior.
 	//
 	// +kubebuilder:validation:Nullable
-	Marketing *structpb.Struct `protobuf:"bytes,28,opt,name=marketing,proto3" json:"marketing,omitempty"`
-	// Support bot metadata associated with this message.
+	AlertLevel AlertLevel `protobuf:"varint,37,opt,name=alert_level,json=alertLevel,proto3,enum=coreapi.model.AlertLevel" json:"alert_level,omitempty"`
+	// IVR (Interactive Voice Response) call metadata for phone-based messages.
+	// Contains DTMF input, call routing state, and voice prompt context.
 	//
 	// +kubebuilder:validation:Nullable
-	SupportBot *structpb.Struct `protobuf:"bytes,29,opt,name=support_bot,json=supportBot,proto3" json:"support_bot,omitempty"`
-	// Whether this message is a thread reply.
+	Ivr *structpb.Struct `protobuf:"bytes,38,opt,name=ivr,proto3" json:"ivr,omitempty"`
+	// Custom rendering payload for third-party integrations.
+	// Structure and content are defined by the integration provider.
 	//
 	// +kubebuilder:validation:Nullable
-	ThreadMsg bool `protobuf:"varint,30,opt,name=thread_msg,json=threadMsg,proto3" json:"thread_msg,omitempty"`
-	// Whether this message was broadcasted.
+	CustomPayload *structpb.Struct `protobuf:"bytes,39,opt,name=custom_payload,json=customPayload,proto3" json:"custom_payload,omitempty"`
+	// Composition method that determines how clients render this message.
+	// Automatically derived from the message content when not explicitly set:
+	// defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
+	// and STANDARD otherwise.
 	//
 	// +kubebuilder:validation:Nullable
-	BroadcastedMsg bool `protobuf:"varint,31,opt,name=broadcasted_msg,json=broadcastedMsg,proto3" json:"broadcasted_msg,omitempty"`
-	// ID of the parent message this is a reply to.
+	WritingType WritingType `protobuf:"varint,40,opt,name=writing_type,json=writingType,proto3,enum=coreapi.model.WritingType" json:"writing_type,omitempty"`
+	// Whether this message is a reply within a thread (not the root).
+	// True when thread_key is present and the message is not a thread root.
 	//
 	// +kubebuilder:validation:Nullable
-	RootMessageId string `protobuf:"bytes,32,opt,name=root_message_id,json=rootMessageId,proto3" json:"root_message_id,omitempty"`
-	// Thread metadata if this message is a thread root.
+	ThreadMsg bool `protobuf:"varint,41,opt,name=thread_msg,json=threadMsg,proto3" json:"thread_msg,omitempty"`
+	// ID of the root message when this message belongs to a thread, meet, or ALF thread.
+	// Parsed from thread_key, meet_key, or alf_thread_key respectively.
+	// Absent for root messages and standalone messages.
 	//
 	// +kubebuilder:validation:Nullable
-	Thread        *MessageThread `protobuf:"bytes,33,opt,name=thread,proto3" json:"thread,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	RootMessageId string `protobuf:"bytes,42,opt,name=root_message_id,json=rootMessageId,proto3" json:"root_message_id,omitempty"`
+	// Whether this message is the root of a thread.
+	// True when the thread field is present.
+	//
+	// +kubebuilder:validation:Nullable
+	ThreadRoot bool `protobuf:"varint,43,opt,name=thread_root,json=threadRoot,proto3" json:"thread_root,omitempty"`
+	// Whether this thread reply is also visible in the main message stream.
+	// True when the message has both thread_key and main_key, but is not a thread root.
+	//
+	// +kubebuilder:validation:Nullable
+	BroadcastedMsg bool `protobuf:"varint,44,opt,name=broadcasted_msg,json=broadcastedMsg,proto3" json:"broadcasted_msg,omitempty"`
+	// Whether the message was removed by its original author.
+	// True when the message state is REMOVED and the remover matches the author,
+	// or when no specific remover is recorded.
+	//
+	// +kubebuilder:validation:Nullable
+	RemovedByWriter bool `protobuf:"varint,45,opt,name=removed_by_writer,json=removedByWriter,proto3" json:"removed_by_writer,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *Message) Reset() {
 	*x = Message{}
-	mi := &file_coreapi_model_message_proto_msgTypes[3]
+	mi := &file_coreapi_model_message_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -625,7 +452,7 @@ func (x *Message) String() string {
 func (*Message) ProtoMessage() {}
 
 func (x *Message) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_message_proto_msgTypes[3]
+	mi := &file_coreapi_model_message_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -638,12 +465,54 @@ func (x *Message) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Message.ProtoReflect.Descriptor instead.
 func (*Message) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_message_proto_rawDescGZIP(), []int{3}
+	return file_coreapi_model_message_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *Message) GetChatKey() string {
+	if x != nil {
+		return x.ChatKey
+	}
+	return ""
 }
 
 func (x *Message) GetId() string {
 	if x != nil {
 		return x.Id
+	}
+	return ""
+}
+
+func (x *Message) GetMainKey() string {
+	if x != nil {
+		return x.MainKey
+	}
+	return ""
+}
+
+func (x *Message) GetThreadKey() string {
+	if x != nil {
+		return x.ThreadKey
+	}
+	return ""
+}
+
+func (x *Message) GetMeetKey() string {
+	if x != nil {
+		return x.MeetKey
+	}
+	return ""
+}
+
+func (x *Message) GetFrontKey() string {
+	if x != nil {
+		return x.FrontKey
+	}
+	return ""
+}
+
+func (x *Message) GetAlfThreadKey() string {
+	if x != nil {
+		return x.AlfThreadKey
 	}
 	return ""
 }
@@ -704,11 +573,11 @@ func (x *Message) GetCreatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Message) GetUpdatedAt() *timestamppb.Timestamp {
+func (x *Message) GetVersion() int64 {
 	if x != nil {
-		return x.UpdatedAt
+		return x.Version
 	}
-	return nil
+	return 0
 }
 
 func (x *Message) GetBlocks() []*Block {
@@ -723,6 +592,48 @@ func (x *Message) GetPlainText() string {
 		return x.PlainText
 	}
 	return ""
+}
+
+func (x *Message) GetUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return nil
+}
+
+func (x *Message) GetThread() *MessageThread {
+	if x != nil {
+		return x.Thread
+	}
+	return nil
+}
+
+func (x *Message) GetMeet() *structpb.Struct {
+	if x != nil {
+		return x.Meet
+	}
+	return nil
+}
+
+func (x *Message) GetEmail() *structpb.Struct {
+	if x != nil {
+		return x.Email
+	}
+	return nil
+}
+
+func (x *Message) GetAlfThread() *structpb.Struct {
+	if x != nil {
+		return x.AlfThread
+	}
+	return nil
+}
+
+func (x *Message) GetEditedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.EditedAt
+	}
+	return nil
 }
 
 func (x *Message) GetButtons() []*MessageButton {
@@ -746,27 +657,6 @@ func (x *Message) GetWebPage() *MessageWebPage {
 	return nil
 }
 
-func (x *Message) GetForm() *structpb.Struct {
-	if x != nil {
-		return x.Form
-	}
-	return nil
-}
-
-func (x *Message) GetOptions() []MessageOption {
-	if x != nil {
-		return x.Options
-	}
-	return nil
-}
-
-func (x *Message) GetState() MessageState {
-	if x != nil {
-		return x.State
-	}
-	return MessageState_MESSAGE_STATE_UNSPECIFIED
-}
-
 func (x *Message) GetLog() *MessageLog {
 	if x != nil {
 		return x.Log
@@ -781,32 +671,32 @@ func (x *Message) GetReactions() []*MessageReaction {
 	return nil
 }
 
-func (x *Message) GetChatKey() string {
+func (x *Message) GetAlfProgress() *structpb.Struct {
 	if x != nil {
-		return x.ChatKey
+		return x.AlfProgress
 	}
-	return ""
+	return nil
 }
 
-func (x *Message) GetMainKey() string {
+func (x *Message) GetForm() *structpb.Struct {
 	if x != nil {
-		return x.MainKey
+		return x.Form
 	}
-	return ""
+	return nil
 }
 
-func (x *Message) GetThreadKey() string {
+func (x *Message) GetState() MessageState {
 	if x != nil {
-		return x.ThreadKey
+		return x.State
 	}
-	return ""
+	return MessageState_MESSAGE_STATE_UNSPECIFIED
 }
 
-func (x *Message) GetVersion() int64 {
+func (x *Message) GetOptions() []string {
 	if x != nil {
-		return x.Version
+		return x.Options
 	}
-	return 0
+	return nil
 }
 
 func (x *Message) GetMarketing() *structpb.Struct {
@@ -823,16 +713,44 @@ func (x *Message) GetSupportBot() *structpb.Struct {
 	return nil
 }
 
+func (x *Message) GetWorkflow() *structpb.Struct {
+	if x != nil {
+		return x.Workflow
+	}
+	return nil
+}
+
+func (x *Message) GetAlertLevel() AlertLevel {
+	if x != nil {
+		return x.AlertLevel
+	}
+	return AlertLevel_ALERT_LEVEL_UNSPECIFIED
+}
+
+func (x *Message) GetIvr() *structpb.Struct {
+	if x != nil {
+		return x.Ivr
+	}
+	return nil
+}
+
+func (x *Message) GetCustomPayload() *structpb.Struct {
+	if x != nil {
+		return x.CustomPayload
+	}
+	return nil
+}
+
+func (x *Message) GetWritingType() WritingType {
+	if x != nil {
+		return x.WritingType
+	}
+	return WritingType_WRITING_TYPE_UNSPECIFIED
+}
+
 func (x *Message) GetThreadMsg() bool {
 	if x != nil {
 		return x.ThreadMsg
-	}
-	return false
-}
-
-func (x *Message) GetBroadcastedMsg() bool {
-	if x != nil {
-		return x.BroadcastedMsg
 	}
 	return false
 }
@@ -844,137 +762,115 @@ func (x *Message) GetRootMessageId() string {
 	return ""
 }
 
-func (x *Message) GetThread() *MessageThread {
+func (x *Message) GetThreadRoot() bool {
 	if x != nil {
-		return x.Thread
+		return x.ThreadRoot
 	}
-	return nil
+	return false
+}
+
+func (x *Message) GetBroadcastedMsg() bool {
+	if x != nil {
+		return x.BroadcastedMsg
+	}
+	return false
+}
+
+func (x *Message) GetRemovedByWriter() bool {
+	if x != nil {
+		return x.RemovedByWriter
+	}
+	return false
 }
 
 var File_coreapi_model_message_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_message_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/message.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a#coreapi/model/message_content.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa0\x01\n" +
+	"\x1bcoreapi/model/message.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x19coreapi/model/block.proto\x1a\"coreapi/model/message_button.proto\x1a coreapi/model/message_file.proto\x1a\x1fcoreapi/model/message_log.proto\x1a$coreapi/model/message_reaction.proto\x1a\"coreapi/model/message_thread.proto\x1a$coreapi/model/message_web_page.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb9\x13\n" +
+	"\aMessage\x12h\n" +
+	"\bchat_key\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\achatKey\x12]\n" +
+	"\x02id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12\x19\n" +
+	"\bmain_key\x18\x03 \x01(\tR\amainKey\x12\x1d\n" +
 	"\n" +
-	"MessageLog\x128\n" +
-	"\x06action\x18\x01 \x01(\x0e2\x18.coreapi.model.LogActionB\x06\xbaH\x03\xc8\x01\x01R\x06action\x12\x16\n" +
-	"\x06values\x18\x02 \x03(\tR\x06values\x12!\n" +
-	"\ftrigger_type\x18\x03 \x01(\tR\vtriggerType\x12\x1d\n" +
+	"thread_key\x18\x04 \x01(\tR\tthreadKey\x12\x19\n" +
+	"\bmeet_key\x18\x05 \x01(\tR\ameetKey\x12\x1b\n" +
+	"\tfront_key\x18\x06 \x01(\tR\bfrontKey\x12$\n" +
+	"\x0ealf_thread_key\x18\a \x01(\tR\falfThreadKey\x12l\n" +
 	"\n" +
-	"trigger_id\x18\x04 \x01(\tR\ttriggerId\"\xa0\x01\n" +
-	"\x0fMessageReaction\x12l\n" +
-	"\n" +
-	"emoji_name\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\temojiName\x12\x1f\n" +
-	"\vperson_keys\x18\x02 \x03(\tR\n" +
-	"personKeys\"\xe0\x01\n" +
-	"\rMessageThread\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12\x1f\n" +
-	"\vmanager_ids\x18\x02 \x03(\tR\n" +
-	"managerIds\x12.\n" +
-	"\x13replied_manager_ids\x18\x03 \x03(\tR\x11repliedManagerIds\x12\x1f\n" +
-	"\vreply_count\x18\x04 \x01(\x05R\n" +
-	"replyCount\"\xc3\r\n" +
-	"\aMessage\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
-	"\n" +
-	"channel_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"channel_id\x18\b \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12j\n" +
-	"\tchat_type\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\tchat_type\x18\t \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bchatType\x12f\n" +
-	"\achat_id\x18\x04 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\achat_id\x18\n" +
+	" \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x06chatId\x12n\n" +
-	"\vperson_type\x18\x05 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\vperson_type\x18\v \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
 	"personType\x12j\n" +
-	"\tperson_id\x18\x06 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\tperson_id\x18\f \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bpersonId\x12\x1d\n" +
 	"\n" +
-	"request_id\x18\a \x01(\tR\trequestId\x12\x1a\n" +
-	"\blanguage\x18\b \x01(\tR\blanguage\x12A\n" +
+	"request_id\x18\r \x01(\tR\trequestId\x12\x1a\n" +
+	"\blanguage\x18\x0e \x01(\tR\blanguage\x12A\n" +
 	"\n" +
-	"created_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x129\n" +
+	"created_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12\x18\n" +
+	"\aversion\x18\x10 \x01(\x03R\aversion\x12,\n" +
+	"\x06blocks\x18\x11 \x03(\v2\x14.coreapi.model.BlockR\x06blocks\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\n" +
-	" \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12,\n" +
-	"\x06blocks\x18\f \x03(\v2\x14.coreapi.model.BlockR\x06blocks\x12\x1d\n" +
+	"plain_text\x18\x12 \x01(\tR\tplainText\x129\n" +
 	"\n" +
-	"plain_text\x18\r \x01(\tR\tplainText\x12@\n" +
-	"\abuttons\x18\x0e \x03(\v2\x1c.coreapi.model.MessageButtonB\b\xbaH\x05\x92\x01\x02\x10\x02R\abuttons\x120\n" +
-	"\x05files\x18\x0f \x03(\v2\x1a.coreapi.model.MessageFileR\x05files\x128\n" +
-	"\bweb_page\x18\x10 \x01(\v2\x1d.coreapi.model.MessageWebPageR\awebPage\x12+\n" +
-	"\x04form\x18\x11 \x01(\v2\x17.google.protobuf.StructR\x04form\x126\n" +
-	"\aoptions\x18\x12 \x03(\x0e2\x1c.coreapi.model.MessageOptionR\aoptions\x121\n" +
-	"\x05state\x18\x13 \x01(\x0e2\x1b.coreapi.model.MessageStateR\x05state\x12+\n" +
-	"\x03log\x18\x15 \x01(\v2\x19.coreapi.model.MessageLogR\x03log\x12<\n" +
-	"\treactions\x18\x16 \x03(\v2\x1e.coreapi.model.MessageReactionR\treactions\x12\x19\n" +
-	"\bchat_key\x18\x18 \x01(\tR\achatKey\x12\x19\n" +
-	"\bmain_key\x18\x19 \x01(\tR\amainKey\x12\x1d\n" +
+	"updated_at\x18\x13 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x124\n" +
+	"\x06thread\x18\x14 \x01(\v2\x1c.coreapi.model.MessageThreadR\x06thread\x12+\n" +
+	"\x04meet\x18\x15 \x01(\v2\x17.google.protobuf.StructR\x04meet\x12-\n" +
+	"\x05email\x18\x16 \x01(\v2\x17.google.protobuf.StructR\x05email\x126\n" +
 	"\n" +
-	"thread_key\x18\x1a \x01(\tR\tthreadKey\x12\x18\n" +
-	"\aversion\x18\x1b \x01(\x03R\aversion\x125\n" +
-	"\tmarketing\x18\x1c \x01(\v2\x17.google.protobuf.StructR\tmarketing\x128\n" +
-	"\vsupport_bot\x18\x1d \x01(\v2\x17.google.protobuf.StructR\n" +
-	"supportBot\x12\x1d\n" +
+	"alf_thread\x18\x17 \x01(\v2\x17.google.protobuf.StructR\talfThread\x127\n" +
+	"\tedited_at\x18\x18 \x01(\v2\x1a.google.protobuf.TimestampR\beditedAt\x126\n" +
+	"\abuttons\x18\x19 \x03(\v2\x1c.coreapi.model.MessageButtonR\abuttons\x120\n" +
+	"\x05files\x18\x1a \x03(\v2\x1a.coreapi.model.MessageFileR\x05files\x128\n" +
+	"\bweb_page\x18\x1b \x01(\v2\x1d.coreapi.model.MessageWebPageR\awebPage\x12+\n" +
+	"\x03log\x18\x1c \x01(\v2\x19.coreapi.model.MessageLogR\x03log\x12<\n" +
+	"\treactions\x18\x1d \x03(\v2\x1e.coreapi.model.MessageReactionR\treactions\x12:\n" +
+	"\falf_progress\x18\x1e \x01(\v2\x17.google.protobuf.StructR\valfProgress\x12+\n" +
+	"\x04form\x18\x1f \x01(\v2\x17.google.protobuf.StructR\x04form\x121\n" +
+	"\x05state\x18  \x01(\x0e2\x1b.coreapi.model.MessageStateR\x05state\x12\x18\n" +
+	"\aoptions\x18! \x03(\tR\aoptions\x125\n" +
+	"\tmarketing\x18\" \x01(\v2\x17.google.protobuf.StructR\tmarketing\x128\n" +
+	"\vsupport_bot\x18# \x01(\v2\x17.google.protobuf.StructR\n" +
+	"supportBot\x123\n" +
+	"\bworkflow\x18$ \x01(\v2\x17.google.protobuf.StructR\bworkflow\x12:\n" +
+	"\valert_level\x18% \x01(\x0e2\x19.coreapi.model.AlertLevelR\n" +
+	"alertLevel\x12)\n" +
+	"\x03ivr\x18& \x01(\v2\x17.google.protobuf.StructR\x03ivr\x12>\n" +
+	"\x0ecustom_payload\x18' \x01(\v2\x17.google.protobuf.StructR\rcustomPayload\x12=\n" +
+	"\fwriting_type\x18( \x01(\x0e2\x1a.coreapi.model.WritingTypeR\vwritingType\x12\x1d\n" +
 	"\n" +
-	"thread_msg\x18\x1e \x01(\bR\tthreadMsg\x12'\n" +
-	"\x0fbroadcasted_msg\x18\x1f \x01(\bR\x0ebroadcastedMsg\x12&\n" +
-	"\x0froot_message_id\x18  \x01(\tR\rrootMessageId\x124\n" +
-	"\x06thread\x18! \x01(\v2\x1c.coreapi.model.MessageThreadR\x06thread*\x95\x01\n" +
+	"thread_msg\x18) \x01(\bR\tthreadMsg\x12&\n" +
+	"\x0froot_message_id\x18* \x01(\tR\rrootMessageId\x12\x1f\n" +
+	"\vthread_root\x18+ \x01(\bR\n" +
+	"threadRoot\x12'\n" +
+	"\x0fbroadcasted_msg\x18, \x01(\bR\x0ebroadcastedMsg\x12*\n" +
+	"\x11removed_by_writer\x18- \x01(\bR\x0fremovedByWriter*\x95\x01\n" +
 	"\fMessageState\x12\x1d\n" +
 	"\x19MESSAGE_STATE_UNSPECIFIED\x10\x00\x12\x19\n" +
 	"\x15MESSAGE_STATE_SENDING\x10\x01\x12\x16\n" +
 	"\x12MESSAGE_STATE_SENT\x10\x02\x12\x18\n" +
 	"\x14MESSAGE_STATE_FAILED\x10\x03\x12\x19\n" +
-	"\x15MESSAGE_STATE_REMOVED\x10\x04*\xb3\t\n" +
-	"\tLogAction\x12\x1a\n" +
-	"\x16LOG_ACTION_UNSPECIFIED\x10\x00\x12\x1a\n" +
-	"\x16LOG_ACTION_CHANGE_NAME\x10\x01\x12\x1b\n" +
-	"\x17LOG_ACTION_CHANGE_SCOPE\x10\x02\x12\x14\n" +
-	"\x10LOG_ACTION_CLOSE\x10\x03\x12\x19\n" +
-	"\x15LOG_ACTION_AUTO_CLOSE\x10\x04\x12\x15\n" +
-	"\x11LOG_ACTION_CREATE\x10\x05\x12\x15\n" +
-	"\x11LOG_ACTION_INVITE\x10\x06\x12\x13\n" +
-	"\x0fLOG_ACTION_JOIN\x10\a\x12\x15\n" +
-	"\x11LOG_ACTION_ASSIGN\x10\b\x12\x1a\n" +
-	"\x16LOG_ACTION_AUTO_ASSIGN\x10\t\x12\x17\n" +
-	"\x13LOG_ACTION_UNASSIGN\x10\n" +
-	"\x12\x14\n" +
-	"\x10LOG_ACTION_LEAVE\x10\v\x12\x13\n" +
-	"\x0fLOG_ACTION_OPEN\x10\f\x12\x18\n" +
-	"\x14LOG_ACTION_AUTO_OPEN\x10\r\x12\x16\n" +
-	"\x12LOG_ACTION_ENQUEUE\x10\x0e\x12\x13\n" +
-	"\x0fLOG_ACTION_MISS\x10\x0f\x12\x15\n" +
-	"\x11LOG_ACTION_REMOVE\x10\x10\x12\x15\n" +
-	"\x11LOG_ACTION_SNOOZE\x10\x11\x12\x17\n" +
-	"\x13LOG_ACTION_ADD_TAGS\x10\x12\x12\x1a\n" +
-	"\x16LOG_ACTION_REMOVE_TAGS\x10\x13\x12\x1a\n" +
-	"\x16LOG_ACTION_ASSIGN_TEAM\x10\x14\x12\x1c\n" +
-	"\x18LOG_ACTION_UNASSIGN_TEAM\x10\x15\x12\x18\n" +
-	"\x14LOG_ACTION_JOIN_MEET\x10\x16\x12\x19\n" +
-	"\x15LOG_ACTION_LEAVE_MEET\x10\x17\x12\x1a\n" +
-	"\x16LOG_ACTION_INVITE_MEET\x10\x18\x12\x18\n" +
-	"\x14LOG_ACTION_MISS_MEET\x10\x19\x12\x1c\n" +
-	"\x18LOG_ACTION_CALLBACK_MEET\x10\x1a\x12\x1f\n" +
-	"\x1bLOG_ACTION_TRY_CONNECT_CALL\x10\x1b\x12\x1e\n" +
-	"\x1aLOG_ACTION_PROCESS_BY_MISS\x10\x1c\x12\x1d\n" +
-	"\x19LOG_ACTION_PROCESS_BRANCH\x10\x1d\x12\x17\n" +
-	"\x13LOG_ACTION_SEND_XMS\x10\x1e\x12\x1c\n" +
-	"\x18LOG_ACTION_ADD_USER_TAGS\x10\x1f\x12\x1f\n" +
-	"\x1bLOG_ACTION_REMOVE_USER_TAGS\x10 \x12\x1e\n" +
-	"\x1aLOG_ACTION_UPDATE_PRIORITY\x10!\x12\x1d\n" +
-	"\x19LOG_ACTION_START_WORKFLOW\x10\"\x12\x1b\n" +
-	"\x17LOG_ACTION_END_WORKFLOW\x10#\x12!\n" +
-	"\x1dLOG_ACTION_INTERRUPT_WORKFLOW\x10$\x12(\n" +
-	"$LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT\x10%\x12 \n" +
-	"\x1cLOG_ACTION_TRY_OPEN_WITH_ALF\x10&\x12\x19\n" +
-	"\x15LOG_ACTION_START_TASK\x10'\x12\x1a\n" +
-	"\x16LOG_ACTION_APPLY_RULES\x10(\x12!\n" +
-	"\x1dLOG_ACTION_CANCEL_ALF_BY_USER\x10)\x12\x1c\n" +
-	"\x18LOG_ACTION_FALLBACK_CALL\x10*Bb\n" +
+	"\x15MESSAGE_STATE_REMOVED\x10\x04*n\n" +
+	"\n" +
+	"AlertLevel\x12\x1b\n" +
+	"\x17ALERT_LEVEL_UNSPECIFIED\x10\x00\x12\x15\n" +
+	"\x11ALERT_LEVEL_ALERT\x10\x01\x12\x16\n" +
+	"\x12ALERT_LEVEL_UNREAD\x10\x02\x12\x14\n" +
+	"\x10ALERT_LEVEL_NONE\x10\x03*w\n" +
+	"\vWritingType\x12\x1c\n" +
+	"\x18WRITING_TYPE_UNSPECIFIED\x10\x00\x12\x19\n" +
+	"\x15WRITING_TYPE_STANDARD\x10\x01\x12\x17\n" +
+	"\x13WRITING_TYPE_CUSTOM\x10\x02\x12\x16\n" +
+	"\x12WRITING_TYPE_EMAIL\x10\x03Bb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -989,44 +885,52 @@ func file_coreapi_model_message_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_message_proto_rawDescData
 }
 
-var file_coreapi_model_message_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_coreapi_model_message_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_coreapi_model_message_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
+var file_coreapi_model_message_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_coreapi_model_message_proto_goTypes = []any{
 	(MessageState)(0),             // 0: coreapi.model.MessageState
-	(LogAction)(0),                // 1: coreapi.model.LogAction
-	(*MessageLog)(nil),            // 2: coreapi.model.MessageLog
-	(*MessageReaction)(nil),       // 3: coreapi.model.MessageReaction
-	(*MessageThread)(nil),         // 4: coreapi.model.MessageThread
-	(*Message)(nil),               // 5: coreapi.model.Message
-	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
-	(*Block)(nil),                 // 7: coreapi.model.Block
+	(AlertLevel)(0),               // 1: coreapi.model.AlertLevel
+	(WritingType)(0),              // 2: coreapi.model.WritingType
+	(*Message)(nil),               // 3: coreapi.model.Message
+	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
+	(*Block)(nil),                 // 5: coreapi.model.Block
+	(*MessageThread)(nil),         // 6: coreapi.model.MessageThread
+	(*structpb.Struct)(nil),       // 7: google.protobuf.Struct
 	(*MessageButton)(nil),         // 8: coreapi.model.MessageButton
 	(*MessageFile)(nil),           // 9: coreapi.model.MessageFile
 	(*MessageWebPage)(nil),        // 10: coreapi.model.MessageWebPage
-	(*structpb.Struct)(nil),       // 11: google.protobuf.Struct
-	(MessageOption)(0),            // 12: coreapi.model.MessageOption
+	(*MessageLog)(nil),            // 11: coreapi.model.MessageLog
+	(*MessageReaction)(nil),       // 12: coreapi.model.MessageReaction
 }
 var file_coreapi_model_message_proto_depIdxs = []int32{
-	1,  // 0: coreapi.model.MessageLog.action:type_name -> coreapi.model.LogAction
-	6,  // 1: coreapi.model.Message.created_at:type_name -> google.protobuf.Timestamp
-	6,  // 2: coreapi.model.Message.updated_at:type_name -> google.protobuf.Timestamp
-	7,  // 3: coreapi.model.Message.blocks:type_name -> coreapi.model.Block
-	8,  // 4: coreapi.model.Message.buttons:type_name -> coreapi.model.MessageButton
-	9,  // 5: coreapi.model.Message.files:type_name -> coreapi.model.MessageFile
-	10, // 6: coreapi.model.Message.web_page:type_name -> coreapi.model.MessageWebPage
-	11, // 7: coreapi.model.Message.form:type_name -> google.protobuf.Struct
-	12, // 8: coreapi.model.Message.options:type_name -> coreapi.model.MessageOption
-	0,  // 9: coreapi.model.Message.state:type_name -> coreapi.model.MessageState
-	2,  // 10: coreapi.model.Message.log:type_name -> coreapi.model.MessageLog
-	3,  // 11: coreapi.model.Message.reactions:type_name -> coreapi.model.MessageReaction
-	11, // 12: coreapi.model.Message.marketing:type_name -> google.protobuf.Struct
-	11, // 13: coreapi.model.Message.support_bot:type_name -> google.protobuf.Struct
-	4,  // 14: coreapi.model.Message.thread:type_name -> coreapi.model.MessageThread
-	15, // [15:15] is the sub-list for method output_type
-	15, // [15:15] is the sub-list for method input_type
-	15, // [15:15] is the sub-list for extension type_name
-	15, // [15:15] is the sub-list for extension extendee
-	0,  // [0:15] is the sub-list for field type_name
+	4,  // 0: coreapi.model.Message.created_at:type_name -> google.protobuf.Timestamp
+	5,  // 1: coreapi.model.Message.blocks:type_name -> coreapi.model.Block
+	4,  // 2: coreapi.model.Message.updated_at:type_name -> google.protobuf.Timestamp
+	6,  // 3: coreapi.model.Message.thread:type_name -> coreapi.model.MessageThread
+	7,  // 4: coreapi.model.Message.meet:type_name -> google.protobuf.Struct
+	7,  // 5: coreapi.model.Message.email:type_name -> google.protobuf.Struct
+	7,  // 6: coreapi.model.Message.alf_thread:type_name -> google.protobuf.Struct
+	4,  // 7: coreapi.model.Message.edited_at:type_name -> google.protobuf.Timestamp
+	8,  // 8: coreapi.model.Message.buttons:type_name -> coreapi.model.MessageButton
+	9,  // 9: coreapi.model.Message.files:type_name -> coreapi.model.MessageFile
+	10, // 10: coreapi.model.Message.web_page:type_name -> coreapi.model.MessageWebPage
+	11, // 11: coreapi.model.Message.log:type_name -> coreapi.model.MessageLog
+	12, // 12: coreapi.model.Message.reactions:type_name -> coreapi.model.MessageReaction
+	7,  // 13: coreapi.model.Message.alf_progress:type_name -> google.protobuf.Struct
+	7,  // 14: coreapi.model.Message.form:type_name -> google.protobuf.Struct
+	0,  // 15: coreapi.model.Message.state:type_name -> coreapi.model.MessageState
+	7,  // 16: coreapi.model.Message.marketing:type_name -> google.protobuf.Struct
+	7,  // 17: coreapi.model.Message.support_bot:type_name -> google.protobuf.Struct
+	7,  // 18: coreapi.model.Message.workflow:type_name -> google.protobuf.Struct
+	1,  // 19: coreapi.model.Message.alert_level:type_name -> coreapi.model.AlertLevel
+	7,  // 20: coreapi.model.Message.ivr:type_name -> google.protobuf.Struct
+	7,  // 21: coreapi.model.Message.custom_payload:type_name -> google.protobuf.Struct
+	2,  // 22: coreapi.model.Message.writing_type:type_name -> coreapi.model.WritingType
+	23, // [23:23] is the sub-list for method output_type
+	23, // [23:23] is the sub-list for method input_type
+	23, // [23:23] is the sub-list for extension type_name
+	23, // [23:23] is the sub-list for extension extendee
+	0,  // [0:23] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_message_proto_init() }
@@ -1034,14 +938,20 @@ func file_coreapi_model_message_proto_init() {
 	if File_coreapi_model_message_proto != nil {
 		return
 	}
-	file_coreapi_model_message_content_proto_init()
+	file_coreapi_model_block_proto_init()
+	file_coreapi_model_message_button_proto_init()
+	file_coreapi_model_message_file_proto_init()
+	file_coreapi_model_message_log_proto_init()
+	file_coreapi_model_message_reaction_proto_init()
+	file_coreapi_model_message_thread_proto_init()
+	file_coreapi_model_message_web_page_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_message_proto_rawDesc), len(file_coreapi_model_message_proto_rawDesc)),
-			NumEnums:      2,
-			NumMessages:   4,
+			NumEnums:      3,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

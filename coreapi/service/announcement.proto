@@ -3,7 +3,7 @@ syntax = "proto3";
 package coreapi.service;
 
 import "buf/validate/validate.proto";
-import "coreapi/model/message_content.proto";
+import "google/protobuf/struct.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
@@ -19,7 +19,7 @@ message AnnounceToAllRequest {
   string channel_id = 1 [(buf.validate.field).required = true];
 
   // Message content to announce.
-  coreapi.model.MessageContent message = 2 [(buf.validate.field).required = true];
+  google.protobuf.Struct message = 2 [(buf.validate.field).required = true];
 
   // Display name of the bot sending the announcement.
   string bot_name = 3 [
@@ -49,7 +49,7 @@ message AnnounceRequest {
   string channel_id = 1 [(buf.validate.field).required = true];
 
   // Message content to announce.
-  coreapi.model.MessageContent message = 2 [(buf.validate.field).required = true];
+  google.protobuf.Struct message = 2 [(buf.validate.field).required = true];
 
   // Display name of the bot sending the announcement.
   string bot_name = 3 [

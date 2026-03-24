@@ -9,23 +9,21 @@ public interface OnlineOrBuilder extends
 
   /**
    * <pre>
-   * Channel ID this online record belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Channel ID this presence record belongs to.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 1 [json_name = "channelId"];</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
   /**
    * <pre>
-   * Channel ID this online record belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Channel ID this presence record belongs to.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 1 [json_name = "channelId"];</code>
    * @return The bytes for channelId.
    */
   com.google.protobuf.ByteString
@@ -33,23 +31,21 @@ public interface OnlineOrBuilder extends
 
   /**
    * <pre>
-   * Type of the person (e.g., manager, user).
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Person type that distinguishes the entity kind (e.g. "user", "manager").
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * <code>string person_type = 2 [json_name = "personType"];</code>
    * @return The personType.
    */
   java.lang.String getPersonType();
   /**
    * <pre>
-   * Type of the person (e.g., manager, user).
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Person type that distinguishes the entity kind (e.g. "user", "manager").
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * <code>string person_type = 2 [json_name = "personType"];</code>
    * @return The bytes for personType.
    */
   com.google.protobuf.ByteString
@@ -57,25 +53,45 @@ public interface OnlineOrBuilder extends
 
   /**
    * <pre>
-   * Identifier of the person.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Unique identifier of the person within their type.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+   * <code>string person_id = 3 [json_name = "personId"];</code>
    * @return The personId.
    */
   java.lang.String getPersonId();
   /**
    * <pre>
-   * Identifier of the person.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Unique identifier of the person within their type.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+   * <code>string person_id = 3 [json_name = "personId"];</code>
    * @return The bytes for personId.
    */
   com.google.protobuf.ByteString
       getPersonIdBytes();
+
+  /**
+   * <pre>
+   * Composite presence record identifier derived from channel, type, and person.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string id = 4 [json_name = "id"];</code>
+   * @return The id.
+   */
+  java.lang.String getId();
+  /**
+   * <pre>
+   * Composite presence record identifier derived from channel, type, and person.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string id = 4 [json_name = "id"];</code>
+   * @return The bytes for id.
+   */
+  com.google.protobuf.ByteString
+      getIdBytes();
 }

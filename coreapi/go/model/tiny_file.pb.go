@@ -22,24 +22,27 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Compact file reference for avatar and image assets.
+// TinyFile represents a lightweight file reference containing only the storage location
+// and optional image dimensions, without full file metadata.
 type TinyFile struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Storage bucket identifier.
+	// Storage bucket name where the file is hosted.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	Bucket string `protobuf:"bytes,1,opt,name=bucket,proto3" json:"bucket,omitempty"`
-	// Storage object key.
+	// Storage object key used to locate the file within the bucket.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	Key string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
 	// Image width in pixels.
+	// Present only when the file is an image.
 	//
 	// +kubebuilder:validation:Nullable
 	Width int32 `protobuf:"varint,3,opt,name=width,proto3" json:"width,omitempty"`
 	// Image height in pixels.
+	// Present only when the file is an image.
 	//
 	// +kubebuilder:validation:Nullable
 	Height        int32 `protobuf:"varint,4,opt,name=height,proto3" json:"height,omitempty"`

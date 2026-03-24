@@ -57,7 +57,7 @@ public interface BotOrBuilder extends
 
   /**
    * <pre>
-   * Bot display name.
+   * Bot display name shown to end users in conversations.
    * Unique within the channel.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
@@ -70,7 +70,7 @@ public interface BotOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Bot display name.
+   * Bot display name shown to end users in conversations.
    * Unique within the channel.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
@@ -85,7 +85,7 @@ public interface BotOrBuilder extends
 
   /**
    * <pre>
-   * Bot description.
+   * Free-text summary displayed on the bot profile.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * </pre>
@@ -96,7 +96,7 @@ public interface BotOrBuilder extends
   java.lang.String getDescription();
   /**
    * <pre>
-   * Bot description.
+   * Free-text summary displayed on the bot profile.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * </pre>
@@ -109,8 +109,7 @@ public interface BotOrBuilder extends
 
   /**
    * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -119,8 +118,7 @@ public interface BotOrBuilder extends
   int getNameDescI18NMapCount();
   /**
    * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -136,8 +134,7 @@ public interface BotOrBuilder extends
   getNameDescI18NMap();
   /**
    * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -147,8 +144,7 @@ public interface BotOrBuilder extends
   getNameDescI18NMapMap();
   /**
    * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -160,8 +156,7 @@ public interface BotOrBuilder extends
       io.channel.api.proto.pub.coreapi.model.NameDesc defaultValue);
   /**
    * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -173,25 +168,25 @@ public interface BotOrBuilder extends
 
   /**
    * <pre>
-   * Bot color in hex format.
+   * Bot theme color in hex format (e.g., #3B82F6).
    * Randomly assigned if not specified on creation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * +kubebuilder:example="#3B82F6"
    * </pre>
    *
-   * <code>string color = 6 [json_name = "color"];</code>
+   * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
    * @return The color.
    */
   java.lang.String getColor();
   /**
    * <pre>
-   * Bot color in hex format.
+   * Bot theme color in hex format (e.g., #3B82F6).
    * Randomly assigned if not specified on creation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * +kubebuilder:example="#3B82F6"
    * </pre>
    *
-   * <code>string color = 6 [json_name = "color"];</code>
+   * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
    * @return The bytes for color.
    */
   com.google.protobuf.ByteString
@@ -200,6 +195,7 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Bot avatar image URL.
+   * Falls back to a system-generated default when no custom avatar is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -210,6 +206,7 @@ public interface BotOrBuilder extends
   /**
    * <pre>
    * Bot avatar image URL.
+   * Falls back to a system-generated default when no custom avatar is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -248,34 +245,4 @@ public interface BotOrBuilder extends
    * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
-
-  /**
-   * <pre>
-   * Bot avatar image reference.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
-   * @return Whether the avatar field is set.
-   */
-  boolean hasAvatar();
-  /**
-   * <pre>
-   * Bot avatar image reference.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
-   * @return The avatar.
-   */
-  io.channel.api.proto.pub.coreapi.model.TinyFile getAvatar();
-  /**
-   * <pre>
-   * Bot avatar image reference.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder getAvatarOrBuilder();
 }

@@ -4,13 +4,43 @@ package coreapi.model;
 
 import "buf/validate/validate.proto";
 import "coreapi/model/name_desc.proto";
-import "coreapi/model/tiny_file.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// Notification level for chat sessions.
+enum SessionWatch {
+  SESSION_WATCH_UNSPECIFIED = 0;
+  SESSION_WATCH_ALL = 1;
+  SESSION_WATCH_INFO = 2;
+  SESSION_WATCH_NONE = 3;
+}
+
+// Sound played for incoming chat notifications.
+enum ChatAlertSound {
+  CHAT_ALERT_SOUND_UNSPECIFIED = 0;
+  CHAT_ALERT_SOUND_NONE = 1;
+  CHAT_ALERT_SOUND_DROP = 2;
+  CHAT_ALERT_SOUND_WOODY = 3;
+  CHAT_ALERT_SOUND_BOUNCE = 4;
+  CHAT_ALERT_SOUND_CRYSTAL = 5;
+  CHAT_ALERT_SOUND_XYLO = 6;
+  CHAT_ALERT_SOUND_QUICK_KNOCK = 7;
+  CHAT_ALERT_SOUND_CANDY = 8;
+  CHAT_ALERT_SOUND_SHINE = 9;
+}
+
+// Sound played for incoming meet (call) notifications.
+enum MeetAlertSound {
+  MEET_ALERT_SOUND_UNSPECIFIED = 0;
+  MEET_ALERT_SOUND_CUTE = 1;
+  MEET_ALERT_SOUND_BASIC = 2;
+  MEET_ALERT_SOUND_GENTLE = 3;
+  MEET_ALERT_SOUND_MARIMBA = 4;
+}
 
 // Manager represents an operator or administrator in a channel.
 message Manager {
@@ -40,7 +70,8 @@ message Manager {
     (buf.validate.field).required = true
   ];
 
-  // Account ID linked to this manager.
+  // Account ID of the person linked to this manager.
+  // Unique per channel among non-removed managers.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -53,7 +84,7 @@ message Manager {
     (buf.validate.field).required = true
   ];
 
-  // Manager display name.
+  // Manager display name shown to end users and teammates.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -74,7 +105,8 @@ message Manager {
     (buf.validate.field).required = true
   ];
 
-  // Manager description.
+  // Free-text summary displayed on the manager profile.
+  // Visible to end users only when show_description_to_front is true.
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxLength=180
@@ -84,185 +116,241 @@ message Manager {
     expression: "size(this) <= 180"
   }];
 
-  // Whether to display the description to front (end-user) visitors.
+  // Whether the description is visible to end-user visitors.
   //
   // +kubebuilder:validation:Nullable
   bool show_description_to_front = 6;
 
-  // Internationalized name and description map.
-  // Keyed by locale.
+  // Internationalized name and description overrides keyed by locale (e.g., en, ko).
   //
   // +kubebuilder:validation:Nullable
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 7;
 
-  // Manager avatar image URL.
+  // Custom profile data as key-value pairs for additional manager information.
   //
   // +kubebuilder:validation:Nullable
-  string avatar_url = 8;
+  google.protobuf.Struct profile = 8;
 
-  // Whether this manager is displayed as the channel identity.
+  // Manager email address.
+  // Unique per channel among non-removed managers.
   //
   // +kubebuilder:validation:Nullable
-  bool display_as_channel = 9;
+  string email = 9;
 
-  // Maximum number of user chats that can be auto-assigned.
+  // Whether the email address is visible to end-user visitors.
+  //
+  // +kubebuilder:validation:Nullable
+  bool show_email_to_front = 10;
+
+  // Manager mobile phone number in E.164 format (e.g., +821012345678).
+  //
+  // +kubebuilder:validation:Nullable
+  string mobile_number = 11;
+
+  // Whether the mobile number is visible to end-user visitors.
+  //
+  // +kubebuilder:validation:Nullable
+  bool show_mobile_number_to_front = 12;
+
+  // Role ID assigned to this manager, defining permissions and access levels.
+  //
+  // +kubebuilder:validation:Nullable
+  string role_id = 13;
+
+  // Whether this manager has been soft-deleted from the channel.
+  //
+  // +kubebuilder:validation:Nullable
+  bool removed = 14;
+
+  // Manager creation timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp created_at = 15 [(buf.validate.field).required = true];
+
+  // Manager last update timestamp.
+  //
+  // +kubebuilder:validation:Required
+  google.protobuf.Timestamp updated_at = 16 [(buf.validate.field).required = true];
+
+  // Timestamp when the manager was soft-deleted.
+  // Present only when removed is true.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp removed_at = 17;
+
+  // Whether this manager appears as the channel identity instead of their personal profile.
+  //
+  // +kubebuilder:validation:Nullable
+  bool display_as_channel = 18;
+
+  // Default notification level for group chat sessions.
+  // See SessionWatch for possible values.
+  //
+  // +kubebuilder:validation:Nullable
+  SessionWatch default_group_watch = 19;
+
+  // Default notification level for direct message sessions.
+  // See SessionWatch for possible values.
+  //
+  // +kubebuilder:validation:Nullable
+  SessionWatch default_direct_chat_watch = 20;
+
+  // Default notification level for user (customer) chat sessions.
+  // See SessionWatch for possible values.
+  //
+  // +kubebuilder:validation:Nullable
+  SessionWatch default_user_chat_watch = 21;
+
+  // Sound effect for incoming chat message notifications.
+  // See ChatAlertSound for possible values.
+  //
+  // +kubebuilder:validation:Nullable
+  ChatAlertSound chat_alert_sound = 22;
+
+  // Sound effect for incoming meet (call) notifications.
+  // See MeetAlertSound for possible values.
+  //
+  // +kubebuilder:validation:Nullable
+  MeetAlertSound meet_alert_sound = 23;
+
+  // Whether to receive mobile push notifications even while the manager is online on desktop.
+  //
+  // +kubebuilder:validation:Nullable
+  bool receive_mobile_push_when_online = 24;
+
+  // Whether to include a preview of internal (private) messages in push notifications.
+  //
+  // +kubebuilder:validation:Nullable
+  bool show_private_message_preview = 25;
+
+  // Performance score reflecting the manager's conversation handling efficiency.
+  // Decays over time when the manager is inactive.
+  //
+  // +kubebuilder:validation:Nullable
+  float operator_score = 26;
+
+  // Engagement score reflecting the frequency of customer interactions.
+  // Decays over time when the manager is inactive.
+  //
+  // +kubebuilder:validation:Nullable
+  float touch_score = 27;
+
+  // Whether periodic email reminders for unhandled conversations are enabled.
+  //
+  // +kubebuilder:validation:Nullable
+  bool operator_email_reminder = 28;
+
+  // Whether to receive alerts when a new conversation is waiting to be assigned.
+  //
+  // +kubebuilder:validation:Nullable
+  bool receive_unassigned_alert = 29;
+
+  // Whether to receive alerts for conversations that were not responded to in time.
+  //
+  // +kubebuilder:validation:Nullable
+  bool receive_missed_chat_alert = 30;
+
+  // Whether to receive alerts specifically for unassigned chat conversations.
+  //
+  // +kubebuilder:validation:Nullable
+  bool receive_unassigned_chat_alert = 31;
+
+  // Whether to receive alerts for unassigned meet (call) sessions.
+  //
+  // +kubebuilder:validation:Nullable
+  bool receive_unassigned_meet_alert = 32;
+
+  // Whether this manager is currently active as an operator handling customer conversations.
+  //
+  // +kubebuilder:validation:Nullable
+  bool operator = 33;
+
+  // Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+  //
+  // +kubebuilder:validation:Nullable
+  string operator_status_id = 34;
+
+  // Whether @all mentions in conversations are automatically marked as important.
+  //
+  // +kubebuilder:validation:Nullable
+  bool default_all_mention_important = 35;
+
+  // Whether incoming user messages are automatically marked as important.
+  //
+  // +kubebuilder:validation:Nullable
+  bool user_message_important = 36;
+
+  // User chat types this manager can be auto-assigned to (e.g., sync, async).
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string assignable_user_chat_types = 37;
+
+  // Maximum number of concurrent user chats that can be auto-assigned to this manager.
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:Minimum=0
   // +kubebuilder:validation:Maximum=200
-  int32 auto_assign_capacity = 11 [(buf.validate.field).cel = {
+  int32 auto_assign_capacity = 38 [(buf.validate.field).cel = {
     id: "int32.between"
     message: "auto_assign_capacity must be between 0 and 200"
     expression: "this >= 0 && this <= 200"
   }];
 
-  // Status emoji displayed alongside the manager name.
+  // Whether auto-assignment is enabled when the manager joins a synchronous chat session.
   //
   // +kubebuilder:validation:Nullable
-  string status_emoji = 12;
+  bool enable_auto_assign_on_sync = 39;
 
-  // Status text displayed alongside the manager name.
+  // Emoji displayed alongside the manager name as a status indicator.
+  // Must be set together with status_text; both or neither should be present.
+  //
+  // +kubebuilder:validation:Nullable
+  string status_emoji = 40;
+
+  // Short text displayed alongside the manager name as a status indicator.
+  // Must be set together with status_emoji; both or neither should be present.
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxLength=128
-  string status_text = 13 [(buf.validate.field).cel = {
+  string status_text = 41 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 128 characters"
     expression: "size(this) <= 128"
   }];
 
-  // Timestamp when the status automatically clears.
+  // Timestamp when the custom status (emoji + text) automatically clears.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp status_clear_at = 14;
+  google.protobuf.Timestamp status_clear_at = 42;
 
-  // Whether do-not-disturb mode is active for this manager.
+  // Whether do-not-disturb mode is active, suppressing all notifications for this manager.
   //
   // +kubebuilder:validation:Nullable
-  bool do_not_disturb = 15;
+  bool do_not_disturb = 43;
 
-  // Timestamp when do-not-disturb mode automatically clears.
+  // Timestamp when do-not-disturb mode automatically deactivates.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp do_not_disturb_clear_at = 16;
+  google.protobuf.Timestamp do_not_disturb_clear_at = 44;
 
-  // Whether this manager has been soft-deleted.
+  // Whether account-level do-not-disturb mode is active across all channels.
   //
   // +kubebuilder:validation:Nullable
-  bool removed = 27;
+  bool account_do_not_disturb = 45;
 
-  // Manager creation timestamp.
-  //
-  // +kubebuilder:validation:Required
-  google.protobuf.Timestamp created_at = 28 [(buf.validate.field).required = true];
-
-  // Custom key-value profile data.
+  // Timestamp when account-level do-not-disturb mode automatically deactivates.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Struct profile = 31;
+  google.protobuf.Timestamp account_do_not_disturb_clear_at = 46;
 
-  // Manager email address.
+  // Timestamp when the operator status was last toggled on or off.
   //
   // +kubebuilder:validation:Nullable
-  string email = 32;
+  google.protobuf.Timestamp operator_updated_at = 47;
 
-  // Whether to display the email to end users.
+  // Manager avatar image URL.
+  // Falls back to a system-generated default when no custom avatar is set.
   //
   // +kubebuilder:validation:Nullable
-  bool show_email_to_front = 33;
-
-  // Manager mobile phone number.
-  //
-  // +kubebuilder:validation:Nullable
-  string mobile_number = 34;
-
-  // Whether to display the mobile number to end users.
-  //
-  // +kubebuilder:validation:Nullable
-  bool show_mobile_number_to_front = 35;
-
-  // Default notification level for group chats.
-  //
-  // +kubebuilder:validation:Nullable
-  string default_group_watch = 36;
-
-  // Default notification level for direct chats.
-  //
-  // +kubebuilder:validation:Nullable
-  string default_direct_chat_watch = 37;
-
-  // Default notification level for user chats.
-  //
-  // +kubebuilder:validation:Nullable
-  string default_user_chat_watch = 38;
-
-  // Chat notification alert sound.
-  //
-  // +kubebuilder:validation:Nullable
-  string chat_alert_sound = 39;
-
-  // Whether to show private message previews in notifications.
-  //
-  // +kubebuilder:validation:Nullable
-  bool show_private_message_preview = 40;
-
-  // Operator performance score.
-  //
-  // +kubebuilder:validation:Nullable
-  float operator_score = 41;
-
-  // User engagement score.
-  //
-  // +kubebuilder:validation:Nullable
-  float touch_score = 42;
-
-  // Manager avatar image reference.
-  //
-  // +kubebuilder:validation:Nullable
-  coreapi.model.TinyFile avatar = 43;
-
-  // Whether email reminders are enabled for this operator.
-  //
-  // +kubebuilder:validation:Nullable
-  bool operator_email_reminder = 44;
-
-  // Whether this manager is an active operator.
-  //
-  // +kubebuilder:validation:Nullable
-  bool operator = 45;
-
-  // Whether @all mentions are marked as important.
-  //
-  // +kubebuilder:validation:Nullable
-  bool default_all_mention_important = 46;
-
-  // Whether user messages are marked as important.
-  //
-  // +kubebuilder:validation:Nullable
-  bool user_message_important = 47;
-
-  // Manager reference identifier.
-  //
-  // +kubebuilder:validation:Nullable
-  string manager_id = 48;
-
-  // Email address displayed to end users.
-  //
-  // +kubebuilder:validation:Nullable
-  string email_for_front = 49;
-
-  // Mobile number displayed to end users.
-  //
-  // +kubebuilder:validation:Nullable
-  string mobile_number_for_front = 50;
-
-  // Role ID assigned to this manager.
-  //
-  // +kubebuilder:validation:Nullable
-  string role_id = 51;
-
-  // Manager last update timestamp.
-  //
-  // +kubebuilder:validation:Required
-  google.protobuf.Timestamp updated_at = 54 [(buf.validate.field).required = true];
+  string avatar_url = 48;
 }

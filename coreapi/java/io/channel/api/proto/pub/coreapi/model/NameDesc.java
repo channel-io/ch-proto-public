@@ -5,7 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Localized name and description pair for internationalization.
+ * NameDesc represents a localized name-description pair
+ * used for internationalized entity metadata (e.g. bot names per locale).
  * </pre>
  *
  * Protobuf type {@code coreapi.model.NameDesc}
@@ -102,10 +103,15 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   * Display name.
+   * Display name of the entity.
+   * Must not contain &#64;, #, $, %, :, /, or &#92; characters.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
    * </pre>
    *
-   * <code>string name = 1 [json_name = "name"];</code>
+   * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
    * @return The name.
    */
   @java.lang.Override
@@ -123,10 +129,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Display name.
+   * Display name of the entity.
+   * Must not contain &#64;, #, $, %, :, /, or &#92; characters.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
    * </pre>
    *
-   * <code>string name = 1 [json_name = "name"];</code>
+   * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
    * @return The bytes for name.
    */
   @java.lang.Override
@@ -148,10 +159,12 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object description_;
   /**
    * <pre>
-   * Description text.
+   * Short description of the entity.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxLength=180
    * </pre>
    *
-   * <code>string description = 2 [json_name = "description"];</code>
+   * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
    * @return The description.
    */
   @java.lang.Override
@@ -169,10 +182,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Description text.
+   * Short description of the entity.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxLength=180
    * </pre>
    *
-   * <code>string description = 2 [json_name = "description"];</code>
+   * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
    * @return The bytes for description.
    */
   @java.lang.Override
@@ -356,7 +371,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Localized name and description pair for internationalization.
+   * NameDesc represents a localized name-description pair
+   * used for internationalized entity metadata (e.g. bot names per locale).
    * </pre>
    *
    * Protobuf type {@code coreapi.model.NameDesc}
@@ -516,10 +532,15 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Display name.
+     * Display name of the entity.
+     * Must not contain &#64;, #, $, %, :, /, or &#92; characters.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
      * </pre>
      *
-     * <code>string name = 1 [json_name = "name"];</code>
+     * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -536,10 +557,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name.
+     * Display name of the entity.
+     * Must not contain &#64;, #, $, %, :, /, or &#92; characters.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
      * </pre>
      *
-     * <code>string name = 1 [json_name = "name"];</code>
+     * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -557,10 +583,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name.
+     * Display name of the entity.
+     * Must not contain &#64;, #, $, %, :, /, or &#92; characters.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
      * </pre>
      *
-     * <code>string name = 1 [json_name = "name"];</code>
+     * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
      * @param value The name to set.
      * @return This builder for chaining.
      */
@@ -576,10 +607,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name.
+     * Display name of the entity.
+     * Must not contain &#64;, #, $, %, :, /, or &#92; characters.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
      * </pre>
      *
-     * <code>string name = 1 [json_name = "name"];</code>
+     * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
@@ -590,10 +626,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name.
+     * Display name of the entity.
+     * Must not contain &#64;, #, $, %, :, /, or &#92; characters.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
      * </pre>
      *
-     * <code>string name = 1 [json_name = "name"];</code>
+     * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
@@ -612,10 +653,12 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object description_ = "";
     /**
      * <pre>
-     * Description text.
+     * Short description of the entity.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxLength=180
      * </pre>
      *
-     * <code>string description = 2 [json_name = "description"];</code>
+     * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
      * @return The description.
      */
     public java.lang.String getDescription() {
@@ -632,10 +675,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Description text.
+     * Short description of the entity.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxLength=180
      * </pre>
      *
-     * <code>string description = 2 [json_name = "description"];</code>
+     * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
      * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
@@ -653,10 +698,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Description text.
+     * Short description of the entity.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxLength=180
      * </pre>
      *
-     * <code>string description = 2 [json_name = "description"];</code>
+     * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
      * @param value The description to set.
      * @return This builder for chaining.
      */
@@ -672,10 +719,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Description text.
+     * Short description of the entity.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxLength=180
      * </pre>
      *
-     * <code>string description = 2 [json_name = "description"];</code>
+     * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
@@ -686,10 +735,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Description text.
+     * Short description of the entity.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxLength=180
      * </pre>
      *
-     * <code>string description = 2 [json_name = "description"];</code>
+     * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for description to set.
      * @return This builder for chaining.
      */

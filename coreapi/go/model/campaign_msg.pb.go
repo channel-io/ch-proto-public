@@ -24,16 +24,17 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// CampaignMsg represents a message template within a campaign.
-// Each campaign can have multiple messages.
+// CampaignMsg represents a message variant within a campaign.
+// Each campaign can have multiple message variants for A/B testing.
 type CampaignMsg struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique campaign message identifier.
+	// Client-assigned on creation.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Campaign ID this message belongs to.
+	// Campaign ID this message variant belongs to.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
@@ -43,22 +44,24 @@ type CampaignMsg struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Display name of the campaign message.
+	// Human-readable label for this message variant.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
-	// Delivery medium type.
+	// Channel through which this message is delivered.
+	// Cannot be changed after creation.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	MediumType MediumType `protobuf:"varint,5,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
-	// Identifier of the specific medium instance.
+	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
 	//
 	// +kubebuilder:validation:Nullable
 	MediumId string `protobuf:"bytes,6,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
-	// Delivery configuration specific to the chosen medium type.
+	// Message content and medium-specific delivery configuration.
+	// Structure varies by medium_type.
 	//
-	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Required
 	Settings *structpb.Struct `protobuf:"bytes,7,opt,name=settings,proto3" json:"settings,omitempty"`
 	// Campaign message creation timestamp.
 	//
@@ -68,19 +71,19 @@ type CampaignMsg struct {
 	//
 	// +kubebuilder:validation:Required
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Total number of messages sent.
+	// Cumulative count of messages delivered for this variant.
 	//
 	// +kubebuilder:validation:Nullable
 	Sent int32 `protobuf:"varint,10,opt,name=sent,proto3" json:"sent,omitempty"`
-	// Total number of message views.
+	// Cumulative count of message views by recipients for this variant.
 	//
 	// +kubebuilder:validation:Nullable
 	View int32 `protobuf:"varint,11,opt,name=view,proto3" json:"view,omitempty"`
-	// Total number of goal conversions achieved.
+	// Cumulative count of goal event completions attributed to this variant.
 	//
 	// +kubebuilder:validation:Nullable
 	Goal int32 `protobuf:"varint,12,opt,name=goal,proto3" json:"goal,omitempty"`
-	// Total number of message link clicks.
+	// Cumulative count of message link clicks for this variant.
 	//
 	// +kubebuilder:validation:Nullable
 	Click         int32 `protobuf:"varint,13,opt,name=click,proto3" json:"click,omitempty"`
@@ -213,7 +216,7 @@ var File_coreapi_model_campaign_msg_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_campaign_msg_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/campaign_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x93\x06\n" +
+	" coreapi/model/campaign_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/campaign.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa3\x06\n" +
 	"\vCampaignMsg\x12]\n" +
 	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12n\n" +
@@ -224,11 +227,11 @@ const file_coreapi_model_campaign_msg_proto_rawDesc = "" +
 	"channel_id\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12a\n" +
 	"\x04name\x18\x04 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x04name\x12:\n" +
-	"\vmedium_type\x18\x05 \x01(\x0e2\x19.coreapi.model.MediumTypeR\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x04name\x12B\n" +
+	"\vmedium_type\x18\x05 \x01(\x0e2\x19.coreapi.model.MediumTypeB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"mediumType\x12\x1b\n" +
-	"\tmedium_id\x18\x06 \x01(\tR\bmediumId\x123\n" +
-	"\bsettings\x18\a \x01(\v2\x17.google.protobuf.StructR\bsettings\x12A\n" +
+	"\tmedium_id\x18\x06 \x01(\tR\bmediumId\x12;\n" +
+	"\bsettings\x18\a \x01(\v2\x17.google.protobuf.StructB\x06\xbaH\x03\xc8\x01\x01R\bsettings\x12A\n" +
 	"\n" +
 	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
@@ -276,7 +279,7 @@ func file_coreapi_model_campaign_msg_proto_init() {
 	if File_coreapi_model_campaign_msg_proto != nil {
 		return
 	}
-	file_coreapi_model_medium_type_proto_init()
+	file_coreapi_model_campaign_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

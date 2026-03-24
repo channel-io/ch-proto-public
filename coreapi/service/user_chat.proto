@@ -7,7 +7,7 @@ import "coreapi/common/sort_order.proto";
 import "coreapi/model/chat_bookmark.proto";
 import "coreapi/model/chat_session.proto";
 import "coreapi/model/message.proto";
-import "coreapi/model/message_content.proto";
+import "google/protobuf/struct.proto";
 import "coreapi/model/user_chat.proto";
 import "google/protobuf/duration.proto";
 
@@ -408,7 +408,7 @@ message CreateUserChatMessageRequest {
   string user_chat_id = 2 [(buf.validate.field).required = true];
 
   // +kubebuilder:validation:Required
-  coreapi.model.MessageContent content = 3 [(buf.validate.field).required = true];
+  google.protobuf.Struct content = 3 [(buf.validate.field).required = true];
 
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxLength=30

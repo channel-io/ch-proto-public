@@ -5,8 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * ChatTag represents a label that can be attached to user chats for categorization.
- * Tags support up to 3 levels of hierarchy using "/" as a depth separator (e.g. "billing/refund/urgent").
+ * ChatTag represents a classification label that can be attached to user chats
+ * for categorization and filtering.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.ChatTag}
@@ -27,7 +27,6 @@ private static final long serialVersionUID = 0L;
     name_ = "";
     key_ = "";
     description_ = "";
-    followerIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -50,7 +49,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -110,15 +108,6 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              followerIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            followerIds_.add(s);
-            break;
-          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -134,9 +123,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        followerIds_ = followerIds_.getUnmodifiableView();
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -159,11 +145,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique chat tag identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   @java.lang.Override
@@ -182,11 +167,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique chat tag identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   @java.lang.Override
@@ -209,11 +193,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this chat tag belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 2 [json_name = "channelId"];</code>
    * @return The channelId.
    */
   @java.lang.Override
@@ -232,11 +215,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this chat tag belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 2 [json_name = "channelId"];</code>
    * @return The bytes for channelId.
    */
   @java.lang.Override
@@ -258,7 +240,7 @@ private static final long serialVersionUID = 0L;
   private int colorVariant_;
   /**
    * <pre>
-   * Color theme of the chat tag.
+   * Color used for visual display of this tag in the Desk UI.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -270,7 +252,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Color theme of the chat tag.
+   * Color used for visual display of this tag in the Desk UI.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -287,12 +269,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   * Display name of the chat tag.
-   * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
-   * Cannot contain ".", "&#92;", "$", "%" or whitespace characters.
+   * Human-readable display name of the chat tag.
+   * Cannot be changed after creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:validation:MaxLength=128
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -313,12 +292,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Display name of the chat tag.
-   * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
-   * Cannot contain ".", "&#92;", "$", "%" or whitespace characters.
+   * Human-readable display name of the chat tag.
+   * Cannot be changed after creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:validation:MaxLength=128
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -343,10 +319,10 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object key_;
   /**
    * <pre>
-   * Lowercase representation of name.
+   * Lowercase key automatically derived from the tag name.
    * Unique within the channel (case-insensitive).
+   * Cannot be changed after creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -367,10 +343,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Lowercase representation of name.
+   * Lowercase key automatically derived from the tag name.
    * Unique within the channel (case-insensitive).
+   * Cannot be changed after creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -395,7 +371,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object description_;
   /**
    * <pre>
-   * Short description of the chat tag.
+   * Free-text description explaining when or how to use this tag.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=128
    * </pre>
@@ -418,7 +394,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Short description of the chat tag.
+   * Free-text description explaining when or how to use this tag.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=128
    * </pre>
@@ -441,70 +417,15 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int FOLLOWER_IDS_FIELD_NUMBER = 8;
-  private com.google.protobuf.LazyStringList followerIds_;
-  /**
-   * <pre>
-   * Manager IDs following this chat tag for notifications.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-   * @return A list containing the followerIds.
-   */
-  public com.google.protobuf.ProtocolStringList
-      getFollowerIdsList() {
-    return followerIds_;
-  }
-  /**
-   * <pre>
-   * Manager IDs following this chat tag for notifications.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-   * @return The count of followerIds.
-   */
-  public int getFollowerIdsCount() {
-    return followerIds_.size();
-  }
-  /**
-   * <pre>
-   * Manager IDs following this chat tag for notifications.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-   * @param index The index of the element to return.
-   * @return The followerIds at the given index.
-   */
-  public java.lang.String getFollowerIds(int index) {
-    return followerIds_.get(index);
-  }
-  /**
-   * <pre>
-   * Manager IDs following this chat tag for notifications.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the followerIds at the given index.
-   */
-  public com.google.protobuf.ByteString
-      getFollowerIdsBytes(int index) {
-    return followerIds_.getByteString(index);
-  }
-
   public static final int CREATED_AT_FIELD_NUMBER = 7;
   private com.google.protobuf.Timestamp createdAt_;
   /**
    * <pre>
    * Chat tag creation timestamp.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
    * @return Whether the createdAt field is set.
    */
   @java.lang.Override
@@ -514,10 +435,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat tag creation timestamp.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   @java.lang.Override
@@ -527,10 +448,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat tag creation timestamp.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
@@ -572,9 +493,6 @@ private static final long serialVersionUID = 0L;
     if (createdAt_ != null) {
       output.writeMessage(7, getCreatedAt());
     }
-    for (int i = 0; i < followerIds_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, followerIds_.getRaw(i));
-    }
     unknownFields.writeTo(output);
   }
 
@@ -607,14 +525,6 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getCreatedAt());
     }
-    {
-      int dataSize = 0;
-      for (int i = 0; i < followerIds_.size(); i++) {
-        dataSize += computeStringSizeNoTag(followerIds_.getRaw(i));
-      }
-      size += dataSize;
-      size += 1 * getFollowerIdsList().size();
-    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -641,8 +551,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getKey())) return false;
     if (!getDescription()
         .equals(other.getDescription())) return false;
-    if (!getFollowerIdsList()
-        .equals(other.getFollowerIdsList())) return false;
     if (hasCreatedAt() != other.hasCreatedAt()) return false;
     if (hasCreatedAt()) {
       if (!getCreatedAt()
@@ -671,10 +579,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getKey().hashCode();
     hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
     hash = (53 * hash) + getDescription().hashCode();
-    if (getFollowerIdsCount() > 0) {
-      hash = (37 * hash) + FOLLOWER_IDS_FIELD_NUMBER;
-      hash = (53 * hash) + getFollowerIdsList().hashCode();
-    }
     if (hasCreatedAt()) {
       hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getCreatedAt().hashCode();
@@ -776,8 +680,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * ChatTag represents a label that can be attached to user chats for categorization.
-   * Tags support up to 3 levels of hierarchy using "/" as a depth separator (e.g. "billing/refund/urgent").
+   * ChatTag represents a classification label that can be attached to user chats
+   * for categorization and filtering.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.ChatTag}
@@ -829,8 +733,6 @@ private static final long serialVersionUID = 0L;
 
       description_ = "";
 
-      followerIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
       if (createdAtBuilder_ == null) {
         createdAt_ = null;
       } else {
@@ -863,18 +765,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.channel.api.proto.pub.coreapi.model.ChatTag buildPartial() {
       io.channel.api.proto.pub.coreapi.model.ChatTag result = new io.channel.api.proto.pub.coreapi.model.ChatTag(this);
-      int from_bitField0_ = bitField0_;
       result.id_ = id_;
       result.channelId_ = channelId_;
       result.colorVariant_ = colorVariant_;
       result.name_ = name_;
       result.key_ = key_;
       result.description_ = description_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        followerIds_ = followerIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.followerIds_ = followerIds_;
       if (createdAtBuilder_ == null) {
         result.createdAt_ = createdAt_;
       } else {
@@ -951,16 +847,6 @@ private static final long serialVersionUID = 0L;
         description_ = other.description_;
         onChanged();
       }
-      if (!other.followerIds_.isEmpty()) {
-        if (followerIds_.isEmpty()) {
-          followerIds_ = other.followerIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          ensureFollowerIdsIsMutable();
-          followerIds_.addAll(other.followerIds_);
-        }
-        onChanged();
-      }
       if (other.hasCreatedAt()) {
         mergeCreatedAt(other.getCreatedAt());
       }
@@ -992,17 +878,15 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
     private java.lang.Object id_ = "";
     /**
      * <pre>
      * Unique chat tag identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return The id.
      */
     public java.lang.String getId() {
@@ -1020,11 +904,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique chat tag identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
@@ -1043,11 +926,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique chat tag identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -1064,11 +946,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique chat tag identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -1080,11 +961,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique chat tag identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -1104,11 +984,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this chat tag belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 2 [json_name = "channelId"];</code>
      * @return The channelId.
      */
     public java.lang.String getChannelId() {
@@ -1126,11 +1005,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this chat tag belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 2 [json_name = "channelId"];</code>
      * @return The bytes for channelId.
      */
     public com.google.protobuf.ByteString
@@ -1149,11 +1027,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this chat tag belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 2 [json_name = "channelId"];</code>
      * @param value The channelId to set.
      * @return This builder for chaining.
      */
@@ -1170,11 +1047,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this chat tag belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 2 [json_name = "channelId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearChannelId() {
@@ -1186,11 +1062,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this chat tag belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 2 [json_name = "channelId"];</code>
      * @param value The bytes for channelId to set.
      * @return This builder for chaining.
      */
@@ -1209,7 +1084,7 @@ private static final long serialVersionUID = 0L;
     private int colorVariant_ = 0;
     /**
      * <pre>
-     * Color theme of the chat tag.
+     * Color used for visual display of this tag in the Desk UI.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1221,7 +1096,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Color theme of the chat tag.
+     * Color used for visual display of this tag in the Desk UI.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1237,7 +1112,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Color theme of the chat tag.
+     * Color used for visual display of this tag in the Desk UI.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1252,7 +1127,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Color theme of the chat tag.
+     * Color used for visual display of this tag in the Desk UI.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1271,7 +1146,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Color theme of the chat tag.
+     * Color used for visual display of this tag in the Desk UI.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1288,12 +1163,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Display name of the chat tag.
-     * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
-     * Cannot contain ".", "&#92;", "$", "%" or whitespace characters.
+     * Human-readable display name of the chat tag.
+     * Cannot be changed after creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:validation:MaxLength=128
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1313,12 +1185,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name of the chat tag.
-     * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
-     * Cannot contain ".", "&#92;", "$", "%" or whitespace characters.
+     * Human-readable display name of the chat tag.
+     * Cannot be changed after creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:validation:MaxLength=128
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1339,12 +1208,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name of the chat tag.
-     * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
-     * Cannot contain ".", "&#92;", "$", "%" or whitespace characters.
+     * Human-readable display name of the chat tag.
+     * Cannot be changed after creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:validation:MaxLength=128
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1363,12 +1229,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name of the chat tag.
-     * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
-     * Cannot contain ".", "&#92;", "$", "%" or whitespace characters.
+     * Human-readable display name of the chat tag.
+     * Cannot be changed after creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:validation:MaxLength=128
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1382,12 +1245,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Display name of the chat tag.
-     * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
-     * Cannot contain ".", "&#92;", "$", "%" or whitespace characters.
+     * Human-readable display name of the chat tag.
+     * Cannot be changed after creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:validation:MaxLength=128
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1409,10 +1269,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object key_ = "";
     /**
      * <pre>
-     * Lowercase representation of name.
+     * Lowercase key automatically derived from the tag name.
      * Unique within the channel (case-insensitive).
+     * Cannot be changed after creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1432,10 +1292,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Lowercase representation of name.
+     * Lowercase key automatically derived from the tag name.
      * Unique within the channel (case-insensitive).
+     * Cannot be changed after creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1456,10 +1316,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Lowercase representation of name.
+     * Lowercase key automatically derived from the tag name.
      * Unique within the channel (case-insensitive).
+     * Cannot be changed after creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1478,10 +1338,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Lowercase representation of name.
+     * Lowercase key automatically derived from the tag name.
      * Unique within the channel (case-insensitive).
+     * Cannot be changed after creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1495,10 +1355,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Lowercase representation of name.
+     * Lowercase key automatically derived from the tag name.
      * Unique within the channel (case-insensitive).
+     * Cannot be changed after creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1520,7 +1380,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object description_ = "";
     /**
      * <pre>
-     * Short description of the chat tag.
+     * Free-text description explaining when or how to use this tag.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=128
      * </pre>
@@ -1542,7 +1402,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Short description of the chat tag.
+     * Free-text description explaining when or how to use this tag.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=128
      * </pre>
@@ -1565,7 +1425,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Short description of the chat tag.
+     * Free-text description explaining when or how to use this tag.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=128
      * </pre>
@@ -1586,7 +1446,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Short description of the chat tag.
+     * Free-text description explaining when or how to use this tag.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=128
      * </pre>
@@ -1602,7 +1462,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Short description of the chat tag.
+     * Free-text description explaining when or how to use this tag.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=128
      * </pre>
@@ -1623,171 +1483,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringList followerIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    private void ensureFollowerIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        followerIds_ = new com.google.protobuf.LazyStringArrayList(followerIds_);
-        bitField0_ |= 0x00000001;
-       }
-    }
-    /**
-     * <pre>
-     * Manager IDs following this chat tag for notifications.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-     * @return A list containing the followerIds.
-     */
-    public com.google.protobuf.ProtocolStringList
-        getFollowerIdsList() {
-      return followerIds_.getUnmodifiableView();
-    }
-    /**
-     * <pre>
-     * Manager IDs following this chat tag for notifications.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-     * @return The count of followerIds.
-     */
-    public int getFollowerIdsCount() {
-      return followerIds_.size();
-    }
-    /**
-     * <pre>
-     * Manager IDs following this chat tag for notifications.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-     * @param index The index of the element to return.
-     * @return The followerIds at the given index.
-     */
-    public java.lang.String getFollowerIds(int index) {
-      return followerIds_.get(index);
-    }
-    /**
-     * <pre>
-     * Manager IDs following this chat tag for notifications.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the followerIds at the given index.
-     */
-    public com.google.protobuf.ByteString
-        getFollowerIdsBytes(int index) {
-      return followerIds_.getByteString(index);
-    }
-    /**
-     * <pre>
-     * Manager IDs following this chat tag for notifications.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-     * @param index The index to set the value at.
-     * @param value The followerIds to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFollowerIds(
-        int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFollowerIdsIsMutable();
-      followerIds_.set(index, value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Manager IDs following this chat tag for notifications.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-     * @param value The followerIds to add.
-     * @return This builder for chaining.
-     */
-    public Builder addFollowerIds(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFollowerIdsIsMutable();
-      followerIds_.add(value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Manager IDs following this chat tag for notifications.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-     * @param values The followerIds to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllFollowerIds(
-        java.lang.Iterable<java.lang.String> values) {
-      ensureFollowerIdsIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, followerIds_);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Manager IDs following this chat tag for notifications.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearFollowerIds() {
-      followerIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Manager IDs following this chat tag for notifications.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-     * @param value The bytes of the followerIds to add.
-     * @return This builder for chaining.
-     */
-    public Builder addFollowerIdsBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      ensureFollowerIdsIsMutable();
-      followerIds_.add(value);
-      onChanged();
-      return this;
-    }
-
     private com.google.protobuf.Timestamp createdAt_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdAtBuilder_;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
      * @return Whether the createdAt field is set.
      */
     public boolean hasCreatedAt() {
@@ -1796,10 +1501,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
      * @return The createdAt.
      */
     public com.google.protobuf.Timestamp getCreatedAt() {
@@ -1812,10 +1517,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
      */
     public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -1833,10 +1538,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
      */
     public Builder setCreatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1852,10 +1557,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
      */
     public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -1875,10 +1580,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
      */
     public Builder clearCreatedAt() {
       if (createdAtBuilder_ == null) {
@@ -1894,10 +1599,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
       
@@ -1907,10 +1612,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       if (createdAtBuilder_ != null) {
@@ -1923,10 +1628,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat tag creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -2092,31 +1797,6 @@ private static final long serialVersionUID = 0L;
     		return clearDescription();
     	else
     		return setDescription(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param values The follower_ids to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllOrClearFollowerIds(java.lang.Iterable<java.lang.String> values) {
-    	if (values == null)
-    		return clearFollowerIds();
-    	else
-    		return addAllFollowerIds(values);
-    }
-    	
-    /**
-     * @param values The values to map.
-     * @param mapFunc The function to map the values into each proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapAllOrClearFollowerIds(java.lang.Iterable<T> values, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (values == null)
-    		return clearFollowerIds();
-    	else {
-    		values.forEach(value -> addFollowerIds(mapFunc.apply(value)));
-    		return this;
-    	}
     }
     	
     /**

@@ -9,7 +9,7 @@ public interface OneTimeMsgUserOrBuilder extends
 
   /**
    * <pre>
-   * One-time message ID this user record belongs to.
+   * One-time message that was delivered to this user.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -20,7 +20,7 @@ public interface OneTimeMsgUserOrBuilder extends
   java.lang.String getOneTimeMsgId();
   /**
    * <pre>
-   * One-time message ID this user record belongs to.
+   * One-time message that was delivered to this user.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -33,7 +33,7 @@ public interface OneTimeMsgUserOrBuilder extends
 
   /**
    * <pre>
-   * ID of the user who received the one-time message.
+   * Target user identifier.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -44,7 +44,7 @@ public interface OneTimeMsgUserOrBuilder extends
   java.lang.String getUserId();
   /**
    * <pre>
-   * ID of the user who received the one-time message.
+   * Target user identifier.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -87,7 +87,7 @@ public interface OneTimeMsgUserOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the user viewed the message.
+   * Timestamp when the user first viewed the delivered message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -97,7 +97,7 @@ public interface OneTimeMsgUserOrBuilder extends
   boolean hasView();
   /**
    * <pre>
-   * Timestamp when the user viewed the message.
+   * Timestamp when the user first viewed the delivered message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -107,7 +107,7 @@ public interface OneTimeMsgUserOrBuilder extends
   com.google.protobuf.Timestamp getView();
   /**
    * <pre>
-   * Timestamp when the user viewed the message.
+   * Timestamp when the user first viewed the delivered message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -117,85 +117,96 @@ public interface OneTimeMsgUserOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the user clicked a link in the message.
+   * Timestamp when the user completed the goal event.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp click = 5 [json_name = "click"];</code>
-   * @return Whether the click field is set.
-   */
-  boolean hasClick();
-  /**
-   * <pre>
-   * Timestamp when the user clicked a link in the message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp click = 5 [json_name = "click"];</code>
-   * @return The click.
-   */
-  com.google.protobuf.Timestamp getClick();
-  /**
-   * <pre>
-   * Timestamp when the user clicked a link in the message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp click = 5 [json_name = "click"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getClickOrBuilder();
-
-  /**
-   * <pre>
-   * Timestamp when the user achieved the conversion goal.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp goal = 6 [json_name = "goal"];</code>
+   * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
    * @return Whether the goal field is set.
    */
   boolean hasGoal();
   /**
    * <pre>
-   * Timestamp when the user achieved the conversion goal.
+   * Timestamp when the user completed the goal event.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp goal = 6 [json_name = "goal"];</code>
+   * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
    * @return The goal.
    */
   com.google.protobuf.Timestamp getGoal();
   /**
    * <pre>
-   * Timestamp when the user achieved the conversion goal.
+   * Timestamp when the user completed the goal event.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp goal = 6 [json_name = "goal"];</code>
+   * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getGoalOrBuilder();
 
   /**
    * <pre>
-   * Revenue amount attributed to this user from the message.
-   * Decimal number represented as a string for precision.
+   * Timestamp when the user first clicked a link in the message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string revenue = 7 [json_name = "revenue"];</code>
-   * @return The revenue.
+   * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
+   * @return Whether the click field is set.
    */
-  java.lang.String getRevenue();
+  boolean hasClick();
   /**
    * <pre>
-   * Revenue amount attributed to this user from the message.
-   * Decimal number represented as a string for precision.
+   * Timestamp when the user first clicked a link in the message.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string revenue = 7 [json_name = "revenue"];</code>
-   * @return The bytes for revenue.
+   * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
+   * @return The click.
+   */
+  com.google.protobuf.Timestamp getClick();
+  /**
+   * <pre>
+   * Timestamp when the user first clicked a link in the message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getClickOrBuilder();
+
+  /**
+   * <pre>
+   * Cumulative revenue attributed to this user from the one-time message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>double revenue = 7 [json_name = "revenue"];</code>
+   * @return The revenue.
+   */
+  double getRevenue();
+
+  /**
+   * <pre>
+   * Composite identifier in the format "{one_time_msg_id}-{user_id}".
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * </pre>
+   *
+   * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * @return The id.
+   */
+  java.lang.String getId();
+  /**
+   * <pre>
+   * Composite identifier in the format "{one_time_msg_id}-{user_id}".
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * </pre>
+   *
+   * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for id.
    */
   com.google.protobuf.ByteString
-      getRevenueBytes();
+      getIdBytes();
 }

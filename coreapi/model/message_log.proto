@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// MessageLog represents a system-generated log entry attached to a message,
+// recording an automated or manual action that occurred in a chat.
+message MessageLog {
+  // Type of action that was recorded.
+  //
+  // +kubebuilder:validation:Nullable
+  MessageLogAction action = 1;
+
+  // Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+  // Interpretation depends on the `action` type.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string values = 2;
+
+  // Entity type that triggered this action (e.g. "workflow", "rule", "alf").
+  //
+  // +kubebuilder:validation:Nullable
+  string trigger_type = 3;
+
+  // Identifier of the entity that triggered this action.
+  //
+  // +kubebuilder:validation:Nullable
+  string trigger_id = 4;
+
+  // Action types recorded in system log messages.
+  enum MessageLogAction {
+    MESSAGE_LOG_ACTION_UNSPECIFIED = 0;
+    // Chat name was changed.
+    MESSAGE_LOG_ACTION_CHANGE_NAME = 1;
+    // Chat visibility scope was changed.
+    MESSAGE_LOG_ACTION_CHANGE_SCOPE = 2;
+    // Chat was closed by a manager.
+    MESSAGE_LOG_ACTION_CLOSE = 3;
+    // Chat was automatically closed by the system.
+    MESSAGE_LOG_ACTION_AUTO_CLOSE = 4;
+    // Chat was created.
+    MESSAGE_LOG_ACTION_CREATE = 5;
+    // A manager was invited to the chat.
+    MESSAGE_LOG_ACTION_INVITE = 6;
+    // A manager joined the chat.
+    MESSAGE_LOG_ACTION_JOIN = 7;
+    // A manager was assigned to the chat.
+    MESSAGE_LOG_ACTION_ASSIGN = 8;
+    // A manager was automatically assigned by the system.
+    MESSAGE_LOG_ACTION_AUTO_ASSIGN = 9;
+    // A manager was unassigned from the chat.
+    MESSAGE_LOG_ACTION_UNASSIGN = 10;
+    // A manager left the chat.
+    MESSAGE_LOG_ACTION_LEAVE = 11;
+    // Chat was reopened by a manager.
+    MESSAGE_LOG_ACTION_OPEN = 12;
+    // Chat was automatically reopened by the system.
+    MESSAGE_LOG_ACTION_AUTO_OPEN = 13;
+    // Chat was placed into the waiting queue.
+    MESSAGE_LOG_ACTION_ENQUEUE = 14;
+    // An incoming call or meet was missed.
+    MESSAGE_LOG_ACTION_MISS = 15;
+    // A participant was removed from the chat.
+    MESSAGE_LOG_ACTION_REMOVE = 16;
+    // Chat was snoozed for later follow-up.
+    MESSAGE_LOG_ACTION_SNOOZE = 17;
+    // Tags were added to the chat.
+    MESSAGE_LOG_ACTION_ADD_TAGS = 18;
+    // Tags were removed from the chat.
+    MESSAGE_LOG_ACTION_REMOVE_TAGS = 19;
+    // A team was assigned to the chat.
+    MESSAGE_LOG_ACTION_ASSIGN_TEAM = 20;
+    // A team was unassigned from the chat.
+    MESSAGE_LOG_ACTION_UNASSIGN_TEAM = 21;
+    // A participant joined the meet.
+    MESSAGE_LOG_ACTION_JOIN_MEET = 22;
+    // A participant left the meet.
+    MESSAGE_LOG_ACTION_LEAVE_MEET = 23;
+    // A participant was invited to the meet.
+    MESSAGE_LOG_ACTION_INVITE_MEET = 24;
+    // A meet invitation was missed.
+    MESSAGE_LOG_ACTION_MISS_MEET = 25;
+    // A callback was requested for a missed meet.
+    MESSAGE_LOG_ACTION_CALLBACK_MEET = 26;
+    // System attempted to connect a phone call.
+    MESSAGE_LOG_ACTION_TRY_CONNECT_CALL = 27;
+    // Chat was processed due to a missed interaction.
+    MESSAGE_LOG_ACTION_PROCESS_BY_MISS = 28;
+    // Workflow branching logic was executed.
+    MESSAGE_LOG_ACTION_PROCESS_BRANCH = 29;
+    // An SMS/LMS/MMS message was sent.
+    MESSAGE_LOG_ACTION_SEND_XMS = 30;
+    // Tags were added to the user.
+    MESSAGE_LOG_ACTION_ADD_USER_TAGS = 31;
+    // Tags were removed from the user.
+    MESSAGE_LOG_ACTION_REMOVE_USER_TAGS = 32;
+    // Chat priority was updated.
+    MESSAGE_LOG_ACTION_UPDATE_PRIORITY = 33;
+    // A workflow was started.
+    MESSAGE_LOG_ACTION_START_WORKFLOW = 34;
+    // A workflow completed.
+    MESSAGE_LOG_ACTION_END_WORKFLOW = 35;
+    // A workflow was interrupted by a manager.
+    MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW = 36;
+    // A workflow was interrupted by a bot.
+    MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT = 37;
+    // System attempted to open the chat with ALF handling.
+    MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF = 38;
+    // A task was started.
+    MESSAGE_LOG_ACTION_START_TASK = 39;
+    // Automation rules were applied.
+    MESSAGE_LOG_ACTION_APPLY_RULES = 40;
+    // User cancelled ALF handling.
+    MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER = 41;
+    // A fallback phone call was initiated.
+    MESSAGE_LOG_ACTION_FALLBACK_CALL = 42;
+  }
+}

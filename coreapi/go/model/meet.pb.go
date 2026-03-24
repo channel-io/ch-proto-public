@@ -24,6 +24,8 @@ const (
 )
 
 // Direction of a phone call relative to the channel.
+// - INBOUND: Call received from an external caller.
+// - OUTBOUND: Call initiated by a manager to an external number.
 type CallDirection int32
 
 const (
@@ -73,7 +75,9 @@ func (CallDirection) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_meet_proto_rawDescGZIP(), []int{0}
 }
 
-// Current state of a phone call.
+// Current state of a phone call in its lifecycle.
+// - WAITING: The call is ringing or queued, not yet answered.
+// - ENGAGED: The call is actively connected between participants.
 type CallState int32
 
 const (
@@ -123,81 +127,7 @@ func (CallState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_meet_proto_rawDescGZIP(), []int{1}
 }
 
-// Reason why a call was missed without being answered.
-type MissedReason int32
-
-const (
-	MissedReason_MISSED_REASON_UNSPECIFIED        MissedReason = 0
-	MissedReason_MISSED_REASON_NOT_IN_OPERATION   MissedReason = 1
-	MissedReason_MISSED_REASON_USER_LEFT          MissedReason = 2
-	MissedReason_MISSED_REASON_RING_TIME_OVER     MissedReason = 3
-	MissedReason_MISSED_REASON_INBOUND_RATE_LIMIT MissedReason = 4
-	MissedReason_MISSED_REASON_NO_OPERATOR        MissedReason = 5
-	MissedReason_MISSED_REASON_EXCEEDED_QUEUE     MissedReason = 6
-	MissedReason_MISSED_REASON_ABANDONED_IN_QUEUE MissedReason = 7
-	MissedReason_MISSED_REASON_WORKFLOW           MissedReason = 8
-	MissedReason_MISSED_REASON_MANAGER_LEFT       MissedReason = 9
-	MissedReason_MISSED_REASON_NO_FALLBACK_CLIENT MissedReason = 10
-)
-
-// Enum value maps for MissedReason.
-var (
-	MissedReason_name = map[int32]string{
-		0:  "MISSED_REASON_UNSPECIFIED",
-		1:  "MISSED_REASON_NOT_IN_OPERATION",
-		2:  "MISSED_REASON_USER_LEFT",
-		3:  "MISSED_REASON_RING_TIME_OVER",
-		4:  "MISSED_REASON_INBOUND_RATE_LIMIT",
-		5:  "MISSED_REASON_NO_OPERATOR",
-		6:  "MISSED_REASON_EXCEEDED_QUEUE",
-		7:  "MISSED_REASON_ABANDONED_IN_QUEUE",
-		8:  "MISSED_REASON_WORKFLOW",
-		9:  "MISSED_REASON_MANAGER_LEFT",
-		10: "MISSED_REASON_NO_FALLBACK_CLIENT",
-	}
-	MissedReason_value = map[string]int32{
-		"MISSED_REASON_UNSPECIFIED":        0,
-		"MISSED_REASON_NOT_IN_OPERATION":   1,
-		"MISSED_REASON_USER_LEFT":          2,
-		"MISSED_REASON_RING_TIME_OVER":     3,
-		"MISSED_REASON_INBOUND_RATE_LIMIT": 4,
-		"MISSED_REASON_NO_OPERATOR":        5,
-		"MISSED_REASON_EXCEEDED_QUEUE":     6,
-		"MISSED_REASON_ABANDONED_IN_QUEUE": 7,
-		"MISSED_REASON_WORKFLOW":           8,
-		"MISSED_REASON_MANAGER_LEFT":       9,
-		"MISSED_REASON_NO_FALLBACK_CLIENT": 10,
-	}
-)
-
-func (x MissedReason) Enum() *MissedReason {
-	p := new(MissedReason)
-	*p = x
-	return p
-}
-
-func (x MissedReason) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (MissedReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_meet_proto_enumTypes[2].Descriptor()
-}
-
-func (MissedReason) Type() protoreflect.EnumType {
-	return &file_coreapi_model_meet_proto_enumTypes[2]
-}
-
-func (x MissedReason) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use MissedReason.Descriptor instead.
-func (MissedReason) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_meet_proto_rawDescGZIP(), []int{2}
-}
-
-// CallLog represents a record of a phone call in a channel.
+// CallLog represents a record of a phone call associated with a channel.
 type CallLog struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Channel ID where the call occurred.
@@ -206,23 +136,23 @@ type CallLog struct {
 	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Reason the call was missed.
-	// Only present for missed calls.
+	// Only present when the call ended without being answered.
 	//
 	// +kubebuilder:validation:Nullable
 	MissedReason MissedReason `protobuf:"varint,2,opt,name=missed_reason,json=missedReason,proto3,enum=coreapi.model.MissedReason" json:"missed_reason,omitempty"`
-	// Direction of the call relative to the channel.
+	// Whether the call was inbound (received) or outbound (initiated).
 	//
 	// +kubebuilder:validation:Nullable
 	Direction CallDirection `protobuf:"varint,3,opt,name=direction,proto3,enum=coreapi.model.CallDirection" json:"direction,omitempty"`
-	// Current state of the call.
+	// Current lifecycle state indicating whether the call is waiting or connected.
 	//
 	// +kubebuilder:validation:Nullable
 	State CallState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.CallState" json:"state,omitempty"`
-	// Caller phone number or identifier.
+	// Originating phone number or caller identifier.
 	//
 	// +kubebuilder:validation:Nullable
 	From string `protobuf:"bytes,5,opt,name=from,proto3" json:"from,omitempty"`
-	// Callee phone number or identifier.
+	// Destination phone number or callee identifier.
 	//
 	// +kubebuilder:validation:Nullable
 	To string `protobuf:"bytes,6,opt,name=to,proto3" json:"to,omitempty"`
@@ -234,19 +164,22 @@ type CallLog struct {
 	//
 	// +kubebuilder:validation:Required
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Timestamp when the call was answered.
+	// Timestamp when the call was answered and the conversation began.
+	// Absent if the call was never answered.
 	//
 	// +kubebuilder:validation:Nullable
 	EngagedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=engaged_at,json=engagedAt,proto3" json:"engaged_at,omitempty"`
-	// Timestamp when the call ended.
+	// Timestamp when the call ended and the connection was terminated.
+	// Absent if the call is still active or was never connected.
 	//
 	// +kubebuilder:validation:Nullable
 	ClosedAt *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=closed_at,json=closedAt,proto3" json:"closed_at,omitempty"`
-	// User chat ID associated with this call.
+	// User chat ID linked to this call.
+	// Present when the call is associated with a user chat conversation.
 	//
 	// +kubebuilder:validation:Nullable
 	UserChatId string `protobuf:"bytes,11,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
-	// Manager IDs who participated in the call.
+	// List of manager IDs who participated in or handled the call.
 	//
 	// +kubebuilder:validation:Nullable
 	ManagerIds    []string `protobuf:"bytes,12,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
@@ -521,7 +454,7 @@ var File_coreapi_model_meet_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_meet_proto_rawDesc = "" +
 	"\n" +
-	"\x18coreapi/model/meet.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a#coreapi/model/message_content.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x86\x05\n" +
+	"\x18coreapi/model/meet.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x19coreapi/model/block.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x86\x05\n" +
 	"\aCallLog\x12l\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
@@ -569,20 +502,7 @@ const file_coreapi_model_meet_proto_rawDesc = "" +
 	"\tCallState\x12\x1a\n" +
 	"\x16CALL_STATE_UNSPECIFIED\x10\x00\x12\x16\n" +
 	"\x12CALL_STATE_WAITING\x10\x01\x12\x16\n" +
-	"\x12CALL_STATE_ENGAGED\x10\x02*\xff\x02\n" +
-	"\fMissedReason\x12\x1d\n" +
-	"\x19MISSED_REASON_UNSPECIFIED\x10\x00\x12\"\n" +
-	"\x1eMISSED_REASON_NOT_IN_OPERATION\x10\x01\x12\x1b\n" +
-	"\x17MISSED_REASON_USER_LEFT\x10\x02\x12 \n" +
-	"\x1cMISSED_REASON_RING_TIME_OVER\x10\x03\x12$\n" +
-	" MISSED_REASON_INBOUND_RATE_LIMIT\x10\x04\x12\x1d\n" +
-	"\x19MISSED_REASON_NO_OPERATOR\x10\x05\x12 \n" +
-	"\x1cMISSED_REASON_EXCEEDED_QUEUE\x10\x06\x12$\n" +
-	" MISSED_REASON_ABANDONED_IN_QUEUE\x10\a\x12\x1a\n" +
-	"\x16MISSED_REASON_WORKFLOW\x10\b\x12\x1e\n" +
-	"\x1aMISSED_REASON_MANAGER_LEFT\x10\t\x12$\n" +
-	" MISSED_REASON_NO_FALLBACK_CLIENT\x10\n" +
-	"Bb\n" +
+	"\x12CALL_STATE_ENGAGED\x10\x02Bb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -597,19 +517,19 @@ func file_coreapi_model_meet_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_meet_proto_rawDescData
 }
 
-var file_coreapi_model_meet_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
+var file_coreapi_model_meet_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_coreapi_model_meet_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_coreapi_model_meet_proto_goTypes = []any{
 	(CallDirection)(0),            // 0: coreapi.model.CallDirection
 	(CallState)(0),                // 1: coreapi.model.CallState
-	(MissedReason)(0),             // 2: coreapi.model.MissedReason
-	(*CallLog)(nil),               // 3: coreapi.model.CallLog
-	(*MeetMessage)(nil),           // 4: coreapi.model.MeetMessage
+	(*CallLog)(nil),               // 2: coreapi.model.CallLog
+	(*MeetMessage)(nil),           // 3: coreapi.model.MeetMessage
+	(MissedReason)(0),             // 4: coreapi.model.MissedReason
 	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
 	(*Block)(nil),                 // 6: coreapi.model.Block
 }
 var file_coreapi_model_meet_proto_depIdxs = []int32{
-	2,  // 0: coreapi.model.CallLog.missed_reason:type_name -> coreapi.model.MissedReason
+	4,  // 0: coreapi.model.CallLog.missed_reason:type_name -> coreapi.model.MissedReason
 	0,  // 1: coreapi.model.CallLog.direction:type_name -> coreapi.model.CallDirection
 	1,  // 2: coreapi.model.CallLog.state:type_name -> coreapi.model.CallState
 	5,  // 3: coreapi.model.CallLog.created_at:type_name -> google.protobuf.Timestamp
@@ -631,13 +551,14 @@ func file_coreapi_model_meet_proto_init() {
 	if File_coreapi_model_meet_proto != nil {
 		return
 	}
-	file_coreapi_model_message_content_proto_init()
+	file_coreapi_model_block_proto_init()
+	file_coreapi_model_user_chat_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_meet_proto_rawDesc), len(file_coreapi_model_meet_proto_rawDesc)),
-			NumEnums:      3,
+			NumEnums:      2,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,

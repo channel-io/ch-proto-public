@@ -30,7 +30,7 @@ public final class OneTimeMsgUserOuterClass {
     java.lang.String[] descriptorData = {
       "\n%coreapi/model/one_time_msg_user.proto\022" +
       "\rcoreapi.model\032\033buf/validate/validate.pr" +
-      "oto\032\037google/protobuf/timestamp.proto\"\312\003\n" +
+      "oto\032\037google/protobuf/timestamp.proto\"\251\004\n" +
       "\016OneTimeMsgUser\022t\n\017one_time_msg_id\030\001 \001(\t" +
       "BM\272HJ\272\001D\n\rstring.minLen\022\"value must be a" +
       "t least 1 character\032\017size(this) >= 1\310\001\001R" +
@@ -39,18 +39,15 @@ public final class OneTimeMsgUserOuterClass {
       "character\032\017size(this) >= 1\310\001\001R\006userId\022.\n" +
       "\004sent\030\003 \001(\0132\032.google.protobuf.TimestampR" +
       "\004sent\022.\n\004view\030\004 \001(\0132\032.google.protobuf.Ti" +
-      "mestampR\004view\0220\n\005click\030\005 \001(\0132\032.google.pr" +
-      "otobuf.TimestampR\005click\022.\n\004goal\030\006 \001(\0132\032." +
-      "google.protobuf.TimestampR\004goal\022\030\n\007reven" +
-      "ue\030\007 \001(\tR\007revenue*\307\001\n\023OneTimeMsgUserStat" +
-      "e\022\'\n#ONE_TIME_MSG_USER_STATE_UNSPECIFIED" +
-      "\020\000\022 \n\034ONE_TIME_MSG_USER_STATE_SENT\020\001\022 \n\034" +
-      "ONE_TIME_MSG_USER_STATE_VIEW\020\002\022 \n\034ONE_TI" +
-      "ME_MSG_USER_STATE_GOAL\020\003\022!\n\035ONE_TIME_MSG" +
-      "_USER_STATE_CLICK\020\004Bb\n&io.channel.api.pr" +
-      "oto.pub.coreapi.modelP\001Z6github.com/chan" +
-      "nel-io/ch-proto-public/coreapi/go/modelb" +
-      "\006proto3"
+      "mestampR\004view\022.\n\004goal\030\005 \001(\0132\032.google.pro" +
+      "tobuf.TimestampR\004goal\0220\n\005click\030\006 \001(\0132\032.g" +
+      "oogle.protobuf.TimestampR\005click\022\030\n\007reven" +
+      "ue\030\007 \001(\001R\007revenue\022]\n\002id\030\010 \001(\tBM\272HJ\272\001D\n\rs" +
+      "tring.minLen\022\"value must be at least 1 c" +
+      "haracter\032\017size(this) >= 1\310\001\001R\002idBb\n&io.c" +
+      "hannel.api.proto.pub.coreapi.modelP\001Z6gi" +
+      "thub.com/channel-io/ch-proto-public/core" +
+      "api/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -63,7 +60,7 @@ public final class OneTimeMsgUserOuterClass {
     internal_static_coreapi_model_OneTimeMsgUser_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_OneTimeMsgUser_descriptor,
-        new java.lang.String[] { "OneTimeMsgId", "UserId", "Sent", "View", "Click", "Goal", "Revenue", });
+        new java.lang.String[] { "OneTimeMsgId", "UserId", "Sent", "View", "Goal", "Click", "Revenue", "Id", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);

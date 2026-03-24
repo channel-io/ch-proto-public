@@ -9,36 +9,12 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
-   * Unique event identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-   * @return The id.
-   */
-  java.lang.String getId();
-  /**
-   * <pre>
-   * Unique event identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for id.
-   */
-  com.google.protobuf.ByteString
-      getIdBytes();
-
-  /**
-   * <pre>
    * ID of the user who triggered the event.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+   * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
    * @return The userId.
    */
   java.lang.String getUserId();
@@ -49,11 +25,35 @@ public interface EventOrBuilder extends
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+   * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for userId.
    */
   com.google.protobuf.ByteString
       getUserIdBytes();
+
+  /**
+   * <pre>
+   * Unique event identifier.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * </pre>
+   *
+   * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * @return The id.
+   */
+  java.lang.String getId();
+  /**
+   * <pre>
+   * Unique event identifier.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * </pre>
+   *
+   * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for id.
+   */
+  com.google.protobuf.ByteString
+      getIdBytes();
 
   /**
    * <pre>
@@ -81,7 +81,7 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
-   * Event name identifying the type of action.
+   * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=64
@@ -93,7 +93,7 @@ public interface EventOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Event name identifying the type of action.
+   * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=64
@@ -107,7 +107,7 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
-   * Custom properties associated with the event.
+   * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -117,7 +117,7 @@ public interface EventOrBuilder extends
   boolean hasProperty();
   /**
    * <pre>
-   * Custom properties associated with the event.
+   * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -127,7 +127,7 @@ public interface EventOrBuilder extends
   com.google.protobuf.Struct getProperty();
   /**
    * <pre>
-   * Custom properties associated with the event.
+   * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -167,7 +167,7 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
-   * Event expiration timestamp.
+   * Expiration timestamp after which the event may no longer be retrievable.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -177,7 +177,7 @@ public interface EventOrBuilder extends
   boolean hasExpireAt();
   /**
    * <pre>
-   * Event expiration timestamp.
+   * Expiration timestamp after which the event may no longer be retrievable.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -187,7 +187,7 @@ public interface EventOrBuilder extends
   com.google.protobuf.Timestamp getExpireAt();
   /**
    * <pre>
-   * Event expiration timestamp.
+   * Expiration timestamp after which the event may no longer be retrievable.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -197,7 +197,8 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
-   * Event data version number.
+   * Optimistic concurrency version counter.
+   * Incremented on each update to detect conflicting writes.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -205,4 +206,68 @@ public interface EventOrBuilder extends
    * @return The version.
    */
   long getVersion();
+
+  /**
+   * <pre>
+   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Populated only for system-defined events; custom events return no entries.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+   */
+  int getNameI18NMapCount();
+  /**
+   * <pre>
+   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Populated only for system-defined events; custom events return no entries.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+   */
+  boolean containsNameI18NMap(
+      java.lang.String key);
+  /**
+   * Use {@link #getNameI18NMapMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.String>
+  getNameI18NMap();
+  /**
+   * <pre>
+   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Populated only for system-defined events; custom events return no entries.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+   */
+  java.util.Map<java.lang.String, java.lang.String>
+  getNameI18NMapMap();
+  /**
+   * <pre>
+   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Populated only for system-defined events; custom events return no entries.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+   */
+
+  java.lang.String getNameI18NMapOrDefault(
+      java.lang.String key,
+      java.lang.String defaultValue);
+  /**
+   * <pre>
+   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Populated only for system-defined events; custom events return no entries.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+   */
+
+  java.lang.String getNameI18NMapOrThrow(
+      java.lang.String key);
 }

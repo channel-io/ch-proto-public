@@ -28,28 +28,28 @@ const (
 // Events capture user actions such as page views, purchases, and custom interactions.
 type Event struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Unique event identifier.
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// ID of the user who triggered the event.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	UserId string `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Unique event identifier.
+	//
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
+	Id string `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this event belongs to.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Event name identifying the type of action.
+	// Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=64
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
-	// Custom properties associated with the event.
+	// Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
 	//
 	// +kubebuilder:validation:Nullable
 	Property *structpb.Struct `protobuf:"bytes,5,opt,name=property,proto3" json:"property,omitempty"`
@@ -57,14 +57,20 @@ type Event struct {
 	//
 	// +kubebuilder:validation:Required
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// Event expiration timestamp.
+	// Expiration timestamp after which the event may no longer be retrievable.
 	//
 	// +kubebuilder:validation:Nullable
 	ExpireAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=expire_at,json=expireAt,proto3" json:"expire_at,omitempty"`
-	// Event data version number.
+	// Optimistic concurrency version counter.
+	// Incremented on each update to detect conflicting writes.
 	//
 	// +kubebuilder:validation:Nullable
-	Version       int64 `protobuf:"varint,8,opt,name=version,proto3" json:"version,omitempty"`
+	Version int64 `protobuf:"varint,8,opt,name=version,proto3" json:"version,omitempty"`
+	// Internationalized event name map keyed by locale (e.g., en, ko).
+	// Populated only for system-defined events; custom events return no entries.
+	//
+	// +kubebuilder:validation:Nullable
+	NameI18NMap   map[string]string `protobuf:"bytes,9,rep,name=name_i18n_map,json=nameI18nMap,proto3" json:"name_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -99,16 +105,16 @@ func (*Event) Descriptor() ([]byte, []int) {
 	return file_coreapi_model_event_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Event) GetId() string {
+func (x *Event) GetUserId() string {
 	if x != nil {
-		return x.Id
+		return x.UserId
 	}
 	return ""
 }
 
-func (x *Event) GetUserId() string {
+func (x *Event) GetId() string {
 	if x != nil {
-		return x.UserId
+		return x.Id
 	}
 	return ""
 }
@@ -155,16 +161,23 @@ func (x *Event) GetVersion() int64 {
 	return 0
 }
 
+func (x *Event) GetNameI18NMap() map[string]string {
+	if x != nil {
+		return x.NameI18NMap
+	}
+	return nil
+}
+
 var File_coreapi_model_event_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_event_proto_rawDesc = "" +
 	"\n" +
-	"\x19coreapi/model/event.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbb\x05\n" +
-	"\x05Event\x12]\n" +
-	"\x02id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12f\n" +
-	"\auser_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x06userId\x12l\n" +
+	"\x19coreapi/model/event.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc6\x06\n" +
+	"\x05Event\x12f\n" +
+	"\auser_id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x06userId\x12]\n" +
+	"\x02id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02id\x12l\n" +
 	"\n" +
 	"channel_id\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tchannelId\x12\xb1\x01\n" +
@@ -175,7 +188,11 @@ const file_coreapi_model_event_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x127\n" +
 	"\texpire_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\bexpireAt\x12\x18\n" +
-	"\aversion\x18\b \x01(\x03R\aversionBb\n" +
+	"\aversion\x18\b \x01(\x03R\aversion\x12I\n" +
+	"\rname_i18n_map\x18\t \x03(\v2%.coreapi.model.Event.NameI18nMapEntryR\vnameI18nMap\x1a>\n" +
+	"\x10NameI18nMapEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01Bb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -190,21 +207,23 @@ func file_coreapi_model_event_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_event_proto_rawDescData
 }
 
-var file_coreapi_model_event_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_coreapi_model_event_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_coreapi_model_event_proto_goTypes = []any{
 	(*Event)(nil),                 // 0: coreapi.model.Event
-	(*structpb.Struct)(nil),       // 1: google.protobuf.Struct
-	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	nil,                           // 1: coreapi.model.Event.NameI18nMapEntry
+	(*structpb.Struct)(nil),       // 2: google.protobuf.Struct
+	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_coreapi_model_event_proto_depIdxs = []int32{
-	1, // 0: coreapi.model.Event.property:type_name -> google.protobuf.Struct
-	2, // 1: coreapi.model.Event.created_at:type_name -> google.protobuf.Timestamp
-	2, // 2: coreapi.model.Event.expire_at:type_name -> google.protobuf.Timestamp
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	2, // 0: coreapi.model.Event.property:type_name -> google.protobuf.Struct
+	3, // 1: coreapi.model.Event.created_at:type_name -> google.protobuf.Timestamp
+	3, // 2: coreapi.model.Event.expire_at:type_name -> google.protobuf.Timestamp
+	1, // 3: coreapi.model.Event.name_i18n_map:type_name -> coreapi.model.Event.NameI18nMapEntry
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_event_proto_init() }
@@ -218,7 +237,7 @@ func file_coreapi_model_event_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_event_proto_rawDesc), len(file_coreapi_model_event_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

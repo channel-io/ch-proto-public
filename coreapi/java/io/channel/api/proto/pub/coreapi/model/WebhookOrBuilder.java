@@ -10,22 +10,20 @@ public interface WebhookOrBuilder extends
   /**
    * <pre>
    * Unique webhook identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   java.lang.String getId();
   /**
    * <pre>
    * Unique webhook identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
@@ -34,22 +32,20 @@ public interface WebhookOrBuilder extends
   /**
    * <pre>
    * Channel ID this webhook belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 2 [json_name = "channelId"];</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
   /**
    * <pre>
    * Channel ID this webhook belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 2 [json_name = "channelId"];</code>
    * @return The bytes for channelId.
    */
   com.google.protobuf.ByteString
@@ -57,10 +53,9 @@ public interface WebhookOrBuilder extends
 
   /**
    * <pre>
-   * Webhook display name.
+   * Display name of the webhook.
    * Unique within the channel.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -69,10 +64,9 @@ public interface WebhookOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Webhook display name.
+   * Display name of the webhook.
    * Unique within the channel.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -83,9 +77,8 @@ public interface WebhookOrBuilder extends
 
   /**
    * <pre>
-   * Destination URL that receives webhook payloads.
+   * Destination URL where event payloads are delivered via HTTP POST.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -94,9 +87,8 @@ public interface WebhookOrBuilder extends
   java.lang.String getUrl();
   /**
    * <pre>
-   * Destination URL that receives webhook payloads.
+   * Destination URL where event payloads are delivered via HTTP POST.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -107,23 +99,23 @@ public interface WebhookOrBuilder extends
 
   /**
    * <pre>
-   * Auto-generated HMAC token for verifying webhook payloads.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Secret token for verifying webhook payload signatures.
+   * Automatically generated on creation.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
+   * <code>string token = 5 [json_name = "token"];</code>
    * @return The token.
    */
   java.lang.String getToken();
   /**
    * <pre>
-   * Auto-generated HMAC token for verifying webhook payloads.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Secret token for verifying webhook payload signatures.
+   * Automatically generated on creation.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
+   * <code>string token = 5 [json_name = "token"];</code>
    * @return The bytes for token.
    */
   com.google.protobuf.ByteString
@@ -132,95 +124,85 @@ public interface WebhookOrBuilder extends
   /**
    * <pre>
    * Webhook creation timestamp.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt"];</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
   /**
    * <pre>
    * Webhook creation timestamp.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
   /**
    * <pre>
    * Webhook creation timestamp.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 
   /**
    * <pre>
    * Event scopes that trigger this webhook.
+   * Only events matching at least one of these scopes will be delivered.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
    * @return A list containing the scopes.
    */
-  java.util.List<io.channel.api.proto.pub.coreapi.model.WebhookScope> getScopesList();
+  java.util.List<java.lang.String>
+      getScopesList();
   /**
    * <pre>
    * Event scopes that trigger this webhook.
+   * Only events matching at least one of these scopes will be delivered.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
    * @return The count of scopes.
    */
   int getScopesCount();
   /**
    * <pre>
    * Event scopes that trigger this webhook.
+   * Only events matching at least one of these scopes will be delivered.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
    * @param index The index of the element to return.
    * @return The scopes at the given index.
    */
-  io.channel.api.proto.pub.coreapi.model.WebhookScope getScopes(int index);
+  java.lang.String getScopes(int index);
   /**
    * <pre>
    * Event scopes that trigger this webhook.
+   * Only events matching at least one of these scopes will be delivered.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
-   * @return A list containing the enum numeric values on the wire for scopes.
-   */
-  java.util.List<java.lang.Integer>
-  getScopesValueList();
-  /**
-   * <pre>
-   * Event scopes that trigger this webhook.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinItems=1
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
    * @param index The index of the value to return.
-   * @return The enum numeric value on the wire of scopes at the given index.
+   * @return The bytes of the scopes at the given index.
    */
-  int getScopesValue(int index);
+  com.google.protobuf.ByteString
+      getScopesBytes(int index);
 
   /**
    * <pre>
-   * API version for webhook payloads.
+   * API version that determines the webhook payload format ("v4" or "v5").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:Enum={"v4","v5"}
    * </pre>
@@ -231,7 +213,7 @@ public interface WebhookOrBuilder extends
   java.lang.String getApiVersion();
   /**
    * <pre>
-   * API version for webhook payloads.
+   * API version that determines the webhook payload format ("v4" or "v5").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:Enum={"v4","v5"}
    * </pre>
@@ -244,7 +226,8 @@ public interface WebhookOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the webhook was last blocked due to consecutive failures.
+   * Timestamp when the webhook was last blocked due to consecutive
+   * delivery failures.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -254,7 +237,8 @@ public interface WebhookOrBuilder extends
   boolean hasLastBlockedAt();
   /**
    * <pre>
-   * Timestamp when the webhook was last blocked due to consecutive failures.
+   * Timestamp when the webhook was last blocked due to consecutive
+   * delivery failures.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -264,7 +248,8 @@ public interface WebhookOrBuilder extends
   com.google.protobuf.Timestamp getLastBlockedAt();
   /**
    * <pre>
-   * Timestamp when the webhook was last blocked due to consecutive failures.
+   * Timestamp when the webhook was last blocked due to consecutive
+   * delivery failures.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -274,7 +259,9 @@ public interface WebhookOrBuilder extends
 
   /**
    * <pre>
-   * Whether the webhook is currently blocked due to excessive delivery failures.
+   * Whether the webhook is currently blocked.
+   * A webhook becomes blocked after exceeding the consecutive failure
+   * threshold and stops receiving event deliveries until re-enabled.
    * +kubebuilder:validation:Nullable
    * </pre>
    *

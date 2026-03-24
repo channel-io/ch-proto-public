@@ -4,8 +4,7 @@ package coreapi.model;
 
 import "buf/validate/validate.proto";
 import "coreapi/model/app_segment.proto";
-import "coreapi/model/medium_type.proto";
-import "google/protobuf/duration.proto";
+import "coreapi/model/campaign.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -13,16 +12,17 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// Lifecycle state of a one-time message.
+// One-time message lifecycle state.
 enum OneTimeMsgState {
   ONE_TIME_MSG_STATE_UNSPECIFIED = 0;
   ONE_TIME_MSG_STATE_DRAFT = 1;
-  ONE_TIME_MSG_STATE_ACTIVE = 2;
+  ONE_TIME_MSG_STATE_WAITING = 2;
   ONE_TIME_MSG_STATE_SENT = 3;
-  ONE_TIME_MSG_STATE_STOPPED = 4;
+  ONE_TIME_MSG_STATE_CANCELED = 4;
+  ONE_TIME_MSG_STATE_REMOVED = 5;
 }
 
-// Delivery timing mode for a one-time message.
+// Send mode for one-time messages.
 enum OneTimeMsgSendMode {
   ONE_TIME_MSG_SEND_MODE_UNSPECIFIED = 0;
   ONE_TIME_MSG_SEND_MODE_IMMEDIATELY = 1;
@@ -30,7 +30,7 @@ enum OneTimeMsgSendMode {
   ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_RECEIVER_TIME = 3;
 }
 
-// OneTimeMsg represents a one-time message that is sent to targeted users once.
+// OneTimeMsg represents a one-time marketing message sent to a targeted user segment.
 message OneTimeMsg {
   // Unique one-time message identifier.
   //
@@ -58,7 +58,7 @@ message OneTimeMsg {
     (buf.validate.field).required = true
   ];
 
-  // Display name of the one-time message.
+  // Human-readable label for the one-time message.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -77,63 +77,113 @@ message OneTimeMsg {
     (buf.validate.field).required = true
   ];
 
-  // Current lifecycle state.
+  // Current lifecycle state of the one-time message.
   //
   // +kubebuilder:validation:Required
   OneTimeMsgState state = 4 [(buf.validate.field).required = true];
 
-  // Delivery configuration specific to the chosen medium type.
+  // Controls when the message is delivered.
+  // Automatically inferred from start_at and local_start_at if not explicitly set.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Struct settings = 12;
+  OneTimeMsgSendMode send_mode = 5;
 
-  // User targeting query for audience filtering.
+  // Channel operation schedule referenced for delivery timing.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Struct user_query = 13;
+  string channel_operation_id = 6;
 
-  // Name of the event tracked as a conversion goal.
+  // Channel through which the message is delivered.
+  // Cannot be changed after creation.
+  //
+  // +kubebuilder:validation:Required
+  MediumType medium_type = 7 [(buf.validate.field).required = true];
+
+  // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+  //
+  // +kubebuilder:validation:Nullable
+  string medium_id = 8;
+
+  // Key for selecting the message topic template within the medium.
+  //
+  // +kubebuilder:validation:Nullable
+  string medium_topic_build_key = 9;
+
+  // Labels for categorizing the message topic within the medium.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated string medium_topic_build_labels = 10;
+
+  // Message content and medium-specific delivery configuration.
+  // Structure varies by medium_type.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct settings = 11;
+
+  // Query expression that defines the target user segment.
+  // Represented as a structured filter object.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Struct user_query = 12;
+
+  // App-defined user segments used alongside user_query for targeting.
+  //
+  // +kubebuilder:validation:Nullable
+  repeated coreapi.model.AppSegment app_segments = 13;
+
+  // Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
+  // Defines how long after delivery each conversion event is counted.
+  //
+  // +kubebuilder:validation:Nullable
+  map<string, string> conversion_windows = 14;
+
+  // Name of the event that counts as a goal completion.
   //
   // +kubebuilder:validation:Nullable
   string goal_event_name = 15;
 
-  // Filtering query for the goal event.
+  // Query expression to filter goal events by their properties.
+  // Represented as a structured filter object. Applicable when goal_event_name is set.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Struct goal_event_query = 16;
 
-  // Duration window for goal event tracking.
-  // Valid range is 1 to 30 days. Defaults to 7 days.
+  // Time window for attributing goal events after delivery, in ISO 8601 duration format.
+  // Between 1 and 30 days. Defaults to 7 days.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Duration goal_event_duration = 17 [(buf.validate.field).cel = {
-    id: "duration.range"
-    message: "value must be between 1 and 30 days"
-    expression: "this == duration('0s') || (this >= duration('86400s') && this <= duration('2592000s'))"
-  }];
+  // +kubebuilder:example="PT23H50M"
+  string goal_event_duration = 17;
 
-  // Whether this message contains advertising content.
+  // Whether the message contains advertising content subject to opt-out regulations.
   //
-  // +kubebuilder:validation:Nullable
-  bool advertising = 18;
+  // +kubebuilder:validation:Required
+  bool advertising = 18 [(buf.validate.field).required = true];
 
-  // Whether to send via XMS (SMS/LMS/MMS) to offline users.
+  // Whether to fall back to XMS (text message) delivery when the user is offline.
   //
   // +kubebuilder:validation:Nullable
   bool send_to_offline_xms = 19;
 
-  // Whether to send via email to offline users.
+  // Whether to fall back to email delivery when the user is offline.
   //
   // +kubebuilder:validation:Nullable
   bool send_to_offline_email = 20;
 
-  // Scheduled send time in UTC.
+  // Scheduled send timestamp in UTC.
   // Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp start_at = 21;
 
-  // Draft snapshot of the message saved before activation.
+  // Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
+  // Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
+  //
+  // +kubebuilder:validation:Nullable
+  string local_start_at = 22;
+
+  // Snapshot of the message configuration captured before sending.
+  // Represented as a free-form JSON object.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Struct draft = 23;
@@ -148,80 +198,30 @@ message OneTimeMsg {
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp updated_at = 25 [(buf.validate.field).required = true];
 
-  // Total number of messages sent.
+  // Cumulative count of messages delivered.
   //
   // +kubebuilder:validation:Nullable
   int32 sent = 26;
 
-  // Total number of message views.
+  // Cumulative count of message views by recipients.
   //
   // +kubebuilder:validation:Nullable
   int32 view = 27;
 
-  // Total number of goal conversions achieved.
+  // Cumulative count of goal event completions attributed to this message.
   //
   // +kubebuilder:validation:Nullable
   int32 goal = 28;
 
-  // Total number of message link clicks.
+  // Cumulative count of message link clicks.
   //
   // +kubebuilder:validation:Nullable
   int32 click = 29;
 
-  // Duration after which the user chat created by this message expires.
+  // Duration before the user chat created by this message expires, in ISO 8601 format.
   // Defaults to 31 days.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Duration user_chat_expire_duration = 30;
-
-  // Delivery medium type identifier.
-  //
-  // +kubebuilder:validation:Nullable
-  string send_medium = 32;
-
-  // Delivery timing mode.
-  //
-  // +kubebuilder:validation:Nullable
-  OneTimeMsgSendMode send_mode = 33;
-
-  // Channel operation ID for business hours scheduling.
-  //
-  // +kubebuilder:validation:Nullable
-  string channel_operation_id = 34;
-
-  // Delivery medium type.
-  //
-  // +kubebuilder:validation:Nullable
-  MediumType medium_type = 35;
-
-  // Identifier of the specific medium instance.
-  //
-  // +kubebuilder:validation:Nullable
-  string medium_id = 36;
-
-  // Key for selecting the message topic template within the medium.
-  //
-  // +kubebuilder:validation:Nullable
-  string medium_topic_build_key = 37;
-
-  // Labels for categorizing the message topic within the medium.
-  //
-  // +kubebuilder:validation:Nullable
-  repeated string medium_topic_build_labels = 38;
-
-  // Conversion tracking windows keyed by feature name.
-  //
-  // +kubebuilder:validation:Nullable
-  map<string, google.protobuf.Duration> conversion_windows = 39;
-
-  // Scheduled send time in receiver's local timezone.
-  // ISO 8601 date-time without timezone offset.
-  //
-  // +kubebuilder:validation:Nullable
-  string local_start_at = 40;
-
-  // App segments for user targeting.
-  //
-  // +kubebuilder:validation:Nullable
-  repeated coreapi.model.AppSegment app_segments = 41;
+  // +kubebuilder:example="PT23H50M"
+  string user_chat_expire_duration = 30;
 }

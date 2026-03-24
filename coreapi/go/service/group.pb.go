@@ -12,6 +12,7 @@ import (
 	model "github.com/channel-io/ch-proto-public/coreapi/go/model"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -1049,7 +1050,7 @@ type CreateGroupMessageRequest struct {
 	// Message content to send.
 	//
 	// +kubebuilder:validation:Required
-	Content *model.MessageContent `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
+	Content *structpb.Struct `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
 	// Name of the bot sending the message.
 	//
 	// +kubebuilder:validation:Nullable
@@ -1108,7 +1109,7 @@ func (x *CreateGroupMessageRequest) GetGroupId() string {
 	return ""
 }
 
-func (x *CreateGroupMessageRequest) GetContent() *model.MessageContent {
+func (x *CreateGroupMessageRequest) GetContent() *structpb.Struct {
 	if x != nil {
 		return x.Content
 	}
@@ -1677,7 +1678,7 @@ type CreateGroupThreadMessageRequest struct {
 	// Root message ID of the thread.
 	MessageId string `protobuf:"bytes,3,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty"`
 	// Message content to send.
-	Content *model.MessageContent `protobuf:"bytes,4,opt,name=content,proto3" json:"content,omitempty"`
+	Content *structpb.Struct `protobuf:"bytes,4,opt,name=content,proto3" json:"content,omitempty"`
 	// Bot name to use as the message author.
 	//
 	// +kubebuilder:validation:Nullable
@@ -1747,7 +1748,7 @@ func (x *CreateGroupThreadMessageRequest) GetMessageId() string {
 	return ""
 }
 
-func (x *CreateGroupThreadMessageRequest) GetContent() *model.MessageContent {
+func (x *CreateGroupThreadMessageRequest) GetContent() *structpb.Struct {
 	if x != nil {
 		return x.Content
 	}
@@ -1824,7 +1825,7 @@ var File_coreapi_service_group_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_group_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/service/group.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x19coreapi/model/group.proto\x1a\x1bcoreapi/model/message.proto\x1a#coreapi/model/message_content.proto\"\xcb\x01\n" +
+	"\x1bcoreapi/service/group.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x19coreapi/model/group.proto\x1a\x1bcoreapi/model/message.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xcb\x01\n" +
 	"\x13SearchGroupsRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x16\n" +
@@ -1911,12 +1912,12 @@ const file_coreapi_service_group_proto_rawDesc = "" +
 	"\bmessages\x18\x01 \x03(\v2\x16.coreapi.model.MessageR\bmessages\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xd2\x02\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xcc\x02\n" +
 	"\x19CreateGroupMessageRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12!\n" +
-	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\x12?\n" +
-	"\acontent\x18\x03 \x01(\v2\x1d.coreapi.model.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12\x8a\x01\n" +
+	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\x129\n" +
+	"\acontent\x18\x03 \x01(\v2\x17.google.protobuf.StructB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12\x8a\x01\n" +
 	"\bbot_name\x18\x04 \x01(\tBo\xbaHl\xba\x01Y\n" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x1ethis == '' || size(this) <= 30r\x0e2\f^[^@#$%:/]+$R\abotName\x12\x1d\n" +
 	"\n" +
@@ -1961,14 +1962,14 @@ const file_coreapi_service_group_proto_rawDesc = "" +
 	"\bmessages\x18\x01 \x03(\v2\x16.coreapi.model.MessageR\bmessages\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\x8e\x03\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\x88\x03\n" +
 	"\x1fCreateGroupThreadMessageRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12!\n" +
 	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\x12%\n" +
 	"\n" +
-	"message_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tmessageId\x12?\n" +
-	"\acontent\x18\x04 \x01(\v2\x1d.coreapi.model.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12|\n" +
+	"message_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tmessageId\x129\n" +
+	"\acontent\x18\x04 \x01(\v2\x17.google.protobuf.StructB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12|\n" +
 	"\bbot_name\x18\x05 \x01(\tBa\xbaH^\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30r\x0e2\f^[^@#$%:/]+$R\abotName\x12\x1c\n" +
 	"\tbroadcast\x18\x06 \x01(\bR\tbroadcast\x12\x1d\n" +
@@ -2024,7 +2025,7 @@ var file_coreapi_service_group_proto_goTypes = []any{
 	(model.GroupScope)(0),                    // 29: coreapi.model.GroupScope
 	(common.SortOrder)(0),                    // 30: coreapi.common.SortOrder
 	(*model.Message)(nil),                    // 31: coreapi.model.Message
-	(*model.MessageContent)(nil),             // 32: coreapi.model.MessageContent
+	(*structpb.Struct)(nil),                  // 32: google.protobuf.Struct
 }
 var file_coreapi_service_group_proto_depIdxs = []int32{
 	26, // 0: coreapi.service.SearchGroupsResult.groups:type_name -> coreapi.model.Group
@@ -2041,13 +2042,13 @@ var file_coreapi_service_group_proto_depIdxs = []int32{
 	28, // 11: coreapi.service.SearchGroupSessionsResult.chat_sessions:type_name -> coreapi.model.ChatSession
 	30, // 12: coreapi.service.SearchGroupMessagesRequest.sort_order:type_name -> coreapi.common.SortOrder
 	31, // 13: coreapi.service.SearchGroupMessagesResult.messages:type_name -> coreapi.model.Message
-	32, // 14: coreapi.service.CreateGroupMessageRequest.content:type_name -> coreapi.model.MessageContent
+	32, // 14: coreapi.service.CreateGroupMessageRequest.content:type_name -> google.protobuf.Struct
 	31, // 15: coreapi.service.CreateGroupMessageResult.message:type_name -> coreapi.model.Message
 	31, // 16: coreapi.service.GetGroupThreadResult.message:type_name -> coreapi.model.Message
 	31, // 17: coreapi.service.CreateGroupThreadResult.message:type_name -> coreapi.model.Message
 	30, // 18: coreapi.service.SearchGroupThreadMessagesRequest.sort_order:type_name -> coreapi.common.SortOrder
 	31, // 19: coreapi.service.SearchGroupThreadMessagesResult.messages:type_name -> coreapi.model.Message
-	32, // 20: coreapi.service.CreateGroupThreadMessageRequest.content:type_name -> coreapi.model.MessageContent
+	32, // 20: coreapi.service.CreateGroupThreadMessageRequest.content:type_name -> google.protobuf.Struct
 	31, // 21: coreapi.service.CreateGroupThreadMessageResult.message:type_name -> coreapi.model.Message
 	22, // [22:22] is the sub-list for method output_type
 	22, // [22:22] is the sub-list for method input_type

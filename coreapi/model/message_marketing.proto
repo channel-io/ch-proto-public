@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package coreapi.model;
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.model";
+
+// MessageMarketing represents marketing campaign metadata attached to a user chat message,
+// tracking the origin campaign and its delivery settings.
+message MessageMarketing {
+  // Marketing source type: "campaign" for automated campaigns or "oneTimeMsg" for one-time messages.
+  //
+  // +kubebuilder:validation:Nullable
+  string type = 1;
+
+  // Identifier of the originating campaign or one-time message.
+  //
+  // +kubebuilder:validation:Nullable
+  string id = 2;
+
+  // Whether this message is classified as advertising content subject to opt-out regulations.
+  //
+  // +kubebuilder:validation:Nullable
+  bool advertising = 3;
+
+  // Whether to deliver via SMS/LMS/MMS as a fallback when the user is offline.
+  //
+  // +kubebuilder:validation:Nullable
+  bool send_to_offline_xms = 4;
+
+  // Whether to deliver via email as a fallback when the user is offline.
+  //
+  // +kubebuilder:validation:Nullable
+  bool send_to_offline_email = 5;
+
+  // In-app display mode for the marketing message.
+  //
+  // +kubebuilder:validation:Nullable
+  ExposureType exposure_type = 6;
+
+  // Clickthrough URL for the marketing image.
+  // Present only when the message includes an in-app image with a link.
+  //
+  // +kubebuilder:validation:Nullable
+  string image_link_url = 7;
+
+  // In-app display mode for marketing messages.
+  enum ExposureType {
+    EXPOSURE_TYPE_UNSPECIFIED = 0;
+    // Renders as a full-screen overlay.
+    EXPOSURE_TYPE_FULL_SCREEN = 1;
+  }
+}

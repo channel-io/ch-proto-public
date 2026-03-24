@@ -5,8 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * ChatBookmark represents a participant's reading position in a chat.
- * Tracks the last-read location per person within a specific chat context.
+ * ChatBookmark represents a bookmark placed by a person on a chat conversation,
+ * allowing quick access to frequently visited chats.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.ChatBookmark}
@@ -26,9 +26,9 @@ private static final long serialVersionUID = 0L;
     chatKey_ = "";
     bookmarkKey_ = "";
     channelId_ = "";
+    chatType_ = "";
     personType_ = "";
     personId_ = "";
-    chatType_ = "";
   }
 
   @java.lang.Override
@@ -93,25 +93,25 @@ private static final long serialVersionUID = 0L;
           }
           case 48: {
 
-            version_ = input.readInt32();
+            version_ = input.readInt64();
             break;
           }
           case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            personType_ = s;
+            chatType_ = s;
             break;
           }
           case 66: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            personId_ = s;
+            personType_ = s;
             break;
           }
           case 74: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            chatType_ = s;
+            personId_ = s;
             break;
           }
           default: {
@@ -150,7 +150,8 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object key_;
   /**
    * <pre>
-   * Unique bookmark identifier.
+   * Composite partition key identifying the person and chat type scope.
+   * Format: "{personType}-{personId}-{chatType}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -173,7 +174,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Unique bookmark identifier.
+   * Composite partition key identifying the person and chat type scope.
+   * Format: "{personType}-{personId}-{chatType}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -200,7 +202,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object chatId_;
   /**
    * <pre>
-   * Chat ID this bookmark belongs to.
+   * Chat ID of the bookmarked conversation.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -223,7 +225,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Chat ID this bookmark belongs to.
+   * Chat ID of the bookmarked conversation.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -250,12 +252,13 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object chatKey_;
   /**
    * <pre>
-   * Composite key for the associated chat.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Composite key identifying the bookmarked conversation.
+   * Format: "{chatType}-{chatId}".
+   * Enables reverse lookup of all people who bookmarked a given chat.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_key = 3 [json_name = "chatKey"];</code>
    * @return The chatKey.
    */
   @java.lang.Override
@@ -273,12 +276,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Composite key for the associated chat.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Composite key identifying the bookmarked conversation.
+   * Format: "{chatType}-{chatId}".
+   * Enables reverse lookup of all people who bookmarked a given chat.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_key = 3 [json_name = "chatKey"];</code>
    * @return The bytes for chatKey.
    */
   @java.lang.Override
@@ -300,12 +304,11 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object bookmarkKey_;
   /**
    * <pre>
-   * Opaque key representing the reading position in the chat.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Opaque sort key for ordering bookmarks within the person's list.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
+   * <code>string bookmark_key = 4 [json_name = "bookmarkKey"];</code>
    * @return The bookmarkKey.
    */
   @java.lang.Override
@@ -323,12 +326,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Opaque key representing the reading position in the chat.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Opaque sort key for ordering bookmarks within the person's list.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
+   * <code>string bookmark_key = 4 [json_name = "bookmarkKey"];</code>
    * @return The bytes for bookmarkKey.
    */
   @java.lang.Override
@@ -351,11 +353,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this bookmark belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 5 [json_name = "channelId"];</code>
    * @return The channelId.
    */
   @java.lang.Override
@@ -374,11 +375,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this bookmark belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 5 [json_name = "channelId"];</code>
    * @return The bytes for channelId.
    */
   @java.lang.Override
@@ -397,130 +397,32 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSION_FIELD_NUMBER = 6;
-  private int version_;
+  private long version_;
   /**
    * <pre>
-   * Entity version number for optimistic concurrency control.
+   * Optimistic locking version.
+   * Incremented on every update.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>int32 version = 6 [json_name = "version"];</code>
+   * <code>int64 version = 6 [json_name = "version"];</code>
    * @return The version.
    */
   @java.lang.Override
-  public int getVersion() {
+  public long getVersion() {
     return version_;
   }
 
-  public static final int PERSON_TYPE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object personType_;
-  /**
-   * <pre>
-   * Type of the bookmark owner (e.g. "manager").
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-   * @return The personType.
-   */
-  @java.lang.Override
-  public java.lang.String getPersonType() {
-    java.lang.Object ref = personType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      personType_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Type of the bookmark owner (e.g. "manager").
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for personType.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getPersonTypeBytes() {
-    java.lang.Object ref = personType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      personType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int PERSON_ID_FIELD_NUMBER = 8;
-  private volatile java.lang.Object personId_;
-  /**
-   * <pre>
-   * Identifier of the bookmark owner.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
-   * @return The personId.
-   */
-  @java.lang.Override
-  public java.lang.String getPersonId() {
-    java.lang.Object ref = personId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      personId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Identifier of the bookmark owner.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for personId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getPersonIdBytes() {
-    java.lang.Object ref = personId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      personId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int CHAT_TYPE_FIELD_NUMBER = 9;
+  public static final int CHAT_TYPE_FIELD_NUMBER = 7;
   private volatile java.lang.Object chatType_;
   /**
    * <pre>
-   * Chat type this bookmark belongs to (e.g. "group", "userChat").
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Chat type of the bookmarked conversation (e.g., "userChat", "group", "directChat").
+   * Derived from the third segment of the bookmark key.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_type = 7 [json_name = "chatType"];</code>
    * @return The chatType.
    */
   @java.lang.Override
@@ -538,12 +440,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Chat type this bookmark belongs to (e.g. "group", "userChat").
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Chat type of the bookmarked conversation (e.g., "userChat", "group", "directChat").
+   * Derived from the third segment of the bookmark key.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_type = 7 [json_name = "chatType"];</code>
    * @return The bytes for chatType.
    */
   @java.lang.Override
@@ -555,6 +457,106 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       chatType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PERSON_TYPE_FIELD_NUMBER = 8;
+  private volatile java.lang.Object personType_;
+  /**
+   * <pre>
+   * Entity type of the person who created the bookmark (e.g., "manager", "user").
+   * Derived from the first segment of the bookmark key.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string person_type = 8 [json_name = "personType"];</code>
+   * @return The personType.
+   */
+  @java.lang.Override
+  public java.lang.String getPersonType() {
+    java.lang.Object ref = personType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      personType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Entity type of the person who created the bookmark (e.g., "manager", "user").
+   * Derived from the first segment of the bookmark key.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string person_type = 8 [json_name = "personType"];</code>
+   * @return The bytes for personType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPersonTypeBytes() {
+    java.lang.Object ref = personType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      personType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PERSON_ID_FIELD_NUMBER = 9;
+  private volatile java.lang.Object personId_;
+  /**
+   * <pre>
+   * Entity ID of the person who created the bookmark.
+   * Derived from the second segment of the bookmark key.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string person_id = 9 [json_name = "personId"];</code>
+   * @return The personId.
+   */
+  @java.lang.Override
+  public java.lang.String getPersonId() {
+    java.lang.Object ref = personId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      personId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Entity ID of the person who created the bookmark.
+   * Derived from the second segment of the bookmark key.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string person_id = 9 [json_name = "personId"];</code>
+   * @return The bytes for personId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPersonIdBytes() {
+    java.lang.Object ref = personId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      personId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -590,17 +592,17 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, channelId_);
     }
-    if (version_ != 0) {
-      output.writeInt32(6, version_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, personType_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, personId_);
+    if (version_ != 0L) {
+      output.writeInt64(6, version_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, chatType_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, chatType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, personType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, personId_);
     }
     unknownFields.writeTo(output);
   }
@@ -626,18 +628,18 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, channelId_);
     }
-    if (version_ != 0) {
+    if (version_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(6, version_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, personType_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, personId_);
+        .computeInt64Size(6, version_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, chatType_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, chatType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, personType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, personId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -666,12 +668,12 @@ private static final long serialVersionUID = 0L;
         .equals(other.getChannelId())) return false;
     if (getVersion()
         != other.getVersion()) return false;
+    if (!getChatType()
+        .equals(other.getChatType())) return false;
     if (!getPersonType()
         .equals(other.getPersonType())) return false;
     if (!getPersonId()
         .equals(other.getPersonId())) return false;
-    if (!getChatType()
-        .equals(other.getChatType())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -694,13 +696,14 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChannelId().hashCode();
     hash = (37 * hash) + VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + getVersion();
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getVersion());
+    hash = (37 * hash) + CHAT_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getChatType().hashCode();
     hash = (37 * hash) + PERSON_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getPersonType().hashCode();
     hash = (37 * hash) + PERSON_ID_FIELD_NUMBER;
     hash = (53 * hash) + getPersonId().hashCode();
-    hash = (37 * hash) + CHAT_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getChatType().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -798,8 +801,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * ChatBookmark represents a participant's reading position in a chat.
-   * Tracks the last-read location per person within a specific chat context.
+   * ChatBookmark represents a bookmark placed by a person on a chat conversation,
+   * allowing quick access to frequently visited chats.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.ChatBookmark}
@@ -849,13 +852,13 @@ private static final long serialVersionUID = 0L;
 
       channelId_ = "";
 
-      version_ = 0;
+      version_ = 0L;
+
+      chatType_ = "";
 
       personType_ = "";
 
       personId_ = "";
-
-      chatType_ = "";
 
       return this;
     }
@@ -889,9 +892,9 @@ private static final long serialVersionUID = 0L;
       result.bookmarkKey_ = bookmarkKey_;
       result.channelId_ = channelId_;
       result.version_ = version_;
+      result.chatType_ = chatType_;
       result.personType_ = personType_;
       result.personId_ = personId_;
-      result.chatType_ = chatType_;
       onBuilt();
       return result;
     }
@@ -960,8 +963,12 @@ private static final long serialVersionUID = 0L;
         channelId_ = other.channelId_;
         onChanged();
       }
-      if (other.getVersion() != 0) {
+      if (other.getVersion() != 0L) {
         setVersion(other.getVersion());
+      }
+      if (!other.getChatType().isEmpty()) {
+        chatType_ = other.chatType_;
+        onChanged();
       }
       if (!other.getPersonType().isEmpty()) {
         personType_ = other.personType_;
@@ -969,10 +976,6 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPersonId().isEmpty()) {
         personId_ = other.personId_;
-        onChanged();
-      }
-      if (!other.getChatType().isEmpty()) {
-        chatType_ = other.chatType_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1007,7 +1010,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object key_ = "";
     /**
      * <pre>
-     * Unique bookmark identifier.
+     * Composite partition key identifying the person and chat type scope.
+     * Format: "{personType}-{personId}-{chatType}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1029,7 +1033,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique bookmark identifier.
+     * Composite partition key identifying the person and chat type scope.
+     * Format: "{personType}-{personId}-{chatType}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1052,7 +1057,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique bookmark identifier.
+     * Composite partition key identifying the person and chat type scope.
+     * Format: "{personType}-{personId}-{chatType}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1073,7 +1079,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique bookmark identifier.
+     * Composite partition key identifying the person and chat type scope.
+     * Format: "{personType}-{personId}-{chatType}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1089,7 +1096,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique bookmark identifier.
+     * Composite partition key identifying the person and chat type scope.
+     * Format: "{personType}-{personId}-{chatType}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1113,7 +1121,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object chatId_ = "";
     /**
      * <pre>
-     * Chat ID this bookmark belongs to.
+     * Chat ID of the bookmarked conversation.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1135,7 +1143,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat ID this bookmark belongs to.
+     * Chat ID of the bookmarked conversation.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1158,7 +1166,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat ID this bookmark belongs to.
+     * Chat ID of the bookmarked conversation.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1179,7 +1187,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat ID this bookmark belongs to.
+     * Chat ID of the bookmarked conversation.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1195,7 +1203,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat ID this bookmark belongs to.
+     * Chat ID of the bookmarked conversation.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1219,12 +1227,13 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object chatKey_ = "";
     /**
      * <pre>
-     * Composite key for the associated chat.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Composite key identifying the bookmarked conversation.
+     * Format: "{chatType}-{chatId}".
+     * Enables reverse lookup of all people who bookmarked a given chat.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_key = 3 [json_name = "chatKey"];</code>
      * @return The chatKey.
      */
     public java.lang.String getChatKey() {
@@ -1241,12 +1250,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Composite key for the associated chat.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Composite key identifying the bookmarked conversation.
+     * Format: "{chatType}-{chatId}".
+     * Enables reverse lookup of all people who bookmarked a given chat.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_key = 3 [json_name = "chatKey"];</code>
      * @return The bytes for chatKey.
      */
     public com.google.protobuf.ByteString
@@ -1264,12 +1274,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Composite key for the associated chat.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Composite key identifying the bookmarked conversation.
+     * Format: "{chatType}-{chatId}".
+     * Enables reverse lookup of all people who bookmarked a given chat.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_key = 3 [json_name = "chatKey"];</code>
      * @param value The chatKey to set.
      * @return This builder for chaining.
      */
@@ -1285,12 +1296,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Composite key for the associated chat.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Composite key identifying the bookmarked conversation.
+     * Format: "{chatType}-{chatId}".
+     * Enables reverse lookup of all people who bookmarked a given chat.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_key = 3 [json_name = "chatKey"];</code>
      * @return This builder for chaining.
      */
     public Builder clearChatKey() {
@@ -1301,12 +1313,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Composite key for the associated chat.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Composite key identifying the bookmarked conversation.
+     * Format: "{chatType}-{chatId}".
+     * Enables reverse lookup of all people who bookmarked a given chat.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+     * <code>string chat_key = 3 [json_name = "chatKey"];</code>
      * @param value The bytes for chatKey to set.
      * @return This builder for chaining.
      */
@@ -1325,12 +1338,11 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object bookmarkKey_ = "";
     /**
      * <pre>
-     * Opaque key representing the reading position in the chat.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Opaque sort key for ordering bookmarks within the person's list.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
+     * <code>string bookmark_key = 4 [json_name = "bookmarkKey"];</code>
      * @return The bookmarkKey.
      */
     public java.lang.String getBookmarkKey() {
@@ -1347,12 +1359,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Opaque key representing the reading position in the chat.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Opaque sort key for ordering bookmarks within the person's list.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
+     * <code>string bookmark_key = 4 [json_name = "bookmarkKey"];</code>
      * @return The bytes for bookmarkKey.
      */
     public com.google.protobuf.ByteString
@@ -1370,12 +1381,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Opaque key representing the reading position in the chat.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Opaque sort key for ordering bookmarks within the person's list.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
+     * <code>string bookmark_key = 4 [json_name = "bookmarkKey"];</code>
      * @param value The bookmarkKey to set.
      * @return This builder for chaining.
      */
@@ -1391,12 +1401,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Opaque key representing the reading position in the chat.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Opaque sort key for ordering bookmarks within the person's list.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
+     * <code>string bookmark_key = 4 [json_name = "bookmarkKey"];</code>
      * @return This builder for chaining.
      */
     public Builder clearBookmarkKey() {
@@ -1407,12 +1416,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Opaque key representing the reading position in the chat.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Opaque sort key for ordering bookmarks within the person's list.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
+     * <code>string bookmark_key = 4 [json_name = "bookmarkKey"];</code>
      * @param value The bytes for bookmarkKey to set.
      * @return This builder for chaining.
      */
@@ -1432,11 +1440,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this bookmark belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 5 [json_name = "channelId"];</code>
      * @return The channelId.
      */
     public java.lang.String getChannelId() {
@@ -1454,11 +1461,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this bookmark belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 5 [json_name = "channelId"];</code>
      * @return The bytes for channelId.
      */
     public com.google.protobuf.ByteString
@@ -1477,11 +1483,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this bookmark belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 5 [json_name = "channelId"];</code>
      * @param value The channelId to set.
      * @return This builder for chaining.
      */
@@ -1498,11 +1503,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this bookmark belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 5 [json_name = "channelId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearChannelId() {
@@ -1514,11 +1518,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this bookmark belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 5 [json_name = "channelId"];</code>
      * @param value The bytes for channelId to set.
      * @return This builder for chaining.
      */
@@ -1534,29 +1537,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int version_ ;
+    private long version_ ;
     /**
      * <pre>
-     * Entity version number for optimistic concurrency control.
+     * Optimistic locking version.
+     * Incremented on every update.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 version = 6 [json_name = "version"];</code>
+     * <code>int64 version = 6 [json_name = "version"];</code>
      * @return The version.
      */
     @java.lang.Override
-    public int getVersion() {
+    public long getVersion() {
       return version_;
     }
     /**
      * <pre>
-     * Entity version number for optimistic concurrency control.
+     * Optimistic locking version.
+     * Incremented on every update.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 version = 6 [json_name = "version"];</code>
+     * <code>int64 version = 6 [json_name = "version"];</code>
      * @param value The version to set.
      * @return This builder for chaining.
      */
-    public Builder setVersion(int value) {
+    public Builder setVersion(long value) {
       
       version_ = value;
       onChanged();
@@ -1564,15 +1571,123 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity version number for optimistic concurrency control.
+     * Optimistic locking version.
+     * Incremented on every update.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 version = 6 [json_name = "version"];</code>
+     * <code>int64 version = 6 [json_name = "version"];</code>
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
       
-      version_ = 0;
+      version_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object chatType_ = "";
+    /**
+     * <pre>
+     * Chat type of the bookmarked conversation (e.g., "userChat", "group", "directChat").
+     * Derived from the third segment of the bookmark key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 7 [json_name = "chatType"];</code>
+     * @return The chatType.
+     */
+    public java.lang.String getChatType() {
+      java.lang.Object ref = chatType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        chatType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Chat type of the bookmarked conversation (e.g., "userChat", "group", "directChat").
+     * Derived from the third segment of the bookmark key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 7 [json_name = "chatType"];</code>
+     * @return The bytes for chatType.
+     */
+    public com.google.protobuf.ByteString
+        getChatTypeBytes() {
+      java.lang.Object ref = chatType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        chatType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Chat type of the bookmarked conversation (e.g., "userChat", "group", "directChat").
+     * Derived from the third segment of the bookmark key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 7 [json_name = "chatType"];</code>
+     * @param value The chatType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      chatType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat type of the bookmarked conversation (e.g., "userChat", "group", "directChat").
+     * Derived from the third segment of the bookmark key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 7 [json_name = "chatType"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChatType() {
+      
+      chatType_ = getDefaultInstance().getChatType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat type of the bookmarked conversation (e.g., "userChat", "group", "directChat").
+     * Derived from the third segment of the bookmark key.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string chat_type = 7 [json_name = "chatType"];</code>
+     * @param value The bytes for chatType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      chatType_ = value;
       onChanged();
       return this;
     }
@@ -1580,12 +1695,12 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object personType_ = "";
     /**
      * <pre>
-     * Type of the bookmark owner (e.g. "manager").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Entity type of the person who created the bookmark (e.g., "manager", "user").
+     * Derived from the first segment of the bookmark key.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * <code>string person_type = 8 [json_name = "personType"];</code>
      * @return The personType.
      */
     public java.lang.String getPersonType() {
@@ -1602,12 +1717,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of the bookmark owner (e.g. "manager").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Entity type of the person who created the bookmark (e.g., "manager", "user").
+     * Derived from the first segment of the bookmark key.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * <code>string person_type = 8 [json_name = "personType"];</code>
      * @return The bytes for personType.
      */
     public com.google.protobuf.ByteString
@@ -1625,12 +1740,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of the bookmark owner (e.g. "manager").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Entity type of the person who created the bookmark (e.g., "manager", "user").
+     * Derived from the first segment of the bookmark key.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * <code>string person_type = 8 [json_name = "personType"];</code>
      * @param value The personType to set.
      * @return This builder for chaining.
      */
@@ -1646,12 +1761,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of the bookmark owner (e.g. "manager").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Entity type of the person who created the bookmark (e.g., "manager", "user").
+     * Derived from the first segment of the bookmark key.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * <code>string person_type = 8 [json_name = "personType"];</code>
      * @return This builder for chaining.
      */
     public Builder clearPersonType() {
@@ -1662,12 +1777,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of the bookmark owner (e.g. "manager").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Entity type of the person who created the bookmark (e.g., "manager", "user").
+     * Derived from the first segment of the bookmark key.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * <code>string person_type = 8 [json_name = "personType"];</code>
      * @param value The bytes for personType to set.
      * @return This builder for chaining.
      */
@@ -1686,12 +1801,12 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object personId_ = "";
     /**
      * <pre>
-     * Identifier of the bookmark owner.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Entity ID of the person who created the bookmark.
+     * Derived from the second segment of the bookmark key.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+     * <code>string person_id = 9 [json_name = "personId"];</code>
      * @return The personId.
      */
     public java.lang.String getPersonId() {
@@ -1708,12 +1823,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Identifier of the bookmark owner.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Entity ID of the person who created the bookmark.
+     * Derived from the second segment of the bookmark key.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+     * <code>string person_id = 9 [json_name = "personId"];</code>
      * @return The bytes for personId.
      */
     public com.google.protobuf.ByteString
@@ -1731,12 +1846,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Identifier of the bookmark owner.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Entity ID of the person who created the bookmark.
+     * Derived from the second segment of the bookmark key.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+     * <code>string person_id = 9 [json_name = "personId"];</code>
      * @param value The personId to set.
      * @return This builder for chaining.
      */
@@ -1752,12 +1867,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Identifier of the bookmark owner.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Entity ID of the person who created the bookmark.
+     * Derived from the second segment of the bookmark key.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+     * <code>string person_id = 9 [json_name = "personId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearPersonId() {
@@ -1768,12 +1883,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Identifier of the bookmark owner.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Entity ID of the person who created the bookmark.
+     * Derived from the second segment of the bookmark key.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+     * <code>string person_id = 9 [json_name = "personId"];</code>
      * @param value The bytes for personId to set.
      * @return This builder for chaining.
      */
@@ -1785,112 +1900,6 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       personId_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object chatType_ = "";
-    /**
-     * <pre>
-     * Chat type this bookmark belongs to (e.g. "group", "userChat").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @return The chatType.
-     */
-    public java.lang.String getChatType() {
-      java.lang.Object ref = chatType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        chatType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Chat type this bookmark belongs to (e.g. "group", "userChat").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for chatType.
-     */
-    public com.google.protobuf.ByteString
-        getChatTypeBytes() {
-      java.lang.Object ref = chatType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        chatType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Chat type this bookmark belongs to (e.g. "group", "userChat").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @param value The chatType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChatType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      chatType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Chat type this bookmark belongs to (e.g. "group", "userChat").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearChatType() {
-      
-      chatType_ = getDefaultInstance().getChatType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Chat type this bookmark belongs to (e.g. "group", "userChat").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for chatType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChatTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      chatType_ = value;
       onChanged();
       return this;
     }
@@ -2028,7 +2037,7 @@ private static final long serialVersionUID = 0L;
      * @param value The version to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearVersion(java.lang.Integer value) {
+    public Builder setOrClearVersion(java.lang.Long value) {
     	if (value == null)
     		return clearVersion();
     	else
@@ -2040,11 +2049,34 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Integer> mapFunc) {
+    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
     	if (value == null)
     		return clearVersion();
     	else
     		return setVersion(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The chat_type to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearChatType(java.lang.String value) {
+    	if (value == null)
+    		return clearChatType();
+    	else
+    		return setChatType(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearChatType();
+    	else
+    		return setChatType(mapFunc.apply(value));
     }
     	
     /**
@@ -2091,29 +2123,6 @@ private static final long serialVersionUID = 0L;
     		return clearPersonId();
     	else
     		return setPersonId(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The chat_type to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearChatType(java.lang.String value) {
-    	if (value == null)
-    		return clearChatType();
-    	else
-    		return setChatType(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearChatType();
-    	else
-    		return setChatType(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.ChatBookmark)

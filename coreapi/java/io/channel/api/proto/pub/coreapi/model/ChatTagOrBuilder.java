@@ -10,22 +10,20 @@ public interface ChatTagOrBuilder extends
   /**
    * <pre>
    * Unique chat tag identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   java.lang.String getId();
   /**
    * <pre>
    * Unique chat tag identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
@@ -34,22 +32,20 @@ public interface ChatTagOrBuilder extends
   /**
    * <pre>
    * Channel ID this chat tag belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 2 [json_name = "channelId"];</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
   /**
    * <pre>
    * Channel ID this chat tag belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 2 [json_name = "channelId"];</code>
    * @return The bytes for channelId.
    */
   com.google.protobuf.ByteString
@@ -57,7 +53,7 @@ public interface ChatTagOrBuilder extends
 
   /**
    * <pre>
-   * Color theme of the chat tag.
+   * Color used for visual display of this tag in the Desk UI.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -67,7 +63,7 @@ public interface ChatTagOrBuilder extends
   int getColorVariantValue();
   /**
    * <pre>
-   * Color theme of the chat tag.
+   * Color used for visual display of this tag in the Desk UI.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -78,12 +74,9 @@ public interface ChatTagOrBuilder extends
 
   /**
    * <pre>
-   * Display name of the chat tag.
-   * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
-   * Cannot contain ".", "&#92;", "$", "%" or whitespace characters.
+   * Human-readable display name of the chat tag.
+   * Cannot be changed after creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:validation:MaxLength=128
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -92,12 +85,9 @@ public interface ChatTagOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Display name of the chat tag.
-   * Supports hierarchical naming with "/" as a depth separator (max 3 levels).
-   * Cannot contain ".", "&#92;", "$", "%" or whitespace characters.
+   * Human-readable display name of the chat tag.
+   * Cannot be changed after creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:validation:MaxLength=128
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -108,10 +98,10 @@ public interface ChatTagOrBuilder extends
 
   /**
    * <pre>
-   * Lowercase representation of name.
+   * Lowercase key automatically derived from the tag name.
    * Unique within the channel (case-insensitive).
+   * Cannot be changed after creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -120,10 +110,10 @@ public interface ChatTagOrBuilder extends
   java.lang.String getKey();
   /**
    * <pre>
-   * Lowercase representation of name.
+   * Lowercase key automatically derived from the tag name.
    * Unique within the channel (case-insensitive).
+   * Cannot be changed after creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -134,7 +124,7 @@ public interface ChatTagOrBuilder extends
 
   /**
    * <pre>
-   * Short description of the chat tag.
+   * Free-text description explaining when or how to use this tag.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=128
    * </pre>
@@ -145,7 +135,7 @@ public interface ChatTagOrBuilder extends
   java.lang.String getDescription();
   /**
    * <pre>
-   * Short description of the chat tag.
+   * Free-text description explaining when or how to use this tag.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=128
    * </pre>
@@ -158,76 +148,31 @@ public interface ChatTagOrBuilder extends
 
   /**
    * <pre>
-   * Manager IDs following this chat tag for notifications.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-   * @return A list containing the followerIds.
-   */
-  java.util.List<java.lang.String>
-      getFollowerIdsList();
-  /**
-   * <pre>
-   * Manager IDs following this chat tag for notifications.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-   * @return The count of followerIds.
-   */
-  int getFollowerIdsCount();
-  /**
-   * <pre>
-   * Manager IDs following this chat tag for notifications.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-   * @param index The index of the element to return.
-   * @return The followerIds at the given index.
-   */
-  java.lang.String getFollowerIds(int index);
-  /**
-   * <pre>
-   * Manager IDs following this chat tag for notifications.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string follower_ids = 8 [json_name = "followerIds"];</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the followerIds at the given index.
-   */
-  com.google.protobuf.ByteString
-      getFollowerIdsBytes(int index);
-
-  /**
-   * <pre>
    * Chat tag creation timestamp.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
   /**
    * <pre>
    * Chat tag creation timestamp.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
   /**
    * <pre>
    * Chat tag creation timestamp.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 }

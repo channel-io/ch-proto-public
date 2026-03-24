@@ -297,7 +297,7 @@ type SearchOneTimeMsgUsersRequest struct {
 	// One-time message ID to retrieve users for.
 	OneTimeMsgId string `protobuf:"bytes,2,opt,name=one_time_msg_id,json=oneTimeMsgId,proto3" json:"one_time_msg_id,omitempty"`
 	// Interaction state to filter and sort users by.
-	State model.OneTimeMsgUserState `protobuf:"varint,3,opt,name=state,proto3,enum=coreapi.model.OneTimeMsgUserState" json:"state,omitempty"`
+	State string `protobuf:"bytes,3,opt,name=state,proto3" json:"state,omitempty"`
 	// Opaque pagination cursor from a previous response.
 	Cursor string `protobuf:"bytes,4,opt,name=cursor,proto3" json:"cursor,omitempty"`
 	// Maximum number of results to return. Defaults to 25 if unset.
@@ -352,11 +352,11 @@ func (x *SearchOneTimeMsgUsersRequest) GetOneTimeMsgId() string {
 	return ""
 }
 
-func (x *SearchOneTimeMsgUsersRequest) GetState() model.OneTimeMsgUserState {
+func (x *SearchOneTimeMsgUsersRequest) GetState() string {
 	if x != nil {
 		return x.State
 	}
-	return model.OneTimeMsgUserState(0)
+	return ""
 }
 
 func (x *SearchOneTimeMsgUsersRequest) GetCursor() string {
@@ -578,12 +578,12 @@ const file_coreapi_service_one_time_msg_proto_rawDesc = "" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"R\n" +
 	"\x13GetOneTimeMsgResult\x12;\n" +
 	"\fone_time_msg\x18\x01 \x01(\v2\x19.coreapi.model.OneTimeMsgR\n" +
-	"oneTimeMsg\"\xff\x02\n" +
+	"oneTimeMsg\"\xdb\x02\n" +
 	"\x1cSearchOneTimeMsgUsersRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12-\n" +
-	"\x0fone_time_msg_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\foneTimeMsgId\x12@\n" +
-	"\x05state\x18\x03 \x01(\x0e2\".coreapi.model.OneTimeMsgUserStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12\x16\n" +
+	"\x0fone_time_msg_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\foneTimeMsgId\x12\x1c\n" +
+	"\x05state\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12\x16\n" +
 	"\x06cursor\x18\x04 \x01(\tR\x06cursor\x12u\n" +
 	"\x05limit\x18\x05 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
 	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\x128\n" +
@@ -627,23 +627,21 @@ var file_coreapi_service_one_time_msg_proto_goTypes = []any{
 	(*GetOneTimeMsgUserResult)(nil),      // 7: coreapi.service.GetOneTimeMsgUserResult
 	(model.OneTimeMsgState)(0),           // 8: coreapi.model.OneTimeMsgState
 	(*model.OneTimeMsg)(nil),             // 9: coreapi.model.OneTimeMsg
-	(model.OneTimeMsgUserState)(0),       // 10: coreapi.model.OneTimeMsgUserState
-	(common.SortOrder)(0),                // 11: coreapi.common.SortOrder
-	(*model.OneTimeMsgUser)(nil),         // 12: coreapi.model.OneTimeMsgUser
+	(common.SortOrder)(0),                // 10: coreapi.common.SortOrder
+	(*model.OneTimeMsgUser)(nil),         // 11: coreapi.model.OneTimeMsgUser
 }
 var file_coreapi_service_one_time_msg_proto_depIdxs = []int32{
 	8,  // 0: coreapi.service.SearchOneTimeMsgsRequest.states:type_name -> coreapi.model.OneTimeMsgState
 	9,  // 1: coreapi.service.SearchOneTimeMsgsResult.one_time_msgs:type_name -> coreapi.model.OneTimeMsg
 	9,  // 2: coreapi.service.GetOneTimeMsgResult.one_time_msg:type_name -> coreapi.model.OneTimeMsg
-	10, // 3: coreapi.service.SearchOneTimeMsgUsersRequest.state:type_name -> coreapi.model.OneTimeMsgUserState
-	11, // 4: coreapi.service.SearchOneTimeMsgUsersRequest.sort_order:type_name -> coreapi.common.SortOrder
-	12, // 5: coreapi.service.SearchOneTimeMsgUsersResult.one_time_msg_users:type_name -> coreapi.model.OneTimeMsgUser
-	12, // 6: coreapi.service.GetOneTimeMsgUserResult.one_time_msg_user:type_name -> coreapi.model.OneTimeMsgUser
-	7,  // [7:7] is the sub-list for method output_type
-	7,  // [7:7] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	10, // 3: coreapi.service.SearchOneTimeMsgUsersRequest.sort_order:type_name -> coreapi.common.SortOrder
+	11, // 4: coreapi.service.SearchOneTimeMsgUsersResult.one_time_msg_users:type_name -> coreapi.model.OneTimeMsgUser
+	11, // 5: coreapi.service.GetOneTimeMsgUserResult.one_time_msg_user:type_name -> coreapi.model.OneTimeMsgUser
+	6,  // [6:6] is the sub-list for method output_type
+	6,  // [6:6] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_one_time_msg_proto_init() }

@@ -4,7 +4,6 @@ package coreapi.model;
 
 import "buf/validate/validate.proto";
 import "coreapi/model/name_desc.proto";
-import "coreapi/model/tiny_file.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
@@ -40,7 +39,7 @@ message Bot {
     (buf.validate.field).required = true
   ];
 
-  // Bot display name.
+  // Bot display name shown to end users in conversations.
   // Unique within the channel.
   //
   // +kubebuilder:validation:Required
@@ -60,7 +59,7 @@ message Bot {
     (buf.validate.field).required = true
   ];
 
-  // Bot description.
+  // Free-text summary displayed on the bot profile.
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxLength=180
@@ -70,20 +69,20 @@ message Bot {
     expression: "size(this) <= 180"
   }];
 
-  // Internationalized name and description map.
-  // Keyed by locale.
+  // Internationalized name and description overrides keyed by locale (e.g., en, ko).
   //
   // +kubebuilder:validation:Nullable
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 5;
 
-  // Bot color in hex format.
+  // Bot theme color in hex format (e.g., #3B82F6).
   // Randomly assigned if not specified on creation.
   //
-  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:Required
   // +kubebuilder:example="#3B82F6"
-  string color = 6;
+  string color = 6 [(buf.validate.field).required = true];
 
   // Bot avatar image URL.
+  // Falls back to a system-generated default when no custom avatar is set.
   //
   // +kubebuilder:validation:Nullable
   string avatar_url = 7;
@@ -92,9 +91,4 @@ message Bot {
   //
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp created_at = 8 [(buf.validate.field).required = true];
-
-  // Bot avatar image reference.
-  //
-  // +kubebuilder:validation:Nullable
-  coreapi.model.TinyFile avatar = 9;
 }

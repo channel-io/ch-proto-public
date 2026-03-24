@@ -9,7 +9,7 @@ public interface AppSegmentOrBuilder extends
 
   /**
    * <pre>
-   * App identifier.
+   * App that owns the segment definition.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -20,7 +20,7 @@ public interface AppSegmentOrBuilder extends
   java.lang.String getAppId();
   /**
    * <pre>
-   * App identifier.
+   * App that owns the segment definition.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -33,7 +33,7 @@ public interface AppSegmentOrBuilder extends
 
   /**
    * <pre>
-   * Extension identifier.
+   * Extension within the app that provides the segmentation logic.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -44,7 +44,7 @@ public interface AppSegmentOrBuilder extends
   java.lang.String getExtensionId();
   /**
    * <pre>
-   * Extension identifier.
+   * Extension within the app that provides the segmentation logic.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -57,7 +57,7 @@ public interface AppSegmentOrBuilder extends
 
   /**
    * <pre>
-   * Segment identifier.
+   * Specific segment within the extension that users must belong to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -68,7 +68,7 @@ public interface AppSegmentOrBuilder extends
   java.lang.String getSegmentId();
   /**
    * <pre>
-   * Segment identifier.
+   * Specific segment within the extension that users must belong to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>

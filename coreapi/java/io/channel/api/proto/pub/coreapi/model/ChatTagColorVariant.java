@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Color theme for a chat tag.
+ * Color variant for visual labeling of chat tags.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.ChatTagColorVariant}
@@ -17,33 +17,41 @@ public enum ChatTagColorVariant
    */
   CHAT_TAG_COLOR_VARIANT_UNSPECIFIED(0),
   /**
-   * <code>CHAT_TAG_COLOR_VARIANT_COBALT = 1;</code>
+   * <code>CHAT_TAG_COLOR_VARIANT_RED = 1;</code>
    */
-  CHAT_TAG_COLOR_VARIANT_COBALT(1),
+  CHAT_TAG_COLOR_VARIANT_RED(1),
   /**
-   * <code>CHAT_TAG_COLOR_VARIANT_GREEN = 2;</code>
+   * <code>CHAT_TAG_COLOR_VARIANT_ORANGE = 2;</code>
    */
-  CHAT_TAG_COLOR_VARIANT_GREEN(2),
+  CHAT_TAG_COLOR_VARIANT_ORANGE(2),
   /**
-   * <code>CHAT_TAG_COLOR_VARIANT_ORANGE = 3;</code>
+   * <code>CHAT_TAG_COLOR_VARIANT_YELLOW = 3;</code>
    */
-  CHAT_TAG_COLOR_VARIANT_ORANGE(3),
+  CHAT_TAG_COLOR_VARIANT_YELLOW(3),
   /**
-   * <code>CHAT_TAG_COLOR_VARIANT_RED = 4;</code>
+   * <code>CHAT_TAG_COLOR_VARIANT_OLIVE = 4;</code>
    */
-  CHAT_TAG_COLOR_VARIANT_RED(4),
+  CHAT_TAG_COLOR_VARIANT_OLIVE(4),
   /**
-   * <code>CHAT_TAG_COLOR_VARIANT_BLACK = 5;</code>
+   * <code>CHAT_TAG_COLOR_VARIANT_GREEN = 5;</code>
    */
-  CHAT_TAG_COLOR_VARIANT_BLACK(5),
+  CHAT_TAG_COLOR_VARIANT_GREEN(5),
   /**
-   * <code>CHAT_TAG_COLOR_VARIANT_PINK = 6;</code>
+   * <code>CHAT_TAG_COLOR_VARIANT_COBALT = 6;</code>
    */
-  CHAT_TAG_COLOR_VARIANT_PINK(6),
+  CHAT_TAG_COLOR_VARIANT_COBALT(6),
   /**
    * <code>CHAT_TAG_COLOR_VARIANT_PURPLE = 7;</code>
    */
   CHAT_TAG_COLOR_VARIANT_PURPLE(7),
+  /**
+   * <code>CHAT_TAG_COLOR_VARIANT_PINK = 8;</code>
+   */
+  CHAT_TAG_COLOR_VARIANT_PINK(8),
+  /**
+   * <code>CHAT_TAG_COLOR_VARIANT_NAVY = 9;</code>
+   */
+  CHAT_TAG_COLOR_VARIANT_NAVY(9),
   UNRECOGNIZED(-1),
   ;
 
@@ -52,33 +60,41 @@ public enum ChatTagColorVariant
    */
   public static final int CHAT_TAG_COLOR_VARIANT_UNSPECIFIED_VALUE = 0;
   /**
-   * <code>CHAT_TAG_COLOR_VARIANT_COBALT = 1;</code>
+   * <code>CHAT_TAG_COLOR_VARIANT_RED = 1;</code>
    */
-  public static final int CHAT_TAG_COLOR_VARIANT_COBALT_VALUE = 1;
+  public static final int CHAT_TAG_COLOR_VARIANT_RED_VALUE = 1;
   /**
-   * <code>CHAT_TAG_COLOR_VARIANT_GREEN = 2;</code>
+   * <code>CHAT_TAG_COLOR_VARIANT_ORANGE = 2;</code>
    */
-  public static final int CHAT_TAG_COLOR_VARIANT_GREEN_VALUE = 2;
+  public static final int CHAT_TAG_COLOR_VARIANT_ORANGE_VALUE = 2;
   /**
-   * <code>CHAT_TAG_COLOR_VARIANT_ORANGE = 3;</code>
+   * <code>CHAT_TAG_COLOR_VARIANT_YELLOW = 3;</code>
    */
-  public static final int CHAT_TAG_COLOR_VARIANT_ORANGE_VALUE = 3;
+  public static final int CHAT_TAG_COLOR_VARIANT_YELLOW_VALUE = 3;
   /**
-   * <code>CHAT_TAG_COLOR_VARIANT_RED = 4;</code>
+   * <code>CHAT_TAG_COLOR_VARIANT_OLIVE = 4;</code>
    */
-  public static final int CHAT_TAG_COLOR_VARIANT_RED_VALUE = 4;
+  public static final int CHAT_TAG_COLOR_VARIANT_OLIVE_VALUE = 4;
   /**
-   * <code>CHAT_TAG_COLOR_VARIANT_BLACK = 5;</code>
+   * <code>CHAT_TAG_COLOR_VARIANT_GREEN = 5;</code>
    */
-  public static final int CHAT_TAG_COLOR_VARIANT_BLACK_VALUE = 5;
+  public static final int CHAT_TAG_COLOR_VARIANT_GREEN_VALUE = 5;
   /**
-   * <code>CHAT_TAG_COLOR_VARIANT_PINK = 6;</code>
+   * <code>CHAT_TAG_COLOR_VARIANT_COBALT = 6;</code>
    */
-  public static final int CHAT_TAG_COLOR_VARIANT_PINK_VALUE = 6;
+  public static final int CHAT_TAG_COLOR_VARIANT_COBALT_VALUE = 6;
   /**
    * <code>CHAT_TAG_COLOR_VARIANT_PURPLE = 7;</code>
    */
   public static final int CHAT_TAG_COLOR_VARIANT_PURPLE_VALUE = 7;
+  /**
+   * <code>CHAT_TAG_COLOR_VARIANT_PINK = 8;</code>
+   */
+  public static final int CHAT_TAG_COLOR_VARIANT_PINK_VALUE = 8;
+  /**
+   * <code>CHAT_TAG_COLOR_VARIANT_NAVY = 9;</code>
+   */
+  public static final int CHAT_TAG_COLOR_VARIANT_NAVY_VALUE = 9;
 
 
   public final int getNumber() {
@@ -106,13 +122,15 @@ public enum ChatTagColorVariant
   public static ChatTagColorVariant forNumber(int value) {
     switch (value) {
       case 0: return CHAT_TAG_COLOR_VARIANT_UNSPECIFIED;
-      case 1: return CHAT_TAG_COLOR_VARIANT_COBALT;
-      case 2: return CHAT_TAG_COLOR_VARIANT_GREEN;
-      case 3: return CHAT_TAG_COLOR_VARIANT_ORANGE;
-      case 4: return CHAT_TAG_COLOR_VARIANT_RED;
-      case 5: return CHAT_TAG_COLOR_VARIANT_BLACK;
-      case 6: return CHAT_TAG_COLOR_VARIANT_PINK;
+      case 1: return CHAT_TAG_COLOR_VARIANT_RED;
+      case 2: return CHAT_TAG_COLOR_VARIANT_ORANGE;
+      case 3: return CHAT_TAG_COLOR_VARIANT_YELLOW;
+      case 4: return CHAT_TAG_COLOR_VARIANT_OLIVE;
+      case 5: return CHAT_TAG_COLOR_VARIANT_GREEN;
+      case 6: return CHAT_TAG_COLOR_VARIANT_COBALT;
       case 7: return CHAT_TAG_COLOR_VARIANT_PURPLE;
+      case 8: return CHAT_TAG_COLOR_VARIANT_PINK;
+      case 9: return CHAT_TAG_COLOR_VARIANT_NAVY;
       default: return null;
     }
   }
@@ -174,13 +192,15 @@ public enum ChatTagColorVariant
    */
   public static ChatTagColorVariant forString(String value) {
   	switch (value) {
-      case "black": return CHAT_TAG_COLOR_VARIANT_BLACK;
       case "cobalt": return CHAT_TAG_COLOR_VARIANT_COBALT;
       case "green": return CHAT_TAG_COLOR_VARIANT_GREEN;
+      case "navy": return CHAT_TAG_COLOR_VARIANT_NAVY;
+      case "olive": return CHAT_TAG_COLOR_VARIANT_OLIVE;
       case "orange": return CHAT_TAG_COLOR_VARIANT_ORANGE;
       case "pink": return CHAT_TAG_COLOR_VARIANT_PINK;
       case "purple": return CHAT_TAG_COLOR_VARIANT_PURPLE;
       case "red": return CHAT_TAG_COLOR_VARIANT_RED;
+      case "yellow": return CHAT_TAG_COLOR_VARIANT_YELLOW;
   		default: return CHAT_TAG_COLOR_VARIANT_UNSPECIFIED;
   	}
   }
@@ -190,13 +210,15 @@ public enum ChatTagColorVariant
    */
   public final String getString() {
   	switch (this) {
-      case CHAT_TAG_COLOR_VARIANT_BLACK: return "black";
       case CHAT_TAG_COLOR_VARIANT_COBALT: return "cobalt";
       case CHAT_TAG_COLOR_VARIANT_GREEN: return "green";
+      case CHAT_TAG_COLOR_VARIANT_NAVY: return "navy";
+      case CHAT_TAG_COLOR_VARIANT_OLIVE: return "olive";
       case CHAT_TAG_COLOR_VARIANT_ORANGE: return "orange";
       case CHAT_TAG_COLOR_VARIANT_PINK: return "pink";
       case CHAT_TAG_COLOR_VARIANT_PURPLE: return "purple";
       case CHAT_TAG_COLOR_VARIANT_RED: return "red";
+      case CHAT_TAG_COLOR_VARIANT_YELLOW: return "yellow";
   		default: return null;
   	}
   }

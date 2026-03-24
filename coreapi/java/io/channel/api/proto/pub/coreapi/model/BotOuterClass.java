@@ -35,40 +35,37 @@ public final class BotOuterClass {
     java.lang.String[] descriptorData = {
       "\n\027coreapi/model/bot.proto\022\rcoreapi.model" +
       "\032\033buf/validate/validate.proto\032\035coreapi/m" +
-      "odel/name_desc.proto\032\035coreapi/model/tiny" +
-      "_file.proto\032\037google/protobuf/timestamp.p" +
-      "roto\"\331\006\n\003Bot\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring" +
-      ".minLen\022\"value must be at least 1 charac" +
-      "ter\032\017size(this) >= 1\310\001\001R\002id\022l\n\nchannel_i" +
-      "d\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value mu" +
-      "st be at least 1 character\032\017size(this) >" +
-      "= 1\310\001\001R\tchannelId\022\261\001\n\004name\030\003 \001(\tB\234\001\272H\230\001\272" +
-      "\001D\n\rstring.minLen\022\"value must be at leas" +
-      "t 1 character\032\017size(this) >= 1\272\001K\n\rstrin" +
-      "g.maxLen\022(value must be no more than 30 " +
-      "characters\032\020size(this) <= 30\310\001\001R\004name\022u\n" +
-      "\013description\030\004 \001(\tBS\272HP\272\001M\n\rstring.maxLe" +
-      "n\022)value must be no more than 180 charac" +
-      "ters\032\021size(this) <= 180R\013description\022T\n\022" +
-      "name_desc_i18n_map\030\005 \003(\0132\'.coreapi.model" +
-      ".Bot.NameDescI18nMapEntryR\017nameDescI18nM" +
-      "ap\022\024\n\005color\030\006 \001(\tR\005color\022\035\n\navatar_url\030\007" +
-      " \001(\tR\tavatarUrl\022A\n\ncreated_at\030\010 \001(\0132\032.go" +
-      "ogle.protobuf.TimestampB\006\272H\003\310\001\001R\tcreated" +
-      "At\022/\n\006avatar\030\t \001(\0132\027.coreapi.model.TinyF" +
-      "ileR\006avatar\032[\n\024NameDescI18nMapEntry\022\020\n\003k" +
-      "ey\030\001 \001(\tR\003key\022-\n\005value\030\002 \001(\0132\027.coreapi.m" +
-      "odel.NameDescR\005value:\0028\001Bb\n&io.channel.a" +
-      "pi.proto.pub.coreapi.modelP\001Z6github.com" +
-      "/channel-io/ch-proto-public/coreapi/go/m" +
-      "odelb\006proto3"
+      "odel/name_desc.proto\032\037google/protobuf/ti" +
+      "mestamp.proto\"\260\006\n\003Bot\022]\n\002id\030\001 \001(\tBM\272HJ\272\001" +
+      "D\n\rstring.minLen\022\"value must be at least" +
+      " 1 character\032\017size(this) >= 1\310\001\001R\002id\022l\n\n" +
+      "channel_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022" +
+      "\"value must be at least 1 character\032\017siz" +
+      "e(this) >= 1\310\001\001R\tchannelId\022\261\001\n\004name\030\003 \001(" +
+      "\tB\234\001\272H\230\001\272\001D\n\rstring.minLen\022\"value must b" +
+      "e at least 1 character\032\017size(this) >= 1\272" +
+      "\001K\n\rstring.maxLen\022(value must be no more" +
+      " than 30 characters\032\020size(this) <= 30\310\001\001" +
+      "R\004name\022u\n\013description\030\004 \001(\tBS\272HP\272\001M\n\rstr" +
+      "ing.maxLen\022)value must be no more than 1" +
+      "80 characters\032\021size(this) <= 180R\013descri" +
+      "ption\022T\n\022name_desc_i18n_map\030\005 \003(\0132\'.core" +
+      "api.model.Bot.NameDescI18nMapEntryR\017name" +
+      "DescI18nMap\022\034\n\005color\030\006 \001(\tB\006\272H\003\310\001\001R\005colo" +
+      "r\022\035\n\navatar_url\030\007 \001(\tR\tavatarUrl\022A\n\ncrea" +
+      "ted_at\030\010 \001(\0132\032.google.protobuf.Timestamp" +
+      "B\006\272H\003\310\001\001R\tcreatedAt\032[\n\024NameDescI18nMapEn" +
+      "try\022\020\n\003key\030\001 \001(\tR\003key\022-\n\005value\030\002 \001(\0132\027.c" +
+      "oreapi.model.NameDescR\005value:\0028\001Bb\n&io.c" +
+      "hannel.api.proto.pub.coreapi.modelP\001Z6gi" +
+      "thub.com/channel-io/ch-proto-public/core" +
+      "api/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
           io.channel.api.proto.pub.coreapi.model.NameDescOuterClass.getDescriptor(),
-          io.channel.api.proto.pub.coreapi.model.TinyFileOuterClass.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_coreapi_model_Bot_descriptor =
@@ -76,7 +73,7 @@ public final class BotOuterClass {
     internal_static_coreapi_model_Bot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Bot_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "Name", "Description", "NameDescI18NMap", "Color", "AvatarUrl", "CreatedAt", "Avatar", });
+        new java.lang.String[] { "Id", "ChannelId", "Name", "Description", "NameDescI18NMap", "Color", "AvatarUrl", "CreatedAt", });
     internal_static_coreapi_model_Bot_NameDescI18nMapEntry_descriptor =
       internal_static_coreapi_model_Bot_descriptor.getNestedTypes().get(0);
     internal_static_coreapi_model_Bot_NameDescI18nMapEntry_fieldAccessorTable = new
@@ -90,7 +87,6 @@ public final class BotOuterClass {
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
     io.channel.api.proto.pub.coreapi.model.NameDescOuterClass.getDescriptor();
-    io.channel.api.proto.pub.coreapi.model.TinyFileOuterClass.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

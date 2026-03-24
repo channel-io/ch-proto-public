@@ -10,22 +10,20 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Unique user identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   java.lang.String getId();
   /**
    * <pre>
    * Unique user identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
@@ -34,22 +32,20 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Channel ID this user belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 2 [json_name = "channelId"];</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
   /**
    * <pre>
    * Channel ID this user belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 2 [json_name = "channelId"];</code>
    * @return The bytes for channelId.
    */
   com.google.protobuf.ByteString
@@ -57,7 +53,9 @@ public interface UserOrBuilder extends
 
   /**
    * <pre>
-   * External member identifier provided during user creation or login.
+   * External member ID provided at boot or manual creation.
+   * Present for member-type users; for anonymous visitors, this matches
+   * the veil_id.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -67,7 +65,9 @@ public interface UserOrBuilder extends
   java.lang.String getMemberId();
   /**
    * <pre>
-   * External member identifier provided during user creation or login.
+   * External member ID provided at boot or manual creation.
+   * Present for member-type users; for anonymous visitors, this matches
+   * the veil_id.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -101,7 +101,7 @@ public interface UserOrBuilder extends
 
   /**
    * <pre>
-   * Unified user identifier linking multiple user records.
+   * ID of the unified identity when multiple user records have been merged.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -111,7 +111,7 @@ public interface UserOrBuilder extends
   java.lang.String getUnifiedId();
   /**
    * <pre>
-   * Unified user identifier linking multiple user records.
+   * ID of the unified identity when multiple user records have been merged.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -123,7 +123,7 @@ public interface UserOrBuilder extends
 
   /**
    * <pre>
-   * Registration state of the user.
+   * Identity type of this user.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -133,7 +133,7 @@ public interface UserOrBuilder extends
   int getTypeValue();
   /**
    * <pre>
-   * Registration state of the user.
+   * Identity type of this user.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -144,183 +144,43 @@ public interface UserOrBuilder extends
 
   /**
    * <pre>
-   * Custom key-value profile data.
-   * Standard keys include name, email, mobileNumber, avatarUrl, and more.
-   * Supports additional custom properties.
+   * Tags that were automatically applied during a user import operation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Struct profile = 7 [json_name = "profile"];</code>
-   * @return Whether the profile field is set.
-   */
-  boolean hasProfile();
-  /**
-   * <pre>
-   * Custom key-value profile data.
-   * Standard keys include name, email, mobileNumber, avatarUrl, and more.
-   * Supports additional custom properties.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct profile = 7 [json_name = "profile"];</code>
-   * @return The profile.
-   */
-  com.google.protobuf.Struct getProfile();
-  /**
-   * <pre>
-   * Custom key-value profile data.
-   * Standard keys include name, email, mobileNumber, avatarUrl, and more.
-   * Supports additional custom properties.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct profile = 7 [json_name = "profile"];</code>
-   */
-  com.google.protobuf.StructOrBuilder getProfileOrBuilder();
-
-  /**
-   * <pre>
-   * User display name extracted from profile.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string name = 8 [json_name = "name"];</code>
-   * @return The name.
-   */
-  java.lang.String getName();
-  /**
-   * <pre>
-   * User display name extracted from profile.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string name = 8 [json_name = "name"];</code>
-   * @return The bytes for name.
-   */
-  com.google.protobuf.ByteString
-      getNameBytes();
-
-  /**
-   * <pre>
-   * User avatar image URL.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string avatar_url = 9 [json_name = "avatarUrl"];</code>
-   * @return The avatarUrl.
-   */
-  java.lang.String getAvatarUrl();
-  /**
-   * <pre>
-   * User avatar image URL.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string avatar_url = 9 [json_name = "avatarUrl"];</code>
-   * @return The bytes for avatarUrl.
-   */
-  com.google.protobuf.ByteString
-      getAvatarUrlBytes();
-
-  /**
-   * <pre>
-   * Whether the user has a name set in their profile.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool named = 10 [json_name = "named"];</code>
-   * @return The named.
-   */
-  boolean getNamed();
-
-  /**
-   * <pre>
-   * User classification tags.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MaxItems=20
-   * </pre>
-   *
-   * <code>repeated string tags = 11 [json_name = "tags"];</code>
-   * @return A list containing the tags.
-   */
-  java.util.List<java.lang.String>
-      getTagsList();
-  /**
-   * <pre>
-   * User classification tags.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MaxItems=20
-   * </pre>
-   *
-   * <code>repeated string tags = 11 [json_name = "tags"];</code>
-   * @return The count of tags.
-   */
-  int getTagsCount();
-  /**
-   * <pre>
-   * User classification tags.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MaxItems=20
-   * </pre>
-   *
-   * <code>repeated string tags = 11 [json_name = "tags"];</code>
-   * @param index The index of the element to return.
-   * @return The tags at the given index.
-   */
-  java.lang.String getTags(int index);
-  /**
-   * <pre>
-   * User classification tags.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MaxItems=20
-   * </pre>
-   *
-   * <code>repeated string tags = 11 [json_name = "tags"];</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the tags at the given index.
-   */
-  com.google.protobuf.ByteString
-      getTagsBytes(int index);
-
-  /**
-   * <pre>
-   * Tags assigned during user data import.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated string user_import_tags = 12 [json_name = "userImportTags"];</code>
+   * <code>repeated string user_import_tags = 7 [json_name = "userImportTags"];</code>
    * @return A list containing the userImportTags.
    */
   java.util.List<java.lang.String>
       getUserImportTagsList();
   /**
    * <pre>
-   * Tags assigned during user data import.
+   * Tags that were automatically applied during a user import operation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated string user_import_tags = 12 [json_name = "userImportTags"];</code>
+   * <code>repeated string user_import_tags = 7 [json_name = "userImportTags"];</code>
    * @return The count of userImportTags.
    */
   int getUserImportTagsCount();
   /**
    * <pre>
-   * Tags assigned during user data import.
+   * Tags that were automatically applied during a user import operation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated string user_import_tags = 12 [json_name = "userImportTags"];</code>
+   * <code>repeated string user_import_tags = 7 [json_name = "userImportTags"];</code>
    * @param index The index of the element to return.
    * @return The userImportTags at the given index.
    */
   java.lang.String getUserImportTags(int index);
   /**
    * <pre>
-   * Tags assigned during user data import.
+   * Tags that were automatically applied during a user import operation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated string user_import_tags = 12 [json_name = "userImportTags"];</code>
+   * <code>repeated string user_import_tags = 7 [json_name = "userImportTags"];</code>
    * @param index The index of the value to return.
    * @return The bytes of the userImportTags at the given index.
    */
@@ -329,43 +189,43 @@ public interface UserOrBuilder extends
 
   /**
    * <pre>
-   * Number of unread notifications.
+   * Number of chats with unread messages that have alert notifications enabled.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>int32 alert = 13 [json_name = "alert"];</code>
+   * <code>int32 alert = 8 [json_name = "alert"];</code>
    * @return The alert.
    */
   int getAlert();
 
   /**
    * <pre>
-   * Number of unread messages.
+   * Total number of unread messages across all of the user's chats.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>int32 unread = 14 [json_name = "unread"];</code>
+   * <code>int32 unread = 9 [json_name = "unread"];</code>
    * @return The unread.
    */
   int getUnread();
 
   /**
    * <pre>
-   * Active pop-up chat identifier.
+   * ID of the chat currently displayed as a pop-up widget to the user.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string pop_up_chat_id = 15 [json_name = "popUpChatId"];</code>
+   * <code>string pop_up_chat_id = 10 [json_name = "popUpChatId"];</code>
    * @return The popUpChatId.
    */
   java.lang.String getPopUpChatId();
   /**
    * <pre>
-   * Active pop-up chat identifier.
+   * ID of the chat currently displayed as a pop-up widget to the user.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string pop_up_chat_id = 15 [json_name = "popUpChatId"];</code>
+   * <code>string pop_up_chat_id = 10 [json_name = "popUpChatId"];</code>
    * @return The bytes for popUpChatId.
    */
   com.google.protobuf.ByteString
@@ -373,21 +233,21 @@ public interface UserOrBuilder extends
 
   /**
    * <pre>
-   * Active main chat identifier.
+   * ID of the chat pinned as the primary conversation in the messenger.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string main_chat_id = 16 [json_name = "mainChatId"];</code>
+   * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
    * @return The mainChatId.
    */
   java.lang.String getMainChatId();
   /**
    * <pre>
-   * Active main chat identifier.
+   * ID of the chat pinned as the primary conversation in the messenger.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string main_chat_id = 16 [json_name = "mainChatId"];</code>
+   * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
    * @return The bytes for mainChatId.
    */
   com.google.protobuf.ByteString
@@ -395,21 +255,23 @@ public interface UserOrBuilder extends
 
   /**
    * <pre>
-   * Country code of the user.
+   * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
+   * (e.g., "KR", "US").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string country = 17 [json_name = "country"];</code>
+   * <code>string country = 12 [json_name = "country"];</code>
    * @return The country.
    */
   java.lang.String getCountry();
   /**
    * <pre>
-   * Country code of the user.
+   * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
+   * (e.g., "KR", "US").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string country = 17 [json_name = "country"];</code>
+   * <code>string country = 12 [json_name = "country"];</code>
    * @return The bytes for country.
    */
   com.google.protobuf.ByteString
@@ -417,21 +279,23 @@ public interface UserOrBuilder extends
 
   /**
    * <pre>
-   * IANA timezone of the user.
+   * IANA time zone identifier derived from the user's IP geolocation
+   * (e.g., "Asia/Seoul").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string time_zone = 18 [json_name = "timeZone"];</code>
+   * <code>string time_zone = 13 [json_name = "timeZone"];</code>
    * @return The timeZone.
    */
   java.lang.String getTimeZone();
   /**
    * <pre>
-   * IANA timezone of the user.
+   * IANA time zone identifier derived from the user's IP geolocation
+   * (e.g., "Asia/Seoul").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string time_zone = 18 [json_name = "timeZone"];</code>
+   * <code>string time_zone = 13 [json_name = "timeZone"];</code>
    * @return The bytes for timeZone.
    */
   com.google.protobuf.ByteString
@@ -439,446 +303,182 @@ public interface UserOrBuilder extends
 
   /**
    * <pre>
-   * Province or state.
+   * User creation timestamp.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string province = 19 [json_name = "province"];</code>
-   * @return The province.
+   * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt"];</code>
+   * @return Whether the createdAt field is set.
    */
-  java.lang.String getProvince();
+  boolean hasCreatedAt();
   /**
    * <pre>
-   * Province or state.
+   * User creation timestamp.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string province = 19 [json_name = "province"];</code>
-   * @return The bytes for province.
+   * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt"];</code>
+   * @return The createdAt.
+   */
+  com.google.protobuf.Timestamp getCreatedAt();
+  /**
+   * <pre>
+   * User creation timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * User last update timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+   * @return Whether the updatedAt field is set.
+   */
+  boolean hasUpdatedAt();
+  /**
+   * <pre>
+   * User last update timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+   * @return The updatedAt.
+   */
+  com.google.protobuf.Timestamp getUpdatedAt();
+  /**
+   * <pre>
+   * User last update timestamp.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Optimistic locking version incremented on every update.
+   * Supply the current value when updating to prevent overwriting concurrent changes.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int64 version = 16 [json_name = "version"];</code>
+   * @return The version.
+   */
+  long getVersion();
+
+  /**
+   * <pre>
+   * Custom key-value profile data.
+   * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
+   * arbitrary keys are also supported.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
+   * @return Whether the profile field is set.
+   */
+  boolean hasProfile();
+  /**
+   * <pre>
+   * Custom key-value profile data.
+   * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
+   * arbitrary keys are also supported.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
+   * @return The profile.
+   */
+  com.google.protobuf.Struct getProfile();
+  /**
+   * <pre>
+   * Custom key-value profile data.
+   * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
+   * arbitrary keys are also supported.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getProfileOrBuilder();
+
+  /**
+   * <pre>
+   * Classification tags attached to the user for segmentation and filtering.
+   * Supports hierarchical tags using "/" as a depth separator.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=20
+   * </pre>
+   *
+   * <code>repeated string tags = 18 [json_name = "tags"];</code>
+   * @return A list containing the tags.
+   */
+  java.util.List<java.lang.String>
+      getTagsList();
+  /**
+   * <pre>
+   * Classification tags attached to the user for segmentation and filtering.
+   * Supports hierarchical tags using "/" as a depth separator.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=20
+   * </pre>
+   *
+   * <code>repeated string tags = 18 [json_name = "tags"];</code>
+   * @return The count of tags.
+   */
+  int getTagsCount();
+  /**
+   * <pre>
+   * Classification tags attached to the user for segmentation and filtering.
+   * Supports hierarchical tags using "/" as a depth separator.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=20
+   * </pre>
+   *
+   * <code>repeated string tags = 18 [json_name = "tags"];</code>
+   * @param index The index of the element to return.
+   * @return The tags at the given index.
+   */
+  java.lang.String getTags(int index);
+  /**
+   * <pre>
+   * Classification tags attached to the user for segmentation and filtering.
+   * Supports hierarchical tags using "/" as a depth separator.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxItems=20
+   * </pre>
+   *
+   * <code>repeated string tags = 18 [json_name = "tags"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the tags at the given index.
    */
   com.google.protobuf.ByteString
-      getProvinceBytes();
+      getTagsBytes(int index);
 
   /**
    * <pre>
-   * City name.
+   * Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string city = 20 [json_name = "city"];</code>
-   * @return The city.
-   */
-  java.lang.String getCity();
-  /**
-   * <pre>
-   * City name.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string city = 20 [json_name = "city"];</code>
-   * @return The bytes for city.
-   */
-  com.google.protobuf.ByteString
-      getCityBytes();
-
-  /**
-   * <pre>
-   * Geographic latitude.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>double latitude = 21 [json_name = "latitude"];</code>
-   * @return The latitude.
-   */
-  double getLatitude();
-
-  /**
-   * <pre>
-   * Geographic longitude.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>double longitude = 22 [json_name = "longitude"];</code>
-   * @return The longitude.
-   */
-  double getLongitude();
-
-  /**
-   * <pre>
-   * Web session information.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.WebInfo web = 23 [json_name = "web"];</code>
-   * @return Whether the web field is set.
-   */
-  boolean hasWeb();
-  /**
-   * <pre>
-   * Web session information.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.WebInfo web = 23 [json_name = "web"];</code>
-   * @return The web.
-   */
-  io.channel.api.proto.pub.coreapi.model.WebInfo getWeb();
-  /**
-   * <pre>
-   * Web session information.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.WebInfo web = 23 [json_name = "web"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.WebInfoOrBuilder getWebOrBuilder();
-
-  /**
-   * <pre>
-   * Mobile session information.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MobileInfo mobile = 24 [json_name = "mobile"];</code>
-   * @return Whether the mobile field is set.
-   */
-  boolean hasMobile();
-  /**
-   * <pre>
-   * Mobile session information.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MobileInfo mobile = 24 [json_name = "mobile"];</code>
-   * @return The mobile.
-   */
-  io.channel.api.proto.pub.coreapi.model.MobileInfo getMobile();
-  /**
-   * <pre>
-   * Mobile session information.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MobileInfo mobile = 24 [json_name = "mobile"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.MobileInfoOrBuilder getMobileOrBuilder();
-
-  /**
-   * <pre>
-   * Total number of sessions across all platforms.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>int32 sessions_count = 25 [json_name = "sessionsCount"];</code>
-   * @return The sessionsCount.
-   */
-  int getSessionsCount();
-
-  /**
-   * <pre>
-   * Timestamp of the last user activity.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp last_seen_at = 26 [json_name = "lastSeenAt"];</code>
-   * @return Whether the lastSeenAt field is set.
-   */
-  boolean hasLastSeenAt();
-  /**
-   * <pre>
-   * Timestamp of the last user activity.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp last_seen_at = 26 [json_name = "lastSeenAt"];</code>
-   * @return The lastSeenAt.
-   */
-  com.google.protobuf.Timestamp getLastSeenAt();
-  /**
-   * <pre>
-   * Timestamp of the last user activity.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp last_seen_at = 26 [json_name = "lastSeenAt"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getLastSeenAtOrBuilder();
-
-  /**
-   * <pre>
-   * Whether the user has an active chat.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool has_chat = 27 [json_name = "hasChat"];</code>
-   * @return The hasChat.
-   */
-  boolean getHasChat();
-
-  /**
-   * <pre>
-   * Whether the user has a registered push token.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool has_push_token = 28 [json_name = "hasPushToken"];</code>
-   * @return The hasPushToken.
-   */
-  boolean getHasPushToken();
-
-  /**
-   * <pre>
-   * Email address from user profile.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string email = 29 [json_name = "email"];</code>
-   * @return The email.
-   */
-  java.lang.String getEmail();
-  /**
-   * <pre>
-   * Email address from user profile.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string email = 29 [json_name = "email"];</code>
-   * @return The bytes for email.
-   */
-  com.google.protobuf.ByteString
-      getEmailBytes();
-
-  /**
-   * <pre>
-   * Mobile phone number in E.164 format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string mobile_number = 30 [json_name = "mobileNumber"];</code>
-   * @return The mobileNumber.
-   */
-  java.lang.String getMobileNumber();
-  /**
-   * <pre>
-   * Mobile phone number in E.164 format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string mobile_number = 30 [json_name = "mobileNumber"];</code>
-   * @return The bytes for mobileNumber.
-   */
-  com.google.protobuf.ByteString
-      getMobileNumberBytes();
-
-  /**
-   * <pre>
-   * Landline phone number in E.164 format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string landline_number = 31 [json_name = "landlineNumber"];</code>
-   * @return The landlineNumber.
-   */
-  java.lang.String getLandlineNumber();
-  /**
-   * <pre>
-   * Landline phone number in E.164 format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string landline_number = 31 [json_name = "landlineNumber"];</code>
-   * @return The bytes for landlineNumber.
-   */
-  com.google.protobuf.ByteString
-      getLandlineNumberBytes();
-
-  /**
-   * <pre>
-   * Whether the mobile number has been verified.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool mobile_number_qualified = 32 [json_name = "mobileNumberQualified"];</code>
-   * @return The mobileNumberQualified.
-   */
-  boolean getMobileNumberQualified();
-
-  /**
-   * <pre>
-   * Whether the email address has been verified.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool email_qualified = 33 [json_name = "emailQualified"];</code>
-   * @return The emailQualified.
-   */
-  boolean getEmailQualified();
-
-  /**
-   * <pre>
-   * Whether the user is blocked.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool blocked = 34 [json_name = "blocked"];</code>
-   * @return The blocked.
-   */
-  boolean getBlocked();
-
-  /**
-   * <pre>
-   * Unique key for the block record.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string blocked_key = 35 [json_name = "blockedKey"];</code>
-   * @return The blockedKey.
-   */
-  java.lang.String getBlockedKey();
-  /**
-   * <pre>
-   * Unique key for the block record.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string blocked_key = 35 [json_name = "blockedKey"];</code>
-   * @return The bytes for blockedKey.
-   */
-  com.google.protobuf.ByteString
-      getBlockedKeyBytes();
-
-  /**
-   * <pre>
-   * Sort key for managed user ordering.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>int64 managed_key = 36 [json_name = "managedKey"];</code>
-   * @return The managedKey.
-   */
-  long getManagedKey();
-
-  /**
-   * <pre>
-   * Whether the user is a registered member.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool member = 37 [json_name = "member"];</code>
-   * @return The member.
-   */
-  boolean getMember();
-
-  /**
-   * <pre>
-   * Whether the user is access-restricted from the front.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool constrainted = 38 [json_name = "constrainted"];</code>
-   * @return The constrainted.
-   */
-  boolean getConstrainted();
-
-  /**
-   * <pre>
-   * Whether the user opted out of email notifications.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool unsubscribe_email = 39 [json_name = "unsubscribeEmail"];</code>
-   * @return The unsubscribeEmail.
-   */
-  boolean getUnsubscribeEmail();
-
-  /**
-   * <pre>
-   * Timestamp when email subscription preference was last changed.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 40 [json_name = "unsubscribeEmailUpdatedAt"];</code>
-   * @return Whether the unsubscribeEmailUpdatedAt field is set.
-   */
-  boolean hasUnsubscribeEmailUpdatedAt();
-  /**
-   * <pre>
-   * Timestamp when email subscription preference was last changed.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 40 [json_name = "unsubscribeEmailUpdatedAt"];</code>
-   * @return The unsubscribeEmailUpdatedAt.
-   */
-  com.google.protobuf.Timestamp getUnsubscribeEmailUpdatedAt();
-  /**
-   * <pre>
-   * Timestamp when email subscription preference was last changed.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 40 [json_name = "unsubscribeEmailUpdatedAt"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getUnsubscribeEmailUpdatedAtOrBuilder();
-
-  /**
-   * <pre>
-   * Whether the user opted out of SMS/text notifications.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool unsubscribe_texting = 41 [json_name = "unsubscribeTexting"];</code>
-   * @return The unsubscribeTexting.
-   */
-  boolean getUnsubscribeTexting();
-
-  /**
-   * <pre>
-   * Timestamp when SMS subscription preference was last changed.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 42 [json_name = "unsubscribeTextingUpdatedAt"];</code>
-   * @return Whether the unsubscribeTextingUpdatedAt field is set.
-   */
-  boolean hasUnsubscribeTextingUpdatedAt();
-  /**
-   * <pre>
-   * Timestamp when SMS subscription preference was last changed.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 42 [json_name = "unsubscribeTextingUpdatedAt"];</code>
-   * @return The unsubscribeTextingUpdatedAt.
-   */
-  com.google.protobuf.Timestamp getUnsubscribeTextingUpdatedAt();
-  /**
-   * <pre>
-   * Timestamp when SMS subscription preference was last changed.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 42 [json_name = "unsubscribeTextingUpdatedAt"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getUnsubscribeTextingUpdatedAtOrBuilder();
-
-  /**
-   * <pre>
-   * User's preferred language locale.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string language = 45 [json_name = "language"];</code>
+   * <code>string language = 19 [json_name = "language"];</code>
    * @return The language.
    */
   java.lang.String getLanguage();
   /**
    * <pre>
-   * User's preferred language locale.
+   * Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string language = 45 [json_name = "language"];</code>
+   * <code>string language = 19 [json_name = "language"];</code>
    * @return The bytes for language.
    */
   com.google.protobuf.ByteString
@@ -886,21 +486,184 @@ public interface UserOrBuilder extends
 
   /**
    * <pre>
-   * System-detected language locale.
+   * Whether the user has opted out of email notifications.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string system_language = 46 [json_name = "systemLanguage"];</code>
+   * <code>bool unsubscribe_email = 20 [json_name = "unsubscribeEmail"];</code>
+   * @return The unsubscribeEmail.
+   */
+  boolean getUnsubscribeEmail();
+
+  /**
+   * <pre>
+   * Timestamp when the email opt-out preference was last changed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
+   * @return Whether the unsubscribeEmailUpdatedAt field is set.
+   */
+  boolean hasUnsubscribeEmailUpdatedAt();
+  /**
+   * <pre>
+   * Timestamp when the email opt-out preference was last changed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
+   * @return The unsubscribeEmailUpdatedAt.
+   */
+  com.google.protobuf.Timestamp getUnsubscribeEmailUpdatedAt();
+  /**
+   * <pre>
+   * Timestamp when the email opt-out preference was last changed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getUnsubscribeEmailUpdatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Whether the user has opted out of SMS/text notifications.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool unsubscribe_texting = 22 [json_name = "unsubscribeTexting"];</code>
+   * @return The unsubscribeTexting.
+   */
+  boolean getUnsubscribeTexting();
+
+  /**
+   * <pre>
+   * Timestamp when the SMS/text opt-out preference was last changed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
+   * @return Whether the unsubscribeTextingUpdatedAt field is set.
+   */
+  boolean hasUnsubscribeTextingUpdatedAt();
+  /**
+   * <pre>
+   * Timestamp when the SMS/text opt-out preference was last changed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
+   * @return The unsubscribeTextingUpdatedAt.
+   */
+  com.google.protobuf.Timestamp getUnsubscribeTextingUpdatedAt();
+  /**
+   * <pre>
+   * Timestamp when the SMS/text opt-out preference was last changed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getUnsubscribeTextingUpdatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Whether the user has opted out of mobile app push notifications.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool unsubscribe_app_push = 24 [json_name = "unsubscribeAppPush"];</code>
+   * @return The unsubscribeAppPush.
+   */
+  boolean getUnsubscribeAppPush();
+
+  /**
+   * <pre>
+   * Timestamp when the app push opt-out preference was last changed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+   * @return Whether the unsubscribeAppPushUpdatedAt field is set.
+   */
+  boolean hasUnsubscribeAppPushUpdatedAt();
+  /**
+   * <pre>
+   * Timestamp when the app push opt-out preference was last changed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+   * @return The unsubscribeAppPushUpdatedAt.
+   */
+  com.google.protobuf.Timestamp getUnsubscribeAppPushUpdatedAt();
+  /**
+   * <pre>
+   * Timestamp when the app push opt-out preference was last changed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getUnsubscribeAppPushUpdatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * URL of the user's avatar image.
+   * Falls back to an auto-generated default avatar when no custom avatar is set
+   * in the profile.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string avatar_url = 26 [json_name = "avatarUrl"];</code>
+   * @return The avatarUrl.
+   */
+  java.lang.String getAvatarUrl();
+  /**
+   * <pre>
+   * URL of the user's avatar image.
+   * Falls back to an auto-generated default avatar when no custom avatar is set
+   * in the profile.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string avatar_url = 26 [json_name = "avatarUrl"];</code>
+   * @return The bytes for avatarUrl.
+   */
+  com.google.protobuf.ByteString
+      getAvatarUrlBytes();
+
+  /**
+   * <pre>
+   * Whether the user has a display name set in the profile
+   * (name, firstName, or lastName).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool named = 27 [json_name = "named"];</code>
+   * @return The named.
+   */
+  boolean getNamed();
+
+  /**
+   * <pre>
+   * Language detected from the user's browser or device settings,
+   * as a BCP 47 locale code.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string system_language = 28 [json_name = "systemLanguage"];</code>
    * @return The systemLanguage.
    */
   java.lang.String getSystemLanguage();
   /**
    * <pre>
-   * System-detected language locale.
+   * Language detected from the user's browser or device settings,
+   * as a BCP 47 locale code.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string system_language = 46 [json_name = "systemLanguage"];</code>
+   * <code>string system_language = 28 [json_name = "systemLanguage"];</code>
    * @return The bytes for systemLanguage.
    */
   com.google.protobuf.ByteString
@@ -908,115 +671,360 @@ public interface UserOrBuilder extends
 
   /**
    * <pre>
-   * Optimistic lock version.
+   * Whether the user's mobile number has passed format validation
+   * and is eligible for SMS delivery.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>int64 version = 47 [json_name = "version"];</code>
-   * @return The version.
+   * <code>bool mobile_number_qualified = 29 [json_name = "mobileNumberQualified"];</code>
+   * @return The mobileNumberQualified.
    */
-  long getVersion();
+  boolean getMobileNumberQualified();
 
   /**
    * <pre>
-   * User creation timestamp.
-   * +kubebuilder:validation:Required
+   * Whether the user's email address has passed format validation
+   * and is eligible for email delivery.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 48 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-   * @return Whether the createdAt field is set.
+   * <code>bool email_qualified = 30 [json_name = "emailQualified"];</code>
+   * @return The emailQualified.
    */
-  boolean hasCreatedAt();
-  /**
-   * <pre>
-   * User creation timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp created_at = 48 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-   * @return The createdAt.
-   */
-  com.google.protobuf.Timestamp getCreatedAt();
-  /**
-   * <pre>
-   * User creation timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp created_at = 48 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
+  boolean getEmailQualified();
 
   /**
    * <pre>
-   * User last update timestamp.
-   * +kubebuilder:validation:Required
+   * Display name of the user, derived from the profile's name field.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 49 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
-   * @return Whether the updatedAt field is set.
+   * <code>string name = 31 [json_name = "name"];</code>
+   * @return The name.
    */
-  boolean hasUpdatedAt();
+  java.lang.String getName();
   /**
    * <pre>
-   * User last update timestamp.
-   * +kubebuilder:validation:Required
+   * Display name of the user, derived from the profile's name field.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 49 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
-   * @return The updatedAt.
+   * <code>string name = 31 [json_name = "name"];</code>
+   * @return The bytes for name.
    */
-  com.google.protobuf.Timestamp getUpdatedAt();
-  /**
-   * <pre>
-   * User last update timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp updated_at = 49 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
+  com.google.protobuf.ByteString
+      getNameBytes();
 
   /**
    * <pre>
-   * Timestamp when app push subscription preference was last changed.
-   * +kubebuilder:validation:Nullable
-   * Whether the user opted out of app push notifications.
+   * Whether the user has at least one managed chat conversation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>bool unsubscribe_app_push = 50 [json_name = "unsubscribeAppPush"];</code>
-   * @return The unsubscribeAppPush.
+   * <code>bool has_chat = 32 [json_name = "hasChat"];</code>
+   * @return The hasChat.
    */
-  boolean getUnsubscribeAppPush();
+  boolean getHasChat();
 
   /**
    * <pre>
-   * Timestamp when app push subscription preference was last changed.
+   * Whether the user has a registered device token for push notifications.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
-   * @return Whether the unsubscribeAppPushUpdatedAt field is set.
+   * <code>bool has_push_token = 33 [json_name = "hasPushToken"];</code>
+   * @return The hasPushToken.
    */
-  boolean hasUnsubscribeAppPushUpdatedAt();
+  boolean getHasPushToken();
+
   /**
    * <pre>
-   * Timestamp when app push subscription preference was last changed.
+   * Province or state name derived from IP geolocation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
-   * @return The unsubscribeAppPushUpdatedAt.
+   * <code>string province = 34 [json_name = "province"];</code>
+   * @return The province.
    */
-  com.google.protobuf.Timestamp getUnsubscribeAppPushUpdatedAt();
+  java.lang.String getProvince();
   /**
    * <pre>
-   * Timestamp when app push subscription preference was last changed.
+   * Province or state name derived from IP geolocation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 51 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
+   * <code>string province = 34 [json_name = "province"];</code>
+   * @return The bytes for province.
    */
-  com.google.protobuf.TimestampOrBuilder getUnsubscribeAppPushUpdatedAtOrBuilder();
+  com.google.protobuf.ByteString
+      getProvinceBytes();
+
+  /**
+   * <pre>
+   * City name derived from IP geolocation.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string city = 35 [json_name = "city"];</code>
+   * @return The city.
+   */
+  java.lang.String getCity();
+  /**
+   * <pre>
+   * City name derived from IP geolocation.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string city = 35 [json_name = "city"];</code>
+   * @return The bytes for city.
+   */
+  com.google.protobuf.ByteString
+      getCityBytes();
+
+  /**
+   * <pre>
+   * Latitude coordinate derived from IP geolocation.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>double latitude = 36 [json_name = "latitude"];</code>
+   * @return The latitude.
+   */
+  double getLatitude();
+
+  /**
+   * <pre>
+   * Longitude coordinate derived from IP geolocation.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>double longitude = 37 [json_name = "longitude"];</code>
+   * @return The longitude.
+   */
+  double getLongitude();
+
+  /**
+   * <pre>
+   * Web browser and page tracking information from the user's latest session.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.WebInfo web = 38 [json_name = "web"];</code>
+   * @return Whether the web field is set.
+   */
+  boolean hasWeb();
+  /**
+   * <pre>
+   * Web browser and page tracking information from the user's latest session.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.WebInfo web = 38 [json_name = "web"];</code>
+   * @return The web.
+   */
+  io.channel.api.proto.pub.coreapi.model.WebInfo getWeb();
+  /**
+   * <pre>
+   * Web browser and page tracking information from the user's latest session.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.WebInfo web = 38 [json_name = "web"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.WebInfoOrBuilder getWebOrBuilder();
+
+  /**
+   * <pre>
+   * Mobile device information from the user's latest session.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MobileInfo mobile = 39 [json_name = "mobile"];</code>
+   * @return Whether the mobile field is set.
+   */
+  boolean hasMobile();
+  /**
+   * <pre>
+   * Mobile device information from the user's latest session.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MobileInfo mobile = 39 [json_name = "mobile"];</code>
+   * @return The mobile.
+   */
+  io.channel.api.proto.pub.coreapi.model.MobileInfo getMobile();
+  /**
+   * <pre>
+   * Mobile device information from the user's latest session.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MobileInfo mobile = 39 [json_name = "mobile"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.MobileInfoOrBuilder getMobileOrBuilder();
+
+  /**
+   * <pre>
+   * Total number of chat sessions the user has initiated in this channel.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int32 sessions_count = 40 [json_name = "sessionsCount"];</code>
+   * @return The sessionsCount.
+   */
+  int getSessionsCount();
+
+  /**
+   * <pre>
+   * Timestamp when the user was last seen online in the channel.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
+   * @return Whether the lastSeenAt field is set.
+   */
+  boolean hasLastSeenAt();
+  /**
+   * <pre>
+   * Timestamp when the user was last seen online in the channel.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
+   * @return The lastSeenAt.
+   */
+  com.google.protobuf.Timestamp getLastSeenAt();
+  /**
+   * <pre>
+   * Timestamp when the user was last seen online in the channel.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getLastSeenAtOrBuilder();
+
+  /**
+   * <pre>
+   * Whether the user is blocked from initiating new chats.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool blocked = 42 [json_name = "blocked"];</code>
+   * @return The blocked.
+   */
+  boolean getBlocked();
+
+  /**
+   * <pre>
+   * Identifier key associated with the block action,
+   * used to look up block details.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
+   * @return The blockedKey.
+   */
+  java.lang.String getBlockedKey();
+  /**
+   * <pre>
+   * Identifier key associated with the block action,
+   * used to look up block details.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
+   * @return The bytes for blockedKey.
+   */
+  com.google.protobuf.ByteString
+      getBlockedKeyBytes();
+
+  /**
+   * <pre>
+   * Sort key used for ordering users in the managed contact list.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int64 managed_key = 44 [json_name = "managedKey"];</code>
+   * @return The managedKey.
+   */
+  long getManagedKey();
+
+  /**
+   * <pre>
+   * Whether the user's type is member.
+   * Derived from the type field.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool member = 45 [json_name = "member"];</code>
+   * @return The member.
+   */
+  boolean getMember();
+
+  /**
+   * <pre>
+   * Email address extracted from the user's profile data.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string email = 46 [json_name = "email"];</code>
+   * @return The email.
+   */
+  java.lang.String getEmail();
+  /**
+   * <pre>
+   * Email address extracted from the user's profile data.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string email = 46 [json_name = "email"];</code>
+   * @return The bytes for email.
+   */
+  com.google.protobuf.ByteString
+      getEmailBytes();
+
+  /**
+   * <pre>
+   * Mobile phone number extracted from the user's profile data.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string mobile_number = 47 [json_name = "mobileNumber"];</code>
+   * @return The mobileNumber.
+   */
+  java.lang.String getMobileNumber();
+  /**
+   * <pre>
+   * Mobile phone number extracted from the user's profile data.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string mobile_number = 47 [json_name = "mobileNumber"];</code>
+   * @return The bytes for mobileNumber.
+   */
+  com.google.protobuf.ByteString
+      getMobileNumberBytes();
+
+  /**
+   * <pre>
+   * Landline phone number extracted from the user's profile data.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string landline_number = 48 [json_name = "landlineNumber"];</code>
+   * @return The landlineNumber.
+   */
+  java.lang.String getLandlineNumber();
+  /**
+   * <pre>
+   * Landline phone number extracted from the user's profile data.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string landline_number = 48 [json_name = "landlineNumber"];</code>
+   * @return The bytes for landlineNumber.
+   */
+  com.google.protobuf.ByteString
+      getLandlineNumberBytes();
 }

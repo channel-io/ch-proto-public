@@ -23,37 +23,43 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// ManagerBadge represents notification badge counters for a manager.
-// Tracks unread and alert counts across user chats, team chats, and threads.
+// ManagerBadge holds per-chat-type notification badge counts for a manager,
+// broken down by team chat, user chat, and thread categories.
 type ManagerBadge struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique badge identifier.
-	// Same as the manager ID.
+	// Uses the same value as the owning manager's ID.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Number of team chat alerts.
+	// Alert-level unread count in team chat main conversations.
+	// Defaults to 0.
 	//
 	// +kubebuilder:validation:Nullable
 	TeamChatAlert int32 `protobuf:"varint,2,opt,name=team_chat_alert,json=teamChatAlert,proto3" json:"team_chat_alert,omitempty"`
-	// Number of unread team chat messages.
+	// Total unread count in team chat main conversations.
+	// Defaults to 0.
 	//
 	// +kubebuilder:validation:Nullable
 	TeamChatUnread int32 `protobuf:"varint,3,opt,name=team_chat_unread,json=teamChatUnread,proto3" json:"team_chat_unread,omitempty"`
-	// Number of user chat alerts.
+	// Alert-level unread count in user chat conversations.
+	// Defaults to 0.
 	//
 	// +kubebuilder:validation:Nullable
 	UserChatAlert int32 `protobuf:"varint,4,opt,name=user_chat_alert,json=userChatAlert,proto3" json:"user_chat_alert,omitempty"`
-	// Number of unread user chat messages.
+	// Total unread count in user chat conversations.
+	// Defaults to 0.
 	//
 	// +kubebuilder:validation:Nullable
 	UserChatUnread int32 `protobuf:"varint,5,opt,name=user_chat_unread,json=userChatUnread,proto3" json:"user_chat_unread,omitempty"`
-	// Number of team chat thread alerts.
+	// Alert-level unread count in team chat thread replies.
+	// Defaults to 0.
 	//
 	// +kubebuilder:validation:Nullable
 	TeamChatThreadAlert int32 `protobuf:"varint,6,opt,name=team_chat_thread_alert,json=teamChatThreadAlert,proto3" json:"team_chat_thread_alert,omitempty"`
-	// Number of unread team chat thread messages.
+	// Total unread count in team chat thread replies.
+	// Defaults to 0.
 	//
 	// +kubebuilder:validation:Nullable
 	TeamChatThreadUnread int32 `protobuf:"varint,7,opt,name=team_chat_thread_unread,json=teamChatThreadUnread,proto3" json:"team_chat_thread_unread,omitempty"`
@@ -61,22 +67,26 @@ type ManagerBadge struct {
 	//
 	// +kubebuilder:validation:Nullable
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Badge data version number.
+	// Optimistic locking version.
+	// Incremented on every update.
 	//
 	// +kubebuilder:validation:Nullable
 	Version int64 `protobuf:"varint,9,opt,name=version,proto3" json:"version,omitempty"`
-	// Total alert count across all chat types.
-	//
-	// +kubebuilder:validation:Nullable
-	Alert int32 `protobuf:"varint,10,opt,name=alert,proto3" json:"alert,omitempty"`
-	// Total unread count across all chat types.
-	//
-	// +kubebuilder:validation:Nullable
-	Unread int32 `protobuf:"varint,11,opt,name=unread,proto3" json:"unread,omitempty"`
 	// Manager ID this badge belongs to.
+	// Same value as the badge id.
 	//
 	// +kubebuilder:validation:Nullable
-	ManagerId     string `protobuf:"bytes,12,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
+	ManagerId string `protobuf:"bytes,10,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
+	// Aggregated alert count across all chat types.
+	// Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.
+	//
+	// +kubebuilder:validation:Nullable
+	Alert int32 `protobuf:"varint,11,opt,name=alert,proto3" json:"alert,omitempty"`
+	// Aggregated unread count across all chat types.
+	// Equals team_chat_unread + team_chat_thread_unread + user_chat_unread.
+	//
+	// +kubebuilder:validation:Nullable
+	Unread        int32 `protobuf:"varint,12,opt,name=unread,proto3" json:"unread,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -174,6 +184,13 @@ func (x *ManagerBadge) GetVersion() int64 {
 	return 0
 }
 
+func (x *ManagerBadge) GetManagerId() string {
+	if x != nil {
+		return x.ManagerId
+	}
+	return ""
+}
+
 func (x *ManagerBadge) GetAlert() int32 {
 	if x != nil {
 		return x.Alert
@@ -186,13 +203,6 @@ func (x *ManagerBadge) GetUnread() int32 {
 		return x.Unread
 	}
 	return 0
-}
-
-func (x *ManagerBadge) GetManagerId() string {
-	if x != nil {
-		return x.ManagerId
-	}
-	return ""
 }
 
 var File_coreapi_model_manager_badge_proto protoreflect.FileDescriptor
@@ -211,12 +221,12 @@ const file_coreapi_model_manager_badge_proto_rawDesc = "" +
 	"\x17team_chat_thread_unread\x18\a \x01(\x05R\x14teamChatThreadUnread\x129\n" +
 	"\n" +
 	"updated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x18\n" +
-	"\aversion\x18\t \x01(\x03R\aversion\x12\x14\n" +
-	"\x05alert\x18\n" +
-	" \x01(\x05R\x05alert\x12\x16\n" +
-	"\x06unread\x18\v \x01(\x05R\x06unread\x12\x1d\n" +
+	"\aversion\x18\t \x01(\x03R\aversion\x12\x1d\n" +
 	"\n" +
-	"manager_id\x18\f \x01(\tR\tmanagerIdBb\n" +
+	"manager_id\x18\n" +
+	" \x01(\tR\tmanagerId\x12\x14\n" +
+	"\x05alert\x18\v \x01(\x05R\x05alert\x12\x16\n" +
+	"\x06unread\x18\f \x01(\x05R\x06unreadBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (

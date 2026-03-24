@@ -9,7 +9,8 @@ public interface ChatBookmarkOrBuilder extends
 
   /**
    * <pre>
-   * Unique bookmark identifier.
+   * Composite partition key identifying the person and chat type scope.
+   * Format: "{personType}-{personId}-{chatType}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -20,7 +21,8 @@ public interface ChatBookmarkOrBuilder extends
   java.lang.String getKey();
   /**
    * <pre>
-   * Unique bookmark identifier.
+   * Composite partition key identifying the person and chat type scope.
+   * Format: "{personType}-{personId}-{chatType}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -33,7 +35,7 @@ public interface ChatBookmarkOrBuilder extends
 
   /**
    * <pre>
-   * Chat ID this bookmark belongs to.
+   * Chat ID of the bookmarked conversation.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -44,7 +46,7 @@ public interface ChatBookmarkOrBuilder extends
   java.lang.String getChatId();
   /**
    * <pre>
-   * Chat ID this bookmark belongs to.
+   * Chat ID of the bookmarked conversation.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -57,23 +59,25 @@ public interface ChatBookmarkOrBuilder extends
 
   /**
    * <pre>
-   * Composite key for the associated chat.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Composite key identifying the bookmarked conversation.
+   * Format: "{chatType}-{chatId}".
+   * Enables reverse lookup of all people who bookmarked a given chat.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_key = 3 [json_name = "chatKey"];</code>
    * @return The chatKey.
    */
   java.lang.String getChatKey();
   /**
    * <pre>
-   * Composite key for the associated chat.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Composite key identifying the bookmarked conversation.
+   * Format: "{chatType}-{chatId}".
+   * Enables reverse lookup of all people who bookmarked a given chat.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_key = 3 [json_name = "chatKey"];</code>
    * @return The bytes for chatKey.
    */
   com.google.protobuf.ByteString
@@ -81,23 +85,21 @@ public interface ChatBookmarkOrBuilder extends
 
   /**
    * <pre>
-   * Opaque key representing the reading position in the chat.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Opaque sort key for ordering bookmarks within the person's list.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
+   * <code>string bookmark_key = 4 [json_name = "bookmarkKey"];</code>
    * @return The bookmarkKey.
    */
   java.lang.String getBookmarkKey();
   /**
    * <pre>
-   * Opaque key representing the reading position in the chat.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Opaque sort key for ordering bookmarks within the person's list.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
+   * <code>string bookmark_key = 4 [json_name = "bookmarkKey"];</code>
    * @return The bytes for bookmarkKey.
    */
   com.google.protobuf.ByteString
@@ -106,22 +108,20 @@ public interface ChatBookmarkOrBuilder extends
   /**
    * <pre>
    * Channel ID this bookmark belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 5 [json_name = "channelId"];</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
   /**
    * <pre>
    * Channel ID this bookmark belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 5 [json_name = "channelId"];</code>
    * @return The bytes for channelId.
    */
   com.google.protobuf.ByteString
@@ -129,33 +129,59 @@ public interface ChatBookmarkOrBuilder extends
 
   /**
    * <pre>
-   * Entity version number for optimistic concurrency control.
+   * Optimistic locking version.
+   * Incremented on every update.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>int32 version = 6 [json_name = "version"];</code>
+   * <code>int64 version = 6 [json_name = "version"];</code>
    * @return The version.
    */
-  int getVersion();
+  long getVersion();
 
   /**
    * <pre>
-   * Type of the bookmark owner (e.g. "manager").
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Chat type of the bookmarked conversation (e.g., "userChat", "group", "directChat").
+   * Derived from the third segment of the bookmark key.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_type = 7 [json_name = "chatType"];</code>
+   * @return The chatType.
+   */
+  java.lang.String getChatType();
+  /**
+   * <pre>
+   * Chat type of the bookmarked conversation (e.g., "userChat", "group", "directChat").
+   * Derived from the third segment of the bookmark key.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string chat_type = 7 [json_name = "chatType"];</code>
+   * @return The bytes for chatType.
+   */
+  com.google.protobuf.ByteString
+      getChatTypeBytes();
+
+  /**
+   * <pre>
+   * Entity type of the person who created the bookmark (e.g., "manager", "user").
+   * Derived from the first segment of the bookmark key.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string person_type = 8 [json_name = "personType"];</code>
    * @return The personType.
    */
   java.lang.String getPersonType();
   /**
    * <pre>
-   * Type of the bookmark owner (e.g. "manager").
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Entity type of the person who created the bookmark (e.g., "manager", "user").
+   * Derived from the first segment of the bookmark key.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * <code>string person_type = 8 [json_name = "personType"];</code>
    * @return The bytes for personType.
    */
   com.google.protobuf.ByteString
@@ -163,49 +189,25 @@ public interface ChatBookmarkOrBuilder extends
 
   /**
    * <pre>
-   * Identifier of the bookmark owner.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Entity ID of the person who created the bookmark.
+   * Derived from the second segment of the bookmark key.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+   * <code>string person_id = 9 [json_name = "personId"];</code>
    * @return The personId.
    */
   java.lang.String getPersonId();
   /**
    * <pre>
-   * Identifier of the bookmark owner.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Entity ID of the person who created the bookmark.
+   * Derived from the second segment of the bookmark key.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+   * <code>string person_id = 9 [json_name = "personId"];</code>
    * @return The bytes for personId.
    */
   com.google.protobuf.ByteString
       getPersonIdBytes();
-
-  /**
-   * <pre>
-   * Chat type this bookmark belongs to (e.g. "group", "userChat").
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-   * @return The chatType.
-   */
-  java.lang.String getChatType();
-  /**
-   * <pre>
-   * Chat type this bookmark belongs to (e.g. "group", "userChat").
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for chatType.
-   */
-  com.google.protobuf.ByteString
-      getChatTypeBytes();
 }

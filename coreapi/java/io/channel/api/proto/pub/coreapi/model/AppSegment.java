@@ -5,7 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * App segment for user targeting within a specific app extension.
+ * AppSegment represents a user segment defined by an app extension.
+ * Used in campaigns and one-time messages to target users that belong to a specific segment managed by an external app.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.AppSegment}
@@ -109,7 +110,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object appId_;
   /**
    * <pre>
-   * App identifier.
+   * App that owns the segment definition.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -132,7 +133,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * App identifier.
+   * App that owns the segment definition.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -159,7 +160,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object extensionId_;
   /**
    * <pre>
-   * Extension identifier.
+   * Extension within the app that provides the segmentation logic.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -182,7 +183,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Extension identifier.
+   * Extension within the app that provides the segmentation logic.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -209,7 +210,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object segmentId_;
   /**
    * <pre>
-   * Segment identifier.
+   * Specific segment within the extension that users must belong to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -232,7 +233,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Segment identifier.
+   * Specific segment within the extension that users must belong to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -431,7 +432,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * App segment for user targeting within a specific app extension.
+   * AppSegment represents a user segment defined by an app extension.
+   * Used in campaigns and one-time messages to target users that belong to a specific segment managed by an external app.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.AppSegment}
@@ -598,7 +600,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object appId_ = "";
     /**
      * <pre>
-     * App identifier.
+     * App that owns the segment definition.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -620,7 +622,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * App identifier.
+     * App that owns the segment definition.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -643,7 +645,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * App identifier.
+     * App that owns the segment definition.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -664,7 +666,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * App identifier.
+     * App that owns the segment definition.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -680,7 +682,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * App identifier.
+     * App that owns the segment definition.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -704,7 +706,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object extensionId_ = "";
     /**
      * <pre>
-     * Extension identifier.
+     * Extension within the app that provides the segmentation logic.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -726,7 +728,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Extension identifier.
+     * Extension within the app that provides the segmentation logic.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -749,7 +751,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Extension identifier.
+     * Extension within the app that provides the segmentation logic.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -770,7 +772,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Extension identifier.
+     * Extension within the app that provides the segmentation logic.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -786,7 +788,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Extension identifier.
+     * Extension within the app that provides the segmentation logic.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -810,7 +812,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object segmentId_ = "";
     /**
      * <pre>
-     * Segment identifier.
+     * Specific segment within the extension that users must belong to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -832,7 +834,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Segment identifier.
+     * Specific segment within the extension that users must belong to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -855,7 +857,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Segment identifier.
+     * Specific segment within the extension that users must belong to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -876,7 +878,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Segment identifier.
+     * Specific segment within the extension that users must belong to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -892,7 +894,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Segment identifier.
+     * Specific segment within the extension that users must belong to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>

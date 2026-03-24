@@ -13,11 +13,11 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 // Event represents a user-level tracking event.
 // Events capture user actions such as page views, purchases, and custom interactions.
 message Event {
-  // Unique event identifier.
+  // ID of the user who triggered the event.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  string id = 1 [
+  string user_id = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
       message: "value must be at least 1 character"
@@ -26,11 +26,11 @@ message Event {
     (buf.validate.field).required = true
   ];
 
-  // ID of the user who triggered the event.
+  // Unique event identifier.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  string user_id = 2 [
+  string id = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"
       message: "value must be at least 1 character"
@@ -52,7 +52,7 @@ message Event {
     (buf.validate.field).required = true
   ];
 
-  // Event name identifying the type of action.
+  // Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -71,7 +71,7 @@ message Event {
     (buf.validate.field).required = true
   ];
 
-  // Custom properties associated with the event.
+  // Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Struct property = 5;
@@ -81,13 +81,20 @@ message Event {
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp created_at = 6 [(buf.validate.field).required = true];
 
-  // Event expiration timestamp.
+  // Expiration timestamp after which the event may no longer be retrievable.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp expire_at = 7;
 
-  // Event data version number.
+  // Optimistic concurrency version counter.
+  // Incremented on each update to detect conflicting writes.
   //
   // +kubebuilder:validation:Nullable
   int64 version = 8;
+
+  // Internationalized event name map keyed by locale (e.g., en, ko).
+  // Populated only for system-defined events; custom events return no entries.
+  //
+  // +kubebuilder:validation:Nullable
+  map<string, string> name_i18n_map = 9;
 }

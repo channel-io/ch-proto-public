@@ -29,58 +29,42 @@ public final class ChatSessionOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n coreapi/model/chat_session.proto\022\rcore" +
-      "api.model\032\033buf/validate/validate.proto\032\037" +
-      "google/protobuf/timestamp.proto\"\233\014\n\013Chat" +
-      "Session\022]\n\002id\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minL" +
-      "en\022\"value must be at least 1 character\032\017" +
-      "size(this) >= 1\310\001\001R\002id\022_\n\003key\030\002 \001(\tBM\272HJ" +
-      "\272\001D\n\rstring.minLen\022\"value must be at lea" +
-      "st 1 character\032\017size(this) >= 1\310\001\001R\003key\022" +
-      "l\n\nchannel_id\030\003 \001(\tBM\272HJ\272\001D\n\rstring.minL" +
-      "en\022\"value must be at least 1 character\032\017" +
-      "size(this) >= 1\310\001\001R\tchannelId\022j\n\tchat_ty" +
-      "pe\030\004 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value m" +
-      "ust be at least 1 character\032\017size(this) " +
-      ">= 1\310\001\001R\010chatType\022f\n\007chat_id\030\005 \001(\tBM\272HJ\272" +
-      "\001D\n\rstring.minLen\022\"value must be at leas" +
-      "t 1 character\032\017size(this) >= 1\310\001\001R\006chatI" +
-      "d\022h\n\010chat_key\030\006 \001(\tBM\272HJ\272\001D\n\rstring.minL" +
-      "en\022\"value must be at least 1 character\032\017" +
-      "size(this) >= 1\310\001\001R\007chatKey\022n\n\013person_ty" +
-      "pe\030\007 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value m" +
-      "ust be at least 1 character\032\017size(this) " +
-      ">= 1\310\001\001R\npersonType\022j\n\tperson_id\030\010 \001(\tBM" +
-      "\272HJ\272\001D\n\rstring.minLen\022\"value must be at " +
-      "least 1 character\032\017size(this) >= 1\310\001\001R\010p" +
-      "ersonId\022n\n\013updated_key\030\t \001(\tBM\272HJ\272\001D\n\rst" +
-      "ring.minLen\022\"value must be at least 1 ch" +
-      "aracter\032\017size(this) >= 1\310\001\001R\nupdatedKey\022" +
-      "l\n\nunread_key\030\n \001(\tBM\272HJ\272\001D\n\rstring.minL" +
-      "en\022\"value must be at least 1 character\032\017" +
-      "size(this) >= 1\310\001\001R\tunreadKey\022\024\n\005alert\030\013" +
-      " \001(\005R\005alert\022\026\n\006unread\030\014 \001(\005R\006unread\0221\n\005w" +
-      "atch\030\r \001(\0162\033.coreapi.model.SessionWatchR" +
-      "\005watch\0222\n\025all_mention_important\030\016 \001(\010R\023a" +
-      "llMentionImportant\0223\n\007read_at\030\017 \001(\0132\032.go" +
-      "ogle.protobuf.TimestampR\006readAt\022;\n\013recei" +
-      "ved_at\030\020 \001(\0132\032.google.protobuf.Timestamp" +
-      "R\nreceivedAt\0227\n\tposted_at\030\021 \001(\0132\032.google" +
-      ".protobuf.TimestampR\010postedAt\022A\n\nupdated" +
-      "_at\030\022 \001(\0132\032.google.protobuf.TimestampB\006\272" +
-      "H\003\310\001\001R\tupdatedAt\022A\n\ncreated_at\030\023 \001(\0132\032.g" +
-      "oogle.protobuf.TimestampB\006\272H\003\310\001\001R\tcreate" +
-      "dAt\022 \n\007version\030\024 \001(\003B\006\272H\003\310\001\001R\007version*t\n" +
-      "\014SessionWatch\022\035\n\031SESSION_WATCH_UNSPECIFI" +
-      "ED\020\000\022\025\n\021SESSION_WATCH_ALL\020\001\022\026\n\022SESSION_W" +
-      "ATCH_INFO\020\002\022\026\n\022SESSION_WATCH_NONE\020\003Bb\n&i" +
-      "o.channel.api.proto.pub.coreapi.modelP\001Z" +
-      "6github.com/channel-io/ch-proto-public/c" +
-      "oreapi/go/modelb\006proto3"
+      "api.model\032\033buf/validate/validate.proto\032\033" +
+      "coreapi/model/manager.proto\032\037google/prot" +
+      "obuf/timestamp.proto\"\274\007\n\013ChatSession\022_\n\003" +
+      "key\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value " +
+      "must be at least 1 character\032\017size(this)" +
+      " >= 1\310\001\001R\003key\022f\n\007chat_id\030\002 \001(\tBM\272HJ\272\001D\n\r" +
+      "string.minLen\022\"value must be at least 1 " +
+      "character\032\017size(this) >= 1\310\001\001R\006chatId\022/\n" +
+      "\024team_chat_section_id\030\003 \001(\tR\021teamChatSec" +
+      "tionId\022\031\n\010chat_key\030\004 \001(\tR\007chatKey\022\037\n\013upd" +
+      "ated_key\030\005 \001(\tR\nupdatedKey\022\035\n\nunread_key" +
+      "\030\006 \001(\tR\tunreadKey\022\035\n\nchannel_id\030\007 \001(\tR\tc" +
+      "hannelId\022\024\n\005alert\030\010 \001(\005R\005alert\022\026\n\006unread" +
+      "\030\t \001(\005R\006unread\0221\n\005watch\030\n \001(\0162\033.coreapi." +
+      "model.SessionWatchR\005watch\0222\n\025all_mention" +
+      "_important\030\013 \001(\010R\023allMentionImportant\0223\n" +
+      "\007read_at\030\014 \001(\0132\032.google.protobuf.Timesta" +
+      "mpR\006readAt\022;\n\013received_at\030\r \001(\0132\032.google" +
+      ".protobuf.TimestampR\nreceivedAt\0227\n\tposte" +
+      "d_at\030\016 \001(\0132\032.google.protobuf.TimestampR\010" +
+      "postedAt\0229\n\nupdated_at\030\017 \001(\0132\032.google.pr" +
+      "otobuf.TimestampR\tupdatedAt\0229\n\ncreated_a" +
+      "t\030\020 \001(\0132\032.google.protobuf.TimestampR\tcre" +
+      "atedAt\022\030\n\007version\030\021 \001(\003R\007version\022\016\n\002id\030\022" +
+      " \001(\tR\002id\022\033\n\tchat_type\030\023 \001(\tR\010chatType\022\037\n" +
+      "\013person_type\030\024 \001(\tR\npersonType\022\033\n\tperson" +
+      "_id\030\025 \001(\tR\010personIdBb\n&io.channel.api.pr" +
+      "oto.pub.coreapi.modelP\001Z6github.com/chan" +
+      "nel-io/ch-proto-public/coreapi/go/modelb" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.ManagerOuterClass.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_coreapi_model_ChatSession_descriptor =
@@ -88,13 +72,14 @@ public final class ChatSessionOuterClass {
     internal_static_coreapi_model_ChatSession_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_ChatSession_descriptor,
-        new java.lang.String[] { "Id", "Key", "ChannelId", "ChatType", "ChatId", "ChatKey", "PersonType", "PersonId", "UpdatedKey", "UnreadKey", "Alert", "Unread", "Watch", "AllMentionImportant", "ReadAt", "ReceivedAt", "PostedAt", "UpdatedAt", "CreatedAt", "Version", });
+        new java.lang.String[] { "Key", "ChatId", "TeamChatSectionId", "ChatKey", "UpdatedKey", "UnreadKey", "ChannelId", "Alert", "Unread", "Watch", "AllMentionImportant", "ReadAt", "ReceivedAt", "PostedAt", "UpdatedAt", "CreatedAt", "Version", "Id", "ChatType", "PersonType", "PersonId", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.ManagerOuterClass.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

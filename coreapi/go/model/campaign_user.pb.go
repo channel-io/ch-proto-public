@@ -23,106 +23,52 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Interaction state used to filter campaign user records.
-// Determines which delivery or engagement metric is used for sorting and filtering.
-type CampaignUserState int32
-
-const (
-	CampaignUserState_CAMPAIGN_USER_STATE_UNSPECIFIED CampaignUserState = 0
-	CampaignUserState_CAMPAIGN_USER_STATE_SENT        CampaignUserState = 1
-	CampaignUserState_CAMPAIGN_USER_STATE_VIEW        CampaignUserState = 2
-	CampaignUserState_CAMPAIGN_USER_STATE_GOAL        CampaignUserState = 3
-	CampaignUserState_CAMPAIGN_USER_STATE_CLICK       CampaignUserState = 4
-)
-
-// Enum value maps for CampaignUserState.
-var (
-	CampaignUserState_name = map[int32]string{
-		0: "CAMPAIGN_USER_STATE_UNSPECIFIED",
-		1: "CAMPAIGN_USER_STATE_SENT",
-		2: "CAMPAIGN_USER_STATE_VIEW",
-		3: "CAMPAIGN_USER_STATE_GOAL",
-		4: "CAMPAIGN_USER_STATE_CLICK",
-	}
-	CampaignUserState_value = map[string]int32{
-		"CAMPAIGN_USER_STATE_UNSPECIFIED": 0,
-		"CAMPAIGN_USER_STATE_SENT":        1,
-		"CAMPAIGN_USER_STATE_VIEW":        2,
-		"CAMPAIGN_USER_STATE_GOAL":        3,
-		"CAMPAIGN_USER_STATE_CLICK":       4,
-	}
-)
-
-func (x CampaignUserState) Enum() *CampaignUserState {
-	p := new(CampaignUserState)
-	*p = x
-	return p
-}
-
-func (x CampaignUserState) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (CampaignUserState) Descriptor() protoreflect.EnumDescriptor {
-	return file_coreapi_model_campaign_user_proto_enumTypes[0].Descriptor()
-}
-
-func (CampaignUserState) Type() protoreflect.EnumType {
-	return &file_coreapi_model_campaign_user_proto_enumTypes[0]
-}
-
-func (x CampaignUserState) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use CampaignUserState.Descriptor instead.
-func (CampaignUserState) EnumDescriptor() ([]byte, []int) {
-	return file_coreapi_model_campaign_user_proto_rawDescGZIP(), []int{0}
-}
-
-// CampaignUser represents a user who received a campaign message.
-// Tracks delivery, view, click, and goal conversion timestamps.
+// CampaignUser represents a per-user delivery and engagement record for a campaign.
 type CampaignUser struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Campaign ID this user record belongs to.
+	// Target user identifier.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	CampaignId string `protobuf:"bytes,1,opt,name=campaign_id,json=campaignId,proto3" json:"campaign_id,omitempty"`
-	// ID of the user who received the campaign message.
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Campaign that delivered the message.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	UserId string `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	// ID of the campaign message that was sent to the user.
+	CampaignId string `protobuf:"bytes,2,opt,name=campaign_id,json=campaignId,proto3" json:"campaign_id,omitempty"`
+	// Message variant that was delivered to this user.
 	//
 	// +kubebuilder:validation:Nullable
 	MsgId string `protobuf:"bytes,3,opt,name=msg_id,json=msgId,proto3" json:"msg_id,omitempty"`
-	// ID of the user chat created by this campaign message.
+	// User chat conversation created by the campaign delivery.
 	//
 	// +kubebuilder:validation:Nullable
 	UserChatId string `protobuf:"bytes,4,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
-	// Timestamp when the message was delivered to the user.
+	// Timestamp when the campaign message was delivered to the user.
 	//
 	// +kubebuilder:validation:Nullable
 	Sent *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=sent,proto3" json:"sent,omitempty"`
-	// Timestamp when the user viewed the message.
+	// Timestamp when the user first viewed the delivered message.
 	//
 	// +kubebuilder:validation:Nullable
 	View *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=view,proto3" json:"view,omitempty"`
-	// Timestamp when the user clicked a link in the message.
+	// Timestamp when the user first clicked a link in the message.
 	//
 	// +kubebuilder:validation:Nullable
 	Click *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=click,proto3" json:"click,omitempty"`
-	// Timestamp when the user achieved the conversion goal.
+	// Timestamp when the user completed the campaign goal event.
 	//
 	// +kubebuilder:validation:Nullable
 	Goal *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=goal,proto3" json:"goal,omitempty"`
-	// Revenue amount attributed to this user from the campaign.
-	// Decimal number represented as a string for precision.
+	// Cumulative revenue attributed to this user from the campaign.
 	//
 	// +kubebuilder:validation:Nullable
-	Revenue       string `protobuf:"bytes,9,opt,name=revenue,proto3" json:"revenue,omitempty"`
+	Revenue float64 `protobuf:"fixed64,9,opt,name=revenue,proto3" json:"revenue,omitempty"`
+	// Composite identifier in the format "{campaign_id}-{user_id}".
+	//
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
+	Id            string `protobuf:"bytes,10,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -157,16 +103,16 @@ func (*CampaignUser) Descriptor() ([]byte, []int) {
 	return file_coreapi_model_campaign_user_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CampaignUser) GetCampaignId() string {
+func (x *CampaignUser) GetUserId() string {
 	if x != nil {
-		return x.CampaignId
+		return x.UserId
 	}
 	return ""
 }
 
-func (x *CampaignUser) GetUserId() string {
+func (x *CampaignUser) GetCampaignId() string {
 	if x != nil {
-		return x.UserId
+		return x.CampaignId
 	}
 	return ""
 }
@@ -213,9 +159,16 @@ func (x *CampaignUser) GetGoal() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *CampaignUser) GetRevenue() string {
+func (x *CampaignUser) GetRevenue() float64 {
 	if x != nil {
 		return x.Revenue
+	}
+	return 0
+}
+
+func (x *CampaignUser) GetId() string {
+	if x != nil {
+		return x.Id
 	}
 	return ""
 }
@@ -224,13 +177,13 @@ var File_coreapi_model_campaign_user_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_campaign_user_proto_rawDesc = "" +
 	"\n" +
-	"!coreapi/model/campaign_user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfb\x03\n" +
-	"\fCampaignUser\x12n\n" +
-	"\vcampaign_id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"!coreapi/model/campaign_user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xda\x04\n" +
+	"\fCampaignUser\x12f\n" +
+	"\auser_id\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x06userId\x12n\n" +
+	"\vcampaign_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
-	"campaignId\x12f\n" +
-	"\auser_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x06userId\x12\x15\n" +
+	"campaignId\x12\x15\n" +
 	"\x06msg_id\x18\x03 \x01(\tR\x05msgId\x12 \n" +
 	"\fuser_chat_id\x18\x04 \x01(\tR\n" +
 	"userChatId\x12.\n" +
@@ -238,13 +191,10 @@ const file_coreapi_model_campaign_user_proto_rawDesc = "" +
 	"\x04view\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x04view\x120\n" +
 	"\x05click\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\x05click\x12.\n" +
 	"\x04goal\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\x04goal\x12\x18\n" +
-	"\arevenue\x18\t \x01(\tR\arevenue*\xb1\x01\n" +
-	"\x11CampaignUserState\x12#\n" +
-	"\x1fCAMPAIGN_USER_STATE_UNSPECIFIED\x10\x00\x12\x1c\n" +
-	"\x18CAMPAIGN_USER_STATE_SENT\x10\x01\x12\x1c\n" +
-	"\x18CAMPAIGN_USER_STATE_VIEW\x10\x02\x12\x1c\n" +
-	"\x18CAMPAIGN_USER_STATE_GOAL\x10\x03\x12\x1d\n" +
-	"\x19CAMPAIGN_USER_STATE_CLICK\x10\x04Bb\n" +
+	"\arevenue\x18\t \x01(\x01R\arevenue\x12]\n" +
+	"\x02id\x18\n" +
+	" \x01(\tBM\xbaHJ\xba\x01D\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x02idBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -259,18 +209,16 @@ func file_coreapi_model_campaign_user_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_campaign_user_proto_rawDescData
 }
 
-var file_coreapi_model_campaign_user_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_coreapi_model_campaign_user_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_coreapi_model_campaign_user_proto_goTypes = []any{
-	(CampaignUserState)(0),        // 0: coreapi.model.CampaignUserState
-	(*CampaignUser)(nil),          // 1: coreapi.model.CampaignUser
-	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	(*CampaignUser)(nil),          // 0: coreapi.model.CampaignUser
+	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
 }
 var file_coreapi_model_campaign_user_proto_depIdxs = []int32{
-	2, // 0: coreapi.model.CampaignUser.sent:type_name -> google.protobuf.Timestamp
-	2, // 1: coreapi.model.CampaignUser.view:type_name -> google.protobuf.Timestamp
-	2, // 2: coreapi.model.CampaignUser.click:type_name -> google.protobuf.Timestamp
-	2, // 3: coreapi.model.CampaignUser.goal:type_name -> google.protobuf.Timestamp
+	1, // 0: coreapi.model.CampaignUser.sent:type_name -> google.protobuf.Timestamp
+	1, // 1: coreapi.model.CampaignUser.view:type_name -> google.protobuf.Timestamp
+	1, // 2: coreapi.model.CampaignUser.click:type_name -> google.protobuf.Timestamp
+	1, // 3: coreapi.model.CampaignUser.goal:type_name -> google.protobuf.Timestamp
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
@@ -288,14 +236,13 @@ func file_coreapi_model_campaign_user_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_campaign_user_proto_rawDesc), len(file_coreapi_model_campaign_user_proto_rawDesc)),
-			NumEnums:      1,
+			NumEnums:      0,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_coreapi_model_campaign_user_proto_goTypes,
 		DependencyIndexes: file_coreapi_model_campaign_user_proto_depIdxs,
-		EnumInfos:         file_coreapi_model_campaign_user_proto_enumTypes,
 		MessageInfos:      file_coreapi_model_campaign_user_proto_msgTypes,
 	}.Build()
 	File_coreapi_model_campaign_user_proto = out.File

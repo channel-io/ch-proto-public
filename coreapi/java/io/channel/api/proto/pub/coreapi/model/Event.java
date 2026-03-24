@@ -21,8 +21,8 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Event() {
-    id_ = "";
     userId_ = "";
+    id_ = "";
     channelId_ = "";
     name_ = "";
   }
@@ -47,6 +47,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -60,13 +61,13 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            id_ = s;
+            userId_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            userId_ = s;
+            id_ = s;
             break;
           }
           case 26: {
@@ -125,6 +126,19 @@ private static final long serialVersionUID = 0L;
             version_ = input.readInt64();
             break;
           }
+          case 74: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              nameI18NMap_ = com.google.protobuf.MapField.newMapField(
+                  NameI18NMapDefaultEntryHolder.defaultEntry);
+              mutable_bitField0_ |= 0x00000001;
+            }
+            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+            nameI18NMap__ = input.readMessage(
+                NameI18NMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            nameI18NMap_.getMutableMap().put(
+                nameI18NMap__.getKey(), nameI18NMap__.getValue());
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -149,6 +163,18 @@ private static final long serialVersionUID = 0L;
     return io.channel.api.proto.pub.coreapi.model.EventOuterClass.internal_static_coreapi_model_Event_descriptor;
   }
 
+  @SuppressWarnings({"rawtypes"})
+  @java.lang.Override
+  protected com.google.protobuf.MapField internalGetMapField(
+      int number) {
+    switch (number) {
+      case 9:
+        return internalGetNameI18NMap();
+      default:
+        throw new RuntimeException(
+            "Invalid map field number: " + number);
+    }
+  }
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -157,57 +183,7 @@ private static final long serialVersionUID = 0L;
             io.channel.api.proto.pub.coreapi.model.Event.class, io.channel.api.proto.pub.coreapi.model.Event.Builder.class);
   }
 
-  public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
-  /**
-   * <pre>
-   * Unique event identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-   * @return The id.
-   */
-  @java.lang.Override
-  public java.lang.String getId() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      id_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Unique event identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * </pre>
-   *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for id.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getIdBytes() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      id_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int USER_ID_FIELD_NUMBER = 2;
+  public static final int USER_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object userId_;
   /**
    * <pre>
@@ -216,7 +192,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+   * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -239,7 +215,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+   * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for userId.
    */
   @java.lang.Override
@@ -251,6 +227,56 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       userId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ID_FIELD_NUMBER = 2;
+  private volatile java.lang.Object id_;
+  /**
+   * <pre>
+   * Unique event identifier.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * </pre>
+   *
+   * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * @return The id.
+   */
+  @java.lang.Override
+  public java.lang.String getId() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      id_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Unique event identifier.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * </pre>
+   *
+   * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for id.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getIdBytes() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      id_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -311,7 +337,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   * Event name identifying the type of action.
+   * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=64
@@ -335,7 +361,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Event name identifying the type of action.
+   * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=64
@@ -363,7 +389,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Struct property_;
   /**
    * <pre>
-   * Custom properties associated with the event.
+   * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -376,7 +402,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Custom properties associated with the event.
+   * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -389,7 +415,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Custom properties associated with the event.
+   * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -445,7 +471,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp expireAt_;
   /**
    * <pre>
-   * Event expiration timestamp.
+   * Expiration timestamp after which the event may no longer be retrievable.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -458,7 +484,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Event expiration timestamp.
+   * Expiration timestamp after which the event may no longer be retrievable.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -471,7 +497,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Event expiration timestamp.
+   * Expiration timestamp after which the event may no longer be retrievable.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -486,7 +512,8 @@ private static final long serialVersionUID = 0L;
   private long version_;
   /**
    * <pre>
-   * Event data version number.
+   * Optimistic concurrency version counter.
+   * Incremented on each update to detect conflicting writes.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -496,6 +523,111 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public long getVersion() {
     return version_;
+  }
+
+  public static final int NAME_I18N_MAP_FIELD_NUMBER = 9;
+  private static final class NameI18NMapDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, java.lang.String> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, java.lang.String>newDefaultInstance(
+                io.channel.api.proto.pub.coreapi.model.EventOuterClass.internal_static_coreapi_model_Event_NameI18nMapEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "");
+  }
+  private com.google.protobuf.MapField<
+      java.lang.String, java.lang.String> nameI18NMap_;
+  private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+  internalGetNameI18NMap() {
+    if (nameI18NMap_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          NameI18NMapDefaultEntryHolder.defaultEntry);
+    }
+    return nameI18NMap_;
+  }
+
+  public int getNameI18NMapCount() {
+    return internalGetNameI18NMap().getMap().size();
+  }
+  /**
+   * <pre>
+   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Populated only for system-defined events; custom events return no entries.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+   */
+
+  @java.lang.Override
+  public boolean containsNameI18NMap(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetNameI18NMap().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getNameI18NMapMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, java.lang.String> getNameI18NMap() {
+    return getNameI18NMapMap();
+  }
+  /**
+   * <pre>
+   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Populated only for system-defined events; custom events return no entries.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+   */
+  @java.lang.Override
+
+  public java.util.Map<java.lang.String, java.lang.String> getNameI18NMapMap() {
+    return internalGetNameI18NMap().getMap();
+  }
+  /**
+   * <pre>
+   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Populated only for system-defined events; custom events return no entries.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+   */
+  @java.lang.Override
+
+  public java.lang.String getNameI18NMapOrDefault(
+      java.lang.String key,
+      java.lang.String defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetNameI18NMap().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Populated only for system-defined events; custom events return no entries.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+   */
+  @java.lang.Override
+
+  public java.lang.String getNameI18NMapOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetNameI18NMap().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -512,11 +644,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userId_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, id_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, channelId_);
@@ -536,6 +668,12 @@ private static final long serialVersionUID = 0L;
     if (version_ != 0L) {
       output.writeInt64(8, version_);
     }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetNameI18NMap(),
+        NameI18NMapDefaultEntryHolder.defaultEntry,
+        9);
     unknownFields.writeTo(output);
   }
 
@@ -545,11 +683,11 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, id_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, channelId_);
@@ -573,6 +711,16 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(8, version_);
     }
+    for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+         : internalGetNameI18NMap().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+      nameI18NMap__ = NameI18NMapDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, nameI18NMap__);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -588,10 +736,10 @@ private static final long serialVersionUID = 0L;
     }
     io.channel.api.proto.pub.coreapi.model.Event other = (io.channel.api.proto.pub.coreapi.model.Event) obj;
 
-    if (!getId()
-        .equals(other.getId())) return false;
     if (!getUserId()
         .equals(other.getUserId())) return false;
+    if (!getId()
+        .equals(other.getId())) return false;
     if (!getChannelId()
         .equals(other.getChannelId())) return false;
     if (!getName()
@@ -613,6 +761,8 @@ private static final long serialVersionUID = 0L;
     }
     if (getVersion()
         != other.getVersion()) return false;
+    if (!internalGetNameI18NMap().equals(
+        other.internalGetNameI18NMap())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -624,10 +774,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId().hashCode();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + getUserId().hashCode();
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId().hashCode();
     hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChannelId().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
@@ -647,6 +797,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + VERSION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getVersion());
+    if (!internalGetNameI18NMap().getMap().isEmpty()) {
+      hash = (37 * hash) + NAME_I18N_MAP_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetNameI18NMap().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -759,6 +913,28 @@ private static final long serialVersionUID = 0L;
       return io.channel.api.proto.pub.coreapi.model.EventOuterClass.internal_static_coreapi_model_Event_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 9:
+          return internalGetNameI18NMap();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMutableMapField(
+        int number) {
+      switch (number) {
+        case 9:
+          return internalGetMutableNameI18NMap();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -785,9 +961,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      id_ = "";
-
       userId_ = "";
+
+      id_ = "";
 
       channelId_ = "";
 
@@ -813,6 +989,7 @@ private static final long serialVersionUID = 0L;
       }
       version_ = 0L;
 
+      internalGetMutableNameI18NMap().clear();
       return this;
     }
 
@@ -839,8 +1016,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.channel.api.proto.pub.coreapi.model.Event buildPartial() {
       io.channel.api.proto.pub.coreapi.model.Event result = new io.channel.api.proto.pub.coreapi.model.Event(this);
-      result.id_ = id_;
+      int from_bitField0_ = bitField0_;
       result.userId_ = userId_;
+      result.id_ = id_;
       result.channelId_ = channelId_;
       result.name_ = name_;
       if (propertyBuilder_ == null) {
@@ -859,6 +1037,8 @@ private static final long serialVersionUID = 0L;
         result.expireAt_ = expireAtBuilder_.build();
       }
       result.version_ = version_;
+      result.nameI18NMap_ = internalGetNameI18NMap();
+      result.nameI18NMap_.makeImmutable();
       onBuilt();
       return result;
     }
@@ -907,12 +1087,12 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(io.channel.api.proto.pub.coreapi.model.Event other) {
       if (other == io.channel.api.proto.pub.coreapi.model.Event.getDefaultInstance()) return this;
-      if (!other.getId().isEmpty()) {
-        id_ = other.id_;
-        onChanged();
-      }
       if (!other.getUserId().isEmpty()) {
         userId_ = other.userId_;
+        onChanged();
+      }
+      if (!other.getId().isEmpty()) {
+        id_ = other.id_;
         onChanged();
       }
       if (!other.getChannelId().isEmpty()) {
@@ -935,6 +1115,8 @@ private static final long serialVersionUID = 0L;
       if (other.getVersion() != 0L) {
         setVersion(other.getVersion());
       }
+      internalGetMutableNameI18NMap().mergeFrom(
+          other.internalGetNameI18NMap());
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -963,112 +1145,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-
-    private java.lang.Object id_ = "";
-    /**
-     * <pre>
-     * Unique event identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-     * @return The id.
-     */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Unique event identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for id.
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Unique event identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-     * @param value The id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      id_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Unique event identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearId() {
-      
-      id_ = getDefaultInstance().getId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Unique event identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * </pre>
-     *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      id_ = value;
-      onChanged();
-      return this;
-    }
+    private int bitField0_;
 
     private java.lang.Object userId_ = "";
     /**
@@ -1078,7 +1155,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+     * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
      * @return The userId.
      */
     public java.lang.String getUserId() {
@@ -1100,7 +1177,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+     * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
      * @return The bytes for userId.
      */
     public com.google.protobuf.ByteString
@@ -1123,7 +1200,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+     * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -1144,7 +1221,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+     * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -1160,7 +1237,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * </pre>
      *
-     * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
+     * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for userId to set.
      * @return This builder for chaining.
      */
@@ -1172,6 +1249,112 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       userId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object id_ = "";
+    /**
+     * <pre>
+     * Unique event identifier.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * </pre>
+     *
+     * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * @return The id.
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Unique event identifier.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * </pre>
+     *
+     * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * @return The bytes for id.
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Unique event identifier.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * </pre>
+     *
+     * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * @param value The id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      id_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Unique event identifier.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * </pre>
+     *
+     * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearId() {
+      
+      id_ = getDefaultInstance().getId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Unique event identifier.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * </pre>
+     *
+     * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * @param value The bytes for id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      id_ = value;
       onChanged();
       return this;
     }
@@ -1285,7 +1468,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Event name identifying the type of action.
+     * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=64
@@ -1308,7 +1491,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event name identifying the type of action.
+     * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=64
@@ -1332,7 +1515,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event name identifying the type of action.
+     * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=64
@@ -1354,7 +1537,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event name identifying the type of action.
+     * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=64
@@ -1371,7 +1554,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event name identifying the type of action.
+     * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=64
@@ -1398,7 +1581,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> propertyBuilder_;
     /**
      * <pre>
-     * Custom properties associated with the event.
+     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1410,7 +1593,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom properties associated with the event.
+     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1426,7 +1609,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom properties associated with the event.
+     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1447,7 +1630,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom properties associated with the event.
+     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1466,7 +1649,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom properties associated with the event.
+     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1489,7 +1672,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom properties associated with the event.
+     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1508,7 +1691,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom properties associated with the event.
+     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1521,7 +1704,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom properties associated with the event.
+     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1537,7 +1720,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom properties associated with the event.
+     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1726,7 +1909,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> expireAtBuilder_;
     /**
      * <pre>
-     * Event expiration timestamp.
+     * Expiration timestamp after which the event may no longer be retrievable.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1738,7 +1921,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event expiration timestamp.
+     * Expiration timestamp after which the event may no longer be retrievable.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1754,7 +1937,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event expiration timestamp.
+     * Expiration timestamp after which the event may no longer be retrievable.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1775,7 +1958,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event expiration timestamp.
+     * Expiration timestamp after which the event may no longer be retrievable.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1794,7 +1977,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event expiration timestamp.
+     * Expiration timestamp after which the event may no longer be retrievable.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1817,7 +2000,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event expiration timestamp.
+     * Expiration timestamp after which the event may no longer be retrievable.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1836,7 +2019,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event expiration timestamp.
+     * Expiration timestamp after which the event may no longer be retrievable.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1849,7 +2032,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event expiration timestamp.
+     * Expiration timestamp after which the event may no longer be retrievable.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1865,7 +2048,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event expiration timestamp.
+     * Expiration timestamp after which the event may no longer be retrievable.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1888,7 +2071,8 @@ private static final long serialVersionUID = 0L;
     private long version_ ;
     /**
      * <pre>
-     * Event data version number.
+     * Optimistic concurrency version counter.
+     * Incremented on each update to detect conflicting writes.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1901,7 +2085,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event data version number.
+     * Optimistic concurrency version counter.
+     * Incremented on each update to detect conflicting writes.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1917,7 +2102,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event data version number.
+     * Optimistic concurrency version counter.
+     * Incremented on each update to detect conflicting writes.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1928,6 +2114,179 @@ private static final long serialVersionUID = 0L;
       
       version_ = 0L;
       onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> nameI18NMap_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetNameI18NMap() {
+      if (nameI18NMap_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            NameI18NMapDefaultEntryHolder.defaultEntry);
+      }
+      return nameI18NMap_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetMutableNameI18NMap() {
+      onChanged();;
+      if (nameI18NMap_ == null) {
+        nameI18NMap_ = com.google.protobuf.MapField.newMapField(
+            NameI18NMapDefaultEntryHolder.defaultEntry);
+      }
+      if (!nameI18NMap_.isMutable()) {
+        nameI18NMap_ = nameI18NMap_.copy();
+      }
+      return nameI18NMap_;
+    }
+
+    public int getNameI18NMapCount() {
+      return internalGetNameI18NMap().getMap().size();
+    }
+    /**
+     * <pre>
+     * Internationalized event name map keyed by locale (e.g., en, ko).
+     * Populated only for system-defined events; custom events return no entries.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+     */
+
+    @java.lang.Override
+    public boolean containsNameI18NMap(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetNameI18NMap().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getNameI18NMapMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getNameI18NMap() {
+      return getNameI18NMapMap();
+    }
+    /**
+     * <pre>
+     * Internationalized event name map keyed by locale (e.g., en, ko).
+     * Populated only for system-defined events; custom events return no entries.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.String> getNameI18NMapMap() {
+      return internalGetNameI18NMap().getMap();
+    }
+    /**
+     * <pre>
+     * Internationalized event name map keyed by locale (e.g., en, ko).
+     * Populated only for system-defined events; custom events return no entries.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getNameI18NMapOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetNameI18NMap().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * Internationalized event name map keyed by locale (e.g., en, ko).
+     * Populated only for system-defined events; custom events return no entries.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getNameI18NMapOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetNameI18NMap().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public Builder clearNameI18NMap() {
+      internalGetMutableNameI18NMap().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <pre>
+     * Internationalized event name map keyed by locale (e.g., en, ko).
+     * Populated only for system-defined events; custom events return no entries.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+     */
+
+    public Builder removeNameI18NMap(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableNameI18NMap().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String>
+    getMutableNameI18NMap() {
+      return internalGetMutableNameI18NMap().getMutableMap();
+    }
+    /**
+     * <pre>
+     * Internationalized event name map keyed by locale (e.g., en, ko).
+     * Populated only for system-defined events; custom events return no entries.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+     */
+    public Builder putNameI18NMap(
+        java.lang.String key,
+        java.lang.String value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+      internalGetMutableNameI18NMap().getMutableMap()
+          .put(key, value);
+      return this;
+    }
+    /**
+     * <pre>
+     * Internationalized event name map keyed by locale (e.g., en, ko).
+     * Populated only for system-defined events; custom events return no entries.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
+     */
+
+    public Builder putAllNameI18NMap(
+        java.util.Map<java.lang.String, java.lang.String> values) {
+      internalGetMutableNameI18NMap().getMutableMap()
+          .putAll(values);
       return this;
     }
     @java.lang.Override
@@ -1945,29 +2304,6 @@ private static final long serialVersionUID = 0L;
 
     /* Generated by protoc-gen-java-set-or-clear */
     
-    /**
-     * @param value The id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearId(java.lang.String value) {
-    	if (value == null)
-    		return clearId();
-    	else
-    		return setId(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearId();
-    	else
-    		return setId(mapFunc.apply(value));
-    }
-    	
     /**
      * @param value The user_id to set.
      * @return This builder for chaining.
@@ -1989,6 +2325,29 @@ private static final long serialVersionUID = 0L;
     		return clearUserId();
     	else
     		return setUserId(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearId(java.lang.String value) {
+    	if (value == null)
+    		return clearId();
+    	else
+    		return setId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearId();
+    	else
+    		return setId(mapFunc.apply(value));
     }
     	
     /**
@@ -2127,6 +2486,17 @@ private static final long serialVersionUID = 0L;
     		return clearVersion();
     	else
     		return setVersion(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param map The map to put.
+     * @return This builder for chaining.
+     */
+    public Builder putAllOrClearNameI18NMap(java.util.Map<java.lang.String, java.lang.String> map) {
+    	if (map == null)
+    		return clearNameI18NMap();
+    	else
+    		return putAllNameI18NMap(map);
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Event)

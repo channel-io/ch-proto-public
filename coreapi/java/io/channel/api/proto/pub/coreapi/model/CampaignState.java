@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Lifecycle state of a campaign.
+ * Campaign lifecycle state.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.CampaignState}

@@ -5,7 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * OperatorStatus represents the operational status of a manager.
+ * OperatorStatus represents a manager's real-time operational state within a channel,
+ * tracking availability and current activity for chat routing decisions.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.OperatorStatus}
@@ -124,6 +125,11 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 72: {
+
+            version_ = input.readInt64();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -156,12 +162,319 @@ private static final long serialVersionUID = 0L;
             io.channel.api.proto.pub.coreapi.model.OperatorStatus.class, io.channel.api.proto.pub.coreapi.model.OperatorStatus.Builder.class);
   }
 
+  /**
+   * <pre>
+   * Activity state of a manager for operational tracking and chat routing.
+   * States are grouped into "active" (eligible for chat assignment) and "inactive".
+   * </pre>
+   *
+   * Protobuf enum {@code coreapi.model.OperatorStatus.OperatorStatusType}
+   */
+  public enum OperatorStatusType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>OPERATOR_STATUS_TYPE_UNSPECIFIED = 0;</code>
+     */
+    OPERATOR_STATUS_TYPE_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * Idle and ready to receive new chats (active).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_WAITING = 1;</code>
+     */
+    OPERATOR_STATUS_TYPE_WAITING(1),
+    /**
+     * <pre>
+     * Currently handling a chat (active).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_CHAT = 2;</code>
+     */
+    OPERATOR_STATUS_TYPE_CHAT(2),
+    /**
+     * <pre>
+     * On a phone call (active).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_CALL = 3;</code>
+     */
+    OPERATOR_STATUS_TYPE_CALL(3),
+    /**
+     * <pre>
+     * Wrapping up after a phone call (active).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_POST_CALL = 4;</code>
+     */
+    OPERATOR_STATUS_TYPE_POST_CALL(4),
+    /**
+     * <pre>
+     * In a video/audio meet (active).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_MEET = 5;</code>
+     */
+    OPERATOR_STATUS_TYPE_MEET(5),
+    /**
+     * <pre>
+     * On a meal break (inactive).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_EAT = 6;</code>
+     */
+    OPERATOR_STATUS_TYPE_EAT(6),
+    /**
+     * <pre>
+     * On a short break (inactive).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_REST = 7;</code>
+     */
+    OPERATOR_STATUS_TYPE_REST(7),
+    /**
+     * <pre>
+     * In a scheduled meeting (inactive).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_IN_MEETING = 8;</code>
+     */
+    OPERATOR_STATUS_TYPE_IN_MEETING(8),
+    /**
+     * <pre>
+     * In a training or education session (inactive).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_EDUCATION = 9;</code>
+     */
+    OPERATOR_STATUS_TYPE_EDUCATION(9),
+    /**
+     * <pre>
+     * Performing non-chat work (inactive).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_OTHER_WORK = 10;</code>
+     */
+    OPERATOR_STATUS_TYPE_OTHER_WORK(10),
+    /**
+     * <pre>
+     * Signed off for the day (inactive).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_OFF = 11;</code>
+     */
+    OPERATOR_STATUS_TYPE_OFF(11),
+    /**
+     * <pre>
+     * On vacation leave (inactive).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_VACATION = 12;</code>
+     */
+    OPERATOR_STATUS_TYPE_VACATION(12),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>OPERATOR_STATUS_TYPE_UNSPECIFIED = 0;</code>
+     */
+    public static final int OPERATOR_STATUS_TYPE_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * Idle and ready to receive new chats (active).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_WAITING = 1;</code>
+     */
+    public static final int OPERATOR_STATUS_TYPE_WAITING_VALUE = 1;
+    /**
+     * <pre>
+     * Currently handling a chat (active).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_CHAT = 2;</code>
+     */
+    public static final int OPERATOR_STATUS_TYPE_CHAT_VALUE = 2;
+    /**
+     * <pre>
+     * On a phone call (active).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_CALL = 3;</code>
+     */
+    public static final int OPERATOR_STATUS_TYPE_CALL_VALUE = 3;
+    /**
+     * <pre>
+     * Wrapping up after a phone call (active).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_POST_CALL = 4;</code>
+     */
+    public static final int OPERATOR_STATUS_TYPE_POST_CALL_VALUE = 4;
+    /**
+     * <pre>
+     * In a video/audio meet (active).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_MEET = 5;</code>
+     */
+    public static final int OPERATOR_STATUS_TYPE_MEET_VALUE = 5;
+    /**
+     * <pre>
+     * On a meal break (inactive).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_EAT = 6;</code>
+     */
+    public static final int OPERATOR_STATUS_TYPE_EAT_VALUE = 6;
+    /**
+     * <pre>
+     * On a short break (inactive).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_REST = 7;</code>
+     */
+    public static final int OPERATOR_STATUS_TYPE_REST_VALUE = 7;
+    /**
+     * <pre>
+     * In a scheduled meeting (inactive).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_IN_MEETING = 8;</code>
+     */
+    public static final int OPERATOR_STATUS_TYPE_IN_MEETING_VALUE = 8;
+    /**
+     * <pre>
+     * In a training or education session (inactive).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_EDUCATION = 9;</code>
+     */
+    public static final int OPERATOR_STATUS_TYPE_EDUCATION_VALUE = 9;
+    /**
+     * <pre>
+     * Performing non-chat work (inactive).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_OTHER_WORK = 10;</code>
+     */
+    public static final int OPERATOR_STATUS_TYPE_OTHER_WORK_VALUE = 10;
+    /**
+     * <pre>
+     * Signed off for the day (inactive).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_OFF = 11;</code>
+     */
+    public static final int OPERATOR_STATUS_TYPE_OFF_VALUE = 11;
+    /**
+     * <pre>
+     * On vacation leave (inactive).
+     * </pre>
+     *
+     * <code>OPERATOR_STATUS_TYPE_VACATION = 12;</code>
+     */
+    public static final int OPERATOR_STATUS_TYPE_VACATION_VALUE = 12;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static OperatorStatusType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static OperatorStatusType forNumber(int value) {
+      switch (value) {
+        case 0: return OPERATOR_STATUS_TYPE_UNSPECIFIED;
+        case 1: return OPERATOR_STATUS_TYPE_WAITING;
+        case 2: return OPERATOR_STATUS_TYPE_CHAT;
+        case 3: return OPERATOR_STATUS_TYPE_CALL;
+        case 4: return OPERATOR_STATUS_TYPE_POST_CALL;
+        case 5: return OPERATOR_STATUS_TYPE_MEET;
+        case 6: return OPERATOR_STATUS_TYPE_EAT;
+        case 7: return OPERATOR_STATUS_TYPE_REST;
+        case 8: return OPERATOR_STATUS_TYPE_IN_MEETING;
+        case 9: return OPERATOR_STATUS_TYPE_EDUCATION;
+        case 10: return OPERATOR_STATUS_TYPE_OTHER_WORK;
+        case 11: return OPERATOR_STATUS_TYPE_OFF;
+        case 12: return OPERATOR_STATUS_TYPE_VACATION;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<OperatorStatusType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        OperatorStatusType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<OperatorStatusType>() {
+            public OperatorStatusType findValueByNumber(int number) {
+              return OperatorStatusType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return io.channel.api.proto.pub.coreapi.model.OperatorStatus.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final OperatorStatusType[] VALUES = values();
+
+    public static OperatorStatusType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private OperatorStatusType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:coreapi.model.OperatorStatus.OperatorStatusType)
+  }
+
   public static final int ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object id_;
   /**
    * <pre>
-   * Unique operator status identifier.
-   * Same as the manager ID.
+   * Unique operator status identifier, matching the associated manager ID.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -184,8 +497,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Unique operator status identifier.
-   * Same as the manager ID.
+   * Unique operator status identifier, matching the associated manager ID.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -212,7 +524,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object managerId_;
   /**
    * <pre>
-   * ID of the manager this status belongs to.
+   * Manager ID this operator status belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -235,7 +547,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * ID of the manager this status belongs to.
+   * Manager ID this operator status belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
@@ -312,11 +624,11 @@ private static final long serialVersionUID = 0L;
   private int operatorStatusType_;
   /**
    * <pre>
-   * Current activity type of the operator.
+   * Current activity state of the manager, used for chat routing and workload management.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+   * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
    * @return The enum numeric value on the wire for operatorStatusType.
    */
   @java.lang.Override public int getOperatorStatusTypeValue() {
@@ -324,28 +636,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Current activity type of the operator.
+   * Current activity state of the manager, used for chat routing and workload management.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+   * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
    * @return The operatorStatusType.
    */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.OperatorStatusType getOperatorStatusType() {
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType getOperatorStatusType() {
     @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.OperatorStatusType result = io.channel.api.proto.pub.coreapi.model.OperatorStatusType.valueOf(operatorStatusType_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.OperatorStatusType.UNRECOGNIZED : result;
+    io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType result = io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType.valueOf(operatorStatusType_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType.UNRECOGNIZED : result;
   }
 
   public static final int ENABLE_FIELD_NUMBER = 5;
   private boolean enable_;
   /**
    * <pre>
-   * Whether the operator is enabled for assignment.
-   * +kubebuilder:validation:Nullable
+   * Whether the manager is enabled to receive and handle chats.
+   * Disabled managers are excluded from auto-assignment.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>bool enable = 5 [json_name = "enable"];</code>
+   * <code>bool enable = 5 [json_name = "enable", (.buf.validate.field) = { ... }</code>
    * @return The enable.
    */
   @java.lang.Override
@@ -439,7 +752,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp typeUpdatedAt_;
   /**
    * <pre>
-   * Timestamp when the operator status type was last changed.
+   * Timestamp when `operator_status_type` was last changed.
+   * Differs from `updated_at` which tracks any field update.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -452,7 +766,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the operator status type was last changed.
+   * Timestamp when `operator_status_type` was last changed.
+   * Differs from `updated_at` which tracks any field update.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -465,7 +780,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the operator status type was last changed.
+   * Timestamp when `operator_status_type` was last changed.
+   * Differs from `updated_at` which tracks any field update.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -474,6 +790,22 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getTypeUpdatedAtOrBuilder() {
     return getTypeUpdatedAt();
+  }
+
+  public static final int VERSION_FIELD_NUMBER = 9;
+  private long version_;
+  /**
+   * <pre>
+   * Optimistic locking version for concurrent update detection.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int64 version = 9 [json_name = "version"];</code>
+   * @return The version.
+   */
+  @java.lang.Override
+  public long getVersion() {
+    return version_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -499,7 +831,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, channelId_);
     }
-    if (operatorStatusType_ != io.channel.api.proto.pub.coreapi.model.OperatorStatusType.OPERATOR_STATUS_TYPE_UNSPECIFIED.getNumber()) {
+    if (operatorStatusType_ != io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType.OPERATOR_STATUS_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, operatorStatusType_);
     }
     if (enable_ != false) {
@@ -513,6 +845,9 @@ private static final long serialVersionUID = 0L;
     }
     if (typeUpdatedAt_ != null) {
       output.writeMessage(8, getTypeUpdatedAt());
+    }
+    if (version_ != 0L) {
+      output.writeInt64(9, version_);
     }
     unknownFields.writeTo(output);
   }
@@ -532,7 +867,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, channelId_);
     }
-    if (operatorStatusType_ != io.channel.api.proto.pub.coreapi.model.OperatorStatusType.OPERATOR_STATUS_TYPE_UNSPECIFIED.getNumber()) {
+    if (operatorStatusType_ != io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType.OPERATOR_STATUS_TYPE_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, operatorStatusType_);
     }
@@ -551,6 +886,10 @@ private static final long serialVersionUID = 0L;
     if (typeUpdatedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getTypeUpdatedAt());
+    }
+    if (version_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(9, version_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -591,6 +930,8 @@ private static final long serialVersionUID = 0L;
       if (!getTypeUpdatedAt()
           .equals(other.getTypeUpdatedAt())) return false;
     }
+    if (getVersion()
+        != other.getVersion()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -625,6 +966,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TYPE_UPDATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getTypeUpdatedAt().hashCode();
     }
+    hash = (37 * hash) + VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getVersion());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -722,7 +1066,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * OperatorStatus represents the operational status of a manager.
+   * OperatorStatus represents a manager's real-time operational state within a channel,
+   * tracking availability and current activity for chat routing decisions.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.OperatorStatus}
@@ -790,6 +1135,8 @@ private static final long serialVersionUID = 0L;
         typeUpdatedAt_ = null;
         typeUpdatedAtBuilder_ = null;
       }
+      version_ = 0L;
+
       return this;
     }
 
@@ -836,6 +1183,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.typeUpdatedAt_ = typeUpdatedAtBuilder_.build();
       }
+      result.version_ = version_;
       onBuilt();
       return result;
     }
@@ -911,6 +1259,9 @@ private static final long serialVersionUID = 0L;
       if (other.hasTypeUpdatedAt()) {
         mergeTypeUpdatedAt(other.getTypeUpdatedAt());
       }
+      if (other.getVersion() != 0L) {
+        setVersion(other.getVersion());
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -943,8 +1294,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object id_ = "";
     /**
      * <pre>
-     * Unique operator status identifier.
-     * Same as the manager ID.
+     * Unique operator status identifier, matching the associated manager ID.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -966,8 +1316,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique operator status identifier.
-     * Same as the manager ID.
+     * Unique operator status identifier, matching the associated manager ID.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -990,8 +1339,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique operator status identifier.
-     * Same as the manager ID.
+     * Unique operator status identifier, matching the associated manager ID.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1012,8 +1360,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique operator status identifier.
-     * Same as the manager ID.
+     * Unique operator status identifier, matching the associated manager ID.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1029,8 +1376,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Unique operator status identifier.
-     * Same as the manager ID.
+     * Unique operator status identifier, matching the associated manager ID.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1054,7 +1400,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object managerId_ = "";
     /**
      * <pre>
-     * ID of the manager this status belongs to.
+     * Manager ID this operator status belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1076,7 +1422,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the manager this status belongs to.
+     * Manager ID this operator status belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1099,7 +1445,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the manager this status belongs to.
+     * Manager ID this operator status belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1120,7 +1466,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the manager this status belongs to.
+     * Manager ID this operator status belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1136,7 +1482,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID of the manager this status belongs to.
+     * Manager ID this operator status belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * </pre>
@@ -1266,11 +1612,11 @@ private static final long serialVersionUID = 0L;
     private int operatorStatusType_ = 0;
     /**
      * <pre>
-     * Current activity type of the operator.
+     * Current activity state of the manager, used for chat routing and workload management.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+     * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
      * @return The enum numeric value on the wire for operatorStatusType.
      */
     @java.lang.Override public int getOperatorStatusTypeValue() {
@@ -1278,11 +1624,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current activity type of the operator.
+     * Current activity state of the manager, used for chat routing and workload management.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+     * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
      * @param value The enum numeric value on the wire for operatorStatusType to set.
      * @return This builder for chaining.
      */
@@ -1294,30 +1640,30 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current activity type of the operator.
+     * Current activity state of the manager, used for chat routing and workload management.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+     * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
      * @return The operatorStatusType.
      */
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.OperatorStatusType getOperatorStatusType() {
+    public io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType getOperatorStatusType() {
       @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.OperatorStatusType result = io.channel.api.proto.pub.coreapi.model.OperatorStatusType.valueOf(operatorStatusType_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.OperatorStatusType.UNRECOGNIZED : result;
+      io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType result = io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType.valueOf(operatorStatusType_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Current activity type of the operator.
+     * Current activity state of the manager, used for chat routing and workload management.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+     * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
      * @param value The operatorStatusType to set.
      * @return This builder for chaining.
      */
-    public Builder setOperatorStatusType(io.channel.api.proto.pub.coreapi.model.OperatorStatusType value) {
+    public Builder setOperatorStatusType(io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -1328,11 +1674,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current activity type of the operator.
+     * Current activity state of the manager, used for chat routing and workload management.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
+     * <code>.coreapi.model.OperatorStatus.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
      * @return This builder for chaining.
      */
     public Builder clearOperatorStatusType() {
@@ -1345,11 +1691,12 @@ private static final long serialVersionUID = 0L;
     private boolean enable_ ;
     /**
      * <pre>
-     * Whether the operator is enabled for assignment.
-     * +kubebuilder:validation:Nullable
+     * Whether the manager is enabled to receive and handle chats.
+     * Disabled managers are excluded from auto-assignment.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool enable = 5 [json_name = "enable"];</code>
+     * <code>bool enable = 5 [json_name = "enable", (.buf.validate.field) = { ... }</code>
      * @return The enable.
      */
     @java.lang.Override
@@ -1358,11 +1705,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the operator is enabled for assignment.
-     * +kubebuilder:validation:Nullable
+     * Whether the manager is enabled to receive and handle chats.
+     * Disabled managers are excluded from auto-assignment.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool enable = 5 [json_name = "enable"];</code>
+     * <code>bool enable = 5 [json_name = "enable", (.buf.validate.field) = { ... }</code>
      * @param value The enable to set.
      * @return This builder for chaining.
      */
@@ -1374,11 +1722,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the operator is enabled for assignment.
-     * +kubebuilder:validation:Nullable
+     * Whether the manager is enabled to receive and handle chats.
+     * Disabled managers are excluded from auto-assignment.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>bool enable = 5 [json_name = "enable"];</code>
+     * <code>bool enable = 5 [json_name = "enable", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearEnable() {
@@ -1721,7 +2070,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> typeUpdatedAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1733,7 +2083,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1749,7 +2100,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1770,7 +2122,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1789,7 +2142,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1812,7 +2166,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1831,7 +2186,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1844,7 +2200,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1860,7 +2217,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the operator status type was last changed.
+     * Timestamp when `operator_status_type` was last changed.
+     * Differs from `updated_at` which tracks any field update.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1878,6 +2236,52 @@ private static final long serialVersionUID = 0L;
         typeUpdatedAt_ = null;
       }
       return typeUpdatedAtBuilder_;
+    }
+
+    private long version_ ;
+    /**
+     * <pre>
+     * Optimistic locking version for concurrent update detection.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int64 version = 9 [json_name = "version"];</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public long getVersion() {
+      return version_;
+    }
+    /**
+     * <pre>
+     * Optimistic locking version for concurrent update detection.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int64 version = 9 [json_name = "version"];</code>
+     * @param value The version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVersion(long value) {
+      
+      version_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optimistic locking version for concurrent update detection.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int64 version = 9 [json_name = "version"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVersion() {
+      
+      version_ = 0L;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1967,7 +2371,7 @@ private static final long serialVersionUID = 0L;
      * @param value The operator_status_type to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearOperatorStatusType(io.channel.api.proto.pub.coreapi.model.OperatorStatusType value) {
+    public Builder setOrClearOperatorStatusType(io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType value) {
     	if (value == null)
     		return clearOperatorStatusType();
     	else
@@ -1979,7 +2383,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearOperatorStatusType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.OperatorStatusType> mapFunc) {
+    public <T> Builder mapOrClearOperatorStatusType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.OperatorStatus.OperatorStatusType> mapFunc) {
     	if (value == null)
     		return clearOperatorStatusType();
     	else
@@ -2076,6 +2480,29 @@ private static final long serialVersionUID = 0L;
     		return clearTypeUpdatedAt();
     	else
     		return setTypeUpdatedAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearVersion(java.lang.Long value) {
+    	if (value == null)
+    		return clearVersion();
+    	else
+    		return setVersion(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
+    	if (value == null)
+    		return clearVersion();
+    	else
+    		return setVersion(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.OperatorStatus)

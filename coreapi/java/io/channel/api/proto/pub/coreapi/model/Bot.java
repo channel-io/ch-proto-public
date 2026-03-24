@@ -122,19 +122,6 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 74: {
-            io.channel.api.proto.pub.coreapi.model.TinyFile.Builder subBuilder = null;
-            if (avatar_ != null) {
-              subBuilder = avatar_.toBuilder();
-            }
-            avatar_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.TinyFile.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(avatar_);
-              avatar_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -283,7 +270,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   * Bot display name.
+   * Bot display name shown to end users in conversations.
    * Unique within the channel.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
@@ -308,7 +295,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Bot display name.
+   * Bot display name shown to end users in conversations.
    * Unique within the channel.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
@@ -337,7 +324,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object description_;
   /**
    * <pre>
-   * Bot description.
+   * Free-text summary displayed on the bot profile.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * </pre>
@@ -360,7 +347,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Bot description.
+   * Free-text summary displayed on the bot profile.
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=180
    * </pre>
@@ -411,8 +398,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -435,8 +421,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -449,8 +434,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -468,8 +452,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -492,13 +475,13 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object color_;
   /**
    * <pre>
-   * Bot color in hex format.
+   * Bot theme color in hex format (e.g., #3B82F6).
    * Randomly assigned if not specified on creation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * +kubebuilder:example="#3B82F6"
    * </pre>
    *
-   * <code>string color = 6 [json_name = "color"];</code>
+   * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
    * @return The color.
    */
   @java.lang.Override
@@ -516,13 +499,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Bot color in hex format.
+   * Bot theme color in hex format (e.g., #3B82F6).
    * Randomly assigned if not specified on creation.
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * +kubebuilder:example="#3B82F6"
    * </pre>
    *
-   * <code>string color = 6 [json_name = "color"];</code>
+   * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
    * @return The bytes for color.
    */
   @java.lang.Override
@@ -545,6 +528,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot avatar image URL.
+   * Falls back to a system-generated default when no custom avatar is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -567,6 +551,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot avatar image URL.
+   * Falls back to a system-generated default when no custom avatar is set.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -629,47 +614,6 @@ private static final long serialVersionUID = 0L;
     return getCreatedAt();
   }
 
-  public static final int AVATAR_FIELD_NUMBER = 9;
-  private io.channel.api.proto.pub.coreapi.model.TinyFile avatar_;
-  /**
-   * <pre>
-   * Bot avatar image reference.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
-   * @return Whether the avatar field is set.
-   */
-  @java.lang.Override
-  public boolean hasAvatar() {
-    return avatar_ != null;
-  }
-  /**
-   * <pre>
-   * Bot avatar image reference.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
-   * @return The avatar.
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.TinyFile getAvatar() {
-    return avatar_ == null ? io.channel.api.proto.pub.coreapi.model.TinyFile.getDefaultInstance() : avatar_;
-  }
-  /**
-   * <pre>
-   * Bot avatar image reference.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder getAvatarOrBuilder() {
-    return getAvatar();
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -710,9 +654,6 @@ private static final long serialVersionUID = 0L;
     }
     if (createdAt_ != null) {
       output.writeMessage(8, getCreatedAt());
-    }
-    if (avatar_ != null) {
-      output.writeMessage(9, getAvatar());
     }
     unknownFields.writeTo(output);
   }
@@ -755,10 +696,6 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getCreatedAt());
     }
-    if (avatar_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(9, getAvatar());
-    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -793,11 +730,6 @@ private static final long serialVersionUID = 0L;
       if (!getCreatedAt()
           .equals(other.getCreatedAt())) return false;
     }
-    if (hasAvatar() != other.hasAvatar()) return false;
-    if (hasAvatar()) {
-      if (!getAvatar()
-          .equals(other.getAvatar())) return false;
-    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -828,10 +760,6 @@ private static final long serialVersionUID = 0L;
     if (hasCreatedAt()) {
       hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getCreatedAt().hashCode();
-    }
-    if (hasAvatar()) {
-      hash = (37 * hash) + AVATAR_FIELD_NUMBER;
-      hash = (53 * hash) + getAvatar().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -1012,12 +940,6 @@ private static final long serialVersionUID = 0L;
         createdAt_ = null;
         createdAtBuilder_ = null;
       }
-      if (avatarBuilder_ == null) {
-        avatar_ = null;
-      } else {
-        avatar_ = null;
-        avatarBuilder_ = null;
-      }
       return this;
     }
 
@@ -1057,11 +979,6 @@ private static final long serialVersionUID = 0L;
         result.createdAt_ = createdAt_;
       } else {
         result.createdAt_ = createdAtBuilder_.build();
-      }
-      if (avatarBuilder_ == null) {
-        result.avatar_ = avatar_;
-      } else {
-        result.avatar_ = avatarBuilder_.build();
       }
       onBuilt();
       return result;
@@ -1139,9 +1056,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasCreatedAt()) {
         mergeCreatedAt(other.getCreatedAt());
-      }
-      if (other.hasAvatar()) {
-        mergeAvatar(other.getAvatar());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1388,7 +1302,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Bot display name.
+     * Bot display name shown to end users in conversations.
      * Unique within the channel.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
@@ -1412,7 +1326,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot display name.
+     * Bot display name shown to end users in conversations.
      * Unique within the channel.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
@@ -1437,7 +1351,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot display name.
+     * Bot display name shown to end users in conversations.
      * Unique within the channel.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
@@ -1460,7 +1374,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot display name.
+     * Bot display name shown to end users in conversations.
      * Unique within the channel.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
@@ -1478,7 +1392,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot display name.
+     * Bot display name shown to end users in conversations.
      * Unique within the channel.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
@@ -1504,7 +1418,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object description_ = "";
     /**
      * <pre>
-     * Bot description.
+     * Free-text summary displayed on the bot profile.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * </pre>
@@ -1526,7 +1440,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot description.
+     * Free-text summary displayed on the bot profile.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * </pre>
@@ -1549,7 +1463,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot description.
+     * Free-text summary displayed on the bot profile.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * </pre>
@@ -1570,7 +1484,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot description.
+     * Free-text summary displayed on the bot profile.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * </pre>
@@ -1586,7 +1500,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot description.
+     * Free-text summary displayed on the bot profile.
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=180
      * </pre>
@@ -1635,8 +1549,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized name and description map.
-     * Keyed by locale.
+     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1659,8 +1572,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized name and description map.
-     * Keyed by locale.
+     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1673,8 +1585,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized name and description map.
-     * Keyed by locale.
+     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1692,8 +1603,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized name and description map.
-     * Keyed by locale.
+     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1719,8 +1629,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized name and description map.
-     * Keyed by locale.
+     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1744,8 +1653,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized name and description map.
-     * Keyed by locale.
+     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1765,8 +1673,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized name and description map.
-     * Keyed by locale.
+     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1783,13 +1690,13 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object color_ = "";
     /**
      * <pre>
-     * Bot color in hex format.
+     * Bot theme color in hex format (e.g., #3B82F6).
      * Randomly assigned if not specified on creation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * +kubebuilder:example="#3B82F6"
      * </pre>
      *
-     * <code>string color = 6 [json_name = "color"];</code>
+     * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
      * @return The color.
      */
     public java.lang.String getColor() {
@@ -1806,13 +1713,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot color in hex format.
+     * Bot theme color in hex format (e.g., #3B82F6).
      * Randomly assigned if not specified on creation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * +kubebuilder:example="#3B82F6"
      * </pre>
      *
-     * <code>string color = 6 [json_name = "color"];</code>
+     * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
      * @return The bytes for color.
      */
     public com.google.protobuf.ByteString
@@ -1830,13 +1737,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot color in hex format.
+     * Bot theme color in hex format (e.g., #3B82F6).
      * Randomly assigned if not specified on creation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * +kubebuilder:example="#3B82F6"
      * </pre>
      *
-     * <code>string color = 6 [json_name = "color"];</code>
+     * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
      * @param value The color to set.
      * @return This builder for chaining.
      */
@@ -1852,13 +1759,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot color in hex format.
+     * Bot theme color in hex format (e.g., #3B82F6).
      * Randomly assigned if not specified on creation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * +kubebuilder:example="#3B82F6"
      * </pre>
      *
-     * <code>string color = 6 [json_name = "color"];</code>
+     * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearColor() {
@@ -1869,13 +1776,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot color in hex format.
+     * Bot theme color in hex format (e.g., #3B82F6).
      * Randomly assigned if not specified on creation.
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * +kubebuilder:example="#3B82F6"
      * </pre>
      *
-     * <code>string color = 6 [json_name = "color"];</code>
+     * <code>string color = 6 [json_name = "color", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for color to set.
      * @return This builder for chaining.
      */
@@ -1895,6 +1802,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image URL.
+     * Falls back to a system-generated default when no custom avatar is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1916,6 +1824,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image URL.
+     * Falls back to a system-generated default when no custom avatar is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1938,6 +1847,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image URL.
+     * Falls back to a system-generated default when no custom avatar is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1958,6 +1868,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image URL.
+     * Falls back to a system-generated default when no custom avatar is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1973,6 +1884,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot avatar image URL.
+     * Falls back to a system-generated default when no custom avatar is set.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2154,170 +2066,6 @@ private static final long serialVersionUID = 0L;
         createdAt_ = null;
       }
       return createdAtBuilder_;
-    }
-
-    private io.channel.api.proto.pub.coreapi.model.TinyFile avatar_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.TinyFile, io.channel.api.proto.pub.coreapi.model.TinyFile.Builder, io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder> avatarBuilder_;
-    /**
-     * <pre>
-     * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
-     * @return Whether the avatar field is set.
-     */
-    public boolean hasAvatar() {
-      return avatarBuilder_ != null || avatar_ != null;
-    }
-    /**
-     * <pre>
-     * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
-     * @return The avatar.
-     */
-    public io.channel.api.proto.pub.coreapi.model.TinyFile getAvatar() {
-      if (avatarBuilder_ == null) {
-        return avatar_ == null ? io.channel.api.proto.pub.coreapi.model.TinyFile.getDefaultInstance() : avatar_;
-      } else {
-        return avatarBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
-     */
-    public Builder setAvatar(io.channel.api.proto.pub.coreapi.model.TinyFile value) {
-      if (avatarBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        avatar_ = value;
-        onChanged();
-      } else {
-        avatarBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
-     */
-    public Builder setAvatar(
-        io.channel.api.proto.pub.coreapi.model.TinyFile.Builder builderForValue) {
-      if (avatarBuilder_ == null) {
-        avatar_ = builderForValue.build();
-        onChanged();
-      } else {
-        avatarBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
-     */
-    public Builder mergeAvatar(io.channel.api.proto.pub.coreapi.model.TinyFile value) {
-      if (avatarBuilder_ == null) {
-        if (avatar_ != null) {
-          avatar_ =
-            io.channel.api.proto.pub.coreapi.model.TinyFile.newBuilder(avatar_).mergeFrom(value).buildPartial();
-        } else {
-          avatar_ = value;
-        }
-        onChanged();
-      } else {
-        avatarBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
-     */
-    public Builder clearAvatar() {
-      if (avatarBuilder_ == null) {
-        avatar_ = null;
-        onChanged();
-      } else {
-        avatar_ = null;
-        avatarBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.TinyFile.Builder getAvatarBuilder() {
-      
-      onChanged();
-      return getAvatarFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder getAvatarOrBuilder() {
-      if (avatarBuilder_ != null) {
-        return avatarBuilder_.getMessageOrBuilder();
-      } else {
-        return avatar_ == null ?
-            io.channel.api.proto.pub.coreapi.model.TinyFile.getDefaultInstance() : avatar_;
-      }
-    }
-    /**
-     * <pre>
-     * Bot avatar image reference.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.TinyFile, io.channel.api.proto.pub.coreapi.model.TinyFile.Builder, io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder> 
-        getAvatarFieldBuilder() {
-      if (avatarBuilder_ == null) {
-        avatarBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            io.channel.api.proto.pub.coreapi.model.TinyFile, io.channel.api.proto.pub.coreapi.model.TinyFile.Builder, io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder>(
-                getAvatar(),
-                getParentForChildren(),
-                isClean());
-        avatar_ = null;
-      }
-      return avatarBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -2504,29 +2252,6 @@ private static final long serialVersionUID = 0L;
     		return clearCreatedAt();
     	else
     		return setCreatedAt(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The avatar to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearAvatar(io.channel.api.proto.pub.coreapi.model.TinyFile value) {
-    	if (value == null)
-    		return clearAvatar();
-    	else
-    		return setAvatar(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearAvatar(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.TinyFile> mapFunc) {
-    	if (value == null)
-    		return clearAvatar();
-    	else
-    		return setAvatar(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Bot)

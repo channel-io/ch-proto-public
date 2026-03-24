@@ -8,10 +8,11 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// ChatBookmark represents a participant's reading position in a chat.
-// Tracks the last-read location per person within a specific chat context.
+// ChatBookmark represents a bookmark placed by a person on a chat conversation,
+// allowing quick access to frequently visited chats.
 message ChatBookmark {
-  // Unique bookmark identifier.
+  // Composite partition key identifying the person and chat type scope.
+  // Format: "{personType}-{personId}-{chatType}".
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -24,7 +25,7 @@ message ChatBookmark {
     (buf.validate.field).required = true
   ];
 
-  // Chat ID this bookmark belongs to.
+  // Chat ID of the bookmarked conversation.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -37,84 +38,44 @@ message ChatBookmark {
     (buf.validate.field).required = true
   ];
 
-  // Composite key for the associated chat.
+  // Composite key identifying the bookmarked conversation.
+  // Format: "{chatType}-{chatId}".
+  // Enables reverse lookup of all people who bookmarked a given chat.
   //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string chat_key = 3 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  // +kubebuilder:validation:Nullable
+  string chat_key = 3;
 
-  // Opaque key representing the reading position in the chat.
+  // Opaque sort key for ordering bookmarks within the person's list.
   //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string bookmark_key = 4 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  // +kubebuilder:validation:Nullable
+  string bookmark_key = 4;
 
   // Channel ID this bookmark belongs to.
   //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string channel_id = 5 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  // +kubebuilder:validation:Nullable
+  string channel_id = 5;
 
-  // Entity version number for optimistic concurrency control.
-  int32 version = 6;
-
-  // Type of the bookmark owner (e.g. "manager").
+  // Optimistic locking version.
+  // Incremented on every update.
   //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string person_type = 7 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  // +kubebuilder:validation:Nullable
+  int64 version = 6;
 
-  // Identifier of the bookmark owner.
+  // Chat type of the bookmarked conversation (e.g., "userChat", "group", "directChat").
+  // Derived from the third segment of the bookmark key.
   //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string person_id = 8 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  // +kubebuilder:validation:Nullable
+  string chat_type = 7;
 
-  // Chat type this bookmark belongs to (e.g. "group", "userChat").
+  // Entity type of the person who created the bookmark (e.g., "manager", "user").
+  // Derived from the first segment of the bookmark key.
   //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string chat_type = 9 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  // +kubebuilder:validation:Nullable
+  string person_type = 8;
+
+  // Entity ID of the person who created the bookmark.
+  // Derived from the second segment of the bookmark key.
+  //
+  // +kubebuilder:validation:Nullable
+  string person_id = 9;
 }

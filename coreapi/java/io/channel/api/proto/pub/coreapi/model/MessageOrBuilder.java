@@ -9,12 +9,38 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
+   * Composite key identifying the parent conversation.
+   * Format: "{chatType}-{chatId}".
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * </pre>
+   *
+   * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+   * @return The chatKey.
+   */
+  java.lang.String getChatKey();
+  /**
+   * <pre>
+   * Composite key identifying the parent conversation.
+   * Format: "{chatType}-{chatId}".
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * </pre>
+   *
+   * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for chatKey.
+   */
+  com.google.protobuf.ByteString
+      getChatKeyBytes();
+
+  /**
+   * <pre>
    * Unique message identifier.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The id.
    */
   java.lang.String getId();
@@ -25,11 +51,143 @@ public interface MessageOrBuilder extends
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
       getIdBytes();
+
+  /**
+   * <pre>
+   * Index key for the main (top-level) message stream.
+   * Same value as chat_key when the message appears in the main stream.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string main_key = 3 [json_name = "mainKey"];</code>
+   * @return The mainKey.
+   */
+  java.lang.String getMainKey();
+  /**
+   * <pre>
+   * Index key for the main (top-level) message stream.
+   * Same value as chat_key when the message appears in the main stream.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string main_key = 3 [json_name = "mainKey"];</code>
+   * @return The bytes for mainKey.
+   */
+  com.google.protobuf.ByteString
+      getMainKeyBytes();
+
+  /**
+   * <pre>
+   * Index key for the thread message stream.
+   * For thread root messages: same value as chat_key.
+   * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
+   * Absent when the message does not belong to a thread.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string thread_key = 4 [json_name = "threadKey"];</code>
+   * @return The threadKey.
+   */
+  java.lang.String getThreadKey();
+  /**
+   * <pre>
+   * Index key for the thread message stream.
+   * For thread root messages: same value as chat_key.
+   * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
+   * Absent when the message does not belong to a thread.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string thread_key = 4 [json_name = "threadKey"];</code>
+   * @return The bytes for threadKey.
+   */
+  com.google.protobuf.ByteString
+      getThreadKeyBytes();
+
+  /**
+   * <pre>
+   * Index key for the meet message stream.
+   * For meet root messages: same value as chat_key.
+   * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
+   * Absent when the message is not associated with a meet session.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string meet_key = 5 [json_name = "meetKey"];</code>
+   * @return The meetKey.
+   */
+  java.lang.String getMeetKey();
+  /**
+   * <pre>
+   * Index key for the meet message stream.
+   * For meet root messages: same value as chat_key.
+   * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
+   * Absent when the message is not associated with a meet session.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string meet_key = 5 [json_name = "meetKey"];</code>
+   * @return The bytes for meetKey.
+   */
+  com.google.protobuf.ByteString
+      getMeetKeyBytes();
+
+  /**
+   * <pre>
+   * Index key for the front (user-facing) message stream.
+   * Same value as chat_key when the message appears in the front stream.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string front_key = 6 [json_name = "frontKey"];</code>
+   * @return The frontKey.
+   */
+  java.lang.String getFrontKey();
+  /**
+   * <pre>
+   * Index key for the front (user-facing) message stream.
+   * Same value as chat_key when the message appears in the front stream.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string front_key = 6 [json_name = "frontKey"];</code>
+   * @return The bytes for frontKey.
+   */
+  com.google.protobuf.ByteString
+      getFrontKeyBytes();
+
+  /**
+   * <pre>
+   * Index key for the ALF AI-assisted thread stream.
+   * For ALF thread root messages: same value as chat_key.
+   * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
+   * Absent when the message is not part of an ALF thread.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
+   * @return The alfThreadKey.
+   */
+  java.lang.String getAlfThreadKey();
+  /**
+   * <pre>
+   * Index key for the ALF AI-assisted thread stream.
+   * For ALF thread root messages: same value as chat_key.
+   * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
+   * Absent when the message is not part of an ALF thread.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
+   * @return The bytes for alfThreadKey.
+   */
+  com.google.protobuf.ByteString
+      getAlfThreadKeyBytes();
 
   /**
    * <pre>
@@ -38,7 +196,7 @@ public interface MessageOrBuilder extends
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The channelId.
    */
   java.lang.String getChannelId();
@@ -49,7 +207,7 @@ public interface MessageOrBuilder extends
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for channelId.
    */
   com.google.protobuf.ByteString
@@ -57,23 +215,23 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Chat type containing this message (e.g. "userChat", "group").
+   * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
    * @return The chatType.
    */
   java.lang.String getChatType();
   /**
    * <pre>
-   * Chat type containing this message (e.g. "userChat", "group").
+   * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
    * @return The bytes for chatType.
    */
   com.google.protobuf.ByteString
@@ -81,23 +239,23 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Chat ID containing this message.
+   * Chat ID of the parent conversation.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_id = 4 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
    * @return The chatId.
    */
   java.lang.String getChatId();
   /**
    * <pre>
-   * Chat ID containing this message.
+   * Chat ID of the parent conversation.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string chat_id = 4 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
+   * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for chatId.
    */
   com.google.protobuf.ByteString
@@ -105,23 +263,23 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Entity type of the message author (e.g. "manager", "bot", "user").
+   * Entity type of the message author (e.g., "manager", "user", "bot").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
    * @return The personType.
    */
   java.lang.String getPersonType();
   /**
    * <pre>
-   * Entity type of the message author (e.g. "manager", "bot", "user").
+   * Entity type of the message author (e.g., "manager", "user", "bot").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
    * @return The bytes for personType.
    */
   com.google.protobuf.ByteString
@@ -134,7 +292,7 @@ public interface MessageOrBuilder extends
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_id = 6 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+   * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
    * @return The personId.
    */
   java.lang.String getPersonId();
@@ -145,7 +303,7 @@ public interface MessageOrBuilder extends
    * +kubebuilder:validation:MinLength=1
    * </pre>
    *
-   * <code>string person_id = 6 [json_name = "personId", (.buf.validate.field) = { ... }</code>
+   * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
    * @return The bytes for personId.
    */
   com.google.protobuf.ByteString
@@ -153,21 +311,25 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Client-generated request identifier for idempotency.
+   * Client-generated identifier for deduplication.
+   * Allows matching a locally pre-rendered message with the server response.
+   * Immutable after creation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string request_id = 7 [json_name = "requestId"];</code>
+   * <code>string request_id = 13 [json_name = "requestId"];</code>
    * @return The requestId.
    */
   java.lang.String getRequestId();
   /**
    * <pre>
-   * Client-generated request identifier for idempotency.
+   * Client-generated identifier for deduplication.
+   * Allows matching a locally pre-rendered message with the server response.
+   * Immutable after creation.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string request_id = 7 [json_name = "requestId"];</code>
+   * <code>string request_id = 13 [json_name = "requestId"];</code>
    * @return The bytes for requestId.
    */
   com.google.protobuf.ByteString
@@ -175,21 +337,21 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Language code of the message content.
+   * Detected language of the message content (e.g., "ko", "en", "ja").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string language = 8 [json_name = "language"];</code>
+   * <code>string language = 14 [json_name = "language"];</code>
    * @return The language.
    */
   java.lang.String getLanguage();
   /**
    * <pre>
-   * Language code of the message content.
+   * Detected language of the message content (e.g., "ko", "en", "ja").
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string language = 8 [json_name = "language"];</code>
+   * <code>string language = 14 [json_name = "language"];</code>
    * @return The bytes for language.
    */
   com.google.protobuf.ByteString
@@ -201,7 +363,7 @@ public interface MessageOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
@@ -211,7 +373,7 @@ public interface MessageOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
@@ -221,9 +383,99 @@ public interface MessageOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Optimistic locking version.
+   * Incremented on every update.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int64 version = 16 [json_name = "version"];</code>
+   * @return The version.
+   */
+  long getVersion();
+
+  /**
+   * <pre>
+   * Structured content blocks composing the message body.
+   * Contains rich text, images, code snippets, and other block-level elements.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
+   */
+  java.util.List<io.channel.api.proto.pub.coreapi.model.Block> 
+      getBlocksList();
+  /**
+   * <pre>
+   * Structured content blocks composing the message body.
+   * Contains rich text, images, code snippets, and other block-level elements.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.Block getBlocks(int index);
+  /**
+   * <pre>
+   * Structured content blocks composing the message body.
+   * Contains rich text, images, code snippets, and other block-level elements.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
+   */
+  int getBlocksCount();
+  /**
+   * <pre>
+   * Structured content blocks composing the message body.
+   * Contains rich text, images, code snippets, and other block-level elements.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
+   */
+  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.BlockOrBuilder> 
+      getBlocksOrBuilderList();
+  /**
+   * <pre>
+   * Structured content blocks composing the message body.
+   * Contains rich text, images, code snippets, and other block-level elements.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.Block blocks = 17 [json_name = "blocks"];</code>
+   */
+  io.channel.api.proto.pub.coreapi.model.BlockOrBuilder getBlocksOrBuilder(
+      int index);
+
+  /**
+   * <pre>
+   * Plain text representation of the message body.
+   * Stripped of all formatting from blocks.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string plain_text = 18 [json_name = "plainText"];</code>
+   * @return The plainText.
+   */
+  java.lang.String getPlainText();
+  /**
+   * <pre>
+   * Plain text representation of the message body.
+   * Stripped of all formatting from blocks.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string plain_text = 18 [json_name = "plainText"];</code>
+   * @return The bytes for plainText.
+   */
+  com.google.protobuf.ByteString
+      getPlainTextBytes();
 
   /**
    * <pre>
@@ -231,7 +483,7 @@ public interface MessageOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
    * @return Whether the updatedAt field is set.
    */
   boolean hasUpdatedAt();
@@ -241,7 +493,7 @@ public interface MessageOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
    * @return The updatedAt.
    */
   com.google.protobuf.Timestamp getUpdatedAt();
@@ -251,131 +503,233 @@ public interface MessageOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
 
   /**
    * <pre>
-   * Structured content blocks of the message.
+   * Thread metadata present only on thread root messages.
+   * Contains reply count, last reply timestamp, and participant summary.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+   * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
+   * @return Whether the thread field is set.
    */
-  java.util.List<io.channel.api.proto.pub.coreapi.model.Block> 
-      getBlocksList();
+  boolean hasThread();
   /**
    * <pre>
-   * Structured content blocks of the message.
+   * Thread metadata present only on thread root messages.
+   * Contains reply count, last reply timestamp, and participant summary.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+   * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
+   * @return The thread.
    */
-  io.channel.api.proto.pub.coreapi.model.Block getBlocks(int index);
+  io.channel.api.proto.pub.coreapi.model.MessageThread getThread();
   /**
    * <pre>
-   * Structured content blocks of the message.
+   * Thread metadata present only on thread root messages.
+   * Contains reply count, last reply timestamp, and participant summary.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
+   * <code>.coreapi.model.MessageThread thread = 20 [json_name = "thread"];</code>
    */
-  int getBlocksCount();
-  /**
-   * <pre>
-   * Structured content blocks of the message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
-   */
-  java.util.List<? extends io.channel.api.proto.pub.coreapi.model.BlockOrBuilder> 
-      getBlocksOrBuilderList();
-  /**
-   * <pre>
-   * Structured content blocks of the message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.Block blocks = 12 [json_name = "blocks"];</code>
-   */
-  io.channel.api.proto.pub.coreapi.model.BlockOrBuilder getBlocksOrBuilder(
-      int index);
+  io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder getThreadOrBuilder();
 
   /**
    * <pre>
-   * Plain text representation of the message.
+   * Meet session metadata for messages associated with a video/voice meet.
+   * Contains session ID, participants, and call state.
+   * Present only on meet-related messages.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string plain_text = 13 [json_name = "plainText"];</code>
-   * @return The plainText.
+   * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
+   * @return Whether the meet field is set.
    */
-  java.lang.String getPlainText();
+  boolean hasMeet();
   /**
    * <pre>
-   * Plain text representation of the message.
+   * Meet session metadata for messages associated with a video/voice meet.
+   * Contains session ID, participants, and call state.
+   * Present only on meet-related messages.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string plain_text = 13 [json_name = "plainText"];</code>
-   * @return The bytes for plainText.
+   * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
+   * @return The meet.
    */
-  com.google.protobuf.ByteString
-      getPlainTextBytes();
+  com.google.protobuf.Struct getMeet();
+  /**
+   * <pre>
+   * Meet session metadata for messages associated with a video/voice meet.
+   * Contains session ID, participants, and call state.
+   * Present only on meet-related messages.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getMeetOrBuilder();
 
   /**
    * <pre>
-   * Interactive buttons attached to the message.
+   * Email metadata for messages sent or received via email integration.
+   * Contains email subject, recipients, and direction (inbound/outbound).
    * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
+   * @return Whether the email field is set.
+   */
+  boolean hasEmail();
+  /**
+   * <pre>
+   * Email metadata for messages sent or received via email integration.
+   * Contains email subject, recipients, and direction (inbound/outbound).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
+   * @return The email.
+   */
+  com.google.protobuf.Struct getEmail();
+  /**
+   * <pre>
+   * Email metadata for messages sent or received via email integration.
+   * Contains email subject, recipients, and direction (inbound/outbound).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getEmailOrBuilder();
+
+  /**
+   * <pre>
+   * ALF (AI agent) thread metadata for AI-assisted conversation threads.
+   * Contains ALF session state and context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
+   * @return Whether the alfThread field is set.
+   */
+  boolean hasAlfThread();
+  /**
+   * <pre>
+   * ALF (AI agent) thread metadata for AI-assisted conversation threads.
+   * Contains ALF session state and context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
+   * @return The alfThread.
+   */
+  com.google.protobuf.Struct getAlfThread();
+  /**
+   * <pre>
+   * ALF (AI agent) thread metadata for AI-assisted conversation threads.
+   * Contains ALF session state and context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getAlfThreadOrBuilder();
+
+  /**
+   * <pre>
+   * Timestamp when the message content was last edited by a person.
+   * Absent if the message has never been edited.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
+   * @return Whether the editedAt field is set.
+   */
+  boolean hasEditedAt();
+  /**
+   * <pre>
+   * Timestamp when the message content was last edited by a person.
+   * Absent if the message has never been edited.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
+   * @return The editedAt.
+   */
+  com.google.protobuf.Timestamp getEditedAt();
+  /**
+   * <pre>
+   * Timestamp when the message content was last edited by a person.
+   * Absent if the message has never been edited.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getEditedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Interactive action buttons displayed below the message.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=2
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
    */
   java.util.List<io.channel.api.proto.pub.coreapi.model.MessageButton> 
       getButtonsList();
   /**
    * <pre>
-   * Interactive buttons attached to the message.
+   * Interactive action buttons displayed below the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=2
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
    */
   io.channel.api.proto.pub.coreapi.model.MessageButton getButtons(int index);
   /**
    * <pre>
-   * Interactive buttons attached to the message.
+   * Interactive action buttons displayed below the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=2
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
    */
   int getButtonsCount();
   /**
    * <pre>
-   * Interactive buttons attached to the message.
+   * Interactive action buttons displayed below the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=2
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
    */
   java.util.List<? extends io.channel.api.proto.pub.coreapi.model.MessageButtonOrBuilder> 
       getButtonsOrBuilderList();
   /**
    * <pre>
-   * Interactive buttons attached to the message.
+   * Interactive action buttons displayed below the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
    * +kubebuilder:validation:MaxItems=2
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageButton buttons = 14 [json_name = "buttons", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .coreapi.model.MessageButton buttons = 25 [json_name = "buttons"];</code>
    */
   io.channel.api.proto.pub.coreapi.model.MessageButtonOrBuilder getButtonsOrBuilder(
       int index);
@@ -384,9 +738,11 @@ public interface MessageOrBuilder extends
    * <pre>
    * File attachments included in the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:validation:MaxItems=30
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+   * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
    */
   java.util.List<io.channel.api.proto.pub.coreapi.model.MessageFile> 
       getFilesList();
@@ -394,27 +750,33 @@ public interface MessageOrBuilder extends
    * <pre>
    * File attachments included in the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:validation:MaxItems=30
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+   * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
    */
   io.channel.api.proto.pub.coreapi.model.MessageFile getFiles(int index);
   /**
    * <pre>
    * File attachments included in the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:validation:MaxItems=30
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+   * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
    */
   int getFilesCount();
   /**
    * <pre>
    * File attachments included in the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:validation:MaxItems=30
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+   * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
    */
   java.util.List<? extends io.channel.api.proto.pub.coreapi.model.MessageFileOrBuilder> 
       getFilesOrBuilderList();
@@ -422,406 +784,517 @@ public interface MessageOrBuilder extends
    * <pre>
    * File attachments included in the message.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:validation:MaxItems=30
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageFile files = 15 [json_name = "files"];</code>
+   * <code>repeated .coreapi.model.MessageFile files = 26 [json_name = "files"];</code>
    */
   io.channel.api.proto.pub.coreapi.model.MessageFileOrBuilder getFilesOrBuilder(
       int index);
 
   /**
    * <pre>
-   * Web page link preview attached to the message.
+   * Link preview extracted from the first URL found in the message content.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageWebPage web_page = 16 [json_name = "webPage"];</code>
+   * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
    * @return Whether the webPage field is set.
    */
   boolean hasWebPage();
   /**
    * <pre>
-   * Web page link preview attached to the message.
+   * Link preview extracted from the first URL found in the message content.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageWebPage web_page = 16 [json_name = "webPage"];</code>
+   * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
    * @return The webPage.
    */
   io.channel.api.proto.pub.coreapi.model.MessageWebPage getWebPage();
   /**
    * <pre>
-   * Web page link preview attached to the message.
+   * Link preview extracted from the first URL found in the message content.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageWebPage web_page = 16 [json_name = "webPage"];</code>
+   * <code>.coreapi.model.MessageWebPage web_page = 27 [json_name = "webPage"];</code>
    */
   io.channel.api.proto.pub.coreapi.model.MessageWebPageOrBuilder getWebPageOrBuilder();
 
   /**
    * <pre>
-   * Interactive form attached to the message.
-   * The structure depends on the form type.
+   * System log entry for automated events (e.g., chat opened, assigned, closed).
+   * Present only on system-generated messages.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Struct form = 17 [json_name = "form"];</code>
-   * @return Whether the form field is set.
-   */
-  boolean hasForm();
-  /**
-   * <pre>
-   * Interactive form attached to the message.
-   * The structure depends on the form type.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct form = 17 [json_name = "form"];</code>
-   * @return The form.
-   */
-  com.google.protobuf.Struct getForm();
-  /**
-   * <pre>
-   * Interactive form attached to the message.
-   * The structure depends on the form type.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct form = 17 [json_name = "form"];</code>
-   */
-  com.google.protobuf.StructOrBuilder getFormOrBuilder();
-
-  /**
-   * <pre>
-   * Option flags that modify message delivery and display behavior.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-   * @return A list containing the options.
-   */
-  java.util.List<io.channel.api.proto.pub.coreapi.model.MessageOption> getOptionsList();
-  /**
-   * <pre>
-   * Option flags that modify message delivery and display behavior.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-   * @return The count of options.
-   */
-  int getOptionsCount();
-  /**
-   * <pre>
-   * Option flags that modify message delivery and display behavior.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-   * @param index The index of the element to return.
-   * @return The options at the given index.
-   */
-  io.channel.api.proto.pub.coreapi.model.MessageOption getOptions(int index);
-  /**
-   * <pre>
-   * Option flags that modify message delivery and display behavior.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-   * @return A list containing the enum numeric values on the wire for options.
-   */
-  java.util.List<java.lang.Integer>
-  getOptionsValueList();
-  /**
-   * <pre>
-   * Option flags that modify message delivery and display behavior.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.MessageOption options = 18 [json_name = "options"];</code>
-   * @param index The index of the value to return.
-   * @return The enum numeric value on the wire of options at the given index.
-   */
-  int getOptionsValue(int index);
-
-  /**
-   * <pre>
-   * Current lifecycle state of the message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MessageState state = 19 [json_name = "state"];</code>
-   * @return The enum numeric value on the wire for state.
-   */
-  int getStateValue();
-  /**
-   * <pre>
-   * Current lifecycle state of the message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MessageState state = 19 [json_name = "state"];</code>
-   * @return The state.
-   */
-  io.channel.api.proto.pub.coreapi.model.MessageState getState();
-
-  /**
-   * <pre>
-   * System log data for log-type messages.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.MessageLog log = 21 [json_name = "log"];</code>
+   * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
    * @return Whether the log field is set.
    */
   boolean hasLog();
   /**
    * <pre>
-   * System log data for log-type messages.
+   * System log entry for automated events (e.g., chat opened, assigned, closed).
+   * Present only on system-generated messages.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageLog log = 21 [json_name = "log"];</code>
+   * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
    * @return The log.
    */
   io.channel.api.proto.pub.coreapi.model.MessageLog getLog();
   /**
    * <pre>
-   * System log data for log-type messages.
+   * System log entry for automated events (e.g., chat opened, assigned, closed).
+   * Present only on system-generated messages.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageLog log = 21 [json_name = "log"];</code>
+   * <code>.coreapi.model.MessageLog log = 28 [json_name = "log"];</code>
    */
   io.channel.api.proto.pub.coreapi.model.MessageLogOrBuilder getLogOrBuilder();
 
   /**
    * <pre>
-   * Emoji reactions on this message.
+   * Emoji reactions added to this message by participants.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+   * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
    */
   java.util.List<io.channel.api.proto.pub.coreapi.model.MessageReaction> 
       getReactionsList();
   /**
    * <pre>
-   * Emoji reactions on this message.
+   * Emoji reactions added to this message by participants.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+   * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
    */
   io.channel.api.proto.pub.coreapi.model.MessageReaction getReactions(int index);
   /**
    * <pre>
-   * Emoji reactions on this message.
+   * Emoji reactions added to this message by participants.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+   * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
    */
   int getReactionsCount();
   /**
    * <pre>
-   * Emoji reactions on this message.
+   * Emoji reactions added to this message by participants.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+   * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
    */
   java.util.List<? extends io.channel.api.proto.pub.coreapi.model.MessageReactionOrBuilder> 
       getReactionsOrBuilderList();
   /**
    * <pre>
-   * Emoji reactions on this message.
+   * Emoji reactions added to this message by participants.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>repeated .coreapi.model.MessageReaction reactions = 22 [json_name = "reactions"];</code>
+   * <code>repeated .coreapi.model.MessageReaction reactions = 29 [json_name = "reactions"];</code>
    */
   io.channel.api.proto.pub.coreapi.model.MessageReactionOrBuilder getReactionsOrBuilder(
       int index);
 
   /**
    * <pre>
-   * Composite key for the chat this message belongs to.
+   * Progress indicator for an ALF AI response being streamed.
+   * Contains the partial content generated so far.
+   * Transient; replaced by the final message content when streaming completes.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string chat_key = 24 [json_name = "chatKey"];</code>
-   * @return The chatKey.
+   * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
+   * @return Whether the alfProgress field is set.
    */
-  java.lang.String getChatKey();
+  boolean hasAlfProgress();
   /**
    * <pre>
-   * Composite key for the chat this message belongs to.
+   * Progress indicator for an ALF AI response being streamed.
+   * Contains the partial content generated so far.
+   * Transient; replaced by the final message content when streaming completes.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string chat_key = 24 [json_name = "chatKey"];</code>
-   * @return The bytes for chatKey.
+   * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
+   * @return The alfProgress.
+   */
+  com.google.protobuf.Struct getAlfProgress();
+  /**
+   * <pre>
+   * Progress indicator for an ALF AI response being streamed.
+   * Contains the partial content generated so far.
+   * Transient; replaced by the final message content when streaming completes.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getAlfProgressOrBuilder();
+
+  /**
+   * <pre>
+   * Interactive form (e.g., input fields, dropdowns) attached to the message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
+   * @return Whether the form field is set.
+   */
+  boolean hasForm();
+  /**
+   * <pre>
+   * Interactive form (e.g., input fields, dropdowns) attached to the message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
+   * @return The form.
+   */
+  com.google.protobuf.Struct getForm();
+  /**
+   * <pre>
+   * Interactive form (e.g., input fields, dropdowns) attached to the message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getFormOrBuilder();
+
+  /**
+   * <pre>
+   * Current lifecycle state of this message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+   * @return The enum numeric value on the wire for state.
+   */
+  int getStateValue();
+  /**
+   * <pre>
+   * Current lifecycle state of this message.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+   * @return The state.
+   */
+  io.channel.api.proto.pub.coreapi.model.MessageState getState();
+
+  /**
+   * <pre>
+   * Delivery and visibility options applied to this message.
+   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+   * Some options are only applicable in user chats.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * </pre>
+   *
+   * <code>repeated string options = 33 [json_name = "options"];</code>
+   * @return A list containing the options.
+   */
+  java.util.List<java.lang.String>
+      getOptionsList();
+  /**
+   * <pre>
+   * Delivery and visibility options applied to this message.
+   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+   * Some options are only applicable in user chats.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * </pre>
+   *
+   * <code>repeated string options = 33 [json_name = "options"];</code>
+   * @return The count of options.
+   */
+  int getOptionsCount();
+  /**
+   * <pre>
+   * Delivery and visibility options applied to this message.
+   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+   * Some options are only applicable in user chats.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * </pre>
+   *
+   * <code>repeated string options = 33 [json_name = "options"];</code>
+   * @param index The index of the element to return.
+   * @return The options at the given index.
+   */
+  java.lang.String getOptions(int index);
+  /**
+   * <pre>
+   * Delivery and visibility options applied to this message.
+   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
+   * Some options are only applicable in user chats.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MinItems=1
+   * </pre>
+   *
+   * <code>repeated string options = 33 [json_name = "options"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the options at the given index.
    */
   com.google.protobuf.ByteString
-      getChatKeyBytes();
+      getOptionsBytes(int index);
 
   /**
    * <pre>
-   * Key of the main conversation thread.
+   * Marketing campaign metadata for outbound promotional messages.
+   * Contains campaign type and tracking attributes.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string main_key = 25 [json_name = "mainKey"];</code>
-   * @return The mainKey.
-   */
-  java.lang.String getMainKey();
-  /**
-   * <pre>
-   * Key of the main conversation thread.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string main_key = 25 [json_name = "mainKey"];</code>
-   * @return The bytes for mainKey.
-   */
-  com.google.protobuf.ByteString
-      getMainKeyBytes();
-
-  /**
-   * <pre>
-   * Key of the sub-thread this message belongs to.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string thread_key = 26 [json_name = "threadKey"];</code>
-   * @return The threadKey.
-   */
-  java.lang.String getThreadKey();
-  /**
-   * <pre>
-   * Key of the sub-thread this message belongs to.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string thread_key = 26 [json_name = "threadKey"];</code>
-   * @return The bytes for threadKey.
-   */
-  com.google.protobuf.ByteString
-      getThreadKeyBytes();
-
-  /**
-   * <pre>
-   * Message data version number.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>int64 version = 27 [json_name = "version"];</code>
-   * @return The version.
-   */
-  long getVersion();
-
-  /**
-   * <pre>
-   * Marketing campaign metadata associated with this message.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+   * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
    * @return Whether the marketing field is set.
    */
   boolean hasMarketing();
   /**
    * <pre>
-   * Marketing campaign metadata associated with this message.
+   * Marketing campaign metadata for outbound promotional messages.
+   * Contains campaign type and tracking attributes.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+   * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
    * @return The marketing.
    */
   com.google.protobuf.Struct getMarketing();
   /**
    * <pre>
-   * Marketing campaign metadata associated with this message.
+   * Marketing campaign metadata for outbound promotional messages.
+   * Contains campaign type and tracking attributes.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Struct marketing = 28 [json_name = "marketing"];</code>
+   * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
    */
   com.google.protobuf.StructOrBuilder getMarketingOrBuilder();
 
   /**
    * <pre>
-   * Support bot metadata associated with this message.
+   * Legacy support bot metadata.
+   * Retained for backward compatibility with older workflow implementations.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+   * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
    * @return Whether the supportBot field is set.
    */
   boolean hasSupportBot();
   /**
    * <pre>
-   * Support bot metadata associated with this message.
+   * Legacy support bot metadata.
+   * Retained for backward compatibility with older workflow implementations.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+   * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
    * @return The supportBot.
    */
   com.google.protobuf.Struct getSupportBot();
   /**
    * <pre>
-   * Support bot metadata associated with this message.
+   * Legacy support bot metadata.
+   * Retained for backward compatibility with older workflow implementations.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Struct support_bot = 29 [json_name = "supportBot"];</code>
+   * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
    */
   com.google.protobuf.StructOrBuilder getSupportBotOrBuilder();
 
   /**
    * <pre>
-   * Whether this message is a thread reply.
+   * Workflow automation metadata linking this message to a workflow step.
+   * Contains workflow ID, step ID, and button submission context.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>bool thread_msg = 30 [json_name = "threadMsg"];</code>
+   * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
+   * @return Whether the workflow field is set.
+   */
+  boolean hasWorkflow();
+  /**
+   * <pre>
+   * Workflow automation metadata linking this message to a workflow step.
+   * Contains workflow ID, step ID, and button submission context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
+   * @return The workflow.
+   */
+  com.google.protobuf.Struct getWorkflow();
+  /**
+   * <pre>
+   * Workflow automation metadata linking this message to a workflow step.
+   * Contains workflow ID, step ID, and button submission context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getWorkflowOrBuilder();
+
+  /**
+   * <pre>
+   * Notification priority level controlling client-side popup behavior.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
+   * @return The enum numeric value on the wire for alertLevel.
+   */
+  int getAlertLevelValue();
+  /**
+   * <pre>
+   * Notification priority level controlling client-side popup behavior.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
+   * @return The alertLevel.
+   */
+  io.channel.api.proto.pub.coreapi.model.AlertLevel getAlertLevel();
+
+  /**
+   * <pre>
+   * IVR (Interactive Voice Response) call metadata for phone-based messages.
+   * Contains DTMF input, call routing state, and voice prompt context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
+   * @return Whether the ivr field is set.
+   */
+  boolean hasIvr();
+  /**
+   * <pre>
+   * IVR (Interactive Voice Response) call metadata for phone-based messages.
+   * Contains DTMF input, call routing state, and voice prompt context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
+   * @return The ivr.
+   */
+  com.google.protobuf.Struct getIvr();
+  /**
+   * <pre>
+   * IVR (Interactive Voice Response) call metadata for phone-based messages.
+   * Contains DTMF input, call routing state, and voice prompt context.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getIvrOrBuilder();
+
+  /**
+   * <pre>
+   * Custom rendering payload for third-party integrations.
+   * Structure and content are defined by the integration provider.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
+   * @return Whether the customPayload field is set.
+   */
+  boolean hasCustomPayload();
+  /**
+   * <pre>
+   * Custom rendering payload for third-party integrations.
+   * Structure and content are defined by the integration provider.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
+   * @return The customPayload.
+   */
+  com.google.protobuf.Struct getCustomPayload();
+  /**
+   * <pre>
+   * Custom rendering payload for third-party integrations.
+   * Structure and content are defined by the integration provider.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getCustomPayloadOrBuilder();
+
+  /**
+   * <pre>
+   * Composition method that determines how clients render this message.
+   * Automatically derived from the message content when not explicitly set:
+   * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
+   * and STANDARD otherwise.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
+   * @return The enum numeric value on the wire for writingType.
+   */
+  int getWritingTypeValue();
+  /**
+   * <pre>
+   * Composition method that determines how clients render this message.
+   * Automatically derived from the message content when not explicitly set:
+   * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
+   * and STANDARD otherwise.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
+   * @return The writingType.
+   */
+  io.channel.api.proto.pub.coreapi.model.WritingType getWritingType();
+
+  /**
+   * <pre>
+   * Whether this message is a reply within a thread (not the root).
+   * True when thread_key is present and the message is not a thread root.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool thread_msg = 41 [json_name = "threadMsg"];</code>
    * @return The threadMsg.
    */
   boolean getThreadMsg();
 
   /**
    * <pre>
-   * Whether this message was broadcasted.
+   * ID of the root message when this message belongs to a thread, meet, or ALF thread.
+   * Parsed from thread_key, meet_key, or alf_thread_key respectively.
+   * Absent for root messages and standalone messages.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>bool broadcasted_msg = 31 [json_name = "broadcastedMsg"];</code>
-   * @return The broadcastedMsg.
-   */
-  boolean getBroadcastedMsg();
-
-  /**
-   * <pre>
-   * ID of the parent message this is a reply to.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string root_message_id = 32 [json_name = "rootMessageId"];</code>
+   * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
    * @return The rootMessageId.
    */
   java.lang.String getRootMessageId();
   /**
    * <pre>
-   * ID of the parent message this is a reply to.
+   * ID of the root message when this message belongs to a thread, meet, or ALF thread.
+   * Parsed from thread_key, meet_key, or alf_thread_key respectively.
+   * Absent for root messages and standalone messages.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string root_message_id = 32 [json_name = "rootMessageId"];</code>
+   * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
    * @return The bytes for rootMessageId.
    */
   com.google.protobuf.ByteString
@@ -829,31 +1302,38 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Thread metadata if this message is a thread root.
+   * Whether this message is the root of a thread.
+   * True when the thread field is present.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
-   * @return Whether the thread field is set.
+   * <code>bool thread_root = 43 [json_name = "threadRoot"];</code>
+   * @return The threadRoot.
    */
-  boolean hasThread();
+  boolean getThreadRoot();
+
   /**
    * <pre>
-   * Thread metadata if this message is a thread root.
+   * Whether this thread reply is also visible in the main message stream.
+   * True when the message has both thread_key and main_key, but is not a thread root.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
-   * @return The thread.
+   * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg"];</code>
+   * @return The broadcastedMsg.
    */
-  io.channel.api.proto.pub.coreapi.model.MessageThread getThread();
+  boolean getBroadcastedMsg();
+
   /**
    * <pre>
-   * Thread metadata if this message is a thread root.
+   * Whether the message was removed by its original author.
+   * True when the message state is REMOVED and the remover matches the author,
+   * or when no specific remover is recorded.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.coreapi.model.MessageThread thread = 33 [json_name = "thread"];</code>
+   * <code>bool removed_by_writer = 45 [json_name = "removedByWriter"];</code>
+   * @return The removedByWriter.
    */
-  io.channel.api.proto.pub.coreapi.model.MessageThreadOrBuilder getThreadOrBuilder();
+  boolean getRemovedByWriter();
 }

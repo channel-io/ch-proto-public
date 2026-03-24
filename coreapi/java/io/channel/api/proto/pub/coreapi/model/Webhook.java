@@ -5,7 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Webhook represents a channel's webhook endpoint configuration.
+ * Webhook represents an HTTP callback endpoint that receives
+ * real-time event notifications from the channel.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.Webhook}
@@ -25,7 +26,7 @@ private static final long serialVersionUID = 0L;
     name_ = "";
     url_ = "";
     token_ = "";
-    scopes_ = java.util.Collections.emptyList();
+    scopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     apiVersion_ = "";
   }
 
@@ -103,27 +104,13 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 56: {
-            int rawValue = input.readEnum();
+          case 58: {
+            java.lang.String s = input.readStringRequireUtf8();
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              scopes_ = new java.util.ArrayList<java.lang.Integer>();
+              scopes_ = new com.google.protobuf.LazyStringArrayList();
               mutable_bitField0_ |= 0x00000001;
             }
-            scopes_.add(rawValue);
-            break;
-          }
-          case 58: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                scopes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              scopes_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
+            scopes_.add(s);
             break;
           }
           case 66: {
@@ -166,7 +153,7 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        scopes_ = java.util.Collections.unmodifiableList(scopes_);
+        scopes_ = scopes_.getUnmodifiableView();
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -190,11 +177,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique webhook identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   @java.lang.Override
@@ -213,11 +199,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unique webhook identifier.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   @java.lang.Override
@@ -240,11 +225,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this webhook belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 2 [json_name = "channelId"];</code>
    * @return The channelId.
    */
   @java.lang.Override
@@ -263,11 +247,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel ID this webhook belongs to.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+   * <code>string channel_id = 2 [json_name = "channelId"];</code>
    * @return The bytes for channelId.
    */
   @java.lang.Override
@@ -289,10 +272,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   * Webhook display name.
+   * Display name of the webhook.
    * Unique within the channel.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -313,10 +295,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Webhook display name.
+   * Display name of the webhook.
    * Unique within the channel.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -341,9 +322,8 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object url_;
   /**
    * <pre>
-   * Destination URL that receives webhook payloads.
+   * Destination URL where event payloads are delivered via HTTP POST.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -364,9 +344,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Destination URL that receives webhook payloads.
+   * Destination URL where event payloads are delivered via HTTP POST.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
    * </pre>
    *
    * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -391,12 +370,12 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object token_;
   /**
    * <pre>
-   * Auto-generated HMAC token for verifying webhook payloads.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Secret token for verifying webhook payload signatures.
+   * Automatically generated on creation.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
+   * <code>string token = 5 [json_name = "token"];</code>
    * @return The token.
    */
   @java.lang.Override
@@ -414,12 +393,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Auto-generated HMAC token for verifying webhook payloads.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Secret token for verifying webhook payload signatures.
+   * Automatically generated on creation.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
+   * <code>string token = 5 [json_name = "token"];</code>
    * @return The bytes for token.
    */
   @java.lang.Override
@@ -442,10 +421,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Webhook creation timestamp.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt"];</code>
    * @return Whether the createdAt field is set.
    */
   @java.lang.Override
@@ -455,10 +434,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Webhook creation timestamp.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   @java.lang.Override
@@ -468,10 +447,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Webhook creation timestamp.
-   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
@@ -479,98 +458,69 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCOPES_FIELD_NUMBER = 7;
-  private java.util.List<java.lang.Integer> scopes_;
-  private static final com.google.protobuf.Internal.ListAdapter.Converter<
-      java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope> scopes_converter_ =
-          new com.google.protobuf.Internal.ListAdapter.Converter<
-              java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope>() {
-            public io.channel.api.proto.pub.coreapi.model.WebhookScope convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              io.channel.api.proto.pub.coreapi.model.WebhookScope result = io.channel.api.proto.pub.coreapi.model.WebhookScope.valueOf(from);
-              return result == null ? io.channel.api.proto.pub.coreapi.model.WebhookScope.UNRECOGNIZED : result;
-            }
-          };
+  private com.google.protobuf.LazyStringList scopes_;
   /**
    * <pre>
    * Event scopes that trigger this webhook.
+   * Only events matching at least one of these scopes will be delivered.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
    * @return A list containing the scopes.
    */
-  @java.lang.Override
-  public java.util.List<io.channel.api.proto.pub.coreapi.model.WebhookScope> getScopesList() {
-    return new com.google.protobuf.Internal.ListAdapter<
-        java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope>(scopes_, scopes_converter_);
+  public com.google.protobuf.ProtocolStringList
+      getScopesList() {
+    return scopes_;
   }
   /**
    * <pre>
    * Event scopes that trigger this webhook.
+   * Only events matching at least one of these scopes will be delivered.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
    * @return The count of scopes.
    */
-  @java.lang.Override
   public int getScopesCount() {
     return scopes_.size();
   }
   /**
    * <pre>
    * Event scopes that trigger this webhook.
+   * Only events matching at least one of these scopes will be delivered.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
    * @param index The index of the element to return.
    * @return The scopes at the given index.
    */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.WebhookScope getScopes(int index) {
-    return scopes_converter_.convert(scopes_.get(index));
-  }
-  /**
-   * <pre>
-   * Event scopes that trigger this webhook.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinItems=1
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
-   * @return A list containing the enum numeric values on the wire for scopes.
-   */
-  @java.lang.Override
-  public java.util.List<java.lang.Integer>
-  getScopesValueList() {
-    return scopes_;
-  }
-  /**
-   * <pre>
-   * Event scopes that trigger this webhook.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinItems=1
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
-   * @param index The index of the value to return.
-   * @return The enum numeric value on the wire of scopes at the given index.
-   */
-  @java.lang.Override
-  public int getScopesValue(int index) {
+  public java.lang.String getScopes(int index) {
     return scopes_.get(index);
   }
-  private int scopesMemoizedSerializedSize;
+  /**
+   * <pre>
+   * Event scopes that trigger this webhook.
+   * Only events matching at least one of these scopes will be delivered.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the scopes at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getScopesBytes(int index) {
+    return scopes_.getByteString(index);
+  }
 
   public static final int API_VERSION_FIELD_NUMBER = 8;
   private volatile java.lang.Object apiVersion_;
   /**
    * <pre>
-   * API version for webhook payloads.
+   * API version that determines the webhook payload format ("v4" or "v5").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:Enum={"v4","v5"}
    * </pre>
@@ -593,7 +543,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * API version for webhook payloads.
+   * API version that determines the webhook payload format ("v4" or "v5").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:Enum={"v4","v5"}
    * </pre>
@@ -620,7 +570,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp lastBlockedAt_;
   /**
    * <pre>
-   * Timestamp when the webhook was last blocked due to consecutive failures.
+   * Timestamp when the webhook was last blocked due to consecutive
+   * delivery failures.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -633,7 +584,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the webhook was last blocked due to consecutive failures.
+   * Timestamp when the webhook was last blocked due to consecutive
+   * delivery failures.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -646,7 +598,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the webhook was last blocked due to consecutive failures.
+   * Timestamp when the webhook was last blocked due to consecutive
+   * delivery failures.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -661,7 +614,9 @@ private static final long serialVersionUID = 0L;
   private boolean blocked_;
   /**
    * <pre>
-   * Whether the webhook is currently blocked due to excessive delivery failures.
+   * Whether the webhook is currently blocked.
+   * A webhook becomes blocked after exceeding the consecutive failure
+   * threshold and stops receiving event deliveries until re-enabled.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -687,7 +642,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    getSerializedSize();
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
     }
@@ -706,12 +660,8 @@ private static final long serialVersionUID = 0L;
     if (createdAt_ != null) {
       output.writeMessage(6, getCreatedAt());
     }
-    if (getScopesList().size() > 0) {
-      output.writeUInt32NoTag(58);
-      output.writeUInt32NoTag(scopesMemoizedSerializedSize);
-    }
     for (int i = 0; i < scopes_.size(); i++) {
-      output.writeEnumNoTag(scopes_.get(i));
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, scopes_.getRaw(i));
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(apiVersion_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, apiVersion_);
@@ -753,14 +703,10 @@ private static final long serialVersionUID = 0L;
     {
       int dataSize = 0;
       for (int i = 0; i < scopes_.size(); i++) {
-        dataSize += com.google.protobuf.CodedOutputStream
-          .computeEnumSizeNoTag(scopes_.get(i));
+        dataSize += computeStringSizeNoTag(scopes_.getRaw(i));
       }
       size += dataSize;
-      if (!getScopesList().isEmpty()) {  size += 1;
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32SizeNoTag(dataSize);
-      }scopesMemoizedSerializedSize = dataSize;
+      size += 1 * getScopesList().size();
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(apiVersion_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, apiVersion_);
@@ -803,7 +749,8 @@ private static final long serialVersionUID = 0L;
       if (!getCreatedAt()
           .equals(other.getCreatedAt())) return false;
     }
-    if (!scopes_.equals(other.scopes_)) return false;
+    if (!getScopesList()
+        .equals(other.getScopesList())) return false;
     if (!getApiVersion()
         .equals(other.getApiVersion())) return false;
     if (hasLastBlockedAt() != other.hasLastBlockedAt()) return false;
@@ -840,7 +787,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getScopesCount() > 0) {
       hash = (37 * hash) + SCOPES_FIELD_NUMBER;
-      hash = (53 * hash) + scopes_.hashCode();
+      hash = (53 * hash) + getScopesList().hashCode();
     }
     hash = (37 * hash) + API_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getApiVersion().hashCode();
@@ -948,7 +895,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Webhook represents a channel's webhook endpoint configuration.
+   * Webhook represents an HTTP callback endpoint that receives
+   * real-time event notifications from the channel.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.Webhook}
@@ -1004,7 +952,7 @@ private static final long serialVersionUID = 0L;
         createdAt_ = null;
         createdAtBuilder_ = null;
       }
-      scopes_ = java.util.Collections.emptyList();
+      scopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       apiVersion_ = "";
 
@@ -1054,7 +1002,7 @@ private static final long serialVersionUID = 0L;
         result.createdAt_ = createdAtBuilder_.build();
       }
       if (((bitField0_ & 0x00000001) != 0)) {
-        scopes_ = java.util.Collections.unmodifiableList(scopes_);
+        scopes_ = scopes_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.scopes_ = scopes_;
@@ -1190,11 +1138,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique webhook identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return The id.
      */
     public java.lang.String getId() {
@@ -1212,11 +1159,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique webhook identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
@@ -1235,11 +1181,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique webhook identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -1256,11 +1201,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique webhook identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -1272,11 +1216,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Unique webhook identifier.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -1296,11 +1239,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this webhook belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 2 [json_name = "channelId"];</code>
      * @return The channelId.
      */
     public java.lang.String getChannelId() {
@@ -1318,11 +1260,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this webhook belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 2 [json_name = "channelId"];</code>
      * @return The bytes for channelId.
      */
     public com.google.protobuf.ByteString
@@ -1341,11 +1282,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this webhook belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 2 [json_name = "channelId"];</code>
      * @param value The channelId to set.
      * @return This builder for chaining.
      */
@@ -1362,11 +1302,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this webhook belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 2 [json_name = "channelId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearChannelId() {
@@ -1378,11 +1317,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel ID this webhook belongs to.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
+     * <code>string channel_id = 2 [json_name = "channelId"];</code>
      * @param value The bytes for channelId to set.
      * @return This builder for chaining.
      */
@@ -1401,10 +1339,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Webhook display name.
+     * Display name of the webhook.
      * Unique within the channel.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1424,10 +1361,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Webhook display name.
+     * Display name of the webhook.
      * Unique within the channel.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1448,10 +1384,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Webhook display name.
+     * Display name of the webhook.
      * Unique within the channel.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1470,10 +1405,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Webhook display name.
+     * Display name of the webhook.
      * Unique within the channel.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1487,10 +1421,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Webhook display name.
+     * Display name of the webhook.
      * Unique within the channel.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1512,9 +1445,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object url_ = "";
     /**
      * <pre>
-     * Destination URL that receives webhook payloads.
+     * Destination URL where event payloads are delivered via HTTP POST.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -1534,9 +1466,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Destination URL that receives webhook payloads.
+     * Destination URL where event payloads are delivered via HTTP POST.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -1557,9 +1488,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Destination URL that receives webhook payloads.
+     * Destination URL where event payloads are delivered via HTTP POST.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -1578,9 +1508,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Destination URL that receives webhook payloads.
+     * Destination URL where event payloads are delivered via HTTP POST.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -1594,9 +1523,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Destination URL that receives webhook payloads.
+     * Destination URL where event payloads are delivered via HTTP POST.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
      * </pre>
      *
      * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -1618,12 +1546,12 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object token_ = "";
     /**
      * <pre>
-     * Auto-generated HMAC token for verifying webhook payloads.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Secret token for verifying webhook payload signatures.
+     * Automatically generated on creation.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
+     * <code>string token = 5 [json_name = "token"];</code>
      * @return The token.
      */
     public java.lang.String getToken() {
@@ -1640,12 +1568,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Auto-generated HMAC token for verifying webhook payloads.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Secret token for verifying webhook payload signatures.
+     * Automatically generated on creation.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
+     * <code>string token = 5 [json_name = "token"];</code>
      * @return The bytes for token.
      */
     public com.google.protobuf.ByteString
@@ -1663,12 +1591,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Auto-generated HMAC token for verifying webhook payloads.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Secret token for verifying webhook payload signatures.
+     * Automatically generated on creation.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
+     * <code>string token = 5 [json_name = "token"];</code>
      * @param value The token to set.
      * @return This builder for chaining.
      */
@@ -1684,12 +1612,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Auto-generated HMAC token for verifying webhook payloads.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Secret token for verifying webhook payload signatures.
+     * Automatically generated on creation.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
+     * <code>string token = 5 [json_name = "token"];</code>
      * @return This builder for chaining.
      */
     public Builder clearToken() {
@@ -1700,12 +1628,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Auto-generated HMAC token for verifying webhook payloads.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Secret token for verifying webhook payload signatures.
+     * Automatically generated on creation.
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
+     * <code>string token = 5 [json_name = "token"];</code>
      * @param value The bytes for token to set.
      * @return This builder for chaining.
      */
@@ -1727,10 +1655,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Webhook creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt"];</code>
      * @return Whether the createdAt field is set.
      */
     public boolean hasCreatedAt() {
@@ -1739,10 +1667,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Webhook creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt"];</code>
      * @return The createdAt.
      */
     public com.google.protobuf.Timestamp getCreatedAt() {
@@ -1755,10 +1683,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Webhook creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt"];</code>
      */
     public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -1776,10 +1704,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Webhook creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt"];</code>
      */
     public Builder setCreatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1795,10 +1723,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Webhook creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt"];</code>
      */
     public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -1818,10 +1746,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Webhook creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt"];</code>
      */
     public Builder clearCreatedAt() {
       if (createdAtBuilder_ == null) {
@@ -1837,10 +1765,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Webhook creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
       
@@ -1850,10 +1778,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Webhook creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       if (createdAtBuilder_ != null) {
@@ -1866,10 +1794,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Webhook creation timestamp.
-     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -1885,36 +1813,35 @@ private static final long serialVersionUID = 0L;
       return createdAtBuilder_;
     }
 
-    private java.util.List<java.lang.Integer> scopes_ =
-      java.util.Collections.emptyList();
+    private com.google.protobuf.LazyStringList scopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureScopesIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        scopes_ = new java.util.ArrayList<java.lang.Integer>(scopes_);
+        scopes_ = new com.google.protobuf.LazyStringArrayList(scopes_);
         bitField0_ |= 0x00000001;
-      }
+       }
     }
     /**
      * <pre>
      * Event scopes that trigger this webhook.
+     * Only events matching at least one of these scopes will be delivered.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+     * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
      * @return A list containing the scopes.
      */
-    public java.util.List<io.channel.api.proto.pub.coreapi.model.WebhookScope> getScopesList() {
-      return new com.google.protobuf.Internal.ListAdapter<
-          java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope>(scopes_, scopes_converter_);
+    public com.google.protobuf.ProtocolStringList
+        getScopesList() {
+      return scopes_.getUnmodifiableView();
     }
     /**
      * <pre>
      * Event scopes that trigger this webhook.
+     * Only events matching at least one of these scopes will be delivered.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+     * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
      * @return The count of scopes.
      */
     public int getScopesCount() {
@@ -1923,138 +1850,50 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Event scopes that trigger this webhook.
+     * Only events matching at least one of these scopes will be delivered.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+     * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
      * @param index The index of the element to return.
      * @return The scopes at the given index.
      */
-    public io.channel.api.proto.pub.coreapi.model.WebhookScope getScopes(int index) {
-      return scopes_converter_.convert(scopes_.get(index));
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinItems=1
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
-     * @param index The index to set the value at.
-     * @param value The scopes to set.
-     * @return This builder for chaining.
-     */
-    public Builder setScopes(
-        int index, io.channel.api.proto.pub.coreapi.model.WebhookScope value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      ensureScopesIsMutable();
-      scopes_.set(index, value.getNumber());
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinItems=1
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
-     * @param value The scopes to add.
-     * @return This builder for chaining.
-     */
-    public Builder addScopes(io.channel.api.proto.pub.coreapi.model.WebhookScope value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      ensureScopesIsMutable();
-      scopes_.add(value.getNumber());
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinItems=1
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
-     * @param values The scopes to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllScopes(
-        java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.WebhookScope> values) {
-      ensureScopesIsMutable();
-      for (io.channel.api.proto.pub.coreapi.model.WebhookScope value : values) {
-        scopes_.add(value.getNumber());
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinItems=1
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearScopes() {
-      scopes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinItems=1
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
-     * @return A list containing the enum numeric values on the wire for scopes.
-     */
-    public java.util.List<java.lang.Integer>
-    getScopesValueList() {
-      return java.util.Collections.unmodifiableList(scopes_);
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinItems=1
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
-     * @param index The index of the value to return.
-     * @return The enum numeric value on the wire of scopes at the given index.
-     */
-    public int getScopesValue(int index) {
+    public java.lang.String getScopes(int index) {
       return scopes_.get(index);
     }
     /**
      * <pre>
      * Event scopes that trigger this webhook.
+     * Only events matching at least one of these scopes will be delivered.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+     * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
      * @param index The index of the value to return.
-     * @return The enum numeric value on the wire of scopes at the given index.
+     * @return The bytes of the scopes at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getScopesBytes(int index) {
+      return scopes_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * Only events matching at least one of these scopes will be delivered.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+     * @param index The index to set the value at.
+     * @param value The scopes to set.
      * @return This builder for chaining.
      */
-    public Builder setScopesValue(
-        int index, int value) {
-      ensureScopesIsMutable();
+    public Builder setScopes(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureScopesIsMutable();
       scopes_.set(index, value);
       onChanged();
       return this;
@@ -2062,16 +1901,20 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Event scopes that trigger this webhook.
+     * Only events matching at least one of these scopes will be delivered.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
-     * @param value The enum numeric value on the wire for scopes to add.
+     * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+     * @param value The scopes to add.
      * @return This builder for chaining.
      */
-    public Builder addScopesValue(int value) {
-      ensureScopesIsMutable();
+    public Builder addScopes(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureScopesIsMutable();
       scopes_.add(value);
       onChanged();
       return this;
@@ -2079,20 +1922,57 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Event scopes that trigger this webhook.
+     * Only events matching at least one of these scopes will be delivered.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
-     * @param values The enum numeric values on the wire for scopes to add.
+     * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+     * @param values The scopes to add.
      * @return This builder for chaining.
      */
-    public Builder addAllScopesValue(
-        java.lang.Iterable<java.lang.Integer> values) {
+    public Builder addAllScopes(
+        java.lang.Iterable<java.lang.String> values) {
       ensureScopesIsMutable();
-      for (int value : values) {
-        scopes_.add(value);
-      }
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, scopes_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * Only events matching at least one of these scopes will be delivered.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearScopes() {
+      scopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * Only events matching at least one of these scopes will be delivered.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+     * @param value The bytes of the scopes to add.
+     * @return This builder for chaining.
+     */
+    public Builder addScopesBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureScopesIsMutable();
+      scopes_.add(value);
       onChanged();
       return this;
     }
@@ -2100,7 +1980,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object apiVersion_ = "";
     /**
      * <pre>
-     * API version for webhook payloads.
+     * API version that determines the webhook payload format ("v4" or "v5").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum={"v4","v5"}
      * </pre>
@@ -2122,7 +2002,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * API version for webhook payloads.
+     * API version that determines the webhook payload format ("v4" or "v5").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum={"v4","v5"}
      * </pre>
@@ -2145,7 +2025,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * API version for webhook payloads.
+     * API version that determines the webhook payload format ("v4" or "v5").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum={"v4","v5"}
      * </pre>
@@ -2166,7 +2046,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * API version for webhook payloads.
+     * API version that determines the webhook payload format ("v4" or "v5").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum={"v4","v5"}
      * </pre>
@@ -2182,7 +2062,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * API version for webhook payloads.
+     * API version that determines the webhook payload format ("v4" or "v5").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum={"v4","v5"}
      * </pre>
@@ -2208,7 +2088,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> lastBlockedAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the webhook was last blocked due to consecutive failures.
+     * Timestamp when the webhook was last blocked due to consecutive
+     * delivery failures.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2220,7 +2101,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the webhook was last blocked due to consecutive failures.
+     * Timestamp when the webhook was last blocked due to consecutive
+     * delivery failures.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2236,7 +2118,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the webhook was last blocked due to consecutive failures.
+     * Timestamp when the webhook was last blocked due to consecutive
+     * delivery failures.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2257,7 +2140,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the webhook was last blocked due to consecutive failures.
+     * Timestamp when the webhook was last blocked due to consecutive
+     * delivery failures.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2276,7 +2160,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the webhook was last blocked due to consecutive failures.
+     * Timestamp when the webhook was last blocked due to consecutive
+     * delivery failures.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2299,7 +2184,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the webhook was last blocked due to consecutive failures.
+     * Timestamp when the webhook was last blocked due to consecutive
+     * delivery failures.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2318,7 +2204,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the webhook was last blocked due to consecutive failures.
+     * Timestamp when the webhook was last blocked due to consecutive
+     * delivery failures.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2331,7 +2218,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the webhook was last blocked due to consecutive failures.
+     * Timestamp when the webhook was last blocked due to consecutive
+     * delivery failures.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2347,7 +2235,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the webhook was last blocked due to consecutive failures.
+     * Timestamp when the webhook was last blocked due to consecutive
+     * delivery failures.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2370,7 +2259,9 @@ private static final long serialVersionUID = 0L;
     private boolean blocked_ ;
     /**
      * <pre>
-     * Whether the webhook is currently blocked due to excessive delivery failures.
+     * Whether the webhook is currently blocked.
+     * A webhook becomes blocked after exceeding the consecutive failure
+     * threshold and stops receiving event deliveries until re-enabled.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2383,7 +2274,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the webhook is currently blocked due to excessive delivery failures.
+     * Whether the webhook is currently blocked.
+     * A webhook becomes blocked after exceeding the consecutive failure
+     * threshold and stops receiving event deliveries until re-enabled.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2399,7 +2292,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the webhook is currently blocked due to excessive delivery failures.
+     * Whether the webhook is currently blocked.
+     * A webhook becomes blocked after exceeding the consecutive failure
+     * threshold and stops receiving event deliveries until re-enabled.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2569,7 +2464,7 @@ private static final long serialVersionUID = 0L;
      * @param values The scopes to add.
      * @return This builder for chaining.
      */
-    public Builder addAllOrClearScopes(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.WebhookScope> values) {
+    public Builder addAllOrClearScopes(java.lang.Iterable<java.lang.String> values) {
     	if (values == null)
     		return clearScopes();
     	else
@@ -2581,7 +2476,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the values into each proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapAllOrClearScopes(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.WebhookScope> mapFunc) {
+    public <T> Builder mapAllOrClearScopes(java.lang.Iterable<T> values, java.util.function.Function<T, java.lang.String> mapFunc) {
     	if (values == null)
     		return clearScopes();
     	else {

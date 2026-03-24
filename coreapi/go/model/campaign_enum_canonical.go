@@ -34,6 +34,62 @@ func CampaignStateForString(value string) CampaignState {
 	}
 }
 
+// GetString returns the canonical string for MediumType.
+func (x MediumType) GetString() string {
+	switch x {
+	case MediumType_MEDIUM_TYPE_APP:
+		return "app"
+	case MediumType_MEDIUM_TYPE_EMAIL:
+		return "email"
+	case MediumType_MEDIUM_TYPE_NATIVE:
+		return "native"
+	case MediumType_MEDIUM_TYPE_PHONE:
+		return "phone"
+	default:
+		return ""
+	}
+}
+
+// MediumTypeForString returns the MediumType enum for the given canonical string.
+func MediumTypeForString(value string) MediumType {
+	switch value {
+	case "app":
+		return MediumType_MEDIUM_TYPE_APP
+	case "email":
+		return MediumType_MEDIUM_TYPE_EMAIL
+	case "native":
+		return MediumType_MEDIUM_TYPE_NATIVE
+	case "phone":
+		return MediumType_MEDIUM_TYPE_PHONE
+	default:
+		return MediumType_MEDIUM_TYPE_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for CampaignFilterMatch.
+func (x CampaignFilterMatch) GetString() string {
+	switch x {
+	case CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_NEGATIVE:
+		return "negative"
+	case CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_POSITIVE:
+		return "positive"
+	default:
+		return ""
+	}
+}
+
+// CampaignFilterMatchForString returns the CampaignFilterMatch enum for the given canonical string.
+func CampaignFilterMatchForString(value string) CampaignFilterMatch {
+	switch value {
+	case "negative":
+		return CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_NEGATIVE
+	case "positive":
+		return CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_POSITIVE
+	default:
+		return CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_UNSPECIFIED
+	}
+}
+
 // GetString returns the canonical string for CampaignSendMode.
 func (x CampaignSendMode) GetString() string {
 	switch x {
@@ -71,98 +127,6 @@ func CampaignSendModeForString(value string) CampaignSendMode {
 		return CampaignSendMode_CAMPAIGN_SEND_MODE_IN_OPERATION
 	default:
 		return CampaignSendMode_CAMPAIGN_SEND_MODE_UNSPECIFIED
-	}
-}
-
-// GetString returns the canonical string for CampaignFilterMatch.
-func (x CampaignFilterMatch) GetString() string {
-	switch x {
-	case CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_NEGATIVE:
-		return "negative"
-	case CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_POSITIVE:
-		return "positive"
-	default:
-		return ""
-	}
-}
-
-// CampaignFilterMatchForString returns the CampaignFilterMatch enum for the given canonical string.
-func CampaignFilterMatchForString(value string) CampaignFilterMatch {
-	switch value {
-	case "negative":
-		return CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_NEGATIVE
-	case "positive":
-		return CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_POSITIVE
-	default:
-		return CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_UNSPECIFIED
-	}
-}
-
-// GetString returns the canonical string for CampaignBaseEventType.
-func (x CampaignBaseEventType) GetString() string {
-	switch x {
-	case CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER:
-		return "additionalFilter"
-	case CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT:
-		return "triggerEvent"
-	default:
-		return ""
-	}
-}
-
-// CampaignBaseEventTypeForString returns the CampaignBaseEventType enum for the given canonical string.
-func CampaignBaseEventTypeForString(value string) CampaignBaseEventType {
-	switch value {
-	case "additionalFilter":
-		return CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER
-	case "triggerEvent":
-		return CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT
-	default:
-		return CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED
-	}
-}
-
-// GetString returns the canonical string for DayOfWeek.
-func (x DayOfWeek) GetString() string {
-	switch x {
-	case DayOfWeek_DAY_OF_WEEK_FRI:
-		return "fri"
-	case DayOfWeek_DAY_OF_WEEK_MON:
-		return "mon"
-	case DayOfWeek_DAY_OF_WEEK_SAT:
-		return "sat"
-	case DayOfWeek_DAY_OF_WEEK_SUN:
-		return "sun"
-	case DayOfWeek_DAY_OF_WEEK_THU:
-		return "thu"
-	case DayOfWeek_DAY_OF_WEEK_TUE:
-		return "tue"
-	case DayOfWeek_DAY_OF_WEEK_WED:
-		return "wed"
-	default:
-		return ""
-	}
-}
-
-// DayOfWeekForString returns the DayOfWeek enum for the given canonical string.
-func DayOfWeekForString(value string) DayOfWeek {
-	switch value {
-	case "fri":
-		return DayOfWeek_DAY_OF_WEEK_FRI
-	case "mon":
-		return DayOfWeek_DAY_OF_WEEK_MON
-	case "sat":
-		return DayOfWeek_DAY_OF_WEEK_SAT
-	case "sun":
-		return DayOfWeek_DAY_OF_WEEK_SUN
-	case "thu":
-		return DayOfWeek_DAY_OF_WEEK_THU
-	case "tue":
-		return DayOfWeek_DAY_OF_WEEK_TUE
-	case "wed":
-		return DayOfWeek_DAY_OF_WEEK_WED
-	default:
-		return DayOfWeek_DAY_OF_WEEK_UNSPECIFIED
 	}
 }
 

@@ -93,7 +93,7 @@ message SearchOneTimeMsgUsersRequest {
   string one_time_msg_id = 2 [(buf.validate.field).required = true];
 
   // Interaction state to filter and sort users by.
-  coreapi.model.OneTimeMsgUserState state = 3 [(buf.validate.field).required = true];
+  string state = 3 [(buf.validate.field).required = true];
 
   // Opaque pagination cursor from a previous response.
   string cursor = 4;

@@ -5,7 +5,11 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Lifecycle state of a message.
+ * State of a message in its lifecycle.
+ * - SENDING: The message is being transmitted to the server.
+ * - SENT: The message has been successfully delivered.
+ * - FAILED: The message failed to send.
+ * - REMOVED: The message has been deleted.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.MessageState}

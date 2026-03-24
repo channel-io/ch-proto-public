@@ -21,37 +21,38 @@ private static final long serialVersionUID = 0L;
   }
   private Channel() {
     id_ = "";
+    userInfoUrl_ = "";
     name_ = "";
-    description_ = "";
-    avatarUrl_ = "";
-    color_ = "";
+    coverImageColor_ = "";
     botName_ = "";
+    color_ = "";
+    description_ = "";
     country_ = "";
     domain_ = "";
-    systemDomain_ = "";
+    defaultDomain_ = "";
     homepageUrl_ = "";
     phoneNumber_ = "";
     timeZone_ = "";
-    utcOffset_ = "";
+    indebtedDueDate_ = "";
     state_ = 0;
-    expectedResponseDelay_ = 0;
-    awayOption_ = 0;
     defaultPluginId_ = "";
+    bizCategory_ = "";
+    appCommerceId_ = "";
+    appCommerceType_ = "";
+    appCommerceDomain_ = "";
+    defaultEmailDomainId_ = "";
+    bizCertificatedCountries_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    avatarUrl_ = "";
+    expectedResponseDelay_ = 0;
+    operationTimeRanges_ = java.util.Collections.emptyList();
+    awayOption_ = 0;
     borderColor_ = "";
     gradientColor_ = "";
     textColor_ = "";
     initial_ = "";
-    operationTimeRanges_ = java.util.Collections.emptyList();
-    userInfoUrl_ = "";
-    billAccountId_ = "";
-    bizGrade_ = "";
-    bizCategory_ = "";
-    appCommerceId_ = "";
-    appCommerceType_ = "";
-    defaultEmailDomainId_ = "";
-    coverImageColor_ = "";
-    coverImageUrl_ = "";
+    systemDomain_ = "";
     pluginIconColor_ = "";
+    coverImageUrl_ = "";
   }
 
   @java.lang.Override
@@ -92,232 +93,6 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              nameDescI18NMap_ = com.google.protobuf.MapField.newMapField(
-                  NameDescI18NMapDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
-            nameDescI18NMap__ = input.readMessage(
-                NameDescI18NMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            nameDescI18NMap_.getMutableMap().put(
-                nameDescI18NMap__.getKey(), nameDescI18NMap__.getValue());
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            avatarUrl_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            color_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            botName_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            country_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            domain_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            systemDomain_ = s;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            homepageUrl_ = s;
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            phoneNumber_ = s;
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            timeZone_ = s;
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            utcOffset_ = s;
-            break;
-          }
-          case 128: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 136: {
-            int rawValue = input.readEnum();
-
-            expectedResponseDelay_ = rawValue;
-            break;
-          }
-          case 144: {
-            int rawValue = input.readEnum();
-
-            awayOption_ = rawValue;
-            break;
-          }
-          case 152: {
-
-            inOperation_ = input.readBool();
-            break;
-          }
-          case 160: {
-
-            working_ = input.readBool();
-            break;
-          }
-          case 184: {
-
-            followUpTexting_ = input.readBool();
-            break;
-          }
-          case 192: {
-
-            followUpEmail_ = input.readBool();
-            break;
-          }
-          case 200: {
-
-            followUpAskName_ = input.readBool();
-            break;
-          }
-          case 208: {
-
-            followUpMandatory_ = input.readBool();
-            break;
-          }
-          case 216: {
-
-            hideAppMessenger_ = input.readBool();
-            break;
-          }
-          case 226: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            defaultPluginId_ = s;
-            break;
-          }
-          case 234: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createdAt_ != null) {
-              subBuilder = createdAt_.toBuilder();
-            }
-            createdAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createdAt_);
-              createdAt_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 282: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            borderColor_ = s;
-            break;
-          }
-          case 290: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            gradientColor_ = s;
-            break;
-          }
-          case 298: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            textColor_ = s;
-            break;
-          }
-          case 314: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            initial_ = s;
-            break;
-          }
-          case 320: {
-
-            operationTimeScheduling_ = input.readBool();
-            break;
-          }
-          case 330: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              operationTimeRanges_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.TimeRange>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            operationTimeRanges_.add(
-                input.readMessage(io.channel.api.proto.pub.coreapi.model.TimeRange.parser(), extensionRegistry));
-            break;
-          }
-          case 338: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (nextOperatingAt_ != null) {
-              subBuilder = nextOperatingAt_.toBuilder();
-            }
-            nextOperatingAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(nextOperatingAt_);
-              nextOperatingAt_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 360: {
-
-            blockReplyingAfterClosed_ = input.readBool();
-            break;
-          }
-          case 370: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (blockReplyingAfterClosedTime_ != null) {
-              subBuilder = blockReplyingAfterClosedTime_.toBuilder();
-            }
-            blockReplyingAfterClosedTime_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(blockReplyingAfterClosedTime_);
-              blockReplyingAfterClosedTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 378: {
             com.google.protobuf.Struct.Builder subBuilder = null;
             if (welcomeMessage_ != null) {
               subBuilder = welcomeMessage_.toBuilder();
@@ -330,11 +105,11 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 386: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+          case 26: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               welcomeMessageI18NMap_ = com.google.protobuf.MapField.newMapField(
                   WelcomeMessageI18NMapDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
+              mutable_bitField0_ |= 0x00000001;
             }
             com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Struct>
             welcomeMessageI18NMap__ = input.readMessage(
@@ -343,145 +118,277 @@ private static final long serialVersionUID = 0L;
                 welcomeMessageI18NMap__.getKey(), welcomeMessageI18NMap__.getValue());
             break;
           }
-          case 394: {
+          case 34: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (createdAt_ != null) {
+              subBuilder = createdAt_.toBuilder();
+            }
+            createdAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(createdAt_);
+              createdAt_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 42: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (updatedAt_ != null) {
+              subBuilder = updatedAt_.toBuilder();
+            }
+            updatedAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(updatedAt_);
+              updatedAt_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
             userInfoUrl_ = s;
             break;
           }
-          case 402: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (trafficSource_ != null) {
-              subBuilder = trafficSource_.toBuilder();
+          case 58: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            name_ = s;
+            break;
+          }
+          case 66: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              nameDescI18NMap_ = com.google.protobuf.MapField.newMapField(
+                  NameDescI18NMapDefaultEntryHolder.defaultEntry);
+              mutable_bitField0_ |= 0x00000002;
             }
-            trafficSource_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(trafficSource_);
-              trafficSource_ = subBuilder.buildPartial();
-            }
-
+            com.google.protobuf.MapEntry<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
+            nameDescI18NMap__ = input.readMessage(
+                NameDescI18NMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            nameDescI18NMap_.getMutableMap().put(
+                nameDescI18NMap__.getKey(), nameDescI18NMap__.getValue());
             break;
           }
-          case 410: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            billAccountId_ = s;
-            break;
-          }
-          case 418: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            bizGrade_ = s;
-            break;
-          }
-          case 426: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (sourceSurvey_ != null) {
-              subBuilder = sourceSurvey_.toBuilder();
-            }
-            sourceSurvey_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sourceSurvey_);
-              sourceSurvey_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 434: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            bizCategory_ = s;
-            break;
-          }
-          case 440: {
-
-            staffs_ = input.readInt32();
-            break;
-          }
-          case 450: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            appCommerceId_ = s;
-            break;
-          }
-          case 458: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            appCommerceType_ = s;
-            break;
-          }
-          case 464: {
-
-            enableMemberHash_ = input.readBool();
-            break;
-          }
-          case 474: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            defaultEmailDomainId_ = s;
-            break;
-          }
-          case 480: {
-
-            enableMfa_ = input.readBool();
-            break;
-          }
-          case 488: {
-
-            blocked_ = input.readBool();
-            break;
-          }
-          case 496: {
-
-            bright_ = input.readBool();
-            break;
-          }
-          case 504: {
-
-            usingFollowUp_ = input.readBool();
-            break;
-          }
-          case 517: {
-
-            brightness_ = input.readFloat();
-            break;
-          }
-          case 520: {
-
-            coverImageBright_ = input.readBool();
-            break;
-          }
-          case 530: {
+          case 74: {
             java.lang.String s = input.readStringRequireUtf8();
 
             coverImageColor_ = s;
             break;
           }
-          case 538: {
+          case 82: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            coverImageUrl_ = s;
+            botName_ = s;
             break;
           }
-          case 544: {
+          case 90: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            color_ = s;
+            break;
+          }
+          case 98: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            description_ = s;
+            break;
+          }
+          case 106: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            country_ = s;
+            break;
+          }
+          case 114: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            domain_ = s;
+            break;
+          }
+          case 122: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            defaultDomain_ = s;
+            break;
+          }
+          case 130: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            homepageUrl_ = s;
+            break;
+          }
+          case 138: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            phoneNumber_ = s;
+            break;
+          }
+          case 146: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            timeZone_ = s;
+            break;
+          }
+          case 152: {
+
+            showOperatorProfile_ = input.readBool();
+            break;
+          }
+          case 160: {
 
             disableNewChatButton_ = input.readBool();
             break;
           }
-          case 554: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (nextAwayTime_ != null) {
-              subBuilder = nextAwayTime_.toBuilder();
-            }
-            nextAwayTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(nextAwayTime_);
-              nextAwayTime_ = subBuilder.buildPartial();
-            }
+          case 170: {
+            java.lang.String s = input.readStringRequireUtf8();
 
+            indebtedDueDate_ = s;
             break;
           }
-          case 562: {
+          case 176: {
+
+            followUpTexting_ = input.readBool();
+            break;
+          }
+          case 184: {
+
+            followUpEmail_ = input.readBool();
+            break;
+          }
+          case 192: {
+
+            followUpAskName_ = input.readBool();
+            break;
+          }
+          case 200: {
+
+            followUpMandatory_ = input.readBool();
+            break;
+          }
+          case 208: {
+            int rawValue = input.readEnum();
+
+            state_ = rawValue;
+            break;
+          }
+          case 216: {
+
+            entVerified_ = input.readBool();
+            break;
+          }
+          case 226: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            defaultPluginId_ = s;
+            break;
+          }
+          case 234: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            bizCategory_ = s;
+            break;
+          }
+          case 240: {
+
+            staffs_ = input.readInt32();
+            break;
+          }
+          case 250: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            appCommerceId_ = s;
+            break;
+          }
+          case 258: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            appCommerceType_ = s;
+            break;
+          }
+          case 266: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            appCommerceDomain_ = s;
+            break;
+          }
+          case 272: {
+
+            enableMemberHash_ = input.readBool();
+            break;
+          }
+          case 282: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            defaultEmailDomainId_ = s;
+            break;
+          }
+          case 288: {
+
+            enableMfa_ = input.readBool();
+            break;
+          }
+          case 296: {
+
+            hideAppMessenger_ = input.readBool();
+            break;
+          }
+          case 304: {
+
+            bizCertificated_ = input.readBool();
+            break;
+          }
+          case 312: {
+
+            mktAlimtalkAllowed_ = input.readBool();
+            break;
+          }
+          case 322: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+              bizCertificatedCountries_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000004;
+            }
+            bizCertificatedCountries_.add(s);
+            break;
+          }
+          case 328: {
+
+            enableFrontAlfV2_ = input.readBool();
+            break;
+          }
+          case 336: {
+
+            blocked_ = input.readBool();
+            break;
+          }
+          case 344: {
+
+            working_ = input.readBool();
+            break;
+          }
+          case 354: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            avatarUrl_ = s;
+            break;
+          }
+          case 360: {
+            int rawValue = input.readEnum();
+
+            expectedResponseDelay_ = rawValue;
+            break;
+          }
+          case 368: {
+
+            inOperation_ = input.readBool();
+            break;
+          }
+          case 376: {
+
+            operationTimeScheduling_ = input.readBool();
+            break;
+          }
+          case 386: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (nextWorkingTime_ != null) {
               subBuilder = nextWorkingTime_.toBuilder();
@@ -494,28 +401,102 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 570: {
+          case 394: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (nextAwayTime_ != null) {
+              subBuilder = nextAwayTime_.toBuilder();
+            }
+            nextAwayTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(nextAwayTime_);
+              nextAwayTime_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 402: {
+            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+              operationTimeRanges_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.TimeRange>();
+              mutable_bitField0_ |= 0x00000008;
+            }
+            operationTimeRanges_.add(
+                input.readMessage(io.channel.api.proto.pub.coreapi.model.TimeRange.parser(), extensionRegistry));
+            break;
+          }
+          case 408: {
+            int rawValue = input.readEnum();
+
+            awayOption_ = rawValue;
+            break;
+          }
+          case 416: {
+
+            blockReplyingAfterClosed_ = input.readBool();
+            break;
+          }
+          case 426: {
+            com.google.protobuf.Duration.Builder subBuilder = null;
+            if (blockReplyingAfterClosedTime_ != null) {
+              subBuilder = blockReplyingAfterClosedTime_.toBuilder();
+            }
+            blockReplyingAfterClosedTime_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(blockReplyingAfterClosedTime_);
+              blockReplyingAfterClosedTime_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 434: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            borderColor_ = s;
+            break;
+          }
+          case 442: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            gradientColor_ = s;
+            break;
+          }
+          case 450: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            textColor_ = s;
+            break;
+          }
+          case 458: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            initial_ = s;
+            break;
+          }
+          case 466: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            systemDomain_ = s;
+            break;
+          }
+          case 474: {
             java.lang.String s = input.readStringRequireUtf8();
 
             pluginIconColor_ = s;
             break;
           }
-          case 576: {
+          case 485: {
 
-            showOperatorProfile_ = input.readBool();
+            brightness_ = input.readFloat();
             break;
           }
-          case 586: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updatedAt_ != null) {
-              subBuilder = updatedAt_.toBuilder();
-            }
-            updatedAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updatedAt_);
-              updatedAt_ = subBuilder.buildPartial();
-            }
+          case 490: {
+            java.lang.String s = input.readStringRequireUtf8();
 
+            coverImageUrl_ = s;
+            break;
+          }
+          case 496: {
+
+            coverImageBright_ = input.readBool();
             break;
           }
           default: {
@@ -533,7 +514,10 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
+      if (((mutable_bitField0_ & 0x00000004) != 0)) {
+        bizCertificatedCountries_ = bizCertificatedCountries_.getUnmodifiableView();
+      }
+      if (((mutable_bitField0_ & 0x00000008) != 0)) {
         operationTimeRanges_ = java.util.Collections.unmodifiableList(operationTimeRanges_);
       }
       this.unknownFields = unknownFields.build();
@@ -550,10 +534,10 @@ private static final long serialVersionUID = 0L;
   protected com.google.protobuf.MapField internalGetMapField(
       int number) {
     switch (number) {
-      case 4:
-        return internalGetNameDescI18NMap();
-      case 48:
+      case 3:
         return internalGetWelcomeMessageI18NMap();
+      case 8:
+        return internalGetNameDescI18NMap();
       default:
         throw new RuntimeException(
             "Invalid map field number: " + number);
@@ -617,1380 +601,15 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object name_;
-  /**
-   * <pre>
-   * Channel display name.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:validation:MaxLength=30
-   * </pre>
-   *
-   * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
-   * @return The name.
-   */
-  @java.lang.Override
-  public java.lang.String getName() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      name_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Channel display name.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:validation:MaxLength=30
-   * </pre>
-   *
-   * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for name.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getNameBytes() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      name_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object description_;
-  /**
-   * <pre>
-   * Channel description.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MaxLength=180
-   * </pre>
-   *
-   * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
-   * @return The description.
-   */
-  @java.lang.Override
-  public java.lang.String getDescription() {
-    java.lang.Object ref = description_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      description_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Channel description.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MaxLength=180
-   * </pre>
-   *
-   * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for description.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDescriptionBytes() {
-    java.lang.Object ref = description_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      description_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int NAME_DESC_I18N_MAP_FIELD_NUMBER = 4;
-  private static final class NameDescI18NMapDefaultEntryHolder {
-    static final com.google.protobuf.MapEntry<
-        java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> defaultEntry =
-            com.google.protobuf.MapEntry
-            .<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>newDefaultInstance(
-                io.channel.api.proto.pub.coreapi.model.ChannelOuterClass.internal_static_coreapi_model_Channel_NameDescI18nMapEntry_descriptor, 
-                com.google.protobuf.WireFormat.FieldType.STRING,
-                "",
-                com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                io.channel.api.proto.pub.coreapi.model.NameDesc.getDefaultInstance());
-  }
-  private com.google.protobuf.MapField<
-      java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> nameDescI18NMap_;
-  private com.google.protobuf.MapField<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
-  internalGetNameDescI18NMap() {
-    if (nameDescI18NMap_ == null) {
-      return com.google.protobuf.MapField.emptyMapField(
-          NameDescI18NMapDefaultEntryHolder.defaultEntry);
-    }
-    return nameDescI18NMap_;
-  }
-
-  public int getNameDescI18NMapCount() {
-    return internalGetNameDescI18NMap().getMap().size();
-  }
-  /**
-   * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-   */
-
-  @java.lang.Override
-  public boolean containsNameDescI18NMap(
-      java.lang.String key) {
-    if (key == null) { throw new NullPointerException("map key"); }
-    return internalGetNameDescI18NMap().getMap().containsKey(key);
-  }
-  /**
-   * Use {@link #getNameDescI18NMapMap()} instead.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated
-  public java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> getNameDescI18NMap() {
-    return getNameDescI18NMapMap();
-  }
-  /**
-   * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-   */
-  @java.lang.Override
-
-  public java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> getNameDescI18NMapMap() {
-    return internalGetNameDescI18NMap().getMap();
-  }
-  /**
-   * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-   */
-  @java.lang.Override
-
-  public io.channel.api.proto.pub.coreapi.model.NameDesc getNameDescI18NMapOrDefault(
-      java.lang.String key,
-      io.channel.api.proto.pub.coreapi.model.NameDesc defaultValue) {
-    if (key == null) { throw new NullPointerException("map key"); }
-    java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> map =
-        internalGetNameDescI18NMap().getMap();
-    return map.containsKey(key) ? map.get(key) : defaultValue;
-  }
-  /**
-   * <pre>
-   * Internationalized name and description map.
-   * Keyed by locale.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-   */
-  @java.lang.Override
-
-  public io.channel.api.proto.pub.coreapi.model.NameDesc getNameDescI18NMapOrThrow(
-      java.lang.String key) {
-    if (key == null) { throw new NullPointerException("map key"); }
-    java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> map =
-        internalGetNameDescI18NMap().getMap();
-    if (!map.containsKey(key)) {
-      throw new java.lang.IllegalArgumentException();
-    }
-    return map.get(key);
-  }
-
-  public static final int AVATAR_URL_FIELD_NUMBER = 5;
-  private volatile java.lang.Object avatarUrl_;
-  /**
-   * <pre>
-   * Channel avatar image URL.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string avatar_url = 5 [json_name = "avatarUrl"];</code>
-   * @return The avatarUrl.
-   */
-  @java.lang.Override
-  public java.lang.String getAvatarUrl() {
-    java.lang.Object ref = avatarUrl_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      avatarUrl_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Channel avatar image URL.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string avatar_url = 5 [json_name = "avatarUrl"];</code>
-   * @return The bytes for avatarUrl.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getAvatarUrlBytes() {
-    java.lang.Object ref = avatarUrl_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      avatarUrl_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int COLOR_FIELD_NUMBER = 6;
-  private volatile java.lang.Object color_;
-  /**
-   * <pre>
-   * Channel theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="#3B82F6"
-   * </pre>
-   *
-   * <code>string color = 6 [json_name = "color"];</code>
-   * @return The color.
-   */
-  @java.lang.Override
-  public java.lang.String getColor() {
-    java.lang.Object ref = color_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      color_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Channel theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="#3B82F6"
-   * </pre>
-   *
-   * <code>string color = 6 [json_name = "color"];</code>
-   * @return The bytes for color.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getColorBytes() {
-    java.lang.Object ref = color_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      color_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int BOT_NAME_FIELD_NUMBER = 7;
-  private volatile java.lang.Object botName_;
-  /**
-   * <pre>
-   * Bot display name shown to end users in conversations.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string bot_name = 7 [json_name = "botName"];</code>
-   * @return The botName.
-   */
-  @java.lang.Override
-  public java.lang.String getBotName() {
-    java.lang.Object ref = botName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      botName_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Bot display name shown to end users in conversations.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string bot_name = 7 [json_name = "botName"];</code>
-   * @return The bytes for botName.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getBotNameBytes() {
-    java.lang.Object ref = botName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      botName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int COUNTRY_FIELD_NUMBER = 8;
-  private volatile java.lang.Object country_;
-  /**
-   * <pre>
-   * ISO 3166-1 alpha-2 country code.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="KR"
-   * </pre>
-   *
-   * <code>string country = 8 [json_name = "country"];</code>
-   * @return The country.
-   */
-  @java.lang.Override
-  public java.lang.String getCountry() {
-    java.lang.Object ref = country_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      country_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * ISO 3166-1 alpha-2 country code.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="KR"
-   * </pre>
-   *
-   * <code>string country = 8 [json_name = "country"];</code>
-   * @return The bytes for country.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getCountryBytes() {
-    java.lang.Object ref = country_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      country_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int DOMAIN_FIELD_NUMBER = 9;
-  private volatile java.lang.Object domain_;
-  /**
-   * <pre>
-   * Custom domain for the channel.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string domain = 9 [json_name = "domain"];</code>
-   * @return The domain.
-   */
-  @java.lang.Override
-  public java.lang.String getDomain() {
-    java.lang.Object ref = domain_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      domain_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Custom domain for the channel.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string domain = 9 [json_name = "domain"];</code>
-   * @return The bytes for domain.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDomainBytes() {
-    java.lang.Object ref = domain_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      domain_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int SYSTEM_DOMAIN_FIELD_NUMBER = 11;
-  private volatile java.lang.Object systemDomain_;
-  /**
-   * <pre>
-   * Resolved domain for the channel.
-   * Returns the custom domain if set, otherwise the system-generated default.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string system_domain = 11 [json_name = "systemDomain"];</code>
-   * @return The systemDomain.
-   */
-  @java.lang.Override
-  public java.lang.String getSystemDomain() {
-    java.lang.Object ref = systemDomain_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      systemDomain_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Resolved domain for the channel.
-   * Returns the custom domain if set, otherwise the system-generated default.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string system_domain = 11 [json_name = "systemDomain"];</code>
-   * @return The bytes for systemDomain.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getSystemDomainBytes() {
-    java.lang.Object ref = systemDomain_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      systemDomain_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int HOMEPAGE_URL_FIELD_NUMBER = 12;
-  private volatile java.lang.Object homepageUrl_;
-  /**
-   * <pre>
-   * Channel homepage URL.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string homepage_url = 12 [json_name = "homepageUrl"];</code>
-   * @return The homepageUrl.
-   */
-  @java.lang.Override
-  public java.lang.String getHomepageUrl() {
-    java.lang.Object ref = homepageUrl_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      homepageUrl_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Channel homepage URL.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string homepage_url = 12 [json_name = "homepageUrl"];</code>
-   * @return The bytes for homepageUrl.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getHomepageUrlBytes() {
-    java.lang.Object ref = homepageUrl_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      homepageUrl_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int PHONE_NUMBER_FIELD_NUMBER = 13;
-  private volatile java.lang.Object phoneNumber_;
-  /**
-   * <pre>
-   * Channel phone number in E.164 format.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="+821012345678"
-   * </pre>
-   *
-   * <code>string phone_number = 13 [json_name = "phoneNumber"];</code>
-   * @return The phoneNumber.
-   */
-  @java.lang.Override
-  public java.lang.String getPhoneNumber() {
-    java.lang.Object ref = phoneNumber_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      phoneNumber_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Channel phone number in E.164 format.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="+821012345678"
-   * </pre>
-   *
-   * <code>string phone_number = 13 [json_name = "phoneNumber"];</code>
-   * @return The bytes for phoneNumber.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getPhoneNumberBytes() {
-    java.lang.Object ref = phoneNumber_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      phoneNumber_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int TIME_ZONE_FIELD_NUMBER = 14;
-  private volatile java.lang.Object timeZone_;
-  /**
-   * <pre>
-   * IANA timezone identifier.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="Asia/Seoul"
-   * </pre>
-   *
-   * <code>string time_zone = 14 [json_name = "timeZone"];</code>
-   * @return The timeZone.
-   */
-  @java.lang.Override
-  public java.lang.String getTimeZone() {
-    java.lang.Object ref = timeZone_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      timeZone_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * IANA timezone identifier.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="Asia/Seoul"
-   * </pre>
-   *
-   * <code>string time_zone = 14 [json_name = "timeZone"];</code>
-   * @return The bytes for timeZone.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getTimeZoneBytes() {
-    java.lang.Object ref = timeZone_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      timeZone_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int UTC_OFFSET_FIELD_NUMBER = 15;
-  private volatile java.lang.Object utcOffset_;
-  /**
-   * <pre>
-   * UTC offset in ISO 8601 format, derived from the timezone.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="+09:00"
-   * </pre>
-   *
-   * <code>string utc_offset = 15 [json_name = "utcOffset"];</code>
-   * @return The utcOffset.
-   */
-  @java.lang.Override
-  public java.lang.String getUtcOffset() {
-    java.lang.Object ref = utcOffset_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      utcOffset_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * UTC offset in ISO 8601 format, derived from the timezone.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:example="+09:00"
-   * </pre>
-   *
-   * <code>string utc_offset = 15 [json_name = "utcOffset"];</code>
-   * @return The bytes for utcOffset.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getUtcOffsetBytes() {
-    java.lang.Object ref = utcOffset_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      utcOffset_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int STATE_FIELD_NUMBER = 16;
-  private int state_;
-  /**
-   * <pre>
-   * Current lifecycle state of the channel.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.coreapi.model.ChannelState state = 16 [json_name = "state", (.buf.validate.field) = { ... }</code>
-   * @return The enum numeric value on the wire for state.
-   */
-  @java.lang.Override public int getStateValue() {
-    return state_;
-  }
-  /**
-   * <pre>
-   * Current lifecycle state of the channel.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.coreapi.model.ChannelState state = 16 [json_name = "state", (.buf.validate.field) = { ... }</code>
-   * @return The state.
-   */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.ChannelState getState() {
-    @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.ChannelState result = io.channel.api.proto.pub.coreapi.model.ChannelState.valueOf(state_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.ChannelState.UNRECOGNIZED : result;
-  }
-
-  public static final int EXPECTED_RESPONSE_DELAY_FIELD_NUMBER = 17;
-  private int expectedResponseDelay_;
-  /**
-   * <pre>
-   * Expected response delay indicator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.ResponseDelayType expected_response_delay = 17 [json_name = "expectedResponseDelay"];</code>
-   * @return The enum numeric value on the wire for expectedResponseDelay.
-   */
-  @java.lang.Override public int getExpectedResponseDelayValue() {
-    return expectedResponseDelay_;
-  }
-  /**
-   * <pre>
-   * Expected response delay indicator.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.ResponseDelayType expected_response_delay = 17 [json_name = "expectedResponseDelay"];</code>
-   * @return The expectedResponseDelay.
-   */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.ResponseDelayType getExpectedResponseDelay() {
-    @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.ResponseDelayType result = io.channel.api.proto.pub.coreapi.model.ResponseDelayType.valueOf(expectedResponseDelay_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.ResponseDelayType.UNRECOGNIZED : result;
-  }
-
-  public static final int AWAY_OPTION_FIELD_NUMBER = 18;
-  private int awayOption_;
-  /**
-   * <pre>
-   * Behavior when the channel is outside of operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.ChannelAwayOption away_option = 18 [json_name = "awayOption"];</code>
-   * @return The enum numeric value on the wire for awayOption.
-   */
-  @java.lang.Override public int getAwayOptionValue() {
-    return awayOption_;
-  }
-  /**
-   * <pre>
-   * Behavior when the channel is outside of operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.ChannelAwayOption away_option = 18 [json_name = "awayOption"];</code>
-   * @return The awayOption.
-   */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.ChannelAwayOption getAwayOption() {
-    @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.ChannelAwayOption result = io.channel.api.proto.pub.coreapi.model.ChannelAwayOption.valueOf(awayOption_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.ChannelAwayOption.UNRECOGNIZED : result;
-  }
-
-  public static final int IN_OPERATION_FIELD_NUMBER = 19;
-  private boolean inOperation_;
-  /**
-   * <pre>
-   * Whether the channel is currently within operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool in_operation = 19 [json_name = "inOperation"];</code>
-   * @return The inOperation.
-   */
-  @java.lang.Override
-  public boolean getInOperation() {
-    return inOperation_;
-  }
-
-  public static final int WORKING_FIELD_NUMBER = 20;
-  private boolean working_;
-  /**
-   * <pre>
-   * Whether the channel is currently accepting conversations.
-   * A channel is working when it is not blocked and within operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool working = 20 [json_name = "working"];</code>
-   * @return The working.
-   */
-  @java.lang.Override
-  public boolean getWorking() {
-    return working_;
-  }
-
-  public static final int FOLLOW_UP_TEXTING_FIELD_NUMBER = 23;
-  private boolean followUpTexting_;
-  /**
-   * <pre>
-   * Whether SMS/text follow-up is enabled for missed conversations.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool follow_up_texting = 23 [json_name = "followUpTexting"];</code>
-   * @return The followUpTexting.
-   */
-  @java.lang.Override
-  public boolean getFollowUpTexting() {
-    return followUpTexting_;
-  }
-
-  public static final int FOLLOW_UP_EMAIL_FIELD_NUMBER = 24;
-  private boolean followUpEmail_;
-  /**
-   * <pre>
-   * Whether email follow-up is enabled for missed conversations.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool follow_up_email = 24 [json_name = "followUpEmail"];</code>
-   * @return The followUpEmail.
-   */
-  @java.lang.Override
-  public boolean getFollowUpEmail() {
-    return followUpEmail_;
-  }
-
-  public static final int FOLLOW_UP_ASK_NAME_FIELD_NUMBER = 25;
-  private boolean followUpAskName_;
-  /**
-   * <pre>
-   * Whether to ask for the user's name in follow-up forms.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool follow_up_ask_name = 25 [json_name = "followUpAskName"];</code>
-   * @return The followUpAskName.
-   */
-  @java.lang.Override
-  public boolean getFollowUpAskName() {
-    return followUpAskName_;
-  }
-
-  public static final int FOLLOW_UP_MANDATORY_FIELD_NUMBER = 26;
-  private boolean followUpMandatory_;
-  /**
-   * <pre>
-   * Whether follow-up contact information is mandatory before starting a conversation.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool follow_up_mandatory = 26 [json_name = "followUpMandatory"];</code>
-   * @return The followUpMandatory.
-   */
-  @java.lang.Override
-  public boolean getFollowUpMandatory() {
-    return followUpMandatory_;
-  }
-
-  public static final int HIDE_APP_MESSENGER_FIELD_NUMBER = 27;
-  private boolean hideAppMessenger_;
-  /**
-   * <pre>
-   * Whether the messenger widget is hidden from end users.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool hide_app_messenger = 27 [json_name = "hideAppMessenger"];</code>
-   * @return The hideAppMessenger.
-   */
-  @java.lang.Override
-  public boolean getHideAppMessenger() {
-    return hideAppMessenger_;
-  }
-
-  public static final int DEFAULT_PLUGIN_ID_FIELD_NUMBER = 28;
-  private volatile java.lang.Object defaultPluginId_;
-  /**
-   * <pre>
-   * Default plugin identifier for this channel.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
-   * @return The defaultPluginId.
-   */
-  @java.lang.Override
-  public java.lang.String getDefaultPluginId() {
-    java.lang.Object ref = defaultPluginId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      defaultPluginId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Default plugin identifier for this channel.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
-   * @return The bytes for defaultPluginId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDefaultPluginIdBytes() {
-    java.lang.Object ref = defaultPluginId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      defaultPluginId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int CREATED_AT_FIELD_NUMBER = 29;
-  private com.google.protobuf.Timestamp createdAt_;
-  /**
-   * <pre>
-   * Channel creation timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp created_at = 29 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-   * @return Whether the createdAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasCreatedAt() {
-    return createdAt_ != null;
-  }
-  /**
-   * <pre>
-   * Channel creation timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp created_at = 29 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-   * @return The createdAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getCreatedAt() {
-    return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
-  }
-  /**
-   * <pre>
-   * Channel creation timestamp.
-   * +kubebuilder:validation:Required
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp created_at = 29 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
-    return getCreatedAt();
-  }
-
-  public static final int BORDER_COLOR_FIELD_NUMBER = 35;
-  private volatile java.lang.Object borderColor_;
-  /**
-   * <pre>
-   * Border color derived from the theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string border_color = 35 [json_name = "borderColor"];</code>
-   * @return The borderColor.
-   */
-  @java.lang.Override
-  public java.lang.String getBorderColor() {
-    java.lang.Object ref = borderColor_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      borderColor_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Border color derived from the theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string border_color = 35 [json_name = "borderColor"];</code>
-   * @return The bytes for borderColor.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getBorderColorBytes() {
-    java.lang.Object ref = borderColor_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      borderColor_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int GRADIENT_COLOR_FIELD_NUMBER = 36;
-  private volatile java.lang.Object gradientColor_;
-  /**
-   * <pre>
-   * Gradient color derived from the theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string gradient_color = 36 [json_name = "gradientColor"];</code>
-   * @return The gradientColor.
-   */
-  @java.lang.Override
-  public java.lang.String getGradientColor() {
-    java.lang.Object ref = gradientColor_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      gradientColor_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Gradient color derived from the theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string gradient_color = 36 [json_name = "gradientColor"];</code>
-   * @return The bytes for gradientColor.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getGradientColorBytes() {
-    java.lang.Object ref = gradientColor_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      gradientColor_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int TEXT_COLOR_FIELD_NUMBER = 37;
-  private volatile java.lang.Object textColor_;
-  /**
-   * <pre>
-   * Text color derived from the theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string text_color = 37 [json_name = "textColor"];</code>
-   * @return The textColor.
-   */
-  @java.lang.Override
-  public java.lang.String getTextColor() {
-    java.lang.Object ref = textColor_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      textColor_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Text color derived from the theme color in hex format.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string text_color = 37 [json_name = "textColor"];</code>
-   * @return The bytes for textColor.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getTextColorBytes() {
-    java.lang.Object ref = textColor_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      textColor_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int INITIAL_FIELD_NUMBER = 39;
-  private volatile java.lang.Object initial_;
-  /**
-   * <pre>
-   * First character of the channel name, used as an avatar fallback.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string initial = 39 [json_name = "initial"];</code>
-   * @return The initial.
-   */
-  @java.lang.Override
-  public java.lang.String getInitial() {
-    java.lang.Object ref = initial_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      initial_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * First character of the channel name, used as an avatar fallback.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string initial = 39 [json_name = "initial"];</code>
-   * @return The bytes for initial.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getInitialBytes() {
-    java.lang.Object ref = initial_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      initial_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int OPERATION_TIME_SCHEDULING_FIELD_NUMBER = 40;
-  private boolean operationTimeScheduling_;
-  /**
-   * <pre>
-   * Whether operation time scheduling is enabled.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool operation_time_scheduling = 40 [json_name = "operationTimeScheduling"];</code>
-   * @return The operationTimeScheduling.
-   */
-  @java.lang.Override
-  public boolean getOperationTimeScheduling() {
-    return operationTimeScheduling_;
-  }
-
-  public static final int OPERATION_TIME_RANGES_FIELD_NUMBER = 41;
-  private java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> operationTimeRanges_;
-  /**
-   * <pre>
-   * Recurring time ranges that define the channel operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-   */
-  @java.lang.Override
-  public java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> getOperationTimeRangesList() {
-    return operationTimeRanges_;
-  }
-  /**
-   * <pre>
-   * Recurring time ranges that define the channel operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-   */
-  @java.lang.Override
-  public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder> 
-      getOperationTimeRangesOrBuilderList() {
-    return operationTimeRanges_;
-  }
-  /**
-   * <pre>
-   * Recurring time ranges that define the channel operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-   */
-  @java.lang.Override
-  public int getOperationTimeRangesCount() {
-    return operationTimeRanges_.size();
-  }
-  /**
-   * <pre>
-   * Recurring time ranges that define the channel operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.TimeRange getOperationTimeRanges(int index) {
-    return operationTimeRanges_.get(index);
-  }
-  /**
-   * <pre>
-   * Recurring time ranges that define the channel operating hours.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder getOperationTimeRangesOrBuilder(
-      int index) {
-    return operationTimeRanges_.get(index);
-  }
-
-  public static final int NEXT_OPERATING_AT_FIELD_NUMBER = 42;
-  private com.google.protobuf.Timestamp nextOperatingAt_;
-  /**
-   * <pre>
-   * Timestamp when the channel will next enter operating hours.
-   * Present only when the channel is currently outside operating hours
-   * and operation time scheduling is enabled.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp next_operating_at = 42 [json_name = "nextOperatingAt"];</code>
-   * @return Whether the nextOperatingAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasNextOperatingAt() {
-    return nextOperatingAt_ != null;
-  }
-  /**
-   * <pre>
-   * Timestamp when the channel will next enter operating hours.
-   * Present only when the channel is currently outside operating hours
-   * and operation time scheduling is enabled.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp next_operating_at = 42 [json_name = "nextOperatingAt"];</code>
-   * @return The nextOperatingAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getNextOperatingAt() {
-    return nextOperatingAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : nextOperatingAt_;
-  }
-  /**
-   * <pre>
-   * Timestamp when the channel will next enter operating hours.
-   * Present only when the channel is currently outside operating hours
-   * and operation time scheduling is enabled.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp next_operating_at = 42 [json_name = "nextOperatingAt"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getNextOperatingAtOrBuilder() {
-    return getNextOperatingAt();
-  }
-
-  public static final int BLOCK_REPLYING_AFTER_CLOSED_FIELD_NUMBER = 45;
-  private boolean blockReplyingAfterClosed_;
-  /**
-   * <pre>
-   * Whether replying is blocked after the conversation is closed.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool block_replying_after_closed = 45 [json_name = "blockReplyingAfterClosed"];</code>
-   * @return The blockReplyingAfterClosed.
-   */
-  @java.lang.Override
-  public boolean getBlockReplyingAfterClosed() {
-    return blockReplyingAfterClosed_;
-  }
-
-  public static final int BLOCK_REPLYING_AFTER_CLOSED_TIME_FIELD_NUMBER = 46;
-  private com.google.protobuf.Duration blockReplyingAfterClosedTime_;
-  /**
-   * <pre>
-   * Duration after which replying is blocked once the conversation is closed.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Duration block_replying_after_closed_time = 46 [json_name = "blockReplyingAfterClosedTime"];</code>
-   * @return Whether the blockReplyingAfterClosedTime field is set.
-   */
-  @java.lang.Override
-  public boolean hasBlockReplyingAfterClosedTime() {
-    return blockReplyingAfterClosedTime_ != null;
-  }
-  /**
-   * <pre>
-   * Duration after which replying is blocked once the conversation is closed.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Duration block_replying_after_closed_time = 46 [json_name = "blockReplyingAfterClosedTime"];</code>
-   * @return The blockReplyingAfterClosedTime.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Duration getBlockReplyingAfterClosedTime() {
-    return blockReplyingAfterClosedTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : blockReplyingAfterClosedTime_;
-  }
-  /**
-   * <pre>
-   * Duration after which replying is blocked once the conversation is closed.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Duration block_replying_after_closed_time = 46 [json_name = "blockReplyingAfterClosedTime"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.DurationOrBuilder getBlockReplyingAfterClosedTimeOrBuilder() {
-    return getBlockReplyingAfterClosedTime();
-  }
-
-  public static final int WELCOME_MESSAGE_FIELD_NUMBER = 47;
+  public static final int WELCOME_MESSAGE_FIELD_NUMBER = 2;
   private com.google.protobuf.Struct welcomeMessage_;
   /**
    * <pre>
-   * Default welcome message shown when a new conversation starts.
-   * +kubebuilder:validation:Nullable
+   * Default welcome message shown to end users when a new conversation starts.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Struct welcome_message = 47 [json_name = "welcomeMessage"];</code>
+   * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
    * @return Whether the welcomeMessage field is set.
    */
   @java.lang.Override
@@ -1999,11 +618,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Default welcome message shown when a new conversation starts.
-   * +kubebuilder:validation:Nullable
+   * Default welcome message shown to end users when a new conversation starts.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Struct welcome_message = 47 [json_name = "welcomeMessage"];</code>
+   * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
    * @return The welcomeMessage.
    */
   @java.lang.Override
@@ -2012,18 +631,18 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Default welcome message shown when a new conversation starts.
-   * +kubebuilder:validation:Nullable
+   * Default welcome message shown to end users when a new conversation starts.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Struct welcome_message = 47 [json_name = "welcomeMessage"];</code>
+   * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getWelcomeMessageOrBuilder() {
     return getWelcomeMessage();
   }
 
-  public static final int WELCOME_MESSAGE_I18N_MAP_FIELD_NUMBER = 48;
+  public static final int WELCOME_MESSAGE_I18N_MAP_FIELD_NUMBER = 3;
   private static final class WelcomeMessageI18NMapDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
         java.lang.String, com.google.protobuf.Struct> defaultEntry =
@@ -2051,11 +670,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized welcome messages keyed by locale.
+   * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
    */
 
   @java.lang.Override
@@ -2074,11 +693,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized welcome messages keyed by locale.
+   * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
    */
   @java.lang.Override
 
@@ -2087,11 +706,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized welcome messages keyed by locale.
+   * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
    */
   @java.lang.Override
 
@@ -2105,11 +724,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized welcome messages keyed by locale.
+   * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+   * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
    */
   @java.lang.Override
 
@@ -2124,15 +743,97 @@ private static final long serialVersionUID = 0L;
     return map.get(key);
   }
 
-  public static final int USER_INFO_URL_FIELD_NUMBER = 49;
+  public static final int CREATED_AT_FIELD_NUMBER = 4;
+  private com.google.protobuf.Timestamp createdAt_;
+  /**
+   * <pre>
+   * Channel creation timestamp.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * @return Whether the createdAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasCreatedAt() {
+    return createdAt_ != null;
+  }
+  /**
+   * <pre>
+   * Channel creation timestamp.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * @return The createdAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getCreatedAt() {
+    return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
+  }
+  /**
+   * <pre>
+   * Channel creation timestamp.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
+    return getCreatedAt();
+  }
+
+  public static final int UPDATED_AT_FIELD_NUMBER = 5;
+  private com.google.protobuf.Timestamp updatedAt_;
+  /**
+   * <pre>
+   * Channel last update timestamp.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * @return Whether the updatedAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasUpdatedAt() {
+    return updatedAt_ != null;
+  }
+  /**
+   * <pre>
+   * Channel last update timestamp.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * @return The updatedAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getUpdatedAt() {
+    return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+  }
+  /**
+   * <pre>
+   * Channel last update timestamp.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
+    return getUpdatedAt();
+  }
+
+  public static final int USER_INFO_URL_FIELD_NUMBER = 6;
   private volatile java.lang.Object userInfoUrl_;
   /**
    * <pre>
-   * URL for retrieving user information.
+   * Webhook URL called to retrieve additional user information from your server.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string user_info_url = 49 [json_name = "userInfoUrl"];</code>
+   * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
    * @return The userInfoUrl.
    */
   @java.lang.Override
@@ -2150,11 +851,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * URL for retrieving user information.
+   * Webhook URL called to retrieve additional user information from your server.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string user_info_url = 49 [json_name = "userInfoUrl"];</code>
+   * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
    * @return The bytes for userInfoUrl.
    */
   @java.lang.Override
@@ -2172,513 +873,168 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int TRAFFIC_SOURCE_FIELD_NUMBER = 50;
-  private com.google.protobuf.Struct trafficSource_;
+  public static final int NAME_FIELD_NUMBER = 7;
+  private volatile java.lang.Object name_;
   /**
    * <pre>
-   * Traffic source tracking data.
-   * +kubebuilder:validation:Nullable
+   * Channel display name visible to end users.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:MaxLength=30
    * </pre>
    *
-   * <code>.google.protobuf.Struct traffic_source = 50 [json_name = "trafficSource"];</code>
-   * @return Whether the trafficSource field is set.
+   * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * @return The name.
    */
   @java.lang.Override
-  public boolean hasTrafficSource() {
-    return trafficSource_ != null;
-  }
-  /**
-   * <pre>
-   * Traffic source tracking data.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct traffic_source = 50 [json_name = "trafficSource"];</code>
-   * @return The trafficSource.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Struct getTrafficSource() {
-    return trafficSource_ == null ? com.google.protobuf.Struct.getDefaultInstance() : trafficSource_;
-  }
-  /**
-   * <pre>
-   * Traffic source tracking data.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct traffic_source = 50 [json_name = "trafficSource"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.StructOrBuilder getTrafficSourceOrBuilder() {
-    return getTrafficSource();
-  }
-
-  public static final int BILL_ACCOUNT_ID_FIELD_NUMBER = 51;
-  private volatile java.lang.Object billAccountId_;
-  /**
-   * <pre>
-   * Billing account identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string bill_account_id = 51 [json_name = "billAccountId"];</code>
-   * @return The billAccountId.
-   */
-  @java.lang.Override
-  public java.lang.String getBillAccountId() {
-    java.lang.Object ref = billAccountId_;
+  public java.lang.String getName() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      billAccountId_ = s;
+      name_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * Billing account identifier.
-   * +kubebuilder:validation:Nullable
+   * Channel display name visible to end users.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:validation:MaxLength=30
    * </pre>
    *
-   * <code>string bill_account_id = 51 [json_name = "billAccountId"];</code>
-   * @return The bytes for billAccountId.
+   * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for name.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getBillAccountIdBytes() {
-    java.lang.Object ref = billAccountId_;
+      getNameBytes() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      billAccountId_ = b;
+      name_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int BIZ_GRADE_FIELD_NUMBER = 52;
-  private volatile java.lang.Object bizGrade_;
-  /**
-   * <pre>
-   * Business grade rating.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string biz_grade = 52 [json_name = "bizGrade"];</code>
-   * @return The bizGrade.
-   */
-  @java.lang.Override
-  public java.lang.String getBizGrade() {
-    java.lang.Object ref = bizGrade_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      bizGrade_ = s;
-      return s;
+  public static final int NAME_DESC_I18N_MAP_FIELD_NUMBER = 8;
+  private static final class NameDescI18NMapDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>newDefaultInstance(
+                io.channel.api.proto.pub.coreapi.model.ChannelOuterClass.internal_static_coreapi_model_Channel_NameDescI18nMapEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                io.channel.api.proto.pub.coreapi.model.NameDesc.getDefaultInstance());
+  }
+  private com.google.protobuf.MapField<
+      java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> nameDescI18NMap_;
+  private com.google.protobuf.MapField<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
+  internalGetNameDescI18NMap() {
+    if (nameDescI18NMap_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          NameDescI18NMapDefaultEntryHolder.defaultEntry);
     }
+    return nameDescI18NMap_;
+  }
+
+  public int getNameDescI18NMapCount() {
+    return internalGetNameDescI18NMap().getMap().size();
   }
   /**
    * <pre>
-   * Business grade rating.
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string biz_grade = 52 [json_name = "bizGrade"];</code>
-   * @return The bytes for bizGrade.
+   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+   */
+
+  @java.lang.Override
+  public boolean containsNameDescI18NMap(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetNameDescI18NMap().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getNameDescI18NMapMap()} instead.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getBizGradeBytes() {
-    java.lang.Object ref = bizGrade_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      bizGrade_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> getNameDescI18NMap() {
+    return getNameDescI18NMapMap();
+  }
+  /**
+   * <pre>
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+   */
+  @java.lang.Override
+
+  public java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> getNameDescI18NMapMap() {
+    return internalGetNameDescI18NMap().getMap();
+  }
+  /**
+   * <pre>
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+   */
+  @java.lang.Override
+
+  public io.channel.api.proto.pub.coreapi.model.NameDesc getNameDescI18NMapOrDefault(
+      java.lang.String key,
+      io.channel.api.proto.pub.coreapi.model.NameDesc defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> map =
+        internalGetNameDescI18NMap().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+   */
+  @java.lang.Override
+
+  public io.channel.api.proto.pub.coreapi.model.NameDesc getNameDescI18NMapOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> map =
+        internalGetNameDescI18NMap().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
     }
+    return map.get(key);
   }
 
-  public static final int SOURCE_SURVEY_FIELD_NUMBER = 53;
-  private com.google.protobuf.Struct sourceSurvey_;
-  /**
-   * <pre>
-   * Source survey tracking data.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct source_survey = 53 [json_name = "sourceSurvey"];</code>
-   * @return Whether the sourceSurvey field is set.
-   */
-  @java.lang.Override
-  public boolean hasSourceSurvey() {
-    return sourceSurvey_ != null;
-  }
-  /**
-   * <pre>
-   * Source survey tracking data.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct source_survey = 53 [json_name = "sourceSurvey"];</code>
-   * @return The sourceSurvey.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Struct getSourceSurvey() {
-    return sourceSurvey_ == null ? com.google.protobuf.Struct.getDefaultInstance() : sourceSurvey_;
-  }
-  /**
-   * <pre>
-   * Source survey tracking data.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct source_survey = 53 [json_name = "sourceSurvey"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.StructOrBuilder getSourceSurveyOrBuilder() {
-    return getSourceSurvey();
-  }
-
-  public static final int BIZ_CATEGORY_FIELD_NUMBER = 54;
-  private volatile java.lang.Object bizCategory_;
-  /**
-   * <pre>
-   * Business industry category.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string biz_category = 54 [json_name = "bizCategory"];</code>
-   * @return The bizCategory.
-   */
-  @java.lang.Override
-  public java.lang.String getBizCategory() {
-    java.lang.Object ref = bizCategory_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      bizCategory_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Business industry category.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string biz_category = 54 [json_name = "bizCategory"];</code>
-   * @return The bytes for bizCategory.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getBizCategoryBytes() {
-    java.lang.Object ref = bizCategory_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      bizCategory_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int STAFFS_FIELD_NUMBER = 55;
-  private int staffs_;
-  /**
-   * <pre>
-   * Number of team members in the channel.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>int32 staffs = 55 [json_name = "staffs"];</code>
-   * @return The staffs.
-   */
-  @java.lang.Override
-  public int getStaffs() {
-    return staffs_;
-  }
-
-  public static final int APP_COMMERCE_ID_FIELD_NUMBER = 56;
-  private volatile java.lang.Object appCommerceId_;
-  /**
-   * <pre>
-   * Commerce app integration identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string app_commerce_id = 56 [json_name = "appCommerceId"];</code>
-   * @return The appCommerceId.
-   */
-  @java.lang.Override
-  public java.lang.String getAppCommerceId() {
-    java.lang.Object ref = appCommerceId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      appCommerceId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Commerce app integration identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string app_commerce_id = 56 [json_name = "appCommerceId"];</code>
-   * @return The bytes for appCommerceId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getAppCommerceIdBytes() {
-    java.lang.Object ref = appCommerceId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      appCommerceId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int APP_COMMERCE_TYPE_FIELD_NUMBER = 57;
-  private volatile java.lang.Object appCommerceType_;
-  /**
-   * <pre>
-   * Type of commerce platform integrated.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string app_commerce_type = 57 [json_name = "appCommerceType"];</code>
-   * @return The appCommerceType.
-   */
-  @java.lang.Override
-  public java.lang.String getAppCommerceType() {
-    java.lang.Object ref = appCommerceType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      appCommerceType_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Type of commerce platform integrated.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string app_commerce_type = 57 [json_name = "appCommerceType"];</code>
-   * @return The bytes for appCommerceType.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getAppCommerceTypeBytes() {
-    java.lang.Object ref = appCommerceType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      appCommerceType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int ENABLE_MEMBER_HASH_FIELD_NUMBER = 58;
-  private boolean enableMemberHash_;
-  /**
-   * <pre>
-   * Whether member hash authentication is enabled.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool enable_member_hash = 58 [json_name = "enableMemberHash"];</code>
-   * @return The enableMemberHash.
-   */
-  @java.lang.Override
-  public boolean getEnableMemberHash() {
-    return enableMemberHash_;
-  }
-
-  public static final int DEFAULT_EMAIL_DOMAIN_ID_FIELD_NUMBER = 59;
-  private volatile java.lang.Object defaultEmailDomainId_;
-  /**
-   * <pre>
-   * Default email domain identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string default_email_domain_id = 59 [json_name = "defaultEmailDomainId"];</code>
-   * @return The defaultEmailDomainId.
-   */
-  @java.lang.Override
-  public java.lang.String getDefaultEmailDomainId() {
-    java.lang.Object ref = defaultEmailDomainId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      defaultEmailDomainId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Default email domain identifier.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string default_email_domain_id = 59 [json_name = "defaultEmailDomainId"];</code>
-   * @return The bytes for defaultEmailDomainId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDefaultEmailDomainIdBytes() {
-    java.lang.Object ref = defaultEmailDomainId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      defaultEmailDomainId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int ENABLE_MFA_FIELD_NUMBER = 60;
-  private boolean enableMfa_;
-  /**
-   * <pre>
-   * Whether multi-factor authentication is enabled.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool enable_mfa = 60 [json_name = "enableMfa"];</code>
-   * @return The enableMfa.
-   */
-  @java.lang.Override
-  public boolean getEnableMfa() {
-    return enableMfa_;
-  }
-
-  public static final int BLOCKED_FIELD_NUMBER = 61;
-  private boolean blocked_;
-  /**
-   * <pre>
-   * Whether the channel account is blocked.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool blocked = 61 [json_name = "blocked"];</code>
-   * @return The blocked.
-   */
-  @java.lang.Override
-  public boolean getBlocked() {
-    return blocked_;
-  }
-
-  public static final int BRIGHT_FIELD_NUMBER = 62;
-  private boolean bright_;
-  /**
-   * <pre>
-   * Whether the theme has a bright color.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool bright = 62 [json_name = "bright"];</code>
-   * @return The bright.
-   */
-  @java.lang.Override
-  public boolean getBright() {
-    return bright_;
-  }
-
-  public static final int USING_FOLLOW_UP_FIELD_NUMBER = 63;
-  private boolean usingFollowUp_;
-  /**
-   * <pre>
-   * Whether follow-up feature is active.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool using_follow_up = 63 [json_name = "usingFollowUp"];</code>
-   * @return The usingFollowUp.
-   */
-  @java.lang.Override
-  public boolean getUsingFollowUp() {
-    return usingFollowUp_;
-  }
-
-  public static final int BRIGHTNESS_FIELD_NUMBER = 64;
-  private float brightness_;
-  /**
-   * <pre>
-   * Theme color brightness value normalized to 0.0-1.0 range.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>float brightness = 64 [json_name = "brightness"];</code>
-   * @return The brightness.
-   */
-  @java.lang.Override
-  public float getBrightness() {
-    return brightness_;
-  }
-
-  public static final int COVER_IMAGE_BRIGHT_FIELD_NUMBER = 65;
-  private boolean coverImageBright_;
-  /**
-   * <pre>
-   * Whether the cover image has a bright tone.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>bool cover_image_bright = 65 [json_name = "coverImageBright"];</code>
-   * @return The coverImageBright.
-   */
-  @java.lang.Override
-  public boolean getCoverImageBright() {
-    return coverImageBright_;
-  }
-
-  public static final int COVER_IMAGE_COLOR_FIELD_NUMBER = 66;
+  public static final int COVER_IMAGE_COLOR_FIELD_NUMBER = 9;
   private volatile java.lang.Object coverImageColor_;
   /**
    * <pre>
-   * Cover image dominant color in hex format.
+   * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
+   * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
    * @return The coverImageColor.
    */
   @java.lang.Override
@@ -2696,11 +1052,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Cover image dominant color in hex format.
+   * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
+   * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
    * @return The bytes for coverImageColor.
    */
   @java.lang.Override
@@ -2718,63 +1074,477 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int COVER_IMAGE_URL_FIELD_NUMBER = 67;
-  private volatile java.lang.Object coverImageUrl_;
+  public static final int BOT_NAME_FIELD_NUMBER = 10;
+  private volatile java.lang.Object botName_;
   /**
    * <pre>
-   * Cover image URL for the channel profile.
-   * +kubebuilder:validation:Nullable
+   * Default bot display name shown to end users in conversations.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
-   * @return The coverImageUrl.
+   * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
+   * @return The botName.
    */
   @java.lang.Override
-  public java.lang.String getCoverImageUrl() {
-    java.lang.Object ref = coverImageUrl_;
+  public java.lang.String getBotName() {
+    java.lang.Object ref = botName_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      coverImageUrl_ = s;
+      botName_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * Cover image URL for the channel profile.
-   * +kubebuilder:validation:Nullable
+   * Default bot display name shown to end users in conversations.
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
-   * @return The bytes for coverImageUrl.
+   * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for botName.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getCoverImageUrlBytes() {
-    java.lang.Object ref = coverImageUrl_;
+      getBotNameBytes() {
+    java.lang.Object ref = botName_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      coverImageUrl_ = b;
+      botName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int DISABLE_NEW_CHAT_BUTTON_FIELD_NUMBER = 68;
-  private boolean disableNewChatButton_;
+  public static final int COLOR_FIELD_NUMBER = 11;
+  private volatile java.lang.Object color_;
   /**
    * <pre>
-   * Whether to hide the new chat button from end users.
+   * Channel theme color in hex format (e.g., #3B82F6).
+   * Used to derive border, gradient, text, and plugin icon colors.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="#3B82F6"
+   * </pre>
+   *
+   * <code>string color = 11 [json_name = "color", (.buf.validate.field) = { ... }</code>
+   * @return The color.
+   */
+  @java.lang.Override
+  public java.lang.String getColor() {
+    java.lang.Object ref = color_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      color_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Channel theme color in hex format (e.g., #3B82F6).
+   * Used to derive border, gradient, text, and plugin icon colors.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="#3B82F6"
+   * </pre>
+   *
+   * <code>string color = 11 [json_name = "color", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for color.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getColorBytes() {
+    java.lang.Object ref = color_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      color_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DESCRIPTION_FIELD_NUMBER = 12;
+  private volatile java.lang.Object description_;
+  /**
+   * <pre>
+   * Free-text summary displayed on the channel profile.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxLength=180
+   * </pre>
+   *
+   * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * @return The description.
+   */
+  @java.lang.Override
+  public java.lang.String getDescription() {
+    java.lang.Object ref = description_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      description_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Free-text summary displayed on the channel profile.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:MaxLength=180
+   * </pre>
+   *
+   * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for description.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDescriptionBytes() {
+    java.lang.Object ref = description_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      description_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int COUNTRY_FIELD_NUMBER = 13;
+  private volatile java.lang.Object country_;
+  /**
+   * <pre>
+   * ISO 3166-1 alpha-2 country code (e.g., KR, US).
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="KR"
+   * </pre>
+   *
+   * <code>string country = 13 [json_name = "country"];</code>
+   * @return The country.
+   */
+  @java.lang.Override
+  public java.lang.String getCountry() {
+    java.lang.Object ref = country_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      country_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * ISO 3166-1 alpha-2 country code (e.g., KR, US).
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="KR"
+   * </pre>
+   *
+   * <code>string country = 13 [json_name = "country"];</code>
+   * @return The bytes for country.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCountryBytes() {
+    java.lang.Object ref = country_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      country_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DOMAIN_FIELD_NUMBER = 14;
+  private volatile java.lang.Object domain_;
+  /**
+   * <pre>
+   * Custom domain slug for the channel.
+   * Globally unique across all channels.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>bool disable_new_chat_button = 68 [json_name = "disableNewChatButton"];</code>
+   * <code>string domain = 14 [json_name = "domain"];</code>
+   * @return The domain.
+   */
+  @java.lang.Override
+  public java.lang.String getDomain() {
+    java.lang.Object ref = domain_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      domain_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Custom domain slug for the channel.
+   * Globally unique across all channels.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string domain = 14 [json_name = "domain"];</code>
+   * @return The bytes for domain.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDomainBytes() {
+    java.lang.Object ref = domain_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      domain_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DEFAULT_DOMAIN_FIELD_NUMBER = 15;
+  private volatile java.lang.Object defaultDomain_;
+  /**
+   * <pre>
+   * System-assigned default domain.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+   * @return The defaultDomain.
+   */
+  @java.lang.Override
+  public java.lang.String getDefaultDomain() {
+    java.lang.Object ref = defaultDomain_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      defaultDomain_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * System-assigned default domain.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+   * @return The bytes for defaultDomain.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDefaultDomainBytes() {
+    java.lang.Object ref = defaultDomain_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      defaultDomain_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int HOMEPAGE_URL_FIELD_NUMBER = 16;
+  private volatile java.lang.Object homepageUrl_;
+  /**
+   * <pre>
+   * Business homepage URL associated with the channel.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
+   * @return The homepageUrl.
+   */
+  @java.lang.Override
+  public java.lang.String getHomepageUrl() {
+    java.lang.Object ref = homepageUrl_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      homepageUrl_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Business homepage URL associated with the channel.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
+   * @return The bytes for homepageUrl.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getHomepageUrlBytes() {
+    java.lang.Object ref = homepageUrl_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      homepageUrl_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PHONE_NUMBER_FIELD_NUMBER = 17;
+  private volatile java.lang.Object phoneNumber_;
+  /**
+   * <pre>
+   * Business contact phone number in E.164 format (e.g., +821012345678).
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="+821012345678"
+   * </pre>
+   *
+   * <code>string phone_number = 17 [json_name = "phoneNumber"];</code>
+   * @return The phoneNumber.
+   */
+  @java.lang.Override
+  public java.lang.String getPhoneNumber() {
+    java.lang.Object ref = phoneNumber_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      phoneNumber_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Business contact phone number in E.164 format (e.g., +821012345678).
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="+821012345678"
+   * </pre>
+   *
+   * <code>string phone_number = 17 [json_name = "phoneNumber"];</code>
+   * @return The bytes for phoneNumber.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPhoneNumberBytes() {
+    java.lang.Object ref = phoneNumber_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      phoneNumber_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TIME_ZONE_FIELD_NUMBER = 18;
+  private volatile java.lang.Object timeZone_;
+  /**
+   * <pre>
+   * IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="Asia/Seoul"
+   * </pre>
+   *
+   * <code>string time_zone = 18 [json_name = "timeZone", (.buf.validate.field) = { ... }</code>
+   * @return The timeZone.
+   */
+  @java.lang.Override
+  public java.lang.String getTimeZone() {
+    java.lang.Object ref = timeZone_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      timeZone_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
+   * +kubebuilder:validation:Required
+   * +kubebuilder:example="Asia/Seoul"
+   * </pre>
+   *
+   * <code>string time_zone = 18 [json_name = "timeZone", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for timeZone.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTimeZoneBytes() {
+    java.lang.Object ref = timeZone_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      timeZone_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int SHOW_OPERATOR_PROFILE_FIELD_NUMBER = 19;
+  private boolean showOperatorProfile_;
+  /**
+   * <pre>
+   * Whether to display individual operator profiles instead of the channel identity to end users.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile"];</code>
+   * @return The showOperatorProfile.
+   */
+  @java.lang.Override
+  public boolean getShowOperatorProfile() {
+    return showOperatorProfile_;
+  }
+
+  public static final int DISABLE_NEW_CHAT_BUTTON_FIELD_NUMBER = 20;
+  private boolean disableNewChatButton_;
+  /**
+   * <pre>
+   * Whether the new chat button is hidden from end users.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton"];</code>
    * @return The disableNewChatButton.
    */
   @java.lang.Override
@@ -2782,56 +1552,789 @@ private static final long serialVersionUID = 0L;
     return disableNewChatButton_;
   }
 
-  public static final int NEXT_AWAY_TIME_FIELD_NUMBER = 69;
-  private com.google.protobuf.Timestamp nextAwayTime_;
+  public static final int INDEBTED_DUE_DATE_FIELD_NUMBER = 21;
+  private volatile java.lang.Object indebtedDueDate_;
   /**
    * <pre>
-   * Timestamp when the next away period starts.
+   * Due date for payment before the channel transitions to an indebted state.
+   * ISO 8601 date format (e.g., 2026-12-31).
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="2026-12-31"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
-   * @return Whether the nextAwayTime field is set.
+   * <code>string indebted_due_date = 21 [json_name = "indebtedDueDate"];</code>
+   * @return The indebtedDueDate.
    */
   @java.lang.Override
-  public boolean hasNextAwayTime() {
-    return nextAwayTime_ != null;
+  public java.lang.String getIndebtedDueDate() {
+    java.lang.Object ref = indebtedDueDate_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      indebtedDueDate_ = s;
+      return s;
+    }
   }
   /**
    * <pre>
-   * Timestamp when the next away period starts.
+   * Due date for payment before the channel transitions to an indebted state.
+   * ISO 8601 date format (e.g., 2026-12-31).
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:example="2026-12-31"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
-   * @return The nextAwayTime.
+   * <code>string indebted_due_date = 21 [json_name = "indebtedDueDate"];</code>
+   * @return The bytes for indebtedDueDate.
    */
   @java.lang.Override
-  public com.google.protobuf.Timestamp getNextAwayTime() {
-    return nextAwayTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : nextAwayTime_;
-  }
-  /**
-   * <pre>
-   * Timestamp when the next away period starts.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getNextAwayTimeOrBuilder() {
-    return getNextAwayTime();
+  public com.google.protobuf.ByteString
+      getIndebtedDueDateBytes() {
+    java.lang.Object ref = indebtedDueDate_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      indebtedDueDate_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
-  public static final int NEXT_WORKING_TIME_FIELD_NUMBER = 70;
+  public static final int FOLLOW_UP_TEXTING_FIELD_NUMBER = 22;
+  private boolean followUpTexting_;
+  /**
+   * <pre>
+   * Whether SMS/text follow-up is enabled for offline conversations.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool follow_up_texting = 22 [json_name = "followUpTexting", (.buf.validate.field) = { ... }</code>
+   * @return The followUpTexting.
+   */
+  @java.lang.Override
+  public boolean getFollowUpTexting() {
+    return followUpTexting_;
+  }
+
+  public static final int FOLLOW_UP_EMAIL_FIELD_NUMBER = 23;
+  private boolean followUpEmail_;
+  /**
+   * <pre>
+   * Whether email follow-up is enabled for offline conversations.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>bool follow_up_email = 23 [json_name = "followUpEmail", (.buf.validate.field) = { ... }</code>
+   * @return The followUpEmail.
+   */
+  @java.lang.Override
+  public boolean getFollowUpEmail() {
+    return followUpEmail_;
+  }
+
+  public static final int FOLLOW_UP_ASK_NAME_FIELD_NUMBER = 24;
+  private boolean followUpAskName_;
+  /**
+   * <pre>
+   * Whether the follow-up form asks for the user's name.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName"];</code>
+   * @return The followUpAskName.
+   */
+  @java.lang.Override
+  public boolean getFollowUpAskName() {
+    return followUpAskName_;
+  }
+
+  public static final int FOLLOW_UP_MANDATORY_FIELD_NUMBER = 25;
+  private boolean followUpMandatory_;
+  /**
+   * <pre>
+   * Whether the follow-up form must be completed before the user can start a conversation.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory"];</code>
+   * @return The followUpMandatory.
+   */
+  @java.lang.Override
+  public boolean getFollowUpMandatory() {
+    return followUpMandatory_;
+  }
+
+  public static final int STATE_FIELD_NUMBER = 26;
+  private int state_;
+  /**
+   * <pre>
+   * Current lifecycle state of the channel.
+   * See ChannelState for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+   * @return The enum numeric value on the wire for state.
+   */
+  @java.lang.Override public int getStateValue() {
+    return state_;
+  }
+  /**
+   * <pre>
+   * Current lifecycle state of the channel.
+   * See ChannelState for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+   * @return The state.
+   */
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.ChannelState getState() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.ChannelState result = io.channel.api.proto.pub.coreapi.model.ChannelState.valueOf(state_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.ChannelState.UNRECOGNIZED : result;
+  }
+
+  public static final int ENT_VERIFIED_FIELD_NUMBER = 27;
+  private boolean entVerified_;
+  /**
+   * <pre>
+   * Whether the channel is verified as an enterprise account.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool ent_verified = 27 [json_name = "entVerified"];</code>
+   * @return The entVerified.
+   */
+  @java.lang.Override
+  public boolean getEntVerified() {
+    return entVerified_;
+  }
+
+  public static final int DEFAULT_PLUGIN_ID_FIELD_NUMBER = 28;
+  private volatile java.lang.Object defaultPluginId_;
+  /**
+   * <pre>
+   * Default plugin identifier used by the messenger widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
+   * @return The defaultPluginId.
+   */
+  @java.lang.Override
+  public java.lang.String getDefaultPluginId() {
+    java.lang.Object ref = defaultPluginId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      defaultPluginId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Default plugin identifier used by the messenger widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
+   * @return The bytes for defaultPluginId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDefaultPluginIdBytes() {
+    java.lang.Object ref = defaultPluginId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      defaultPluginId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int BIZ_CATEGORY_FIELD_NUMBER = 29;
+  private volatile java.lang.Object bizCategory_;
+  /**
+   * <pre>
+   * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
+   * @return The bizCategory.
+   */
+  @java.lang.Override
+  public java.lang.String getBizCategory() {
+    java.lang.Object ref = bizCategory_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      bizCategory_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
+   * @return The bytes for bizCategory.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getBizCategoryBytes() {
+    java.lang.Object ref = bizCategory_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      bizCategory_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int STAFFS_FIELD_NUMBER = 30;
+  private int staffs_;
+  /**
+   * <pre>
+   * Number of staff members in the organization.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>int32 staffs = 30 [json_name = "staffs"];</code>
+   * @return The staffs.
+   */
+  @java.lang.Override
+  public int getStaffs() {
+    return staffs_;
+  }
+
+  public static final int APP_COMMERCE_ID_FIELD_NUMBER = 31;
+  private volatile java.lang.Object appCommerceId_;
+  /**
+   * <pre>
+   * Integrated e-commerce platform app identifier.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string app_commerce_id = 31 [json_name = "appCommerceId"];</code>
+   * @return The appCommerceId.
+   */
+  @java.lang.Override
+  public java.lang.String getAppCommerceId() {
+    java.lang.Object ref = appCommerceId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      appCommerceId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Integrated e-commerce platform app identifier.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string app_commerce_id = 31 [json_name = "appCommerceId"];</code>
+   * @return The bytes for appCommerceId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAppCommerceIdBytes() {
+    java.lang.Object ref = appCommerceId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      appCommerceId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int APP_COMMERCE_TYPE_FIELD_NUMBER = 32;
+  private volatile java.lang.Object appCommerceType_;
+  /**
+   * <pre>
+   * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
+   * @return The appCommerceType.
+   */
+  @java.lang.Override
+  public java.lang.String getAppCommerceType() {
+    java.lang.Object ref = appCommerceType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      appCommerceType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
+   * @return The bytes for appCommerceType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAppCommerceTypeBytes() {
+    java.lang.Object ref = appCommerceType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      appCommerceType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int APP_COMMERCE_DOMAIN_FIELD_NUMBER = 33;
+  private volatile java.lang.Object appCommerceDomain_;
+  /**
+   * <pre>
+   * Domain of the integrated e-commerce platform.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string app_commerce_domain = 33 [json_name = "appCommerceDomain"];</code>
+   * @return The appCommerceDomain.
+   */
+  @java.lang.Override
+  public java.lang.String getAppCommerceDomain() {
+    java.lang.Object ref = appCommerceDomain_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      appCommerceDomain_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Domain of the integrated e-commerce platform.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string app_commerce_domain = 33 [json_name = "appCommerceDomain"];</code>
+   * @return The bytes for appCommerceDomain.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAppCommerceDomainBytes() {
+    java.lang.Object ref = appCommerceDomain_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      appCommerceDomain_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ENABLE_MEMBER_HASH_FIELD_NUMBER = 34;
+  private boolean enableMemberHash_;
+  /**
+   * <pre>
+   * Whether member identity hash verification is enabled.
+   * When enabled, member logins require an HMAC hash to prevent impersonation.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool enable_member_hash = 34 [json_name = "enableMemberHash"];</code>
+   * @return The enableMemberHash.
+   */
+  @java.lang.Override
+  public boolean getEnableMemberHash() {
+    return enableMemberHash_;
+  }
+
+  public static final int DEFAULT_EMAIL_DOMAIN_ID_FIELD_NUMBER = 35;
+  private volatile java.lang.Object defaultEmailDomainId_;
+  /**
+   * <pre>
+   * Default email domain identifier used for outbound emails sent from this channel.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
+   * @return The defaultEmailDomainId.
+   */
+  @java.lang.Override
+  public java.lang.String getDefaultEmailDomainId() {
+    java.lang.Object ref = defaultEmailDomainId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      defaultEmailDomainId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Default email domain identifier used for outbound emails sent from this channel.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
+   * @return The bytes for defaultEmailDomainId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDefaultEmailDomainIdBytes() {
+    java.lang.Object ref = defaultEmailDomainId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      defaultEmailDomainId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ENABLE_MFA_FIELD_NUMBER = 36;
+  private boolean enableMfa_;
+  /**
+   * <pre>
+   * Whether multi-factor authentication is required for managers in this channel.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool enable_mfa = 36 [json_name = "enableMfa"];</code>
+   * @return The enableMfa.
+   */
+  @java.lang.Override
+  public boolean getEnableMfa() {
+    return enableMfa_;
+  }
+
+  public static final int HIDE_APP_MESSENGER_FIELD_NUMBER = 37;
+  private boolean hideAppMessenger_;
+  /**
+   * <pre>
+   * Whether the messenger widget is hidden from end users on the website.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger"];</code>
+   * @return The hideAppMessenger.
+   */
+  @java.lang.Override
+  public boolean getHideAppMessenger() {
+    return hideAppMessenger_;
+  }
+
+  public static final int BIZ_CERTIFICATED_FIELD_NUMBER = 38;
+  private boolean bizCertificated_;
+  /**
+   * <pre>
+   * Whether the channel holds a business certification.
+   * Derived from biz_certificated_countries; true when at least one country is certified.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool biz_certificated = 38 [json_name = "bizCertificated"];</code>
+   * @return The bizCertificated.
+   */
+  @java.lang.Override
+  public boolean getBizCertificated() {
+    return bizCertificated_;
+  }
+
+  public static final int MKT_ALIMTALK_ALLOWED_FIELD_NUMBER = 39;
+  private boolean mktAlimtalkAllowed_;
+  /**
+   * <pre>
+   * Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed"];</code>
+   * @return The mktAlimtalkAllowed.
+   */
+  @java.lang.Override
+  public boolean getMktAlimtalkAllowed() {
+    return mktAlimtalkAllowed_;
+  }
+
+  public static final int BIZ_CERTIFICATED_COUNTRIES_FIELD_NUMBER = 40;
+  private com.google.protobuf.LazyStringList bizCertificatedCountries_;
+  /**
+   * <pre>
+   * Countries where the channel has obtained business certification.
+   * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+   * @return A list containing the bizCertificatedCountries.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getBizCertificatedCountriesList() {
+    return bizCertificatedCountries_;
+  }
+  /**
+   * <pre>
+   * Countries where the channel has obtained business certification.
+   * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+   * @return The count of bizCertificatedCountries.
+   */
+  public int getBizCertificatedCountriesCount() {
+    return bizCertificatedCountries_.size();
+  }
+  /**
+   * <pre>
+   * Countries where the channel has obtained business certification.
+   * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+   * @param index The index of the element to return.
+   * @return The bizCertificatedCountries at the given index.
+   */
+  public java.lang.String getBizCertificatedCountries(int index) {
+    return bizCertificatedCountries_.get(index);
+  }
+  /**
+   * <pre>
+   * Countries where the channel has obtained business certification.
+   * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the bizCertificatedCountries at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getBizCertificatedCountriesBytes(int index) {
+    return bizCertificatedCountries_.getByteString(index);
+  }
+
+  public static final int ENABLE_FRONT_ALF_V2_FIELD_NUMBER = 41;
+  private boolean enableFrontAlfV2_;
+  /**
+   * <pre>
+   * Whether the front-end ALF v2 AI assistant is enabled for end users.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2"];</code>
+   * @return The enableFrontAlfV2.
+   */
+  @java.lang.Override
+  public boolean getEnableFrontAlfV2() {
+    return enableFrontAlfV2_;
+  }
+
+  public static final int BLOCKED_FIELD_NUMBER = 42;
+  private boolean blocked_;
+  /**
+   * <pre>
+   * Whether the channel is currently blocked.
+   * Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool blocked = 42 [json_name = "blocked"];</code>
+   * @return The blocked.
+   */
+  @java.lang.Override
+  public boolean getBlocked() {
+    return blocked_;
+  }
+
+  public static final int WORKING_FIELD_NUMBER = 43;
+  private boolean working_;
+  /**
+   * <pre>
+   * Whether the channel is currently accepting new conversations.
+   * True when the channel is not blocked and is within operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool working = 43 [json_name = "working"];</code>
+   * @return The working.
+   */
+  @java.lang.Override
+  public boolean getWorking() {
+    return working_;
+  }
+
+  public static final int AVATAR_URL_FIELD_NUMBER = 44;
+  private volatile java.lang.Object avatarUrl_;
+  /**
+   * <pre>
+   * Channel avatar image URL.
+   * Falls back to a system-generated default when no custom avatar is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
+   * @return The avatarUrl.
+   */
+  @java.lang.Override
+  public java.lang.String getAvatarUrl() {
+    java.lang.Object ref = avatarUrl_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      avatarUrl_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Channel avatar image URL.
+   * Falls back to a system-generated default when no custom avatar is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
+   * @return The bytes for avatarUrl.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAvatarUrlBytes() {
+    java.lang.Object ref = avatarUrl_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      avatarUrl_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int EXPECTED_RESPONSE_DELAY_FIELD_NUMBER = 45;
+  private int expectedResponseDelay_;
+  /**
+   * <pre>
+   * Expected response delay indicator shown to end users.
+   * Derived from the channel operating configuration.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.ResponseDelayType expected_response_delay = 45 [json_name = "expectedResponseDelay"];</code>
+   * @return The enum numeric value on the wire for expectedResponseDelay.
+   */
+  @java.lang.Override public int getExpectedResponseDelayValue() {
+    return expectedResponseDelay_;
+  }
+  /**
+   * <pre>
+   * Expected response delay indicator shown to end users.
+   * Derived from the channel operating configuration.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.ResponseDelayType expected_response_delay = 45 [json_name = "expectedResponseDelay"];</code>
+   * @return The expectedResponseDelay.
+   */
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.ResponseDelayType getExpectedResponseDelay() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.ResponseDelayType result = io.channel.api.proto.pub.coreapi.model.ResponseDelayType.valueOf(expectedResponseDelay_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.ResponseDelayType.UNRECOGNIZED : result;
+  }
+
+  public static final int IN_OPERATION_FIELD_NUMBER = 46;
+  private boolean inOperation_;
+  /**
+   * <pre>
+   * Whether the channel is currently within operating hours.
+   * Derived from the operating schedule configuration.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool in_operation = 46 [json_name = "inOperation"];</code>
+   * @return The inOperation.
+   */
+  @java.lang.Override
+  public boolean getInOperation() {
+    return inOperation_;
+  }
+
+  public static final int OPERATION_TIME_SCHEDULING_FIELD_NUMBER = 47;
+  private boolean operationTimeScheduling_;
+  /**
+   * <pre>
+   * Whether operating hour scheduling is enabled.
+   * When false, the channel is always considered in operation.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling"];</code>
+   * @return The operationTimeScheduling.
+   */
+  @java.lang.Override
+  public boolean getOperationTimeScheduling() {
+    return operationTimeScheduling_;
+  }
+
+  public static final int NEXT_WORKING_TIME_FIELD_NUMBER = 48;
   private com.google.protobuf.Timestamp nextWorkingTime_;
   /**
    * <pre>
    * Timestamp when the next operating period starts.
+   * Present only when the channel is currently outside operating hours.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+   * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
    * @return Whether the nextWorkingTime field is set.
    */
   @java.lang.Override
@@ -2841,10 +2344,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the next operating period starts.
+   * Present only when the channel is currently outside operating hours.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+   * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
    * @return The nextWorkingTime.
    */
   @java.lang.Override
@@ -2854,25 +2358,468 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the next operating period starts.
+   * Present only when the channel is currently outside operating hours.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
+   * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getNextWorkingTimeOrBuilder() {
     return getNextWorkingTime();
   }
 
-  public static final int PLUGIN_ICON_COLOR_FIELD_NUMBER = 71;
-  private volatile java.lang.Object pluginIconColor_;
+  public static final int NEXT_AWAY_TIME_FIELD_NUMBER = 49;
+  private com.google.protobuf.Timestamp nextAwayTime_;
   /**
    * <pre>
-   * Icon color for the channel plugin widget in hex format.
+   * Timestamp when the next away (non-operating) period starts.
+   * Present only when the channel is currently within operating hours.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
+   * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
+   * @return Whether the nextAwayTime field is set.
+   */
+  @java.lang.Override
+  public boolean hasNextAwayTime() {
+    return nextAwayTime_ != null;
+  }
+  /**
+   * <pre>
+   * Timestamp when the next away (non-operating) period starts.
+   * Present only when the channel is currently within operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
+   * @return The nextAwayTime.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getNextAwayTime() {
+    return nextAwayTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : nextAwayTime_;
+  }
+  /**
+   * <pre>
+   * Timestamp when the next away (non-operating) period starts.
+   * Present only when the channel is currently within operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getNextAwayTimeOrBuilder() {
+    return getNextAwayTime();
+  }
+
+  public static final int OPERATION_TIME_RANGES_FIELD_NUMBER = 50;
+  private java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> operationTimeRanges_;
+  /**
+   * <pre>
+   * Recurring weekly time ranges that define the channel operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> getOperationTimeRangesList() {
+    return operationTimeRanges_;
+  }
+  /**
+   * <pre>
+   * Recurring weekly time ranges that define the channel operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder> 
+      getOperationTimeRangesOrBuilderList() {
+    return operationTimeRanges_;
+  }
+  /**
+   * <pre>
+   * Recurring weekly time ranges that define the channel operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+   */
+  @java.lang.Override
+  public int getOperationTimeRangesCount() {
+    return operationTimeRanges_.size();
+  }
+  /**
+   * <pre>
+   * Recurring weekly time ranges that define the channel operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.TimeRange getOperationTimeRanges(int index) {
+    return operationTimeRanges_.get(index);
+  }
+  /**
+   * <pre>
+   * Recurring weekly time ranges that define the channel operating hours.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder getOperationTimeRangesOrBuilder(
+      int index) {
+    return operationTimeRanges_.get(index);
+  }
+
+  public static final int AWAY_OPTION_FIELD_NUMBER = 51;
+  private int awayOption_;
+  /**
+   * <pre>
+   * Messenger behavior when the channel is outside of operating hours.
+   * See ChannelAwayOption for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.ChannelAwayOption away_option = 51 [json_name = "awayOption"];</code>
+   * @return The enum numeric value on the wire for awayOption.
+   */
+  @java.lang.Override public int getAwayOptionValue() {
+    return awayOption_;
+  }
+  /**
+   * <pre>
+   * Messenger behavior when the channel is outside of operating hours.
+   * See ChannelAwayOption for possible values.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.coreapi.model.ChannelAwayOption away_option = 51 [json_name = "awayOption"];</code>
+   * @return The awayOption.
+   */
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.ChannelAwayOption getAwayOption() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.ChannelAwayOption result = io.channel.api.proto.pub.coreapi.model.ChannelAwayOption.valueOf(awayOption_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.ChannelAwayOption.UNRECOGNIZED : result;
+  }
+
+  public static final int BLOCK_REPLYING_AFTER_CLOSED_FIELD_NUMBER = 52;
+  private boolean blockReplyingAfterClosed_;
+  /**
+   * <pre>
+   * Whether end-user replying is blocked after a conversation is closed.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed"];</code>
+   * @return The blockReplyingAfterClosed.
+   */
+  @java.lang.Override
+  public boolean getBlockReplyingAfterClosed() {
+    return blockReplyingAfterClosed_;
+  }
+
+  public static final int BLOCK_REPLYING_AFTER_CLOSED_TIME_FIELD_NUMBER = 53;
+  private com.google.protobuf.Duration blockReplyingAfterClosedTime_;
+  /**
+   * <pre>
+   * Grace period after conversation closure during which the end user may still reply.
+   * Applicable only when block_replying_after_closed is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
+   * @return Whether the blockReplyingAfterClosedTime field is set.
+   */
+  @java.lang.Override
+  public boolean hasBlockReplyingAfterClosedTime() {
+    return blockReplyingAfterClosedTime_ != null;
+  }
+  /**
+   * <pre>
+   * Grace period after conversation closure during which the end user may still reply.
+   * Applicable only when block_replying_after_closed is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
+   * @return The blockReplyingAfterClosedTime.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Duration getBlockReplyingAfterClosedTime() {
+    return blockReplyingAfterClosedTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : blockReplyingAfterClosedTime_;
+  }
+  /**
+   * <pre>
+   * Grace period after conversation closure during which the end user may still reply.
+   * Applicable only when block_replying_after_closed is true.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.DurationOrBuilder getBlockReplyingAfterClosedTimeOrBuilder() {
+    return getBlockReplyingAfterClosedTime();
+  }
+
+  public static final int BORDER_COLOR_FIELD_NUMBER = 54;
+  private volatile java.lang.Object borderColor_;
+  /**
+   * <pre>
+   * Border accent color derived from the theme color, in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string border_color = 54 [json_name = "borderColor"];</code>
+   * @return The borderColor.
+   */
+  @java.lang.Override
+  public java.lang.String getBorderColor() {
+    java.lang.Object ref = borderColor_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      borderColor_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Border accent color derived from the theme color, in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string border_color = 54 [json_name = "borderColor"];</code>
+   * @return The bytes for borderColor.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getBorderColorBytes() {
+    java.lang.Object ref = borderColor_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      borderColor_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int GRADIENT_COLOR_FIELD_NUMBER = 55;
+  private volatile java.lang.Object gradientColor_;
+  /**
+   * <pre>
+   * Gradient accent color derived from the theme color, in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
+   * @return The gradientColor.
+   */
+  @java.lang.Override
+  public java.lang.String getGradientColor() {
+    java.lang.Object ref = gradientColor_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      gradientColor_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Gradient accent color derived from the theme color, in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
+   * @return The bytes for gradientColor.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getGradientColorBytes() {
+    java.lang.Object ref = gradientColor_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      gradientColor_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TEXT_COLOR_FIELD_NUMBER = 56;
+  private volatile java.lang.Object textColor_;
+  /**
+   * <pre>
+   * Text color for contrast against the theme color, in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string text_color = 56 [json_name = "textColor"];</code>
+   * @return The textColor.
+   */
+  @java.lang.Override
+  public java.lang.String getTextColor() {
+    java.lang.Object ref = textColor_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      textColor_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Text color for contrast against the theme color, in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string text_color = 56 [json_name = "textColor"];</code>
+   * @return The bytes for textColor.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTextColorBytes() {
+    java.lang.Object ref = textColor_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      textColor_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int INITIAL_FIELD_NUMBER = 57;
+  private volatile java.lang.Object initial_;
+  /**
+   * <pre>
+   * First character of the channel name, used as a fallback when no avatar is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string initial = 57 [json_name = "initial"];</code>
+   * @return The initial.
+   */
+  @java.lang.Override
+  public java.lang.String getInitial() {
+    java.lang.Object ref = initial_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      initial_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * First character of the channel name, used as a fallback when no avatar is set.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string initial = 57 [json_name = "initial"];</code>
+   * @return The bytes for initial.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getInitialBytes() {
+    java.lang.Object ref = initial_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      initial_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int SYSTEM_DOMAIN_FIELD_NUMBER = 58;
+  private volatile java.lang.Object systemDomain_;
+  /**
+   * <pre>
+   * Resolved domain for the channel.
+   * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
+   * @return The systemDomain.
+   */
+  @java.lang.Override
+  public java.lang.String getSystemDomain() {
+    java.lang.Object ref = systemDomain_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      systemDomain_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Resolved domain for the channel.
+   * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
+   * @return The bytes for systemDomain.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getSystemDomainBytes() {
+    java.lang.Object ref = systemDomain_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      systemDomain_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PLUGIN_ICON_COLOR_FIELD_NUMBER = 59;
+  private volatile java.lang.Object pluginIconColor_;
+  /**
+   * <pre>
+   * Icon color for the messenger plugin widget, derived from the theme color, in hex format.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string plugin_icon_color = 59 [json_name = "pluginIconColor"];</code>
    * @return The pluginIconColor.
    */
   @java.lang.Override
@@ -2890,11 +2837,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Icon color for the channel plugin widget in hex format.
+   * Icon color for the messenger plugin widget, derived from the theme color, in hex format.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
+   * <code>string plugin_icon_color = 59 [json_name = "pluginIconColor"];</code>
    * @return The bytes for pluginIconColor.
    */
   @java.lang.Override
@@ -2912,61 +2859,86 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int SHOW_OPERATOR_PROFILE_FIELD_NUMBER = 72;
-  private boolean showOperatorProfile_;
+  public static final int BRIGHTNESS_FIELD_NUMBER = 60;
+  private float brightness_;
   /**
    * <pre>
-   * Whether to display individual operator profiles to end users.
+   * Theme color brightness value normalized to 0.0 -- 1.0 range.
+   * Derived from the theme color.
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>bool show_operator_profile = 72 [json_name = "showOperatorProfile"];</code>
-   * @return The showOperatorProfile.
+   * <code>float brightness = 60 [json_name = "brightness"];</code>
+   * @return The brightness.
    */
   @java.lang.Override
-  public boolean getShowOperatorProfile() {
-    return showOperatorProfile_;
+  public float getBrightness() {
+    return brightness_;
   }
 
-  public static final int UPDATED_AT_FIELD_NUMBER = 73;
-  private com.google.protobuf.Timestamp updatedAt_;
+  public static final int COVER_IMAGE_URL_FIELD_NUMBER = 61;
+  private volatile java.lang.Object coverImageUrl_;
   /**
    * <pre>
-   * Channel last update timestamp.
-   * +kubebuilder:validation:Required
+   * Cover image URL for the channel profile page.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
-   * @return Whether the updatedAt field is set.
+   * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
+   * @return The coverImageUrl.
    */
   @java.lang.Override
-  public boolean hasUpdatedAt() {
-    return updatedAt_ != null;
+  public java.lang.String getCoverImageUrl() {
+    java.lang.Object ref = coverImageUrl_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      coverImageUrl_ = s;
+      return s;
+    }
   }
   /**
    * <pre>
-   * Channel last update timestamp.
-   * +kubebuilder:validation:Required
+   * Cover image URL for the channel profile page.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
-   * @return The updatedAt.
+   * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
+   * @return The bytes for coverImageUrl.
    */
   @java.lang.Override
-  public com.google.protobuf.Timestamp getUpdatedAt() {
-    return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+  public com.google.protobuf.ByteString
+      getCoverImageUrlBytes() {
+    java.lang.Object ref = coverImageUrl_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      coverImageUrl_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
+
+  public static final int COVER_IMAGE_BRIGHT_FIELD_NUMBER = 62;
+  private boolean coverImageBright_;
   /**
    * <pre>
-   * Channel last update timestamp.
-   * +kubebuilder:validation:Required
+   * Whether the cover image has a bright tone.
+   * Derived from the cover_image_color field.
+   * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>bool cover_image_bright = 62 [json_name = "coverImageBright"];</code>
+   * @return The coverImageBright.
    */
   @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
-    return getUpdatedAt();
+  public boolean getCoverImageBright() {
+    return coverImageBright_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -2986,194 +2958,194 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
-    }
-    com.google.protobuf.GeneratedMessageV3
-      .serializeStringMapTo(
-        output,
-        internalGetNameDescI18NMap(),
-        NameDescI18NMapDefaultEntryHolder.defaultEntry,
-        4);
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(avatarUrl_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, avatarUrl_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(color_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, color_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(botName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, botName_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(country_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, country_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domain_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, domain_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(systemDomain_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, systemDomain_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(homepageUrl_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, homepageUrl_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phoneNumber_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, phoneNumber_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeZone_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, timeZone_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(utcOffset_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, utcOffset_);
-    }
-    if (state_ != io.channel.api.proto.pub.coreapi.model.ChannelState.CHANNEL_STATE_UNSPECIFIED.getNumber()) {
-      output.writeEnum(16, state_);
-    }
-    if (expectedResponseDelay_ != io.channel.api.proto.pub.coreapi.model.ResponseDelayType.RESPONSE_DELAY_TYPE_UNSPECIFIED.getNumber()) {
-      output.writeEnum(17, expectedResponseDelay_);
-    }
-    if (awayOption_ != io.channel.api.proto.pub.coreapi.model.ChannelAwayOption.CHANNEL_AWAY_OPTION_UNSPECIFIED.getNumber()) {
-      output.writeEnum(18, awayOption_);
-    }
-    if (inOperation_ != false) {
-      output.writeBool(19, inOperation_);
-    }
-    if (working_ != false) {
-      output.writeBool(20, working_);
-    }
-    if (followUpTexting_ != false) {
-      output.writeBool(23, followUpTexting_);
-    }
-    if (followUpEmail_ != false) {
-      output.writeBool(24, followUpEmail_);
-    }
-    if (followUpAskName_ != false) {
-      output.writeBool(25, followUpAskName_);
-    }
-    if (followUpMandatory_ != false) {
-      output.writeBool(26, followUpMandatory_);
-    }
-    if (hideAppMessenger_ != false) {
-      output.writeBool(27, hideAppMessenger_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultPluginId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 28, defaultPluginId_);
-    }
-    if (createdAt_ != null) {
-      output.writeMessage(29, getCreatedAt());
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(borderColor_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 35, borderColor_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gradientColor_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 36, gradientColor_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(textColor_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 37, textColor_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(initial_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 39, initial_);
-    }
-    if (operationTimeScheduling_ != false) {
-      output.writeBool(40, operationTimeScheduling_);
-    }
-    for (int i = 0; i < operationTimeRanges_.size(); i++) {
-      output.writeMessage(41, operationTimeRanges_.get(i));
-    }
-    if (nextOperatingAt_ != null) {
-      output.writeMessage(42, getNextOperatingAt());
-    }
-    if (blockReplyingAfterClosed_ != false) {
-      output.writeBool(45, blockReplyingAfterClosed_);
-    }
-    if (blockReplyingAfterClosedTime_ != null) {
-      output.writeMessage(46, getBlockReplyingAfterClosedTime());
-    }
     if (welcomeMessage_ != null) {
-      output.writeMessage(47, getWelcomeMessage());
+      output.writeMessage(2, getWelcomeMessage());
     }
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
         internalGetWelcomeMessageI18NMap(),
         WelcomeMessageI18NMapDefaultEntryHolder.defaultEntry,
-        48);
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userInfoUrl_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 49, userInfoUrl_);
-    }
-    if (trafficSource_ != null) {
-      output.writeMessage(50, getTrafficSource());
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(billAccountId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 51, billAccountId_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bizGrade_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 52, bizGrade_);
-    }
-    if (sourceSurvey_ != null) {
-      output.writeMessage(53, getSourceSurvey());
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bizCategory_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 54, bizCategory_);
-    }
-    if (staffs_ != 0) {
-      output.writeInt32(55, staffs_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appCommerceId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 56, appCommerceId_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appCommerceType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 57, appCommerceType_);
-    }
-    if (enableMemberHash_ != false) {
-      output.writeBool(58, enableMemberHash_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultEmailDomainId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 59, defaultEmailDomainId_);
-    }
-    if (enableMfa_ != false) {
-      output.writeBool(60, enableMfa_);
-    }
-    if (blocked_ != false) {
-      output.writeBool(61, blocked_);
-    }
-    if (bright_ != false) {
-      output.writeBool(62, bright_);
-    }
-    if (usingFollowUp_ != false) {
-      output.writeBool(63, usingFollowUp_);
-    }
-    if (java.lang.Float.floatToRawIntBits(brightness_) != 0) {
-      output.writeFloat(64, brightness_);
-    }
-    if (coverImageBright_ != false) {
-      output.writeBool(65, coverImageBright_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coverImageColor_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 66, coverImageColor_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coverImageUrl_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 67, coverImageUrl_);
-    }
-    if (disableNewChatButton_ != false) {
-      output.writeBool(68, disableNewChatButton_);
-    }
-    if (nextAwayTime_ != null) {
-      output.writeMessage(69, getNextAwayTime());
-    }
-    if (nextWorkingTime_ != null) {
-      output.writeMessage(70, getNextWorkingTime());
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pluginIconColor_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 71, pluginIconColor_);
-    }
-    if (showOperatorProfile_ != false) {
-      output.writeBool(72, showOperatorProfile_);
+        3);
+    if (createdAt_ != null) {
+      output.writeMessage(4, getCreatedAt());
     }
     if (updatedAt_ != null) {
-      output.writeMessage(73, getUpdatedAt());
+      output.writeMessage(5, getUpdatedAt());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userInfoUrl_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, userInfoUrl_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, name_);
+    }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetNameDescI18NMap(),
+        NameDescI18NMapDefaultEntryHolder.defaultEntry,
+        8);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coverImageColor_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, coverImageColor_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(botName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, botName_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(color_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, color_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, description_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(country_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, country_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domain_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, domain_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultDomain_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, defaultDomain_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(homepageUrl_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 16, homepageUrl_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phoneNumber_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 17, phoneNumber_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeZone_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 18, timeZone_);
+    }
+    if (showOperatorProfile_ != false) {
+      output.writeBool(19, showOperatorProfile_);
+    }
+    if (disableNewChatButton_ != false) {
+      output.writeBool(20, disableNewChatButton_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(indebtedDueDate_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 21, indebtedDueDate_);
+    }
+    if (followUpTexting_ != false) {
+      output.writeBool(22, followUpTexting_);
+    }
+    if (followUpEmail_ != false) {
+      output.writeBool(23, followUpEmail_);
+    }
+    if (followUpAskName_ != false) {
+      output.writeBool(24, followUpAskName_);
+    }
+    if (followUpMandatory_ != false) {
+      output.writeBool(25, followUpMandatory_);
+    }
+    if (state_ != io.channel.api.proto.pub.coreapi.model.ChannelState.CHANNEL_STATE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(26, state_);
+    }
+    if (entVerified_ != false) {
+      output.writeBool(27, entVerified_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultPluginId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 28, defaultPluginId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bizCategory_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 29, bizCategory_);
+    }
+    if (staffs_ != 0) {
+      output.writeInt32(30, staffs_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appCommerceId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 31, appCommerceId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appCommerceType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 32, appCommerceType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appCommerceDomain_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 33, appCommerceDomain_);
+    }
+    if (enableMemberHash_ != false) {
+      output.writeBool(34, enableMemberHash_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultEmailDomainId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 35, defaultEmailDomainId_);
+    }
+    if (enableMfa_ != false) {
+      output.writeBool(36, enableMfa_);
+    }
+    if (hideAppMessenger_ != false) {
+      output.writeBool(37, hideAppMessenger_);
+    }
+    if (bizCertificated_ != false) {
+      output.writeBool(38, bizCertificated_);
+    }
+    if (mktAlimtalkAllowed_ != false) {
+      output.writeBool(39, mktAlimtalkAllowed_);
+    }
+    for (int i = 0; i < bizCertificatedCountries_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 40, bizCertificatedCountries_.getRaw(i));
+    }
+    if (enableFrontAlfV2_ != false) {
+      output.writeBool(41, enableFrontAlfV2_);
+    }
+    if (blocked_ != false) {
+      output.writeBool(42, blocked_);
+    }
+    if (working_ != false) {
+      output.writeBool(43, working_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(avatarUrl_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 44, avatarUrl_);
+    }
+    if (expectedResponseDelay_ != io.channel.api.proto.pub.coreapi.model.ResponseDelayType.RESPONSE_DELAY_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(45, expectedResponseDelay_);
+    }
+    if (inOperation_ != false) {
+      output.writeBool(46, inOperation_);
+    }
+    if (operationTimeScheduling_ != false) {
+      output.writeBool(47, operationTimeScheduling_);
+    }
+    if (nextWorkingTime_ != null) {
+      output.writeMessage(48, getNextWorkingTime());
+    }
+    if (nextAwayTime_ != null) {
+      output.writeMessage(49, getNextAwayTime());
+    }
+    for (int i = 0; i < operationTimeRanges_.size(); i++) {
+      output.writeMessage(50, operationTimeRanges_.get(i));
+    }
+    if (awayOption_ != io.channel.api.proto.pub.coreapi.model.ChannelAwayOption.CHANNEL_AWAY_OPTION_UNSPECIFIED.getNumber()) {
+      output.writeEnum(51, awayOption_);
+    }
+    if (blockReplyingAfterClosed_ != false) {
+      output.writeBool(52, blockReplyingAfterClosed_);
+    }
+    if (blockReplyingAfterClosedTime_ != null) {
+      output.writeMessage(53, getBlockReplyingAfterClosedTime());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(borderColor_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 54, borderColor_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gradientColor_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 55, gradientColor_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(textColor_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 56, textColor_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(initial_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 57, initial_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(systemDomain_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 58, systemDomain_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pluginIconColor_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 59, pluginIconColor_);
+    }
+    if (java.lang.Float.floatToRawIntBits(brightness_) != 0) {
+      output.writeFloat(60, brightness_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coverImageUrl_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 61, coverImageUrl_);
+    }
+    if (coverImageBright_ != false) {
+      output.writeBool(62, coverImageBright_);
     }
     unknownFields.writeTo(output);
   }
@@ -3187,134 +3159,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
-    }
-    for (java.util.Map.Entry<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> entry
-         : internalGetNameDescI18NMap().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
-      nameDescI18NMap__ = NameDescI18NMapDefaultEntryHolder.defaultEntry.newBuilderForType()
-          .setKey(entry.getKey())
-          .setValue(entry.getValue())
-          .build();
-      size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, nameDescI18NMap__);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(avatarUrl_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, avatarUrl_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(color_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, color_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(botName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, botName_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(country_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, country_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domain_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, domain_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(systemDomain_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, systemDomain_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(homepageUrl_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, homepageUrl_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phoneNumber_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, phoneNumber_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeZone_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, timeZone_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(utcOffset_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, utcOffset_);
-    }
-    if (state_ != io.channel.api.proto.pub.coreapi.model.ChannelState.CHANNEL_STATE_UNSPECIFIED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(16, state_);
-    }
-    if (expectedResponseDelay_ != io.channel.api.proto.pub.coreapi.model.ResponseDelayType.RESPONSE_DELAY_TYPE_UNSPECIFIED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(17, expectedResponseDelay_);
-    }
-    if (awayOption_ != io.channel.api.proto.pub.coreapi.model.ChannelAwayOption.CHANNEL_AWAY_OPTION_UNSPECIFIED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(18, awayOption_);
-    }
-    if (inOperation_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(19, inOperation_);
-    }
-    if (working_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(20, working_);
-    }
-    if (followUpTexting_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(23, followUpTexting_);
-    }
-    if (followUpEmail_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(24, followUpEmail_);
-    }
-    if (followUpAskName_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(25, followUpAskName_);
-    }
-    if (followUpMandatory_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(26, followUpMandatory_);
-    }
-    if (hideAppMessenger_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(27, hideAppMessenger_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultPluginId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(28, defaultPluginId_);
-    }
-    if (createdAt_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(29, getCreatedAt());
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(borderColor_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(35, borderColor_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gradientColor_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(36, gradientColor_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(textColor_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(37, textColor_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(initial_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(39, initial_);
-    }
-    if (operationTimeScheduling_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(40, operationTimeScheduling_);
-    }
-    for (int i = 0; i < operationTimeRanges_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(41, operationTimeRanges_.get(i));
-    }
-    if (nextOperatingAt_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(42, getNextOperatingAt());
-    }
-    if (blockReplyingAfterClosed_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(45, blockReplyingAfterClosed_);
-    }
-    if (blockReplyingAfterClosedTime_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(46, getBlockReplyingAfterClosedTime());
-    }
     if (welcomeMessage_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(47, getWelcomeMessage());
+        .computeMessageSize(2, getWelcomeMessage());
     }
     for (java.util.Map.Entry<java.lang.String, com.google.protobuf.Struct> entry
          : internalGetWelcomeMessageI18NMap().getMap().entrySet()) {
@@ -3324,97 +3171,226 @@ private static final long serialVersionUID = 0L;
           .setValue(entry.getValue())
           .build();
       size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(48, welcomeMessageI18NMap__);
+          .computeMessageSize(3, welcomeMessageI18NMap__);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userInfoUrl_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(49, userInfoUrl_);
-    }
-    if (trafficSource_ != null) {
+    if (createdAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(50, getTrafficSource());
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(billAccountId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(51, billAccountId_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bizGrade_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(52, bizGrade_);
-    }
-    if (sourceSurvey_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(53, getSourceSurvey());
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bizCategory_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(54, bizCategory_);
-    }
-    if (staffs_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(55, staffs_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appCommerceId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(56, appCommerceId_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appCommerceType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(57, appCommerceType_);
-    }
-    if (enableMemberHash_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(58, enableMemberHash_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultEmailDomainId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(59, defaultEmailDomainId_);
-    }
-    if (enableMfa_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(60, enableMfa_);
-    }
-    if (blocked_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(61, blocked_);
-    }
-    if (bright_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(62, bright_);
-    }
-    if (usingFollowUp_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(63, usingFollowUp_);
-    }
-    if (java.lang.Float.floatToRawIntBits(brightness_) != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeFloatSize(64, brightness_);
-    }
-    if (coverImageBright_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(65, coverImageBright_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coverImageColor_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(66, coverImageColor_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coverImageUrl_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(67, coverImageUrl_);
-    }
-    if (disableNewChatButton_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(68, disableNewChatButton_);
-    }
-    if (nextAwayTime_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(69, getNextAwayTime());
-    }
-    if (nextWorkingTime_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(70, getNextWorkingTime());
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pluginIconColor_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(71, pluginIconColor_);
-    }
-    if (showOperatorProfile_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(72, showOperatorProfile_);
+        .computeMessageSize(4, getCreatedAt());
     }
     if (updatedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(73, getUpdatedAt());
+        .computeMessageSize(5, getUpdatedAt());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userInfoUrl_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, userInfoUrl_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, name_);
+    }
+    for (java.util.Map.Entry<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> entry
+         : internalGetNameDescI18NMap().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
+      nameDescI18NMap__ = NameDescI18NMapDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, nameDescI18NMap__);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coverImageColor_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, coverImageColor_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(botName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, botName_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(color_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, color_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, description_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(country_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, country_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domain_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, domain_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultDomain_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, defaultDomain_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(homepageUrl_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, homepageUrl_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phoneNumber_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, phoneNumber_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeZone_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, timeZone_);
+    }
+    if (showOperatorProfile_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(19, showOperatorProfile_);
+    }
+    if (disableNewChatButton_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(20, disableNewChatButton_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(indebtedDueDate_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(21, indebtedDueDate_);
+    }
+    if (followUpTexting_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(22, followUpTexting_);
+    }
+    if (followUpEmail_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(23, followUpEmail_);
+    }
+    if (followUpAskName_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(24, followUpAskName_);
+    }
+    if (followUpMandatory_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(25, followUpMandatory_);
+    }
+    if (state_ != io.channel.api.proto.pub.coreapi.model.ChannelState.CHANNEL_STATE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(26, state_);
+    }
+    if (entVerified_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(27, entVerified_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultPluginId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(28, defaultPluginId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bizCategory_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(29, bizCategory_);
+    }
+    if (staffs_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(30, staffs_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appCommerceId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(31, appCommerceId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appCommerceType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(32, appCommerceType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appCommerceDomain_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(33, appCommerceDomain_);
+    }
+    if (enableMemberHash_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(34, enableMemberHash_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultEmailDomainId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(35, defaultEmailDomainId_);
+    }
+    if (enableMfa_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(36, enableMfa_);
+    }
+    if (hideAppMessenger_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(37, hideAppMessenger_);
+    }
+    if (bizCertificated_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(38, bizCertificated_);
+    }
+    if (mktAlimtalkAllowed_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(39, mktAlimtalkAllowed_);
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < bizCertificatedCountries_.size(); i++) {
+        dataSize += computeStringSizeNoTag(bizCertificatedCountries_.getRaw(i));
+      }
+      size += dataSize;
+      size += 2 * getBizCertificatedCountriesList().size();
+    }
+    if (enableFrontAlfV2_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(41, enableFrontAlfV2_);
+    }
+    if (blocked_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(42, blocked_);
+    }
+    if (working_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(43, working_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(avatarUrl_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(44, avatarUrl_);
+    }
+    if (expectedResponseDelay_ != io.channel.api.proto.pub.coreapi.model.ResponseDelayType.RESPONSE_DELAY_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(45, expectedResponseDelay_);
+    }
+    if (inOperation_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(46, inOperation_);
+    }
+    if (operationTimeScheduling_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(47, operationTimeScheduling_);
+    }
+    if (nextWorkingTime_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(48, getNextWorkingTime());
+    }
+    if (nextAwayTime_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(49, getNextAwayTime());
+    }
+    for (int i = 0; i < operationTimeRanges_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(50, operationTimeRanges_.get(i));
+    }
+    if (awayOption_ != io.channel.api.proto.pub.coreapi.model.ChannelAwayOption.CHANNEL_AWAY_OPTION_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(51, awayOption_);
+    }
+    if (blockReplyingAfterClosed_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(52, blockReplyingAfterClosed_);
+    }
+    if (blockReplyingAfterClosedTime_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(53, getBlockReplyingAfterClosedTime());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(borderColor_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(54, borderColor_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gradientColor_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(55, gradientColor_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(textColor_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(56, textColor_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(initial_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(57, initial_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(systemDomain_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(58, systemDomain_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pluginIconColor_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(59, pluginIconColor_);
+    }
+    if (java.lang.Float.floatToRawIntBits(brightness_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeFloatSize(60, brightness_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coverImageUrl_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(61, coverImageUrl_);
+    }
+    if (coverImageBright_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(62, coverImageBright_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -3433,39 +3409,55 @@ private static final long serialVersionUID = 0L;
 
     if (!getId()
         .equals(other.getId())) return false;
+    if (hasWelcomeMessage() != other.hasWelcomeMessage()) return false;
+    if (hasWelcomeMessage()) {
+      if (!getWelcomeMessage()
+          .equals(other.getWelcomeMessage())) return false;
+    }
+    if (!internalGetWelcomeMessageI18NMap().equals(
+        other.internalGetWelcomeMessageI18NMap())) return false;
+    if (hasCreatedAt() != other.hasCreatedAt()) return false;
+    if (hasCreatedAt()) {
+      if (!getCreatedAt()
+          .equals(other.getCreatedAt())) return false;
+    }
+    if (hasUpdatedAt() != other.hasUpdatedAt()) return false;
+    if (hasUpdatedAt()) {
+      if (!getUpdatedAt()
+          .equals(other.getUpdatedAt())) return false;
+    }
+    if (!getUserInfoUrl()
+        .equals(other.getUserInfoUrl())) return false;
     if (!getName()
         .equals(other.getName())) return false;
-    if (!getDescription()
-        .equals(other.getDescription())) return false;
     if (!internalGetNameDescI18NMap().equals(
         other.internalGetNameDescI18NMap())) return false;
-    if (!getAvatarUrl()
-        .equals(other.getAvatarUrl())) return false;
-    if (!getColor()
-        .equals(other.getColor())) return false;
+    if (!getCoverImageColor()
+        .equals(other.getCoverImageColor())) return false;
     if (!getBotName()
         .equals(other.getBotName())) return false;
+    if (!getColor()
+        .equals(other.getColor())) return false;
+    if (!getDescription()
+        .equals(other.getDescription())) return false;
     if (!getCountry()
         .equals(other.getCountry())) return false;
     if (!getDomain()
         .equals(other.getDomain())) return false;
-    if (!getSystemDomain()
-        .equals(other.getSystemDomain())) return false;
+    if (!getDefaultDomain()
+        .equals(other.getDefaultDomain())) return false;
     if (!getHomepageUrl()
         .equals(other.getHomepageUrl())) return false;
     if (!getPhoneNumber()
         .equals(other.getPhoneNumber())) return false;
     if (!getTimeZone()
         .equals(other.getTimeZone())) return false;
-    if (!getUtcOffset()
-        .equals(other.getUtcOffset())) return false;
-    if (state_ != other.state_) return false;
-    if (expectedResponseDelay_ != other.expectedResponseDelay_) return false;
-    if (awayOption_ != other.awayOption_) return false;
-    if (getInOperation()
-        != other.getInOperation()) return false;
-    if (getWorking()
-        != other.getWorking()) return false;
+    if (getShowOperatorProfile()
+        != other.getShowOperatorProfile()) return false;
+    if (getDisableNewChatButton()
+        != other.getDisableNewChatButton()) return false;
+    if (!getIndebtedDueDate()
+        .equals(other.getIndebtedDueDate())) return false;
     if (getFollowUpTexting()
         != other.getFollowUpTexting()) return false;
     if (getFollowUpEmail()
@@ -3474,14 +3466,67 @@ private static final long serialVersionUID = 0L;
         != other.getFollowUpAskName()) return false;
     if (getFollowUpMandatory()
         != other.getFollowUpMandatory()) return false;
-    if (getHideAppMessenger()
-        != other.getHideAppMessenger()) return false;
+    if (state_ != other.state_) return false;
+    if (getEntVerified()
+        != other.getEntVerified()) return false;
     if (!getDefaultPluginId()
         .equals(other.getDefaultPluginId())) return false;
-    if (hasCreatedAt() != other.hasCreatedAt()) return false;
-    if (hasCreatedAt()) {
-      if (!getCreatedAt()
-          .equals(other.getCreatedAt())) return false;
+    if (!getBizCategory()
+        .equals(other.getBizCategory())) return false;
+    if (getStaffs()
+        != other.getStaffs()) return false;
+    if (!getAppCommerceId()
+        .equals(other.getAppCommerceId())) return false;
+    if (!getAppCommerceType()
+        .equals(other.getAppCommerceType())) return false;
+    if (!getAppCommerceDomain()
+        .equals(other.getAppCommerceDomain())) return false;
+    if (getEnableMemberHash()
+        != other.getEnableMemberHash()) return false;
+    if (!getDefaultEmailDomainId()
+        .equals(other.getDefaultEmailDomainId())) return false;
+    if (getEnableMfa()
+        != other.getEnableMfa()) return false;
+    if (getHideAppMessenger()
+        != other.getHideAppMessenger()) return false;
+    if (getBizCertificated()
+        != other.getBizCertificated()) return false;
+    if (getMktAlimtalkAllowed()
+        != other.getMktAlimtalkAllowed()) return false;
+    if (!getBizCertificatedCountriesList()
+        .equals(other.getBizCertificatedCountriesList())) return false;
+    if (getEnableFrontAlfV2()
+        != other.getEnableFrontAlfV2()) return false;
+    if (getBlocked()
+        != other.getBlocked()) return false;
+    if (getWorking()
+        != other.getWorking()) return false;
+    if (!getAvatarUrl()
+        .equals(other.getAvatarUrl())) return false;
+    if (expectedResponseDelay_ != other.expectedResponseDelay_) return false;
+    if (getInOperation()
+        != other.getInOperation()) return false;
+    if (getOperationTimeScheduling()
+        != other.getOperationTimeScheduling()) return false;
+    if (hasNextWorkingTime() != other.hasNextWorkingTime()) return false;
+    if (hasNextWorkingTime()) {
+      if (!getNextWorkingTime()
+          .equals(other.getNextWorkingTime())) return false;
+    }
+    if (hasNextAwayTime() != other.hasNextAwayTime()) return false;
+    if (hasNextAwayTime()) {
+      if (!getNextAwayTime()
+          .equals(other.getNextAwayTime())) return false;
+    }
+    if (!getOperationTimeRangesList()
+        .equals(other.getOperationTimeRangesList())) return false;
+    if (awayOption_ != other.awayOption_) return false;
+    if (getBlockReplyingAfterClosed()
+        != other.getBlockReplyingAfterClosed()) return false;
+    if (hasBlockReplyingAfterClosedTime() != other.hasBlockReplyingAfterClosedTime()) return false;
+    if (hasBlockReplyingAfterClosedTime()) {
+      if (!getBlockReplyingAfterClosedTime()
+          .equals(other.getBlockReplyingAfterClosedTime())) return false;
     }
     if (!getBorderColor()
         .equals(other.getBorderColor())) return false;
@@ -3491,95 +3536,17 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTextColor())) return false;
     if (!getInitial()
         .equals(other.getInitial())) return false;
-    if (getOperationTimeScheduling()
-        != other.getOperationTimeScheduling()) return false;
-    if (!getOperationTimeRangesList()
-        .equals(other.getOperationTimeRangesList())) return false;
-    if (hasNextOperatingAt() != other.hasNextOperatingAt()) return false;
-    if (hasNextOperatingAt()) {
-      if (!getNextOperatingAt()
-          .equals(other.getNextOperatingAt())) return false;
-    }
-    if (getBlockReplyingAfterClosed()
-        != other.getBlockReplyingAfterClosed()) return false;
-    if (hasBlockReplyingAfterClosedTime() != other.hasBlockReplyingAfterClosedTime()) return false;
-    if (hasBlockReplyingAfterClosedTime()) {
-      if (!getBlockReplyingAfterClosedTime()
-          .equals(other.getBlockReplyingAfterClosedTime())) return false;
-    }
-    if (hasWelcomeMessage() != other.hasWelcomeMessage()) return false;
-    if (hasWelcomeMessage()) {
-      if (!getWelcomeMessage()
-          .equals(other.getWelcomeMessage())) return false;
-    }
-    if (!internalGetWelcomeMessageI18NMap().equals(
-        other.internalGetWelcomeMessageI18NMap())) return false;
-    if (!getUserInfoUrl()
-        .equals(other.getUserInfoUrl())) return false;
-    if (hasTrafficSource() != other.hasTrafficSource()) return false;
-    if (hasTrafficSource()) {
-      if (!getTrafficSource()
-          .equals(other.getTrafficSource())) return false;
-    }
-    if (!getBillAccountId()
-        .equals(other.getBillAccountId())) return false;
-    if (!getBizGrade()
-        .equals(other.getBizGrade())) return false;
-    if (hasSourceSurvey() != other.hasSourceSurvey()) return false;
-    if (hasSourceSurvey()) {
-      if (!getSourceSurvey()
-          .equals(other.getSourceSurvey())) return false;
-    }
-    if (!getBizCategory()
-        .equals(other.getBizCategory())) return false;
-    if (getStaffs()
-        != other.getStaffs()) return false;
-    if (!getAppCommerceId()
-        .equals(other.getAppCommerceId())) return false;
-    if (!getAppCommerceType()
-        .equals(other.getAppCommerceType())) return false;
-    if (getEnableMemberHash()
-        != other.getEnableMemberHash()) return false;
-    if (!getDefaultEmailDomainId()
-        .equals(other.getDefaultEmailDomainId())) return false;
-    if (getEnableMfa()
-        != other.getEnableMfa()) return false;
-    if (getBlocked()
-        != other.getBlocked()) return false;
-    if (getBright()
-        != other.getBright()) return false;
-    if (getUsingFollowUp()
-        != other.getUsingFollowUp()) return false;
+    if (!getSystemDomain()
+        .equals(other.getSystemDomain())) return false;
+    if (!getPluginIconColor()
+        .equals(other.getPluginIconColor())) return false;
     if (java.lang.Float.floatToIntBits(getBrightness())
         != java.lang.Float.floatToIntBits(
             other.getBrightness())) return false;
-    if (getCoverImageBright()
-        != other.getCoverImageBright()) return false;
-    if (!getCoverImageColor()
-        .equals(other.getCoverImageColor())) return false;
     if (!getCoverImageUrl()
         .equals(other.getCoverImageUrl())) return false;
-    if (getDisableNewChatButton()
-        != other.getDisableNewChatButton()) return false;
-    if (hasNextAwayTime() != other.hasNextAwayTime()) return false;
-    if (hasNextAwayTime()) {
-      if (!getNextAwayTime()
-          .equals(other.getNextAwayTime())) return false;
-    }
-    if (hasNextWorkingTime() != other.hasNextWorkingTime()) return false;
-    if (hasNextWorkingTime()) {
-      if (!getNextWorkingTime()
-          .equals(other.getNextWorkingTime())) return false;
-    }
-    if (!getPluginIconColor()
-        .equals(other.getPluginIconColor())) return false;
-    if (getShowOperatorProfile()
-        != other.getShowOperatorProfile()) return false;
-    if (hasUpdatedAt() != other.hasUpdatedAt()) return false;
-    if (hasUpdatedAt()) {
-      if (!getUpdatedAt()
-          .equals(other.getUpdatedAt())) return false;
-    }
+    if (getCoverImageBright()
+        != other.getCoverImageBright()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -3593,46 +3560,58 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId().hashCode();
+    if (hasWelcomeMessage()) {
+      hash = (37 * hash) + WELCOME_MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getWelcomeMessage().hashCode();
+    }
+    if (!internalGetWelcomeMessageI18NMap().getMap().isEmpty()) {
+      hash = (37 * hash) + WELCOME_MESSAGE_I18N_MAP_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetWelcomeMessageI18NMap().hashCode();
+    }
+    if (hasCreatedAt()) {
+      hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
+      hash = (53 * hash) + getCreatedAt().hashCode();
+    }
+    if (hasUpdatedAt()) {
+      hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
+      hash = (53 * hash) + getUpdatedAt().hashCode();
+    }
+    hash = (37 * hash) + USER_INFO_URL_FIELD_NUMBER;
+    hash = (53 * hash) + getUserInfoUrl().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
-    hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-    hash = (53 * hash) + getDescription().hashCode();
     if (!internalGetNameDescI18NMap().getMap().isEmpty()) {
       hash = (37 * hash) + NAME_DESC_I18N_MAP_FIELD_NUMBER;
       hash = (53 * hash) + internalGetNameDescI18NMap().hashCode();
     }
-    hash = (37 * hash) + AVATAR_URL_FIELD_NUMBER;
-    hash = (53 * hash) + getAvatarUrl().hashCode();
-    hash = (37 * hash) + COLOR_FIELD_NUMBER;
-    hash = (53 * hash) + getColor().hashCode();
+    hash = (37 * hash) + COVER_IMAGE_COLOR_FIELD_NUMBER;
+    hash = (53 * hash) + getCoverImageColor().hashCode();
     hash = (37 * hash) + BOT_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getBotName().hashCode();
+    hash = (37 * hash) + COLOR_FIELD_NUMBER;
+    hash = (53 * hash) + getColor().hashCode();
+    hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+    hash = (53 * hash) + getDescription().hashCode();
     hash = (37 * hash) + COUNTRY_FIELD_NUMBER;
     hash = (53 * hash) + getCountry().hashCode();
     hash = (37 * hash) + DOMAIN_FIELD_NUMBER;
     hash = (53 * hash) + getDomain().hashCode();
-    hash = (37 * hash) + SYSTEM_DOMAIN_FIELD_NUMBER;
-    hash = (53 * hash) + getSystemDomain().hashCode();
+    hash = (37 * hash) + DEFAULT_DOMAIN_FIELD_NUMBER;
+    hash = (53 * hash) + getDefaultDomain().hashCode();
     hash = (37 * hash) + HOMEPAGE_URL_FIELD_NUMBER;
     hash = (53 * hash) + getHomepageUrl().hashCode();
     hash = (37 * hash) + PHONE_NUMBER_FIELD_NUMBER;
     hash = (53 * hash) + getPhoneNumber().hashCode();
     hash = (37 * hash) + TIME_ZONE_FIELD_NUMBER;
     hash = (53 * hash) + getTimeZone().hashCode();
-    hash = (37 * hash) + UTC_OFFSET_FIELD_NUMBER;
-    hash = (53 * hash) + getUtcOffset().hashCode();
-    hash = (37 * hash) + STATE_FIELD_NUMBER;
-    hash = (53 * hash) + state_;
-    hash = (37 * hash) + EXPECTED_RESPONSE_DELAY_FIELD_NUMBER;
-    hash = (53 * hash) + expectedResponseDelay_;
-    hash = (37 * hash) + AWAY_OPTION_FIELD_NUMBER;
-    hash = (53 * hash) + awayOption_;
-    hash = (37 * hash) + IN_OPERATION_FIELD_NUMBER;
+    hash = (37 * hash) + SHOW_OPERATOR_PROFILE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getInOperation());
-    hash = (37 * hash) + WORKING_FIELD_NUMBER;
+        getShowOperatorProfile());
+    hash = (37 * hash) + DISABLE_NEW_CHAT_BUTTON_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getWorking());
+        getDisableNewChatButton());
+    hash = (37 * hash) + INDEBTED_DUE_DATE_FIELD_NUMBER;
+    hash = (53 * hash) + getIndebtedDueDate().hashCode();
     hash = (37 * hash) + FOLLOW_UP_TEXTING_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getFollowUpTexting());
@@ -3645,14 +3624,83 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + FOLLOW_UP_MANDATORY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getFollowUpMandatory());
+    hash = (37 * hash) + STATE_FIELD_NUMBER;
+    hash = (53 * hash) + state_;
+    hash = (37 * hash) + ENT_VERIFIED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getEntVerified());
+    hash = (37 * hash) + DEFAULT_PLUGIN_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getDefaultPluginId().hashCode();
+    hash = (37 * hash) + BIZ_CATEGORY_FIELD_NUMBER;
+    hash = (53 * hash) + getBizCategory().hashCode();
+    hash = (37 * hash) + STAFFS_FIELD_NUMBER;
+    hash = (53 * hash) + getStaffs();
+    hash = (37 * hash) + APP_COMMERCE_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getAppCommerceId().hashCode();
+    hash = (37 * hash) + APP_COMMERCE_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getAppCommerceType().hashCode();
+    hash = (37 * hash) + APP_COMMERCE_DOMAIN_FIELD_NUMBER;
+    hash = (53 * hash) + getAppCommerceDomain().hashCode();
+    hash = (37 * hash) + ENABLE_MEMBER_HASH_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getEnableMemberHash());
+    hash = (37 * hash) + DEFAULT_EMAIL_DOMAIN_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getDefaultEmailDomainId().hashCode();
+    hash = (37 * hash) + ENABLE_MFA_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getEnableMfa());
     hash = (37 * hash) + HIDE_APP_MESSENGER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getHideAppMessenger());
-    hash = (37 * hash) + DEFAULT_PLUGIN_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getDefaultPluginId().hashCode();
-    if (hasCreatedAt()) {
-      hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
-      hash = (53 * hash) + getCreatedAt().hashCode();
+    hash = (37 * hash) + BIZ_CERTIFICATED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getBizCertificated());
+    hash = (37 * hash) + MKT_ALIMTALK_ALLOWED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getMktAlimtalkAllowed());
+    if (getBizCertificatedCountriesCount() > 0) {
+      hash = (37 * hash) + BIZ_CERTIFICATED_COUNTRIES_FIELD_NUMBER;
+      hash = (53 * hash) + getBizCertificatedCountriesList().hashCode();
+    }
+    hash = (37 * hash) + ENABLE_FRONT_ALF_V2_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getEnableFrontAlfV2());
+    hash = (37 * hash) + BLOCKED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getBlocked());
+    hash = (37 * hash) + WORKING_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getWorking());
+    hash = (37 * hash) + AVATAR_URL_FIELD_NUMBER;
+    hash = (53 * hash) + getAvatarUrl().hashCode();
+    hash = (37 * hash) + EXPECTED_RESPONSE_DELAY_FIELD_NUMBER;
+    hash = (53 * hash) + expectedResponseDelay_;
+    hash = (37 * hash) + IN_OPERATION_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getInOperation());
+    hash = (37 * hash) + OPERATION_TIME_SCHEDULING_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getOperationTimeScheduling());
+    if (hasNextWorkingTime()) {
+      hash = (37 * hash) + NEXT_WORKING_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getNextWorkingTime().hashCode();
+    }
+    if (hasNextAwayTime()) {
+      hash = (37 * hash) + NEXT_AWAY_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getNextAwayTime().hashCode();
+    }
+    if (getOperationTimeRangesCount() > 0) {
+      hash = (37 * hash) + OPERATION_TIME_RANGES_FIELD_NUMBER;
+      hash = (53 * hash) + getOperationTimeRangesList().hashCode();
+    }
+    hash = (37 * hash) + AWAY_OPTION_FIELD_NUMBER;
+    hash = (53 * hash) + awayOption_;
+    hash = (37 * hash) + BLOCK_REPLYING_AFTER_CLOSED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getBlockReplyingAfterClosed());
+    if (hasBlockReplyingAfterClosedTime()) {
+      hash = (37 * hash) + BLOCK_REPLYING_AFTER_CLOSED_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getBlockReplyingAfterClosedTime().hashCode();
     }
     hash = (37 * hash) + BORDER_COLOR_FIELD_NUMBER;
     hash = (53 * hash) + getBorderColor().hashCode();
@@ -3662,101 +3710,18 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getTextColor().hashCode();
     hash = (37 * hash) + INITIAL_FIELD_NUMBER;
     hash = (53 * hash) + getInitial().hashCode();
-    hash = (37 * hash) + OPERATION_TIME_SCHEDULING_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getOperationTimeScheduling());
-    if (getOperationTimeRangesCount() > 0) {
-      hash = (37 * hash) + OPERATION_TIME_RANGES_FIELD_NUMBER;
-      hash = (53 * hash) + getOperationTimeRangesList().hashCode();
-    }
-    if (hasNextOperatingAt()) {
-      hash = (37 * hash) + NEXT_OPERATING_AT_FIELD_NUMBER;
-      hash = (53 * hash) + getNextOperatingAt().hashCode();
-    }
-    hash = (37 * hash) + BLOCK_REPLYING_AFTER_CLOSED_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getBlockReplyingAfterClosed());
-    if (hasBlockReplyingAfterClosedTime()) {
-      hash = (37 * hash) + BLOCK_REPLYING_AFTER_CLOSED_TIME_FIELD_NUMBER;
-      hash = (53 * hash) + getBlockReplyingAfterClosedTime().hashCode();
-    }
-    if (hasWelcomeMessage()) {
-      hash = (37 * hash) + WELCOME_MESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getWelcomeMessage().hashCode();
-    }
-    if (!internalGetWelcomeMessageI18NMap().getMap().isEmpty()) {
-      hash = (37 * hash) + WELCOME_MESSAGE_I18N_MAP_FIELD_NUMBER;
-      hash = (53 * hash) + internalGetWelcomeMessageI18NMap().hashCode();
-    }
-    hash = (37 * hash) + USER_INFO_URL_FIELD_NUMBER;
-    hash = (53 * hash) + getUserInfoUrl().hashCode();
-    if (hasTrafficSource()) {
-      hash = (37 * hash) + TRAFFIC_SOURCE_FIELD_NUMBER;
-      hash = (53 * hash) + getTrafficSource().hashCode();
-    }
-    hash = (37 * hash) + BILL_ACCOUNT_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getBillAccountId().hashCode();
-    hash = (37 * hash) + BIZ_GRADE_FIELD_NUMBER;
-    hash = (53 * hash) + getBizGrade().hashCode();
-    if (hasSourceSurvey()) {
-      hash = (37 * hash) + SOURCE_SURVEY_FIELD_NUMBER;
-      hash = (53 * hash) + getSourceSurvey().hashCode();
-    }
-    hash = (37 * hash) + BIZ_CATEGORY_FIELD_NUMBER;
-    hash = (53 * hash) + getBizCategory().hashCode();
-    hash = (37 * hash) + STAFFS_FIELD_NUMBER;
-    hash = (53 * hash) + getStaffs();
-    hash = (37 * hash) + APP_COMMERCE_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getAppCommerceId().hashCode();
-    hash = (37 * hash) + APP_COMMERCE_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getAppCommerceType().hashCode();
-    hash = (37 * hash) + ENABLE_MEMBER_HASH_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getEnableMemberHash());
-    hash = (37 * hash) + DEFAULT_EMAIL_DOMAIN_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getDefaultEmailDomainId().hashCode();
-    hash = (37 * hash) + ENABLE_MFA_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getEnableMfa());
-    hash = (37 * hash) + BLOCKED_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getBlocked());
-    hash = (37 * hash) + BRIGHT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getBright());
-    hash = (37 * hash) + USING_FOLLOW_UP_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getUsingFollowUp());
+    hash = (37 * hash) + SYSTEM_DOMAIN_FIELD_NUMBER;
+    hash = (53 * hash) + getSystemDomain().hashCode();
+    hash = (37 * hash) + PLUGIN_ICON_COLOR_FIELD_NUMBER;
+    hash = (53 * hash) + getPluginIconColor().hashCode();
     hash = (37 * hash) + BRIGHTNESS_FIELD_NUMBER;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getBrightness());
+    hash = (37 * hash) + COVER_IMAGE_URL_FIELD_NUMBER;
+    hash = (53 * hash) + getCoverImageUrl().hashCode();
     hash = (37 * hash) + COVER_IMAGE_BRIGHT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getCoverImageBright());
-    hash = (37 * hash) + COVER_IMAGE_COLOR_FIELD_NUMBER;
-    hash = (53 * hash) + getCoverImageColor().hashCode();
-    hash = (37 * hash) + COVER_IMAGE_URL_FIELD_NUMBER;
-    hash = (53 * hash) + getCoverImageUrl().hashCode();
-    hash = (37 * hash) + DISABLE_NEW_CHAT_BUTTON_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getDisableNewChatButton());
-    if (hasNextAwayTime()) {
-      hash = (37 * hash) + NEXT_AWAY_TIME_FIELD_NUMBER;
-      hash = (53 * hash) + getNextAwayTime().hashCode();
-    }
-    if (hasNextWorkingTime()) {
-      hash = (37 * hash) + NEXT_WORKING_TIME_FIELD_NUMBER;
-      hash = (53 * hash) + getNextWorkingTime().hashCode();
-    }
-    hash = (37 * hash) + PLUGIN_ICON_COLOR_FIELD_NUMBER;
-    hash = (53 * hash) + getPluginIconColor().hashCode();
-    hash = (37 * hash) + SHOW_OPERATOR_PROFILE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getShowOperatorProfile());
-    if (hasUpdatedAt()) {
-      hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
-      hash = (53 * hash) + getUpdatedAt().hashCode();
-    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -3872,10 +3837,10 @@ private static final long serialVersionUID = 0L;
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 4:
-          return internalGetNameDescI18NMap();
-        case 48:
+        case 3:
           return internalGetWelcomeMessageI18NMap();
+        case 8:
+          return internalGetNameDescI18NMap();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -3885,10 +3850,10 @@ private static final long serialVersionUID = 0L;
     protected com.google.protobuf.MapField internalGetMutableMapField(
         int number) {
       switch (number) {
-        case 4:
-          return internalGetMutableNameDescI18NMap();
-        case 48:
+        case 3:
           return internalGetMutableWelcomeMessageI18NMap();
+        case 8:
+          return internalGetMutableNameDescI18NMap();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -3923,22 +3888,43 @@ private static final long serialVersionUID = 0L;
       super.clear();
       id_ = "";
 
+      if (welcomeMessageBuilder_ == null) {
+        welcomeMessage_ = null;
+      } else {
+        welcomeMessage_ = null;
+        welcomeMessageBuilder_ = null;
+      }
+      internalGetMutableWelcomeMessageI18NMap().clear();
+      if (createdAtBuilder_ == null) {
+        createdAt_ = null;
+      } else {
+        createdAt_ = null;
+        createdAtBuilder_ = null;
+      }
+      if (updatedAtBuilder_ == null) {
+        updatedAt_ = null;
+      } else {
+        updatedAt_ = null;
+        updatedAtBuilder_ = null;
+      }
+      userInfoUrl_ = "";
+
       name_ = "";
 
-      description_ = "";
-
       internalGetMutableNameDescI18NMap().clear();
-      avatarUrl_ = "";
+      coverImageColor_ = "";
+
+      botName_ = "";
 
       color_ = "";
 
-      botName_ = "";
+      description_ = "";
 
       country_ = "";
 
       domain_ = "";
 
-      systemDomain_ = "";
+      defaultDomain_ = "";
 
       homepageUrl_ = "";
 
@@ -3946,17 +3932,11 @@ private static final long serialVersionUID = 0L;
 
       timeZone_ = "";
 
-      utcOffset_ = "";
+      showOperatorProfile_ = false;
 
-      state_ = 0;
+      disableNewChatButton_ = false;
 
-      expectedResponseDelay_ = 0;
-
-      awayOption_ = 0;
-
-      inOperation_ = false;
-
-      working_ = false;
+      indebtedDueDate_ = "";
 
       followUpTexting_ = false;
 
@@ -3966,15 +3946,77 @@ private static final long serialVersionUID = 0L;
 
       followUpMandatory_ = false;
 
-      hideAppMessenger_ = false;
+      state_ = 0;
+
+      entVerified_ = false;
 
       defaultPluginId_ = "";
 
-      if (createdAtBuilder_ == null) {
-        createdAt_ = null;
+      bizCategory_ = "";
+
+      staffs_ = 0;
+
+      appCommerceId_ = "";
+
+      appCommerceType_ = "";
+
+      appCommerceDomain_ = "";
+
+      enableMemberHash_ = false;
+
+      defaultEmailDomainId_ = "";
+
+      enableMfa_ = false;
+
+      hideAppMessenger_ = false;
+
+      bizCertificated_ = false;
+
+      mktAlimtalkAllowed_ = false;
+
+      bizCertificatedCountries_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      enableFrontAlfV2_ = false;
+
+      blocked_ = false;
+
+      working_ = false;
+
+      avatarUrl_ = "";
+
+      expectedResponseDelay_ = 0;
+
+      inOperation_ = false;
+
+      operationTimeScheduling_ = false;
+
+      if (nextWorkingTimeBuilder_ == null) {
+        nextWorkingTime_ = null;
       } else {
-        createdAt_ = null;
-        createdAtBuilder_ = null;
+        nextWorkingTime_ = null;
+        nextWorkingTimeBuilder_ = null;
+      }
+      if (nextAwayTimeBuilder_ == null) {
+        nextAwayTime_ = null;
+      } else {
+        nextAwayTime_ = null;
+        nextAwayTimeBuilder_ = null;
+      }
+      if (operationTimeRangesBuilder_ == null) {
+        operationTimeRanges_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      } else {
+        operationTimeRangesBuilder_.clear();
+      }
+      awayOption_ = 0;
+
+      blockReplyingAfterClosed_ = false;
+
+      if (blockReplyingAfterClosedTimeBuilder_ == null) {
+        blockReplyingAfterClosedTime_ = null;
+      } else {
+        blockReplyingAfterClosedTime_ = null;
+        blockReplyingAfterClosedTimeBuilder_ = null;
       }
       borderColor_ = "";
 
@@ -3984,105 +4026,16 @@ private static final long serialVersionUID = 0L;
 
       initial_ = "";
 
-      operationTimeScheduling_ = false;
+      systemDomain_ = "";
 
-      if (operationTimeRangesBuilder_ == null) {
-        operationTimeRanges_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      } else {
-        operationTimeRangesBuilder_.clear();
-      }
-      if (nextOperatingAtBuilder_ == null) {
-        nextOperatingAt_ = null;
-      } else {
-        nextOperatingAt_ = null;
-        nextOperatingAtBuilder_ = null;
-      }
-      blockReplyingAfterClosed_ = false;
-
-      if (blockReplyingAfterClosedTimeBuilder_ == null) {
-        blockReplyingAfterClosedTime_ = null;
-      } else {
-        blockReplyingAfterClosedTime_ = null;
-        blockReplyingAfterClosedTimeBuilder_ = null;
-      }
-      if (welcomeMessageBuilder_ == null) {
-        welcomeMessage_ = null;
-      } else {
-        welcomeMessage_ = null;
-        welcomeMessageBuilder_ = null;
-      }
-      internalGetMutableWelcomeMessageI18NMap().clear();
-      userInfoUrl_ = "";
-
-      if (trafficSourceBuilder_ == null) {
-        trafficSource_ = null;
-      } else {
-        trafficSource_ = null;
-        trafficSourceBuilder_ = null;
-      }
-      billAccountId_ = "";
-
-      bizGrade_ = "";
-
-      if (sourceSurveyBuilder_ == null) {
-        sourceSurvey_ = null;
-      } else {
-        sourceSurvey_ = null;
-        sourceSurveyBuilder_ = null;
-      }
-      bizCategory_ = "";
-
-      staffs_ = 0;
-
-      appCommerceId_ = "";
-
-      appCommerceType_ = "";
-
-      enableMemberHash_ = false;
-
-      defaultEmailDomainId_ = "";
-
-      enableMfa_ = false;
-
-      blocked_ = false;
-
-      bright_ = false;
-
-      usingFollowUp_ = false;
+      pluginIconColor_ = "";
 
       brightness_ = 0F;
 
-      coverImageBright_ = false;
-
-      coverImageColor_ = "";
-
       coverImageUrl_ = "";
 
-      disableNewChatButton_ = false;
+      coverImageBright_ = false;
 
-      if (nextAwayTimeBuilder_ == null) {
-        nextAwayTime_ = null;
-      } else {
-        nextAwayTime_ = null;
-        nextAwayTimeBuilder_ = null;
-      }
-      if (nextWorkingTimeBuilder_ == null) {
-        nextWorkingTime_ = null;
-      } else {
-        nextWorkingTime_ = null;
-        nextWorkingTimeBuilder_ = null;
-      }
-      pluginIconColor_ = "";
-
-      showOperatorProfile_ = false;
-
-      if (updatedAtBuilder_ == null) {
-        updatedAt_ = null;
-      } else {
-        updatedAt_ = null;
-        updatedAtBuilder_ = null;
-      }
       return this;
     }
 
@@ -4111,61 +4064,6 @@ private static final long serialVersionUID = 0L;
       io.channel.api.proto.pub.coreapi.model.Channel result = new io.channel.api.proto.pub.coreapi.model.Channel(this);
       int from_bitField0_ = bitField0_;
       result.id_ = id_;
-      result.name_ = name_;
-      result.description_ = description_;
-      result.nameDescI18NMap_ = internalGetNameDescI18NMap();
-      result.nameDescI18NMap_.makeImmutable();
-      result.avatarUrl_ = avatarUrl_;
-      result.color_ = color_;
-      result.botName_ = botName_;
-      result.country_ = country_;
-      result.domain_ = domain_;
-      result.systemDomain_ = systemDomain_;
-      result.homepageUrl_ = homepageUrl_;
-      result.phoneNumber_ = phoneNumber_;
-      result.timeZone_ = timeZone_;
-      result.utcOffset_ = utcOffset_;
-      result.state_ = state_;
-      result.expectedResponseDelay_ = expectedResponseDelay_;
-      result.awayOption_ = awayOption_;
-      result.inOperation_ = inOperation_;
-      result.working_ = working_;
-      result.followUpTexting_ = followUpTexting_;
-      result.followUpEmail_ = followUpEmail_;
-      result.followUpAskName_ = followUpAskName_;
-      result.followUpMandatory_ = followUpMandatory_;
-      result.hideAppMessenger_ = hideAppMessenger_;
-      result.defaultPluginId_ = defaultPluginId_;
-      if (createdAtBuilder_ == null) {
-        result.createdAt_ = createdAt_;
-      } else {
-        result.createdAt_ = createdAtBuilder_.build();
-      }
-      result.borderColor_ = borderColor_;
-      result.gradientColor_ = gradientColor_;
-      result.textColor_ = textColor_;
-      result.initial_ = initial_;
-      result.operationTimeScheduling_ = operationTimeScheduling_;
-      if (operationTimeRangesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
-          operationTimeRanges_ = java.util.Collections.unmodifiableList(operationTimeRanges_);
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.operationTimeRanges_ = operationTimeRanges_;
-      } else {
-        result.operationTimeRanges_ = operationTimeRangesBuilder_.build();
-      }
-      if (nextOperatingAtBuilder_ == null) {
-        result.nextOperatingAt_ = nextOperatingAt_;
-      } else {
-        result.nextOperatingAt_ = nextOperatingAtBuilder_.build();
-      }
-      result.blockReplyingAfterClosed_ = blockReplyingAfterClosed_;
-      if (blockReplyingAfterClosedTimeBuilder_ == null) {
-        result.blockReplyingAfterClosedTime_ = blockReplyingAfterClosedTime_;
-      } else {
-        result.blockReplyingAfterClosedTime_ = blockReplyingAfterClosedTimeBuilder_.build();
-      }
       if (welcomeMessageBuilder_ == null) {
         result.welcomeMessage_ = welcomeMessage_;
       } else {
@@ -4173,51 +4071,98 @@ private static final long serialVersionUID = 0L;
       }
       result.welcomeMessageI18NMap_ = internalGetWelcomeMessageI18NMap();
       result.welcomeMessageI18NMap_.makeImmutable();
-      result.userInfoUrl_ = userInfoUrl_;
-      if (trafficSourceBuilder_ == null) {
-        result.trafficSource_ = trafficSource_;
+      if (createdAtBuilder_ == null) {
+        result.createdAt_ = createdAt_;
       } else {
-        result.trafficSource_ = trafficSourceBuilder_.build();
+        result.createdAt_ = createdAtBuilder_.build();
       }
-      result.billAccountId_ = billAccountId_;
-      result.bizGrade_ = bizGrade_;
-      if (sourceSurveyBuilder_ == null) {
-        result.sourceSurvey_ = sourceSurvey_;
-      } else {
-        result.sourceSurvey_ = sourceSurveyBuilder_.build();
-      }
-      result.bizCategory_ = bizCategory_;
-      result.staffs_ = staffs_;
-      result.appCommerceId_ = appCommerceId_;
-      result.appCommerceType_ = appCommerceType_;
-      result.enableMemberHash_ = enableMemberHash_;
-      result.defaultEmailDomainId_ = defaultEmailDomainId_;
-      result.enableMfa_ = enableMfa_;
-      result.blocked_ = blocked_;
-      result.bright_ = bright_;
-      result.usingFollowUp_ = usingFollowUp_;
-      result.brightness_ = brightness_;
-      result.coverImageBright_ = coverImageBright_;
-      result.coverImageColor_ = coverImageColor_;
-      result.coverImageUrl_ = coverImageUrl_;
-      result.disableNewChatButton_ = disableNewChatButton_;
-      if (nextAwayTimeBuilder_ == null) {
-        result.nextAwayTime_ = nextAwayTime_;
-      } else {
-        result.nextAwayTime_ = nextAwayTimeBuilder_.build();
-      }
-      if (nextWorkingTimeBuilder_ == null) {
-        result.nextWorkingTime_ = nextWorkingTime_;
-      } else {
-        result.nextWorkingTime_ = nextWorkingTimeBuilder_.build();
-      }
-      result.pluginIconColor_ = pluginIconColor_;
-      result.showOperatorProfile_ = showOperatorProfile_;
       if (updatedAtBuilder_ == null) {
         result.updatedAt_ = updatedAt_;
       } else {
         result.updatedAt_ = updatedAtBuilder_.build();
       }
+      result.userInfoUrl_ = userInfoUrl_;
+      result.name_ = name_;
+      result.nameDescI18NMap_ = internalGetNameDescI18NMap();
+      result.nameDescI18NMap_.makeImmutable();
+      result.coverImageColor_ = coverImageColor_;
+      result.botName_ = botName_;
+      result.color_ = color_;
+      result.description_ = description_;
+      result.country_ = country_;
+      result.domain_ = domain_;
+      result.defaultDomain_ = defaultDomain_;
+      result.homepageUrl_ = homepageUrl_;
+      result.phoneNumber_ = phoneNumber_;
+      result.timeZone_ = timeZone_;
+      result.showOperatorProfile_ = showOperatorProfile_;
+      result.disableNewChatButton_ = disableNewChatButton_;
+      result.indebtedDueDate_ = indebtedDueDate_;
+      result.followUpTexting_ = followUpTexting_;
+      result.followUpEmail_ = followUpEmail_;
+      result.followUpAskName_ = followUpAskName_;
+      result.followUpMandatory_ = followUpMandatory_;
+      result.state_ = state_;
+      result.entVerified_ = entVerified_;
+      result.defaultPluginId_ = defaultPluginId_;
+      result.bizCategory_ = bizCategory_;
+      result.staffs_ = staffs_;
+      result.appCommerceId_ = appCommerceId_;
+      result.appCommerceType_ = appCommerceType_;
+      result.appCommerceDomain_ = appCommerceDomain_;
+      result.enableMemberHash_ = enableMemberHash_;
+      result.defaultEmailDomainId_ = defaultEmailDomainId_;
+      result.enableMfa_ = enableMfa_;
+      result.hideAppMessenger_ = hideAppMessenger_;
+      result.bizCertificated_ = bizCertificated_;
+      result.mktAlimtalkAllowed_ = mktAlimtalkAllowed_;
+      if (((bitField0_ & 0x00000004) != 0)) {
+        bizCertificatedCountries_ = bizCertificatedCountries_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.bizCertificatedCountries_ = bizCertificatedCountries_;
+      result.enableFrontAlfV2_ = enableFrontAlfV2_;
+      result.blocked_ = blocked_;
+      result.working_ = working_;
+      result.avatarUrl_ = avatarUrl_;
+      result.expectedResponseDelay_ = expectedResponseDelay_;
+      result.inOperation_ = inOperation_;
+      result.operationTimeScheduling_ = operationTimeScheduling_;
+      if (nextWorkingTimeBuilder_ == null) {
+        result.nextWorkingTime_ = nextWorkingTime_;
+      } else {
+        result.nextWorkingTime_ = nextWorkingTimeBuilder_.build();
+      }
+      if (nextAwayTimeBuilder_ == null) {
+        result.nextAwayTime_ = nextAwayTime_;
+      } else {
+        result.nextAwayTime_ = nextAwayTimeBuilder_.build();
+      }
+      if (operationTimeRangesBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0)) {
+          operationTimeRanges_ = java.util.Collections.unmodifiableList(operationTimeRanges_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.operationTimeRanges_ = operationTimeRanges_;
+      } else {
+        result.operationTimeRanges_ = operationTimeRangesBuilder_.build();
+      }
+      result.awayOption_ = awayOption_;
+      result.blockReplyingAfterClosed_ = blockReplyingAfterClosed_;
+      if (blockReplyingAfterClosedTimeBuilder_ == null) {
+        result.blockReplyingAfterClosedTime_ = blockReplyingAfterClosedTime_;
+      } else {
+        result.blockReplyingAfterClosedTime_ = blockReplyingAfterClosedTimeBuilder_.build();
+      }
+      result.borderColor_ = borderColor_;
+      result.gradientColor_ = gradientColor_;
+      result.textColor_ = textColor_;
+      result.initial_ = initial_;
+      result.systemDomain_ = systemDomain_;
+      result.pluginIconColor_ = pluginIconColor_;
+      result.brightness_ = brightness_;
+      result.coverImageUrl_ = coverImageUrl_;
+      result.coverImageBright_ = coverImageBright_;
       onBuilt();
       return result;
     }
@@ -4270,26 +4215,41 @@ private static final long serialVersionUID = 0L;
         id_ = other.id_;
         onChanged();
       }
+      if (other.hasWelcomeMessage()) {
+        mergeWelcomeMessage(other.getWelcomeMessage());
+      }
+      internalGetMutableWelcomeMessageI18NMap().mergeFrom(
+          other.internalGetWelcomeMessageI18NMap());
+      if (other.hasCreatedAt()) {
+        mergeCreatedAt(other.getCreatedAt());
+      }
+      if (other.hasUpdatedAt()) {
+        mergeUpdatedAt(other.getUpdatedAt());
+      }
+      if (!other.getUserInfoUrl().isEmpty()) {
+        userInfoUrl_ = other.userInfoUrl_;
+        onChanged();
+      }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
         onChanged();
       }
-      if (!other.getDescription().isEmpty()) {
-        description_ = other.description_;
-        onChanged();
-      }
       internalGetMutableNameDescI18NMap().mergeFrom(
           other.internalGetNameDescI18NMap());
-      if (!other.getAvatarUrl().isEmpty()) {
-        avatarUrl_ = other.avatarUrl_;
+      if (!other.getCoverImageColor().isEmpty()) {
+        coverImageColor_ = other.coverImageColor_;
+        onChanged();
+      }
+      if (!other.getBotName().isEmpty()) {
+        botName_ = other.botName_;
         onChanged();
       }
       if (!other.getColor().isEmpty()) {
         color_ = other.color_;
         onChanged();
       }
-      if (!other.getBotName().isEmpty()) {
-        botName_ = other.botName_;
+      if (!other.getDescription().isEmpty()) {
+        description_ = other.description_;
         onChanged();
       }
       if (!other.getCountry().isEmpty()) {
@@ -4300,8 +4260,8 @@ private static final long serialVersionUID = 0L;
         domain_ = other.domain_;
         onChanged();
       }
-      if (!other.getSystemDomain().isEmpty()) {
-        systemDomain_ = other.systemDomain_;
+      if (!other.getDefaultDomain().isEmpty()) {
+        defaultDomain_ = other.defaultDomain_;
         onChanged();
       }
       if (!other.getHomepageUrl().isEmpty()) {
@@ -4316,24 +4276,15 @@ private static final long serialVersionUID = 0L;
         timeZone_ = other.timeZone_;
         onChanged();
       }
-      if (!other.getUtcOffset().isEmpty()) {
-        utcOffset_ = other.utcOffset_;
+      if (other.getShowOperatorProfile() != false) {
+        setShowOperatorProfile(other.getShowOperatorProfile());
+      }
+      if (other.getDisableNewChatButton() != false) {
+        setDisableNewChatButton(other.getDisableNewChatButton());
+      }
+      if (!other.getIndebtedDueDate().isEmpty()) {
+        indebtedDueDate_ = other.indebtedDueDate_;
         onChanged();
-      }
-      if (other.state_ != 0) {
-        setStateValue(other.getStateValue());
-      }
-      if (other.expectedResponseDelay_ != 0) {
-        setExpectedResponseDelayValue(other.getExpectedResponseDelayValue());
-      }
-      if (other.awayOption_ != 0) {
-        setAwayOptionValue(other.getAwayOptionValue());
-      }
-      if (other.getInOperation() != false) {
-        setInOperation(other.getInOperation());
-      }
-      if (other.getWorking() != false) {
-        setWorking(other.getWorking());
       }
       if (other.getFollowUpTexting() != false) {
         setFollowUpTexting(other.getFollowUpTexting());
@@ -4347,15 +4298,126 @@ private static final long serialVersionUID = 0L;
       if (other.getFollowUpMandatory() != false) {
         setFollowUpMandatory(other.getFollowUpMandatory());
       }
-      if (other.getHideAppMessenger() != false) {
-        setHideAppMessenger(other.getHideAppMessenger());
+      if (other.state_ != 0) {
+        setStateValue(other.getStateValue());
+      }
+      if (other.getEntVerified() != false) {
+        setEntVerified(other.getEntVerified());
       }
       if (!other.getDefaultPluginId().isEmpty()) {
         defaultPluginId_ = other.defaultPluginId_;
         onChanged();
       }
-      if (other.hasCreatedAt()) {
-        mergeCreatedAt(other.getCreatedAt());
+      if (!other.getBizCategory().isEmpty()) {
+        bizCategory_ = other.bizCategory_;
+        onChanged();
+      }
+      if (other.getStaffs() != 0) {
+        setStaffs(other.getStaffs());
+      }
+      if (!other.getAppCommerceId().isEmpty()) {
+        appCommerceId_ = other.appCommerceId_;
+        onChanged();
+      }
+      if (!other.getAppCommerceType().isEmpty()) {
+        appCommerceType_ = other.appCommerceType_;
+        onChanged();
+      }
+      if (!other.getAppCommerceDomain().isEmpty()) {
+        appCommerceDomain_ = other.appCommerceDomain_;
+        onChanged();
+      }
+      if (other.getEnableMemberHash() != false) {
+        setEnableMemberHash(other.getEnableMemberHash());
+      }
+      if (!other.getDefaultEmailDomainId().isEmpty()) {
+        defaultEmailDomainId_ = other.defaultEmailDomainId_;
+        onChanged();
+      }
+      if (other.getEnableMfa() != false) {
+        setEnableMfa(other.getEnableMfa());
+      }
+      if (other.getHideAppMessenger() != false) {
+        setHideAppMessenger(other.getHideAppMessenger());
+      }
+      if (other.getBizCertificated() != false) {
+        setBizCertificated(other.getBizCertificated());
+      }
+      if (other.getMktAlimtalkAllowed() != false) {
+        setMktAlimtalkAllowed(other.getMktAlimtalkAllowed());
+      }
+      if (!other.bizCertificatedCountries_.isEmpty()) {
+        if (bizCertificatedCountries_.isEmpty()) {
+          bizCertificatedCountries_ = other.bizCertificatedCountries_;
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          ensureBizCertificatedCountriesIsMutable();
+          bizCertificatedCountries_.addAll(other.bizCertificatedCountries_);
+        }
+        onChanged();
+      }
+      if (other.getEnableFrontAlfV2() != false) {
+        setEnableFrontAlfV2(other.getEnableFrontAlfV2());
+      }
+      if (other.getBlocked() != false) {
+        setBlocked(other.getBlocked());
+      }
+      if (other.getWorking() != false) {
+        setWorking(other.getWorking());
+      }
+      if (!other.getAvatarUrl().isEmpty()) {
+        avatarUrl_ = other.avatarUrl_;
+        onChanged();
+      }
+      if (other.expectedResponseDelay_ != 0) {
+        setExpectedResponseDelayValue(other.getExpectedResponseDelayValue());
+      }
+      if (other.getInOperation() != false) {
+        setInOperation(other.getInOperation());
+      }
+      if (other.getOperationTimeScheduling() != false) {
+        setOperationTimeScheduling(other.getOperationTimeScheduling());
+      }
+      if (other.hasNextWorkingTime()) {
+        mergeNextWorkingTime(other.getNextWorkingTime());
+      }
+      if (other.hasNextAwayTime()) {
+        mergeNextAwayTime(other.getNextAwayTime());
+      }
+      if (operationTimeRangesBuilder_ == null) {
+        if (!other.operationTimeRanges_.isEmpty()) {
+          if (operationTimeRanges_.isEmpty()) {
+            operationTimeRanges_ = other.operationTimeRanges_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureOperationTimeRangesIsMutable();
+            operationTimeRanges_.addAll(other.operationTimeRanges_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.operationTimeRanges_.isEmpty()) {
+          if (operationTimeRangesBuilder_.isEmpty()) {
+            operationTimeRangesBuilder_.dispose();
+            operationTimeRangesBuilder_ = null;
+            operationTimeRanges_ = other.operationTimeRanges_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+            operationTimeRangesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getOperationTimeRangesFieldBuilder() : null;
+          } else {
+            operationTimeRangesBuilder_.addAllMessages(other.operationTimeRanges_);
+          }
+        }
+      }
+      if (other.awayOption_ != 0) {
+        setAwayOptionValue(other.getAwayOptionValue());
+      }
+      if (other.getBlockReplyingAfterClosed() != false) {
+        setBlockReplyingAfterClosed(other.getBlockReplyingAfterClosed());
+      }
+      if (other.hasBlockReplyingAfterClosedTime()) {
+        mergeBlockReplyingAfterClosedTime(other.getBlockReplyingAfterClosedTime());
       }
       if (!other.getBorderColor().isEmpty()) {
         borderColor_ = other.borderColor_;
@@ -4373,133 +4435,23 @@ private static final long serialVersionUID = 0L;
         initial_ = other.initial_;
         onChanged();
       }
-      if (other.getOperationTimeScheduling() != false) {
-        setOperationTimeScheduling(other.getOperationTimeScheduling());
-      }
-      if (operationTimeRangesBuilder_ == null) {
-        if (!other.operationTimeRanges_.isEmpty()) {
-          if (operationTimeRanges_.isEmpty()) {
-            operationTimeRanges_ = other.operationTimeRanges_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-          } else {
-            ensureOperationTimeRangesIsMutable();
-            operationTimeRanges_.addAll(other.operationTimeRanges_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.operationTimeRanges_.isEmpty()) {
-          if (operationTimeRangesBuilder_.isEmpty()) {
-            operationTimeRangesBuilder_.dispose();
-            operationTimeRangesBuilder_ = null;
-            operationTimeRanges_ = other.operationTimeRanges_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-            operationTimeRangesBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getOperationTimeRangesFieldBuilder() : null;
-          } else {
-            operationTimeRangesBuilder_.addAllMessages(other.operationTimeRanges_);
-          }
-        }
-      }
-      if (other.hasNextOperatingAt()) {
-        mergeNextOperatingAt(other.getNextOperatingAt());
-      }
-      if (other.getBlockReplyingAfterClosed() != false) {
-        setBlockReplyingAfterClosed(other.getBlockReplyingAfterClosed());
-      }
-      if (other.hasBlockReplyingAfterClosedTime()) {
-        mergeBlockReplyingAfterClosedTime(other.getBlockReplyingAfterClosedTime());
-      }
-      if (other.hasWelcomeMessage()) {
-        mergeWelcomeMessage(other.getWelcomeMessage());
-      }
-      internalGetMutableWelcomeMessageI18NMap().mergeFrom(
-          other.internalGetWelcomeMessageI18NMap());
-      if (!other.getUserInfoUrl().isEmpty()) {
-        userInfoUrl_ = other.userInfoUrl_;
+      if (!other.getSystemDomain().isEmpty()) {
+        systemDomain_ = other.systemDomain_;
         onChanged();
-      }
-      if (other.hasTrafficSource()) {
-        mergeTrafficSource(other.getTrafficSource());
-      }
-      if (!other.getBillAccountId().isEmpty()) {
-        billAccountId_ = other.billAccountId_;
-        onChanged();
-      }
-      if (!other.getBizGrade().isEmpty()) {
-        bizGrade_ = other.bizGrade_;
-        onChanged();
-      }
-      if (other.hasSourceSurvey()) {
-        mergeSourceSurvey(other.getSourceSurvey());
-      }
-      if (!other.getBizCategory().isEmpty()) {
-        bizCategory_ = other.bizCategory_;
-        onChanged();
-      }
-      if (other.getStaffs() != 0) {
-        setStaffs(other.getStaffs());
-      }
-      if (!other.getAppCommerceId().isEmpty()) {
-        appCommerceId_ = other.appCommerceId_;
-        onChanged();
-      }
-      if (!other.getAppCommerceType().isEmpty()) {
-        appCommerceType_ = other.appCommerceType_;
-        onChanged();
-      }
-      if (other.getEnableMemberHash() != false) {
-        setEnableMemberHash(other.getEnableMemberHash());
-      }
-      if (!other.getDefaultEmailDomainId().isEmpty()) {
-        defaultEmailDomainId_ = other.defaultEmailDomainId_;
-        onChanged();
-      }
-      if (other.getEnableMfa() != false) {
-        setEnableMfa(other.getEnableMfa());
-      }
-      if (other.getBlocked() != false) {
-        setBlocked(other.getBlocked());
-      }
-      if (other.getBright() != false) {
-        setBright(other.getBright());
-      }
-      if (other.getUsingFollowUp() != false) {
-        setUsingFollowUp(other.getUsingFollowUp());
-      }
-      if (other.getBrightness() != 0F) {
-        setBrightness(other.getBrightness());
-      }
-      if (other.getCoverImageBright() != false) {
-        setCoverImageBright(other.getCoverImageBright());
-      }
-      if (!other.getCoverImageColor().isEmpty()) {
-        coverImageColor_ = other.coverImageColor_;
-        onChanged();
-      }
-      if (!other.getCoverImageUrl().isEmpty()) {
-        coverImageUrl_ = other.coverImageUrl_;
-        onChanged();
-      }
-      if (other.getDisableNewChatButton() != false) {
-        setDisableNewChatButton(other.getDisableNewChatButton());
-      }
-      if (other.hasNextAwayTime()) {
-        mergeNextAwayTime(other.getNextAwayTime());
-      }
-      if (other.hasNextWorkingTime()) {
-        mergeNextWorkingTime(other.getNextWorkingTime());
       }
       if (!other.getPluginIconColor().isEmpty()) {
         pluginIconColor_ = other.pluginIconColor_;
         onChanged();
       }
-      if (other.getShowOperatorProfile() != false) {
-        setShowOperatorProfile(other.getShowOperatorProfile());
+      if (other.getBrightness() != 0F) {
+        setBrightness(other.getBrightness());
       }
-      if (other.hasUpdatedAt()) {
-        mergeUpdatedAt(other.getUpdatedAt());
+      if (!other.getCoverImageUrl().isEmpty()) {
+        coverImageUrl_ = other.coverImageUrl_;
+        onChanged();
+      }
+      if (other.getCoverImageBright() != false) {
+        setCoverImageBright(other.getCoverImageBright());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -4637,3445 +4589,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object name_ = "";
-    /**
-     * <pre>
-     * Channel display name.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:validation:MaxLength=30
-     * </pre>
-     *
-     * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
-     * @return The name.
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel display name.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:validation:MaxLength=30
-     * </pre>
-     *
-     * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for name.
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel display name.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:validation:MaxLength=30
-     * </pre>
-     *
-     * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
-     * @param value The name to set.
-     * @return This builder for chaining.
-     */
-    public Builder setName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      name_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel display name.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:validation:MaxLength=30
-     * </pre>
-     *
-     * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearName() {
-      
-      name_ = getDefaultInstance().getName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel display name.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:validation:MaxLength=30
-     * </pre>
-     *
-     * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for name to set.
-     * @return This builder for chaining.
-     */
-    public Builder setNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      name_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object description_ = "";
-    /**
-     * <pre>
-     * Channel description.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MaxLength=180
-     * </pre>
-     *
-     * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
-     * @return The description.
-     */
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        description_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel description.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MaxLength=180
-     * </pre>
-     *
-     * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for description.
-     */
-    public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        description_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel description.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MaxLength=180
-     * </pre>
-     *
-     * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
-     * @param value The description to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDescription(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      description_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel description.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MaxLength=180
-     * </pre>
-     *
-     * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDescription() {
-      
-      description_ = getDefaultInstance().getDescription();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel description.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MaxLength=180
-     * </pre>
-     *
-     * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for description to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDescriptionBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      description_ = value;
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.MapField<
-        java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> nameDescI18NMap_;
-    private com.google.protobuf.MapField<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
-    internalGetNameDescI18NMap() {
-      if (nameDescI18NMap_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            NameDescI18NMapDefaultEntryHolder.defaultEntry);
-      }
-      return nameDescI18NMap_;
-    }
-    private com.google.protobuf.MapField<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
-    internalGetMutableNameDescI18NMap() {
-      onChanged();;
-      if (nameDescI18NMap_ == null) {
-        nameDescI18NMap_ = com.google.protobuf.MapField.newMapField(
-            NameDescI18NMapDefaultEntryHolder.defaultEntry);
-      }
-      if (!nameDescI18NMap_.isMutable()) {
-        nameDescI18NMap_ = nameDescI18NMap_.copy();
-      }
-      return nameDescI18NMap_;
-    }
-
-    public int getNameDescI18NMapCount() {
-      return internalGetNameDescI18NMap().getMap().size();
-    }
-    /**
-     * <pre>
-     * Internationalized name and description map.
-     * Keyed by locale.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-     */
-
-    @java.lang.Override
-    public boolean containsNameDescI18NMap(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      return internalGetNameDescI18NMap().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getNameDescI18NMapMap()} instead.
-     */
-    @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> getNameDescI18NMap() {
-      return getNameDescI18NMapMap();
-    }
-    /**
-     * <pre>
-     * Internationalized name and description map.
-     * Keyed by locale.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-     */
-    @java.lang.Override
-
-    public java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> getNameDescI18NMapMap() {
-      return internalGetNameDescI18NMap().getMap();
-    }
-    /**
-     * <pre>
-     * Internationalized name and description map.
-     * Keyed by locale.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-     */
-    @java.lang.Override
-
-    public io.channel.api.proto.pub.coreapi.model.NameDesc getNameDescI18NMapOrDefault(
-        java.lang.String key,
-        io.channel.api.proto.pub.coreapi.model.NameDesc defaultValue) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> map =
-          internalGetNameDescI18NMap().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * Internationalized name and description map.
-     * Keyed by locale.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-     */
-    @java.lang.Override
-
-    public io.channel.api.proto.pub.coreapi.model.NameDesc getNameDescI18NMapOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> map =
-          internalGetNameDescI18NMap().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public Builder clearNameDescI18NMap() {
-      internalGetMutableNameDescI18NMap().getMutableMap()
-          .clear();
-      return this;
-    }
-    /**
-     * <pre>
-     * Internationalized name and description map.
-     * Keyed by locale.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-     */
-
-    public Builder removeNameDescI18NMap(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      internalGetMutableNameDescI18NMap().getMutableMap()
-          .remove(key);
-      return this;
-    }
-    /**
-     * Use alternate mutation accessors instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
-    getMutableNameDescI18NMap() {
-      return internalGetMutableNameDescI18NMap().getMutableMap();
-    }
-    /**
-     * <pre>
-     * Internationalized name and description map.
-     * Keyed by locale.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-     */
-    public Builder putNameDescI18NMap(
-        java.lang.String key,
-        io.channel.api.proto.pub.coreapi.model.NameDesc value) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
-      internalGetMutableNameDescI18NMap().getMutableMap()
-          .put(key, value);
-      return this;
-    }
-    /**
-     * <pre>
-     * Internationalized name and description map.
-     * Keyed by locale.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 4 [json_name = "nameDescI18nMap"];</code>
-     */
-
-    public Builder putAllNameDescI18NMap(
-        java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> values) {
-      internalGetMutableNameDescI18NMap().getMutableMap()
-          .putAll(values);
-      return this;
-    }
-
-    private java.lang.Object avatarUrl_ = "";
-    /**
-     * <pre>
-     * Channel avatar image URL.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string avatar_url = 5 [json_name = "avatarUrl"];</code>
-     * @return The avatarUrl.
-     */
-    public java.lang.String getAvatarUrl() {
-      java.lang.Object ref = avatarUrl_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        avatarUrl_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel avatar image URL.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string avatar_url = 5 [json_name = "avatarUrl"];</code>
-     * @return The bytes for avatarUrl.
-     */
-    public com.google.protobuf.ByteString
-        getAvatarUrlBytes() {
-      java.lang.Object ref = avatarUrl_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        avatarUrl_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel avatar image URL.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string avatar_url = 5 [json_name = "avatarUrl"];</code>
-     * @param value The avatarUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAvatarUrl(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      avatarUrl_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel avatar image URL.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string avatar_url = 5 [json_name = "avatarUrl"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearAvatarUrl() {
-      
-      avatarUrl_ = getDefaultInstance().getAvatarUrl();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel avatar image URL.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string avatar_url = 5 [json_name = "avatarUrl"];</code>
-     * @param value The bytes for avatarUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAvatarUrlBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      avatarUrl_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object color_ = "";
-    /**
-     * <pre>
-     * Channel theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="#3B82F6"
-     * </pre>
-     *
-     * <code>string color = 6 [json_name = "color"];</code>
-     * @return The color.
-     */
-    public java.lang.String getColor() {
-      java.lang.Object ref = color_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        color_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="#3B82F6"
-     * </pre>
-     *
-     * <code>string color = 6 [json_name = "color"];</code>
-     * @return The bytes for color.
-     */
-    public com.google.protobuf.ByteString
-        getColorBytes() {
-      java.lang.Object ref = color_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        color_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="#3B82F6"
-     * </pre>
-     *
-     * <code>string color = 6 [json_name = "color"];</code>
-     * @param value The color to set.
-     * @return This builder for chaining.
-     */
-    public Builder setColor(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      color_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="#3B82F6"
-     * </pre>
-     *
-     * <code>string color = 6 [json_name = "color"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearColor() {
-      
-      color_ = getDefaultInstance().getColor();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="#3B82F6"
-     * </pre>
-     *
-     * <code>string color = 6 [json_name = "color"];</code>
-     * @param value The bytes for color to set.
-     * @return This builder for chaining.
-     */
-    public Builder setColorBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      color_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object botName_ = "";
-    /**
-     * <pre>
-     * Bot display name shown to end users in conversations.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string bot_name = 7 [json_name = "botName"];</code>
-     * @return The botName.
-     */
-    public java.lang.String getBotName() {
-      java.lang.Object ref = botName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        botName_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Bot display name shown to end users in conversations.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string bot_name = 7 [json_name = "botName"];</code>
-     * @return The bytes for botName.
-     */
-    public com.google.protobuf.ByteString
-        getBotNameBytes() {
-      java.lang.Object ref = botName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        botName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Bot display name shown to end users in conversations.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string bot_name = 7 [json_name = "botName"];</code>
-     * @param value The botName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBotName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      botName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Bot display name shown to end users in conversations.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string bot_name = 7 [json_name = "botName"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBotName() {
-      
-      botName_ = getDefaultInstance().getBotName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Bot display name shown to end users in conversations.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string bot_name = 7 [json_name = "botName"];</code>
-     * @param value The bytes for botName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBotNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      botName_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object country_ = "";
-    /**
-     * <pre>
-     * ISO 3166-1 alpha-2 country code.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="KR"
-     * </pre>
-     *
-     * <code>string country = 8 [json_name = "country"];</code>
-     * @return The country.
-     */
-    public java.lang.String getCountry() {
-      java.lang.Object ref = country_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        country_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * ISO 3166-1 alpha-2 country code.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="KR"
-     * </pre>
-     *
-     * <code>string country = 8 [json_name = "country"];</code>
-     * @return The bytes for country.
-     */
-    public com.google.protobuf.ByteString
-        getCountryBytes() {
-      java.lang.Object ref = country_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        country_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * ISO 3166-1 alpha-2 country code.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="KR"
-     * </pre>
-     *
-     * <code>string country = 8 [json_name = "country"];</code>
-     * @param value The country to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCountry(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      country_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * ISO 3166-1 alpha-2 country code.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="KR"
-     * </pre>
-     *
-     * <code>string country = 8 [json_name = "country"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCountry() {
-      
-      country_ = getDefaultInstance().getCountry();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * ISO 3166-1 alpha-2 country code.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="KR"
-     * </pre>
-     *
-     * <code>string country = 8 [json_name = "country"];</code>
-     * @param value The bytes for country to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCountryBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      country_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object domain_ = "";
-    /**
-     * <pre>
-     * Custom domain for the channel.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string domain = 9 [json_name = "domain"];</code>
-     * @return The domain.
-     */
-    public java.lang.String getDomain() {
-      java.lang.Object ref = domain_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        domain_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Custom domain for the channel.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string domain = 9 [json_name = "domain"];</code>
-     * @return The bytes for domain.
-     */
-    public com.google.protobuf.ByteString
-        getDomainBytes() {
-      java.lang.Object ref = domain_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        domain_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Custom domain for the channel.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string domain = 9 [json_name = "domain"];</code>
-     * @param value The domain to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDomain(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      domain_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Custom domain for the channel.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string domain = 9 [json_name = "domain"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDomain() {
-      
-      domain_ = getDefaultInstance().getDomain();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Custom domain for the channel.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string domain = 9 [json_name = "domain"];</code>
-     * @param value The bytes for domain to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDomainBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      domain_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object systemDomain_ = "";
-    /**
-     * <pre>
-     * Resolved domain for the channel.
-     * Returns the custom domain if set, otherwise the system-generated default.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string system_domain = 11 [json_name = "systemDomain"];</code>
-     * @return The systemDomain.
-     */
-    public java.lang.String getSystemDomain() {
-      java.lang.Object ref = systemDomain_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        systemDomain_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Resolved domain for the channel.
-     * Returns the custom domain if set, otherwise the system-generated default.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string system_domain = 11 [json_name = "systemDomain"];</code>
-     * @return The bytes for systemDomain.
-     */
-    public com.google.protobuf.ByteString
-        getSystemDomainBytes() {
-      java.lang.Object ref = systemDomain_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        systemDomain_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Resolved domain for the channel.
-     * Returns the custom domain if set, otherwise the system-generated default.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string system_domain = 11 [json_name = "systemDomain"];</code>
-     * @param value The systemDomain to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSystemDomain(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      systemDomain_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Resolved domain for the channel.
-     * Returns the custom domain if set, otherwise the system-generated default.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string system_domain = 11 [json_name = "systemDomain"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSystemDomain() {
-      
-      systemDomain_ = getDefaultInstance().getSystemDomain();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Resolved domain for the channel.
-     * Returns the custom domain if set, otherwise the system-generated default.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string system_domain = 11 [json_name = "systemDomain"];</code>
-     * @param value The bytes for systemDomain to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSystemDomainBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      systemDomain_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object homepageUrl_ = "";
-    /**
-     * <pre>
-     * Channel homepage URL.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string homepage_url = 12 [json_name = "homepageUrl"];</code>
-     * @return The homepageUrl.
-     */
-    public java.lang.String getHomepageUrl() {
-      java.lang.Object ref = homepageUrl_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        homepageUrl_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel homepage URL.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string homepage_url = 12 [json_name = "homepageUrl"];</code>
-     * @return The bytes for homepageUrl.
-     */
-    public com.google.protobuf.ByteString
-        getHomepageUrlBytes() {
-      java.lang.Object ref = homepageUrl_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        homepageUrl_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel homepage URL.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string homepage_url = 12 [json_name = "homepageUrl"];</code>
-     * @param value The homepageUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHomepageUrl(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      homepageUrl_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel homepage URL.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string homepage_url = 12 [json_name = "homepageUrl"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearHomepageUrl() {
-      
-      homepageUrl_ = getDefaultInstance().getHomepageUrl();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel homepage URL.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string homepage_url = 12 [json_name = "homepageUrl"];</code>
-     * @param value The bytes for homepageUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHomepageUrlBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      homepageUrl_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object phoneNumber_ = "";
-    /**
-     * <pre>
-     * Channel phone number in E.164 format.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="+821012345678"
-     * </pre>
-     *
-     * <code>string phone_number = 13 [json_name = "phoneNumber"];</code>
-     * @return The phoneNumber.
-     */
-    public java.lang.String getPhoneNumber() {
-      java.lang.Object ref = phoneNumber_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        phoneNumber_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel phone number in E.164 format.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="+821012345678"
-     * </pre>
-     *
-     * <code>string phone_number = 13 [json_name = "phoneNumber"];</code>
-     * @return The bytes for phoneNumber.
-     */
-    public com.google.protobuf.ByteString
-        getPhoneNumberBytes() {
-      java.lang.Object ref = phoneNumber_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        phoneNumber_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Channel phone number in E.164 format.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="+821012345678"
-     * </pre>
-     *
-     * <code>string phone_number = 13 [json_name = "phoneNumber"];</code>
-     * @param value The phoneNumber to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPhoneNumber(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      phoneNumber_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel phone number in E.164 format.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="+821012345678"
-     * </pre>
-     *
-     * <code>string phone_number = 13 [json_name = "phoneNumber"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPhoneNumber() {
-      
-      phoneNumber_ = getDefaultInstance().getPhoneNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel phone number in E.164 format.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="+821012345678"
-     * </pre>
-     *
-     * <code>string phone_number = 13 [json_name = "phoneNumber"];</code>
-     * @param value The bytes for phoneNumber to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPhoneNumberBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      phoneNumber_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object timeZone_ = "";
-    /**
-     * <pre>
-     * IANA timezone identifier.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="Asia/Seoul"
-     * </pre>
-     *
-     * <code>string time_zone = 14 [json_name = "timeZone"];</code>
-     * @return The timeZone.
-     */
-    public java.lang.String getTimeZone() {
-      java.lang.Object ref = timeZone_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        timeZone_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * IANA timezone identifier.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="Asia/Seoul"
-     * </pre>
-     *
-     * <code>string time_zone = 14 [json_name = "timeZone"];</code>
-     * @return The bytes for timeZone.
-     */
-    public com.google.protobuf.ByteString
-        getTimeZoneBytes() {
-      java.lang.Object ref = timeZone_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        timeZone_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * IANA timezone identifier.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="Asia/Seoul"
-     * </pre>
-     *
-     * <code>string time_zone = 14 [json_name = "timeZone"];</code>
-     * @param value The timeZone to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTimeZone(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      timeZone_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * IANA timezone identifier.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="Asia/Seoul"
-     * </pre>
-     *
-     * <code>string time_zone = 14 [json_name = "timeZone"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearTimeZone() {
-      
-      timeZone_ = getDefaultInstance().getTimeZone();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * IANA timezone identifier.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="Asia/Seoul"
-     * </pre>
-     *
-     * <code>string time_zone = 14 [json_name = "timeZone"];</code>
-     * @param value The bytes for timeZone to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTimeZoneBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      timeZone_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object utcOffset_ = "";
-    /**
-     * <pre>
-     * UTC offset in ISO 8601 format, derived from the timezone.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="+09:00"
-     * </pre>
-     *
-     * <code>string utc_offset = 15 [json_name = "utcOffset"];</code>
-     * @return The utcOffset.
-     */
-    public java.lang.String getUtcOffset() {
-      java.lang.Object ref = utcOffset_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        utcOffset_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * UTC offset in ISO 8601 format, derived from the timezone.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="+09:00"
-     * </pre>
-     *
-     * <code>string utc_offset = 15 [json_name = "utcOffset"];</code>
-     * @return The bytes for utcOffset.
-     */
-    public com.google.protobuf.ByteString
-        getUtcOffsetBytes() {
-      java.lang.Object ref = utcOffset_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        utcOffset_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * UTC offset in ISO 8601 format, derived from the timezone.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="+09:00"
-     * </pre>
-     *
-     * <code>string utc_offset = 15 [json_name = "utcOffset"];</code>
-     * @param value The utcOffset to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUtcOffset(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      utcOffset_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * UTC offset in ISO 8601 format, derived from the timezone.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="+09:00"
-     * </pre>
-     *
-     * <code>string utc_offset = 15 [json_name = "utcOffset"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearUtcOffset() {
-      
-      utcOffset_ = getDefaultInstance().getUtcOffset();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * UTC offset in ISO 8601 format, derived from the timezone.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:example="+09:00"
-     * </pre>
-     *
-     * <code>string utc_offset = 15 [json_name = "utcOffset"];</code>
-     * @param value The bytes for utcOffset to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUtcOffsetBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      utcOffset_ = value;
-      onChanged();
-      return this;
-    }
-
-    private int state_ = 0;
-    /**
-     * <pre>
-     * Current lifecycle state of the channel.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.coreapi.model.ChannelState state = 16 [json_name = "state", (.buf.validate.field) = { ... }</code>
-     * @return The enum numeric value on the wire for state.
-     */
-    @java.lang.Override public int getStateValue() {
-      return state_;
-    }
-    /**
-     * <pre>
-     * Current lifecycle state of the channel.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.coreapi.model.ChannelState state = 16 [json_name = "state", (.buf.validate.field) = { ... }</code>
-     * @param value The enum numeric value on the wire for state to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStateValue(int value) {
-      
-      state_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Current lifecycle state of the channel.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.coreapi.model.ChannelState state = 16 [json_name = "state", (.buf.validate.field) = { ... }</code>
-     * @return The state.
-     */
-    @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.ChannelState getState() {
-      @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.ChannelState result = io.channel.api.proto.pub.coreapi.model.ChannelState.valueOf(state_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.ChannelState.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Current lifecycle state of the channel.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.coreapi.model.ChannelState state = 16 [json_name = "state", (.buf.validate.field) = { ... }</code>
-     * @param value The state to set.
-     * @return This builder for chaining.
-     */
-    public Builder setState(io.channel.api.proto.pub.coreapi.model.ChannelState value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      state_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Current lifecycle state of the channel.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.coreapi.model.ChannelState state = 16 [json_name = "state", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearState() {
-      
-      state_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int expectedResponseDelay_ = 0;
-    /**
-     * <pre>
-     * Expected response delay indicator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.ResponseDelayType expected_response_delay = 17 [json_name = "expectedResponseDelay"];</code>
-     * @return The enum numeric value on the wire for expectedResponseDelay.
-     */
-    @java.lang.Override public int getExpectedResponseDelayValue() {
-      return expectedResponseDelay_;
-    }
-    /**
-     * <pre>
-     * Expected response delay indicator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.ResponseDelayType expected_response_delay = 17 [json_name = "expectedResponseDelay"];</code>
-     * @param value The enum numeric value on the wire for expectedResponseDelay to set.
-     * @return This builder for chaining.
-     */
-    public Builder setExpectedResponseDelayValue(int value) {
-      
-      expectedResponseDelay_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Expected response delay indicator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.ResponseDelayType expected_response_delay = 17 [json_name = "expectedResponseDelay"];</code>
-     * @return The expectedResponseDelay.
-     */
-    @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.ResponseDelayType getExpectedResponseDelay() {
-      @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.ResponseDelayType result = io.channel.api.proto.pub.coreapi.model.ResponseDelayType.valueOf(expectedResponseDelay_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.ResponseDelayType.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Expected response delay indicator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.ResponseDelayType expected_response_delay = 17 [json_name = "expectedResponseDelay"];</code>
-     * @param value The expectedResponseDelay to set.
-     * @return This builder for chaining.
-     */
-    public Builder setExpectedResponseDelay(io.channel.api.proto.pub.coreapi.model.ResponseDelayType value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      expectedResponseDelay_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Expected response delay indicator.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.ResponseDelayType expected_response_delay = 17 [json_name = "expectedResponseDelay"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearExpectedResponseDelay() {
-      
-      expectedResponseDelay_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int awayOption_ = 0;
-    /**
-     * <pre>
-     * Behavior when the channel is outside of operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.ChannelAwayOption away_option = 18 [json_name = "awayOption"];</code>
-     * @return The enum numeric value on the wire for awayOption.
-     */
-    @java.lang.Override public int getAwayOptionValue() {
-      return awayOption_;
-    }
-    /**
-     * <pre>
-     * Behavior when the channel is outside of operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.ChannelAwayOption away_option = 18 [json_name = "awayOption"];</code>
-     * @param value The enum numeric value on the wire for awayOption to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAwayOptionValue(int value) {
-      
-      awayOption_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Behavior when the channel is outside of operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.ChannelAwayOption away_option = 18 [json_name = "awayOption"];</code>
-     * @return The awayOption.
-     */
-    @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.ChannelAwayOption getAwayOption() {
-      @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.ChannelAwayOption result = io.channel.api.proto.pub.coreapi.model.ChannelAwayOption.valueOf(awayOption_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.ChannelAwayOption.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Behavior when the channel is outside of operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.ChannelAwayOption away_option = 18 [json_name = "awayOption"];</code>
-     * @param value The awayOption to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAwayOption(io.channel.api.proto.pub.coreapi.model.ChannelAwayOption value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      awayOption_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Behavior when the channel is outside of operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.ChannelAwayOption away_option = 18 [json_name = "awayOption"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearAwayOption() {
-      
-      awayOption_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private boolean inOperation_ ;
-    /**
-     * <pre>
-     * Whether the channel is currently within operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool in_operation = 19 [json_name = "inOperation"];</code>
-     * @return The inOperation.
-     */
-    @java.lang.Override
-    public boolean getInOperation() {
-      return inOperation_;
-    }
-    /**
-     * <pre>
-     * Whether the channel is currently within operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool in_operation = 19 [json_name = "inOperation"];</code>
-     * @param value The inOperation to set.
-     * @return This builder for chaining.
-     */
-    public Builder setInOperation(boolean value) {
-      
-      inOperation_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether the channel is currently within operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool in_operation = 19 [json_name = "inOperation"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearInOperation() {
-      
-      inOperation_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean working_ ;
-    /**
-     * <pre>
-     * Whether the channel is currently accepting conversations.
-     * A channel is working when it is not blocked and within operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool working = 20 [json_name = "working"];</code>
-     * @return The working.
-     */
-    @java.lang.Override
-    public boolean getWorking() {
-      return working_;
-    }
-    /**
-     * <pre>
-     * Whether the channel is currently accepting conversations.
-     * A channel is working when it is not blocked and within operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool working = 20 [json_name = "working"];</code>
-     * @param value The working to set.
-     * @return This builder for chaining.
-     */
-    public Builder setWorking(boolean value) {
-      
-      working_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether the channel is currently accepting conversations.
-     * A channel is working when it is not blocked and within operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool working = 20 [json_name = "working"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearWorking() {
-      
-      working_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean followUpTexting_ ;
-    /**
-     * <pre>
-     * Whether SMS/text follow-up is enabled for missed conversations.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool follow_up_texting = 23 [json_name = "followUpTexting"];</code>
-     * @return The followUpTexting.
-     */
-    @java.lang.Override
-    public boolean getFollowUpTexting() {
-      return followUpTexting_;
-    }
-    /**
-     * <pre>
-     * Whether SMS/text follow-up is enabled for missed conversations.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool follow_up_texting = 23 [json_name = "followUpTexting"];</code>
-     * @param value The followUpTexting to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFollowUpTexting(boolean value) {
-      
-      followUpTexting_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether SMS/text follow-up is enabled for missed conversations.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool follow_up_texting = 23 [json_name = "followUpTexting"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearFollowUpTexting() {
-      
-      followUpTexting_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean followUpEmail_ ;
-    /**
-     * <pre>
-     * Whether email follow-up is enabled for missed conversations.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool follow_up_email = 24 [json_name = "followUpEmail"];</code>
-     * @return The followUpEmail.
-     */
-    @java.lang.Override
-    public boolean getFollowUpEmail() {
-      return followUpEmail_;
-    }
-    /**
-     * <pre>
-     * Whether email follow-up is enabled for missed conversations.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool follow_up_email = 24 [json_name = "followUpEmail"];</code>
-     * @param value The followUpEmail to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFollowUpEmail(boolean value) {
-      
-      followUpEmail_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether email follow-up is enabled for missed conversations.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool follow_up_email = 24 [json_name = "followUpEmail"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearFollowUpEmail() {
-      
-      followUpEmail_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean followUpAskName_ ;
-    /**
-     * <pre>
-     * Whether to ask for the user's name in follow-up forms.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool follow_up_ask_name = 25 [json_name = "followUpAskName"];</code>
-     * @return The followUpAskName.
-     */
-    @java.lang.Override
-    public boolean getFollowUpAskName() {
-      return followUpAskName_;
-    }
-    /**
-     * <pre>
-     * Whether to ask for the user's name in follow-up forms.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool follow_up_ask_name = 25 [json_name = "followUpAskName"];</code>
-     * @param value The followUpAskName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFollowUpAskName(boolean value) {
-      
-      followUpAskName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether to ask for the user's name in follow-up forms.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool follow_up_ask_name = 25 [json_name = "followUpAskName"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearFollowUpAskName() {
-      
-      followUpAskName_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean followUpMandatory_ ;
-    /**
-     * <pre>
-     * Whether follow-up contact information is mandatory before starting a conversation.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool follow_up_mandatory = 26 [json_name = "followUpMandatory"];</code>
-     * @return The followUpMandatory.
-     */
-    @java.lang.Override
-    public boolean getFollowUpMandatory() {
-      return followUpMandatory_;
-    }
-    /**
-     * <pre>
-     * Whether follow-up contact information is mandatory before starting a conversation.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool follow_up_mandatory = 26 [json_name = "followUpMandatory"];</code>
-     * @param value The followUpMandatory to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFollowUpMandatory(boolean value) {
-      
-      followUpMandatory_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether follow-up contact information is mandatory before starting a conversation.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool follow_up_mandatory = 26 [json_name = "followUpMandatory"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearFollowUpMandatory() {
-      
-      followUpMandatory_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean hideAppMessenger_ ;
-    /**
-     * <pre>
-     * Whether the messenger widget is hidden from end users.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool hide_app_messenger = 27 [json_name = "hideAppMessenger"];</code>
-     * @return The hideAppMessenger.
-     */
-    @java.lang.Override
-    public boolean getHideAppMessenger() {
-      return hideAppMessenger_;
-    }
-    /**
-     * <pre>
-     * Whether the messenger widget is hidden from end users.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool hide_app_messenger = 27 [json_name = "hideAppMessenger"];</code>
-     * @param value The hideAppMessenger to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHideAppMessenger(boolean value) {
-      
-      hideAppMessenger_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether the messenger widget is hidden from end users.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool hide_app_messenger = 27 [json_name = "hideAppMessenger"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearHideAppMessenger() {
-      
-      hideAppMessenger_ = false;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object defaultPluginId_ = "";
-    /**
-     * <pre>
-     * Default plugin identifier for this channel.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
-     * @return The defaultPluginId.
-     */
-    public java.lang.String getDefaultPluginId() {
-      java.lang.Object ref = defaultPluginId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        defaultPluginId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Default plugin identifier for this channel.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
-     * @return The bytes for defaultPluginId.
-     */
-    public com.google.protobuf.ByteString
-        getDefaultPluginIdBytes() {
-      java.lang.Object ref = defaultPluginId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        defaultPluginId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Default plugin identifier for this channel.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
-     * @param value The defaultPluginId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDefaultPluginId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      defaultPluginId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Default plugin identifier for this channel.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDefaultPluginId() {
-      
-      defaultPluginId_ = getDefaultInstance().getDefaultPluginId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Default plugin identifier for this channel.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
-     * @param value The bytes for defaultPluginId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDefaultPluginIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      defaultPluginId_ = value;
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.Timestamp createdAt_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdAtBuilder_;
-    /**
-     * <pre>
-     * Channel creation timestamp.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp created_at = 29 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-     * @return Whether the createdAt field is set.
-     */
-    public boolean hasCreatedAt() {
-      return createdAtBuilder_ != null || createdAt_ != null;
-    }
-    /**
-     * <pre>
-     * Channel creation timestamp.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp created_at = 29 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-     * @return The createdAt.
-     */
-    public com.google.protobuf.Timestamp getCreatedAt() {
-      if (createdAtBuilder_ == null) {
-        return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
-      } else {
-        return createdAtBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Channel creation timestamp.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp created_at = 29 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-     */
-    public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
-      if (createdAtBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        createdAt_ = value;
-        onChanged();
-      } else {
-        createdAtBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel creation timestamp.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp created_at = 29 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-     */
-    public Builder setCreatedAt(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (createdAtBuilder_ == null) {
-        createdAt_ = builderForValue.build();
-        onChanged();
-      } else {
-        createdAtBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel creation timestamp.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp created_at = 29 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-     */
-    public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
-      if (createdAtBuilder_ == null) {
-        if (createdAt_ != null) {
-          createdAt_ =
-            com.google.protobuf.Timestamp.newBuilder(createdAt_).mergeFrom(value).buildPartial();
-        } else {
-          createdAt_ = value;
-        }
-        onChanged();
-      } else {
-        createdAtBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel creation timestamp.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp created_at = 29 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-     */
-    public Builder clearCreatedAt() {
-      if (createdAtBuilder_ == null) {
-        createdAt_ = null;
-        onChanged();
-      } else {
-        createdAt_ = null;
-        createdAtBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Channel creation timestamp.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp created_at = 29 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
-      
-      onChanged();
-      return getCreatedAtFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Channel creation timestamp.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp created_at = 29 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
-      if (createdAtBuilder_ != null) {
-        return createdAtBuilder_.getMessageOrBuilder();
-      } else {
-        return createdAt_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
-      }
-    }
-    /**
-     * <pre>
-     * Channel creation timestamp.
-     * +kubebuilder:validation:Required
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp created_at = 29 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getCreatedAtFieldBuilder() {
-      if (createdAtBuilder_ == null) {
-        createdAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getCreatedAt(),
-                getParentForChildren(),
-                isClean());
-        createdAt_ = null;
-      }
-      return createdAtBuilder_;
-    }
-
-    private java.lang.Object borderColor_ = "";
-    /**
-     * <pre>
-     * Border color derived from the theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string border_color = 35 [json_name = "borderColor"];</code>
-     * @return The borderColor.
-     */
-    public java.lang.String getBorderColor() {
-      java.lang.Object ref = borderColor_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        borderColor_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Border color derived from the theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string border_color = 35 [json_name = "borderColor"];</code>
-     * @return The bytes for borderColor.
-     */
-    public com.google.protobuf.ByteString
-        getBorderColorBytes() {
-      java.lang.Object ref = borderColor_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        borderColor_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Border color derived from the theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string border_color = 35 [json_name = "borderColor"];</code>
-     * @param value The borderColor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBorderColor(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      borderColor_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Border color derived from the theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string border_color = 35 [json_name = "borderColor"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBorderColor() {
-      
-      borderColor_ = getDefaultInstance().getBorderColor();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Border color derived from the theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string border_color = 35 [json_name = "borderColor"];</code>
-     * @param value The bytes for borderColor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBorderColorBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      borderColor_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object gradientColor_ = "";
-    /**
-     * <pre>
-     * Gradient color derived from the theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string gradient_color = 36 [json_name = "gradientColor"];</code>
-     * @return The gradientColor.
-     */
-    public java.lang.String getGradientColor() {
-      java.lang.Object ref = gradientColor_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        gradientColor_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Gradient color derived from the theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string gradient_color = 36 [json_name = "gradientColor"];</code>
-     * @return The bytes for gradientColor.
-     */
-    public com.google.protobuf.ByteString
-        getGradientColorBytes() {
-      java.lang.Object ref = gradientColor_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        gradientColor_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Gradient color derived from the theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string gradient_color = 36 [json_name = "gradientColor"];</code>
-     * @param value The gradientColor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setGradientColor(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      gradientColor_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Gradient color derived from the theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string gradient_color = 36 [json_name = "gradientColor"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearGradientColor() {
-      
-      gradientColor_ = getDefaultInstance().getGradientColor();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Gradient color derived from the theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string gradient_color = 36 [json_name = "gradientColor"];</code>
-     * @param value The bytes for gradientColor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setGradientColorBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      gradientColor_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object textColor_ = "";
-    /**
-     * <pre>
-     * Text color derived from the theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string text_color = 37 [json_name = "textColor"];</code>
-     * @return The textColor.
-     */
-    public java.lang.String getTextColor() {
-      java.lang.Object ref = textColor_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        textColor_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Text color derived from the theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string text_color = 37 [json_name = "textColor"];</code>
-     * @return The bytes for textColor.
-     */
-    public com.google.protobuf.ByteString
-        getTextColorBytes() {
-      java.lang.Object ref = textColor_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        textColor_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Text color derived from the theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string text_color = 37 [json_name = "textColor"];</code>
-     * @param value The textColor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTextColor(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      textColor_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Text color derived from the theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string text_color = 37 [json_name = "textColor"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearTextColor() {
-      
-      textColor_ = getDefaultInstance().getTextColor();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Text color derived from the theme color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string text_color = 37 [json_name = "textColor"];</code>
-     * @param value The bytes for textColor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTextColorBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      textColor_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object initial_ = "";
-    /**
-     * <pre>
-     * First character of the channel name, used as an avatar fallback.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string initial = 39 [json_name = "initial"];</code>
-     * @return The initial.
-     */
-    public java.lang.String getInitial() {
-      java.lang.Object ref = initial_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        initial_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * First character of the channel name, used as an avatar fallback.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string initial = 39 [json_name = "initial"];</code>
-     * @return The bytes for initial.
-     */
-    public com.google.protobuf.ByteString
-        getInitialBytes() {
-      java.lang.Object ref = initial_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        initial_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * First character of the channel name, used as an avatar fallback.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string initial = 39 [json_name = "initial"];</code>
-     * @param value The initial to set.
-     * @return This builder for chaining.
-     */
-    public Builder setInitial(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      initial_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * First character of the channel name, used as an avatar fallback.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string initial = 39 [json_name = "initial"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearInitial() {
-      
-      initial_ = getDefaultInstance().getInitial();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * First character of the channel name, used as an avatar fallback.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string initial = 39 [json_name = "initial"];</code>
-     * @param value The bytes for initial to set.
-     * @return This builder for chaining.
-     */
-    public Builder setInitialBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      initial_ = value;
-      onChanged();
-      return this;
-    }
-
-    private boolean operationTimeScheduling_ ;
-    /**
-     * <pre>
-     * Whether operation time scheduling is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool operation_time_scheduling = 40 [json_name = "operationTimeScheduling"];</code>
-     * @return The operationTimeScheduling.
-     */
-    @java.lang.Override
-    public boolean getOperationTimeScheduling() {
-      return operationTimeScheduling_;
-    }
-    /**
-     * <pre>
-     * Whether operation time scheduling is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool operation_time_scheduling = 40 [json_name = "operationTimeScheduling"];</code>
-     * @param value The operationTimeScheduling to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOperationTimeScheduling(boolean value) {
-      
-      operationTimeScheduling_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether operation time scheduling is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool operation_time_scheduling = 40 [json_name = "operationTimeScheduling"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearOperationTimeScheduling() {
-      
-      operationTimeScheduling_ = false;
-      onChanged();
-      return this;
-    }
-
-    private java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> operationTimeRanges_ =
-      java.util.Collections.emptyList();
-    private void ensureOperationTimeRangesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
-        operationTimeRanges_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.TimeRange>(operationTimeRanges_);
-        bitField0_ |= 0x00000002;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.TimeRange, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder, io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder> operationTimeRangesBuilder_;
-
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> getOperationTimeRangesList() {
-      if (operationTimeRangesBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(operationTimeRanges_);
-      } else {
-        return operationTimeRangesBuilder_.getMessageList();
-      }
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public int getOperationTimeRangesCount() {
-      if (operationTimeRangesBuilder_ == null) {
-        return operationTimeRanges_.size();
-      } else {
-        return operationTimeRangesBuilder_.getCount();
-      }
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.TimeRange getOperationTimeRanges(int index) {
-      if (operationTimeRangesBuilder_ == null) {
-        return operationTimeRanges_.get(index);
-      } else {
-        return operationTimeRangesBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public Builder setOperationTimeRanges(
-        int index, io.channel.api.proto.pub.coreapi.model.TimeRange value) {
-      if (operationTimeRangesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureOperationTimeRangesIsMutable();
-        operationTimeRanges_.set(index, value);
-        onChanged();
-      } else {
-        operationTimeRangesBuilder_.setMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public Builder setOperationTimeRanges(
-        int index, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder builderForValue) {
-      if (operationTimeRangesBuilder_ == null) {
-        ensureOperationTimeRangesIsMutable();
-        operationTimeRanges_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        operationTimeRangesBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public Builder addOperationTimeRanges(io.channel.api.proto.pub.coreapi.model.TimeRange value) {
-      if (operationTimeRangesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureOperationTimeRangesIsMutable();
-        operationTimeRanges_.add(value);
-        onChanged();
-      } else {
-        operationTimeRangesBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public Builder addOperationTimeRanges(
-        int index, io.channel.api.proto.pub.coreapi.model.TimeRange value) {
-      if (operationTimeRangesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureOperationTimeRangesIsMutable();
-        operationTimeRanges_.add(index, value);
-        onChanged();
-      } else {
-        operationTimeRangesBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public Builder addOperationTimeRanges(
-        io.channel.api.proto.pub.coreapi.model.TimeRange.Builder builderForValue) {
-      if (operationTimeRangesBuilder_ == null) {
-        ensureOperationTimeRangesIsMutable();
-        operationTimeRanges_.add(builderForValue.build());
-        onChanged();
-      } else {
-        operationTimeRangesBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public Builder addOperationTimeRanges(
-        int index, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder builderForValue) {
-      if (operationTimeRangesBuilder_ == null) {
-        ensureOperationTimeRangesIsMutable();
-        operationTimeRanges_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        operationTimeRangesBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public Builder addAllOperationTimeRanges(
-        java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.TimeRange> values) {
-      if (operationTimeRangesBuilder_ == null) {
-        ensureOperationTimeRangesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, operationTimeRanges_);
-        onChanged();
-      } else {
-        operationTimeRangesBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public Builder clearOperationTimeRanges() {
-      if (operationTimeRangesBuilder_ == null) {
-        operationTimeRanges_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-      } else {
-        operationTimeRangesBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public Builder removeOperationTimeRanges(int index) {
-      if (operationTimeRangesBuilder_ == null) {
-        ensureOperationTimeRangesIsMutable();
-        operationTimeRanges_.remove(index);
-        onChanged();
-      } else {
-        operationTimeRangesBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.TimeRange.Builder getOperationTimeRangesBuilder(
-        int index) {
-      return getOperationTimeRangesFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder getOperationTimeRangesOrBuilder(
-        int index) {
-      if (operationTimeRangesBuilder_ == null) {
-        return operationTimeRanges_.get(index);  } else {
-        return operationTimeRangesBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder> 
-         getOperationTimeRangesOrBuilderList() {
-      if (operationTimeRangesBuilder_ != null) {
-        return operationTimeRangesBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(operationTimeRanges_);
-      }
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.TimeRange.Builder addOperationTimeRangesBuilder() {
-      return getOperationTimeRangesFieldBuilder().addBuilder(
-          io.channel.api.proto.pub.coreapi.model.TimeRange.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public io.channel.api.proto.pub.coreapi.model.TimeRange.Builder addOperationTimeRangesBuilder(
-        int index) {
-      return getOperationTimeRangesFieldBuilder().addBuilder(
-          index, io.channel.api.proto.pub.coreapi.model.TimeRange.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Recurring time ranges that define the channel operating hours.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 41 [json_name = "operationTimeRanges"];</code>
-     */
-    public java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange.Builder> 
-         getOperationTimeRangesBuilderList() {
-      return getOperationTimeRangesFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        io.channel.api.proto.pub.coreapi.model.TimeRange, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder, io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder> 
-        getOperationTimeRangesFieldBuilder() {
-      if (operationTimeRangesBuilder_ == null) {
-        operationTimeRangesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            io.channel.api.proto.pub.coreapi.model.TimeRange, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder, io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder>(
-                operationTimeRanges_,
-                ((bitField0_ & 0x00000002) != 0),
-                getParentForChildren(),
-                isClean());
-        operationTimeRanges_ = null;
-      }
-      return operationTimeRangesBuilder_;
-    }
-
-    private com.google.protobuf.Timestamp nextOperatingAt_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> nextOperatingAtBuilder_;
-    /**
-     * <pre>
-     * Timestamp when the channel will next enter operating hours.
-     * Present only when the channel is currently outside operating hours
-     * and operation time scheduling is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_operating_at = 42 [json_name = "nextOperatingAt"];</code>
-     * @return Whether the nextOperatingAt field is set.
-     */
-    public boolean hasNextOperatingAt() {
-      return nextOperatingAtBuilder_ != null || nextOperatingAt_ != null;
-    }
-    /**
-     * <pre>
-     * Timestamp when the channel will next enter operating hours.
-     * Present only when the channel is currently outside operating hours
-     * and operation time scheduling is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_operating_at = 42 [json_name = "nextOperatingAt"];</code>
-     * @return The nextOperatingAt.
-     */
-    public com.google.protobuf.Timestamp getNextOperatingAt() {
-      if (nextOperatingAtBuilder_ == null) {
-        return nextOperatingAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : nextOperatingAt_;
-      } else {
-        return nextOperatingAtBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the channel will next enter operating hours.
-     * Present only when the channel is currently outside operating hours
-     * and operation time scheduling is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_operating_at = 42 [json_name = "nextOperatingAt"];</code>
-     */
-    public Builder setNextOperatingAt(com.google.protobuf.Timestamp value) {
-      if (nextOperatingAtBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        nextOperatingAt_ = value;
-        onChanged();
-      } else {
-        nextOperatingAtBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the channel will next enter operating hours.
-     * Present only when the channel is currently outside operating hours
-     * and operation time scheduling is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_operating_at = 42 [json_name = "nextOperatingAt"];</code>
-     */
-    public Builder setNextOperatingAt(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (nextOperatingAtBuilder_ == null) {
-        nextOperatingAt_ = builderForValue.build();
-        onChanged();
-      } else {
-        nextOperatingAtBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the channel will next enter operating hours.
-     * Present only when the channel is currently outside operating hours
-     * and operation time scheduling is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_operating_at = 42 [json_name = "nextOperatingAt"];</code>
-     */
-    public Builder mergeNextOperatingAt(com.google.protobuf.Timestamp value) {
-      if (nextOperatingAtBuilder_ == null) {
-        if (nextOperatingAt_ != null) {
-          nextOperatingAt_ =
-            com.google.protobuf.Timestamp.newBuilder(nextOperatingAt_).mergeFrom(value).buildPartial();
-        } else {
-          nextOperatingAt_ = value;
-        }
-        onChanged();
-      } else {
-        nextOperatingAtBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the channel will next enter operating hours.
-     * Present only when the channel is currently outside operating hours
-     * and operation time scheduling is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_operating_at = 42 [json_name = "nextOperatingAt"];</code>
-     */
-    public Builder clearNextOperatingAt() {
-      if (nextOperatingAtBuilder_ == null) {
-        nextOperatingAt_ = null;
-        onChanged();
-      } else {
-        nextOperatingAt_ = null;
-        nextOperatingAtBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the channel will next enter operating hours.
-     * Present only when the channel is currently outside operating hours
-     * and operation time scheduling is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_operating_at = 42 [json_name = "nextOperatingAt"];</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getNextOperatingAtBuilder() {
-      
-      onChanged();
-      return getNextOperatingAtFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Timestamp when the channel will next enter operating hours.
-     * Present only when the channel is currently outside operating hours
-     * and operation time scheduling is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_operating_at = 42 [json_name = "nextOperatingAt"];</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getNextOperatingAtOrBuilder() {
-      if (nextOperatingAtBuilder_ != null) {
-        return nextOperatingAtBuilder_.getMessageOrBuilder();
-      } else {
-        return nextOperatingAt_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : nextOperatingAt_;
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the channel will next enter operating hours.
-     * Present only when the channel is currently outside operating hours
-     * and operation time scheduling is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_operating_at = 42 [json_name = "nextOperatingAt"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getNextOperatingAtFieldBuilder() {
-      if (nextOperatingAtBuilder_ == null) {
-        nextOperatingAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getNextOperatingAt(),
-                getParentForChildren(),
-                isClean());
-        nextOperatingAt_ = null;
-      }
-      return nextOperatingAtBuilder_;
-    }
-
-    private boolean blockReplyingAfterClosed_ ;
-    /**
-     * <pre>
-     * Whether replying is blocked after the conversation is closed.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool block_replying_after_closed = 45 [json_name = "blockReplyingAfterClosed"];</code>
-     * @return The blockReplyingAfterClosed.
-     */
-    @java.lang.Override
-    public boolean getBlockReplyingAfterClosed() {
-      return blockReplyingAfterClosed_;
-    }
-    /**
-     * <pre>
-     * Whether replying is blocked after the conversation is closed.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool block_replying_after_closed = 45 [json_name = "blockReplyingAfterClosed"];</code>
-     * @param value The blockReplyingAfterClosed to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBlockReplyingAfterClosed(boolean value) {
-      
-      blockReplyingAfterClosed_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether replying is blocked after the conversation is closed.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool block_replying_after_closed = 45 [json_name = "blockReplyingAfterClosed"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBlockReplyingAfterClosed() {
-      
-      blockReplyingAfterClosed_ = false;
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.Duration blockReplyingAfterClosedTime_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> blockReplyingAfterClosedTimeBuilder_;
-    /**
-     * <pre>
-     * Duration after which replying is blocked once the conversation is closed.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Duration block_replying_after_closed_time = 46 [json_name = "blockReplyingAfterClosedTime"];</code>
-     * @return Whether the blockReplyingAfterClosedTime field is set.
-     */
-    public boolean hasBlockReplyingAfterClosedTime() {
-      return blockReplyingAfterClosedTimeBuilder_ != null || blockReplyingAfterClosedTime_ != null;
-    }
-    /**
-     * <pre>
-     * Duration after which replying is blocked once the conversation is closed.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Duration block_replying_after_closed_time = 46 [json_name = "blockReplyingAfterClosedTime"];</code>
-     * @return The blockReplyingAfterClosedTime.
-     */
-    public com.google.protobuf.Duration getBlockReplyingAfterClosedTime() {
-      if (blockReplyingAfterClosedTimeBuilder_ == null) {
-        return blockReplyingAfterClosedTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : blockReplyingAfterClosedTime_;
-      } else {
-        return blockReplyingAfterClosedTimeBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Duration after which replying is blocked once the conversation is closed.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Duration block_replying_after_closed_time = 46 [json_name = "blockReplyingAfterClosedTime"];</code>
-     */
-    public Builder setBlockReplyingAfterClosedTime(com.google.protobuf.Duration value) {
-      if (blockReplyingAfterClosedTimeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        blockReplyingAfterClosedTime_ = value;
-        onChanged();
-      } else {
-        blockReplyingAfterClosedTimeBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Duration after which replying is blocked once the conversation is closed.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Duration block_replying_after_closed_time = 46 [json_name = "blockReplyingAfterClosedTime"];</code>
-     */
-    public Builder setBlockReplyingAfterClosedTime(
-        com.google.protobuf.Duration.Builder builderForValue) {
-      if (blockReplyingAfterClosedTimeBuilder_ == null) {
-        blockReplyingAfterClosedTime_ = builderForValue.build();
-        onChanged();
-      } else {
-        blockReplyingAfterClosedTimeBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Duration after which replying is blocked once the conversation is closed.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Duration block_replying_after_closed_time = 46 [json_name = "blockReplyingAfterClosedTime"];</code>
-     */
-    public Builder mergeBlockReplyingAfterClosedTime(com.google.protobuf.Duration value) {
-      if (blockReplyingAfterClosedTimeBuilder_ == null) {
-        if (blockReplyingAfterClosedTime_ != null) {
-          blockReplyingAfterClosedTime_ =
-            com.google.protobuf.Duration.newBuilder(blockReplyingAfterClosedTime_).mergeFrom(value).buildPartial();
-        } else {
-          blockReplyingAfterClosedTime_ = value;
-        }
-        onChanged();
-      } else {
-        blockReplyingAfterClosedTimeBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Duration after which replying is blocked once the conversation is closed.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Duration block_replying_after_closed_time = 46 [json_name = "blockReplyingAfterClosedTime"];</code>
-     */
-    public Builder clearBlockReplyingAfterClosedTime() {
-      if (blockReplyingAfterClosedTimeBuilder_ == null) {
-        blockReplyingAfterClosedTime_ = null;
-        onChanged();
-      } else {
-        blockReplyingAfterClosedTime_ = null;
-        blockReplyingAfterClosedTimeBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Duration after which replying is blocked once the conversation is closed.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Duration block_replying_after_closed_time = 46 [json_name = "blockReplyingAfterClosedTime"];</code>
-     */
-    public com.google.protobuf.Duration.Builder getBlockReplyingAfterClosedTimeBuilder() {
-      
-      onChanged();
-      return getBlockReplyingAfterClosedTimeFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Duration after which replying is blocked once the conversation is closed.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Duration block_replying_after_closed_time = 46 [json_name = "blockReplyingAfterClosedTime"];</code>
-     */
-    public com.google.protobuf.DurationOrBuilder getBlockReplyingAfterClosedTimeOrBuilder() {
-      if (blockReplyingAfterClosedTimeBuilder_ != null) {
-        return blockReplyingAfterClosedTimeBuilder_.getMessageOrBuilder();
-      } else {
-        return blockReplyingAfterClosedTime_ == null ?
-            com.google.protobuf.Duration.getDefaultInstance() : blockReplyingAfterClosedTime_;
-      }
-    }
-    /**
-     * <pre>
-     * Duration after which replying is blocked once the conversation is closed.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Duration block_replying_after_closed_time = 46 [json_name = "blockReplyingAfterClosedTime"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
-        getBlockReplyingAfterClosedTimeFieldBuilder() {
-      if (blockReplyingAfterClosedTimeBuilder_ == null) {
-        blockReplyingAfterClosedTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
-                getBlockReplyingAfterClosedTime(),
-                getParentForChildren(),
-                isClean());
-        blockReplyingAfterClosedTime_ = null;
-      }
-      return blockReplyingAfterClosedTimeBuilder_;
-    }
-
     private com.google.protobuf.Struct welcomeMessage_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> welcomeMessageBuilder_;
     /**
      * <pre>
-     * Default welcome message shown when a new conversation starts.
-     * +kubebuilder:validation:Nullable
+     * Default welcome message shown to end users when a new conversation starts.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct welcome_message = 47 [json_name = "welcomeMessage"];</code>
+     * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
      * @return Whether the welcomeMessage field is set.
      */
     public boolean hasWelcomeMessage() {
@@ -8083,11 +4606,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Default welcome message shown when a new conversation starts.
-     * +kubebuilder:validation:Nullable
+     * Default welcome message shown to end users when a new conversation starts.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct welcome_message = 47 [json_name = "welcomeMessage"];</code>
+     * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
      * @return The welcomeMessage.
      */
     public com.google.protobuf.Struct getWelcomeMessage() {
@@ -8099,11 +4622,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Default welcome message shown when a new conversation starts.
-     * +kubebuilder:validation:Nullable
+     * Default welcome message shown to end users when a new conversation starts.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct welcome_message = 47 [json_name = "welcomeMessage"];</code>
+     * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
      */
     public Builder setWelcomeMessage(com.google.protobuf.Struct value) {
       if (welcomeMessageBuilder_ == null) {
@@ -8120,11 +4643,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Default welcome message shown when a new conversation starts.
-     * +kubebuilder:validation:Nullable
+     * Default welcome message shown to end users when a new conversation starts.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct welcome_message = 47 [json_name = "welcomeMessage"];</code>
+     * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
      */
     public Builder setWelcomeMessage(
         com.google.protobuf.Struct.Builder builderForValue) {
@@ -8139,11 +4662,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Default welcome message shown when a new conversation starts.
-     * +kubebuilder:validation:Nullable
+     * Default welcome message shown to end users when a new conversation starts.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct welcome_message = 47 [json_name = "welcomeMessage"];</code>
+     * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeWelcomeMessage(com.google.protobuf.Struct value) {
       if (welcomeMessageBuilder_ == null) {
@@ -8162,11 +4685,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Default welcome message shown when a new conversation starts.
-     * +kubebuilder:validation:Nullable
+     * Default welcome message shown to end users when a new conversation starts.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct welcome_message = 47 [json_name = "welcomeMessage"];</code>
+     * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearWelcomeMessage() {
       if (welcomeMessageBuilder_ == null) {
@@ -8181,11 +4704,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Default welcome message shown when a new conversation starts.
-     * +kubebuilder:validation:Nullable
+     * Default welcome message shown to end users when a new conversation starts.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct welcome_message = 47 [json_name = "welcomeMessage"];</code>
+     * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Struct.Builder getWelcomeMessageBuilder() {
       
@@ -8194,11 +4717,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Default welcome message shown when a new conversation starts.
-     * +kubebuilder:validation:Nullable
+     * Default welcome message shown to end users when a new conversation starts.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct welcome_message = 47 [json_name = "welcomeMessage"];</code>
+     * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.StructOrBuilder getWelcomeMessageOrBuilder() {
       if (welcomeMessageBuilder_ != null) {
@@ -8210,11 +4733,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Default welcome message shown when a new conversation starts.
-     * +kubebuilder:validation:Nullable
+     * Default welcome message shown to end users when a new conversation starts.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct welcome_message = 47 [json_name = "welcomeMessage"];</code>
+     * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
@@ -8258,11 +4781,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized welcome messages keyed by locale.
+     * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+     * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
      */
 
     @java.lang.Override
@@ -8281,11 +4804,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized welcome messages keyed by locale.
+     * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+     * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
      */
     @java.lang.Override
 
@@ -8294,11 +4817,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized welcome messages keyed by locale.
+     * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+     * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
      */
     @java.lang.Override
 
@@ -8312,11 +4835,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized welcome messages keyed by locale.
+     * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+     * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
      */
     @java.lang.Override
 
@@ -8338,11 +4861,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized welcome messages keyed by locale.
+     * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+     * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
      */
 
     public Builder removeWelcomeMessageI18NMap(
@@ -8362,11 +4885,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized welcome messages keyed by locale.
+     * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+     * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
      */
     public Builder putWelcomeMessageI18NMap(
         java.lang.String key,
@@ -8382,11 +4905,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized welcome messages keyed by locale.
+     * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 48 [json_name = "welcomeMessageI18nMap"];</code>
+     * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
      */
 
     public Builder putAllWelcomeMessageI18NMap(
@@ -8396,2130 +4919,168 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object userInfoUrl_ = "";
-    /**
-     * <pre>
-     * URL for retrieving user information.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string user_info_url = 49 [json_name = "userInfoUrl"];</code>
-     * @return The userInfoUrl.
-     */
-    public java.lang.String getUserInfoUrl() {
-      java.lang.Object ref = userInfoUrl_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        userInfoUrl_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * URL for retrieving user information.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string user_info_url = 49 [json_name = "userInfoUrl"];</code>
-     * @return The bytes for userInfoUrl.
-     */
-    public com.google.protobuf.ByteString
-        getUserInfoUrlBytes() {
-      java.lang.Object ref = userInfoUrl_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        userInfoUrl_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * URL for retrieving user information.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string user_info_url = 49 [json_name = "userInfoUrl"];</code>
-     * @param value The userInfoUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUserInfoUrl(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      userInfoUrl_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * URL for retrieving user information.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string user_info_url = 49 [json_name = "userInfoUrl"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearUserInfoUrl() {
-      
-      userInfoUrl_ = getDefaultInstance().getUserInfoUrl();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * URL for retrieving user information.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string user_info_url = 49 [json_name = "userInfoUrl"];</code>
-     * @param value The bytes for userInfoUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUserInfoUrlBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      userInfoUrl_ = value;
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.Struct trafficSource_;
+    private com.google.protobuf.Timestamp createdAt_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> trafficSourceBuilder_;
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdAtBuilder_;
     /**
      * <pre>
-     * Traffic source tracking data.
-     * +kubebuilder:validation:Nullable
+     * Channel creation timestamp.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct traffic_source = 50 [json_name = "trafficSource"];</code>
-     * @return Whether the trafficSource field is set.
+     * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * @return Whether the createdAt field is set.
      */
-    public boolean hasTrafficSource() {
-      return trafficSourceBuilder_ != null || trafficSource_ != null;
+    public boolean hasCreatedAt() {
+      return createdAtBuilder_ != null || createdAt_ != null;
     }
     /**
      * <pre>
-     * Traffic source tracking data.
-     * +kubebuilder:validation:Nullable
+     * Channel creation timestamp.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct traffic_source = 50 [json_name = "trafficSource"];</code>
-     * @return The trafficSource.
+     * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * @return The createdAt.
      */
-    public com.google.protobuf.Struct getTrafficSource() {
-      if (trafficSourceBuilder_ == null) {
-        return trafficSource_ == null ? com.google.protobuf.Struct.getDefaultInstance() : trafficSource_;
+    public com.google.protobuf.Timestamp getCreatedAt() {
+      if (createdAtBuilder_ == null) {
+        return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
       } else {
-        return trafficSourceBuilder_.getMessage();
+        return createdAtBuilder_.getMessage();
       }
     }
     /**
      * <pre>
-     * Traffic source tracking data.
-     * +kubebuilder:validation:Nullable
+     * Channel creation timestamp.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct traffic_source = 50 [json_name = "trafficSource"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
-    public Builder setTrafficSource(com.google.protobuf.Struct value) {
-      if (trafficSourceBuilder_ == null) {
+    public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
+      if (createdAtBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        trafficSource_ = value;
+        createdAt_ = value;
         onChanged();
       } else {
-        trafficSourceBuilder_.setMessage(value);
+        createdAtBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
      * <pre>
-     * Traffic source tracking data.
-     * +kubebuilder:validation:Nullable
+     * Channel creation timestamp.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct traffic_source = 50 [json_name = "trafficSource"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
-    public Builder setTrafficSource(
-        com.google.protobuf.Struct.Builder builderForValue) {
-      if (trafficSourceBuilder_ == null) {
-        trafficSource_ = builderForValue.build();
-        onChanged();
-      } else {
-        trafficSourceBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Traffic source tracking data.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct traffic_source = 50 [json_name = "trafficSource"];</code>
-     */
-    public Builder mergeTrafficSource(com.google.protobuf.Struct value) {
-      if (trafficSourceBuilder_ == null) {
-        if (trafficSource_ != null) {
-          trafficSource_ =
-            com.google.protobuf.Struct.newBuilder(trafficSource_).mergeFrom(value).buildPartial();
-        } else {
-          trafficSource_ = value;
-        }
-        onChanged();
-      } else {
-        trafficSourceBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Traffic source tracking data.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct traffic_source = 50 [json_name = "trafficSource"];</code>
-     */
-    public Builder clearTrafficSource() {
-      if (trafficSourceBuilder_ == null) {
-        trafficSource_ = null;
-        onChanged();
-      } else {
-        trafficSource_ = null;
-        trafficSourceBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Traffic source tracking data.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct traffic_source = 50 [json_name = "trafficSource"];</code>
-     */
-    public com.google.protobuf.Struct.Builder getTrafficSourceBuilder() {
-      
-      onChanged();
-      return getTrafficSourceFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Traffic source tracking data.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct traffic_source = 50 [json_name = "trafficSource"];</code>
-     */
-    public com.google.protobuf.StructOrBuilder getTrafficSourceOrBuilder() {
-      if (trafficSourceBuilder_ != null) {
-        return trafficSourceBuilder_.getMessageOrBuilder();
-      } else {
-        return trafficSource_ == null ?
-            com.google.protobuf.Struct.getDefaultInstance() : trafficSource_;
-      }
-    }
-    /**
-     * <pre>
-     * Traffic source tracking data.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct traffic_source = 50 [json_name = "trafficSource"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
-        getTrafficSourceFieldBuilder() {
-      if (trafficSourceBuilder_ == null) {
-        trafficSourceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
-                getTrafficSource(),
-                getParentForChildren(),
-                isClean());
-        trafficSource_ = null;
-      }
-      return trafficSourceBuilder_;
-    }
-
-    private java.lang.Object billAccountId_ = "";
-    /**
-     * <pre>
-     * Billing account identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string bill_account_id = 51 [json_name = "billAccountId"];</code>
-     * @return The billAccountId.
-     */
-    public java.lang.String getBillAccountId() {
-      java.lang.Object ref = billAccountId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        billAccountId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Billing account identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string bill_account_id = 51 [json_name = "billAccountId"];</code>
-     * @return The bytes for billAccountId.
-     */
-    public com.google.protobuf.ByteString
-        getBillAccountIdBytes() {
-      java.lang.Object ref = billAccountId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        billAccountId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Billing account identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string bill_account_id = 51 [json_name = "billAccountId"];</code>
-     * @param value The billAccountId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBillAccountId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      billAccountId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Billing account identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string bill_account_id = 51 [json_name = "billAccountId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBillAccountId() {
-      
-      billAccountId_ = getDefaultInstance().getBillAccountId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Billing account identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string bill_account_id = 51 [json_name = "billAccountId"];</code>
-     * @param value The bytes for billAccountId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBillAccountIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      billAccountId_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object bizGrade_ = "";
-    /**
-     * <pre>
-     * Business grade rating.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string biz_grade = 52 [json_name = "bizGrade"];</code>
-     * @return The bizGrade.
-     */
-    public java.lang.String getBizGrade() {
-      java.lang.Object ref = bizGrade_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        bizGrade_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Business grade rating.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string biz_grade = 52 [json_name = "bizGrade"];</code>
-     * @return The bytes for bizGrade.
-     */
-    public com.google.protobuf.ByteString
-        getBizGradeBytes() {
-      java.lang.Object ref = bizGrade_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        bizGrade_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Business grade rating.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string biz_grade = 52 [json_name = "bizGrade"];</code>
-     * @param value The bizGrade to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBizGrade(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      bizGrade_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Business grade rating.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string biz_grade = 52 [json_name = "bizGrade"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBizGrade() {
-      
-      bizGrade_ = getDefaultInstance().getBizGrade();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Business grade rating.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string biz_grade = 52 [json_name = "bizGrade"];</code>
-     * @param value The bytes for bizGrade to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBizGradeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      bizGrade_ = value;
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.Struct sourceSurvey_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> sourceSurveyBuilder_;
-    /**
-     * <pre>
-     * Source survey tracking data.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct source_survey = 53 [json_name = "sourceSurvey"];</code>
-     * @return Whether the sourceSurvey field is set.
-     */
-    public boolean hasSourceSurvey() {
-      return sourceSurveyBuilder_ != null || sourceSurvey_ != null;
-    }
-    /**
-     * <pre>
-     * Source survey tracking data.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct source_survey = 53 [json_name = "sourceSurvey"];</code>
-     * @return The sourceSurvey.
-     */
-    public com.google.protobuf.Struct getSourceSurvey() {
-      if (sourceSurveyBuilder_ == null) {
-        return sourceSurvey_ == null ? com.google.protobuf.Struct.getDefaultInstance() : sourceSurvey_;
-      } else {
-        return sourceSurveyBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Source survey tracking data.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct source_survey = 53 [json_name = "sourceSurvey"];</code>
-     */
-    public Builder setSourceSurvey(com.google.protobuf.Struct value) {
-      if (sourceSurveyBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        sourceSurvey_ = value;
-        onChanged();
-      } else {
-        sourceSurveyBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Source survey tracking data.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct source_survey = 53 [json_name = "sourceSurvey"];</code>
-     */
-    public Builder setSourceSurvey(
-        com.google.protobuf.Struct.Builder builderForValue) {
-      if (sourceSurveyBuilder_ == null) {
-        sourceSurvey_ = builderForValue.build();
-        onChanged();
-      } else {
-        sourceSurveyBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Source survey tracking data.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct source_survey = 53 [json_name = "sourceSurvey"];</code>
-     */
-    public Builder mergeSourceSurvey(com.google.protobuf.Struct value) {
-      if (sourceSurveyBuilder_ == null) {
-        if (sourceSurvey_ != null) {
-          sourceSurvey_ =
-            com.google.protobuf.Struct.newBuilder(sourceSurvey_).mergeFrom(value).buildPartial();
-        } else {
-          sourceSurvey_ = value;
-        }
-        onChanged();
-      } else {
-        sourceSurveyBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Source survey tracking data.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct source_survey = 53 [json_name = "sourceSurvey"];</code>
-     */
-    public Builder clearSourceSurvey() {
-      if (sourceSurveyBuilder_ == null) {
-        sourceSurvey_ = null;
-        onChanged();
-      } else {
-        sourceSurvey_ = null;
-        sourceSurveyBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Source survey tracking data.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct source_survey = 53 [json_name = "sourceSurvey"];</code>
-     */
-    public com.google.protobuf.Struct.Builder getSourceSurveyBuilder() {
-      
-      onChanged();
-      return getSourceSurveyFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Source survey tracking data.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct source_survey = 53 [json_name = "sourceSurvey"];</code>
-     */
-    public com.google.protobuf.StructOrBuilder getSourceSurveyOrBuilder() {
-      if (sourceSurveyBuilder_ != null) {
-        return sourceSurveyBuilder_.getMessageOrBuilder();
-      } else {
-        return sourceSurvey_ == null ?
-            com.google.protobuf.Struct.getDefaultInstance() : sourceSurvey_;
-      }
-    }
-    /**
-     * <pre>
-     * Source survey tracking data.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct source_survey = 53 [json_name = "sourceSurvey"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
-        getSourceSurveyFieldBuilder() {
-      if (sourceSurveyBuilder_ == null) {
-        sourceSurveyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
-                getSourceSurvey(),
-                getParentForChildren(),
-                isClean());
-        sourceSurvey_ = null;
-      }
-      return sourceSurveyBuilder_;
-    }
-
-    private java.lang.Object bizCategory_ = "";
-    /**
-     * <pre>
-     * Business industry category.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string biz_category = 54 [json_name = "bizCategory"];</code>
-     * @return The bizCategory.
-     */
-    public java.lang.String getBizCategory() {
-      java.lang.Object ref = bizCategory_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        bizCategory_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Business industry category.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string biz_category = 54 [json_name = "bizCategory"];</code>
-     * @return The bytes for bizCategory.
-     */
-    public com.google.protobuf.ByteString
-        getBizCategoryBytes() {
-      java.lang.Object ref = bizCategory_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        bizCategory_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Business industry category.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string biz_category = 54 [json_name = "bizCategory"];</code>
-     * @param value The bizCategory to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBizCategory(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      bizCategory_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Business industry category.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string biz_category = 54 [json_name = "bizCategory"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBizCategory() {
-      
-      bizCategory_ = getDefaultInstance().getBizCategory();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Business industry category.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string biz_category = 54 [json_name = "bizCategory"];</code>
-     * @param value The bytes for bizCategory to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBizCategoryBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      bizCategory_ = value;
-      onChanged();
-      return this;
-    }
-
-    private int staffs_ ;
-    /**
-     * <pre>
-     * Number of team members in the channel.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>int32 staffs = 55 [json_name = "staffs"];</code>
-     * @return The staffs.
-     */
-    @java.lang.Override
-    public int getStaffs() {
-      return staffs_;
-    }
-    /**
-     * <pre>
-     * Number of team members in the channel.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>int32 staffs = 55 [json_name = "staffs"];</code>
-     * @param value The staffs to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStaffs(int value) {
-      
-      staffs_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Number of team members in the channel.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>int32 staffs = 55 [json_name = "staffs"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearStaffs() {
-      
-      staffs_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object appCommerceId_ = "";
-    /**
-     * <pre>
-     * Commerce app integration identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string app_commerce_id = 56 [json_name = "appCommerceId"];</code>
-     * @return The appCommerceId.
-     */
-    public java.lang.String getAppCommerceId() {
-      java.lang.Object ref = appCommerceId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        appCommerceId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Commerce app integration identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string app_commerce_id = 56 [json_name = "appCommerceId"];</code>
-     * @return The bytes for appCommerceId.
-     */
-    public com.google.protobuf.ByteString
-        getAppCommerceIdBytes() {
-      java.lang.Object ref = appCommerceId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        appCommerceId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Commerce app integration identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string app_commerce_id = 56 [json_name = "appCommerceId"];</code>
-     * @param value The appCommerceId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAppCommerceId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      appCommerceId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Commerce app integration identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string app_commerce_id = 56 [json_name = "appCommerceId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearAppCommerceId() {
-      
-      appCommerceId_ = getDefaultInstance().getAppCommerceId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Commerce app integration identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string app_commerce_id = 56 [json_name = "appCommerceId"];</code>
-     * @param value The bytes for appCommerceId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAppCommerceIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      appCommerceId_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object appCommerceType_ = "";
-    /**
-     * <pre>
-     * Type of commerce platform integrated.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string app_commerce_type = 57 [json_name = "appCommerceType"];</code>
-     * @return The appCommerceType.
-     */
-    public java.lang.String getAppCommerceType() {
-      java.lang.Object ref = appCommerceType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        appCommerceType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Type of commerce platform integrated.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string app_commerce_type = 57 [json_name = "appCommerceType"];</code>
-     * @return The bytes for appCommerceType.
-     */
-    public com.google.protobuf.ByteString
-        getAppCommerceTypeBytes() {
-      java.lang.Object ref = appCommerceType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        appCommerceType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Type of commerce platform integrated.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string app_commerce_type = 57 [json_name = "appCommerceType"];</code>
-     * @param value The appCommerceType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAppCommerceType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      appCommerceType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Type of commerce platform integrated.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string app_commerce_type = 57 [json_name = "appCommerceType"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearAppCommerceType() {
-      
-      appCommerceType_ = getDefaultInstance().getAppCommerceType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Type of commerce platform integrated.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string app_commerce_type = 57 [json_name = "appCommerceType"];</code>
-     * @param value The bytes for appCommerceType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAppCommerceTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      appCommerceType_ = value;
-      onChanged();
-      return this;
-    }
-
-    private boolean enableMemberHash_ ;
-    /**
-     * <pre>
-     * Whether member hash authentication is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool enable_member_hash = 58 [json_name = "enableMemberHash"];</code>
-     * @return The enableMemberHash.
-     */
-    @java.lang.Override
-    public boolean getEnableMemberHash() {
-      return enableMemberHash_;
-    }
-    /**
-     * <pre>
-     * Whether member hash authentication is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool enable_member_hash = 58 [json_name = "enableMemberHash"];</code>
-     * @param value The enableMemberHash to set.
-     * @return This builder for chaining.
-     */
-    public Builder setEnableMemberHash(boolean value) {
-      
-      enableMemberHash_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether member hash authentication is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool enable_member_hash = 58 [json_name = "enableMemberHash"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearEnableMemberHash() {
-      
-      enableMemberHash_ = false;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object defaultEmailDomainId_ = "";
-    /**
-     * <pre>
-     * Default email domain identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string default_email_domain_id = 59 [json_name = "defaultEmailDomainId"];</code>
-     * @return The defaultEmailDomainId.
-     */
-    public java.lang.String getDefaultEmailDomainId() {
-      java.lang.Object ref = defaultEmailDomainId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        defaultEmailDomainId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Default email domain identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string default_email_domain_id = 59 [json_name = "defaultEmailDomainId"];</code>
-     * @return The bytes for defaultEmailDomainId.
-     */
-    public com.google.protobuf.ByteString
-        getDefaultEmailDomainIdBytes() {
-      java.lang.Object ref = defaultEmailDomainId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        defaultEmailDomainId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Default email domain identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string default_email_domain_id = 59 [json_name = "defaultEmailDomainId"];</code>
-     * @param value The defaultEmailDomainId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDefaultEmailDomainId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      defaultEmailDomainId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Default email domain identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string default_email_domain_id = 59 [json_name = "defaultEmailDomainId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDefaultEmailDomainId() {
-      
-      defaultEmailDomainId_ = getDefaultInstance().getDefaultEmailDomainId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Default email domain identifier.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string default_email_domain_id = 59 [json_name = "defaultEmailDomainId"];</code>
-     * @param value The bytes for defaultEmailDomainId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDefaultEmailDomainIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      defaultEmailDomainId_ = value;
-      onChanged();
-      return this;
-    }
-
-    private boolean enableMfa_ ;
-    /**
-     * <pre>
-     * Whether multi-factor authentication is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool enable_mfa = 60 [json_name = "enableMfa"];</code>
-     * @return The enableMfa.
-     */
-    @java.lang.Override
-    public boolean getEnableMfa() {
-      return enableMfa_;
-    }
-    /**
-     * <pre>
-     * Whether multi-factor authentication is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool enable_mfa = 60 [json_name = "enableMfa"];</code>
-     * @param value The enableMfa to set.
-     * @return This builder for chaining.
-     */
-    public Builder setEnableMfa(boolean value) {
-      
-      enableMfa_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether multi-factor authentication is enabled.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool enable_mfa = 60 [json_name = "enableMfa"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearEnableMfa() {
-      
-      enableMfa_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean blocked_ ;
-    /**
-     * <pre>
-     * Whether the channel account is blocked.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool blocked = 61 [json_name = "blocked"];</code>
-     * @return The blocked.
-     */
-    @java.lang.Override
-    public boolean getBlocked() {
-      return blocked_;
-    }
-    /**
-     * <pre>
-     * Whether the channel account is blocked.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool blocked = 61 [json_name = "blocked"];</code>
-     * @param value The blocked to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBlocked(boolean value) {
-      
-      blocked_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether the channel account is blocked.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool blocked = 61 [json_name = "blocked"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBlocked() {
-      
-      blocked_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean bright_ ;
-    /**
-     * <pre>
-     * Whether the theme has a bright color.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool bright = 62 [json_name = "bright"];</code>
-     * @return The bright.
-     */
-    @java.lang.Override
-    public boolean getBright() {
-      return bright_;
-    }
-    /**
-     * <pre>
-     * Whether the theme has a bright color.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool bright = 62 [json_name = "bright"];</code>
-     * @param value The bright to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBright(boolean value) {
-      
-      bright_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether the theme has a bright color.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool bright = 62 [json_name = "bright"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBright() {
-      
-      bright_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean usingFollowUp_ ;
-    /**
-     * <pre>
-     * Whether follow-up feature is active.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool using_follow_up = 63 [json_name = "usingFollowUp"];</code>
-     * @return The usingFollowUp.
-     */
-    @java.lang.Override
-    public boolean getUsingFollowUp() {
-      return usingFollowUp_;
-    }
-    /**
-     * <pre>
-     * Whether follow-up feature is active.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool using_follow_up = 63 [json_name = "usingFollowUp"];</code>
-     * @param value The usingFollowUp to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUsingFollowUp(boolean value) {
-      
-      usingFollowUp_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether follow-up feature is active.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool using_follow_up = 63 [json_name = "usingFollowUp"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearUsingFollowUp() {
-      
-      usingFollowUp_ = false;
-      onChanged();
-      return this;
-    }
-
-    private float brightness_ ;
-    /**
-     * <pre>
-     * Theme color brightness value normalized to 0.0-1.0 range.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>float brightness = 64 [json_name = "brightness"];</code>
-     * @return The brightness.
-     */
-    @java.lang.Override
-    public float getBrightness() {
-      return brightness_;
-    }
-    /**
-     * <pre>
-     * Theme color brightness value normalized to 0.0-1.0 range.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>float brightness = 64 [json_name = "brightness"];</code>
-     * @param value The brightness to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBrightness(float value) {
-      
-      brightness_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Theme color brightness value normalized to 0.0-1.0 range.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>float brightness = 64 [json_name = "brightness"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBrightness() {
-      
-      brightness_ = 0F;
-      onChanged();
-      return this;
-    }
-
-    private boolean coverImageBright_ ;
-    /**
-     * <pre>
-     * Whether the cover image has a bright tone.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool cover_image_bright = 65 [json_name = "coverImageBright"];</code>
-     * @return The coverImageBright.
-     */
-    @java.lang.Override
-    public boolean getCoverImageBright() {
-      return coverImageBright_;
-    }
-    /**
-     * <pre>
-     * Whether the cover image has a bright tone.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool cover_image_bright = 65 [json_name = "coverImageBright"];</code>
-     * @param value The coverImageBright to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCoverImageBright(boolean value) {
-      
-      coverImageBright_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether the cover image has a bright tone.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool cover_image_bright = 65 [json_name = "coverImageBright"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCoverImageBright() {
-      
-      coverImageBright_ = false;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object coverImageColor_ = "";
-    /**
-     * <pre>
-     * Cover image dominant color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
-     * @return The coverImageColor.
-     */
-    public java.lang.String getCoverImageColor() {
-      java.lang.Object ref = coverImageColor_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        coverImageColor_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Cover image dominant color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
-     * @return The bytes for coverImageColor.
-     */
-    public com.google.protobuf.ByteString
-        getCoverImageColorBytes() {
-      java.lang.Object ref = coverImageColor_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        coverImageColor_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Cover image dominant color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
-     * @param value The coverImageColor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCoverImageColor(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      coverImageColor_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Cover image dominant color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCoverImageColor() {
-      
-      coverImageColor_ = getDefaultInstance().getCoverImageColor();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Cover image dominant color in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string cover_image_color = 66 [json_name = "coverImageColor"];</code>
-     * @param value The bytes for coverImageColor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCoverImageColorBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      coverImageColor_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object coverImageUrl_ = "";
-    /**
-     * <pre>
-     * Cover image URL for the channel profile.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
-     * @return The coverImageUrl.
-     */
-    public java.lang.String getCoverImageUrl() {
-      java.lang.Object ref = coverImageUrl_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        coverImageUrl_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Cover image URL for the channel profile.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
-     * @return The bytes for coverImageUrl.
-     */
-    public com.google.protobuf.ByteString
-        getCoverImageUrlBytes() {
-      java.lang.Object ref = coverImageUrl_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        coverImageUrl_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Cover image URL for the channel profile.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
-     * @param value The coverImageUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCoverImageUrl(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      coverImageUrl_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Cover image URL for the channel profile.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCoverImageUrl() {
-      
-      coverImageUrl_ = getDefaultInstance().getCoverImageUrl();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Cover image URL for the channel profile.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string cover_image_url = 67 [json_name = "coverImageUrl"];</code>
-     * @param value The bytes for coverImageUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCoverImageUrlBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      coverImageUrl_ = value;
-      onChanged();
-      return this;
-    }
-
-    private boolean disableNewChatButton_ ;
-    /**
-     * <pre>
-     * Whether to hide the new chat button from end users.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool disable_new_chat_button = 68 [json_name = "disableNewChatButton"];</code>
-     * @return The disableNewChatButton.
-     */
-    @java.lang.Override
-    public boolean getDisableNewChatButton() {
-      return disableNewChatButton_;
-    }
-    /**
-     * <pre>
-     * Whether to hide the new chat button from end users.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool disable_new_chat_button = 68 [json_name = "disableNewChatButton"];</code>
-     * @param value The disableNewChatButton to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDisableNewChatButton(boolean value) {
-      
-      disableNewChatButton_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether to hide the new chat button from end users.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool disable_new_chat_button = 68 [json_name = "disableNewChatButton"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDisableNewChatButton() {
-      
-      disableNewChatButton_ = false;
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.Timestamp nextAwayTime_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> nextAwayTimeBuilder_;
-    /**
-     * <pre>
-     * Timestamp when the next away period starts.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
-     * @return Whether the nextAwayTime field is set.
-     */
-    public boolean hasNextAwayTime() {
-      return nextAwayTimeBuilder_ != null || nextAwayTime_ != null;
-    }
-    /**
-     * <pre>
-     * Timestamp when the next away period starts.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
-     * @return The nextAwayTime.
-     */
-    public com.google.protobuf.Timestamp getNextAwayTime() {
-      if (nextAwayTimeBuilder_ == null) {
-        return nextAwayTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : nextAwayTime_;
-      } else {
-        return nextAwayTimeBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the next away period starts.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
-     */
-    public Builder setNextAwayTime(com.google.protobuf.Timestamp value) {
-      if (nextAwayTimeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        nextAwayTime_ = value;
-        onChanged();
-      } else {
-        nextAwayTimeBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the next away period starts.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
-     */
-    public Builder setNextAwayTime(
+    public Builder setCreatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (nextAwayTimeBuilder_ == null) {
-        nextAwayTime_ = builderForValue.build();
+      if (createdAtBuilder_ == null) {
+        createdAt_ = builderForValue.build();
         onChanged();
       } else {
-        nextAwayTimeBuilder_.setMessage(builderForValue.build());
+        createdAtBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
      * <pre>
-     * Timestamp when the next away period starts.
-     * +kubebuilder:validation:Nullable
+     * Channel creation timestamp.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
-    public Builder mergeNextAwayTime(com.google.protobuf.Timestamp value) {
-      if (nextAwayTimeBuilder_ == null) {
-        if (nextAwayTime_ != null) {
-          nextAwayTime_ =
-            com.google.protobuf.Timestamp.newBuilder(nextAwayTime_).mergeFrom(value).buildPartial();
+    public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
+      if (createdAtBuilder_ == null) {
+        if (createdAt_ != null) {
+          createdAt_ =
+            com.google.protobuf.Timestamp.newBuilder(createdAt_).mergeFrom(value).buildPartial();
         } else {
-          nextAwayTime_ = value;
+          createdAt_ = value;
         }
         onChanged();
       } else {
-        nextAwayTimeBuilder_.mergeFrom(value);
+        createdAtBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
      * <pre>
-     * Timestamp when the next away period starts.
-     * +kubebuilder:validation:Nullable
+     * Channel creation timestamp.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
-    public Builder clearNextAwayTime() {
-      if (nextAwayTimeBuilder_ == null) {
-        nextAwayTime_ = null;
+    public Builder clearCreatedAt() {
+      if (createdAtBuilder_ == null) {
+        createdAt_ = null;
         onChanged();
       } else {
-        nextAwayTime_ = null;
-        nextAwayTimeBuilder_ = null;
+        createdAt_ = null;
+        createdAtBuilder_ = null;
       }
 
       return this;
     }
     /**
      * <pre>
-     * Timestamp when the next away period starts.
-     * +kubebuilder:validation:Nullable
+     * Channel creation timestamp.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
-    public com.google.protobuf.Timestamp.Builder getNextAwayTimeBuilder() {
+    public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
       
       onChanged();
-      return getNextAwayTimeFieldBuilder().getBuilder();
+      return getCreatedAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Timestamp when the next away period starts.
-     * +kubebuilder:validation:Nullable
+     * Channel creation timestamp.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
-    public com.google.protobuf.TimestampOrBuilder getNextAwayTimeOrBuilder() {
-      if (nextAwayTimeBuilder_ != null) {
-        return nextAwayTimeBuilder_.getMessageOrBuilder();
+    public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
+      if (createdAtBuilder_ != null) {
+        return createdAtBuilder_.getMessageOrBuilder();
       } else {
-        return nextAwayTime_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : nextAwayTime_;
+        return createdAt_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
       }
     }
     /**
      * <pre>
-     * Timestamp when the next away period starts.
-     * +kubebuilder:validation:Nullable
+     * Channel creation timestamp.
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp next_away_time = 69 [json_name = "nextAwayTime"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getNextAwayTimeFieldBuilder() {
-      if (nextAwayTimeBuilder_ == null) {
-        nextAwayTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        getCreatedAtFieldBuilder() {
+      if (createdAtBuilder_ == null) {
+        createdAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getNextAwayTime(),
+                getCreatedAt(),
                 getParentForChildren(),
                 isClean());
-        nextAwayTime_ = null;
+        createdAt_ = null;
       }
-      return nextAwayTimeBuilder_;
-    }
-
-    private com.google.protobuf.Timestamp nextWorkingTime_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> nextWorkingTimeBuilder_;
-    /**
-     * <pre>
-     * Timestamp when the next operating period starts.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
-     * @return Whether the nextWorkingTime field is set.
-     */
-    public boolean hasNextWorkingTime() {
-      return nextWorkingTimeBuilder_ != null || nextWorkingTime_ != null;
-    }
-    /**
-     * <pre>
-     * Timestamp when the next operating period starts.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
-     * @return The nextWorkingTime.
-     */
-    public com.google.protobuf.Timestamp getNextWorkingTime() {
-      if (nextWorkingTimeBuilder_ == null) {
-        return nextWorkingTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : nextWorkingTime_;
-      } else {
-        return nextWorkingTimeBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the next operating period starts.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
-     */
-    public Builder setNextWorkingTime(com.google.protobuf.Timestamp value) {
-      if (nextWorkingTimeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        nextWorkingTime_ = value;
-        onChanged();
-      } else {
-        nextWorkingTimeBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the next operating period starts.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
-     */
-    public Builder setNextWorkingTime(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (nextWorkingTimeBuilder_ == null) {
-        nextWorkingTime_ = builderForValue.build();
-        onChanged();
-      } else {
-        nextWorkingTimeBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the next operating period starts.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
-     */
-    public Builder mergeNextWorkingTime(com.google.protobuf.Timestamp value) {
-      if (nextWorkingTimeBuilder_ == null) {
-        if (nextWorkingTime_ != null) {
-          nextWorkingTime_ =
-            com.google.protobuf.Timestamp.newBuilder(nextWorkingTime_).mergeFrom(value).buildPartial();
-        } else {
-          nextWorkingTime_ = value;
-        }
-        onChanged();
-      } else {
-        nextWorkingTimeBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the next operating period starts.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
-     */
-    public Builder clearNextWorkingTime() {
-      if (nextWorkingTimeBuilder_ == null) {
-        nextWorkingTime_ = null;
-        onChanged();
-      } else {
-        nextWorkingTime_ = null;
-        nextWorkingTimeBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the next operating period starts.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getNextWorkingTimeBuilder() {
-      
-      onChanged();
-      return getNextWorkingTimeFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Timestamp when the next operating period starts.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getNextWorkingTimeOrBuilder() {
-      if (nextWorkingTimeBuilder_ != null) {
-        return nextWorkingTimeBuilder_.getMessageOrBuilder();
-      } else {
-        return nextWorkingTime_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : nextWorkingTime_;
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the next operating period starts.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp next_working_time = 70 [json_name = "nextWorkingTime"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getNextWorkingTimeFieldBuilder() {
-      if (nextWorkingTimeBuilder_ == null) {
-        nextWorkingTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getNextWorkingTime(),
-                getParentForChildren(),
-                isClean());
-        nextWorkingTime_ = null;
-      }
-      return nextWorkingTimeBuilder_;
-    }
-
-    private java.lang.Object pluginIconColor_ = "";
-    /**
-     * <pre>
-     * Icon color for the channel plugin widget in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
-     * @return The pluginIconColor.
-     */
-    public java.lang.String getPluginIconColor() {
-      java.lang.Object ref = pluginIconColor_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        pluginIconColor_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Icon color for the channel plugin widget in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
-     * @return The bytes for pluginIconColor.
-     */
-    public com.google.protobuf.ByteString
-        getPluginIconColorBytes() {
-      java.lang.Object ref = pluginIconColor_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        pluginIconColor_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Icon color for the channel plugin widget in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
-     * @param value The pluginIconColor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPluginIconColor(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      pluginIconColor_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Icon color for the channel plugin widget in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPluginIconColor() {
-      
-      pluginIconColor_ = getDefaultInstance().getPluginIconColor();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Icon color for the channel plugin widget in hex format.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string plugin_icon_color = 71 [json_name = "pluginIconColor"];</code>
-     * @param value The bytes for pluginIconColor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPluginIconColorBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      pluginIconColor_ = value;
-      onChanged();
-      return this;
-    }
-
-    private boolean showOperatorProfile_ ;
-    /**
-     * <pre>
-     * Whether to display individual operator profiles to end users.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool show_operator_profile = 72 [json_name = "showOperatorProfile"];</code>
-     * @return The showOperatorProfile.
-     */
-    @java.lang.Override
-    public boolean getShowOperatorProfile() {
-      return showOperatorProfile_;
-    }
-    /**
-     * <pre>
-     * Whether to display individual operator profiles to end users.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool show_operator_profile = 72 [json_name = "showOperatorProfile"];</code>
-     * @param value The showOperatorProfile to set.
-     * @return This builder for chaining.
-     */
-    public Builder setShowOperatorProfile(boolean value) {
-      
-      showOperatorProfile_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether to display individual operator profiles to end users.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>bool show_operator_profile = 72 [json_name = "showOperatorProfile"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearShowOperatorProfile() {
-      
-      showOperatorProfile_ = false;
-      onChanged();
-      return this;
+      return createdAtBuilder_;
     }
 
     private com.google.protobuf.Timestamp updatedAt_;
@@ -10531,7 +5092,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      * @return Whether the updatedAt field is set.
      */
     public boolean hasUpdatedAt() {
@@ -10543,7 +5104,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      * @return The updatedAt.
      */
     public com.google.protobuf.Timestamp getUpdatedAt() {
@@ -10559,7 +5120,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
@@ -10580,7 +5141,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder setUpdatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -10599,7 +5160,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
@@ -10622,7 +5183,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearUpdatedAt() {
       if (updatedAtBuilder_ == null) {
@@ -10641,7 +5202,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
       
@@ -10654,7 +5215,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
       if (updatedAtBuilder_ != null) {
@@ -10670,7 +5231,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp updated_at = 73 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -10684,6 +5245,5219 @@ private static final long serialVersionUID = 0L;
         updatedAt_ = null;
       }
       return updatedAtBuilder_;
+    }
+
+    private java.lang.Object userInfoUrl_ = "";
+    /**
+     * <pre>
+     * Webhook URL called to retrieve additional user information from your server.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
+     * @return The userInfoUrl.
+     */
+    public java.lang.String getUserInfoUrl() {
+      java.lang.Object ref = userInfoUrl_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userInfoUrl_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Webhook URL called to retrieve additional user information from your server.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
+     * @return The bytes for userInfoUrl.
+     */
+    public com.google.protobuf.ByteString
+        getUserInfoUrlBytes() {
+      java.lang.Object ref = userInfoUrl_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userInfoUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Webhook URL called to retrieve additional user information from your server.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
+     * @param value The userInfoUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserInfoUrl(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      userInfoUrl_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Webhook URL called to retrieve additional user information from your server.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUserInfoUrl() {
+      
+      userInfoUrl_ = getDefaultInstance().getUserInfoUrl();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Webhook URL called to retrieve additional user information from your server.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string user_info_url = 6 [json_name = "userInfoUrl"];</code>
+     * @param value The bytes for userInfoUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserInfoUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      userInfoUrl_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object name_ = "";
+    /**
+     * <pre>
+     * Channel display name visible to end users.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:MaxLength=30
+     * </pre>
+     *
+     * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * @return The name.
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Channel display name visible to end users.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:MaxLength=30
+     * </pre>
+     *
+     * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * @return The bytes for name.
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Channel display name visible to end users.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:MaxLength=30
+     * </pre>
+     *
+     * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
+     */
+    public Builder setName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      name_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Channel display name visible to end users.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:MaxLength=30
+     * </pre>
+     *
+     * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearName() {
+      
+      name_ = getDefaultInstance().getName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Channel display name visible to end users.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:validation:MaxLength=30
+     * </pre>
+     *
+     * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      name_ = value;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
+        java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> nameDescI18NMap_;
+    private com.google.protobuf.MapField<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
+    internalGetNameDescI18NMap() {
+      if (nameDescI18NMap_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            NameDescI18NMapDefaultEntryHolder.defaultEntry);
+      }
+      return nameDescI18NMap_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
+    internalGetMutableNameDescI18NMap() {
+      onChanged();;
+      if (nameDescI18NMap_ == null) {
+        nameDescI18NMap_ = com.google.protobuf.MapField.newMapField(
+            NameDescI18NMapDefaultEntryHolder.defaultEntry);
+      }
+      if (!nameDescI18NMap_.isMutable()) {
+        nameDescI18NMap_ = nameDescI18NMap_.copy();
+      }
+      return nameDescI18NMap_;
+    }
+
+    public int getNameDescI18NMapCount() {
+      return internalGetNameDescI18NMap().getMap().size();
+    }
+    /**
+     * <pre>
+     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+     */
+
+    @java.lang.Override
+    public boolean containsNameDescI18NMap(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetNameDescI18NMap().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getNameDescI18NMapMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> getNameDescI18NMap() {
+      return getNameDescI18NMapMap();
+    }
+    /**
+     * <pre>
+     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> getNameDescI18NMapMap() {
+      return internalGetNameDescI18NMap().getMap();
+    }
+    /**
+     * <pre>
+     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+     */
+    @java.lang.Override
+
+    public io.channel.api.proto.pub.coreapi.model.NameDesc getNameDescI18NMapOrDefault(
+        java.lang.String key,
+        io.channel.api.proto.pub.coreapi.model.NameDesc defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> map =
+          internalGetNameDescI18NMap().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+     */
+    @java.lang.Override
+
+    public io.channel.api.proto.pub.coreapi.model.NameDesc getNameDescI18NMapOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> map =
+          internalGetNameDescI18NMap().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public Builder clearNameDescI18NMap() {
+      internalGetMutableNameDescI18NMap().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <pre>
+     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+     */
+
+    public Builder removeNameDescI18NMap(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableNameDescI18NMap().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc>
+    getMutableNameDescI18NMap() {
+      return internalGetMutableNameDescI18NMap().getMutableMap();
+    }
+    /**
+     * <pre>
+     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+     */
+    public Builder putNameDescI18NMap(
+        java.lang.String key,
+        io.channel.api.proto.pub.coreapi.model.NameDesc value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+      internalGetMutableNameDescI18NMap().getMutableMap()
+          .put(key, value);
+      return this;
+    }
+    /**
+     * <pre>
+     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
+     */
+
+    public Builder putAllNameDescI18NMap(
+        java.util.Map<java.lang.String, io.channel.api.proto.pub.coreapi.model.NameDesc> values) {
+      internalGetMutableNameDescI18NMap().getMutableMap()
+          .putAll(values);
+      return this;
+    }
+
+    private java.lang.Object coverImageColor_ = "";
+    /**
+     * <pre>
+     * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
+     * @return The coverImageColor.
+     */
+    public java.lang.String getCoverImageColor() {
+      java.lang.Object ref = coverImageColor_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        coverImageColor_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
+     * @return The bytes for coverImageColor.
+     */
+    public com.google.protobuf.ByteString
+        getCoverImageColorBytes() {
+      java.lang.Object ref = coverImageColor_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        coverImageColor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
+     * @param value The coverImageColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCoverImageColor(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      coverImageColor_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCoverImageColor() {
+      
+      coverImageColor_ = getDefaultInstance().getCoverImageColor();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
+     * @param value The bytes for coverImageColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCoverImageColorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      coverImageColor_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object botName_ = "";
+    /**
+     * <pre>
+     * Default bot display name shown to end users in conversations.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
+     * @return The botName.
+     */
+    public java.lang.String getBotName() {
+      java.lang.Object ref = botName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        botName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Default bot display name shown to end users in conversations.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
+     * @return The bytes for botName.
+     */
+    public com.google.protobuf.ByteString
+        getBotNameBytes() {
+      java.lang.Object ref = botName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        botName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Default bot display name shown to end users in conversations.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
+     * @param value The botName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBotName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      botName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Default bot display name shown to end users in conversations.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBotName() {
+      
+      botName_ = getDefaultInstance().getBotName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Default bot display name shown to end users in conversations.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
+     * @param value The bytes for botName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBotNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      botName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object color_ = "";
+    /**
+     * <pre>
+     * Channel theme color in hex format (e.g., #3B82F6).
+     * Used to derive border, gradient, text, and plugin icon colors.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="#3B82F6"
+     * </pre>
+     *
+     * <code>string color = 11 [json_name = "color", (.buf.validate.field) = { ... }</code>
+     * @return The color.
+     */
+    public java.lang.String getColor() {
+      java.lang.Object ref = color_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        color_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Channel theme color in hex format (e.g., #3B82F6).
+     * Used to derive border, gradient, text, and plugin icon colors.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="#3B82F6"
+     * </pre>
+     *
+     * <code>string color = 11 [json_name = "color", (.buf.validate.field) = { ... }</code>
+     * @return The bytes for color.
+     */
+    public com.google.protobuf.ByteString
+        getColorBytes() {
+      java.lang.Object ref = color_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        color_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Channel theme color in hex format (e.g., #3B82F6).
+     * Used to derive border, gradient, text, and plugin icon colors.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="#3B82F6"
+     * </pre>
+     *
+     * <code>string color = 11 [json_name = "color", (.buf.validate.field) = { ... }</code>
+     * @param value The color to set.
+     * @return This builder for chaining.
+     */
+    public Builder setColor(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      color_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Channel theme color in hex format (e.g., #3B82F6).
+     * Used to derive border, gradient, text, and plugin icon colors.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="#3B82F6"
+     * </pre>
+     *
+     * <code>string color = 11 [json_name = "color", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearColor() {
+      
+      color_ = getDefaultInstance().getColor();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Channel theme color in hex format (e.g., #3B82F6).
+     * Used to derive border, gradient, text, and plugin icon colors.
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="#3B82F6"
+     * </pre>
+     *
+     * <code>string color = 11 [json_name = "color", (.buf.validate.field) = { ... }</code>
+     * @param value The bytes for color to set.
+     * @return This builder for chaining.
+     */
+    public Builder setColorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      color_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object description_ = "";
+    /**
+     * <pre>
+     * Free-text summary displayed on the channel profile.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxLength=180
+     * </pre>
+     *
+     * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
+     * @return The description.
+     */
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Free-text summary displayed on the channel profile.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxLength=180
+     * </pre>
+     *
+     * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
+     * @return The bytes for description.
+     */
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Free-text summary displayed on the channel profile.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxLength=180
+     * </pre>
+     *
+     * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
+     * @param value The description to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDescription(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      description_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Free-text summary displayed on the channel profile.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxLength=180
+     * </pre>
+     *
+     * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDescription() {
+      
+      description_ = getDefaultInstance().getDescription();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Free-text summary displayed on the channel profile.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxLength=180
+     * </pre>
+     *
+     * <code>string description = 12 [json_name = "description", (.buf.validate.field) = { ... }</code>
+     * @param value The bytes for description to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDescriptionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      description_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object country_ = "";
+    /**
+     * <pre>
+     * ISO 3166-1 alpha-2 country code (e.g., KR, US).
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="KR"
+     * </pre>
+     *
+     * <code>string country = 13 [json_name = "country"];</code>
+     * @return The country.
+     */
+    public java.lang.String getCountry() {
+      java.lang.Object ref = country_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        country_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * ISO 3166-1 alpha-2 country code (e.g., KR, US).
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="KR"
+     * </pre>
+     *
+     * <code>string country = 13 [json_name = "country"];</code>
+     * @return The bytes for country.
+     */
+    public com.google.protobuf.ByteString
+        getCountryBytes() {
+      java.lang.Object ref = country_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        country_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * ISO 3166-1 alpha-2 country code (e.g., KR, US).
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="KR"
+     * </pre>
+     *
+     * <code>string country = 13 [json_name = "country"];</code>
+     * @param value The country to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCountry(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      country_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * ISO 3166-1 alpha-2 country code (e.g., KR, US).
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="KR"
+     * </pre>
+     *
+     * <code>string country = 13 [json_name = "country"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCountry() {
+      
+      country_ = getDefaultInstance().getCountry();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * ISO 3166-1 alpha-2 country code (e.g., KR, US).
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="KR"
+     * </pre>
+     *
+     * <code>string country = 13 [json_name = "country"];</code>
+     * @param value The bytes for country to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCountryBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      country_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object domain_ = "";
+    /**
+     * <pre>
+     * Custom domain slug for the channel.
+     * Globally unique across all channels.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string domain = 14 [json_name = "domain"];</code>
+     * @return The domain.
+     */
+    public java.lang.String getDomain() {
+      java.lang.Object ref = domain_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        domain_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Custom domain slug for the channel.
+     * Globally unique across all channels.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string domain = 14 [json_name = "domain"];</code>
+     * @return The bytes for domain.
+     */
+    public com.google.protobuf.ByteString
+        getDomainBytes() {
+      java.lang.Object ref = domain_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        domain_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Custom domain slug for the channel.
+     * Globally unique across all channels.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string domain = 14 [json_name = "domain"];</code>
+     * @param value The domain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDomain(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      domain_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Custom domain slug for the channel.
+     * Globally unique across all channels.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string domain = 14 [json_name = "domain"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDomain() {
+      
+      domain_ = getDefaultInstance().getDomain();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Custom domain slug for the channel.
+     * Globally unique across all channels.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string domain = 14 [json_name = "domain"];</code>
+     * @param value The bytes for domain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDomainBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      domain_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object defaultDomain_ = "";
+    /**
+     * <pre>
+     * System-assigned default domain.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+     * @return The defaultDomain.
+     */
+    public java.lang.String getDefaultDomain() {
+      java.lang.Object ref = defaultDomain_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        defaultDomain_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * System-assigned default domain.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+     * @return The bytes for defaultDomain.
+     */
+    public com.google.protobuf.ByteString
+        getDefaultDomainBytes() {
+      java.lang.Object ref = defaultDomain_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        defaultDomain_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * System-assigned default domain.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+     * @param value The defaultDomain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDefaultDomain(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      defaultDomain_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * System-assigned default domain.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDefaultDomain() {
+      
+      defaultDomain_ = getDefaultInstance().getDefaultDomain();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * System-assigned default domain.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string default_domain = 15 [json_name = "defaultDomain"];</code>
+     * @param value The bytes for defaultDomain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDefaultDomainBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      defaultDomain_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object homepageUrl_ = "";
+    /**
+     * <pre>
+     * Business homepage URL associated with the channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
+     * @return The homepageUrl.
+     */
+    public java.lang.String getHomepageUrl() {
+      java.lang.Object ref = homepageUrl_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        homepageUrl_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Business homepage URL associated with the channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
+     * @return The bytes for homepageUrl.
+     */
+    public com.google.protobuf.ByteString
+        getHomepageUrlBytes() {
+      java.lang.Object ref = homepageUrl_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        homepageUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Business homepage URL associated with the channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
+     * @param value The homepageUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHomepageUrl(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      homepageUrl_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Business homepage URL associated with the channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHomepageUrl() {
+      
+      homepageUrl_ = getDefaultInstance().getHomepageUrl();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Business homepage URL associated with the channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string homepage_url = 16 [json_name = "homepageUrl"];</code>
+     * @param value The bytes for homepageUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHomepageUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      homepageUrl_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object phoneNumber_ = "";
+    /**
+     * <pre>
+     * Business contact phone number in E.164 format (e.g., +821012345678).
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="+821012345678"
+     * </pre>
+     *
+     * <code>string phone_number = 17 [json_name = "phoneNumber"];</code>
+     * @return The phoneNumber.
+     */
+    public java.lang.String getPhoneNumber() {
+      java.lang.Object ref = phoneNumber_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        phoneNumber_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Business contact phone number in E.164 format (e.g., +821012345678).
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="+821012345678"
+     * </pre>
+     *
+     * <code>string phone_number = 17 [json_name = "phoneNumber"];</code>
+     * @return The bytes for phoneNumber.
+     */
+    public com.google.protobuf.ByteString
+        getPhoneNumberBytes() {
+      java.lang.Object ref = phoneNumber_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        phoneNumber_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Business contact phone number in E.164 format (e.g., +821012345678).
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="+821012345678"
+     * </pre>
+     *
+     * <code>string phone_number = 17 [json_name = "phoneNumber"];</code>
+     * @param value The phoneNumber to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPhoneNumber(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      phoneNumber_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Business contact phone number in E.164 format (e.g., +821012345678).
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="+821012345678"
+     * </pre>
+     *
+     * <code>string phone_number = 17 [json_name = "phoneNumber"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPhoneNumber() {
+      
+      phoneNumber_ = getDefaultInstance().getPhoneNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Business contact phone number in E.164 format (e.g., +821012345678).
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="+821012345678"
+     * </pre>
+     *
+     * <code>string phone_number = 17 [json_name = "phoneNumber"];</code>
+     * @param value The bytes for phoneNumber to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPhoneNumberBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      phoneNumber_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object timeZone_ = "";
+    /**
+     * <pre>
+     * IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="Asia/Seoul"
+     * </pre>
+     *
+     * <code>string time_zone = 18 [json_name = "timeZone", (.buf.validate.field) = { ... }</code>
+     * @return The timeZone.
+     */
+    public java.lang.String getTimeZone() {
+      java.lang.Object ref = timeZone_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timeZone_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="Asia/Seoul"
+     * </pre>
+     *
+     * <code>string time_zone = 18 [json_name = "timeZone", (.buf.validate.field) = { ... }</code>
+     * @return The bytes for timeZone.
+     */
+    public com.google.protobuf.ByteString
+        getTimeZoneBytes() {
+      java.lang.Object ref = timeZone_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timeZone_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="Asia/Seoul"
+     * </pre>
+     *
+     * <code>string time_zone = 18 [json_name = "timeZone", (.buf.validate.field) = { ... }</code>
+     * @param value The timeZone to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTimeZone(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      timeZone_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="Asia/Seoul"
+     * </pre>
+     *
+     * <code>string time_zone = 18 [json_name = "timeZone", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTimeZone() {
+      
+      timeZone_ = getDefaultInstance().getTimeZone();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
+     * +kubebuilder:validation:Required
+     * +kubebuilder:example="Asia/Seoul"
+     * </pre>
+     *
+     * <code>string time_zone = 18 [json_name = "timeZone", (.buf.validate.field) = { ... }</code>
+     * @param value The bytes for timeZone to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTimeZoneBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      timeZone_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean showOperatorProfile_ ;
+    /**
+     * <pre>
+     * Whether to display individual operator profiles instead of the channel identity to end users.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile"];</code>
+     * @return The showOperatorProfile.
+     */
+    @java.lang.Override
+    public boolean getShowOperatorProfile() {
+      return showOperatorProfile_;
+    }
+    /**
+     * <pre>
+     * Whether to display individual operator profiles instead of the channel identity to end users.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile"];</code>
+     * @param value The showOperatorProfile to set.
+     * @return This builder for chaining.
+     */
+    public Builder setShowOperatorProfile(boolean value) {
+      
+      showOperatorProfile_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether to display individual operator profiles instead of the channel identity to end users.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearShowOperatorProfile() {
+      
+      showOperatorProfile_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean disableNewChatButton_ ;
+    /**
+     * <pre>
+     * Whether the new chat button is hidden from end users.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton"];</code>
+     * @return The disableNewChatButton.
+     */
+    @java.lang.Override
+    public boolean getDisableNewChatButton() {
+      return disableNewChatButton_;
+    }
+    /**
+     * <pre>
+     * Whether the new chat button is hidden from end users.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton"];</code>
+     * @param value The disableNewChatButton to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDisableNewChatButton(boolean value) {
+      
+      disableNewChatButton_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the new chat button is hidden from end users.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDisableNewChatButton() {
+      
+      disableNewChatButton_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object indebtedDueDate_ = "";
+    /**
+     * <pre>
+     * Due date for payment before the channel transitions to an indebted state.
+     * ISO 8601 date format (e.g., 2026-12-31).
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="2026-12-31"
+     * </pre>
+     *
+     * <code>string indebted_due_date = 21 [json_name = "indebtedDueDate"];</code>
+     * @return The indebtedDueDate.
+     */
+    public java.lang.String getIndebtedDueDate() {
+      java.lang.Object ref = indebtedDueDate_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        indebtedDueDate_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Due date for payment before the channel transitions to an indebted state.
+     * ISO 8601 date format (e.g., 2026-12-31).
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="2026-12-31"
+     * </pre>
+     *
+     * <code>string indebted_due_date = 21 [json_name = "indebtedDueDate"];</code>
+     * @return The bytes for indebtedDueDate.
+     */
+    public com.google.protobuf.ByteString
+        getIndebtedDueDateBytes() {
+      java.lang.Object ref = indebtedDueDate_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        indebtedDueDate_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Due date for payment before the channel transitions to an indebted state.
+     * ISO 8601 date format (e.g., 2026-12-31).
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="2026-12-31"
+     * </pre>
+     *
+     * <code>string indebted_due_date = 21 [json_name = "indebtedDueDate"];</code>
+     * @param value The indebtedDueDate to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIndebtedDueDate(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      indebtedDueDate_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Due date for payment before the channel transitions to an indebted state.
+     * ISO 8601 date format (e.g., 2026-12-31).
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="2026-12-31"
+     * </pre>
+     *
+     * <code>string indebted_due_date = 21 [json_name = "indebtedDueDate"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIndebtedDueDate() {
+      
+      indebtedDueDate_ = getDefaultInstance().getIndebtedDueDate();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Due date for payment before the channel transitions to an indebted state.
+     * ISO 8601 date format (e.g., 2026-12-31).
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:example="2026-12-31"
+     * </pre>
+     *
+     * <code>string indebted_due_date = 21 [json_name = "indebtedDueDate"];</code>
+     * @param value The bytes for indebtedDueDate to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIndebtedDueDateBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      indebtedDueDate_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean followUpTexting_ ;
+    /**
+     * <pre>
+     * Whether SMS/text follow-up is enabled for offline conversations.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>bool follow_up_texting = 22 [json_name = "followUpTexting", (.buf.validate.field) = { ... }</code>
+     * @return The followUpTexting.
+     */
+    @java.lang.Override
+    public boolean getFollowUpTexting() {
+      return followUpTexting_;
+    }
+    /**
+     * <pre>
+     * Whether SMS/text follow-up is enabled for offline conversations.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>bool follow_up_texting = 22 [json_name = "followUpTexting", (.buf.validate.field) = { ... }</code>
+     * @param value The followUpTexting to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFollowUpTexting(boolean value) {
+      
+      followUpTexting_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether SMS/text follow-up is enabled for offline conversations.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>bool follow_up_texting = 22 [json_name = "followUpTexting", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFollowUpTexting() {
+      
+      followUpTexting_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean followUpEmail_ ;
+    /**
+     * <pre>
+     * Whether email follow-up is enabled for offline conversations.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>bool follow_up_email = 23 [json_name = "followUpEmail", (.buf.validate.field) = { ... }</code>
+     * @return The followUpEmail.
+     */
+    @java.lang.Override
+    public boolean getFollowUpEmail() {
+      return followUpEmail_;
+    }
+    /**
+     * <pre>
+     * Whether email follow-up is enabled for offline conversations.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>bool follow_up_email = 23 [json_name = "followUpEmail", (.buf.validate.field) = { ... }</code>
+     * @param value The followUpEmail to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFollowUpEmail(boolean value) {
+      
+      followUpEmail_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether email follow-up is enabled for offline conversations.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>bool follow_up_email = 23 [json_name = "followUpEmail", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFollowUpEmail() {
+      
+      followUpEmail_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean followUpAskName_ ;
+    /**
+     * <pre>
+     * Whether the follow-up form asks for the user's name.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName"];</code>
+     * @return The followUpAskName.
+     */
+    @java.lang.Override
+    public boolean getFollowUpAskName() {
+      return followUpAskName_;
+    }
+    /**
+     * <pre>
+     * Whether the follow-up form asks for the user's name.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName"];</code>
+     * @param value The followUpAskName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFollowUpAskName(boolean value) {
+      
+      followUpAskName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the follow-up form asks for the user's name.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFollowUpAskName() {
+      
+      followUpAskName_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean followUpMandatory_ ;
+    /**
+     * <pre>
+     * Whether the follow-up form must be completed before the user can start a conversation.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory"];</code>
+     * @return The followUpMandatory.
+     */
+    @java.lang.Override
+    public boolean getFollowUpMandatory() {
+      return followUpMandatory_;
+    }
+    /**
+     * <pre>
+     * Whether the follow-up form must be completed before the user can start a conversation.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory"];</code>
+     * @param value The followUpMandatory to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFollowUpMandatory(boolean value) {
+      
+      followUpMandatory_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the follow-up form must be completed before the user can start a conversation.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFollowUpMandatory() {
+      
+      followUpMandatory_ = false;
+      onChanged();
+      return this;
+    }
+
+    private int state_ = 0;
+    /**
+     * <pre>
+     * Current lifecycle state of the channel.
+     * See ChannelState for possible values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+     * @return The enum numeric value on the wire for state.
+     */
+    @java.lang.Override public int getStateValue() {
+      return state_;
+    }
+    /**
+     * <pre>
+     * Current lifecycle state of the channel.
+     * See ChannelState for possible values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+     * @param value The enum numeric value on the wire for state to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStateValue(int value) {
+      
+      state_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Current lifecycle state of the channel.
+     * See ChannelState for possible values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+     * @return The state.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.ChannelState getState() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.ChannelState result = io.channel.api.proto.pub.coreapi.model.ChannelState.valueOf(state_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.ChannelState.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Current lifecycle state of the channel.
+     * See ChannelState for possible values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+     * @param value The state to set.
+     * @return This builder for chaining.
+     */
+    public Builder setState(io.channel.api.proto.pub.coreapi.model.ChannelState value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      state_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Current lifecycle state of the channel.
+     * See ChannelState for possible values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearState() {
+      
+      state_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean entVerified_ ;
+    /**
+     * <pre>
+     * Whether the channel is verified as an enterprise account.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool ent_verified = 27 [json_name = "entVerified"];</code>
+     * @return The entVerified.
+     */
+    @java.lang.Override
+    public boolean getEntVerified() {
+      return entVerified_;
+    }
+    /**
+     * <pre>
+     * Whether the channel is verified as an enterprise account.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool ent_verified = 27 [json_name = "entVerified"];</code>
+     * @param value The entVerified to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEntVerified(boolean value) {
+      
+      entVerified_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the channel is verified as an enterprise account.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool ent_verified = 27 [json_name = "entVerified"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEntVerified() {
+      
+      entVerified_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object defaultPluginId_ = "";
+    /**
+     * <pre>
+     * Default plugin identifier used by the messenger widget.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
+     * @return The defaultPluginId.
+     */
+    public java.lang.String getDefaultPluginId() {
+      java.lang.Object ref = defaultPluginId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        defaultPluginId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Default plugin identifier used by the messenger widget.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
+     * @return The bytes for defaultPluginId.
+     */
+    public com.google.protobuf.ByteString
+        getDefaultPluginIdBytes() {
+      java.lang.Object ref = defaultPluginId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        defaultPluginId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Default plugin identifier used by the messenger widget.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
+     * @param value The defaultPluginId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDefaultPluginId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      defaultPluginId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Default plugin identifier used by the messenger widget.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDefaultPluginId() {
+      
+      defaultPluginId_ = getDefaultInstance().getDefaultPluginId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Default plugin identifier used by the messenger widget.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
+     * @param value The bytes for defaultPluginId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDefaultPluginIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      defaultPluginId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object bizCategory_ = "";
+    /**
+     * <pre>
+     * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
+     * @return The bizCategory.
+     */
+    public java.lang.String getBizCategory() {
+      java.lang.Object ref = bizCategory_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        bizCategory_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
+     * @return The bytes for bizCategory.
+     */
+    public com.google.protobuf.ByteString
+        getBizCategoryBytes() {
+      java.lang.Object ref = bizCategory_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        bizCategory_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
+     * @param value The bizCategory to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBizCategory(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      bizCategory_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBizCategory() {
+      
+      bizCategory_ = getDefaultInstance().getBizCategory();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string biz_category = 29 [json_name = "bizCategory"];</code>
+     * @param value The bytes for bizCategory to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBizCategoryBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      bizCategory_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int staffs_ ;
+    /**
+     * <pre>
+     * Number of staff members in the organization.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int32 staffs = 30 [json_name = "staffs"];</code>
+     * @return The staffs.
+     */
+    @java.lang.Override
+    public int getStaffs() {
+      return staffs_;
+    }
+    /**
+     * <pre>
+     * Number of staff members in the organization.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int32 staffs = 30 [json_name = "staffs"];</code>
+     * @param value The staffs to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStaffs(int value) {
+      
+      staffs_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Number of staff members in the organization.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>int32 staffs = 30 [json_name = "staffs"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStaffs() {
+      
+      staffs_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object appCommerceId_ = "";
+    /**
+     * <pre>
+     * Integrated e-commerce platform app identifier.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string app_commerce_id = 31 [json_name = "appCommerceId"];</code>
+     * @return The appCommerceId.
+     */
+    public java.lang.String getAppCommerceId() {
+      java.lang.Object ref = appCommerceId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        appCommerceId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Integrated e-commerce platform app identifier.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string app_commerce_id = 31 [json_name = "appCommerceId"];</code>
+     * @return The bytes for appCommerceId.
+     */
+    public com.google.protobuf.ByteString
+        getAppCommerceIdBytes() {
+      java.lang.Object ref = appCommerceId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        appCommerceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Integrated e-commerce platform app identifier.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string app_commerce_id = 31 [json_name = "appCommerceId"];</code>
+     * @param value The appCommerceId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAppCommerceId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      appCommerceId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Integrated e-commerce platform app identifier.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string app_commerce_id = 31 [json_name = "appCommerceId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAppCommerceId() {
+      
+      appCommerceId_ = getDefaultInstance().getAppCommerceId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Integrated e-commerce platform app identifier.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string app_commerce_id = 31 [json_name = "appCommerceId"];</code>
+     * @param value The bytes for appCommerceId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAppCommerceIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      appCommerceId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object appCommerceType_ = "";
+    /**
+     * <pre>
+     * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
+     * @return The appCommerceType.
+     */
+    public java.lang.String getAppCommerceType() {
+      java.lang.Object ref = appCommerceType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        appCommerceType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
+     * @return The bytes for appCommerceType.
+     */
+    public com.google.protobuf.ByteString
+        getAppCommerceTypeBytes() {
+      java.lang.Object ref = appCommerceType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        appCommerceType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
+     * @param value The appCommerceType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAppCommerceType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      appCommerceType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAppCommerceType() {
+      
+      appCommerceType_ = getDefaultInstance().getAppCommerceType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
+     * @param value The bytes for appCommerceType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAppCommerceTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      appCommerceType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object appCommerceDomain_ = "";
+    /**
+     * <pre>
+     * Domain of the integrated e-commerce platform.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string app_commerce_domain = 33 [json_name = "appCommerceDomain"];</code>
+     * @return The appCommerceDomain.
+     */
+    public java.lang.String getAppCommerceDomain() {
+      java.lang.Object ref = appCommerceDomain_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        appCommerceDomain_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Domain of the integrated e-commerce platform.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string app_commerce_domain = 33 [json_name = "appCommerceDomain"];</code>
+     * @return The bytes for appCommerceDomain.
+     */
+    public com.google.protobuf.ByteString
+        getAppCommerceDomainBytes() {
+      java.lang.Object ref = appCommerceDomain_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        appCommerceDomain_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Domain of the integrated e-commerce platform.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string app_commerce_domain = 33 [json_name = "appCommerceDomain"];</code>
+     * @param value The appCommerceDomain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAppCommerceDomain(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      appCommerceDomain_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Domain of the integrated e-commerce platform.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string app_commerce_domain = 33 [json_name = "appCommerceDomain"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAppCommerceDomain() {
+      
+      appCommerceDomain_ = getDefaultInstance().getAppCommerceDomain();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Domain of the integrated e-commerce platform.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string app_commerce_domain = 33 [json_name = "appCommerceDomain"];</code>
+     * @param value The bytes for appCommerceDomain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAppCommerceDomainBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      appCommerceDomain_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean enableMemberHash_ ;
+    /**
+     * <pre>
+     * Whether member identity hash verification is enabled.
+     * When enabled, member logins require an HMAC hash to prevent impersonation.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool enable_member_hash = 34 [json_name = "enableMemberHash"];</code>
+     * @return The enableMemberHash.
+     */
+    @java.lang.Override
+    public boolean getEnableMemberHash() {
+      return enableMemberHash_;
+    }
+    /**
+     * <pre>
+     * Whether member identity hash verification is enabled.
+     * When enabled, member logins require an HMAC hash to prevent impersonation.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool enable_member_hash = 34 [json_name = "enableMemberHash"];</code>
+     * @param value The enableMemberHash to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEnableMemberHash(boolean value) {
+      
+      enableMemberHash_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether member identity hash verification is enabled.
+     * When enabled, member logins require an HMAC hash to prevent impersonation.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool enable_member_hash = 34 [json_name = "enableMemberHash"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEnableMemberHash() {
+      
+      enableMemberHash_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object defaultEmailDomainId_ = "";
+    /**
+     * <pre>
+     * Default email domain identifier used for outbound emails sent from this channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
+     * @return The defaultEmailDomainId.
+     */
+    public java.lang.String getDefaultEmailDomainId() {
+      java.lang.Object ref = defaultEmailDomainId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        defaultEmailDomainId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Default email domain identifier used for outbound emails sent from this channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
+     * @return The bytes for defaultEmailDomainId.
+     */
+    public com.google.protobuf.ByteString
+        getDefaultEmailDomainIdBytes() {
+      java.lang.Object ref = defaultEmailDomainId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        defaultEmailDomainId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Default email domain identifier used for outbound emails sent from this channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
+     * @param value The defaultEmailDomainId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDefaultEmailDomainId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      defaultEmailDomainId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Default email domain identifier used for outbound emails sent from this channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDefaultEmailDomainId() {
+      
+      defaultEmailDomainId_ = getDefaultInstance().getDefaultEmailDomainId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Default email domain identifier used for outbound emails sent from this channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
+     * @param value The bytes for defaultEmailDomainId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDefaultEmailDomainIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      defaultEmailDomainId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean enableMfa_ ;
+    /**
+     * <pre>
+     * Whether multi-factor authentication is required for managers in this channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool enable_mfa = 36 [json_name = "enableMfa"];</code>
+     * @return The enableMfa.
+     */
+    @java.lang.Override
+    public boolean getEnableMfa() {
+      return enableMfa_;
+    }
+    /**
+     * <pre>
+     * Whether multi-factor authentication is required for managers in this channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool enable_mfa = 36 [json_name = "enableMfa"];</code>
+     * @param value The enableMfa to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEnableMfa(boolean value) {
+      
+      enableMfa_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether multi-factor authentication is required for managers in this channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool enable_mfa = 36 [json_name = "enableMfa"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEnableMfa() {
+      
+      enableMfa_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean hideAppMessenger_ ;
+    /**
+     * <pre>
+     * Whether the messenger widget is hidden from end users on the website.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger"];</code>
+     * @return The hideAppMessenger.
+     */
+    @java.lang.Override
+    public boolean getHideAppMessenger() {
+      return hideAppMessenger_;
+    }
+    /**
+     * <pre>
+     * Whether the messenger widget is hidden from end users on the website.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger"];</code>
+     * @param value The hideAppMessenger to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHideAppMessenger(boolean value) {
+      
+      hideAppMessenger_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the messenger widget is hidden from end users on the website.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHideAppMessenger() {
+      
+      hideAppMessenger_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean bizCertificated_ ;
+    /**
+     * <pre>
+     * Whether the channel holds a business certification.
+     * Derived from biz_certificated_countries; true when at least one country is certified.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool biz_certificated = 38 [json_name = "bizCertificated"];</code>
+     * @return The bizCertificated.
+     */
+    @java.lang.Override
+    public boolean getBizCertificated() {
+      return bizCertificated_;
+    }
+    /**
+     * <pre>
+     * Whether the channel holds a business certification.
+     * Derived from biz_certificated_countries; true when at least one country is certified.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool biz_certificated = 38 [json_name = "bizCertificated"];</code>
+     * @param value The bizCertificated to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBizCertificated(boolean value) {
+      
+      bizCertificated_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the channel holds a business certification.
+     * Derived from biz_certificated_countries; true when at least one country is certified.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool biz_certificated = 38 [json_name = "bizCertificated"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBizCertificated() {
+      
+      bizCertificated_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean mktAlimtalkAllowed_ ;
+    /**
+     * <pre>
+     * Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed"];</code>
+     * @return The mktAlimtalkAllowed.
+     */
+    @java.lang.Override
+    public boolean getMktAlimtalkAllowed() {
+      return mktAlimtalkAllowed_;
+    }
+    /**
+     * <pre>
+     * Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed"];</code>
+     * @param value The mktAlimtalkAllowed to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMktAlimtalkAllowed(boolean value) {
+      
+      mktAlimtalkAllowed_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMktAlimtalkAllowed() {
+      
+      mktAlimtalkAllowed_ = false;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringList bizCertificatedCountries_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureBizCertificatedCountriesIsMutable() {
+      if (!((bitField0_ & 0x00000004) != 0)) {
+        bizCertificatedCountries_ = new com.google.protobuf.LazyStringArrayList(bizCertificatedCountries_);
+        bitField0_ |= 0x00000004;
+       }
+    }
+    /**
+     * <pre>
+     * Countries where the channel has obtained business certification.
+     * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+     * @return A list containing the bizCertificatedCountries.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getBizCertificatedCountriesList() {
+      return bizCertificatedCountries_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * Countries where the channel has obtained business certification.
+     * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+     * @return The count of bizCertificatedCountries.
+     */
+    public int getBizCertificatedCountriesCount() {
+      return bizCertificatedCountries_.size();
+    }
+    /**
+     * <pre>
+     * Countries where the channel has obtained business certification.
+     * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+     * @param index The index of the element to return.
+     * @return The bizCertificatedCountries at the given index.
+     */
+    public java.lang.String getBizCertificatedCountries(int index) {
+      return bizCertificatedCountries_.get(index);
+    }
+    /**
+     * <pre>
+     * Countries where the channel has obtained business certification.
+     * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the bizCertificatedCountries at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getBizCertificatedCountriesBytes(int index) {
+      return bizCertificatedCountries_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * Countries where the channel has obtained business certification.
+     * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+     * @param index The index to set the value at.
+     * @param value The bizCertificatedCountries to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBizCertificatedCountries(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureBizCertificatedCountriesIsMutable();
+      bizCertificatedCountries_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Countries where the channel has obtained business certification.
+     * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+     * @param value The bizCertificatedCountries to add.
+     * @return This builder for chaining.
+     */
+    public Builder addBizCertificatedCountries(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureBizCertificatedCountriesIsMutable();
+      bizCertificatedCountries_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Countries where the channel has obtained business certification.
+     * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+     * @param values The bizCertificatedCountries to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllBizCertificatedCountries(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureBizCertificatedCountriesIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, bizCertificatedCountries_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Countries where the channel has obtained business certification.
+     * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBizCertificatedCountries() {
+      bizCertificatedCountries_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Countries where the channel has obtained business certification.
+     * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
+     * @param value The bytes of the bizCertificatedCountries to add.
+     * @return This builder for chaining.
+     */
+    public Builder addBizCertificatedCountriesBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureBizCertificatedCountriesIsMutable();
+      bizCertificatedCountries_.add(value);
+      onChanged();
+      return this;
+    }
+
+    private boolean enableFrontAlfV2_ ;
+    /**
+     * <pre>
+     * Whether the front-end ALF v2 AI assistant is enabled for end users.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2"];</code>
+     * @return The enableFrontAlfV2.
+     */
+    @java.lang.Override
+    public boolean getEnableFrontAlfV2() {
+      return enableFrontAlfV2_;
+    }
+    /**
+     * <pre>
+     * Whether the front-end ALF v2 AI assistant is enabled for end users.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2"];</code>
+     * @param value The enableFrontAlfV2 to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEnableFrontAlfV2(boolean value) {
+      
+      enableFrontAlfV2_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the front-end ALF v2 AI assistant is enabled for end users.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEnableFrontAlfV2() {
+      
+      enableFrontAlfV2_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean blocked_ ;
+    /**
+     * <pre>
+     * Whether the channel is currently blocked.
+     * Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool blocked = 42 [json_name = "blocked"];</code>
+     * @return The blocked.
+     */
+    @java.lang.Override
+    public boolean getBlocked() {
+      return blocked_;
+    }
+    /**
+     * <pre>
+     * Whether the channel is currently blocked.
+     * Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool blocked = 42 [json_name = "blocked"];</code>
+     * @param value The blocked to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBlocked(boolean value) {
+      
+      blocked_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the channel is currently blocked.
+     * Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool blocked = 42 [json_name = "blocked"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBlocked() {
+      
+      blocked_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean working_ ;
+    /**
+     * <pre>
+     * Whether the channel is currently accepting new conversations.
+     * True when the channel is not blocked and is within operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool working = 43 [json_name = "working"];</code>
+     * @return The working.
+     */
+    @java.lang.Override
+    public boolean getWorking() {
+      return working_;
+    }
+    /**
+     * <pre>
+     * Whether the channel is currently accepting new conversations.
+     * True when the channel is not blocked and is within operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool working = 43 [json_name = "working"];</code>
+     * @param value The working to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWorking(boolean value) {
+      
+      working_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the channel is currently accepting new conversations.
+     * True when the channel is not blocked and is within operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool working = 43 [json_name = "working"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearWorking() {
+      
+      working_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object avatarUrl_ = "";
+    /**
+     * <pre>
+     * Channel avatar image URL.
+     * Falls back to a system-generated default when no custom avatar is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
+     * @return The avatarUrl.
+     */
+    public java.lang.String getAvatarUrl() {
+      java.lang.Object ref = avatarUrl_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        avatarUrl_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Channel avatar image URL.
+     * Falls back to a system-generated default when no custom avatar is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
+     * @return The bytes for avatarUrl.
+     */
+    public com.google.protobuf.ByteString
+        getAvatarUrlBytes() {
+      java.lang.Object ref = avatarUrl_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        avatarUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Channel avatar image URL.
+     * Falls back to a system-generated default when no custom avatar is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
+     * @param value The avatarUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAvatarUrl(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      avatarUrl_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Channel avatar image URL.
+     * Falls back to a system-generated default when no custom avatar is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAvatarUrl() {
+      
+      avatarUrl_ = getDefaultInstance().getAvatarUrl();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Channel avatar image URL.
+     * Falls back to a system-generated default when no custom avatar is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
+     * @param value The bytes for avatarUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAvatarUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      avatarUrl_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int expectedResponseDelay_ = 0;
+    /**
+     * <pre>
+     * Expected response delay indicator shown to end users.
+     * Derived from the channel operating configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.ResponseDelayType expected_response_delay = 45 [json_name = "expectedResponseDelay"];</code>
+     * @return The enum numeric value on the wire for expectedResponseDelay.
+     */
+    @java.lang.Override public int getExpectedResponseDelayValue() {
+      return expectedResponseDelay_;
+    }
+    /**
+     * <pre>
+     * Expected response delay indicator shown to end users.
+     * Derived from the channel operating configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.ResponseDelayType expected_response_delay = 45 [json_name = "expectedResponseDelay"];</code>
+     * @param value The enum numeric value on the wire for expectedResponseDelay to set.
+     * @return This builder for chaining.
+     */
+    public Builder setExpectedResponseDelayValue(int value) {
+      
+      expectedResponseDelay_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Expected response delay indicator shown to end users.
+     * Derived from the channel operating configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.ResponseDelayType expected_response_delay = 45 [json_name = "expectedResponseDelay"];</code>
+     * @return The expectedResponseDelay.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.ResponseDelayType getExpectedResponseDelay() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.ResponseDelayType result = io.channel.api.proto.pub.coreapi.model.ResponseDelayType.valueOf(expectedResponseDelay_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.ResponseDelayType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Expected response delay indicator shown to end users.
+     * Derived from the channel operating configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.ResponseDelayType expected_response_delay = 45 [json_name = "expectedResponseDelay"];</code>
+     * @param value The expectedResponseDelay to set.
+     * @return This builder for chaining.
+     */
+    public Builder setExpectedResponseDelay(io.channel.api.proto.pub.coreapi.model.ResponseDelayType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      expectedResponseDelay_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Expected response delay indicator shown to end users.
+     * Derived from the channel operating configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.ResponseDelayType expected_response_delay = 45 [json_name = "expectedResponseDelay"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearExpectedResponseDelay() {
+      
+      expectedResponseDelay_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean inOperation_ ;
+    /**
+     * <pre>
+     * Whether the channel is currently within operating hours.
+     * Derived from the operating schedule configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool in_operation = 46 [json_name = "inOperation"];</code>
+     * @return The inOperation.
+     */
+    @java.lang.Override
+    public boolean getInOperation() {
+      return inOperation_;
+    }
+    /**
+     * <pre>
+     * Whether the channel is currently within operating hours.
+     * Derived from the operating schedule configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool in_operation = 46 [json_name = "inOperation"];</code>
+     * @param value The inOperation to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInOperation(boolean value) {
+      
+      inOperation_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the channel is currently within operating hours.
+     * Derived from the operating schedule configuration.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool in_operation = 46 [json_name = "inOperation"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearInOperation() {
+      
+      inOperation_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean operationTimeScheduling_ ;
+    /**
+     * <pre>
+     * Whether operating hour scheduling is enabled.
+     * When false, the channel is always considered in operation.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling"];</code>
+     * @return The operationTimeScheduling.
+     */
+    @java.lang.Override
+    public boolean getOperationTimeScheduling() {
+      return operationTimeScheduling_;
+    }
+    /**
+     * <pre>
+     * Whether operating hour scheduling is enabled.
+     * When false, the channel is always considered in operation.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling"];</code>
+     * @param value The operationTimeScheduling to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOperationTimeScheduling(boolean value) {
+      
+      operationTimeScheduling_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether operating hour scheduling is enabled.
+     * When false, the channel is always considered in operation.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOperationTimeScheduling() {
+      
+      operationTimeScheduling_ = false;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Timestamp nextWorkingTime_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> nextWorkingTimeBuilder_;
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
+     * @return Whether the nextWorkingTime field is set.
+     */
+    public boolean hasNextWorkingTime() {
+      return nextWorkingTimeBuilder_ != null || nextWorkingTime_ != null;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
+     * @return The nextWorkingTime.
+     */
+    public com.google.protobuf.Timestamp getNextWorkingTime() {
+      if (nextWorkingTimeBuilder_ == null) {
+        return nextWorkingTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : nextWorkingTime_;
+      } else {
+        return nextWorkingTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
+     */
+    public Builder setNextWorkingTime(com.google.protobuf.Timestamp value) {
+      if (nextWorkingTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        nextWorkingTime_ = value;
+        onChanged();
+      } else {
+        nextWorkingTimeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
+     */
+    public Builder setNextWorkingTime(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (nextWorkingTimeBuilder_ == null) {
+        nextWorkingTime_ = builderForValue.build();
+        onChanged();
+      } else {
+        nextWorkingTimeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
+     */
+    public Builder mergeNextWorkingTime(com.google.protobuf.Timestamp value) {
+      if (nextWorkingTimeBuilder_ == null) {
+        if (nextWorkingTime_ != null) {
+          nextWorkingTime_ =
+            com.google.protobuf.Timestamp.newBuilder(nextWorkingTime_).mergeFrom(value).buildPartial();
+        } else {
+          nextWorkingTime_ = value;
+        }
+        onChanged();
+      } else {
+        nextWorkingTimeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
+     */
+    public Builder clearNextWorkingTime() {
+      if (nextWorkingTimeBuilder_ == null) {
+        nextWorkingTime_ = null;
+        onChanged();
+      } else {
+        nextWorkingTime_ = null;
+        nextWorkingTimeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getNextWorkingTimeBuilder() {
+      
+      onChanged();
+      return getNextWorkingTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getNextWorkingTimeOrBuilder() {
+      if (nextWorkingTimeBuilder_ != null) {
+        return nextWorkingTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return nextWorkingTime_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : nextWorkingTime_;
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the next operating period starts.
+     * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getNextWorkingTimeFieldBuilder() {
+      if (nextWorkingTimeBuilder_ == null) {
+        nextWorkingTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getNextWorkingTime(),
+                getParentForChildren(),
+                isClean());
+        nextWorkingTime_ = null;
+      }
+      return nextWorkingTimeBuilder_;
+    }
+
+    private com.google.protobuf.Timestamp nextAwayTime_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> nextAwayTimeBuilder_;
+    /**
+     * <pre>
+     * Timestamp when the next away (non-operating) period starts.
+     * Present only when the channel is currently within operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
+     * @return Whether the nextAwayTime field is set.
+     */
+    public boolean hasNextAwayTime() {
+      return nextAwayTimeBuilder_ != null || nextAwayTime_ != null;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away (non-operating) period starts.
+     * Present only when the channel is currently within operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
+     * @return The nextAwayTime.
+     */
+    public com.google.protobuf.Timestamp getNextAwayTime() {
+      if (nextAwayTimeBuilder_ == null) {
+        return nextAwayTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : nextAwayTime_;
+      } else {
+        return nextAwayTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away (non-operating) period starts.
+     * Present only when the channel is currently within operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
+     */
+    public Builder setNextAwayTime(com.google.protobuf.Timestamp value) {
+      if (nextAwayTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        nextAwayTime_ = value;
+        onChanged();
+      } else {
+        nextAwayTimeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away (non-operating) period starts.
+     * Present only when the channel is currently within operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
+     */
+    public Builder setNextAwayTime(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (nextAwayTimeBuilder_ == null) {
+        nextAwayTime_ = builderForValue.build();
+        onChanged();
+      } else {
+        nextAwayTimeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away (non-operating) period starts.
+     * Present only when the channel is currently within operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
+     */
+    public Builder mergeNextAwayTime(com.google.protobuf.Timestamp value) {
+      if (nextAwayTimeBuilder_ == null) {
+        if (nextAwayTime_ != null) {
+          nextAwayTime_ =
+            com.google.protobuf.Timestamp.newBuilder(nextAwayTime_).mergeFrom(value).buildPartial();
+        } else {
+          nextAwayTime_ = value;
+        }
+        onChanged();
+      } else {
+        nextAwayTimeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away (non-operating) period starts.
+     * Present only when the channel is currently within operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
+     */
+    public Builder clearNextAwayTime() {
+      if (nextAwayTimeBuilder_ == null) {
+        nextAwayTime_ = null;
+        onChanged();
+      } else {
+        nextAwayTime_ = null;
+        nextAwayTimeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away (non-operating) period starts.
+     * Present only when the channel is currently within operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getNextAwayTimeBuilder() {
+      
+      onChanged();
+      return getNextAwayTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away (non-operating) period starts.
+     * Present only when the channel is currently within operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getNextAwayTimeOrBuilder() {
+      if (nextAwayTimeBuilder_ != null) {
+        return nextAwayTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return nextAwayTime_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : nextAwayTime_;
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the next away (non-operating) period starts.
+     * Present only when the channel is currently within operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getNextAwayTimeFieldBuilder() {
+      if (nextAwayTimeBuilder_ == null) {
+        nextAwayTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getNextAwayTime(),
+                getParentForChildren(),
+                isClean());
+        nextAwayTime_ = null;
+      }
+      return nextAwayTimeBuilder_;
+    }
+
+    private java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> operationTimeRanges_ =
+      java.util.Collections.emptyList();
+    private void ensureOperationTimeRangesIsMutable() {
+      if (!((bitField0_ & 0x00000008) != 0)) {
+        operationTimeRanges_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.TimeRange>(operationTimeRanges_);
+        bitField0_ |= 0x00000008;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.TimeRange, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder, io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder> operationTimeRangesBuilder_;
+
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange> getOperationTimeRangesList() {
+      if (operationTimeRangesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(operationTimeRanges_);
+      } else {
+        return operationTimeRangesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public int getOperationTimeRangesCount() {
+      if (operationTimeRangesBuilder_ == null) {
+        return operationTimeRanges_.size();
+      } else {
+        return operationTimeRangesBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.TimeRange getOperationTimeRanges(int index) {
+      if (operationTimeRangesBuilder_ == null) {
+        return operationTimeRanges_.get(index);
+      } else {
+        return operationTimeRangesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public Builder setOperationTimeRanges(
+        int index, io.channel.api.proto.pub.coreapi.model.TimeRange value) {
+      if (operationTimeRangesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOperationTimeRangesIsMutable();
+        operationTimeRanges_.set(index, value);
+        onChanged();
+      } else {
+        operationTimeRangesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public Builder setOperationTimeRanges(
+        int index, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder builderForValue) {
+      if (operationTimeRangesBuilder_ == null) {
+        ensureOperationTimeRangesIsMutable();
+        operationTimeRanges_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        operationTimeRangesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public Builder addOperationTimeRanges(io.channel.api.proto.pub.coreapi.model.TimeRange value) {
+      if (operationTimeRangesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOperationTimeRangesIsMutable();
+        operationTimeRanges_.add(value);
+        onChanged();
+      } else {
+        operationTimeRangesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public Builder addOperationTimeRanges(
+        int index, io.channel.api.proto.pub.coreapi.model.TimeRange value) {
+      if (operationTimeRangesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOperationTimeRangesIsMutable();
+        operationTimeRanges_.add(index, value);
+        onChanged();
+      } else {
+        operationTimeRangesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public Builder addOperationTimeRanges(
+        io.channel.api.proto.pub.coreapi.model.TimeRange.Builder builderForValue) {
+      if (operationTimeRangesBuilder_ == null) {
+        ensureOperationTimeRangesIsMutable();
+        operationTimeRanges_.add(builderForValue.build());
+        onChanged();
+      } else {
+        operationTimeRangesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public Builder addOperationTimeRanges(
+        int index, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder builderForValue) {
+      if (operationTimeRangesBuilder_ == null) {
+        ensureOperationTimeRangesIsMutable();
+        operationTimeRanges_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        operationTimeRangesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public Builder addAllOperationTimeRanges(
+        java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.TimeRange> values) {
+      if (operationTimeRangesBuilder_ == null) {
+        ensureOperationTimeRangesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, operationTimeRanges_);
+        onChanged();
+      } else {
+        operationTimeRangesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public Builder clearOperationTimeRanges() {
+      if (operationTimeRangesBuilder_ == null) {
+        operationTimeRanges_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+      } else {
+        operationTimeRangesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public Builder removeOperationTimeRanges(int index) {
+      if (operationTimeRangesBuilder_ == null) {
+        ensureOperationTimeRangesIsMutable();
+        operationTimeRanges_.remove(index);
+        onChanged();
+      } else {
+        operationTimeRangesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.TimeRange.Builder getOperationTimeRangesBuilder(
+        int index) {
+      return getOperationTimeRangesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder getOperationTimeRangesOrBuilder(
+        int index) {
+      if (operationTimeRangesBuilder_ == null) {
+        return operationTimeRanges_.get(index);  } else {
+        return operationTimeRangesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder> 
+         getOperationTimeRangesOrBuilderList() {
+      if (operationTimeRangesBuilder_ != null) {
+        return operationTimeRangesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(operationTimeRanges_);
+      }
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.TimeRange.Builder addOperationTimeRangesBuilder() {
+      return getOperationTimeRangesFieldBuilder().addBuilder(
+          io.channel.api.proto.pub.coreapi.model.TimeRange.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public io.channel.api.proto.pub.coreapi.model.TimeRange.Builder addOperationTimeRangesBuilder(
+        int index) {
+      return getOperationTimeRangesFieldBuilder().addBuilder(
+          index, io.channel.api.proto.pub.coreapi.model.TimeRange.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Recurring weekly time ranges that define the channel operating hours.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.TimeRange operation_time_ranges = 50 [json_name = "operationTimeRanges"];</code>
+     */
+    public java.util.List<io.channel.api.proto.pub.coreapi.model.TimeRange.Builder> 
+         getOperationTimeRangesBuilderList() {
+      return getOperationTimeRangesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.model.TimeRange, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder, io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder> 
+        getOperationTimeRangesFieldBuilder() {
+      if (operationTimeRangesBuilder_ == null) {
+        operationTimeRangesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.model.TimeRange, io.channel.api.proto.pub.coreapi.model.TimeRange.Builder, io.channel.api.proto.pub.coreapi.model.TimeRangeOrBuilder>(
+                operationTimeRanges_,
+                ((bitField0_ & 0x00000008) != 0),
+                getParentForChildren(),
+                isClean());
+        operationTimeRanges_ = null;
+      }
+      return operationTimeRangesBuilder_;
+    }
+
+    private int awayOption_ = 0;
+    /**
+     * <pre>
+     * Messenger behavior when the channel is outside of operating hours.
+     * See ChannelAwayOption for possible values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.ChannelAwayOption away_option = 51 [json_name = "awayOption"];</code>
+     * @return The enum numeric value on the wire for awayOption.
+     */
+    @java.lang.Override public int getAwayOptionValue() {
+      return awayOption_;
+    }
+    /**
+     * <pre>
+     * Messenger behavior when the channel is outside of operating hours.
+     * See ChannelAwayOption for possible values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.ChannelAwayOption away_option = 51 [json_name = "awayOption"];</code>
+     * @param value The enum numeric value on the wire for awayOption to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAwayOptionValue(int value) {
+      
+      awayOption_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Messenger behavior when the channel is outside of operating hours.
+     * See ChannelAwayOption for possible values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.ChannelAwayOption away_option = 51 [json_name = "awayOption"];</code>
+     * @return The awayOption.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.ChannelAwayOption getAwayOption() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.ChannelAwayOption result = io.channel.api.proto.pub.coreapi.model.ChannelAwayOption.valueOf(awayOption_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.ChannelAwayOption.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Messenger behavior when the channel is outside of operating hours.
+     * See ChannelAwayOption for possible values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.ChannelAwayOption away_option = 51 [json_name = "awayOption"];</code>
+     * @param value The awayOption to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAwayOption(io.channel.api.proto.pub.coreapi.model.ChannelAwayOption value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      awayOption_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Messenger behavior when the channel is outside of operating hours.
+     * See ChannelAwayOption for possible values.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.coreapi.model.ChannelAwayOption away_option = 51 [json_name = "awayOption"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAwayOption() {
+      
+      awayOption_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean blockReplyingAfterClosed_ ;
+    /**
+     * <pre>
+     * Whether end-user replying is blocked after a conversation is closed.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed"];</code>
+     * @return The blockReplyingAfterClosed.
+     */
+    @java.lang.Override
+    public boolean getBlockReplyingAfterClosed() {
+      return blockReplyingAfterClosed_;
+    }
+    /**
+     * <pre>
+     * Whether end-user replying is blocked after a conversation is closed.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed"];</code>
+     * @param value The blockReplyingAfterClosed to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBlockReplyingAfterClosed(boolean value) {
+      
+      blockReplyingAfterClosed_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether end-user replying is blocked after a conversation is closed.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBlockReplyingAfterClosed() {
+      
+      blockReplyingAfterClosed_ = false;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Duration blockReplyingAfterClosedTime_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> blockReplyingAfterClosedTimeBuilder_;
+    /**
+     * <pre>
+     * Grace period after conversation closure during which the end user may still reply.
+     * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
+     * @return Whether the blockReplyingAfterClosedTime field is set.
+     */
+    public boolean hasBlockReplyingAfterClosedTime() {
+      return blockReplyingAfterClosedTimeBuilder_ != null || blockReplyingAfterClosedTime_ != null;
+    }
+    /**
+     * <pre>
+     * Grace period after conversation closure during which the end user may still reply.
+     * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
+     * @return The blockReplyingAfterClosedTime.
+     */
+    public com.google.protobuf.Duration getBlockReplyingAfterClosedTime() {
+      if (blockReplyingAfterClosedTimeBuilder_ == null) {
+        return blockReplyingAfterClosedTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : blockReplyingAfterClosedTime_;
+      } else {
+        return blockReplyingAfterClosedTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Grace period after conversation closure during which the end user may still reply.
+     * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
+     */
+    public Builder setBlockReplyingAfterClosedTime(com.google.protobuf.Duration value) {
+      if (blockReplyingAfterClosedTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        blockReplyingAfterClosedTime_ = value;
+        onChanged();
+      } else {
+        blockReplyingAfterClosedTimeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Grace period after conversation closure during which the end user may still reply.
+     * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
+     */
+    public Builder setBlockReplyingAfterClosedTime(
+        com.google.protobuf.Duration.Builder builderForValue) {
+      if (blockReplyingAfterClosedTimeBuilder_ == null) {
+        blockReplyingAfterClosedTime_ = builderForValue.build();
+        onChanged();
+      } else {
+        blockReplyingAfterClosedTimeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Grace period after conversation closure during which the end user may still reply.
+     * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
+     */
+    public Builder mergeBlockReplyingAfterClosedTime(com.google.protobuf.Duration value) {
+      if (blockReplyingAfterClosedTimeBuilder_ == null) {
+        if (blockReplyingAfterClosedTime_ != null) {
+          blockReplyingAfterClosedTime_ =
+            com.google.protobuf.Duration.newBuilder(blockReplyingAfterClosedTime_).mergeFrom(value).buildPartial();
+        } else {
+          blockReplyingAfterClosedTime_ = value;
+        }
+        onChanged();
+      } else {
+        blockReplyingAfterClosedTimeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Grace period after conversation closure during which the end user may still reply.
+     * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
+     */
+    public Builder clearBlockReplyingAfterClosedTime() {
+      if (blockReplyingAfterClosedTimeBuilder_ == null) {
+        blockReplyingAfterClosedTime_ = null;
+        onChanged();
+      } else {
+        blockReplyingAfterClosedTime_ = null;
+        blockReplyingAfterClosedTimeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Grace period after conversation closure during which the end user may still reply.
+     * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
+     */
+    public com.google.protobuf.Duration.Builder getBlockReplyingAfterClosedTimeBuilder() {
+      
+      onChanged();
+      return getBlockReplyingAfterClosedTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Grace period after conversation closure during which the end user may still reply.
+     * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
+     */
+    public com.google.protobuf.DurationOrBuilder getBlockReplyingAfterClosedTimeOrBuilder() {
+      if (blockReplyingAfterClosedTimeBuilder_ != null) {
+        return blockReplyingAfterClosedTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return blockReplyingAfterClosedTime_ == null ?
+            com.google.protobuf.Duration.getDefaultInstance() : blockReplyingAfterClosedTime_;
+      }
+    }
+    /**
+     * <pre>
+     * Grace period after conversation closure during which the end user may still reply.
+     * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+        getBlockReplyingAfterClosedTimeFieldBuilder() {
+      if (blockReplyingAfterClosedTimeBuilder_ == null) {
+        blockReplyingAfterClosedTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                getBlockReplyingAfterClosedTime(),
+                getParentForChildren(),
+                isClean());
+        blockReplyingAfterClosedTime_ = null;
+      }
+      return blockReplyingAfterClosedTimeBuilder_;
+    }
+
+    private java.lang.Object borderColor_ = "";
+    /**
+     * <pre>
+     * Border accent color derived from the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string border_color = 54 [json_name = "borderColor"];</code>
+     * @return The borderColor.
+     */
+    public java.lang.String getBorderColor() {
+      java.lang.Object ref = borderColor_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        borderColor_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Border accent color derived from the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string border_color = 54 [json_name = "borderColor"];</code>
+     * @return The bytes for borderColor.
+     */
+    public com.google.protobuf.ByteString
+        getBorderColorBytes() {
+      java.lang.Object ref = borderColor_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        borderColor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Border accent color derived from the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string border_color = 54 [json_name = "borderColor"];</code>
+     * @param value The borderColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBorderColor(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      borderColor_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Border accent color derived from the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string border_color = 54 [json_name = "borderColor"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBorderColor() {
+      
+      borderColor_ = getDefaultInstance().getBorderColor();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Border accent color derived from the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string border_color = 54 [json_name = "borderColor"];</code>
+     * @param value The bytes for borderColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBorderColorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      borderColor_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object gradientColor_ = "";
+    /**
+     * <pre>
+     * Gradient accent color derived from the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
+     * @return The gradientColor.
+     */
+    public java.lang.String getGradientColor() {
+      java.lang.Object ref = gradientColor_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        gradientColor_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Gradient accent color derived from the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
+     * @return The bytes for gradientColor.
+     */
+    public com.google.protobuf.ByteString
+        getGradientColorBytes() {
+      java.lang.Object ref = gradientColor_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        gradientColor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Gradient accent color derived from the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
+     * @param value The gradientColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGradientColor(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      gradientColor_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Gradient accent color derived from the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearGradientColor() {
+      
+      gradientColor_ = getDefaultInstance().getGradientColor();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Gradient accent color derived from the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
+     * @param value The bytes for gradientColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGradientColorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      gradientColor_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object textColor_ = "";
+    /**
+     * <pre>
+     * Text color for contrast against the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string text_color = 56 [json_name = "textColor"];</code>
+     * @return The textColor.
+     */
+    public java.lang.String getTextColor() {
+      java.lang.Object ref = textColor_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        textColor_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Text color for contrast against the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string text_color = 56 [json_name = "textColor"];</code>
+     * @return The bytes for textColor.
+     */
+    public com.google.protobuf.ByteString
+        getTextColorBytes() {
+      java.lang.Object ref = textColor_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        textColor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Text color for contrast against the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string text_color = 56 [json_name = "textColor"];</code>
+     * @param value The textColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTextColor(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      textColor_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Text color for contrast against the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string text_color = 56 [json_name = "textColor"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTextColor() {
+      
+      textColor_ = getDefaultInstance().getTextColor();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Text color for contrast against the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string text_color = 56 [json_name = "textColor"];</code>
+     * @param value The bytes for textColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTextColorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      textColor_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object initial_ = "";
+    /**
+     * <pre>
+     * First character of the channel name, used as a fallback when no avatar is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string initial = 57 [json_name = "initial"];</code>
+     * @return The initial.
+     */
+    public java.lang.String getInitial() {
+      java.lang.Object ref = initial_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        initial_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * First character of the channel name, used as a fallback when no avatar is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string initial = 57 [json_name = "initial"];</code>
+     * @return The bytes for initial.
+     */
+    public com.google.protobuf.ByteString
+        getInitialBytes() {
+      java.lang.Object ref = initial_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        initial_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * First character of the channel name, used as a fallback when no avatar is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string initial = 57 [json_name = "initial"];</code>
+     * @param value The initial to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInitial(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      initial_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * First character of the channel name, used as a fallback when no avatar is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string initial = 57 [json_name = "initial"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearInitial() {
+      
+      initial_ = getDefaultInstance().getInitial();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * First character of the channel name, used as a fallback when no avatar is set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string initial = 57 [json_name = "initial"];</code>
+     * @param value The bytes for initial to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInitialBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      initial_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object systemDomain_ = "";
+    /**
+     * <pre>
+     * Resolved domain for the channel.
+     * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
+     * @return The systemDomain.
+     */
+    public java.lang.String getSystemDomain() {
+      java.lang.Object ref = systemDomain_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        systemDomain_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Resolved domain for the channel.
+     * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
+     * @return The bytes for systemDomain.
+     */
+    public com.google.protobuf.ByteString
+        getSystemDomainBytes() {
+      java.lang.Object ref = systemDomain_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        systemDomain_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Resolved domain for the channel.
+     * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
+     * @param value The systemDomain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSystemDomain(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      systemDomain_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Resolved domain for the channel.
+     * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSystemDomain() {
+      
+      systemDomain_ = getDefaultInstance().getSystemDomain();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Resolved domain for the channel.
+     * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
+     * @param value The bytes for systemDomain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSystemDomainBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      systemDomain_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object pluginIconColor_ = "";
+    /**
+     * <pre>
+     * Icon color for the messenger plugin widget, derived from the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string plugin_icon_color = 59 [json_name = "pluginIconColor"];</code>
+     * @return The pluginIconColor.
+     */
+    public java.lang.String getPluginIconColor() {
+      java.lang.Object ref = pluginIconColor_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        pluginIconColor_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Icon color for the messenger plugin widget, derived from the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string plugin_icon_color = 59 [json_name = "pluginIconColor"];</code>
+     * @return The bytes for pluginIconColor.
+     */
+    public com.google.protobuf.ByteString
+        getPluginIconColorBytes() {
+      java.lang.Object ref = pluginIconColor_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pluginIconColor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Icon color for the messenger plugin widget, derived from the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string plugin_icon_color = 59 [json_name = "pluginIconColor"];</code>
+     * @param value The pluginIconColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPluginIconColor(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      pluginIconColor_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Icon color for the messenger plugin widget, derived from the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string plugin_icon_color = 59 [json_name = "pluginIconColor"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPluginIconColor() {
+      
+      pluginIconColor_ = getDefaultInstance().getPluginIconColor();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Icon color for the messenger plugin widget, derived from the theme color, in hex format.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string plugin_icon_color = 59 [json_name = "pluginIconColor"];</code>
+     * @param value The bytes for pluginIconColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPluginIconColorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      pluginIconColor_ = value;
+      onChanged();
+      return this;
+    }
+
+    private float brightness_ ;
+    /**
+     * <pre>
+     * Theme color brightness value normalized to 0.0 -- 1.0 range.
+     * Derived from the theme color.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>float brightness = 60 [json_name = "brightness"];</code>
+     * @return The brightness.
+     */
+    @java.lang.Override
+    public float getBrightness() {
+      return brightness_;
+    }
+    /**
+     * <pre>
+     * Theme color brightness value normalized to 0.0 -- 1.0 range.
+     * Derived from the theme color.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>float brightness = 60 [json_name = "brightness"];</code>
+     * @param value The brightness to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBrightness(float value) {
+      
+      brightness_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Theme color brightness value normalized to 0.0 -- 1.0 range.
+     * Derived from the theme color.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>float brightness = 60 [json_name = "brightness"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBrightness() {
+      
+      brightness_ = 0F;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object coverImageUrl_ = "";
+    /**
+     * <pre>
+     * Cover image URL for the channel profile page.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
+     * @return The coverImageUrl.
+     */
+    public java.lang.String getCoverImageUrl() {
+      java.lang.Object ref = coverImageUrl_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        coverImageUrl_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Cover image URL for the channel profile page.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
+     * @return The bytes for coverImageUrl.
+     */
+    public com.google.protobuf.ByteString
+        getCoverImageUrlBytes() {
+      java.lang.Object ref = coverImageUrl_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        coverImageUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Cover image URL for the channel profile page.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
+     * @param value The coverImageUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCoverImageUrl(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      coverImageUrl_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Cover image URL for the channel profile page.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCoverImageUrl() {
+      
+      coverImageUrl_ = getDefaultInstance().getCoverImageUrl();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Cover image URL for the channel profile page.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
+     * @param value The bytes for coverImageUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCoverImageUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      coverImageUrl_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean coverImageBright_ ;
+    /**
+     * <pre>
+     * Whether the cover image has a bright tone.
+     * Derived from the cover_image_color field.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool cover_image_bright = 62 [json_name = "coverImageBright"];</code>
+     * @return The coverImageBright.
+     */
+    @java.lang.Override
+    public boolean getCoverImageBright() {
+      return coverImageBright_;
+    }
+    /**
+     * <pre>
+     * Whether the cover image has a bright tone.
+     * Derived from the cover_image_color field.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool cover_image_bright = 62 [json_name = "coverImageBright"];</code>
+     * @param value The coverImageBright to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCoverImageBright(boolean value) {
+      
+      coverImageBright_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the cover image has a bright tone.
+     * Derived from the cover_image_color field.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool cover_image_bright = 62 [json_name = "coverImageBright"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCoverImageBright() {
+      
+      coverImageBright_ = false;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -10724,6 +10498,109 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
+     * @param value The welcome_message to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearWelcomeMessage(com.google.protobuf.Struct value) {
+    	if (value == null)
+    		return clearWelcomeMessage();
+    	else
+    		return setWelcomeMessage(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearWelcomeMessage(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+    	if (value == null)
+    		return clearWelcomeMessage();
+    	else
+    		return setWelcomeMessage(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param map The map to put.
+     * @return This builder for chaining.
+     */
+    public Builder putAllOrClearWelcomeMessageI18NMap(java.util.Map<java.lang.String, com.google.protobuf.Struct> map) {
+    	if (map == null)
+    		return clearWelcomeMessageI18NMap();
+    	else
+    		return putAllWelcomeMessageI18NMap(map);
+    }
+    	
+    /**
+     * @param value The created_at to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearCreatedAt(com.google.protobuf.Timestamp value) {
+    	if (value == null)
+    		return clearCreatedAt();
+    	else
+    		return setCreatedAt(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearCreatedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    	if (value == null)
+    		return clearCreatedAt();
+    	else
+    		return setCreatedAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The updated_at to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearUpdatedAt(com.google.protobuf.Timestamp value) {
+    	if (value == null)
+    		return clearUpdatedAt();
+    	else
+    		return setUpdatedAt(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearUpdatedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    	if (value == null)
+    		return clearUpdatedAt();
+    	else
+    		return setUpdatedAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The user_info_url to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearUserInfoUrl(java.lang.String value) {
+    	if (value == null)
+    		return clearUserInfoUrl();
+    	else
+    		return setUserInfoUrl(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearUserInfoUrl(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearUserInfoUrl();
+    	else
+    		return setUserInfoUrl(mapFunc.apply(value));
+    }
+    	
+    /**
      * @param value The name to set.
      * @return This builder for chaining.
      */
@@ -10747,29 +10624,6 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The description to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearDescription(java.lang.String value) {
-    	if (value == null)
-    		return clearDescription();
-    	else
-    		return setDescription(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearDescription(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearDescription();
-    	else
-    		return setDescription(mapFunc.apply(value));
-    }
-    	
-    /**
      * @param map The map to put.
      * @return This builder for chaining.
      */
@@ -10781,14 +10635,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The avatar_url to set.
+     * @param value The cover_image_color to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearAvatarUrl(java.lang.String value) {
+    public Builder setOrClearCoverImageColor(java.lang.String value) {
     	if (value == null)
-    		return clearAvatarUrl();
+    		return clearCoverImageColor();
     	else
-    		return setAvatarUrl(value);
+    		return setCoverImageColor(value);
     }
     	
     /**
@@ -10796,11 +10650,34 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearAvatarUrl(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearCoverImageColor(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
     	if (value == null)
-    		return clearAvatarUrl();
+    		return clearCoverImageColor();
     	else
-    		return setAvatarUrl(mapFunc.apply(value));
+    		return setCoverImageColor(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The bot_name to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearBotName(java.lang.String value) {
+    	if (value == null)
+    		return clearBotName();
+    	else
+    		return setBotName(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearBotName(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearBotName();
+    	else
+    		return setBotName(mapFunc.apply(value));
     }
     	
     /**
@@ -10827,14 +10704,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The bot_name to set.
+     * @param value The description to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearBotName(java.lang.String value) {
+    public Builder setOrClearDescription(java.lang.String value) {
     	if (value == null)
-    		return clearBotName();
+    		return clearDescription();
     	else
-    		return setBotName(value);
+    		return setDescription(value);
     }
     	
     /**
@@ -10842,11 +10719,11 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearBotName(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearDescription(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
     	if (value == null)
-    		return clearBotName();
+    		return clearDescription();
     	else
-    		return setBotName(mapFunc.apply(value));
+    		return setDescription(mapFunc.apply(value));
     }
     	
     /**
@@ -10896,14 +10773,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The system_domain to set.
+     * @param value The default_domain to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearSystemDomain(java.lang.String value) {
+    public Builder setOrClearDefaultDomain(java.lang.String value) {
     	if (value == null)
-    		return clearSystemDomain();
+    		return clearDefaultDomain();
     	else
-    		return setSystemDomain(value);
+    		return setDefaultDomain(value);
     }
     	
     /**
@@ -10911,11 +10788,11 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearSystemDomain(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearDefaultDomain(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
     	if (value == null)
-    		return clearSystemDomain();
+    		return clearDefaultDomain();
     	else
-    		return setSystemDomain(mapFunc.apply(value));
+    		return setDefaultDomain(mapFunc.apply(value));
     }
     	
     /**
@@ -10988,14 +10865,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The utc_offset to set.
+     * @param value The show_operator_profile to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearUtcOffset(java.lang.String value) {
+    public Builder setOrClearShowOperatorProfile(java.lang.Boolean value) {
     	if (value == null)
-    		return clearUtcOffset();
+    		return clearShowOperatorProfile();
     	else
-    		return setUtcOffset(value);
+    		return setShowOperatorProfile(value);
     }
     	
     /**
@@ -11003,45 +10880,22 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearUtcOffset(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearShowOperatorProfile(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
     	if (value == null)
-    		return clearUtcOffset();
+    		return clearShowOperatorProfile();
     	else
-    		return setUtcOffset(mapFunc.apply(value));
+    		return setShowOperatorProfile(mapFunc.apply(value));
     }
     	
     /**
-     * @param value The state to set.
+     * @param value The disable_new_chat_button to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearState(io.channel.api.proto.pub.coreapi.model.ChannelState value) {
+    public Builder setOrClearDisableNewChatButton(java.lang.Boolean value) {
     	if (value == null)
-    		return clearState();
+    		return clearDisableNewChatButton();
     	else
-    		return setState(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearState(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ChannelState> mapFunc) {
-    	if (value == null)
-    		return clearState();
-    	else
-    		return setState(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The expected_response_delay to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearExpectedResponseDelay(io.channel.api.proto.pub.coreapi.model.ResponseDelayType value) {
-    	if (value == null)
-    		return clearExpectedResponseDelay();
-    	else
-    		return setExpectedResponseDelay(value);
+    		return setDisableNewChatButton(value);
     }
     	
     /**
@@ -11049,45 +10903,22 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearExpectedResponseDelay(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ResponseDelayType> mapFunc) {
+    public <T> Builder mapOrClearDisableNewChatButton(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
     	if (value == null)
-    		return clearExpectedResponseDelay();
+    		return clearDisableNewChatButton();
     	else
-    		return setExpectedResponseDelay(mapFunc.apply(value));
+    		return setDisableNewChatButton(mapFunc.apply(value));
     }
     	
     /**
-     * @param value The away_option to set.
+     * @param value The indebted_due_date to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearAwayOption(io.channel.api.proto.pub.coreapi.model.ChannelAwayOption value) {
+    public Builder setOrClearIndebtedDueDate(java.lang.String value) {
     	if (value == null)
-    		return clearAwayOption();
+    		return clearIndebtedDueDate();
     	else
-    		return setAwayOption(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearAwayOption(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ChannelAwayOption> mapFunc) {
-    	if (value == null)
-    		return clearAwayOption();
-    	else
-    		return setAwayOption(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The in_operation to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearInOperation(java.lang.Boolean value) {
-    	if (value == null)
-    		return clearInOperation();
-    	else
-    		return setInOperation(value);
+    		return setIndebtedDueDate(value);
     }
     	
     /**
@@ -11095,34 +10926,11 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearInOperation(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    public <T> Builder mapOrClearIndebtedDueDate(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
     	if (value == null)
-    		return clearInOperation();
+    		return clearIndebtedDueDate();
     	else
-    		return setInOperation(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The working to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearWorking(java.lang.Boolean value) {
-    	if (value == null)
-    		return clearWorking();
-    	else
-    		return setWorking(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearWorking(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
-    	if (value == null)
-    		return clearWorking();
-    	else
-    		return setWorking(mapFunc.apply(value));
+    		return setIndebtedDueDate(mapFunc.apply(value));
     }
     	
     /**
@@ -11218,14 +11026,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The hide_app_messenger to set.
+     * @param value The state to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearHideAppMessenger(java.lang.Boolean value) {
+    public Builder setOrClearState(io.channel.api.proto.pub.coreapi.model.ChannelState value) {
     	if (value == null)
-    		return clearHideAppMessenger();
+    		return clearState();
     	else
-    		return setHideAppMessenger(value);
+    		return setState(value);
     }
     	
     /**
@@ -11233,11 +11041,34 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearHideAppMessenger(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    public <T> Builder mapOrClearState(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ChannelState> mapFunc) {
     	if (value == null)
-    		return clearHideAppMessenger();
+    		return clearState();
     	else
-    		return setHideAppMessenger(mapFunc.apply(value));
+    		return setState(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The ent_verified to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearEntVerified(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearEntVerified();
+    	else
+    		return setEntVerified(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearEntVerified(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearEntVerified();
+    	else
+    		return setEntVerified(mapFunc.apply(value));
     }
     	
     /**
@@ -11261,387 +11092,6 @@ private static final long serialVersionUID = 0L;
     		return clearDefaultPluginId();
     	else
     		return setDefaultPluginId(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The created_at to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearCreatedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearCreatedAt();
-    	else
-    		return setCreatedAt(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearCreatedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearCreatedAt();
-    	else
-    		return setCreatedAt(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The border_color to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearBorderColor(java.lang.String value) {
-    	if (value == null)
-    		return clearBorderColor();
-    	else
-    		return setBorderColor(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearBorderColor(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearBorderColor();
-    	else
-    		return setBorderColor(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The gradient_color to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearGradientColor(java.lang.String value) {
-    	if (value == null)
-    		return clearGradientColor();
-    	else
-    		return setGradientColor(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearGradientColor(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearGradientColor();
-    	else
-    		return setGradientColor(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The text_color to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearTextColor(java.lang.String value) {
-    	if (value == null)
-    		return clearTextColor();
-    	else
-    		return setTextColor(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearTextColor(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearTextColor();
-    	else
-    		return setTextColor(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The initial to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearInitial(java.lang.String value) {
-    	if (value == null)
-    		return clearInitial();
-    	else
-    		return setInitial(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearInitial(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearInitial();
-    	else
-    		return setInitial(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The operation_time_scheduling to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearOperationTimeScheduling(java.lang.Boolean value) {
-    	if (value == null)
-    		return clearOperationTimeScheduling();
-    	else
-    		return setOperationTimeScheduling(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearOperationTimeScheduling(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
-    	if (value == null)
-    		return clearOperationTimeScheduling();
-    	else
-    		return setOperationTimeScheduling(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param values The operation_time_ranges to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllOrClearOperationTimeRanges(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.TimeRange> values) {
-    	if (values == null)
-    		return clearOperationTimeRanges();
-    	else
-    		return addAllOperationTimeRanges(values);
-    }
-    	
-    /**
-     * @param values The values to map.
-     * @param mapFunc The function to map the values into each proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapAllOrClearOperationTimeRanges(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.TimeRange> mapFunc) {
-    	if (values == null)
-    		return clearOperationTimeRanges();
-    	else {
-    		values.forEach(value -> addOperationTimeRanges(mapFunc.apply(value)));
-    		return this;
-    	}
-    }
-    	
-    /**
-     * @param value The next_operating_at to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearNextOperatingAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearNextOperatingAt();
-    	else
-    		return setNextOperatingAt(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearNextOperatingAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearNextOperatingAt();
-    	else
-    		return setNextOperatingAt(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The block_replying_after_closed to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearBlockReplyingAfterClosed(java.lang.Boolean value) {
-    	if (value == null)
-    		return clearBlockReplyingAfterClosed();
-    	else
-    		return setBlockReplyingAfterClosed(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearBlockReplyingAfterClosed(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
-    	if (value == null)
-    		return clearBlockReplyingAfterClosed();
-    	else
-    		return setBlockReplyingAfterClosed(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The block_replying_after_closed_time to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearBlockReplyingAfterClosedTime(com.google.protobuf.Duration value) {
-    	if (value == null)
-    		return clearBlockReplyingAfterClosedTime();
-    	else
-    		return setBlockReplyingAfterClosedTime(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearBlockReplyingAfterClosedTime(T value, java.util.function.Function<T, com.google.protobuf.Duration> mapFunc) {
-    	if (value == null)
-    		return clearBlockReplyingAfterClosedTime();
-    	else
-    		return setBlockReplyingAfterClosedTime(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The welcome_message to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearWelcomeMessage(com.google.protobuf.Struct value) {
-    	if (value == null)
-    		return clearWelcomeMessage();
-    	else
-    		return setWelcomeMessage(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearWelcomeMessage(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
-    	if (value == null)
-    		return clearWelcomeMessage();
-    	else
-    		return setWelcomeMessage(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param map The map to put.
-     * @return This builder for chaining.
-     */
-    public Builder putAllOrClearWelcomeMessageI18NMap(java.util.Map<java.lang.String, com.google.protobuf.Struct> map) {
-    	if (map == null)
-    		return clearWelcomeMessageI18NMap();
-    	else
-    		return putAllWelcomeMessageI18NMap(map);
-    }
-    	
-    /**
-     * @param value The user_info_url to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearUserInfoUrl(java.lang.String value) {
-    	if (value == null)
-    		return clearUserInfoUrl();
-    	else
-    		return setUserInfoUrl(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearUserInfoUrl(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearUserInfoUrl();
-    	else
-    		return setUserInfoUrl(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The traffic_source to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearTrafficSource(com.google.protobuf.Struct value) {
-    	if (value == null)
-    		return clearTrafficSource();
-    	else
-    		return setTrafficSource(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearTrafficSource(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
-    	if (value == null)
-    		return clearTrafficSource();
-    	else
-    		return setTrafficSource(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The bill_account_id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearBillAccountId(java.lang.String value) {
-    	if (value == null)
-    		return clearBillAccountId();
-    	else
-    		return setBillAccountId(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearBillAccountId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearBillAccountId();
-    	else
-    		return setBillAccountId(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The biz_grade to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearBizGrade(java.lang.String value) {
-    	if (value == null)
-    		return clearBizGrade();
-    	else
-    		return setBizGrade(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearBizGrade(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearBizGrade();
-    	else
-    		return setBizGrade(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The source_survey to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearSourceSurvey(com.google.protobuf.Struct value) {
-    	if (value == null)
-    		return clearSourceSurvey();
-    	else
-    		return setSourceSurvey(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearSourceSurvey(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
-    	if (value == null)
-    		return clearSourceSurvey();
-    	else
-    		return setSourceSurvey(mapFunc.apply(value));
     }
     	
     /**
@@ -11737,6 +11187,29 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
+     * @param value The app_commerce_domain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearAppCommerceDomain(java.lang.String value) {
+    	if (value == null)
+    		return clearAppCommerceDomain();
+    	else
+    		return setAppCommerceDomain(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearAppCommerceDomain(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearAppCommerceDomain();
+    	else
+    		return setAppCommerceDomain(mapFunc.apply(value));
+    }
+    	
+    /**
      * @param value The enable_member_hash to set.
      * @return This builder for chaining.
      */
@@ -11806,6 +11279,123 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
+     * @param value The hide_app_messenger to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearHideAppMessenger(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearHideAppMessenger();
+    	else
+    		return setHideAppMessenger(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearHideAppMessenger(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearHideAppMessenger();
+    	else
+    		return setHideAppMessenger(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The biz_certificated to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearBizCertificated(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearBizCertificated();
+    	else
+    		return setBizCertificated(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearBizCertificated(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearBizCertificated();
+    	else
+    		return setBizCertificated(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The mkt_alimtalk_allowed to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearMktAlimtalkAllowed(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearMktAlimtalkAllowed();
+    	else
+    		return setMktAlimtalkAllowed(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearMktAlimtalkAllowed(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearMktAlimtalkAllowed();
+    	else
+    		return setMktAlimtalkAllowed(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param values The biz_certificated_countries to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllOrClearBizCertificatedCountries(java.lang.Iterable<java.lang.String> values) {
+    	if (values == null)
+    		return clearBizCertificatedCountries();
+    	else
+    		return addAllBizCertificatedCountries(values);
+    }
+    	
+    /**
+     * @param values The values to map.
+     * @param mapFunc The function to map the values into each proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapAllOrClearBizCertificatedCountries(java.lang.Iterable<T> values, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (values == null)
+    		return clearBizCertificatedCountries();
+    	else {
+    		values.forEach(value -> addBizCertificatedCountries(mapFunc.apply(value)));
+    		return this;
+    	}
+    }
+    	
+    /**
+     * @param value The enable_front_alf_v2 to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearEnableFrontAlfV2(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearEnableFrontAlfV2();
+    	else
+    		return setEnableFrontAlfV2(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearEnableFrontAlfV2(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearEnableFrontAlfV2();
+    	else
+    		return setEnableFrontAlfV2(mapFunc.apply(value));
+    }
+    	
+    /**
      * @param value The blocked to set.
      * @return This builder for chaining.
      */
@@ -11829,14 +11419,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The bright to set.
+     * @param value The working to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearBright(java.lang.Boolean value) {
+    public Builder setOrClearWorking(java.lang.Boolean value) {
     	if (value == null)
-    		return clearBright();
+    		return clearWorking();
     	else
-    		return setBright(value);
+    		return setWorking(value);
     }
     	
     /**
@@ -11844,45 +11434,22 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearBright(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    public <T> Builder mapOrClearWorking(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
     	if (value == null)
-    		return clearBright();
+    		return clearWorking();
     	else
-    		return setBright(mapFunc.apply(value));
+    		return setWorking(mapFunc.apply(value));
     }
     	
     /**
-     * @param value The using_follow_up to set.
+     * @param value The avatar_url to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearUsingFollowUp(java.lang.Boolean value) {
+    public Builder setOrClearAvatarUrl(java.lang.String value) {
     	if (value == null)
-    		return clearUsingFollowUp();
+    		return clearAvatarUrl();
     	else
-    		return setUsingFollowUp(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearUsingFollowUp(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
-    	if (value == null)
-    		return clearUsingFollowUp();
-    	else
-    		return setUsingFollowUp(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The brightness to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearBrightness(java.lang.Float value) {
-    	if (value == null)
-    		return clearBrightness();
-    	else
-    		return setBrightness(value);
+    		return setAvatarUrl(value);
     }
     	
     /**
@@ -11890,45 +11457,22 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearBrightness(T value, java.util.function.Function<T, java.lang.Float> mapFunc) {
+    public <T> Builder mapOrClearAvatarUrl(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
     	if (value == null)
-    		return clearBrightness();
+    		return clearAvatarUrl();
     	else
-    		return setBrightness(mapFunc.apply(value));
+    		return setAvatarUrl(mapFunc.apply(value));
     }
     	
     /**
-     * @param value The cover_image_bright to set.
+     * @param value The expected_response_delay to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearCoverImageBright(java.lang.Boolean value) {
+    public Builder setOrClearExpectedResponseDelay(io.channel.api.proto.pub.coreapi.model.ResponseDelayType value) {
     	if (value == null)
-    		return clearCoverImageBright();
+    		return clearExpectedResponseDelay();
     	else
-    		return setCoverImageBright(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearCoverImageBright(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
-    	if (value == null)
-    		return clearCoverImageBright();
-    	else
-    		return setCoverImageBright(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The cover_image_color to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearCoverImageColor(java.lang.String value) {
-    	if (value == null)
-    		return clearCoverImageColor();
-    	else
-    		return setCoverImageColor(value);
+    		return setExpectedResponseDelay(value);
     }
     	
     /**
@@ -11936,45 +11480,22 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearCoverImageColor(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearExpectedResponseDelay(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ResponseDelayType> mapFunc) {
     	if (value == null)
-    		return clearCoverImageColor();
+    		return clearExpectedResponseDelay();
     	else
-    		return setCoverImageColor(mapFunc.apply(value));
+    		return setExpectedResponseDelay(mapFunc.apply(value));
     }
     	
     /**
-     * @param value The cover_image_url to set.
+     * @param value The in_operation to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearCoverImageUrl(java.lang.String value) {
+    public Builder setOrClearInOperation(java.lang.Boolean value) {
     	if (value == null)
-    		return clearCoverImageUrl();
+    		return clearInOperation();
     	else
-    		return setCoverImageUrl(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearCoverImageUrl(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearCoverImageUrl();
-    	else
-    		return setCoverImageUrl(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The disable_new_chat_button to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearDisableNewChatButton(java.lang.Boolean value) {
-    	if (value == null)
-    		return clearDisableNewChatButton();
-    	else
-    		return setDisableNewChatButton(value);
+    		return setInOperation(value);
     }
     	
     /**
@@ -11982,22 +11503,22 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearDisableNewChatButton(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    public <T> Builder mapOrClearInOperation(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
     	if (value == null)
-    		return clearDisableNewChatButton();
+    		return clearInOperation();
     	else
-    		return setDisableNewChatButton(mapFunc.apply(value));
+    		return setInOperation(mapFunc.apply(value));
     }
     	
     /**
-     * @param value The next_away_time to set.
+     * @param value The operation_time_scheduling to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearNextAwayTime(com.google.protobuf.Timestamp value) {
+    public Builder setOrClearOperationTimeScheduling(java.lang.Boolean value) {
     	if (value == null)
-    		return clearNextAwayTime();
+    		return clearOperationTimeScheduling();
     	else
-    		return setNextAwayTime(value);
+    		return setOperationTimeScheduling(value);
     }
     	
     /**
@@ -12005,11 +11526,11 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearNextAwayTime(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    public <T> Builder mapOrClearOperationTimeScheduling(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
     	if (value == null)
-    		return clearNextAwayTime();
+    		return clearOperationTimeScheduling();
     	else
-    		return setNextAwayTime(mapFunc.apply(value));
+    		return setOperationTimeScheduling(mapFunc.apply(value));
     }
     	
     /**
@@ -12036,6 +11557,238 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
+     * @param value The next_away_time to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearNextAwayTime(com.google.protobuf.Timestamp value) {
+    	if (value == null)
+    		return clearNextAwayTime();
+    	else
+    		return setNextAwayTime(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearNextAwayTime(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    	if (value == null)
+    		return clearNextAwayTime();
+    	else
+    		return setNextAwayTime(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param values The operation_time_ranges to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllOrClearOperationTimeRanges(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.TimeRange> values) {
+    	if (values == null)
+    		return clearOperationTimeRanges();
+    	else
+    		return addAllOperationTimeRanges(values);
+    }
+    	
+    /**
+     * @param values The values to map.
+     * @param mapFunc The function to map the values into each proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapAllOrClearOperationTimeRanges(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.TimeRange> mapFunc) {
+    	if (values == null)
+    		return clearOperationTimeRanges();
+    	else {
+    		values.forEach(value -> addOperationTimeRanges(mapFunc.apply(value)));
+    		return this;
+    	}
+    }
+    	
+    /**
+     * @param value The away_option to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearAwayOption(io.channel.api.proto.pub.coreapi.model.ChannelAwayOption value) {
+    	if (value == null)
+    		return clearAwayOption();
+    	else
+    		return setAwayOption(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearAwayOption(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ChannelAwayOption> mapFunc) {
+    	if (value == null)
+    		return clearAwayOption();
+    	else
+    		return setAwayOption(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The block_replying_after_closed to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearBlockReplyingAfterClosed(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearBlockReplyingAfterClosed();
+    	else
+    		return setBlockReplyingAfterClosed(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearBlockReplyingAfterClosed(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearBlockReplyingAfterClosed();
+    	else
+    		return setBlockReplyingAfterClosed(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The block_replying_after_closed_time to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearBlockReplyingAfterClosedTime(com.google.protobuf.Duration value) {
+    	if (value == null)
+    		return clearBlockReplyingAfterClosedTime();
+    	else
+    		return setBlockReplyingAfterClosedTime(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearBlockReplyingAfterClosedTime(T value, java.util.function.Function<T, com.google.protobuf.Duration> mapFunc) {
+    	if (value == null)
+    		return clearBlockReplyingAfterClosedTime();
+    	else
+    		return setBlockReplyingAfterClosedTime(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The border_color to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearBorderColor(java.lang.String value) {
+    	if (value == null)
+    		return clearBorderColor();
+    	else
+    		return setBorderColor(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearBorderColor(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearBorderColor();
+    	else
+    		return setBorderColor(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The gradient_color to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearGradientColor(java.lang.String value) {
+    	if (value == null)
+    		return clearGradientColor();
+    	else
+    		return setGradientColor(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearGradientColor(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearGradientColor();
+    	else
+    		return setGradientColor(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The text_color to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearTextColor(java.lang.String value) {
+    	if (value == null)
+    		return clearTextColor();
+    	else
+    		return setTextColor(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearTextColor(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearTextColor();
+    	else
+    		return setTextColor(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The initial to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearInitial(java.lang.String value) {
+    	if (value == null)
+    		return clearInitial();
+    	else
+    		return setInitial(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearInitial(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearInitial();
+    	else
+    		return setInitial(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The system_domain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearSystemDomain(java.lang.String value) {
+    	if (value == null)
+    		return clearSystemDomain();
+    	else
+    		return setSystemDomain(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearSystemDomain(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearSystemDomain();
+    	else
+    		return setSystemDomain(mapFunc.apply(value));
+    }
+    	
+    /**
      * @param value The plugin_icon_color to set.
      * @return This builder for chaining.
      */
@@ -12059,14 +11812,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The show_operator_profile to set.
+     * @param value The brightness to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearShowOperatorProfile(java.lang.Boolean value) {
+    public Builder setOrClearBrightness(java.lang.Float value) {
     	if (value == null)
-    		return clearShowOperatorProfile();
+    		return clearBrightness();
     	else
-    		return setShowOperatorProfile(value);
+    		return setBrightness(value);
     }
     	
     /**
@@ -12074,22 +11827,22 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearShowOperatorProfile(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    public <T> Builder mapOrClearBrightness(T value, java.util.function.Function<T, java.lang.Float> mapFunc) {
     	if (value == null)
-    		return clearShowOperatorProfile();
+    		return clearBrightness();
     	else
-    		return setShowOperatorProfile(mapFunc.apply(value));
+    		return setBrightness(mapFunc.apply(value));
     }
     	
     /**
-     * @param value The updated_at to set.
+     * @param value The cover_image_url to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearUpdatedAt(com.google.protobuf.Timestamp value) {
+    public Builder setOrClearCoverImageUrl(java.lang.String value) {
     	if (value == null)
-    		return clearUpdatedAt();
+    		return clearCoverImageUrl();
     	else
-    		return setUpdatedAt(value);
+    		return setCoverImageUrl(value);
     }
     	
     /**
@@ -12097,11 +11850,34 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearUpdatedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    public <T> Builder mapOrClearCoverImageUrl(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
     	if (value == null)
-    		return clearUpdatedAt();
+    		return clearCoverImageUrl();
     	else
-    		return setUpdatedAt(mapFunc.apply(value));
+    		return setCoverImageUrl(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The cover_image_bright to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearCoverImageBright(java.lang.Boolean value) {
+    	if (value == null)
+    		return clearCoverImageBright();
+    	else
+    		return setCoverImageBright(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearCoverImageBright(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+    	if (value == null)
+    		return clearCoverImageBright();
+    	else
+    		return setCoverImageBright(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Channel)

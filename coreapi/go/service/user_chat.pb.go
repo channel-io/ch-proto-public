@@ -13,6 +13,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
+	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -1599,7 +1600,7 @@ type CreateUserChatMessageRequest struct {
 	ChannelId  string                 `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	UserChatId string                 `protobuf:"bytes,2,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
 	// +kubebuilder:validation:Required
-	Content *model.MessageContent `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
+	Content *structpb.Struct `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:validation:Pattern="^[^@#$%:/]+$"
@@ -1654,7 +1655,7 @@ func (x *CreateUserChatMessageRequest) GetUserChatId() string {
 	return ""
 }
 
-func (x *CreateUserChatMessageRequest) GetContent() *model.MessageContent {
+func (x *CreateUserChatMessageRequest) GetContent() *structpb.Struct {
 	if x != nil {
 		return x.Content
 	}
@@ -1828,7 +1829,7 @@ var File_coreapi_service_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1fcoreapi/service/user_chat.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x1bcoreapi/model/message.proto\x1a#coreapi/model/message_content.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1egoogle/protobuf/duration.proto\"\xbc\x02\n" +
+	"\x1fcoreapi/service/user_chat.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x1bcoreapi/model/message.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1egoogle/protobuf/duration.proto\"\xbc\x02\n" +
 	"\x16SearchUserChatsRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x122\n" +
@@ -1969,13 +1970,13 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\bmessages\x18\x01 \x03(\v2\x16.coreapi.model.MessageR\bmessages\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xdc\x02\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xd6\x02\n" +
 	"\x1cCreateUserChatMessageRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12(\n" +
 	"\fuser_chat_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
-	"userChatId\x12?\n" +
-	"\acontent\x18\x03 \x01(\v2\x1d.coreapi.model.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12\x8a\x01\n" +
+	"userChatId\x129\n" +
+	"\acontent\x18\x03 \x01(\v2\x17.google.protobuf.StructB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12\x8a\x01\n" +
 	"\bbot_name\x18\x04 \x01(\tBo\xbaHl\xba\x01Y\n" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x1ethis == '' || size(this) <= 30r\x0e2\f^[^@#$%:/]+$R\abotName\x12\x1d\n" +
 	"\n" +
@@ -2043,7 +2044,7 @@ var file_coreapi_service_user_chat_proto_goTypes = []any{
 	(*model.ChatSession)(nil),               // 34: coreapi.model.ChatSession
 	(*durationpb.Duration)(nil),             // 35: google.protobuf.Duration
 	(*model.Message)(nil),                   // 36: coreapi.model.Message
-	(*model.MessageContent)(nil),            // 37: coreapi.model.MessageContent
+	(*structpb.Struct)(nil),                 // 37: google.protobuf.Struct
 }
 var file_coreapi_service_user_chat_proto_depIdxs = []int32{
 	30, // 0: coreapi.service.SearchUserChatsRequest.state:type_name -> coreapi.model.UserChatState
@@ -2065,7 +2066,7 @@ var file_coreapi_service_user_chat_proto_depIdxs = []int32{
 	34, // 16: coreapi.service.SearchUserChatSessionsResult.chat_sessions:type_name -> coreapi.model.ChatSession
 	31, // 17: coreapi.service.SearchUserChatMessagesRequest.sort_order:type_name -> coreapi.common.SortOrder
 	36, // 18: coreapi.service.SearchUserChatMessagesResult.messages:type_name -> coreapi.model.Message
-	37, // 19: coreapi.service.CreateUserChatMessageRequest.content:type_name -> coreapi.model.MessageContent
+	37, // 19: coreapi.service.CreateUserChatMessageRequest.content:type_name -> google.protobuf.Struct
 	36, // 20: coreapi.service.CreateUserChatMessageResult.message:type_name -> coreapi.model.Message
 	21, // [21:21] is the sub-list for method output_type
 	21, // [21:21] is the sub-list for method input_type

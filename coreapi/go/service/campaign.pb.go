@@ -315,7 +315,7 @@ type SearchCampaignUsersRequest struct {
 	// Campaign ID to retrieve users for.
 	CampaignId string `protobuf:"bytes,2,opt,name=campaign_id,json=campaignId,proto3" json:"campaign_id,omitempty"`
 	// Interaction state to filter and sort users by.
-	State model.CampaignUserState `protobuf:"varint,3,opt,name=state,proto3,enum=coreapi.model.CampaignUserState" json:"state,omitempty"`
+	State string `protobuf:"bytes,3,opt,name=state,proto3" json:"state,omitempty"`
 	// Opaque pagination cursor from a previous response.
 	Cursor string `protobuf:"bytes,4,opt,name=cursor,proto3" json:"cursor,omitempty"`
 	// Maximum number of results to return. Defaults to 25 if unset.
@@ -370,11 +370,11 @@ func (x *SearchCampaignUsersRequest) GetCampaignId() string {
 	return ""
 }
 
-func (x *SearchCampaignUsersRequest) GetState() model.CampaignUserState {
+func (x *SearchCampaignUsersRequest) GetState() string {
 	if x != nil {
 		return x.State
 	}
-	return model.CampaignUserState(0)
+	return ""
 }
 
 func (x *SearchCampaignUsersRequest) GetCursor() string {
@@ -597,13 +597,13 @@ const file_coreapi_service_campaign_proto_rawDesc = "" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"\x89\x01\n" +
 	"\x11GetCampaignResult\x123\n" +
 	"\bcampaign\x18\x01 \x01(\v2\x17.coreapi.model.CampaignR\bcampaign\x12?\n" +
-	"\rcampaign_msgs\x18\x02 \x03(\v2\x1a.coreapi.model.CampaignMsgR\fcampaignMsgs\"\xf5\x02\n" +
+	"\rcampaign_msgs\x18\x02 \x03(\v2\x1a.coreapi.model.CampaignMsgR\fcampaignMsgs\"\xd3\x02\n" +
 	"\x1aSearchCampaignUsersRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12'\n" +
 	"\vcampaign_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
-	"campaignId\x12>\n" +
-	"\x05state\x18\x03 \x01(\x0e2 .coreapi.model.CampaignUserStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12\x16\n" +
+	"campaignId\x12\x1c\n" +
+	"\x05state\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12\x16\n" +
 	"\x06cursor\x18\x04 \x01(\tR\x06cursor\x12u\n" +
 	"\x05limit\x18\x05 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
 	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\x128\n" +
@@ -649,9 +649,8 @@ var file_coreapi_service_campaign_proto_goTypes = []any{
 	(model.CampaignState)(0),           // 8: coreapi.model.CampaignState
 	(*model.Campaign)(nil),             // 9: coreapi.model.Campaign
 	(*model.CampaignMsg)(nil),          // 10: coreapi.model.CampaignMsg
-	(model.CampaignUserState)(0),       // 11: coreapi.model.CampaignUserState
-	(common.SortOrder)(0),              // 12: coreapi.common.SortOrder
-	(*model.CampaignUser)(nil),         // 13: coreapi.model.CampaignUser
+	(common.SortOrder)(0),              // 11: coreapi.common.SortOrder
+	(*model.CampaignUser)(nil),         // 12: coreapi.model.CampaignUser
 }
 var file_coreapi_service_campaign_proto_depIdxs = []int32{
 	8,  // 0: coreapi.service.SearchCampaignsRequest.states:type_name -> coreapi.model.CampaignState
@@ -659,15 +658,14 @@ var file_coreapi_service_campaign_proto_depIdxs = []int32{
 	10, // 2: coreapi.service.SearchCampaignsResult.campaign_msgs:type_name -> coreapi.model.CampaignMsg
 	9,  // 3: coreapi.service.GetCampaignResult.campaign:type_name -> coreapi.model.Campaign
 	10, // 4: coreapi.service.GetCampaignResult.campaign_msgs:type_name -> coreapi.model.CampaignMsg
-	11, // 5: coreapi.service.SearchCampaignUsersRequest.state:type_name -> coreapi.model.CampaignUserState
-	12, // 6: coreapi.service.SearchCampaignUsersRequest.sort_order:type_name -> coreapi.common.SortOrder
-	13, // 7: coreapi.service.SearchCampaignUsersResult.campaign_users:type_name -> coreapi.model.CampaignUser
-	13, // 8: coreapi.service.GetCampaignUserResult.campaign_user:type_name -> coreapi.model.CampaignUser
-	9,  // [9:9] is the sub-list for method output_type
-	9,  // [9:9] is the sub-list for method input_type
-	9,  // [9:9] is the sub-list for extension type_name
-	9,  // [9:9] is the sub-list for extension extendee
-	0,  // [0:9] is the sub-list for field type_name
+	11, // 5: coreapi.service.SearchCampaignUsersRequest.sort_order:type_name -> coreapi.common.SortOrder
+	12, // 6: coreapi.service.SearchCampaignUsersResult.campaign_users:type_name -> coreapi.model.CampaignUser
+	12, // 7: coreapi.service.GetCampaignUserResult.campaign_user:type_name -> coreapi.model.CampaignUser
+	8,  // [8:8] is the sub-list for method output_type
+	8,  // [8:8] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_campaign_proto_init() }

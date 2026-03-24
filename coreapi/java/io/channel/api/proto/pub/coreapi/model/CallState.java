@@ -5,7 +5,9 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Current state of a phone call.
+ * Current state of a phone call in its lifecycle.
+ * - WAITING: The call is ringing or queued, not yet answered.
+ * - ENGAGED: The call is actively connected between participants.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.CallState}

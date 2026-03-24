@@ -72,16 +72,17 @@ public interface CreateWebhookRequestOrBuilder extends
    * Event scopes that trigger this webhook.
    * </pre>
    *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 4 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * <code>repeated string scopes = 4 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
    * @return A list containing the scopes.
    */
-  java.util.List<io.channel.api.proto.pub.coreapi.model.WebhookScope> getScopesList();
+  java.util.List<java.lang.String>
+      getScopesList();
   /**
    * <pre>
    * Event scopes that trigger this webhook.
    * </pre>
    *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 4 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * <code>repeated string scopes = 4 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
    * @return The count of scopes.
    */
   int getScopesCount();
@@ -90,31 +91,22 @@ public interface CreateWebhookRequestOrBuilder extends
    * Event scopes that trigger this webhook.
    * </pre>
    *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 4 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * <code>repeated string scopes = 4 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
    * @param index The index of the element to return.
    * @return The scopes at the given index.
    */
-  io.channel.api.proto.pub.coreapi.model.WebhookScope getScopes(int index);
+  java.lang.String getScopes(int index);
   /**
    * <pre>
    * Event scopes that trigger this webhook.
    * </pre>
    *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 4 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
-   * @return A list containing the enum numeric values on the wire for scopes.
-   */
-  java.util.List<java.lang.Integer>
-  getScopesValueList();
-  /**
-   * <pre>
-   * Event scopes that trigger this webhook.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 4 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * <code>repeated string scopes = 4 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
    * @param index The index of the value to return.
-   * @return The enum numeric value on the wire of scopes at the given index.
+   * @return The bytes of the scopes at the given index.
    */
-  int getScopesValue(int index);
+  com.google.protobuf.ByteString
+      getScopesBytes(int index);
 
   /**
    * <pre>

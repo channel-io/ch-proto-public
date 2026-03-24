@@ -31,76 +31,109 @@ public final class UserChatOuterClass {
       "\n\035coreapi/model/user_chat.proto\022\rcoreapi" +
       ".model\032\033buf/validate/validate.proto\032\034goo" +
       "gle/protobuf/struct.proto\032\037google/protob" +
-      "uf/timestamp.proto\"\210\023\n\010UserChat\022]\n\002id\030\001 " +
-      "\001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must b" +
-      "e at least 1 character\032\017size(this) >= 1\310" +
-      "\001\001R\002id\022l\n\nchannel_id\030\002 \001(\tBM\272HJ\272\001D\n\rstri" +
-      "ng.minLen\022\"value must be at least 1 char" +
-      "acter\032\017size(this) >= 1\310\001\001R\tchannelId\022:\n\005" +
-      "state\030\003 \001(\0162\034.coreapi.model.UserChatStat" +
-      "eB\006\272H\003\310\001\001R\005state\022\027\n\007user_id\030\004 \001(\tR\006userI" +
-      "d\022\037\n\013assignee_id\030\006 \001(\tR\nassigneeId\022\027\n\007te" +
-      "am_id\030\007 \001(\tR\006teamId\022w\n\013description\030\010 \001(\t" +
-      "BU\272HR\272\001O\n\rstring.maxLen\022*value must be n" +
-      "o more than 1000 characters\032\022size(this) " +
-      "<= 1000R\013description\022.\n\023contact_medium_t" +
-      "ype\030\t \001(\tR\021contactMediumType\0223\n\010handling" +
-      "\030\014 \001(\0132\027.google.protobuf.StructR\010handlin" +
-      "g\022/\n\006source\030\r \001(\0132\027.google.protobuf.Stru" +
-      "ctR\006source\022B\n\017first_opened_at\030\017 \001(\0132\032.go" +
-      "ogle.protobuf.TimestampR\rfirstOpenedAt\0227" +
-      "\n\topened_at\030\020 \001(\0132\032.google.protobuf.Time" +
-      "stampR\010openedAt\022@\n\016first_asked_at\030\023 \001(\0132" +
-      "\032.google.protobuf.TimestampR\014firstAskedA" +
-      "t\0225\n\010asked_at\030\024 \001(\0132\032.google.protobuf.Ti" +
-      "mestampR\007askedAt\0227\n\tclosed_at\030\025 \001(\0132\032.go" +
-      "ogle.protobuf.TimestampR\010closedAt\022X\n\033fir" +
-      "st_replied_at_after_open\030\027 \001(\0132\032.google." +
-      "protobuf.TimestampR\027firstRepliedAtAfterO" +
-      "pen\022>\n\034first_assignee_id_after_open\030\030 \001(" +
-      "\tR\030firstAssigneeIdAfterOpen\022\031\n\010one_stop\030" +
-      "\031 \001(\010R\007oneStop\022!\n\014waiting_time\030\032 \001(\003R\013wa" +
-      "itingTime\022$\n\016avg_reply_time\030\033 \001(\003R\014avgRe" +
-      "plyTime\022(\n\020total_reply_time\030\034 \001(\003R\016total" +
-      "ReplyTime\022\037\n\013reply_count\030\035 \001(\005R\nreplyCou" +
-      "nt\022\'\n\017resolution_time\030\036 \001(\003R\016resolutionT" +
-      "ime\0224\n\026operation_waiting_time\030\037 \001(\003R\024ope" +
-      "rationWaitingTime\0227\n\030operation_avg_reply" +
-      "_time\030  \001(\003R\025operationAvgReplyTime\022;\n\032op" +
-      "eration_total_reply_time\030! \001(\003R\027operatio" +
-      "nTotalReplyTime\0222\n\025operation_reply_count" +
-      "\030\" \001(\005R\023operationReplyCount\022:\n\031operation" +
-      "_resolution_time\030# \001(\003R\027operationResolut" +
-      "ionTime\022(\n\020front_message_id\030$ \001(\tR\016front" +
-      "MessageId\022D\n\020front_updated_at\030% \001(\0132\032.go" +
-      "ogle.protobuf.TimestampR\016frontUpdatedAt\022" +
-      "A\n\ncreated_at\030& \001(\0132\032.google.protobuf.Ti" +
-      "mestampB\006\272H\003\310\001\001R\tcreatedAt\022A\n\nupdated_at" +
-      "\030\' \001(\0132\032.google.protobuf.TimestampB\006\272H\003\310" +
-      "\001\001R\tupdatedAt\022\022\n\004tags\030( \003(\tR\004tags\022\030\n\007man" +
-      "aged\030) \001(\010R\007managed\022\022\n\004name\030* \001(\tR\004name\022" +
-      "\037\n\013manager_ids\030+ \003(\tR\nmanagerIds\022&\n\017goal" +
-      "_event_name\030, \001(\tR\rgoalEventName\022A\n\020goal" +
-      "_event_query\030- \001(\0132\027.google.protobuf.Str" +
-      "uctR\016goalEventQuery\022B\n\017goal_checked_at\030." +
-      " \001(\0132\032.google.protobuf.TimestampR\rgoalCh" +
-      "eckedAt\022\035\n\ngoal_state\030/ \001(\tR\tgoalState\022&" +
-      "\n\017desk_message_id\0300 \001(\tR\rdeskMessageId\022B" +
-      "\n\017desk_updated_at\0301 \001(\0132\032.google.protobu" +
-      "f.TimestampR\rdeskUpdatedAt\0229\n\nsnoozed_at" +
-      "\0302 \001(\0132\032.google.protobuf.TimestampR\tsnoo" +
-      "zedAt\0229\n\nexpires_at\0303 \001(\0132\032.google.proto" +
-      "buf.TimestampR\texpiresAt\022\030\n\007version\0304 \001(" +
-      "\003R\007version\0221\n\007profile\0305 \001(\0132\027.google.pro" +
-      "tobuf.StructR\007profile*\332\001\n\rUserChatState\022" +
-      "\037\n\033USER_CHAT_STATE_UNSPECIFIED\020\000\022\032\n\026USER" +
-      "_CHAT_STATE_OPENED\020\001\022\032\n\026USER_CHAT_STATE_" +
-      "CLOSED\020\002\022\033\n\027USER_CHAT_STATE_SNOOZED\020\003\022\032\n" +
-      "\026USER_CHAT_STATE_QUEUED\020\004\022\033\n\027USER_CHAT_S" +
-      "TATE_INITIAL\020\005\022\032\n\026USER_CHAT_STATE_MISSED" +
-      "\020\006Bb\n&io.channel.api.proto.pub.coreapi.m" +
-      "odelP\001Z6github.com/channel-io/ch-proto-p" +
-      "ublic/coreapi/go/modelb\006proto3"
+      "uf/timestamp.proto\"\377\025\n\010UserChat\022\016\n\002id\030\001 " +
+      "\001(\tR\002id\022\035\n\nchannel_id\030\002 \001(\tR\tchannelId\022." +
+      "\n\023contact_medium_type\030\003 \001(\tR\021contactMedi" +
+      "umType\022 \n\014live_meet_id\030\004 \001(\tR\nliveMeetId" +
+      "\0222\n\005state\030\005 \001(\0162\034.coreapi.model.UserChat" +
+      "StateR\005state\022@\n\rmissed_reason\030\006 \001(\0162\033.co" +
+      "reapi.model.MissedReasonR\014missedReason\022\030" +
+      "\n\007managed\030\007 \001(\010R\007managed\022=\n\010priority\030\010 \001" +
+      "(\0162!.coreapi.model.AutoAssignPriorityR\010p" +
+      "riority\022\027\n\007user_id\030\t \001(\tR\006userId\022\025\n\006xer_" +
+      "id\030\n \001(\tR\005xerId\022\022\n\004name\030\013 \001(\tR\004name\022\024\n\005t" +
+      "itle\030\014 \001(\tR\005title\022w\n\013description\030\r \001(\tBU" +
+      "\272HR\272\001O\n\rstring.maxLen\022*value must be no " +
+      "more than 1000 characters\032\022size(this) <=" +
+      " 1000R\013description\022E\n\014subtext_type\030\016 \001(\016" +
+      "2\".coreapi.model.UserChatSubtextTypeR\013su" +
+      "btextType\0223\n\010handling\030\017 \001(\0132\027.google.pro" +
+      "tobuf.StructR\010handling\022/\n\006source\030\020 \001(\0132\027" +
+      ".google.protobuf.StructR\006source\022\037\n\013manag" +
+      "er_ids\030\021 \003(\tR\nmanagerIds\022\037\n\013assignee_id\030" +
+      "\022 \001(\tR\nassigneeId\022\027\n\007team_id\030\023 \001(\tR\006team" +
+      "Id\022\022\n\004tags\030\024 \003(\tR\004tags\0221\n\007profile\030\025 \001(\0132" +
+      "\027.google.protobuf.StructR\007profile\022&\n\017goa" +
+      "l_event_name\030\026 \001(\tR\rgoalEventName\022A\n\020goa" +
+      "l_event_query\030\027 \001(\0132\027.google.protobuf.St" +
+      "ructR\016goalEventQuery\022B\n\017goal_checked_at\030" +
+      "\030 \001(\0132\032.google.protobuf.TimestampR\rgoalC" +
+      "heckedAt\022?\n\ngoal_state\030\031 \001(\0162 .coreapi.m" +
+      "odel.UserChatGoalStateR\tgoalState\022B\n\017fir" +
+      "st_opened_at\030\032 \001(\0132\032.google.protobuf.Tim" +
+      "estampR\rfirstOpenedAt\0227\n\topened_at\030\033 \001(\013" +
+      "2\032.google.protobuf.TimestampR\010openedAt\022B" +
+      "\n\017first_queued_at\030\034 \001(\0132\032.google.protobu" +
+      "f.TimestampR\rfirstQueuedAt\0227\n\tqueued_at\030" +
+      "\035 \001(\0132\032.google.protobuf.TimestampR\010queue" +
+      "dAt\0229\n\ncreated_at\030\036 \001(\0132\032.google.protobu" +
+      "f.TimestampR\tcreatedAt\0229\n\nupdated_at\030\037 \001" +
+      "(\0132\032.google.protobuf.TimestampR\tupdatedA" +
+      "t\022(\n\020front_message_id\030  \001(\tR\016frontMessag" +
+      "eId\022D\n\020front_updated_at\030! \001(\0132\032.google.p" +
+      "rotobuf.TimestampR\016frontUpdatedAt\022&\n\017des" +
+      "k_message_id\030\" \001(\tR\rdeskMessageId\022B\n\017des" +
+      "k_updated_at\030# \001(\0132\032.google.protobuf.Tim" +
+      "estampR\rdeskUpdatedAt\022/\n\024user_last_messa" +
+      "ge_id\030$ \001(\tR\021userLastMessageId\022>\n\034first_" +
+      "assignee_id_after_open\030% \001(\tR\030firstAssig" +
+      "neeIdAfterOpen\022D\n\020first_replied_at\030& \001(\013" +
+      "2\032.google.protobuf.TimestampR\016firstRepli" +
+      "edAt\022X\n\033first_replied_at_after_open\030\' \001(" +
+      "\0132\032.google.protobuf.TimestampR\027firstRepl" +
+      "iedAtAfterOpen\022\031\n\010one_stop\030( \001(\010R\007oneSto" +
+      "p\022!\n\014waiting_time\030) \001(\003R\013waitingTime\022$\n\016" +
+      "avg_reply_time\030* \001(\003R\014avgReplyTime\022(\n\020to" +
+      "tal_reply_time\030+ \001(\003R\016totalReplyTime\022\037\n\013" +
+      "reply_count\030, \001(\005R\nreplyCount\022\'\n\017resolut" +
+      "ion_time\030- \001(\003R\016resolutionTime\0224\n\026operat" +
+      "ion_waiting_time\030. \001(\003R\024operationWaiting" +
+      "Time\0227\n\030operation_avg_reply_time\030/ \001(\003R\025" +
+      "operationAvgReplyTime\022;\n\032operation_total" +
+      "_reply_time\0300 \001(\003R\027operationTotalReplyTi" +
+      "me\0222\n\025operation_reply_count\0301 \001(\005R\023opera" +
+      "tionReplyCount\022:\n\031operation_resolution_t" +
+      "ime\0302 \001(\003R\027operationResolutionTime\0225\n\010as" +
+      "ked_at\0303 \001(\0132\032.google.protobuf.Timestamp" +
+      "R\007askedAt\022@\n\016first_asked_at\0304 \001(\0132\032.goog" +
+      "le.protobuf.TimestampR\014firstAskedAt\0227\n\tc" +
+      "losed_at\0305 \001(\0132\032.google.protobuf.Timesta" +
+      "mpR\010closedAt\0229\n\nsnoozed_at\0306 \001(\0132\032.googl" +
+      "e.protobuf.TimestampR\tsnoozedAt\0229\n\nexpir" +
+      "es_at\0307 \001(\0132\032.google.protobuf.TimestampR" +
+      "\texpiresAt\022\030\n\007version\0308 \001(\003R\007version*\241\001\n" +
+      "\rUserChatState\022\037\n\033USER_CHAT_STATE_UNSPEC" +
+      "IFIED\020\000\022\032\n\026USER_CHAT_STATE_CLOSED\020\001\022\032\n\026U" +
+      "SER_CHAT_STATE_OPENED\020\002\022\033\n\027USER_CHAT_STA" +
+      "TE_SNOOZED\020\003\022\032\n\026USER_CHAT_STATE_QUEUED\020\004" +
+      "*\352\003\n\014MissedReason\022\035\n\031MISSED_REASON_UNSPE" +
+      "CIFIED\020\000\022\"\n\036MISSED_REASON_NOT_IN_OPERATI" +
+      "ON\020\001\022\033\n\027MISSED_REASON_USER_LEFT\020\002\022 \n\034MIS" +
+      "SED_REASON_RING_TIME_OVER\020\003\022$\n MISSED_RE" +
+      "ASON_INBOUND_RATE_LIMIT\020\004\022\035\n\031MISSED_REAS" +
+      "ON_NO_OPERATOR\020\005\022 \n\034MISSED_REASON_EXCEED" +
+      "ED_QUEUE\020\006\022$\n MISSED_REASON_ABANDONED_IN" +
+      "_QUEUE\020\007\022\032\n\026MISSED_REASON_WORKFLOW\020\010\022\036\n\032" +
+      "MISSED_REASON_MANAGER_LEFT\020\t\022$\n MISSED_R" +
+      "EASON_NO_FALLBACK_CLIENT\020\n\022\"\n\036MISSED_REA" +
+      "SON_PRESERVED_NUMBER\020\013\022%\n!MISSED_REASON_" +
+      "UNREGISTERED_NUMBER\020\014\022\036\n\032MISSED_REASON_B" +
+      "LOCKED_USER\020\r*\230\001\n\022AutoAssignPriority\022$\n " +
+      "AUTO_ASSIGN_PRIORITY_UNSPECIFIED\020\000\022\034\n\030AU" +
+      "TO_ASSIGN_PRIORITY_LOW\020\001\022\037\n\033AUTO_ASSIGN_" +
+      "PRIORITY_MEDIUM\020\002\022\035\n\031AUTO_ASSIGN_PRIORIT" +
+      "Y_HIGH\020\003*\304\001\n\021UserChatGoalState\022$\n USER_C" +
+      "HAT_GOAL_STATE_UNSPECIFIED\020\000\022!\n\035USER_CHA" +
+      "T_GOAL_STATE_ACHIEVED\020\001\022%\n!USER_CHAT_GOA" +
+      "L_STATE_NOT_ACHIEVED\020\002\022 \n\034USER_CHAT_GOAL" +
+      "_STATE_WAITING\020\003\022\035\n\031USER_CHAT_GOAL_STATE" +
+      "_NONE\020\004*\212\001\n\023UserChatSubtextType\022&\n\"USER_" +
+      "CHAT_SUBTEXT_TYPE_UNSPECIFIED\020\000\022&\n\"USER_" +
+      "CHAT_SUBTEXT_TYPE_DESCRIPTION\020\001\022#\n\037USER_" +
+      "CHAT_SUBTEXT_TYPE_INCOMING\020\002Bb\n&io.chann" +
+      "el.api.proto.pub.coreapi.modelP\001Z6github" +
+      ".com/channel-io/ch-proto-public/coreapi/" +
+      "go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -114,7 +147,7 @@ public final class UserChatOuterClass {
     internal_static_coreapi_model_UserChat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_UserChat_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "State", "UserId", "AssigneeId", "TeamId", "Description", "ContactMediumType", "Handling", "Source", "FirstOpenedAt", "OpenedAt", "FirstAskedAt", "AskedAt", "ClosedAt", "FirstRepliedAtAfterOpen", "FirstAssigneeIdAfterOpen", "OneStop", "WaitingTime", "AvgReplyTime", "TotalReplyTime", "ReplyCount", "ResolutionTime", "OperationWaitingTime", "OperationAvgReplyTime", "OperationTotalReplyTime", "OperationReplyCount", "OperationResolutionTime", "FrontMessageId", "FrontUpdatedAt", "CreatedAt", "UpdatedAt", "Tags", "Managed", "Name", "ManagerIds", "GoalEventName", "GoalEventQuery", "GoalCheckedAt", "GoalState", "DeskMessageId", "DeskUpdatedAt", "SnoozedAt", "ExpiresAt", "Version", "Profile", });
+        new java.lang.String[] { "Id", "ChannelId", "ContactMediumType", "LiveMeetId", "State", "MissedReason", "Managed", "Priority", "UserId", "XerId", "Name", "Title", "Description", "SubtextType", "Handling", "Source", "ManagerIds", "AssigneeId", "TeamId", "Tags", "Profile", "GoalEventName", "GoalEventQuery", "GoalCheckedAt", "GoalState", "FirstOpenedAt", "OpenedAt", "FirstQueuedAt", "QueuedAt", "CreatedAt", "UpdatedAt", "FrontMessageId", "FrontUpdatedAt", "DeskMessageId", "DeskUpdatedAt", "UserLastMessageId", "FirstAssigneeIdAfterOpen", "FirstRepliedAt", "FirstRepliedAtAfterOpen", "OneStop", "WaitingTime", "AvgReplyTime", "TotalReplyTime", "ReplyCount", "ResolutionTime", "OperationWaitingTime", "OperationAvgReplyTime", "OperationTotalReplyTime", "OperationReplyCount", "OperationResolutionTime", "AskedAt", "FirstAskedAt", "ClosedAt", "SnoozedAt", "ExpiresAt", "Version", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);
