@@ -72,7 +72,7 @@ public interface CreateGroupThreadMessageRequestOrBuilder extends
    * Message content to send.
    * </pre>
    *
-   * <code>.google.protobuf.Struct content = 4 [json_name = "content", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.service.MessageContent content = 4 [json_name = "content", (.buf.validate.field) = { ... }</code>
    * @return Whether the content field is set.
    */
   boolean hasContent();
@@ -81,18 +81,18 @@ public interface CreateGroupThreadMessageRequestOrBuilder extends
    * Message content to send.
    * </pre>
    *
-   * <code>.google.protobuf.Struct content = 4 [json_name = "content", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.service.MessageContent content = 4 [json_name = "content", (.buf.validate.field) = { ... }</code>
    * @return The content.
    */
-  com.google.protobuf.Struct getContent();
+  io.channel.api.proto.pub.coreapi.service.MessageContent getContent();
   /**
    * <pre>
    * Message content to send.
    * </pre>
    *
-   * <code>.google.protobuf.Struct content = 4 [json_name = "content", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.service.MessageContent content = 4 [json_name = "content", (.buf.validate.field) = { ... }</code>
    */
-  com.google.protobuf.StructOrBuilder getContentOrBuilder();
+  io.channel.api.proto.pub.coreapi.service.MessageContentOrBuilder getContentOrBuilder();
 
   /**
    * <pre>

@@ -23,6 +23,77 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Event scope that triggers a webhook delivery.
+type WebhookScope int32
+
+const (
+	WebhookScope_WEBHOOK_SCOPE_UNSPECIFIED                  WebhookScope = 0
+	WebhookScope_WEBHOOK_SCOPE_USER_CHAT_OPENED             WebhookScope = 1
+	WebhookScope_WEBHOOK_SCOPE_MESSAGE_CREATED_USER_CHAT    WebhookScope = 2
+	WebhookScope_WEBHOOK_SCOPE_MESSAGE_CREATED_TEAM_CHAT    WebhookScope = 3
+	WebhookScope_WEBHOOK_SCOPE_LEAD_UPSERTED_CONTACT        WebhookScope = 4
+	WebhookScope_WEBHOOK_SCOPE_LEAD_UPSERTED_SUBSCRIPTION   WebhookScope = 5
+	WebhookScope_WEBHOOK_SCOPE_LEAD_DELETED                 WebhookScope = 6
+	WebhookScope_WEBHOOK_SCOPE_MEMBER_UPSERTED_CONTACT      WebhookScope = 7
+	WebhookScope_WEBHOOK_SCOPE_MEMBER_UPSERTED_SUBSCRIPTION WebhookScope = 8
+	WebhookScope_WEBHOOK_SCOPE_MEMBER_DELETED               WebhookScope = 9
+)
+
+// Enum value maps for WebhookScope.
+var (
+	WebhookScope_name = map[int32]string{
+		0: "WEBHOOK_SCOPE_UNSPECIFIED",
+		1: "WEBHOOK_SCOPE_USER_CHAT_OPENED",
+		2: "WEBHOOK_SCOPE_MESSAGE_CREATED_USER_CHAT",
+		3: "WEBHOOK_SCOPE_MESSAGE_CREATED_TEAM_CHAT",
+		4: "WEBHOOK_SCOPE_LEAD_UPSERTED_CONTACT",
+		5: "WEBHOOK_SCOPE_LEAD_UPSERTED_SUBSCRIPTION",
+		6: "WEBHOOK_SCOPE_LEAD_DELETED",
+		7: "WEBHOOK_SCOPE_MEMBER_UPSERTED_CONTACT",
+		8: "WEBHOOK_SCOPE_MEMBER_UPSERTED_SUBSCRIPTION",
+		9: "WEBHOOK_SCOPE_MEMBER_DELETED",
+	}
+	WebhookScope_value = map[string]int32{
+		"WEBHOOK_SCOPE_UNSPECIFIED":                  0,
+		"WEBHOOK_SCOPE_USER_CHAT_OPENED":             1,
+		"WEBHOOK_SCOPE_MESSAGE_CREATED_USER_CHAT":    2,
+		"WEBHOOK_SCOPE_MESSAGE_CREATED_TEAM_CHAT":    3,
+		"WEBHOOK_SCOPE_LEAD_UPSERTED_CONTACT":        4,
+		"WEBHOOK_SCOPE_LEAD_UPSERTED_SUBSCRIPTION":   5,
+		"WEBHOOK_SCOPE_LEAD_DELETED":                 6,
+		"WEBHOOK_SCOPE_MEMBER_UPSERTED_CONTACT":      7,
+		"WEBHOOK_SCOPE_MEMBER_UPSERTED_SUBSCRIPTION": 8,
+		"WEBHOOK_SCOPE_MEMBER_DELETED":               9,
+	}
+)
+
+func (x WebhookScope) Enum() *WebhookScope {
+	p := new(WebhookScope)
+	*p = x
+	return p
+}
+
+func (x WebhookScope) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (WebhookScope) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_webhook_proto_enumTypes[0].Descriptor()
+}
+
+func (WebhookScope) Type() protoreflect.EnumType {
+	return &file_coreapi_model_webhook_proto_enumTypes[0]
+}
+
+func (x WebhookScope) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use WebhookScope.Descriptor instead.
+func (WebhookScope) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_webhook_proto_rawDescGZIP(), []int{0}
+}
+
 // Webhook represents an HTTP callback endpoint that receives
 // real-time event notifications from the channel.
 type Webhook struct {
@@ -57,7 +128,7 @@ type Webhook struct {
 	// Only events matching at least one of these scopes will be delivered.
 	//
 	// +kubebuilder:validation:Required
-	Scopes []string `protobuf:"bytes,7,rep,name=scopes,proto3" json:"scopes,omitempty"`
+	Scopes []WebhookScope `protobuf:"varint,7,rep,packed,name=scopes,proto3,enum=coreapi.model.WebhookScope" json:"scopes,omitempty"`
 	// API version that determines the webhook payload format ("v4" or "v5").
 	//
 	// +kubebuilder:validation:Required
@@ -150,7 +221,7 @@ func (x *Webhook) GetCreatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Webhook) GetScopes() []string {
+func (x *Webhook) GetScopes() []WebhookScope {
 	if x != nil {
 		return x.Scopes
 	}
@@ -182,7 +253,7 @@ var File_coreapi_model_webhook_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_webhook_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/webhook.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe6\x02\n" +
+	"\x1bcoreapi/model/webhook.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x83\x03\n" +
 	"\aWebhook\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
 	"\n" +
@@ -191,13 +262,24 @@ const file_coreapi_model_webhook_proto_rawDesc = "" +
 	"\x03url\x18\x04 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x03url\x12\x14\n" +
 	"\x05token\x18\x05 \x01(\tR\x05token\x129\n" +
 	"\n" +
-	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x12\x1e\n" +
-	"\x06scopes\x18\a \x03(\tB\x06\xbaH\x03\xc8\x01\x01R\x06scopes\x12'\n" +
+	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x12;\n" +
+	"\x06scopes\x18\a \x03(\x0e2\x1b.coreapi.model.WebhookScopeB\x06\xbaH\x03\xc8\x01\x01R\x06scopes\x12'\n" +
 	"\vapi_version\x18\b \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"apiVersion\x12B\n" +
 	"\x0flast_blocked_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\rlastBlockedAt\x12\x18\n" +
 	"\ablocked\x18\n" +
-	" \x01(\bR\ablockedBb\n" +
+	" \x01(\bR\ablocked*\x9f\x03\n" +
+	"\fWebhookScope\x12\x1d\n" +
+	"\x19WEBHOOK_SCOPE_UNSPECIFIED\x10\x00\x12\"\n" +
+	"\x1eWEBHOOK_SCOPE_USER_CHAT_OPENED\x10\x01\x12+\n" +
+	"'WEBHOOK_SCOPE_MESSAGE_CREATED_USER_CHAT\x10\x02\x12+\n" +
+	"'WEBHOOK_SCOPE_MESSAGE_CREATED_TEAM_CHAT\x10\x03\x12'\n" +
+	"#WEBHOOK_SCOPE_LEAD_UPSERTED_CONTACT\x10\x04\x12,\n" +
+	"(WEBHOOK_SCOPE_LEAD_UPSERTED_SUBSCRIPTION\x10\x05\x12\x1e\n" +
+	"\x1aWEBHOOK_SCOPE_LEAD_DELETED\x10\x06\x12)\n" +
+	"%WEBHOOK_SCOPE_MEMBER_UPSERTED_CONTACT\x10\a\x12.\n" +
+	"*WEBHOOK_SCOPE_MEMBER_UPSERTED_SUBSCRIPTION\x10\b\x12 \n" +
+	"\x1cWEBHOOK_SCOPE_MEMBER_DELETED\x10\tBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -212,19 +294,22 @@ func file_coreapi_model_webhook_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_webhook_proto_rawDescData
 }
 
+var file_coreapi_model_webhook_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_coreapi_model_webhook_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_coreapi_model_webhook_proto_goTypes = []any{
-	(*Webhook)(nil),               // 0: coreapi.model.Webhook
-	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
+	(WebhookScope)(0),             // 0: coreapi.model.WebhookScope
+	(*Webhook)(nil),               // 1: coreapi.model.Webhook
+	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_coreapi_model_webhook_proto_depIdxs = []int32{
-	1, // 0: coreapi.model.Webhook.created_at:type_name -> google.protobuf.Timestamp
-	1, // 1: coreapi.model.Webhook.last_blocked_at:type_name -> google.protobuf.Timestamp
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	2, // 0: coreapi.model.Webhook.created_at:type_name -> google.protobuf.Timestamp
+	0, // 1: coreapi.model.Webhook.scopes:type_name -> coreapi.model.WebhookScope
+	2, // 2: coreapi.model.Webhook.last_blocked_at:type_name -> google.protobuf.Timestamp
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_webhook_proto_init() }
@@ -237,13 +322,14 @@ func file_coreapi_model_webhook_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_webhook_proto_rawDesc), len(file_coreapi_model_webhook_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_coreapi_model_webhook_proto_goTypes,
 		DependencyIndexes: file_coreapi_model_webhook_proto_depIdxs,
+		EnumInfos:         file_coreapi_model_webhook_proto_enumTypes,
 		MessageInfos:      file_coreapi_model_webhook_proto_msgTypes,
 	}.Build()
 	File_coreapi_model_webhook_proto = out.File

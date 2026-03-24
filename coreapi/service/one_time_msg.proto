@@ -69,6 +69,15 @@ message GetOneTimeMsgResult {
   coreapi.model.OneTimeMsg one_time_msg = 1;
 }
 
+// Interaction state used to filter and sort one-time message user records.
+enum OneTimeMsgUserState {
+  ONE_TIME_MSG_USER_STATE_UNSPECIFIED = 0;
+  ONE_TIME_MSG_USER_STATE_SENT = 1;
+  ONE_TIME_MSG_USER_STATE_VIEW = 2;
+  ONE_TIME_MSG_USER_STATE_GOAL = 3;
+  ONE_TIME_MSG_USER_STATE_CLICK = 4;
+}
+
 // Retrieves a list of users who received a one-time message.
 //
 // The number of users retrieved is restricted by the limit parameter,
@@ -93,7 +102,7 @@ message SearchOneTimeMsgUsersRequest {
   string one_time_msg_id = 2 [(buf.validate.field).required = true];
 
   // Interaction state to filter and sort users by.
-  string state = 3 [(buf.validate.field).required = true];
+  OneTimeMsgUserState state = 3 [(buf.validate.field).required = true];
 
   // Opaque pagination cursor from a previous response.
   string cursor = 4;

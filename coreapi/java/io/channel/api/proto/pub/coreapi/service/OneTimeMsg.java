@@ -82,26 +82,32 @@ public final class OneTimeMsg {
       "(\tB\006\272H\003\310\001\001R\002id\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310" +
       "\001\001R\tchannelId\"R\n\023GetOneTimeMsgResult\022;\n\014" +
       "one_time_msg\030\001 \001(\0132\031.coreapi.model.OneTi" +
-      "meMsgR\noneTimeMsg\"\333\002\n\034SearchOneTimeMsgUs" +
+      "meMsgR\noneTimeMsg\"\201\003\n\034SearchOneTimeMsgUs" +
       "ersRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\t" +
       "channelId\022-\n\017one_time_msg_id\030\002 \001(\tB\006\272H\003\310" +
-      "\001\001R\014oneTimeMsgId\022\034\n\005state\030\003 \001(\tB\006\272H\003\310\001\001R" +
-      "\005state\022\026\n\006cursor\030\004 \001(\tR\006cursor\022u\n\005limit\030" +
-      "\005 \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037limit must" +
-      " be between 1 and 500\032\'this == 0 || (thi" +
-      "s >= 1 && this <= 500)R\005limit\0228\n\nsort_or" +
-      "der\030\006 \001(\0162\031.coreapi.common.SortOrderR\tso" +
-      "rtOrder\"\245\001\n\033SearchOneTimeMsgUsersResult\022" +
-      "J\n\022one_time_msg_users\030\001 \003(\0132\035.coreapi.mo" +
-      "del.OneTimeMsgUserR\017oneTimeMsgUsers\022\037\n\013n" +
-      "ext_cursor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next" +
-      "\030\003 \001(\010R\007hasNext\"\221\001\n\030GetOneTimeMsgUserReq" +
-      "uest\022-\n\017one_time_msg_id\030\001 \001(\tB\006\272H\003\310\001\001R\014o" +
-      "neTimeMsgId\022\037\n\007user_id\030\002 \001(\tB\006\272H\003\310\001\001R\006us" +
-      "erId\022%\n\nchannel_id\030\003 \001(\tB\006\272H\003\310\001\001R\tchanne" +
-      "lId\"c\n\027GetOneTimeMsgUserResult\022H\n\021one_ti" +
-      "me_msg_user\030\001 \001(\0132\035.coreapi.model.OneTim" +
-      "eMsgUserR\016oneTimeMsgUserBf\n(io.channel.a" +
+      "\001\001R\014oneTimeMsgId\022B\n\005state\030\003 \001(\0162$.coreap" +
+      "i.service.OneTimeMsgUserStateB\006\272H\003\310\001\001R\005s" +
+      "tate\022\026\n\006cursor\030\004 \001(\tR\006cursor\022u\n\005limit\030\005 " +
+      "\001(\005B_\272H\\\272\001Y\n\rint32.between\022\037limit must b" +
+      "e between 1 and 500\032\'this == 0 || (this " +
+      ">= 1 && this <= 500)R\005limit\0228\n\nsort_orde" +
+      "r\030\006 \001(\0162\031.coreapi.common.SortOrderR\tsort" +
+      "Order\"\245\001\n\033SearchOneTimeMsgUsersResult\022J\n" +
+      "\022one_time_msg_users\030\001 \003(\0132\035.coreapi.mode" +
+      "l.OneTimeMsgUserR\017oneTimeMsgUsers\022\037\n\013nex" +
+      "t_cursor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003" +
+      " \001(\010R\007hasNext\"\221\001\n\030GetOneTimeMsgUserReque" +
+      "st\022-\n\017one_time_msg_id\030\001 \001(\tB\006\272H\003\310\001\001R\014one" +
+      "TimeMsgId\022\037\n\007user_id\030\002 \001(\tB\006\272H\003\310\001\001R\006user" +
+      "Id\022%\n\nchannel_id\030\003 \001(\tB\006\272H\003\310\001\001R\tchannelI" +
+      "d\"c\n\027GetOneTimeMsgUserResult\022H\n\021one_time" +
+      "_msg_user\030\001 \001(\0132\035.coreapi.model.OneTimeM" +
+      "sgUserR\016oneTimeMsgUser*\307\001\n\023OneTimeMsgUse" +
+      "rState\022\'\n#ONE_TIME_MSG_USER_STATE_UNSPEC" +
+      "IFIED\020\000\022 \n\034ONE_TIME_MSG_USER_STATE_SENT\020" +
+      "\001\022 \n\034ONE_TIME_MSG_USER_STATE_VIEW\020\002\022 \n\034O" +
+      "NE_TIME_MSG_USER_STATE_GOAL\020\003\022!\n\035ONE_TIM" +
+      "E_MSG_USER_STATE_CLICK\020\004Bf\n(io.channel.a" +
       "pi.proto.pub.coreapi.serviceP\001Z8github.c" +
       "om/channel-io/ch-proto-public/coreapi/go" +
       "/serviceb\006proto3"

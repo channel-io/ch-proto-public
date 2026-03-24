@@ -69,11 +69,11 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 26: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
+            io.channel.api.proto.pub.coreapi.service.MessageContent.Builder subBuilder = null;
             if (content_ != null) {
               subBuilder = content_.toBuilder();
             }
-            content_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+            content_ = input.readMessage(io.channel.api.proto.pub.coreapi.service.MessageContent.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(content_);
               content_ = subBuilder.buildPartial();
@@ -202,13 +202,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTENT_FIELD_NUMBER = 3;
-  private com.google.protobuf.Struct content_;
+  private io.channel.api.proto.pub.coreapi.service.MessageContent content_;
   /**
    * <pre>
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Struct content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.service.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
    * @return Whether the content field is set.
    */
   @java.lang.Override
@@ -220,22 +220,22 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Struct content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.service.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
    * @return The content.
    */
   @java.lang.Override
-  public com.google.protobuf.Struct getContent() {
-    return content_ == null ? com.google.protobuf.Struct.getDefaultInstance() : content_;
+  public io.channel.api.proto.pub.coreapi.service.MessageContent getContent() {
+    return content_ == null ? io.channel.api.proto.pub.coreapi.service.MessageContent.getDefaultInstance() : content_;
   }
   /**
    * <pre>
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.google.protobuf.Struct content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.service.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
-  public com.google.protobuf.StructOrBuilder getContentOrBuilder() {
+  public io.channel.api.proto.pub.coreapi.service.MessageContentOrBuilder getContentOrBuilder() {
     return getContent();
   }
 
@@ -874,15 +874,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Struct content_;
+    private io.channel.api.proto.pub.coreapi.service.MessageContent content_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> contentBuilder_;
+        io.channel.api.proto.pub.coreapi.service.MessageContent, io.channel.api.proto.pub.coreapi.service.MessageContent.Builder, io.channel.api.proto.pub.coreapi.service.MessageContentOrBuilder> contentBuilder_;
     /**
      * <pre>
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.service.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
      * @return Whether the content field is set.
      */
     public boolean hasContent() {
@@ -893,12 +893,12 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.service.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
      * @return The content.
      */
-    public com.google.protobuf.Struct getContent() {
+    public io.channel.api.proto.pub.coreapi.service.MessageContent getContent() {
       if (contentBuilder_ == null) {
-        return content_ == null ? com.google.protobuf.Struct.getDefaultInstance() : content_;
+        return content_ == null ? io.channel.api.proto.pub.coreapi.service.MessageContent.getDefaultInstance() : content_;
       } else {
         return contentBuilder_.getMessage();
       }
@@ -908,9 +908,9 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.service.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
      */
-    public Builder setContent(com.google.protobuf.Struct value) {
+    public Builder setContent(io.channel.api.proto.pub.coreapi.service.MessageContent value) {
       if (contentBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -928,10 +928,10 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.service.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
      */
     public Builder setContent(
-        com.google.protobuf.Struct.Builder builderForValue) {
+        io.channel.api.proto.pub.coreapi.service.MessageContent.Builder builderForValue) {
       if (contentBuilder_ == null) {
         content_ = builderForValue.build();
         onChanged();
@@ -946,13 +946,13 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.service.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
      */
-    public Builder mergeContent(com.google.protobuf.Struct value) {
+    public Builder mergeContent(io.channel.api.proto.pub.coreapi.service.MessageContent value) {
       if (contentBuilder_ == null) {
         if (content_ != null) {
           content_ =
-            com.google.protobuf.Struct.newBuilder(content_).mergeFrom(value).buildPartial();
+            io.channel.api.proto.pub.coreapi.service.MessageContent.newBuilder(content_).mergeFrom(value).buildPartial();
         } else {
           content_ = value;
         }
@@ -968,7 +968,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.service.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearContent() {
       if (contentBuilder_ == null) {
@@ -986,9 +986,9 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.service.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
      */
-    public com.google.protobuf.Struct.Builder getContentBuilder() {
+    public io.channel.api.proto.pub.coreapi.service.MessageContent.Builder getContentBuilder() {
       
       onChanged();
       return getContentFieldBuilder().getBuilder();
@@ -998,14 +998,14 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.service.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
      */
-    public com.google.protobuf.StructOrBuilder getContentOrBuilder() {
+    public io.channel.api.proto.pub.coreapi.service.MessageContentOrBuilder getContentOrBuilder() {
       if (contentBuilder_ != null) {
         return contentBuilder_.getMessageOrBuilder();
       } else {
         return content_ == null ?
-            com.google.protobuf.Struct.getDefaultInstance() : content_;
+            io.channel.api.proto.pub.coreapi.service.MessageContent.getDefaultInstance() : content_;
       }
     }
     /**
@@ -1013,14 +1013,14 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.google.protobuf.Struct content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.service.MessageContent content = 3 [json_name = "content", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        io.channel.api.proto.pub.coreapi.service.MessageContent, io.channel.api.proto.pub.coreapi.service.MessageContent.Builder, io.channel.api.proto.pub.coreapi.service.MessageContentOrBuilder> 
         getContentFieldBuilder() {
       if (contentBuilder_ == null) {
         contentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+            io.channel.api.proto.pub.coreapi.service.MessageContent, io.channel.api.proto.pub.coreapi.service.MessageContent.Builder, io.channel.api.proto.pub.coreapi.service.MessageContentOrBuilder>(
                 getContent(),
                 getParentForChildren(),
                 isClean());
@@ -1295,7 +1295,7 @@ private static final long serialVersionUID = 0L;
      * @param value The content to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearContent(com.google.protobuf.Struct value) {
+    public Builder setOrClearContent(io.channel.api.proto.pub.coreapi.service.MessageContent value) {
     	if (value == null)
     		return clearContent();
     	else
@@ -1307,7 +1307,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearContent(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+    public <T> Builder mapOrClearContent(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.service.MessageContent> mapFunc) {
     	if (value == null)
     		return clearContent();
     	else

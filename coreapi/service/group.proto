@@ -8,7 +8,7 @@ import "coreapi/model/chat_bookmark.proto";
 import "coreapi/model/chat_session.proto";
 import "coreapi/model/group.proto";
 import "coreapi/model/message.proto";
-import "google/protobuf/struct.proto";
+import "coreapi/service/message_content.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
@@ -364,7 +364,7 @@ message CreateGroupMessageRequest {
   // Message content to send.
   //
   // +kubebuilder:validation:Required
-  google.protobuf.Struct content = 3 [(buf.validate.field).required = true];
+  coreapi.service.MessageContent content = 3 [(buf.validate.field).required = true];
 
   // Name of the bot sending the message.
   //
@@ -510,7 +510,7 @@ message CreateGroupThreadMessageRequest {
   string message_id = 3 [(buf.validate.field).required = true];
 
   // Message content to send.
-  google.protobuf.Struct content = 4 [(buf.validate.field).required = true];
+  coreapi.service.MessageContent content = 4 [(buf.validate.field).required = true];
 
   // Bot name to use as the message author.
   //

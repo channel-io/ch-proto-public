@@ -158,11 +158,10 @@ public interface WebhookOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
    * @return A list containing the scopes.
    */
-  java.util.List<java.lang.String>
-      getScopesList();
+  java.util.List<io.channel.api.proto.pub.coreapi.model.WebhookScope> getScopesList();
   /**
    * <pre>
    * Event scopes that trigger this webhook.
@@ -170,7 +169,7 @@ public interface WebhookOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
    * @return The count of scopes.
    */
   int getScopesCount();
@@ -181,11 +180,11 @@ public interface WebhookOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
    * @param index The index of the element to return.
    * @return The scopes at the given index.
    */
-  java.lang.String getScopes(int index);
+  io.channel.api.proto.pub.coreapi.model.WebhookScope getScopes(int index);
   /**
    * <pre>
    * Event scopes that trigger this webhook.
@@ -193,12 +192,23 @@ public interface WebhookOrBuilder extends
    * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>repeated string scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the scopes at the given index.
+   * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * @return A list containing the enum numeric values on the wire for scopes.
    */
-  com.google.protobuf.ByteString
-      getScopesBytes(int index);
+  java.util.List<java.lang.Integer>
+  getScopesValueList();
+  /**
+   * <pre>
+   * Event scopes that trigger this webhook.
+   * Only events matching at least one of these scopes will be delivered.
+   * +kubebuilder:validation:Required
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of scopes at the given index.
+   */
+  int getScopesValue(int index);
 
   /**
    * <pre>

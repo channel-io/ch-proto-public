@@ -77,7 +77,7 @@ message CreateWebhookRequest {
   string url = 3 [(buf.validate.field).required = true];
 
   // Event scopes that trigger this webhook.
-  repeated string scopes = 4 [(buf.validate.field).required = true];
+  repeated coreapi.model.WebhookScope scopes = 4 [(buf.validate.field).required = true];
 
   // API version for webhook payloads.
   //
@@ -106,7 +106,7 @@ message PatchWebhookRequest {
   string url = 4;
 
   // Event scopes that trigger this webhook.
-  repeated string scopes = 5;
+  repeated coreapi.model.WebhookScope scopes = 5;
 
   // API version for webhook payloads.
   //

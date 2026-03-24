@@ -33,7 +33,7 @@ private static final long serialVersionUID = 0L;
   private SearchOneTimeMsgUsersRequest() {
     channelId_ = "";
     oneTimeMsgId_ = "";
-    state_ = "";
+    state_ = 0;
     cursor_ = "";
     sortOrder_ = 0;
   }
@@ -80,10 +80,10 @@ private static final long serialVersionUID = 0L;
             oneTimeMsgId_ = s;
             break;
           }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 24: {
+            int rawValue = input.readEnum();
 
-            state_ = s;
+            state_ = rawValue;
             break;
           }
           case 34: {
@@ -228,49 +228,30 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object state_;
+  private int state_;
   /**
    * <pre>
    * Interaction state to filter and sort users by.
    * </pre>
    *
-   * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
-   * @return The state.
+   * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * @return The enum numeric value on the wire for state.
    */
-  @java.lang.Override
-  public java.lang.String getState() {
-    java.lang.Object ref = state_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      state_ = s;
-      return s;
-    }
+  @java.lang.Override public int getStateValue() {
+    return state_;
   }
   /**
    * <pre>
    * Interaction state to filter and sort users by.
    * </pre>
    *
-   * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for state.
+   * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * @return The state.
    */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getStateBytes() {
-    java.lang.Object ref = state_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      state_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState getState() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState result = io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState.valueOf(state_);
+    return result == null ? io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState.UNRECOGNIZED : result;
   }
 
   public static final int CURSOR_FIELD_NUMBER = 4;
@@ -381,8 +362,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(oneTimeMsgId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, oneTimeMsgId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(state_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, state_);
+    if (state_ != io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState.ONE_TIME_MSG_USER_STATE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(3, state_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cursor_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, cursor_);
@@ -408,8 +389,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(oneTimeMsgId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, oneTimeMsgId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(state_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, state_);
+    if (state_ != io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState.ONE_TIME_MSG_USER_STATE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(3, state_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cursor_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, cursor_);
@@ -441,8 +423,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getChannelId())) return false;
     if (!getOneTimeMsgId()
         .equals(other.getOneTimeMsgId())) return false;
-    if (!getState()
-        .equals(other.getState())) return false;
+    if (state_ != other.state_) return false;
     if (!getCursor()
         .equals(other.getCursor())) return false;
     if (getLimit()
@@ -464,7 +445,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ONE_TIME_MSG_ID_FIELD_NUMBER;
     hash = (53 * hash) + getOneTimeMsgId().hashCode();
     hash = (37 * hash) + STATE_FIELD_NUMBER;
-    hash = (53 * hash) + getState().hashCode();
+    hash = (53 * hash) + state_;
     hash = (37 * hash) + CURSOR_FIELD_NUMBER;
     hash = (53 * hash) + getCursor().hashCode();
     hash = (37 * hash) + LIMIT_FIELD_NUMBER;
@@ -623,7 +604,7 @@ private static final long serialVersionUID = 0L;
 
       oneTimeMsgId_ = "";
 
-      state_ = "";
+      state_ = 0;
 
       cursor_ = "";
 
@@ -719,9 +700,8 @@ private static final long serialVersionUID = 0L;
         oneTimeMsgId_ = other.oneTimeMsgId_;
         onChanged();
       }
-      if (!other.getState().isEmpty()) {
-        state_ = other.state_;
-        onChanged();
+      if (other.state_ != 0) {
+        setStateValue(other.getStateValue());
       }
       if (!other.getCursor().isEmpty()) {
         cursor_ = other.cursor_;
@@ -954,63 +934,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object state_ = "";
+    private int state_ = 0;
     /**
      * <pre>
      * Interaction state to filter and sort users by.
      * </pre>
      *
-     * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
-     * @return The state.
+     * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * @return The enum numeric value on the wire for state.
      */
-    public java.lang.String getState() {
-      java.lang.Object ref = state_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        state_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override public int getStateValue() {
+      return state_;
     }
     /**
      * <pre>
      * Interaction state to filter and sort users by.
      * </pre>
      *
-     * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for state.
-     */
-    public com.google.protobuf.ByteString
-        getStateBytes() {
-      java.lang.Object ref = state_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        state_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Interaction state to filter and sort users by.
-     * </pre>
-     *
-     * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
-     * @param value The state to set.
+     * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * @param value The enum numeric value on the wire for state to set.
      * @return This builder for chaining.
      */
-    public Builder setState(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setStateValue(int value) {
+      
       state_ = value;
       onChanged();
       return this;
@@ -1020,32 +966,44 @@ private static final long serialVersionUID = 0L;
      * Interaction state to filter and sort users by.
      * </pre>
      *
-     * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * @return The state.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState getState() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState result = io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState.valueOf(state_);
+      return result == null ? io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Interaction state to filter and sort users by.
+     * </pre>
+     *
+     * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * @param value The state to set.
+     * @return This builder for chaining.
+     */
+    public Builder setState(io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      state_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Interaction state to filter and sort users by.
+     * </pre>
+     *
+     * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearState() {
       
-      state_ = getDefaultInstance().getState();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Interaction state to filter and sort users by.
-     * </pre>
-     *
-     * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for state to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStateBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      state_ = value;
+      state_ = 0;
       onChanged();
       return this;
     }
@@ -1327,7 +1285,7 @@ private static final long serialVersionUID = 0L;
      * @param value The state to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearState(java.lang.String value) {
+    public Builder setOrClearState(io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState value) {
     	if (value == null)
     		return clearState();
     	else
@@ -1339,7 +1297,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearState(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearState(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState> mapFunc) {
     	if (value == null)
     		return clearState();
     	else

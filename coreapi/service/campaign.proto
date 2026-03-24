@@ -76,6 +76,15 @@ message GetCampaignResult {
   repeated coreapi.model.CampaignMsg campaign_msgs = 2;
 }
 
+// Interaction state used to filter and sort campaign user records.
+enum CampaignUserState {
+  CAMPAIGN_USER_STATE_UNSPECIFIED = 0;
+  CAMPAIGN_USER_STATE_SENT = 1;
+  CAMPAIGN_USER_STATE_VIEW = 2;
+  CAMPAIGN_USER_STATE_GOAL = 3;
+  CAMPAIGN_USER_STATE_CLICK = 4;
+}
+
 // Retrieves a list of users who received a campaign message.
 //
 // The number of users retrieved is restricted by the limit parameter,
@@ -100,7 +109,7 @@ message SearchCampaignUsersRequest {
   string campaign_id = 2 [(buf.validate.field).required = true];
 
   // Interaction state to filter and sort users by.
-  string state = 3 [(buf.validate.field).required = true];
+  CampaignUserState state = 3 [(buf.validate.field).required = true];
 
   // Opaque pagination cursor from a previous response.
   string cursor = 4;

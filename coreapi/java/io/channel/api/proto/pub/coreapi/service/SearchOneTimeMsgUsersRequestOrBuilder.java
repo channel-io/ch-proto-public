@@ -52,20 +52,19 @@ public interface SearchOneTimeMsgUsersRequestOrBuilder extends
    * Interaction state to filter and sort users by.
    * </pre>
    *
-   * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
-   * @return The state.
+   * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * @return The enum numeric value on the wire for state.
    */
-  java.lang.String getState();
+  int getStateValue();
   /**
    * <pre>
    * Interaction state to filter and sort users by.
    * </pre>
    *
-   * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for state.
+   * <code>.coreapi.service.OneTimeMsgUserState state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * @return The state.
    */
-  com.google.protobuf.ByteString
-      getStateBytes();
+  io.channel.api.proto.pub.coreapi.service.OneTimeMsgUserState getState();
 
   /**
    * <pre>

@@ -25,7 +25,7 @@ private static final long serialVersionUID = 0L;
     channelId_ = "";
     name_ = "";
     url_ = "";
-    scopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    scopes_ = java.util.Collections.emptyList();
     apiVersion_ = "";
   }
 
@@ -84,13 +84,27 @@ private static final long serialVersionUID = 0L;
             url_ = s;
             break;
           }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 40: {
+            int rawValue = input.readEnum();
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              scopes_ = new com.google.protobuf.LazyStringArrayList();
+              scopes_ = new java.util.ArrayList<java.lang.Integer>();
               mutable_bitField0_ |= 0x00000001;
             }
-            scopes_.add(s);
+            scopes_.add(rawValue);
+            break;
+          }
+          case 42: {
+            int length = input.readRawVarint32();
+            int oldLimit = input.pushLimit(length);
+            while(input.getBytesUntilLimit() > 0) {
+              int rawValue = input.readEnum();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                scopes_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              scopes_.add(rawValue);
+            }
+            input.popLimit(oldLimit);
             break;
           }
           case 50: {
@@ -115,7 +129,7 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        scopes_ = scopes_.getUnmodifiableView();
+        scopes_ = java.util.Collections.unmodifiableList(scopes_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -319,27 +333,39 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCOPES_FIELD_NUMBER = 5;
-  private com.google.protobuf.LazyStringList scopes_;
+  private java.util.List<java.lang.Integer> scopes_;
+  private static final com.google.protobuf.Internal.ListAdapter.Converter<
+      java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope> scopes_converter_ =
+          new com.google.protobuf.Internal.ListAdapter.Converter<
+              java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope>() {
+            public io.channel.api.proto.pub.coreapi.model.WebhookScope convert(java.lang.Integer from) {
+              @SuppressWarnings("deprecation")
+              io.channel.api.proto.pub.coreapi.model.WebhookScope result = io.channel.api.proto.pub.coreapi.model.WebhookScope.valueOf(from);
+              return result == null ? io.channel.api.proto.pub.coreapi.model.WebhookScope.UNRECOGNIZED : result;
+            }
+          };
   /**
    * <pre>
    * Event scopes that trigger this webhook.
    * </pre>
    *
-   * <code>repeated string scopes = 5 [json_name = "scopes"];</code>
+   * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
    * @return A list containing the scopes.
    */
-  public com.google.protobuf.ProtocolStringList
-      getScopesList() {
-    return scopes_;
+  @java.lang.Override
+  public java.util.List<io.channel.api.proto.pub.coreapi.model.WebhookScope> getScopesList() {
+    return new com.google.protobuf.Internal.ListAdapter<
+        java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope>(scopes_, scopes_converter_);
   }
   /**
    * <pre>
    * Event scopes that trigger this webhook.
    * </pre>
    *
-   * <code>repeated string scopes = 5 [json_name = "scopes"];</code>
+   * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
    * @return The count of scopes.
    */
+  @java.lang.Override
   public int getScopesCount() {
     return scopes_.size();
   }
@@ -348,26 +374,41 @@ private static final long serialVersionUID = 0L;
    * Event scopes that trigger this webhook.
    * </pre>
    *
-   * <code>repeated string scopes = 5 [json_name = "scopes"];</code>
+   * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
    * @param index The index of the element to return.
    * @return The scopes at the given index.
    */
-  public java.lang.String getScopes(int index) {
-    return scopes_.get(index);
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.WebhookScope getScopes(int index) {
+    return scopes_converter_.convert(scopes_.get(index));
   }
   /**
    * <pre>
    * Event scopes that trigger this webhook.
    * </pre>
    *
-   * <code>repeated string scopes = 5 [json_name = "scopes"];</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the scopes at the given index.
+   * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
+   * @return A list containing the enum numeric values on the wire for scopes.
    */
-  public com.google.protobuf.ByteString
-      getScopesBytes(int index) {
-    return scopes_.getByteString(index);
+  @java.lang.Override
+  public java.util.List<java.lang.Integer>
+  getScopesValueList() {
+    return scopes_;
   }
+  /**
+   * <pre>
+   * Event scopes that trigger this webhook.
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of scopes at the given index.
+   */
+  @java.lang.Override
+  public int getScopesValue(int index) {
+    return scopes_.get(index);
+  }
+  private int scopesMemoizedSerializedSize;
 
   public static final int API_VERSION_FIELD_NUMBER = 6;
   private volatile java.lang.Object apiVersion_;
@@ -431,6 +472,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    getSerializedSize();
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(webhookId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, webhookId_);
     }
@@ -443,8 +485,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, url_);
     }
+    if (getScopesList().size() > 0) {
+      output.writeUInt32NoTag(42);
+      output.writeUInt32NoTag(scopesMemoizedSerializedSize);
+    }
     for (int i = 0; i < scopes_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, scopes_.getRaw(i));
+      output.writeEnumNoTag(scopes_.get(i));
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(apiVersion_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, apiVersion_);
@@ -473,10 +519,14 @@ private static final long serialVersionUID = 0L;
     {
       int dataSize = 0;
       for (int i = 0; i < scopes_.size(); i++) {
-        dataSize += computeStringSizeNoTag(scopes_.getRaw(i));
+        dataSize += com.google.protobuf.CodedOutputStream
+          .computeEnumSizeNoTag(scopes_.get(i));
       }
       size += dataSize;
-      size += 1 * getScopesList().size();
+      if (!getScopesList().isEmpty()) {  size += 1;
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32SizeNoTag(dataSize);
+      }scopesMemoizedSerializedSize = dataSize;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(apiVersion_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, apiVersion_);
@@ -504,8 +554,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (!getUrl()
         .equals(other.getUrl())) return false;
-    if (!getScopesList()
-        .equals(other.getScopesList())) return false;
+    if (!scopes_.equals(other.scopes_)) return false;
     if (!getApiVersion()
         .equals(other.getApiVersion())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -529,7 +578,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getUrl().hashCode();
     if (getScopesCount() > 0) {
       hash = (37 * hash) + SCOPES_FIELD_NUMBER;
-      hash = (53 * hash) + getScopesList().hashCode();
+      hash = (53 * hash) + scopes_.hashCode();
     }
     hash = (37 * hash) + API_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getApiVersion().hashCode();
@@ -679,7 +728,7 @@ private static final long serialVersionUID = 0L;
 
       url_ = "";
 
-      scopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      scopes_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000001);
       apiVersion_ = "";
 
@@ -715,7 +764,7 @@ private static final long serialVersionUID = 0L;
       result.name_ = name_;
       result.url_ = url_;
       if (((bitField0_ & 0x00000001) != 0)) {
-        scopes_ = scopes_.getUnmodifiableView();
+        scopes_ = java.util.Collections.unmodifiableList(scopes_);
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.scopes_ = scopes_;
@@ -1212,31 +1261,32 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringList scopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private java.util.List<java.lang.Integer> scopes_ =
+      java.util.Collections.emptyList();
     private void ensureScopesIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        scopes_ = new com.google.protobuf.LazyStringArrayList(scopes_);
+        scopes_ = new java.util.ArrayList<java.lang.Integer>(scopes_);
         bitField0_ |= 0x00000001;
-       }
+      }
     }
     /**
      * <pre>
      * Event scopes that trigger this webhook.
      * </pre>
      *
-     * <code>repeated string scopes = 5 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
      * @return A list containing the scopes.
      */
-    public com.google.protobuf.ProtocolStringList
-        getScopesList() {
-      return scopes_.getUnmodifiableView();
+    public java.util.List<io.channel.api.proto.pub.coreapi.model.WebhookScope> getScopesList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope>(scopes_, scopes_converter_);
     }
     /**
      * <pre>
      * Event scopes that trigger this webhook.
      * </pre>
      *
-     * <code>repeated string scopes = 5 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
      * @return The count of scopes.
      */
     public int getScopesCount() {
@@ -1247,43 +1297,30 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * </pre>
      *
-     * <code>repeated string scopes = 5 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
      * @param index The index of the element to return.
      * @return The scopes at the given index.
      */
-    public java.lang.String getScopes(int index) {
-      return scopes_.get(index);
+    public io.channel.api.proto.pub.coreapi.model.WebhookScope getScopes(int index) {
+      return scopes_converter_.convert(scopes_.get(index));
     }
     /**
      * <pre>
      * Event scopes that trigger this webhook.
      * </pre>
      *
-     * <code>repeated string scopes = 5 [json_name = "scopes"];</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the scopes at the given index.
-     */
-    public com.google.protobuf.ByteString
-        getScopesBytes(int index) {
-      return scopes_.getByteString(index);
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * </pre>
-     *
-     * <code>repeated string scopes = 5 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
      * @param index The index to set the value at.
      * @param value The scopes to set.
      * @return This builder for chaining.
      */
     public Builder setScopes(
-        int index, java.lang.String value) {
+        int index, io.channel.api.proto.pub.coreapi.model.WebhookScope value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureScopesIsMutable();
-      scopes_.set(index, value);
+        throw new NullPointerException();
+      }
+      ensureScopesIsMutable();
+      scopes_.set(index, value.getNumber());
       onChanged();
       return this;
     }
@@ -1292,17 +1329,16 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * </pre>
      *
-     * <code>repeated string scopes = 5 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
      * @param value The scopes to add.
      * @return This builder for chaining.
      */
-    public Builder addScopes(
-        java.lang.String value) {
+    public Builder addScopes(io.channel.api.proto.pub.coreapi.model.WebhookScope value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureScopesIsMutable();
-      scopes_.add(value);
+        throw new NullPointerException();
+      }
+      ensureScopesIsMutable();
+      scopes_.add(value.getNumber());
       onChanged();
       return this;
     }
@@ -1311,15 +1347,16 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * </pre>
      *
-     * <code>repeated string scopes = 5 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
      * @param values The scopes to add.
      * @return This builder for chaining.
      */
     public Builder addAllScopes(
-        java.lang.Iterable<java.lang.String> values) {
+        java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.WebhookScope> values) {
       ensureScopesIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, scopes_);
+      for (io.channel.api.proto.pub.coreapi.model.WebhookScope value : values) {
+        scopes_.add(value.getNumber());
+      }
       onChanged();
       return this;
     }
@@ -1328,11 +1365,11 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * </pre>
      *
-     * <code>repeated string scopes = 5 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
      * @return This builder for chaining.
      */
     public Builder clearScopes() {
-      scopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      scopes_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
@@ -1342,18 +1379,72 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * </pre>
      *
-     * <code>repeated string scopes = 5 [json_name = "scopes"];</code>
-     * @param value The bytes of the scopes to add.
+     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
+     * @return A list containing the enum numeric values on the wire for scopes.
+     */
+    public java.util.List<java.lang.Integer>
+    getScopesValueList() {
+      return java.util.Collections.unmodifiableList(scopes_);
+    }
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of scopes at the given index.
+     */
+    public int getScopesValue(int index) {
+      return scopes_.get(index);
+    }
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of scopes at the given index.
      * @return This builder for chaining.
      */
-    public Builder addScopesBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public Builder setScopesValue(
+        int index, int value) {
+      ensureScopesIsMutable();
+      scopes_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
+     * @param value The enum numeric value on the wire for scopes to add.
+     * @return This builder for chaining.
+     */
+    public Builder addScopesValue(int value) {
       ensureScopesIsMutable();
       scopes_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
+     * @param values The enum numeric values on the wire for scopes to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllScopesValue(
+        java.lang.Iterable<java.lang.Integer> values) {
+      ensureScopesIsMutable();
+      for (int value : values) {
+        scopes_.add(value);
+      }
       onChanged();
       return this;
     }
@@ -1569,7 +1660,7 @@ private static final long serialVersionUID = 0L;
      * @param values The scopes to add.
      * @return This builder for chaining.
      */
-    public Builder addAllOrClearScopes(java.lang.Iterable<java.lang.String> values) {
+    public Builder addAllOrClearScopes(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.WebhookScope> values) {
     	if (values == null)
     		return clearScopes();
     	else
@@ -1581,7 +1672,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the values into each proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapAllOrClearScopes(java.lang.Iterable<T> values, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapAllOrClearScopes(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.WebhookScope> mapFunc) {
     	if (values == null)
     		return clearScopes();
     	else {

@@ -88,26 +88,28 @@ public final class Webhook {
       "ook_id\030\001 \001(\tB\006\272H\003\310\001\001R\twebhookId\022%\n\nchann" +
       "el_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"D\n\020GetWeb" +
       "hookResult\0220\n\007webhook\030\001 \001(\0132\026.coreapi.mo" +
-      "del.WebhookR\007webhook\"\274\001\n\024CreateWebhookRe" +
+      "del.WebhookR\007webhook\"\331\001\n\024CreateWebhookRe" +
       "quest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchann" +
       "elId\022\032\n\004name\030\002 \001(\tB\006\272H\003\310\001\001R\004name\022\030\n\003url\030" +
-      "\003 \001(\tB\006\272H\003\310\001\001R\003url\022\036\n\006scopes\030\004 \003(\tB\006\272H\003\310" +
-      "\001\001R\006scopes\022\'\n\013api_version\030\005 \001(\tB\006\272H\003\310\001\001R" +
-      "\napiVersion\"G\n\023CreateWebhookResult\0220\n\007we" +
-      "bhook\030\001 \001(\0132\026.coreapi.model.WebhookR\007web" +
-      "hook\"\302\001\n\023PatchWebhookRequest\022%\n\nwebhook_" +
-      "id\030\001 \001(\tB\006\272H\003\310\001\001R\twebhookId\022%\n\nchannel_i" +
-      "d\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\022\n\004name\030\003 \001(\t" +
-      "R\004name\022\020\n\003url\030\004 \001(\tR\003url\022\026\n\006scopes\030\005 \003(\t" +
-      "R\006scopes\022\037\n\013api_version\030\006 \001(\tR\napiVersio" +
-      "n\"F\n\022PatchWebhookResult\0220\n\007webhook\030\001 \001(\013" +
-      "2\026.coreapi.model.WebhookR\007webhook\"d\n\024Del" +
-      "eteWebhookRequest\022%\n\nwebhook_id\030\001 \001(\tB\006\272" +
+      "\003 \001(\tB\006\272H\003\310\001\001R\003url\022;\n\006scopes\030\004 \003(\0162\033.cor" +
+      "eapi.model.WebhookScopeB\006\272H\003\310\001\001R\006scopes\022" +
+      "\'\n\013api_version\030\005 \001(\tB\006\272H\003\310\001\001R\napiVersion" +
+      "\"G\n\023CreateWebhookResult\0220\n\007webhook\030\001 \001(\013" +
+      "2\026.coreapi.model.WebhookR\007webhook\"\337\001\n\023Pa" +
+      "tchWebhookRequest\022%\n\nwebhook_id\030\001 \001(\tB\006\272" +
       "H\003\310\001\001R\twebhookId\022%\n\nchannel_id\030\002 \001(\tB\006\272H" +
-      "\003\310\001\001R\tchannelId\"\025\n\023DeleteWebhookResultBf" +
-      "\n(io.channel.api.proto.pub.coreapi.servi" +
-      "ceP\001Z8github.com/channel-io/ch-proto-pub" +
-      "lic/coreapi/go/serviceb\006proto3"
+      "\003\310\001\001R\tchannelId\022\022\n\004name\030\003 \001(\tR\004name\022\020\n\003u" +
+      "rl\030\004 \001(\tR\003url\0223\n\006scopes\030\005 \003(\0162\033.coreapi." +
+      "model.WebhookScopeR\006scopes\022\037\n\013api_versio" +
+      "n\030\006 \001(\tR\napiVersion\"F\n\022PatchWebhookResul" +
+      "t\0220\n\007webhook\030\001 \001(\0132\026.coreapi.model.Webho" +
+      "okR\007webhook\"d\n\024DeleteWebhookRequest\022%\n\nw" +
+      "ebhook_id\030\001 \001(\tB\006\272H\003\310\001\001R\twebhookId\022%\n\nch" +
+      "annel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"\025\n\023Del" +
+      "eteWebhookResultBf\n(io.channel.api.proto" +
+      ".pub.coreapi.serviceP\001Z8github.com/chann" +
+      "el-io/ch-proto-public/coreapi/go/service" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

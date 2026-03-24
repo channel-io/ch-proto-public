@@ -32,7 +32,7 @@ public interface AnnounceRequestOrBuilder extends
    * Message content to announce.
    * </pre>
    *
-   * <code>.google.protobuf.Struct message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
    * @return Whether the message field is set.
    */
   boolean hasMessage();
@@ -41,18 +41,18 @@ public interface AnnounceRequestOrBuilder extends
    * Message content to announce.
    * </pre>
    *
-   * <code>.google.protobuf.Struct message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
    * @return The message.
    */
-  com.google.protobuf.Struct getMessage();
+  io.channel.api.proto.pub.coreapi.service.MessageContent getMessage();
   /**
    * <pre>
    * Message content to announce.
    * </pre>
    *
-   * <code>.google.protobuf.Struct message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>.coreapi.service.MessageContent message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
    */
-  com.google.protobuf.StructOrBuilder getMessageOrBuilder();
+  io.channel.api.proto.pub.coreapi.service.MessageContentOrBuilder getMessageOrBuilder();
 
   /**
    * <pre>
