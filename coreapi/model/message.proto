@@ -58,28 +58,12 @@ message Message {
   // Format: "{chatType}-{chatId}".
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string chat_key = 1 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string chat_key = 1 [(buf.validate.field).required = true];
 
   // Unique message identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 2 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string id = 2 [(buf.validate.field).required = true];
 
   // Index key for the main (top-level) message stream.
   // Same value as chat_key when the message appears in the main stream.
@@ -120,67 +104,27 @@ message Message {
   // Channel ID this message belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string channel_id = 8 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string channel_id = 8 [(buf.validate.field).required = true];
 
   // Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string chat_type = 9 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string chat_type = 9 [(buf.validate.field).required = true];
 
   // Chat ID of the parent conversation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string chat_id = 10 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string chat_id = 10 [(buf.validate.field).required = true];
 
   // Entity type of the message author (e.g., "manager", "user", "bot").
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string person_type = 11 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string person_type = 11 [(buf.validate.field).required = true];
 
   // Entity ID of the message author.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string person_id = 12 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string person_id = 12 [(buf.validate.field).required = true];
 
   // Client-generated identifier for deduplication.
   // Allows matching a locally pre-rendered message with the server response.
@@ -354,8 +298,8 @@ message Message {
   // Whether this message is a reply within a thread (not the root).
   // True when thread_key is present and the message is not a thread root.
   //
-  // +kubebuilder:validation:Nullable
-  bool thread_msg = 41;
+  // +kubebuilder:validation:Required
+  bool thread_msg = 41 [(buf.validate.field).required = true];
 
   // ID of the root message when this message belongs to a thread, meet, or ALF thread.
   // Parsed from thread_key, meet_key, or alf_thread_key respectively.
@@ -367,19 +311,19 @@ message Message {
   // Whether this message is the root of a thread.
   // True when the thread field is present.
   //
-  // +kubebuilder:validation:Nullable
-  bool thread_root = 43;
+  // +kubebuilder:validation:Required
+  bool thread_root = 43 [(buf.validate.field).required = true];
 
   // Whether this thread reply is also visible in the main message stream.
   // True when the message has both thread_key and main_key, but is not a thread root.
   //
-  // +kubebuilder:validation:Nullable
-  bool broadcasted_msg = 44;
+  // +kubebuilder:validation:Required
+  bool broadcasted_msg = 44 [(buf.validate.field).required = true];
 
   // Whether the message was removed by its original author.
   // True when the message state is REMOVED and the remover matches the author,
   // or when no specific remover is recorded.
   //
-  // +kubebuilder:validation:Nullable
-  bool removed_by_writer = 45;
+  // +kubebuilder:validation:Required
+  bool removed_by_writer = 45 [(buf.validate.field).required = true];
 }

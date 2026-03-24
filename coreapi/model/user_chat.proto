@@ -92,28 +92,12 @@ message UserChat {
   // Unique user chat identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string id = 1 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this user chat belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  string channel_id = 2 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string channel_id = 2 [(buf.validate.field).required = true];
 
   // Contact medium type identifier for chats originating from external
   // messenger integrations (e.g., "appKakao", "mobileNumber").
@@ -140,8 +124,8 @@ message UserChat {
   // Whether the chat is managed and visible in the Desk inbox.
   // Unmanaged chats are only visible to the user.
   //
-  // +kubebuilder:validation:Nullable
-  bool managed = 7;
+  // +kubebuilder:validation:Required
+  bool managed = 7 [(buf.validate.field).required = true];
 
   // Priority level used by the auto-assignment system to order this chat
   // in the queue. Defaults to medium.
