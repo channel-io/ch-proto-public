@@ -575,7 +575,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Media playback duration in seconds.
    * Present only for audio or video files.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>double duration = 6 [json_name = "duration"];</code>
@@ -2157,7 +2156,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Media playback duration in seconds.
      * Present only for audio or video files.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>double duration = 6 [json_name = "duration"];</code>
@@ -2171,7 +2169,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Media playback duration in seconds.
      * Present only for audio or video files.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>double duration = 6 [json_name = "duration"];</code>
@@ -2188,7 +2185,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Media playback duration in seconds.
      * Present only for audio or video files.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>double duration = 6 [json_name = "duration"];</code>

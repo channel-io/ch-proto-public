@@ -379,7 +379,6 @@ type Manager struct {
 	AssignableUserChatTypes []string `protobuf:"bytes,37,rep,name=assignable_user_chat_types,json=assignableUserChatTypes,proto3" json:"assignable_user_chat_types,omitempty"`
 	// Maximum number of concurrent user chats that can be auto-assigned to this manager.
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:Minimum=0
 	// +kubebuilder:validation:Maximum=200
 	AutoAssignCapacity int32 `protobuf:"varint,38,opt,name=auto_assign_capacity,json=autoAssignCapacity,proto3" json:"auto_assign_capacity,omitempty"`

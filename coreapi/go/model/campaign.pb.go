@@ -350,12 +350,8 @@ type Campaign struct {
 	// +kubebuilder:validation:Required
 	Advertising bool `protobuf:"varint,21,opt,name=advertising,proto3" json:"advertising,omitempty"`
 	// Whether to fall back to XMS (text message) delivery when the user is offline.
-	//
-	// +kubebuilder:validation:Nullable
 	SendToOfflineXms bool `protobuf:"varint,22,opt,name=send_to_offline_xms,json=sendToOfflineXms,proto3" json:"send_to_offline_xms,omitempty"`
 	// Whether to fall back to email delivery when the user is offline.
-	//
-	// +kubebuilder:validation:Nullable
 	SendToOfflineEmail bool `protobuf:"varint,23,opt,name=send_to_offline_email,json=sendToOfflineEmail,proto3" json:"send_to_offline_email,omitempty"`
 	// Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
 	// Between 0 seconds and 30 days.

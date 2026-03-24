@@ -270,7 +270,6 @@ message Manager {
 
   // Maximum number of concurrent user chats that can be auto-assigned to this manager.
   //
-  // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:Minimum=0
   // +kubebuilder:validation:Maximum=200
   int32 auto_assign_capacity = 38 [(buf.validate.field).cel = {

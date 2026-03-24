@@ -480,8 +480,6 @@ type MessageFile struct {
 	ContentType string `protobuf:"bytes,5,opt,name=content_type,json=contentType,proto3" json:"content_type,omitempty"`
 	// Media playback duration in seconds.
 	// Present only for audio or video files.
-	//
-	// +kubebuilder:validation:Nullable
 	Duration float64 `protobuf:"fixed64,6,opt,name=duration,proto3" json:"duration,omitempty"`
 	// Image or video width in pixels.
 	//

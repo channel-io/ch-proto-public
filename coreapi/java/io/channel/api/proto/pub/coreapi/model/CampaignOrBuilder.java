@@ -635,7 +635,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Whether to fall back to XMS (text message) delivery when the user is offline.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool send_to_offline_xms = 22 [json_name = "sendToOfflineXms"];</code>
@@ -646,7 +645,6 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Whether to fall back to email delivery when the user is offline.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool send_to_offline_email = 23 [json_name = "sendToOfflineEmail"];</code>

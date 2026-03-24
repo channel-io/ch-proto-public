@@ -181,12 +181,10 @@ message Campaign {
 
   // Whether to fall back to XMS (text message) delivery when the user is offline.
   //
-  // +kubebuilder:validation:Nullable
   bool send_to_offline_xms = 22;
 
   // Whether to fall back to email delivery when the user is offline.
   //
-  // +kubebuilder:validation:Nullable
   bool send_to_offline_email = 23;
 
   // Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.

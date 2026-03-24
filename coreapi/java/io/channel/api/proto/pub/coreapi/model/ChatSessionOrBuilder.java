@@ -185,7 +185,6 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Number of unread messages with alert-level notification priority.
    * Defaults to 0.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 alert = 8 [json_name = "alert"];</code>
@@ -197,7 +196,6 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Total number of unread messages in this session.
    * Defaults to 0.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int32 unread = 9 [json_name = "unread"];</code>

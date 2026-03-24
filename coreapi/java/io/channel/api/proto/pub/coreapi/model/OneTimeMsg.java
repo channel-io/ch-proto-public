@@ -1225,7 +1225,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether to fall back to XMS (text message) delivery when the user is offline.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool send_to_offline_xms = 19 [json_name = "sendToOfflineXms"];</code>
@@ -1241,7 +1240,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether to fall back to email delivery when the user is offline.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>bool send_to_offline_email = 20 [json_name = "sendToOfflineEmail"];</code>
@@ -4971,7 +4969,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to fall back to XMS (text message) delivery when the user is offline.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool send_to_offline_xms = 19 [json_name = "sendToOfflineXms"];</code>
@@ -4984,7 +4981,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to fall back to XMS (text message) delivery when the user is offline.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool send_to_offline_xms = 19 [json_name = "sendToOfflineXms"];</code>
@@ -5000,7 +4996,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to fall back to XMS (text message) delivery when the user is offline.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool send_to_offline_xms = 19 [json_name = "sendToOfflineXms"];</code>
@@ -5017,7 +5012,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to fall back to email delivery when the user is offline.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool send_to_offline_email = 20 [json_name = "sendToOfflineEmail"];</code>
@@ -5030,7 +5024,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to fall back to email delivery when the user is offline.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool send_to_offline_email = 20 [json_name = "sendToOfflineEmail"];</code>
@@ -5046,7 +5039,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to fall back to email delivery when the user is offline.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>bool send_to_offline_email = 20 [json_name = "sendToOfflineEmail"];</code>

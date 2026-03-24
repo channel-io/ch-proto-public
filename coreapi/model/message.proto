@@ -143,7 +143,6 @@ message Message {
   // Optimistic locking version.
   // Incremented on every update.
   //
-  // +kubebuilder:validation:Nullable
   int64 version = 16;
 
   // Structured content blocks composing the message body.

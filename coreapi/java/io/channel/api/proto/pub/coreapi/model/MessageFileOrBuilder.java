@@ -112,7 +112,6 @@ public interface MessageFileOrBuilder extends
    * <pre>
    * Media playback duration in seconds.
    * Present only for audio or video files.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>double duration = 6 [json_name = "duration"];</code>

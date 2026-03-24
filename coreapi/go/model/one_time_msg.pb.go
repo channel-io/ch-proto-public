@@ -225,12 +225,8 @@ type OneTimeMsg struct {
 	// +kubebuilder:validation:Required
 	Advertising bool `protobuf:"varint,18,opt,name=advertising,proto3" json:"advertising,omitempty"`
 	// Whether to fall back to XMS (text message) delivery when the user is offline.
-	//
-	// +kubebuilder:validation:Nullable
 	SendToOfflineXms bool `protobuf:"varint,19,opt,name=send_to_offline_xms,json=sendToOfflineXms,proto3" json:"send_to_offline_xms,omitempty"`
 	// Whether to fall back to email delivery when the user is offline.
-	//
-	// +kubebuilder:validation:Nullable
 	SendToOfflineEmail bool `protobuf:"varint,20,opt,name=send_to_offline_email,json=sendToOfflineEmail,proto3" json:"send_to_offline_email,omitempty"`
 	// Scheduled send timestamp in UTC.
 	// Applicable when send_mode is RESERVED_WITH_SENDER_TIME.

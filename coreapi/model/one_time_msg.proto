@@ -149,12 +149,10 @@ message OneTimeMsg {
 
   // Whether to fall back to XMS (text message) delivery when the user is offline.
   //
-  // +kubebuilder:validation:Nullable
   bool send_to_offline_xms = 19;
 
   // Whether to fall back to email delivery when the user is offline.
   //
-  // +kubebuilder:validation:Nullable
   bool send_to_offline_email = 20;
 
   // Scheduled send timestamp in UTC.

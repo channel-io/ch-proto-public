@@ -1269,7 +1269,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Optimistic locking version.
    * Incremented on every update.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 version = 16 [json_name = "version"];</code>
@@ -5656,7 +5655,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version.
      * Incremented on every update.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 version = 16 [json_name = "version"];</code>
@@ -5670,7 +5668,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version.
      * Incremented on every update.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 version = 16 [json_name = "version"];</code>
@@ -5687,7 +5684,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version.
      * Incremented on every update.
-     * +kubebuilder:validation:Nullable
      * </pre>
      *
      * <code>int64 version = 16 [json_name = "version"];</code>

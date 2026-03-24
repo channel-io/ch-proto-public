@@ -767,7 +767,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Maximum number of concurrent user chats that can be auto-assigned to this manager.
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:Minimum=0
    * +kubebuilder:validation:Maximum=200
    * </pre>

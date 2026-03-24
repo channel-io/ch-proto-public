@@ -383,7 +383,6 @@ public interface MessageOrBuilder extends
    * <pre>
    * Optimistic locking version.
    * Incremented on every update.
-   * +kubebuilder:validation:Nullable
    * </pre>
    *
    * <code>int64 version = 16 [json_name = "version"];</code>
