@@ -104,10 +104,12 @@ message UserChat {
   // Contact medium type identifier for chats originating from external
   // messenger integrations (e.g., "appKakao", "mobileNumber").
   //
+  // +kubebuilder:example="mobileNumber"
   string contact_medium_type = 3;
 
   // ID of the active live meet session attached to this chat.
   //
+  // +kubebuilder:example="meet-001"
   string live_meet_id = 4;
 
   // Current lifecycle state of the chat conversation.
@@ -140,10 +142,12 @@ message UserChat {
   // ID of the external service user linked to this chat
   // via a messenger integration.
   //
+  // +kubebuilder:example="xer-001"
   string xer_id = 10;
 
   // Display name of this chat shown to managers in the Desk.
   //
+  // +kubebuilder:example="Customer Support"
   string name = 11;
 
   // Title of the chat conversation displayed in the Desk inbox list.
@@ -154,6 +158,7 @@ message UserChat {
   // Free-text note or summary attached to this chat by a manager.
   //
   // +kubebuilder:validation:MaxLength=1000
+  // +kubebuilder:example="Billing inquiry"
   string description = 13 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 1000 characters"
@@ -186,6 +191,7 @@ message UserChat {
 
   // ID of the team this chat is routed to for handling.
   //
+  // +kubebuilder:example="team-001"
   string team_id = 19;
 
   // Classification tags attached to this chat for filtering and reporting.
@@ -253,6 +259,7 @@ message UserChat {
 
   // ID of the latest message visible on the Desk (manager) side.
   //
+  // +kubebuilder:example="msg-002"
   string desk_message_id = 34;
 
   // Timestamp when the Desk-side message list was last updated.
@@ -267,6 +274,7 @@ message UserChat {
   // ID of the first manager assigned after the chat was opened.
   // Used for tracking initial response ownership.
   //
+  // +kubebuilder:example="m-001"
   string first_assignee_id_after_open = 37;
 
   // Timestamp of the first-ever manager reply in this chat,
@@ -287,11 +295,13 @@ message UserChat {
 
   // Duration from chat open to the first manager reply (in milliseconds).
   //
+  // +kubebuilder:example="60000"
   int64 waiting_time = 41;
 
   // Average time between a user's question and the manager's reply
   // (in milliseconds).
   //
+  // +kubebuilder:example="45000"
   int64 avg_reply_time = 42;
 
   // Sum of all individual reply durations across manager responses
@@ -302,10 +312,12 @@ message UserChat {
 
   // Total number of manager replies in this chat.
   //
+  // +kubebuilder:example="3"
   int32 reply_count = 44;
 
   // Total duration from the first open to close (in milliseconds).
   //
+  // +kubebuilder:example="300000"
   int64 resolution_time = 45;
 
   // Duration from open to the first manager reply, counting only
@@ -316,11 +328,13 @@ message UserChat {
 
   // Average reply time counting only operating hours (in milliseconds).
   //
+  // +kubebuilder:example="40000"
   int64 operation_avg_reply_time = 47;
 
   // Sum of all reply durations counting only operating hours
   // (in milliseconds).
   //
+  // +kubebuilder:example="80000"
   int64 operation_total_reply_time = 48;
 
   // Total number of manager replies during operating hours.
@@ -330,6 +344,7 @@ message UserChat {
 
   // Total resolution time counting only operating hours (in milliseconds).
   //
+  // +kubebuilder:example="280000"
   int64 operation_resolution_time = 50;
 
   // Timestamp when the user last sent a message that is awaiting

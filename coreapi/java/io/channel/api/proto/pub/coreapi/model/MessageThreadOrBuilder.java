@@ -133,6 +133,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Chat type component extracted from the thread `id`.
+   * +kubebuilder:example="userChat"
    * </pre>
    *
    * <code>string chat_type = 5 [json_name = "chatType"];</code>
@@ -142,6 +143,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Chat type component extracted from the thread `id`.
+   * +kubebuilder:example="userChat"
    * </pre>
    *
    * <code>string chat_type = 5 [json_name = "chatType"];</code>

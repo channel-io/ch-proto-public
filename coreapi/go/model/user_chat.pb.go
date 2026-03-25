@@ -363,8 +363,12 @@ type UserChat struct {
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Contact medium type identifier for chats originating from external
 	// messenger integrations (e.g., "appKakao", "mobileNumber").
+	//
+	// +kubebuilder:example="mobileNumber"
 	ContactMediumType string `protobuf:"bytes,3,opt,name=contact_medium_type,json=contactMediumType,proto3" json:"contact_medium_type,omitempty"`
 	// ID of the active live meet session attached to this chat.
+	//
+	// +kubebuilder:example="meet-001"
 	LiveMeetId string `protobuf:"bytes,4,opt,name=live_meet_id,json=liveMeetId,proto3" json:"live_meet_id,omitempty"`
 	// Current lifecycle state of the chat conversation.
 	//
@@ -388,8 +392,12 @@ type UserChat struct {
 	UserId string `protobuf:"bytes,9,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	// ID of the external service user linked to this chat
 	// via a messenger integration.
+	//
+	// +kubebuilder:example="xer-001"
 	XerId string `protobuf:"bytes,10,opt,name=xer_id,json=xerId,proto3" json:"xer_id,omitempty"`
 	// Display name of this chat shown to managers in the Desk.
+	//
+	// +kubebuilder:example="Customer Support"
 	Name string `protobuf:"bytes,11,opt,name=name,proto3" json:"name,omitempty"`
 	// Title of the chat conversation displayed in the Desk inbox list.
 	//
@@ -398,6 +406,7 @@ type UserChat struct {
 	// Free-text note or summary attached to this chat by a manager.
 	//
 	// +kubebuilder:validation:MaxLength=1000
+	// +kubebuilder:example="Billing inquiry"
 	Description string `protobuf:"bytes,13,opt,name=description,proto3" json:"description,omitempty"`
 	// Type of subtext shown below the chat title in the Desk inbox list.
 	SubtextType UserChatSubtextType `protobuf:"varint,14,opt,name=subtext_type,json=subtextType,proto3,enum=coreapi.model.UserChatSubtextType" json:"subtext_type,omitempty"`
@@ -416,6 +425,8 @@ type UserChat struct {
 	// +kubebuilder:example="m-001"
 	AssigneeId string `protobuf:"bytes,18,opt,name=assignee_id,json=assigneeId,proto3" json:"assignee_id,omitempty"`
 	// ID of the team this chat is routed to for handling.
+	//
+	// +kubebuilder:example="team-001"
 	TeamId string `protobuf:"bytes,19,opt,name=team_id,json=teamId,proto3" json:"team_id,omitempty"`
 	// Classification tags attached to this chat for filtering and reporting.
 	//
@@ -458,6 +469,8 @@ type UserChat struct {
 	// Timestamp when the front-side (user-visible) message list was last updated.
 	FrontUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,33,opt,name=front_updated_at,json=frontUpdatedAt,proto3" json:"front_updated_at,omitempty"`
 	// ID of the latest message visible on the Desk (manager) side.
+	//
+	// +kubebuilder:example="msg-002"
 	DeskMessageId string `protobuf:"bytes,34,opt,name=desk_message_id,json=deskMessageId,proto3" json:"desk_message_id,omitempty"`
 	// Timestamp when the Desk-side message list was last updated.
 	DeskUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,35,opt,name=desk_updated_at,json=deskUpdatedAt,proto3" json:"desk_updated_at,omitempty"`
@@ -467,6 +480,8 @@ type UserChat struct {
 	UserLastMessageId string `protobuf:"bytes,36,opt,name=user_last_message_id,json=userLastMessageId,proto3" json:"user_last_message_id,omitempty"`
 	// ID of the first manager assigned after the chat was opened.
 	// Used for tracking initial response ownership.
+	//
+	// +kubebuilder:example="m-001"
 	FirstAssigneeIdAfterOpen string `protobuf:"bytes,37,opt,name=first_assignee_id_after_open,json=firstAssigneeIdAfterOpen,proto3" json:"first_assignee_id_after_open,omitempty"`
 	// Timestamp of the first-ever manager reply in this chat,
 	// across all open/close cycles.
@@ -480,9 +495,13 @@ type UserChat struct {
 	// +kubebuilder:example="true"
 	OneStop bool `protobuf:"varint,40,opt,name=one_stop,json=oneStop,proto3" json:"one_stop,omitempty"`
 	// Duration from chat open to the first manager reply (in milliseconds).
+	//
+	// +kubebuilder:example="60000"
 	WaitingTime int64 `protobuf:"varint,41,opt,name=waiting_time,json=waitingTime,proto3" json:"waiting_time,omitempty"`
 	// Average time between a user's question and the manager's reply
 	// (in milliseconds).
+	//
+	// +kubebuilder:example="45000"
 	AvgReplyTime int64 `protobuf:"varint,42,opt,name=avg_reply_time,json=avgReplyTime,proto3" json:"avg_reply_time,omitempty"`
 	// Sum of all individual reply durations across manager responses
 	// (in milliseconds).
@@ -490,8 +509,12 @@ type UserChat struct {
 	// +kubebuilder:example="90000"
 	TotalReplyTime int64 `protobuf:"varint,43,opt,name=total_reply_time,json=totalReplyTime,proto3" json:"total_reply_time,omitempty"`
 	// Total number of manager replies in this chat.
+	//
+	// +kubebuilder:example="3"
 	ReplyCount int32 `protobuf:"varint,44,opt,name=reply_count,json=replyCount,proto3" json:"reply_count,omitempty"`
 	// Total duration from the first open to close (in milliseconds).
+	//
+	// +kubebuilder:example="300000"
 	ResolutionTime int64 `protobuf:"varint,45,opt,name=resolution_time,json=resolutionTime,proto3" json:"resolution_time,omitempty"`
 	// Duration from open to the first manager reply, counting only
 	// operating hours (in milliseconds).
@@ -499,15 +522,21 @@ type UserChat struct {
 	// +kubebuilder:example="55000"
 	OperationWaitingTime int64 `protobuf:"varint,46,opt,name=operation_waiting_time,json=operationWaitingTime,proto3" json:"operation_waiting_time,omitempty"`
 	// Average reply time counting only operating hours (in milliseconds).
+	//
+	// +kubebuilder:example="40000"
 	OperationAvgReplyTime int64 `protobuf:"varint,47,opt,name=operation_avg_reply_time,json=operationAvgReplyTime,proto3" json:"operation_avg_reply_time,omitempty"`
 	// Sum of all reply durations counting only operating hours
 	// (in milliseconds).
+	//
+	// +kubebuilder:example="80000"
 	OperationTotalReplyTime int64 `protobuf:"varint,48,opt,name=operation_total_reply_time,json=operationTotalReplyTime,proto3" json:"operation_total_reply_time,omitempty"`
 	// Total number of manager replies during operating hours.
 	//
 	// +kubebuilder:example="2"
 	OperationReplyCount int32 `protobuf:"varint,49,opt,name=operation_reply_count,json=operationReplyCount,proto3" json:"operation_reply_count,omitempty"`
 	// Total resolution time counting only operating hours (in milliseconds).
+	//
+	// +kubebuilder:example="280000"
 	OperationResolutionTime int64 `protobuf:"varint,50,opt,name=operation_resolution_time,json=operationResolutionTime,proto3" json:"operation_resolution_time,omitempty"`
 	// Timestamp when the user last sent a message that is awaiting
 	// a manager's reply. Cleared when the manager responds.

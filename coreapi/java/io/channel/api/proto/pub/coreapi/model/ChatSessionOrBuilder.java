@@ -89,6 +89,7 @@ public interface ChatSessionOrBuilder extends
    * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="userChat-uc-abc123"
    * </pre>
    *
    * <code>string chat_key = 4 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -101,6 +102,7 @@ public interface ChatSessionOrBuilder extends
    * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="userChat-uc-abc123"
    * </pre>
    *
    * <code>string chat_key = 4 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -189,6 +191,7 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Number of unread messages with alert-level notification priority.
    * Defaults to 0.
+   * +kubebuilder:example="0"
    * </pre>
    *
    * <code>int32 alert = 8 [json_name = "alert"];</code>
@@ -231,6 +234,7 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Whether &#64;all mentions trigger alert-level notifications in this session.
    * When absent, inherits from the manager-level default setting.
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool all_mention_important = 11 [json_name = "allMentionImportant"];</code>
@@ -396,6 +400,7 @@ public interface ChatSessionOrBuilder extends
    * Unique session identifier.
    * Format: "{key}-{chatId}".
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="manager-m001-userChat-uc-abc123"
    * </pre>
    *
    * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -407,6 +412,7 @@ public interface ChatSessionOrBuilder extends
    * Unique session identifier.
    * Format: "{key}-{chatId}".
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="manager-m001-userChat-uc-abc123"
    * </pre>
    *
    * <code>string id = 18 [json_name = "id", (.buf.validate.field) = { ... }</code>

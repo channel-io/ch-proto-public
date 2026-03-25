@@ -49,6 +49,7 @@ message User {
 
   // ID of the unified identity when multiple user records have been merged.
   //
+  // +kubebuilder:example="u-unified-001"
   string unified_id = 5;
 
   // Identity type of this user.
@@ -66,10 +67,12 @@ message User {
 
   // Total number of unread messages across all of the user's chats.
   //
+  // +kubebuilder:example="0"
   int32 unread = 9;
 
   // ID of the chat currently displayed as a pop-up widget to the user.
   //
+  // +kubebuilder:example="uc-popup-001"
   string pop_up_chat_id = 10;
 
   // ID of the chat pinned as the primary conversation in the messenger.
@@ -125,6 +128,7 @@ message User {
   // Whether the user has opted out of email notifications.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool unsubscribe_email = 20 [(buf.validate.field).required = true];
 
   // Timestamp when the email opt-out preference was last changed.
@@ -143,6 +147,7 @@ message User {
 
   // Whether the user has opted out of mobile app push notifications.
   //
+  // +kubebuilder:example="false"
   bool unsubscribe_app_push = 24;
 
   // Timestamp when the app push opt-out preference was last changed.
@@ -160,6 +165,7 @@ message User {
   // (name, firstName, or lastName).
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool named = 27 [(buf.validate.field).required = true];
 
   // Language detected from the user's browser or device settings,
@@ -172,13 +178,14 @@ message User {
   // and is eligible for SMS delivery.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool mobile_number_qualified = 29 [(buf.validate.field).required = true];
 
   // Whether the user's email address has passed format validation
   // and is eligible for email delivery.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="true"
+  // +kubebuilder:example="false"
   bool email_qualified = 30 [(buf.validate.field).required = true];
 
   // Display name of the user, derived from the profile's name field.
@@ -189,6 +196,7 @@ message User {
   // Whether the user has at least one managed chat conversation.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool has_chat = 32 [(buf.validate.field).required = true];
 
   // Whether the user has a registered device token for push notifications.
@@ -209,10 +217,12 @@ message User {
 
   // Latitude coordinate derived from IP geolocation.
   //
+  // +kubebuilder:example="37.4979"
   double latitude = 36;
 
   // Longitude coordinate derived from IP geolocation.
   //
+  // +kubebuilder:example="127.0276"
   double longitude = 37;
 
   // Web browser and page tracking information from the user's latest session.
@@ -235,6 +245,7 @@ message User {
   // Whether the user is blocked from initiating new chats.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool blocked = 42 [(buf.validate.field).required = true];
 
   // Identifier key associated with the block action,
@@ -245,6 +256,7 @@ message User {
 
   // Sort key used for ordering users in the managed contact list.
   //
+  // +kubebuilder:example="1"
   int64 managed_key = 44;
 
   // Whether the user's type is member.
@@ -284,10 +296,12 @@ message WebInfo {
 
   // Operating system version string (e.g. "10.15.7", "11").
   //
+  // +kubebuilder:example="10.15.7"
   string os = 2;
 
   // Operating system name (e.g. "Windows", "macOS", "Linux").
   //
+  // +kubebuilder:example="macOS"
   string os_name = 3;
 
   // Browser version string (e.g. "120.0.6099.109").
@@ -297,11 +311,13 @@ message WebInfo {
 
   // Browser name (e.g. "Chrome", "Safari", "Firefox").
   //
+  // +kubebuilder:example="Chrome"
   string browser_name = 5;
 
   // Cumulative number of web sessions recorded for this user.
   // Incremented on each new session.
   //
+  // +kubebuilder:example="5"
   int32 sessions_count = 6;
 
   // Timestamp of the user's most recent web session start.
@@ -318,15 +334,17 @@ message WebInfo {
 message MobileInfo {
   // Device model name (e.g. "iPhone 15", "Galaxy S24").
   //
-  // +kubebuilder:example="desktop"
+  // +kubebuilder:example="iPhone 15"
   string device = 1;
 
   // Operating system version string (e.g. "17.2", "14").
   //
+  // +kubebuilder:example="17.2"
   string os = 2;
 
   // Operating system name (e.g. "iOS", "Android").
   //
+  // +kubebuilder:example="iOS"
   string os_name = 3;
 
   // Name of the host application embedding the Channel SDK.
@@ -336,10 +354,12 @@ message MobileInfo {
 
   // Version of the host application embedding the Channel SDK.
   //
+  // +kubebuilder:example="2.1.0"
   string app_version = 5;
 
   // Channel SDK platform name (e.g. "ios", "android", "react-native").
   //
+  // +kubebuilder:example="ios"
   string sdk_name = 6;
 
   // Channel SDK version string.
@@ -350,6 +370,7 @@ message MobileInfo {
   // Cumulative number of mobile sessions recorded for this user.
   // Incremented on each new session.
   //
+  // +kubebuilder:example="3"
   int32 sessions_count = 8;
 
   // Timestamp of the user's most recent mobile session start.

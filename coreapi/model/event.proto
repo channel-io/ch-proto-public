@@ -36,6 +36,7 @@ message Event {
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=64
+  // +kubebuilder:example="PageView"
   string name = 4 [
     (buf.validate.field).cel = {
       id: "string.minLen"

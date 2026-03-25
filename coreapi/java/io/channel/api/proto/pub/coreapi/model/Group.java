@@ -476,6 +476,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the active live meet session in this group.
+   * +kubebuilder:example="meet-001"
    * </pre>
    *
    * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -497,6 +498,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the active live meet session in this group.
+   * +kubebuilder:example="meet-001"
    * </pre>
    *
    * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -523,6 +525,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Free-text description explaining the group's purpose or topic.
    * +kubebuilder:validation:MaxLength=200
+   * +kubebuilder:example="General discussion"
    * </pre>
    *
    * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -545,6 +548,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Free-text description explaining the group's purpose or topic.
    * +kubebuilder:validation:MaxLength=200
+   * +kubebuilder:example="General discussion"
    * </pre>
    *
    * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1847,6 +1851,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session in this group.
+     * +kubebuilder:example="meet-001"
      * </pre>
      *
      * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -1867,6 +1872,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session in this group.
+     * +kubebuilder:example="meet-001"
      * </pre>
      *
      * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -1888,6 +1894,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session in this group.
+     * +kubebuilder:example="meet-001"
      * </pre>
      *
      * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -1907,6 +1914,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session in this group.
+     * +kubebuilder:example="meet-001"
      * </pre>
      *
      * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -1921,6 +1929,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session in this group.
+     * +kubebuilder:example="meet-001"
      * </pre>
      *
      * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -1944,6 +1953,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Free-text description explaining the group's purpose or topic.
      * +kubebuilder:validation:MaxLength=200
+     * +kubebuilder:example="General discussion"
      * </pre>
      *
      * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1965,6 +1975,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Free-text description explaining the group's purpose or topic.
      * +kubebuilder:validation:MaxLength=200
+     * +kubebuilder:example="General discussion"
      * </pre>
      *
      * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1987,6 +1998,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Free-text description explaining the group's purpose or topic.
      * +kubebuilder:validation:MaxLength=200
+     * +kubebuilder:example="General discussion"
      * </pre>
      *
      * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -2007,6 +2019,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Free-text description explaining the group's purpose or topic.
      * +kubebuilder:validation:MaxLength=200
+     * +kubebuilder:example="General discussion"
      * </pre>
      *
      * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -2022,6 +2035,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Free-text description explaining the group's purpose or topic.
      * +kubebuilder:validation:MaxLength=200
+     * +kubebuilder:example="General discussion"
      * </pre>
      *
      * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>

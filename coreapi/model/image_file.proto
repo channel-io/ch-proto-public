@@ -46,10 +46,12 @@ message ImageFile {
 
   // Image height in pixels.
   //
+  // +kubebuilder:example="600"
   int32 height = 4;
 
   // MIME content type of the image (e.g. "image/png", "image/jpeg").
   //
   // +kubebuilder:validation:Pattern="^image/.*"
+  // +kubebuilder:example="image/png"
   string content_type = 5 [(buf.validate.field).string.pattern = "^image/.*"];
 }

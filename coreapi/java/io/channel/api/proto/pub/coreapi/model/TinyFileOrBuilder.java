@@ -75,6 +75,7 @@ public interface TinyFileOrBuilder extends
    * <pre>
    * Image height in pixels.
    * Present only when the file is an image.
+   * +kubebuilder:example="200"
    * </pre>
    *
    * <code>int32 height = 4 [json_name = "height"];</code>

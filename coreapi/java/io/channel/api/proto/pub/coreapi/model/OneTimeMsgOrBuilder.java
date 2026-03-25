@@ -61,6 +61,7 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="Spring Sale"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -73,6 +74,7 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="Spring Sale"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -193,6 +195,7 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Key for selecting the message topic template within the medium.
+   * +kubebuilder:example="topic-001"
    * </pre>
    *
    * <code>string medium_topic_build_key = 9 [json_name = "mediumTopicBuildKey"];</code>
@@ -202,6 +205,7 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Key for selecting the message topic template within the medium.
+   * +kubebuilder:example="topic-001"
    * </pre>
    *
    * <code>string medium_topic_build_key = 9 [json_name = "mediumTopicBuildKey"];</code>
@@ -503,6 +507,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Whether the message contains advertising content subject to opt-out regulations.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool advertising = 18 [json_name = "advertising", (.buf.validate.field) = { ... }</code>
@@ -513,6 +518,7 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Whether to fall back to XMS (text message) delivery when the user is offline.
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool send_to_offline_xms = 19 [json_name = "sendToOfflineXms"];</code>
@@ -689,6 +695,7 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Cumulative count of message views by recipients.
+   * +kubebuilder:example="50"
    * </pre>
    *
    * <code>int32 view = 27 [json_name = "view"];</code>
@@ -699,6 +706,7 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Cumulative count of goal event completions attributed to this message.
+   * +kubebuilder:example="10"
    * </pre>
    *
    * <code>int32 goal = 28 [json_name = "goal"];</code>

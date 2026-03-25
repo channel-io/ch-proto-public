@@ -155,6 +155,7 @@ type OneTimeMsg struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=128
+	// +kubebuilder:example="Spring Sale"
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Current lifecycle state of the one-time message.
 	//
@@ -177,6 +178,8 @@ type OneTimeMsg struct {
 	// +kubebuilder:example="sms-001"
 	MediumId string `protobuf:"bytes,8,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	// Key for selecting the message topic template within the medium.
+	//
+	// +kubebuilder:example="topic-001"
 	MediumTopicBuildKey string `protobuf:"bytes,9,opt,name=medium_topic_build_key,json=mediumTopicBuildKey,proto3" json:"medium_topic_build_key,omitempty"`
 	// Labels for categorizing the message topic within the medium.
 	MediumTopicBuildLabels []string `protobuf:"bytes,10,rep,name=medium_topic_build_labels,json=mediumTopicBuildLabels,proto3" json:"medium_topic_build_labels,omitempty"`
@@ -206,8 +209,11 @@ type OneTimeMsg struct {
 	// Whether the message contains advertising content subject to opt-out regulations.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	Advertising bool `protobuf:"varint,18,opt,name=advertising,proto3" json:"advertising,omitempty"`
 	// Whether to fall back to XMS (text message) delivery when the user is offline.
+	//
+	// +kubebuilder:example="false"
 	SendToOfflineXms bool `protobuf:"varint,19,opt,name=send_to_offline_xms,json=sendToOfflineXms,proto3" json:"send_to_offline_xms,omitempty"`
 	// Whether to fall back to email delivery when the user is offline.
 	//
@@ -237,8 +243,12 @@ type OneTimeMsg struct {
 	// +kubebuilder:example="100"
 	Sent int32 `protobuf:"varint,26,opt,name=sent,proto3" json:"sent,omitempty"`
 	// Cumulative count of message views by recipients.
+	//
+	// +kubebuilder:example="50"
 	View int32 `protobuf:"varint,27,opt,name=view,proto3" json:"view,omitempty"`
 	// Cumulative count of goal event completions attributed to this message.
+	//
+	// +kubebuilder:example="10"
 	Goal int32 `protobuf:"varint,28,opt,name=goal,proto3" json:"goal,omitempty"`
 	// Cumulative count of message link clicks.
 	//

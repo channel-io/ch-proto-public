@@ -61,6 +61,7 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="Welcome Campaign"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -73,6 +74,7 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="Welcome Campaign"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -315,6 +317,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Name of an additional event used to filter users before delivery.
    * When set, filter_match determines whether the event must occur or must not occur.
+   * +kubebuilder:example="purchase"
    * </pre>
    *
    * <code>string filter_event_name = 12 [json_name = "filterEventName"];</code>
@@ -325,6 +328,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Name of an additional event used to filter users before delivery.
    * When set, filter_match determines whether the event must occur or must not occur.
+   * +kubebuilder:example="purchase"
    * </pre>
    *
    * <code>string filter_event_name = 12 [json_name = "filterEventName"];</code>
@@ -603,6 +607,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Whether to fall back to XMS (text message) delivery when the user is offline.
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool send_to_offline_xms = 22 [json_name = "sendToOfflineXms"];</code>
@@ -613,6 +618,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Whether to fall back to email delivery when the user is offline.
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool send_to_offline_email = 23 [json_name = "sendToOfflineEmail"];</code>
@@ -905,6 +911,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Cumulative count of message views by recipients.
+   * +kubebuilder:example="50"
    * </pre>
    *
    * <code>int32 view = 34 [json_name = "view"];</code>
@@ -915,6 +922,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Cumulative count of goal event completions attributed to this campaign.
+   * +kubebuilder:example="10"
    * </pre>
    *
    * <code>int32 goal = 35 [json_name = "goal"];</code>
@@ -969,6 +977,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Manager assigned to handle user responses from this campaign.
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string manager_id = 38 [json_name = "managerId"];</code>
@@ -978,6 +987,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Manager assigned to handle user responses from this campaign.
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string manager_id = 38 [json_name = "managerId"];</code>

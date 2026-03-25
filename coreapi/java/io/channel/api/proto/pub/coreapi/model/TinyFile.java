@@ -236,6 +236,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Image height in pixels.
    * Present only when the file is an image.
+   * +kubebuilder:example="200"
    * </pre>
    *
    * <code>int32 height = 4 [json_name = "height"];</code>
@@ -880,6 +881,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Image height in pixels.
      * Present only when the file is an image.
+     * +kubebuilder:example="200"
      * </pre>
      *
      * <code>int32 height = 4 [json_name = "height"];</code>
@@ -893,6 +895,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Image height in pixels.
      * Present only when the file is an image.
+     * +kubebuilder:example="200"
      * </pre>
      *
      * <code>int32 height = 4 [json_name = "height"];</code>
@@ -909,6 +912,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Image height in pixels.
      * Present only when the file is an image.
+     * +kubebuilder:example="200"
      * </pre>
      *
      * <code>int32 height = 4 [json_name = "height"];</code>

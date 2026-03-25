@@ -262,6 +262,7 @@ type Campaign struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=128
+	// +kubebuilder:example="Welcome Campaign"
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Current lifecycle state of the campaign.
 	//
@@ -297,6 +298,8 @@ type Campaign struct {
 	WaitingTime *durationpb.Duration `protobuf:"bytes,11,opt,name=waiting_time,json=waitingTime,proto3" json:"waiting_time,omitempty"`
 	// Name of an additional event used to filter users before delivery.
 	// When set, filter_match determines whether the event must occur or must not occur.
+	//
+	// +kubebuilder:example="purchase"
 	FilterEventName string `protobuf:"bytes,12,opt,name=filter_event_name,json=filterEventName,proto3" json:"filter_event_name,omitempty"`
 	// Query expression to filter the additional filter events by their properties.
 	// Represented as a structured filter object. Applicable when filter_event_name is set.
@@ -331,8 +334,12 @@ type Campaign struct {
 	// +kubebuilder:example="false"
 	Advertising bool `protobuf:"varint,21,opt,name=advertising,proto3" json:"advertising,omitempty"`
 	// Whether to fall back to XMS (text message) delivery when the user is offline.
+	//
+	// +kubebuilder:example="false"
 	SendToOfflineXms bool `protobuf:"varint,22,opt,name=send_to_offline_xms,json=sendToOfflineXms,proto3" json:"send_to_offline_xms,omitempty"`
 	// Whether to fall back to email delivery when the user is offline.
+	//
+	// +kubebuilder:example="false"
 	SendToOfflineEmail bool `protobuf:"varint,23,opt,name=send_to_offline_email,json=sendToOfflineEmail,proto3" json:"send_to_offline_email,omitempty"`
 	// Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
 	// Between 0 seconds and 30 days.
@@ -371,8 +378,12 @@ type Campaign struct {
 	// +kubebuilder:example="100"
 	Sent int32 `protobuf:"varint,33,opt,name=sent,proto3" json:"sent,omitempty"`
 	// Cumulative count of message views by recipients.
+	//
+	// +kubebuilder:example="50"
 	View int32 `protobuf:"varint,34,opt,name=view,proto3" json:"view,omitempty"`
 	// Cumulative count of goal event completions attributed to this campaign.
+	//
+	// +kubebuilder:example="10"
 	Goal int32 `protobuf:"varint,35,opt,name=goal,proto3" json:"goal,omitempty"`
 	// Cumulative count of message link clicks.
 	//
@@ -384,6 +395,8 @@ type Campaign struct {
 	// +kubebuilder:example="PT23H50M"
 	UserChatExpireDuration *durationpb.Duration `protobuf:"bytes,37,opt,name=user_chat_expire_duration,json=userChatExpireDuration,proto3" json:"user_chat_expire_duration,omitempty"`
 	// Manager assigned to handle user responses from this campaign.
+	//
+	// +kubebuilder:example="m-001"
 	ManagerId     string `protobuf:"bytes,38,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

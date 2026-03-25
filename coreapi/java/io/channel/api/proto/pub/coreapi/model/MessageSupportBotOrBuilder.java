@@ -54,6 +54,7 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Current section within the support bot flow (e.g. a route or action section).
+   * +kubebuilder:example="sec-001"
    * </pre>
    *
    * <code>string section_id = 3 [json_name = "sectionId"];</code>
@@ -63,6 +64,7 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Current section within the support bot flow (e.g. a route or action section).
+   * +kubebuilder:example="sec-001"
    * </pre>
    *
    * <code>string section_id = 3 [json_name = "sectionId"];</code>

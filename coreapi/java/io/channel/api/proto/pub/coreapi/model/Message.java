@@ -624,6 +624,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Index key for the main (top-level) message stream.
    * Same value as chat_key when the message appears in the main stream.
+   * +kubebuilder:example="userChat-uc-abc123"
    * </pre>
    *
    * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -646,6 +647,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Index key for the main (top-level) message stream.
    * Same value as chat_key when the message appears in the main stream.
+   * +kubebuilder:example="userChat-uc-abc123"
    * </pre>
    *
    * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -728,6 +730,7 @@ private static final long serialVersionUID = 0L;
    * For meet root messages: same value as chat_key.
    * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not associated with a meet session.
+   * +kubebuilder:example="userChat-uc-abc123-msg-001"
    * </pre>
    *
    * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -752,6 +755,7 @@ private static final long serialVersionUID = 0L;
    * For meet root messages: same value as chat_key.
    * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not associated with a meet session.
+   * +kubebuilder:example="userChat-uc-abc123-msg-001"
    * </pre>
    *
    * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -830,6 +834,7 @@ private static final long serialVersionUID = 0L;
    * For ALF thread root messages: same value as chat_key.
    * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not part of an ALF thread.
+   * +kubebuilder:example="userChat-uc-abc123-msg-001"
    * </pre>
    *
    * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -854,6 +859,7 @@ private static final long serialVersionUID = 0L;
    * For ALF thread root messages: same value as chat_key.
    * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not part of an ALF thread.
+   * +kubebuilder:example="userChat-uc-abc123-msg-001"
    * </pre>
    *
    * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -930,6 +936,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="userChat"
    * </pre>
    *
    * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -952,6 +959,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="userChat"
    * </pre>
    *
    * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -1179,6 +1187,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Detected language of the message content (e.g., "ko", "en", "ja").
+   * +kubebuilder:example="ko"
    * </pre>
    *
    * <code>string language = 14 [json_name = "language"];</code>
@@ -1200,6 +1209,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Detected language of the message content (e.g., "ko", "en", "ja").
+   * +kubebuilder:example="ko"
    * </pre>
    *
    * <code>string language = 14 [json_name = "language"];</code>
@@ -2380,6 +2390,7 @@ private static final long serialVersionUID = 0L;
    * ID of the root message when this message belongs to a thread, meet, or ALF thread.
    * Parsed from thread_key, meet_key, or alf_thread_key respectively.
    * Absent for root messages and standalone messages.
+   * +kubebuilder:example="msg-root-001"
    * </pre>
    *
    * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
@@ -2403,6 +2414,7 @@ private static final long serialVersionUID = 0L;
    * ID of the root message when this message belongs to a thread, meet, or ALF thread.
    * Parsed from thread_key, meet_key, or alf_thread_key respectively.
    * Absent for root messages and standalone messages.
+   * +kubebuilder:example="msg-root-001"
    * </pre>
    *
    * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
@@ -2448,6 +2460,7 @@ private static final long serialVersionUID = 0L;
    * Whether this thread reply is also visible in the main message stream.
    * True when the message has both thread_key and main_key, but is not a thread root.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg", (.buf.validate.field) = { ... }</code>
@@ -4134,6 +4147,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Index key for the main (top-level) message stream.
      * Same value as chat_key when the message appears in the main stream.
+     * +kubebuilder:example="userChat-uc-abc123"
      * </pre>
      *
      * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -4155,6 +4169,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Index key for the main (top-level) message stream.
      * Same value as chat_key when the message appears in the main stream.
+     * +kubebuilder:example="userChat-uc-abc123"
      * </pre>
      *
      * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -4177,6 +4192,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Index key for the main (top-level) message stream.
      * Same value as chat_key when the message appears in the main stream.
+     * +kubebuilder:example="userChat-uc-abc123"
      * </pre>
      *
      * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -4197,6 +4213,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Index key for the main (top-level) message stream.
      * Same value as chat_key when the message appears in the main stream.
+     * +kubebuilder:example="userChat-uc-abc123"
      * </pre>
      *
      * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -4212,6 +4229,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Index key for the main (top-level) message stream.
      * Same value as chat_key when the message appears in the main stream.
+     * +kubebuilder:example="userChat-uc-abc123"
      * </pre>
      *
      * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -4353,6 +4371,7 @@ private static final long serialVersionUID = 0L;
      * For meet root messages: same value as chat_key.
      * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not associated with a meet session.
+     * +kubebuilder:example="userChat-uc-abc123-msg-001"
      * </pre>
      *
      * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -4376,6 +4395,7 @@ private static final long serialVersionUID = 0L;
      * For meet root messages: same value as chat_key.
      * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not associated with a meet session.
+     * +kubebuilder:example="userChat-uc-abc123-msg-001"
      * </pre>
      *
      * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -4400,6 +4420,7 @@ private static final long serialVersionUID = 0L;
      * For meet root messages: same value as chat_key.
      * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not associated with a meet session.
+     * +kubebuilder:example="userChat-uc-abc123-msg-001"
      * </pre>
      *
      * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -4422,6 +4443,7 @@ private static final long serialVersionUID = 0L;
      * For meet root messages: same value as chat_key.
      * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not associated with a meet session.
+     * +kubebuilder:example="userChat-uc-abc123-msg-001"
      * </pre>
      *
      * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -4439,6 +4461,7 @@ private static final long serialVersionUID = 0L;
      * For meet root messages: same value as chat_key.
      * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not associated with a meet session.
+     * +kubebuilder:example="userChat-uc-abc123-msg-001"
      * </pre>
      *
      * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -4570,6 +4593,7 @@ private static final long serialVersionUID = 0L;
      * For ALF thread root messages: same value as chat_key.
      * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not part of an ALF thread.
+     * +kubebuilder:example="userChat-uc-abc123-msg-001"
      * </pre>
      *
      * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -4593,6 +4617,7 @@ private static final long serialVersionUID = 0L;
      * For ALF thread root messages: same value as chat_key.
      * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not part of an ALF thread.
+     * +kubebuilder:example="userChat-uc-abc123-msg-001"
      * </pre>
      *
      * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -4617,6 +4642,7 @@ private static final long serialVersionUID = 0L;
      * For ALF thread root messages: same value as chat_key.
      * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not part of an ALF thread.
+     * +kubebuilder:example="userChat-uc-abc123-msg-001"
      * </pre>
      *
      * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -4639,6 +4665,7 @@ private static final long serialVersionUID = 0L;
      * For ALF thread root messages: same value as chat_key.
      * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not part of an ALF thread.
+     * +kubebuilder:example="userChat-uc-abc123-msg-001"
      * </pre>
      *
      * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -4656,6 +4683,7 @@ private static final long serialVersionUID = 0L;
      * For ALF thread root messages: same value as chat_key.
      * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not part of an ALF thread.
+     * +kubebuilder:example="userChat-uc-abc123-msg-001"
      * </pre>
      *
      * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -4785,6 +4813,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -4806,6 +4835,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -4828,6 +4858,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -4848,6 +4879,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -4863,6 +4895,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -5314,6 +5347,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Detected language of the message content (e.g., "ko", "en", "ja").
+     * +kubebuilder:example="ko"
      * </pre>
      *
      * <code>string language = 14 [json_name = "language"];</code>
@@ -5334,6 +5368,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Detected language of the message content (e.g., "ko", "en", "ja").
+     * +kubebuilder:example="ko"
      * </pre>
      *
      * <code>string language = 14 [json_name = "language"];</code>
@@ -5355,6 +5390,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Detected language of the message content (e.g., "ko", "en", "ja").
+     * +kubebuilder:example="ko"
      * </pre>
      *
      * <code>string language = 14 [json_name = "language"];</code>
@@ -5374,6 +5410,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Detected language of the message content (e.g., "ko", "en", "ja").
+     * +kubebuilder:example="ko"
      * </pre>
      *
      * <code>string language = 14 [json_name = "language"];</code>
@@ -5388,6 +5425,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Detected language of the message content (e.g., "ko", "en", "ja").
+     * +kubebuilder:example="ko"
      * </pre>
      *
      * <code>string language = 14 [json_name = "language"];</code>
@@ -9982,6 +10020,7 @@ private static final long serialVersionUID = 0L;
      * ID of the root message when this message belongs to a thread, meet, or ALF thread.
      * Parsed from thread_key, meet_key, or alf_thread_key respectively.
      * Absent for root messages and standalone messages.
+     * +kubebuilder:example="msg-root-001"
      * </pre>
      *
      * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
@@ -10004,6 +10043,7 @@ private static final long serialVersionUID = 0L;
      * ID of the root message when this message belongs to a thread, meet, or ALF thread.
      * Parsed from thread_key, meet_key, or alf_thread_key respectively.
      * Absent for root messages and standalone messages.
+     * +kubebuilder:example="msg-root-001"
      * </pre>
      *
      * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
@@ -10027,6 +10067,7 @@ private static final long serialVersionUID = 0L;
      * ID of the root message when this message belongs to a thread, meet, or ALF thread.
      * Parsed from thread_key, meet_key, or alf_thread_key respectively.
      * Absent for root messages and standalone messages.
+     * +kubebuilder:example="msg-root-001"
      * </pre>
      *
      * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
@@ -10048,6 +10089,7 @@ private static final long serialVersionUID = 0L;
      * ID of the root message when this message belongs to a thread, meet, or ALF thread.
      * Parsed from thread_key, meet_key, or alf_thread_key respectively.
      * Absent for root messages and standalone messages.
+     * +kubebuilder:example="msg-root-001"
      * </pre>
      *
      * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
@@ -10064,6 +10106,7 @@ private static final long serialVersionUID = 0L;
      * ID of the root message when this message belongs to a thread, meet, or ALF thread.
      * Parsed from thread_key, meet_key, or alf_thread_key respectively.
      * Absent for root messages and standalone messages.
+     * +kubebuilder:example="msg-root-001"
      * </pre>
      *
      * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
@@ -10140,6 +10183,7 @@ private static final long serialVersionUID = 0L;
      * Whether this thread reply is also visible in the main message stream.
      * True when the message has both thread_key and main_key, but is not a thread root.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg", (.buf.validate.field) = { ... }</code>
@@ -10154,6 +10198,7 @@ private static final long serialVersionUID = 0L;
      * Whether this thread reply is also visible in the main message stream.
      * True when the message has both thread_key and main_key, but is not a thread root.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg", (.buf.validate.field) = { ... }</code>
@@ -10171,6 +10216,7 @@ private static final long serialVersionUID = 0L;
      * Whether this thread reply is also visible in the main message stream.
      * True when the message has both thread_key and main_key, but is not a thread root.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool broadcasted_msg = 44 [json_name = "broadcastedMsg", (.buf.validate.field) = { ... }</code>

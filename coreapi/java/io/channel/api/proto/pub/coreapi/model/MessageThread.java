@@ -323,6 +323,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat type component extracted from the thread `id`.
+   * +kubebuilder:example="userChat"
    * </pre>
    *
    * <code>string chat_type = 5 [json_name = "chatType"];</code>
@@ -344,6 +345,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Chat type component extracted from the thread `id`.
+   * +kubebuilder:example="userChat"
    * </pre>
    *
    * <code>string chat_type = 5 [json_name = "chatType"];</code>
@@ -1367,6 +1369,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat type component extracted from the thread `id`.
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 5 [json_name = "chatType"];</code>
@@ -1387,6 +1390,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat type component extracted from the thread `id`.
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 5 [json_name = "chatType"];</code>
@@ -1408,6 +1412,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat type component extracted from the thread `id`.
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 5 [json_name = "chatType"];</code>
@@ -1427,6 +1432,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat type component extracted from the thread `id`.
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 5 [json_name = "chatType"];</code>
@@ -1441,6 +1447,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Chat type component extracted from the thread `id`.
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 5 [json_name = "chatType"];</code>

@@ -281,6 +281,7 @@ type Channel struct {
 	// Whether to display individual operator profiles instead of the channel identity to end users.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	ShowOperatorProfile bool `protobuf:"varint,19,opt,name=show_operator_profile,json=showOperatorProfile,proto3" json:"show_operator_profile,omitempty"`
 	// Whether the new chat button is hidden from end users.
 	//
@@ -295,6 +296,7 @@ type Channel struct {
 	// Whether SMS/text follow-up is enabled for offline conversations.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	FollowUpTexting bool `protobuf:"varint,22,opt,name=follow_up_texting,json=followUpTexting,proto3" json:"follow_up_texting,omitempty"`
 	// Whether email follow-up is enabled for offline conversations.
 	//
@@ -304,6 +306,7 @@ type Channel struct {
 	// Whether the follow-up form asks for the user's name.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	FollowUpAskName bool `protobuf:"varint,24,opt,name=follow_up_ask_name,json=followUpAskName,proto3" json:"follow_up_ask_name,omitempty"`
 	// Whether the follow-up form must be completed before the user can start a conversation.
 	//
@@ -319,23 +322,33 @@ type Channel struct {
 	// +kubebuilder:example="false"
 	EntVerified bool `protobuf:"varint,27,opt,name=ent_verified,json=entVerified,proto3" json:"ent_verified,omitempty"`
 	// Default plugin identifier used by the messenger widget.
+	//
+	// +kubebuilder:example="plg-001"
 	DefaultPluginId string `protobuf:"bytes,28,opt,name=default_plugin_id,json=defaultPluginId,proto3" json:"default_plugin_id,omitempty"`
 	// Industry or business category of the channel (e.g., "E-commerce", "SaaS").
 	//
 	// +kubebuilder:example="E-commerce"
 	BizCategory string `protobuf:"bytes,29,opt,name=biz_category,json=bizCategory,proto3" json:"biz_category,omitempty"`
 	// Number of staff members in the organization.
+	//
+	// +kubebuilder:example="10"
 	Staffs int32 `protobuf:"varint,30,opt,name=staffs,proto3" json:"staffs,omitempty"`
 	// Integrated e-commerce platform app identifier.
+	//
+	// +kubebuilder:example="commerce-001"
 	AppCommerceId string `protobuf:"bytes,31,opt,name=app_commerce_id,json=appCommerceId,proto3" json:"app_commerce_id,omitempty"`
 	// Integrated e-commerce platform type (e.g., Shopify, Cafe24).
 	//
 	// +kubebuilder:example="Shopify"
 	AppCommerceType string `protobuf:"bytes,32,opt,name=app_commerce_type,json=appCommerceType,proto3" json:"app_commerce_type,omitempty"`
 	// Domain of the integrated e-commerce platform.
+	//
+	// +kubebuilder:example="myshop.myshopify.com"
 	AppCommerceDomain string `protobuf:"bytes,33,opt,name=app_commerce_domain,json=appCommerceDomain,proto3" json:"app_commerce_domain,omitempty"`
 	// Whether member identity hash verification is enabled.
 	// When enabled, member logins require an HMAC hash to prevent impersonation.
+	//
+	// +kubebuilder:example="false"
 	EnableMemberHash bool `protobuf:"varint,34,opt,name=enable_member_hash,json=enableMemberHash,proto3" json:"enable_member_hash,omitempty"`
 	// Default email domain identifier used for outbound emails sent from this channel.
 	//
@@ -344,6 +357,7 @@ type Channel struct {
 	// Whether multi-factor authentication is required for managers in this channel.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	EnableMfa bool `protobuf:"varint,36,opt,name=enable_mfa,json=enableMfa,proto3" json:"enable_mfa,omitempty"`
 	// Whether the messenger widget is hidden from end users on the website.
 	//
@@ -354,6 +368,7 @@ type Channel struct {
 	// Derived from biz_certificated_countries; true when at least one country is certified.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	BizCertificated bool `protobuf:"varint,38,opt,name=biz_certificated,json=bizCertificated,proto3" json:"biz_certificated,omitempty"`
 	// Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
 	//
@@ -372,6 +387,7 @@ type Channel struct {
 	// Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	Blocked bool `protobuf:"varint,42,opt,name=blocked,proto3" json:"blocked,omitempty"`
 	// Whether the channel is currently accepting new conversations.
 	// True when the channel is not blocked and is within operating hours.
@@ -397,6 +413,7 @@ type Channel struct {
 	// When false, the channel is always considered in operation.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	OperationTimeScheduling bool `protobuf:"varint,47,opt,name=operation_time_scheduling,json=operationTimeScheduling,proto3" json:"operation_time_scheduling,omitempty"`
 	// Timestamp when the next operating period starts.
 	// Present only when the channel is currently outside operating hours.
@@ -418,14 +435,20 @@ type Channel struct {
 	// Applicable only when block_replying_after_closed is true.
 	BlockReplyingAfterClosedTime *durationpb.Duration `protobuf:"bytes,53,opt,name=block_replying_after_closed_time,json=blockReplyingAfterClosedTime,proto3" json:"block_replying_after_closed_time,omitempty"`
 	// Border accent color derived from the theme color, in hex format.
+	//
+	// +kubebuilder:example="#2563EB"
 	BorderColor string `protobuf:"bytes,54,opt,name=border_color,json=borderColor,proto3" json:"border_color,omitempty"`
 	// Gradient accent color derived from the theme color, in hex format.
 	//
 	// +kubebuilder:example="#6366F1"
 	GradientColor string `protobuf:"bytes,55,opt,name=gradient_color,json=gradientColor,proto3" json:"gradient_color,omitempty"`
 	// Text color for contrast against the theme color, in hex format.
+	//
+	// +kubebuilder:example="#FFFFFF"
 	TextColor string `protobuf:"bytes,56,opt,name=text_color,json=textColor,proto3" json:"text_color,omitempty"`
 	// First character of the channel name, used as a fallback when no avatar is set.
+	//
+	// +kubebuilder:example="C"
 	Initial string `protobuf:"bytes,57,opt,name=initial,proto3" json:"initial,omitempty"`
 	// Resolved domain for the channel.
 	// Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
@@ -433,9 +456,13 @@ type Channel struct {
 	// +kubebuilder:example="ch-12345"
 	SystemDomain string `protobuf:"bytes,58,opt,name=system_domain,json=systemDomain,proto3" json:"system_domain,omitempty"`
 	// Icon color for the messenger plugin widget, derived from the theme color, in hex format.
+	//
+	// +kubebuilder:example="#FFFFFF"
 	PluginIconColor string `protobuf:"bytes,59,opt,name=plugin_icon_color,json=pluginIconColor,proto3" json:"plugin_icon_color,omitempty"`
 	// Theme color brightness value normalized to 0.0 -- 1.0 range.
 	// Derived from the theme color.
+	//
+	// +kubebuilder:example="0.75"
 	Brightness float32 `protobuf:"fixed32,60,opt,name=brightness,proto3" json:"brightness,omitempty"`
 	// Cover image URL for the channel profile page.
 	//
@@ -443,6 +470,8 @@ type Channel struct {
 	CoverImageUrl string `protobuf:"bytes,61,opt,name=cover_image_url,json=coverImageUrl,proto3" json:"cover_image_url,omitempty"`
 	// Whether the cover image has a bright tone.
 	// Derived from the cover_image_color field.
+	//
+	// +kubebuilder:example="true"
 	CoverImageBright bool `protobuf:"varint,62,opt,name=cover_image_bright,json=coverImageBright,proto3" json:"cover_image_bright,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache

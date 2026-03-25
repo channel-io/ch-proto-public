@@ -689,6 +689,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Contact medium type identifier for chats originating from external
    * messenger integrations (e.g., "appKakao", "mobileNumber").
+   * +kubebuilder:example="mobileNumber"
    * </pre>
    *
    * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
@@ -711,6 +712,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Contact medium type identifier for chats originating from external
    * messenger integrations (e.g., "appKakao", "mobileNumber").
+   * +kubebuilder:example="mobileNumber"
    * </pre>
    *
    * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
@@ -736,6 +738,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the active live meet session attached to this chat.
+   * +kubebuilder:example="meet-001"
    * </pre>
    *
    * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -757,6 +760,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the active live meet session attached to this chat.
+   * +kubebuilder:example="meet-001"
    * </pre>
    *
    * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -936,6 +940,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ID of the external service user linked to this chat
    * via a messenger integration.
+   * +kubebuilder:example="xer-001"
    * </pre>
    *
    * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -958,6 +963,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ID of the external service user linked to this chat
    * via a messenger integration.
+   * +kubebuilder:example="xer-001"
    * </pre>
    *
    * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -983,6 +989,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Display name of this chat shown to managers in the Desk.
+   * +kubebuilder:example="Customer Support"
    * </pre>
    *
    * <code>string name = 11 [json_name = "name"];</code>
@@ -1004,6 +1011,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Display name of this chat shown to managers in the Desk.
+   * +kubebuilder:example="Customer Support"
    * </pre>
    *
    * <code>string name = 11 [json_name = "name"];</code>
@@ -1078,6 +1086,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Free-text note or summary attached to this chat by a manager.
    * +kubebuilder:validation:MaxLength=1000
+   * +kubebuilder:example="Billing inquiry"
    * </pre>
    *
    * <code>string description = 13 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1100,6 +1109,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Free-text note or summary attached to this chat by a manager.
    * +kubebuilder:validation:MaxLength=1000
+   * +kubebuilder:example="Billing inquiry"
    * </pre>
    *
    * <code>string description = 13 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1337,6 +1347,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the team this chat is routed to for handling.
+   * +kubebuilder:example="team-001"
    * </pre>
    *
    * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -1358,6 +1369,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the team this chat is routed to for handling.
+   * +kubebuilder:example="team-001"
    * </pre>
    *
    * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -1954,6 +1966,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the latest message visible on the Desk (manager) side.
+   * +kubebuilder:example="msg-002"
    * </pre>
    *
    * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -1975,6 +1988,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the latest message visible on the Desk (manager) side.
+   * +kubebuilder:example="msg-002"
    * </pre>
    *
    * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -2087,6 +2101,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ID of the first manager assigned after the chat was opened.
    * Used for tracking initial response ownership.
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -2109,6 +2124,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ID of the first manager assigned after the chat was opened.
    * Used for tracking initial response ownership.
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -2233,6 +2249,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Duration from chat open to the first manager reply (in milliseconds).
+   * +kubebuilder:example="60000"
    * </pre>
    *
    * <code>int64 waiting_time = 41 [json_name = "waitingTime"];</code>
@@ -2249,6 +2266,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Average time between a user's question and the manager's reply
    * (in milliseconds).
+   * +kubebuilder:example="45000"
    * </pre>
    *
    * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
@@ -2281,6 +2299,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Total number of manager replies in this chat.
+   * +kubebuilder:example="3"
    * </pre>
    *
    * <code>int32 reply_count = 44 [json_name = "replyCount"];</code>
@@ -2296,6 +2315,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Total duration from the first open to close (in milliseconds).
+   * +kubebuilder:example="300000"
    * </pre>
    *
    * <code>int64 resolution_time = 45 [json_name = "resolutionTime"];</code>
@@ -2328,6 +2348,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Average reply time counting only operating hours (in milliseconds).
+   * +kubebuilder:example="40000"
    * </pre>
    *
    * <code>int64 operation_avg_reply_time = 47 [json_name = "operationAvgReplyTime"];</code>
@@ -2344,6 +2365,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Sum of all reply durations counting only operating hours
    * (in milliseconds).
+   * +kubebuilder:example="80000"
    * </pre>
    *
    * <code>int64 operation_total_reply_time = 48 [json_name = "operationTotalReplyTime"];</code>
@@ -2375,6 +2397,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Total resolution time counting only operating hours (in milliseconds).
+   * +kubebuilder:example="280000"
    * </pre>
    *
    * <code>int64 operation_resolution_time = 50 [json_name = "operationResolutionTime"];</code>
@@ -4355,6 +4378,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Contact medium type identifier for chats originating from external
      * messenger integrations (e.g., "appKakao", "mobileNumber").
+     * +kubebuilder:example="mobileNumber"
      * </pre>
      *
      * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
@@ -4376,6 +4400,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Contact medium type identifier for chats originating from external
      * messenger integrations (e.g., "appKakao", "mobileNumber").
+     * +kubebuilder:example="mobileNumber"
      * </pre>
      *
      * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
@@ -4398,6 +4423,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Contact medium type identifier for chats originating from external
      * messenger integrations (e.g., "appKakao", "mobileNumber").
+     * +kubebuilder:example="mobileNumber"
      * </pre>
      *
      * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
@@ -4418,6 +4444,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Contact medium type identifier for chats originating from external
      * messenger integrations (e.g., "appKakao", "mobileNumber").
+     * +kubebuilder:example="mobileNumber"
      * </pre>
      *
      * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
@@ -4433,6 +4460,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Contact medium type identifier for chats originating from external
      * messenger integrations (e.g., "appKakao", "mobileNumber").
+     * +kubebuilder:example="mobileNumber"
      * </pre>
      *
      * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
@@ -4455,6 +4483,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session attached to this chat.
+     * +kubebuilder:example="meet-001"
      * </pre>
      *
      * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -4475,6 +4504,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session attached to this chat.
+     * +kubebuilder:example="meet-001"
      * </pre>
      *
      * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -4496,6 +4526,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session attached to this chat.
+     * +kubebuilder:example="meet-001"
      * </pre>
      *
      * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -4515,6 +4546,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session attached to this chat.
+     * +kubebuilder:example="meet-001"
      * </pre>
      *
      * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -4529,6 +4561,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the active live meet session attached to this chat.
+     * +kubebuilder:example="meet-001"
      * </pre>
      *
      * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -4942,6 +4975,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the external service user linked to this chat
      * via a messenger integration.
+     * +kubebuilder:example="xer-001"
      * </pre>
      *
      * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -4963,6 +4997,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the external service user linked to this chat
      * via a messenger integration.
+     * +kubebuilder:example="xer-001"
      * </pre>
      *
      * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -4985,6 +5020,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the external service user linked to this chat
      * via a messenger integration.
+     * +kubebuilder:example="xer-001"
      * </pre>
      *
      * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -5005,6 +5041,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the external service user linked to this chat
      * via a messenger integration.
+     * +kubebuilder:example="xer-001"
      * </pre>
      *
      * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -5020,6 +5057,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the external service user linked to this chat
      * via a messenger integration.
+     * +kubebuilder:example="xer-001"
      * </pre>
      *
      * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -5042,6 +5080,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of this chat shown to managers in the Desk.
+     * +kubebuilder:example="Customer Support"
      * </pre>
      *
      * <code>string name = 11 [json_name = "name"];</code>
@@ -5062,6 +5101,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of this chat shown to managers in the Desk.
+     * +kubebuilder:example="Customer Support"
      * </pre>
      *
      * <code>string name = 11 [json_name = "name"];</code>
@@ -5083,6 +5123,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of this chat shown to managers in the Desk.
+     * +kubebuilder:example="Customer Support"
      * </pre>
      *
      * <code>string name = 11 [json_name = "name"];</code>
@@ -5102,6 +5143,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of this chat shown to managers in the Desk.
+     * +kubebuilder:example="Customer Support"
      * </pre>
      *
      * <code>string name = 11 [json_name = "name"];</code>
@@ -5116,6 +5158,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of this chat shown to managers in the Desk.
+     * +kubebuilder:example="Customer Support"
      * </pre>
      *
      * <code>string name = 11 [json_name = "name"];</code>
@@ -5240,6 +5283,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Free-text note or summary attached to this chat by a manager.
      * +kubebuilder:validation:MaxLength=1000
+     * +kubebuilder:example="Billing inquiry"
      * </pre>
      *
      * <code>string description = 13 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -5261,6 +5305,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Free-text note or summary attached to this chat by a manager.
      * +kubebuilder:validation:MaxLength=1000
+     * +kubebuilder:example="Billing inquiry"
      * </pre>
      *
      * <code>string description = 13 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -5283,6 +5328,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Free-text note or summary attached to this chat by a manager.
      * +kubebuilder:validation:MaxLength=1000
+     * +kubebuilder:example="Billing inquiry"
      * </pre>
      *
      * <code>string description = 13 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -5303,6 +5349,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Free-text note or summary attached to this chat by a manager.
      * +kubebuilder:validation:MaxLength=1000
+     * +kubebuilder:example="Billing inquiry"
      * </pre>
      *
      * <code>string description = 13 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -5318,6 +5365,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Free-text note or summary attached to this chat by a manager.
      * +kubebuilder:validation:MaxLength=1000
+     * +kubebuilder:example="Billing inquiry"
      * </pre>
      *
      * <code>string description = 13 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -5998,6 +6046,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the team this chat is routed to for handling.
+     * +kubebuilder:example="team-001"
      * </pre>
      *
      * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -6018,6 +6067,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the team this chat is routed to for handling.
+     * +kubebuilder:example="team-001"
      * </pre>
      *
      * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -6039,6 +6089,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the team this chat is routed to for handling.
+     * +kubebuilder:example="team-001"
      * </pre>
      *
      * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -6058,6 +6109,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the team this chat is routed to for handling.
+     * +kubebuilder:example="team-001"
      * </pre>
      *
      * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -6072,6 +6124,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the team this chat is routed to for handling.
+     * +kubebuilder:example="team-001"
      * </pre>
      *
      * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -8111,6 +8164,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the latest message visible on the Desk (manager) side.
+     * +kubebuilder:example="msg-002"
      * </pre>
      *
      * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -8131,6 +8185,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the latest message visible on the Desk (manager) side.
+     * +kubebuilder:example="msg-002"
      * </pre>
      *
      * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -8152,6 +8207,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the latest message visible on the Desk (manager) side.
+     * +kubebuilder:example="msg-002"
      * </pre>
      *
      * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -8171,6 +8227,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the latest message visible on the Desk (manager) side.
+     * +kubebuilder:example="msg-002"
      * </pre>
      *
      * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -8185,6 +8242,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the latest message visible on the Desk (manager) side.
+     * +kubebuilder:example="msg-002"
      * </pre>
      *
      * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -8464,6 +8522,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the first manager assigned after the chat was opened.
      * Used for tracking initial response ownership.
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -8485,6 +8544,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the first manager assigned after the chat was opened.
      * Used for tracking initial response ownership.
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -8507,6 +8567,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the first manager assigned after the chat was opened.
      * Used for tracking initial response ownership.
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -8527,6 +8588,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the first manager assigned after the chat was opened.
      * Used for tracking initial response ownership.
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -8542,6 +8604,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the first manager assigned after the chat was opened.
      * Used for tracking initial response ownership.
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -8941,6 +9004,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Duration from chat open to the first manager reply (in milliseconds).
+     * +kubebuilder:example="60000"
      * </pre>
      *
      * <code>int64 waiting_time = 41 [json_name = "waitingTime"];</code>
@@ -8953,6 +9017,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Duration from chat open to the first manager reply (in milliseconds).
+     * +kubebuilder:example="60000"
      * </pre>
      *
      * <code>int64 waiting_time = 41 [json_name = "waitingTime"];</code>
@@ -8968,6 +9033,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Duration from chat open to the first manager reply (in milliseconds).
+     * +kubebuilder:example="60000"
      * </pre>
      *
      * <code>int64 waiting_time = 41 [json_name = "waitingTime"];</code>
@@ -8985,6 +9051,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Average time between a user's question and the manager's reply
      * (in milliseconds).
+     * +kubebuilder:example="45000"
      * </pre>
      *
      * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
@@ -8998,6 +9065,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Average time between a user's question and the manager's reply
      * (in milliseconds).
+     * +kubebuilder:example="45000"
      * </pre>
      *
      * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
@@ -9014,6 +9082,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Average time between a user's question and the manager's reply
      * (in milliseconds).
+     * +kubebuilder:example="45000"
      * </pre>
      *
      * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
@@ -9079,6 +9148,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of manager replies in this chat.
+     * +kubebuilder:example="3"
      * </pre>
      *
      * <code>int32 reply_count = 44 [json_name = "replyCount"];</code>
@@ -9091,6 +9161,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of manager replies in this chat.
+     * +kubebuilder:example="3"
      * </pre>
      *
      * <code>int32 reply_count = 44 [json_name = "replyCount"];</code>
@@ -9106,6 +9177,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of manager replies in this chat.
+     * +kubebuilder:example="3"
      * </pre>
      *
      * <code>int32 reply_count = 44 [json_name = "replyCount"];</code>
@@ -9122,6 +9194,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total duration from the first open to close (in milliseconds).
+     * +kubebuilder:example="300000"
      * </pre>
      *
      * <code>int64 resolution_time = 45 [json_name = "resolutionTime"];</code>
@@ -9134,6 +9207,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total duration from the first open to close (in milliseconds).
+     * +kubebuilder:example="300000"
      * </pre>
      *
      * <code>int64 resolution_time = 45 [json_name = "resolutionTime"];</code>
@@ -9149,6 +9223,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total duration from the first open to close (in milliseconds).
+     * +kubebuilder:example="300000"
      * </pre>
      *
      * <code>int64 resolution_time = 45 [json_name = "resolutionTime"];</code>
@@ -9214,6 +9289,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Average reply time counting only operating hours (in milliseconds).
+     * +kubebuilder:example="40000"
      * </pre>
      *
      * <code>int64 operation_avg_reply_time = 47 [json_name = "operationAvgReplyTime"];</code>
@@ -9226,6 +9302,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Average reply time counting only operating hours (in milliseconds).
+     * +kubebuilder:example="40000"
      * </pre>
      *
      * <code>int64 operation_avg_reply_time = 47 [json_name = "operationAvgReplyTime"];</code>
@@ -9241,6 +9318,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Average reply time counting only operating hours (in milliseconds).
+     * +kubebuilder:example="40000"
      * </pre>
      *
      * <code>int64 operation_avg_reply_time = 47 [json_name = "operationAvgReplyTime"];</code>
@@ -9258,6 +9336,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Sum of all reply durations counting only operating hours
      * (in milliseconds).
+     * +kubebuilder:example="80000"
      * </pre>
      *
      * <code>int64 operation_total_reply_time = 48 [json_name = "operationTotalReplyTime"];</code>
@@ -9271,6 +9350,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Sum of all reply durations counting only operating hours
      * (in milliseconds).
+     * +kubebuilder:example="80000"
      * </pre>
      *
      * <code>int64 operation_total_reply_time = 48 [json_name = "operationTotalReplyTime"];</code>
@@ -9287,6 +9367,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Sum of all reply durations counting only operating hours
      * (in milliseconds).
+     * +kubebuilder:example="80000"
      * </pre>
      *
      * <code>int64 operation_total_reply_time = 48 [json_name = "operationTotalReplyTime"];</code>
@@ -9349,6 +9430,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total resolution time counting only operating hours (in milliseconds).
+     * +kubebuilder:example="280000"
      * </pre>
      *
      * <code>int64 operation_resolution_time = 50 [json_name = "operationResolutionTime"];</code>
@@ -9361,6 +9443,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total resolution time counting only operating hours (in milliseconds).
+     * +kubebuilder:example="280000"
      * </pre>
      *
      * <code>int64 operation_resolution_time = 50 [json_name = "operationResolutionTime"];</code>
@@ -9376,6 +9459,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total resolution time counting only operating hours (in milliseconds).
+     * +kubebuilder:example="280000"
      * </pre>
      *
      * <code>int64 operation_resolution_time = 50 [json_name = "operationResolutionTime"];</code>

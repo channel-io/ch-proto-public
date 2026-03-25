@@ -82,6 +82,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Page summary extracted from Open Graph `og:description` or HTML meta description.
+   * +kubebuilder:example="API documentation page"
    * </pre>
    *
    * <code>string description = 4 [json_name = "description"];</code>
@@ -91,6 +92,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Page summary extracted from Open Graph `og:description` or HTML meta description.
+   * +kubebuilder:example="API documentation page"
    * </pre>
    *
    * <code>string description = 4 [json_name = "description"];</code>
@@ -124,6 +126,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Embedded video URL from Open Graph `og:video` metadata.
+   * +kubebuilder:example="https://example.com/video.mp4"
    * </pre>
    *
    * <code>string video_url = 6 [json_name = "videoUrl"];</code>
@@ -133,6 +136,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Embedded video URL from Open Graph `og:video` metadata.
+   * +kubebuilder:example="https://example.com/video.mp4"
    * </pre>
    *
    * <code>string video_url = 6 [json_name = "videoUrl"];</code>
@@ -166,6 +170,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Content author name extracted from page metadata.
+   * +kubebuilder:example="Channel Corp"
    * </pre>
    *
    * <code>string author = 8 [json_name = "author"];</code>
@@ -175,6 +180,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Content author name extracted from page metadata.
+   * +kubebuilder:example="Channel Corp"
    * </pre>
    *
    * <code>string author = 8 [json_name = "author"];</code>
@@ -197,6 +203,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Preview image height in pixels.
+   * +kubebuilder:example="630"
    * </pre>
    *
    * <code>int32 height = 10 [json_name = "height"];</code>
@@ -229,6 +236,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Storage key for the locally cached preview image.
+   * +kubebuilder:example="cache/preview.jpg"
    * </pre>
    *
    * <code>string preview_key = 12 [json_name = "previewKey"];</code>
@@ -238,6 +246,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Storage key for the locally cached preview image.
+   * +kubebuilder:example="cache/preview.jpg"
    * </pre>
    *
    * <code>string preview_key = 12 [json_name = "previewKey"];</code>
@@ -271,6 +280,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Site name from Open Graph `og:site_name` metadata.
+   * +kubebuilder:example="Channel Talk"
    * </pre>
    *
    * <code>string name = 14 [json_name = "name"];</code>
@@ -280,6 +290,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Site name from Open Graph `og:site_name` metadata.
+   * +kubebuilder:example="Channel Talk"
    * </pre>
    *
    * <code>string name = 14 [json_name = "name"];</code>

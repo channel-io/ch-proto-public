@@ -34,6 +34,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Plugin API key in UUID format.
+   * +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
    * </pre>
    *
    * <code>string key = 2 [json_name = "key"];</code>
@@ -43,6 +44,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Plugin API key in UUID format.
+   * +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
    * </pre>
    *
    * <code>string key = 2 [json_name = "key"];</code>
@@ -198,6 +200,7 @@ public interface PluginOrBuilder extends
    * Applicable when label_button is true.
    * +kubebuilder:validation:MinLength=4
    * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:example="Chat with us"
    * </pre>
    *
    * <code>string label_button_text = 9 [json_name = "labelButtonText", (.buf.validate.field) = { ... }</code>
@@ -210,6 +213,7 @@ public interface PluginOrBuilder extends
    * Applicable when label_button is true.
    * +kubebuilder:validation:MinLength=4
    * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:example="Chat with us"
    * </pre>
    *
    * <code>string label_button_text = 9 [json_name = "labelButtonText", (.buf.validate.field) = { ... }</code>
@@ -397,6 +401,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Vertical offset of the desktop widget from the bottom edge, in pixels.
+   * +kubebuilder:example="20"
    * </pre>
    *
    * <code>int32 desk_margin_y = 16 [json_name = "deskMarginY"];</code>
@@ -407,6 +412,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Whether the desktop launcher button is hidden while the widget remains accessible.
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool desk_hide_button = 17 [json_name = "deskHideButton"];</code>
@@ -477,6 +483,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Vertical offset of the mobile widget from the bottom edge, in pixels.
+   * +kubebuilder:example="16"
    * </pre>
    *
    * <code>int32 mobile_margin_y = 21 [json_name = "mobileMarginY"];</code>
@@ -621,6 +628,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Resolved URL of the custom launcher button image.
    * Automatically derived from custom_image.
+   * +kubebuilder:example="https://cdn.channel.io/plugin/custom.png"
    * </pre>
    *
    * <code>string custom_image_url = 28 [json_name = "customImageUrl"];</code>
@@ -631,6 +639,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Resolved URL of the custom launcher button image.
    * Automatically derived from custom_image.
+   * +kubebuilder:example="https://cdn.channel.io/plugin/custom.png"
    * </pre>
    *
    * <code>string custom_image_url = 28 [json_name = "customImageUrl"];</code>
@@ -667,6 +676,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Resolved URL of the mobile launcher image.
    * Automatically derived from mobile_image.
+   * +kubebuilder:example="https://cdn.channel.io/plugin/mobile.png"
    * </pre>
    *
    * <code>string mobile_image_url = 30 [json_name = "mobileImageUrl"];</code>
@@ -677,6 +687,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Resolved URL of the mobile launcher image.
    * Automatically derived from mobile_image.
+   * +kubebuilder:example="https://cdn.channel.io/plugin/mobile.png"
    * </pre>
    *
    * <code>string mobile_image_url = 30 [json_name = "mobileImageUrl"];</code>

@@ -54,6 +54,7 @@ public interface MessageWorkflowOrBuilder extends
   /**
    * <pre>
    * Current section within the workflow.
+   * +kubebuilder:example="sec-001"
    * </pre>
    *
    * <code>string section_id = 3 [json_name = "sectionId"];</code>
@@ -63,6 +64,7 @@ public interface MessageWorkflowOrBuilder extends
   /**
    * <pre>
    * Current section within the workflow.
+   * +kubebuilder:example="sec-001"
    * </pre>
    *
    * <code>string section_id = 3 [json_name = "sectionId"];</code>
@@ -86,6 +88,7 @@ public interface MessageWorkflowOrBuilder extends
    * <pre>
    * Identifier of the button the user selected to submit a response.
    * Present only on messages recording the user's button selection.
+   * +kubebuilder:example="btn-001"
    * </pre>
    *
    * <code>string submit_button_id = 5 [json_name = "submitButtonId"];</code>
@@ -96,6 +99,7 @@ public interface MessageWorkflowOrBuilder extends
    * <pre>
    * Identifier of the button the user selected to submit a response.
    * Present only on messages recording the user's button selection.
+   * +kubebuilder:example="btn-001"
    * </pre>
    *
    * <code>string submit_button_id = 5 [json_name = "submitButtonId"];</code>

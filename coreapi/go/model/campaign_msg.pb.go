@@ -38,6 +38,7 @@ type CampaignMsg struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="cpn-001"
 	CampaignId string `protobuf:"bytes,2,opt,name=campaign_id,json=campaignId,proto3" json:"campaign_id,omitempty"`
 	// Channel ID this campaign message belongs to.
 	//
@@ -48,6 +49,7 @@ type CampaignMsg struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="Welcome Message"
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Channel through which this message is delivered.
 	// Cannot be changed after creation.
@@ -76,8 +78,12 @@ type CampaignMsg struct {
 	// +kubebuilder:example="100"
 	Sent int32 `protobuf:"varint,10,opt,name=sent,proto3" json:"sent,omitempty"`
 	// Cumulative count of message views by recipients for this variant.
+	//
+	// +kubebuilder:example="50"
 	View int32 `protobuf:"varint,11,opt,name=view,proto3" json:"view,omitempty"`
 	// Cumulative count of goal event completions attributed to this variant.
+	//
+	// +kubebuilder:example="10"
 	Goal int32 `protobuf:"varint,12,opt,name=goal,proto3" json:"goal,omitempty"`
 	// Cumulative count of message link clicks for this variant.
 	//

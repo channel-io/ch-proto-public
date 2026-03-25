@@ -106,6 +106,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * ID of the unified identity when multiple user records have been merged.
+   * +kubebuilder:example="u-unified-001"
    * </pre>
    *
    * <code>string unified_id = 5 [json_name = "unifiedId"];</code>
@@ -115,6 +116,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * ID of the unified identity when multiple user records have been merged.
+   * +kubebuilder:example="u-unified-001"
    * </pre>
    *
    * <code>string unified_id = 5 [json_name = "unifiedId"];</code>
@@ -197,6 +199,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Total number of unread messages across all of the user's chats.
+   * +kubebuilder:example="0"
    * </pre>
    *
    * <code>int32 unread = 9 [json_name = "unread"];</code>
@@ -207,6 +210,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * ID of the chat currently displayed as a pop-up widget to the user.
+   * +kubebuilder:example="uc-popup-001"
    * </pre>
    *
    * <code>string pop_up_chat_id = 10 [json_name = "popUpChatId"];</code>
@@ -216,6 +220,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * ID of the chat currently displayed as a pop-up widget to the user.
+   * +kubebuilder:example="uc-popup-001"
    * </pre>
    *
    * <code>string pop_up_chat_id = 10 [json_name = "popUpChatId"];</code>
@@ -474,6 +479,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Whether the user has opted out of email notifications.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool unsubscribe_email = 20 [json_name = "unsubscribeEmail", (.buf.validate.field) = { ... }</code>
@@ -550,6 +556,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Whether the user has opted out of mobile app push notifications.
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool unsubscribe_app_push = 24 [json_name = "unsubscribeAppPush"];</code>
@@ -615,6 +622,7 @@ public interface UserOrBuilder extends
    * Whether the user has a display name set in the profile
    * (name, firstName, or lastName).
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool named = 27 [json_name = "named", (.buf.validate.field) = { ... }</code>
@@ -651,6 +659,7 @@ public interface UserOrBuilder extends
    * Whether the user's mobile number has passed format validation
    * and is eligible for SMS delivery.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool mobile_number_qualified = 29 [json_name = "mobileNumberQualified", (.buf.validate.field) = { ... }</code>
@@ -697,6 +706,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Whether the user has at least one managed chat conversation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool has_chat = 32 [json_name = "hasChat", (.buf.validate.field) = { ... }</code>
@@ -763,6 +773,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Latitude coordinate derived from IP geolocation.
+   * +kubebuilder:example="37.4979"
    * </pre>
    *
    * <code>double latitude = 36 [json_name = "latitude"];</code>
@@ -773,6 +784,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Longitude coordinate derived from IP geolocation.
+   * +kubebuilder:example="127.0276"
    * </pre>
    *
    * <code>double longitude = 37 [json_name = "longitude"];</code>
@@ -876,6 +888,7 @@ public interface UserOrBuilder extends
    * <pre>
    * Whether the user is blocked from initiating new chats.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool blocked = 42 [json_name = "blocked", (.buf.validate.field) = { ... }</code>
@@ -910,6 +923,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Sort key used for ordering users in the managed contact list.
+   * +kubebuilder:example="1"
    * </pre>
    *
    * <code>int64 managed_key = 44 [json_name = "managedKey"];</code>

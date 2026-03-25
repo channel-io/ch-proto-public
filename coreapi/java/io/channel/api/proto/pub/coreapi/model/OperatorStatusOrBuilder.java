@@ -36,6 +36,7 @@ public interface OperatorStatusOrBuilder extends
    * Manager ID this operator status belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string manager_id = 2 [json_name = "managerId", (.buf.validate.field) = { ... }</code>
@@ -47,6 +48,7 @@ public interface OperatorStatusOrBuilder extends
    * Manager ID this operator status belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string manager_id = 2 [json_name = "managerId", (.buf.validate.field) = { ... }</code>

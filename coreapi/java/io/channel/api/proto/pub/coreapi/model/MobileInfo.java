@@ -205,6 +205,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Operating system version string (e.g. "17.2", "14").
+   * +kubebuilder:example="17.2"
    * </pre>
    *
    * <code>string os = 2 [json_name = "os"];</code>
@@ -226,6 +227,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Operating system version string (e.g. "17.2", "14").
+   * +kubebuilder:example="17.2"
    * </pre>
    *
    * <code>string os = 2 [json_name = "os"];</code>
@@ -251,6 +253,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Operating system name (e.g. "iOS", "Android").
+   * +kubebuilder:example="iOS"
    * </pre>
    *
    * <code>string os_name = 3 [json_name = "osName"];</code>
@@ -272,6 +275,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Operating system name (e.g. "iOS", "Android").
+   * +kubebuilder:example="iOS"
    * </pre>
    *
    * <code>string os_name = 3 [json_name = "osName"];</code>
@@ -345,6 +349,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Version of the host application embedding the Channel SDK.
+   * +kubebuilder:example="2.1.0"
    * </pre>
    *
    * <code>string app_version = 5 [json_name = "appVersion"];</code>
@@ -366,6 +371,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Version of the host application embedding the Channel SDK.
+   * +kubebuilder:example="2.1.0"
    * </pre>
    *
    * <code>string app_version = 5 [json_name = "appVersion"];</code>
@@ -391,6 +397,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel SDK platform name (e.g. "ios", "android", "react-native").
+   * +kubebuilder:example="ios"
    * </pre>
    *
    * <code>string sdk_name = 6 [json_name = "sdkName"];</code>
@@ -412,6 +419,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel SDK platform name (e.g. "ios", "android", "react-native").
+   * +kubebuilder:example="ios"
    * </pre>
    *
    * <code>string sdk_name = 6 [json_name = "sdkName"];</code>
@@ -486,6 +494,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Cumulative number of mobile sessions recorded for this user.
    * Incremented on each new session.
+   * +kubebuilder:example="3"
    * </pre>
    *
    * <code>int32 sessions_count = 8 [json_name = "sessionsCount"];</code>
@@ -1095,6 +1104,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operating system version string (e.g. "17.2", "14").
+     * +kubebuilder:example="17.2"
      * </pre>
      *
      * <code>string os = 2 [json_name = "os"];</code>
@@ -1115,6 +1125,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operating system version string (e.g. "17.2", "14").
+     * +kubebuilder:example="17.2"
      * </pre>
      *
      * <code>string os = 2 [json_name = "os"];</code>
@@ -1136,6 +1147,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operating system version string (e.g. "17.2", "14").
+     * +kubebuilder:example="17.2"
      * </pre>
      *
      * <code>string os = 2 [json_name = "os"];</code>
@@ -1155,6 +1167,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operating system version string (e.g. "17.2", "14").
+     * +kubebuilder:example="17.2"
      * </pre>
      *
      * <code>string os = 2 [json_name = "os"];</code>
@@ -1169,6 +1182,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operating system version string (e.g. "17.2", "14").
+     * +kubebuilder:example="17.2"
      * </pre>
      *
      * <code>string os = 2 [json_name = "os"];</code>
@@ -1191,6 +1205,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operating system name (e.g. "iOS", "Android").
+     * +kubebuilder:example="iOS"
      * </pre>
      *
      * <code>string os_name = 3 [json_name = "osName"];</code>
@@ -1211,6 +1226,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operating system name (e.g. "iOS", "Android").
+     * +kubebuilder:example="iOS"
      * </pre>
      *
      * <code>string os_name = 3 [json_name = "osName"];</code>
@@ -1232,6 +1248,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operating system name (e.g. "iOS", "Android").
+     * +kubebuilder:example="iOS"
      * </pre>
      *
      * <code>string os_name = 3 [json_name = "osName"];</code>
@@ -1251,6 +1268,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operating system name (e.g. "iOS", "Android").
+     * +kubebuilder:example="iOS"
      * </pre>
      *
      * <code>string os_name = 3 [json_name = "osName"];</code>
@@ -1265,6 +1283,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operating system name (e.g. "iOS", "Android").
+     * +kubebuilder:example="iOS"
      * </pre>
      *
      * <code>string os_name = 3 [json_name = "osName"];</code>
@@ -1388,6 +1407,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Version of the host application embedding the Channel SDK.
+     * +kubebuilder:example="2.1.0"
      * </pre>
      *
      * <code>string app_version = 5 [json_name = "appVersion"];</code>
@@ -1408,6 +1428,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Version of the host application embedding the Channel SDK.
+     * +kubebuilder:example="2.1.0"
      * </pre>
      *
      * <code>string app_version = 5 [json_name = "appVersion"];</code>
@@ -1429,6 +1450,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Version of the host application embedding the Channel SDK.
+     * +kubebuilder:example="2.1.0"
      * </pre>
      *
      * <code>string app_version = 5 [json_name = "appVersion"];</code>
@@ -1448,6 +1470,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Version of the host application embedding the Channel SDK.
+     * +kubebuilder:example="2.1.0"
      * </pre>
      *
      * <code>string app_version = 5 [json_name = "appVersion"];</code>
@@ -1462,6 +1485,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Version of the host application embedding the Channel SDK.
+     * +kubebuilder:example="2.1.0"
      * </pre>
      *
      * <code>string app_version = 5 [json_name = "appVersion"];</code>
@@ -1484,6 +1508,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel SDK platform name (e.g. "ios", "android", "react-native").
+     * +kubebuilder:example="ios"
      * </pre>
      *
      * <code>string sdk_name = 6 [json_name = "sdkName"];</code>
@@ -1504,6 +1529,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel SDK platform name (e.g. "ios", "android", "react-native").
+     * +kubebuilder:example="ios"
      * </pre>
      *
      * <code>string sdk_name = 6 [json_name = "sdkName"];</code>
@@ -1525,6 +1551,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel SDK platform name (e.g. "ios", "android", "react-native").
+     * +kubebuilder:example="ios"
      * </pre>
      *
      * <code>string sdk_name = 6 [json_name = "sdkName"];</code>
@@ -1544,6 +1571,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel SDK platform name (e.g. "ios", "android", "react-native").
+     * +kubebuilder:example="ios"
      * </pre>
      *
      * <code>string sdk_name = 6 [json_name = "sdkName"];</code>
@@ -1558,6 +1586,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel SDK platform name (e.g. "ios", "android", "react-native").
+     * +kubebuilder:example="ios"
      * </pre>
      *
      * <code>string sdk_name = 6 [json_name = "sdkName"];</code>
@@ -1682,6 +1711,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Cumulative number of mobile sessions recorded for this user.
      * Incremented on each new session.
+     * +kubebuilder:example="3"
      * </pre>
      *
      * <code>int32 sessions_count = 8 [json_name = "sessionsCount"];</code>
@@ -1695,6 +1725,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Cumulative number of mobile sessions recorded for this user.
      * Incremented on each new session.
+     * +kubebuilder:example="3"
      * </pre>
      *
      * <code>int32 sessions_count = 8 [json_name = "sessionsCount"];</code>
@@ -1711,6 +1742,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Cumulative number of mobile sessions recorded for this user.
      * Incremented on each new session.
+     * +kubebuilder:example="3"
      * </pre>
      *
      * <code>int32 sessions_count = 8 [json_name = "sessionsCount"];</code>

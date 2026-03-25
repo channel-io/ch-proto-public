@@ -98,6 +98,7 @@ public interface MessageLogOrBuilder extends
   /**
    * <pre>
    * Identifier of the entity that triggered this action.
+   * +kubebuilder:example="wf-001"
    * </pre>
    *
    * <code>string trigger_id = 4 [json_name = "triggerId"];</code>
@@ -107,6 +108,7 @@ public interface MessageLogOrBuilder extends
   /**
    * <pre>
    * Identifier of the entity that triggered this action.
+   * +kubebuilder:example="wf-001"
    * </pre>
    *
    * <code>string trigger_id = 4 [json_name = "triggerId"];</code>

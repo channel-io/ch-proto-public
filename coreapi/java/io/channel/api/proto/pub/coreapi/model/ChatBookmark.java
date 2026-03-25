@@ -413,6 +413,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Entity version number for optimistic concurrency control.
+   * +kubebuilder:example="1"
    * </pre>
    *
    * <code>int64 version = 6 [json_name = "version"];</code>
@@ -1587,6 +1588,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Entity version number for optimistic concurrency control.
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int64 version = 6 [json_name = "version"];</code>
@@ -1599,6 +1601,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Entity version number for optimistic concurrency control.
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int64 version = 6 [json_name = "version"];</code>
@@ -1614,6 +1617,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Entity version number for optimistic concurrency control.
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int64 version = 6 [json_name = "version"];</code>

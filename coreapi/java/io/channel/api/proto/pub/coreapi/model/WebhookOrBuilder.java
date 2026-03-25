@@ -61,6 +61,7 @@ public interface WebhookOrBuilder extends
    * Unique within the channel.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="Order Webhook"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -73,6 +74,7 @@ public interface WebhookOrBuilder extends
    * Unique within the channel.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="Order Webhook"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -279,6 +281,7 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Whether the webhook is currently blocked due to excessive delivery failures.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool blocked = 10 [json_name = "blocked", (.buf.validate.field) = { ... }</code>

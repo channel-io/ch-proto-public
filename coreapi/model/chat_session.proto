@@ -52,6 +52,7 @@ message ChatSession {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="userChat-uc-abc123"
   string chat_key = 4 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -98,6 +99,7 @@ message ChatSession {
   // Number of unread messages with alert-level notification priority.
   // Defaults to 0.
   //
+  // +kubebuilder:example="0"
   int32 alert = 8;
 
   // Total number of unread messages in this session.
@@ -113,6 +115,7 @@ message ChatSession {
   // Whether @all mentions trigger alert-level notifications in this session.
   // When absent, inherits from the manager-level default setting.
   //
+  // +kubebuilder:example="true"
   bool all_mention_important = 11;
 
   // Timestamp when the person last read messages in this session.
@@ -147,6 +150,7 @@ message ChatSession {
   // Format: "{key}-{chatId}".
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="manager-m001-userChat-uc-abc123"
   string id = 18 [(buf.validate.field).required = true];
 
   // Chat type of the conversation (e.g., "userChat", "group", "directChat").

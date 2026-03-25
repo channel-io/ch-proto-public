@@ -169,6 +169,7 @@ private static final long serialVersionUID = 0L;
    * Type of the person (e.g., manager, user).
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="manager"
    * </pre>
    *
    * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -192,6 +193,7 @@ private static final long serialVersionUID = 0L;
    * Type of the person (e.g., manager, user).
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="manager"
    * </pre>
    *
    * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -781,6 +783,7 @@ private static final long serialVersionUID = 0L;
      * Type of the person (e.g., manager, user).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager"
      * </pre>
      *
      * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -803,6 +806,7 @@ private static final long serialVersionUID = 0L;
      * Type of the person (e.g., manager, user).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager"
      * </pre>
      *
      * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -826,6 +830,7 @@ private static final long serialVersionUID = 0L;
      * Type of the person (e.g., manager, user).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager"
      * </pre>
      *
      * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -847,6 +852,7 @@ private static final long serialVersionUID = 0L;
      * Type of the person (e.g., manager, user).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager"
      * </pre>
      *
      * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -863,6 +869,7 @@ private static final long serialVersionUID = 0L;
      * Type of the person (e.g., manager, user).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager"
      * </pre>
      *
      * <code>string person_type = 2 [json_name = "personType", (.buf.validate.field) = { ... }</code>

@@ -385,6 +385,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Destination phone number or callee identifier.
+   * +kubebuilder:example="+821098765432"
    * </pre>
    *
    * <code>string to = 6 [json_name = "to"];</code>
@@ -406,6 +407,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Destination phone number or callee identifier.
+   * +kubebuilder:example="+821098765432"
    * </pre>
    *
    * <code>string to = 6 [json_name = "to"];</code>
@@ -1690,6 +1692,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Destination phone number or callee identifier.
+     * +kubebuilder:example="+821098765432"
      * </pre>
      *
      * <code>string to = 6 [json_name = "to"];</code>
@@ -1710,6 +1713,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Destination phone number or callee identifier.
+     * +kubebuilder:example="+821098765432"
      * </pre>
      *
      * <code>string to = 6 [json_name = "to"];</code>
@@ -1731,6 +1735,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Destination phone number or callee identifier.
+     * +kubebuilder:example="+821098765432"
      * </pre>
      *
      * <code>string to = 6 [json_name = "to"];</code>
@@ -1750,6 +1755,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Destination phone number or callee identifier.
+     * +kubebuilder:example="+821098765432"
      * </pre>
      *
      * <code>string to = 6 [json_name = "to"];</code>
@@ -1764,6 +1770,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Destination phone number or callee identifier.
+     * +kubebuilder:example="+821098765432"
      * </pre>
      *
      * <code>string to = 6 [json_name = "to"];</code>
