@@ -69,6 +69,7 @@ message Manager {
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
   // +kubebuilder:validation:Pattern="^[^@#$%:/\]+$"
+  // +kubebuilder:example="John Doe"
   string name = 4 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -98,6 +99,7 @@ message Manager {
   // Whether the description is visible to end-user visitors.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool show_description_to_front = 6 [(buf.validate.field).required = true];
 
   // Internationalized name and description overrides keyed by locale (e.g., en, ko).
@@ -117,6 +119,7 @@ message Manager {
   // Whether the email address is visible to end-user visitors.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool show_email_to_front = 10 [(buf.validate.field).required = true];
 
   // Manager mobile phone number in E.164 format (e.g., +821012345678).
@@ -127,6 +130,7 @@ message Manager {
   // Whether the mobile number is visible to end-user visitors.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool show_mobile_number_to_front = 12 [(buf.validate.field).required = true];
 
   // Role ID assigned to this manager, defining permissions and access levels.
@@ -137,6 +141,7 @@ message Manager {
   // Whether this manager has been soft-deleted from the channel.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool removed = 14 [(buf.validate.field).required = true];
 
   // Manager creation timestamp.
@@ -194,6 +199,7 @@ message Manager {
   // Whether to include a preview of internal (private) messages in push notifications.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="true"
   bool show_private_message_preview = 25 [(buf.validate.field).required = true];
 
   // Performance score reflecting the manager's conversation handling efficiency.
@@ -205,6 +211,7 @@ message Manager {
   // Engagement score reflecting the frequency of customer interactions.
   // Decays over time when the manager is inactive.
   //
+  // +kubebuilder:example="0.75"
   float touch_score = 27;
 
   // Whether periodic email reminders for unhandled conversations are enabled.
@@ -216,6 +223,7 @@ message Manager {
   // Whether to receive alerts when a new conversation is waiting to be assigned.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="true"
   bool receive_unassigned_alert = 29 [(buf.validate.field).required = true];
 
   // Whether to receive alerts for conversations that were not responded to in time.
@@ -227,6 +235,7 @@ message Manager {
   // Whether to receive alerts specifically for unassigned chat conversations.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="true"
   bool receive_unassigned_chat_alert = 31 [(buf.validate.field).required = true];
 
   // Whether to receive alerts for unassigned meet (call) sessions.
@@ -238,10 +247,12 @@ message Manager {
   // Whether this manager is currently active as an operator handling customer conversations.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool operator = 33 [(buf.validate.field).required = true];
 
   // Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
   //
+  // +kubebuilder:example="m-abc123"
   string operator_status_id = 34;
 
   // Whether @all mentions in conversations are automatically marked as important.
@@ -253,6 +264,7 @@ message Manager {
   // Whether incoming user messages are automatically marked as important.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="true"
   bool user_message_important = 36 [(buf.validate.field).required = true];
 
   // User chat types this manager can be auto-assigned to (e.g., sync, async).
@@ -273,6 +285,7 @@ message Manager {
   // Whether auto-assignment is enabled when the manager joins a synchronous chat session.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="true"
   bool enable_auto_assign_on_sync = 39 [(buf.validate.field).required = true];
 
   // Emoji displayed alongside the manager name as a status indicator.
@@ -309,6 +322,7 @@ message Manager {
   // Whether account-level do-not-disturb mode is active across all channels.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool account_do_not_disturb = 45 [(buf.validate.field).required = true];
 
   // Timestamp when account-level do-not-disturb mode automatically deactivates.

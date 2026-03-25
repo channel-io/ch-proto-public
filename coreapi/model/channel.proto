@@ -161,6 +161,7 @@ message Channel {
   // Whether to display individual operator profiles instead of the channel identity to end users.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="true"
   bool show_operator_profile = 19 [(buf.validate.field).required = true];
 
   // Whether the new chat button is hidden from end users.
@@ -178,6 +179,7 @@ message Channel {
   // Whether SMS/text follow-up is enabled for offline conversations.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="true"
   bool follow_up_texting = 22 [(buf.validate.field).required = true];
 
   // Whether email follow-up is enabled for offline conversations.
@@ -189,6 +191,7 @@ message Channel {
   // Whether the follow-up form asks for the user's name.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool follow_up_ask_name = 24 [(buf.validate.field).required = true];
 
   // Whether the follow-up form must be completed before the user can start a conversation.
@@ -210,6 +213,7 @@ message Channel {
 
   // Default plugin identifier used by the messenger widget.
   //
+  // +kubebuilder:example="plg-001"
   string default_plugin_id = 28;
 
   // Industry or business category of the channel (e.g., "E-commerce", "SaaS").
@@ -219,10 +223,12 @@ message Channel {
 
   // Number of staff members in the organization.
   //
+  // +kubebuilder:example="10"
   int32 staffs = 30;
 
   // Integrated e-commerce platform app identifier.
   //
+  // +kubebuilder:example="commerce-001"
   string app_commerce_id = 31;
 
   // Integrated e-commerce platform type (e.g., Shopify, Cafe24).
@@ -232,11 +238,13 @@ message Channel {
 
   // Domain of the integrated e-commerce platform.
   //
+  // +kubebuilder:example="myshop.myshopify.com"
   string app_commerce_domain = 33;
 
   // Whether member identity hash verification is enabled.
   // When enabled, member logins require an HMAC hash to prevent impersonation.
   //
+  // +kubebuilder:example="false"
   bool enable_member_hash = 34;
 
   // Default email domain identifier used for outbound emails sent from this channel.
@@ -247,6 +255,7 @@ message Channel {
   // Whether multi-factor authentication is required for managers in this channel.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool enable_mfa = 36 [(buf.validate.field).required = true];
 
   // Whether the messenger widget is hidden from end users on the website.
@@ -259,6 +268,7 @@ message Channel {
   // Derived from biz_certificated_countries; true when at least one country is certified.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool biz_certificated = 38 [(buf.validate.field).required = true];
 
   // Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
@@ -282,6 +292,7 @@ message Channel {
   // Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool blocked = 42 [(buf.validate.field).required = true];
 
   // Whether the channel is currently accepting new conversations.
@@ -313,6 +324,7 @@ message Channel {
   // When false, the channel is always considered in operation.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="true"
   bool operation_time_scheduling = 47 [(buf.validate.field).required = true];
 
   // Timestamp when the next operating period starts.
@@ -347,6 +359,7 @@ message Channel {
 
   // Border accent color derived from the theme color, in hex format.
   //
+  // +kubebuilder:example="#3B82F6"
   string border_color = 54;
 
   // Gradient accent color derived from the theme color, in hex format.
@@ -356,10 +369,12 @@ message Channel {
 
   // Text color for contrast against the theme color, in hex format.
   //
+  // +kubebuilder:example="#FFFFFF"
   string text_color = 56;
 
   // First character of the channel name, used as a fallback when no avatar is set.
   //
+  // +kubebuilder:example="C"
   string initial = 57;
 
   // Resolved domain for the channel.
@@ -370,11 +385,13 @@ message Channel {
 
   // Icon color for the messenger plugin widget, derived from the theme color, in hex format.
   //
+  // +kubebuilder:example="#FFFFFF"
   string plugin_icon_color = 59;
 
   // Theme color brightness value normalized to 0.0 -- 1.0 range.
   // Derived from the theme color.
   //
+  // +kubebuilder:example="0.75"
   float brightness = 60;
 
   // Cover image URL for the channel profile page.
@@ -385,5 +402,6 @@ message Channel {
   // Whether the cover image has a bright tone.
   // Derived from the cover_image_color field.
   //
+  // +kubebuilder:example="true"
   bool cover_image_bright = 62;
 }

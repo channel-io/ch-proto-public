@@ -25,6 +25,7 @@ message CampaignMsg {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="cpn-001"
   string campaign_id = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -44,6 +45,7 @@ message CampaignMsg {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="Welcome Message"
   string name = 4 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -87,10 +89,12 @@ message CampaignMsg {
 
   // Cumulative count of message views by recipients for this variant.
   //
+  // +kubebuilder:example="50"
   int32 view = 11;
 
   // Cumulative count of goal event completions attributed to this variant.
   //
+  // +kubebuilder:example="10"
   int32 goal = 12;
 
   // Cumulative count of message link clicks for this variant.
