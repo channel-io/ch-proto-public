@@ -2502,7 +2502,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether end-user replying is blocked after a conversation is closed.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="false"
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed", (.buf.validate.field) = { ... }</code>
@@ -9395,7 +9395,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether end-user replying is blocked after a conversation is closed.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="false"
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed", (.buf.validate.field) = { ... }</code>
@@ -9409,7 +9409,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether end-user replying is blocked after a conversation is closed.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="false"
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed", (.buf.validate.field) = { ... }</code>
@@ -9426,7 +9426,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether end-user replying is blocked after a conversation is closed.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="false"
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed", (.buf.validate.field) = { ... }</code>

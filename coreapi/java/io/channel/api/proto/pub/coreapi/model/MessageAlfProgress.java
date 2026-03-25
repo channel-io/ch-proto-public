@@ -154,7 +154,7 @@ private static final long serialVersionUID = 0L;
    * Discriminator that identifies the progress variant and determines additional fields.
    * Currently supported: "agenticSearch".
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="campaign"
+   * +kubebuilder:example="agenticSearch"
    * </pre>
    *
    * <code>string type = 2 [json_name = "type", (.buf.validate.field) = { ... }</code>
@@ -178,7 +178,7 @@ private static final long serialVersionUID = 0L;
    * Discriminator that identifies the progress variant and determines additional fields.
    * Currently supported: "agenticSearch".
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="campaign"
+   * +kubebuilder:example="agenticSearch"
    * </pre>
    *
    * <code>string type = 2 [json_name = "type", (.buf.validate.field) = { ... }</code>
@@ -630,7 +630,7 @@ private static final long serialVersionUID = 0L;
      * Discriminator that identifies the progress variant and determines additional fields.
      * Currently supported: "agenticSearch".
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="campaign"
+     * +kubebuilder:example="agenticSearch"
      * </pre>
      *
      * <code>string type = 2 [json_name = "type", (.buf.validate.field) = { ... }</code>
@@ -653,7 +653,7 @@ private static final long serialVersionUID = 0L;
      * Discriminator that identifies the progress variant and determines additional fields.
      * Currently supported: "agenticSearch".
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="campaign"
+     * +kubebuilder:example="agenticSearch"
      * </pre>
      *
      * <code>string type = 2 [json_name = "type", (.buf.validate.field) = { ... }</code>
@@ -677,7 +677,7 @@ private static final long serialVersionUID = 0L;
      * Discriminator that identifies the progress variant and determines additional fields.
      * Currently supported: "agenticSearch".
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="campaign"
+     * +kubebuilder:example="agenticSearch"
      * </pre>
      *
      * <code>string type = 2 [json_name = "type", (.buf.validate.field) = { ... }</code>
@@ -699,7 +699,7 @@ private static final long serialVersionUID = 0L;
      * Discriminator that identifies the progress variant and determines additional fields.
      * Currently supported: "agenticSearch".
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="campaign"
+     * +kubebuilder:example="agenticSearch"
      * </pre>
      *
      * <code>string type = 2 [json_name = "type", (.buf.validate.field) = { ... }</code>
@@ -716,7 +716,7 @@ private static final long serialVersionUID = 0L;
      * Discriminator that identifies the progress variant and determines additional fields.
      * Currently supported: "agenticSearch".
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="campaign"
+     * +kubebuilder:example="agenticSearch"
      * </pre>
      *
      * <code>string type = 2 [json_name = "type", (.buf.validate.field) = { ... }</code>

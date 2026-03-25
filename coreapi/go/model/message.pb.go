@@ -1722,7 +1722,7 @@ type MessageAlfProgress struct {
 	// Currently supported: "agenticSearch".
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="campaign"
+	// +kubebuilder:example="agenticSearch"
 	Type          string `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

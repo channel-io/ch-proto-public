@@ -672,7 +672,7 @@ public interface UserOrBuilder extends
    * Whether the user's email address has passed format validation
    * and is eligible for email delivery.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="true"
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool email_qualified = 30 [json_name = "emailQualified", (.buf.validate.field) = { ... }</code>

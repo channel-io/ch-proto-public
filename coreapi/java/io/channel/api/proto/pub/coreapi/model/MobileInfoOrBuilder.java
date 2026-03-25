@@ -10,7 +10,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Device model name (e.g. "iPhone 15", "Galaxy S24").
-   * +kubebuilder:example="desktop"
+   * +kubebuilder:example="iPhone 15"
    * </pre>
    *
    * <code>string device = 1 [json_name = "device"];</code>
@@ -20,7 +20,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Device model name (e.g. "iPhone 15", "Galaxy S24").
-   * +kubebuilder:example="desktop"
+   * +kubebuilder:example="iPhone 15"
    * </pre>
    *
    * <code>string device = 1 [json_name = "device"];</code>
