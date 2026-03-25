@@ -349,7 +349,7 @@ message Channel {
   // Whether end-user replying is blocked after a conversation is closed.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="false"
+  // +kubebuilder:example="true"
   bool block_replying_after_closed = 52 [(buf.validate.field).required = true];
 
   // Grace period after conversation closure during which the end user may still reply.
