@@ -612,7 +612,7 @@ message MessageAlfProgress {
   // Currently supported: "agenticSearch".
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="campaign"
+  // +kubebuilder:example="agenticSearch"
   string type = 2 [(buf.validate.field).required = true];
 }
 
