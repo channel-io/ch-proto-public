@@ -49,6 +49,7 @@ type ChatSession struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="userChat-uc-abc123"
 	ChatKey string `protobuf:"bytes,4,opt,name=chat_key,json=chatKey,proto3" json:"chat_key,omitempty"`
 	// Opaque sort key for ordering sessions by last activity.
 	//
@@ -69,6 +70,8 @@ type ChatSession struct {
 	ChannelId string `protobuf:"bytes,7,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Number of unread messages with alert-level notification priority.
 	// Defaults to 0.
+	//
+	// +kubebuilder:example="0"
 	Alert int32 `protobuf:"varint,8,opt,name=alert,proto3" json:"alert,omitempty"`
 	// Total number of unread messages in this session.
 	// Defaults to 0.
@@ -79,6 +82,8 @@ type ChatSession struct {
 	Watch SessionWatch `protobuf:"varint,10,opt,name=watch,proto3,enum=coreapi.model.SessionWatch" json:"watch,omitempty"`
 	// Whether @all mentions trigger alert-level notifications in this session.
 	// When absent, inherits from the manager-level default setting.
+	//
+	// +kubebuilder:example="true"
 	AllMentionImportant bool `protobuf:"varint,11,opt,name=all_mention_important,json=allMentionImportant,proto3" json:"all_mention_important,omitempty"`
 	// Timestamp when the person last read messages in this session.
 	ReadAt *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=read_at,json=readAt,proto3" json:"read_at,omitempty"`
@@ -103,6 +108,7 @@ type ChatSession struct {
 	// Format: "{key}-{chatId}".
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="manager-m001-userChat-uc-abc123"
 	Id string `protobuf:"bytes,18,opt,name=id,proto3" json:"id,omitempty"`
 	// Chat type of the conversation (e.g., "userChat", "group", "directChat").
 	//

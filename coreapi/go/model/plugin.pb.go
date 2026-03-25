@@ -389,6 +389,8 @@ type Plugin struct {
 	// +kubebuilder:example="plg-001"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Plugin API key in UUID format.
+	//
+	// +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
 	Key string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
 	// Channel ID this plugin belongs to.
 	//
@@ -427,6 +429,7 @@ type Plugin struct {
 	//
 	// +kubebuilder:validation:MinLength=4
 	// +kubebuilder:validation:MaxLength=30
+	// +kubebuilder:example="Chat with us"
 	LabelButtonText string `protobuf:"bytes,9,opt,name=label_button_text,json=labelButtonText,proto3" json:"label_button_text,omitempty"`
 	// Localized label button text, keyed by locale code (e.g., "en", "ko").
 	// Overrides label_button_text for matching locales.
@@ -452,8 +455,12 @@ type Plugin struct {
 	// +kubebuilder:example="20"
 	DeskMarginX int32 `protobuf:"varint,15,opt,name=desk_margin_x,json=deskMarginX,proto3" json:"desk_margin_x,omitempty"`
 	// Vertical offset of the desktop widget from the bottom edge, in pixels.
+	//
+	// +kubebuilder:example="20"
 	DeskMarginY int32 `protobuf:"varint,16,opt,name=desk_margin_y,json=deskMarginY,proto3" json:"desk_margin_y,omitempty"`
 	// Whether the desktop launcher button is hidden while the widget remains accessible.
+	//
+	// +kubebuilder:example="false"
 	DeskHideButton bool `protobuf:"varint,17,opt,name=desk_hide_button,json=deskHideButton,proto3" json:"desk_hide_button,omitempty"`
 	// Horizontal anchor position of the desktop widget.
 	DeskPosition PluginPosition `protobuf:"varint,18,opt,name=desk_position,json=deskPosition,proto3,enum=coreapi.model.PluginPosition" json:"desk_position,omitempty"`
@@ -465,6 +472,8 @@ type Plugin struct {
 	// +kubebuilder:example="16"
 	MobileMarginX int32 `protobuf:"varint,20,opt,name=mobile_margin_x,json=mobileMarginX,proto3" json:"mobile_margin_x,omitempty"`
 	// Vertical offset of the mobile widget from the bottom edge, in pixels.
+	//
+	// +kubebuilder:example="16"
 	MobileMarginY int32 `protobuf:"varint,21,opt,name=mobile_margin_y,json=mobileMarginY,proto3" json:"mobile_margin_y,omitempty"`
 	// Horizontal anchor position of the mobile widget.
 	MobilePosition PluginPosition `protobuf:"varint,22,opt,name=mobile_position,json=mobilePosition,proto3,enum=coreapi.model.PluginPosition" json:"mobile_position,omitempty"`
@@ -491,6 +500,8 @@ type Plugin struct {
 	FacebookPixelId string `protobuf:"bytes,27,opt,name=facebook_pixel_id,json=facebookPixelId,proto3" json:"facebook_pixel_id,omitempty"`
 	// Resolved URL of the custom launcher button image.
 	// Automatically derived from custom_image.
+	//
+	// +kubebuilder:example="https://cdn.channel.io/plugin/custom.png"
 	CustomImageUrl string `protobuf:"bytes,28,opt,name=custom_image_url,json=customImageUrl,proto3" json:"custom_image_url,omitempty"`
 	// Resolved URL of the desktop launcher image.
 	// Automatically derived from desk_image.
@@ -499,6 +510,8 @@ type Plugin struct {
 	DeskImageUrl string `protobuf:"bytes,29,opt,name=desk_image_url,json=deskImageUrl,proto3" json:"desk_image_url,omitempty"`
 	// Resolved URL of the mobile launcher image.
 	// Automatically derived from mobile_image.
+	//
+	// +kubebuilder:example="https://cdn.channel.io/plugin/mobile.png"
 	MobileImageUrl string `protobuf:"bytes,30,opt,name=mobile_image_url,json=mobileImageUrl,proto3" json:"mobile_image_url,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache

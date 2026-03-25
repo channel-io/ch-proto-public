@@ -99,6 +99,8 @@ type CampaignUser struct {
 	// +kubebuilder:example="cm-001"
 	MsgId string `protobuf:"bytes,3,opt,name=msg_id,json=msgId,proto3" json:"msg_id,omitempty"`
 	// User chat conversation created by the campaign delivery.
+	//
+	// +kubebuilder:example="uc-abc123"
 	UserChatId string `protobuf:"bytes,4,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
 	// Timestamp when the campaign message was delivered to the user.
 	Sent *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=sent,proto3" json:"sent,omitempty"`
@@ -115,6 +117,7 @@ type CampaignUser struct {
 	// Composite identifier in the format "{campaign_id}-{user_id}".
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="cpn-001-u-abc123"
 	Id            string `protobuf:"bytes,10,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

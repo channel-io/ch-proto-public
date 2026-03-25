@@ -245,6 +245,7 @@ private static final long serialVersionUID = 0L;
    * Campaign ID this message variant belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="cpn-001"
    * </pre>
    *
    * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -268,6 +269,7 @@ private static final long serialVersionUID = 0L;
    * Campaign ID this message variant belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="cpn-001"
    * </pre>
    *
    * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -345,6 +347,7 @@ private static final long serialVersionUID = 0L;
    * Human-readable label for this message variant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="Welcome Message"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -368,6 +371,7 @@ private static final long serialVersionUID = 0L;
    * Human-readable label for this message variant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="Welcome Message"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -614,6 +618,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Cumulative count of message views by recipients for this variant.
+   * +kubebuilder:example="50"
    * </pre>
    *
    * <code>int32 view = 11 [json_name = "view"];</code>
@@ -629,6 +634,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Cumulative count of goal event completions attributed to this variant.
+   * +kubebuilder:example="10"
    * </pre>
    *
    * <code>int32 goal = 12 [json_name = "goal"];</code>
@@ -1321,6 +1327,7 @@ private static final long serialVersionUID = 0L;
      * Campaign ID this message variant belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
      * </pre>
      *
      * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -1343,6 +1350,7 @@ private static final long serialVersionUID = 0L;
      * Campaign ID this message variant belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
      * </pre>
      *
      * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -1366,6 +1374,7 @@ private static final long serialVersionUID = 0L;
      * Campaign ID this message variant belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
      * </pre>
      *
      * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -1387,6 +1396,7 @@ private static final long serialVersionUID = 0L;
      * Campaign ID this message variant belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
      * </pre>
      *
      * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -1403,6 +1413,7 @@ private static final long serialVersionUID = 0L;
      * Campaign ID this message variant belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="cpn-001"
      * </pre>
      *
      * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -1533,6 +1544,7 @@ private static final long serialVersionUID = 0L;
      * Human-readable label for this message variant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="Welcome Message"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1555,6 +1567,7 @@ private static final long serialVersionUID = 0L;
      * Human-readable label for this message variant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="Welcome Message"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1578,6 +1591,7 @@ private static final long serialVersionUID = 0L;
      * Human-readable label for this message variant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="Welcome Message"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1599,6 +1613,7 @@ private static final long serialVersionUID = 0L;
      * Human-readable label for this message variant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="Welcome Message"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1615,6 +1630,7 @@ private static final long serialVersionUID = 0L;
      * Human-readable label for this message variant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="Welcome Message"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -2369,6 +2385,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of message views by recipients for this variant.
+     * +kubebuilder:example="50"
      * </pre>
      *
      * <code>int32 view = 11 [json_name = "view"];</code>
@@ -2381,6 +2398,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of message views by recipients for this variant.
+     * +kubebuilder:example="50"
      * </pre>
      *
      * <code>int32 view = 11 [json_name = "view"];</code>
@@ -2396,6 +2414,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of message views by recipients for this variant.
+     * +kubebuilder:example="50"
      * </pre>
      *
      * <code>int32 view = 11 [json_name = "view"];</code>
@@ -2412,6 +2431,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of goal event completions attributed to this variant.
+     * +kubebuilder:example="10"
      * </pre>
      *
      * <code>int32 goal = 12 [json_name = "goal"];</code>
@@ -2424,6 +2444,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of goal event completions attributed to this variant.
+     * +kubebuilder:example="10"
      * </pre>
      *
      * <code>int32 goal = 12 [json_name = "goal"];</code>
@@ -2439,6 +2460,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of goal event completions attributed to this variant.
+     * +kubebuilder:example="10"
      * </pre>
      *
      * <code>int32 goal = 12 [json_name = "goal"];</code>

@@ -365,6 +365,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether to deliver via SMS/LMS/MMS as a fallback when the user is offline.
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool send_to_offline_xms = 4 [json_name = "sendToOfflineXms"];</code>
@@ -1131,6 +1132,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to deliver via SMS/LMS/MMS as a fallback when the user is offline.
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool send_to_offline_xms = 4 [json_name = "sendToOfflineXms"];</code>
@@ -1143,6 +1145,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to deliver via SMS/LMS/MMS as a fallback when the user is offline.
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool send_to_offline_xms = 4 [json_name = "sendToOfflineXms"];</code>
@@ -1158,6 +1161,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to deliver via SMS/LMS/MMS as a fallback when the user is offline.
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool send_to_offline_xms = 4 [json_name = "sendToOfflineXms"];</code>

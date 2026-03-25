@@ -738,6 +738,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the entity that triggered this action.
+   * +kubebuilder:example="wf-001"
    * </pre>
    *
    * <code>string trigger_id = 4 [json_name = "triggerId"];</code>
@@ -759,6 +760,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the entity that triggered this action.
+   * +kubebuilder:example="wf-001"
    * </pre>
    *
    * <code>string trigger_id = 4 [json_name = "triggerId"];</code>
@@ -1494,6 +1496,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the entity that triggered this action.
+     * +kubebuilder:example="wf-001"
      * </pre>
      *
      * <code>string trigger_id = 4 [json_name = "triggerId"];</code>
@@ -1514,6 +1517,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the entity that triggered this action.
+     * +kubebuilder:example="wf-001"
      * </pre>
      *
      * <code>string trigger_id = 4 [json_name = "triggerId"];</code>
@@ -1535,6 +1539,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the entity that triggered this action.
+     * +kubebuilder:example="wf-001"
      * </pre>
      *
      * <code>string trigger_id = 4 [json_name = "triggerId"];</code>
@@ -1554,6 +1559,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the entity that triggered this action.
+     * +kubebuilder:example="wf-001"
      * </pre>
      *
      * <code>string trigger_id = 4 [json_name = "triggerId"];</code>
@@ -1568,6 +1574,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the entity that triggered this action.
+     * +kubebuilder:example="wf-001"
      * </pre>
      *
      * <code>string trigger_id = 4 [json_name = "triggerId"];</code>

@@ -215,6 +215,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Alert-level unread count in team chat main conversations.
    * Defaults to 0.
+   * +kubebuilder:example="1"
    * </pre>
    *
    * <code>int32 team_chat_alert = 2 [json_name = "teamChatAlert"];</code>
@@ -248,6 +249,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Alert-level unread count in user chat conversations.
    * Defaults to 0.
+   * +kubebuilder:example="2"
    * </pre>
    *
    * <code>int32 user_chat_alert = 4 [json_name = "userChatAlert"];</code>
@@ -281,6 +283,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Alert-level unread count in team chat thread replies.
    * Defaults to 0.
+   * +kubebuilder:example="0"
    * </pre>
    *
    * <code>int32 team_chat_thread_alert = 6 [json_name = "teamChatThreadAlert"];</code>
@@ -352,6 +355,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Optimistic locking version.
    * Incremented on every update.
+   * +kubebuilder:example="1"
    * </pre>
    *
    * <code>int64 version = 9 [json_name = "version"];</code>
@@ -418,6 +422,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Aggregated alert count across all chat types.
    * Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.
+   * +kubebuilder:example="3"
    * </pre>
    *
    * <code>int32 alert = 11 [json_name = "alert"];</code>
@@ -1069,6 +1074,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in team chat main conversations.
      * Defaults to 0.
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int32 team_chat_alert = 2 [json_name = "teamChatAlert"];</code>
@@ -1082,6 +1088,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in team chat main conversations.
      * Defaults to 0.
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int32 team_chat_alert = 2 [json_name = "teamChatAlert"];</code>
@@ -1098,6 +1105,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in team chat main conversations.
      * Defaults to 0.
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int32 team_chat_alert = 2 [json_name = "teamChatAlert"];</code>
@@ -1164,6 +1172,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in user chat conversations.
      * Defaults to 0.
+     * +kubebuilder:example="2"
      * </pre>
      *
      * <code>int32 user_chat_alert = 4 [json_name = "userChatAlert"];</code>
@@ -1177,6 +1186,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in user chat conversations.
      * Defaults to 0.
+     * +kubebuilder:example="2"
      * </pre>
      *
      * <code>int32 user_chat_alert = 4 [json_name = "userChatAlert"];</code>
@@ -1193,6 +1203,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in user chat conversations.
      * Defaults to 0.
+     * +kubebuilder:example="2"
      * </pre>
      *
      * <code>int32 user_chat_alert = 4 [json_name = "userChatAlert"];</code>
@@ -1259,6 +1270,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in team chat thread replies.
      * Defaults to 0.
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>int32 team_chat_thread_alert = 6 [json_name = "teamChatThreadAlert"];</code>
@@ -1272,6 +1284,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in team chat thread replies.
      * Defaults to 0.
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>int32 team_chat_thread_alert = 6 [json_name = "teamChatThreadAlert"];</code>
@@ -1288,6 +1301,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Alert-level unread count in team chat thread replies.
      * Defaults to 0.
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>int32 team_chat_thread_alert = 6 [json_name = "teamChatThreadAlert"];</code>
@@ -1509,6 +1523,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version.
      * Incremented on every update.
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int64 version = 9 [json_name = "version"];</code>
@@ -1522,6 +1537,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version.
      * Incremented on every update.
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int64 version = 9 [json_name = "version"];</code>
@@ -1538,6 +1554,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version.
      * Incremented on every update.
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int64 version = 9 [json_name = "version"];</code>
@@ -1661,6 +1678,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Aggregated alert count across all chat types.
      * Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.
+     * +kubebuilder:example="3"
      * </pre>
      *
      * <code>int32 alert = 11 [json_name = "alert"];</code>
@@ -1674,6 +1692,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Aggregated alert count across all chat types.
      * Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.
+     * +kubebuilder:example="3"
      * </pre>
      *
      * <code>int32 alert = 11 [json_name = "alert"];</code>
@@ -1690,6 +1709,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Aggregated alert count across all chat types.
      * Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.
+     * +kubebuilder:example="3"
      * </pre>
      *
      * <code>int32 alert = 11 [json_name = "alert"];</code>

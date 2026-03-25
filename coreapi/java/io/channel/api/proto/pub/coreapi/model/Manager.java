@@ -612,6 +612,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
+   * +kubebuilder:example="John Doe"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -637,6 +638,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
+   * +kubebuilder:example="John Doe"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -715,6 +717,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the description is visible to end-user visitors.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront", (.buf.validate.field) = { ... }</code>
@@ -916,6 +919,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the email address is visible to end-user visitors.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool show_email_to_front = 10 [json_name = "showEmailToFront", (.buf.validate.field) = { ... }</code>
@@ -980,6 +984,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the mobile number is visible to end-user visitors.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool show_mobile_number_to_front = 12 [json_name = "showMobileNumberToFront", (.buf.validate.field) = { ... }</code>
@@ -1044,6 +1049,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether this manager has been soft-deleted from the channel.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool removed = 14 [json_name = "removed", (.buf.validate.field) = { ... }</code>
@@ -1362,6 +1368,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether to include a preview of internal (private) messages in push notifications.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool show_private_message_preview = 25 [json_name = "showPrivateMessagePreview", (.buf.validate.field) = { ... }</code>
@@ -1395,6 +1402,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Engagement score reflecting the frequency of customer interactions.
    * Decays over time when the manager is inactive.
+   * +kubebuilder:example="0.75"
    * </pre>
    *
    * <code>float touch_score = 27 [json_name = "touchScore"];</code>
@@ -1428,6 +1436,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether to receive alerts when a new conversation is waiting to be assigned.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool receive_unassigned_alert = 29 [json_name = "receiveUnassignedAlert", (.buf.validate.field) = { ... }</code>
@@ -1461,6 +1470,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether to receive alerts specifically for unassigned chat conversations.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool receive_unassigned_chat_alert = 31 [json_name = "receiveUnassignedChatAlert", (.buf.validate.field) = { ... }</code>
@@ -1494,6 +1504,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether this manager is currently active as an operator handling customer conversations.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool operator = 33 [json_name = "operator", (.buf.validate.field) = { ... }</code>
@@ -1509,6 +1520,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -1530,6 +1542,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -1573,6 +1586,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether incoming user messages are automatically marked as important.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool user_message_important = 36 [json_name = "userMessageImportant", (.buf.validate.field) = { ... }</code>
@@ -1658,6 +1672,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether auto-assignment is enabled when the manager joins a synchronous chat session.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool enable_auto_assign_on_sync = 39 [json_name = "enableAutoAssignOnSync", (.buf.validate.field) = { ... }</code>
@@ -1869,6 +1884,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether account-level do-not-disturb mode is active across all channels.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool account_do_not_disturb = 45 [json_name = "accountDoNotDisturb", (.buf.validate.field) = { ... }</code>
@@ -3613,6 +3629,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
+     * +kubebuilder:example="John Doe"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3637,6 +3654,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
+     * +kubebuilder:example="John Doe"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3662,6 +3680,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
+     * +kubebuilder:example="John Doe"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3685,6 +3704,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
+     * +kubebuilder:example="John Doe"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3703,6 +3723,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
+     * +kubebuilder:example="John Doe"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3837,6 +3858,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the description is visible to end-user visitors.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront", (.buf.validate.field) = { ... }</code>
@@ -3850,6 +3872,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the description is visible to end-user visitors.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront", (.buf.validate.field) = { ... }</code>
@@ -3866,6 +3889,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the description is visible to end-user visitors.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool show_description_to_front = 6 [json_name = "showDescriptionToFront", (.buf.validate.field) = { ... }</code>
@@ -4303,6 +4327,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the email address is visible to end-user visitors.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool show_email_to_front = 10 [json_name = "showEmailToFront", (.buf.validate.field) = { ... }</code>
@@ -4316,6 +4341,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the email address is visible to end-user visitors.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool show_email_to_front = 10 [json_name = "showEmailToFront", (.buf.validate.field) = { ... }</code>
@@ -4332,6 +4358,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the email address is visible to end-user visitors.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool show_email_to_front = 10 [json_name = "showEmailToFront", (.buf.validate.field) = { ... }</code>
@@ -4450,6 +4477,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the mobile number is visible to end-user visitors.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool show_mobile_number_to_front = 12 [json_name = "showMobileNumberToFront", (.buf.validate.field) = { ... }</code>
@@ -4463,6 +4491,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the mobile number is visible to end-user visitors.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool show_mobile_number_to_front = 12 [json_name = "showMobileNumberToFront", (.buf.validate.field) = { ... }</code>
@@ -4479,6 +4508,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the mobile number is visible to end-user visitors.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool show_mobile_number_to_front = 12 [json_name = "showMobileNumberToFront", (.buf.validate.field) = { ... }</code>
@@ -4597,6 +4627,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this manager has been soft-deleted from the channel.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool removed = 14 [json_name = "removed", (.buf.validate.field) = { ... }</code>
@@ -4610,6 +4641,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this manager has been soft-deleted from the channel.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool removed = 14 [json_name = "removed", (.buf.validate.field) = { ... }</code>
@@ -4626,6 +4658,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this manager has been soft-deleted from the channel.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool removed = 14 [json_name = "removed", (.buf.validate.field) = { ... }</code>
@@ -5628,6 +5661,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether to include a preview of internal (private) messages in push notifications.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool show_private_message_preview = 25 [json_name = "showPrivateMessagePreview", (.buf.validate.field) = { ... }</code>
@@ -5641,6 +5675,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether to include a preview of internal (private) messages in push notifications.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool show_private_message_preview = 25 [json_name = "showPrivateMessagePreview", (.buf.validate.field) = { ... }</code>
@@ -5657,6 +5692,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether to include a preview of internal (private) messages in push notifications.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool show_private_message_preview = 25 [json_name = "showPrivateMessagePreview", (.buf.validate.field) = { ... }</code>
@@ -5723,6 +5759,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Engagement score reflecting the frequency of customer interactions.
      * Decays over time when the manager is inactive.
+     * +kubebuilder:example="0.75"
      * </pre>
      *
      * <code>float touch_score = 27 [json_name = "touchScore"];</code>
@@ -5736,6 +5773,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Engagement score reflecting the frequency of customer interactions.
      * Decays over time when the manager is inactive.
+     * +kubebuilder:example="0.75"
      * </pre>
      *
      * <code>float touch_score = 27 [json_name = "touchScore"];</code>
@@ -5752,6 +5790,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Engagement score reflecting the frequency of customer interactions.
      * Decays over time when the manager is inactive.
+     * +kubebuilder:example="0.75"
      * </pre>
      *
      * <code>float touch_score = 27 [json_name = "touchScore"];</code>
@@ -5818,6 +5857,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether to receive alerts when a new conversation is waiting to be assigned.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool receive_unassigned_alert = 29 [json_name = "receiveUnassignedAlert", (.buf.validate.field) = { ... }</code>
@@ -5831,6 +5871,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether to receive alerts when a new conversation is waiting to be assigned.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool receive_unassigned_alert = 29 [json_name = "receiveUnassignedAlert", (.buf.validate.field) = { ... }</code>
@@ -5847,6 +5888,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether to receive alerts when a new conversation is waiting to be assigned.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool receive_unassigned_alert = 29 [json_name = "receiveUnassignedAlert", (.buf.validate.field) = { ... }</code>
@@ -5913,6 +5955,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether to receive alerts specifically for unassigned chat conversations.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool receive_unassigned_chat_alert = 31 [json_name = "receiveUnassignedChatAlert", (.buf.validate.field) = { ... }</code>
@@ -5926,6 +5969,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether to receive alerts specifically for unassigned chat conversations.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool receive_unassigned_chat_alert = 31 [json_name = "receiveUnassignedChatAlert", (.buf.validate.field) = { ... }</code>
@@ -5942,6 +5986,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether to receive alerts specifically for unassigned chat conversations.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool receive_unassigned_chat_alert = 31 [json_name = "receiveUnassignedChatAlert", (.buf.validate.field) = { ... }</code>
@@ -6008,6 +6053,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this manager is currently active as an operator handling customer conversations.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool operator = 33 [json_name = "operator", (.buf.validate.field) = { ... }</code>
@@ -6021,6 +6067,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this manager is currently active as an operator handling customer conversations.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool operator = 33 [json_name = "operator", (.buf.validate.field) = { ... }</code>
@@ -6037,6 +6084,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this manager is currently active as an operator handling customer conversations.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool operator = 33 [json_name = "operator", (.buf.validate.field) = { ... }</code>
@@ -6053,6 +6101,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -6073,6 +6122,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -6094,6 +6144,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -6113,6 +6164,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -6127,6 +6179,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -6199,6 +6252,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether incoming user messages are automatically marked as important.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool user_message_important = 36 [json_name = "userMessageImportant", (.buf.validate.field) = { ... }</code>
@@ -6212,6 +6266,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether incoming user messages are automatically marked as important.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool user_message_important = 36 [json_name = "userMessageImportant", (.buf.validate.field) = { ... }</code>
@@ -6228,6 +6283,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether incoming user messages are automatically marked as important.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool user_message_important = 36 [json_name = "userMessageImportant", (.buf.validate.field) = { ... }</code>
@@ -6443,6 +6499,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether auto-assignment is enabled when the manager joins a synchronous chat session.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool enable_auto_assign_on_sync = 39 [json_name = "enableAutoAssignOnSync", (.buf.validate.field) = { ... }</code>
@@ -6456,6 +6513,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether auto-assignment is enabled when the manager joins a synchronous chat session.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool enable_auto_assign_on_sync = 39 [json_name = "enableAutoAssignOnSync", (.buf.validate.field) = { ... }</code>
@@ -6472,6 +6530,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether auto-assignment is enabled when the manager joins a synchronous chat session.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool enable_auto_assign_on_sync = 39 [json_name = "enableAutoAssignOnSync", (.buf.validate.field) = { ... }</code>
@@ -7065,6 +7124,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether account-level do-not-disturb mode is active across all channels.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool account_do_not_disturb = 45 [json_name = "accountDoNotDisturb", (.buf.validate.field) = { ... }</code>
@@ -7078,6 +7138,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether account-level do-not-disturb mode is active across all channels.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool account_do_not_disturb = 45 [json_name = "accountDoNotDisturb", (.buf.validate.field) = { ... }</code>
@@ -7094,6 +7155,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether account-level do-not-disturb mode is active across all channels.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool account_do_not_disturb = 45 [json_name = "accountDoNotDisturb", (.buf.validate.field) = { ... }</code>

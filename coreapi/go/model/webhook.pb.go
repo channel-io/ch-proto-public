@@ -112,6 +112,7 @@ type Webhook struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="Order Webhook"
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Destination URL that receives webhook payloads.
 	//
@@ -145,6 +146,7 @@ type Webhook struct {
 	// Whether the webhook is currently blocked due to excessive delivery failures.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	Blocked       bool `protobuf:"varint,10,opt,name=blocked,proto3" json:"blocked,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

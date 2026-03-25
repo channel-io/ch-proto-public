@@ -35,6 +35,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Channel ID this message belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -45,6 +46,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Channel ID this message belongs to.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -81,6 +83,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Chat ID of the parent conversation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string chat_id = 4 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -91,6 +94,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Chat ID of the parent conversation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string chat_id = 4 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -127,6 +131,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Entity ID of the message author.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string person_id = 6 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -137,6 +142,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Entity ID of the message author.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string person_id = 6 [json_name = "personId", (.buf.validate.field) = { ... }</code>

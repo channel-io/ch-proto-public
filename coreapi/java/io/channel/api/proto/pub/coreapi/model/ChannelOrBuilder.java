@@ -517,6 +517,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Whether to display individual operator profiles instead of the channel identity to end users.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool show_operator_profile = 19 [json_name = "showOperatorProfile", (.buf.validate.field) = { ... }</code>
@@ -564,6 +565,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Whether SMS/text follow-up is enabled for offline conversations.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool follow_up_texting = 22 [json_name = "followUpTexting", (.buf.validate.field) = { ... }</code>
@@ -587,6 +589,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Whether the follow-up form asks for the user's name.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool follow_up_ask_name = 24 [json_name = "followUpAskName", (.buf.validate.field) = { ... }</code>
@@ -642,6 +645,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Default plugin identifier used by the messenger widget.
+   * +kubebuilder:example="plg-001"
    * </pre>
    *
    * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
@@ -651,6 +655,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Default plugin identifier used by the messenger widget.
+   * +kubebuilder:example="plg-001"
    * </pre>
    *
    * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
@@ -684,6 +689,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Number of staff members in the organization.
+   * +kubebuilder:example="10"
    * </pre>
    *
    * <code>int32 staffs = 30 [json_name = "staffs"];</code>
@@ -694,6 +700,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Integrated e-commerce platform app identifier.
+   * +kubebuilder:example="commerce-001"
    * </pre>
    *
    * <code>string app_commerce_id = 31 [json_name = "appCommerceId"];</code>
@@ -703,6 +710,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Integrated e-commerce platform app identifier.
+   * +kubebuilder:example="commerce-001"
    * </pre>
    *
    * <code>string app_commerce_id = 31 [json_name = "appCommerceId"];</code>
@@ -736,6 +744,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Domain of the integrated e-commerce platform.
+   * +kubebuilder:example="myshop.myshopify.com"
    * </pre>
    *
    * <code>string app_commerce_domain = 33 [json_name = "appCommerceDomain"];</code>
@@ -745,6 +754,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Domain of the integrated e-commerce platform.
+   * +kubebuilder:example="myshop.myshopify.com"
    * </pre>
    *
    * <code>string app_commerce_domain = 33 [json_name = "appCommerceDomain"];</code>
@@ -757,6 +767,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Whether member identity hash verification is enabled.
    * When enabled, member logins require an HMAC hash to prevent impersonation.
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool enable_member_hash = 34 [json_name = "enableMemberHash"];</code>
@@ -790,6 +801,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Whether multi-factor authentication is required for managers in this channel.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool enable_mfa = 36 [json_name = "enableMfa", (.buf.validate.field) = { ... }</code>
@@ -814,6 +826,7 @@ public interface ChannelOrBuilder extends
    * Whether the channel holds a business certification.
    * Derived from biz_certificated_countries; true when at least one country is certified.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool biz_certificated = 38 [json_name = "bizCertificated", (.buf.validate.field) = { ... }</code>
@@ -895,6 +908,7 @@ public interface ChannelOrBuilder extends
    * Whether the channel is currently blocked.
    * Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool blocked = 42 [json_name = "blocked", (.buf.validate.field) = { ... }</code>
@@ -978,6 +992,7 @@ public interface ChannelOrBuilder extends
    * Whether operating hour scheduling is enabled.
    * When false, the channel is always considered in operation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool operation_time_scheduling = 47 [json_name = "operationTimeScheduling", (.buf.validate.field) = { ... }</code>
@@ -1155,6 +1170,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Border accent color derived from the theme color, in hex format.
+   * +kubebuilder:example="#2563EB"
    * </pre>
    *
    * <code>string border_color = 54 [json_name = "borderColor"];</code>
@@ -1164,6 +1180,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Border accent color derived from the theme color, in hex format.
+   * +kubebuilder:example="#2563EB"
    * </pre>
    *
    * <code>string border_color = 54 [json_name = "borderColor"];</code>
@@ -1197,6 +1214,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Text color for contrast against the theme color, in hex format.
+   * +kubebuilder:example="#FFFFFF"
    * </pre>
    *
    * <code>string text_color = 56 [json_name = "textColor"];</code>
@@ -1206,6 +1224,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Text color for contrast against the theme color, in hex format.
+   * +kubebuilder:example="#FFFFFF"
    * </pre>
    *
    * <code>string text_color = 56 [json_name = "textColor"];</code>
@@ -1217,6 +1236,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * First character of the channel name, used as a fallback when no avatar is set.
+   * +kubebuilder:example="C"
    * </pre>
    *
    * <code>string initial = 57 [json_name = "initial"];</code>
@@ -1226,6 +1246,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * First character of the channel name, used as a fallback when no avatar is set.
+   * +kubebuilder:example="C"
    * </pre>
    *
    * <code>string initial = 57 [json_name = "initial"];</code>
@@ -1261,6 +1282,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Icon color for the messenger plugin widget, derived from the theme color, in hex format.
+   * +kubebuilder:example="#FFFFFF"
    * </pre>
    *
    * <code>string plugin_icon_color = 59 [json_name = "pluginIconColor"];</code>
@@ -1270,6 +1292,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Icon color for the messenger plugin widget, derived from the theme color, in hex format.
+   * +kubebuilder:example="#FFFFFF"
    * </pre>
    *
    * <code>string plugin_icon_color = 59 [json_name = "pluginIconColor"];</code>
@@ -1282,6 +1305,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Theme color brightness value normalized to 0.0 -- 1.0 range.
    * Derived from the theme color.
+   * +kubebuilder:example="0.75"
    * </pre>
    *
    * <code>float brightness = 60 [json_name = "brightness"];</code>
@@ -1315,6 +1339,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Whether the cover image has a bright tone.
    * Derived from the cover_image_color field.
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool cover_image_bright = 62 [json_name = "coverImageBright"];</code>

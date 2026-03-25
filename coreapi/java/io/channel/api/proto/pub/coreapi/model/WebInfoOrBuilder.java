@@ -32,6 +32,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Operating system version string (e.g. "10.15.7", "11").
+   * +kubebuilder:example="10.15.7"
    * </pre>
    *
    * <code>string os = 2 [json_name = "os"];</code>
@@ -41,6 +42,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Operating system version string (e.g. "10.15.7", "11").
+   * +kubebuilder:example="10.15.7"
    * </pre>
    *
    * <code>string os = 2 [json_name = "os"];</code>
@@ -52,6 +54,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Operating system name (e.g. "Windows", "macOS", "Linux").
+   * +kubebuilder:example="macOS"
    * </pre>
    *
    * <code>string os_name = 3 [json_name = "osName"];</code>
@@ -61,6 +64,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Operating system name (e.g. "Windows", "macOS", "Linux").
+   * +kubebuilder:example="macOS"
    * </pre>
    *
    * <code>string os_name = 3 [json_name = "osName"];</code>
@@ -94,6 +98,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Browser name (e.g. "Chrome", "Safari", "Firefox").
+   * +kubebuilder:example="Chrome"
    * </pre>
    *
    * <code>string browser_name = 5 [json_name = "browserName"];</code>
@@ -103,6 +108,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Browser name (e.g. "Chrome", "Safari", "Firefox").
+   * +kubebuilder:example="Chrome"
    * </pre>
    *
    * <code>string browser_name = 5 [json_name = "browserName"];</code>
@@ -115,6 +121,7 @@ public interface WebInfoOrBuilder extends
    * <pre>
    * Cumulative number of web sessions recorded for this user.
    * Incremented on each new session.
+   * +kubebuilder:example="5"
    * </pre>
    *
    * <code>int32 sessions_count = 6 [json_name = "sessionsCount"];</code>

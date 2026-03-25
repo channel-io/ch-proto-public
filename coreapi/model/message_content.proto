@@ -30,6 +30,7 @@ message Block {
   // Text content of the block.
   // Applicable for TEXT and CODE block types; ignored for BULLETS.
   //
+  // +kubebuilder:example="Hello, world!"
   string value = 3;
 
   // Nested child blocks that form a hierarchical list structure.
@@ -123,6 +124,7 @@ message MessageFile {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="report.pdf"
   string name = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -146,6 +148,7 @@ message MessageFile {
   // Media playback duration in seconds.
   // Present only for audio or video files.
   //
+  // +kubebuilder:example="3.5"
   double duration = 6;
 
   // Image or video width in pixels.
@@ -155,6 +158,7 @@ message MessageFile {
 
   // Image or video height in pixels.
   //
+  // +kubebuilder:example="1080"
   int32 height = 8;
 
   // EXIF orientation value (1-8) indicating how the image should be rotated for display.
@@ -165,6 +169,7 @@ message MessageFile {
 
   // Whether the image is an animated format (e.g. GIF, APNG).
   //
+  // +kubebuilder:example="false"
   bool animated = 10;
 
   // Storage bucket name where the file is hosted.
@@ -215,6 +220,7 @@ message MessageFile {
   // Channel ID that owns this private file.
   // Derived from the storage key pattern.
   //
+  // +kubebuilder:example="ch-12345"
   string channel_id = 16;
 
   // Manager ID that owns this private file.
@@ -226,6 +232,7 @@ message MessageFile {
   // Chat type for chat-scoped private files.
   // Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
   //
+  // +kubebuilder:example="userChat"
   string chat_type = 18;
 
   // Chat ID for chat-scoped private files.
@@ -280,6 +287,7 @@ message MessageWebPage {
 
   // Page summary extracted from Open Graph `og:description` or HTML meta description.
   //
+  // +kubebuilder:example="API documentation page"
   string description = 4;
 
   // Primary image URL from Open Graph `og:image` metadata.
@@ -289,6 +297,7 @@ message MessageWebPage {
 
   // Embedded video URL from Open Graph `og:video` metadata.
   //
+  // +kubebuilder:example="https://example.com/video.mp4"
   string video_url = 6;
 
   // Publisher or site name extracted from page metadata.
@@ -298,6 +307,7 @@ message MessageWebPage {
 
   // Content author name extracted from page metadata.
   //
+  // +kubebuilder:example="Channel Corp"
   string author = 8;
 
   // Preview image width in pixels.
@@ -307,6 +317,7 @@ message MessageWebPage {
 
   // Preview image height in pixels.
   //
+  // +kubebuilder:example="630"
   int32 height = 10;
 
   // Storage bucket name for the cached preview image.
@@ -316,6 +327,7 @@ message MessageWebPage {
 
   // Storage key for the locally cached preview image.
   //
+  // +kubebuilder:example="cache/preview.jpg"
   string preview_key = 12;
 
   // Publisher logo URL extracted from page metadata.
@@ -325,6 +337,7 @@ message MessageWebPage {
 
   // Site name from Open Graph `og:site_name` metadata.
   //
+  // +kubebuilder:example="Channel Talk"
   string name = 14;
 }
 

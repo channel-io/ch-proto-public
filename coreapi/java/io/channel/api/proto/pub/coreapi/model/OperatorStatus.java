@@ -219,6 +219,7 @@ private static final long serialVersionUID = 0L;
    * Manager ID this operator status belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string manager_id = 2 [json_name = "managerId", (.buf.validate.field) = { ... }</code>
@@ -242,6 +243,7 @@ private static final long serialVersionUID = 0L;
    * Manager ID this operator status belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string manager_id = 2 [json_name = "managerId", (.buf.validate.field) = { ... }</code>
@@ -1091,6 +1093,7 @@ private static final long serialVersionUID = 0L;
      * Manager ID this operator status belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string manager_id = 2 [json_name = "managerId", (.buf.validate.field) = { ... }</code>
@@ -1113,6 +1116,7 @@ private static final long serialVersionUID = 0L;
      * Manager ID this operator status belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string manager_id = 2 [json_name = "managerId", (.buf.validate.field) = { ... }</code>
@@ -1136,6 +1140,7 @@ private static final long serialVersionUID = 0L;
      * Manager ID this operator status belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string manager_id = 2 [json_name = "managerId", (.buf.validate.field) = { ... }</code>
@@ -1157,6 +1162,7 @@ private static final long serialVersionUID = 0L;
      * Manager ID this operator status belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string manager_id = 2 [json_name = "managerId", (.buf.validate.field) = { ... }</code>
@@ -1173,6 +1179,7 @@ private static final long serialVersionUID = 0L;
      * Manager ID this operator status belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string manager_id = 2 [json_name = "managerId", (.buf.validate.field) = { ... }</code>

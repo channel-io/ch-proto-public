@@ -48,6 +48,7 @@ type Event struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=64
+	// +kubebuilder:example="PageView"
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
 	Property *structpb.Struct `protobuf:"bytes,5,opt,name=property,proto3" json:"property,omitempty"`

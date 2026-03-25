@@ -229,6 +229,7 @@ type Manager struct {
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:validation:Pattern="^[^@#$%:/\]+$"
+	// +kubebuilder:example="John Doe"
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Free-text summary displayed on the manager profile.
 	// Visible to end users only when show_description_to_front is true.
@@ -239,6 +240,7 @@ type Manager struct {
 	// Whether the description is visible to end-user visitors.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	ShowDescriptionToFront bool `protobuf:"varint,6,opt,name=show_description_to_front,json=showDescriptionToFront,proto3" json:"show_description_to_front,omitempty"`
 	// Internationalized name and description overrides keyed by locale (e.g., en, ko).
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,7,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
@@ -252,6 +254,7 @@ type Manager struct {
 	// Whether the email address is visible to end-user visitors.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	ShowEmailToFront bool `protobuf:"varint,10,opt,name=show_email_to_front,json=showEmailToFront,proto3" json:"show_email_to_front,omitempty"`
 	// Manager mobile phone number in E.164 format (e.g., +821012345678).
 	//
@@ -260,6 +263,7 @@ type Manager struct {
 	// Whether the mobile number is visible to end-user visitors.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	ShowMobileNumberToFront bool `protobuf:"varint,12,opt,name=show_mobile_number_to_front,json=showMobileNumberToFront,proto3" json:"show_mobile_number_to_front,omitempty"`
 	// Role ID assigned to this manager, defining permissions and access levels.
 	//
@@ -268,6 +272,7 @@ type Manager struct {
 	// Whether this manager has been soft-deleted from the channel.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	Removed bool `protobuf:"varint,14,opt,name=removed,proto3" json:"removed,omitempty"`
 	// Manager creation timestamp.
 	//
@@ -308,6 +313,7 @@ type Manager struct {
 	// Whether to include a preview of internal (private) messages in push notifications.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	ShowPrivateMessagePreview bool `protobuf:"varint,25,opt,name=show_private_message_preview,json=showPrivateMessagePreview,proto3" json:"show_private_message_preview,omitempty"`
 	// Performance score reflecting the manager's conversation handling efficiency.
 	// Decays over time when the manager is inactive.
@@ -316,6 +322,8 @@ type Manager struct {
 	OperatorScore float32 `protobuf:"fixed32,26,opt,name=operator_score,json=operatorScore,proto3" json:"operator_score,omitempty"`
 	// Engagement score reflecting the frequency of customer interactions.
 	// Decays over time when the manager is inactive.
+	//
+	// +kubebuilder:example="0.75"
 	TouchScore float32 `protobuf:"fixed32,27,opt,name=touch_score,json=touchScore,proto3" json:"touch_score,omitempty"`
 	// Whether periodic email reminders for unhandled conversations are enabled.
 	//
@@ -325,6 +333,7 @@ type Manager struct {
 	// Whether to receive alerts when a new conversation is waiting to be assigned.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	ReceiveUnassignedAlert bool `protobuf:"varint,29,opt,name=receive_unassigned_alert,json=receiveUnassignedAlert,proto3" json:"receive_unassigned_alert,omitempty"`
 	// Whether to receive alerts for conversations that were not responded to in time.
 	//
@@ -334,6 +343,7 @@ type Manager struct {
 	// Whether to receive alerts specifically for unassigned chat conversations.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	ReceiveUnassignedChatAlert bool `protobuf:"varint,31,opt,name=receive_unassigned_chat_alert,json=receiveUnassignedChatAlert,proto3" json:"receive_unassigned_chat_alert,omitempty"`
 	// Whether to receive alerts for unassigned meet (call) sessions.
 	//
@@ -343,8 +353,11 @@ type Manager struct {
 	// Whether this manager is currently active as an operator handling customer conversations.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	Operator bool `protobuf:"varint,33,opt,name=operator,proto3" json:"operator,omitempty"`
 	// Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+	//
+	// +kubebuilder:example="m-abc123"
 	OperatorStatusId string `protobuf:"bytes,34,opt,name=operator_status_id,json=operatorStatusId,proto3" json:"operator_status_id,omitempty"`
 	// Whether @all mentions in conversations are automatically marked as important.
 	//
@@ -354,6 +367,7 @@ type Manager struct {
 	// Whether incoming user messages are automatically marked as important.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	UserMessageImportant bool `protobuf:"varint,36,opt,name=user_message_important,json=userMessageImportant,proto3" json:"user_message_important,omitempty"`
 	// User chat types this manager can be auto-assigned to (e.g., sync, async).
 	AssignableUserChatTypes []string `protobuf:"bytes,37,rep,name=assignable_user_chat_types,json=assignableUserChatTypes,proto3" json:"assignable_user_chat_types,omitempty"`
@@ -366,6 +380,7 @@ type Manager struct {
 	// Whether auto-assignment is enabled when the manager joins a synchronous chat session.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	EnableAutoAssignOnSync bool `protobuf:"varint,39,opt,name=enable_auto_assign_on_sync,json=enableAutoAssignOnSync,proto3" json:"enable_auto_assign_on_sync,omitempty"`
 	// Emoji displayed alongside the manager name as a status indicator.
 	// Must be set together with status_text; both or neither should be present.
@@ -390,6 +405,7 @@ type Manager struct {
 	// Whether account-level do-not-disturb mode is active across all channels.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	AccountDoNotDisturb bool `protobuf:"varint,45,opt,name=account_do_not_disturb,json=accountDoNotDisturb,proto3" json:"account_do_not_disturb,omitempty"`
 	// Timestamp when account-level do-not-disturb mode automatically deactivates.
 	AccountDoNotDisturbClearAt *timestamppb.Timestamp `protobuf:"bytes,46,opt,name=account_do_not_disturb_clear_at,json=accountDoNotDisturbClearAt,proto3" json:"account_do_not_disturb_clear_at,omitempty"`

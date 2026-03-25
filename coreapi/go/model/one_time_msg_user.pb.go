@@ -109,6 +109,7 @@ type OneTimeMsgUser struct {
 	// Composite identifier in the format "{one_time_msg_id}-{user_id}".
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="otm-001-u-abc123"
 	Id            string `protobuf:"bytes,8,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

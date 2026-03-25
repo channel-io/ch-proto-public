@@ -118,10 +118,13 @@ type Group struct {
 	// +kubebuilder:example="star"
 	Icon string `protobuf:"bytes,6,opt,name=icon,proto3" json:"icon,omitempty"`
 	// ID of the active live meet session in this group.
+	//
+	// +kubebuilder:example="meet-001"
 	LiveMeetId string `protobuf:"bytes,7,opt,name=live_meet_id,json=liveMeetId,proto3" json:"live_meet_id,omitempty"`
 	// Free-text description explaining the group's purpose or topic.
 	//
 	// +kubebuilder:validation:MaxLength=200
+	// +kubebuilder:example="General discussion"
 	Description string `protobuf:"bytes,8,opt,name=description,proto3" json:"description,omitempty"`
 	// Group creation timestamp.
 	//

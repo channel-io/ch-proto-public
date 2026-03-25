@@ -335,6 +335,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * User chat conversation created by the campaign delivery.
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string user_chat_id = 4 [json_name = "userChatId"];</code>
@@ -356,6 +357,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * User chat conversation created by the campaign delivery.
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string user_chat_id = 4 [json_name = "userChatId"];</code>
@@ -582,6 +584,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Composite identifier in the format "{campaign_id}-{user_id}".
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="cpn-001-u-abc123"
    * </pre>
    *
    * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -604,6 +607,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Composite identifier in the format "{campaign_id}-{user_id}".
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="cpn-001-u-abc123"
    * </pre>
    *
    * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1462,6 +1466,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat conversation created by the campaign delivery.
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string user_chat_id = 4 [json_name = "userChatId"];</code>
@@ -1482,6 +1487,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat conversation created by the campaign delivery.
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string user_chat_id = 4 [json_name = "userChatId"];</code>
@@ -1503,6 +1509,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat conversation created by the campaign delivery.
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string user_chat_id = 4 [json_name = "userChatId"];</code>
@@ -1522,6 +1529,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat conversation created by the campaign delivery.
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string user_chat_id = 4 [json_name = "userChatId"];</code>
@@ -1536,6 +1544,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat conversation created by the campaign delivery.
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string user_chat_id = 4 [json_name = "userChatId"];</code>
@@ -2280,6 +2289,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{campaign_id}-{user_id}".
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="cpn-001-u-abc123"
      * </pre>
      *
      * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2301,6 +2311,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{campaign_id}-{user_id}".
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="cpn-001-u-abc123"
      * </pre>
      *
      * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2323,6 +2334,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{campaign_id}-{user_id}".
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="cpn-001-u-abc123"
      * </pre>
      *
      * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2343,6 +2355,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{campaign_id}-{user_id}".
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="cpn-001-u-abc123"
      * </pre>
      *
      * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2358,6 +2371,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{campaign_id}-{user_id}".
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="cpn-001-u-abc123"
      * </pre>
      *
      * <code>string id = 10 [json_name = "id", (.buf.validate.field) = { ... }</code>

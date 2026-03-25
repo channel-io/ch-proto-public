@@ -361,6 +361,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Text content of the block.
    * Applicable for TEXT and CODE block types; ignored for BULLETS.
+   * +kubebuilder:example="Hello, world!"
    * </pre>
    *
    * <code>string value = 3 [json_name = "value"];</code>
@@ -383,6 +384,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Text content of the block.
    * Applicable for TEXT and CODE block types; ignored for BULLETS.
+   * +kubebuilder:example="Hello, world!"
    * </pre>
    *
    * <code>string value = 3 [json_name = "value"];</code>
@@ -1055,6 +1057,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Text content of the block.
      * Applicable for TEXT and CODE block types; ignored for BULLETS.
+     * +kubebuilder:example="Hello, world!"
      * </pre>
      *
      * <code>string value = 3 [json_name = "value"];</code>
@@ -1076,6 +1079,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Text content of the block.
      * Applicable for TEXT and CODE block types; ignored for BULLETS.
+     * +kubebuilder:example="Hello, world!"
      * </pre>
      *
      * <code>string value = 3 [json_name = "value"];</code>
@@ -1098,6 +1102,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Text content of the block.
      * Applicable for TEXT and CODE block types; ignored for BULLETS.
+     * +kubebuilder:example="Hello, world!"
      * </pre>
      *
      * <code>string value = 3 [json_name = "value"];</code>
@@ -1118,6 +1123,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Text content of the block.
      * Applicable for TEXT and CODE block types; ignored for BULLETS.
+     * +kubebuilder:example="Hello, world!"
      * </pre>
      *
      * <code>string value = 3 [json_name = "value"];</code>
@@ -1133,6 +1139,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Text content of the block.
      * Applicable for TEXT and CODE block types; ignored for BULLETS.
+     * +kubebuilder:example="Hello, world!"
      * </pre>
      *
      * <code>string value = 3 [json_name = "value"];</code>

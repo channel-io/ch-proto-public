@@ -82,6 +82,7 @@ message Plugin {
 
   // Plugin API key in UUID format.
   //
+  // +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
   string key = 2;
 
   // Channel ID this plugin belongs to.
@@ -139,6 +140,7 @@ message Plugin {
   //
   // +kubebuilder:validation:MinLength=4
   // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:example="Chat with us"
   string label_button_text = 9 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -186,10 +188,12 @@ message Plugin {
 
   // Vertical offset of the desktop widget from the bottom edge, in pixels.
   //
+  // +kubebuilder:example="20"
   int32 desk_margin_y = 16;
 
   // Whether the desktop launcher button is hidden while the widget remains accessible.
   //
+  // +kubebuilder:example="false"
   bool desk_hide_button = 17;
 
   // Horizontal anchor position of the desktop widget.
@@ -208,6 +212,7 @@ message Plugin {
 
   // Vertical offset of the mobile widget from the bottom edge, in pixels.
   //
+  // +kubebuilder:example="16"
   int32 mobile_margin_y = 21;
 
   // Horizontal anchor position of the mobile widget.
@@ -255,6 +260,7 @@ message Plugin {
   // Resolved URL of the custom launcher button image.
   // Automatically derived from custom_image.
   //
+  // +kubebuilder:example="https://cdn.channel.io/plugin/custom.png"
   string custom_image_url = 28;
 
   // Resolved URL of the desktop launcher image.
@@ -266,5 +272,6 @@ message Plugin {
   // Resolved URL of the mobile launcher image.
   // Automatically derived from mobile_image.
   //
+  // +kubebuilder:example="https://cdn.channel.io/plugin/mobile.png"
   string mobile_image_url = 30;
 }

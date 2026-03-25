@@ -55,6 +55,7 @@ message CampaignUser {
 
   // User chat conversation created by the campaign delivery.
   //
+  // +kubebuilder:example="uc-abc123"
   string user_chat_id = 4;
 
   // Timestamp when the campaign message was delivered to the user.
@@ -81,5 +82,6 @@ message CampaignUser {
   // Composite identifier in the format "{campaign_id}-{user_id}".
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="cpn-001-u-abc123"
   string id = 10 [(buf.validate.field).required = true];
 }

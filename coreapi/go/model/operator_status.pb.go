@@ -129,6 +129,7 @@ type OperatorStatus struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="m-abc123"
 	ManagerId string `protobuf:"bytes,2,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	// Channel ID this operator status belongs to.
 	//

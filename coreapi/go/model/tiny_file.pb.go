@@ -45,6 +45,8 @@ type TinyFile struct {
 	Width int32 `protobuf:"varint,3,opt,name=width,proto3" json:"width,omitempty"`
 	// Image height in pixels.
 	// Present only when the file is an image.
+	//
+	// +kubebuilder:example="200"
 	Height        int32 `protobuf:"varint,4,opt,name=height,proto3" json:"height,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

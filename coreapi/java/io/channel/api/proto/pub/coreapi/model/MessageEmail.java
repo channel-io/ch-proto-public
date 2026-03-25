@@ -725,6 +725,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether this email contains quoted conversation history from previous messages.
    * Defaults to false.
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool has_history = 9 [json_name = "hasHistory"];</code>
@@ -789,6 +790,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel email address that received this inbound email.
    * Present only when `direction` is INBOUND.
+   * +kubebuilder:example="support&#64;channel.io"
    * </pre>
    *
    * <code>string received_for = 11 [json_name = "receivedFor"];</code>
@@ -811,6 +813,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel email address that received this inbound email.
    * Present only when `direction` is INBOUND.
+   * +kubebuilder:example="support&#64;channel.io"
    * </pre>
    *
    * <code>string received_for = 11 [json_name = "receivedFor"];</code>
@@ -3044,6 +3047,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this email contains quoted conversation history from previous messages.
      * Defaults to false.
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool has_history = 9 [json_name = "hasHistory"];</code>
@@ -3057,6 +3061,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this email contains quoted conversation history from previous messages.
      * Defaults to false.
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool has_history = 9 [json_name = "hasHistory"];</code>
@@ -3073,6 +3078,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this email contains quoted conversation history from previous messages.
      * Defaults to false.
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool has_history = 9 [json_name = "hasHistory"];</code>
@@ -3191,6 +3197,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel email address that received this inbound email.
      * Present only when `direction` is INBOUND.
+     * +kubebuilder:example="support&#64;channel.io"
      * </pre>
      *
      * <code>string received_for = 11 [json_name = "receivedFor"];</code>
@@ -3212,6 +3219,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel email address that received this inbound email.
      * Present only when `direction` is INBOUND.
+     * +kubebuilder:example="support&#64;channel.io"
      * </pre>
      *
      * <code>string received_for = 11 [json_name = "receivedFor"];</code>
@@ -3234,6 +3242,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel email address that received this inbound email.
      * Present only when `direction` is INBOUND.
+     * +kubebuilder:example="support&#64;channel.io"
      * </pre>
      *
      * <code>string received_for = 11 [json_name = "receivedFor"];</code>
@@ -3254,6 +3263,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel email address that received this inbound email.
      * Present only when `direction` is INBOUND.
+     * +kubebuilder:example="support&#64;channel.io"
      * </pre>
      *
      * <code>string received_for = 11 [json_name = "receivedFor"];</code>
@@ -3269,6 +3279,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel email address that received this inbound email.
      * Present only when `direction` is INBOUND.
+     * +kubebuilder:example="support&#64;channel.io"
      * </pre>
      *
      * <code>string received_for = 11 [json_name = "receivedFor"];</code>

@@ -57,6 +57,7 @@ message CallLog {
 
   // Destination phone number or callee identifier.
   //
+  // +kubebuilder:example="+821098765432"
   string to = 6;
 
   // Call creation timestamp.
@@ -101,6 +102,7 @@ message MeetMessage {
   // Channel ID this message belongs to.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="ch-12345"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Chat type of the parent conversation.
@@ -112,6 +114,7 @@ message MeetMessage {
   // Chat ID of the parent conversation.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="uc-abc123"
   string chat_id = 4 [(buf.validate.field).required = true];
 
   // Entity type of the message author (e.g., "manager", "user").
@@ -123,6 +126,7 @@ message MeetMessage {
   // Entity ID of the message author.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="m-001"
   string person_id = 6 [(buf.validate.field).required = true];
 
   // Structured content blocks of the message.

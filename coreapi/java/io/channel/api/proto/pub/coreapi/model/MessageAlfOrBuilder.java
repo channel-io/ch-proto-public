@@ -32,6 +32,7 @@ public interface MessageAlfOrBuilder extends
   /**
    * <pre>
    * Identifier of the ALF conversation session spanning multiple turns.
+   * +kubebuilder:example="alf-sess-001"
    * </pre>
    *
    * <code>string alf_session_id = 2 [json_name = "alfSessionId"];</code>
@@ -41,6 +42,7 @@ public interface MessageAlfOrBuilder extends
   /**
    * <pre>
    * Identifier of the ALF conversation session spanning multiple turns.
+   * +kubebuilder:example="alf-sess-001"
    * </pre>
    *
    * <code>string alf_session_id = 2 [json_name = "alfSessionId"];</code>

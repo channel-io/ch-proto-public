@@ -61,6 +61,7 @@ message Campaign {
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=128
+  // +kubebuilder:example="Welcome Campaign"
   string name = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -121,6 +122,7 @@ message Campaign {
   // Name of an additional event used to filter users before delivery.
   // When set, filter_match determines whether the event must occur or must not occur.
   //
+  // +kubebuilder:example="purchase"
   string filter_event_name = 12;
 
   // Query expression to filter the additional filter events by their properties.
@@ -172,10 +174,12 @@ message Campaign {
 
   // Whether to fall back to XMS (text message) delivery when the user is offline.
   //
+  // +kubebuilder:example="false"
   bool send_to_offline_xms = 22;
 
   // Whether to fall back to email delivery when the user is offline.
   //
+  // +kubebuilder:example="false"
   bool send_to_offline_email = 23;
 
   // Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
@@ -230,10 +234,12 @@ message Campaign {
 
   // Cumulative count of message views by recipients.
   //
+  // +kubebuilder:example="50"
   int32 view = 34;
 
   // Cumulative count of goal event completions attributed to this campaign.
   //
+  // +kubebuilder:example="10"
   int32 goal = 35;
 
   // Cumulative count of message link clicks.
@@ -249,6 +255,7 @@ message Campaign {
 
   // Manager assigned to handle user responses from this campaign.
   //
+  // +kubebuilder:example="m-001"
   string manager_id = 38;
 }
 

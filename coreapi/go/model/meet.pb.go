@@ -147,6 +147,8 @@ type CallLog struct {
 	// +kubebuilder:example="+821012345678"
 	From string `protobuf:"bytes,5,opt,name=from,proto3" json:"from,omitempty"`
 	// Destination phone number or callee identifier.
+	//
+	// +kubebuilder:example="+821098765432"
 	To string `protobuf:"bytes,6,opt,name=to,proto3" json:"to,omitempty"`
 	// Call creation timestamp.
 	//
@@ -298,6 +300,7 @@ type MeetMessage struct {
 	// Channel ID this message belongs to.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Chat type of the parent conversation.
 	//
@@ -307,6 +310,7 @@ type MeetMessage struct {
 	// Chat ID of the parent conversation.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="uc-abc123"
 	ChatId string `protobuf:"bytes,4,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	// Entity type of the message author (e.g., "manager", "user").
 	//
@@ -316,6 +320,7 @@ type MeetMessage struct {
 	// Entity ID of the message author.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="m-001"
 	PersonId string `protobuf:"bytes,6,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
 	// Structured content blocks of the message.
 	Blocks []*Block `protobuf:"bytes,7,rep,name=blocks,proto3" json:"blocks,omitempty"`

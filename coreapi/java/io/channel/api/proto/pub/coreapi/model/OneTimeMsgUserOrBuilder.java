@@ -193,6 +193,7 @@ public interface OneTimeMsgUserOrBuilder extends
    * <pre>
    * Composite identifier in the format "{one_time_msg_id}-{user_id}".
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="otm-001-u-abc123"
    * </pre>
    *
    * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -203,6 +204,7 @@ public interface OneTimeMsgUserOrBuilder extends
    * <pre>
    * Composite identifier in the format "{one_time_msg_id}-{user_id}".
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="otm-001-u-abc123"
    * </pre>
    *
    * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>

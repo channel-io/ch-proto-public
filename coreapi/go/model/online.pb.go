@@ -34,6 +34,7 @@ type Online struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="manager"
 	PersonType string `protobuf:"bytes,2,opt,name=person_type,json=personType,proto3" json:"person_type,omitempty"`
 	// Identifier of the person.
 	//

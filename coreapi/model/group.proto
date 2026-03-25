@@ -78,11 +78,13 @@ message Group {
 
   // ID of the active live meet session in this group.
   //
+  // +kubebuilder:example="meet-001"
   string live_meet_id = 7;
 
   // Free-text description explaining the group's purpose or topic.
   //
   // +kubebuilder:validation:MaxLength=200
+  // +kubebuilder:example="General discussion"
   string description = 8 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 200 characters"

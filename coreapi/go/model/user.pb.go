@@ -104,6 +104,8 @@ type User struct {
 	// +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
 	VeilId string `protobuf:"bytes,4,opt,name=veil_id,json=veilId,proto3" json:"veil_id,omitempty"`
 	// ID of the unified identity when multiple user records have been merged.
+	//
+	// +kubebuilder:example="u-unified-001"
 	UnifiedId string `protobuf:"bytes,5,opt,name=unified_id,json=unifiedId,proto3" json:"unified_id,omitempty"`
 	// Identity type of this user.
 	Type UserType `protobuf:"varint,6,opt,name=type,proto3,enum=coreapi.model.UserType" json:"type,omitempty"`
@@ -114,8 +116,12 @@ type User struct {
 	// +kubebuilder:example="0"
 	Alert int32 `protobuf:"varint,8,opt,name=alert,proto3" json:"alert,omitempty"`
 	// Total number of unread messages across all of the user's chats.
+	//
+	// +kubebuilder:example="0"
 	Unread int32 `protobuf:"varint,9,opt,name=unread,proto3" json:"unread,omitempty"`
 	// ID of the chat currently displayed as a pop-up widget to the user.
+	//
+	// +kubebuilder:example="uc-popup-001"
 	PopUpChatId string `protobuf:"bytes,10,opt,name=pop_up_chat_id,json=popUpChatId,proto3" json:"pop_up_chat_id,omitempty"`
 	// ID of the chat pinned as the primary conversation in the messenger.
 	//
@@ -160,6 +166,7 @@ type User struct {
 	// Whether the user has opted out of email notifications.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	UnsubscribeEmail bool `protobuf:"varint,20,opt,name=unsubscribe_email,json=unsubscribeEmail,proto3" json:"unsubscribe_email,omitempty"`
 	// Timestamp when the email opt-out preference was last changed.
 	UnsubscribeEmailUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=unsubscribe_email_updated_at,json=unsubscribeEmailUpdatedAt,proto3" json:"unsubscribe_email_updated_at,omitempty"`
@@ -171,6 +178,8 @@ type User struct {
 	// Timestamp when the SMS/text opt-out preference was last changed.
 	UnsubscribeTextingUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,23,opt,name=unsubscribe_texting_updated_at,json=unsubscribeTextingUpdatedAt,proto3" json:"unsubscribe_texting_updated_at,omitempty"`
 	// Whether the user has opted out of mobile app push notifications.
+	//
+	// +kubebuilder:example="false"
 	UnsubscribeAppPush bool `protobuf:"varint,24,opt,name=unsubscribe_app_push,json=unsubscribeAppPush,proto3" json:"unsubscribe_app_push,omitempty"`
 	// Timestamp when the app push opt-out preference was last changed.
 	UnsubscribeAppPushUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=unsubscribe_app_push_updated_at,json=unsubscribeAppPushUpdatedAt,proto3" json:"unsubscribe_app_push_updated_at,omitempty"`
@@ -184,6 +193,7 @@ type User struct {
 	// (name, firstName, or lastName).
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	Named bool `protobuf:"varint,27,opt,name=named,proto3" json:"named,omitempty"`
 	// Language detected from the user's browser or device settings,
 	// as a BCP 47 locale code.
@@ -194,6 +204,7 @@ type User struct {
 	// and is eligible for SMS delivery.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	MobileNumberQualified bool `protobuf:"varint,29,opt,name=mobile_number_qualified,json=mobileNumberQualified,proto3" json:"mobile_number_qualified,omitempty"`
 	// Whether the user's email address has passed format validation
 	// and is eligible for email delivery.
@@ -208,6 +219,7 @@ type User struct {
 	// Whether the user has at least one managed chat conversation.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	HasChat bool `protobuf:"varint,32,opt,name=has_chat,json=hasChat,proto3" json:"has_chat,omitempty"`
 	// Whether the user has a registered device token for push notifications.
 	//
@@ -223,8 +235,12 @@ type User struct {
 	// +kubebuilder:example="Gangnam-gu"
 	City string `protobuf:"bytes,35,opt,name=city,proto3" json:"city,omitempty"`
 	// Latitude coordinate derived from IP geolocation.
+	//
+	// +kubebuilder:example="37.4979"
 	Latitude float64 `protobuf:"fixed64,36,opt,name=latitude,proto3" json:"latitude,omitempty"`
 	// Longitude coordinate derived from IP geolocation.
+	//
+	// +kubebuilder:example="127.0276"
 	Longitude float64 `protobuf:"fixed64,37,opt,name=longitude,proto3" json:"longitude,omitempty"`
 	// Web browser and page tracking information from the user's latest session.
 	Web *WebInfo `protobuf:"bytes,38,opt,name=web,proto3" json:"web,omitempty"`
@@ -239,6 +255,7 @@ type User struct {
 	// Whether the user is blocked from initiating new chats.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	Blocked bool `protobuf:"varint,42,opt,name=blocked,proto3" json:"blocked,omitempty"`
 	// Identifier key associated with the block action,
 	// used to look up block details.
@@ -246,6 +263,8 @@ type User struct {
 	// +kubebuilder:example="bk-001"
 	BlockedKey string `protobuf:"bytes,43,opt,name=blocked_key,json=blockedKey,proto3" json:"blocked_key,omitempty"`
 	// Sort key used for ordering users in the managed contact list.
+	//
+	// +kubebuilder:example="1"
 	ManagedKey int64 `protobuf:"varint,44,opt,name=managed_key,json=managedKey,proto3" json:"managed_key,omitempty"`
 	// Whether the user's type is member.
 	// Derived from the type field.
@@ -644,17 +663,25 @@ type WebInfo struct {
 	// +kubebuilder:example="desktop"
 	Device string `protobuf:"bytes,1,opt,name=device,proto3" json:"device,omitempty"`
 	// Operating system version string (e.g. "10.15.7", "11").
+	//
+	// +kubebuilder:example="10.15.7"
 	Os string `protobuf:"bytes,2,opt,name=os,proto3" json:"os,omitempty"`
 	// Operating system name (e.g. "Windows", "macOS", "Linux").
+	//
+	// +kubebuilder:example="macOS"
 	OsName string `protobuf:"bytes,3,opt,name=os_name,json=osName,proto3" json:"os_name,omitempty"`
 	// Browser version string (e.g. "120.0.6099.109").
 	//
 	// +kubebuilder:example="120.0.6099.109"
 	Browser string `protobuf:"bytes,4,opt,name=browser,proto3" json:"browser,omitempty"`
 	// Browser name (e.g. "Chrome", "Safari", "Firefox").
+	//
+	// +kubebuilder:example="Chrome"
 	BrowserName string `protobuf:"bytes,5,opt,name=browser_name,json=browserName,proto3" json:"browser_name,omitempty"`
 	// Cumulative number of web sessions recorded for this user.
 	// Incremented on each new session.
+	//
+	// +kubebuilder:example="5"
 	SessionsCount int32 `protobuf:"varint,6,opt,name=sessions_count,json=sessionsCount,proto3" json:"sessions_count,omitempty"`
 	// Timestamp of the user's most recent web session start.
 	LastSeenAt    *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=last_seen_at,json=lastSeenAt,proto3" json:"last_seen_at,omitempty"`
@@ -750,16 +777,24 @@ type MobileInfo struct {
 	// +kubebuilder:example="desktop"
 	Device string `protobuf:"bytes,1,opt,name=device,proto3" json:"device,omitempty"`
 	// Operating system version string (e.g. "17.2", "14").
+	//
+	// +kubebuilder:example="17.2"
 	Os string `protobuf:"bytes,2,opt,name=os,proto3" json:"os,omitempty"`
 	// Operating system name (e.g. "iOS", "Android").
+	//
+	// +kubebuilder:example="iOS"
 	OsName string `protobuf:"bytes,3,opt,name=os_name,json=osName,proto3" json:"os_name,omitempty"`
 	// Name of the host application embedding the Channel SDK.
 	//
 	// +kubebuilder:example="MyApp"
 	AppName string `protobuf:"bytes,4,opt,name=app_name,json=appName,proto3" json:"app_name,omitempty"`
 	// Version of the host application embedding the Channel SDK.
+	//
+	// +kubebuilder:example="2.1.0"
 	AppVersion string `protobuf:"bytes,5,opt,name=app_version,json=appVersion,proto3" json:"app_version,omitempty"`
 	// Channel SDK platform name (e.g. "ios", "android", "react-native").
+	//
+	// +kubebuilder:example="ios"
 	SdkName string `protobuf:"bytes,6,opt,name=sdk_name,json=sdkName,proto3" json:"sdk_name,omitempty"`
 	// Channel SDK version string.
 	//
@@ -767,6 +802,8 @@ type MobileInfo struct {
 	SdkVersion string `protobuf:"bytes,7,opt,name=sdk_version,json=sdkVersion,proto3" json:"sdk_version,omitempty"`
 	// Cumulative number of mobile sessions recorded for this user.
 	// Incremented on each new session.
+	//
+	// +kubebuilder:example="3"
 	SessionsCount int32 `protobuf:"varint,8,opt,name=sessions_count,json=sessionsCount,proto3" json:"sessions_count,omitempty"`
 	// Timestamp of the user's most recent mobile session start.
 	LastSeenAt    *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=last_seen_at,json=lastSeenAt,proto3" json:"last_seen_at,omitempty"`
