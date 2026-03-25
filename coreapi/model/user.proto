@@ -185,7 +185,7 @@ message User {
   // and is eligible for email delivery.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="true"
+  // +kubebuilder:example="false"
   bool email_qualified = 30 [(buf.validate.field).required = true];
 
   // Display name of the user, derived from the profile's name field.
@@ -334,7 +334,7 @@ message WebInfo {
 message MobileInfo {
   // Device model name (e.g. "iPhone 15", "Galaxy S24").
   //
-  // +kubebuilder:example="desktop"
+  // +kubebuilder:example="iPhone 15"
   string device = 1;
 
   // Operating system version string (e.g. "17.2", "14").
