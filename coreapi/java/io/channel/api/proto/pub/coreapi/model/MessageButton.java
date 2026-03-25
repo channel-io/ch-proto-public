@@ -286,7 +286,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:example="Channel Talk - Customer Messaging"
+   * +kubebuilder:example="Learn More"
    * </pre>
    *
    * <code>string title = 1 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -311,7 +311,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:example="Channel Talk - Customer Messaging"
+   * +kubebuilder:example="Learn More"
    * </pre>
    *
    * <code>string title = 1 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -765,7 +765,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:example="Channel Talk - Customer Messaging"
+     * +kubebuilder:example="Learn More"
      * </pre>
      *
      * <code>string title = 1 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -789,7 +789,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:example="Channel Talk - Customer Messaging"
+     * +kubebuilder:example="Learn More"
      * </pre>
      *
      * <code>string title = 1 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -814,7 +814,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:example="Channel Talk - Customer Messaging"
+     * +kubebuilder:example="Learn More"
      * </pre>
      *
      * <code>string title = 1 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -837,7 +837,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:example="Channel Talk - Customer Messaging"
+     * +kubebuilder:example="Learn More"
      * </pre>
      *
      * <code>string title = 1 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -855,7 +855,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:example="Channel Talk - Customer Messaging"
+     * +kubebuilder:example="Learn More"
      * </pre>
      *
      * <code>string title = 1 [json_name = "title", (.buf.validate.field) = { ... }</code>

@@ -429,7 +429,7 @@ type Channel struct {
 	// Whether end-user replying is blocked after a conversation is closed.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="false"
+	// +kubebuilder:example="true"
 	BlockReplyingAfterClosed bool `protobuf:"varint,52,opt,name=block_replying_after_closed,json=blockReplyingAfterClosed,proto3" json:"block_replying_after_closed,omitempty"`
 	// Grace period after conversation closure during which the end user may still reply.
 	// Applicable only when block_replying_after_closed is true.

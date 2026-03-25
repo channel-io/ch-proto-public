@@ -210,7 +210,7 @@ type User struct {
 	// and is eligible for email delivery.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="true"
+	// +kubebuilder:example="false"
 	EmailQualified bool `protobuf:"varint,30,opt,name=email_qualified,json=emailQualified,proto3" json:"email_qualified,omitempty"`
 	// Display name of the user, derived from the profile's name field.
 	//
@@ -774,7 +774,7 @@ type MobileInfo struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Device model name (e.g. "iPhone 15", "Galaxy S24").
 	//
-	// +kubebuilder:example="desktop"
+	// +kubebuilder:example="iPhone 15"
 	Device string `protobuf:"bytes,1,opt,name=device,proto3" json:"device,omitempty"`
 	// Operating system version string (e.g. "17.2", "14").
 	//

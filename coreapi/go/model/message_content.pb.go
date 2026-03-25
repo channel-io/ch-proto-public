@@ -386,7 +386,7 @@ type MessageButton struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
-	// +kubebuilder:example="Channel Talk - Customer Messaging"
+	// +kubebuilder:example="Learn More"
 	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
 	// Visual color theme applied to the button.
 	// Defaults to the channel's primary color when not specified.
