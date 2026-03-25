@@ -10,6 +10,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Device model name (e.g. "iPhone 15", "Galaxy S24").
+   * +kubebuilder:example="desktop"
    * </pre>
    *
    * <code>string device = 1 [json_name = "device"];</code>
@@ -19,6 +20,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Device model name (e.g. "iPhone 15", "Galaxy S24").
+   * +kubebuilder:example="desktop"
    * </pre>
    *
    * <code>string device = 1 [json_name = "device"];</code>
@@ -70,6 +72,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Name of the host application embedding the Channel SDK.
+   * +kubebuilder:example="MyApp"
    * </pre>
    *
    * <code>string app_name = 4 [json_name = "appName"];</code>
@@ -79,6 +82,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Name of the host application embedding the Channel SDK.
+   * +kubebuilder:example="MyApp"
    * </pre>
    *
    * <code>string app_name = 4 [json_name = "appName"];</code>
@@ -130,6 +134,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Channel SDK version string.
+   * +kubebuilder:example="11.0.0"
    * </pre>
    *
    * <code>string sdk_version = 7 [json_name = "sdkVersion"];</code>
@@ -139,6 +144,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Channel SDK version string.
+   * +kubebuilder:example="11.0.0"
    * </pre>
    *
    * <code>string sdk_version = 7 [json_name = "sdkVersion"];</code>

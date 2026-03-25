@@ -143,6 +143,8 @@ type CallLog struct {
 	// Current lifecycle state indicating whether the call is waiting or connected.
 	State CallState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.CallState" json:"state,omitempty"`
 	// Originating phone number or caller identifier.
+	//
+	// +kubebuilder:example="+821012345678"
 	From string `protobuf:"bytes,5,opt,name=from,proto3" json:"from,omitempty"`
 	// Destination phone number or callee identifier.
 	To string `protobuf:"bytes,6,opt,name=to,proto3" json:"to,omitempty"`
@@ -162,6 +164,8 @@ type CallLog struct {
 	ClosedAt *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=closed_at,json=closedAt,proto3" json:"closed_at,omitempty"`
 	// User chat ID linked to this call.
 	// Present when the call is associated with a user chat conversation.
+	//
+	// +kubebuilder:example="uc-abc123"
 	UserChatId string `protobuf:"bytes,11,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
 	// List of manager IDs who participated in or handled the call.
 	ManagerIds    []string `protobuf:"bytes,12,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
@@ -289,6 +293,7 @@ type MeetMessage struct {
 	// Unique message identifier.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="meet-001"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this message belongs to.
 	//
@@ -297,6 +302,7 @@ type MeetMessage struct {
 	// Chat type of the parent conversation.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="userChat"
 	ChatType string `protobuf:"bytes,3,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
 	// Chat ID of the parent conversation.
 	//
@@ -305,6 +311,7 @@ type MeetMessage struct {
 	// Entity type of the message author (e.g., "manager", "user").
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="manager"
 	PersonType string `protobuf:"bytes,5,opt,name=person_type,json=personType,proto3" json:"person_type,omitempty"`
 	// Entity ID of the message author.
 	//
@@ -313,6 +320,8 @@ type MeetMessage struct {
 	// Structured content blocks of the message.
 	Blocks []*Block `protobuf:"bytes,7,rep,name=blocks,proto3" json:"blocks,omitempty"`
 	// Plain text representation of the message.
+	//
+	// +kubebuilder:example="Hello, this is a transcription."
 	PlainText string `protobuf:"bytes,8,opt,name=plain_text,json=plainText,proto3" json:"plain_text,omitempty"`
 	// Message creation timestamp.
 	//

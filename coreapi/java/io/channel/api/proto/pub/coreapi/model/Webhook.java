@@ -577,6 +577,7 @@ private static final long serialVersionUID = 0L;
    * API version for webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:Enum={"v4","v5"}
+   * +kubebuilder:example="v5"
    * </pre>
    *
    * <code>string api_version = 8 [json_name = "apiVersion", (.buf.validate.field) = { ... }</code>
@@ -600,6 +601,7 @@ private static final long serialVersionUID = 0L;
    * API version for webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:Enum={"v4","v5"}
+   * +kubebuilder:example="v5"
    * </pre>
    *
    * <code>string api_version = 8 [json_name = "apiVersion", (.buf.validate.field) = { ... }</code>
@@ -2114,6 +2116,7 @@ private static final long serialVersionUID = 0L;
      * API version for webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum={"v4","v5"}
+     * +kubebuilder:example="v5"
      * </pre>
      *
      * <code>string api_version = 8 [json_name = "apiVersion", (.buf.validate.field) = { ... }</code>
@@ -2136,6 +2139,7 @@ private static final long serialVersionUID = 0L;
      * API version for webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum={"v4","v5"}
+     * +kubebuilder:example="v5"
      * </pre>
      *
      * <code>string api_version = 8 [json_name = "apiVersion", (.buf.validate.field) = { ... }</code>
@@ -2159,6 +2163,7 @@ private static final long serialVersionUID = 0L;
      * API version for webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum={"v4","v5"}
+     * +kubebuilder:example="v5"
      * </pre>
      *
      * <code>string api_version = 8 [json_name = "apiVersion", (.buf.validate.field) = { ... }</code>
@@ -2180,6 +2185,7 @@ private static final long serialVersionUID = 0L;
      * API version for webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum={"v4","v5"}
+     * +kubebuilder:example="v5"
      * </pre>
      *
      * <code>string api_version = 8 [json_name = "apiVersion", (.buf.validate.field) = { ... }</code>
@@ -2196,6 +2202,7 @@ private static final long serialVersionUID = 0L;
      * API version for webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum={"v4","v5"}
+     * +kubebuilder:example="v5"
      * </pre>
      *
      * <code>string api_version = 8 [json_name = "apiVersion", (.buf.validate.field) = { ... }</code>

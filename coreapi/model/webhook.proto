@@ -94,6 +94,7 @@ message Webhook {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:Enum={"v4","v5"}
+  // +kubebuilder:example="v5"
   string api_version = 8 [(buf.validate.field).required = true];
 
   // Timestamp when the webhook was last blocked due to consecutive failures.

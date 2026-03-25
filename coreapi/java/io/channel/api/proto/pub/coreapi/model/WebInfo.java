@@ -143,6 +143,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Device form factor (e.g. "desktop", "tablet", "mobile").
+   * +kubebuilder:example="desktop"
    * </pre>
    *
    * <code>string device = 1 [json_name = "device"];</code>
@@ -164,6 +165,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Device form factor (e.g. "desktop", "tablet", "mobile").
+   * +kubebuilder:example="desktop"
    * </pre>
    *
    * <code>string device = 1 [json_name = "device"];</code>
@@ -281,6 +283,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Browser version string (e.g. "120.0.6099.109").
+   * +kubebuilder:example="120.0.6099.109"
    * </pre>
    *
    * <code>string browser = 4 [json_name = "browser"];</code>
@@ -302,6 +305,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Browser version string (e.g. "120.0.6099.109").
+   * +kubebuilder:example="120.0.6099.109"
    * </pre>
    *
    * <code>string browser = 4 [json_name = "browser"];</code>
@@ -848,6 +852,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Device form factor (e.g. "desktop", "tablet", "mobile").
+     * +kubebuilder:example="desktop"
      * </pre>
      *
      * <code>string device = 1 [json_name = "device"];</code>
@@ -868,6 +873,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Device form factor (e.g. "desktop", "tablet", "mobile").
+     * +kubebuilder:example="desktop"
      * </pre>
      *
      * <code>string device = 1 [json_name = "device"];</code>
@@ -889,6 +895,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Device form factor (e.g. "desktop", "tablet", "mobile").
+     * +kubebuilder:example="desktop"
      * </pre>
      *
      * <code>string device = 1 [json_name = "device"];</code>
@@ -908,6 +915,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Device form factor (e.g. "desktop", "tablet", "mobile").
+     * +kubebuilder:example="desktop"
      * </pre>
      *
      * <code>string device = 1 [json_name = "device"];</code>
@@ -922,6 +930,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Device form factor (e.g. "desktop", "tablet", "mobile").
+     * +kubebuilder:example="desktop"
      * </pre>
      *
      * <code>string device = 1 [json_name = "device"];</code>
@@ -1136,6 +1145,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Browser version string (e.g. "120.0.6099.109").
+     * +kubebuilder:example="120.0.6099.109"
      * </pre>
      *
      * <code>string browser = 4 [json_name = "browser"];</code>
@@ -1156,6 +1166,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Browser version string (e.g. "120.0.6099.109").
+     * +kubebuilder:example="120.0.6099.109"
      * </pre>
      *
      * <code>string browser = 4 [json_name = "browser"];</code>
@@ -1177,6 +1188,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Browser version string (e.g. "120.0.6099.109").
+     * +kubebuilder:example="120.0.6099.109"
      * </pre>
      *
      * <code>string browser = 4 [json_name = "browser"];</code>
@@ -1196,6 +1208,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Browser version string (e.g. "120.0.6099.109").
+     * +kubebuilder:example="120.0.6099.109"
      * </pre>
      *
      * <code>string browser = 4 [json_name = "browser"];</code>
@@ -1210,6 +1223,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Browser version string (e.g. "120.0.6099.109").
+     * +kubebuilder:example="120.0.6099.109"
      * </pre>
      *
      * <code>string browser = 4 [json_name = "browser"];</code>

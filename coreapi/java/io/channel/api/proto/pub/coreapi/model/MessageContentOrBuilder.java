@@ -54,6 +54,7 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Plain text representation of the message.
+   * +kubebuilder:example="Hello, how can I help you?"
    * </pre>
    *
    * <code>string plain_text = 2 [json_name = "plainText"];</code>
@@ -63,6 +64,7 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Plain text representation of the message.
+   * +kubebuilder:example="Hello, how can I help you?"
    * </pre>
    *
    * <code>string plain_text = 2 [json_name = "plainText"];</code>
@@ -278,6 +280,7 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Client-generated request identifier for idempotency.
+   * +kubebuilder:example="req-12345"
    * </pre>
    *
    * <code>string request_id = 8 [json_name = "requestId"];</code>
@@ -287,6 +290,7 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Client-generated request identifier for idempotency.
+   * +kubebuilder:example="req-12345"
    * </pre>
    *
    * <code>string request_id = 8 [json_name = "requestId"];</code>

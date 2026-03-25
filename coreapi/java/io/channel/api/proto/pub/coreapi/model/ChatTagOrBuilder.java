@@ -81,6 +81,7 @@ public interface ChatTagOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="billing"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -94,6 +95,7 @@ public interface ChatTagOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="billing"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -108,6 +110,7 @@ public interface ChatTagOrBuilder extends
    * Unique within the channel (case-insensitive).
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="billing"
    * </pre>
    *
    * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -120,6 +123,7 @@ public interface ChatTagOrBuilder extends
    * Unique within the channel (case-insensitive).
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="billing"
    * </pre>
    *
    * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -132,6 +136,7 @@ public interface ChatTagOrBuilder extends
    * <pre>
    * Short description of the chat tag.
    * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="Billing related inquiries"
    * </pre>
    *
    * <code>string description = 6 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -142,6 +147,7 @@ public interface ChatTagOrBuilder extends
    * <pre>
    * Short description of the chat tag.
    * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="Billing related inquiries"
    * </pre>
    *
    * <code>string description = 6 [json_name = "description", (.buf.validate.field) = { ... }</code>

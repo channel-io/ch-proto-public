@@ -10,6 +10,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Unique meet session identifier.
+   * +kubebuilder:example="meet-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -19,6 +20,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Unique meet session identifier.
+   * +kubebuilder:example="meet-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -30,6 +32,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
+   * +kubebuilder:example="userChat"
    * </pre>
    *
    * <code>string chat_type = 2 [json_name = "chatType"];</code>
@@ -39,6 +42,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
+   * +kubebuilder:example="userChat"
    * </pre>
    *
    * <code>string chat_type = 2 [json_name = "chatType"];</code>
@@ -50,6 +54,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Channel ID this meet belongs to.
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId"];</code>
@@ -59,6 +64,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Channel ID this meet belongs to.
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId"];</code>
@@ -270,6 +276,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
+   * +kubebuilder:example="KR"
    * </pre>
    *
    * <code>string country = 11 [json_name = "country"];</code>
@@ -279,6 +286,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
+   * +kubebuilder:example="KR"
    * </pre>
    *
    * <code>string country = 11 [json_name = "country"];</code>

@@ -103,6 +103,8 @@ type OneTimeMsgUser struct {
 	// Timestamp when the user first clicked a link in the message.
 	Click *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=click,proto3" json:"click,omitempty"`
 	// Cumulative revenue attributed to this user from the one-time message.
+	//
+	// +kubebuilder:example="50.25"
 	Revenue string `protobuf:"bytes,7,opt,name=revenue,proto3" json:"revenue,omitempty"`
 	// Composite identifier in the format "{one_time_msg_id}-{user_id}".
 	//

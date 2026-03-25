@@ -95,6 +95,8 @@ type CampaignUser struct {
 	// +kubebuilder:example="cpn-001"
 	CampaignId string `protobuf:"bytes,2,opt,name=campaign_id,json=campaignId,proto3" json:"campaign_id,omitempty"`
 	// Message variant that was delivered to this user.
+	//
+	// +kubebuilder:example="cm-001"
 	MsgId string `protobuf:"bytes,3,opt,name=msg_id,json=msgId,proto3" json:"msg_id,omitempty"`
 	// User chat conversation created by the campaign delivery.
 	UserChatId string `protobuf:"bytes,4,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
@@ -107,6 +109,8 @@ type CampaignUser struct {
 	// Timestamp when the user completed the campaign goal event.
 	Goal *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=goal,proto3" json:"goal,omitempty"`
 	// Cumulative revenue attributed to this user from the campaign.
+	//
+	// +kubebuilder:example="100.50"
 	Revenue string `protobuf:"bytes,9,opt,name=revenue,proto3" json:"revenue,omitempty"`
 	// Composite identifier in the format "{campaign_id}-{user_id}".
 	//

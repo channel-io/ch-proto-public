@@ -11,6 +11,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Unique message identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="meet-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -21,6 +22,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Unique message identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="meet-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -55,6 +57,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Chat type of the parent conversation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="userChat"
    * </pre>
    *
    * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -65,6 +68,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Chat type of the parent conversation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="userChat"
    * </pre>
    *
    * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -99,6 +103,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Entity type of the message author (e.g., "manager", "user").
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="manager"
    * </pre>
    *
    * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -109,6 +114,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Entity type of the message author (e.g., "manager", "user").
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="manager"
    * </pre>
    *
    * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -186,6 +192,7 @@ public interface MeetMessageOrBuilder extends
   /**
    * <pre>
    * Plain text representation of the message.
+   * +kubebuilder:example="Hello, this is a transcription."
    * </pre>
    *
    * <code>string plain_text = 8 [json_name = "plainText"];</code>
@@ -195,6 +202,7 @@ public interface MeetMessageOrBuilder extends
   /**
    * <pre>
    * Plain text representation of the message.
+   * +kubebuilder:example="Hello, this is a transcription."
    * </pre>
    *
    * <code>string plain_text = 8 [json_name = "plainText"];</code>

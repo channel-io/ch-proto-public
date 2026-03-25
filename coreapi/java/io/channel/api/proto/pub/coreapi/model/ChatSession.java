@@ -365,6 +365,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Section ID used to organize team chat conversations into custom groups.
+   * +kubebuilder:example="sec-001"
    * </pre>
    *
    * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
@@ -386,6 +387,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Section ID used to organize team chat conversations into custom groups.
+   * +kubebuilder:example="sec-001"
    * </pre>
    *
    * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
@@ -465,6 +467,7 @@ private static final long serialVersionUID = 0L;
    * Opaque sort key for ordering sessions by last activity.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="manager-m001-userChat"
    * </pre>
    *
    * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
@@ -488,6 +491,7 @@ private static final long serialVersionUID = 0L;
    * Opaque sort key for ordering sessions by last activity.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="manager-m001-userChat"
    * </pre>
    *
    * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
@@ -515,6 +519,7 @@ private static final long serialVersionUID = 0L;
    * Opaque sort key for filtering and ordering sessions with unread messages.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="manager-m001-userChat"
    * </pre>
    *
    * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
@@ -538,6 +543,7 @@ private static final long serialVersionUID = 0L;
    * Opaque sort key for filtering and ordering sessions with unread messages.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="manager-m001-userChat"
    * </pre>
    *
    * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
@@ -630,6 +636,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Total number of unread messages in this session.
    * Defaults to 0.
+   * +kubebuilder:example="3"
    * </pre>
    *
    * <code>int32 unread = 9 [json_name = "unread"];</code>
@@ -885,6 +892,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Optimistic locking version.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="1"
    * </pre>
    *
    * <code>int64 version = 17 [json_name = "version", (.buf.validate.field) = { ... }</code>
@@ -952,6 +960,7 @@ private static final long serialVersionUID = 0L;
    * Chat type of the conversation (e.g., "userChat", "group", "directChat").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="userChat"
    * </pre>
    *
    * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -975,6 +984,7 @@ private static final long serialVersionUID = 0L;
    * Chat type of the conversation (e.g., "userChat", "group", "directChat").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="userChat"
    * </pre>
    *
    * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -1002,6 +1012,7 @@ private static final long serialVersionUID = 0L;
    * Entity type of the session owner (e.g., "manager", "user").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="manager"
    * </pre>
    *
    * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -1025,6 +1036,7 @@ private static final long serialVersionUID = 0L;
    * Entity type of the session owner (e.g., "manager", "user").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="manager"
    * </pre>
    *
    * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -1052,6 +1064,7 @@ private static final long serialVersionUID = 0L;
    * Entity ID of the session owner.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -1075,6 +1088,7 @@ private static final long serialVersionUID = 0L;
    * Entity ID of the session owner.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -2039,6 +2053,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Section ID used to organize team chat conversations into custom groups.
+     * +kubebuilder:example="sec-001"
      * </pre>
      *
      * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
@@ -2059,6 +2074,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Section ID used to organize team chat conversations into custom groups.
+     * +kubebuilder:example="sec-001"
      * </pre>
      *
      * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
@@ -2080,6 +2096,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Section ID used to organize team chat conversations into custom groups.
+     * +kubebuilder:example="sec-001"
      * </pre>
      *
      * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
@@ -2099,6 +2116,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Section ID used to organize team chat conversations into custom groups.
+     * +kubebuilder:example="sec-001"
      * </pre>
      *
      * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
@@ -2113,6 +2131,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Section ID used to organize team chat conversations into custom groups.
+     * +kubebuilder:example="sec-001"
      * </pre>
      *
      * <code>string team_chat_section_id = 3 [json_name = "teamChatSectionId"];</code>
@@ -2248,6 +2267,7 @@ private static final long serialVersionUID = 0L;
      * Opaque sort key for ordering sessions by last activity.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
      * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
@@ -2270,6 +2290,7 @@ private static final long serialVersionUID = 0L;
      * Opaque sort key for ordering sessions by last activity.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
      * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
@@ -2293,6 +2314,7 @@ private static final long serialVersionUID = 0L;
      * Opaque sort key for ordering sessions by last activity.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
      * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
@@ -2314,6 +2336,7 @@ private static final long serialVersionUID = 0L;
      * Opaque sort key for ordering sessions by last activity.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
      * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
@@ -2330,6 +2353,7 @@ private static final long serialVersionUID = 0L;
      * Opaque sort key for ordering sessions by last activity.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
      * <code>string updated_key = 5 [json_name = "updatedKey", (.buf.validate.field) = { ... }</code>
@@ -2354,6 +2378,7 @@ private static final long serialVersionUID = 0L;
      * Opaque sort key for filtering and ordering sessions with unread messages.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
      * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
@@ -2376,6 +2401,7 @@ private static final long serialVersionUID = 0L;
      * Opaque sort key for filtering and ordering sessions with unread messages.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
      * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
@@ -2399,6 +2425,7 @@ private static final long serialVersionUID = 0L;
      * Opaque sort key for filtering and ordering sessions with unread messages.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
      * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
@@ -2420,6 +2447,7 @@ private static final long serialVersionUID = 0L;
      * Opaque sort key for filtering and ordering sessions with unread messages.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
      * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
@@ -2436,6 +2464,7 @@ private static final long serialVersionUID = 0L;
      * Opaque sort key for filtering and ordering sessions with unread messages.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
      * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
@@ -2611,6 +2640,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Total number of unread messages in this session.
      * Defaults to 0.
+     * +kubebuilder:example="3"
      * </pre>
      *
      * <code>int32 unread = 9 [json_name = "unread"];</code>
@@ -2624,6 +2654,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Total number of unread messages in this session.
      * Defaults to 0.
+     * +kubebuilder:example="3"
      * </pre>
      *
      * <code>int32 unread = 9 [json_name = "unread"];</code>
@@ -2640,6 +2671,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Total number of unread messages in this session.
      * Defaults to 0.
+     * +kubebuilder:example="3"
      * </pre>
      *
      * <code>int32 unread = 9 [json_name = "unread"];</code>
@@ -3570,6 +3602,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int64 version = 17 [json_name = "version", (.buf.validate.field) = { ... }</code>
@@ -3583,6 +3616,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int64 version = 17 [json_name = "version", (.buf.validate.field) = { ... }</code>
@@ -3599,6 +3633,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int64 version = 17 [json_name = "version", (.buf.validate.field) = { ... }</code>
@@ -3723,6 +3758,7 @@ private static final long serialVersionUID = 0L;
      * Chat type of the conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -3745,6 +3781,7 @@ private static final long serialVersionUID = 0L;
      * Chat type of the conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -3768,6 +3805,7 @@ private static final long serialVersionUID = 0L;
      * Chat type of the conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -3789,6 +3827,7 @@ private static final long serialVersionUID = 0L;
      * Chat type of the conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -3805,6 +3844,7 @@ private static final long serialVersionUID = 0L;
      * Chat type of the conversation (e.g., "userChat", "group", "directChat").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 19 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -3829,6 +3869,7 @@ private static final long serialVersionUID = 0L;
      * Entity type of the session owner (e.g., "manager", "user").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager"
      * </pre>
      *
      * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -3851,6 +3892,7 @@ private static final long serialVersionUID = 0L;
      * Entity type of the session owner (e.g., "manager", "user").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager"
      * </pre>
      *
      * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -3874,6 +3916,7 @@ private static final long serialVersionUID = 0L;
      * Entity type of the session owner (e.g., "manager", "user").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager"
      * </pre>
      *
      * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -3895,6 +3938,7 @@ private static final long serialVersionUID = 0L;
      * Entity type of the session owner (e.g., "manager", "user").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager"
      * </pre>
      *
      * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -3911,6 +3955,7 @@ private static final long serialVersionUID = 0L;
      * Entity type of the session owner (e.g., "manager", "user").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager"
      * </pre>
      *
      * <code>string person_type = 20 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -3935,6 +3980,7 @@ private static final long serialVersionUID = 0L;
      * Entity ID of the session owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -3957,6 +4003,7 @@ private static final long serialVersionUID = 0L;
      * Entity ID of the session owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -3980,6 +4027,7 @@ private static final long serialVersionUID = 0L;
      * Entity ID of the session owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -4001,6 +4049,7 @@ private static final long serialVersionUID = 0L;
      * Entity ID of the session owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -4017,6 +4066,7 @@ private static final long serialVersionUID = 0L;
      * Entity ID of the session owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string person_id = 21 [json_name = "personId", (.buf.validate.field) = { ... }</code>

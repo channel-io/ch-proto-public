@@ -377,6 +377,7 @@ type UserChat struct {
 	// Unmanaged chats are only visible to the user.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	Managed bool `protobuf:"varint,7,opt,name=managed,proto3" json:"managed,omitempty"`
 	// Priority level used by the auto-assignment system to order this chat
 	// in the queue. Defaults to medium.
@@ -391,6 +392,8 @@ type UserChat struct {
 	// Display name of this chat shown to managers in the Desk.
 	Name string `protobuf:"bytes,11,opt,name=name,proto3" json:"name,omitempty"`
 	// Title of the chat conversation displayed in the Desk inbox list.
+	//
+	// +kubebuilder:example="Billing Question"
 	Title string `protobuf:"bytes,12,opt,name=title,proto3" json:"title,omitempty"`
 	// Free-text note or summary attached to this chat by a manager.
 	//
@@ -409,6 +412,8 @@ type UserChat struct {
 	// +kubebuilder:validation:MinItems=1
 	ManagerIds []string `protobuf:"bytes,17,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	// ID of the manager currently assigned as the primary responder.
+	//
+	// +kubebuilder:example="m-001"
 	AssigneeId string `protobuf:"bytes,18,opt,name=assignee_id,json=assigneeId,proto3" json:"assignee_id,omitempty"`
 	// ID of the team this chat is routed to for handling.
 	TeamId string `protobuf:"bytes,19,opt,name=team_id,json=teamId,proto3" json:"team_id,omitempty"`
@@ -420,6 +425,8 @@ type UserChat struct {
 	// Custom key-value profile data associated with this chat.
 	Profile *structpb.Struct `protobuf:"bytes,21,opt,name=profile,proto3" json:"profile,omitempty"`
 	// Name of the goal event being tracked for conversion measurement.
+	//
+	// +kubebuilder:example="purchase_completed"
 	GoalEventName string `protobuf:"bytes,22,opt,name=goal_event_name,json=goalEventName,proto3" json:"goal_event_name,omitempty"`
 	// Query expression defining the conditions for the goal event to match.
 	GoalEventQuery *structpb.Struct `protobuf:"bytes,23,opt,name=goal_event_query,json=goalEventQuery,proto3" json:"goal_event_query,omitempty"`
@@ -445,6 +452,8 @@ type UserChat struct {
 	// +kubebuilder:validation:Required
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,31,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// ID of the latest message visible to the user (front side).
+	//
+	// +kubebuilder:example="msg-001"
 	FrontMessageId string `protobuf:"bytes,32,opt,name=front_message_id,json=frontMessageId,proto3" json:"front_message_id,omitempty"`
 	// Timestamp when the front-side (user-visible) message list was last updated.
 	FrontUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,33,opt,name=front_updated_at,json=frontUpdatedAt,proto3" json:"front_updated_at,omitempty"`
@@ -453,6 +462,8 @@ type UserChat struct {
 	// Timestamp when the Desk-side message list was last updated.
 	DeskUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,35,opt,name=desk_updated_at,json=deskUpdatedAt,proto3" json:"desk_updated_at,omitempty"`
 	// ID of the most recent message sent by the user.
+	//
+	// +kubebuilder:example="msg-003"
 	UserLastMessageId string `protobuf:"bytes,36,opt,name=user_last_message_id,json=userLastMessageId,proto3" json:"user_last_message_id,omitempty"`
 	// ID of the first manager assigned after the chat was opened.
 	// Used for tracking initial response ownership.
@@ -465,6 +476,8 @@ type UserChat struct {
 	FirstRepliedAtAfterOpen *timestamppb.Timestamp `protobuf:"bytes,39,opt,name=first_replied_at_after_open,json=firstRepliedAtAfterOpen,proto3" json:"first_replied_at_after_open,omitempty"`
 	// Whether the chat was resolved by a single assignee without being
 	// transferred to another manager.
+	//
+	// +kubebuilder:example="true"
 	OneStop bool `protobuf:"varint,40,opt,name=one_stop,json=oneStop,proto3" json:"one_stop,omitempty"`
 	// Duration from chat open to the first manager reply (in milliseconds).
 	WaitingTime int64 `protobuf:"varint,41,opt,name=waiting_time,json=waitingTime,proto3" json:"waiting_time,omitempty"`
@@ -473,6 +486,8 @@ type UserChat struct {
 	AvgReplyTime int64 `protobuf:"varint,42,opt,name=avg_reply_time,json=avgReplyTime,proto3" json:"avg_reply_time,omitempty"`
 	// Sum of all individual reply durations across manager responses
 	// (in milliseconds).
+	//
+	// +kubebuilder:example="90000"
 	TotalReplyTime int64 `protobuf:"varint,43,opt,name=total_reply_time,json=totalReplyTime,proto3" json:"total_reply_time,omitempty"`
 	// Total number of manager replies in this chat.
 	ReplyCount int32 `protobuf:"varint,44,opt,name=reply_count,json=replyCount,proto3" json:"reply_count,omitempty"`
@@ -480,6 +495,8 @@ type UserChat struct {
 	ResolutionTime int64 `protobuf:"varint,45,opt,name=resolution_time,json=resolutionTime,proto3" json:"resolution_time,omitempty"`
 	// Duration from open to the first manager reply, counting only
 	// operating hours (in milliseconds).
+	//
+	// +kubebuilder:example="55000"
 	OperationWaitingTime int64 `protobuf:"varint,46,opt,name=operation_waiting_time,json=operationWaitingTime,proto3" json:"operation_waiting_time,omitempty"`
 	// Average reply time counting only operating hours (in milliseconds).
 	OperationAvgReplyTime int64 `protobuf:"varint,47,opt,name=operation_avg_reply_time,json=operationAvgReplyTime,proto3" json:"operation_avg_reply_time,omitempty"`
@@ -487,6 +504,8 @@ type UserChat struct {
 	// (in milliseconds).
 	OperationTotalReplyTime int64 `protobuf:"varint,48,opt,name=operation_total_reply_time,json=operationTotalReplyTime,proto3" json:"operation_total_reply_time,omitempty"`
 	// Total number of manager replies during operating hours.
+	//
+	// +kubebuilder:example="2"
 	OperationReplyCount int32 `protobuf:"varint,49,opt,name=operation_reply_count,json=operationReplyCount,proto3" json:"operation_reply_count,omitempty"`
 	// Total resolution time counting only operating hours (in milliseconds).
 	OperationResolutionTime int64 `protobuf:"varint,50,opt,name=operation_resolution_time,json=operationResolutionTime,proto3" json:"operation_resolution_time,omitempty"`
@@ -503,6 +522,8 @@ type UserChat struct {
 	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,55,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
 	// Optimistic locking version incremented on every update.
 	// Supply the current value when updating to prevent overwriting concurrent changes.
+	//
+	// +kubebuilder:example="1"
 	Version       int64 `protobuf:"varint,56,opt,name=version,proto3" json:"version,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

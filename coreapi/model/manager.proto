@@ -157,6 +157,7 @@ message Manager {
   // Whether this manager appears as the channel identity instead of their personal profile.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool display_as_channel = 18 [(buf.validate.field).required = true];
 
   // Default notification level for group chat sessions.
@@ -187,6 +188,7 @@ message Manager {
   // Whether to receive mobile push notifications even while the manager is online on desktop.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool receive_mobile_push_when_online = 24 [(buf.validate.field).required = true];
 
   // Whether to include a preview of internal (private) messages in push notifications.
@@ -197,6 +199,7 @@ message Manager {
   // Performance score reflecting the manager's conversation handling efficiency.
   // Decays over time when the manager is inactive.
   //
+  // +kubebuilder:example="0.85"
   float operator_score = 26;
 
   // Engagement score reflecting the frequency of customer interactions.
@@ -207,6 +210,7 @@ message Manager {
   // Whether periodic email reminders for unhandled conversations are enabled.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="true"
   bool operator_email_reminder = 28 [(buf.validate.field).required = true];
 
   // Whether to receive alerts when a new conversation is waiting to be assigned.
@@ -217,6 +221,7 @@ message Manager {
   // Whether to receive alerts for conversations that were not responded to in time.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="true"
   bool receive_missed_chat_alert = 30 [(buf.validate.field).required = true];
 
   // Whether to receive alerts specifically for unassigned chat conversations.
@@ -227,6 +232,7 @@ message Manager {
   // Whether to receive alerts for unassigned meet (call) sessions.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="true"
   bool receive_unassigned_meet_alert = 32 [(buf.validate.field).required = true];
 
   // Whether this manager is currently active as an operator handling customer conversations.
@@ -241,6 +247,7 @@ message Manager {
   // Whether @all mentions in conversations are automatically marked as important.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="true"
   bool default_all_mention_important = 35 [(buf.validate.field).required = true];
 
   // Whether incoming user messages are automatically marked as important.
@@ -256,6 +263,7 @@ message Manager {
   //
   // +kubebuilder:validation:Minimum=0
   // +kubebuilder:validation:Maximum=200
+  // +kubebuilder:example="10"
   int32 auto_assign_capacity = 38 [(buf.validate.field).cel = {
     id: "int32.between"
     message: "auto_assign_capacity must be between 0 and 200"
@@ -291,6 +299,7 @@ message Manager {
   // Whether do-not-disturb mode is active, suppressing all notifications for this manager.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool do_not_disturb = 43 [(buf.validate.field).required = true];
 
   // Timestamp when do-not-disturb mode automatically deactivates.

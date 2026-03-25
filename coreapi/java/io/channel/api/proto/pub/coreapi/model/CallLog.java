@@ -337,6 +337,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Originating phone number or caller identifier.
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
    * <code>string from = 5 [json_name = "from"];</code>
@@ -358,6 +359,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Originating phone number or caller identifier.
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
    * <code>string from = 5 [json_name = "from"];</code>
@@ -594,6 +596,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * User chat ID linked to this call.
    * Present when the call is associated with a user chat conversation.
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -616,6 +619,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * User chat ID linked to this call.
    * Present when the call is associated with a user chat conversation.
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -1585,6 +1589,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Originating phone number or caller identifier.
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string from = 5 [json_name = "from"];</code>
@@ -1605,6 +1610,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Originating phone number or caller identifier.
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string from = 5 [json_name = "from"];</code>
@@ -1626,6 +1632,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Originating phone number or caller identifier.
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string from = 5 [json_name = "from"];</code>
@@ -1645,6 +1652,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Originating phone number or caller identifier.
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string from = 5 [json_name = "from"];</code>
@@ -1659,6 +1667,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Originating phone number or caller identifier.
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string from = 5 [json_name = "from"];</code>
@@ -2434,6 +2443,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User chat ID linked to this call.
      * Present when the call is associated with a user chat conversation.
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -2455,6 +2465,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User chat ID linked to this call.
      * Present when the call is associated with a user chat conversation.
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -2477,6 +2488,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User chat ID linked to this call.
      * Present when the call is associated with a user chat conversation.
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -2497,6 +2509,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User chat ID linked to this call.
      * Present when the call is associated with a user chat conversation.
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -2512,6 +2525,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User chat ID linked to this call.
      * Present when the call is associated with a user chat conversation.
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>

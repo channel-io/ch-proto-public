@@ -285,6 +285,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=2
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
+   * +kubebuilder:example="General"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -313,6 +314,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=2
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
+   * +kubebuilder:example="General"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -424,6 +426,7 @@ private static final long serialVersionUID = 0L;
    * Icon identifier or emoji representing the group visually.
    * Must not contain whitespace.
    * +kubebuilder:validation:Pattern="&#92;S+"
+   * +kubebuilder:example="star"
    * </pre>
    *
    * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -447,6 +450,7 @@ private static final long serialVersionUID = 0L;
    * Icon identifier or emoji representing the group visually.
    * Must not contain whitespace.
    * +kubebuilder:validation:Pattern="&#92;S+"
+   * +kubebuilder:example="star"
    * </pre>
    *
    * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -1369,6 +1373,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
+     * +kubebuilder:example="General"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1396,6 +1401,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
+     * +kubebuilder:example="General"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1424,6 +1430,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
+     * +kubebuilder:example="General"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1450,6 +1457,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
+     * +kubebuilder:example="General"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1471,6 +1479,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
+     * +kubebuilder:example="General"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1729,6 +1738,7 @@ private static final long serialVersionUID = 0L;
      * Icon identifier or emoji representing the group visually.
      * Must not contain whitespace.
      * +kubebuilder:validation:Pattern="&#92;S+"
+     * +kubebuilder:example="star"
      * </pre>
      *
      * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -1751,6 +1761,7 @@ private static final long serialVersionUID = 0L;
      * Icon identifier or emoji representing the group visually.
      * Must not contain whitespace.
      * +kubebuilder:validation:Pattern="&#92;S+"
+     * +kubebuilder:example="star"
      * </pre>
      *
      * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -1774,6 +1785,7 @@ private static final long serialVersionUID = 0L;
      * Icon identifier or emoji representing the group visually.
      * Must not contain whitespace.
      * +kubebuilder:validation:Pattern="&#92;S+"
+     * +kubebuilder:example="star"
      * </pre>
      *
      * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -1795,6 +1807,7 @@ private static final long serialVersionUID = 0L;
      * Icon identifier or emoji representing the group visually.
      * Must not contain whitespace.
      * +kubebuilder:validation:Pattern="&#92;S+"
+     * +kubebuilder:example="star"
      * </pre>
      *
      * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -1811,6 +1824,7 @@ private static final long serialVersionUID = 0L;
      * Icon identifier or emoji representing the group visually.
      * Must not contain whitespace.
      * +kubebuilder:validation:Pattern="&#92;S+"
+     * +kubebuilder:example="star"
      * </pre>
      *
      * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>

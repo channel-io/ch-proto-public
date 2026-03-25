@@ -45,6 +45,7 @@ message ChatBookmark {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="userChat-uc-abc123"
   string chat_key = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -58,6 +59,7 @@ message ChatBookmark {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="bk-001"
   string bookmark_key = 4 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -81,6 +83,7 @@ message ChatBookmark {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="manager"
   string person_type = 7 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -94,6 +97,7 @@ message ChatBookmark {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="m-001"
   string person_id = 8 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -107,6 +111,7 @@ message ChatBookmark {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="userChat"
   string chat_type = 9 [
     (buf.validate.field).cel = {
       id: "string.minLen"

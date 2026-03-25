@@ -144,6 +144,7 @@ public interface UserChatOrBuilder extends
    * Whether the chat is managed and visible in the Desk inbox.
    * Unmanaged chats are only visible to the user.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool managed = 7 [json_name = "managed", (.buf.validate.field) = { ... }</code>
@@ -239,6 +240,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Title of the chat conversation displayed in the Desk inbox list.
+   * +kubebuilder:example="Billing Question"
    * </pre>
    *
    * <code>string title = 12 [json_name = "title"];</code>
@@ -248,6 +250,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Title of the chat conversation displayed in the Desk inbox list.
+   * +kubebuilder:example="Billing Question"
    * </pre>
    *
    * <code>string title = 12 [json_name = "title"];</code>
@@ -405,6 +408,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the manager currently assigned as the primary responder.
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string assignee_id = 18 [json_name = "assigneeId"];</code>
@@ -414,6 +418,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the manager currently assigned as the primary responder.
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string assignee_id = 18 [json_name = "assigneeId"];</code>
@@ -521,6 +526,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Name of the goal event being tracked for conversion measurement.
+   * +kubebuilder:example="purchase_completed"
    * </pre>
    *
    * <code>string goal_event_name = 22 [json_name = "goalEventName"];</code>
@@ -530,6 +536,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Name of the goal event being tracked for conversion measurement.
+   * +kubebuilder:example="purchase_completed"
    * </pre>
    *
    * <code>string goal_event_name = 22 [json_name = "goalEventName"];</code>
@@ -785,6 +792,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the latest message visible to the user (front side).
+   * +kubebuilder:example="msg-001"
    * </pre>
    *
    * <code>string front_message_id = 32 [json_name = "frontMessageId"];</code>
@@ -794,6 +802,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the latest message visible to the user (front side).
+   * +kubebuilder:example="msg-001"
    * </pre>
    *
    * <code>string front_message_id = 32 [json_name = "frontMessageId"];</code>
@@ -879,6 +888,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the most recent message sent by the user.
+   * +kubebuilder:example="msg-003"
    * </pre>
    *
    * <code>string user_last_message_id = 36 [json_name = "userLastMessageId"];</code>
@@ -888,6 +898,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the most recent message sent by the user.
+   * +kubebuilder:example="msg-003"
    * </pre>
    *
    * <code>string user_last_message_id = 36 [json_name = "userLastMessageId"];</code>
@@ -982,6 +993,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Whether the chat was resolved by a single assignee without being
    * transferred to another manager.
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool one_stop = 40 [json_name = "oneStop"];</code>
@@ -1014,6 +1026,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Sum of all individual reply durations across manager responses
    * (in milliseconds).
+   * +kubebuilder:example="90000"
    * </pre>
    *
    * <code>int64 total_reply_time = 43 [json_name = "totalReplyTime"];</code>
@@ -1045,6 +1058,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Duration from open to the first manager reply, counting only
    * operating hours (in milliseconds).
+   * +kubebuilder:example="55000"
    * </pre>
    *
    * <code>int64 operation_waiting_time = 46 [json_name = "operationWaitingTime"];</code>
@@ -1076,6 +1090,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Total number of manager replies during operating hours.
+   * +kubebuilder:example="2"
    * </pre>
    *
    * <code>int32 operation_reply_count = 49 [json_name = "operationReplyCount"];</code>
@@ -1235,6 +1250,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Optimistic locking version incremented on every update.
    * Supply the current value when updating to prevent overwriting concurrent changes.
+   * +kubebuilder:example="1"
    * </pre>
    *
    * <code>int64 version = 56 [json_name = "version"];</code>

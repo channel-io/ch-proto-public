@@ -311,6 +311,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Programming language identifier for syntax highlighting.
    * Only applicable when type is CODE.
+   * +kubebuilder:example="python"
    * </pre>
    *
    * <code>string language = 2 [json_name = "language"];</code>
@@ -333,6 +334,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Programming language identifier for syntax highlighting.
    * Only applicable when type is CODE.
+   * +kubebuilder:example="python"
    * </pre>
    *
    * <code>string language = 2 [json_name = "language"];</code>
@@ -947,6 +949,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Programming language identifier for syntax highlighting.
      * Only applicable when type is CODE.
+     * +kubebuilder:example="python"
      * </pre>
      *
      * <code>string language = 2 [json_name = "language"];</code>
@@ -968,6 +971,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Programming language identifier for syntax highlighting.
      * Only applicable when type is CODE.
+     * +kubebuilder:example="python"
      * </pre>
      *
      * <code>string language = 2 [json_name = "language"];</code>
@@ -990,6 +994,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Programming language identifier for syntax highlighting.
      * Only applicable when type is CODE.
+     * +kubebuilder:example="python"
      * </pre>
      *
      * <code>string language = 2 [json_name = "language"];</code>
@@ -1010,6 +1015,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Programming language identifier for syntax highlighting.
      * Only applicable when type is CODE.
+     * +kubebuilder:example="python"
      * </pre>
      *
      * <code>string language = 2 [json_name = "language"];</code>
@@ -1025,6 +1031,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Programming language identifier for syntax highlighting.
      * Only applicable when type is CODE.
+     * +kubebuilder:example="python"
      * </pre>
      *
      * <code>string language = 2 [json_name = "language"];</code>

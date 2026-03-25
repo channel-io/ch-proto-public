@@ -30,14 +30,18 @@ type TinyFile struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="thumbnails"
 	Bucket string `protobuf:"bytes,1,opt,name=bucket,proto3" json:"bucket,omitempty"`
 	// Storage object key used to locate the file within the bucket.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="thumb/avatar-001.png"
 	Key string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
 	// Image width in pixels.
 	// Present only when the file is an image.
+	//
+	// +kubebuilder:example="200"
 	Width int32 `protobuf:"varint,3,opt,name=width,proto3" json:"width,omitempty"`
 	// Image height in pixels.
 	// Present only when the file is an image.

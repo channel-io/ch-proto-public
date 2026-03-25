@@ -219,6 +219,7 @@ private static final long serialVersionUID = 0L;
    * Identifier of the person.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -242,6 +243,7 @@ private static final long serialVersionUID = 0L;
    * Identifier of the person.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -267,6 +269,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Composite presence record identifier derived from person type and person ID.
+   * +kubebuilder:example="manager-m-001"
    * </pre>
    *
    * <code>string id = 4 [json_name = "id"];</code>
@@ -288,6 +291,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Composite presence record identifier derived from person type and person ID.
+   * +kubebuilder:example="manager-m-001"
    * </pre>
    *
    * <code>string id = 4 [json_name = "id"];</code>
@@ -883,6 +887,7 @@ private static final long serialVersionUID = 0L;
      * Identifier of the person.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -905,6 +910,7 @@ private static final long serialVersionUID = 0L;
      * Identifier of the person.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -928,6 +934,7 @@ private static final long serialVersionUID = 0L;
      * Identifier of the person.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -949,6 +956,7 @@ private static final long serialVersionUID = 0L;
      * Identifier of the person.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -965,6 +973,7 @@ private static final long serialVersionUID = 0L;
      * Identifier of the person.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -987,6 +996,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite presence record identifier derived from person type and person ID.
+     * +kubebuilder:example="manager-m-001"
      * </pre>
      *
      * <code>string id = 4 [json_name = "id"];</code>
@@ -1007,6 +1017,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite presence record identifier derived from person type and person ID.
+     * +kubebuilder:example="manager-m-001"
      * </pre>
      *
      * <code>string id = 4 [json_name = "id"];</code>
@@ -1028,6 +1039,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite presence record identifier derived from person type and person ID.
+     * +kubebuilder:example="manager-m-001"
      * </pre>
      *
      * <code>string id = 4 [json_name = "id"];</code>
@@ -1047,6 +1059,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite presence record identifier derived from person type and person ID.
+     * +kubebuilder:example="manager-m-001"
      * </pre>
      *
      * <code>string id = 4 [json_name = "id"];</code>
@@ -1061,6 +1074,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite presence record identifier derived from person type and person ID.
+     * +kubebuilder:example="manager-m-001"
      * </pre>
      *
      * <code>string id = 4 [json_name = "id"];</code>

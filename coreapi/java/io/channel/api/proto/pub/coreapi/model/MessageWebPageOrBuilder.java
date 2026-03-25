@@ -11,6 +11,7 @@ public interface MessageWebPageOrBuilder extends
    * <pre>
    * Unique web page preview identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="wp-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -21,6 +22,7 @@ public interface MessageWebPageOrBuilder extends
    * <pre>
    * Unique web page preview identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="wp-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -34,6 +36,7 @@ public interface MessageWebPageOrBuilder extends
    * Target URL of the linked web page.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="https://channel.io"
    * </pre>
    *
    * <code>string url = 2 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -45,6 +48,7 @@ public interface MessageWebPageOrBuilder extends
    * Target URL of the linked web page.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="https://channel.io"
    * </pre>
    *
    * <code>string url = 2 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -56,6 +60,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Page title extracted from Open Graph `og:title` or HTML `&lt;title&gt;` tag.
+   * +kubebuilder:example="Channel Talk - Customer Messaging"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title"];</code>
@@ -65,6 +70,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Page title extracted from Open Graph `og:title` or HTML `&lt;title&gt;` tag.
+   * +kubebuilder:example="Channel Talk - Customer Messaging"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title"];</code>
@@ -96,6 +102,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Primary image URL from Open Graph `og:image` metadata.
+   * +kubebuilder:example="https://example.com/og-image.png"
    * </pre>
    *
    * <code>string image_url = 5 [json_name = "imageUrl"];</code>
@@ -105,6 +112,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Primary image URL from Open Graph `og:image` metadata.
+   * +kubebuilder:example="https://example.com/og-image.png"
    * </pre>
    *
    * <code>string image_url = 5 [json_name = "imageUrl"];</code>
@@ -136,6 +144,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Publisher or site name extracted from page metadata.
+   * +kubebuilder:example="Channel Corp"
    * </pre>
    *
    * <code>string publisher = 7 [json_name = "publisher"];</code>
@@ -145,6 +154,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Publisher or site name extracted from page metadata.
+   * +kubebuilder:example="Channel Corp"
    * </pre>
    *
    * <code>string publisher = 7 [json_name = "publisher"];</code>
@@ -176,6 +186,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Preview image width in pixels.
+   * +kubebuilder:example="1920"
    * </pre>
    *
    * <code>int32 width = 9 [json_name = "width"];</code>
@@ -196,6 +207,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Storage bucket name for the cached preview image.
+   * +kubebuilder:example="preview-images"
    * </pre>
    *
    * <code>string bucket = 11 [json_name = "bucket"];</code>
@@ -205,6 +217,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Storage bucket name for the cached preview image.
+   * +kubebuilder:example="preview-images"
    * </pre>
    *
    * <code>string bucket = 11 [json_name = "bucket"];</code>
@@ -236,6 +249,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Publisher logo URL extracted from page metadata.
+   * +kubebuilder:example="https://example.com/logo.png"
    * </pre>
    *
    * <code>string logo = 13 [json_name = "logo"];</code>
@@ -245,6 +259,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Publisher logo URL extracted from page metadata.
+   * +kubebuilder:example="https://example.com/logo.png"
    * </pre>
    *
    * <code>string logo = 13 [json_name = "logo"];</code>

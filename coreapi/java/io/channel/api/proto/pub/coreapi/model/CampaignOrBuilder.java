@@ -128,6 +128,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+   * +kubebuilder:example="sms-001"
    * </pre>
    *
    * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -137,6 +138,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+   * +kubebuilder:example="sms-001"
    * </pre>
    *
    * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -223,6 +225,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Name of the user event that triggers this campaign.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="page_view"
    * </pre>
    *
    * <code>string trigger_event_name = 9 [json_name = "triggerEventName", (.buf.validate.field) = { ... }</code>
@@ -233,6 +236,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Name of the user event that triggers this campaign.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="page_view"
    * </pre>
    *
    * <code>string trigger_event_name = 9 [json_name = "triggerEventName", (.buf.validate.field) = { ... }</code>
@@ -472,6 +476,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Name of the event that counts as a goal completion.
+   * +kubebuilder:example="sign_up"
    * </pre>
    *
    * <code>string goal_event_name = 17 [json_name = "goalEventName"];</code>
@@ -481,6 +486,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Name of the event that counts as a goal completion.
+   * +kubebuilder:example="sign_up"
    * </pre>
    *
    * <code>string goal_event_name = 17 [json_name = "goalEventName"];</code>
@@ -586,6 +592,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Whether the campaign message contains advertising content subject to opt-out regulations.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool advertising = 21 [json_name = "advertising", (.buf.validate.field) = { ... }</code>
@@ -671,6 +678,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Channel operation schedule used to determine delivery timing.
    * Applicable when send_mode is IN_OPERATION or AWAY.
+   * +kubebuilder:example="op-001"
    * </pre>
    *
    * <code>string channel_operation_id = 26 [json_name = "channelOperationId"];</code>
@@ -681,6 +689,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Channel operation schedule used to determine delivery timing.
    * Applicable when send_mode is IN_OPERATION or AWAY.
+   * +kubebuilder:example="op-001"
    * </pre>
    *
    * <code>string channel_operation_id = 26 [json_name = "channelOperationId"];</code>
@@ -885,6 +894,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Cumulative count of messages delivered.
+   * +kubebuilder:example="100"
    * </pre>
    *
    * <code>int32 sent = 33 [json_name = "sent"];</code>
@@ -915,6 +925,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Cumulative count of message link clicks.
+   * +kubebuilder:example="25"
    * </pre>
    *
    * <code>int32 click = 36 [json_name = "click"];</code>

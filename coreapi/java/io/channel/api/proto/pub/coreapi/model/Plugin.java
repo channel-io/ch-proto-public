@@ -511,6 +511,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:example="Support Widget"
    * </pre>
    *
    * <code>string name = 5 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -536,6 +537,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
+   * +kubebuilder:example="Support Widget"
    * </pre>
    *
    * <code>string name = 5 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -635,6 +637,7 @@ private static final long serialVersionUID = 0L;
    * Whether the text label is displayed alongside the launcher button.
    * Defaults to true.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool label_button = 8 [json_name = "labelButton", (.buf.validate.field) = { ... }</code>
@@ -947,6 +950,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Horizontal offset of the desktop widget from its anchored edge, in pixels.
+   * +kubebuilder:example="20"
    * </pre>
    *
    * <code>int32 desk_margin_x = 15 [json_name = "deskMarginX"];</code>
@@ -1060,6 +1064,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Horizontal offset of the mobile widget from its anchored edge, in pixels.
+   * +kubebuilder:example="16"
    * </pre>
    *
    * <code>int32 mobile_margin_x = 20 [json_name = "mobileMarginX"];</code>
@@ -1117,6 +1122,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the mobile launcher button is hidden while the widget remains accessible.
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool mobile_hide_button = 23 [json_name = "mobileHideButton"];</code>
@@ -1220,6 +1226,7 @@ private static final long serialVersionUID = 0L;
    * Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
    * +kubebuilder:validation:Minimum=0
    * +kubebuilder:validation:Maximum=1
+   * +kubebuilder:example="1.0"
    * </pre>
    *
    * <code>float run_rate = 26 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
@@ -1235,6 +1242,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Facebook Pixel ID linked for conversion tracking.
+   * +kubebuilder:example="123456789012345"
    * </pre>
    *
    * <code>string facebook_pixel_id = 27 [json_name = "facebookPixelId"];</code>
@@ -1256,6 +1264,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Facebook Pixel ID linked for conversion tracking.
+   * +kubebuilder:example="123456789012345"
    * </pre>
    *
    * <code>string facebook_pixel_id = 27 [json_name = "facebookPixelId"];</code>
@@ -1330,6 +1339,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Resolved URL of the desktop launcher image.
    * Automatically derived from desk_image.
+   * +kubebuilder:example="https://cdn.channel.io/plugin/desk.png"
    * </pre>
    *
    * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>
@@ -1352,6 +1362,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Resolved URL of the desktop launcher image.
    * Automatically derived from desk_image.
+   * +kubebuilder:example="https://cdn.channel.io/plugin/desk.png"
    * </pre>
    *
    * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>
@@ -2715,6 +2726,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:example="Support Widget"
      * </pre>
      *
      * <code>string name = 5 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -2739,6 +2751,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:example="Support Widget"
      * </pre>
      *
      * <code>string name = 5 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -2764,6 +2777,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:example="Support Widget"
      * </pre>
      *
      * <code>string name = 5 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -2787,6 +2801,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:example="Support Widget"
      * </pre>
      *
      * <code>string name = 5 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -2805,6 +2820,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
+     * +kubebuilder:example="Support Widget"
      * </pre>
      *
      * <code>string name = 5 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3077,6 +3093,7 @@ private static final long serialVersionUID = 0L;
      * Whether the text label is displayed alongside the launcher button.
      * Defaults to true.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool label_button = 8 [json_name = "labelButton", (.buf.validate.field) = { ... }</code>
@@ -3091,6 +3108,7 @@ private static final long serialVersionUID = 0L;
      * Whether the text label is displayed alongside the launcher button.
      * Defaults to true.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool label_button = 8 [json_name = "labelButton", (.buf.validate.field) = { ... }</code>
@@ -3108,6 +3126,7 @@ private static final long serialVersionUID = 0L;
      * Whether the text label is displayed alongside the launcher button.
      * Defaults to true.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool label_button = 8 [json_name = "labelButton", (.buf.validate.field) = { ... }</code>
@@ -3897,6 +3916,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal offset of the desktop widget from its anchored edge, in pixels.
+     * +kubebuilder:example="20"
      * </pre>
      *
      * <code>int32 desk_margin_x = 15 [json_name = "deskMarginX"];</code>
@@ -3909,6 +3929,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal offset of the desktop widget from its anchored edge, in pixels.
+     * +kubebuilder:example="20"
      * </pre>
      *
      * <code>int32 desk_margin_x = 15 [json_name = "deskMarginX"];</code>
@@ -3924,6 +3945,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal offset of the desktop widget from its anchored edge, in pixels.
+     * +kubebuilder:example="20"
      * </pre>
      *
      * <code>int32 desk_margin_x = 15 [json_name = "deskMarginX"];</code>
@@ -4264,6 +4286,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal offset of the mobile widget from its anchored edge, in pixels.
+     * +kubebuilder:example="16"
      * </pre>
      *
      * <code>int32 mobile_margin_x = 20 [json_name = "mobileMarginX"];</code>
@@ -4276,6 +4299,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal offset of the mobile widget from its anchored edge, in pixels.
+     * +kubebuilder:example="16"
      * </pre>
      *
      * <code>int32 mobile_margin_x = 20 [json_name = "mobileMarginX"];</code>
@@ -4291,6 +4315,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Horizontal offset of the mobile widget from its anchored edge, in pixels.
+     * +kubebuilder:example="16"
      * </pre>
      *
      * <code>int32 mobile_margin_x = 20 [json_name = "mobileMarginX"];</code>
@@ -4424,6 +4449,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the mobile launcher button is hidden while the widget remains accessible.
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool mobile_hide_button = 23 [json_name = "mobileHideButton"];</code>
@@ -4436,6 +4462,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the mobile launcher button is hidden while the widget remains accessible.
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool mobile_hide_button = 23 [json_name = "mobileHideButton"];</code>
@@ -4451,6 +4478,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the mobile launcher button is hidden while the widget remains accessible.
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool mobile_hide_button = 23 [json_name = "mobileHideButton"];</code>
@@ -4707,6 +4735,7 @@ private static final long serialVersionUID = 0L;
      * Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
      * +kubebuilder:validation:Minimum=0
      * +kubebuilder:validation:Maximum=1
+     * +kubebuilder:example="1.0"
      * </pre>
      *
      * <code>float run_rate = 26 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
@@ -4721,6 +4750,7 @@ private static final long serialVersionUID = 0L;
      * Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
      * +kubebuilder:validation:Minimum=0
      * +kubebuilder:validation:Maximum=1
+     * +kubebuilder:example="1.0"
      * </pre>
      *
      * <code>float run_rate = 26 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
@@ -4738,6 +4768,7 @@ private static final long serialVersionUID = 0L;
      * Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
      * +kubebuilder:validation:Minimum=0
      * +kubebuilder:validation:Maximum=1
+     * +kubebuilder:example="1.0"
      * </pre>
      *
      * <code>float run_rate = 26 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
@@ -4754,6 +4785,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Facebook Pixel ID linked for conversion tracking.
+     * +kubebuilder:example="123456789012345"
      * </pre>
      *
      * <code>string facebook_pixel_id = 27 [json_name = "facebookPixelId"];</code>
@@ -4774,6 +4806,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Facebook Pixel ID linked for conversion tracking.
+     * +kubebuilder:example="123456789012345"
      * </pre>
      *
      * <code>string facebook_pixel_id = 27 [json_name = "facebookPixelId"];</code>
@@ -4795,6 +4828,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Facebook Pixel ID linked for conversion tracking.
+     * +kubebuilder:example="123456789012345"
      * </pre>
      *
      * <code>string facebook_pixel_id = 27 [json_name = "facebookPixelId"];</code>
@@ -4814,6 +4848,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Facebook Pixel ID linked for conversion tracking.
+     * +kubebuilder:example="123456789012345"
      * </pre>
      *
      * <code>string facebook_pixel_id = 27 [json_name = "facebookPixelId"];</code>
@@ -4828,6 +4863,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Facebook Pixel ID linked for conversion tracking.
+     * +kubebuilder:example="123456789012345"
      * </pre>
      *
      * <code>string facebook_pixel_id = 27 [json_name = "facebookPixelId"];</code>
@@ -4952,6 +4988,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the desktop launcher image.
      * Automatically derived from desk_image.
+     * +kubebuilder:example="https://cdn.channel.io/plugin/desk.png"
      * </pre>
      *
      * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>
@@ -4973,6 +5010,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the desktop launcher image.
      * Automatically derived from desk_image.
+     * +kubebuilder:example="https://cdn.channel.io/plugin/desk.png"
      * </pre>
      *
      * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>
@@ -4995,6 +5033,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the desktop launcher image.
      * Automatically derived from desk_image.
+     * +kubebuilder:example="https://cdn.channel.io/plugin/desk.png"
      * </pre>
      *
      * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>
@@ -5015,6 +5054,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the desktop launcher image.
      * Automatically derived from desk_image.
+     * +kubebuilder:example="https://cdn.channel.io/plugin/desk.png"
      * </pre>
      *
      * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>
@@ -5030,6 +5070,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved URL of the desktop launcher image.
      * Automatically derived from desk_image.
+     * +kubebuilder:example="https://cdn.channel.io/plugin/desk.png"
      * </pre>
      *
      * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>

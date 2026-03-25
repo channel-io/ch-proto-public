@@ -113,6 +113,7 @@ private static final long serialVersionUID = 0L;
    * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="thumbsup"
    * </pre>
    *
    * <code>string emoji_name = 1 [json_name = "emojiName", (.buf.validate.field) = { ... }</code>
@@ -136,6 +137,7 @@ private static final long serialVersionUID = 0L;
    * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="thumbsup"
    * </pre>
    *
    * <code>string emoji_name = 1 [json_name = "emojiName", (.buf.validate.field) = { ... }</code>
@@ -560,6 +562,7 @@ private static final long serialVersionUID = 0L;
      * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="thumbsup"
      * </pre>
      *
      * <code>string emoji_name = 1 [json_name = "emojiName", (.buf.validate.field) = { ... }</code>
@@ -582,6 +585,7 @@ private static final long serialVersionUID = 0L;
      * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="thumbsup"
      * </pre>
      *
      * <code>string emoji_name = 1 [json_name = "emojiName", (.buf.validate.field) = { ... }</code>
@@ -605,6 +609,7 @@ private static final long serialVersionUID = 0L;
      * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="thumbsup"
      * </pre>
      *
      * <code>string emoji_name = 1 [json_name = "emojiName", (.buf.validate.field) = { ... }</code>
@@ -626,6 +631,7 @@ private static final long serialVersionUID = 0L;
      * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="thumbsup"
      * </pre>
      *
      * <code>string emoji_name = 1 [json_name = "emojiName", (.buf.validate.field) = { ... }</code>
@@ -642,6 +648,7 @@ private static final long serialVersionUID = 0L;
      * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="thumbsup"
      * </pre>
      *
      * <code>string emoji_name = 1 [json_name = "emojiName", (.buf.validate.field) = { ... }</code>

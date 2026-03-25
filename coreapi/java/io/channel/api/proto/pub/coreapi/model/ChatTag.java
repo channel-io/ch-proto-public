@@ -275,6 +275,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="billing"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -300,6 +301,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="billing"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -328,6 +330,7 @@ private static final long serialVersionUID = 0L;
    * Unique within the channel (case-insensitive).
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="billing"
    * </pre>
    *
    * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -352,6 +355,7 @@ private static final long serialVersionUID = 0L;
    * Unique within the channel (case-insensitive).
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="billing"
    * </pre>
    *
    * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -378,6 +382,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Short description of the chat tag.
    * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="Billing related inquiries"
    * </pre>
    *
    * <code>string description = 6 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -400,6 +405,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Short description of the chat tag.
    * +kubebuilder:validation:MaxLength=128
+   * +kubebuilder:example="Billing related inquiries"
    * </pre>
    *
    * <code>string description = 6 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1175,6 +1181,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
+     * +kubebuilder:example="billing"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1199,6 +1206,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
+     * +kubebuilder:example="billing"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1224,6 +1232,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
+     * +kubebuilder:example="billing"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1247,6 +1256,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
+     * +kubebuilder:example="billing"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1265,6 +1275,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
+     * +kubebuilder:example="billing"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1290,6 +1301,7 @@ private static final long serialVersionUID = 0L;
      * Unique within the channel (case-insensitive).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="billing"
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1313,6 +1325,7 @@ private static final long serialVersionUID = 0L;
      * Unique within the channel (case-insensitive).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="billing"
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1337,6 +1350,7 @@ private static final long serialVersionUID = 0L;
      * Unique within the channel (case-insensitive).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="billing"
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1359,6 +1373,7 @@ private static final long serialVersionUID = 0L;
      * Unique within the channel (case-insensitive).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="billing"
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1376,6 +1391,7 @@ private static final long serialVersionUID = 0L;
      * Unique within the channel (case-insensitive).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="billing"
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1399,6 +1415,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Short description of the chat tag.
      * +kubebuilder:validation:MaxLength=128
+     * +kubebuilder:example="Billing related inquiries"
      * </pre>
      *
      * <code>string description = 6 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1420,6 +1437,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Short description of the chat tag.
      * +kubebuilder:validation:MaxLength=128
+     * +kubebuilder:example="Billing related inquiries"
      * </pre>
      *
      * <code>string description = 6 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1442,6 +1460,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Short description of the chat tag.
      * +kubebuilder:validation:MaxLength=128
+     * +kubebuilder:example="Billing related inquiries"
      * </pre>
      *
      * <code>string description = 6 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1462,6 +1481,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Short description of the chat tag.
      * +kubebuilder:validation:MaxLength=128
+     * +kubebuilder:example="Billing related inquiries"
      * </pre>
      *
      * <code>string description = 6 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1477,6 +1497,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Short description of the chat tag.
      * +kubebuilder:validation:MaxLength=128
+     * +kubebuilder:example="Billing related inquiries"
      * </pre>
      *
      * <code>string description = 6 [json_name = "description", (.buf.validate.field) = { ... }</code>

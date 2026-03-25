@@ -424,6 +424,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+   * +kubebuilder:example="sms-001"
    * </pre>
    *
    * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -445,6 +446,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+   * +kubebuilder:example="sms-001"
    * </pre>
    *
    * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -596,6 +598,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Cumulative count of messages delivered for this variant.
+   * +kubebuilder:example="100"
    * </pre>
    *
    * <code>int32 sent = 10 [json_name = "sent"];</code>
@@ -641,6 +644,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Cumulative count of message link clicks for this variant.
+   * +kubebuilder:example="25"
    * </pre>
    *
    * <code>int32 click = 13 [json_name = "click"];</code>
@@ -1717,6 +1721,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+     * +kubebuilder:example="sms-001"
      * </pre>
      *
      * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -1737,6 +1742,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+     * +kubebuilder:example="sms-001"
      * </pre>
      *
      * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -1758,6 +1764,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+     * +kubebuilder:example="sms-001"
      * </pre>
      *
      * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -1777,6 +1784,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+     * +kubebuilder:example="sms-001"
      * </pre>
      *
      * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -1791,6 +1799,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+     * +kubebuilder:example="sms-001"
      * </pre>
      *
      * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -2314,6 +2323,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of messages delivered for this variant.
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>int32 sent = 10 [json_name = "sent"];</code>
@@ -2326,6 +2336,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of messages delivered for this variant.
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>int32 sent = 10 [json_name = "sent"];</code>
@@ -2341,6 +2352,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of messages delivered for this variant.
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>int32 sent = 10 [json_name = "sent"];</code>
@@ -2443,6 +2455,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of message link clicks for this variant.
+     * +kubebuilder:example="25"
      * </pre>
      *
      * <code>int32 click = 13 [json_name = "click"];</code>
@@ -2455,6 +2468,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of message link clicks for this variant.
+     * +kubebuilder:example="25"
      * </pre>
      *
      * <code>int32 click = 13 [json_name = "click"];</code>
@@ -2470,6 +2484,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of message link clicks for this variant.
+     * +kubebuilder:example="25"
      * </pre>
      *
      * <code>int32 click = 13 [json_name = "click"];</code>

@@ -76,6 +76,7 @@ public interface MessageLogOrBuilder extends
   /**
    * <pre>
    * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
+   * +kubebuilder:example="workflow"
    * </pre>
    *
    * <code>string trigger_type = 3 [json_name = "triggerType"];</code>
@@ -85,6 +86,7 @@ public interface MessageLogOrBuilder extends
   /**
    * <pre>
    * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
+   * +kubebuilder:example="workflow"
    * </pre>
    *
    * <code>string trigger_type = 3 [json_name = "triggerType"];</code>

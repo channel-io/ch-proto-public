@@ -365,6 +365,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique file identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="file-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -387,6 +388,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique file identifier.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="file-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -412,6 +414,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+   * +kubebuilder:example="image"
    * </pre>
    *
    * <code>string type = 2 [json_name = "type"];</code>
@@ -433,6 +436,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+   * +kubebuilder:example="image"
    * </pre>
    *
    * <code>string type = 2 [json_name = "type"];</code>
@@ -509,6 +513,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * File size in bytes.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example=2048
    * </pre>
    *
    * <code>int64 size = 4 [json_name = "size", (.buf.validate.field) = { ... }</code>
@@ -524,6 +529,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * MIME content type (e.g. "image/png", "application/pdf").
+   * +kubebuilder:example="image/png"
    * </pre>
    *
    * <code>string content_type = 5 [json_name = "contentType"];</code>
@@ -545,6 +551,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * MIME content type (e.g. "image/png", "application/pdf").
+   * +kubebuilder:example="image/png"
    * </pre>
    *
    * <code>string content_type = 5 [json_name = "contentType"];</code>
@@ -586,6 +593,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Image or video width in pixels.
+   * +kubebuilder:example="1920"
    * </pre>
    *
    * <code>int32 width = 7 [json_name = "width"];</code>
@@ -617,6 +625,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * EXIF orientation value (1-8) indicating how the image should be rotated for display.
    * Present only for image files with EXIF metadata.
+   * +kubebuilder:example="1"
    * </pre>
    *
    * <code>int32 orientation = 9 [json_name = "orientation"];</code>
@@ -649,6 +658,7 @@ private static final long serialVersionUID = 0L;
    * Storage bucket name where the file is hosted.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="preview-images"
    * </pre>
    *
    * <code>string bucket = 11 [json_name = "bucket", (.buf.validate.field) = { ... }</code>
@@ -672,6 +682,7 @@ private static final long serialVersionUID = 0L;
    * Storage bucket name where the file is hosted.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="preview-images"
    * </pre>
    *
    * <code>string bucket = 11 [json_name = "bucket", (.buf.validate.field) = { ... }</code>
@@ -699,6 +710,7 @@ private static final long serialVersionUID = 0L;
    * Storage object key used to locate the file within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="uploads/file.pdf"
    * </pre>
    *
    * <code>string key = 12 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -722,6 +734,7 @@ private static final long serialVersionUID = 0L;
    * Storage object key used to locate the file within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="uploads/file.pdf"
    * </pre>
    *
    * <code>string key = 12 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -748,6 +761,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Storage key for the preview thumbnail.
    * Falls back to `key` when not set.
+   * +kubebuilder:example="thumbnails/image_preview.jpg"
    * </pre>
    *
    * <code>string preview_key = 13 [json_name = "previewKey"];</code>
@@ -770,6 +784,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Storage key for the preview thumbnail.
    * Falls back to `key` when not set.
+   * +kubebuilder:example="thumbnails/image_preview.jpg"
    * </pre>
    *
    * <code>string preview_key = 13 [json_name = "previewKey"];</code>
@@ -825,6 +840,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Domain identifier for channel-scoped private files.
    * Derived from the storage key pattern.
+   * +kubebuilder:example="internal"
    * </pre>
    *
    * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
@@ -847,6 +863,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Domain identifier for channel-scoped private files.
    * Derived from the storage key pattern.
+   * +kubebuilder:example="internal"
    * </pre>
    *
    * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
@@ -921,6 +938,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager ID that owns this private file.
    * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -943,6 +961,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager ID that owns this private file.
    * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+   * +kubebuilder:example="m-abc123"
    * </pre>
    *
    * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -1017,6 +1036,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat ID for chat-scoped private files.
    * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -1039,6 +1059,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat ID for chat-scoped private files.
    * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -1679,6 +1700,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique file identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="file-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1700,6 +1722,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique file identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="file-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1722,6 +1745,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique file identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="file-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1742,6 +1766,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique file identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="file-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1757,6 +1782,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique file identifier.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="file-001"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1779,6 +1805,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+     * +kubebuilder:example="image"
      * </pre>
      *
      * <code>string type = 2 [json_name = "type"];</code>
@@ -1799,6 +1826,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+     * +kubebuilder:example="image"
      * </pre>
      *
      * <code>string type = 2 [json_name = "type"];</code>
@@ -1820,6 +1848,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+     * +kubebuilder:example="image"
      * </pre>
      *
      * <code>string type = 2 [json_name = "type"];</code>
@@ -1839,6 +1868,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+     * +kubebuilder:example="image"
      * </pre>
      *
      * <code>string type = 2 [json_name = "type"];</code>
@@ -1853,6 +1883,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+     * +kubebuilder:example="image"
      * </pre>
      *
      * <code>string type = 2 [json_name = "type"];</code>
@@ -1982,6 +2013,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File size in bytes.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example=2048
      * </pre>
      *
      * <code>int64 size = 4 [json_name = "size", (.buf.validate.field) = { ... }</code>
@@ -1995,6 +2027,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File size in bytes.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example=2048
      * </pre>
      *
      * <code>int64 size = 4 [json_name = "size", (.buf.validate.field) = { ... }</code>
@@ -2011,6 +2044,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * File size in bytes.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example=2048
      * </pre>
      *
      * <code>int64 size = 4 [json_name = "size", (.buf.validate.field) = { ... }</code>
@@ -2027,6 +2061,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MIME content type (e.g. "image/png", "application/pdf").
+     * +kubebuilder:example="image/png"
      * </pre>
      *
      * <code>string content_type = 5 [json_name = "contentType"];</code>
@@ -2047,6 +2082,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MIME content type (e.g. "image/png", "application/pdf").
+     * +kubebuilder:example="image/png"
      * </pre>
      *
      * <code>string content_type = 5 [json_name = "contentType"];</code>
@@ -2068,6 +2104,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MIME content type (e.g. "image/png", "application/pdf").
+     * +kubebuilder:example="image/png"
      * </pre>
      *
      * <code>string content_type = 5 [json_name = "contentType"];</code>
@@ -2087,6 +2124,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MIME content type (e.g. "image/png", "application/pdf").
+     * +kubebuilder:example="image/png"
      * </pre>
      *
      * <code>string content_type = 5 [json_name = "contentType"];</code>
@@ -2101,6 +2139,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MIME content type (e.g. "image/png", "application/pdf").
+     * +kubebuilder:example="image/png"
      * </pre>
      *
      * <code>string content_type = 5 [json_name = "contentType"];</code>
@@ -2169,6 +2208,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image or video width in pixels.
+     * +kubebuilder:example="1920"
      * </pre>
      *
      * <code>int32 width = 7 [json_name = "width"];</code>
@@ -2181,6 +2221,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image or video width in pixels.
+     * +kubebuilder:example="1920"
      * </pre>
      *
      * <code>int32 width = 7 [json_name = "width"];</code>
@@ -2196,6 +2237,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image or video width in pixels.
+     * +kubebuilder:example="1920"
      * </pre>
      *
      * <code>int32 width = 7 [json_name = "width"];</code>
@@ -2256,6 +2298,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * EXIF orientation value (1-8) indicating how the image should be rotated for display.
      * Present only for image files with EXIF metadata.
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int32 orientation = 9 [json_name = "orientation"];</code>
@@ -2269,6 +2312,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * EXIF orientation value (1-8) indicating how the image should be rotated for display.
      * Present only for image files with EXIF metadata.
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int32 orientation = 9 [json_name = "orientation"];</code>
@@ -2285,6 +2329,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * EXIF orientation value (1-8) indicating how the image should be rotated for display.
      * Present only for image files with EXIF metadata.
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int32 orientation = 9 [json_name = "orientation"];</code>
@@ -2346,6 +2391,7 @@ private static final long serialVersionUID = 0L;
      * Storage bucket name where the file is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="preview-images"
      * </pre>
      *
      * <code>string bucket = 11 [json_name = "bucket", (.buf.validate.field) = { ... }</code>
@@ -2368,6 +2414,7 @@ private static final long serialVersionUID = 0L;
      * Storage bucket name where the file is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="preview-images"
      * </pre>
      *
      * <code>string bucket = 11 [json_name = "bucket", (.buf.validate.field) = { ... }</code>
@@ -2391,6 +2438,7 @@ private static final long serialVersionUID = 0L;
      * Storage bucket name where the file is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="preview-images"
      * </pre>
      *
      * <code>string bucket = 11 [json_name = "bucket", (.buf.validate.field) = { ... }</code>
@@ -2412,6 +2460,7 @@ private static final long serialVersionUID = 0L;
      * Storage bucket name where the file is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="preview-images"
      * </pre>
      *
      * <code>string bucket = 11 [json_name = "bucket", (.buf.validate.field) = { ... }</code>
@@ -2428,6 +2477,7 @@ private static final long serialVersionUID = 0L;
      * Storage bucket name where the file is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="preview-images"
      * </pre>
      *
      * <code>string bucket = 11 [json_name = "bucket", (.buf.validate.field) = { ... }</code>
@@ -2452,6 +2502,7 @@ private static final long serialVersionUID = 0L;
      * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="uploads/file.pdf"
      * </pre>
      *
      * <code>string key = 12 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -2474,6 +2525,7 @@ private static final long serialVersionUID = 0L;
      * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="uploads/file.pdf"
      * </pre>
      *
      * <code>string key = 12 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -2497,6 +2549,7 @@ private static final long serialVersionUID = 0L;
      * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="uploads/file.pdf"
      * </pre>
      *
      * <code>string key = 12 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -2518,6 +2571,7 @@ private static final long serialVersionUID = 0L;
      * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="uploads/file.pdf"
      * </pre>
      *
      * <code>string key = 12 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -2534,6 +2588,7 @@ private static final long serialVersionUID = 0L;
      * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="uploads/file.pdf"
      * </pre>
      *
      * <code>string key = 12 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -2557,6 +2612,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Storage key for the preview thumbnail.
      * Falls back to `key` when not set.
+     * +kubebuilder:example="thumbnails/image_preview.jpg"
      * </pre>
      *
      * <code>string preview_key = 13 [json_name = "previewKey"];</code>
@@ -2578,6 +2634,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Storage key for the preview thumbnail.
      * Falls back to `key` when not set.
+     * +kubebuilder:example="thumbnails/image_preview.jpg"
      * </pre>
      *
      * <code>string preview_key = 13 [json_name = "previewKey"];</code>
@@ -2600,6 +2657,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Storage key for the preview thumbnail.
      * Falls back to `key` when not set.
+     * +kubebuilder:example="thumbnails/image_preview.jpg"
      * </pre>
      *
      * <code>string preview_key = 13 [json_name = "previewKey"];</code>
@@ -2620,6 +2678,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Storage key for the preview thumbnail.
      * Falls back to `key` when not set.
+     * +kubebuilder:example="thumbnails/image_preview.jpg"
      * </pre>
      *
      * <code>string preview_key = 13 [json_name = "previewKey"];</code>
@@ -2635,6 +2694,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Storage key for the preview thumbnail.
      * Falls back to `key` when not set.
+     * +kubebuilder:example="thumbnails/image_preview.jpg"
      * </pre>
      *
      * <code>string preview_key = 13 [json_name = "previewKey"];</code>
@@ -2737,6 +2797,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Domain identifier for channel-scoped private files.
      * Derived from the storage key pattern.
+     * +kubebuilder:example="internal"
      * </pre>
      *
      * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
@@ -2758,6 +2819,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Domain identifier for channel-scoped private files.
      * Derived from the storage key pattern.
+     * +kubebuilder:example="internal"
      * </pre>
      *
      * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
@@ -2780,6 +2842,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Domain identifier for channel-scoped private files.
      * Derived from the storage key pattern.
+     * +kubebuilder:example="internal"
      * </pre>
      *
      * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
@@ -2800,6 +2863,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Domain identifier for channel-scoped private files.
      * Derived from the storage key pattern.
+     * +kubebuilder:example="internal"
      * </pre>
      *
      * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
@@ -2815,6 +2879,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Domain identifier for channel-scoped private files.
      * Derived from the storage key pattern.
+     * +kubebuilder:example="internal"
      * </pre>
      *
      * <code>string shared_domain = 15 [json_name = "sharedDomain"];</code>
@@ -2939,6 +3004,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID that owns this private file.
      * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -2960,6 +3026,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID that owns this private file.
      * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -2982,6 +3049,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID that owns this private file.
      * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -3002,6 +3070,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID that owns this private file.
      * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -3017,6 +3086,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID that owns this private file.
      * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
+     * +kubebuilder:example="m-abc123"
      * </pre>
      *
      * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -3141,6 +3211,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -3162,6 +3233,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -3184,6 +3256,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -3204,6 +3277,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -3219,6 +3293,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * +kubebuilder:example="uc-abc123"
      * </pre>
      *
      * <code>string chat_id = 19 [json_name = "chatId"];</code>

@@ -157,6 +157,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Device model name (e.g. "iPhone 15", "Galaxy S24").
+   * +kubebuilder:example="desktop"
    * </pre>
    *
    * <code>string device = 1 [json_name = "device"];</code>
@@ -178,6 +179,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Device model name (e.g. "iPhone 15", "Galaxy S24").
+   * +kubebuilder:example="desktop"
    * </pre>
    *
    * <code>string device = 1 [json_name = "device"];</code>
@@ -295,6 +297,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Name of the host application embedding the Channel SDK.
+   * +kubebuilder:example="MyApp"
    * </pre>
    *
    * <code>string app_name = 4 [json_name = "appName"];</code>
@@ -316,6 +319,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Name of the host application embedding the Channel SDK.
+   * +kubebuilder:example="MyApp"
    * </pre>
    *
    * <code>string app_name = 4 [json_name = "appName"];</code>
@@ -433,6 +437,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel SDK version string.
+   * +kubebuilder:example="11.0.0"
    * </pre>
    *
    * <code>string sdk_version = 7 [json_name = "sdkVersion"];</code>
@@ -454,6 +459,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel SDK version string.
+   * +kubebuilder:example="11.0.0"
    * </pre>
    *
    * <code>string sdk_version = 7 [json_name = "sdkVersion"];</code>
@@ -988,6 +994,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Device model name (e.g. "iPhone 15", "Galaxy S24").
+     * +kubebuilder:example="desktop"
      * </pre>
      *
      * <code>string device = 1 [json_name = "device"];</code>
@@ -1008,6 +1015,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Device model name (e.g. "iPhone 15", "Galaxy S24").
+     * +kubebuilder:example="desktop"
      * </pre>
      *
      * <code>string device = 1 [json_name = "device"];</code>
@@ -1029,6 +1037,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Device model name (e.g. "iPhone 15", "Galaxy S24").
+     * +kubebuilder:example="desktop"
      * </pre>
      *
      * <code>string device = 1 [json_name = "device"];</code>
@@ -1048,6 +1057,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Device model name (e.g. "iPhone 15", "Galaxy S24").
+     * +kubebuilder:example="desktop"
      * </pre>
      *
      * <code>string device = 1 [json_name = "device"];</code>
@@ -1062,6 +1072,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Device model name (e.g. "iPhone 15", "Galaxy S24").
+     * +kubebuilder:example="desktop"
      * </pre>
      *
      * <code>string device = 1 [json_name = "device"];</code>
@@ -1276,6 +1287,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the host application embedding the Channel SDK.
+     * +kubebuilder:example="MyApp"
      * </pre>
      *
      * <code>string app_name = 4 [json_name = "appName"];</code>
@@ -1296,6 +1308,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the host application embedding the Channel SDK.
+     * +kubebuilder:example="MyApp"
      * </pre>
      *
      * <code>string app_name = 4 [json_name = "appName"];</code>
@@ -1317,6 +1330,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the host application embedding the Channel SDK.
+     * +kubebuilder:example="MyApp"
      * </pre>
      *
      * <code>string app_name = 4 [json_name = "appName"];</code>
@@ -1336,6 +1350,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the host application embedding the Channel SDK.
+     * +kubebuilder:example="MyApp"
      * </pre>
      *
      * <code>string app_name = 4 [json_name = "appName"];</code>
@@ -1350,6 +1365,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the host application embedding the Channel SDK.
+     * +kubebuilder:example="MyApp"
      * </pre>
      *
      * <code>string app_name = 4 [json_name = "appName"];</code>
@@ -1564,6 +1580,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel SDK version string.
+     * +kubebuilder:example="11.0.0"
      * </pre>
      *
      * <code>string sdk_version = 7 [json_name = "sdkVersion"];</code>
@@ -1584,6 +1601,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel SDK version string.
+     * +kubebuilder:example="11.0.0"
      * </pre>
      *
      * <code>string sdk_version = 7 [json_name = "sdkVersion"];</code>
@@ -1605,6 +1623,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel SDK version string.
+     * +kubebuilder:example="11.0.0"
      * </pre>
      *
      * <code>string sdk_version = 7 [json_name = "sdkVersion"];</code>
@@ -1624,6 +1643,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel SDK version string.
+     * +kubebuilder:example="11.0.0"
      * </pre>
      *
      * <code>string sdk_version = 7 [json_name = "sdkVersion"];</code>
@@ -1638,6 +1658,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel SDK version string.
+     * +kubebuilder:example="11.0.0"
      * </pre>
      *
      * <code>string sdk_version = 7 [json_name = "sdkVersion"];</code>

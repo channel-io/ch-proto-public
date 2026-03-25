@@ -1025,6 +1025,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+   * +kubebuilder:example="#F3F4F6"
    * </pre>
    *
    * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
@@ -1046,6 +1047,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+   * +kubebuilder:example="#F3F4F6"
    * </pre>
    *
    * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
@@ -1534,6 +1536,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the new chat button is hidden from end users.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton", (.buf.validate.field) = { ... }</code>
@@ -1616,6 +1619,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether email follow-up is enabled for offline conversations.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool follow_up_email = 23 [json_name = "followUpEmail", (.buf.validate.field) = { ... }</code>
@@ -1648,6 +1652,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the follow-up form must be completed before the user can start a conversation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory", (.buf.validate.field) = { ... }</code>
@@ -1693,6 +1698,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the channel is verified as an enterprise account.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool ent_verified = 27 [json_name = "entVerified", (.buf.validate.field) = { ... }</code>
@@ -1863,6 +1869,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+   * +kubebuilder:example="Shopify"
    * </pre>
    *
    * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
@@ -1884,6 +1891,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+   * +kubebuilder:example="Shopify"
    * </pre>
    *
    * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
@@ -1971,6 +1979,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Default email domain identifier used for outbound emails sent from this channel.
+   * +kubebuilder:example="domain-001"
    * </pre>
    *
    * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
@@ -1992,6 +2001,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Default email domain identifier used for outbound emails sent from this channel.
+   * +kubebuilder:example="domain-001"
    * </pre>
    *
    * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
@@ -2034,6 +2044,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the messenger widget is hidden from end users on the website.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger", (.buf.validate.field) = { ... }</code>
@@ -2067,6 +2078,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed", (.buf.validate.field) = { ... }</code>
@@ -2138,6 +2150,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the front-end ALF v2 AI assistant is enabled for end users.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2", (.buf.validate.field) = { ... }</code>
@@ -2172,6 +2185,7 @@ private static final long serialVersionUID = 0L;
    * Whether the channel is currently accepting new conversations.
    * True when the channel is not blocked and is within operating hours.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool working = 43 [json_name = "working", (.buf.validate.field) = { ... }</code>
@@ -2268,6 +2282,7 @@ private static final long serialVersionUID = 0L;
    * Whether the channel is currently within operating hours.
    * Derived from the operating schedule configuration.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool in_operation = 46 [json_name = "inOperation", (.buf.validate.field) = { ... }</code>
@@ -2472,6 +2487,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether end-user replying is blocked after a conversation is closed.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed", (.buf.validate.field) = { ... }</code>
@@ -2574,6 +2590,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Gradient accent color derived from the theme color, in hex format.
+   * +kubebuilder:example="#6366F1"
    * </pre>
    *
    * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
@@ -2595,6 +2612,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Gradient accent color derived from the theme color, in hex format.
+   * +kubebuilder:example="#6366F1"
    * </pre>
    *
    * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
@@ -2713,6 +2731,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Resolved domain for the channel.
    * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
@@ -2735,6 +2754,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Resolved domain for the channel.
    * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+   * +kubebuilder:example="ch-12345"
    * </pre>
    *
    * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
@@ -2822,6 +2842,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Cover image URL for the channel profile page.
+   * +kubebuilder:example="https://cdn.channel.io/cover/ch-12345.jpg"
    * </pre>
    *
    * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
@@ -2843,6 +2864,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Cover image URL for the channel profile page.
+   * +kubebuilder:example="https://cdn.channel.io/cover/ch-12345.jpg"
    * </pre>
    *
    * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
@@ -5558,6 +5580,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+     * +kubebuilder:example="#F3F4F6"
      * </pre>
      *
      * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
@@ -5578,6 +5601,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+     * +kubebuilder:example="#F3F4F6"
      * </pre>
      *
      * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
@@ -5599,6 +5623,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+     * +kubebuilder:example="#F3F4F6"
      * </pre>
      *
      * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
@@ -5618,6 +5643,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+     * +kubebuilder:example="#F3F4F6"
      * </pre>
      *
      * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
@@ -5632,6 +5658,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+     * +kubebuilder:example="#F3F4F6"
      * </pre>
      *
      * <code>string cover_image_color = 9 [json_name = "coverImageColor"];</code>
@@ -6645,6 +6672,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the new chat button is hidden from end users.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton", (.buf.validate.field) = { ... }</code>
@@ -6658,6 +6686,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the new chat button is hidden from end users.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton", (.buf.validate.field) = { ... }</code>
@@ -6674,6 +6703,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the new chat button is hidden from end users.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool disable_new_chat_button = 20 [json_name = "disableNewChatButton", (.buf.validate.field) = { ... }</code>
@@ -6843,6 +6873,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether email follow-up is enabled for offline conversations.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool follow_up_email = 23 [json_name = "followUpEmail", (.buf.validate.field) = { ... }</code>
@@ -6856,6 +6887,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether email follow-up is enabled for offline conversations.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool follow_up_email = 23 [json_name = "followUpEmail", (.buf.validate.field) = { ... }</code>
@@ -6872,6 +6904,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether email follow-up is enabled for offline conversations.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool follow_up_email = 23 [json_name = "followUpEmail", (.buf.validate.field) = { ... }</code>
@@ -6935,6 +6968,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the follow-up form must be completed before the user can start a conversation.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory", (.buf.validate.field) = { ... }</code>
@@ -6948,6 +6982,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the follow-up form must be completed before the user can start a conversation.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory", (.buf.validate.field) = { ... }</code>
@@ -6964,6 +6999,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the follow-up form must be completed before the user can start a conversation.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool follow_up_mandatory = 25 [json_name = "followUpMandatory", (.buf.validate.field) = { ... }</code>
@@ -7060,6 +7096,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the channel is verified as an enterprise account.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool ent_verified = 27 [json_name = "entVerified", (.buf.validate.field) = { ... }</code>
@@ -7073,6 +7110,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the channel is verified as an enterprise account.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool ent_verified = 27 [json_name = "entVerified", (.buf.validate.field) = { ... }</code>
@@ -7089,6 +7127,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the channel is verified as an enterprise account.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool ent_verified = 27 [json_name = "entVerified", (.buf.validate.field) = { ... }</code>
@@ -7441,6 +7480,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+     * +kubebuilder:example="Shopify"
      * </pre>
      *
      * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
@@ -7461,6 +7501,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+     * +kubebuilder:example="Shopify"
      * </pre>
      *
      * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
@@ -7482,6 +7523,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+     * +kubebuilder:example="Shopify"
      * </pre>
      *
      * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
@@ -7501,6 +7543,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+     * +kubebuilder:example="Shopify"
      * </pre>
      *
      * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
@@ -7515,6 +7558,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+     * +kubebuilder:example="Shopify"
      * </pre>
      *
      * <code>string app_commerce_type = 32 [json_name = "appCommerceType"];</code>
@@ -7679,6 +7723,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Default email domain identifier used for outbound emails sent from this channel.
+     * +kubebuilder:example="domain-001"
      * </pre>
      *
      * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
@@ -7699,6 +7744,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Default email domain identifier used for outbound emails sent from this channel.
+     * +kubebuilder:example="domain-001"
      * </pre>
      *
      * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
@@ -7720,6 +7766,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Default email domain identifier used for outbound emails sent from this channel.
+     * +kubebuilder:example="domain-001"
      * </pre>
      *
      * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
@@ -7739,6 +7786,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Default email domain identifier used for outbound emails sent from this channel.
+     * +kubebuilder:example="domain-001"
      * </pre>
      *
      * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
@@ -7753,6 +7801,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Default email domain identifier used for outbound emails sent from this channel.
+     * +kubebuilder:example="domain-001"
      * </pre>
      *
      * <code>string default_email_domain_id = 35 [json_name = "defaultEmailDomainId"];</code>
@@ -7822,6 +7871,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the messenger widget is hidden from end users on the website.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger", (.buf.validate.field) = { ... }</code>
@@ -7835,6 +7885,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the messenger widget is hidden from end users on the website.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger", (.buf.validate.field) = { ... }</code>
@@ -7851,6 +7902,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the messenger widget is hidden from end users on the website.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool hide_app_messenger = 37 [json_name = "hideAppMessenger", (.buf.validate.field) = { ... }</code>
@@ -7917,6 +7969,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed", (.buf.validate.field) = { ... }</code>
@@ -7930,6 +7983,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed", (.buf.validate.field) = { ... }</code>
@@ -7946,6 +8000,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool mkt_alimtalk_allowed = 39 [json_name = "mktAlimtalkAllowed", (.buf.validate.field) = { ... }</code>
@@ -8118,6 +8173,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the front-end ALF v2 AI assistant is enabled for end users.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2", (.buf.validate.field) = { ... }</code>
@@ -8131,6 +8187,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the front-end ALF v2 AI assistant is enabled for end users.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2", (.buf.validate.field) = { ... }</code>
@@ -8147,6 +8204,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the front-end ALF v2 AI assistant is enabled for end users.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool enable_front_alf_v2 = 41 [json_name = "enableFrontAlfV2", (.buf.validate.field) = { ... }</code>
@@ -8214,6 +8272,7 @@ private static final long serialVersionUID = 0L;
      * Whether the channel is currently accepting new conversations.
      * True when the channel is not blocked and is within operating hours.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool working = 43 [json_name = "working", (.buf.validate.field) = { ... }</code>
@@ -8228,6 +8287,7 @@ private static final long serialVersionUID = 0L;
      * Whether the channel is currently accepting new conversations.
      * True when the channel is not blocked and is within operating hours.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool working = 43 [json_name = "working", (.buf.validate.field) = { ... }</code>
@@ -8245,6 +8305,7 @@ private static final long serialVersionUID = 0L;
      * Whether the channel is currently accepting new conversations.
      * True when the channel is not blocked and is within operating hours.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool working = 43 [json_name = "working", (.buf.validate.field) = { ... }</code>
@@ -8448,6 +8509,7 @@ private static final long serialVersionUID = 0L;
      * Whether the channel is currently within operating hours.
      * Derived from the operating schedule configuration.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool in_operation = 46 [json_name = "inOperation", (.buf.validate.field) = { ... }</code>
@@ -8462,6 +8524,7 @@ private static final long serialVersionUID = 0L;
      * Whether the channel is currently within operating hours.
      * Derived from the operating schedule configuration.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool in_operation = 46 [json_name = "inOperation", (.buf.validate.field) = { ... }</code>
@@ -8479,6 +8542,7 @@ private static final long serialVersionUID = 0L;
      * Whether the channel is currently within operating hours.
      * Derived from the operating schedule configuration.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool in_operation = 46 [json_name = "inOperation", (.buf.validate.field) = { ... }</code>
@@ -9264,6 +9328,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether end-user replying is blocked after a conversation is closed.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed", (.buf.validate.field) = { ... }</code>
@@ -9277,6 +9342,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether end-user replying is blocked after a conversation is closed.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed", (.buf.validate.field) = { ... }</code>
@@ -9293,6 +9359,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether end-user replying is blocked after a conversation is closed.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool block_replying_after_closed = 52 [json_name = "blockReplyingAfterClosed", (.buf.validate.field) = { ... }</code>
@@ -9569,6 +9636,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Gradient accent color derived from the theme color, in hex format.
+     * +kubebuilder:example="#6366F1"
      * </pre>
      *
      * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
@@ -9589,6 +9657,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Gradient accent color derived from the theme color, in hex format.
+     * +kubebuilder:example="#6366F1"
      * </pre>
      *
      * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
@@ -9610,6 +9679,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Gradient accent color derived from the theme color, in hex format.
+     * +kubebuilder:example="#6366F1"
      * </pre>
      *
      * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
@@ -9629,6 +9699,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Gradient accent color derived from the theme color, in hex format.
+     * +kubebuilder:example="#6366F1"
      * </pre>
      *
      * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
@@ -9643,6 +9714,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Gradient accent color derived from the theme color, in hex format.
+     * +kubebuilder:example="#6366F1"
      * </pre>
      *
      * <code>string gradient_color = 55 [json_name = "gradientColor"];</code>
@@ -9858,6 +9930,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved domain for the channel.
      * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
@@ -9879,6 +9952,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved domain for the channel.
      * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
@@ -9901,6 +9975,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved domain for the channel.
      * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
@@ -9921,6 +9996,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved domain for the channel.
      * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
@@ -9936,6 +10012,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Resolved domain for the channel.
      * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+     * +kubebuilder:example="ch-12345"
      * </pre>
      *
      * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
@@ -10100,6 +10177,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cover image URL for the channel profile page.
+     * +kubebuilder:example="https://cdn.channel.io/cover/ch-12345.jpg"
      * </pre>
      *
      * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
@@ -10120,6 +10198,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cover image URL for the channel profile page.
+     * +kubebuilder:example="https://cdn.channel.io/cover/ch-12345.jpg"
      * </pre>
      *
      * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
@@ -10141,6 +10220,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cover image URL for the channel profile page.
+     * +kubebuilder:example="https://cdn.channel.io/cover/ch-12345.jpg"
      * </pre>
      *
      * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
@@ -10160,6 +10240,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cover image URL for the channel profile page.
+     * +kubebuilder:example="https://cdn.channel.io/cover/ch-12345.jpg"
      * </pre>
      *
      * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
@@ -10174,6 +10255,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cover image URL for the channel profile page.
+     * +kubebuilder:example="https://cdn.channel.io/cover/ch-12345.jpg"
      * </pre>
      *
      * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>

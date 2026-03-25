@@ -62,6 +62,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Message variant that was delivered to this user.
+   * +kubebuilder:example="cm-001"
    * </pre>
    *
    * <code>string msg_id = 3 [json_name = "msgId"];</code>
@@ -71,6 +72,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Message variant that was delivered to this user.
+   * +kubebuilder:example="cm-001"
    * </pre>
    *
    * <code>string msg_id = 3 [json_name = "msgId"];</code>
@@ -210,6 +212,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Cumulative revenue attributed to this user from the campaign.
+   * +kubebuilder:example="100.50"
    * </pre>
    *
    * <code>string revenue = 9 [json_name = "revenue"];</code>
@@ -219,6 +222,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Cumulative revenue attributed to this user from the campaign.
+   * +kubebuilder:example="100.50"
    * </pre>
    *
    * <code>string revenue = 9 [json_name = "revenue"];</code>

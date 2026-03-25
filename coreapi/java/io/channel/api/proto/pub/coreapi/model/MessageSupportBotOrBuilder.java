@@ -10,6 +10,7 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Support bot identifier that owns this flow.
+   * +kubebuilder:example="wf-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -19,6 +20,7 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Support bot identifier that owns this flow.
+   * +kubebuilder:example="wf-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -30,6 +32,7 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Published revision of the support bot being executed.
+   * +kubebuilder:example="rev-001"
    * </pre>
    *
    * <code>string revision_id = 2 [json_name = "revisionId"];</code>
@@ -39,6 +42,7 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Published revision of the support bot being executed.
+   * +kubebuilder:example="rev-001"
    * </pre>
    *
    * <code>string revision_id = 2 [json_name = "revisionId"];</code>
@@ -70,6 +74,7 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Zero-based step position within the current section.
+   * +kubebuilder:example="0"
    * </pre>
    *
    * <code>int32 step_index = 4 [json_name = "stepIndex"];</code>
@@ -130,6 +135,7 @@ public interface MessageSupportBotOrBuilder extends
    * <pre>
    * Zero-based index of the button the user selected.
    * Present only on messages recording the user's route selection.
+   * +kubebuilder:example="1"
    * </pre>
    *
    * <code>int32 submit_button_index = 6 [json_name = "submitButtonIndex"];</code>

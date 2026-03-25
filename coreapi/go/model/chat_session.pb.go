@@ -41,6 +41,8 @@ type ChatSession struct {
 	// +kubebuilder:example="uc-abc123"
 	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	// Section ID used to organize team chat conversations into custom groups.
+	//
+	// +kubebuilder:example="sec-001"
 	TeamChatSectionId string `protobuf:"bytes,3,opt,name=team_chat_section_id,json=teamChatSectionId,proto3" json:"team_chat_section_id,omitempty"`
 	// Composite key identifying the conversation.
 	// Format: "{chatType}-{chatId}".
@@ -52,11 +54,13 @@ type ChatSession struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="manager-m001-userChat"
 	UpdatedKey string `protobuf:"bytes,5,opt,name=updated_key,json=updatedKey,proto3" json:"updated_key,omitempty"`
 	// Opaque sort key for filtering and ordering sessions with unread messages.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="manager-m001-userChat"
 	UnreadKey string `protobuf:"bytes,6,opt,name=unread_key,json=unreadKey,proto3" json:"unread_key,omitempty"`
 	// Channel ID this session belongs to.
 	//
@@ -68,6 +72,8 @@ type ChatSession struct {
 	Alert int32 `protobuf:"varint,8,opt,name=alert,proto3" json:"alert,omitempty"`
 	// Total number of unread messages in this session.
 	// Defaults to 0.
+	//
+	// +kubebuilder:example="3"
 	Unread int32 `protobuf:"varint,9,opt,name=unread,proto3" json:"unread,omitempty"`
 	// Notification preference controlling which messages trigger alerts in this session.
 	Watch SessionWatch `protobuf:"varint,10,opt,name=watch,proto3,enum=coreapi.model.SessionWatch" json:"watch,omitempty"`
@@ -91,6 +97,7 @@ type ChatSession struct {
 	// Optimistic locking version.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="1"
 	Version int64 `protobuf:"varint,17,opt,name=version,proto3" json:"version,omitempty"`
 	// Unique session identifier.
 	// Format: "{key}-{chatId}".
@@ -101,16 +108,19 @@ type ChatSession struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="userChat"
 	ChatType string `protobuf:"bytes,19,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
 	// Entity type of the session owner (e.g., "manager", "user").
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="manager"
 	PersonType string `protobuf:"bytes,20,opt,name=person_type,json=personType,proto3" json:"person_type,omitempty"`
 	// Entity ID of the session owner.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="m-001"
 	PersonId      string `protobuf:"bytes,21,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

@@ -152,6 +152,7 @@ private static final long serialVersionUID = 0L;
    * Name of the base event from which the property value is captured.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="page_view"
    * </pre>
    *
    * <code>string base_event_name = 1 [json_name = "baseEventName", (.buf.validate.field) = { ... }</code>
@@ -175,6 +176,7 @@ private static final long serialVersionUID = 0L;
    * Name of the base event from which the property value is captured.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="page_view"
    * </pre>
    *
    * <code>string base_event_name = 1 [json_name = "baseEventName", (.buf.validate.field) = { ... }</code>
@@ -202,6 +204,7 @@ private static final long serialVersionUID = 0L;
    * Property key within the base event whose value is held constant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="url"
    * </pre>
    *
    * <code>string base_event_key = 2 [json_name = "baseEventKey", (.buf.validate.field) = { ... }</code>
@@ -225,6 +228,7 @@ private static final long serialVersionUID = 0L;
    * Property key within the base event whose value is held constant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="url"
    * </pre>
    *
    * <code>string base_event_key = 2 [json_name = "baseEventKey", (.buf.validate.field) = { ... }</code>
@@ -833,6 +837,7 @@ private static final long serialVersionUID = 0L;
      * Name of the base event from which the property value is captured.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="page_view"
      * </pre>
      *
      * <code>string base_event_name = 1 [json_name = "baseEventName", (.buf.validate.field) = { ... }</code>
@@ -855,6 +860,7 @@ private static final long serialVersionUID = 0L;
      * Name of the base event from which the property value is captured.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="page_view"
      * </pre>
      *
      * <code>string base_event_name = 1 [json_name = "baseEventName", (.buf.validate.field) = { ... }</code>
@@ -878,6 +884,7 @@ private static final long serialVersionUID = 0L;
      * Name of the base event from which the property value is captured.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="page_view"
      * </pre>
      *
      * <code>string base_event_name = 1 [json_name = "baseEventName", (.buf.validate.field) = { ... }</code>
@@ -899,6 +906,7 @@ private static final long serialVersionUID = 0L;
      * Name of the base event from which the property value is captured.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="page_view"
      * </pre>
      *
      * <code>string base_event_name = 1 [json_name = "baseEventName", (.buf.validate.field) = { ... }</code>
@@ -915,6 +923,7 @@ private static final long serialVersionUID = 0L;
      * Name of the base event from which the property value is captured.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="page_view"
      * </pre>
      *
      * <code>string base_event_name = 1 [json_name = "baseEventName", (.buf.validate.field) = { ... }</code>
@@ -939,6 +948,7 @@ private static final long serialVersionUID = 0L;
      * Property key within the base event whose value is held constant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="url"
      * </pre>
      *
      * <code>string base_event_key = 2 [json_name = "baseEventKey", (.buf.validate.field) = { ... }</code>
@@ -961,6 +971,7 @@ private static final long serialVersionUID = 0L;
      * Property key within the base event whose value is held constant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="url"
      * </pre>
      *
      * <code>string base_event_key = 2 [json_name = "baseEventKey", (.buf.validate.field) = { ... }</code>
@@ -984,6 +995,7 @@ private static final long serialVersionUID = 0L;
      * Property key within the base event whose value is held constant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="url"
      * </pre>
      *
      * <code>string base_event_key = 2 [json_name = "baseEventKey", (.buf.validate.field) = { ... }</code>
@@ -1005,6 +1017,7 @@ private static final long serialVersionUID = 0L;
      * Property key within the base event whose value is held constant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="url"
      * </pre>
      *
      * <code>string base_event_key = 2 [json_name = "baseEventKey", (.buf.validate.field) = { ... }</code>
@@ -1021,6 +1034,7 @@ private static final long serialVersionUID = 0L;
      * Property key within the base event whose value is held constant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="url"
      * </pre>
      *
      * <code>string base_event_key = 2 [json_name = "baseEventKey", (.buf.validate.field) = { ... }</code>

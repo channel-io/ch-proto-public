@@ -141,6 +141,7 @@ type OperatorStatus struct {
 	// Disabled managers are excluded from auto-assignment.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	Enable bool `protobuf:"varint,5,opt,name=enable,proto3" json:"enable,omitempty"`
 	// Operator status creation timestamp.
 	//
@@ -154,6 +155,8 @@ type OperatorStatus struct {
 	// Differs from `updated_at` which tracks any field update.
 	TypeUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=type_updated_at,json=typeUpdatedAt,proto3" json:"type_updated_at,omitempty"`
 	// Optimistic locking version for concurrent update detection.
+	//
+	// +kubebuilder:example="1"
 	Version       int64 `protobuf:"varint,9,opt,name=version,proto3" json:"version,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

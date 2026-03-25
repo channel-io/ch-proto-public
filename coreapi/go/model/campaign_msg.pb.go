@@ -55,6 +55,8 @@ type CampaignMsg struct {
 	// +kubebuilder:validation:Required
 	MediumType MediumType `protobuf:"varint,5,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+	//
+	// +kubebuilder:example="sms-001"
 	MediumId string `protobuf:"bytes,6,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	// Message content and medium-specific delivery configuration.
 	// Structure varies by medium_type.
@@ -70,12 +72,16 @@ type CampaignMsg struct {
 	// +kubebuilder:validation:Required
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Cumulative count of messages delivered for this variant.
+	//
+	// +kubebuilder:example="100"
 	Sent int32 `protobuf:"varint,10,opt,name=sent,proto3" json:"sent,omitempty"`
 	// Cumulative count of message views by recipients for this variant.
 	View int32 `protobuf:"varint,11,opt,name=view,proto3" json:"view,omitempty"`
 	// Cumulative count of goal event completions attributed to this variant.
 	Goal int32 `protobuf:"varint,12,opt,name=goal,proto3" json:"goal,omitempty"`
 	// Cumulative count of message link clicks for this variant.
+	//
+	// +kubebuilder:example="25"
 	Click         int32 `protobuf:"varint,13,opt,name=click,proto3" json:"click,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

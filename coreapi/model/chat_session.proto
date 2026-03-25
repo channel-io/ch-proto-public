@@ -44,6 +44,7 @@ message ChatSession {
 
   // Section ID used to organize team chat conversations into custom groups.
   //
+  // +kubebuilder:example="sec-001"
   string team_chat_section_id = 3;
 
   // Composite key identifying the conversation.
@@ -64,6 +65,7 @@ message ChatSession {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="manager-m001-userChat"
   string updated_key = 5 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -77,6 +79,7 @@ message ChatSession {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="manager-m001-userChat"
   string unread_key = 6 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -100,6 +103,7 @@ message ChatSession {
   // Total number of unread messages in this session.
   // Defaults to 0.
   //
+  // +kubebuilder:example="3"
   int32 unread = 9;
 
   // Notification preference controlling which messages trigger alerts in this session.
@@ -136,6 +140,7 @@ message ChatSession {
   // Optimistic locking version.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="1"
   int64 version = 17 [(buf.validate.field).required = true];
 
   // Unique session identifier.
@@ -148,6 +153,7 @@ message ChatSession {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="userChat"
   string chat_type = 19 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -161,6 +167,7 @@ message ChatSession {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="manager"
   string person_type = 20 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -174,6 +181,7 @@ message ChatSession {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="m-001"
   string person_id = 21 [
     (buf.validate.field).cel = {
       id: "string.minLen"

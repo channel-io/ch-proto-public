@@ -273,6 +273,8 @@ type Campaign struct {
 	// +kubebuilder:validation:Required
 	MediumType MediumType `protobuf:"varint,5,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+	//
+	// +kubebuilder:example="sms-001"
 	MediumId string `protobuf:"bytes,6,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	// Query expression that defines the target user segment.
 	// Represented as a structured filter object.
@@ -282,6 +284,7 @@ type Campaign struct {
 	// Name of the user event that triggers this campaign.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="page_view"
 	TriggerEventName string `protobuf:"bytes,9,opt,name=trigger_event_name,json=triggerEventName,proto3" json:"trigger_event_name,omitempty"`
 	// Query expression to further filter matching trigger events by their properties.
 	// Represented as a structured filter object.
@@ -308,6 +311,8 @@ type Campaign struct {
 	// Defines how long after delivery each conversion event is counted.
 	ConversionWindows map[string]*durationpb.Duration `protobuf:"bytes,16,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Name of the event that counts as a goal completion.
+	//
+	// +kubebuilder:example="sign_up"
 	GoalEventName string `protobuf:"bytes,17,opt,name=goal_event_name,json=goalEventName,proto3" json:"goal_event_name,omitempty"`
 	// Query expression to filter goal events by their properties.
 	// Represented as a structured filter object. Applicable when goal_event_name is set.
@@ -323,6 +328,7 @@ type Campaign struct {
 	// Whether the campaign message contains advertising content subject to opt-out regulations.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	Advertising bool `protobuf:"varint,21,opt,name=advertising,proto3" json:"advertising,omitempty"`
 	// Whether to fall back to XMS (text message) delivery when the user is offline.
 	SendToOfflineXms bool `protobuf:"varint,22,opt,name=send_to_offline_xms,json=sendToOfflineXms,proto3" json:"send_to_offline_xms,omitempty"`
@@ -339,6 +345,8 @@ type Campaign struct {
 	SendMode CampaignSendMode `protobuf:"varint,25,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.CampaignSendMode" json:"send_mode,omitempty"`
 	// Channel operation schedule used to determine delivery timing.
 	// Applicable when send_mode is IN_OPERATION or AWAY.
+	//
+	// +kubebuilder:example="op-001"
 	ChannelOperationId string `protobuf:"bytes,26,opt,name=channel_operation_id,json=channelOperationId,proto3" json:"channel_operation_id,omitempty"`
 	// Custom time windows for delivery scheduling.
 	// Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
@@ -359,12 +367,16 @@ type Campaign struct {
 	// +kubebuilder:validation:Required
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,32,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Cumulative count of messages delivered.
+	//
+	// +kubebuilder:example="100"
 	Sent int32 `protobuf:"varint,33,opt,name=sent,proto3" json:"sent,omitempty"`
 	// Cumulative count of message views by recipients.
 	View int32 `protobuf:"varint,34,opt,name=view,proto3" json:"view,omitempty"`
 	// Cumulative count of goal event completions attributed to this campaign.
 	Goal int32 `protobuf:"varint,35,opt,name=goal,proto3" json:"goal,omitempty"`
 	// Cumulative count of message link clicks.
+	//
+	// +kubebuilder:example="25"
 	Click int32 `protobuf:"varint,36,opt,name=click,proto3" json:"click,omitempty"`
 	// Duration before the user chat created by this campaign expires, in ISO 8601 format.
 	// Defaults to 31 days.
@@ -681,11 +693,13 @@ type HoldingPropertyConstant struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="page_view"
 	BaseEventName string `protobuf:"bytes,1,opt,name=base_event_name,json=baseEventName,proto3" json:"base_event_name,omitempty"`
 	// Property key within the base event whose value is held constant.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="url"
 	BaseEventKey string `protobuf:"bytes,2,opt,name=base_event_key,json=baseEventKey,proto3" json:"base_event_key,omitempty"`
 	// Query expression applied to the held property value for matching.
 	// Represented as a structured filter object.

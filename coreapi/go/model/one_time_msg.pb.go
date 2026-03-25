@@ -164,6 +164,8 @@ type OneTimeMsg struct {
 	// Automatically inferred from start_at and local_start_at if not explicitly set.
 	SendMode OneTimeMsgSendMode `protobuf:"varint,5,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.OneTimeMsgSendMode" json:"send_mode,omitempty"`
 	// Channel operation schedule referenced for delivery timing.
+	//
+	// +kubebuilder:example="op-001"
 	ChannelOperationId string `protobuf:"bytes,6,opt,name=channel_operation_id,json=channelOperationId,proto3" json:"channel_operation_id,omitempty"`
 	// Channel through which the message is delivered.
 	// Cannot be changed after creation.
@@ -171,6 +173,8 @@ type OneTimeMsg struct {
 	// +kubebuilder:validation:Required
 	MediumType MediumType `protobuf:"varint,7,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+	//
+	// +kubebuilder:example="sms-001"
 	MediumId string `protobuf:"bytes,8,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	// Key for selecting the message topic template within the medium.
 	MediumTopicBuildKey string `protobuf:"bytes,9,opt,name=medium_topic_build_key,json=mediumTopicBuildKey,proto3" json:"medium_topic_build_key,omitempty"`
@@ -188,6 +192,8 @@ type OneTimeMsg struct {
 	// Defines how long after delivery each conversion event is counted.
 	ConversionWindows map[string]*durationpb.Duration `protobuf:"bytes,14,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Name of the event that counts as a goal completion.
+	//
+	// +kubebuilder:example="purchase"
 	GoalEventName string `protobuf:"bytes,15,opt,name=goal_event_name,json=goalEventName,proto3" json:"goal_event_name,omitempty"`
 	// Query expression to filter goal events by their properties.
 	// Represented as a structured filter object. Applicable when goal_event_name is set.
@@ -204,12 +210,16 @@ type OneTimeMsg struct {
 	// Whether to fall back to XMS (text message) delivery when the user is offline.
 	SendToOfflineXms bool `protobuf:"varint,19,opt,name=send_to_offline_xms,json=sendToOfflineXms,proto3" json:"send_to_offline_xms,omitempty"`
 	// Whether to fall back to email delivery when the user is offline.
+	//
+	// +kubebuilder:example="false"
 	SendToOfflineEmail bool `protobuf:"varint,20,opt,name=send_to_offline_email,json=sendToOfflineEmail,proto3" json:"send_to_offline_email,omitempty"`
 	// Scheduled send timestamp in UTC.
 	// Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
 	StartAt *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=start_at,json=startAt,proto3" json:"start_at,omitempty"`
 	// Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
 	// Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
+	//
+	// +kubebuilder:example="2026-03-25T09:00:00"
 	LocalStartAt string `protobuf:"bytes,22,opt,name=local_start_at,json=localStartAt,proto3" json:"local_start_at,omitempty"`
 	// Snapshot of the message configuration captured before sending.
 	// Represented as a free-form JSON object.
@@ -223,12 +233,16 @@ type OneTimeMsg struct {
 	// +kubebuilder:validation:Required
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Cumulative count of messages delivered.
+	//
+	// +kubebuilder:example="100"
 	Sent int32 `protobuf:"varint,26,opt,name=sent,proto3" json:"sent,omitempty"`
 	// Cumulative count of message views by recipients.
 	View int32 `protobuf:"varint,27,opt,name=view,proto3" json:"view,omitempty"`
 	// Cumulative count of goal event completions attributed to this message.
 	Goal int32 `protobuf:"varint,28,opt,name=goal,proto3" json:"goal,omitempty"`
 	// Cumulative count of message link clicks.
+	//
+	// +kubebuilder:example="25"
 	Click int32 `protobuf:"varint,29,opt,name=click,proto3" json:"click,omitempty"`
 	// Duration before the user chat created by this message expires, in ISO 8601 format.
 	// Defaults to 31 days.

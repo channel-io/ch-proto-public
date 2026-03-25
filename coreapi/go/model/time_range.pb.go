@@ -102,6 +102,7 @@ type TimeRange struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:Minimum=0
 	// +kubebuilder:validation:Maximum=1440
+	// +kubebuilder:example="540"
 	From int32 `protobuf:"varint,2,opt,name=from,proto3" json:"from,omitempty"`
 	// End time as minutes from midnight (e.g. 1080 = 18:00).
 	// Must be greater than `from`.
@@ -109,6 +110,7 @@ type TimeRange struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:Minimum=0
 	// +kubebuilder:validation:Maximum=1440
+	// +kubebuilder:example="1080"
 	To            int32 `protobuf:"varint,3,opt,name=to,proto3" json:"to,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

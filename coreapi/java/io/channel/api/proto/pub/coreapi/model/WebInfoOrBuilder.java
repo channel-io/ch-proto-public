@@ -10,6 +10,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Device form factor (e.g. "desktop", "tablet", "mobile").
+   * +kubebuilder:example="desktop"
    * </pre>
    *
    * <code>string device = 1 [json_name = "device"];</code>
@@ -19,6 +20,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Device form factor (e.g. "desktop", "tablet", "mobile").
+   * +kubebuilder:example="desktop"
    * </pre>
    *
    * <code>string device = 1 [json_name = "device"];</code>
@@ -70,6 +72,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Browser version string (e.g. "120.0.6099.109").
+   * +kubebuilder:example="120.0.6099.109"
    * </pre>
    *
    * <code>string browser = 4 [json_name = "browser"];</code>
@@ -79,6 +82,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Browser version string (e.g. "120.0.6099.109").
+   * +kubebuilder:example="120.0.6099.109"
    * </pre>
    *
    * <code>string browser = 4 [json_name = "browser"];</code>

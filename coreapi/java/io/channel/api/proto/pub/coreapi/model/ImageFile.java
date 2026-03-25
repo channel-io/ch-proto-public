@@ -123,6 +123,7 @@ private static final long serialVersionUID = 0L;
    * Storage bucket name where the image is hosted.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="images"
    * </pre>
    *
    * <code>string bucket = 1 [json_name = "bucket", (.buf.validate.field) = { ... }</code>
@@ -146,6 +147,7 @@ private static final long serialVersionUID = 0L;
    * Storage bucket name where the image is hosted.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="images"
    * </pre>
    *
    * <code>string bucket = 1 [json_name = "bucket", (.buf.validate.field) = { ... }</code>
@@ -173,6 +175,7 @@ private static final long serialVersionUID = 0L;
    * Storage object key used to locate the image within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="uploads/image-001.png"
    * </pre>
    *
    * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -196,6 +199,7 @@ private static final long serialVersionUID = 0L;
    * Storage object key used to locate the image within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="uploads/image-001.png"
    * </pre>
    *
    * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -221,6 +225,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Image width in pixels.
+   * +kubebuilder:example="800"
    * </pre>
    *
    * <code>int32 width = 3 [json_name = "width"];</code>
@@ -675,6 +680,7 @@ private static final long serialVersionUID = 0L;
      * Storage bucket name where the image is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="images"
      * </pre>
      *
      * <code>string bucket = 1 [json_name = "bucket", (.buf.validate.field) = { ... }</code>
@@ -697,6 +703,7 @@ private static final long serialVersionUID = 0L;
      * Storage bucket name where the image is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="images"
      * </pre>
      *
      * <code>string bucket = 1 [json_name = "bucket", (.buf.validate.field) = { ... }</code>
@@ -720,6 +727,7 @@ private static final long serialVersionUID = 0L;
      * Storage bucket name where the image is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="images"
      * </pre>
      *
      * <code>string bucket = 1 [json_name = "bucket", (.buf.validate.field) = { ... }</code>
@@ -741,6 +749,7 @@ private static final long serialVersionUID = 0L;
      * Storage bucket name where the image is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="images"
      * </pre>
      *
      * <code>string bucket = 1 [json_name = "bucket", (.buf.validate.field) = { ... }</code>
@@ -757,6 +766,7 @@ private static final long serialVersionUID = 0L;
      * Storage bucket name where the image is hosted.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="images"
      * </pre>
      *
      * <code>string bucket = 1 [json_name = "bucket", (.buf.validate.field) = { ... }</code>
@@ -781,6 +791,7 @@ private static final long serialVersionUID = 0L;
      * Storage object key used to locate the image within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="uploads/image-001.png"
      * </pre>
      *
      * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -803,6 +814,7 @@ private static final long serialVersionUID = 0L;
      * Storage object key used to locate the image within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="uploads/image-001.png"
      * </pre>
      *
      * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -826,6 +838,7 @@ private static final long serialVersionUID = 0L;
      * Storage object key used to locate the image within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="uploads/image-001.png"
      * </pre>
      *
      * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -847,6 +860,7 @@ private static final long serialVersionUID = 0L;
      * Storage object key used to locate the image within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="uploads/image-001.png"
      * </pre>
      *
      * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -863,6 +877,7 @@ private static final long serialVersionUID = 0L;
      * Storage object key used to locate the image within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="uploads/image-001.png"
      * </pre>
      *
      * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -885,6 +900,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image width in pixels.
+     * +kubebuilder:example="800"
      * </pre>
      *
      * <code>int32 width = 3 [json_name = "width"];</code>
@@ -897,6 +913,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image width in pixels.
+     * +kubebuilder:example="800"
      * </pre>
      *
      * <code>int32 width = 3 [json_name = "width"];</code>
@@ -912,6 +929,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Image width in pixels.
+     * +kubebuilder:example="800"
      * </pre>
      *
      * <code>int32 width = 3 [json_name = "width"];</code>
