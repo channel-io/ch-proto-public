@@ -71,6 +71,7 @@ message Message {
   // For thread replies: "{chatType}-{chatId}-{rootMessageId}".
   // Absent when the message does not belong to a thread.
   //
+  // +kubebuilder:example="userChat-uc-abc123-msg-001"
   string thread_key = 4;
 
   // Index key for the meet message stream.
@@ -83,6 +84,7 @@ message Message {
   // Index key for the front (user-facing) message stream.
   // Same value as chat_key when the message appears in the front stream.
   //
+  // +kubebuilder:example="userChat-uc-abc123"
   string front_key = 6;
 
   // Index key for the ALF AI-assisted thread stream.
@@ -106,22 +108,26 @@ message Message {
   // Chat ID of the parent conversation.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="uc-abc123"
   string chat_id = 10 [(buf.validate.field).required = true];
 
   // Entity type of the message author (e.g., "manager", "user", "bot").
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="manager"
   string person_type = 11 [(buf.validate.field).required = true];
 
   // Entity ID of the message author.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="m-abc123"
   string person_id = 12 [(buf.validate.field).required = true];
 
   // Client-generated identifier for deduplication.
   // Allows matching a locally pre-rendered message with the server response.
   // Immutable after creation.
   //
+  // +kubebuilder:example="req-12345"
   string request_id = 13;
 
   // Detected language of the message content (e.g., "ko", "en", "ja").
@@ -136,6 +142,7 @@ message Message {
   // Optimistic locking version.
   // Incremented on every update.
   //
+  // +kubebuilder:example=1
   int64 version = 16;
 
   // Structured content blocks composing the message body.
@@ -146,6 +153,7 @@ message Message {
   // Plain text representation of the message body.
   // Stripped of all formatting from blocks.
   //
+  // +kubebuilder:example="Hello, how can I help you today?"
   string plain_text = 18;
 
   // Message last update timestamp.
@@ -264,6 +272,7 @@ message Message {
   // True when thread_key is present and the message is not a thread root.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool thread_msg = 41 [(buf.validate.field).required = true];
 
   // ID of the root message when this message belongs to a thread, meet, or ALF thread.
@@ -276,6 +285,7 @@ message Message {
   // True when the thread field is present.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool thread_root = 43 [(buf.validate.field).required = true];
 
   // Whether this thread reply is also visible in the main message stream.
@@ -289,6 +299,7 @@ message Message {
   // or when no specific remover is recorded.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool removed_by_writer = 45 [(buf.validate.field).required = true];
 }
 
@@ -301,6 +312,7 @@ message MessageThread {
   // Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
   // Encodes the parent chat context and the root message that started the thread.
   //
+  // +kubebuilder:example="userChat-uc-abc123-msg-001"
   string id = 1;
 
   // Manager IDs assigned to handle this thread.
@@ -316,6 +328,7 @@ message MessageThread {
   // Defaults to 0.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="3"
   int32 reply_count = 4 [(buf.validate.field).required = true];
 
   // Chat type component extracted from the thread `id`.
@@ -324,10 +337,12 @@ message MessageThread {
 
   // Chat ID component extracted from the thread `id`.
   //
+  // +kubebuilder:example="uc-abc123"
   string chat_id = 6;
 
   // ID of the root message that started this thread, extracted from the thread `id`.
   //
+  // +kubebuilder:example="msg-001"
   string root_message_id = 7;
 }
 
@@ -350,6 +365,7 @@ message MessageLog {
 
   // Entity type that triggered this action (e.g. "workflow", "rule", "alf").
   //
+  // +kubebuilder:example="workflow"
   string trigger_type = 3;
 
   // Identifier of the entity that triggered this action.
@@ -415,6 +431,7 @@ message MessageReaction {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="thumbsup"
   string emoji_name = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -438,14 +455,17 @@ message MessageReaction {
 message MessageMeet {
   // Unique meet session identifier.
   //
+  // +kubebuilder:example="meet-001"
   string id = 1;
 
   // Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
   //
+  // +kubebuilder:example="userChat"
   string chat_type = 2;
 
   // Channel ID this meet belongs to.
   //
+  // +kubebuilder:example="ch-12345"
   string channel_id = 3;
 
   // Current lifecycle state of the meet session.
@@ -482,6 +502,7 @@ message MessageMeet {
 
   // ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
   //
+  // +kubebuilder:example="KR"
   string country = 11;
 
   // Timestamp when the meet session ended.
@@ -545,6 +566,7 @@ message MessageMeet {
 message MessageAlf {
   // Identifier of the handling session that triggered this ALF response.
   //
+  // +kubebuilder:example="handling-001"
   string handling_id = 1;
 
   // Identifier of the ALF conversation session spanning multiple turns.
@@ -560,6 +582,7 @@ message MessageAlf {
   // Defaults to false.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool mention_alf_answered = 4 [(buf.validate.field).required = true];
 }
 
@@ -572,6 +595,7 @@ message MessageAlf {
 message MessageAlfProgress {
   // Human-readable summary of the current processing step.
   //
+  // +kubebuilder:example="Hello, how can I help you today?"
   string plain_text = 1;
 
   // Discriminator that identifies the progress variant and determines additional fields.
@@ -589,6 +613,7 @@ message MessageAlfProgress {
 message MessageEmail {
   // Corresponding Email entity identifier.
   //
+  // +kubebuilder:example="email-001"
   string id = 1;
 
   // Whether this email was sent to or received from an external party.
@@ -617,6 +642,7 @@ message MessageEmail {
 
   // Email subject line.
   //
+  // +kubebuilder:example="Re: Project Status Update"
   string subject = 8;
 
   // Whether this email contains quoted conversation history from previous messages.
@@ -626,6 +652,7 @@ message MessageEmail {
 
   // Message ID of the email this is a reply to, forming the email thread chain.
   //
+  // +kubebuilder:example="msg-001"
   string reply_to_message_id = 10;
 
   // Channel email address that received this inbound email.
@@ -660,6 +687,7 @@ message MessageIvr {
 
   // DTMF keypad input entered by the caller (e.g. "1" for menu selection).
   //
+  // +kubebuilder:example="1"
   string dial_input = 2;
 }
 
@@ -672,14 +700,17 @@ message MessageIvr {
 message MessageMarketing {
   // Marketing source type: "campaign" for automated campaigns or "oneTimeMsg" for one-time messages.
   //
+  // +kubebuilder:example="campaign"
   string type = 1;
 
   // Identifier of the originating campaign or one-time message.
   //
+  // +kubebuilder:example="cpn-001"
   string id = 2;
 
   // Whether this message is classified as advertising content subject to opt-out regulations.
   //
+  // +kubebuilder:example="false"
   bool advertising = 3;
 
   // Whether to deliver via SMS/LMS/MMS as a fallback when the user is offline.
@@ -688,6 +719,7 @@ message MessageMarketing {
 
   // Whether to deliver via email as a fallback when the user is offline.
   //
+  // +kubebuilder:example="false"
   bool send_to_offline_email = 5;
 
   // In-app display mode for the marketing message.
@@ -697,6 +729,7 @@ message MessageMarketing {
   // Clickthrough URL for the marketing image.
   // Present only when the message includes an in-app image with a link.
   //
+  // +kubebuilder:example="https://example.com/image.jpg"
   string image_link_url = 7;
 
   // In-app display mode for marketing messages.
@@ -716,10 +749,12 @@ message MessageMarketing {
 message MessageSupportBot {
   // Support bot identifier that owns this flow.
   //
+  // +kubebuilder:example="wf-001"
   string id = 1;
 
   // Published revision of the support bot being executed.
   //
+  // +kubebuilder:example="rev-001"
   string revision_id = 2;
 
   // Current section within the support bot flow (e.g. a route or action section).
@@ -728,6 +763,7 @@ message MessageSupportBot {
 
   // Zero-based step position within the current section.
   //
+  // +kubebuilder:example="0"
   int32 step_index = 4;
 
   // Route selection buttons presented to the user at the end of a route section.
@@ -738,6 +774,7 @@ message MessageSupportBot {
   // Zero-based index of the button the user selected.
   // Present only on messages recording the user's route selection.
   //
+  // +kubebuilder:example="1"
   int32 submit_button_index = 6;
 }
 
@@ -750,10 +787,12 @@ message MessageSupportBot {
 message MessageWorkflow {
   // Workflow identifier being executed.
   //
+  // +kubebuilder:example="bot-001"
   string id = 1;
 
   // Published revision of the workflow being executed.
   //
+  // +kubebuilder:example="rev-001"
   string revision_id = 2;
 
   // Current section within the workflow.
@@ -762,6 +801,7 @@ message MessageWorkflow {
 
   // Zero-based action position within the current section.
   //
+  // +kubebuilder:example="0"
   int32 action_index = 4;
 
   // Identifier of the button the user selected to submit a response.
@@ -773,6 +813,7 @@ message MessageWorkflow {
   // from an external messenger integration.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool button_bot_message = 6 [(buf.validate.field).required = true];
 }
 
