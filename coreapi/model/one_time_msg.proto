@@ -76,6 +76,7 @@ message OneTimeMsg {
 
   // Channel operation schedule referenced for delivery timing.
   //
+  // +kubebuilder:example="op-001"
   string channel_operation_id = 6;
 
   // Channel through which the message is delivered.
@@ -86,6 +87,7 @@ message OneTimeMsg {
 
   // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
   //
+  // +kubebuilder:example="sms-001"
   string medium_id = 8;
 
   // Key for selecting the message topic template within the medium.
@@ -117,6 +119,7 @@ message OneTimeMsg {
 
   // Name of the event that counts as a goal completion.
   //
+  // +kubebuilder:example="purchase"
   string goal_event_name = 15;
 
   // Query expression to filter goal events by their properties.
@@ -141,6 +144,7 @@ message OneTimeMsg {
 
   // Whether to fall back to email delivery when the user is offline.
   //
+  // +kubebuilder:example="false"
   bool send_to_offline_email = 20;
 
   // Scheduled send timestamp in UTC.
@@ -151,6 +155,7 @@ message OneTimeMsg {
   // Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
   // Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
   //
+  // +kubebuilder:example="2026-03-25T09:00:00"
   string local_start_at = 22;
 
   // Snapshot of the message configuration captured before sending.
@@ -170,6 +175,7 @@ message OneTimeMsg {
 
   // Cumulative count of messages delivered.
   //
+  // +kubebuilder:example="100"
   int32 sent = 26;
 
   // Cumulative count of message views by recipients.
@@ -182,6 +188,7 @@ message OneTimeMsg {
 
   // Cumulative count of message link clicks.
   //
+  // +kubebuilder:example="25"
   int32 click = 29;
 
   // Duration before the user chat created by this message expires, in ISO 8601 format.

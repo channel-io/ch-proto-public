@@ -422,6 +422,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Whether this manager appears as the channel identity instead of their personal profile.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool display_as_channel = 18 [json_name = "displayAsChannel", (.buf.validate.field) = { ... }</code>
@@ -538,6 +539,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Whether to receive mobile push notifications even while the manager is online on desktop.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool receive_mobile_push_when_online = 24 [json_name = "receiveMobilePushWhenOnline", (.buf.validate.field) = { ... }</code>
@@ -560,6 +562,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Performance score reflecting the manager's conversation handling efficiency.
    * Decays over time when the manager is inactive.
+   * +kubebuilder:example="0.85"
    * </pre>
    *
    * <code>float operator_score = 26 [json_name = "operatorScore"];</code>
@@ -582,6 +585,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Whether periodic email reminders for unhandled conversations are enabled.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool operator_email_reminder = 28 [json_name = "operatorEmailReminder", (.buf.validate.field) = { ... }</code>
@@ -604,6 +608,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Whether to receive alerts for conversations that were not responded to in time.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool receive_missed_chat_alert = 30 [json_name = "receiveMissedChatAlert", (.buf.validate.field) = { ... }</code>
@@ -626,6 +631,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Whether to receive alerts for unassigned meet (call) sessions.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool receive_unassigned_meet_alert = 32 [json_name = "receiveUnassignedMeetAlert", (.buf.validate.field) = { ... }</code>
@@ -668,6 +674,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Whether &#64;all mentions in conversations are automatically marked as important.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool default_all_mention_important = 35 [json_name = "defaultAllMentionImportant", (.buf.validate.field) = { ... }</code>
@@ -732,6 +739,7 @@ public interface ManagerOrBuilder extends
    * Maximum number of concurrent user chats that can be auto-assigned to this manager.
    * +kubebuilder:validation:Minimum=0
    * +kubebuilder:validation:Maximum=200
+   * +kubebuilder:example="10"
    * </pre>
    *
    * <code>int32 auto_assign_capacity = 38 [json_name = "autoAssignCapacity", (.buf.validate.field) = { ... }</code>
@@ -831,6 +839,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Whether do-not-disturb mode is active, suppressing all notifications for this manager.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool do_not_disturb = 43 [json_name = "doNotDisturb", (.buf.validate.field) = { ... }</code>

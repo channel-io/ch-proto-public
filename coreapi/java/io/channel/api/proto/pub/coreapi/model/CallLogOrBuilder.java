@@ -93,6 +93,7 @@ public interface CallLogOrBuilder extends
   /**
    * <pre>
    * Originating phone number or caller identifier.
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
    * <code>string from = 5 [json_name = "from"];</code>
@@ -102,6 +103,7 @@ public interface CallLogOrBuilder extends
   /**
    * <pre>
    * Originating phone number or caller identifier.
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
    * <code>string from = 5 [json_name = "from"];</code>
@@ -254,6 +256,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * User chat ID linked to this call.
    * Present when the call is associated with a user chat conversation.
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -264,6 +267,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * User chat ID linked to this call.
    * Present when the call is associated with a user chat conversation.
+   * +kubebuilder:example="uc-abc123"
    * </pre>
    *
    * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>

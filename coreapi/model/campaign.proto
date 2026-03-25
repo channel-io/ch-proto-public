@@ -88,6 +88,7 @@ message Campaign {
 
   // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
   //
+  // +kubebuilder:example="sms-001"
   string medium_id = 6;
 
   // Query expression that defines the target user segment.
@@ -102,6 +103,7 @@ message Campaign {
   // Name of the user event that triggers this campaign.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="page_view"
   string trigger_event_name = 9 [(buf.validate.field).required = true];
 
   // Query expression to further filter matching trigger events by their properties.
@@ -143,6 +145,7 @@ message Campaign {
 
   // Name of the event that counts as a goal completion.
   //
+  // +kubebuilder:example="sign_up"
   string goal_event_name = 17;
 
   // Query expression to filter goal events by their properties.
@@ -164,6 +167,7 @@ message Campaign {
   // Whether the campaign message contains advertising content subject to opt-out regulations.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="false"
   bool advertising = 21 [(buf.validate.field).required = true];
 
   // Whether to fall back to XMS (text message) delivery when the user is offline.
@@ -188,6 +192,7 @@ message Campaign {
   // Channel operation schedule used to determine delivery timing.
   // Applicable when send_mode is IN_OPERATION or AWAY.
   //
+  // +kubebuilder:example="op-001"
   string channel_operation_id = 26;
 
   // Custom time windows for delivery scheduling.
@@ -220,6 +225,7 @@ message Campaign {
 
   // Cumulative count of messages delivered.
   //
+  // +kubebuilder:example="100"
   int32 sent = 33;
 
   // Cumulative count of message views by recipients.
@@ -232,6 +238,7 @@ message Campaign {
 
   // Cumulative count of message link clicks.
   //
+  // +kubebuilder:example="25"
   int32 click = 36;
 
   // Duration before the user chat created by this campaign expires, in ISO 8601 format.
@@ -263,6 +270,7 @@ message HoldingPropertyConstant {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="page_view"
   string base_event_name = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -276,6 +284,7 @@ message HoldingPropertyConstant {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="url"
   string base_event_key = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"

@@ -124,6 +124,7 @@ message UserChat {
   // Unmanaged chats are only visible to the user.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="true"
   bool managed = 7 [(buf.validate.field).required = true];
 
   // Priority level used by the auto-assignment system to order this chat
@@ -147,6 +148,7 @@ message UserChat {
 
   // Title of the chat conversation displayed in the Desk inbox list.
   //
+  // +kubebuilder:example="Billing Question"
   string title = 12;
 
   // Free-text note or summary attached to this chat by a manager.
@@ -179,6 +181,7 @@ message UserChat {
 
   // ID of the manager currently assigned as the primary responder.
   //
+  // +kubebuilder:example="m-001"
   string assignee_id = 18;
 
   // ID of the team this chat is routed to for handling.
@@ -197,6 +200,7 @@ message UserChat {
 
   // Name of the goal event being tracked for conversion measurement.
   //
+  // +kubebuilder:example="purchase_completed"
   string goal_event_name = 22;
 
   // Query expression defining the conditions for the goal event to match.
@@ -240,6 +244,7 @@ message UserChat {
 
   // ID of the latest message visible to the user (front side).
   //
+  // +kubebuilder:example="msg-001"
   string front_message_id = 32;
 
   // Timestamp when the front-side (user-visible) message list was last updated.
@@ -256,6 +261,7 @@ message UserChat {
 
   // ID of the most recent message sent by the user.
   //
+  // +kubebuilder:example="msg-003"
   string user_last_message_id = 36;
 
   // ID of the first manager assigned after the chat was opened.
@@ -276,6 +282,7 @@ message UserChat {
   // Whether the chat was resolved by a single assignee without being
   // transferred to another manager.
   //
+  // +kubebuilder:example="true"
   bool one_stop = 40;
 
   // Duration from chat open to the first manager reply (in milliseconds).
@@ -290,6 +297,7 @@ message UserChat {
   // Sum of all individual reply durations across manager responses
   // (in milliseconds).
   //
+  // +kubebuilder:example="90000"
   int64 total_reply_time = 43;
 
   // Total number of manager replies in this chat.
@@ -303,6 +311,7 @@ message UserChat {
   // Duration from open to the first manager reply, counting only
   // operating hours (in milliseconds).
   //
+  // +kubebuilder:example="55000"
   int64 operation_waiting_time = 46;
 
   // Average reply time counting only operating hours (in milliseconds).
@@ -316,6 +325,7 @@ message UserChat {
 
   // Total number of manager replies during operating hours.
   //
+  // +kubebuilder:example="2"
   int32 operation_reply_count = 49;
 
   // Total resolution time counting only operating hours (in milliseconds).
@@ -346,5 +356,6 @@ message UserChat {
   // Optimistic locking version incremented on every update.
   // Supply the current value when updating to prevent overwriting concurrent changes.
   //
+  // +kubebuilder:example="1"
   int64 version = 56;
 }

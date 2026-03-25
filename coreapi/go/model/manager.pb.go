@@ -283,6 +283,7 @@ type Manager struct {
 	// Whether this manager appears as the channel identity instead of their personal profile.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	DisplayAsChannel bool `protobuf:"varint,18,opt,name=display_as_channel,json=displayAsChannel,proto3" json:"display_as_channel,omitempty"`
 	// Default notification level for group chat sessions.
 	// See SessionWatch for possible values.
@@ -302,6 +303,7 @@ type Manager struct {
 	// Whether to receive mobile push notifications even while the manager is online on desktop.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	ReceiveMobilePushWhenOnline bool `protobuf:"varint,24,opt,name=receive_mobile_push_when_online,json=receiveMobilePushWhenOnline,proto3" json:"receive_mobile_push_when_online,omitempty"`
 	// Whether to include a preview of internal (private) messages in push notifications.
 	//
@@ -309,6 +311,8 @@ type Manager struct {
 	ShowPrivateMessagePreview bool `protobuf:"varint,25,opt,name=show_private_message_preview,json=showPrivateMessagePreview,proto3" json:"show_private_message_preview,omitempty"`
 	// Performance score reflecting the manager's conversation handling efficiency.
 	// Decays over time when the manager is inactive.
+	//
+	// +kubebuilder:example="0.85"
 	OperatorScore float32 `protobuf:"fixed32,26,opt,name=operator_score,json=operatorScore,proto3" json:"operator_score,omitempty"`
 	// Engagement score reflecting the frequency of customer interactions.
 	// Decays over time when the manager is inactive.
@@ -316,6 +320,7 @@ type Manager struct {
 	// Whether periodic email reminders for unhandled conversations are enabled.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	OperatorEmailReminder bool `protobuf:"varint,28,opt,name=operator_email_reminder,json=operatorEmailReminder,proto3" json:"operator_email_reminder,omitempty"`
 	// Whether to receive alerts when a new conversation is waiting to be assigned.
 	//
@@ -324,6 +329,7 @@ type Manager struct {
 	// Whether to receive alerts for conversations that were not responded to in time.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	ReceiveMissedChatAlert bool `protobuf:"varint,30,opt,name=receive_missed_chat_alert,json=receiveMissedChatAlert,proto3" json:"receive_missed_chat_alert,omitempty"`
 	// Whether to receive alerts specifically for unassigned chat conversations.
 	//
@@ -332,6 +338,7 @@ type Manager struct {
 	// Whether to receive alerts for unassigned meet (call) sessions.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	ReceiveUnassignedMeetAlert bool `protobuf:"varint,32,opt,name=receive_unassigned_meet_alert,json=receiveUnassignedMeetAlert,proto3" json:"receive_unassigned_meet_alert,omitempty"`
 	// Whether this manager is currently active as an operator handling customer conversations.
 	//
@@ -342,6 +349,7 @@ type Manager struct {
 	// Whether @all mentions in conversations are automatically marked as important.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	DefaultAllMentionImportant bool `protobuf:"varint,35,opt,name=default_all_mention_important,json=defaultAllMentionImportant,proto3" json:"default_all_mention_important,omitempty"`
 	// Whether incoming user messages are automatically marked as important.
 	//
@@ -353,6 +361,7 @@ type Manager struct {
 	//
 	// +kubebuilder:validation:Minimum=0
 	// +kubebuilder:validation:Maximum=200
+	// +kubebuilder:example="10"
 	AutoAssignCapacity int32 `protobuf:"varint,38,opt,name=auto_assign_capacity,json=autoAssignCapacity,proto3" json:"auto_assign_capacity,omitempty"`
 	// Whether auto-assignment is enabled when the manager joins a synchronous chat session.
 	//
@@ -374,6 +383,7 @@ type Manager struct {
 	// Whether do-not-disturb mode is active, suppressing all notifications for this manager.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	DoNotDisturb bool `protobuf:"varint,43,opt,name=do_not_disturb,json=doNotDisturb,proto3" json:"do_not_disturb,omitempty"`
 	// Timestamp when do-not-disturb mode automatically deactivates.
 	DoNotDisturbClearAt *timestamppb.Timestamp `protobuf:"bytes,44,opt,name=do_not_disturb_clear_at,json=doNotDisturbClearAt,proto3" json:"do_not_disturb_clear_at,omitempty"`

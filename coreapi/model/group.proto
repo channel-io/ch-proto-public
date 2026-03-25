@@ -43,6 +43,7 @@ message Group {
   // +kubebuilder:validation:MinLength=2
   // +kubebuilder:validation:MaxLength=30
   // +kubebuilder:validation:Pattern="[\p{L}\p{N}\-_()]+"
+  // +kubebuilder:example="General"
   string title = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -72,6 +73,7 @@ message Group {
   // Must not contain whitespace.
   //
   // +kubebuilder:validation:Pattern="\S+"
+  // +kubebuilder:example="star"
   string icon = 6 [(buf.validate.field).string.pattern = "\\S+"];
 
   // ID of the active live meet session in this group.

@@ -580,6 +580,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel operation schedule referenced for delivery timing.
+   * +kubebuilder:example="op-001"
    * </pre>
    *
    * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
@@ -601,6 +602,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Channel operation schedule referenced for delivery timing.
+   * +kubebuilder:example="op-001"
    * </pre>
    *
    * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
@@ -657,6 +659,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+   * +kubebuilder:example="sms-001"
    * </pre>
    *
    * <code>string medium_id = 8 [json_name = "mediumId"];</code>
@@ -678,6 +681,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+   * +kubebuilder:example="sms-001"
    * </pre>
    *
    * <code>string medium_id = 8 [json_name = "mediumId"];</code>
@@ -1043,6 +1047,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Name of the event that counts as a goal completion.
+   * +kubebuilder:example="purchase"
    * </pre>
    *
    * <code>string goal_event_name = 15 [json_name = "goalEventName"];</code>
@@ -1064,6 +1069,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Name of the event that counts as a goal completion.
+   * +kubebuilder:example="purchase"
    * </pre>
    *
    * <code>string goal_event_name = 15 [json_name = "goalEventName"];</code>
@@ -1205,6 +1211,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether to fall back to email delivery when the user is offline.
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool send_to_offline_email = 20 [json_name = "sendToOfflineEmail"];</code>
@@ -1262,6 +1269,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
    * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
+   * +kubebuilder:example="2026-03-25T09:00:00"
    * </pre>
    *
    * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
@@ -1284,6 +1292,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
    * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
+   * +kubebuilder:example="2026-03-25T09:00:00"
    * </pre>
    *
    * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
@@ -1432,6 +1441,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Cumulative count of messages delivered.
+   * +kubebuilder:example="100"
    * </pre>
    *
    * <code>int32 sent = 26 [json_name = "sent"];</code>
@@ -1477,6 +1487,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Cumulative count of message link clicks.
+   * +kubebuilder:example="25"
    * </pre>
    *
    * <code>int32 click = 29 [json_name = "click"];</code>
@@ -3021,6 +3032,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel operation schedule referenced for delivery timing.
+     * +kubebuilder:example="op-001"
      * </pre>
      *
      * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
@@ -3041,6 +3053,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel operation schedule referenced for delivery timing.
+     * +kubebuilder:example="op-001"
      * </pre>
      *
      * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
@@ -3062,6 +3075,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel operation schedule referenced for delivery timing.
+     * +kubebuilder:example="op-001"
      * </pre>
      *
      * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
@@ -3081,6 +3095,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel operation schedule referenced for delivery timing.
+     * +kubebuilder:example="op-001"
      * </pre>
      *
      * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
@@ -3095,6 +3110,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Channel operation schedule referenced for delivery timing.
+     * +kubebuilder:example="op-001"
      * </pre>
      *
      * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
@@ -3201,6 +3217,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+     * +kubebuilder:example="sms-001"
      * </pre>
      *
      * <code>string medium_id = 8 [json_name = "mediumId"];</code>
@@ -3221,6 +3238,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+     * +kubebuilder:example="sms-001"
      * </pre>
      *
      * <code>string medium_id = 8 [json_name = "mediumId"];</code>
@@ -3242,6 +3260,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+     * +kubebuilder:example="sms-001"
      * </pre>
      *
      * <code>string medium_id = 8 [json_name = "mediumId"];</code>
@@ -3261,6 +3280,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+     * +kubebuilder:example="sms-001"
      * </pre>
      *
      * <code>string medium_id = 8 [json_name = "mediumId"];</code>
@@ -3275,6 +3295,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
+     * +kubebuilder:example="sms-001"
      * </pre>
      *
      * <code>string medium_id = 8 [json_name = "mediumId"];</code>
@@ -4345,6 +4366,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the event that counts as a goal completion.
+     * +kubebuilder:example="purchase"
      * </pre>
      *
      * <code>string goal_event_name = 15 [json_name = "goalEventName"];</code>
@@ -4365,6 +4387,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the event that counts as a goal completion.
+     * +kubebuilder:example="purchase"
      * </pre>
      *
      * <code>string goal_event_name = 15 [json_name = "goalEventName"];</code>
@@ -4386,6 +4409,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the event that counts as a goal completion.
+     * +kubebuilder:example="purchase"
      * </pre>
      *
      * <code>string goal_event_name = 15 [json_name = "goalEventName"];</code>
@@ -4405,6 +4429,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the event that counts as a goal completion.
+     * +kubebuilder:example="purchase"
      * </pre>
      *
      * <code>string goal_event_name = 15 [json_name = "goalEventName"];</code>
@@ -4419,6 +4444,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the event that counts as a goal completion.
+     * +kubebuilder:example="purchase"
      * </pre>
      *
      * <code>string goal_event_name = 15 [json_name = "goalEventName"];</code>
@@ -4867,6 +4893,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to fall back to email delivery when the user is offline.
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool send_to_offline_email = 20 [json_name = "sendToOfflineEmail"];</code>
@@ -4879,6 +4906,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to fall back to email delivery when the user is offline.
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool send_to_offline_email = 20 [json_name = "sendToOfflineEmail"];</code>
@@ -4894,6 +4922,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether to fall back to email delivery when the user is offline.
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool send_to_offline_email = 20 [json_name = "sendToOfflineEmail"];</code>
@@ -5075,6 +5104,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
      * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
+     * +kubebuilder:example="2026-03-25T09:00:00"
      * </pre>
      *
      * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
@@ -5096,6 +5126,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
      * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
+     * +kubebuilder:example="2026-03-25T09:00:00"
      * </pre>
      *
      * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
@@ -5118,6 +5149,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
      * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
+     * +kubebuilder:example="2026-03-25T09:00:00"
      * </pre>
      *
      * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
@@ -5138,6 +5170,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
      * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
+     * +kubebuilder:example="2026-03-25T09:00:00"
      * </pre>
      *
      * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
@@ -5153,6 +5186,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
      * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
+     * +kubebuilder:example="2026-03-25T09:00:00"
      * </pre>
      *
      * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
@@ -5667,6 +5701,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of messages delivered.
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>int32 sent = 26 [json_name = "sent"];</code>
@@ -5679,6 +5714,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of messages delivered.
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>int32 sent = 26 [json_name = "sent"];</code>
@@ -5694,6 +5730,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of messages delivered.
+     * +kubebuilder:example="100"
      * </pre>
      *
      * <code>int32 sent = 26 [json_name = "sent"];</code>
@@ -5796,6 +5833,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of message link clicks.
+     * +kubebuilder:example="25"
      * </pre>
      *
      * <code>int32 click = 29 [json_name = "click"];</code>
@@ -5808,6 +5846,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of message link clicks.
+     * +kubebuilder:example="25"
      * </pre>
      *
      * <code>int32 click = 29 [json_name = "click"];</code>
@@ -5823,6 +5862,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative count of message link clicks.
+     * +kubebuilder:example="25"
      * </pre>
      *
      * <code>int32 click = 29 [json_name = "click"];</code>

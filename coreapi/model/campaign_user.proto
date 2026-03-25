@@ -50,6 +50,7 @@ message CampaignUser {
 
   // Message variant that was delivered to this user.
   //
+  // +kubebuilder:example="cm-001"
   string msg_id = 3;
 
   // User chat conversation created by the campaign delivery.
@@ -74,6 +75,7 @@ message CampaignUser {
 
   // Cumulative revenue attributed to this user from the campaign.
   //
+  // +kubebuilder:example="100.50"
   string revenue = 9;
 
   // Composite identifier in the format "{campaign_id}-{user_id}".

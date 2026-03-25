@@ -782,6 +782,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Number of chats with unread messages that have alert notifications enabled.
+   * +kubebuilder:example="0"
    * </pre>
    *
    * <code>int32 alert = 8 [json_name = "alert"];</code>
@@ -858,6 +859,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the chat pinned as the primary conversation in the messenger.
+   * +kubebuilder:example="uc-main-001"
    * </pre>
    *
    * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -879,6 +881,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the chat pinned as the primary conversation in the messenger.
+   * +kubebuilder:example="uc-main-001"
    * </pre>
    *
    * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -1087,6 +1090,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Optimistic locking version incremented on every update.
    * Supply the current value when updating to prevent overwriting concurrent changes.
+   * +kubebuilder:example="1"
    * </pre>
    *
    * <code>int64 version = 16 [json_name = "version"];</code>
@@ -1308,6 +1312,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the user has opted out of SMS/text notifications.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool unsubscribe_texting = 22 [json_name = "unsubscribeTexting", (.buf.validate.field) = { ... }</code>
@@ -1484,6 +1489,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Language detected from the user's browser or device settings,
    * as a BCP 47 locale code.
+   * +kubebuilder:example="ko"
    * </pre>
    *
    * <code>string system_language = 28 [json_name = "systemLanguage"];</code>
@@ -1506,6 +1512,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Language detected from the user's browser or device settings,
    * as a BCP 47 locale code.
+   * +kubebuilder:example="ko"
    * </pre>
    *
    * <code>string system_language = 28 [json_name = "systemLanguage"];</code>
@@ -1550,6 +1557,7 @@ private static final long serialVersionUID = 0L;
    * Whether the user's email address has passed format validation
    * and is eligible for email delivery.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool email_qualified = 30 [json_name = "emailQualified", (.buf.validate.field) = { ... }</code>
@@ -1630,6 +1638,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether the user has a registered device token for push notifications.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool has_push_token = 33 [json_name = "hasPushToken", (.buf.validate.field) = { ... }</code>
@@ -1847,6 +1856,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Total number of chat sessions the user has initiated in this channel.
+   * +kubebuilder:example="5"
    * </pre>
    *
    * <code>int32 sessions_count = 40 [json_name = "sessionsCount"];</code>
@@ -1917,6 +1927,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Identifier key associated with the block action,
    * used to look up block details.
+   * +kubebuilder:example="bk-001"
    * </pre>
    *
    * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -1939,6 +1950,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Identifier key associated with the block action,
    * used to look up block details.
+   * +kubebuilder:example="bk-001"
    * </pre>
    *
    * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -1981,6 +1993,7 @@ private static final long serialVersionUID = 0L;
    * Whether the user's type is member.
    * Derived from the type field.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool member = 45 [json_name = "member", (.buf.validate.field) = { ... }</code>
@@ -4152,6 +4165,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Number of chats with unread messages that have alert notifications enabled.
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>int32 alert = 8 [json_name = "alert"];</code>
@@ -4164,6 +4178,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Number of chats with unread messages that have alert notifications enabled.
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>int32 alert = 8 [json_name = "alert"];</code>
@@ -4179,6 +4194,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Number of chats with unread messages that have alert notifications enabled.
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>int32 alert = 8 [json_name = "alert"];</code>
@@ -4334,6 +4350,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the chat pinned as the primary conversation in the messenger.
+     * +kubebuilder:example="uc-main-001"
      * </pre>
      *
      * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -4354,6 +4371,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the chat pinned as the primary conversation in the messenger.
+     * +kubebuilder:example="uc-main-001"
      * </pre>
      *
      * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -4375,6 +4393,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the chat pinned as the primary conversation in the messenger.
+     * +kubebuilder:example="uc-main-001"
      * </pre>
      *
      * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -4394,6 +4413,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the chat pinned as the primary conversation in the messenger.
+     * +kubebuilder:example="uc-main-001"
      * </pre>
      *
      * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -4408,6 +4428,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the chat pinned as the primary conversation in the messenger.
+     * +kubebuilder:example="uc-main-001"
      * </pre>
      *
      * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -4971,6 +4992,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version incremented on every update.
      * Supply the current value when updating to prevent overwriting concurrent changes.
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int64 version = 16 [json_name = "version"];</code>
@@ -4984,6 +5006,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version incremented on every update.
      * Supply the current value when updating to prevent overwriting concurrent changes.
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int64 version = 16 [json_name = "version"];</code>
@@ -5000,6 +5023,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optimistic locking version incremented on every update.
      * Supply the current value when updating to prevent overwriting concurrent changes.
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>int64 version = 16 [json_name = "version"];</code>
@@ -5656,6 +5680,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the user has opted out of SMS/text notifications.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool unsubscribe_texting = 22 [json_name = "unsubscribeTexting", (.buf.validate.field) = { ... }</code>
@@ -5669,6 +5694,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the user has opted out of SMS/text notifications.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool unsubscribe_texting = 22 [json_name = "unsubscribeTexting", (.buf.validate.field) = { ... }</code>
@@ -5685,6 +5711,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the user has opted out of SMS/text notifications.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool unsubscribe_texting = 22 [json_name = "unsubscribeTexting", (.buf.validate.field) = { ... }</code>
@@ -6215,6 +6242,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Language detected from the user's browser or device settings,
      * as a BCP 47 locale code.
+     * +kubebuilder:example="ko"
      * </pre>
      *
      * <code>string system_language = 28 [json_name = "systemLanguage"];</code>
@@ -6236,6 +6264,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Language detected from the user's browser or device settings,
      * as a BCP 47 locale code.
+     * +kubebuilder:example="ko"
      * </pre>
      *
      * <code>string system_language = 28 [json_name = "systemLanguage"];</code>
@@ -6258,6 +6287,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Language detected from the user's browser or device settings,
      * as a BCP 47 locale code.
+     * +kubebuilder:example="ko"
      * </pre>
      *
      * <code>string system_language = 28 [json_name = "systemLanguage"];</code>
@@ -6278,6 +6308,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Language detected from the user's browser or device settings,
      * as a BCP 47 locale code.
+     * +kubebuilder:example="ko"
      * </pre>
      *
      * <code>string system_language = 28 [json_name = "systemLanguage"];</code>
@@ -6293,6 +6324,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Language detected from the user's browser or device settings,
      * as a BCP 47 locale code.
+     * +kubebuilder:example="ko"
      * </pre>
      *
      * <code>string system_language = 28 [json_name = "systemLanguage"];</code>
@@ -6366,6 +6398,7 @@ private static final long serialVersionUID = 0L;
      * Whether the user's email address has passed format validation
      * and is eligible for email delivery.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool email_qualified = 30 [json_name = "emailQualified", (.buf.validate.field) = { ... }</code>
@@ -6380,6 +6413,7 @@ private static final long serialVersionUID = 0L;
      * Whether the user's email address has passed format validation
      * and is eligible for email delivery.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool email_qualified = 30 [json_name = "emailQualified", (.buf.validate.field) = { ... }</code>
@@ -6397,6 +6431,7 @@ private static final long serialVersionUID = 0L;
      * Whether the user's email address has passed format validation
      * and is eligible for email delivery.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool email_qualified = 30 [json_name = "emailQualified", (.buf.validate.field) = { ... }</code>
@@ -6561,6 +6596,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the user has a registered device token for push notifications.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool has_push_token = 33 [json_name = "hasPushToken", (.buf.validate.field) = { ... }</code>
@@ -6574,6 +6610,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the user has a registered device token for push notifications.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool has_push_token = 33 [json_name = "hasPushToken", (.buf.validate.field) = { ... }</code>
@@ -6590,6 +6627,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether the user has a registered device token for push notifications.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool has_push_token = 33 [json_name = "hasPushToken", (.buf.validate.field) = { ... }</code>
@@ -7204,6 +7242,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of chat sessions the user has initiated in this channel.
+     * +kubebuilder:example="5"
      * </pre>
      *
      * <code>int32 sessions_count = 40 [json_name = "sessionsCount"];</code>
@@ -7216,6 +7255,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of chat sessions the user has initiated in this channel.
+     * +kubebuilder:example="5"
      * </pre>
      *
      * <code>int32 sessions_count = 40 [json_name = "sessionsCount"];</code>
@@ -7231,6 +7271,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total number of chat sessions the user has initiated in this channel.
+     * +kubebuilder:example="5"
      * </pre>
      *
      * <code>int32 sessions_count = 40 [json_name = "sessionsCount"];</code>
@@ -7449,6 +7490,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Identifier key associated with the block action,
      * used to look up block details.
+     * +kubebuilder:example="bk-001"
      * </pre>
      *
      * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -7470,6 +7512,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Identifier key associated with the block action,
      * used to look up block details.
+     * +kubebuilder:example="bk-001"
      * </pre>
      *
      * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -7492,6 +7535,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Identifier key associated with the block action,
      * used to look up block details.
+     * +kubebuilder:example="bk-001"
      * </pre>
      *
      * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -7512,6 +7556,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Identifier key associated with the block action,
      * used to look up block details.
+     * +kubebuilder:example="bk-001"
      * </pre>
      *
      * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -7527,6 +7572,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Identifier key associated with the block action,
      * used to look up block details.
+     * +kubebuilder:example="bk-001"
      * </pre>
      *
      * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -7594,6 +7640,7 @@ private static final long serialVersionUID = 0L;
      * Whether the user's type is member.
      * Derived from the type field.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool member = 45 [json_name = "member", (.buf.validate.field) = { ... }</code>
@@ -7608,6 +7655,7 @@ private static final long serialVersionUID = 0L;
      * Whether the user's type is member.
      * Derived from the type field.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool member = 45 [json_name = "member", (.buf.validate.field) = { ... }</code>
@@ -7625,6 +7673,7 @@ private static final long serialVersionUID = 0L;
      * Whether the user's type is member.
      * Derived from the type field.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool member = 45 [json_name = "member", (.buf.validate.field) = { ... }</code>

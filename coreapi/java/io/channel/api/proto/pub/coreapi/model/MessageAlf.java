@@ -123,6 +123,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the handling session that triggered this ALF response.
+   * +kubebuilder:example="handling-001"
    * </pre>
    *
    * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -144,6 +145,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the handling session that triggered this ALF response.
+   * +kubebuilder:example="handling-001"
    * </pre>
    *
    * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -282,6 +284,7 @@ private static final long serialVersionUID = 0L;
    * Whether this message is ALF's reply to a direct &#64;mention.
    * Defaults to false.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool mention_alf_answered = 4 [json_name = "mentionAlfAnswered", (.buf.validate.field) = { ... }</code>
@@ -695,6 +698,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the handling session that triggered this ALF response.
+     * +kubebuilder:example="handling-001"
      * </pre>
      *
      * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -715,6 +719,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the handling session that triggered this ALF response.
+     * +kubebuilder:example="handling-001"
      * </pre>
      *
      * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -736,6 +741,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the handling session that triggered this ALF response.
+     * +kubebuilder:example="handling-001"
      * </pre>
      *
      * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -755,6 +761,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the handling session that triggered this ALF response.
+     * +kubebuilder:example="handling-001"
      * </pre>
      *
      * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -769,6 +776,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the handling session that triggered this ALF response.
+     * +kubebuilder:example="handling-001"
      * </pre>
      *
      * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -1219,6 +1227,7 @@ private static final long serialVersionUID = 0L;
      * Whether this message is ALF's reply to a direct &#64;mention.
      * Defaults to false.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool mention_alf_answered = 4 [json_name = "mentionAlfAnswered", (.buf.validate.field) = { ... }</code>
@@ -1233,6 +1242,7 @@ private static final long serialVersionUID = 0L;
      * Whether this message is ALF's reply to a direct &#64;mention.
      * Defaults to false.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool mention_alf_answered = 4 [json_name = "mentionAlfAnswered", (.buf.validate.field) = { ... }</code>
@@ -1250,6 +1260,7 @@ private static final long serialVersionUID = 0L;
      * Whether this message is ALF's reply to a direct &#64;mention.
      * Defaults to false.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="false"
      * </pre>
      *
      * <code>bool mention_alf_answered = 4 [json_name = "mentionAlfAnswered", (.buf.validate.field) = { ... }</code>

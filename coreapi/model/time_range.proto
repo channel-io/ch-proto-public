@@ -26,6 +26,7 @@ message TimeRange {
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:Minimum=0
   // +kubebuilder:validation:Maximum=1440
+  // +kubebuilder:example="540"
   int32 from = 2 [
     (buf.validate.field).cel = {
       id: "int.gte"
@@ -46,6 +47,7 @@ message TimeRange {
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:Minimum=0
   // +kubebuilder:validation:Maximum=1440
+  // +kubebuilder:example="1080"
   int32 to = 3 [
     (buf.validate.field).cel = {
       id: "int.gte"

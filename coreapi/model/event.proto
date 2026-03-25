@@ -66,6 +66,7 @@ message Event {
   // Optimistic concurrency version counter.
   // Incremented on each update to detect conflicting writes.
   //
+  // +kubebuilder:example="1"
   int64 version = 8;
 
   // Internationalized event name map keyed by locale (e.g., en, ko).

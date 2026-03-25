@@ -44,11 +44,13 @@ type ChatBookmark struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="userChat-uc-abc123"
 	ChatKey string `protobuf:"bytes,3,opt,name=chat_key,json=chatKey,proto3" json:"chat_key,omitempty"`
 	// Opaque key representing the reading position in the chat.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="bk-001"
 	BookmarkKey string `protobuf:"bytes,4,opt,name=bookmark_key,json=bookmarkKey,proto3" json:"bookmark_key,omitempty"`
 	// Channel ID this bookmark belongs to.
 	//
@@ -61,16 +63,19 @@ type ChatBookmark struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="manager"
 	PersonType string `protobuf:"bytes,7,opt,name=person_type,json=personType,proto3" json:"person_type,omitempty"`
 	// Identifier of the bookmark owner.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="m-001"
 	PersonId string `protobuf:"bytes,8,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
 	// Chat type this bookmark belongs to (e.g. "group", "userChat").
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="userChat"
 	ChatType      string `protobuf:"bytes,9,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

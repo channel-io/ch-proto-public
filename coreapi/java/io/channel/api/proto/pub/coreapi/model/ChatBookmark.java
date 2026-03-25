@@ -260,6 +260,7 @@ private static final long serialVersionUID = 0L;
    * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="userChat-uc-abc123"
    * </pre>
    *
    * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -284,6 +285,7 @@ private static final long serialVersionUID = 0L;
    * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="userChat-uc-abc123"
    * </pre>
    *
    * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -311,6 +313,7 @@ private static final long serialVersionUID = 0L;
    * Opaque key representing the reading position in the chat.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="bk-001"
    * </pre>
    *
    * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
@@ -334,6 +337,7 @@ private static final long serialVersionUID = 0L;
    * Opaque key representing the reading position in the chat.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="bk-001"
    * </pre>
    *
    * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
@@ -426,6 +430,7 @@ private static final long serialVersionUID = 0L;
    * Type of the bookmark owner (e.g. "manager").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="manager"
    * </pre>
    *
    * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -449,6 +454,7 @@ private static final long serialVersionUID = 0L;
    * Type of the bookmark owner (e.g. "manager").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="manager"
    * </pre>
    *
    * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -476,6 +482,7 @@ private static final long serialVersionUID = 0L;
    * Identifier of the bookmark owner.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -499,6 +506,7 @@ private static final long serialVersionUID = 0L;
    * Identifier of the bookmark owner.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -526,6 +534,7 @@ private static final long serialVersionUID = 0L;
    * Chat type this bookmark belongs to (e.g. "group", "userChat").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="userChat"
    * </pre>
    *
    * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -549,6 +558,7 @@ private static final long serialVersionUID = 0L;
    * Chat type this bookmark belongs to (e.g. "group", "userChat").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="userChat"
    * </pre>
    *
    * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -1247,6 +1257,7 @@ private static final long serialVersionUID = 0L;
      * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="userChat-uc-abc123"
      * </pre>
      *
      * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -1270,6 +1281,7 @@ private static final long serialVersionUID = 0L;
      * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="userChat-uc-abc123"
      * </pre>
      *
      * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -1294,6 +1306,7 @@ private static final long serialVersionUID = 0L;
      * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="userChat-uc-abc123"
      * </pre>
      *
      * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -1316,6 +1329,7 @@ private static final long serialVersionUID = 0L;
      * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="userChat-uc-abc123"
      * </pre>
      *
      * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -1333,6 +1347,7 @@ private static final long serialVersionUID = 0L;
      * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="userChat-uc-abc123"
      * </pre>
      *
      * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -1357,6 +1372,7 @@ private static final long serialVersionUID = 0L;
      * Opaque key representing the reading position in the chat.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="bk-001"
      * </pre>
      *
      * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
@@ -1379,6 +1395,7 @@ private static final long serialVersionUID = 0L;
      * Opaque key representing the reading position in the chat.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="bk-001"
      * </pre>
      *
      * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
@@ -1402,6 +1419,7 @@ private static final long serialVersionUID = 0L;
      * Opaque key representing the reading position in the chat.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="bk-001"
      * </pre>
      *
      * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
@@ -1423,6 +1441,7 @@ private static final long serialVersionUID = 0L;
      * Opaque key representing the reading position in the chat.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="bk-001"
      * </pre>
      *
      * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
@@ -1439,6 +1458,7 @@ private static final long serialVersionUID = 0L;
      * Opaque key representing the reading position in the chat.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="bk-001"
      * </pre>
      *
      * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
@@ -1612,6 +1632,7 @@ private static final long serialVersionUID = 0L;
      * Type of the bookmark owner (e.g. "manager").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager"
      * </pre>
      *
      * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -1634,6 +1655,7 @@ private static final long serialVersionUID = 0L;
      * Type of the bookmark owner (e.g. "manager").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager"
      * </pre>
      *
      * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -1657,6 +1679,7 @@ private static final long serialVersionUID = 0L;
      * Type of the bookmark owner (e.g. "manager").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager"
      * </pre>
      *
      * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -1678,6 +1701,7 @@ private static final long serialVersionUID = 0L;
      * Type of the bookmark owner (e.g. "manager").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager"
      * </pre>
      *
      * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -1694,6 +1718,7 @@ private static final long serialVersionUID = 0L;
      * Type of the bookmark owner (e.g. "manager").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="manager"
      * </pre>
      *
      * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
@@ -1718,6 +1743,7 @@ private static final long serialVersionUID = 0L;
      * Identifier of the bookmark owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -1740,6 +1766,7 @@ private static final long serialVersionUID = 0L;
      * Identifier of the bookmark owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -1763,6 +1790,7 @@ private static final long serialVersionUID = 0L;
      * Identifier of the bookmark owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -1784,6 +1812,7 @@ private static final long serialVersionUID = 0L;
      * Identifier of the bookmark owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -1800,6 +1829,7 @@ private static final long serialVersionUID = 0L;
      * Identifier of the bookmark owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="m-001"
      * </pre>
      *
      * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -1824,6 +1854,7 @@ private static final long serialVersionUID = 0L;
      * Chat type this bookmark belongs to (e.g. "group", "userChat").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -1846,6 +1877,7 @@ private static final long serialVersionUID = 0L;
      * Chat type this bookmark belongs to (e.g. "group", "userChat").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -1869,6 +1901,7 @@ private static final long serialVersionUID = 0L;
      * Chat type this bookmark belongs to (e.g. "group", "userChat").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -1890,6 +1923,7 @@ private static final long serialVersionUID = 0L;
      * Chat type this bookmark belongs to (e.g. "group", "userChat").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
@@ -1906,6 +1940,7 @@ private static final long serialVersionUID = 0L;
      * Chat type this bookmark belongs to (e.g. "group", "userChat").
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
+     * +kubebuilder:example="userChat"
      * </pre>
      *
      * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>

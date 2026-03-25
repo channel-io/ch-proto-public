@@ -73,6 +73,7 @@ public interface TimeRangeOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:Minimum=0
    * +kubebuilder:validation:Maximum=1440
+   * +kubebuilder:example="540"
    * </pre>
    *
    * <code>int32 from = 2 [json_name = "from", (.buf.validate.field) = { ... }</code>
@@ -87,6 +88,7 @@ public interface TimeRangeOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:Minimum=0
    * +kubebuilder:validation:Maximum=1440
+   * +kubebuilder:example="1080"
    * </pre>
    *
    * <code>int32 to = 3 [json_name = "to", (.buf.validate.field) = { ... }</code>

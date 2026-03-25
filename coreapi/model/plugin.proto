@@ -101,6 +101,7 @@ message Plugin {
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:example="Support Widget"
   string name = 5 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -130,6 +131,7 @@ message Plugin {
   // Defaults to true.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="true"
   bool label_button = 8 [(buf.validate.field).required = true];
 
   // Text shown on the label next to the launcher button.
@@ -179,6 +181,7 @@ message Plugin {
 
   // Horizontal offset of the desktop widget from its anchored edge, in pixels.
   //
+  // +kubebuilder:example="20"
   int32 desk_margin_x = 15;
 
   // Vertical offset of the desktop widget from the bottom edge, in pixels.
@@ -200,6 +203,7 @@ message Plugin {
 
   // Horizontal offset of the mobile widget from its anchored edge, in pixels.
   //
+  // +kubebuilder:example="16"
   int32 mobile_margin_x = 20;
 
   // Vertical offset of the mobile widget from the bottom edge, in pixels.
@@ -212,6 +216,7 @@ message Plugin {
 
   // Whether the mobile launcher button is hidden while the widget remains accessible.
   //
+  // +kubebuilder:example="false"
   bool mobile_hide_button = 23;
 
   // Vertical position of the chat bubble on mobile devices.
@@ -228,6 +233,7 @@ message Plugin {
   //
   // +kubebuilder:validation:Minimum=0
   // +kubebuilder:validation:Maximum=1
+  // +kubebuilder:example="1.0"
   float run_rate = 26 [
     (buf.validate.field).cel = {
       id: "float.gte"
@@ -243,6 +249,7 @@ message Plugin {
 
   // Facebook Pixel ID linked for conversion tracking.
   //
+  // +kubebuilder:example="123456789012345"
   string facebook_pixel_id = 27;
 
   // Resolved URL of the custom launcher button image.
@@ -253,6 +260,7 @@ message Plugin {
   // Resolved URL of the desktop launcher image.
   // Automatically derived from desk_image.
   //
+  // +kubebuilder:example="https://cdn.channel.io/plugin/desk.png"
   string desk_image_url = 29;
 
   // Resolved URL of the mobile launcher image.

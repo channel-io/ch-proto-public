@@ -15,6 +15,7 @@ message ImageFile {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="images"
   string bucket = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -28,6 +29,7 @@ message ImageFile {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="uploads/image-001.png"
   string key = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -39,6 +41,7 @@ message ImageFile {
 
   // Image width in pixels.
   //
+  // +kubebuilder:example="800"
   int32 width = 3;
 
   // Image height in pixels.

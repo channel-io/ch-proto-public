@@ -405,6 +405,7 @@ type Plugin struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
+	// +kubebuilder:example="Support Widget"
 	Name string `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`
 	// Plugin creation timestamp.
 	//
@@ -419,6 +420,7 @@ type Plugin struct {
 	// Defaults to true.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	LabelButton bool `protobuf:"varint,8,opt,name=label_button,json=labelButton,proto3" json:"label_button,omitempty"`
 	// Text shown on the label next to the launcher button.
 	// Applicable when label_button is true.
@@ -446,6 +448,8 @@ type Plugin struct {
 	// Applicable when button_type is LEGACY.
 	DeskImage *TinyFile `protobuf:"bytes,14,opt,name=desk_image,json=deskImage,proto3" json:"desk_image,omitempty"`
 	// Horizontal offset of the desktop widget from its anchored edge, in pixels.
+	//
+	// +kubebuilder:example="20"
 	DeskMarginX int32 `protobuf:"varint,15,opt,name=desk_margin_x,json=deskMarginX,proto3" json:"desk_margin_x,omitempty"`
 	// Vertical offset of the desktop widget from the bottom edge, in pixels.
 	DeskMarginY int32 `protobuf:"varint,16,opt,name=desk_margin_y,json=deskMarginY,proto3" json:"desk_margin_y,omitempty"`
@@ -457,12 +461,16 @@ type Plugin struct {
 	// Applicable when button_type is LEGACY.
 	MobileImage *TinyFile `protobuf:"bytes,19,opt,name=mobile_image,json=mobileImage,proto3" json:"mobile_image,omitempty"`
 	// Horizontal offset of the mobile widget from its anchored edge, in pixels.
+	//
+	// +kubebuilder:example="16"
 	MobileMarginX int32 `protobuf:"varint,20,opt,name=mobile_margin_x,json=mobileMarginX,proto3" json:"mobile_margin_x,omitempty"`
 	// Vertical offset of the mobile widget from the bottom edge, in pixels.
 	MobileMarginY int32 `protobuf:"varint,21,opt,name=mobile_margin_y,json=mobileMarginY,proto3" json:"mobile_margin_y,omitempty"`
 	// Horizontal anchor position of the mobile widget.
 	MobilePosition PluginPosition `protobuf:"varint,22,opt,name=mobile_position,json=mobilePosition,proto3,enum=coreapi.model.PluginPosition" json:"mobile_position,omitempty"`
 	// Whether the mobile launcher button is hidden while the widget remains accessible.
+	//
+	// +kubebuilder:example="false"
 	MobileHideButton bool `protobuf:"varint,23,opt,name=mobile_hide_button,json=mobileHideButton,proto3" json:"mobile_hide_button,omitempty"`
 	// Vertical position of the chat bubble on mobile devices.
 	MobileBubblePosition PluginBubblePosition `protobuf:"varint,24,opt,name=mobile_bubble_position,json=mobileBubblePosition,proto3,enum=coreapi.model.PluginBubblePosition" json:"mobile_bubble_position,omitempty"`
@@ -475,14 +483,19 @@ type Plugin struct {
 	//
 	// +kubebuilder:validation:Minimum=0
 	// +kubebuilder:validation:Maximum=1
+	// +kubebuilder:example="1.0"
 	RunRate float32 `protobuf:"fixed32,26,opt,name=run_rate,json=runRate,proto3" json:"run_rate,omitempty"`
 	// Facebook Pixel ID linked for conversion tracking.
+	//
+	// +kubebuilder:example="123456789012345"
 	FacebookPixelId string `protobuf:"bytes,27,opt,name=facebook_pixel_id,json=facebookPixelId,proto3" json:"facebook_pixel_id,omitempty"`
 	// Resolved URL of the custom launcher button image.
 	// Automatically derived from custom_image.
 	CustomImageUrl string `protobuf:"bytes,28,opt,name=custom_image_url,json=customImageUrl,proto3" json:"custom_image_url,omitempty"`
 	// Resolved URL of the desktop launcher image.
 	// Automatically derived from desk_image.
+	//
+	// +kubebuilder:example="https://cdn.channel.io/plugin/desk.png"
 	DeskImageUrl string `protobuf:"bytes,29,opt,name=desk_image_url,json=deskImageUrl,proto3" json:"desk_image_url,omitempty"`
 	// Resolved URL of the mobile launcher image.
 	// Automatically derived from mobile_image.

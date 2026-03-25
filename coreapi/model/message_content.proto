@@ -24,6 +24,7 @@ message Block {
   // Programming language identifier for syntax highlighting.
   // Only applicable when type is CODE.
   //
+  // +kubebuilder:example="python"
   string language = 2;
 
   // Text content of the block.
@@ -62,6 +63,7 @@ message MessageButton {
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:example="Channel Talk - Customer Messaging"
   string title = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -109,10 +111,12 @@ message MessageFile {
   // Unique file identifier.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="file-001"
   string id = 1 [(buf.validate.field).required = true];
 
   // High-level media category derived from the MIME type (e.g. "image", "video", "audio").
   //
+  // +kubebuilder:example="image"
   string type = 2;
 
   // Original file name including the extension (e.g. "report.pdf").
@@ -131,10 +135,12 @@ message MessageFile {
   // File size in bytes.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example=2048
   int64 size = 4 [(buf.validate.field).required = true];
 
   // MIME content type (e.g. "image/png", "application/pdf").
   //
+  // +kubebuilder:example="image/png"
   string content_type = 5;
 
   // Media playback duration in seconds.
@@ -144,6 +150,7 @@ message MessageFile {
 
   // Image or video width in pixels.
   //
+  // +kubebuilder:example="1920"
   int32 width = 7;
 
   // Image or video height in pixels.
@@ -153,6 +160,7 @@ message MessageFile {
   // EXIF orientation value (1-8) indicating how the image should be rotated for display.
   // Present only for image files with EXIF metadata.
   //
+  // +kubebuilder:example="1"
   int32 orientation = 9;
 
   // Whether the image is an animated format (e.g. GIF, APNG).
@@ -163,6 +171,7 @@ message MessageFile {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="preview-images"
   string bucket = 11 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -176,6 +185,7 @@ message MessageFile {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="uploads/file.pdf"
   string key = 12 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -188,6 +198,7 @@ message MessageFile {
   // Storage key for the preview thumbnail.
   // Falls back to `key` when not set.
   //
+  // +kubebuilder:example="thumbnails/image_preview.jpg"
   string preview_key = 13;
 
   // Access scope that determines who can view this private file.
@@ -198,6 +209,7 @@ message MessageFile {
   // Domain identifier for channel-scoped private files.
   // Derived from the storage key pattern.
   //
+  // +kubebuilder:example="internal"
   string shared_domain = 15;
 
   // Channel ID that owns this private file.
@@ -208,6 +220,7 @@ message MessageFile {
   // Manager ID that owns this private file.
   // Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
   //
+  // +kubebuilder:example="m-abc123"
   string manager_id = 17;
 
   // Chat type for chat-scoped private files.
@@ -218,6 +231,7 @@ message MessageFile {
   // Chat ID for chat-scoped private files.
   // Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
   //
+  // +kubebuilder:example="uc-abc123"
   string chat_id = 19;
 
   // Access scope for private file visibility.
@@ -242,12 +256,14 @@ message MessageWebPage {
   // Unique web page preview identifier.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="wp-001"
   string id = 1 [(buf.validate.field).required = true];
 
   // Target URL of the linked web page.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="https://channel.io"
   string url = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -259,6 +275,7 @@ message MessageWebPage {
 
   // Page title extracted from Open Graph `og:title` or HTML `<title>` tag.
   //
+  // +kubebuilder:example="Channel Talk - Customer Messaging"
   string title = 3;
 
   // Page summary extracted from Open Graph `og:description` or HTML meta description.
@@ -267,6 +284,7 @@ message MessageWebPage {
 
   // Primary image URL from Open Graph `og:image` metadata.
   //
+  // +kubebuilder:example="https://example.com/og-image.png"
   string image_url = 5;
 
   // Embedded video URL from Open Graph `og:video` metadata.
@@ -275,6 +293,7 @@ message MessageWebPage {
 
   // Publisher or site name extracted from page metadata.
   //
+  // +kubebuilder:example="Channel Corp"
   string publisher = 7;
 
   // Content author name extracted from page metadata.
@@ -283,6 +302,7 @@ message MessageWebPage {
 
   // Preview image width in pixels.
   //
+  // +kubebuilder:example="1920"
   int32 width = 9;
 
   // Preview image height in pixels.
@@ -291,6 +311,7 @@ message MessageWebPage {
 
   // Storage bucket name for the cached preview image.
   //
+  // +kubebuilder:example="preview-images"
   string bucket = 11;
 
   // Storage key for the locally cached preview image.
@@ -299,6 +320,7 @@ message MessageWebPage {
 
   // Publisher logo URL extracted from page metadata.
   //
+  // +kubebuilder:example="https://example.com/logo.png"
   string logo = 13;
 
   // Site name from Open Graph `og:site_name` metadata.
@@ -347,6 +369,7 @@ message MessageContent {
 
   // Plain text representation of the message.
   //
+  // +kubebuilder:example="Hello, how can I help you?"
   string plain_text = 2;
 
   // Interactive buttons attached to the message.
@@ -374,5 +397,6 @@ message MessageContent {
 
   // Client-generated request identifier for idempotency.
   //
+  // +kubebuilder:example="req-12345"
   string request_id = 8;
 }

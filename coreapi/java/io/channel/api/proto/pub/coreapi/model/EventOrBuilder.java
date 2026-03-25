@@ -193,6 +193,7 @@ public interface EventOrBuilder extends
    * <pre>
    * Optimistic concurrency version counter.
    * Incremented on each update to detect conflicting writes.
+   * +kubebuilder:example="1"
    * </pre>
    *
    * <code>int64 version = 8 [json_name = "version"];</code>

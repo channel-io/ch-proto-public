@@ -104,6 +104,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Human-readable summary of the current processing step.
+   * +kubebuilder:example="Hello, how can I help you today?"
    * </pre>
    *
    * <code>string plain_text = 1 [json_name = "plainText"];</code>
@@ -125,6 +126,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Human-readable summary of the current processing step.
+   * +kubebuilder:example="Hello, how can I help you today?"
    * </pre>
    *
    * <code>string plain_text = 1 [json_name = "plainText"];</code>
@@ -523,6 +525,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Human-readable summary of the current processing step.
+     * +kubebuilder:example="Hello, how can I help you today?"
      * </pre>
      *
      * <code>string plain_text = 1 [json_name = "plainText"];</code>
@@ -543,6 +546,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Human-readable summary of the current processing step.
+     * +kubebuilder:example="Hello, how can I help you today?"
      * </pre>
      *
      * <code>string plain_text = 1 [json_name = "plainText"];</code>
@@ -564,6 +568,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Human-readable summary of the current processing step.
+     * +kubebuilder:example="Hello, how can I help you today?"
      * </pre>
      *
      * <code>string plain_text = 1 [json_name = "plainText"];</code>
@@ -583,6 +588,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Human-readable summary of the current processing step.
+     * +kubebuilder:example="Hello, how can I help you today?"
      * </pre>
      *
      * <code>string plain_text = 1 [json_name = "plainText"];</code>
@@ -597,6 +603,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Human-readable summary of the current processing step.
+     * +kubebuilder:example="Hello, how can I help you today?"
      * </pre>
      *
      * <code>string plain_text = 1 [json_name = "plainText"];</code>

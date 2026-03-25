@@ -59,6 +59,8 @@ type Event struct {
 	ExpireAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=expire_at,json=expireAt,proto3" json:"expire_at,omitempty"`
 	// Optimistic concurrency version counter.
 	// Incremented on each update to detect conflicting writes.
+	//
+	// +kubebuilder:example="1"
 	Version int64 `protobuf:"varint,8,opt,name=version,proto3" json:"version,omitempty"`
 	// Internationalized event name map keyed by locale (e.g., en, ko).
 	// Populated only for system-defined events; custom events return no entries.

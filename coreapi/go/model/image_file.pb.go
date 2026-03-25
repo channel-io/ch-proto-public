@@ -30,13 +30,17 @@ type ImageFile struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="images"
 	Bucket string `protobuf:"bytes,1,opt,name=bucket,proto3" json:"bucket,omitempty"`
 	// Storage object key used to locate the image within the bucket.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:example="uploads/image-001.png"
 	Key string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
 	// Image width in pixels.
+	//
+	// +kubebuilder:example="800"
 	Width int32 `protobuf:"varint,3,opt,name=width,proto3" json:"width,omitempty"`
 	// Image height in pixels.
 	Height int32 `protobuf:"varint,4,opt,name=height,proto3" json:"height,omitempty"`

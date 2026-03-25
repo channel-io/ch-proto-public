@@ -101,6 +101,7 @@ type Group struct {
 	// +kubebuilder:validation:MinLength=2
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:validation:Pattern="[\p{L}\p{N}\-_()]+"
+	// +kubebuilder:example="General"
 	Title string `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
 	// Visibility scope determining who can discover and access the group.
 	//
@@ -114,6 +115,7 @@ type Group struct {
 	// Must not contain whitespace.
 	//
 	// +kubebuilder:validation:Pattern="\S+"
+	// +kubebuilder:example="star"
 	Icon string `protobuf:"bytes,6,opt,name=icon,proto3" json:"icon,omitempty"`
 	// ID of the active live meet session in this group.
 	LiveMeetId string `protobuf:"bytes,7,opt,name=live_meet_id,json=liveMeetId,proto3" json:"live_meet_id,omitempty"`

@@ -33,6 +33,7 @@ message Online {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:example="m-001"
   string person_id = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -44,5 +45,6 @@ message Online {
 
   // Composite presence record identifier derived from person type and person ID.
   //
+  // +kubebuilder:example="manager-m-001"
   string id = 4;
 }

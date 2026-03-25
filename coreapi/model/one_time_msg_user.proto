@@ -66,6 +66,7 @@ message OneTimeMsgUser {
 
   // Cumulative revenue attributed to this user from the one-time message.
   //
+  // +kubebuilder:example="50.25"
   string revenue = 7;
 
   // Composite identifier in the format "{one_time_msg_id}-{user_id}".

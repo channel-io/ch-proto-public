@@ -10,6 +10,7 @@ public interface MessageMarketingOrBuilder extends
   /**
    * <pre>
    * Marketing source type: "campaign" for automated campaigns or "oneTimeMsg" for one-time messages.
+   * +kubebuilder:example="campaign"
    * </pre>
    *
    * <code>string type = 1 [json_name = "type"];</code>
@@ -19,6 +20,7 @@ public interface MessageMarketingOrBuilder extends
   /**
    * <pre>
    * Marketing source type: "campaign" for automated campaigns or "oneTimeMsg" for one-time messages.
+   * +kubebuilder:example="campaign"
    * </pre>
    *
    * <code>string type = 1 [json_name = "type"];</code>
@@ -30,6 +32,7 @@ public interface MessageMarketingOrBuilder extends
   /**
    * <pre>
    * Identifier of the originating campaign or one-time message.
+   * +kubebuilder:example="cpn-001"
    * </pre>
    *
    * <code>string id = 2 [json_name = "id"];</code>
@@ -39,6 +42,7 @@ public interface MessageMarketingOrBuilder extends
   /**
    * <pre>
    * Identifier of the originating campaign or one-time message.
+   * +kubebuilder:example="cpn-001"
    * </pre>
    *
    * <code>string id = 2 [json_name = "id"];</code>
@@ -50,6 +54,7 @@ public interface MessageMarketingOrBuilder extends
   /**
    * <pre>
    * Whether this message is classified as advertising content subject to opt-out regulations.
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool advertising = 3 [json_name = "advertising"];</code>
@@ -70,6 +75,7 @@ public interface MessageMarketingOrBuilder extends
   /**
    * <pre>
    * Whether to deliver via email as a fallback when the user is offline.
+   * +kubebuilder:example="false"
    * </pre>
    *
    * <code>bool send_to_offline_email = 5 [json_name = "sendToOfflineEmail"];</code>
@@ -100,6 +106,7 @@ public interface MessageMarketingOrBuilder extends
    * <pre>
    * Clickthrough URL for the marketing image.
    * Present only when the message includes an in-app image with a link.
+   * +kubebuilder:example="https://example.com/image.jpg"
    * </pre>
    *
    * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>
@@ -110,6 +117,7 @@ public interface MessageMarketingOrBuilder extends
    * <pre>
    * Clickthrough URL for the marketing image.
    * Present only when the message includes an in-app image with a link.
+   * +kubebuilder:example="https://example.com/image.jpg"
    * </pre>
    *
    * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>

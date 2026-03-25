@@ -425,6 +425,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Cumulative revenue attributed to this user from the one-time message.
+   * +kubebuilder:example="50.25"
    * </pre>
    *
    * <code>string revenue = 7 [json_name = "revenue"];</code>
@@ -446,6 +447,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Cumulative revenue attributed to this user from the one-time message.
+   * +kubebuilder:example="50.25"
    * </pre>
    *
    * <code>string revenue = 7 [json_name = "revenue"];</code>
@@ -1837,6 +1839,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative revenue attributed to this user from the one-time message.
+     * +kubebuilder:example="50.25"
      * </pre>
      *
      * <code>string revenue = 7 [json_name = "revenue"];</code>
@@ -1857,6 +1860,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative revenue attributed to this user from the one-time message.
+     * +kubebuilder:example="50.25"
      * </pre>
      *
      * <code>string revenue = 7 [json_name = "revenue"];</code>
@@ -1878,6 +1882,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative revenue attributed to this user from the one-time message.
+     * +kubebuilder:example="50.25"
      * </pre>
      *
      * <code>string revenue = 7 [json_name = "revenue"];</code>
@@ -1897,6 +1902,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative revenue attributed to this user from the one-time message.
+     * +kubebuilder:example="50.25"
      * </pre>
      *
      * <code>string revenue = 7 [json_name = "revenue"];</code>
@@ -1911,6 +1917,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cumulative revenue attributed to this user from the one-time message.
+     * +kubebuilder:example="50.25"
      * </pre>
      *
      * <code>string revenue = 7 [json_name = "revenue"];</code>

@@ -103,6 +103,7 @@ public interface OperatorStatusOrBuilder extends
    * Whether the manager is enabled to receive and handle chats.
    * Disabled managers are excluded from auto-assignment.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool enable = 5 [json_name = "enable", (.buf.validate.field) = { ... }</code>
@@ -203,6 +204,7 @@ public interface OperatorStatusOrBuilder extends
   /**
    * <pre>
    * Optimistic locking version for concurrent update detection.
+   * +kubebuilder:example="1"
    * </pre>
    *
    * <code>int64 version = 9 [json_name = "version"];</code>

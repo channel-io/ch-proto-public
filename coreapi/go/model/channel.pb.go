@@ -232,6 +232,8 @@ type Channel struct {
 	// Internationalized name and description overrides keyed by locale (e.g., en, ko).
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,8,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+	//
+	// +kubebuilder:example="#F3F4F6"
 	CoverImageColor string `protobuf:"bytes,9,opt,name=cover_image_color,json=coverImageColor,proto3" json:"cover_image_color,omitempty"`
 	// Default bot display name shown to end users in conversations.
 	//
@@ -283,6 +285,7 @@ type Channel struct {
 	// Whether the new chat button is hidden from end users.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	DisableNewChatButton bool `protobuf:"varint,20,opt,name=disable_new_chat_button,json=disableNewChatButton,proto3" json:"disable_new_chat_button,omitempty"`
 	// Due date for payment before the channel transitions to an indebted state.
 	// ISO 8601 date format (e.g., 2026-12-31).
@@ -296,6 +299,7 @@ type Channel struct {
 	// Whether email follow-up is enabled for offline conversations.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	FollowUpEmail bool `protobuf:"varint,23,opt,name=follow_up_email,json=followUpEmail,proto3" json:"follow_up_email,omitempty"`
 	// Whether the follow-up form asks for the user's name.
 	//
@@ -304,6 +308,7 @@ type Channel struct {
 	// Whether the follow-up form must be completed before the user can start a conversation.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	FollowUpMandatory bool `protobuf:"varint,25,opt,name=follow_up_mandatory,json=followUpMandatory,proto3" json:"follow_up_mandatory,omitempty"`
 	// Current lifecycle state of the channel.
 	// See ChannelState for possible values.
@@ -311,6 +316,7 @@ type Channel struct {
 	// Whether the channel is verified as an enterprise account.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	EntVerified bool `protobuf:"varint,27,opt,name=ent_verified,json=entVerified,proto3" json:"ent_verified,omitempty"`
 	// Default plugin identifier used by the messenger widget.
 	DefaultPluginId string `protobuf:"bytes,28,opt,name=default_plugin_id,json=defaultPluginId,proto3" json:"default_plugin_id,omitempty"`
@@ -323,6 +329,8 @@ type Channel struct {
 	// Integrated e-commerce platform app identifier.
 	AppCommerceId string `protobuf:"bytes,31,opt,name=app_commerce_id,json=appCommerceId,proto3" json:"app_commerce_id,omitempty"`
 	// Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+	//
+	// +kubebuilder:example="Shopify"
 	AppCommerceType string `protobuf:"bytes,32,opt,name=app_commerce_type,json=appCommerceType,proto3" json:"app_commerce_type,omitempty"`
 	// Domain of the integrated e-commerce platform.
 	AppCommerceDomain string `protobuf:"bytes,33,opt,name=app_commerce_domain,json=appCommerceDomain,proto3" json:"app_commerce_domain,omitempty"`
@@ -330,6 +338,8 @@ type Channel struct {
 	// When enabled, member logins require an HMAC hash to prevent impersonation.
 	EnableMemberHash bool `protobuf:"varint,34,opt,name=enable_member_hash,json=enableMemberHash,proto3" json:"enable_member_hash,omitempty"`
 	// Default email domain identifier used for outbound emails sent from this channel.
+	//
+	// +kubebuilder:example="domain-001"
 	DefaultEmailDomainId string `protobuf:"bytes,35,opt,name=default_email_domain_id,json=defaultEmailDomainId,proto3" json:"default_email_domain_id,omitempty"`
 	// Whether multi-factor authentication is required for managers in this channel.
 	//
@@ -338,6 +348,7 @@ type Channel struct {
 	// Whether the messenger widget is hidden from end users on the website.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	HideAppMessenger bool `protobuf:"varint,37,opt,name=hide_app_messenger,json=hideAppMessenger,proto3" json:"hide_app_messenger,omitempty"`
 	// Whether the channel holds a business certification.
 	// Derived from biz_certificated_countries; true when at least one country is certified.
@@ -347,6 +358,7 @@ type Channel struct {
 	// Whether marketing Alimtalk (KakaoTalk notification) messaging is permitted.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	MktAlimtalkAllowed bool `protobuf:"varint,39,opt,name=mkt_alimtalk_allowed,json=mktAlimtalkAllowed,proto3" json:"mkt_alimtalk_allowed,omitempty"`
 	// Countries where the channel has obtained business certification.
 	// Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
@@ -354,6 +366,7 @@ type Channel struct {
 	// Whether the front-end ALF v2 AI assistant is enabled for end users.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	EnableFrontAlfV2 bool `protobuf:"varint,41,opt,name=enable_front_alf_v2,json=enableFrontAlfV2,proto3" json:"enable_front_alf_v2,omitempty"`
 	// Whether the channel is currently blocked.
 	// Derived from the state field; true when the state is one of INDEBTED, BANNED, REMOVED, or RESTRICTED.
@@ -364,6 +377,7 @@ type Channel struct {
 	// True when the channel is not blocked and is within operating hours.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	Working bool `protobuf:"varint,43,opt,name=working,proto3" json:"working,omitempty"`
 	// Channel avatar image URL.
 	// Falls back to a system-generated default when no custom avatar is set.
@@ -377,6 +391,7 @@ type Channel struct {
 	// Derived from the operating schedule configuration.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="true"
 	InOperation bool `protobuf:"varint,46,opt,name=in_operation,json=inOperation,proto3" json:"in_operation,omitempty"`
 	// Whether operating hour scheduling is enabled.
 	// When false, the channel is always considered in operation.
@@ -397,6 +412,7 @@ type Channel struct {
 	// Whether end-user replying is blocked after a conversation is closed.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="false"
 	BlockReplyingAfterClosed bool `protobuf:"varint,52,opt,name=block_replying_after_closed,json=blockReplyingAfterClosed,proto3" json:"block_replying_after_closed,omitempty"`
 	// Grace period after conversation closure during which the end user may still reply.
 	// Applicable only when block_replying_after_closed is true.
@@ -404,6 +420,8 @@ type Channel struct {
 	// Border accent color derived from the theme color, in hex format.
 	BorderColor string `protobuf:"bytes,54,opt,name=border_color,json=borderColor,proto3" json:"border_color,omitempty"`
 	// Gradient accent color derived from the theme color, in hex format.
+	//
+	// +kubebuilder:example="#6366F1"
 	GradientColor string `protobuf:"bytes,55,opt,name=gradient_color,json=gradientColor,proto3" json:"gradient_color,omitempty"`
 	// Text color for contrast against the theme color, in hex format.
 	TextColor string `protobuf:"bytes,56,opt,name=text_color,json=textColor,proto3" json:"text_color,omitempty"`
@@ -411,6 +429,8 @@ type Channel struct {
 	Initial string `protobuf:"bytes,57,opt,name=initial,proto3" json:"initial,omitempty"`
 	// Resolved domain for the channel.
 	// Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
+	//
+	// +kubebuilder:example="ch-12345"
 	SystemDomain string `protobuf:"bytes,58,opt,name=system_domain,json=systemDomain,proto3" json:"system_domain,omitempty"`
 	// Icon color for the messenger plugin widget, derived from the theme color, in hex format.
 	PluginIconColor string `protobuf:"bytes,59,opt,name=plugin_icon_color,json=pluginIconColor,proto3" json:"plugin_icon_color,omitempty"`
@@ -418,6 +438,8 @@ type Channel struct {
 	// Derived from the theme color.
 	Brightness float32 `protobuf:"fixed32,60,opt,name=brightness,proto3" json:"brightness,omitempty"`
 	// Cover image URL for the channel profile page.
+	//
+	// +kubebuilder:example="https://cdn.channel.io/cover/ch-12345.jpg"
 	CoverImageUrl string `protobuf:"bytes,61,opt,name=cover_image_url,json=coverImageUrl,proto3" json:"cover_image_url,omitempty"`
 	// Whether the cover image has a bright tone.
 	// Derived from the cover_image_color field.

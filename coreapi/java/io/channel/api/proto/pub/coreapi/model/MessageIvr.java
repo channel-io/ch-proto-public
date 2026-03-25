@@ -148,6 +148,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * DTMF keypad input entered by the caller (e.g. "1" for menu selection).
+   * +kubebuilder:example="1"
    * </pre>
    *
    * <code>string dial_input = 2 [json_name = "dialInput"];</code>
@@ -169,6 +170,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * DTMF keypad input entered by the caller (e.g. "1" for menu selection).
+   * +kubebuilder:example="1"
    * </pre>
    *
    * <code>string dial_input = 2 [json_name = "dialInput"];</code>
@@ -685,6 +687,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * DTMF keypad input entered by the caller (e.g. "1" for menu selection).
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>string dial_input = 2 [json_name = "dialInput"];</code>
@@ -705,6 +708,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * DTMF keypad input entered by the caller (e.g. "1" for menu selection).
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>string dial_input = 2 [json_name = "dialInput"];</code>
@@ -726,6 +730,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * DTMF keypad input entered by the caller (e.g. "1" for menu selection).
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>string dial_input = 2 [json_name = "dialInput"];</code>
@@ -745,6 +750,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * DTMF keypad input entered by the caller (e.g. "1" for menu selection).
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>string dial_input = 2 [json_name = "dialInput"];</code>
@@ -759,6 +765,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * DTMF keypad input entered by the caller (e.g. "1" for menu selection).
+     * +kubebuilder:example="1"
      * </pre>
      *
      * <code>string dial_input = 2 [json_name = "dialInput"];</code>

@@ -75,6 +75,7 @@ message OperatorStatus {
   // Disabled managers are excluded from auto-assignment.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="true"
   bool enable = 5 [(buf.validate.field).required = true];
 
   // Operator status creation timestamp.
@@ -94,5 +95,6 @@ message OperatorStatus {
 
   // Optimistic locking version for concurrent update detection.
   //
+  // +kubebuilder:example="1"
   int64 version = 9;
 }

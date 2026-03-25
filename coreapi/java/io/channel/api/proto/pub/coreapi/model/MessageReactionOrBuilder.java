@@ -12,6 +12,7 @@ public interface MessageReactionOrBuilder extends
    * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="thumbsup"
    * </pre>
    *
    * <code>string emoji_name = 1 [json_name = "emojiName", (.buf.validate.field) = { ... }</code>
@@ -23,6 +24,7 @@ public interface MessageReactionOrBuilder extends
    * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="thumbsup"
    * </pre>
    *
    * <code>string emoji_name = 1 [json_name = "emojiName", (.buf.validate.field) = { ... }</code>

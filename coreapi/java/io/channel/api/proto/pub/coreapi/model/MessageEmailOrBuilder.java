@@ -10,6 +10,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Corresponding Email entity identifier.
+   * +kubebuilder:example="email-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -19,6 +20,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Corresponding Email entity identifier.
+   * +kubebuilder:example="email-001"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -235,6 +237,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Email subject line.
+   * +kubebuilder:example="Re: Project Status Update"
    * </pre>
    *
    * <code>string subject = 8 [json_name = "subject"];</code>
@@ -244,6 +247,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Email subject line.
+   * +kubebuilder:example="Re: Project Status Update"
    * </pre>
    *
    * <code>string subject = 8 [json_name = "subject"];</code>
@@ -266,6 +270,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Message ID of the email this is a reply to, forming the email thread chain.
+   * +kubebuilder:example="msg-001"
    * </pre>
    *
    * <code>string reply_to_message_id = 10 [json_name = "replyToMessageId"];</code>
@@ -275,6 +280,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Message ID of the email this is a reply to, forming the email thread chain.
+   * +kubebuilder:example="msg-001"
    * </pre>
    *
    * <code>string reply_to_message_id = 10 [json_name = "replyToMessageId"];</code>

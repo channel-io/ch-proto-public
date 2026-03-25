@@ -60,6 +60,7 @@ public interface OnlineOrBuilder extends
    * Identifier of the person.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -71,6 +72,7 @@ public interface OnlineOrBuilder extends
    * Identifier of the person.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
+   * +kubebuilder:example="m-001"
    * </pre>
    *
    * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -82,6 +84,7 @@ public interface OnlineOrBuilder extends
   /**
    * <pre>
    * Composite presence record identifier derived from person type and person ID.
+   * +kubebuilder:example="manager-m-001"
    * </pre>
    *
    * <code>string id = 4 [json_name = "id"];</code>
@@ -91,6 +94,7 @@ public interface OnlineOrBuilder extends
   /**
    * <pre>
    * Composite presence record identifier derived from person type and person ID.
+   * +kubebuilder:example="manager-m-001"
    * </pre>
    *
    * <code>string id = 4 [json_name = "id"];</code>
