@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+package coreapi.common;
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/common";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.common";
+
+// Error codes shared across all Core API operations.
+//
+// Every error response carries exactly one of:
+// - a CommonErrorCode (for errors common to most operations), or
+// - an operation_error_code string (for errors specific to a single operation).
+enum CommonErrorCode {
+  COMMON_ERROR_CODE_UNSPECIFIED = 0;
+
+  // The specified channel does not exist.
+  COMMON_ERROR_CODE_CHANNEL_NOT_FOUND = 1;
+
+  // The requested entity does not exist.
+  COMMON_ERROR_CODE_ENTITY_NOT_FOUND = 2;
+
+  // Request validation failed.
+  // One or more fields did not satisfy the declared constraints.
+  // This includes proto field validation (buf.validate) failures AND
+  // runtime value validation (e.g., invalid enum values, malformed color codes).
+  // Inspect the details field for per-field information.
+  COMMON_ERROR_CODE_VALIDATION_FAILED = 3;
+
+  // The pagination cursor is malformed.
+  COMMON_ERROR_CODE_INVALID_CURSOR = 4;
+
+  // An unexpected internal error occurred.
+  COMMON_ERROR_CODE_INTERNAL_ERROR = 5;
+}
+
+// Standardized error response for all Core API operations.
+//
+// Exactly one of common_error_code or operation_error_code is set:
+// - common_error_code is set for errors that can occur in any operation.
+// - operation_error_code is set for errors specific to a particular operation.
+//   Valid values are documented in each service proto's request message comments.
+message ErrorResponse {
+  int32 status = 1;
+
+  // Set when the error falls into a cross-cutting category.
+  CommonErrorCode common_error_code = 2;
+
+  // Set when the error is unique to a particular operation.
+  // Defined as a string to allow each service to declare its own codes
+  // without a global enum.
+  string operation_error_code = 3;
+
+  string message = 4;
+
+  // For validation errors, one entry per violated field.
+  // For not-found errors, one entry identifying the missing entity.
+  repeated ErrorDetail details = 5;
+}
+
+// Detailed information about a single error cause.
+message ErrorDetail {
+  // e.g., "Bot", "Channel", "Webhook"
+  string model = 1;
+
+  // e.g., "name", "scopes[0]"
+  string field = 2;
+
+  string value = 3;
+
+  string message = 4;
+
+  // Set only for proto validation (buf.validate) errors.
+  // e.g., "coreapi.service.UpsertBotRequest"
+  string proto_package_path = 5;
+
+  // Set only for proto validation (buf.validate) errors.
+  // e.g., "string.minLen"
+  string proto_constraint = 6;
+
+  // Index within a repeated field, if applicable.
+  optional int32 index = 7;
+}
