@@ -55,6 +55,34 @@ public enum CommonErrorCode
    * <code>COMMON_ERROR_CODE_INTERNAL_ERROR = 4;</code>
    */
   COMMON_ERROR_CODE_INTERNAL_ERROR(4),
+  /**
+   * <pre>
+   * Authentication failed.
+   * The provided credentials (e.g., API key) are invalid or missing.
+   * </pre>
+   *
+   * <code>COMMON_ERROR_CODE_UNAUTHORIZED = 5;</code>
+   */
+  COMMON_ERROR_CODE_UNAUTHORIZED(5),
+  /**
+   * <pre>
+   * Access denied.
+   * The authenticated principal does not have permission to perform this action.
+   * </pre>
+   *
+   * <code>COMMON_ERROR_CODE_FORBIDDEN = 6;</code>
+   */
+  COMMON_ERROR_CODE_FORBIDDEN(6),
+  /**
+   * <pre>
+   * Rate limit exceeded.
+   * Too many requests have been sent in a given time period.
+   * Check the Retry-After response header for when to retry.
+   * </pre>
+   *
+   * <code>COMMON_ERROR_CODE_RATE_LIMIT_EXCEEDED = 7;</code>
+   */
+  COMMON_ERROR_CODE_RATE_LIMIT_EXCEEDED(7),
   UNRECOGNIZED(-1),
   ;
 
@@ -98,6 +126,34 @@ public enum CommonErrorCode
    * <code>COMMON_ERROR_CODE_INTERNAL_ERROR = 4;</code>
    */
   public static final int COMMON_ERROR_CODE_INTERNAL_ERROR_VALUE = 4;
+  /**
+   * <pre>
+   * Authentication failed.
+   * The provided credentials (e.g., API key) are invalid or missing.
+   * </pre>
+   *
+   * <code>COMMON_ERROR_CODE_UNAUTHORIZED = 5;</code>
+   */
+  public static final int COMMON_ERROR_CODE_UNAUTHORIZED_VALUE = 5;
+  /**
+   * <pre>
+   * Access denied.
+   * The authenticated principal does not have permission to perform this action.
+   * </pre>
+   *
+   * <code>COMMON_ERROR_CODE_FORBIDDEN = 6;</code>
+   */
+  public static final int COMMON_ERROR_CODE_FORBIDDEN_VALUE = 6;
+  /**
+   * <pre>
+   * Rate limit exceeded.
+   * Too many requests have been sent in a given time period.
+   * Check the Retry-After response header for when to retry.
+   * </pre>
+   *
+   * <code>COMMON_ERROR_CODE_RATE_LIMIT_EXCEEDED = 7;</code>
+   */
+  public static final int COMMON_ERROR_CODE_RATE_LIMIT_EXCEEDED_VALUE = 7;
 
 
   public final int getNumber() {
@@ -129,6 +185,9 @@ public enum CommonErrorCode
       case 2: return COMMON_ERROR_CODE_VALIDATION_FAILED;
       case 3: return COMMON_ERROR_CODE_INVALID_CURSOR;
       case 4: return COMMON_ERROR_CODE_INTERNAL_ERROR;
+      case 5: return COMMON_ERROR_CODE_UNAUTHORIZED;
+      case 6: return COMMON_ERROR_CODE_FORBIDDEN;
+      case 7: return COMMON_ERROR_CODE_RATE_LIMIT_EXCEEDED;
       default: return null;
     }
   }
@@ -191,8 +250,11 @@ public enum CommonErrorCode
   public static CommonErrorCode forString(String value) {
   	switch (value) {
       case "entityNotFound": return COMMON_ERROR_CODE_ENTITY_NOT_FOUND;
+      case "forbidden": return COMMON_ERROR_CODE_FORBIDDEN;
       case "internalError": return COMMON_ERROR_CODE_INTERNAL_ERROR;
       case "invalidCursor": return COMMON_ERROR_CODE_INVALID_CURSOR;
+      case "rateLimitExceeded": return COMMON_ERROR_CODE_RATE_LIMIT_EXCEEDED;
+      case "unauthorized": return COMMON_ERROR_CODE_UNAUTHORIZED;
       case "validationFailed": return COMMON_ERROR_CODE_VALIDATION_FAILED;
   		default: return COMMON_ERROR_CODE_UNSPECIFIED;
   	}
@@ -204,8 +266,11 @@ public enum CommonErrorCode
   public final String getString() {
   	switch (this) {
       case COMMON_ERROR_CODE_ENTITY_NOT_FOUND: return "entityNotFound";
+      case COMMON_ERROR_CODE_FORBIDDEN: return "forbidden";
       case COMMON_ERROR_CODE_INTERNAL_ERROR: return "internalError";
       case COMMON_ERROR_CODE_INVALID_CURSOR: return "invalidCursor";
+      case COMMON_ERROR_CODE_RATE_LIMIT_EXCEEDED: return "rateLimitExceeded";
+      case COMMON_ERROR_CODE_UNAUTHORIZED: return "unauthorized";
       case COMMON_ERROR_CODE_VALIDATION_FAILED: return "validationFailed";
   		default: return null;
   	}

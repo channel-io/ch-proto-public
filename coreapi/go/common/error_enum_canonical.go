@@ -7,10 +7,16 @@ func (x CommonErrorCode) GetString() string {
 	switch x {
 	case CommonErrorCode_COMMON_ERROR_CODE_ENTITY_NOT_FOUND:
 		return "entityNotFound"
+	case CommonErrorCode_COMMON_ERROR_CODE_FORBIDDEN:
+		return "forbidden"
 	case CommonErrorCode_COMMON_ERROR_CODE_INTERNAL_ERROR:
 		return "internalError"
 	case CommonErrorCode_COMMON_ERROR_CODE_INVALID_CURSOR:
 		return "invalidCursor"
+	case CommonErrorCode_COMMON_ERROR_CODE_RATE_LIMIT_EXCEEDED:
+		return "rateLimitExceeded"
+	case CommonErrorCode_COMMON_ERROR_CODE_UNAUTHORIZED:
+		return "unauthorized"
 	case CommonErrorCode_COMMON_ERROR_CODE_VALIDATION_FAILED:
 		return "validationFailed"
 	default:
@@ -23,10 +29,16 @@ func CommonErrorCodeForString(value string) CommonErrorCode {
 	switch value {
 	case "entityNotFound":
 		return CommonErrorCode_COMMON_ERROR_CODE_ENTITY_NOT_FOUND
+	case "forbidden":
+		return CommonErrorCode_COMMON_ERROR_CODE_FORBIDDEN
 	case "internalError":
 		return CommonErrorCode_COMMON_ERROR_CODE_INTERNAL_ERROR
 	case "invalidCursor":
 		return CommonErrorCode_COMMON_ERROR_CODE_INVALID_CURSOR
+	case "rateLimitExceeded":
+		return CommonErrorCode_COMMON_ERROR_CODE_RATE_LIMIT_EXCEEDED
+	case "unauthorized":
+		return CommonErrorCode_COMMON_ERROR_CODE_UNAUTHORIZED
 	case "validationFailed":
 		return CommonErrorCode_COMMON_ERROR_CODE_VALIDATION_FAILED
 	default:

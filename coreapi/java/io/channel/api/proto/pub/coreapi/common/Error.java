@@ -46,15 +46,18 @@ public final class Error {
       "ge\022,\n\022proto_package_path\030\005 \001(\tR\020protoPac" +
       "kagePath\022)\n\020proto_constraint\030\006 \001(\tR\017prot" +
       "oConstraint\022\031\n\005index\030\007 \001(\005H\000R\005index\210\001\001B\010" +
-      "\n\006_index*\321\001\n\017CommonErrorCode\022!\n\035COMMON_E" +
+      "\n\006_index*\301\002\n\017CommonErrorCode\022!\n\035COMMON_E" +
       "RROR_CODE_UNSPECIFIED\020\000\022&\n\"COMMON_ERROR_" +
       "CODE_ENTITY_NOT_FOUND\020\001\022\'\n#COMMON_ERROR_" +
       "CODE_VALIDATION_FAILED\020\002\022$\n COMMON_ERROR" +
       "_CODE_INVALID_CURSOR\020\003\022$\n COMMON_ERROR_C" +
-      "ODE_INTERNAL_ERROR\020\004Bd\n\'io.channel.api.p" +
-      "roto.pub.coreapi.commonP\001Z7github.com/ch" +
-      "annel-io/ch-proto-public/coreapi/go/comm" +
-      "onb\006proto3"
+      "ODE_INTERNAL_ERROR\020\004\022\"\n\036COMMON_ERROR_COD" +
+      "E_UNAUTHORIZED\020\005\022\037\n\033COMMON_ERROR_CODE_FO" +
+      "RBIDDEN\020\006\022)\n%COMMON_ERROR_CODE_RATE_LIMI" +
+      "T_EXCEEDED\020\007Bd\n\'io.channel.api.proto.pub" +
+      ".coreapi.commonP\001Z7github.com/channel-io" +
+      "/ch-proto-public/coreapi/go/commonb\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
