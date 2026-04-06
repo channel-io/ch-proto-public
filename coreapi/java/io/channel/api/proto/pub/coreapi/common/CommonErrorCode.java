@@ -21,20 +21,12 @@ public enum CommonErrorCode
   COMMON_ERROR_CODE_UNSPECIFIED(0),
   /**
    * <pre>
-   * The specified channel does not exist.
-   * </pre>
-   *
-   * <code>COMMON_ERROR_CODE_CHANNEL_NOT_FOUND = 1;</code>
-   */
-  COMMON_ERROR_CODE_CHANNEL_NOT_FOUND(1),
-  /**
-   * <pre>
    * The requested entity does not exist.
    * </pre>
    *
-   * <code>COMMON_ERROR_CODE_ENTITY_NOT_FOUND = 2;</code>
+   * <code>COMMON_ERROR_CODE_ENTITY_NOT_FOUND = 1;</code>
    */
-  COMMON_ERROR_CODE_ENTITY_NOT_FOUND(2),
+  COMMON_ERROR_CODE_ENTITY_NOT_FOUND(1),
   /**
    * <pre>
    * Request validation failed.
@@ -44,25 +36,25 @@ public enum CommonErrorCode
    * Inspect the details field for per-field information.
    * </pre>
    *
-   * <code>COMMON_ERROR_CODE_VALIDATION_FAILED = 3;</code>
+   * <code>COMMON_ERROR_CODE_VALIDATION_FAILED = 2;</code>
    */
-  COMMON_ERROR_CODE_VALIDATION_FAILED(3),
+  COMMON_ERROR_CODE_VALIDATION_FAILED(2),
   /**
    * <pre>
    * The pagination cursor is malformed.
    * </pre>
    *
-   * <code>COMMON_ERROR_CODE_INVALID_CURSOR = 4;</code>
+   * <code>COMMON_ERROR_CODE_INVALID_CURSOR = 3;</code>
    */
-  COMMON_ERROR_CODE_INVALID_CURSOR(4),
+  COMMON_ERROR_CODE_INVALID_CURSOR(3),
   /**
    * <pre>
    * An unexpected internal error occurred.
    * </pre>
    *
-   * <code>COMMON_ERROR_CODE_INTERNAL_ERROR = 5;</code>
+   * <code>COMMON_ERROR_CODE_INTERNAL_ERROR = 4;</code>
    */
-  COMMON_ERROR_CODE_INTERNAL_ERROR(5),
+  COMMON_ERROR_CODE_INTERNAL_ERROR(4),
   UNRECOGNIZED(-1),
   ;
 
@@ -72,20 +64,12 @@ public enum CommonErrorCode
   public static final int COMMON_ERROR_CODE_UNSPECIFIED_VALUE = 0;
   /**
    * <pre>
-   * The specified channel does not exist.
-   * </pre>
-   *
-   * <code>COMMON_ERROR_CODE_CHANNEL_NOT_FOUND = 1;</code>
-   */
-  public static final int COMMON_ERROR_CODE_CHANNEL_NOT_FOUND_VALUE = 1;
-  /**
-   * <pre>
    * The requested entity does not exist.
    * </pre>
    *
-   * <code>COMMON_ERROR_CODE_ENTITY_NOT_FOUND = 2;</code>
+   * <code>COMMON_ERROR_CODE_ENTITY_NOT_FOUND = 1;</code>
    */
-  public static final int COMMON_ERROR_CODE_ENTITY_NOT_FOUND_VALUE = 2;
+  public static final int COMMON_ERROR_CODE_ENTITY_NOT_FOUND_VALUE = 1;
   /**
    * <pre>
    * Request validation failed.
@@ -95,25 +79,25 @@ public enum CommonErrorCode
    * Inspect the details field for per-field information.
    * </pre>
    *
-   * <code>COMMON_ERROR_CODE_VALIDATION_FAILED = 3;</code>
+   * <code>COMMON_ERROR_CODE_VALIDATION_FAILED = 2;</code>
    */
-  public static final int COMMON_ERROR_CODE_VALIDATION_FAILED_VALUE = 3;
+  public static final int COMMON_ERROR_CODE_VALIDATION_FAILED_VALUE = 2;
   /**
    * <pre>
    * The pagination cursor is malformed.
    * </pre>
    *
-   * <code>COMMON_ERROR_CODE_INVALID_CURSOR = 4;</code>
+   * <code>COMMON_ERROR_CODE_INVALID_CURSOR = 3;</code>
    */
-  public static final int COMMON_ERROR_CODE_INVALID_CURSOR_VALUE = 4;
+  public static final int COMMON_ERROR_CODE_INVALID_CURSOR_VALUE = 3;
   /**
    * <pre>
    * An unexpected internal error occurred.
    * </pre>
    *
-   * <code>COMMON_ERROR_CODE_INTERNAL_ERROR = 5;</code>
+   * <code>COMMON_ERROR_CODE_INTERNAL_ERROR = 4;</code>
    */
-  public static final int COMMON_ERROR_CODE_INTERNAL_ERROR_VALUE = 5;
+  public static final int COMMON_ERROR_CODE_INTERNAL_ERROR_VALUE = 4;
 
 
   public final int getNumber() {
@@ -141,11 +125,10 @@ public enum CommonErrorCode
   public static CommonErrorCode forNumber(int value) {
     switch (value) {
       case 0: return COMMON_ERROR_CODE_UNSPECIFIED;
-      case 1: return COMMON_ERROR_CODE_CHANNEL_NOT_FOUND;
-      case 2: return COMMON_ERROR_CODE_ENTITY_NOT_FOUND;
-      case 3: return COMMON_ERROR_CODE_VALIDATION_FAILED;
-      case 4: return COMMON_ERROR_CODE_INVALID_CURSOR;
-      case 5: return COMMON_ERROR_CODE_INTERNAL_ERROR;
+      case 1: return COMMON_ERROR_CODE_ENTITY_NOT_FOUND;
+      case 2: return COMMON_ERROR_CODE_VALIDATION_FAILED;
+      case 3: return COMMON_ERROR_CODE_INVALID_CURSOR;
+      case 4: return COMMON_ERROR_CODE_INTERNAL_ERROR;
       default: return null;
     }
   }
@@ -207,7 +190,6 @@ public enum CommonErrorCode
    */
   public static CommonErrorCode forString(String value) {
   	switch (value) {
-      case "channelNotFound": return COMMON_ERROR_CODE_CHANNEL_NOT_FOUND;
       case "entityNotFound": return COMMON_ERROR_CODE_ENTITY_NOT_FOUND;
       case "internalError": return COMMON_ERROR_CODE_INTERNAL_ERROR;
       case "invalidCursor": return COMMON_ERROR_CODE_INVALID_CURSOR;
@@ -221,7 +203,6 @@ public enum CommonErrorCode
    */
   public final String getString() {
   	switch (this) {
-      case COMMON_ERROR_CODE_CHANNEL_NOT_FOUND: return "channelNotFound";
       case COMMON_ERROR_CODE_ENTITY_NOT_FOUND: return "entityNotFound";
       case COMMON_ERROR_CODE_INTERNAL_ERROR: return "internalError";
       case COMMON_ERROR_CODE_INVALID_CURSOR: return "invalidCursor";
