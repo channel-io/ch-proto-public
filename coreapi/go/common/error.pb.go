@@ -42,6 +42,16 @@ const (
 	CommonErrorCode_COMMON_ERROR_CODE_INVALID_CURSOR CommonErrorCode = 3
 	// An unexpected internal error occurred.
 	CommonErrorCode_COMMON_ERROR_CODE_INTERNAL_ERROR CommonErrorCode = 4
+	// Authentication failed.
+	// The provided credentials (e.g., API key) are invalid or missing.
+	CommonErrorCode_COMMON_ERROR_CODE_UNAUTHORIZED CommonErrorCode = 5
+	// Access denied.
+	// The authenticated principal does not have permission to perform this action.
+	CommonErrorCode_COMMON_ERROR_CODE_FORBIDDEN CommonErrorCode = 6
+	// Rate limit exceeded.
+	// Too many requests have been sent in a given time period.
+	// Check the Retry-After response header for when to retry.
+	CommonErrorCode_COMMON_ERROR_CODE_RATE_LIMIT_EXCEEDED CommonErrorCode = 7
 )
 
 // Enum value maps for CommonErrorCode.
@@ -52,13 +62,19 @@ var (
 		2: "COMMON_ERROR_CODE_VALIDATION_FAILED",
 		3: "COMMON_ERROR_CODE_INVALID_CURSOR",
 		4: "COMMON_ERROR_CODE_INTERNAL_ERROR",
+		5: "COMMON_ERROR_CODE_UNAUTHORIZED",
+		6: "COMMON_ERROR_CODE_FORBIDDEN",
+		7: "COMMON_ERROR_CODE_RATE_LIMIT_EXCEEDED",
 	}
 	CommonErrorCode_value = map[string]int32{
-		"COMMON_ERROR_CODE_UNSPECIFIED":       0,
-		"COMMON_ERROR_CODE_ENTITY_NOT_FOUND":  1,
-		"COMMON_ERROR_CODE_VALIDATION_FAILED": 2,
-		"COMMON_ERROR_CODE_INVALID_CURSOR":    3,
-		"COMMON_ERROR_CODE_INTERNAL_ERROR":    4,
+		"COMMON_ERROR_CODE_UNSPECIFIED":         0,
+		"COMMON_ERROR_CODE_ENTITY_NOT_FOUND":    1,
+		"COMMON_ERROR_CODE_VALIDATION_FAILED":   2,
+		"COMMON_ERROR_CODE_INVALID_CURSOR":      3,
+		"COMMON_ERROR_CODE_INTERNAL_ERROR":      4,
+		"COMMON_ERROR_CODE_UNAUTHORIZED":        5,
+		"COMMON_ERROR_CODE_FORBIDDEN":           6,
+		"COMMON_ERROR_CODE_RATE_LIMIT_EXCEEDED": 7,
 	}
 )
 
@@ -296,13 +312,16 @@ const file_coreapi_common_error_proto_rawDesc = "" +
 	"\x12proto_package_path\x18\x05 \x01(\tR\x10protoPackagePath\x12)\n" +
 	"\x10proto_constraint\x18\x06 \x01(\tR\x0fprotoConstraint\x12\x19\n" +
 	"\x05index\x18\a \x01(\x05H\x00R\x05index\x88\x01\x01B\b\n" +
-	"\x06_index*\xd1\x01\n" +
+	"\x06_index*\xc1\x02\n" +
 	"\x0fCommonErrorCode\x12!\n" +
 	"\x1dCOMMON_ERROR_CODE_UNSPECIFIED\x10\x00\x12&\n" +
 	"\"COMMON_ERROR_CODE_ENTITY_NOT_FOUND\x10\x01\x12'\n" +
 	"#COMMON_ERROR_CODE_VALIDATION_FAILED\x10\x02\x12$\n" +
 	" COMMON_ERROR_CODE_INVALID_CURSOR\x10\x03\x12$\n" +
-	" COMMON_ERROR_CODE_INTERNAL_ERROR\x10\x04Bd\n" +
+	" COMMON_ERROR_CODE_INTERNAL_ERROR\x10\x04\x12\"\n" +
+	"\x1eCOMMON_ERROR_CODE_UNAUTHORIZED\x10\x05\x12\x1f\n" +
+	"\x1bCOMMON_ERROR_CODE_FORBIDDEN\x10\x06\x12)\n" +
+	"%COMMON_ERROR_CODE_RATE_LIMIT_EXCEEDED\x10\aBd\n" +
 	"'io.channel.api.proto.pub.coreapi.commonP\x01Z7github.com/channel-io/ch-proto-public/coreapi/go/commonb\x06proto3"
 
 var (

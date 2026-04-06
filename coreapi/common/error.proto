@@ -29,6 +29,19 @@ enum CommonErrorCode {
 
   // An unexpected internal error occurred.
   COMMON_ERROR_CODE_INTERNAL_ERROR = 4;
+
+  // Authentication failed.
+  // The provided credentials (e.g., API key) are invalid or missing.
+  COMMON_ERROR_CODE_UNAUTHORIZED = 5;
+
+  // Access denied.
+  // The authenticated principal does not have permission to perform this action.
+  COMMON_ERROR_CODE_FORBIDDEN = 6;
+
+  // Rate limit exceeded.
+  // Too many requests have been sent in a given time period.
+  // Check the Retry-After response header for when to retry.
+  COMMON_ERROR_CODE_RATE_LIMIT_EXCEEDED = 7;
 }
 
 // Standardized error response for all Core API operations.
