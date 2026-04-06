@@ -14,24 +14,21 @@ option java_package = "io.channel.api.proto.pub.coreapi.common";
 enum CommonErrorCode {
   COMMON_ERROR_CODE_UNSPECIFIED = 0;
 
-  // The specified channel does not exist.
-  COMMON_ERROR_CODE_CHANNEL_NOT_FOUND = 1;
-
   // The requested entity does not exist.
-  COMMON_ERROR_CODE_ENTITY_NOT_FOUND = 2;
+  COMMON_ERROR_CODE_ENTITY_NOT_FOUND = 1;
 
   // Request validation failed.
   // One or more fields did not satisfy the declared constraints.
   // This includes proto field validation (buf.validate) failures AND
   // runtime value validation (e.g., invalid enum values, malformed color codes).
   // Inspect the details field for per-field information.
-  COMMON_ERROR_CODE_VALIDATION_FAILED = 3;
+  COMMON_ERROR_CODE_VALIDATION_FAILED = 2;
 
   // The pagination cursor is malformed.
-  COMMON_ERROR_CODE_INVALID_CURSOR = 4;
+  COMMON_ERROR_CODE_INVALID_CURSOR = 3;
 
   // An unexpected internal error occurred.
-  COMMON_ERROR_CODE_INTERNAL_ERROR = 5;
+  COMMON_ERROR_CODE_INTERNAL_ERROR = 4;
 }
 
 // Standardized error response for all Core API operations.

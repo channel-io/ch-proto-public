@@ -5,8 +5,6 @@ package common
 // GetString returns the canonical string for CommonErrorCode.
 func (x CommonErrorCode) GetString() string {
 	switch x {
-	case CommonErrorCode_COMMON_ERROR_CODE_CHANNEL_NOT_FOUND:
-		return "channelNotFound"
 	case CommonErrorCode_COMMON_ERROR_CODE_ENTITY_NOT_FOUND:
 		return "entityNotFound"
 	case CommonErrorCode_COMMON_ERROR_CODE_INTERNAL_ERROR:
@@ -23,8 +21,6 @@ func (x CommonErrorCode) GetString() string {
 // CommonErrorCodeForString returns the CommonErrorCode enum for the given canonical string.
 func CommonErrorCodeForString(value string) CommonErrorCode {
 	switch value {
-	case "channelNotFound":
-		return CommonErrorCode_COMMON_ERROR_CODE_CHANNEL_NOT_FOUND
 	case "entityNotFound":
 		return CommonErrorCode_COMMON_ERROR_CODE_ENTITY_NOT_FOUND
 	case "internalError":

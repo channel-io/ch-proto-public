@@ -30,39 +30,35 @@ type CommonErrorCode int32
 
 const (
 	CommonErrorCode_COMMON_ERROR_CODE_UNSPECIFIED CommonErrorCode = 0
-	// The specified channel does not exist.
-	CommonErrorCode_COMMON_ERROR_CODE_CHANNEL_NOT_FOUND CommonErrorCode = 1
 	// The requested entity does not exist.
-	CommonErrorCode_COMMON_ERROR_CODE_ENTITY_NOT_FOUND CommonErrorCode = 2
+	CommonErrorCode_COMMON_ERROR_CODE_ENTITY_NOT_FOUND CommonErrorCode = 1
 	// Request validation failed.
 	// One or more fields did not satisfy the declared constraints.
 	// This includes proto field validation (buf.validate) failures AND
 	// runtime value validation (e.g., invalid enum values, malformed color codes).
 	// Inspect the details field for per-field information.
-	CommonErrorCode_COMMON_ERROR_CODE_VALIDATION_FAILED CommonErrorCode = 3
+	CommonErrorCode_COMMON_ERROR_CODE_VALIDATION_FAILED CommonErrorCode = 2
 	// The pagination cursor is malformed.
-	CommonErrorCode_COMMON_ERROR_CODE_INVALID_CURSOR CommonErrorCode = 4
+	CommonErrorCode_COMMON_ERROR_CODE_INVALID_CURSOR CommonErrorCode = 3
 	// An unexpected internal error occurred.
-	CommonErrorCode_COMMON_ERROR_CODE_INTERNAL_ERROR CommonErrorCode = 5
+	CommonErrorCode_COMMON_ERROR_CODE_INTERNAL_ERROR CommonErrorCode = 4
 )
 
 // Enum value maps for CommonErrorCode.
 var (
 	CommonErrorCode_name = map[int32]string{
 		0: "COMMON_ERROR_CODE_UNSPECIFIED",
-		1: "COMMON_ERROR_CODE_CHANNEL_NOT_FOUND",
-		2: "COMMON_ERROR_CODE_ENTITY_NOT_FOUND",
-		3: "COMMON_ERROR_CODE_VALIDATION_FAILED",
-		4: "COMMON_ERROR_CODE_INVALID_CURSOR",
-		5: "COMMON_ERROR_CODE_INTERNAL_ERROR",
+		1: "COMMON_ERROR_CODE_ENTITY_NOT_FOUND",
+		2: "COMMON_ERROR_CODE_VALIDATION_FAILED",
+		3: "COMMON_ERROR_CODE_INVALID_CURSOR",
+		4: "COMMON_ERROR_CODE_INTERNAL_ERROR",
 	}
 	CommonErrorCode_value = map[string]int32{
 		"COMMON_ERROR_CODE_UNSPECIFIED":       0,
-		"COMMON_ERROR_CODE_CHANNEL_NOT_FOUND": 1,
-		"COMMON_ERROR_CODE_ENTITY_NOT_FOUND":  2,
-		"COMMON_ERROR_CODE_VALIDATION_FAILED": 3,
-		"COMMON_ERROR_CODE_INVALID_CURSOR":    4,
-		"COMMON_ERROR_CODE_INTERNAL_ERROR":    5,
+		"COMMON_ERROR_CODE_ENTITY_NOT_FOUND":  1,
+		"COMMON_ERROR_CODE_VALIDATION_FAILED": 2,
+		"COMMON_ERROR_CODE_INVALID_CURSOR":    3,
+		"COMMON_ERROR_CODE_INTERNAL_ERROR":    4,
 	}
 )
 
@@ -300,14 +296,13 @@ const file_coreapi_common_error_proto_rawDesc = "" +
 	"\x12proto_package_path\x18\x05 \x01(\tR\x10protoPackagePath\x12)\n" +
 	"\x10proto_constraint\x18\x06 \x01(\tR\x0fprotoConstraint\x12\x19\n" +
 	"\x05index\x18\a \x01(\x05H\x00R\x05index\x88\x01\x01B\b\n" +
-	"\x06_index*\xfa\x01\n" +
+	"\x06_index*\xd1\x01\n" +
 	"\x0fCommonErrorCode\x12!\n" +
-	"\x1dCOMMON_ERROR_CODE_UNSPECIFIED\x10\x00\x12'\n" +
-	"#COMMON_ERROR_CODE_CHANNEL_NOT_FOUND\x10\x01\x12&\n" +
-	"\"COMMON_ERROR_CODE_ENTITY_NOT_FOUND\x10\x02\x12'\n" +
-	"#COMMON_ERROR_CODE_VALIDATION_FAILED\x10\x03\x12$\n" +
-	" COMMON_ERROR_CODE_INVALID_CURSOR\x10\x04\x12$\n" +
-	" COMMON_ERROR_CODE_INTERNAL_ERROR\x10\x05Bd\n" +
+	"\x1dCOMMON_ERROR_CODE_UNSPECIFIED\x10\x00\x12&\n" +
+	"\"COMMON_ERROR_CODE_ENTITY_NOT_FOUND\x10\x01\x12'\n" +
+	"#COMMON_ERROR_CODE_VALIDATION_FAILED\x10\x02\x12$\n" +
+	" COMMON_ERROR_CODE_INVALID_CURSOR\x10\x03\x12$\n" +
+	" COMMON_ERROR_CODE_INTERNAL_ERROR\x10\x04Bd\n" +
 	"'io.channel.api.proto.pub.coreapi.commonP\x01Z7github.com/channel-io/ch-proto-public/coreapi/go/commonb\x06proto3"
 
 var (
