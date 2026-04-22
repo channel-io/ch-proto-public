@@ -77,18 +77,11 @@ message ChatSession {
   ];
 
   // Opaque sort key for filtering and ordering sessions with unread messages.
+  // Empty when the session has no unread messages (i.e. badge is zero).
   //
-  // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
+  // +kubebuilder:validation:Nullable
   // +kubebuilder:example="manager-m001-userChat"
-  string unread_key = 6 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  string unread_key = 6;
 
   // Channel ID this session belongs to.
   //

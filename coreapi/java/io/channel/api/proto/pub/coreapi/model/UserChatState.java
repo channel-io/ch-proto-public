@@ -48,6 +48,14 @@ public enum UserChatState
    * <code>USER_CHAT_STATE_QUEUED = 4;</code>
    */
   USER_CHAT_STATE_QUEUED(4),
+  /**
+   * <pre>
+   * The chat has been created but no message has been sent yet.
+   * </pre>
+   *
+   * <code>USER_CHAT_STATE_INITIAL = 5;</code>
+   */
+  USER_CHAT_STATE_INITIAL(5),
   UNRECOGNIZED(-1),
   ;
 
@@ -87,6 +95,14 @@ public enum UserChatState
    * <code>USER_CHAT_STATE_QUEUED = 4;</code>
    */
   public static final int USER_CHAT_STATE_QUEUED_VALUE = 4;
+  /**
+   * <pre>
+   * The chat has been created but no message has been sent yet.
+   * </pre>
+   *
+   * <code>USER_CHAT_STATE_INITIAL = 5;</code>
+   */
+  public static final int USER_CHAT_STATE_INITIAL_VALUE = 5;
 
 
   public final int getNumber() {
@@ -118,6 +134,7 @@ public enum UserChatState
       case 2: return USER_CHAT_STATE_OPENED;
       case 3: return USER_CHAT_STATE_SNOOZED;
       case 4: return USER_CHAT_STATE_QUEUED;
+      case 5: return USER_CHAT_STATE_INITIAL;
       default: return null;
     }
   }
@@ -180,6 +197,7 @@ public enum UserChatState
   public static UserChatState forString(String value) {
   	switch (value) {
       case "closed": return USER_CHAT_STATE_CLOSED;
+      case "initial": return USER_CHAT_STATE_INITIAL;
       case "opened": return USER_CHAT_STATE_OPENED;
       case "queued": return USER_CHAT_STATE_QUEUED;
       case "snoozed": return USER_CHAT_STATE_SNOOZED;
@@ -193,6 +211,7 @@ public enum UserChatState
   public final String getString() {
   	switch (this) {
       case USER_CHAT_STATE_CLOSED: return "closed";
+      case USER_CHAT_STATE_INITIAL: return "initial";
       case USER_CHAT_STATE_OPENED: return "opened";
       case USER_CHAT_STATE_QUEUED: return "queued";
       case USER_CHAT_STATE_SNOOZED: return "snoozed";

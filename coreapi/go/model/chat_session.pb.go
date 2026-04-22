@@ -58,9 +58,9 @@ type ChatSession struct {
 	// +kubebuilder:example="manager-m001-userChat"
 	UpdatedKey string `protobuf:"bytes,5,opt,name=updated_key,json=updatedKey,proto3" json:"updated_key,omitempty"`
 	// Opaque sort key for filtering and ordering sessions with unread messages.
+	// Empty when the session has no unread messages (i.e. badge is zero).
 	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="manager-m001-userChat"
 	UnreadKey string `protobuf:"bytes,6,opt,name=unread_key,json=unreadKey,proto3" json:"unread_key,omitempty"`
 	// Channel ID this session belongs to.
@@ -313,7 +313,8 @@ var File_coreapi_model_chat_session_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_chat_session_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/chat_session.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1bcoreapi/model/manager.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbe\v\n" +
+	" coreapi/model/chat_session.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1bcoreapi/model/manager.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xef\n" +
+	"\n" +
 	"\vChatSession\x12_\n" +
 	"\x03key\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x03key\x12f\n" +
@@ -324,10 +325,9 @@ const file_coreapi_model_chat_session_proto_rawDesc = "" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\achatKey\x12n\n" +
 	"\vupdated_key\x18\x05 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
-	"updatedKey\x12l\n" +
+	"updatedKey\x12\x1d\n" +
 	"\n" +
-	"unread_key\x18\x06 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\tunreadKey\x12%\n" +
+	"unread_key\x18\x06 \x01(\tR\tunreadKey\x12%\n" +
 	"\n" +
 	"channel_id\x18\a \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x14\n" +
 	"\x05alert\x18\b \x01(\x05R\x05alert\x12\x16\n" +
