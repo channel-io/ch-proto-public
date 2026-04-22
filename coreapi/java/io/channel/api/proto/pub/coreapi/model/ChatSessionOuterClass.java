@@ -31,7 +31,7 @@ public final class ChatSessionOuterClass {
       "\n coreapi/model/chat_session.proto\022\rcore" +
       "api.model\032\033buf/validate/validate.proto\032\033" +
       "coreapi/model/manager.proto\032\037google/prot" +
-      "obuf/timestamp.proto\"\276\013\n\013ChatSession\022_\n\003" +
+      "obuf/timestamp.proto\"\357\n\n\013ChatSession\022_\n\003" +
       "key\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value " +
       "must be at least 1 character\032\017size(this)" +
       " >= 1\310\001\001R\003key\022f\n\007chat_id\030\002 \001(\tBM\272HJ\272\001D\n\r" +
@@ -43,35 +43,33 @@ public final class ChatSessionOuterClass {
       "ter\032\017size(this) >= 1\310\001\001R\007chatKey\022n\n\013upda" +
       "ted_key\030\005 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"va" +
       "lue must be at least 1 character\032\017size(t" +
-      "his) >= 1\310\001\001R\nupdatedKey\022l\n\nunread_key\030\006" +
-      " \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must " +
-      "be at least 1 character\032\017size(this) >= 1" +
-      "\310\001\001R\tunreadKey\022%\n\nchannel_id\030\007 \001(\tB\006\272H\003\310" +
-      "\001\001R\tchannelId\022\024\n\005alert\030\010 \001(\005R\005alert\022\026\n\006u" +
-      "nread\030\t \001(\005R\006unread\0221\n\005watch\030\n \001(\0162\033.cor" +
-      "eapi.model.SessionWatchR\005watch\0222\n\025all_me" +
-      "ntion_important\030\013 \001(\010R\023allMentionImporta" +
-      "nt\0223\n\007read_at\030\014 \001(\0132\032.google.protobuf.Ti" +
-      "mestampR\006readAt\022;\n\013received_at\030\r \001(\0132\032.g" +
-      "oogle.protobuf.TimestampR\nreceivedAt\0227\n\t" +
-      "posted_at\030\016 \001(\0132\032.google.protobuf.Timest" +
-      "ampR\010postedAt\022A\n\nupdated_at\030\017 \001(\0132\032.goog" +
-      "le.protobuf.TimestampB\006\272H\003\310\001\001R\tupdatedAt" +
-      "\022A\n\ncreated_at\030\020 \001(\0132\032.google.protobuf.T" +
-      "imestampB\006\272H\003\310\001\001R\tcreatedAt\022 \n\007version\030\021" +
-      " \001(\003B\006\272H\003\310\001\001R\007version\022\026\n\002id\030\022 \001(\tB\006\272H\003\310\001" +
-      "\001R\002id\022j\n\tchat_type\030\023 \001(\tBM\272HJ\272\001D\n\rstring" +
-      ".minLen\022\"value must be at least 1 charac" +
-      "ter\032\017size(this) >= 1\310\001\001R\010chatType\022n\n\013per" +
-      "son_type\030\024 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"v" +
-      "alue must be at least 1 character\032\017size(" +
-      "this) >= 1\310\001\001R\npersonType\022j\n\tperson_id\030\025" +
-      " \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must " +
-      "be at least 1 character\032\017size(this) >= 1" +
-      "\310\001\001R\010personIdBb\n&io.channel.api.proto.pu" +
-      "b.coreapi.modelP\001Z6github.com/channel-io" +
-      "/ch-proto-public/coreapi/go/modelb\006proto" +
-      "3"
+      "his) >= 1\310\001\001R\nupdatedKey\022\035\n\nunread_key\030\006" +
+      " \001(\tR\tunreadKey\022%\n\nchannel_id\030\007 \001(\tB\006\272H\003" +
+      "\310\001\001R\tchannelId\022\024\n\005alert\030\010 \001(\005R\005alert\022\026\n\006" +
+      "unread\030\t \001(\005R\006unread\0221\n\005watch\030\n \001(\0162\033.co" +
+      "reapi.model.SessionWatchR\005watch\0222\n\025all_m" +
+      "ention_important\030\013 \001(\010R\023allMentionImport" +
+      "ant\0223\n\007read_at\030\014 \001(\0132\032.google.protobuf.T" +
+      "imestampR\006readAt\022;\n\013received_at\030\r \001(\0132\032." +
+      "google.protobuf.TimestampR\nreceivedAt\0227\n" +
+      "\tposted_at\030\016 \001(\0132\032.google.protobuf.Times" +
+      "tampR\010postedAt\022A\n\nupdated_at\030\017 \001(\0132\032.goo" +
+      "gle.protobuf.TimestampB\006\272H\003\310\001\001R\tupdatedA" +
+      "t\022A\n\ncreated_at\030\020 \001(\0132\032.google.protobuf." +
+      "TimestampB\006\272H\003\310\001\001R\tcreatedAt\022 \n\007version\030" +
+      "\021 \001(\003B\006\272H\003\310\001\001R\007version\022\026\n\002id\030\022 \001(\tB\006\272H\003\310" +
+      "\001\001R\002id\022j\n\tchat_type\030\023 \001(\tBM\272HJ\272\001D\n\rstrin" +
+      "g.minLen\022\"value must be at least 1 chara" +
+      "cter\032\017size(this) >= 1\310\001\001R\010chatType\022n\n\013pe" +
+      "rson_type\030\024 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"" +
+      "value must be at least 1 character\032\017size" +
+      "(this) >= 1\310\001\001R\npersonType\022j\n\tperson_id\030" +
+      "\025 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must" +
+      " be at least 1 character\032\017size(this) >= " +
+      "1\310\001\001R\010personIdBb\n&io.channel.api.proto.p" +
+      "ub.coreapi.modelP\001Z6github.com/channel-i" +
+      "o/ch-proto-public/coreapi/go/modelb\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

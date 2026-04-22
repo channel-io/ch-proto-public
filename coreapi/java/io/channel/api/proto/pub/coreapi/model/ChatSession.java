@@ -519,12 +519,12 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Opaque sort key for filtering and ordering sessions with unread messages.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Empty when the session has no unread messages (i.e. badge is zero).
+   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="manager-m001-userChat"
    * </pre>
    *
-   * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
+   * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
    * @return The unreadKey.
    */
   @java.lang.Override
@@ -543,12 +543,12 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Opaque sort key for filtering and ordering sessions with unread messages.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Empty when the session has no unread messages (i.e. badge is zero).
+   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="manager-m001-userChat"
    * </pre>
    *
-   * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
+   * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
    * @return The bytes for unreadKey.
    */
   @java.lang.Override
@@ -2387,12 +2387,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque sort key for filtering and ordering sessions with unread messages.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Empty when the session has no unread messages (i.e. badge is zero).
+     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
-     * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
+     * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
      * @return The unreadKey.
      */
     public java.lang.String getUnreadKey() {
@@ -2410,12 +2410,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque sort key for filtering and ordering sessions with unread messages.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Empty when the session has no unread messages (i.e. badge is zero).
+     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
-     * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
+     * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
      * @return The bytes for unreadKey.
      */
     public com.google.protobuf.ByteString
@@ -2434,12 +2434,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque sort key for filtering and ordering sessions with unread messages.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Empty when the session has no unread messages (i.e. badge is zero).
+     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
-     * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
+     * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
      * @param value The unreadKey to set.
      * @return This builder for chaining.
      */
@@ -2456,12 +2456,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque sort key for filtering and ordering sessions with unread messages.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Empty when the session has no unread messages (i.e. badge is zero).
+     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
-     * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
+     * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUnreadKey() {
@@ -2473,12 +2473,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Opaque sort key for filtering and ordering sessions with unread messages.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
+     * Empty when the session has no unread messages (i.e. badge is zero).
+     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
-     * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
+     * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
      * @param value The bytes for unreadKey to set.
      * @return This builder for chaining.
      */

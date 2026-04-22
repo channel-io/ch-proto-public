@@ -140,24 +140,24 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Opaque sort key for filtering and ordering sessions with unread messages.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Empty when the session has no unread messages (i.e. badge is zero).
+   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="manager-m001-userChat"
    * </pre>
    *
-   * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
+   * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
    * @return The unreadKey.
    */
   java.lang.String getUnreadKey();
   /**
    * <pre>
    * Opaque sort key for filtering and ordering sessions with unread messages.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
+   * Empty when the session has no unread messages (i.e. badge is zero).
+   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="manager-m001-userChat"
    * </pre>
    *
-   * <code>string unread_key = 6 [json_name = "unreadKey", (.buf.validate.field) = { ... }</code>
+   * <code>string unread_key = 6 [json_name = "unreadKey"];</code>
    * @return The bytes for unreadKey.
    */
   com.google.protobuf.ByteString

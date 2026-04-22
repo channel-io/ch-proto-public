@@ -21,6 +21,8 @@ enum UserChatState {
   USER_CHAT_STATE_SNOOZED = 3;
   // The chat is waiting in the assignment queue for an available manager.
   USER_CHAT_STATE_QUEUED = 4;
+  // The chat has been created but no message has been sent yet.
+  USER_CHAT_STATE_INITIAL = 5;
 }
 
 // Reason why an inbound call or chat was missed.
