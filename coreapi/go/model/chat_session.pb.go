@@ -60,7 +60,6 @@ type ChatSession struct {
 	// Opaque sort key for filtering and ordering sessions with unread messages.
 	// Empty when the session has no unread messages (i.e. badge is zero).
 	//
-	// +kubebuilder:validation:Nullable
 	// +kubebuilder:example="manager-m001-userChat"
 	UnreadKey string `protobuf:"bytes,6,opt,name=unread_key,json=unreadKey,proto3" json:"unread_key,omitempty"`
 	// Channel ID this session belongs to.

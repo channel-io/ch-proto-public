@@ -520,7 +520,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Opaque sort key for filtering and ordering sessions with unread messages.
    * Empty when the session has no unread messages (i.e. badge is zero).
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="manager-m001-userChat"
    * </pre>
    *
@@ -544,7 +543,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Opaque sort key for filtering and ordering sessions with unread messages.
    * Empty when the session has no unread messages (i.e. badge is zero).
-   * +kubebuilder:validation:Nullable
    * +kubebuilder:example="manager-m001-userChat"
    * </pre>
    *
@@ -2388,7 +2386,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Opaque sort key for filtering and ordering sessions with unread messages.
      * Empty when the session has no unread messages (i.e. badge is zero).
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
@@ -2411,7 +2408,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Opaque sort key for filtering and ordering sessions with unread messages.
      * Empty when the session has no unread messages (i.e. badge is zero).
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
@@ -2435,7 +2431,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Opaque sort key for filtering and ordering sessions with unread messages.
      * Empty when the session has no unread messages (i.e. badge is zero).
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
@@ -2457,7 +2452,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Opaque sort key for filtering and ordering sessions with unread messages.
      * Empty when the session has no unread messages (i.e. badge is zero).
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
@@ -2474,7 +2468,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Opaque sort key for filtering and ordering sessions with unread messages.
      * Empty when the session has no unread messages (i.e. badge is zero).
-     * +kubebuilder:validation:Nullable
      * +kubebuilder:example="manager-m001-userChat"
      * </pre>
      *
