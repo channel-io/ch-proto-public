@@ -250,7 +250,7 @@ public interface BotOrBuilder extends
 
   /**
    * <pre>
-   * Bot avatar image reference.
+   * Uploaded bot avatar image.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -259,7 +259,7 @@ public interface BotOrBuilder extends
   boolean hasAvatar();
   /**
    * <pre>
-   * Bot avatar image reference.
+   * Uploaded bot avatar image.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -268,7 +268,7 @@ public interface BotOrBuilder extends
   io.channel.api.proto.pub.coreapi.model.TinyFile getAvatar();
   /**
    * <pre>
-   * Bot avatar image reference.
+   * Uploaded bot avatar image.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>

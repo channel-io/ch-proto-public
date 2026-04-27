@@ -434,7 +434,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object avatarUrl_;
   /**
    * <pre>
-   * Bot avatar image URL.
+   * External image URL to use as the bot avatar.
    * </pre>
    *
    * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
@@ -455,7 +455,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Bot avatar image URL.
+   * External image URL to use as the bot avatar.
    * </pre>
    *
    * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
@@ -1454,7 +1454,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object avatarUrl_ = "";
     /**
      * <pre>
-     * Bot avatar image URL.
+     * External image URL to use as the bot avatar.
      * </pre>
      *
      * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
@@ -1474,7 +1474,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image URL.
+     * External image URL to use as the bot avatar.
      * </pre>
      *
      * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
@@ -1495,7 +1495,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image URL.
+     * External image URL to use as the bot avatar.
      * </pre>
      *
      * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
@@ -1514,7 +1514,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image URL.
+     * External image URL to use as the bot avatar.
      * </pre>
      *
      * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
@@ -1528,7 +1528,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image URL.
+     * External image URL to use as the bot avatar.
      * </pre>
      *
      * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>

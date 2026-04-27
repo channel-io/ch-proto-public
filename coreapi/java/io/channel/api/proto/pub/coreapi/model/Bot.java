@@ -633,7 +633,7 @@ private static final long serialVersionUID = 0L;
   private io.channel.api.proto.pub.coreapi.model.TinyFile avatar_;
   /**
    * <pre>
-   * Bot avatar image reference.
+   * Uploaded bot avatar image.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -645,7 +645,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Bot avatar image reference.
+   * Uploaded bot avatar image.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -657,7 +657,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Bot avatar image reference.
+   * Uploaded bot avatar image.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2161,7 +2161,7 @@ private static final long serialVersionUID = 0L;
         io.channel.api.proto.pub.coreapi.model.TinyFile, io.channel.api.proto.pub.coreapi.model.TinyFile.Builder, io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder> avatarBuilder_;
     /**
      * <pre>
-     * Bot avatar image reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2172,7 +2172,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2187,7 +2187,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2207,7 +2207,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2225,7 +2225,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2247,7 +2247,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2265,7 +2265,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2277,7 +2277,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2292,7 +2292,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>

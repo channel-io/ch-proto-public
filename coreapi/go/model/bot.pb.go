@@ -68,7 +68,7 @@ type Bot struct {
 	//
 	// +kubebuilder:validation:Required
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// Bot avatar image reference.
+	// Uploaded bot avatar image.
 	Avatar        *TinyFile `protobuf:"bytes,9,opt,name=avatar,proto3" json:"avatar,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

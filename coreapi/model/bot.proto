@@ -81,7 +81,7 @@ message Bot {
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp created_at = 8 [(buf.validate.field).required = true];
 
-  // Bot avatar image reference.
+  // Uploaded bot avatar image.
   //
   coreapi.model.TinyFile avatar = 9;
 }

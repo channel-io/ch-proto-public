@@ -134,7 +134,7 @@ message UpsertBotRequest {
   // Bot color in hex format. Randomly assigned if not specified.
   string color = 5;
 
-  // Bot avatar image URL.
+  // External image URL to use as the bot avatar.
   string avatar_url = 6;
 }
 
