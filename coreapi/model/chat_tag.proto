@@ -39,6 +39,7 @@ message ChatTag {
 
   // Color theme of the chat tag.
   //
+  // +kubebuilder:example="cobalt"
   ChatTagColorVariant color_variant = 3;
 
   // Display name of the chat tag.
@@ -91,5 +92,6 @@ message ChatTag {
   // Chat tag creation timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp created_at = 7 [(buf.validate.field).required = true];
 }

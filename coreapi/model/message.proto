@@ -142,6 +142,7 @@ message Message {
   // Message creation timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp created_at = 15 [(buf.validate.field).required = true];
 
   // Optimistic locking version.
@@ -163,6 +164,7 @@ message Message {
 
   // Message last update timestamp.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp updated_at = 19;
 
   // Thread metadata present only on thread root messages.
@@ -189,6 +191,7 @@ message Message {
   // Timestamp when the message content was last edited by a person.
   // Absent if the message has never been edited.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp edited_at = 24;
 
   // Interactive action buttons displayed below the message.
@@ -228,6 +231,7 @@ message Message {
 
   // Current lifecycle state of this message.
   //
+  // +kubebuilder:example="sent"
   MessageState state = 32;
 
   // Delivery and visibility options applied to this message.
@@ -254,6 +258,7 @@ message Message {
 
   // Notification priority level controlling client-side popup behavior.
   //
+  // +kubebuilder:example="alert"
   AlertLevel alert_level = 37;
 
   // IVR (Interactive Voice Response) call metadata for phone-based messages.
@@ -271,6 +276,7 @@ message Message {
   // defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
   // and STANDARD otherwise.
   //
+  // +kubebuilder:example="standard"
   WritingType writing_type = 40;
 
   // Whether this message is a reply within a thread (not the root).
@@ -364,6 +370,7 @@ message MessageLog {
   // Type of action that was recorded.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="opened"
   MessageLogAction action = 1 [(buf.validate.field).required = true];
 
   // Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
@@ -479,10 +486,12 @@ message MessageMeet {
 
   // Current lifecycle state of the meet session.
   //
+  // +kubebuilder:example="live"
   MeetState state = 4;
 
   // Media mode indicating whether this is an audio-only or video meet.
   //
+  // +kubebuilder:example="audio"
   MeetMode mode = 5;
 
   // Person keys of all participants who have ever joined this meet,
@@ -492,6 +501,7 @@ message MessageMeet {
 
   // Timestamp when the meet room was first opened.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp room_started_at = 7;
 
   // Phone call session details.
@@ -516,6 +526,7 @@ message MessageMeet {
 
   // Timestamp when the meet session ended.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp meet_ended_at = 12;
 
   // Manager IDs extracted from `amassed_persons`.
@@ -524,6 +535,7 @@ message MessageMeet {
 
   // Computed meet category determined by the presence of `call` or `front` data.
   //
+  // +kubebuilder:example="call"
   MeetType meet_type = 14;
 
   // Bot IDs extracted from `amassed_persons`.
@@ -629,6 +641,7 @@ message MessageEmail {
 
   // Whether this email was sent to or received from an external party.
   //
+  // +kubebuilder:example="inbound"
   EmailDirection direction = 2;
 
   // Sender email address with optional display name.
@@ -675,6 +688,7 @@ message MessageEmail {
 
   // Email creation timestamp.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp created_at = 12;
 
   // Direction of an email relative to the channel.
@@ -738,6 +752,7 @@ message MessageMarketing {
 
   // In-app display mode for the marketing message.
   //
+  // +kubebuilder:example="fullScreen"
   ExposureType exposure_type = 6;
 
   // Clickthrough URL for the marketing image.

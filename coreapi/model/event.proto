@@ -58,10 +58,12 @@ message Event {
   // Event creation timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp created_at = 6 [(buf.validate.field).required = true];
 
   // Expiration timestamp after which the event may no longer be retrievable.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp expire_at = 7;
 
   // Optimistic concurrency version counter.

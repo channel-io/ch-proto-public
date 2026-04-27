@@ -50,18 +50,22 @@ message OneTimeMsgUser {
 
   // Timestamp when the message was delivered to the user.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp sent = 3;
 
   // Timestamp when the user first viewed the delivered message.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp view = 4;
 
   // Timestamp when the user completed the goal event.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp goal = 5;
 
   // Timestamp when the user first clicked a link in the message.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp click = 6;
 
   // Cumulative revenue attributed to this user from the one-time message.
