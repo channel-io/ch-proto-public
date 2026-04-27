@@ -386,8 +386,7 @@ type UpsertBotRequest struct {
 	NameDescI18NMap map[string]*model.NameDesc `protobuf:"bytes,4,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Bot color in hex format. Randomly assigned if not specified.
 	Color string `protobuf:"bytes,5,opt,name=color,proto3" json:"color,omitempty"`
-	// External image URL to set as the bot avatar.
-	// The image is downloaded and stored. Size and format constraints apply.
+	// External image URL to use as the bot avatar.
 	AvatarUrl     string `protobuf:"bytes,6,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

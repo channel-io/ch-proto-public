@@ -544,8 +544,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object avatarUrl_;
   /**
    * <pre>
-   * Resolved URL of the bot avatar.
-   * Automatically derived from `avatar`.
+   * Bot avatar image URL.
    * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
    * </pre>
    *
@@ -567,8 +566,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Resolved URL of the bot avatar.
-   * Automatically derived from `avatar`.
+   * Bot avatar image URL.
    * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
    * </pre>
    *
@@ -635,7 +633,7 @@ private static final long serialVersionUID = 0L;
   private io.channel.api.proto.pub.coreapi.model.TinyFile avatar_;
   /**
    * <pre>
-   * Bot avatar image storage reference.
+   * Uploaded bot avatar image.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -647,7 +645,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Bot avatar image storage reference.
+   * Uploaded bot avatar image.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -659,7 +657,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Bot avatar image storage reference.
+   * Uploaded bot avatar image.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -1896,8 +1894,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object avatarUrl_ = "";
     /**
      * <pre>
-     * Resolved URL of the bot avatar.
-     * Automatically derived from `avatar`.
+     * Bot avatar image URL.
      * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
      * </pre>
      *
@@ -1918,8 +1915,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Resolved URL of the bot avatar.
-     * Automatically derived from `avatar`.
+     * Bot avatar image URL.
      * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
      * </pre>
      *
@@ -1941,8 +1937,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Resolved URL of the bot avatar.
-     * Automatically derived from `avatar`.
+     * Bot avatar image URL.
      * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
      * </pre>
      *
@@ -1962,8 +1957,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Resolved URL of the bot avatar.
-     * Automatically derived from `avatar`.
+     * Bot avatar image URL.
      * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
      * </pre>
      *
@@ -1978,8 +1972,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Resolved URL of the bot avatar.
-     * Automatically derived from `avatar`.
+     * Bot avatar image URL.
      * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
      * </pre>
      *
@@ -2168,7 +2161,7 @@ private static final long serialVersionUID = 0L;
         io.channel.api.proto.pub.coreapi.model.TinyFile, io.channel.api.proto.pub.coreapi.model.TinyFile.Builder, io.channel.api.proto.pub.coreapi.model.TinyFileOrBuilder> avatarBuilder_;
     /**
      * <pre>
-     * Bot avatar image storage reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2179,7 +2172,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image storage reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2194,7 +2187,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image storage reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2214,7 +2207,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image storage reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2232,7 +2225,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image storage reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2254,7 +2247,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image storage reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2272,7 +2265,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image storage reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2284,7 +2277,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image storage reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -2299,7 +2292,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Bot avatar image storage reference.
+     * Uploaded bot avatar image.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>

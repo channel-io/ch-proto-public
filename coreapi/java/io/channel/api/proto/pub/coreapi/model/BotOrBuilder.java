@@ -198,8 +198,7 @@ public interface BotOrBuilder extends
 
   /**
    * <pre>
-   * Resolved URL of the bot avatar.
-   * Automatically derived from `avatar`.
+   * Bot avatar image URL.
    * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
    * </pre>
    *
@@ -209,8 +208,7 @@ public interface BotOrBuilder extends
   java.lang.String getAvatarUrl();
   /**
    * <pre>
-   * Resolved URL of the bot avatar.
-   * Automatically derived from `avatar`.
+   * Bot avatar image URL.
    * +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
    * </pre>
    *
@@ -252,7 +250,7 @@ public interface BotOrBuilder extends
 
   /**
    * <pre>
-   * Bot avatar image storage reference.
+   * Uploaded bot avatar image.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -261,7 +259,7 @@ public interface BotOrBuilder extends
   boolean hasAvatar();
   /**
    * <pre>
-   * Bot avatar image storage reference.
+   * Uploaded bot avatar image.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>
@@ -270,7 +268,7 @@ public interface BotOrBuilder extends
   io.channel.api.proto.pub.coreapi.model.TinyFile getAvatar();
   /**
    * <pre>
-   * Bot avatar image storage reference.
+   * Uploaded bot avatar image.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile avatar = 9 [json_name = "avatar"];</code>

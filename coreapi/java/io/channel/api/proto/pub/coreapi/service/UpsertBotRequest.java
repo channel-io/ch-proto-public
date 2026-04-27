@@ -434,8 +434,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object avatarUrl_;
   /**
    * <pre>
-   * External image URL to set as the bot avatar.
-   * The image is downloaded and stored. Size and format constraints apply.
+   * External image URL to use as the bot avatar.
    * </pre>
    *
    * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
@@ -456,8 +455,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * External image URL to set as the bot avatar.
-   * The image is downloaded and stored. Size and format constraints apply.
+   * External image URL to use as the bot avatar.
    * </pre>
    *
    * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
@@ -1456,8 +1454,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object avatarUrl_ = "";
     /**
      * <pre>
-     * External image URL to set as the bot avatar.
-     * The image is downloaded and stored. Size and format constraints apply.
+     * External image URL to use as the bot avatar.
      * </pre>
      *
      * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
@@ -1477,8 +1474,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * External image URL to set as the bot avatar.
-     * The image is downloaded and stored. Size and format constraints apply.
+     * External image URL to use as the bot avatar.
      * </pre>
      *
      * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
@@ -1499,8 +1495,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * External image URL to set as the bot avatar.
-     * The image is downloaded and stored. Size and format constraints apply.
+     * External image URL to use as the bot avatar.
      * </pre>
      *
      * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
@@ -1519,8 +1514,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * External image URL to set as the bot avatar.
-     * The image is downloaded and stored. Size and format constraints apply.
+     * External image URL to use as the bot avatar.
      * </pre>
      *
      * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
@@ -1534,8 +1528,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * External image URL to set as the bot avatar.
-     * The image is downloaded and stored. Size and format constraints apply.
+     * External image URL to use as the bot avatar.
      * </pre>
      *
      * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
