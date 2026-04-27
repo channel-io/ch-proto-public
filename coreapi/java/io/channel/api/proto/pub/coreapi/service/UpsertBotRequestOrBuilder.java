@@ -145,7 +145,8 @@ public interface UpsertBotRequestOrBuilder extends
 
   /**
    * <pre>
-   * Bot avatar image URL.
+   * External image URL to set as the bot avatar.
+   * The image is downloaded and stored. Size and format constraints apply.
    * </pre>
    *
    * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>
@@ -154,7 +155,8 @@ public interface UpsertBotRequestOrBuilder extends
   java.lang.String getAvatarUrl();
   /**
    * <pre>
-   * Bot avatar image URL.
+   * External image URL to set as the bot avatar.
+   * The image is downloaded and stored. Size and format constraints apply.
    * </pre>
    *
    * <code>string avatar_url = 6 [json_name = "avatarUrl"];</code>

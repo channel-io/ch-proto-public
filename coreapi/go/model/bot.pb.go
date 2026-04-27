@@ -60,7 +60,8 @@ type Bot struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="#3B82F6"
 	Color string `protobuf:"bytes,6,opt,name=color,proto3" json:"color,omitempty"`
-	// Bot avatar image URL.
+	// Resolved URL of the bot avatar.
+	// Automatically derived from `avatar`.
 	//
 	// +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
 	AvatarUrl string `protobuf:"bytes,7,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
@@ -68,7 +69,7 @@ type Bot struct {
 	//
 	// +kubebuilder:validation:Required
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// Bot avatar image reference.
+	// Bot avatar image storage reference.
 	Avatar        *TinyFile `protobuf:"bytes,9,opt,name=avatar,proto3" json:"avatar,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

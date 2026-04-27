@@ -71,7 +71,8 @@ message Bot {
   // +kubebuilder:example="#3B82F6"
   string color = 6 [(buf.validate.field).required = true];
 
-  // Bot avatar image URL.
+  // Resolved URL of the bot avatar.
+  // Automatically derived from `avatar`.
   //
   // +kubebuilder:example="https://cdn.channel.io/assets/channel-bot.png"
   string avatar_url = 7;
@@ -81,7 +82,7 @@ message Bot {
   // +kubebuilder:validation:Required
   google.protobuf.Timestamp created_at = 8 [(buf.validate.field).required = true];
 
-  // Bot avatar image reference.
+  // Bot avatar image storage reference.
   //
   coreapi.model.TinyFile avatar = 9;
 }
