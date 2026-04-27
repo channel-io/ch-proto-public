@@ -24,7 +24,7 @@ message OneTimeMsgUser {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="otm-001"
+  // +kubebuilder:example="11689"
   string one_time_msg_id = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -38,7 +38,7 @@ message OneTimeMsgUser {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="u-abc123"
+  // +kubebuilder:example="69e86feadafa12609c34"
   string user_id = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -72,6 +72,6 @@ message OneTimeMsgUser {
   // Composite identifier in the format "{one_time_msg_id}-{user_id}".
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="otm-001-u-abc123"
+  // +kubebuilder:example="11689-69e86feadafa12609c34"
   string id = 8 [(buf.validate.field).required = true];
 }

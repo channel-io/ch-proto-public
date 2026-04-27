@@ -26,20 +26,20 @@ message User {
   // Unique user identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="u-abc123"
+  // +kubebuilder:example="69e86feadafa12609c34"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this user belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // External member ID provided at boot or manual creation.
   // Present for member-type users; for anonymous visitors, this matches
   // the veil_id.
   //
-  // +kubebuilder:example="member-001"
+  // +kubebuilder:example="member-a1b2c3"
   string member_id = 3;
 
   // Cookie-based device identifier assigned to anonymous visitors.
@@ -49,7 +49,7 @@ message User {
 
   // ID of the unified identity when multiple user records have been merged.
   //
-  // +kubebuilder:example="u-unified-001"
+  // +kubebuilder:example="5a3b2c1d4e6f8a9b0c7d"
   string unified_id = 5;
 
   // Identity type of this user.
@@ -72,12 +72,12 @@ message User {
 
   // ID of the chat currently displayed as a pop-up widget to the user.
   //
-  // +kubebuilder:example="uc-popup-001"
+  // +kubebuilder:example="7b2a1c3d4e5f6a8b9c0d"
   string pop_up_chat_id = 10;
 
   // ID of the chat pinned as the primary conversation in the messenger.
   //
-  // +kubebuilder:example="uc-main-001"
+  // +kubebuilder:example="8c3b2a1d4e5f6a7b9c0d"
   string main_chat_id = 11;
 
   // ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
@@ -158,7 +158,7 @@ message User {
   // Falls back to an auto-generated default avatar when no custom avatar is set
   // in the profile.
   //
-  // +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
+  // +kubebuilder:example="https://cf.channel.io/avatar/default-avatar.png"
   string avatar_url = 26;
 
   // Whether the user has a display name set in the profile
@@ -190,7 +190,7 @@ message User {
 
   // Display name of the user, derived from the profile's name field.
   //
-  // +kubebuilder:example="John Doe"
+  // +kubebuilder:example="Alice Park"
   string name = 31;
 
   // Whether the user has at least one managed chat conversation.
@@ -251,7 +251,7 @@ message User {
   // Identifier key associated with the block action,
   // used to look up block details.
   //
-  // +kubebuilder:example="bk-001"
+  // +kubebuilder:example="4d2c1b3a5e6f7a8b9c0d"
   string blocked_key = 43;
 
   // Sort key used for ordering users in the managed contact list.
@@ -268,7 +268,7 @@ message User {
 
   // Email address extracted from the user's profile data.
   //
-  // +kubebuilder:example="user@example.com"
+  // +kubebuilder:example="alice@example.com"
   string email = 46;
 
   // Mobile phone number extracted from the user's profile data.

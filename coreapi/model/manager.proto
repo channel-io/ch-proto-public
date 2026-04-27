@@ -47,20 +47,20 @@ message Manager {
   // Unique manager identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="m-abc123"
+  // +kubebuilder:example="12372"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this manager belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Account ID of the person linked to this manager.
   // Unique per channel among non-removed managers.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="a-xyz789"
+  // +kubebuilder:example="1471"
   string account_id = 3 [(buf.validate.field).required = true];
 
   // Manager display name shown to end users and teammates.
@@ -69,7 +69,7 @@ message Manager {
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
   // +kubebuilder:validation:Pattern="^[^@#$%:/\]+$"
-  // +kubebuilder:example="John Doe"
+  // +kubebuilder:example="Jay Kim"
   string name = 4 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -89,7 +89,7 @@ message Manager {
   // Visible to end users only when show_description_to_front is true.
   //
   // +kubebuilder:validation:MaxLength=180
-  // +kubebuilder:example="Product team lead"
+  // +kubebuilder:example="Customer support team lead"
   string description = 5 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 180 characters"
@@ -113,7 +113,7 @@ message Manager {
   // Manager email address.
   // Unique per channel among non-removed managers.
   //
-  // +kubebuilder:example="manager@example.com"
+  // +kubebuilder:example="jay@example.com"
   string email = 9;
 
   // Whether the email address is visible to end-user visitors.
@@ -135,7 +135,7 @@ message Manager {
 
   // Role ID assigned to this manager, defining permissions and access levels.
   //
-  // +kubebuilder:example="role-owner"
+  // +kubebuilder:example="14314"
   string role_id = 13;
 
   // Whether this manager has been soft-deleted from the channel.
@@ -205,13 +205,13 @@ message Manager {
   // Performance score reflecting the manager's conversation handling efficiency.
   // Decays over time when the manager is inactive.
   //
-  // +kubebuilder:example="0.85"
+  // +kubebuilder:example="12.03"
   float operator_score = 26;
 
   // Engagement score reflecting the frequency of customer interactions.
   // Decays over time when the manager is inactive.
   //
-  // +kubebuilder:example="0.75"
+  // +kubebuilder:example="1.76"
   float touch_score = 27;
 
   // Whether periodic email reminders for unhandled conversations are enabled.
@@ -252,7 +252,7 @@ message Manager {
 
   // Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
   //
-  // +kubebuilder:example="m-abc123"
+  // +kubebuilder:example="12372"
   string operator_status_id = 34;
 
   // Whether @all mentions in conversations are automatically marked as important.
@@ -336,6 +336,6 @@ message Manager {
   // Manager avatar image URL.
   // Falls back to a system-generated default when no custom avatar is set.
   //
-  // +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
+  // +kubebuilder:example="https://cf.channel.io/avatar/emoji/fox_face.86e3da.png"
   string avatar_url = 48;
 }

@@ -77,18 +77,18 @@ message Plugin {
   // Unique plugin identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="plg-001"
+  // +kubebuilder:example="94802"
   string id = 1 [(buf.validate.field).required = true];
 
   // Plugin API key in UUID format.
   //
-  // +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
+  // +kubebuilder:example="713dad11-a7f9-47d4-b56e-e3969b981142"
   string key = 2;
 
   // Channel ID this plugin belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 3 [(buf.validate.field).required = true];
 
   // Current activation lifecycle state.
@@ -102,7 +102,7 @@ message Plugin {
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
-  // +kubebuilder:example="Support Widget"
+  // +kubebuilder:example="Acme Support"
   string name = 5 [
     (buf.validate.field).cel = {
       id: "string.minLen"

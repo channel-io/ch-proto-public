@@ -16,19 +16,19 @@ message Event {
   // ID of the user who triggered the event.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="u-abc123"
+  // +kubebuilder:example="69e86feadafa12609c34"
   string user_id = 1 [(buf.validate.field).required = true];
 
   // Unique event identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="evt-20240101-001"
+  // +kubebuilder:example="7683-PageView"
   string id = 2 [(buf.validate.field).required = true];
 
   // Channel ID this event belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 3 [(buf.validate.field).required = true];
 
   // Event name identifying the type of action (e.g., PageView, Purchase, SignUp).

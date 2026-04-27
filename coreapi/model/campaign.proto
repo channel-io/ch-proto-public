@@ -47,13 +47,13 @@ message Campaign {
   // Unique campaign identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="cpn-001"
+  // +kubebuilder:example="6299"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this campaign belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Human-readable label for the campaign.
@@ -89,7 +89,7 @@ message Campaign {
 
   // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
   //
-  // +kubebuilder:example="sms-001"
+  // +kubebuilder:example="42301"
   string medium_id = 6;
 
   // Query expression that defines the target user segment.
@@ -196,7 +196,7 @@ message Campaign {
   // Channel operation schedule used to determine delivery timing.
   // Applicable when send_mode is IN_OPERATION or AWAY.
   //
-  // +kubebuilder:example="op-001"
+  // +kubebuilder:example="15023"
   string channel_operation_id = 26;
 
   // Custom time windows for delivery scheduling.
@@ -255,7 +255,7 @@ message Campaign {
 
   // Manager assigned to handle user responses from this campaign.
   //
-  // +kubebuilder:example="m-001"
+  // +kubebuilder:example="12372"
   string manager_id = 38;
 }
 

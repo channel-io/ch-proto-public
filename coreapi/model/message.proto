@@ -52,19 +52,19 @@ message Message {
   // Format: "{chatType}-{chatId}".
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="userChat-uc-abc123"
+  // +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
   string chat_key = 1 [(buf.validate.field).required = true];
 
   // Unique message identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="msg-001"
+  // +kubebuilder:example="69e86fe3b7b342614c94"
   string id = 2 [(buf.validate.field).required = true];
 
   // Index key for the main (top-level) message stream.
   // Same value as chat_key when the message appears in the main stream.
   //
-  // +kubebuilder:example="userChat-uc-abc123"
+  // +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
   string main_key = 3;
 
   // Index key for the thread message stream.
@@ -72,7 +72,7 @@ message Message {
   // For thread replies: "{chatType}-{chatId}-{rootMessageId}".
   // Absent when the message does not belong to a thread.
   //
-  // +kubebuilder:example="userChat-uc-abc123-msg-001"
+  // +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
   string thread_key = 4;
 
   // Index key for the meet message stream.
@@ -80,13 +80,13 @@ message Message {
   // For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
   // Absent when the message is not associated with a meet session.
   //
-  // +kubebuilder:example="userChat-uc-abc123-msg-001"
+  // +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
   string meet_key = 5;
 
   // Index key for the front (user-facing) message stream.
   // Same value as chat_key when the message appears in the front stream.
   //
-  // +kubebuilder:example="userChat-uc-abc123"
+  // +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
   string front_key = 6;
 
   // Index key for the ALF AI-assisted thread stream.
@@ -94,13 +94,13 @@ message Message {
   // For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
   // Absent when the message is not part of an ALF thread.
   //
-  // +kubebuilder:example="userChat-uc-abc123-msg-001"
+  // +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
   string alf_thread_key = 7;
 
   // Channel ID this message belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 8 [(buf.validate.field).required = true];
 
   // Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
@@ -112,7 +112,7 @@ message Message {
   // Chat ID of the parent conversation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="uc-abc123"
+  // +kubebuilder:example="69e86feaecf73e47cf2f"
   string chat_id = 10 [(buf.validate.field).required = true];
 
   // Entity type of the message author (e.g., "manager", "user", "bot").
@@ -124,14 +124,14 @@ message Message {
   // Entity ID of the message author.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="m-abc123"
+  // +kubebuilder:example="12372"
   string person_id = 12 [(buf.validate.field).required = true];
 
   // Client-generated identifier for deduplication.
   // Allows matching a locally pre-rendered message with the server response.
   // Immutable after creation.
   //
-  // +kubebuilder:example="req-12345"
+  // +kubebuilder:example="a1b2c3d4e5"
   string request_id = 13;
 
   // Detected language of the message content (e.g., "ko", "en", "ja").
@@ -284,7 +284,7 @@ message Message {
   // Parsed from thread_key, meet_key, or alf_thread_key respectively.
   // Absent for root messages and standalone messages.
   //
-  // +kubebuilder:example="msg-root-001"
+  // +kubebuilder:example="69e86fe3b7b342614c94"
   string root_message_id = 42;
 
   // Whether this message is the root of a thread.
@@ -319,7 +319,7 @@ message MessageThread {
   // Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
   // Encodes the parent chat context and the root message that started the thread.
   //
-  // +kubebuilder:example="userChat-uc-abc123-msg-001"
+  // +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
   string id = 1;
 
   // Manager IDs assigned to handle this thread.
@@ -345,12 +345,12 @@ message MessageThread {
 
   // Chat ID component extracted from the thread `id`.
   //
-  // +kubebuilder:example="uc-abc123"
+  // +kubebuilder:example="69e86feaecf73e47cf2f"
   string chat_id = 6;
 
   // ID of the root message that started this thread, extracted from the thread `id`.
   //
-  // +kubebuilder:example="msg-001"
+  // +kubebuilder:example="69e86fe3b7b342614c94"
   string root_message_id = 7;
 }
 
@@ -378,7 +378,7 @@ message MessageLog {
 
   // Identifier of the entity that triggered this action.
   //
-  // +kubebuilder:example="wf-001"
+  // +kubebuilder:example="70123"
   string trigger_id = 4;
 
   // Action types recorded in system log messages.
@@ -464,7 +464,7 @@ message MessageReaction {
 message MessageMeet {
   // Unique meet session identifier.
   //
-  // +kubebuilder:example="meet-001"
+  // +kubebuilder:example="695b7c5c331507f382a3"
   string id = 1;
 
   // Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
@@ -474,7 +474,7 @@ message MessageMeet {
 
   // Channel ID this meet belongs to.
   //
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 3;
 
   // Current lifecycle state of the meet session.
@@ -575,12 +575,12 @@ message MessageMeet {
 message MessageAlf {
   // Identifier of the handling session that triggered this ALF response.
   //
-  // +kubebuilder:example="handling-001"
+  // +kubebuilder:example="83201"
   string handling_id = 1;
 
   // Identifier of the ALF conversation session spanning multiple turns.
   //
-  // +kubebuilder:example="alf-sess-001"
+  // +kubebuilder:example="92104"
   string alf_session_id = 2;
 
   // Source documents or articles cited by ALF in its response.
@@ -624,7 +624,7 @@ message MessageAlfProgress {
 message MessageEmail {
   // Corresponding Email entity identifier.
   //
-  // +kubebuilder:example="email-001"
+  // +kubebuilder:example="61034"
   string id = 1;
 
   // Whether this email was sent to or received from an external party.
@@ -664,7 +664,7 @@ message MessageEmail {
 
   // Message ID of the email this is a reply to, forming the email thread chain.
   //
-  // +kubebuilder:example="msg-001"
+  // +kubebuilder:example="69e86fe3b7b342614c94"
   string reply_to_message_id = 10;
 
   // Channel email address that received this inbound email.
@@ -718,7 +718,7 @@ message MessageMarketing {
 
   // Identifier of the originating campaign or one-time message.
   //
-  // +kubebuilder:example="cpn-001"
+  // +kubebuilder:example="6299"
   string id = 2;
 
   // Whether this message is classified as advertising content subject to opt-out regulations.
@@ -763,17 +763,17 @@ message MessageMarketing {
 message MessageSupportBot {
   // Support bot identifier that owns this flow.
   //
-  // +kubebuilder:example="wf-001"
+  // +kubebuilder:example="70123"
   string id = 1;
 
   // Published revision of the support bot being executed.
   //
-  // +kubebuilder:example="rev-001"
+  // +kubebuilder:example="40123"
   string revision_id = 2;
 
   // Current section within the support bot flow (e.g. a route or action section).
   //
-  // +kubebuilder:example="sec-001"
+  // +kubebuilder:example="115211"
   string section_id = 3;
 
   // Zero-based step position within the current section.
@@ -802,17 +802,17 @@ message MessageSupportBot {
 message MessageWorkflow {
   // Workflow identifier being executed.
   //
-  // +kubebuilder:example="bot-001"
+  // +kubebuilder:example="231306"
   string id = 1;
 
   // Published revision of the workflow being executed.
   //
-  // +kubebuilder:example="rev-001"
+  // +kubebuilder:example="40123"
   string revision_id = 2;
 
   // Current section within the workflow.
   //
-  // +kubebuilder:example="sec-001"
+  // +kubebuilder:example="115211"
   string section_id = 3;
 
   // Zero-based action position within the current section.
@@ -823,7 +823,7 @@ message MessageWorkflow {
   // Identifier of the button the user selected to submit a response.
   // Present only on messages recording the user's button selection.
   //
-  // +kubebuilder:example="btn-001"
+  // +kubebuilder:example="93012"
   string submit_button_id = 5;
 
   // Whether this message was generated by a button action triggered

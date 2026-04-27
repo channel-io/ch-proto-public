@@ -112,7 +112,7 @@ message MessageFile {
   // Unique file identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="file-001"
+  // +kubebuilder:example="2c8f4a6b1d3e5f7a9b0c"
   string id = 1 [(buf.validate.field).required = true];
 
   // High-level media category derived from the MIME type (e.g. "image", "video", "audio").
@@ -220,13 +220,13 @@ message MessageFile {
   // Channel ID that owns this private file.
   // Derived from the storage key pattern.
   //
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 16;
 
   // Manager ID that owns this private file.
   // Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
   //
-  // +kubebuilder:example="m-abc123"
+  // +kubebuilder:example="12372"
   string manager_id = 17;
 
   // Chat type for chat-scoped private files.
@@ -238,7 +238,7 @@ message MessageFile {
   // Chat ID for chat-scoped private files.
   // Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
   //
-  // +kubebuilder:example="uc-abc123"
+  // +kubebuilder:example="69e86feaecf73e47cf2f"
   string chat_id = 19;
 
   // Access scope for private file visibility.
@@ -263,7 +263,7 @@ message MessageWebPage {
   // Unique web page preview identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="wp-001"
+  // +kubebuilder:example="3a7b2c1d4e5f6a8b9c0d"
   string id = 1 [(buf.validate.field).required = true];
 
   // Target URL of the linked web page.
@@ -410,6 +410,6 @@ message MessageContent {
 
   // Client-generated request identifier for idempotency.
   //
-  // +kubebuilder:example="req-12345"
+  // +kubebuilder:example="a1b2c3d4e5"
   string request_id = 8;
 }

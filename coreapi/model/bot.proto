@@ -17,13 +17,13 @@ message Bot {
   // Unique bot identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="100"
+  // +kubebuilder:example="231306"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this bot belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Bot display name.
@@ -33,7 +33,7 @@ message Bot {
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
   // +kubebuilder:validation:Pattern="^[^@#$%:/\\]+$"
-  // +kubebuilder:example="Support Bot"
+  // +kubebuilder:example="Order Bot"
   string name = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -52,7 +52,7 @@ message Bot {
   // Bot description.
   //
   // +kubebuilder:validation:MaxLength=180
-  // +kubebuilder:example="Handles billing and payment inquiries."
+  // +kubebuilder:example="Handles order and payment inquiries."
   string description = 4 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 180 characters"

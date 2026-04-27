@@ -25,13 +25,13 @@ message Group {
   // Unique group identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="g-abc123"
+  // +kubebuilder:example="18772"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this group belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Display title of the group.
@@ -78,13 +78,13 @@ message Group {
 
   // ID of the active live meet session in this group.
   //
-  // +kubebuilder:example="meet-001"
+  // +kubebuilder:example="695b7c5c331507f382a3"
   string live_meet_id = 7;
 
   // Free-text description explaining the group's purpose or topic.
   //
   // +kubebuilder:validation:MaxLength=200
-  // +kubebuilder:example="General discussion"
+  // +kubebuilder:example="Company-wide announcements and discussion"
   string description = 8 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 200 characters"

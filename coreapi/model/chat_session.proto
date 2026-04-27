@@ -18,7 +18,7 @@ message ChatSession {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="manager-m001-userChat"
+  // +kubebuilder:example="manager-12372-userChat"
   string key = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -32,7 +32,7 @@ message ChatSession {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="uc-abc123"
+  // +kubebuilder:example="69e86feaecf73e47cf2f"
   string chat_id = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -44,7 +44,7 @@ message ChatSession {
 
   // Section ID used to organize team chat conversations into custom groups.
   //
-  // +kubebuilder:example="sec-001"
+  // +kubebuilder:example="115211"
   string team_chat_section_id = 3;
 
   // Composite key identifying the conversation.
@@ -52,7 +52,7 @@ message ChatSession {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="userChat-uc-abc123"
+  // +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
   string chat_key = 4 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -66,7 +66,7 @@ message ChatSession {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="manager-m001-userChat"
+  // +kubebuilder:example="manager-12372-userChat"
   string updated_key = 5 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -79,13 +79,13 @@ message ChatSession {
   // Opaque sort key for filtering and ordering sessions with unread messages.
   // Empty when the session has no unread messages (i.e. badge is zero).
   //
-  // +kubebuilder:example="manager-m001-userChat"
+  // +kubebuilder:example="manager-12372-userChat"
   string unread_key = 6;
 
   // Channel ID this session belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 7 [(buf.validate.field).required = true];
 
   // Number of unread messages with alert-level notification priority.
@@ -142,7 +142,7 @@ message ChatSession {
   // Format: "{key}-{chatId}".
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="manager-m001-userChat-uc-abc123"
+  // +kubebuilder:example="manager-12372-userChat-69e86feaecf73e47cf2f"
   string id = 18 [(buf.validate.field).required = true];
 
   // Chat type of the conversation (e.g., "userChat", "group", "directChat").
@@ -177,7 +177,7 @@ message ChatSession {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="m-001"
+  // +kubebuilder:example="12372"
   string person_id = 21 [
     (buf.validate.field).cel = {
       id: "string.minLen"

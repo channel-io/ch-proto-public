@@ -34,7 +34,7 @@ message CallLog {
   // Channel ID where the call occurred.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 1 [(buf.validate.field).required = true];
 
   // Reason the call was missed.
@@ -83,7 +83,7 @@ message CallLog {
   // User chat ID linked to this call.
   // Present when the call is associated with a user chat conversation.
   //
-  // +kubebuilder:example="uc-abc123"
+  // +kubebuilder:example="69e86feaecf73e47cf2f"
   string user_chat_id = 11;
 
   // List of manager IDs who participated in or handled the call.
@@ -96,13 +96,13 @@ message MeetMessage {
   // Unique message identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="meet-001"
+  // +kubebuilder:example="695b7c5c331507f382a3"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this message belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Chat type of the parent conversation.
@@ -114,7 +114,7 @@ message MeetMessage {
   // Chat ID of the parent conversation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="uc-abc123"
+  // +kubebuilder:example="69e86feaecf73e47cf2f"
   string chat_id = 4 [(buf.validate.field).required = true];
 
   // Entity type of the message author (e.g., "manager", "user").
@@ -126,7 +126,7 @@ message MeetMessage {
   // Entity ID of the message author.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="m-001"
+  // +kubebuilder:example="12372"
   string person_id = 6 [(buf.validate.field).required = true];
 
   // Structured content blocks of the message.

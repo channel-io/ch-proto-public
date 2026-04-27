@@ -36,13 +36,13 @@ message OneTimeMsg {
   // Unique one-time message identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="otm-001"
+  // +kubebuilder:example="11689"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this one-time message belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Human-readable label for the one-time message.
@@ -50,7 +50,7 @@ message OneTimeMsg {
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=128
-  // +kubebuilder:example="Spring Sale"
+  // +kubebuilder:example="Spring Sale Promotion"
   string name = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -77,7 +77,7 @@ message OneTimeMsg {
 
   // Channel operation schedule referenced for delivery timing.
   //
-  // +kubebuilder:example="op-001"
+  // +kubebuilder:example="15023"
   string channel_operation_id = 6;
 
   // Channel through which the message is delivered.
@@ -88,12 +88,12 @@ message OneTimeMsg {
 
   // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
   //
-  // +kubebuilder:example="sms-001"
+  // +kubebuilder:example="42301"
   string medium_id = 8;
 
   // Key for selecting the message topic template within the medium.
   //
-  // +kubebuilder:example="topic-001"
+  // +kubebuilder:example="60123"
   string medium_topic_build_key = 9;
 
   // Labels for categorizing the message topic within the medium.

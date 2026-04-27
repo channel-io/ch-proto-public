@@ -94,13 +94,13 @@ message UserChat {
   // Unique user chat identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="uc-abc123"
+  // +kubebuilder:example="69e86feaecf73e47cf2f"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this user chat belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Contact medium type identifier for chats originating from external
@@ -111,7 +111,7 @@ message UserChat {
 
   // ID of the active live meet session attached to this chat.
   //
-  // +kubebuilder:example="meet-001"
+  // +kubebuilder:example="695b7c5c331507f382a3"
   string live_meet_id = 4;
 
   // Current lifecycle state of the chat conversation.
@@ -138,13 +138,13 @@ message UserChat {
 
   // ID of the user who owns this chat conversation.
   //
-  // +kubebuilder:example="u-abc123"
+  // +kubebuilder:example="69e86feadafa12609c34"
   string user_id = 9;
 
   // ID of the external service user linked to this chat
   // via a messenger integration.
   //
-  // +kubebuilder:example="xer-001"
+  // +kubebuilder:example="69e86feadafa12609c34"
   string xer_id = 10;
 
   // Display name of this chat shown to managers in the Desk.
@@ -188,12 +188,12 @@ message UserChat {
 
   // ID of the manager currently assigned as the primary responder.
   //
-  // +kubebuilder:example="m-001"
+  // +kubebuilder:example="12372"
   string assignee_id = 18;
 
   // ID of the team this chat is routed to for handling.
   //
-  // +kubebuilder:example="team-001"
+  // +kubebuilder:example="5832"
   string team_id = 19;
 
   // Classification tags attached to this chat for filtering and reporting.
@@ -252,7 +252,7 @@ message UserChat {
 
   // ID of the latest message visible to the user (front side).
   //
-  // +kubebuilder:example="msg-001"
+  // +kubebuilder:example="69e86fe3b7b342614c94"
   string front_message_id = 32;
 
   // Timestamp when the front-side (user-visible) message list was last updated.
@@ -261,7 +261,7 @@ message UserChat {
 
   // ID of the latest message visible on the Desk (manager) side.
   //
-  // +kubebuilder:example="msg-002"
+  // +kubebuilder:example="69e86fe3b7b342614c94"
   string desk_message_id = 34;
 
   // Timestamp when the Desk-side message list was last updated.
@@ -270,13 +270,13 @@ message UserChat {
 
   // ID of the most recent message sent by the user.
   //
-  // +kubebuilder:example="msg-003"
+  // +kubebuilder:example="69e86fe3b7b342614c94"
   string user_last_message_id = 36;
 
   // ID of the first manager assigned after the chat was opened.
   // Used for tracking initial response ownership.
   //
-  // +kubebuilder:example="m-001"
+  // +kubebuilder:example="12372"
   string first_assignee_id_after_open = 37;
 
   // Timestamp of the first-ever manager reply in this chat,

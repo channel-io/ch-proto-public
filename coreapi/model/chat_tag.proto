@@ -28,13 +28,13 @@ message ChatTag {
   // Unique chat tag identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="tag-001"
+  // +kubebuilder:example="71702"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this chat tag belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="7683"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Color theme of the chat tag.
@@ -81,7 +81,7 @@ message ChatTag {
   // Short description of the chat tag.
   //
   // +kubebuilder:validation:MaxLength=128
-  // +kubebuilder:example="Billing related inquiries"
+  // +kubebuilder:example="Billing and payment inquiries"
   string description = 6 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 128 characters"
