@@ -302,12 +302,12 @@ message MessageWebPage {
 
   // Publisher or site name extracted from page metadata.
   //
-  // +kubebuilder:example="Channel Corp"
+  // +kubebuilder:example="Acme Inc."
   string publisher = 7;
 
   // Content author name extracted from page metadata.
   //
-  // +kubebuilder:example="Channel Corp"
+  // +kubebuilder:example="Acme Inc."
   string author = 8;
 
   // Preview image width in pixels.
