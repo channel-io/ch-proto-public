@@ -88,7 +88,7 @@ message OneTimeMsg {
 
   // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
   //
-  // +kubebuilder:example="42301"
+  // +kubebuilder:example="67fceb5a3d6de141ea5a"
   string medium_id = 8;
 
   // Key for selecting the message topic template within the medium.

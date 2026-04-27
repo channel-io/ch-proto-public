@@ -15,7 +15,7 @@ message AppSegment {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="30012"
+  // +kubebuilder:example="661dec183be0f7947b74"
   string app_id = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -29,7 +29,7 @@ message AppSegment {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="50231"
+  // +kubebuilder:example="661dec183be0f794a1b2"
   string extension_id = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -43,7 +43,7 @@ message AppSegment {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="91034"
+  // +kubebuilder:example="161"
   string segment_id = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"

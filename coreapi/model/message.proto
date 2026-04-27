@@ -575,12 +575,12 @@ message MessageMeet {
 message MessageAlf {
   // Identifier of the handling session that triggered this ALF response.
   //
-  // +kubebuilder:example="83201"
+  // +kubebuilder:example="6a1b2c3d4e5f7a8b9c0d"
   string handling_id = 1;
 
   // Identifier of the ALF conversation session spanning multiple turns.
   //
-  // +kubebuilder:example="92104"
+  // +kubebuilder:example="7b2a1c3d4e5f6a8b9c0d"
   string alf_session_id = 2;
 
   // Source documents or articles cited by ALF in its response.
