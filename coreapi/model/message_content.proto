@@ -90,7 +90,6 @@ message MessageButton {
   // Contains the action type and its attributes (e.g. URL to open, WAM to launch).
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example={"type":"web","attributes":{"url":"https://example.com"}}
   google.protobuf.Struct action = 3 [(buf.validate.field).required = true];
 
   // Visual color theme for a button.

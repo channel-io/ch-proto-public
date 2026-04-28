@@ -52,7 +52,6 @@ message Channel {
   // Default welcome message shown to end users when a new conversation starts.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you?"}]}
   google.protobuf.Struct welcome_message = 2 [(buf.validate.field).required = true];
 
   // Internationalized welcome message overrides keyed by locale (e.g., en, ko).

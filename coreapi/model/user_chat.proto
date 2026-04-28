@@ -183,7 +183,6 @@ message UserChat {
   // Origin information describing how this chat was created
   // (e.g., user-initiated, workflow-triggered, support bot).
   //
-  // +kubebuilder:example={"medium":{"mediumType":"native","primitive":false}}
   google.protobuf.Struct source = 16;
 
   // IDs of managers currently participating in this chat.
@@ -209,7 +208,6 @@ message UserChat {
 
   // Custom key-value profile data associated with this chat.
   //
-  // +kubebuilder:example={"csat":5,"csatComment":"Great support!"}
   google.protobuf.Struct profile = 21;
 
   // Name of the goal event being tracked for conversion measurement.

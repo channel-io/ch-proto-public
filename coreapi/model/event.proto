@@ -53,7 +53,6 @@ message Event {
 
   // Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
   //
-  // +kubebuilder:example={"url":"https://example.com/products","productId":"SKU-12345"}
   google.protobuf.Struct property = 5;
 
   // Event creation timestamp.

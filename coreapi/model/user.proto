@@ -115,7 +115,6 @@ message User {
   // Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
   // arbitrary keys are also supported.
   //
-  // +kubebuilder:example={"name":"Alice Park","email":"alice@example.com","mobileNumber":"+821012345678"}
   google.protobuf.Struct profile = 17;
 
   // Classification tags attached to the user for segmentation and filtering.
