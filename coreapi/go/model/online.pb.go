@@ -28,7 +28,7 @@ type Online struct {
 	// Channel ID this online record belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="7683"
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Type of the person (e.g., manager, user).
 	//
@@ -40,11 +40,11 @@ type Online struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="m-001"
+	// +kubebuilder:example="12372"
 	PersonId string `protobuf:"bytes,3,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
 	// Composite presence record identifier derived from person type and person ID.
 	//
-	// +kubebuilder:example="manager-m-001"
+	// +kubebuilder:example="manager-12372"
 	Id            string `protobuf:"bytes,4,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

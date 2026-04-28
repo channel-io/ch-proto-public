@@ -143,43 +143,47 @@ type OneTimeMsg struct {
 	// Unique one-time message identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="otm-001"
+	// +kubebuilder:example="11689"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this one-time message belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="7683"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Human-readable label for the one-time message.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=128
-	// +kubebuilder:example="Spring Sale"
+	// +kubebuilder:example="Spring Sale Promotion"
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Current lifecycle state of the one-time message.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="draft"
 	State OneTimeMsgState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.OneTimeMsgState" json:"state,omitempty"`
 	// Controls when the message is delivered.
 	// Automatically inferred from start_at and local_start_at if not explicitly set.
+	//
+	// +kubebuilder:example="immediately"
 	SendMode OneTimeMsgSendMode `protobuf:"varint,5,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.OneTimeMsgSendMode" json:"send_mode,omitempty"`
 	// Channel operation schedule referenced for delivery timing.
 	//
-	// +kubebuilder:example="op-001"
+	// +kubebuilder:example="15023"
 	ChannelOperationId string `protobuf:"bytes,6,opt,name=channel_operation_id,json=channelOperationId,proto3" json:"channel_operation_id,omitempty"`
 	// Channel through which the message is delivered.
 	// Cannot be changed after creation.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="native"
 	MediumType MediumType `protobuf:"varint,7,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
 	//
-	// +kubebuilder:example="sms-001"
+	// +kubebuilder:example="67fceb5a3d6de141ea5a"
 	MediumId string `protobuf:"bytes,8,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	// Key for selecting the message topic template within the medium.
 	//
-	// +kubebuilder:example="topic-001"
+	// +kubebuilder:example="60123"
 	MediumTopicBuildKey string `protobuf:"bytes,9,opt,name=medium_topic_build_key,json=mediumTopicBuildKey,proto3" json:"medium_topic_build_key,omitempty"`
 	// Labels for categorizing the message topic within the medium.
 	MediumTopicBuildLabels []string `protobuf:"bytes,10,rep,name=medium_topic_build_labels,json=mediumTopicBuildLabels,proto3" json:"medium_topic_build_labels,omitempty"`
@@ -221,6 +225,8 @@ type OneTimeMsg struct {
 	SendToOfflineEmail bool `protobuf:"varint,20,opt,name=send_to_offline_email,json=sendToOfflineEmail,proto3" json:"send_to_offline_email,omitempty"`
 	// Scheduled send timestamp in UTC.
 	// Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	StartAt *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=start_at,json=startAt,proto3" json:"start_at,omitempty"`
 	// Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
 	// Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
@@ -233,10 +239,12 @@ type OneTimeMsg struct {
 	// One-time message creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,24,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// One-time message last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Cumulative count of messages delivered.
 	//

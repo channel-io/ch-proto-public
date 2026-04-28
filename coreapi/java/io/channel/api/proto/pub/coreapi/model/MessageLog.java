@@ -607,6 +607,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Type of action that was recorded.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="opened"
    * </pre>
    *
    * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -619,6 +620,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Type of action that was recorded.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="opened"
    * </pre>
    *
    * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -738,7 +740,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the entity that triggered this action.
-   * +kubebuilder:example="wf-001"
+   * +kubebuilder:example="70123"
    * </pre>
    *
    * <code>string trigger_id = 4 [json_name = "triggerId"];</code>
@@ -760,7 +762,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the entity that triggered this action.
-   * +kubebuilder:example="wf-001"
+   * +kubebuilder:example="70123"
    * </pre>
    *
    * <code>string trigger_id = 4 [json_name = "triggerId"];</code>
@@ -1162,6 +1164,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Type of action that was recorded.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="opened"
      * </pre>
      *
      * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -1174,6 +1177,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Type of action that was recorded.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="opened"
      * </pre>
      *
      * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -1190,6 +1194,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Type of action that was recorded.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="opened"
      * </pre>
      *
      * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -1205,6 +1210,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Type of action that was recorded.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="opened"
      * </pre>
      *
      * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -1224,6 +1230,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Type of action that was recorded.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="opened"
      * </pre>
      *
      * <code>.coreapi.model.MessageLog.MessageLogAction action = 1 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -1496,7 +1503,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the entity that triggered this action.
-     * +kubebuilder:example="wf-001"
+     * +kubebuilder:example="70123"
      * </pre>
      *
      * <code>string trigger_id = 4 [json_name = "triggerId"];</code>
@@ -1517,7 +1524,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the entity that triggered this action.
-     * +kubebuilder:example="wf-001"
+     * +kubebuilder:example="70123"
      * </pre>
      *
      * <code>string trigger_id = 4 [json_name = "triggerId"];</code>
@@ -1539,7 +1546,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the entity that triggered this action.
-     * +kubebuilder:example="wf-001"
+     * +kubebuilder:example="70123"
      * </pre>
      *
      * <code>string trigger_id = 4 [json_name = "triggerId"];</code>
@@ -1559,7 +1566,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the entity that triggered this action.
-     * +kubebuilder:example="wf-001"
+     * +kubebuilder:example="70123"
      * </pre>
      *
      * <code>string trigger_id = 4 [json_name = "triggerId"];</code>
@@ -1574,7 +1581,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the entity that triggered this action.
-     * +kubebuilder:example="wf-001"
+     * +kubebuilder:example="70123"
      * </pre>
      *
      * <code>string trigger_id = 4 [json_name = "triggerId"];</code>

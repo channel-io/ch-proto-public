@@ -11,7 +11,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Unique channel identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Unique channel identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -119,6 +119,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Channel creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -129,6 +130,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Channel creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -139,6 +141,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Channel creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -149,6 +152,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Channel last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -159,6 +163,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Channel last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -169,6 +174,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Channel last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -203,7 +209,7 @@ public interface ChannelOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:example="Channel Corp"
+   * +kubebuilder:example="Acme Support"
    * </pre>
    *
    * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -216,7 +222,7 @@ public interface ChannelOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:example="Channel Corp"
+   * +kubebuilder:example="Acme Support"
    * </pre>
    *
    * <code>string name = 7 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -305,7 +311,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Default bot display name shown to end users in conversations.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="Support Bot"
+   * +kubebuilder:example="Acme Support"
    * </pre>
    *
    * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
@@ -316,7 +322,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Default bot display name shown to end users in conversations.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="Support Bot"
+   * +kubebuilder:example="Acme Support"
    * </pre>
    *
    * <code>string bot_name = 10 [json_name = "botName", (.buf.validate.field) = { ... }</code>
@@ -425,7 +431,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * System-assigned default domain.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="a1b2c"
    * </pre>
    *
    * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
@@ -436,7 +442,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * System-assigned default domain.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="a1b2c"
    * </pre>
    *
    * <code>string default_domain = 15 [json_name = "defaultDomain", (.buf.validate.field) = { ... }</code>
@@ -613,6 +619,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Current lifecycle state of the channel.
    * See ChannelState for possible values.
+   * +kubebuilder:example="active"
    * </pre>
    *
    * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
@@ -623,6 +630,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Current lifecycle state of the channel.
    * See ChannelState for possible values.
+   * +kubebuilder:example="active"
    * </pre>
    *
    * <code>.coreapi.model.ChannelState state = 26 [json_name = "state"];</code>
@@ -645,7 +653,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Default plugin identifier used by the messenger widget.
-   * +kubebuilder:example="plg-001"
+   * +kubebuilder:example="94802"
    * </pre>
    *
    * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
@@ -655,7 +663,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Default plugin identifier used by the messenger widget.
-   * +kubebuilder:example="plg-001"
+   * +kubebuilder:example="94802"
    * </pre>
    *
    * <code>string default_plugin_id = 28 [json_name = "defaultPluginId"];</code>
@@ -933,7 +941,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Channel avatar image URL.
    * Falls back to a system-generated default when no custom avatar is set.
-   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
+   * +kubebuilder:example="https://cf.channel.io/avatar/emoji/bee.cc9efe.png"
    * </pre>
    *
    * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
@@ -944,7 +952,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Channel avatar image URL.
    * Falls back to a system-generated default when no custom avatar is set.
-   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
+   * +kubebuilder:example="https://cf.channel.io/avatar/emoji/bee.cc9efe.png"
    * </pre>
    *
    * <code>string avatar_url = 44 [json_name = "avatarUrl"];</code>
@@ -957,6 +965,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Expected response delay indicator shown to end users.
    * Derived from the channel operating configuration.
+   * +kubebuilder:example="normal"
    * </pre>
    *
    * <code>.coreapi.model.ResponseDelayType expected_response_delay = 45 [json_name = "expectedResponseDelay"];</code>
@@ -967,6 +976,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Expected response delay indicator shown to end users.
    * Derived from the channel operating configuration.
+   * +kubebuilder:example="normal"
    * </pre>
    *
    * <code>.coreapi.model.ResponseDelayType expected_response_delay = 45 [json_name = "expectedResponseDelay"];</code>
@@ -1004,6 +1014,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Timestamp when the next operating period starts.
    * Present only when the channel is currently outside operating hours.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -1014,6 +1025,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Timestamp when the next operating period starts.
    * Present only when the channel is currently outside operating hours.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -1024,6 +1036,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Timestamp when the next operating period starts.
    * Present only when the channel is currently outside operating hours.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -1034,6 +1047,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Timestamp when the next away (non-operating) period starts.
    * Present only when the channel is currently within operating hours.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -1044,6 +1058,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Timestamp when the next away (non-operating) period starts.
    * Present only when the channel is currently within operating hours.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -1054,6 +1069,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Timestamp when the next away (non-operating) period starts.
    * Present only when the channel is currently within operating hours.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -1108,6 +1124,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Messenger behavior when the channel is outside of operating hours.
    * See ChannelAwayOption for possible values.
+   * +kubebuilder:example="active"
    * </pre>
    *
    * <code>.coreapi.model.ChannelAwayOption away_option = 51 [json_name = "awayOption"];</code>
@@ -1118,6 +1135,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Messenger behavior when the channel is outside of operating hours.
    * See ChannelAwayOption for possible values.
+   * +kubebuilder:example="active"
    * </pre>
    *
    * <code>.coreapi.model.ChannelAwayOption away_option = 51 [json_name = "awayOption"];</code>
@@ -1141,6 +1159,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Grace period after conversation closure during which the end user may still reply.
    * Applicable only when block_replying_after_closed is true.
+   * +kubebuilder:example="3600s"
    * </pre>
    *
    * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -1151,6 +1170,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Grace period after conversation closure during which the end user may still reply.
    * Applicable only when block_replying_after_closed is true.
+   * +kubebuilder:example="3600s"
    * </pre>
    *
    * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -1161,6 +1181,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Grace period after conversation closure during which the end user may still reply.
    * Applicable only when block_replying_after_closed is true.
+   * +kubebuilder:example="3600s"
    * </pre>
    *
    * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -1259,7 +1280,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Resolved domain for the channel.
    * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="a1b2c"
    * </pre>
    *
    * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
@@ -1270,7 +1291,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Resolved domain for the channel.
    * Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="a1b2c"
    * </pre>
    *
    * <code>string system_domain = 58 [json_name = "systemDomain"];</code>
@@ -1316,7 +1337,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Cover image URL for the channel profile page.
-   * +kubebuilder:example="https://cdn.channel.io/cover/ch-12345.jpg"
+   * +kubebuilder:example="https://cdn.channel.io/cover/7683.jpg"
    * </pre>
    *
    * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>
@@ -1326,7 +1347,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Cover image URL for the channel profile page.
-   * +kubebuilder:example="https://cdn.channel.io/cover/ch-12345.jpg"
+   * +kubebuilder:example="https://cdn.channel.io/cover/7683.jpg"
    * </pre>
    *
    * <code>string cover_image_url = 61 [json_name = "coverImageUrl"];</code>

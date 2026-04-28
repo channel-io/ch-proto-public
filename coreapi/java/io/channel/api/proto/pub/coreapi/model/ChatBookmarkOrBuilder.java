@@ -13,7 +13,7 @@ public interface ChatBookmarkOrBuilder extends
    * Format: "{personType}-{personId}-{chatType}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="manager-m001-userChat"
+   * +kubebuilder:example="manager-12372-userChat"
    * </pre>
    *
    * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -26,7 +26,7 @@ public interface ChatBookmarkOrBuilder extends
    * Format: "{personType}-{personId}-{chatType}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="manager-m001-userChat"
+   * +kubebuilder:example="manager-12372-userChat"
    * </pre>
    *
    * <code>string key = 1 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -40,7 +40,7 @@ public interface ChatBookmarkOrBuilder extends
    * Chat ID this bookmark belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -52,7 +52,7 @@ public interface ChatBookmarkOrBuilder extends
    * Chat ID this bookmark belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string chat_id = 2 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -67,7 +67,7 @@ public interface ChatBookmarkOrBuilder extends
    * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="userChat-uc-abc123"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -80,7 +80,7 @@ public interface ChatBookmarkOrBuilder extends
    * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="userChat-uc-abc123"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string chat_key = 3 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -94,7 +94,7 @@ public interface ChatBookmarkOrBuilder extends
    * Opaque key representing the reading position in the chat.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="bk-001"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
@@ -106,7 +106,7 @@ public interface ChatBookmarkOrBuilder extends
    * Opaque key representing the reading position in the chat.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="bk-001"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string bookmark_key = 4 [json_name = "bookmarkKey", (.buf.validate.field) = { ... }</code>
@@ -119,7 +119,7 @@ public interface ChatBookmarkOrBuilder extends
    * <pre>
    * Channel ID this bookmark belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -130,7 +130,7 @@ public interface ChatBookmarkOrBuilder extends
    * <pre>
    * Channel ID this bookmark belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 5 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -181,7 +181,7 @@ public interface ChatBookmarkOrBuilder extends
    * Identifier of the bookmark owner.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="m-001"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -193,7 +193,7 @@ public interface ChatBookmarkOrBuilder extends
    * Identifier of the bookmark owner.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="m-001"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string person_id = 8 [json_name = "personId", (.buf.validate.field) = { ... }</code>

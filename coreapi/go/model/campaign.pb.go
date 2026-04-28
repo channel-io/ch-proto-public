@@ -250,12 +250,12 @@ type Campaign struct {
 	// Unique campaign identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="cpn-001"
+	// +kubebuilder:example="6299"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this campaign belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="7683"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Human-readable label for the campaign.
 	//
@@ -267,15 +267,17 @@ type Campaign struct {
 	// Current lifecycle state of the campaign.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="active"
 	State CampaignState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.CampaignState" json:"state,omitempty"`
 	// Channel through which the campaign message is delivered.
 	// Cannot be changed after creation.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="native"
 	MediumType MediumType `protobuf:"varint,5,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
 	//
-	// +kubebuilder:example="sms-001"
+	// +kubebuilder:example="67fceb5a3d6de141ea5a"
 	MediumId string `protobuf:"bytes,6,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	// Query expression that defines the target user segment.
 	// Represented as a structured filter object.
@@ -306,6 +308,8 @@ type Campaign struct {
 	FilterEventQuery *structpb.Struct `protobuf:"bytes,13,opt,name=filter_event_query,json=filterEventQuery,proto3" json:"filter_event_query,omitempty"`
 	// Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
 	// Applicable when filter_event_name is set.
+	//
+	// +kubebuilder:example="positive"
 	FilterMatch CampaignFilterMatch `protobuf:"varint,14,opt,name=filter_match,json=filterMatch,proto3,enum=coreapi.model.CampaignFilterMatch" json:"filter_match,omitempty"`
 	// Holds a property value from the trigger event constant for consistent additional event filtering.
 	// Applicable when filter_event_name is set.
@@ -349,18 +353,23 @@ type Campaign struct {
 	// Controls when messages are delivered relative to operation hours or custom time ranges.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="always"
 	SendMode CampaignSendMode `protobuf:"varint,25,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.CampaignSendMode" json:"send_mode,omitempty"`
 	// Channel operation schedule used to determine delivery timing.
 	// Applicable when send_mode is IN_OPERATION or AWAY.
 	//
-	// +kubebuilder:example="op-001"
+	// +kubebuilder:example="15023"
 	ChannelOperationId string `protobuf:"bytes,26,opt,name=channel_operation_id,json=channelOperationId,proto3" json:"channel_operation_id,omitempty"`
 	// Custom time windows for delivery scheduling.
 	// Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
 	SendTimeRanges []*TimeRange `protobuf:"bytes,27,rep,name=send_time_ranges,json=sendTimeRanges,proto3" json:"send_time_ranges,omitempty"`
 	// Timestamp when the campaign becomes eligible to trigger.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	StartAt *timestamppb.Timestamp `protobuf:"bytes,28,opt,name=start_at,json=startAt,proto3" json:"start_at,omitempty"`
 	// Timestamp when the campaign automatically stops.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	EndAt *timestamppb.Timestamp `protobuf:"bytes,29,opt,name=end_at,json=endAt,proto3" json:"end_at,omitempty"`
 	// Snapshot of the campaign configuration captured before activation.
 	// Represented as a free-form JSON object.
@@ -368,10 +377,12 @@ type Campaign struct {
 	// Campaign creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,31,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Campaign last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,32,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Cumulative count of messages delivered.
 	//
@@ -396,7 +407,7 @@ type Campaign struct {
 	UserChatExpireDuration *durationpb.Duration `protobuf:"bytes,37,opt,name=user_chat_expire_duration,json=userChatExpireDuration,proto3" json:"user_chat_expire_duration,omitempty"`
 	// Manager assigned to handle user responses from this campaign.
 	//
-	// +kubebuilder:example="m-001"
+	// +kubebuilder:example="12372"
 	ManagerId     string `protobuf:"bytes,38,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -720,6 +731,7 @@ type HoldingPropertyConstant struct {
 	// Indicates whether the property is captured from the trigger event or the additional filter event.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="triggerEvent"
 	BaseEventType CampaignBaseEventType `protobuf:"varint,4,opt,name=base_event_type,json=baseEventType,proto3,enum=coreapi.model.CampaignBaseEventType" json:"base_event_type,omitempty"`
 	// Comparison operator schema used to evaluate the held property value.
 	// Represented as a structured object describing the operator type and configuration.

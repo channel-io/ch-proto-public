@@ -123,20 +123,22 @@ type OperatorStatus struct {
 	// Unique operator status identifier, matching the associated manager ID.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="m-abc123"
+	// +kubebuilder:example="12372"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Manager ID this operator status belongs to.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="m-abc123"
+	// +kubebuilder:example="12372"
 	ManagerId string `protobuf:"bytes,2,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	// Channel ID this operator status belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="7683"
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Current activity state of the manager, used for chat routing and workload management.
+	//
+	// +kubebuilder:example="waiting"
 	OperatorStatusType OperatorStatusType `protobuf:"varint,4,opt,name=operator_status_type,json=operatorStatusType,proto3,enum=coreapi.model.OperatorStatusType" json:"operator_status_type,omitempty"`
 	// Whether the manager is enabled to receive and handle chats.
 	// Disabled managers are excluded from auto-assignment.
@@ -147,13 +149,17 @@ type OperatorStatus struct {
 	// Operator status creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Operator status last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Timestamp when `operator_status_type` was last changed.
 	// Differs from `updated_at` which tracks any field update.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	TypeUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=type_updated_at,json=typeUpdatedAt,proto3" json:"type_updated_at,omitempty"`
 	// Optimistic locking version for concurrent update detection.
 	//

@@ -31,7 +31,7 @@ type ManagerBadge struct {
 	// Uses the same value as the owning manager's ID.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="m-abc123"
+	// +kubebuilder:example="12372"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Alert-level unread count in team chat main conversations.
 	// Defaults to 0.
@@ -64,6 +64,8 @@ type ManagerBadge struct {
 	// +kubebuilder:example="2"
 	TeamChatThreadUnread int32 `protobuf:"varint,7,opt,name=team_chat_thread_unread,json=teamChatThreadUnread,proto3" json:"team_chat_thread_unread,omitempty"`
 	// Badge last update timestamp.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Optimistic locking version.
 	// Incremented on every update.
@@ -73,7 +75,7 @@ type ManagerBadge struct {
 	// Manager ID this badge belongs to.
 	// Same value as the badge id.
 	//
-	// +kubebuilder:example="m-abc123"
+	// +kubebuilder:example="12372"
 	ManagerId string `protobuf:"bytes,10,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	// Aggregated alert count across all chat types.
 	// Equals team_chat_alert + team_chat_thread_alert + user_chat_alert.

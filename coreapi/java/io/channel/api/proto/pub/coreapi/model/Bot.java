@@ -185,7 +185,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique bot identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="100"
+   * +kubebuilder:example="231306"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -208,7 +208,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique bot identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="100"
+   * +kubebuilder:example="231306"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -235,7 +235,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this bot belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -258,7 +258,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this bot belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -289,7 +289,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
-   * +kubebuilder:example="Support Bot"
+   * +kubebuilder:example="Order Bot"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -316,7 +316,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
-   * +kubebuilder:example="Support Bot"
+   * +kubebuilder:example="Order Bot"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -343,7 +343,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Bot description.
    * +kubebuilder:validation:MaxLength=180
-   * +kubebuilder:example="Handles billing and payment inquiries."
+   * +kubebuilder:example="Handles order and payment inquiries."
    * </pre>
    *
    * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -366,7 +366,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Bot description.
    * +kubebuilder:validation:MaxLength=180
-   * +kubebuilder:example="Handles billing and payment inquiries."
+   * +kubebuilder:example="Handles order and payment inquiries."
    * </pre>
    *
    * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -594,6 +594,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Bot creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -607,6 +608,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Bot creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -620,6 +622,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Bot creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1175,7 +1178,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique bot identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="100"
+     * +kubebuilder:example="231306"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1197,7 +1200,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique bot identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="100"
+     * +kubebuilder:example="231306"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1220,7 +1223,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique bot identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="100"
+     * +kubebuilder:example="231306"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1241,7 +1244,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique bot identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="100"
+     * +kubebuilder:example="231306"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1257,7 +1260,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique bot identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="100"
+     * +kubebuilder:example="231306"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1281,7 +1284,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this bot belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1303,7 +1306,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this bot belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1326,7 +1329,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this bot belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1347,7 +1350,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this bot belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1363,7 +1366,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this bot belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1391,7 +1394,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
-     * +kubebuilder:example="Support Bot"
+     * +kubebuilder:example="Order Bot"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1417,7 +1420,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
-     * +kubebuilder:example="Support Bot"
+     * +kubebuilder:example="Order Bot"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1444,7 +1447,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
-     * +kubebuilder:example="Support Bot"
+     * +kubebuilder:example="Order Bot"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1469,7 +1472,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
-     * +kubebuilder:example="Support Bot"
+     * +kubebuilder:example="Order Bot"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1489,7 +1492,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
-     * +kubebuilder:example="Support Bot"
+     * +kubebuilder:example="Order Bot"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1513,7 +1516,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot description.
      * +kubebuilder:validation:MaxLength=180
-     * +kubebuilder:example="Handles billing and payment inquiries."
+     * +kubebuilder:example="Handles order and payment inquiries."
      * </pre>
      *
      * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1535,7 +1538,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot description.
      * +kubebuilder:validation:MaxLength=180
-     * +kubebuilder:example="Handles billing and payment inquiries."
+     * +kubebuilder:example="Handles order and payment inquiries."
      * </pre>
      *
      * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1558,7 +1561,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot description.
      * +kubebuilder:validation:MaxLength=180
-     * +kubebuilder:example="Handles billing and payment inquiries."
+     * +kubebuilder:example="Handles order and payment inquiries."
      * </pre>
      *
      * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1579,7 +1582,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot description.
      * +kubebuilder:validation:MaxLength=180
-     * +kubebuilder:example="Handles billing and payment inquiries."
+     * +kubebuilder:example="Handles order and payment inquiries."
      * </pre>
      *
      * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1595,7 +1598,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot description.
      * +kubebuilder:validation:MaxLength=180
-     * +kubebuilder:example="Handles billing and payment inquiries."
+     * +kubebuilder:example="Handles order and payment inquiries."
      * </pre>
      *
      * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1999,6 +2002,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2011,6 +2015,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2027,6 +2032,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2048,6 +2054,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2067,6 +2074,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2090,6 +2098,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2109,6 +2118,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2122,6 +2132,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2138,6 +2149,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Bot creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>

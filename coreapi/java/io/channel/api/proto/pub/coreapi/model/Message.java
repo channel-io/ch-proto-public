@@ -523,7 +523,7 @@ private static final long serialVersionUID = 0L;
    * Composite key identifying the parent conversation.
    * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="userChat-uc-abc123"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -547,7 +547,7 @@ private static final long serialVersionUID = 0L;
    * Composite key identifying the parent conversation.
    * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="userChat-uc-abc123"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -574,7 +574,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique message identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="msg-001"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -597,7 +597,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique message identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="msg-001"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -624,7 +624,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Index key for the main (top-level) message stream.
    * Same value as chat_key when the message appears in the main stream.
-   * +kubebuilder:example="userChat-uc-abc123"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -647,7 +647,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Index key for the main (top-level) message stream.
    * Same value as chat_key when the message appears in the main stream.
-   * +kubebuilder:example="userChat-uc-abc123"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -676,7 +676,7 @@ private static final long serialVersionUID = 0L;
    * For thread root messages: same value as chat_key.
    * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message does not belong to a thread.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string thread_key = 4 [json_name = "threadKey"];</code>
@@ -701,7 +701,7 @@ private static final long serialVersionUID = 0L;
    * For thread root messages: same value as chat_key.
    * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message does not belong to a thread.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string thread_key = 4 [json_name = "threadKey"];</code>
@@ -730,7 +730,7 @@ private static final long serialVersionUID = 0L;
    * For meet root messages: same value as chat_key.
    * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not associated with a meet session.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -755,7 +755,7 @@ private static final long serialVersionUID = 0L;
    * For meet root messages: same value as chat_key.
    * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not associated with a meet session.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -782,7 +782,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Index key for the front (user-facing) message stream.
    * Same value as chat_key when the message appears in the front stream.
-   * +kubebuilder:example="userChat-uc-abc123"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string front_key = 6 [json_name = "frontKey"];</code>
@@ -805,7 +805,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Index key for the front (user-facing) message stream.
    * Same value as chat_key when the message appears in the front stream.
-   * +kubebuilder:example="userChat-uc-abc123"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string front_key = 6 [json_name = "frontKey"];</code>
@@ -834,7 +834,7 @@ private static final long serialVersionUID = 0L;
    * For ALF thread root messages: same value as chat_key.
    * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not part of an ALF thread.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -859,7 +859,7 @@ private static final long serialVersionUID = 0L;
    * For ALF thread root messages: same value as chat_key.
    * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not part of an ALF thread.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -886,7 +886,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -909,7 +909,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -986,7 +986,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat ID of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -1009,7 +1009,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat ID of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -1086,7 +1086,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Entity ID of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -1109,7 +1109,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Entity ID of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -1137,7 +1137,7 @@ private static final long serialVersionUID = 0L;
    * Client-generated identifier for deduplication.
    * Allows matching a locally pre-rendered message with the server response.
    * Immutable after creation.
-   * +kubebuilder:example="req-12345"
+   * +kubebuilder:example="a1b2c3d4e5"
    * </pre>
    *
    * <code>string request_id = 13 [json_name = "requestId"];</code>
@@ -1161,7 +1161,7 @@ private static final long serialVersionUID = 0L;
    * Client-generated identifier for deduplication.
    * Allows matching a locally pre-rendered message with the server response.
    * Immutable after creation.
-   * +kubebuilder:example="req-12345"
+   * +kubebuilder:example="a1b2c3d4e5"
    * </pre>
    *
    * <code>string request_id = 13 [json_name = "requestId"];</code>
@@ -1236,6 +1236,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1249,6 +1250,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1262,6 +1264,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1408,6 +1411,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Message last update timestamp.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -1420,6 +1424,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Message last update timestamp.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -1432,6 +1437,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Message last update timestamp.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -1614,6 +1620,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the message content was last edited by a person.
    * Absent if the message has never been edited.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -1627,6 +1634,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the message content was last edited by a person.
    * Absent if the message has never been edited.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -1640,6 +1648,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the message content was last edited by a person.
    * Absent if the message has never been edited.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -2015,6 +2024,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Current lifecycle state of this message.
+   * +kubebuilder:example="sent"
    * </pre>
    *
    * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
@@ -2026,6 +2036,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Current lifecycle state of this message.
+   * +kubebuilder:example="sent"
    * </pre>
    *
    * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
@@ -2228,6 +2239,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Notification priority level controlling client-side popup behavior.
+   * +kubebuilder:example="alert"
    * </pre>
    *
    * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
@@ -2239,6 +2251,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Notification priority level controlling client-side popup behavior.
+   * +kubebuilder:example="alert"
    * </pre>
    *
    * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
@@ -2340,6 +2353,7 @@ private static final long serialVersionUID = 0L;
    * Automatically derived from the message content when not explicitly set:
    * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
    * and STANDARD otherwise.
+   * +kubebuilder:example="standard"
    * </pre>
    *
    * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
@@ -2354,6 +2368,7 @@ private static final long serialVersionUID = 0L;
    * Automatically derived from the message content when not explicitly set:
    * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
    * and STANDARD otherwise.
+   * +kubebuilder:example="standard"
    * </pre>
    *
    * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
@@ -2390,7 +2405,7 @@ private static final long serialVersionUID = 0L;
    * ID of the root message when this message belongs to a thread, meet, or ALF thread.
    * Parsed from thread_key, meet_key, or alf_thread_key respectively.
    * Absent for root messages and standalone messages.
-   * +kubebuilder:example="msg-root-001"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
@@ -2414,7 +2429,7 @@ private static final long serialVersionUID = 0L;
    * ID of the root message when this message belongs to a thread, meet, or ALF thread.
    * Parsed from thread_key, meet_key, or alf_thread_key respectively.
    * Absent for root messages and standalone messages.
-   * +kubebuilder:example="msg-root-001"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
@@ -3931,7 +3946,7 @@ private static final long serialVersionUID = 0L;
      * Composite key identifying the parent conversation.
      * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="userChat-uc-abc123"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -3954,7 +3969,7 @@ private static final long serialVersionUID = 0L;
      * Composite key identifying the parent conversation.
      * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="userChat-uc-abc123"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -3978,7 +3993,7 @@ private static final long serialVersionUID = 0L;
      * Composite key identifying the parent conversation.
      * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="userChat-uc-abc123"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -4000,7 +4015,7 @@ private static final long serialVersionUID = 0L;
      * Composite key identifying the parent conversation.
      * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="userChat-uc-abc123"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -4017,7 +4032,7 @@ private static final long serialVersionUID = 0L;
      * Composite key identifying the parent conversation.
      * Format: "{chatType}-{chatId}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="userChat-uc-abc123"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -4041,7 +4056,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique message identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="msg-001"
+     * +kubebuilder:example="69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4063,7 +4078,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique message identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="msg-001"
+     * +kubebuilder:example="69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4086,7 +4101,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique message identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="msg-001"
+     * +kubebuilder:example="69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4107,7 +4122,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique message identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="msg-001"
+     * +kubebuilder:example="69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4123,7 +4138,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique message identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="msg-001"
+     * +kubebuilder:example="69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -4147,7 +4162,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Index key for the main (top-level) message stream.
      * Same value as chat_key when the message appears in the main stream.
-     * +kubebuilder:example="userChat-uc-abc123"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -4169,7 +4184,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Index key for the main (top-level) message stream.
      * Same value as chat_key when the message appears in the main stream.
-     * +kubebuilder:example="userChat-uc-abc123"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -4192,7 +4207,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Index key for the main (top-level) message stream.
      * Same value as chat_key when the message appears in the main stream.
-     * +kubebuilder:example="userChat-uc-abc123"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -4213,7 +4228,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Index key for the main (top-level) message stream.
      * Same value as chat_key when the message appears in the main stream.
-     * +kubebuilder:example="userChat-uc-abc123"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -4229,7 +4244,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Index key for the main (top-level) message stream.
      * Same value as chat_key when the message appears in the main stream.
-     * +kubebuilder:example="userChat-uc-abc123"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -4255,7 +4270,7 @@ private static final long serialVersionUID = 0L;
      * For thread root messages: same value as chat_key.
      * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message does not belong to a thread.
-     * +kubebuilder:example="userChat-uc-abc123-msg-001"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string thread_key = 4 [json_name = "threadKey"];</code>
@@ -4279,7 +4294,7 @@ private static final long serialVersionUID = 0L;
      * For thread root messages: same value as chat_key.
      * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message does not belong to a thread.
-     * +kubebuilder:example="userChat-uc-abc123-msg-001"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string thread_key = 4 [json_name = "threadKey"];</code>
@@ -4304,7 +4319,7 @@ private static final long serialVersionUID = 0L;
      * For thread root messages: same value as chat_key.
      * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message does not belong to a thread.
-     * +kubebuilder:example="userChat-uc-abc123-msg-001"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string thread_key = 4 [json_name = "threadKey"];</code>
@@ -4327,7 +4342,7 @@ private static final long serialVersionUID = 0L;
      * For thread root messages: same value as chat_key.
      * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message does not belong to a thread.
-     * +kubebuilder:example="userChat-uc-abc123-msg-001"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string thread_key = 4 [json_name = "threadKey"];</code>
@@ -4345,7 +4360,7 @@ private static final long serialVersionUID = 0L;
      * For thread root messages: same value as chat_key.
      * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message does not belong to a thread.
-     * +kubebuilder:example="userChat-uc-abc123-msg-001"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string thread_key = 4 [json_name = "threadKey"];</code>
@@ -4371,7 +4386,7 @@ private static final long serialVersionUID = 0L;
      * For meet root messages: same value as chat_key.
      * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not associated with a meet session.
-     * +kubebuilder:example="userChat-uc-abc123-msg-001"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -4395,7 +4410,7 @@ private static final long serialVersionUID = 0L;
      * For meet root messages: same value as chat_key.
      * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not associated with a meet session.
-     * +kubebuilder:example="userChat-uc-abc123-msg-001"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -4420,7 +4435,7 @@ private static final long serialVersionUID = 0L;
      * For meet root messages: same value as chat_key.
      * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not associated with a meet session.
-     * +kubebuilder:example="userChat-uc-abc123-msg-001"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -4443,7 +4458,7 @@ private static final long serialVersionUID = 0L;
      * For meet root messages: same value as chat_key.
      * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not associated with a meet session.
-     * +kubebuilder:example="userChat-uc-abc123-msg-001"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -4461,7 +4476,7 @@ private static final long serialVersionUID = 0L;
      * For meet root messages: same value as chat_key.
      * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not associated with a meet session.
-     * +kubebuilder:example="userChat-uc-abc123-msg-001"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -4485,7 +4500,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Index key for the front (user-facing) message stream.
      * Same value as chat_key when the message appears in the front stream.
-     * +kubebuilder:example="userChat-uc-abc123"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string front_key = 6 [json_name = "frontKey"];</code>
@@ -4507,7 +4522,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Index key for the front (user-facing) message stream.
      * Same value as chat_key when the message appears in the front stream.
-     * +kubebuilder:example="userChat-uc-abc123"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string front_key = 6 [json_name = "frontKey"];</code>
@@ -4530,7 +4545,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Index key for the front (user-facing) message stream.
      * Same value as chat_key when the message appears in the front stream.
-     * +kubebuilder:example="userChat-uc-abc123"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string front_key = 6 [json_name = "frontKey"];</code>
@@ -4551,7 +4566,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Index key for the front (user-facing) message stream.
      * Same value as chat_key when the message appears in the front stream.
-     * +kubebuilder:example="userChat-uc-abc123"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string front_key = 6 [json_name = "frontKey"];</code>
@@ -4567,7 +4582,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Index key for the front (user-facing) message stream.
      * Same value as chat_key when the message appears in the front stream.
-     * +kubebuilder:example="userChat-uc-abc123"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string front_key = 6 [json_name = "frontKey"];</code>
@@ -4593,7 +4608,7 @@ private static final long serialVersionUID = 0L;
      * For ALF thread root messages: same value as chat_key.
      * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not part of an ALF thread.
-     * +kubebuilder:example="userChat-uc-abc123-msg-001"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -4617,7 +4632,7 @@ private static final long serialVersionUID = 0L;
      * For ALF thread root messages: same value as chat_key.
      * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not part of an ALF thread.
-     * +kubebuilder:example="userChat-uc-abc123-msg-001"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -4642,7 +4657,7 @@ private static final long serialVersionUID = 0L;
      * For ALF thread root messages: same value as chat_key.
      * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not part of an ALF thread.
-     * +kubebuilder:example="userChat-uc-abc123-msg-001"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -4665,7 +4680,7 @@ private static final long serialVersionUID = 0L;
      * For ALF thread root messages: same value as chat_key.
      * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not part of an ALF thread.
-     * +kubebuilder:example="userChat-uc-abc123-msg-001"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -4683,7 +4698,7 @@ private static final long serialVersionUID = 0L;
      * For ALF thread root messages: same value as chat_key.
      * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
      * Absent when the message is not part of an ALF thread.
-     * +kubebuilder:example="userChat-uc-abc123-msg-001"
+     * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -4707,7 +4722,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -4729,7 +4744,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -4752,7 +4767,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -4773,7 +4788,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -4789,7 +4804,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -4919,7 +4934,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="uc-abc123"
+     * +kubebuilder:example="69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -4941,7 +4956,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="uc-abc123"
+     * +kubebuilder:example="69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -4964,7 +4979,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="uc-abc123"
+     * +kubebuilder:example="69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -4985,7 +5000,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="uc-abc123"
+     * +kubebuilder:example="69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -5001,7 +5016,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="uc-abc123"
+     * +kubebuilder:example="69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -5131,7 +5146,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity ID of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -5153,7 +5168,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity ID of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -5176,7 +5191,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity ID of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -5197,7 +5212,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity ID of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -5213,7 +5228,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity ID of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -5238,7 +5253,7 @@ private static final long serialVersionUID = 0L;
      * Client-generated identifier for deduplication.
      * Allows matching a locally pre-rendered message with the server response.
      * Immutable after creation.
-     * +kubebuilder:example="req-12345"
+     * +kubebuilder:example="a1b2c3d4e5"
      * </pre>
      *
      * <code>string request_id = 13 [json_name = "requestId"];</code>
@@ -5261,7 +5276,7 @@ private static final long serialVersionUID = 0L;
      * Client-generated identifier for deduplication.
      * Allows matching a locally pre-rendered message with the server response.
      * Immutable after creation.
-     * +kubebuilder:example="req-12345"
+     * +kubebuilder:example="a1b2c3d4e5"
      * </pre>
      *
      * <code>string request_id = 13 [json_name = "requestId"];</code>
@@ -5285,7 +5300,7 @@ private static final long serialVersionUID = 0L;
      * Client-generated identifier for deduplication.
      * Allows matching a locally pre-rendered message with the server response.
      * Immutable after creation.
-     * +kubebuilder:example="req-12345"
+     * +kubebuilder:example="a1b2c3d4e5"
      * </pre>
      *
      * <code>string request_id = 13 [json_name = "requestId"];</code>
@@ -5307,7 +5322,7 @@ private static final long serialVersionUID = 0L;
      * Client-generated identifier for deduplication.
      * Allows matching a locally pre-rendered message with the server response.
      * Immutable after creation.
-     * +kubebuilder:example="req-12345"
+     * +kubebuilder:example="a1b2c3d4e5"
      * </pre>
      *
      * <code>string request_id = 13 [json_name = "requestId"];</code>
@@ -5324,7 +5339,7 @@ private static final long serialVersionUID = 0L;
      * Client-generated identifier for deduplication.
      * Allows matching a locally pre-rendered message with the server response.
      * Immutable after creation.
-     * +kubebuilder:example="req-12345"
+     * +kubebuilder:example="a1b2c3d4e5"
      * </pre>
      *
      * <code>string request_id = 13 [json_name = "requestId"];</code>
@@ -5451,6 +5466,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5463,6 +5479,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5479,6 +5496,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5500,6 +5518,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5519,6 +5538,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5542,6 +5562,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5561,6 +5582,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5574,6 +5596,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5590,6 +5613,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -6099,6 +6123,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6110,6 +6135,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6125,6 +6151,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6145,6 +6172,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6163,6 +6191,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6185,6 +6214,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6203,6 +6233,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6215,6 +6246,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6230,6 +6262,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6920,6 +6953,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -6932,6 +6966,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -6948,6 +6983,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -6969,6 +7005,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -6988,6 +7025,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -7011,6 +7049,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -7030,6 +7069,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -7043,6 +7083,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -7059,6 +7100,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -8736,6 +8778,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of this message.
+     * +kubebuilder:example="sent"
      * </pre>
      *
      * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
@@ -8747,6 +8790,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of this message.
+     * +kubebuilder:example="sent"
      * </pre>
      *
      * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
@@ -8762,6 +8806,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of this message.
+     * +kubebuilder:example="sent"
      * </pre>
      *
      * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
@@ -8776,6 +8821,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of this message.
+     * +kubebuilder:example="sent"
      * </pre>
      *
      * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
@@ -8794,6 +8840,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of this message.
+     * +kubebuilder:example="sent"
      * </pre>
      *
      * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
@@ -9475,6 +9522,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Notification priority level controlling client-side popup behavior.
+     * +kubebuilder:example="alert"
      * </pre>
      *
      * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
@@ -9486,6 +9534,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Notification priority level controlling client-side popup behavior.
+     * +kubebuilder:example="alert"
      * </pre>
      *
      * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
@@ -9501,6 +9550,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Notification priority level controlling client-side popup behavior.
+     * +kubebuilder:example="alert"
      * </pre>
      *
      * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
@@ -9515,6 +9565,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Notification priority level controlling client-side popup behavior.
+     * +kubebuilder:example="alert"
      * </pre>
      *
      * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
@@ -9533,6 +9584,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Notification priority level controlling client-side popup behavior.
+     * +kubebuilder:example="alert"
      * </pre>
      *
      * <code>.coreapi.model.AlertLevel alert_level = 37 [json_name = "alertLevel"];</code>
@@ -9880,6 +9932,7 @@ private static final long serialVersionUID = 0L;
      * Automatically derived from the message content when not explicitly set:
      * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
      * and STANDARD otherwise.
+     * +kubebuilder:example="standard"
      * </pre>
      *
      * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
@@ -9894,6 +9947,7 @@ private static final long serialVersionUID = 0L;
      * Automatically derived from the message content when not explicitly set:
      * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
      * and STANDARD otherwise.
+     * +kubebuilder:example="standard"
      * </pre>
      *
      * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
@@ -9912,6 +9966,7 @@ private static final long serialVersionUID = 0L;
      * Automatically derived from the message content when not explicitly set:
      * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
      * and STANDARD otherwise.
+     * +kubebuilder:example="standard"
      * </pre>
      *
      * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
@@ -9929,6 +9984,7 @@ private static final long serialVersionUID = 0L;
      * Automatically derived from the message content when not explicitly set:
      * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
      * and STANDARD otherwise.
+     * +kubebuilder:example="standard"
      * </pre>
      *
      * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
@@ -9950,6 +10006,7 @@ private static final long serialVersionUID = 0L;
      * Automatically derived from the message content when not explicitly set:
      * defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
      * and STANDARD otherwise.
+     * +kubebuilder:example="standard"
      * </pre>
      *
      * <code>.coreapi.model.WritingType writing_type = 40 [json_name = "writingType"];</code>
@@ -10020,7 +10077,7 @@ private static final long serialVersionUID = 0L;
      * ID of the root message when this message belongs to a thread, meet, or ALF thread.
      * Parsed from thread_key, meet_key, or alf_thread_key respectively.
      * Absent for root messages and standalone messages.
-     * +kubebuilder:example="msg-root-001"
+     * +kubebuilder:example="69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
@@ -10043,7 +10100,7 @@ private static final long serialVersionUID = 0L;
      * ID of the root message when this message belongs to a thread, meet, or ALF thread.
      * Parsed from thread_key, meet_key, or alf_thread_key respectively.
      * Absent for root messages and standalone messages.
-     * +kubebuilder:example="msg-root-001"
+     * +kubebuilder:example="69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
@@ -10067,7 +10124,7 @@ private static final long serialVersionUID = 0L;
      * ID of the root message when this message belongs to a thread, meet, or ALF thread.
      * Parsed from thread_key, meet_key, or alf_thread_key respectively.
      * Absent for root messages and standalone messages.
-     * +kubebuilder:example="msg-root-001"
+     * +kubebuilder:example="69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
@@ -10089,7 +10146,7 @@ private static final long serialVersionUID = 0L;
      * ID of the root message when this message belongs to a thread, meet, or ALF thread.
      * Parsed from thread_key, meet_key, or alf_thread_key respectively.
      * Absent for root messages and standalone messages.
-     * +kubebuilder:example="msg-root-001"
+     * +kubebuilder:example="69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
@@ -10106,7 +10163,7 @@ private static final long serialVersionUID = 0L;
      * ID of the root message when this message belongs to a thread, meet, or ALF thread.
      * Parsed from thread_key, meet_key, or alf_thread_key respectively.
      * Absent for root messages and standalone messages.
-     * +kubebuilder:example="msg-root-001"
+     * +kubebuilder:example="69e86fe3b7b342614c94"
      * </pre>
      *
      * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>

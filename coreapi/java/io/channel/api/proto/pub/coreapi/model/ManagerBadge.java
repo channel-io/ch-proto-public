@@ -164,7 +164,7 @@ private static final long serialVersionUID = 0L;
    * Unique badge identifier.
    * Uses the same value as the owning manager's ID.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -188,7 +188,7 @@ private static final long serialVersionUID = 0L;
    * Unique badge identifier.
    * Uses the same value as the owning manager's ID.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -316,6 +316,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Badge last update timestamp.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -328,6 +329,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Badge last update timestamp.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -340,6 +342,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Badge last update timestamp.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -372,7 +375,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager ID this badge belongs to.
    * Same value as the badge id.
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string manager_id = 10 [json_name = "managerId"];</code>
@@ -395,7 +398,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager ID this badge belongs to.
    * Same value as the badge id.
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string manager_id = 10 [json_name = "managerId"];</code>
@@ -964,7 +967,7 @@ private static final long serialVersionUID = 0L;
      * Unique badge identifier.
      * Uses the same value as the owning manager's ID.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -987,7 +990,7 @@ private static final long serialVersionUID = 0L;
      * Unique badge identifier.
      * Uses the same value as the owning manager's ID.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1011,7 +1014,7 @@ private static final long serialVersionUID = 0L;
      * Unique badge identifier.
      * Uses the same value as the owning manager's ID.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1033,7 +1036,7 @@ private static final long serialVersionUID = 0L;
      * Unique badge identifier.
      * Uses the same value as the owning manager's ID.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1050,7 +1053,7 @@ private static final long serialVersionUID = 0L;
      * Unique badge identifier.
      * Uses the same value as the owning manager's ID.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1369,6 +1372,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1380,6 +1384,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1395,6 +1400,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1415,6 +1421,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1433,6 +1440,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1455,6 +1463,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1473,6 +1482,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1485,6 +1495,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1500,6 +1511,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1572,7 +1584,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID this badge belongs to.
      * Same value as the badge id.
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string manager_id = 10 [json_name = "managerId"];</code>
@@ -1594,7 +1606,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID this badge belongs to.
      * Same value as the badge id.
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string manager_id = 10 [json_name = "managerId"];</code>
@@ -1617,7 +1629,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID this badge belongs to.
      * Same value as the badge id.
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string manager_id = 10 [json_name = "managerId"];</code>
@@ -1638,7 +1650,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID this badge belongs to.
      * Same value as the badge id.
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string manager_id = 10 [json_name = "managerId"];</code>
@@ -1654,7 +1666,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID this badge belongs to.
      * Same value as the badge id.
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string manager_id = 10 [json_name = "managerId"];</code>

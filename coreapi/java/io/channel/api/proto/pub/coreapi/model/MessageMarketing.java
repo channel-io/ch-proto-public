@@ -301,7 +301,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the originating campaign or one-time message.
-   * +kubebuilder:example="cpn-001"
+   * +kubebuilder:example="6299"
    * </pre>
    *
    * <code>string id = 2 [json_name = "id"];</code>
@@ -323,7 +323,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the originating campaign or one-time message.
-   * +kubebuilder:example="cpn-001"
+   * +kubebuilder:example="6299"
    * </pre>
    *
    * <code>string id = 2 [json_name = "id"];</code>
@@ -397,6 +397,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * In-app display mode for the marketing message.
+   * +kubebuilder:example="fullScreen"
    * </pre>
    *
    * <code>.coreapi.model.MessageMarketing.ExposureType exposure_type = 6 [json_name = "exposureType"];</code>
@@ -408,6 +409,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * In-app display mode for the marketing message.
+   * +kubebuilder:example="fullScreen"
    * </pre>
    *
    * <code>.coreapi.model.MessageMarketing.ExposureType exposure_type = 6 [json_name = "exposureType"];</code>
@@ -985,7 +987,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the originating campaign or one-time message.
-     * +kubebuilder:example="cpn-001"
+     * +kubebuilder:example="6299"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id"];</code>
@@ -1006,7 +1008,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the originating campaign or one-time message.
-     * +kubebuilder:example="cpn-001"
+     * +kubebuilder:example="6299"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id"];</code>
@@ -1028,7 +1030,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the originating campaign or one-time message.
-     * +kubebuilder:example="cpn-001"
+     * +kubebuilder:example="6299"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id"];</code>
@@ -1048,7 +1050,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the originating campaign or one-time message.
-     * +kubebuilder:example="cpn-001"
+     * +kubebuilder:example="6299"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id"];</code>
@@ -1063,7 +1065,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the originating campaign or one-time message.
-     * +kubebuilder:example="cpn-001"
+     * +kubebuilder:example="6299"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id"];</code>
@@ -1224,6 +1226,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * In-app display mode for the marketing message.
+     * +kubebuilder:example="fullScreen"
      * </pre>
      *
      * <code>.coreapi.model.MessageMarketing.ExposureType exposure_type = 6 [json_name = "exposureType"];</code>
@@ -1235,6 +1238,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * In-app display mode for the marketing message.
+     * +kubebuilder:example="fullScreen"
      * </pre>
      *
      * <code>.coreapi.model.MessageMarketing.ExposureType exposure_type = 6 [json_name = "exposureType"];</code>
@@ -1250,6 +1254,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * In-app display mode for the marketing message.
+     * +kubebuilder:example="fullScreen"
      * </pre>
      *
      * <code>.coreapi.model.MessageMarketing.ExposureType exposure_type = 6 [json_name = "exposureType"];</code>
@@ -1264,6 +1269,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * In-app display mode for the marketing message.
+     * +kubebuilder:example="fullScreen"
      * </pre>
      *
      * <code>.coreapi.model.MessageMarketing.ExposureType exposure_type = 6 [json_name = "exposureType"];</code>
@@ -1282,6 +1288,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * In-app display mode for the marketing message.
+     * +kubebuilder:example="fullScreen"
      * </pre>
      *
      * <code>.coreapi.model.MessageMarketing.ExposureType exposure_type = 6 [json_name = "exposureType"];</code>

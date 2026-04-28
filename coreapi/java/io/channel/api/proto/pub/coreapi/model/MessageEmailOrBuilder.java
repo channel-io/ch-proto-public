@@ -10,7 +10,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Corresponding Email entity identifier.
-   * +kubebuilder:example="email-001"
+   * +kubebuilder:example="61034"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -20,7 +20,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Corresponding Email entity identifier.
-   * +kubebuilder:example="email-001"
+   * +kubebuilder:example="61034"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -32,6 +32,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Whether this email was sent to or received from an external party.
+   * +kubebuilder:example="inbound"
    * </pre>
    *
    * <code>.coreapi.model.MessageEmail.EmailDirection direction = 2 [json_name = "direction"];</code>
@@ -41,6 +42,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Whether this email was sent to or received from an external party.
+   * +kubebuilder:example="inbound"
    * </pre>
    *
    * <code>.coreapi.model.MessageEmail.EmailDirection direction = 2 [json_name = "direction"];</code>
@@ -271,7 +273,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Message ID of the email this is a reply to, forming the email thread chain.
-   * +kubebuilder:example="msg-001"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string reply_to_message_id = 10 [json_name = "replyToMessageId"];</code>
@@ -281,7 +283,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Message ID of the email this is a reply to, forming the email thread chain.
-   * +kubebuilder:example="msg-001"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string reply_to_message_id = 10 [json_name = "replyToMessageId"];</code>
@@ -317,6 +319,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Email creation timestamp.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 12 [json_name = "createdAt"];</code>
@@ -326,6 +329,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Email creation timestamp.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 12 [json_name = "createdAt"];</code>
@@ -335,6 +339,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Email creation timestamp.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 12 [json_name = "createdAt"];</code>

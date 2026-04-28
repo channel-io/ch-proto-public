@@ -11,6 +11,7 @@ public interface BlockOrBuilder extends
    * <pre>
    * Content block type that determines how the block is rendered and which fields are applicable.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="text"
    * </pre>
    *
    * <code>.coreapi.model.Block.BlockType type = 1 [json_name = "type", (.buf.validate.field) = { ... }</code>
@@ -21,6 +22,7 @@ public interface BlockOrBuilder extends
    * <pre>
    * Content block type that determines how the block is rendered and which fields are applicable.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="text"
    * </pre>
    *
    * <code>.coreapi.model.Block.BlockType type = 1 [json_name = "type", (.buf.validate.field) = { ... }</code>

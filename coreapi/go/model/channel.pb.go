@@ -202,7 +202,7 @@ type Channel struct {
 	// Unique channel identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="7683"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Default welcome message shown to end users when a new conversation starts.
 	//
@@ -213,10 +213,12 @@ type Channel struct {
 	// Channel creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Channel last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Webhook URL called to retrieve additional user information from your server.
 	//
@@ -227,7 +229,7 @@ type Channel struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
-	// +kubebuilder:example="Channel Corp"
+	// +kubebuilder:example="Acme Support"
 	Name string `protobuf:"bytes,7,opt,name=name,proto3" json:"name,omitempty"`
 	// Internationalized name and description overrides keyed by locale (e.g., en, ko).
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,8,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
@@ -238,7 +240,7 @@ type Channel struct {
 	// Default bot display name shown to end users in conversations.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="Support Bot"
+	// +kubebuilder:example="Acme Support"
 	BotName string `protobuf:"bytes,10,opt,name=bot_name,json=botName,proto3" json:"bot_name,omitempty"`
 	// Channel theme color in hex format (e.g., #3B82F6).
 	// Used to derive border, gradient, text, and plugin icon colors.
@@ -263,7 +265,7 @@ type Channel struct {
 	// System-assigned default domain.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="a1b2c"
 	DefaultDomain string `protobuf:"bytes,15,opt,name=default_domain,json=defaultDomain,proto3" json:"default_domain,omitempty"`
 	// Business homepage URL associated with the channel.
 	//
@@ -315,6 +317,8 @@ type Channel struct {
 	FollowUpMandatory bool `protobuf:"varint,25,opt,name=follow_up_mandatory,json=followUpMandatory,proto3" json:"follow_up_mandatory,omitempty"`
 	// Current lifecycle state of the channel.
 	// See ChannelState for possible values.
+	//
+	// +kubebuilder:example="active"
 	State ChannelState `protobuf:"varint,26,opt,name=state,proto3,enum=coreapi.model.ChannelState" json:"state,omitempty"`
 	// Whether the channel is verified as an enterprise account.
 	//
@@ -323,7 +327,7 @@ type Channel struct {
 	EntVerified bool `protobuf:"varint,27,opt,name=ent_verified,json=entVerified,proto3" json:"ent_verified,omitempty"`
 	// Default plugin identifier used by the messenger widget.
 	//
-	// +kubebuilder:example="plg-001"
+	// +kubebuilder:example="94802"
 	DefaultPluginId string `protobuf:"bytes,28,opt,name=default_plugin_id,json=defaultPluginId,proto3" json:"default_plugin_id,omitempty"`
 	// Industry or business category of the channel (e.g., "E-commerce", "SaaS").
 	//
@@ -398,10 +402,12 @@ type Channel struct {
 	// Channel avatar image URL.
 	// Falls back to a system-generated default when no custom avatar is set.
 	//
-	// +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
+	// +kubebuilder:example="https://cf.channel.io/avatar/emoji/bee.cc9efe.png"
 	AvatarUrl string `protobuf:"bytes,44,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	// Expected response delay indicator shown to end users.
 	// Derived from the channel operating configuration.
+	//
+	// +kubebuilder:example="normal"
 	ExpectedResponseDelay ResponseDelayType `protobuf:"varint,45,opt,name=expected_response_delay,json=expectedResponseDelay,proto3,enum=coreapi.model.ResponseDelayType" json:"expected_response_delay,omitempty"`
 	// Whether the channel is currently within operating hours.
 	// Derived from the operating schedule configuration.
@@ -417,14 +423,20 @@ type Channel struct {
 	OperationTimeScheduling bool `protobuf:"varint,47,opt,name=operation_time_scheduling,json=operationTimeScheduling,proto3" json:"operation_time_scheduling,omitempty"`
 	// Timestamp when the next operating period starts.
 	// Present only when the channel is currently outside operating hours.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	NextWorkingTime *timestamppb.Timestamp `protobuf:"bytes,48,opt,name=next_working_time,json=nextWorkingTime,proto3" json:"next_working_time,omitempty"`
 	// Timestamp when the next away (non-operating) period starts.
 	// Present only when the channel is currently within operating hours.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	NextAwayTime *timestamppb.Timestamp `protobuf:"bytes,49,opt,name=next_away_time,json=nextAwayTime,proto3" json:"next_away_time,omitempty"`
 	// Recurring weekly time ranges that define the channel operating hours.
 	OperationTimeRanges []*TimeRange `protobuf:"bytes,50,rep,name=operation_time_ranges,json=operationTimeRanges,proto3" json:"operation_time_ranges,omitempty"`
 	// Messenger behavior when the channel is outside of operating hours.
 	// See ChannelAwayOption for possible values.
+	//
+	// +kubebuilder:example="active"
 	AwayOption ChannelAwayOption `protobuf:"varint,51,opt,name=away_option,json=awayOption,proto3,enum=coreapi.model.ChannelAwayOption" json:"away_option,omitempty"`
 	// Whether end-user replying is blocked after a conversation is closed.
 	//
@@ -433,6 +445,8 @@ type Channel struct {
 	BlockReplyingAfterClosed bool `protobuf:"varint,52,opt,name=block_replying_after_closed,json=blockReplyingAfterClosed,proto3" json:"block_replying_after_closed,omitempty"`
 	// Grace period after conversation closure during which the end user may still reply.
 	// Applicable only when block_replying_after_closed is true.
+	//
+	// +kubebuilder:example="3600s"
 	BlockReplyingAfterClosedTime *durationpb.Duration `protobuf:"bytes,53,opt,name=block_replying_after_closed_time,json=blockReplyingAfterClosedTime,proto3" json:"block_replying_after_closed_time,omitempty"`
 	// Border accent color derived from the theme color, in hex format.
 	//
@@ -453,7 +467,7 @@ type Channel struct {
 	// Resolved domain for the channel.
 	// Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
 	//
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="a1b2c"
 	SystemDomain string `protobuf:"bytes,58,opt,name=system_domain,json=systemDomain,proto3" json:"system_domain,omitempty"`
 	// Icon color for the messenger plugin widget, derived from the theme color, in hex format.
 	//
@@ -466,7 +480,7 @@ type Channel struct {
 	Brightness float32 `protobuf:"fixed32,60,opt,name=brightness,proto3" json:"brightness,omitempty"`
 	// Cover image URL for the channel profile page.
 	//
-	// +kubebuilder:example="https://cdn.channel.io/cover/ch-12345.jpg"
+	// +kubebuilder:example="https://cdn.channel.io/cover/7683.jpg"
 	CoverImageUrl string `protobuf:"bytes,61,opt,name=cover_image_url,json=coverImageUrl,proto3" json:"cover_image_url,omitempty"`
 	// Whether the cover image has a bright tone.
 	// Derived from the cover_image_color field.

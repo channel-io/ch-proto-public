@@ -100,25 +100,25 @@ type Webhook struct {
 	// Unique webhook identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="100"
+	// +kubebuilder:example="5312"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this webhook belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="7683"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Webhook display name.
 	// Unique within the channel.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="Order Webhook"
+	// +kubebuilder:example="Order Notification"
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Destination URL that receives webhook payloads.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="https://example.com/webhook"
+	// +kubebuilder:example="https://example.com/webhook/channel"
 	Url string `protobuf:"bytes,4,opt,name=url,proto3" json:"url,omitempty"`
 	// Auto-generated HMAC token for verifying webhook payloads.
 	//
@@ -129,6 +129,7 @@ type Webhook struct {
 	// Webhook creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Event scopes that trigger this webhook.
 	//
@@ -142,6 +143,8 @@ type Webhook struct {
 	// +kubebuilder:example="v5"
 	ApiVersion string `protobuf:"bytes,8,opt,name=api_version,json=apiVersion,proto3" json:"api_version,omitempty"`
 	// Timestamp when the webhook was last blocked due to consecutive failures.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	LastBlockedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=last_blocked_at,json=lastBlockedAt,proto3" json:"last_blocked_at,omitempty"`
 	// Whether the webhook is currently blocked due to excessive delivery failures.
 	//

@@ -171,7 +171,7 @@ private static final long serialVersionUID = 0L;
    * One-time message that was delivered to this user.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="otm-001"
+   * +kubebuilder:example="11689"
    * </pre>
    *
    * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -195,7 +195,7 @@ private static final long serialVersionUID = 0L;
    * One-time message that was delivered to this user.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="otm-001"
+   * +kubebuilder:example="11689"
    * </pre>
    *
    * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -223,7 +223,7 @@ private static final long serialVersionUID = 0L;
    * Target user identifier.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="u-abc123"
+   * +kubebuilder:example="69e86feadafa12609c34"
    * </pre>
    *
    * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -247,7 +247,7 @@ private static final long serialVersionUID = 0L;
    * Target user identifier.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="u-abc123"
+   * +kubebuilder:example="69e86feadafa12609c34"
    * </pre>
    *
    * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -273,6 +273,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the message was delivered to the user.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp sent = 3 [json_name = "sent"];</code>
@@ -285,6 +286,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the message was delivered to the user.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp sent = 3 [json_name = "sent"];</code>
@@ -297,6 +299,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the message was delivered to the user.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp sent = 3 [json_name = "sent"];</code>
@@ -311,6 +314,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user first viewed the delivered message.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp view = 4 [json_name = "view"];</code>
@@ -323,6 +327,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user first viewed the delivered message.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp view = 4 [json_name = "view"];</code>
@@ -335,6 +340,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user first viewed the delivered message.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp view = 4 [json_name = "view"];</code>
@@ -349,6 +355,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user completed the goal event.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
@@ -361,6 +368,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user completed the goal event.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
@@ -373,6 +381,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user completed the goal event.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
@@ -387,6 +396,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user first clicked a link in the message.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
@@ -399,6 +409,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user first clicked a link in the message.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
@@ -411,6 +422,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user first clicked a link in the message.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
@@ -474,7 +486,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Composite identifier in the format "{one_time_msg_id}-{user_id}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="otm-001-u-abc123"
+   * +kubebuilder:example="11689-69e86feadafa12609c34"
    * </pre>
    *
    * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -497,7 +509,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Composite identifier in the format "{one_time_msg_id}-{user_id}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="otm-001-u-abc123"
+   * +kubebuilder:example="11689-69e86feadafa12609c34"
    * </pre>
    *
    * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1001,7 +1013,7 @@ private static final long serialVersionUID = 0L;
      * One-time message that was delivered to this user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="otm-001"
+     * +kubebuilder:example="11689"
      * </pre>
      *
      * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -1024,7 +1036,7 @@ private static final long serialVersionUID = 0L;
      * One-time message that was delivered to this user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="otm-001"
+     * +kubebuilder:example="11689"
      * </pre>
      *
      * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -1048,7 +1060,7 @@ private static final long serialVersionUID = 0L;
      * One-time message that was delivered to this user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="otm-001"
+     * +kubebuilder:example="11689"
      * </pre>
      *
      * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -1070,7 +1082,7 @@ private static final long serialVersionUID = 0L;
      * One-time message that was delivered to this user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="otm-001"
+     * +kubebuilder:example="11689"
      * </pre>
      *
      * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -1087,7 +1099,7 @@ private static final long serialVersionUID = 0L;
      * One-time message that was delivered to this user.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="otm-001"
+     * +kubebuilder:example="11689"
      * </pre>
      *
      * <code>string one_time_msg_id = 1 [json_name = "oneTimeMsgId", (.buf.validate.field) = { ... }</code>
@@ -1112,7 +1124,7 @@ private static final long serialVersionUID = 0L;
      * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="u-abc123"
+     * +kubebuilder:example="69e86feadafa12609c34"
      * </pre>
      *
      * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1135,7 +1147,7 @@ private static final long serialVersionUID = 0L;
      * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="u-abc123"
+     * +kubebuilder:example="69e86feadafa12609c34"
      * </pre>
      *
      * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1159,7 +1171,7 @@ private static final long serialVersionUID = 0L;
      * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="u-abc123"
+     * +kubebuilder:example="69e86feadafa12609c34"
      * </pre>
      *
      * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1181,7 +1193,7 @@ private static final long serialVersionUID = 0L;
      * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="u-abc123"
+     * +kubebuilder:example="69e86feadafa12609c34"
      * </pre>
      *
      * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1198,7 +1210,7 @@ private static final long serialVersionUID = 0L;
      * Target user identifier.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="u-abc123"
+     * +kubebuilder:example="69e86feadafa12609c34"
      * </pre>
      *
      * <code>string user_id = 2 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1223,6 +1235,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was delivered to the user.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 3 [json_name = "sent"];</code>
@@ -1234,6 +1247,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was delivered to the user.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 3 [json_name = "sent"];</code>
@@ -1249,6 +1263,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was delivered to the user.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 3 [json_name = "sent"];</code>
@@ -1269,6 +1284,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was delivered to the user.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 3 [json_name = "sent"];</code>
@@ -1287,6 +1303,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was delivered to the user.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 3 [json_name = "sent"];</code>
@@ -1309,6 +1326,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was delivered to the user.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 3 [json_name = "sent"];</code>
@@ -1327,6 +1345,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was delivered to the user.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 3 [json_name = "sent"];</code>
@@ -1339,6 +1358,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was delivered to the user.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 3 [json_name = "sent"];</code>
@@ -1354,6 +1374,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was delivered to the user.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp sent = 3 [json_name = "sent"];</code>
@@ -1378,6 +1399,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 4 [json_name = "view"];</code>
@@ -1389,6 +1411,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 4 [json_name = "view"];</code>
@@ -1404,6 +1427,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 4 [json_name = "view"];</code>
@@ -1424,6 +1448,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 4 [json_name = "view"];</code>
@@ -1442,6 +1467,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 4 [json_name = "view"];</code>
@@ -1464,6 +1490,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 4 [json_name = "view"];</code>
@@ -1482,6 +1509,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 4 [json_name = "view"];</code>
@@ -1494,6 +1522,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 4 [json_name = "view"];</code>
@@ -1509,6 +1538,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first viewed the delivered message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp view = 4 [json_name = "view"];</code>
@@ -1533,6 +1563,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the goal event.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
@@ -1544,6 +1575,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the goal event.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
@@ -1559,6 +1591,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the goal event.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
@@ -1579,6 +1612,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the goal event.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
@@ -1597,6 +1631,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the goal event.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
@@ -1619,6 +1654,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the goal event.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
@@ -1637,6 +1673,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the goal event.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
@@ -1649,6 +1686,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the goal event.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
@@ -1664,6 +1702,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user completed the goal event.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
@@ -1688,6 +1727,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
@@ -1699,6 +1739,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
@@ -1714,6 +1755,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
@@ -1734,6 +1776,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
@@ -1752,6 +1795,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
@@ -1774,6 +1818,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
@@ -1792,6 +1837,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
@@ -1804,6 +1850,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
@@ -1819,6 +1866,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user first clicked a link in the message.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
@@ -1943,7 +1991,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{one_time_msg_id}-{user_id}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="otm-001-u-abc123"
+     * +kubebuilder:example="11689-69e86feadafa12609c34"
      * </pre>
      *
      * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1965,7 +2013,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{one_time_msg_id}-{user_id}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="otm-001-u-abc123"
+     * +kubebuilder:example="11689-69e86feadafa12609c34"
      * </pre>
      *
      * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1988,7 +2036,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{one_time_msg_id}-{user_id}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="otm-001-u-abc123"
+     * +kubebuilder:example="11689-69e86feadafa12609c34"
      * </pre>
      *
      * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2009,7 +2057,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{one_time_msg_id}-{user_id}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="otm-001-u-abc123"
+     * +kubebuilder:example="11689-69e86feadafa12609c34"
      * </pre>
      *
      * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2025,7 +2073,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Composite identifier in the format "{one_time_msg_id}-{user_id}".
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="otm-001-u-abc123"
+     * +kubebuilder:example="11689-69e86feadafa12609c34"
      * </pre>
      *
      * <code>string id = 8 [json_name = "id", (.buf.validate.field) = { ... }</code>

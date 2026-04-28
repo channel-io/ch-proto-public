@@ -118,7 +118,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this online record belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -141,7 +141,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this online record belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -221,7 +221,7 @@ private static final long serialVersionUID = 0L;
    * Identifier of the person.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="m-001"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -245,7 +245,7 @@ private static final long serialVersionUID = 0L;
    * Identifier of the person.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="m-001"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -271,7 +271,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Composite presence record identifier derived from person type and person ID.
-   * +kubebuilder:example="manager-m-001"
+   * +kubebuilder:example="manager-12372"
    * </pre>
    *
    * <code>string id = 4 [json_name = "id"];</code>
@@ -293,7 +293,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Composite presence record identifier derived from person type and person ID.
-   * +kubebuilder:example="manager-m-001"
+   * +kubebuilder:example="manager-12372"
    * </pre>
    *
    * <code>string id = 4 [json_name = "id"];</code>
@@ -676,7 +676,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this online record belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -698,7 +698,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this online record belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -721,7 +721,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this online record belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -742,7 +742,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this online record belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -758,7 +758,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this online record belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -894,7 +894,7 @@ private static final long serialVersionUID = 0L;
      * Identifier of the person.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="m-001"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -917,7 +917,7 @@ private static final long serialVersionUID = 0L;
      * Identifier of the person.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="m-001"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -941,7 +941,7 @@ private static final long serialVersionUID = 0L;
      * Identifier of the person.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="m-001"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -963,7 +963,7 @@ private static final long serialVersionUID = 0L;
      * Identifier of the person.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="m-001"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -980,7 +980,7 @@ private static final long serialVersionUID = 0L;
      * Identifier of the person.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="m-001"
+     * +kubebuilder:example="12372"
      * </pre>
      *
      * <code>string person_id = 3 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -1003,7 +1003,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite presence record identifier derived from person type and person ID.
-     * +kubebuilder:example="manager-m-001"
+     * +kubebuilder:example="manager-12372"
      * </pre>
      *
      * <code>string id = 4 [json_name = "id"];</code>
@@ -1024,7 +1024,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite presence record identifier derived from person type and person ID.
-     * +kubebuilder:example="manager-m-001"
+     * +kubebuilder:example="manager-12372"
      * </pre>
      *
      * <code>string id = 4 [json_name = "id"];</code>
@@ -1046,7 +1046,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite presence record identifier derived from person type and person ID.
-     * +kubebuilder:example="manager-m-001"
+     * +kubebuilder:example="manager-12372"
      * </pre>
      *
      * <code>string id = 4 [json_name = "id"];</code>
@@ -1066,7 +1066,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite presence record identifier derived from person type and person ID.
-     * +kubebuilder:example="manager-m-001"
+     * +kubebuilder:example="manager-12372"
      * </pre>
      *
      * <code>string id = 4 [json_name = "id"];</code>
@@ -1081,7 +1081,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Composite presence record identifier derived from person type and person ID.
-     * +kubebuilder:example="manager-m-001"
+     * +kubebuilder:example="manager-12372"
      * </pre>
      *
      * <code>string id = 4 [json_name = "id"];</code>

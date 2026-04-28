@@ -591,7 +591,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Client-generated request identifier for idempotency.
-   * +kubebuilder:example="req-12345"
+   * +kubebuilder:example="a1b2c3d4e5"
    * </pre>
    *
    * <code>string request_id = 8 [json_name = "requestId"];</code>
@@ -613,7 +613,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Client-generated request identifier for idempotency.
-   * +kubebuilder:example="req-12345"
+   * +kubebuilder:example="a1b2c3d4e5"
    * </pre>
    *
    * <code>string request_id = 8 [json_name = "requestId"];</code>
@@ -2810,7 +2810,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Client-generated request identifier for idempotency.
-     * +kubebuilder:example="req-12345"
+     * +kubebuilder:example="a1b2c3d4e5"
      * </pre>
      *
      * <code>string request_id = 8 [json_name = "requestId"];</code>
@@ -2831,7 +2831,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Client-generated request identifier for idempotency.
-     * +kubebuilder:example="req-12345"
+     * +kubebuilder:example="a1b2c3d4e5"
      * </pre>
      *
      * <code>string request_id = 8 [json_name = "requestId"];</code>
@@ -2853,7 +2853,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Client-generated request identifier for idempotency.
-     * +kubebuilder:example="req-12345"
+     * +kubebuilder:example="a1b2c3d4e5"
      * </pre>
      *
      * <code>string request_id = 8 [json_name = "requestId"];</code>
@@ -2873,7 +2873,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Client-generated request identifier for idempotency.
-     * +kubebuilder:example="req-12345"
+     * +kubebuilder:example="a1b2c3d4e5"
      * </pre>
      *
      * <code>string request_id = 8 [json_name = "requestId"];</code>
@@ -2888,7 +2888,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Client-generated request identifier for idempotency.
-     * +kubebuilder:example="req-12345"
+     * +kubebuilder:example="a1b2c3d4e5"
      * </pre>
      *
      * <code>string request_id = 8 [json_name = "requestId"];</code>

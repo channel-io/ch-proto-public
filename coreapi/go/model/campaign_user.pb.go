@@ -86,29 +86,37 @@ type CampaignUser struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="u-abc123"
+	// +kubebuilder:example="69e86feadafa12609c34"
 	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	// Campaign that delivered the message.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="cpn-001"
+	// +kubebuilder:example="6299"
 	CampaignId string `protobuf:"bytes,2,opt,name=campaign_id,json=campaignId,proto3" json:"campaign_id,omitempty"`
 	// Message variant that was delivered to this user.
 	//
-	// +kubebuilder:example="cm-001"
+	// +kubebuilder:example="8201"
 	MsgId string `protobuf:"bytes,3,opt,name=msg_id,json=msgId,proto3" json:"msg_id,omitempty"`
 	// User chat conversation created by the campaign delivery.
 	//
-	// +kubebuilder:example="uc-abc123"
+	// +kubebuilder:example="69e86feaecf73e47cf2f"
 	UserChatId string `protobuf:"bytes,4,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
 	// Timestamp when the campaign message was delivered to the user.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	Sent *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=sent,proto3" json:"sent,omitempty"`
 	// Timestamp when the user first viewed the delivered message.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	View *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=view,proto3" json:"view,omitempty"`
 	// Timestamp when the user first clicked a link in the message.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	Click *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=click,proto3" json:"click,omitempty"`
 	// Timestamp when the user completed the campaign goal event.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	Goal *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=goal,proto3" json:"goal,omitempty"`
 	// Cumulative revenue attributed to this user from the campaign.
 	//
@@ -117,7 +125,7 @@ type CampaignUser struct {
 	// Composite identifier in the format "{campaign_id}-{user_id}".
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="cpn-001-u-abc123"
+	// +kubebuilder:example="6299-69e86feadafa12609c34"
 	Id            string `protobuf:"bytes,10,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

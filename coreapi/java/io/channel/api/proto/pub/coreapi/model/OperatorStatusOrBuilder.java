@@ -11,7 +11,7 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Unique operator status identifier, matching the associated manager ID.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Unique operator status identifier, matching the associated manager ID.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -36,7 +36,7 @@ public interface OperatorStatusOrBuilder extends
    * Manager ID this operator status belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string manager_id = 2 [json_name = "managerId", (.buf.validate.field) = { ... }</code>
@@ -48,7 +48,7 @@ public interface OperatorStatusOrBuilder extends
    * Manager ID this operator status belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string manager_id = 2 [json_name = "managerId", (.buf.validate.field) = { ... }</code>
@@ -61,7 +61,7 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Channel ID this operator status belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -72,7 +72,7 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Channel ID this operator status belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -84,6 +84,7 @@ public interface OperatorStatusOrBuilder extends
   /**
    * <pre>
    * Current activity state of the manager, used for chat routing and workload management.
+   * +kubebuilder:example="waiting"
    * </pre>
    *
    * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
@@ -93,6 +94,7 @@ public interface OperatorStatusOrBuilder extends
   /**
    * <pre>
    * Current activity state of the manager, used for chat routing and workload management.
+   * +kubebuilder:example="waiting"
    * </pre>
    *
    * <code>.coreapi.model.OperatorStatusType operator_status_type = 4 [json_name = "operatorStatusType"];</code>
@@ -117,6 +119,7 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Operator status creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -127,6 +130,7 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Operator status creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -137,6 +141,7 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Operator status creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -147,6 +152,7 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Operator status last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 7 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -157,6 +163,7 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Operator status last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 7 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -167,6 +174,7 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Operator status last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 7 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -177,6 +185,7 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Timestamp when `operator_status_type` was last changed.
    * Differs from `updated_at` which tracks any field update.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp type_updated_at = 8 [json_name = "typeUpdatedAt"];</code>
@@ -187,6 +196,7 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Timestamp when `operator_status_type` was last changed.
    * Differs from `updated_at` which tracks any field update.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp type_updated_at = 8 [json_name = "typeUpdatedAt"];</code>
@@ -197,6 +207,7 @@ public interface OperatorStatusOrBuilder extends
    * <pre>
    * Timestamp when `operator_status_type` was last changed.
    * Differs from `updated_at` which tracks any field update.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp type_updated_at = 8 [json_name = "typeUpdatedAt"];</code>

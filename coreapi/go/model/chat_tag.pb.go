@@ -100,14 +100,16 @@ type ChatTag struct {
 	// Unique chat tag identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="tag-001"
+	// +kubebuilder:example="71702"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this chat tag belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="7683"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Color theme of the chat tag.
+	//
+	// +kubebuilder:example="cobalt"
 	ColorVariant ChatTagColorVariant `protobuf:"varint,3,opt,name=color_variant,json=colorVariant,proto3,enum=coreapi.model.ChatTagColorVariant" json:"color_variant,omitempty"`
 	// Display name of the chat tag.
 	// Supports hierarchical naming with "/" as a depth separator (max 3 levels).
@@ -127,11 +129,12 @@ type ChatTag struct {
 	// Short description of the chat tag.
 	//
 	// +kubebuilder:validation:MaxLength=128
-	// +kubebuilder:example="Billing related inquiries"
+	// +kubebuilder:example="Billing and payment inquiries"
 	Description string `protobuf:"bytes,6,opt,name=description,proto3" json:"description,omitempty"`
 	// Chat tag creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

@@ -86,18 +86,18 @@ type User struct {
 	// Unique user identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="u-abc123"
+	// +kubebuilder:example="69e86feadafa12609c34"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this user belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="7683"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// External member ID provided at boot or manual creation.
 	// Present for member-type users; for anonymous visitors, this matches
 	// the veil_id.
 	//
-	// +kubebuilder:example="member-001"
+	// +kubebuilder:example="member-a1b2c3"
 	MemberId string `protobuf:"bytes,3,opt,name=member_id,json=memberId,proto3" json:"member_id,omitempty"`
 	// Cookie-based device identifier assigned to anonymous visitors.
 	//
@@ -105,9 +105,11 @@ type User struct {
 	VeilId string `protobuf:"bytes,4,opt,name=veil_id,json=veilId,proto3" json:"veil_id,omitempty"`
 	// ID of the unified identity when multiple user records have been merged.
 	//
-	// +kubebuilder:example="u-unified-001"
+	// +kubebuilder:example="5a3b2c1d4e6f8a9b0c7d"
 	UnifiedId string `protobuf:"bytes,5,opt,name=unified_id,json=unifiedId,proto3" json:"unified_id,omitempty"`
 	// Identity type of this user.
+	//
+	// +kubebuilder:example="member"
 	Type UserType `protobuf:"varint,6,opt,name=type,proto3,enum=coreapi.model.UserType" json:"type,omitempty"`
 	// Tags that were automatically applied during a user import operation.
 	UserImportTags []string `protobuf:"bytes,7,rep,name=user_import_tags,json=userImportTags,proto3" json:"user_import_tags,omitempty"`
@@ -121,11 +123,11 @@ type User struct {
 	Unread int32 `protobuf:"varint,9,opt,name=unread,proto3" json:"unread,omitempty"`
 	// ID of the chat currently displayed as a pop-up widget to the user.
 	//
-	// +kubebuilder:example="uc-popup-001"
+	// +kubebuilder:example="7b2a1c3d4e5f6a8b9c0d"
 	PopUpChatId string `protobuf:"bytes,10,opt,name=pop_up_chat_id,json=popUpChatId,proto3" json:"pop_up_chat_id,omitempty"`
 	// ID of the chat pinned as the primary conversation in the messenger.
 	//
-	// +kubebuilder:example="uc-main-001"
+	// +kubebuilder:example="8c3b2a1d4e5f6a7b9c0d"
 	MainChatId string `protobuf:"bytes,11,opt,name=main_chat_id,json=mainChatId,proto3" json:"main_chat_id,omitempty"`
 	// ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
 	// (e.g., "KR", "US").
@@ -140,10 +142,12 @@ type User struct {
 	// User creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// User last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Optimistic locking version incremented on every update.
 	// Supply the current value when updating to prevent overwriting concurrent changes.
@@ -169,6 +173,8 @@ type User struct {
 	// +kubebuilder:example="false"
 	UnsubscribeEmail bool `protobuf:"varint,20,opt,name=unsubscribe_email,json=unsubscribeEmail,proto3" json:"unsubscribe_email,omitempty"`
 	// Timestamp when the email opt-out preference was last changed.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	UnsubscribeEmailUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=unsubscribe_email_updated_at,json=unsubscribeEmailUpdatedAt,proto3" json:"unsubscribe_email_updated_at,omitempty"`
 	// Whether the user has opted out of SMS/text notifications.
 	//
@@ -176,18 +182,22 @@ type User struct {
 	// +kubebuilder:example="false"
 	UnsubscribeTexting bool `protobuf:"varint,22,opt,name=unsubscribe_texting,json=unsubscribeTexting,proto3" json:"unsubscribe_texting,omitempty"`
 	// Timestamp when the SMS/text opt-out preference was last changed.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	UnsubscribeTextingUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,23,opt,name=unsubscribe_texting_updated_at,json=unsubscribeTextingUpdatedAt,proto3" json:"unsubscribe_texting_updated_at,omitempty"`
 	// Whether the user has opted out of mobile app push notifications.
 	//
 	// +kubebuilder:example="false"
 	UnsubscribeAppPush bool `protobuf:"varint,24,opt,name=unsubscribe_app_push,json=unsubscribeAppPush,proto3" json:"unsubscribe_app_push,omitempty"`
 	// Timestamp when the app push opt-out preference was last changed.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	UnsubscribeAppPushUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=unsubscribe_app_push_updated_at,json=unsubscribeAppPushUpdatedAt,proto3" json:"unsubscribe_app_push_updated_at,omitempty"`
 	// URL of the user's avatar image.
 	// Falls back to an auto-generated default avatar when no custom avatar is set
 	// in the profile.
 	//
-	// +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
+	// +kubebuilder:example="https://cf.channel.io/avatar/default-avatar.png"
 	AvatarUrl string `protobuf:"bytes,26,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	// Whether the user has a display name set in the profile
 	// (name, firstName, or lastName).
@@ -214,7 +224,7 @@ type User struct {
 	EmailQualified bool `protobuf:"varint,30,opt,name=email_qualified,json=emailQualified,proto3" json:"email_qualified,omitempty"`
 	// Display name of the user, derived from the profile's name field.
 	//
-	// +kubebuilder:example="John Doe"
+	// +kubebuilder:example="Alice Park"
 	Name string `protobuf:"bytes,31,opt,name=name,proto3" json:"name,omitempty"`
 	// Whether the user has at least one managed chat conversation.
 	//
@@ -251,6 +261,8 @@ type User struct {
 	// +kubebuilder:example="5"
 	SessionsCount int32 `protobuf:"varint,40,opt,name=sessions_count,json=sessionsCount,proto3" json:"sessions_count,omitempty"`
 	// Timestamp when the user was last seen online in the channel.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	LastSeenAt *timestamppb.Timestamp `protobuf:"bytes,41,opt,name=last_seen_at,json=lastSeenAt,proto3" json:"last_seen_at,omitempty"`
 	// Whether the user is blocked from initiating new chats.
 	//
@@ -260,7 +272,7 @@ type User struct {
 	// Identifier key associated with the block action,
 	// used to look up block details.
 	//
-	// +kubebuilder:example="bk-001"
+	// +kubebuilder:example="4d2c1b3a5e6f7a8b9c0d"
 	BlockedKey string `protobuf:"bytes,43,opt,name=blocked_key,json=blockedKey,proto3" json:"blocked_key,omitempty"`
 	// Sort key used for ordering users in the managed contact list.
 	//
@@ -274,7 +286,7 @@ type User struct {
 	Member bool `protobuf:"varint,45,opt,name=member,proto3" json:"member,omitempty"`
 	// Email address extracted from the user's profile data.
 	//
-	// +kubebuilder:example="user@example.com"
+	// +kubebuilder:example="alice@example.com"
 	Email string `protobuf:"bytes,46,opt,name=email,proto3" json:"email,omitempty"`
 	// Mobile phone number extracted from the user's profile data.
 	//
@@ -684,6 +696,8 @@ type WebInfo struct {
 	// +kubebuilder:example="5"
 	SessionsCount int32 `protobuf:"varint,6,opt,name=sessions_count,json=sessionsCount,proto3" json:"sessions_count,omitempty"`
 	// Timestamp of the user's most recent web session start.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	LastSeenAt    *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=last_seen_at,json=lastSeenAt,proto3" json:"last_seen_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -806,6 +820,8 @@ type MobileInfo struct {
 	// +kubebuilder:example="3"
 	SessionsCount int32 `protobuf:"varint,8,opt,name=sessions_count,json=sessionsCount,proto3" json:"sessions_count,omitempty"`
 	// Timestamp of the user's most recent mobile session start.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	LastSeenAt    *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=last_seen_at,json=lastSeenAt,proto3" json:"last_seen_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

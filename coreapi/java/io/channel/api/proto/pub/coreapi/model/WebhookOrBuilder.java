@@ -11,7 +11,7 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Unique webhook identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="100"
+   * +kubebuilder:example="5312"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Unique webhook identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="100"
+   * +kubebuilder:example="5312"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +35,7 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Channel ID this webhook belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -46,7 +46,7 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Channel ID this webhook belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -61,7 +61,7 @@ public interface WebhookOrBuilder extends
    * Unique within the channel.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="Order Webhook"
+   * +kubebuilder:example="Order Notification"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -74,7 +74,7 @@ public interface WebhookOrBuilder extends
    * Unique within the channel.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="Order Webhook"
+   * +kubebuilder:example="Order Notification"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -88,7 +88,7 @@ public interface WebhookOrBuilder extends
    * Destination URL that receives webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="https://example.com/webhook"
+   * +kubebuilder:example="https://example.com/webhook/channel"
    * </pre>
    *
    * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -100,7 +100,7 @@ public interface WebhookOrBuilder extends
    * Destination URL that receives webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="https://example.com/webhook"
+   * +kubebuilder:example="https://example.com/webhook/channel"
    * </pre>
    *
    * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -139,6 +139,7 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Webhook creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -149,6 +150,7 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Webhook creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -159,6 +161,7 @@ public interface WebhookOrBuilder extends
    * <pre>
    * Webhook creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -253,6 +256,7 @@ public interface WebhookOrBuilder extends
   /**
    * <pre>
    * Timestamp when the webhook was last blocked due to consecutive failures.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -262,6 +266,7 @@ public interface WebhookOrBuilder extends
   /**
    * <pre>
    * Timestamp when the webhook was last blocked due to consecutive failures.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -271,6 +276,7 @@ public interface WebhookOrBuilder extends
   /**
    * <pre>
    * Timestamp when the webhook was last blocked due to consecutive failures.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>

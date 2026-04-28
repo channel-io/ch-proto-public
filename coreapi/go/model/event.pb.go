@@ -31,17 +31,17 @@ type Event struct {
 	// ID of the user who triggered the event.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="u-abc123"
+	// +kubebuilder:example="69e86feadafa12609c34"
 	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	// Unique event identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="evt-20240101-001"
+	// +kubebuilder:example="7683-PageView"
 	Id string `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this event belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="7683"
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
 	//
@@ -55,8 +55,11 @@ type Event struct {
 	// Event creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Expiration timestamp after which the event may no longer be retrievable.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	ExpireAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=expire_at,json=expireAt,proto3" json:"expire_at,omitempty"`
 	// Optimistic concurrency version counter.
 	// Incremented on each update to detect conflicting writes.

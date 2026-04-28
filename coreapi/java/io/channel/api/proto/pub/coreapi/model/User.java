@@ -459,7 +459,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique user identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="u-abc123"
+   * +kubebuilder:example="69e86feadafa12609c34"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -482,7 +482,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique user identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="u-abc123"
+   * +kubebuilder:example="69e86feadafa12609c34"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -509,7 +509,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this user belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -532,7 +532,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this user belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -560,7 +560,7 @@ private static final long serialVersionUID = 0L;
    * External member ID provided at boot or manual creation.
    * Present for member-type users; for anonymous visitors, this matches
    * the veil_id.
-   * +kubebuilder:example="member-001"
+   * +kubebuilder:example="member-a1b2c3"
    * </pre>
    *
    * <code>string member_id = 3 [json_name = "memberId"];</code>
@@ -584,7 +584,7 @@ private static final long serialVersionUID = 0L;
    * External member ID provided at boot or manual creation.
    * Present for member-type users; for anonymous visitors, this matches
    * the veil_id.
-   * +kubebuilder:example="member-001"
+   * +kubebuilder:example="member-a1b2c3"
    * </pre>
    *
    * <code>string member_id = 3 [json_name = "memberId"];</code>
@@ -658,7 +658,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the unified identity when multiple user records have been merged.
-   * +kubebuilder:example="u-unified-001"
+   * +kubebuilder:example="5a3b2c1d4e6f8a9b0c7d"
    * </pre>
    *
    * <code>string unified_id = 5 [json_name = "unifiedId"];</code>
@@ -680,7 +680,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the unified identity when multiple user records have been merged.
-   * +kubebuilder:example="u-unified-001"
+   * +kubebuilder:example="5a3b2c1d4e6f8a9b0c7d"
    * </pre>
    *
    * <code>string unified_id = 5 [json_name = "unifiedId"];</code>
@@ -706,6 +706,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identity type of this user.
+   * +kubebuilder:example="member"
    * </pre>
    *
    * <code>.coreapi.model.UserType type = 6 [json_name = "type"];</code>
@@ -717,6 +718,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identity type of this user.
+   * +kubebuilder:example="member"
    * </pre>
    *
    * <code>.coreapi.model.UserType type = 6 [json_name = "type"];</code>
@@ -816,7 +818,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the chat currently displayed as a pop-up widget to the user.
-   * +kubebuilder:example="uc-popup-001"
+   * +kubebuilder:example="7b2a1c3d4e5f6a8b9c0d"
    * </pre>
    *
    * <code>string pop_up_chat_id = 10 [json_name = "popUpChatId"];</code>
@@ -838,7 +840,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the chat currently displayed as a pop-up widget to the user.
-   * +kubebuilder:example="uc-popup-001"
+   * +kubebuilder:example="7b2a1c3d4e5f6a8b9c0d"
    * </pre>
    *
    * <code>string pop_up_chat_id = 10 [json_name = "popUpChatId"];</code>
@@ -864,7 +866,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the chat pinned as the primary conversation in the messenger.
-   * +kubebuilder:example="uc-main-001"
+   * +kubebuilder:example="8c3b2a1d4e5f6a7b9c0d"
    * </pre>
    *
    * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -886,7 +888,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the chat pinned as the primary conversation in the messenger.
-   * +kubebuilder:example="uc-main-001"
+   * +kubebuilder:example="8c3b2a1d4e5f6a7b9c0d"
    * </pre>
    *
    * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -1013,6 +1015,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * User creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1026,6 +1029,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * User creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1039,6 +1043,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * User creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1054,6 +1059,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * User last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -1067,6 +1073,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * User last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -1080,6 +1087,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * User last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -1279,6 +1287,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the email opt-out preference was last changed.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -1291,6 +1300,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the email opt-out preference was last changed.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -1303,6 +1313,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the email opt-out preference was last changed.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -1334,6 +1345,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the SMS/text opt-out preference was last changed.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -1346,6 +1358,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the SMS/text opt-out preference was last changed.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -1358,6 +1371,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the SMS/text opt-out preference was last changed.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -1388,6 +1402,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the app push opt-out preference was last changed.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -1400,6 +1415,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the app push opt-out preference was last changed.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -1412,6 +1428,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the app push opt-out preference was last changed.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -1428,7 +1445,7 @@ private static final long serialVersionUID = 0L;
    * URL of the user's avatar image.
    * Falls back to an auto-generated default avatar when no custom avatar is set
    * in the profile.
-   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
+   * +kubebuilder:example="https://cf.channel.io/avatar/default-avatar.png"
    * </pre>
    *
    * <code>string avatar_url = 26 [json_name = "avatarUrl"];</code>
@@ -1452,7 +1469,7 @@ private static final long serialVersionUID = 0L;
    * URL of the user's avatar image.
    * Falls back to an auto-generated default avatar when no custom avatar is set
    * in the profile.
-   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
+   * +kubebuilder:example="https://cf.channel.io/avatar/default-avatar.png"
    * </pre>
    *
    * <code>string avatar_url = 26 [json_name = "avatarUrl"];</code>
@@ -1582,7 +1599,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Display name of the user, derived from the profile's name field.
-   * +kubebuilder:example="John Doe"
+   * +kubebuilder:example="Alice Park"
    * </pre>
    *
    * <code>string name = 31 [json_name = "name"];</code>
@@ -1604,7 +1621,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Display name of the user, derived from the profile's name field.
-   * +kubebuilder:example="John Doe"
+   * +kubebuilder:example="Alice Park"
    * </pre>
    *
    * <code>string name = 31 [json_name = "name"];</code>
@@ -1884,6 +1901,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user was last seen online in the channel.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -1896,6 +1914,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user was last seen online in the channel.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -1908,6 +1927,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the user was last seen online in the channel.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -1940,7 +1960,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Identifier key associated with the block action,
    * used to look up block details.
-   * +kubebuilder:example="bk-001"
+   * +kubebuilder:example="4d2c1b3a5e6f7a8b9c0d"
    * </pre>
    *
    * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -1963,7 +1983,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Identifier key associated with the block action,
    * used to look up block details.
-   * +kubebuilder:example="bk-001"
+   * +kubebuilder:example="4d2c1b3a5e6f7a8b9c0d"
    * </pre>
    *
    * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -2023,7 +2043,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Email address extracted from the user's profile data.
-   * +kubebuilder:example="user&#64;example.com"
+   * +kubebuilder:example="alice&#64;example.com"
    * </pre>
    *
    * <code>string email = 46 [json_name = "email"];</code>
@@ -2045,7 +2065,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Email address extracted from the user's profile data.
-   * +kubebuilder:example="user&#64;example.com"
+   * +kubebuilder:example="alice&#64;example.com"
    * </pre>
    *
    * <code>string email = 46 [json_name = "email"];</code>
@@ -3440,7 +3460,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique user identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="u-abc123"
+     * +kubebuilder:example="69e86feadafa12609c34"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3462,7 +3482,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique user identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="u-abc123"
+     * +kubebuilder:example="69e86feadafa12609c34"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3485,7 +3505,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique user identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="u-abc123"
+     * +kubebuilder:example="69e86feadafa12609c34"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3506,7 +3526,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique user identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="u-abc123"
+     * +kubebuilder:example="69e86feadafa12609c34"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3522,7 +3542,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique user identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="u-abc123"
+     * +kubebuilder:example="69e86feadafa12609c34"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3546,7 +3566,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this user belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3568,7 +3588,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this user belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3591,7 +3611,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this user belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3612,7 +3632,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this user belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3628,7 +3648,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this user belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3653,7 +3673,7 @@ private static final long serialVersionUID = 0L;
      * External member ID provided at boot or manual creation.
      * Present for member-type users; for anonymous visitors, this matches
      * the veil_id.
-     * +kubebuilder:example="member-001"
+     * +kubebuilder:example="member-a1b2c3"
      * </pre>
      *
      * <code>string member_id = 3 [json_name = "memberId"];</code>
@@ -3676,7 +3696,7 @@ private static final long serialVersionUID = 0L;
      * External member ID provided at boot or manual creation.
      * Present for member-type users; for anonymous visitors, this matches
      * the veil_id.
-     * +kubebuilder:example="member-001"
+     * +kubebuilder:example="member-a1b2c3"
      * </pre>
      *
      * <code>string member_id = 3 [json_name = "memberId"];</code>
@@ -3700,7 +3720,7 @@ private static final long serialVersionUID = 0L;
      * External member ID provided at boot or manual creation.
      * Present for member-type users; for anonymous visitors, this matches
      * the veil_id.
-     * +kubebuilder:example="member-001"
+     * +kubebuilder:example="member-a1b2c3"
      * </pre>
      *
      * <code>string member_id = 3 [json_name = "memberId"];</code>
@@ -3722,7 +3742,7 @@ private static final long serialVersionUID = 0L;
      * External member ID provided at boot or manual creation.
      * Present for member-type users; for anonymous visitors, this matches
      * the veil_id.
-     * +kubebuilder:example="member-001"
+     * +kubebuilder:example="member-a1b2c3"
      * </pre>
      *
      * <code>string member_id = 3 [json_name = "memberId"];</code>
@@ -3739,7 +3759,7 @@ private static final long serialVersionUID = 0L;
      * External member ID provided at boot or manual creation.
      * Present for member-type users; for anonymous visitors, this matches
      * the veil_id.
-     * +kubebuilder:example="member-001"
+     * +kubebuilder:example="member-a1b2c3"
      * </pre>
      *
      * <code>string member_id = 3 [json_name = "memberId"];</code>
@@ -3863,7 +3883,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the unified identity when multiple user records have been merged.
-     * +kubebuilder:example="u-unified-001"
+     * +kubebuilder:example="5a3b2c1d4e6f8a9b0c7d"
      * </pre>
      *
      * <code>string unified_id = 5 [json_name = "unifiedId"];</code>
@@ -3884,7 +3904,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the unified identity when multiple user records have been merged.
-     * +kubebuilder:example="u-unified-001"
+     * +kubebuilder:example="5a3b2c1d4e6f8a9b0c7d"
      * </pre>
      *
      * <code>string unified_id = 5 [json_name = "unifiedId"];</code>
@@ -3906,7 +3926,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the unified identity when multiple user records have been merged.
-     * +kubebuilder:example="u-unified-001"
+     * +kubebuilder:example="5a3b2c1d4e6f8a9b0c7d"
      * </pre>
      *
      * <code>string unified_id = 5 [json_name = "unifiedId"];</code>
@@ -3926,7 +3946,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the unified identity when multiple user records have been merged.
-     * +kubebuilder:example="u-unified-001"
+     * +kubebuilder:example="5a3b2c1d4e6f8a9b0c7d"
      * </pre>
      *
      * <code>string unified_id = 5 [json_name = "unifiedId"];</code>
@@ -3941,7 +3961,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the unified identity when multiple user records have been merged.
-     * +kubebuilder:example="u-unified-001"
+     * +kubebuilder:example="5a3b2c1d4e6f8a9b0c7d"
      * </pre>
      *
      * <code>string unified_id = 5 [json_name = "unifiedId"];</code>
@@ -3964,6 +3984,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identity type of this user.
+     * +kubebuilder:example="member"
      * </pre>
      *
      * <code>.coreapi.model.UserType type = 6 [json_name = "type"];</code>
@@ -3975,6 +3996,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identity type of this user.
+     * +kubebuilder:example="member"
      * </pre>
      *
      * <code>.coreapi.model.UserType type = 6 [json_name = "type"];</code>
@@ -3990,6 +4012,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identity type of this user.
+     * +kubebuilder:example="member"
      * </pre>
      *
      * <code>.coreapi.model.UserType type = 6 [json_name = "type"];</code>
@@ -4004,6 +4027,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identity type of this user.
+     * +kubebuilder:example="member"
      * </pre>
      *
      * <code>.coreapi.model.UserType type = 6 [json_name = "type"];</code>
@@ -4022,6 +4046,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identity type of this user.
+     * +kubebuilder:example="member"
      * </pre>
      *
      * <code>.coreapi.model.UserType type = 6 [json_name = "type"];</code>
@@ -4276,7 +4301,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the chat currently displayed as a pop-up widget to the user.
-     * +kubebuilder:example="uc-popup-001"
+     * +kubebuilder:example="7b2a1c3d4e5f6a8b9c0d"
      * </pre>
      *
      * <code>string pop_up_chat_id = 10 [json_name = "popUpChatId"];</code>
@@ -4297,7 +4322,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the chat currently displayed as a pop-up widget to the user.
-     * +kubebuilder:example="uc-popup-001"
+     * +kubebuilder:example="7b2a1c3d4e5f6a8b9c0d"
      * </pre>
      *
      * <code>string pop_up_chat_id = 10 [json_name = "popUpChatId"];</code>
@@ -4319,7 +4344,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the chat currently displayed as a pop-up widget to the user.
-     * +kubebuilder:example="uc-popup-001"
+     * +kubebuilder:example="7b2a1c3d4e5f6a8b9c0d"
      * </pre>
      *
      * <code>string pop_up_chat_id = 10 [json_name = "popUpChatId"];</code>
@@ -4339,7 +4364,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the chat currently displayed as a pop-up widget to the user.
-     * +kubebuilder:example="uc-popup-001"
+     * +kubebuilder:example="7b2a1c3d4e5f6a8b9c0d"
      * </pre>
      *
      * <code>string pop_up_chat_id = 10 [json_name = "popUpChatId"];</code>
@@ -4354,7 +4379,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the chat currently displayed as a pop-up widget to the user.
-     * +kubebuilder:example="uc-popup-001"
+     * +kubebuilder:example="7b2a1c3d4e5f6a8b9c0d"
      * </pre>
      *
      * <code>string pop_up_chat_id = 10 [json_name = "popUpChatId"];</code>
@@ -4377,7 +4402,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the chat pinned as the primary conversation in the messenger.
-     * +kubebuilder:example="uc-main-001"
+     * +kubebuilder:example="8c3b2a1d4e5f6a7b9c0d"
      * </pre>
      *
      * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -4398,7 +4423,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the chat pinned as the primary conversation in the messenger.
-     * +kubebuilder:example="uc-main-001"
+     * +kubebuilder:example="8c3b2a1d4e5f6a7b9c0d"
      * </pre>
      *
      * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -4420,7 +4445,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the chat pinned as the primary conversation in the messenger.
-     * +kubebuilder:example="uc-main-001"
+     * +kubebuilder:example="8c3b2a1d4e5f6a7b9c0d"
      * </pre>
      *
      * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -4440,7 +4465,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the chat pinned as the primary conversation in the messenger.
-     * +kubebuilder:example="uc-main-001"
+     * +kubebuilder:example="8c3b2a1d4e5f6a7b9c0d"
      * </pre>
      *
      * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -4455,7 +4480,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the chat pinned as the primary conversation in the messenger.
-     * +kubebuilder:example="uc-main-001"
+     * +kubebuilder:example="8c3b2a1d4e5f6a7b9c0d"
      * </pre>
      *
      * <code>string main_chat_id = 11 [json_name = "mainChatId"];</code>
@@ -4693,6 +4718,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4705,6 +4731,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4721,6 +4748,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4742,6 +4770,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4761,6 +4790,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4784,6 +4814,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4803,6 +4834,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4816,6 +4848,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4832,6 +4865,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4857,6 +4891,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4869,6 +4904,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4885,6 +4921,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4906,6 +4943,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4925,6 +4963,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4948,6 +4987,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4967,6 +5007,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4980,6 +5021,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4996,6 +5038,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5556,6 +5599,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the email opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -5567,6 +5611,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the email opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -5582,6 +5627,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the email opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -5602,6 +5648,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the email opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -5620,6 +5667,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the email opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -5642,6 +5690,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the email opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -5660,6 +5709,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the email opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -5672,6 +5722,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the email opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -5687,6 +5738,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the email opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -5760,6 +5812,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the SMS/text opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -5771,6 +5824,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the SMS/text opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -5786,6 +5840,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the SMS/text opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -5806,6 +5861,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the SMS/text opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -5824,6 +5880,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the SMS/text opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -5846,6 +5903,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the SMS/text opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -5864,6 +5922,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the SMS/text opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -5876,6 +5935,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the SMS/text opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -5891,6 +5951,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the SMS/text opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -5961,6 +6022,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the app push opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -5972,6 +6034,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the app push opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -5987,6 +6050,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the app push opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -6007,6 +6071,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the app push opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -6025,6 +6090,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the app push opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -6047,6 +6113,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the app push opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -6065,6 +6132,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the app push opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -6077,6 +6145,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the app push opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -6092,6 +6161,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the app push opt-out preference was last changed.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -6116,7 +6186,7 @@ private static final long serialVersionUID = 0L;
      * URL of the user's avatar image.
      * Falls back to an auto-generated default avatar when no custom avatar is set
      * in the profile.
-     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
+     * +kubebuilder:example="https://cf.channel.io/avatar/default-avatar.png"
      * </pre>
      *
      * <code>string avatar_url = 26 [json_name = "avatarUrl"];</code>
@@ -6139,7 +6209,7 @@ private static final long serialVersionUID = 0L;
      * URL of the user's avatar image.
      * Falls back to an auto-generated default avatar when no custom avatar is set
      * in the profile.
-     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
+     * +kubebuilder:example="https://cf.channel.io/avatar/default-avatar.png"
      * </pre>
      *
      * <code>string avatar_url = 26 [json_name = "avatarUrl"];</code>
@@ -6163,7 +6233,7 @@ private static final long serialVersionUID = 0L;
      * URL of the user's avatar image.
      * Falls back to an auto-generated default avatar when no custom avatar is set
      * in the profile.
-     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
+     * +kubebuilder:example="https://cf.channel.io/avatar/default-avatar.png"
      * </pre>
      *
      * <code>string avatar_url = 26 [json_name = "avatarUrl"];</code>
@@ -6185,7 +6255,7 @@ private static final long serialVersionUID = 0L;
      * URL of the user's avatar image.
      * Falls back to an auto-generated default avatar when no custom avatar is set
      * in the profile.
-     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
+     * +kubebuilder:example="https://cf.channel.io/avatar/default-avatar.png"
      * </pre>
      *
      * <code>string avatar_url = 26 [json_name = "avatarUrl"];</code>
@@ -6202,7 +6272,7 @@ private static final long serialVersionUID = 0L;
      * URL of the user's avatar image.
      * Falls back to an auto-generated default avatar when no custom avatar is set
      * in the profile.
-     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
+     * +kubebuilder:example="https://cf.channel.io/avatar/default-avatar.png"
      * </pre>
      *
      * <code>string avatar_url = 26 [json_name = "avatarUrl"];</code>
@@ -6487,7 +6557,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of the user, derived from the profile's name field.
-     * +kubebuilder:example="John Doe"
+     * +kubebuilder:example="Alice Park"
      * </pre>
      *
      * <code>string name = 31 [json_name = "name"];</code>
@@ -6508,7 +6578,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of the user, derived from the profile's name field.
-     * +kubebuilder:example="John Doe"
+     * +kubebuilder:example="Alice Park"
      * </pre>
      *
      * <code>string name = 31 [json_name = "name"];</code>
@@ -6530,7 +6600,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of the user, derived from the profile's name field.
-     * +kubebuilder:example="John Doe"
+     * +kubebuilder:example="Alice Park"
      * </pre>
      *
      * <code>string name = 31 [json_name = "name"];</code>
@@ -6550,7 +6620,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of the user, derived from the profile's name field.
-     * +kubebuilder:example="John Doe"
+     * +kubebuilder:example="Alice Park"
      * </pre>
      *
      * <code>string name = 31 [json_name = "name"];</code>
@@ -6565,7 +6635,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of the user, derived from the profile's name field.
-     * +kubebuilder:example="John Doe"
+     * +kubebuilder:example="Alice Park"
      * </pre>
      *
      * <code>string name = 31 [json_name = "name"];</code>
@@ -7338,6 +7408,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user was last seen online in the channel.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -7349,6 +7420,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user was last seen online in the channel.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -7364,6 +7436,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user was last seen online in the channel.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -7384,6 +7457,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user was last seen online in the channel.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -7402,6 +7476,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user was last seen online in the channel.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -7424,6 +7499,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user was last seen online in the channel.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -7442,6 +7518,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user was last seen online in the channel.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -7454,6 +7531,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user was last seen online in the channel.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -7469,6 +7547,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the user was last seen online in the channel.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -7541,7 +7620,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Identifier key associated with the block action,
      * used to look up block details.
-     * +kubebuilder:example="bk-001"
+     * +kubebuilder:example="4d2c1b3a5e6f7a8b9c0d"
      * </pre>
      *
      * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -7563,7 +7642,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Identifier key associated with the block action,
      * used to look up block details.
-     * +kubebuilder:example="bk-001"
+     * +kubebuilder:example="4d2c1b3a5e6f7a8b9c0d"
      * </pre>
      *
      * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -7586,7 +7665,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Identifier key associated with the block action,
      * used to look up block details.
-     * +kubebuilder:example="bk-001"
+     * +kubebuilder:example="4d2c1b3a5e6f7a8b9c0d"
      * </pre>
      *
      * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -7607,7 +7686,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Identifier key associated with the block action,
      * used to look up block details.
-     * +kubebuilder:example="bk-001"
+     * +kubebuilder:example="4d2c1b3a5e6f7a8b9c0d"
      * </pre>
      *
      * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -7623,7 +7702,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Identifier key associated with the block action,
      * used to look up block details.
-     * +kubebuilder:example="bk-001"
+     * +kubebuilder:example="4d2c1b3a5e6f7a8b9c0d"
      * </pre>
      *
      * <code>string blocked_key = 43 [json_name = "blockedKey"];</code>
@@ -7744,7 +7823,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Email address extracted from the user's profile data.
-     * +kubebuilder:example="user&#64;example.com"
+     * +kubebuilder:example="alice&#64;example.com"
      * </pre>
      *
      * <code>string email = 46 [json_name = "email"];</code>
@@ -7765,7 +7844,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Email address extracted from the user's profile data.
-     * +kubebuilder:example="user&#64;example.com"
+     * +kubebuilder:example="alice&#64;example.com"
      * </pre>
      *
      * <code>string email = 46 [json_name = "email"];</code>
@@ -7787,7 +7866,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Email address extracted from the user's profile data.
-     * +kubebuilder:example="user&#64;example.com"
+     * +kubebuilder:example="alice&#64;example.com"
      * </pre>
      *
      * <code>string email = 46 [json_name = "email"];</code>
@@ -7807,7 +7886,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Email address extracted from the user's profile data.
-     * +kubebuilder:example="user&#64;example.com"
+     * +kubebuilder:example="alice&#64;example.com"
      * </pre>
      *
      * <code>string email = 46 [json_name = "email"];</code>
@@ -7822,7 +7901,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Email address extracted from the user's profile data.
-     * +kubebuilder:example="user&#64;example.com"
+     * +kubebuilder:example="alice&#64;example.com"
      * </pre>
      *
      * <code>string email = 46 [json_name = "email"];</code>

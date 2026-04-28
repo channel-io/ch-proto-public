@@ -11,7 +11,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Unique plugin identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="plg-001"
+   * +kubebuilder:example="94802"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Unique plugin identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="plg-001"
+   * +kubebuilder:example="94802"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -34,7 +34,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Plugin API key in UUID format.
-   * +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
+   * +kubebuilder:example="713dad11-a7f9-47d4-b56e-e3969b981142"
    * </pre>
    *
    * <code>string key = 2 [json_name = "key"];</code>
@@ -44,7 +44,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Plugin API key in UUID format.
-   * +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
+   * +kubebuilder:example="713dad11-a7f9-47d4-b56e-e3969b981142"
    * </pre>
    *
    * <code>string key = 2 [json_name = "key"];</code>
@@ -57,7 +57,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Channel ID this plugin belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -68,7 +68,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Channel ID this plugin belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -81,6 +81,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Current activation lifecycle state.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="active"
    * </pre>
    *
    * <code>.coreapi.model.PluginState state = 4 [json_name = "state", (.buf.validate.field) = { ... }</code>
@@ -91,6 +92,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Current activation lifecycle state.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="active"
    * </pre>
    *
    * <code>.coreapi.model.PluginState state = 4 [json_name = "state", (.buf.validate.field) = { ... }</code>
@@ -105,7 +107,7 @@ public interface PluginOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:example="Support Widget"
+   * +kubebuilder:example="Acme Support"
    * </pre>
    *
    * <code>string name = 5 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -119,7 +121,7 @@ public interface PluginOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:example="Support Widget"
+   * +kubebuilder:example="Acme Support"
    * </pre>
    *
    * <code>string name = 5 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -132,6 +134,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Plugin creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -142,6 +145,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Plugin creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -152,6 +156,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Plugin creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -163,6 +168,7 @@ public interface PluginOrBuilder extends
    * Color theme of the widget.
    * Defaults to LIGHT.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="light"
    * </pre>
    *
    * <code>.coreapi.model.PluginAppearance appearance = 7 [json_name = "appearance", (.buf.validate.field) = { ... }</code>
@@ -174,6 +180,7 @@ public interface PluginOrBuilder extends
    * Color theme of the widget.
    * Defaults to LIGHT.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="light"
    * </pre>
    *
    * <code>.coreapi.model.PluginAppearance appearance = 7 [json_name = "appearance", (.buf.validate.field) = { ... }</code>
@@ -286,6 +293,7 @@ public interface PluginOrBuilder extends
    * Determines how the launcher button is rendered.
    * Defaults to ICON_BUTTON. When set to CUSTOM_IMAGE, the custom_image field must be provided.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="iconButton"
    * </pre>
    *
    * <code>.coreapi.model.PluginButtonType button_type = 11 [json_name = "buttonType", (.buf.validate.field) = { ... }</code>
@@ -297,6 +305,7 @@ public interface PluginOrBuilder extends
    * Determines how the launcher button is rendered.
    * Defaults to ICON_BUTTON. When set to CUSTOM_IMAGE, the custom_image field must be provided.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="iconButton"
    * </pre>
    *
    * <code>.coreapi.model.PluginButtonType button_type = 11 [json_name = "buttonType", (.buf.validate.field) = { ... }</code>
@@ -309,6 +318,7 @@ public interface PluginOrBuilder extends
    * Predefined icon used for the launcher button.
    * Applicable when button_type is ICON_BUTTON. Defaults to CHANNEL_FILLED.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="channelFilled"
    * </pre>
    *
    * <code>.coreapi.model.PluginIconButton icon_button = 12 [json_name = "iconButton", (.buf.validate.field) = { ... }</code>
@@ -320,6 +330,7 @@ public interface PluginOrBuilder extends
    * Predefined icon used for the launcher button.
    * Applicable when button_type is ICON_BUTTON. Defaults to CHANNEL_FILLED.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="channelFilled"
    * </pre>
    *
    * <code>.coreapi.model.PluginIconButton icon_button = 12 [json_name = "iconButton", (.buf.validate.field) = { ... }</code>
@@ -423,6 +434,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Horizontal anchor position of the desktop widget.
+   * +kubebuilder:example="right"
    * </pre>
    *
    * <code>.coreapi.model.PluginPosition desk_position = 18 [json_name = "deskPosition"];</code>
@@ -432,6 +444,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Horizontal anchor position of the desktop widget.
+   * +kubebuilder:example="right"
    * </pre>
    *
    * <code>.coreapi.model.PluginPosition desk_position = 18 [json_name = "deskPosition"];</code>
@@ -494,6 +507,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Horizontal anchor position of the mobile widget.
+   * +kubebuilder:example="right"
    * </pre>
    *
    * <code>.coreapi.model.PluginPosition mobile_position = 22 [json_name = "mobilePosition"];</code>
@@ -503,6 +517,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Horizontal anchor position of the mobile widget.
+   * +kubebuilder:example="right"
    * </pre>
    *
    * <code>.coreapi.model.PluginPosition mobile_position = 22 [json_name = "mobilePosition"];</code>
@@ -524,6 +539,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Vertical position of the chat bubble on mobile devices.
+   * +kubebuilder:example="bottom"
    * </pre>
    *
    * <code>.coreapi.model.PluginBubblePosition mobile_bubble_position = 24 [json_name = "mobileBubblePosition"];</code>
@@ -533,6 +549,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Vertical position of the chat bubble on mobile devices.
+   * +kubebuilder:example="bottom"
    * </pre>
    *
    * <code>.coreapi.model.PluginBubblePosition mobile_bubble_position = 24 [json_name = "mobileBubblePosition"];</code>

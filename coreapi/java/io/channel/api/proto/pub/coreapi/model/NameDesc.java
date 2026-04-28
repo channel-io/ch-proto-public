@@ -109,7 +109,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-   * +kubebuilder:example="Support Bot"
+   * +kubebuilder:example="Order Bot"
    * </pre>
    *
    * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -136,7 +136,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-   * +kubebuilder:example="Support Bot"
+   * +kubebuilder:example="Order Bot"
    * </pre>
    *
    * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -163,7 +163,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Short description of the entity.
    * +kubebuilder:validation:MaxLength=180
-   * +kubebuilder:example="Handles customer inquiries"
+   * +kubebuilder:example="Handles order and payment inquiries."
    * </pre>
    *
    * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -186,7 +186,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Short description of the entity.
    * +kubebuilder:validation:MaxLength=180
-   * +kubebuilder:example="Handles customer inquiries"
+   * +kubebuilder:example="Handles order and payment inquiries."
    * </pre>
    *
    * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -540,7 +540,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-     * +kubebuilder:example="Support Bot"
+     * +kubebuilder:example="Order Bot"
      * </pre>
      *
      * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -566,7 +566,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-     * +kubebuilder:example="Support Bot"
+     * +kubebuilder:example="Order Bot"
      * </pre>
      *
      * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -593,7 +593,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-     * +kubebuilder:example="Support Bot"
+     * +kubebuilder:example="Order Bot"
      * </pre>
      *
      * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -618,7 +618,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-     * +kubebuilder:example="Support Bot"
+     * +kubebuilder:example="Order Bot"
      * </pre>
      *
      * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -638,7 +638,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-     * +kubebuilder:example="Support Bot"
+     * +kubebuilder:example="Order Bot"
      * </pre>
      *
      * <code>string name = 1 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -662,7 +662,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Short description of the entity.
      * +kubebuilder:validation:MaxLength=180
-     * +kubebuilder:example="Handles customer inquiries"
+     * +kubebuilder:example="Handles order and payment inquiries."
      * </pre>
      *
      * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -684,7 +684,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Short description of the entity.
      * +kubebuilder:validation:MaxLength=180
-     * +kubebuilder:example="Handles customer inquiries"
+     * +kubebuilder:example="Handles order and payment inquiries."
      * </pre>
      *
      * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -707,7 +707,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Short description of the entity.
      * +kubebuilder:validation:MaxLength=180
-     * +kubebuilder:example="Handles customer inquiries"
+     * +kubebuilder:example="Handles order and payment inquiries."
      * </pre>
      *
      * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -728,7 +728,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Short description of the entity.
      * +kubebuilder:validation:MaxLength=180
-     * +kubebuilder:example="Handles customer inquiries"
+     * +kubebuilder:example="Handles order and payment inquiries."
      * </pre>
      *
      * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -744,7 +744,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Short description of the entity.
      * +kubebuilder:validation:MaxLength=180
-     * +kubebuilder:example="Handles customer inquiries"
+     * +kubebuilder:example="Handles order and payment inquiries."
      * </pre>
      *
      * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>

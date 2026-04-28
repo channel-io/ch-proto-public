@@ -30,12 +30,12 @@ type Bot struct {
 	// Unique bot identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="100"
+	// +kubebuilder:example="231306"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this bot belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="7683"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Bot display name.
 	// Unique within the channel.
@@ -44,12 +44,12 @@ type Bot struct {
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:validation:Pattern="^[^@#$%:/\\]+$"
-	// +kubebuilder:example="Support Bot"
+	// +kubebuilder:example="Order Bot"
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Bot description.
 	//
 	// +kubebuilder:validation:MaxLength=180
-	// +kubebuilder:example="Handles billing and payment inquiries."
+	// +kubebuilder:example="Handles order and payment inquiries."
 	Description string `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
 	// Internationalized name and description map.
 	// Keyed by locale.
@@ -67,6 +67,7 @@ type Bot struct {
 	// Bot creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Uploaded bot avatar image.
 	Avatar        *TinyFile `protobuf:"bytes,9,opt,name=avatar,proto3" json:"avatar,omitempty"`

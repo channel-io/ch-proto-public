@@ -32,18 +32,18 @@ type CampaignMsg struct {
 	// Client-assigned on creation.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="cm-001"
+	// +kubebuilder:example="8201"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Campaign ID this message variant belongs to.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="cpn-001"
+	// +kubebuilder:example="6299"
 	CampaignId string `protobuf:"bytes,2,opt,name=campaign_id,json=campaignId,proto3" json:"campaign_id,omitempty"`
 	// Channel ID this campaign message belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="7683"
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Human-readable label for this message variant.
 	//
@@ -55,10 +55,11 @@ type CampaignMsg struct {
 	// Cannot be changed after creation.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="native"
 	MediumType MediumType `protobuf:"varint,5,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
 	//
-	// +kubebuilder:example="sms-001"
+	// +kubebuilder:example="67fceb5a3d6de141ea5a"
 	MediumId string `protobuf:"bytes,6,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	// Message content and medium-specific delivery configuration.
 	// Structure varies by medium_type.
@@ -68,10 +69,12 @@ type CampaignMsg struct {
 	// Campaign message creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Campaign message last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Cumulative count of messages delivered for this variant.
 	//

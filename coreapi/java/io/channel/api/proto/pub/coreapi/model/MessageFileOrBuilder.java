@@ -11,7 +11,7 @@ public interface MessageFileOrBuilder extends
    * <pre>
    * Unique file identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="file-001"
+   * +kubebuilder:example="2c8f4a6b1d3e5f7a9b0c"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface MessageFileOrBuilder extends
    * <pre>
    * Unique file identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="file-001"
+   * +kubebuilder:example="2c8f4a6b1d3e5f7a9b0c"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -250,6 +250,7 @@ public interface MessageFileOrBuilder extends
    * <pre>
    * Access scope that determines who can view this private file.
    * Derived from the storage key pattern.
+   * +kubebuilder:example="CHANNEL"
    * </pre>
    *
    * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
@@ -260,6 +261,7 @@ public interface MessageFileOrBuilder extends
    * <pre>
    * Access scope that determines who can view this private file.
    * Derived from the storage key pattern.
+   * +kubebuilder:example="CHANNEL"
    * </pre>
    *
    * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
@@ -295,7 +297,7 @@ public interface MessageFileOrBuilder extends
    * <pre>
    * Channel ID that owns this private file.
    * Derived from the storage key pattern.
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -306,7 +308,7 @@ public interface MessageFileOrBuilder extends
    * <pre>
    * Channel ID that owns this private file.
    * Derived from the storage key pattern.
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -319,7 +321,7 @@ public interface MessageFileOrBuilder extends
    * <pre>
    * Manager ID that owns this private file.
    * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -330,7 +332,7 @@ public interface MessageFileOrBuilder extends
    * <pre>
    * Manager ID that owns this private file.
    * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -367,7 +369,7 @@ public interface MessageFileOrBuilder extends
    * <pre>
    * Chat ID for chat-scoped private files.
    * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -378,7 +380,7 @@ public interface MessageFileOrBuilder extends
    * <pre>
    * Chat ID for chat-scoped private files.
    * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string chat_id = 19 [json_name = "chatId"];</code>

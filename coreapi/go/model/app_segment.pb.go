@@ -30,19 +30,19 @@ type AppSegment struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="app-001"
+	// +kubebuilder:example="661dec183be0f7947b74"
 	AppId string `protobuf:"bytes,1,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"`
 	// Extension within the app that provides the segmentation logic.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="ext-001"
+	// +kubebuilder:example="661dec183be0f794a1b2"
 	ExtensionId string `protobuf:"bytes,2,opt,name=extension_id,json=extensionId,proto3" json:"extension_id,omitempty"`
 	// Specific segment within the extension that users must belong to.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="seg-001"
+	// +kubebuilder:example="161"
 	SegmentId     string `protobuf:"bytes,3,opt,name=segment_id,json=segmentId,proto3" json:"segment_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

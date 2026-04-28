@@ -338,6 +338,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Visual color theme applied to the button.
    * Defaults to the channel's primary color when not specified.
+   * +kubebuilder:example="cobalt"
    * </pre>
    *
    * <code>.coreapi.model.MessageButton.ColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
@@ -350,6 +351,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Visual color theme applied to the button.
    * Defaults to the channel's primary color when not specified.
+   * +kubebuilder:example="cobalt"
    * </pre>
    *
    * <code>.coreapi.model.MessageButton.ColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
@@ -879,6 +881,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Visual color theme applied to the button.
      * Defaults to the channel's primary color when not specified.
+     * +kubebuilder:example="cobalt"
      * </pre>
      *
      * <code>.coreapi.model.MessageButton.ColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
@@ -891,6 +894,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Visual color theme applied to the button.
      * Defaults to the channel's primary color when not specified.
+     * +kubebuilder:example="cobalt"
      * </pre>
      *
      * <code>.coreapi.model.MessageButton.ColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
@@ -907,6 +911,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Visual color theme applied to the button.
      * Defaults to the channel's primary color when not specified.
+     * +kubebuilder:example="cobalt"
      * </pre>
      *
      * <code>.coreapi.model.MessageButton.ColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
@@ -922,6 +927,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Visual color theme applied to the button.
      * Defaults to the channel's primary color when not specified.
+     * +kubebuilder:example="cobalt"
      * </pre>
      *
      * <code>.coreapi.model.MessageButton.ColorVariant color_variant = 2 [json_name = "colorVariant"];</code>
@@ -941,6 +947,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Visual color theme applied to the button.
      * Defaults to the channel's primary color when not specified.
+     * +kubebuilder:example="cobalt"
      * </pre>
      *
      * <code>.coreapi.model.MessageButton.ColorVariant color_variant = 2 [json_name = "colorVariant"];</code>

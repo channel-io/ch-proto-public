@@ -10,7 +10,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Unique meet session identifier.
-   * +kubebuilder:example="meet-001"
+   * +kubebuilder:example="695b7c5c331507f382a3"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -20,7 +20,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Unique meet session identifier.
-   * +kubebuilder:example="meet-001"
+   * +kubebuilder:example="695b7c5c331507f382a3"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -54,7 +54,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Channel ID this meet belongs to.
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId"];</code>
@@ -64,7 +64,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Channel ID this meet belongs to.
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId"];</code>
@@ -76,6 +76,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Current lifecycle state of the meet session.
+   * +kubebuilder:example="live"
    * </pre>
    *
    * <code>.coreapi.model.MessageMeet.MeetState state = 4 [json_name = "state"];</code>
@@ -85,6 +86,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Current lifecycle state of the meet session.
+   * +kubebuilder:example="live"
    * </pre>
    *
    * <code>.coreapi.model.MessageMeet.MeetState state = 4 [json_name = "state"];</code>
@@ -95,6 +97,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Media mode indicating whether this is an audio-only or video meet.
+   * +kubebuilder:example="audio"
    * </pre>
    *
    * <code>.coreapi.model.MessageMeet.MeetMode mode = 5 [json_name = "mode"];</code>
@@ -104,6 +107,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Media mode indicating whether this is an audio-only or video meet.
+   * +kubebuilder:example="audio"
    * </pre>
    *
    * <code>.coreapi.model.MessageMeet.MeetMode mode = 5 [json_name = "mode"];</code>
@@ -159,6 +163,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Timestamp when the meet room was first opened.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -168,6 +173,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Timestamp when the meet room was first opened.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -177,6 +183,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Timestamp when the meet room was first opened.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -298,6 +305,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Timestamp when the meet session ended.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -307,6 +315,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Timestamp when the meet session ended.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -316,6 +325,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Timestamp when the meet session ended.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -366,6 +376,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Computed meet category determined by the presence of `call` or `front` data.
+   * +kubebuilder:example="call"
    * </pre>
    *
    * <code>.coreapi.model.MessageMeet.MeetType meet_type = 14 [json_name = "meetType"];</code>
@@ -375,6 +386,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Computed meet category determined by the presence of `call` or `front` data.
+   * +kubebuilder:example="call"
    * </pre>
    *
    * <code>.coreapi.model.MessageMeet.MeetType meet_type = 14 [json_name = "meetType"];</code>

@@ -10,7 +10,7 @@ public interface MessageAlfOrBuilder extends
   /**
    * <pre>
    * Identifier of the handling session that triggered this ALF response.
-   * +kubebuilder:example="handling-001"
+   * +kubebuilder:example="6a1b2c3d4e5f7a8b9c0d"
    * </pre>
    *
    * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -20,7 +20,7 @@ public interface MessageAlfOrBuilder extends
   /**
    * <pre>
    * Identifier of the handling session that triggered this ALF response.
-   * +kubebuilder:example="handling-001"
+   * +kubebuilder:example="6a1b2c3d4e5f7a8b9c0d"
    * </pre>
    *
    * <code>string handling_id = 1 [json_name = "handlingId"];</code>
@@ -32,7 +32,7 @@ public interface MessageAlfOrBuilder extends
   /**
    * <pre>
    * Identifier of the ALF conversation session spanning multiple turns.
-   * +kubebuilder:example="alf-sess-001"
+   * +kubebuilder:example="7b2a1c3d4e5f6a8b9c0d"
    * </pre>
    *
    * <code>string alf_session_id = 2 [json_name = "alfSessionId"];</code>
@@ -42,7 +42,7 @@ public interface MessageAlfOrBuilder extends
   /**
    * <pre>
    * Identifier of the ALF conversation session spanning multiple turns.
-   * +kubebuilder:example="alf-sess-001"
+   * +kubebuilder:example="7b2a1c3d4e5f6a8b9c0d"
    * </pre>
    *
    * <code>string alf_session_id = 2 [json_name = "alfSessionId"];</code>

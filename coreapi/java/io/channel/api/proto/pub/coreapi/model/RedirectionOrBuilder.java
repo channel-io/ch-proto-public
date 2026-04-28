@@ -63,6 +63,7 @@ public interface RedirectionOrBuilder extends
    * <pre>
    * Redirection expiration timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -73,6 +74,7 @@ public interface RedirectionOrBuilder extends
    * <pre>
    * Redirection expiration timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -83,6 +85,7 @@ public interface RedirectionOrBuilder extends
    * <pre>
    * Redirection expiration timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>

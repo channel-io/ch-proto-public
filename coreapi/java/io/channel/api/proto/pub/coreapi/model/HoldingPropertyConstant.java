@@ -296,6 +296,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Indicates whether the property is captured from the trigger event or the additional filter event.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="triggerEvent"
    * </pre>
    *
    * <code>.coreapi.model.CampaignBaseEventType base_event_type = 4 [json_name = "baseEventType", (.buf.validate.field) = { ... }</code>
@@ -308,6 +309,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Indicates whether the property is captured from the trigger event or the additional filter event.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="triggerEvent"
    * </pre>
    *
    * <code>.coreapi.model.CampaignBaseEventType base_event_type = 4 [json_name = "baseEventType", (.buf.validate.field) = { ... }</code>
@@ -1222,6 +1224,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Indicates whether the property is captured from the trigger event or the additional filter event.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="triggerEvent"
      * </pre>
      *
      * <code>.coreapi.model.CampaignBaseEventType base_event_type = 4 [json_name = "baseEventType", (.buf.validate.field) = { ... }</code>
@@ -1234,6 +1237,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Indicates whether the property is captured from the trigger event or the additional filter event.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="triggerEvent"
      * </pre>
      *
      * <code>.coreapi.model.CampaignBaseEventType base_event_type = 4 [json_name = "baseEventType", (.buf.validate.field) = { ... }</code>
@@ -1250,6 +1254,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Indicates whether the property is captured from the trigger event or the additional filter event.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="triggerEvent"
      * </pre>
      *
      * <code>.coreapi.model.CampaignBaseEventType base_event_type = 4 [json_name = "baseEventType", (.buf.validate.field) = { ... }</code>
@@ -1265,6 +1270,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Indicates whether the property is captured from the trigger event or the additional filter event.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="triggerEvent"
      * </pre>
      *
      * <code>.coreapi.model.CampaignBaseEventType base_event_type = 4 [json_name = "baseEventType", (.buf.validate.field) = { ... }</code>
@@ -1284,6 +1290,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Indicates whether the property is captured from the trigger event or the additional filter event.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="triggerEvent"
      * </pre>
      *
      * <code>.coreapi.model.CampaignBaseEventType base_event_type = 4 [json_name = "baseEventType", (.buf.validate.field) = { ... }</code>

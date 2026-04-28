@@ -11,7 +11,7 @@ public interface MessageWebPageOrBuilder extends
    * <pre>
    * Unique web page preview identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="wp-001"
+   * +kubebuilder:example="3a7b2c1d4e5f6a8b9c0d"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface MessageWebPageOrBuilder extends
    * <pre>
    * Unique web page preview identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="wp-001"
+   * +kubebuilder:example="3a7b2c1d4e5f6a8b9c0d"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -148,7 +148,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Publisher or site name extracted from page metadata.
-   * +kubebuilder:example="Channel Corp"
+   * +kubebuilder:example="Acme Inc."
    * </pre>
    *
    * <code>string publisher = 7 [json_name = "publisher"];</code>
@@ -158,7 +158,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Publisher or site name extracted from page metadata.
-   * +kubebuilder:example="Channel Corp"
+   * +kubebuilder:example="Acme Inc."
    * </pre>
    *
    * <code>string publisher = 7 [json_name = "publisher"];</code>
@@ -170,7 +170,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Content author name extracted from page metadata.
-   * +kubebuilder:example="Channel Corp"
+   * +kubebuilder:example="Acme Inc."
    * </pre>
    *
    * <code>string author = 8 [json_name = "author"];</code>
@@ -180,7 +180,7 @@ public interface MessageWebPageOrBuilder extends
   /**
    * <pre>
    * Content author name extracted from page metadata.
-   * +kubebuilder:example="Channel Corp"
+   * +kubebuilder:example="Acme Inc."
    * </pre>
    *
    * <code>string author = 8 [json_name = "author"];</code>

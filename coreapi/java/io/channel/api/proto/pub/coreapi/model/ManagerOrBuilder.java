@@ -11,7 +11,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Unique manager identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Unique manager identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +35,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Channel ID this manager belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -46,7 +46,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Channel ID this manager belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -60,7 +60,7 @@ public interface ManagerOrBuilder extends
    * Account ID of the person linked to this manager.
    * Unique per channel among non-removed managers.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="a-xyz789"
+   * +kubebuilder:example="1471"
    * </pre>
    *
    * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -72,7 +72,7 @@ public interface ManagerOrBuilder extends
    * Account ID of the person linked to this manager.
    * Unique per channel among non-removed managers.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="a-xyz789"
+   * +kubebuilder:example="1471"
    * </pre>
    *
    * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -88,7 +88,7 @@ public interface ManagerOrBuilder extends
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-   * +kubebuilder:example="John Doe"
+   * +kubebuilder:example="Jay Kim"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -102,7 +102,7 @@ public interface ManagerOrBuilder extends
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-   * +kubebuilder:example="John Doe"
+   * +kubebuilder:example="Jay Kim"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -116,7 +116,7 @@ public interface ManagerOrBuilder extends
    * Free-text summary displayed on the manager profile.
    * Visible to end users only when show_description_to_front is true.
    * +kubebuilder:validation:MaxLength=180
-   * +kubebuilder:example="Product team lead"
+   * +kubebuilder:example="Customer support team lead"
    * </pre>
    *
    * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -128,7 +128,7 @@ public interface ManagerOrBuilder extends
    * Free-text summary displayed on the manager profile.
    * Visible to end users only when show_description_to_front is true.
    * +kubebuilder:validation:MaxLength=180
-   * +kubebuilder:example="Product team lead"
+   * +kubebuilder:example="Customer support team lead"
    * </pre>
    *
    * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -234,7 +234,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Manager email address.
    * Unique per channel among non-removed managers.
-   * +kubebuilder:example="manager&#64;example.com"
+   * +kubebuilder:example="jay&#64;example.com"
    * </pre>
    *
    * <code>string email = 9 [json_name = "email"];</code>
@@ -245,7 +245,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Manager email address.
    * Unique per channel among non-removed managers.
-   * +kubebuilder:example="manager&#64;example.com"
+   * +kubebuilder:example="jay&#64;example.com"
    * </pre>
    *
    * <code>string email = 9 [json_name = "email"];</code>
@@ -303,7 +303,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Role ID assigned to this manager, defining permissions and access levels.
-   * +kubebuilder:example="role-owner"
+   * +kubebuilder:example="14314"
    * </pre>
    *
    * <code>string role_id = 13 [json_name = "roleId"];</code>
@@ -313,7 +313,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Role ID assigned to this manager, defining permissions and access levels.
-   * +kubebuilder:example="role-owner"
+   * +kubebuilder:example="14314"
    * </pre>
    *
    * <code>string role_id = 13 [json_name = "roleId"];</code>
@@ -338,6 +338,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Manager creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -348,6 +349,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Manager creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -358,6 +360,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Manager creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -368,6 +371,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Manager last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -378,6 +382,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Manager last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -388,6 +393,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Manager last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -398,6 +404,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Timestamp when the manager was soft-deleted.
    * Present only when removed is true.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -408,6 +415,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Timestamp when the manager was soft-deleted.
    * Present only when removed is true.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -418,6 +426,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Timestamp when the manager was soft-deleted.
    * Present only when removed is true.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -440,6 +449,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Default notification level for group chat sessions.
    * See SessionWatch for possible values.
+   * +kubebuilder:example="all"
    * </pre>
    *
    * <code>.coreapi.model.SessionWatch default_group_watch = 19 [json_name = "defaultGroupWatch"];</code>
@@ -450,6 +460,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Default notification level for group chat sessions.
    * See SessionWatch for possible values.
+   * +kubebuilder:example="all"
    * </pre>
    *
    * <code>.coreapi.model.SessionWatch default_group_watch = 19 [json_name = "defaultGroupWatch"];</code>
@@ -461,6 +472,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Default notification level for direct message sessions.
    * See SessionWatch for possible values.
+   * +kubebuilder:example="all"
    * </pre>
    *
    * <code>.coreapi.model.SessionWatch default_direct_chat_watch = 20 [json_name = "defaultDirectChatWatch"];</code>
@@ -471,6 +483,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Default notification level for direct message sessions.
    * See SessionWatch for possible values.
+   * +kubebuilder:example="all"
    * </pre>
    *
    * <code>.coreapi.model.SessionWatch default_direct_chat_watch = 20 [json_name = "defaultDirectChatWatch"];</code>
@@ -482,6 +495,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Default notification level for user (customer) chat sessions.
    * See SessionWatch for possible values.
+   * +kubebuilder:example="all"
    * </pre>
    *
    * <code>.coreapi.model.SessionWatch default_user_chat_watch = 21 [json_name = "defaultUserChatWatch"];</code>
@@ -492,6 +506,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Default notification level for user (customer) chat sessions.
    * See SessionWatch for possible values.
+   * +kubebuilder:example="all"
    * </pre>
    *
    * <code>.coreapi.model.SessionWatch default_user_chat_watch = 21 [json_name = "defaultUserChatWatch"];</code>
@@ -503,6 +518,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Sound effect for incoming chat message notifications.
    * See ChatAlertSound for possible values.
+   * +kubebuilder:example="drop"
    * </pre>
    *
    * <code>.coreapi.model.ChatAlertSound chat_alert_sound = 22 [json_name = "chatAlertSound"];</code>
@@ -513,6 +529,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Sound effect for incoming chat message notifications.
    * See ChatAlertSound for possible values.
+   * +kubebuilder:example="drop"
    * </pre>
    *
    * <code>.coreapi.model.ChatAlertSound chat_alert_sound = 22 [json_name = "chatAlertSound"];</code>
@@ -524,6 +541,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Sound effect for incoming meet (call) notifications.
    * See MeetAlertSound for possible values.
+   * +kubebuilder:example="cute"
    * </pre>
    *
    * <code>.coreapi.model.MeetAlertSound meet_alert_sound = 23 [json_name = "meetAlertSound"];</code>
@@ -534,6 +552,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Sound effect for incoming meet (call) notifications.
    * See MeetAlertSound for possible values.
+   * +kubebuilder:example="cute"
    * </pre>
    *
    * <code>.coreapi.model.MeetAlertSound meet_alert_sound = 23 [json_name = "meetAlertSound"];</code>
@@ -569,7 +588,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Performance score reflecting the manager's conversation handling efficiency.
    * Decays over time when the manager is inactive.
-   * +kubebuilder:example="0.85"
+   * +kubebuilder:example="12.03"
    * </pre>
    *
    * <code>float operator_score = 26 [json_name = "operatorScore"];</code>
@@ -581,7 +600,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Engagement score reflecting the frequency of customer interactions.
    * Decays over time when the manager is inactive.
-   * +kubebuilder:example="0.75"
+   * +kubebuilder:example="1.76"
    * </pre>
    *
    * <code>float touch_score = 27 [json_name = "touchScore"];</code>
@@ -664,7 +683,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -674,7 +693,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -826,6 +845,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when the custom status (emoji + text) automatically clears.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -835,6 +855,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when the custom status (emoji + text) automatically clears.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -844,6 +865,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when the custom status (emoji + text) automatically clears.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -865,6 +887,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when do-not-disturb mode automatically deactivates.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -874,6 +897,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when do-not-disturb mode automatically deactivates.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -883,6 +907,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when do-not-disturb mode automatically deactivates.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -904,6 +929,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when account-level do-not-disturb mode automatically deactivates.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -913,6 +939,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when account-level do-not-disturb mode automatically deactivates.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -922,6 +949,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when account-level do-not-disturb mode automatically deactivates.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -931,6 +959,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when the operator status was last toggled on or off.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -940,6 +969,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when the operator status was last toggled on or off.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -949,6 +979,7 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Timestamp when the operator status was last toggled on or off.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -959,7 +990,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Manager avatar image URL.
    * Falls back to a system-generated default when no custom avatar is set.
-   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
+   * +kubebuilder:example="https://cf.channel.io/avatar/emoji/fox_face.86e3da.png"
    * </pre>
    *
    * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>
@@ -970,7 +1001,7 @@ public interface ManagerOrBuilder extends
    * <pre>
    * Manager avatar image URL.
    * Falls back to a system-generated default when no custom avatar is set.
-   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
+   * +kubebuilder:example="https://cf.channel.io/avatar/emoji/fox_face.86e3da.png"
    * </pre>
    *
    * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>

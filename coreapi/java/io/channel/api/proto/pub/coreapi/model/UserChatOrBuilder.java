@@ -11,7 +11,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Unique user chat identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Unique user chat identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +35,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Channel ID this user chat belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -46,7 +46,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Channel ID this user chat belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -82,7 +82,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the active live meet session attached to this chat.
-   * +kubebuilder:example="meet-001"
+   * +kubebuilder:example="695b7c5c331507f382a3"
    * </pre>
    *
    * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -92,7 +92,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the active live meet session attached to this chat.
-   * +kubebuilder:example="meet-001"
+   * +kubebuilder:example="695b7c5c331507f382a3"
    * </pre>
    *
    * <code>string live_meet_id = 4 [json_name = "liveMeetId"];</code>
@@ -105,6 +105,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Current lifecycle state of the chat conversation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="opened"
    * </pre>
    *
    * <code>.coreapi.model.UserChatState state = 5 [json_name = "state", (.buf.validate.field) = { ... }</code>
@@ -115,6 +116,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Current lifecycle state of the chat conversation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="opened"
    * </pre>
    *
    * <code>.coreapi.model.UserChatState state = 5 [json_name = "state", (.buf.validate.field) = { ... }</code>
@@ -126,6 +128,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Reason the chat was missed.
    * Only present when the chat transitioned to a missed state.
+   * +kubebuilder:example="noAnswer"
    * </pre>
    *
    * <code>.coreapi.model.MissedReason missed_reason = 6 [json_name = "missedReason"];</code>
@@ -136,6 +139,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Reason the chat was missed.
    * Only present when the chat transitioned to a missed state.
+   * +kubebuilder:example="noAnswer"
    * </pre>
    *
    * <code>.coreapi.model.MissedReason missed_reason = 6 [json_name = "missedReason"];</code>
@@ -160,6 +164,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Priority level used by the auto-assignment system to order this chat
    * in the queue. Defaults to medium.
+   * +kubebuilder:example="medium"
    * </pre>
    *
    * <code>.coreapi.model.AutoAssignPriority priority = 8 [json_name = "priority"];</code>
@@ -170,6 +175,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Priority level used by the auto-assignment system to order this chat
    * in the queue. Defaults to medium.
+   * +kubebuilder:example="medium"
    * </pre>
    *
    * <code>.coreapi.model.AutoAssignPriority priority = 8 [json_name = "priority"];</code>
@@ -180,7 +186,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the user who owns this chat conversation.
-   * +kubebuilder:example="u-abc123"
+   * +kubebuilder:example="69e86feadafa12609c34"
    * </pre>
    *
    * <code>string user_id = 9 [json_name = "userId"];</code>
@@ -190,7 +196,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the user who owns this chat conversation.
-   * +kubebuilder:example="u-abc123"
+   * +kubebuilder:example="69e86feadafa12609c34"
    * </pre>
    *
    * <code>string user_id = 9 [json_name = "userId"];</code>
@@ -203,7 +209,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * ID of the external service user linked to this chat
    * via a messenger integration.
-   * +kubebuilder:example="xer-001"
+   * +kubebuilder:example="69e86feadafa12609c34"
    * </pre>
    *
    * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -214,7 +220,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * ID of the external service user linked to this chat
    * via a messenger integration.
-   * +kubebuilder:example="xer-001"
+   * +kubebuilder:example="69e86feadafa12609c34"
    * </pre>
    *
    * <code>string xer_id = 10 [json_name = "xerId"];</code>
@@ -294,6 +300,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Type of subtext shown below the chat title in the Desk inbox list.
+   * +kubebuilder:example="description"
    * </pre>
    *
    * <code>.coreapi.model.UserChatSubtextType subtext_type = 14 [json_name = "subtextType"];</code>
@@ -303,6 +310,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Type of subtext shown below the chat title in the Desk inbox list.
+   * +kubebuilder:example="description"
    * </pre>
    *
    * <code>.coreapi.model.UserChatSubtextType subtext_type = 14 [json_name = "subtextType"];</code>
@@ -418,7 +426,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the manager currently assigned as the primary responder.
-   * +kubebuilder:example="m-001"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string assignee_id = 18 [json_name = "assigneeId"];</code>
@@ -428,7 +436,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the manager currently assigned as the primary responder.
-   * +kubebuilder:example="m-001"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string assignee_id = 18 [json_name = "assigneeId"];</code>
@@ -440,7 +448,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the team this chat is routed to for handling.
-   * +kubebuilder:example="team-001"
+   * +kubebuilder:example="5832"
    * </pre>
    *
    * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -450,7 +458,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the team this chat is routed to for handling.
-   * +kubebuilder:example="team-001"
+   * +kubebuilder:example="5832"
    * </pre>
    *
    * <code>string team_id = 19 [json_name = "teamId"];</code>
@@ -587,6 +595,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the goal achievement was last evaluated.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
@@ -596,6 +605,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the goal achievement was last evaluated.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
@@ -605,6 +615,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the goal achievement was last evaluated.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
@@ -614,6 +625,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Current achievement state of the tracked goal.
+   * +kubebuilder:example="waiting"
    * </pre>
    *
    * <code>.coreapi.model.UserChatGoalState goal_state = 25 [json_name = "goalState"];</code>
@@ -623,6 +635,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Current achievement state of the tracked goal.
+   * +kubebuilder:example="waiting"
    * </pre>
    *
    * <code>.coreapi.model.UserChatGoalState goal_state = 25 [json_name = "goalState"];</code>
@@ -633,6 +646,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat was first opened by a manager.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
@@ -642,6 +656,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat was first opened by a manager.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
@@ -651,6 +666,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat was first opened by a manager.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
@@ -661,6 +677,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Timestamp when the chat was most recently opened.
    * Reset each time the chat transitions to the opened state.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
@@ -671,6 +688,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Timestamp when the chat was most recently opened.
    * Reset each time the chat transitions to the opened state.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
@@ -681,6 +699,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Timestamp when the chat was most recently opened.
    * Reset each time the chat transitions to the opened state.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
@@ -690,6 +709,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat was first placed in the assignment queue.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
@@ -699,6 +719,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat was first placed in the assignment queue.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
@@ -708,6 +729,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat was first placed in the assignment queue.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
@@ -717,6 +739,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat was most recently placed in the assignment queue.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
@@ -726,6 +749,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat was most recently placed in the assignment queue.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
@@ -735,6 +759,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat was most recently placed in the assignment queue.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
@@ -745,6 +770,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Chat creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -755,6 +781,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Chat creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -765,6 +792,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Chat creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -775,6 +803,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Chat last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -785,6 +814,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Chat last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -795,6 +825,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Chat last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -804,7 +835,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the latest message visible to the user (front side).
-   * +kubebuilder:example="msg-001"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string front_message_id = 32 [json_name = "frontMessageId"];</code>
@@ -814,7 +845,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the latest message visible to the user (front side).
-   * +kubebuilder:example="msg-001"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string front_message_id = 32 [json_name = "frontMessageId"];</code>
@@ -826,6 +857,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the front-side (user-visible) message list was last updated.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
@@ -835,6 +867,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the front-side (user-visible) message list was last updated.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
@@ -844,6 +877,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the front-side (user-visible) message list was last updated.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
@@ -853,7 +887,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the latest message visible on the Desk (manager) side.
-   * +kubebuilder:example="msg-002"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -863,7 +897,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the latest message visible on the Desk (manager) side.
-   * +kubebuilder:example="msg-002"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string desk_message_id = 34 [json_name = "deskMessageId"];</code>
@@ -875,6 +909,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the Desk-side message list was last updated.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
@@ -884,6 +919,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the Desk-side message list was last updated.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
@@ -893,6 +929,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the Desk-side message list was last updated.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
@@ -902,7 +939,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the most recent message sent by the user.
-   * +kubebuilder:example="msg-003"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string user_last_message_id = 36 [json_name = "userLastMessageId"];</code>
@@ -912,7 +949,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * ID of the most recent message sent by the user.
-   * +kubebuilder:example="msg-003"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string user_last_message_id = 36 [json_name = "userLastMessageId"];</code>
@@ -925,7 +962,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * ID of the first manager assigned after the chat was opened.
    * Used for tracking initial response ownership.
-   * +kubebuilder:example="m-001"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -936,7 +973,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * ID of the first manager assigned after the chat was opened.
    * Used for tracking initial response ownership.
-   * +kubebuilder:example="m-001"
+   * +kubebuilder:example="12372"
    * </pre>
    *
    * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
@@ -949,6 +986,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Timestamp of the first-ever manager reply in this chat,
    * across all open/close cycles.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
@@ -959,6 +997,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Timestamp of the first-ever manager reply in this chat,
    * across all open/close cycles.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
@@ -969,6 +1008,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Timestamp of the first-ever manager reply in this chat,
    * across all open/close cycles.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
@@ -979,6 +1019,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Timestamp of the first manager reply after the most recent open.
    * Reset each time the chat is reopened.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
@@ -989,6 +1030,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Timestamp of the first manager reply after the most recent open.
    * Reset each time the chat is reopened.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
@@ -999,6 +1041,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Timestamp of the first manager reply after the most recent open.
    * Reset each time the chat is reopened.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
@@ -1135,6 +1178,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Timestamp when the user last sent a message that is awaiting
    * a manager's reply. Cleared when the manager responds.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
@@ -1145,6 +1189,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Timestamp when the user last sent a message that is awaiting
    * a manager's reply. Cleared when the manager responds.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
@@ -1155,6 +1200,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Timestamp when the user last sent a message that is awaiting
    * a manager's reply. Cleared when the manager responds.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
@@ -1164,6 +1210,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user sent the first message in this chat.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
@@ -1173,6 +1220,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user sent the first message in this chat.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
@@ -1182,6 +1230,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user sent the first message in this chat.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
@@ -1191,6 +1240,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat was closed.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
@@ -1200,6 +1250,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat was closed.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
@@ -1209,6 +1260,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat was closed.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
@@ -1218,6 +1270,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat was snoozed.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
@@ -1227,6 +1280,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat was snoozed.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
@@ -1236,6 +1290,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat was snoozed.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
@@ -1245,6 +1300,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat is scheduled to automatically expire and close.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
@@ -1254,6 +1310,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat is scheduled to automatically expire and close.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
@@ -1263,6 +1320,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Timestamp when the chat is scheduled to automatically expire and close.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>

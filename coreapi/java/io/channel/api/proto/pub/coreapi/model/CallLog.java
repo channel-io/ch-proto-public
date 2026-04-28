@@ -205,7 +205,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID where the call occurred.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -228,7 +228,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID where the call occurred.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -255,6 +255,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Reason the call was missed.
    * Only present when the call ended without being answered.
+   * +kubebuilder:example="noAnswer"
    * </pre>
    *
    * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -267,6 +268,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Reason the call was missed.
    * Only present when the call ended without being answered.
+   * +kubebuilder:example="noAnswer"
    * </pre>
    *
    * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -283,6 +285,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the call was inbound (received) or outbound (initiated).
+   * +kubebuilder:example="INBOUND"
    * </pre>
    *
    * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -294,6 +297,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the call was inbound (received) or outbound (initiated).
+   * +kubebuilder:example="INBOUND"
    * </pre>
    *
    * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -310,6 +314,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Current lifecycle state indicating whether the call is waiting or connected.
+   * +kubebuilder:example="ENGAGED"
    * </pre>
    *
    * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -321,6 +326,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Current lifecycle state indicating whether the call is waiting or connected.
+   * +kubebuilder:example="ENGAGED"
    * </pre>
    *
    * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -434,6 +440,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Call creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -447,6 +454,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Call creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -460,6 +468,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Call creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -475,6 +484,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Call last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -488,6 +498,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Call last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -501,6 +512,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Call last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -516,6 +528,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the call was answered and the conversation began.
    * Absent if the call was never answered.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -529,6 +542,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the call was answered and the conversation began.
    * Absent if the call was never answered.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -542,6 +556,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the call was answered and the conversation began.
    * Absent if the call was never answered.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -557,6 +572,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the call ended and the connection was terminated.
    * Absent if the call is still active or was never connected.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -570,6 +586,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the call ended and the connection was terminated.
    * Absent if the call is still active or was never connected.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -583,6 +600,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the call ended and the connection was terminated.
    * Absent if the call is still active or was never connected.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -598,7 +616,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * User chat ID linked to this call.
    * Present when the call is associated with a user chat conversation.
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -621,7 +639,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * User chat ID linked to this call.
    * Present when the call is associated with a user chat conversation.
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -1259,7 +1277,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID where the call occurred.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1281,7 +1299,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID where the call occurred.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1304,7 +1322,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID where the call occurred.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1325,7 +1343,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID where the call occurred.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1341,7 +1359,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID where the call occurred.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1365,6 +1383,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the call was missed.
      * Only present when the call ended without being answered.
+     * +kubebuilder:example="noAnswer"
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -1377,6 +1396,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the call was missed.
      * Only present when the call ended without being answered.
+     * +kubebuilder:example="noAnswer"
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -1393,6 +1413,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the call was missed.
      * Only present when the call ended without being answered.
+     * +kubebuilder:example="noAnswer"
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -1408,6 +1429,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the call was missed.
      * Only present when the call ended without being answered.
+     * +kubebuilder:example="noAnswer"
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -1427,6 +1449,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the call was missed.
      * Only present when the call ended without being answered.
+     * +kubebuilder:example="noAnswer"
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -1443,6 +1466,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the call was inbound (received) or outbound (initiated).
+     * +kubebuilder:example="INBOUND"
      * </pre>
      *
      * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -1454,6 +1478,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the call was inbound (received) or outbound (initiated).
+     * +kubebuilder:example="INBOUND"
      * </pre>
      *
      * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -1469,6 +1494,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the call was inbound (received) or outbound (initiated).
+     * +kubebuilder:example="INBOUND"
      * </pre>
      *
      * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -1483,6 +1509,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the call was inbound (received) or outbound (initiated).
+     * +kubebuilder:example="INBOUND"
      * </pre>
      *
      * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -1501,6 +1528,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the call was inbound (received) or outbound (initiated).
+     * +kubebuilder:example="INBOUND"
      * </pre>
      *
      * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -1517,6 +1545,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state indicating whether the call is waiting or connected.
+     * +kubebuilder:example="ENGAGED"
      * </pre>
      *
      * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -1528,6 +1557,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state indicating whether the call is waiting or connected.
+     * +kubebuilder:example="ENGAGED"
      * </pre>
      *
      * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -1543,6 +1573,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state indicating whether the call is waiting or connected.
+     * +kubebuilder:example="ENGAGED"
      * </pre>
      *
      * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -1557,6 +1588,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state indicating whether the call is waiting or connected.
+     * +kubebuilder:example="ENGAGED"
      * </pre>
      *
      * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -1575,6 +1607,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state indicating whether the call is waiting or connected.
+     * +kubebuilder:example="ENGAGED"
      * </pre>
      *
      * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -1796,6 +1829,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1808,6 +1842,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1824,6 +1859,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1845,6 +1881,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1864,6 +1901,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1887,6 +1925,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1906,6 +1945,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1919,6 +1959,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1935,6 +1976,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1960,6 +2002,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -1972,6 +2015,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -1988,6 +2032,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2009,6 +2054,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2028,6 +2074,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2051,6 +2098,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2070,6 +2118,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2083,6 +2132,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2099,6 +2149,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Call last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2124,6 +2175,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2136,6 +2188,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2152,6 +2205,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2173,6 +2227,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2192,6 +2247,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2215,6 +2271,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2234,6 +2291,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2247,6 +2305,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2263,6 +2322,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call was answered and the conversation began.
      * Absent if the call was never answered.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -2288,6 +2348,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2300,6 +2361,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2316,6 +2378,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2337,6 +2400,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2356,6 +2420,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2379,6 +2444,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2398,6 +2464,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2411,6 +2478,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2427,6 +2495,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the call ended and the connection was terminated.
      * Absent if the call is still active or was never connected.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -2450,7 +2519,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User chat ID linked to this call.
      * Present when the call is associated with a user chat conversation.
-     * +kubebuilder:example="uc-abc123"
+     * +kubebuilder:example="69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -2472,7 +2541,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User chat ID linked to this call.
      * Present when the call is associated with a user chat conversation.
-     * +kubebuilder:example="uc-abc123"
+     * +kubebuilder:example="69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -2495,7 +2564,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User chat ID linked to this call.
      * Present when the call is associated with a user chat conversation.
-     * +kubebuilder:example="uc-abc123"
+     * +kubebuilder:example="69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -2516,7 +2585,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User chat ID linked to this call.
      * Present when the call is associated with a user chat conversation.
-     * +kubebuilder:example="uc-abc123"
+     * +kubebuilder:example="69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -2532,7 +2601,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User chat ID linked to this call.
      * Present when the call is associated with a user chat conversation.
-     * +kubebuilder:example="uc-abc123"
+     * +kubebuilder:example="69e86feaecf73e47cf2f"
      * </pre>
      *
      * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>

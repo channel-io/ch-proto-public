@@ -85,12 +85,12 @@ type Group struct {
 	// Unique group identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="g-abc123"
+	// +kubebuilder:example="18772"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this group belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="7683"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Display title of the group.
 	// Unique within the channel (case-insensitive).
@@ -106,6 +106,7 @@ type Group struct {
 	// Visibility scope determining who can discover and access the group.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="public"
 	Scope GroupScope `protobuf:"varint,4,opt,name=scope,proto3,enum=coreapi.model.GroupScope" json:"scope,omitempty"`
 	// IDs of managers who are members of this group.
 	//
@@ -119,20 +120,22 @@ type Group struct {
 	Icon string `protobuf:"bytes,6,opt,name=icon,proto3" json:"icon,omitempty"`
 	// ID of the active live meet session in this group.
 	//
-	// +kubebuilder:example="meet-001"
+	// +kubebuilder:example="695b7c5c331507f382a3"
 	LiveMeetId string `protobuf:"bytes,7,opt,name=live_meet_id,json=liveMeetId,proto3" json:"live_meet_id,omitempty"`
 	// Free-text description explaining the group's purpose or topic.
 	//
 	// +kubebuilder:validation:MaxLength=200
-	// +kubebuilder:example="General discussion"
+	// +kubebuilder:example="Company-wide announcements and discussion"
 	Description string `protobuf:"bytes,8,opt,name=description,proto3" json:"description,omitempty"`
 	// Group creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Group last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

@@ -193,7 +193,7 @@ private static final long serialVersionUID = 0L;
    * Unique campaign message identifier.
    * Client-assigned on creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="cm-001"
+   * +kubebuilder:example="8201"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -217,7 +217,7 @@ private static final long serialVersionUID = 0L;
    * Unique campaign message identifier.
    * Client-assigned on creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="cm-001"
+   * +kubebuilder:example="8201"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -245,7 +245,7 @@ private static final long serialVersionUID = 0L;
    * Campaign ID this message variant belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="cpn-001"
+   * +kubebuilder:example="6299"
    * </pre>
    *
    * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -269,7 +269,7 @@ private static final long serialVersionUID = 0L;
    * Campaign ID this message variant belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="cpn-001"
+   * +kubebuilder:example="6299"
    * </pre>
    *
    * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -296,7 +296,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this campaign message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -319,7 +319,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this campaign message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -399,6 +399,7 @@ private static final long serialVersionUID = 0L;
    * Channel through which this message is delivered.
    * Cannot be changed after creation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="native"
    * </pre>
    *
    * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
@@ -412,6 +413,7 @@ private static final long serialVersionUID = 0L;
    * Channel through which this message is delivered.
    * Cannot be changed after creation.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="native"
    * </pre>
    *
    * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
@@ -428,7 +430,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-   * +kubebuilder:example="sms-001"
+   * +kubebuilder:example="67fceb5a3d6de141ea5a"
    * </pre>
    *
    * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -450,7 +452,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-   * +kubebuilder:example="sms-001"
+   * +kubebuilder:example="67fceb5a3d6de141ea5a"
    * </pre>
    *
    * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -521,6 +523,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Campaign message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -534,6 +537,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Campaign message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -547,6 +551,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Campaign message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -562,6 +567,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Campaign message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -575,6 +581,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Campaign message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -588,6 +595,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Campaign message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -1216,7 +1224,7 @@ private static final long serialVersionUID = 0L;
      * Unique campaign message identifier.
      * Client-assigned on creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="cm-001"
+     * +kubebuilder:example="8201"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1239,7 +1247,7 @@ private static final long serialVersionUID = 0L;
      * Unique campaign message identifier.
      * Client-assigned on creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="cm-001"
+     * +kubebuilder:example="8201"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1263,7 +1271,7 @@ private static final long serialVersionUID = 0L;
      * Unique campaign message identifier.
      * Client-assigned on creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="cm-001"
+     * +kubebuilder:example="8201"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1285,7 +1293,7 @@ private static final long serialVersionUID = 0L;
      * Unique campaign message identifier.
      * Client-assigned on creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="cm-001"
+     * +kubebuilder:example="8201"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1302,7 +1310,7 @@ private static final long serialVersionUID = 0L;
      * Unique campaign message identifier.
      * Client-assigned on creation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="cm-001"
+     * +kubebuilder:example="8201"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1327,7 +1335,7 @@ private static final long serialVersionUID = 0L;
      * Campaign ID this message variant belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="cpn-001"
+     * +kubebuilder:example="6299"
      * </pre>
      *
      * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -1350,7 +1358,7 @@ private static final long serialVersionUID = 0L;
      * Campaign ID this message variant belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="cpn-001"
+     * +kubebuilder:example="6299"
      * </pre>
      *
      * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -1374,7 +1382,7 @@ private static final long serialVersionUID = 0L;
      * Campaign ID this message variant belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="cpn-001"
+     * +kubebuilder:example="6299"
      * </pre>
      *
      * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -1396,7 +1404,7 @@ private static final long serialVersionUID = 0L;
      * Campaign ID this message variant belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="cpn-001"
+     * +kubebuilder:example="6299"
      * </pre>
      *
      * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -1413,7 +1421,7 @@ private static final long serialVersionUID = 0L;
      * Campaign ID this message variant belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="cpn-001"
+     * +kubebuilder:example="6299"
      * </pre>
      *
      * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -1437,7 +1445,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this campaign message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1459,7 +1467,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this campaign message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1482,7 +1490,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this campaign message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1503,7 +1511,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this campaign message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1519,7 +1527,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this campaign message belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1655,6 +1663,7 @@ private static final long serialVersionUID = 0L;
      * Channel through which this message is delivered.
      * Cannot be changed after creation.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="native"
      * </pre>
      *
      * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
@@ -1668,6 +1677,7 @@ private static final long serialVersionUID = 0L;
      * Channel through which this message is delivered.
      * Cannot be changed after creation.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="native"
      * </pre>
      *
      * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
@@ -1685,6 +1695,7 @@ private static final long serialVersionUID = 0L;
      * Channel through which this message is delivered.
      * Cannot be changed after creation.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="native"
      * </pre>
      *
      * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
@@ -1701,6 +1712,7 @@ private static final long serialVersionUID = 0L;
      * Channel through which this message is delivered.
      * Cannot be changed after creation.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="native"
      * </pre>
      *
      * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
@@ -1721,6 +1733,7 @@ private static final long serialVersionUID = 0L;
      * Channel through which this message is delivered.
      * Cannot be changed after creation.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="native"
      * </pre>
      *
      * <code>.coreapi.model.MediumType medium_type = 5 [json_name = "mediumType", (.buf.validate.field) = { ... }</code>
@@ -1737,7 +1750,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-     * +kubebuilder:example="sms-001"
+     * +kubebuilder:example="67fceb5a3d6de141ea5a"
      * </pre>
      *
      * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -1758,7 +1771,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-     * +kubebuilder:example="sms-001"
+     * +kubebuilder:example="67fceb5a3d6de141ea5a"
      * </pre>
      *
      * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -1780,7 +1793,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-     * +kubebuilder:example="sms-001"
+     * +kubebuilder:example="67fceb5a3d6de141ea5a"
      * </pre>
      *
      * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -1800,7 +1813,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-     * +kubebuilder:example="sms-001"
+     * +kubebuilder:example="67fceb5a3d6de141ea5a"
      * </pre>
      *
      * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -1815,7 +1828,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-     * +kubebuilder:example="sms-001"
+     * +kubebuilder:example="67fceb5a3d6de141ea5a"
      * </pre>
      *
      * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -2014,6 +2027,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2026,6 +2040,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2042,6 +2057,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2063,6 +2079,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2082,6 +2099,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2105,6 +2123,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2124,6 +2143,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2137,6 +2157,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2153,6 +2174,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2178,6 +2200,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2190,6 +2213,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2206,6 +2230,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2227,6 +2252,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2246,6 +2272,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2269,6 +2296,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2288,6 +2316,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2301,6 +2330,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2317,6 +2347,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>

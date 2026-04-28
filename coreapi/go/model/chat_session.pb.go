@@ -32,40 +32,40 @@ type ChatSession struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="manager-m001-userChat"
+	// +kubebuilder:example="manager-12372-userChat"
 	Key string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
 	// Chat ID of the conversation this session tracks.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="uc-abc123"
+	// +kubebuilder:example="69e86feaecf73e47cf2f"
 	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	// Section ID used to organize team chat conversations into custom groups.
 	//
-	// +kubebuilder:example="sec-001"
+	// +kubebuilder:example="115211"
 	TeamChatSectionId string `protobuf:"bytes,3,opt,name=team_chat_section_id,json=teamChatSectionId,proto3" json:"team_chat_section_id,omitempty"`
 	// Composite key identifying the conversation.
 	// Format: "{chatType}-{chatId}".
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="userChat-uc-abc123"
+	// +kubebuilder:example="userChat-69e86feaecf73e47cf2f"
 	ChatKey string `protobuf:"bytes,4,opt,name=chat_key,json=chatKey,proto3" json:"chat_key,omitempty"`
 	// Opaque sort key for ordering sessions by last activity.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="manager-m001-userChat"
+	// +kubebuilder:example="manager-12372-userChat"
 	UpdatedKey string `protobuf:"bytes,5,opt,name=updated_key,json=updatedKey,proto3" json:"updated_key,omitempty"`
 	// Opaque sort key for filtering and ordering sessions with unread messages.
 	// Empty when the session has no unread messages (i.e. badge is zero).
 	//
-	// +kubebuilder:example="manager-m001-userChat"
+	// +kubebuilder:example="manager-12372-userChat"
 	UnreadKey string `protobuf:"bytes,6,opt,name=unread_key,json=unreadKey,proto3" json:"unread_key,omitempty"`
 	// Channel ID this session belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="7683"
 	ChannelId string `protobuf:"bytes,7,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Number of unread messages with alert-level notification priority.
 	// Defaults to 0.
@@ -78,6 +78,8 @@ type ChatSession struct {
 	// +kubebuilder:example="3"
 	Unread int32 `protobuf:"varint,9,opt,name=unread,proto3" json:"unread,omitempty"`
 	// Notification preference controlling which messages trigger alerts in this session.
+	//
+	// +kubebuilder:example="all"
 	Watch SessionWatch `protobuf:"varint,10,opt,name=watch,proto3,enum=coreapi.model.SessionWatch" json:"watch,omitempty"`
 	// Whether @all mentions trigger alert-level notifications in this session.
 	// When absent, inherits from the manager-level default setting.
@@ -85,18 +87,26 @@ type ChatSession struct {
 	// +kubebuilder:example="true"
 	AllMentionImportant bool `protobuf:"varint,11,opt,name=all_mention_important,json=allMentionImportant,proto3" json:"all_mention_important,omitempty"`
 	// Timestamp when the person last read messages in this session.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	ReadAt *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=read_at,json=readAt,proto3" json:"read_at,omitempty"`
 	// Timestamp when the last message was received in this conversation.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	ReceivedAt *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=received_at,json=receivedAt,proto3" json:"received_at,omitempty"`
 	// Timestamp when the last message was posted in this conversation.
+	//
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	PostedAt *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=posted_at,json=postedAt,proto3" json:"posted_at,omitempty"`
 	// Session last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Session creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2025-07-15T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Optimistic locking version.
 	//
@@ -107,7 +117,7 @@ type ChatSession struct {
 	// Format: "{key}-{chatId}".
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="manager-m001-userChat-uc-abc123"
+	// +kubebuilder:example="manager-12372-userChat-69e86feaecf73e47cf2f"
 	Id string `protobuf:"bytes,18,opt,name=id,proto3" json:"id,omitempty"`
 	// Chat type of the conversation (e.g., "userChat", "group", "directChat").
 	//
@@ -125,7 +135,7 @@ type ChatSession struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="m-001"
+	// +kubebuilder:example="12372"
 	PersonId      string `protobuf:"bytes,21,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

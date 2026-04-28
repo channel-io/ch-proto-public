@@ -189,7 +189,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ID of the user who triggered the event.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="u-abc123"
+   * +kubebuilder:example="69e86feadafa12609c34"
    * </pre>
    *
    * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -212,7 +212,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ID of the user who triggered the event.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="u-abc123"
+   * +kubebuilder:example="69e86feadafa12609c34"
    * </pre>
    *
    * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -239,7 +239,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique event identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="evt-20240101-001"
+   * +kubebuilder:example="7683-PageView"
    * </pre>
    *
    * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -262,7 +262,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique event identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="evt-20240101-001"
+   * +kubebuilder:example="7683-PageView"
    * </pre>
    *
    * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -289,7 +289,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this event belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -312,7 +312,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this event belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="7683"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -431,6 +431,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Event creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -444,6 +445,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Event creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -457,6 +459,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Event creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -471,6 +474,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expiration timestamp after which the event may no longer be retrievable.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -483,6 +487,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expiration timestamp after which the event may no longer be retrievable.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -495,6 +500,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expiration timestamp after which the event may no longer be retrievable.
+   * +kubebuilder:example="2025-07-15T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -1144,7 +1150,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the user who triggered the event.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="u-abc123"
+     * +kubebuilder:example="69e86feadafa12609c34"
      * </pre>
      *
      * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1166,7 +1172,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the user who triggered the event.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="u-abc123"
+     * +kubebuilder:example="69e86feadafa12609c34"
      * </pre>
      *
      * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1189,7 +1195,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the user who triggered the event.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="u-abc123"
+     * +kubebuilder:example="69e86feadafa12609c34"
      * </pre>
      *
      * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1210,7 +1216,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the user who triggered the event.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="u-abc123"
+     * +kubebuilder:example="69e86feadafa12609c34"
      * </pre>
      *
      * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1226,7 +1232,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ID of the user who triggered the event.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="u-abc123"
+     * +kubebuilder:example="69e86feadafa12609c34"
      * </pre>
      *
      * <code>string user_id = 1 [json_name = "userId", (.buf.validate.field) = { ... }</code>
@@ -1250,7 +1256,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique event identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="evt-20240101-001"
+     * +kubebuilder:example="7683-PageView"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1272,7 +1278,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique event identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="evt-20240101-001"
+     * +kubebuilder:example="7683-PageView"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1295,7 +1301,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique event identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="evt-20240101-001"
+     * +kubebuilder:example="7683-PageView"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1316,7 +1322,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique event identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="evt-20240101-001"
+     * +kubebuilder:example="7683-PageView"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1332,7 +1338,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique event identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="evt-20240101-001"
+     * +kubebuilder:example="7683-PageView"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1356,7 +1362,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this event belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1378,7 +1384,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this event belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1401,7 +1407,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this event belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1422,7 +1428,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this event belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1438,7 +1444,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this event belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="7683"
      * </pre>
      *
      * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1735,6 +1741,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1747,6 +1754,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1763,6 +1771,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1784,6 +1793,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1803,6 +1813,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1826,6 +1837,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1845,6 +1857,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1858,6 +1871,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1874,6 +1888,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1898,6 +1913,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -1909,6 +1925,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -1924,6 +1941,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -1944,6 +1962,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -1962,6 +1981,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -1984,6 +2004,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -2002,6 +2023,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -2014,6 +2036,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -2029,6 +2052,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2025-07-15T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>

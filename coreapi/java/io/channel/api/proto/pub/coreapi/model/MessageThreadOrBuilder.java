@@ -11,7 +11,7 @@ public interface MessageThreadOrBuilder extends
    * <pre>
    * Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
    * Encodes the parent chat context and the root message that started the thread.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -22,7 +22,7 @@ public interface MessageThreadOrBuilder extends
    * <pre>
    * Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
    * Encodes the parent chat context and the root message that started the thread.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-69e86feaecf73e47cf2f-69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -155,7 +155,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Chat ID component extracted from the thread `id`.
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string chat_id = 6 [json_name = "chatId"];</code>
@@ -165,7 +165,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Chat ID component extracted from the thread `id`.
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="69e86feaecf73e47cf2f"
    * </pre>
    *
    * <code>string chat_id = 6 [json_name = "chatId"];</code>
@@ -177,7 +177,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * ID of the root message that started this thread, extracted from the thread `id`.
-   * +kubebuilder:example="msg-001"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string root_message_id = 7 [json_name = "rootMessageId"];</code>
@@ -187,7 +187,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * ID of the root message that started this thread, extracted from the thread `id`.
-   * +kubebuilder:example="msg-001"
+   * +kubebuilder:example="69e86fe3b7b342614c94"
    * </pre>
    *
    * <code>string root_message_id = 7 [json_name = "rootMessageId"];</code>

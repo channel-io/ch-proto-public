@@ -10,7 +10,7 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Support bot identifier that owns this flow.
-   * +kubebuilder:example="wf-001"
+   * +kubebuilder:example="70123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -20,7 +20,7 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Support bot identifier that owns this flow.
-   * +kubebuilder:example="wf-001"
+   * +kubebuilder:example="70123"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -32,7 +32,7 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Published revision of the support bot being executed.
-   * +kubebuilder:example="rev-001"
+   * +kubebuilder:example="40123"
    * </pre>
    *
    * <code>string revision_id = 2 [json_name = "revisionId"];</code>
@@ -42,7 +42,7 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Published revision of the support bot being executed.
-   * +kubebuilder:example="rev-001"
+   * +kubebuilder:example="40123"
    * </pre>
    *
    * <code>string revision_id = 2 [json_name = "revisionId"];</code>
@@ -54,7 +54,7 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Current section within the support bot flow (e.g. a route or action section).
-   * +kubebuilder:example="sec-001"
+   * +kubebuilder:example="115211"
    * </pre>
    *
    * <code>string section_id = 3 [json_name = "sectionId"];</code>
@@ -64,7 +64,7 @@ public interface MessageSupportBotOrBuilder extends
   /**
    * <pre>
    * Current section within the support bot flow (e.g. a route or action section).
-   * +kubebuilder:example="sec-001"
+   * +kubebuilder:example="115211"
    * </pre>
    *
    * <code>string section_id = 3 [json_name = "sectionId"];</code>
