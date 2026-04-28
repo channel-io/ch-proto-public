@@ -142,11 +142,11 @@ type CallLog struct {
 	MissedReason MissedReason `protobuf:"varint,2,opt,name=missed_reason,json=missedReason,proto3,enum=coreapi.model.MissedReason" json:"missed_reason,omitempty"`
 	// Whether the call was inbound (received) or outbound (initiated).
 	//
-	// +kubebuilder:example="INBOUND"
+	// +kubebuilder:example="inbound"
 	Direction CallDirection `protobuf:"varint,3,opt,name=direction,proto3,enum=coreapi.model.CallDirection" json:"direction,omitempty"`
 	// Current lifecycle state indicating whether the call is waiting or connected.
 	//
-	// +kubebuilder:example="ENGAGED"
+	// +kubebuilder:example="engaged"
 	State CallState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.CallState" json:"state,omitempty"`
 	// Originating phone number or caller identifier.
 	//

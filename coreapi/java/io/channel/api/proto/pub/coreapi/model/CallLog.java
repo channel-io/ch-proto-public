@@ -285,7 +285,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the call was inbound (received) or outbound (initiated).
-   * +kubebuilder:example="INBOUND"
+   * +kubebuilder:example="inbound"
    * </pre>
    *
    * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -297,7 +297,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the call was inbound (received) or outbound (initiated).
-   * +kubebuilder:example="INBOUND"
+   * +kubebuilder:example="inbound"
    * </pre>
    *
    * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -314,7 +314,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Current lifecycle state indicating whether the call is waiting or connected.
-   * +kubebuilder:example="ENGAGED"
+   * +kubebuilder:example="engaged"
    * </pre>
    *
    * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -326,7 +326,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Current lifecycle state indicating whether the call is waiting or connected.
-   * +kubebuilder:example="ENGAGED"
+   * +kubebuilder:example="engaged"
    * </pre>
    *
    * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -1466,7 +1466,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the call was inbound (received) or outbound (initiated).
-     * +kubebuilder:example="INBOUND"
+     * +kubebuilder:example="inbound"
      * </pre>
      *
      * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -1478,7 +1478,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the call was inbound (received) or outbound (initiated).
-     * +kubebuilder:example="INBOUND"
+     * +kubebuilder:example="inbound"
      * </pre>
      *
      * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -1494,7 +1494,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the call was inbound (received) or outbound (initiated).
-     * +kubebuilder:example="INBOUND"
+     * +kubebuilder:example="inbound"
      * </pre>
      *
      * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -1509,7 +1509,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the call was inbound (received) or outbound (initiated).
-     * +kubebuilder:example="INBOUND"
+     * +kubebuilder:example="inbound"
      * </pre>
      *
      * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -1528,7 +1528,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the call was inbound (received) or outbound (initiated).
-     * +kubebuilder:example="INBOUND"
+     * +kubebuilder:example="inbound"
      * </pre>
      *
      * <code>.coreapi.model.CallDirection direction = 3 [json_name = "direction"];</code>
@@ -1545,7 +1545,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state indicating whether the call is waiting or connected.
-     * +kubebuilder:example="ENGAGED"
+     * +kubebuilder:example="engaged"
      * </pre>
      *
      * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -1557,7 +1557,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state indicating whether the call is waiting or connected.
-     * +kubebuilder:example="ENGAGED"
+     * +kubebuilder:example="engaged"
      * </pre>
      *
      * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -1573,7 +1573,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state indicating whether the call is waiting or connected.
-     * +kubebuilder:example="ENGAGED"
+     * +kubebuilder:example="engaged"
      * </pre>
      *
      * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -1588,7 +1588,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state indicating whether the call is waiting or connected.
-     * +kubebuilder:example="ENGAGED"
+     * +kubebuilder:example="engaged"
      * </pre>
      *
      * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>
@@ -1607,7 +1607,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state indicating whether the call is waiting or connected.
-     * +kubebuilder:example="ENGAGED"
+     * +kubebuilder:example="engaged"
      * </pre>
      *
      * <code>.coreapi.model.CallState state = 4 [json_name = "state"];</code>

@@ -45,12 +45,12 @@ message CallLog {
 
   // Whether the call was inbound (received) or outbound (initiated).
   //
-  // +kubebuilder:example="INBOUND"
+  // +kubebuilder:example="inbound"
   CallDirection direction = 3;
 
   // Current lifecycle state indicating whether the call is waiting or connected.
   //
-  // +kubebuilder:example="ENGAGED"
+  // +kubebuilder:example="engaged"
   CallState state = 4;
 
   // Originating phone number or caller identifier.
