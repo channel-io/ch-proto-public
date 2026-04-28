@@ -73,7 +73,7 @@ public final class Plugin {
       "\001(\tB\006\272H\003\310\001\001R\010pluginId\022%\n\nchannel_id\030\002 \001(" +
       "\tB\006\272H\003\310\001\001R\tchannelId\"@\n\017GetPluginResult\022" +
       "-\n\006plugin\030\001 \001(\0132\025.coreapi.model.PluginR\006" +
-      "plugin\"\211\013\n\023UpdatePluginRequest\022#\n\tplugin" +
+      "plugin\"\263\013\n\023UpdatePluginRequest\022#\n\tplugin" +
       "_id\030\001 \001(\tB\006\272H\003\310\001\001R\010pluginId\022%\n\nchannel_i" +
       "d\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\022s\n\004name\030\003 \001(\t" +
       "B_\272H\\\272\001Y\n\rstring.maxLen\022(value must be n" +
@@ -106,14 +106,15 @@ public final class Plugin {
       "ubblePosition\022\207\001\n\010run_rate\030\023 \001(\002Bl\272Hi\272\0012" +
       "\n\tfloat.gte\022\030value must be at least 0\032\013t" +
       "his >= 0.0\272\0011\n\tfloat.lte\022\027value must be " +
-      "at most 1\032\013this <= 1.0R\007runRate\032I\n\033Label" +
-      "ButtonTextI18nMapEntry\022\020\n\003key\030\001 \001(\tR\003key" +
-      "\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\"C\n\022UpdatePlug" +
-      "inResult\022-\n\006plugin\030\001 \001(\0132\025.coreapi.model" +
-      ".PluginR\006pluginBf\n(io.channel.api.proto." +
-      "pub.coreapi.serviceP\001Z8github.com/channe" +
-      "l-io/ch-proto-public/coreapi/go/serviceb" +
-      "\006proto3"
+      "at most 1\032\013this <= 1.0R\007runRate\022(\n\020custo" +
+      "m_image_url\030\024 \001(\tR\016customImageUrl\032I\n\033Lab" +
+      "elButtonTextI18nMapEntry\022\020\n\003key\030\001 \001(\tR\003k" +
+      "ey\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\"C\n\022UpdatePl" +
+      "uginResult\022-\n\006plugin\030\001 \001(\0132\025.coreapi.mod" +
+      "el.PluginR\006pluginBf\n(io.channel.api.prot" +
+      "o.pub.coreapi.serviceP\001Z8github.com/chan" +
+      "nel-io/ch-proto-public/coreapi/go/servic" +
+      "eb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -150,7 +151,7 @@ public final class Plugin {
     internal_static_coreapi_service_UpdatePluginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_UpdatePluginRequest_descriptor,
-        new java.lang.String[] { "PluginId", "ChannelId", "Name", "Appearance", "LabelButton", "LabelButtonText", "LabelButtonTextI18NMap", "ButtonType", "IconButton", "DeskMarginX", "DeskMarginY", "DeskHideButton", "DeskPosition", "MobileMarginX", "MobileMarginY", "MobilePosition", "MobileHideButton", "MobileBubblePosition", "RunRate", });
+        new java.lang.String[] { "PluginId", "ChannelId", "Name", "Appearance", "LabelButton", "LabelButtonText", "LabelButtonTextI18NMap", "ButtonType", "IconButton", "DeskMarginX", "DeskMarginY", "DeskHideButton", "DeskPosition", "MobileMarginX", "MobileMarginY", "MobilePosition", "MobileHideButton", "MobileBubblePosition", "RunRate", "CustomImageUrl", });
     internal_static_coreapi_service_UpdatePluginRequest_LabelButtonTextI18nMapEntry_descriptor =
       internal_static_coreapi_service_UpdatePluginRequest_descriptor.getNestedTypes().get(0);
     internal_static_coreapi_service_UpdatePluginRequest_LabelButtonTextI18nMapEntry_fieldAccessorTable = new

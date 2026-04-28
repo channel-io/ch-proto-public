@@ -30,6 +30,7 @@ private static final long serialVersionUID = 0L;
     deskPosition_ = 0;
     mobilePosition_ = 0;
     mobileBubblePosition_ = 0;
+    customImageUrl_ = "";
   }
 
   @java.lang.Override
@@ -174,6 +175,12 @@ private static final long serialVersionUID = 0L;
           case 157: {
 
             runRate_ = input.readFloat();
+            break;
+          }
+          case 162: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            customImageUrl_ = s;
             break;
           }
           default: {
@@ -827,6 +834,56 @@ private static final long serialVersionUID = 0L;
     return runRate_;
   }
 
+  public static final int CUSTOM_IMAGE_URL_FIELD_NUMBER = 20;
+  private volatile java.lang.Object customImageUrl_;
+  /**
+   * <pre>
+   * External image URL to use as the custom launcher button image.
+   * Applicable when button_type is CUSTOM_IMAGE.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string custom_image_url = 20 [json_name = "customImageUrl"];</code>
+   * @return The customImageUrl.
+   */
+  @java.lang.Override
+  public java.lang.String getCustomImageUrl() {
+    java.lang.Object ref = customImageUrl_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      customImageUrl_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * External image URL to use as the custom launcher button image.
+   * Applicable when button_type is CUSTOM_IMAGE.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string custom_image_url = 20 [json_name = "customImageUrl"];</code>
+   * @return The bytes for customImageUrl.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCustomImageUrlBytes() {
+    java.lang.Object ref = customImageUrl_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      customImageUrl_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -900,6 +957,9 @@ private static final long serialVersionUID = 0L;
     }
     if (java.lang.Float.floatToRawIntBits(runRate_) != 0) {
       output.writeFloat(19, runRate_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(customImageUrl_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 20, customImageUrl_);
     }
     unknownFields.writeTo(output);
   }
@@ -988,6 +1048,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(19, runRate_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(customImageUrl_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, customImageUrl_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1036,6 +1099,8 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToIntBits(getRunRate())
         != java.lang.Float.floatToIntBits(
             other.getRunRate())) return false;
+    if (!getCustomImageUrl()
+        .equals(other.getCustomImageUrl())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1091,6 +1156,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + RUN_RATE_FIELD_NUMBER;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getRunRate());
+    hash = (37 * hash) + CUSTOM_IMAGE_URL_FIELD_NUMBER;
+    hash = (53 * hash) + getCustomImageUrl().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1287,6 +1354,8 @@ private static final long serialVersionUID = 0L;
 
       runRate_ = 0F;
 
+      customImageUrl_ = "";
+
       return this;
     }
 
@@ -1334,6 +1403,7 @@ private static final long serialVersionUID = 0L;
       result.mobileHideButton_ = mobileHideButton_;
       result.mobileBubblePosition_ = mobileBubblePosition_;
       result.runRate_ = runRate_;
+      result.customImageUrl_ = customImageUrl_;
       onBuilt();
       return result;
     }
@@ -1441,6 +1511,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getRunRate() != 0F) {
         setRunRate(other.getRunRate());
+      }
+      if (!other.getCustomImageUrl().isEmpty()) {
+        customImageUrl_ = other.customImageUrl_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2911,6 +2985,112 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+
+    private java.lang.Object customImageUrl_ = "";
+    /**
+     * <pre>
+     * External image URL to use as the custom launcher button image.
+     * Applicable when button_type is CUSTOM_IMAGE.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string custom_image_url = 20 [json_name = "customImageUrl"];</code>
+     * @return The customImageUrl.
+     */
+    public java.lang.String getCustomImageUrl() {
+      java.lang.Object ref = customImageUrl_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        customImageUrl_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * External image URL to use as the custom launcher button image.
+     * Applicable when button_type is CUSTOM_IMAGE.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string custom_image_url = 20 [json_name = "customImageUrl"];</code>
+     * @return The bytes for customImageUrl.
+     */
+    public com.google.protobuf.ByteString
+        getCustomImageUrlBytes() {
+      java.lang.Object ref = customImageUrl_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        customImageUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * External image URL to use as the custom launcher button image.
+     * Applicable when button_type is CUSTOM_IMAGE.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string custom_image_url = 20 [json_name = "customImageUrl"];</code>
+     * @param value The customImageUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCustomImageUrl(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      customImageUrl_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * External image URL to use as the custom launcher button image.
+     * Applicable when button_type is CUSTOM_IMAGE.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string custom_image_url = 20 [json_name = "customImageUrl"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCustomImageUrl() {
+      
+      customImageUrl_ = getDefaultInstance().getCustomImageUrl();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * External image URL to use as the custom launcher button image.
+     * Applicable when button_type is CUSTOM_IMAGE.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string custom_image_url = 20 [json_name = "customImageUrl"];</code>
+     * @param value The bytes for customImageUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCustomImageUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      customImageUrl_ = value;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3349,6 +3529,29 @@ private static final long serialVersionUID = 0L;
     		return clearRunRate();
     	else
     		return setRunRate(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The custom_image_url to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearCustomImageUrl(java.lang.String value) {
+    	if (value == null)
+    		return clearCustomImageUrl();
+    	else
+    		return setCustomImageUrl(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearCustomImageUrl(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearCustomImageUrl();
+    	else
+    		return setCustomImageUrl(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.UpdatePluginRequest)
