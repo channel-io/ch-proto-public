@@ -108,6 +108,7 @@ message Manager {
 
   // Custom profile data as key-value pairs for additional manager information.
   //
+  // +kubebuilder:example={"department":"Support","language":"en"}
   google.protobuf.Struct profile = 8;
 
   // Manager email address.
