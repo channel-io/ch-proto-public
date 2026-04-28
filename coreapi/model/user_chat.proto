@@ -117,11 +117,13 @@ message UserChat {
   // Current lifecycle state of the chat conversation.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="opened"
   UserChatState state = 5 [(buf.validate.field).required = true];
 
   // Reason the chat was missed.
   // Only present when the chat transitioned to a missed state.
   //
+  // +kubebuilder:example="noAnswer"
   MissedReason missed_reason = 6;
 
   // Whether the chat is managed and visible in the Desk inbox.
@@ -134,6 +136,7 @@ message UserChat {
   // Priority level used by the auto-assignment system to order this chat
   // in the queue. Defaults to medium.
   //
+  // +kubebuilder:example="medium"
   AutoAssignPriority priority = 8;
 
   // ID of the user who owns this chat conversation.
@@ -169,6 +172,7 @@ message UserChat {
 
   // Type of subtext shown below the chat title in the Desk inbox list.
   //
+  // +kubebuilder:example="description"
   UserChatSubtextType subtext_type = 14;
 
   // Current handling state that controls the chat's input behavior
@@ -217,37 +221,45 @@ message UserChat {
 
   // Timestamp when the goal achievement was last evaluated.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp goal_checked_at = 24;
 
   // Current achievement state of the tracked goal.
   //
+  // +kubebuilder:example="waiting"
   UserChatGoalState goal_state = 25;
 
   // Timestamp when the chat was first opened by a manager.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp first_opened_at = 26;
 
   // Timestamp when the chat was most recently opened.
   // Reset each time the chat transitions to the opened state.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp opened_at = 27;
 
   // Timestamp when the chat was first placed in the assignment queue.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp first_queued_at = 28;
 
   // Timestamp when the chat was most recently placed in the assignment queue.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp queued_at = 29;
 
   // Chat creation timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp created_at = 30 [(buf.validate.field).required = true];
 
   // Chat last update timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp updated_at = 31 [(buf.validate.field).required = true];
 
   // ID of the latest message visible to the user (front side).
@@ -257,6 +269,7 @@ message UserChat {
 
   // Timestamp when the front-side (user-visible) message list was last updated.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp front_updated_at = 33;
 
   // ID of the latest message visible on the Desk (manager) side.
@@ -266,6 +279,7 @@ message UserChat {
 
   // Timestamp when the Desk-side message list was last updated.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp desk_updated_at = 35;
 
   // ID of the most recent message sent by the user.
@@ -282,11 +296,13 @@ message UserChat {
   // Timestamp of the first-ever manager reply in this chat,
   // across all open/close cycles.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp first_replied_at = 38;
 
   // Timestamp of the first manager reply after the most recent open.
   // Reset each time the chat is reopened.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp first_replied_at_after_open = 39;
 
   // Whether the chat was resolved by a single assignee without being
@@ -352,22 +368,27 @@ message UserChat {
   // Timestamp when the user last sent a message that is awaiting
   // a manager's reply. Cleared when the manager responds.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp asked_at = 51;
 
   // Timestamp when the user sent the first message in this chat.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp first_asked_at = 52;
 
   // Timestamp when the chat was closed.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp closed_at = 53;
 
   // Timestamp when the chat was snoozed.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp snoozed_at = 54;
 
   // Timestamp when the chat is scheduled to automatically expire and close.
   //
+  // +kubebuilder:example="2025-07-15T09:30:00Z"
   google.protobuf.Timestamp expires_at = 55;
 
   // Optimistic locking version incremented on every update.
