@@ -380,4 +380,28 @@ public interface UpdatePluginRequestOrBuilder extends
    * @return The runRate.
    */
   float getRunRate();
+
+  /**
+   * <pre>
+   * External image URL to use as the custom launcher button image.
+   * Applicable when button_type is CUSTOM_IMAGE.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string custom_image_url = 20 [json_name = "customImageUrl"];</code>
+   * @return The customImageUrl.
+   */
+  java.lang.String getCustomImageUrl();
+  /**
+   * <pre>
+   * External image URL to use as the custom launcher button image.
+   * Applicable when button_type is CUSTOM_IMAGE.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string custom_image_url = 20 [json_name = "customImageUrl"];</code>
+   * @return The bytes for customImageUrl.
+   */
+  com.google.protobuf.ByteString
+      getCustomImageUrlBytes();
 }

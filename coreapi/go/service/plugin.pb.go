@@ -344,9 +344,14 @@ type UpdatePluginRequest struct {
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:Minimum=0
 	// +kubebuilder:validation:Maximum=1
-	RunRate       float32 `protobuf:"fixed32,19,opt,name=run_rate,json=runRate,proto3" json:"run_rate,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	RunRate float32 `protobuf:"fixed32,19,opt,name=run_rate,json=runRate,proto3" json:"run_rate,omitempty"`
+	// External image URL to use as the custom launcher button image.
+	// Applicable when button_type is CUSTOM_IMAGE.
+	//
+	// +kubebuilder:validation:Nullable
+	CustomImageUrl string `protobuf:"bytes,20,opt,name=custom_image_url,json=customImageUrl,proto3" json:"custom_image_url,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *UpdatePluginRequest) Reset() {
@@ -512,6 +517,13 @@ func (x *UpdatePluginRequest) GetRunRate() float32 {
 	return 0
 }
 
+func (x *UpdatePluginRequest) GetCustomImageUrl() string {
+	if x != nil {
+		return x.CustomImageUrl
+	}
+	return ""
+}
+
 // Response for plugin update.
 type UpdatePluginResult struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -578,7 +590,7 @@ const file_coreapi_service_plugin_proto_rawDesc = "" +
 	"\n" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"@\n" +
 	"\x0fGetPluginResult\x12-\n" +
-	"\x06plugin\x18\x01 \x01(\v2\x15.coreapi.model.PluginR\x06plugin\"\x89\v\n" +
+	"\x06plugin\x18\x01 \x01(\v2\x15.coreapi.model.PluginR\x06plugin\"\xb3\v\n" +
 	"\x13UpdatePluginRequest\x12#\n" +
 	"\tplugin_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\bpluginId\x12%\n" +
 	"\n" +
@@ -609,7 +621,8 @@ const file_coreapi_service_plugin_proto_rawDesc = "" +
 	"\x16mobile_bubble_position\x18\x12 \x01(\x0e2#.coreapi.model.PluginBubblePositionR\x14mobileBubblePosition\x12\x87\x01\n" +
 	"\brun_rate\x18\x13 \x01(\x02Bl\xbaHi\xba\x012\n" +
 	"\tfloat.gte\x12\x18value must be at least 0\x1a\vthis >= 0.0\xba\x011\n" +
-	"\tfloat.lte\x12\x17value must be at most 1\x1a\vthis <= 1.0R\arunRate\x1aI\n" +
+	"\tfloat.lte\x12\x17value must be at most 1\x1a\vthis <= 1.0R\arunRate\x12(\n" +
+	"\x10custom_image_url\x18\x14 \x01(\tR\x0ecustomImageUrl\x1aI\n" +
 	"\x1bLabelButtonTextI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"C\n" +

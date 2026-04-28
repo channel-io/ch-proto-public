@@ -181,6 +181,12 @@ message UpdatePluginRequest {
       expression: "this <= 1.0"
     }
   ];
+
+  // External image URL to use as the custom launcher button image.
+  // Applicable when button_type is CUSTOM_IMAGE.
+  //
+  // +kubebuilder:validation:Nullable
+  string custom_image_url = 20;
 }
 
 // Response for plugin update.
