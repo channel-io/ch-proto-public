@@ -211,7 +211,7 @@ message MessageFile {
   // Access scope that determines who can view this private file.
   // Derived from the storage key pattern.
   //
-  // +kubebuilder:example="CHANNEL"
+  // +kubebuilder:example="channel"
   PrivateFileScope private_file_scope = 14;
 
   // Domain identifier for channel-scoped private files.

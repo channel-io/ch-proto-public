@@ -255,7 +255,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Reason the call was missed.
    * Only present when the call ended without being answered.
-   * +kubebuilder:example="noAnswer"
+   * +kubebuilder:example="ringTimeOver"
    * </pre>
    *
    * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -268,7 +268,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Reason the call was missed.
    * Only present when the call ended without being answered.
-   * +kubebuilder:example="noAnswer"
+   * +kubebuilder:example="ringTimeOver"
    * </pre>
    *
    * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -1383,7 +1383,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the call was missed.
      * Only present when the call ended without being answered.
-     * +kubebuilder:example="noAnswer"
+     * +kubebuilder:example="ringTimeOver"
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -1396,7 +1396,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the call was missed.
      * Only present when the call ended without being answered.
-     * +kubebuilder:example="noAnswer"
+     * +kubebuilder:example="ringTimeOver"
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -1413,7 +1413,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the call was missed.
      * Only present when the call ended without being answered.
-     * +kubebuilder:example="noAnswer"
+     * +kubebuilder:example="ringTimeOver"
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -1429,7 +1429,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the call was missed.
      * Only present when the call ended without being answered.
-     * +kubebuilder:example="noAnswer"
+     * +kubebuilder:example="ringTimeOver"
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>
@@ -1449,7 +1449,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Reason the call was missed.
      * Only present when the call ended without being answered.
-     * +kubebuilder:example="noAnswer"
+     * +kubebuilder:example="ringTimeOver"
      * </pre>
      *
      * <code>.coreapi.model.MissedReason missed_reason = 2 [json_name = "missedReason"];</code>

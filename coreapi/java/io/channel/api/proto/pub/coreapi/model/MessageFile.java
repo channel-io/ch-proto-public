@@ -816,7 +816,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Access scope that determines who can view this private file.
    * Derived from the storage key pattern.
-   * +kubebuilder:example="CHANNEL"
+   * +kubebuilder:example="channel"
    * </pre>
    *
    * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
@@ -829,7 +829,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Access scope that determines who can view this private file.
    * Derived from the storage key pattern.
-   * +kubebuilder:example="CHANNEL"
+   * +kubebuilder:example="channel"
    * </pre>
    *
    * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
@@ -2743,7 +2743,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Access scope that determines who can view this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:example="CHANNEL"
+     * +kubebuilder:example="channel"
      * </pre>
      *
      * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
@@ -2756,7 +2756,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Access scope that determines who can view this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:example="CHANNEL"
+     * +kubebuilder:example="channel"
      * </pre>
      *
      * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
@@ -2773,7 +2773,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Access scope that determines who can view this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:example="CHANNEL"
+     * +kubebuilder:example="channel"
      * </pre>
      *
      * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
@@ -2789,7 +2789,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Access scope that determines who can view this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:example="CHANNEL"
+     * +kubebuilder:example="channel"
      * </pre>
      *
      * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>
@@ -2809,7 +2809,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Access scope that determines who can view this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:example="CHANNEL"
+     * +kubebuilder:example="channel"
      * </pre>
      *
      * <code>.coreapi.model.MessageFile.PrivateFileScope private_file_scope = 14 [json_name = "privateFileScope"];</code>

@@ -523,7 +523,7 @@ type MessageFile struct {
 	// Access scope that determines who can view this private file.
 	// Derived from the storage key pattern.
 	//
-	// +kubebuilder:example="CHANNEL"
+	// +kubebuilder:example="channel"
 	PrivateFileScope MessageFile_PrivateFileScope `protobuf:"varint,14,opt,name=private_file_scope,json=privateFileScope,proto3,enum=coreapi.model.MessageFile_PrivateFileScope" json:"private_file_scope,omitempty"`
 	// Domain identifier for channel-scoped private files.
 	// Derived from the storage key pattern.

@@ -123,7 +123,7 @@ message UserChat {
   // Reason the chat was missed.
   // Only present when the chat transitioned to a missed state.
   //
-  // +kubebuilder:example="noAnswer"
+  // +kubebuilder:example="ringTimeOver"
   MissedReason missed_reason = 6;
 
   // Whether the chat is managed and visible in the Desk inbox.

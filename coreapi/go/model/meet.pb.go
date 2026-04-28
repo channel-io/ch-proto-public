@@ -138,7 +138,7 @@ type CallLog struct {
 	// Reason the call was missed.
 	// Only present when the call ended without being answered.
 	//
-	// +kubebuilder:example="noAnswer"
+	// +kubebuilder:example="ringTimeOver"
 	MissedReason MissedReason `protobuf:"varint,2,opt,name=missed_reason,json=missedReason,proto3,enum=coreapi.model.MissedReason" json:"missed_reason,omitempty"`
 	// Whether the call was inbound (received) or outbound (initiated).
 	//

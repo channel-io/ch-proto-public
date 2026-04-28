@@ -382,7 +382,7 @@ type UserChat struct {
 	// Reason the chat was missed.
 	// Only present when the chat transitioned to a missed state.
 	//
-	// +kubebuilder:example="noAnswer"
+	// +kubebuilder:example="ringTimeOver"
 	MissedReason MissedReason `protobuf:"varint,6,opt,name=missed_reason,json=missedReason,proto3,enum=coreapi.model.MissedReason" json:"missed_reason,omitempty"`
 	// Whether the chat is managed and visible in the Desk inbox.
 	// Unmanaged chats are only visible to the user.
