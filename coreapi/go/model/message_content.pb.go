@@ -23,6 +23,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// +kubebuilder:example="actAsManager"
 // Message option flags that modify message delivery and display behavior.
 type MessageOption int32
 
@@ -115,6 +116,7 @@ func (MessageOption) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_content_proto_rawDescGZIP(), []int{0}
 }
 
+// +kubebuilder:example="bullets"
 // Type of content block.
 // TEXT and CODE are leaf types that hold text in `value`.
 // BULLETS is a container type that holds child blocks in `blocks`.
@@ -173,6 +175,7 @@ func (Block_BlockType) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_content_proto_rawDescGZIP(), []int{0, 0}
 }
 
+// +kubebuilder:example="cobalt"
 // Visual color theme for a button.
 type MessageButton_ColorVariant int32
 
@@ -238,6 +241,7 @@ func (MessageButton_ColorVariant) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_content_proto_rawDescGZIP(), []int{1, 0}
 }
 
+// +kubebuilder:example="chat"
 // Access scope for private file visibility.
 type MessageFile_PrivateFileScope int32
 
@@ -301,6 +305,7 @@ type Block struct {
 	// Content block type that determines how the block is rendered and which fields are applicable.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="text"
 	Type Block_BlockType `protobuf:"varint,1,opt,name=type,proto3,enum=coreapi.model.Block_BlockType" json:"type,omitempty"`
 	// Programming language identifier for syntax highlighting.
 	// Only applicable when type is CODE.
@@ -314,6 +319,8 @@ type Block struct {
 	Value string `protobuf:"bytes,3,opt,name=value,proto3" json:"value,omitempty"`
 	// Nested child blocks that form a hierarchical list structure.
 	// Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
+	//
+	// +kubebuilder:example=[]
 	Blocks        []*Block `protobuf:"bytes,4,rep,name=blocks,proto3" json:"blocks,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -390,11 +397,14 @@ type MessageButton struct {
 	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
 	// Visual color theme applied to the button.
 	// Defaults to the channel's primary color when not specified.
+	//
+	// +kubebuilder:example="green"
 	ColorVariant MessageButton_ColorVariant `protobuf:"varint,2,opt,name=color_variant,json=colorVariant,proto3,enum=coreapi.model.MessageButton_ColorVariant" json:"color_variant,omitempty"`
 	// Action payload executed when the button is clicked.
 	// Contains the action type and its attributes (e.g. URL to open, WAM to launch).
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example={}
 	Action        *structpb.Struct `protobuf:"bytes,3,opt,name=action,proto3" json:"action,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -519,6 +529,8 @@ type MessageFile struct {
 	PreviewKey string `protobuf:"bytes,13,opt,name=preview_key,json=previewKey,proto3" json:"preview_key,omitempty"`
 	// Access scope that determines who can view this private file.
 	// Derived from the storage key pattern.
+	//
+	// +kubebuilder:example="chat"
 	PrivateFileScope MessageFile_PrivateFileScope `protobuf:"varint,14,opt,name=private_file_scope,json=privateFileScope,proto3,enum=coreapi.model.MessageFile_PrivateFileScope" json:"private_file_scope,omitempty"`
 	// Domain identifier for channel-scoped private files.
 	// Derived from the storage key pattern.
@@ -911,6 +923,8 @@ func (x *MessageWebPage) GetName() string {
 type MessageContent struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Structured content blocks of the message.
+	//
+	// +kubebuilder:example=[]
 	Blocks []*Block `protobuf:"bytes,1,rep,name=blocks,proto3" json:"blocks,omitempty"`
 	// Plain text representation of the message.
 	//
@@ -919,17 +933,26 @@ type MessageContent struct {
 	// Interactive buttons attached to the message.
 	//
 	// +kubebuilder:validation:MaxItems=2
+	// +kubebuilder:example=[]
 	Buttons []*MessageButton `protobuf:"bytes,3,rep,name=buttons,proto3" json:"buttons,omitempty"`
 	// File attachments included in the message.
 	//
 	// +kubebuilder:validation:MaxItems=10
+	// +kubebuilder:example=[]
 	Files []*MessageFile `protobuf:"bytes,4,rep,name=files,proto3" json:"files,omitempty"`
 	// Web page link preview attached to the message.
+	//
+	// +kubebuilder:example={}
 	WebPage *MessageWebPage `protobuf:"bytes,5,opt,name=web_page,json=webPage,proto3" json:"web_page,omitempty"`
 	// Interactive form attached to the message.
 	// The structure depends on the form type (custom, followUp, call).
+	//
+	// +kubebuilder:example={}
 	Form *structpb.Struct `protobuf:"bytes,6,opt,name=form,proto3" json:"form,omitempty"`
 	// Option flags that modify message delivery and display behavior.
+	//
+	// no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
+	// +kubebuilder:example=["actAsManager"]
 	Options []MessageOption `protobuf:"varint,7,rep,packed,name=options,proto3,enum=coreapi.model.MessageOption" json:"options,omitempty"`
 	// Client-generated request identifier for idempotency.
 	//

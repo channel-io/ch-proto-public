@@ -53,12 +53,14 @@ type Bot struct {
 	Description string `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
 	// Internationalized name and description map.
 	// Keyed by locale.
+	//
+	// +kubebuilder:example={}
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,5,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Bot color in hex format.
 	// Randomly assigned if not specified on creation.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="#3B82F6"
+	// +kubebuilder:example="#fac484"
 	Color string `protobuf:"bytes,6,opt,name=color,proto3" json:"color,omitempty"`
 	// Bot avatar image URL.
 	//
@@ -67,8 +69,11 @@ type Bot struct {
 	// Bot creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-21T07:12:58.499989Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Uploaded bot avatar image.
+	//
+	// +kubebuilder:example={}
 	Avatar        *TinyFile `protobuf:"bytes,9,opt,name=avatar,proto3" json:"avatar,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

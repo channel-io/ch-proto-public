@@ -10,8 +10,11 @@ option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.common";
 
 message Pagination {
+  // +kubebuilder:example="asc"
   SortOrder sort_order = 1 [(buf.validate.field).required = true];
+  // +kubebuilder:example="1704067200000"
   string since = 2;
+  // +kubebuilder:example="25"
   int32 limit = 3 [(buf.validate.field).cel = {
     id: "uint32.between"
     message: "limit must be between 1 and 500"

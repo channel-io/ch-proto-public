@@ -62,13 +62,14 @@ message Bot {
   // Internationalized name and description map.
   // Keyed by locale.
   //
+  // +kubebuilder:example={}
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 5;
 
   // Bot color in hex format.
   // Randomly assigned if not specified on creation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="#3B82F6"
+  // +kubebuilder:example="#fac484"
   string color = 6 [(buf.validate.field).required = true];
 
   // Bot avatar image URL.
@@ -79,9 +80,11 @@ message Bot {
   // Bot creation timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-04-21T07:12:58.499989Z"
   google.protobuf.Timestamp created_at = 8 [(buf.validate.field).required = true];
 
   // Uploaded bot avatar image.
   //
+  // +kubebuilder:example={}
   coreapi.model.TinyFile avatar = 9;
 }

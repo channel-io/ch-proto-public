@@ -24,6 +24,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// +kubebuilder:example="closed"
 // State of a user chat conversation.
 type UserChatState int32
 
@@ -88,6 +89,7 @@ func (UserChatState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{0}
 }
 
+// +kubebuilder:example="notInOperation"
 // Reason why an inbound call or chat was missed.
 type MissedReason int32
 
@@ -184,6 +186,7 @@ func (MissedReason) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{1}
 }
 
+// +kubebuilder:example="low"
 // Priority level for auto-assignment routing.
 type AutoAssignPriority int32
 
@@ -240,6 +243,7 @@ func (AutoAssignPriority) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{2}
 }
 
+// +kubebuilder:example="achieved"
 // Goal achievement state of a user chat.
 type UserChatGoalState int32
 
@@ -300,6 +304,7 @@ func (UserChatGoalState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{3}
 }
 
+// +kubebuilder:example="description"
 // Type of subtext displayed below the chat title.
 type UserChatSubtextType int32
 
@@ -377,9 +382,12 @@ type UserChat struct {
 	// Current lifecycle state of the chat conversation.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="opened"
 	State UserChatState `protobuf:"varint,5,opt,name=state,proto3,enum=coreapi.model.UserChatState" json:"state,omitempty"`
 	// Reason the chat was missed.
 	// Only present when the chat transitioned to a missed state.
+	//
+	// +kubebuilder:example="userLeft"
 	MissedReason MissedReason `protobuf:"varint,6,opt,name=missed_reason,json=missedReason,proto3,enum=coreapi.model.MissedReason" json:"missed_reason,omitempty"`
 	// Whether the chat is managed and visible in the Desk inbox.
 	// Unmanaged chats are only visible to the user.
@@ -389,6 +397,8 @@ type UserChat struct {
 	Managed bool `protobuf:"varint,7,opt,name=managed,proto3" json:"managed,omitempty"`
 	// Priority level used by the auto-assignment system to order this chat
 	// in the queue. Defaults to medium.
+	//
+	// +kubebuilder:example="medium"
 	Priority AutoAssignPriority `protobuf:"varint,8,opt,name=priority,proto3,enum=coreapi.model.AutoAssignPriority" json:"priority,omitempty"`
 	// ID of the user who owns this chat conversation.
 	//
@@ -413,16 +423,23 @@ type UserChat struct {
 	// +kubebuilder:example="Billing inquiry"
 	Description string `protobuf:"bytes,13,opt,name=description,proto3" json:"description,omitempty"`
 	// Type of subtext shown below the chat title in the Desk inbox list.
+	//
+	// +kubebuilder:example="description"
 	SubtextType UserChatSubtextType `protobuf:"varint,14,opt,name=subtext_type,json=subtextType,proto3,enum=coreapi.model.UserChatSubtextType" json:"subtext_type,omitempty"`
 	// Current handling state that controls the chat's input behavior
 	// (e.g., workflow step, follow-up collection).
+	//
+	// +kubebuilder:example={}
 	Handling *structpb.Struct `protobuf:"bytes,15,opt,name=handling,proto3" json:"handling,omitempty"`
 	// Origin information describing how this chat was created
 	// (e.g., user-initiated, workflow-triggered, support bot).
+	//
+	// +kubebuilder:example={}
 	Source *structpb.Struct `protobuf:"bytes,16,opt,name=source,proto3" json:"source,omitempty"`
 	// IDs of managers currently participating in this chat.
 	//
 	// +kubebuilder:validation:MinItems=1
+	// +kubebuilder:example=["sample"]
 	ManagerIds []string `protobuf:"bytes,17,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	// ID of the manager currently assigned as the primary responder.
 	//
@@ -436,47 +453,70 @@ type UserChat struct {
 	//
 	// +kubebuilder:validation:MinItems=1
 	// +kubebuilder:validation:MaxItems=8
+	// +kubebuilder:example=["sample"]
 	Tags []string `protobuf:"bytes,20,rep,name=tags,proto3" json:"tags,omitempty"`
 	// Custom key-value profile data associated with this chat.
+	//
+	// +kubebuilder:example={}
 	Profile *structpb.Struct `protobuf:"bytes,21,opt,name=profile,proto3" json:"profile,omitempty"`
 	// Name of the goal event being tracked for conversion measurement.
 	//
 	// +kubebuilder:example="purchase_completed"
 	GoalEventName string `protobuf:"bytes,22,opt,name=goal_event_name,json=goalEventName,proto3" json:"goal_event_name,omitempty"`
 	// Query expression defining the conditions for the goal event to match.
+	//
+	// +kubebuilder:example={}
 	GoalEventQuery *structpb.Struct `protobuf:"bytes,23,opt,name=goal_event_query,json=goalEventQuery,proto3" json:"goal_event_query,omitempty"`
 	// Timestamp when the goal achievement was last evaluated.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	GoalCheckedAt *timestamppb.Timestamp `protobuf:"bytes,24,opt,name=goal_checked_at,json=goalCheckedAt,proto3" json:"goal_checked_at,omitempty"`
 	// Current achievement state of the tracked goal.
+	//
+	// +kubebuilder:example="waiting"
 	GoalState UserChatGoalState `protobuf:"varint,25,opt,name=goal_state,json=goalState,proto3,enum=coreapi.model.UserChatGoalState" json:"goal_state,omitempty"`
 	// Timestamp when the chat was first opened by a manager.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	FirstOpenedAt *timestamppb.Timestamp `protobuf:"bytes,26,opt,name=first_opened_at,json=firstOpenedAt,proto3" json:"first_opened_at,omitempty"`
 	// Timestamp when the chat was most recently opened.
 	// Reset each time the chat transitions to the opened state.
+	//
+	// +kubebuilder:example="2026-04-28T09:00:00Z"
 	OpenedAt *timestamppb.Timestamp `protobuf:"bytes,27,opt,name=opened_at,json=openedAt,proto3" json:"opened_at,omitempty"`
 	// Timestamp when the chat was first placed in the assignment queue.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	FirstQueuedAt *timestamppb.Timestamp `protobuf:"bytes,28,opt,name=first_queued_at,json=firstQueuedAt,proto3" json:"first_queued_at,omitempty"`
 	// Timestamp when the chat was most recently placed in the assignment queue.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	QueuedAt *timestamppb.Timestamp `protobuf:"bytes,29,opt,name=queued_at,json=queuedAt,proto3" json:"queued_at,omitempty"`
 	// Chat creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,30,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Chat last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:35:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,31,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// ID of the latest message visible to the user (front side).
 	//
 	// +kubebuilder:example="msg-001"
 	FrontMessageId string `protobuf:"bytes,32,opt,name=front_message_id,json=frontMessageId,proto3" json:"front_message_id,omitempty"`
 	// Timestamp when the front-side (user-visible) message list was last updated.
+	//
+	// +kubebuilder:example="2026-04-28T09:35:00Z"
 	FrontUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,33,opt,name=front_updated_at,json=frontUpdatedAt,proto3" json:"front_updated_at,omitempty"`
 	// ID of the latest message visible on the Desk (manager) side.
 	//
 	// +kubebuilder:example="msg-002"
 	DeskMessageId string `protobuf:"bytes,34,opt,name=desk_message_id,json=deskMessageId,proto3" json:"desk_message_id,omitempty"`
 	// Timestamp when the Desk-side message list was last updated.
+	//
+	// +kubebuilder:example="2026-04-28T09:35:00Z"
 	DeskUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,35,opt,name=desk_updated_at,json=deskUpdatedAt,proto3" json:"desk_updated_at,omitempty"`
 	// ID of the most recent message sent by the user.
 	//
@@ -489,9 +529,13 @@ type UserChat struct {
 	FirstAssigneeIdAfterOpen string `protobuf:"bytes,37,opt,name=first_assignee_id_after_open,json=firstAssigneeIdAfterOpen,proto3" json:"first_assignee_id_after_open,omitempty"`
 	// Timestamp of the first-ever manager reply in this chat,
 	// across all open/close cycles.
+	//
+	// +kubebuilder:example="2026-04-28T09:35:00Z"
 	FirstRepliedAt *timestamppb.Timestamp `protobuf:"bytes,38,opt,name=first_replied_at,json=firstRepliedAt,proto3" json:"first_replied_at,omitempty"`
 	// Timestamp of the first manager reply after the most recent open.
 	// Reset each time the chat is reopened.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	FirstRepliedAtAfterOpen *timestamppb.Timestamp `protobuf:"bytes,39,opt,name=first_replied_at_after_open,json=firstRepliedAtAfterOpen,proto3" json:"first_replied_at_after_open,omitempty"`
 	// Whether the chat was resolved by a single assignee without being
 	// transferred to another manager.
@@ -544,14 +588,24 @@ type UserChat struct {
 	OperationResolutionTime int64 `protobuf:"varint,50,opt,name=operation_resolution_time,json=operationResolutionTime,proto3" json:"operation_resolution_time,omitempty"`
 	// Timestamp when the user last sent a message that is awaiting
 	// a manager's reply. Cleared when the manager responds.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	AskedAt *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=asked_at,json=askedAt,proto3" json:"asked_at,omitempty"`
 	// Timestamp when the user sent the first message in this chat.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	FirstAskedAt *timestamppb.Timestamp `protobuf:"bytes,52,opt,name=first_asked_at,json=firstAskedAt,proto3" json:"first_asked_at,omitempty"`
 	// Timestamp when the chat was closed.
+	//
+	// +kubebuilder:example="2026-04-28T10:30:00Z"
 	ClosedAt *timestamppb.Timestamp `protobuf:"bytes,53,opt,name=closed_at,json=closedAt,proto3" json:"closed_at,omitempty"`
 	// Timestamp when the chat was snoozed.
+	//
+	// +kubebuilder:example="2026-04-28T10:00:00Z"
 	SnoozedAt *timestamppb.Timestamp `protobuf:"bytes,54,opt,name=snoozed_at,json=snoozedAt,proto3" json:"snoozed_at,omitempty"`
 	// Timestamp when the chat is scheduled to automatically expire and close.
+	//
+	// +kubebuilder:example="2026-04-29T00:00:00Z"
 	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,55,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
 	// Optimistic locking version incremented on every update.
 	// Supply the current value when updating to prevent overwriting concurrent changes.

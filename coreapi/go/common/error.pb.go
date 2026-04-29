@@ -21,6 +21,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// +kubebuilder:example="entityNotFound"
 // Error codes shared across all Core API operations.
 //
 // Every error response carries exactly one of:
@@ -112,17 +113,22 @@ func (CommonErrorCode) EnumDescriptor() ([]byte, []int) {
 //   - operation_error_code is set for errors specific to a particular operation.
 //     Valid values are documented in each service proto's request message comments.
 type ErrorResponse struct {
-	state  protoimpl.MessageState `protogen:"open.v1"`
-	Status int32                  `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// +kubebuilder:example="404"
+	Status int32 `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
 	// Set when the error falls into a cross-cutting category.
+	// +kubebuilder:example="entityNotFound"
 	CommonErrorCode CommonErrorCode `protobuf:"varint,2,opt,name=common_error_code,json=commonErrorCode,proto3,enum=coreapi.common.CommonErrorCode" json:"common_error_code,omitempty"`
 	// Set when the error is unique to a particular operation.
 	// Defined as a string to allow each service to declare its own codes
 	// without a global enum.
+	// +kubebuilder:example="RESOURCE_NOT_FOUND"
 	OperationErrorCode string `protobuf:"bytes,3,opt,name=operation_error_code,json=operationErrorCode,proto3" json:"operation_error_code,omitempty"`
-	Message            string `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`
+	// +kubebuilder:example="The requested resource does not exist"
+	Message string `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`
 	// For validation errors, one entry per violated field.
 	// For not-found errors, one entry identifying the missing entity.
+	// +kubebuilder:example=[]
 	Details       []*ErrorDetail `protobuf:"bytes,5,rep,name=details,proto3" json:"details,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -197,18 +203,25 @@ func (x *ErrorResponse) GetDetails() []*ErrorDetail {
 type ErrorDetail struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// e.g., "Bot", "Channel", "Webhook"
+	// +kubebuilder:example="Channel"
 	Model string `protobuf:"bytes,1,opt,name=model,proto3" json:"model,omitempty"`
 	// e.g., "name", "scopes[0]"
-	Field   string `protobuf:"bytes,2,opt,name=field,proto3" json:"field,omitempty"`
-	Value   string `protobuf:"bytes,3,opt,name=value,proto3" json:"value,omitempty"`
+	// +kubebuilder:example="default_domain"
+	Field string `protobuf:"bytes,2,opt,name=field,proto3" json:"field,omitempty"`
+	// +kubebuilder:example="invalid-domain!"
+	Value string `protobuf:"bytes,3,opt,name=value,proto3" json:"value,omitempty"`
+	// +kubebuilder:example="must match pattern ^[a-z0-9-]+$"
 	Message string `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`
 	// Set only for proto validation (buf.validate) errors.
 	// e.g., "coreapi.service.UpsertBotRequest"
+	// +kubebuilder:example="coreapi.model.Channel"
 	ProtoPackagePath string `protobuf:"bytes,5,opt,name=proto_package_path,json=protoPackagePath,proto3" json:"proto_package_path,omitempty"`
 	// Set only for proto validation (buf.validate) errors.
 	// e.g., "string.minLen"
+	// +kubebuilder:example="string.pattern"
 	ProtoConstraint string `protobuf:"bytes,6,opt,name=proto_constraint,json=protoConstraint,proto3" json:"proto_constraint,omitempty"`
 	// Index within a repeated field, if applicable.
+	// +kubebuilder:example="0"
 	Index         *int32 `protobuf:"varint,7,opt,name=index,proto3,oneof" json:"index,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

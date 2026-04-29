@@ -23,6 +23,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// +kubebuilder:example="red"
 // Color variant for visual labeling of chat tags.
 type ChatTagColorVariant int32
 
@@ -108,6 +109,8 @@ type ChatTag struct {
 	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Color theme of the chat tag.
+	//
+	// +kubebuilder:example="purple"
 	ColorVariant ChatTagColorVariant `protobuf:"varint,3,opt,name=color_variant,json=colorVariant,proto3,enum=coreapi.model.ChatTagColorVariant" json:"color_variant,omitempty"`
 	// Display name of the chat tag.
 	// Supports hierarchical naming with "/" as a depth separator (max 3 levels).
@@ -132,6 +135,7 @@ type ChatTag struct {
 	// Chat tag creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-21T07:12:21.773038Z"
 	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

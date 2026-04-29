@@ -9,6 +9,7 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
+// +kubebuilder:example="waiting"
 // Activity state of a manager for operational tracking and chat routing.
 // States are grouped into "active" (eligible for chat assignment) and "inactive".
 enum OperatorStatusType {
@@ -70,6 +71,7 @@ message OperatorStatus {
 
   // Current activity state of the manager, used for chat routing and workload management.
   //
+  // +kubebuilder:example="waiting"
   OperatorStatusType operator_status_type = 4;
 
   // Whether the manager is enabled to receive and handle chats.
@@ -82,16 +84,19 @@ message OperatorStatus {
   // Operator status creation timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp created_at = 6 [(buf.validate.field).required = true];
 
   // Operator status last update timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-04-28T09:35:00Z"
   google.protobuf.Timestamp updated_at = 7 [(buf.validate.field).required = true];
 
   // Timestamp when `operator_status_type` was last changed.
   // Differs from `updated_at` which tracks any field update.
   //
+  // +kubebuilder:example="2026-04-28T09:35:00Z"
   google.protobuf.Timestamp type_updated_at = 8;
 
   // Optimistic locking version for concurrent update detection.

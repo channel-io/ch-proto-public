@@ -24,6 +24,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// +kubebuilder:example="all"
 // Notification level for chat sessions.
 type SessionWatch int32
 
@@ -77,6 +78,7 @@ func (SessionWatch) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_manager_proto_rawDescGZIP(), []int{0}
 }
 
+// +kubebuilder:example="none"
 // Sound played for incoming chat notifications.
 type ChatAlertSound int32
 
@@ -148,6 +150,7 @@ func (ChatAlertSound) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_manager_proto_rawDescGZIP(), []int{1}
 }
 
+// +kubebuilder:example="cute"
 // Sound played for incoming meet (call) notifications.
 type MeetAlertSound int32
 
@@ -221,7 +224,7 @@ type Manager struct {
 	// Unique per channel among non-removed managers.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="a-xyz789"
+	// +kubebuilder:example="1471"
 	AccountId string `protobuf:"bytes,3,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
 	// Manager display name shown to end users and teammates.
 	//
@@ -243,8 +246,12 @@ type Manager struct {
 	// +kubebuilder:example="false"
 	ShowDescriptionToFront bool `protobuf:"varint,6,opt,name=show_description_to_front,json=showDescriptionToFront,proto3" json:"show_description_to_front,omitempty"`
 	// Internationalized name and description overrides keyed by locale (e.g., en, ko).
+	//
+	// +kubebuilder:example={}
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,7,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Custom profile data as key-value pairs for additional manager information.
+	//
+	// +kubebuilder:example={}
 	Profile *structpb.Struct `protobuf:"bytes,8,opt,name=profile,proto3" json:"profile,omitempty"`
 	// Manager email address.
 	// Unique per channel among non-removed managers.
@@ -277,13 +284,17 @@ type Manager struct {
 	// Manager creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-21T07:12:21.773038Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Manager last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:35:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Timestamp when the manager was soft-deleted.
 	// Present only when removed is true.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	RemovedAt *timestamppb.Timestamp `protobuf:"bytes,17,opt,name=removed_at,json=removedAt,proto3" json:"removed_at,omitempty"`
 	// Whether this manager appears as the channel identity instead of their personal profile.
 	//
@@ -292,18 +303,28 @@ type Manager struct {
 	DisplayAsChannel bool `protobuf:"varint,18,opt,name=display_as_channel,json=displayAsChannel,proto3" json:"display_as_channel,omitempty"`
 	// Default notification level for group chat sessions.
 	// See SessionWatch for possible values.
+	//
+	// +kubebuilder:example="all"
 	DefaultGroupWatch SessionWatch `protobuf:"varint,19,opt,name=default_group_watch,json=defaultGroupWatch,proto3,enum=coreapi.model.SessionWatch" json:"default_group_watch,omitempty"`
 	// Default notification level for direct message sessions.
 	// See SessionWatch for possible values.
+	//
+	// +kubebuilder:example="all"
 	DefaultDirectChatWatch SessionWatch `protobuf:"varint,20,opt,name=default_direct_chat_watch,json=defaultDirectChatWatch,proto3,enum=coreapi.model.SessionWatch" json:"default_direct_chat_watch,omitempty"`
 	// Default notification level for user (customer) chat sessions.
 	// See SessionWatch for possible values.
+	//
+	// +kubebuilder:example="all"
 	DefaultUserChatWatch SessionWatch `protobuf:"varint,21,opt,name=default_user_chat_watch,json=defaultUserChatWatch,proto3,enum=coreapi.model.SessionWatch" json:"default_user_chat_watch,omitempty"`
 	// Sound effect for incoming chat message notifications.
 	// See ChatAlertSound for possible values.
+	//
+	// +kubebuilder:example="drop"
 	ChatAlertSound ChatAlertSound `protobuf:"varint,22,opt,name=chat_alert_sound,json=chatAlertSound,proto3,enum=coreapi.model.ChatAlertSound" json:"chat_alert_sound,omitempty"`
 	// Sound effect for incoming meet (call) notifications.
 	// See MeetAlertSound for possible values.
+	//
+	// +kubebuilder:example="cute"
 	MeetAlertSound MeetAlertSound `protobuf:"varint,23,opt,name=meet_alert_sound,json=meetAlertSound,proto3,enum=coreapi.model.MeetAlertSound" json:"meet_alert_sound,omitempty"`
 	// Whether to receive mobile push notifications even while the manager is online on desktop.
 	//
@@ -370,6 +391,8 @@ type Manager struct {
 	// +kubebuilder:example="true"
 	UserMessageImportant bool `protobuf:"varint,36,opt,name=user_message_important,json=userMessageImportant,proto3" json:"user_message_important,omitempty"`
 	// User chat types this manager can be auto-assigned to (e.g., sync, async).
+	//
+	// +kubebuilder:example=["sample"]
 	AssignableUserChatTypes []string `protobuf:"bytes,37,rep,name=assignable_user_chat_types,json=assignableUserChatTypes,proto3" json:"assignable_user_chat_types,omitempty"`
 	// Maximum number of concurrent user chats that can be auto-assigned to this manager.
 	//
@@ -394,6 +417,8 @@ type Manager struct {
 	// +kubebuilder:example="In a meeting until 3pm"
 	StatusText string `protobuf:"bytes,41,opt,name=status_text,json=statusText,proto3" json:"status_text,omitempty"`
 	// Timestamp when the custom status (emoji + text) automatically clears.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	StatusClearAt *timestamppb.Timestamp `protobuf:"bytes,42,opt,name=status_clear_at,json=statusClearAt,proto3" json:"status_clear_at,omitempty"`
 	// Whether do-not-disturb mode is active, suppressing all notifications for this manager.
 	//
@@ -401,6 +426,8 @@ type Manager struct {
 	// +kubebuilder:example="false"
 	DoNotDisturb bool `protobuf:"varint,43,opt,name=do_not_disturb,json=doNotDisturb,proto3" json:"do_not_disturb,omitempty"`
 	// Timestamp when do-not-disturb mode automatically deactivates.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	DoNotDisturbClearAt *timestamppb.Timestamp `protobuf:"bytes,44,opt,name=do_not_disturb_clear_at,json=doNotDisturbClearAt,proto3" json:"do_not_disturb_clear_at,omitempty"`
 	// Whether account-level do-not-disturb mode is active across all channels.
 	//
@@ -408,8 +435,12 @@ type Manager struct {
 	// +kubebuilder:example="false"
 	AccountDoNotDisturb bool `protobuf:"varint,45,opt,name=account_do_not_disturb,json=accountDoNotDisturb,proto3" json:"account_do_not_disturb,omitempty"`
 	// Timestamp when account-level do-not-disturb mode automatically deactivates.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	AccountDoNotDisturbClearAt *timestamppb.Timestamp `protobuf:"bytes,46,opt,name=account_do_not_disturb_clear_at,json=accountDoNotDisturbClearAt,proto3" json:"account_do_not_disturb_clear_at,omitempty"`
 	// Timestamp when the operator status was last toggled on or off.
+	//
+	// +kubebuilder:example="2026-04-28T09:35:00Z"
 	OperatorUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,47,opt,name=operator_updated_at,json=operatorUpdatedAt,proto3" json:"operator_updated_at,omitempty"`
 	// Manager avatar image URL.
 	// Falls back to a system-generated default when no custom avatar is set.

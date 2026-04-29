@@ -11,6 +11,7 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
+// +kubebuilder:example="sending"
 // State of a message in its lifecycle.
 // - SENDING: The message is being transmitted to the server.
 // - SENT: The message has been successfully delivered.
@@ -24,6 +25,7 @@ enum MessageState {
   MESSAGE_STATE_REMOVED = 4;
 }
 
+// +kubebuilder:example="alert"
 // Alert level controlling how the client displays notifications for a message.
 // - ALERT: Triggers a push notification and visual alert.
 // - UNREAD: Increments the unread badge without a push notification.
@@ -35,6 +37,7 @@ enum AlertLevel {
   ALERT_LEVEL_NONE = 3;
 }
 
+// +kubebuilder:example="standard"
 // Determines how the message was composed and how clients should render it.
 // - STANDARD: Regular text message composed via the chat input.
 // - CUSTOM: Message rendered using a third-party custom payload.
@@ -142,6 +145,7 @@ message Message {
   // Message creation timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp created_at = 15 [(buf.validate.field).required = true];
 
   // Optimistic locking version.
@@ -153,6 +157,7 @@ message Message {
   // Structured content blocks composing the message body.
   // Contains rich text, images, code snippets, and other block-level elements.
   //
+  // +kubebuilder:example=[]
   repeated coreapi.model.Block blocks = 17;
 
   // Plain text representation of the message body.
@@ -163,71 +168,85 @@ message Message {
 
   // Message last update timestamp.
   //
+  // +kubebuilder:example="2026-04-28T09:35:00Z"
   google.protobuf.Timestamp updated_at = 19;
 
   // Thread metadata present only on thread root messages.
   // Contains reply count, last reply timestamp, and participant summary.
   //
+  // +kubebuilder:example={}
   coreapi.model.MessageThread thread = 20;
 
   // Meet session metadata for messages associated with a video/voice meet.
   // Contains session ID, participants, and call state.
   // Present only on meet-related messages.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct meet = 21;
 
   // Email metadata for messages sent or received via email integration.
   // Contains email subject, recipients, and direction (inbound/outbound).
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct email = 22;
 
   // ALF (AI agent) thread metadata for AI-assisted conversation threads.
   // Contains ALF session state and context.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct alf_thread = 23;
 
   // Timestamp when the message content was last edited by a person.
   // Absent if the message has never been edited.
   //
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp edited_at = 24;
 
   // Interactive action buttons displayed below the message.
   //
   // +kubebuilder:validation:MinItems=1
   // +kubebuilder:validation:MaxItems=2
+  // +kubebuilder:example=[]
   repeated coreapi.model.MessageButton buttons = 25;
 
   // File attachments included in the message.
   //
   // +kubebuilder:validation:MinItems=1
   // +kubebuilder:validation:MaxItems=30
+  // +kubebuilder:example=[]
   repeated coreapi.model.MessageFile files = 26;
 
   // Link preview extracted from the first URL found in the message content.
   //
+  // +kubebuilder:example={}
   coreapi.model.MessageWebPage web_page = 27;
 
   // System log entry for automated events (e.g., chat opened, assigned, closed).
   // Present only on system-generated messages.
   //
+  // +kubebuilder:example={}
   coreapi.model.MessageLog log = 28;
 
   // Emoji reactions added to this message by participants.
   //
+  // +kubebuilder:example=[]
   repeated coreapi.model.MessageReaction reactions = 29;
 
   // Progress indicator for an ALF AI response being streamed.
   // Contains the partial content generated so far.
   // Transient; replaced by the final message content when streaming completes.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct alf_progress = 30;
 
   // Interactive form (e.g., input fields, dropdowns) attached to the message.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct form = 31;
 
   // Current lifecycle state of this message.
   //
+  // +kubebuilder:example="sent"
   MessageState state = 32;
 
   // Delivery and visibility options applied to this message.
@@ -235,35 +254,42 @@ message Message {
   // Some options are only applicable in user chats.
   //
   // +kubebuilder:validation:MinItems=1
+  // +kubebuilder:example=["sample"]
   repeated string options = 33;
 
   // Marketing campaign metadata for outbound promotional messages.
   // Contains campaign type and tracking attributes.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct marketing = 34;
 
   // Legacy support bot metadata.
   // Retained for backward compatibility with older workflow implementations.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct support_bot = 35;
 
   // Workflow automation metadata linking this message to a workflow step.
   // Contains workflow ID, step ID, and button submission context.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct workflow = 36;
 
   // Notification priority level controlling client-side popup behavior.
   //
+  // +kubebuilder:example="alert"
   AlertLevel alert_level = 37;
 
   // IVR (Interactive Voice Response) call metadata for phone-based messages.
   // Contains DTMF input, call routing state, and voice prompt context.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct ivr = 38;
 
   // Custom rendering payload for third-party integrations.
   // Structure and content are defined by the integration provider.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct custom_payload = 39;
 
   // Composition method that determines how clients render this message.
@@ -271,6 +297,7 @@ message Message {
   // defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
   // and STANDARD otherwise.
   //
+  // +kubebuilder:example="standard"
   WritingType writing_type = 40;
 
   // Whether this message is a reply within a thread (not the root).
@@ -325,10 +352,12 @@ message MessageThread {
   // Manager IDs assigned to handle this thread.
   //
   // +kubebuilder:validation:MinItems=1
+  // +kubebuilder:example=["sample"]
   repeated string manager_ids = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Manager IDs who have posted replies in this thread, ordered by first reply time.
   //
+  // +kubebuilder:example=["sample"]
   repeated string replied_manager_ids = 3;
 
   // Total number of replies in this thread.
@@ -364,11 +393,13 @@ message MessageLog {
   // Type of action that was recorded.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="assign"
   MessageLogAction action = 1 [(buf.validate.field).required = true];
 
   // Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
   // Interpretation depends on the `action` type.
   //
+  // +kubebuilder:example=["sample"]
   repeated string values = 2;
 
   // Entity type that triggered this action (e.g. "workflow", "rule", "alf").
@@ -381,6 +412,7 @@ message MessageLog {
   // +kubebuilder:example="wf-001"
   string trigger_id = 4;
 
+  // +kubebuilder:example="changeName"
   // Action types recorded in system log messages.
   enum MessageLogAction {
     MESSAGE_LOG_ACTION_UNSPECIFIED = 0;
@@ -453,6 +485,7 @@ message MessageReaction {
   // Person keys of everyone who reacted with this emoji,
   // in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
   //
+  // +kubebuilder:example=["sample"]
   repeated string person_keys = 2;
 }
 
@@ -479,34 +512,41 @@ message MessageMeet {
 
   // Current lifecycle state of the meet session.
   //
+  // +kubebuilder:example="ended"
   MeetState state = 4;
 
   // Media mode indicating whether this is an audio-only or video meet.
   //
+  // +kubebuilder:example="video"
   MeetMode mode = 5;
 
   // Person keys of all participants who have ever joined this meet,
   // in the format "{personType}-{personId}" (e.g. "manager-abc123").
   //
+  // +kubebuilder:example=["sample"]
   repeated string amassed_persons = 6;
 
   // Timestamp when the meet room was first opened.
   //
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp room_started_at = 7;
 
   // Phone call session details.
   // Present only when `meet_type` is CALL.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct call = 8;
 
   // Video/audio front session details.
   // Present only when `meet_type` is FRONT.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct front = 9;
 
   // Recording details for the meet session.
   // Present only when the session was recorded.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct recording = 10;
 
   // ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
@@ -516,20 +556,25 @@ message MessageMeet {
 
   // Timestamp when the meet session ended.
   //
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp meet_ended_at = 12;
 
   // Manager IDs extracted from `amassed_persons`.
   //
+  // +kubebuilder:example=["sample"]
   repeated string manager_ids = 13;
 
   // Computed meet category determined by the presence of `call` or `front` data.
   //
+  // +kubebuilder:example="front"
   MeetType meet_type = 14;
 
   // Bot IDs extracted from `amassed_persons`.
   //
+  // +kubebuilder:example=["sample"]
   repeated string bot_ids = 15;
 
+  // +kubebuilder:example="live"
   // Lifecycle state of a meet session.
   enum MeetState {
     MEET_STATE_UNSPECIFIED = 0;
@@ -545,6 +590,7 @@ message MessageMeet {
     MEET_STATE_TRANSCRIBE_FAILED = 5;
   }
 
+  // +kubebuilder:example="audio"
   // Media mode for a meet session.
   enum MeetMode {
     MEET_MODE_UNSPECIFIED = 0;
@@ -554,6 +600,7 @@ message MessageMeet {
     MEET_MODE_VIDEO = 2;
   }
 
+  // +kubebuilder:example="front"
   // Category of a meet session, determined by the session type.
   enum MeetType {
     MEET_TYPE_UNSPECIFIED = 0;
@@ -586,6 +633,7 @@ message MessageAlf {
   // Source documents or articles cited by ALF in its response.
   // Each entry contains reference metadata such as title, URL, and relevance score.
   //
+  // +kubebuilder:example=[]
   repeated google.protobuf.Struct references = 3;
 
   // Whether this message is ALF's reply to a direct @mention.
@@ -629,26 +677,32 @@ message MessageEmail {
 
   // Whether this email was sent to or received from an external party.
   //
+  // +kubebuilder:example="outbound"
   EmailDirection direction = 2;
 
   // Sender email address with optional display name.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct from = 3;
 
   // Primary recipient email addresses.
   //
+  // +kubebuilder:example=[]
   repeated google.protobuf.Struct to = 4;
 
   // Carbon copy (CC) recipient email addresses.
   //
+  // +kubebuilder:example=[]
   repeated google.protobuf.Struct cc = 5;
 
   // Blind carbon copy (BCC) recipient email addresses.
   //
+  // +kubebuilder:example=[]
   repeated google.protobuf.Struct bcc = 6;
 
   // Designated reply-to address, if different from the sender.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct reply_to = 7;
 
   // Email subject line.
@@ -675,8 +729,10 @@ message MessageEmail {
 
   // Email creation timestamp.
   //
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp created_at = 12;
 
+  // +kubebuilder:example="inbound"
   // Direction of an email relative to the channel.
   enum EmailDirection {
     EMAIL_DIRECTION_UNSPECIFIED = 0;
@@ -696,6 +752,7 @@ message MessageEmail {
 message MessageIvr {
   // Audio recording captured during the IVR session (e.g. voice mail).
   //
+  // +kubebuilder:example={}
   coreapi.model.MessageFile audio_file = 1;
 
   // DTMF keypad input entered by the caller (e.g. "1" for menu selection).
@@ -738,6 +795,7 @@ message MessageMarketing {
 
   // In-app display mode for the marketing message.
   //
+  // +kubebuilder:example="fullScreen"
   ExposureType exposure_type = 6;
 
   // Clickthrough URL for the marketing image.
@@ -746,6 +804,7 @@ message MessageMarketing {
   // +kubebuilder:example="https://example.com/image.jpg"
   string image_link_url = 7;
 
+  // +kubebuilder:example="fullScreen"
   // In-app display mode for marketing messages.
   enum ExposureType {
     EXPOSURE_TYPE_UNSPECIFIED = 0;
@@ -784,6 +843,7 @@ message MessageSupportBot {
   // Route selection buttons presented to the user at the end of a route section.
   // Set to null after the user makes a selection.
   //
+  // +kubebuilder:example=[]
   repeated google.protobuf.Struct buttons = 5;
 
   // Zero-based index of the button the user selected.
@@ -843,10 +903,12 @@ message MessageWorkflow {
 message MessageCustomPayload {
   // Arbitrary JSON payload conforming to the external messenger's message schema.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct data = 1;
 
   // Key-value mapping for template variable substitution within the custom payload.
   // Keys are placeholder names and values are the replacement strings.
   //
+  // +kubebuilder:example={"sample":"sample"}
   map<string, string> param_mapper = 2;
 }

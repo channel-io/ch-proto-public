@@ -23,6 +23,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// +kubebuilder:example="userChatOpened"
 // Webhook event scope determining which events trigger the webhook.
 type WebhookScope int32
 
@@ -129,11 +130,14 @@ type Webhook struct {
 	// Webhook creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Event scopes that trigger this webhook.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinItems=1
+	// no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
+	// +kubebuilder:example=["userChatOpened","messageCreatedUserChat"]
 	Scopes []WebhookScope `protobuf:"varint,7,rep,packed,name=scopes,proto3,enum=coreapi.model.WebhookScope" json:"scopes,omitempty"`
 	// API version for webhook payloads.
 	//
@@ -142,6 +146,8 @@ type Webhook struct {
 	// +kubebuilder:example="v5"
 	ApiVersion string `protobuf:"bytes,8,opt,name=api_version,json=apiVersion,proto3" json:"api_version,omitempty"`
 	// Timestamp when the webhook was last blocked due to consecutive failures.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	LastBlockedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=last_blocked_at,json=lastBlockedAt,proto3" json:"last_blocked_at,omitempty"`
 	// Whether the webhook is currently blocked due to excessive delivery failures.
 	//

@@ -22,6 +22,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// +kubebuilder:example="mon"
 // Day of the week.
 type TimeRange_DayOfWeek int32
 
@@ -95,6 +96,8 @@ type TimeRange struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinItems=1
+	// no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
+	// +kubebuilder:example=["mon","tue"]
 	DayOfWeeks []TimeRange_DayOfWeek `protobuf:"varint,1,rep,packed,name=day_of_weeks,json=dayOfWeeks,proto3,enum=coreapi.model.TimeRange_DayOfWeek" json:"day_of_weeks,omitempty"`
 	// Start time as minutes from midnight (e.g. 540 = 09:00).
 	// Must be less than `to`.

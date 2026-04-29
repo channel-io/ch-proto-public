@@ -51,12 +51,17 @@ type Event struct {
 	// +kubebuilder:example="PageView"
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+	//
+	// +kubebuilder:example={}
 	Property *structpb.Struct `protobuf:"bytes,5,opt,name=property,proto3" json:"property,omitempty"`
 	// Event creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Expiration timestamp after which the event may no longer be retrievable.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	ExpireAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=expire_at,json=expireAt,proto3" json:"expire_at,omitempty"`
 	// Optimistic concurrency version counter.
 	// Incremented on each update to detect conflicting writes.
@@ -65,6 +70,8 @@ type Event struct {
 	Version int64 `protobuf:"varint,8,opt,name=version,proto3" json:"version,omitempty"`
 	// Internationalized event name map keyed by locale (e.g., en, ko).
 	// Populated only for system-defined events; custom events return no entries.
+	//
+	// +kubebuilder:example={"sample":"sample"}
 	NameI18NMap   map[string]string `protobuf:"bytes,9,rep,name=name_i18n_map,json=nameI18nMap,proto3" json:"name_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

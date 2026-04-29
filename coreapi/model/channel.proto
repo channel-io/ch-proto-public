@@ -13,6 +13,7 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
+// +kubebuilder:example="waiting"
 // Lifecycle state of a channel.
 enum ChannelState {
   CHANNEL_STATE_UNSPECIFIED = 0;
@@ -25,6 +26,7 @@ enum ChannelState {
   CHANNEL_STATE_REMOVED = 7;
 }
 
+// +kubebuilder:example="active"
 // Away behavior when the channel is outside of operating hours.
 enum ChannelAwayOption {
   CHANNEL_AWAY_OPTION_UNSPECIFIED = 0;
@@ -33,6 +35,7 @@ enum ChannelAwayOption {
   CHANNEL_AWAY_OPTION_HIDDEN = 3;
 }
 
+// +kubebuilder:example="instant"
 // Expected response speed indicator shown to end users.
 enum ResponseDelayType {
   RESPONSE_DELAY_TYPE_UNSPECIFIED = 0;
@@ -52,20 +55,24 @@ message Channel {
   // Default welcome message shown to end users when a new conversation starts.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example={}
   google.protobuf.Struct welcome_message = 2 [(buf.validate.field).required = true];
 
   // Internationalized welcome message overrides keyed by locale (e.g., en, ko).
   //
+  // +kubebuilder:example={"sample":{}}
   map<string, google.protobuf.Struct> welcome_message_i18n_map = 3;
 
   // Channel creation timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-02-12T08:41:20.392099Z"
   google.protobuf.Timestamp created_at = 4 [(buf.validate.field).required = true];
 
   // Channel last update timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-02-12T08:41:20.392099Z"
   google.protobuf.Timestamp updated_at = 5 [(buf.validate.field).required = true];
 
   // Webhook URL called to retrieve additional user information from your server.
@@ -95,6 +102,7 @@ message Channel {
 
   // Internationalized name and description overrides keyed by locale (e.g., en, ko).
   //
+  // +kubebuilder:example={}
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 8;
 
   // Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
@@ -203,6 +211,7 @@ message Channel {
   // Current lifecycle state of the channel.
   // See ChannelState for possible values.
   //
+  // +kubebuilder:example="waiting"
   ChannelState state = 26;
 
   // Whether the channel is verified as an enterprise account.
@@ -280,6 +289,7 @@ message Channel {
   // Countries where the channel has obtained business certification.
   // Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
   //
+  // +kubebuilder:example=["sample"]
   repeated string biz_certificated_countries = 40;
 
   // Whether the front-end ALF v2 AI assistant is enabled for end users.
@@ -311,6 +321,7 @@ message Channel {
   // Expected response delay indicator shown to end users.
   // Derived from the channel operating configuration.
   //
+  // +kubebuilder:example="normal"
   ResponseDelayType expected_response_delay = 45;
 
   // Whether the channel is currently within operating hours.
@@ -330,20 +341,24 @@ message Channel {
   // Timestamp when the next operating period starts.
   // Present only when the channel is currently outside operating hours.
   //
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp next_working_time = 48;
 
   // Timestamp when the next away (non-operating) period starts.
   // Present only when the channel is currently within operating hours.
   //
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp next_away_time = 49;
 
   // Recurring weekly time ranges that define the channel operating hours.
   //
+  // +kubebuilder:example=[]
   repeated coreapi.model.TimeRange operation_time_ranges = 50;
 
   // Messenger behavior when the channel is outside of operating hours.
   // See ChannelAwayOption for possible values.
   //
+  // +kubebuilder:example="active"
   ChannelAwayOption away_option = 51;
 
   // Whether end-user replying is blocked after a conversation is closed.
@@ -355,6 +370,7 @@ message Channel {
   // Grace period after conversation closure during which the end user may still reply.
   // Applicable only when block_replying_after_closed is true.
   //
+  // +kubebuilder:example="PT1H30M"
   google.protobuf.Duration block_replying_after_closed_time = 53;
 
   // Border accent color derived from the theme color, in hex format.

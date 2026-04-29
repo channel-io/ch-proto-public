@@ -24,6 +24,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// +kubebuilder:example="sending"
 // State of a message in its lifecycle.
 // - SENDING: The message is being transmitted to the server.
 // - SENT: The message has been successfully delivered.
@@ -84,6 +85,7 @@ func (MessageState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_proto_rawDescGZIP(), []int{0}
 }
 
+// +kubebuilder:example="alert"
 // Alert level controlling how the client displays notifications for a message.
 // - ALERT: Triggers a push notification and visual alert.
 // - UNREAD: Increments the unread badge without a push notification.
@@ -140,6 +142,7 @@ func (AlertLevel) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_proto_rawDescGZIP(), []int{1}
 }
 
+// +kubebuilder:example="standard"
 // Determines how the message was composed and how clients should render it.
 // - STANDARD: Regular text message composed via the chat input.
 // - CUSTOM: Message rendered using a third-party custom payload.
@@ -196,6 +199,7 @@ func (WritingType) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_proto_rawDescGZIP(), []int{2}
 }
 
+// +kubebuilder:example="changeName"
 // Action types recorded in system log messages.
 type MessageLog_MessageLogAction int32
 
@@ -366,6 +370,7 @@ func (MessageLog_MessageLogAction) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_proto_rawDescGZIP(), []int{2, 0}
 }
 
+// +kubebuilder:example="live"
 // Lifecycle state of a meet session.
 type MessageMeet_MeetState int32
 
@@ -430,6 +435,7 @@ func (MessageMeet_MeetState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_proto_rawDescGZIP(), []int{4, 0}
 }
 
+// +kubebuilder:example="audio"
 // Media mode for a meet session.
 type MessageMeet_MeetMode int32
 
@@ -482,6 +488,7 @@ func (MessageMeet_MeetMode) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_proto_rawDescGZIP(), []int{4, 1}
 }
 
+// +kubebuilder:example="front"
 // Category of a meet session, determined by the session type.
 type MessageMeet_MeetType int32
 
@@ -538,6 +545,7 @@ func (MessageMeet_MeetType) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_proto_rawDescGZIP(), []int{4, 2}
 }
 
+// +kubebuilder:example="inbound"
 // Direction of an email relative to the channel.
 type MessageEmail_EmailDirection int32
 
@@ -590,6 +598,7 @@ func (MessageEmail_EmailDirection) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_proto_rawDescGZIP(), []int{7, 0}
 }
 
+// +kubebuilder:example="fullScreen"
 // In-app display mode for marketing messages.
 type MessageMarketing_ExposureType int32
 
@@ -721,6 +730,7 @@ type Message struct {
 	// Message creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Optimistic locking version.
 	// Incremented on every update.
@@ -729,6 +739,8 @@ type Message struct {
 	Version int64 `protobuf:"varint,16,opt,name=version,proto3" json:"version,omitempty"`
 	// Structured content blocks composing the message body.
 	// Contains rich text, images, code snippets, and other block-level elements.
+	//
+	// +kubebuilder:example=[]
 	Blocks []*Block `protobuf:"bytes,17,rep,name=blocks,proto3" json:"blocks,omitempty"`
 	// Plain text representation of the message body.
 	// Stripped of all formatting from blocks.
@@ -736,75 +748,116 @@ type Message struct {
 	// +kubebuilder:example="Hello, how can I help you today?"
 	PlainText string `protobuf:"bytes,18,opt,name=plain_text,json=plainText,proto3" json:"plain_text,omitempty"`
 	// Message last update timestamp.
+	//
+	// +kubebuilder:example="2026-04-28T09:35:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Thread metadata present only on thread root messages.
 	// Contains reply count, last reply timestamp, and participant summary.
+	//
+	// +kubebuilder:example={}
 	Thread *MessageThread `protobuf:"bytes,20,opt,name=thread,proto3" json:"thread,omitempty"`
 	// Meet session metadata for messages associated with a video/voice meet.
 	// Contains session ID, participants, and call state.
 	// Present only on meet-related messages.
+	//
+	// +kubebuilder:example={}
 	Meet *structpb.Struct `protobuf:"bytes,21,opt,name=meet,proto3" json:"meet,omitempty"`
 	// Email metadata for messages sent or received via email integration.
 	// Contains email subject, recipients, and direction (inbound/outbound).
+	//
+	// +kubebuilder:example={}
 	Email *structpb.Struct `protobuf:"bytes,22,opt,name=email,proto3" json:"email,omitempty"`
 	// ALF (AI agent) thread metadata for AI-assisted conversation threads.
 	// Contains ALF session state and context.
+	//
+	// +kubebuilder:example={}
 	AlfThread *structpb.Struct `protobuf:"bytes,23,opt,name=alf_thread,json=alfThread,proto3" json:"alf_thread,omitempty"`
 	// Timestamp when the message content was last edited by a person.
 	// Absent if the message has never been edited.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	EditedAt *timestamppb.Timestamp `protobuf:"bytes,24,opt,name=edited_at,json=editedAt,proto3" json:"edited_at,omitempty"`
 	// Interactive action buttons displayed below the message.
 	//
 	// +kubebuilder:validation:MinItems=1
 	// +kubebuilder:validation:MaxItems=2
+	// +kubebuilder:example=[]
 	Buttons []*MessageButton `protobuf:"bytes,25,rep,name=buttons,proto3" json:"buttons,omitempty"`
 	// File attachments included in the message.
 	//
 	// +kubebuilder:validation:MinItems=1
 	// +kubebuilder:validation:MaxItems=30
+	// +kubebuilder:example=[]
 	Files []*MessageFile `protobuf:"bytes,26,rep,name=files,proto3" json:"files,omitempty"`
 	// Link preview extracted from the first URL found in the message content.
+	//
+	// +kubebuilder:example={}
 	WebPage *MessageWebPage `protobuf:"bytes,27,opt,name=web_page,json=webPage,proto3" json:"web_page,omitempty"`
 	// System log entry for automated events (e.g., chat opened, assigned, closed).
 	// Present only on system-generated messages.
+	//
+	// +kubebuilder:example={}
 	Log *MessageLog `protobuf:"bytes,28,opt,name=log,proto3" json:"log,omitempty"`
 	// Emoji reactions added to this message by participants.
+	//
+	// +kubebuilder:example=[]
 	Reactions []*MessageReaction `protobuf:"bytes,29,rep,name=reactions,proto3" json:"reactions,omitempty"`
 	// Progress indicator for an ALF AI response being streamed.
 	// Contains the partial content generated so far.
 	// Transient; replaced by the final message content when streaming completes.
+	//
+	// +kubebuilder:example={}
 	AlfProgress *structpb.Struct `protobuf:"bytes,30,opt,name=alf_progress,json=alfProgress,proto3" json:"alf_progress,omitempty"`
 	// Interactive form (e.g., input fields, dropdowns) attached to the message.
+	//
+	// +kubebuilder:example={}
 	Form *structpb.Struct `protobuf:"bytes,31,opt,name=form,proto3" json:"form,omitempty"`
 	// Current lifecycle state of this message.
+	//
+	// +kubebuilder:example="sent"
 	State MessageState `protobuf:"varint,32,opt,name=state,proto3,enum=coreapi.model.MessageState" json:"state,omitempty"`
 	// Delivery and visibility options applied to this message.
 	// Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
 	// Some options are only applicable in user chats.
 	//
 	// +kubebuilder:validation:MinItems=1
+	// +kubebuilder:example=["sample"]
 	Options []string `protobuf:"bytes,33,rep,name=options,proto3" json:"options,omitempty"`
 	// Marketing campaign metadata for outbound promotional messages.
 	// Contains campaign type and tracking attributes.
+	//
+	// +kubebuilder:example={}
 	Marketing *structpb.Struct `protobuf:"bytes,34,opt,name=marketing,proto3" json:"marketing,omitempty"`
 	// Legacy support bot metadata.
 	// Retained for backward compatibility with older workflow implementations.
+	//
+	// +kubebuilder:example={}
 	SupportBot *structpb.Struct `protobuf:"bytes,35,opt,name=support_bot,json=supportBot,proto3" json:"support_bot,omitempty"`
 	// Workflow automation metadata linking this message to a workflow step.
 	// Contains workflow ID, step ID, and button submission context.
+	//
+	// +kubebuilder:example={}
 	Workflow *structpb.Struct `protobuf:"bytes,36,opt,name=workflow,proto3" json:"workflow,omitempty"`
 	// Notification priority level controlling client-side popup behavior.
+	//
+	// +kubebuilder:example="alert"
 	AlertLevel AlertLevel `protobuf:"varint,37,opt,name=alert_level,json=alertLevel,proto3,enum=coreapi.model.AlertLevel" json:"alert_level,omitempty"`
 	// IVR (Interactive Voice Response) call metadata for phone-based messages.
 	// Contains DTMF input, call routing state, and voice prompt context.
+	//
+	// +kubebuilder:example={}
 	Ivr *structpb.Struct `protobuf:"bytes,38,opt,name=ivr,proto3" json:"ivr,omitempty"`
 	// Custom rendering payload for third-party integrations.
 	// Structure and content are defined by the integration provider.
+	//
+	// +kubebuilder:example={}
 	CustomPayload *structpb.Struct `protobuf:"bytes,39,opt,name=custom_payload,json=customPayload,proto3" json:"custom_payload,omitempty"`
 	// Composition method that determines how clients render this message.
 	// Automatically derived from the message content when not explicitly set:
 	// defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
 	// and STANDARD otherwise.
+	//
+	// +kubebuilder:example="standard"
 	WritingType WritingType `protobuf:"varint,40,opt,name=writing_type,json=writingType,proto3,enum=coreapi.model.WritingType" json:"writing_type,omitempty"`
 	// Whether this message is a reply within a thread (not the root).
 	// True when thread_key is present and the message is not a thread root.
@@ -1197,8 +1250,11 @@ type MessageThread struct {
 	// Manager IDs assigned to handle this thread.
 	//
 	// +kubebuilder:validation:MinItems=1
+	// +kubebuilder:example=["sample"]
 	ManagerIds []string `protobuf:"bytes,2,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	// Manager IDs who have posted replies in this thread, ordered by first reply time.
+	//
+	// +kubebuilder:example=["sample"]
 	RepliedManagerIds []string `protobuf:"bytes,3,rep,name=replied_manager_ids,json=repliedManagerIds,proto3" json:"replied_manager_ids,omitempty"`
 	// Total number of replies in this thread.
 	// Defaults to 0.
@@ -1308,9 +1364,12 @@ type MessageLog struct {
 	// Type of action that was recorded.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="assign"
 	Action MessageLog_MessageLogAction `protobuf:"varint,1,opt,name=action,proto3,enum=coreapi.model.MessageLog_MessageLogAction" json:"action,omitempty"`
 	// Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
 	// Interpretation depends on the `action` type.
+	//
+	// +kubebuilder:example=["sample"]
 	Values []string `protobuf:"bytes,2,rep,name=values,proto3" json:"values,omitempty"`
 	// Entity type that triggered this action (e.g. "workflow", "rule", "alf").
 	//
@@ -1394,6 +1453,8 @@ type MessageReaction struct {
 	EmojiName string `protobuf:"bytes,1,opt,name=emoji_name,json=emojiName,proto3" json:"emoji_name,omitempty"`
 	// Person keys of everyone who reacted with this emoji,
 	// in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+	//
+	// +kubebuilder:example=["sample"]
 	PersonKeys    []string `protobuf:"bytes,2,rep,name=person_keys,json=personKeys,proto3" json:"person_keys,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1459,34 +1520,56 @@ type MessageMeet struct {
 	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Current lifecycle state of the meet session.
+	//
+	// +kubebuilder:example="ended"
 	State MessageMeet_MeetState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.MessageMeet_MeetState" json:"state,omitempty"`
 	// Media mode indicating whether this is an audio-only or video meet.
+	//
+	// +kubebuilder:example="video"
 	Mode MessageMeet_MeetMode `protobuf:"varint,5,opt,name=mode,proto3,enum=coreapi.model.MessageMeet_MeetMode" json:"mode,omitempty"`
 	// Person keys of all participants who have ever joined this meet,
 	// in the format "{personType}-{personId}" (e.g. "manager-abc123").
+	//
+	// +kubebuilder:example=["sample"]
 	AmassedPersons []string `protobuf:"bytes,6,rep,name=amassed_persons,json=amassedPersons,proto3" json:"amassed_persons,omitempty"`
 	// Timestamp when the meet room was first opened.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	RoomStartedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=room_started_at,json=roomStartedAt,proto3" json:"room_started_at,omitempty"`
 	// Phone call session details.
 	// Present only when `meet_type` is CALL.
+	//
+	// +kubebuilder:example={}
 	Call *structpb.Struct `protobuf:"bytes,8,opt,name=call,proto3" json:"call,omitempty"`
 	// Video/audio front session details.
 	// Present only when `meet_type` is FRONT.
+	//
+	// +kubebuilder:example={}
 	Front *structpb.Struct `protobuf:"bytes,9,opt,name=front,proto3" json:"front,omitempty"`
 	// Recording details for the meet session.
 	// Present only when the session was recorded.
+	//
+	// +kubebuilder:example={}
 	Recording *structpb.Struct `protobuf:"bytes,10,opt,name=recording,proto3" json:"recording,omitempty"`
 	// ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
 	//
 	// +kubebuilder:example="KR"
 	Country string `protobuf:"bytes,11,opt,name=country,proto3" json:"country,omitempty"`
 	// Timestamp when the meet session ended.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	MeetEndedAt *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=meet_ended_at,json=meetEndedAt,proto3" json:"meet_ended_at,omitempty"`
 	// Manager IDs extracted from `amassed_persons`.
+	//
+	// +kubebuilder:example=["sample"]
 	ManagerIds []string `protobuf:"bytes,13,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	// Computed meet category determined by the presence of `call` or `front` data.
+	//
+	// +kubebuilder:example="front"
 	MeetType MessageMeet_MeetType `protobuf:"varint,14,opt,name=meet_type,json=meetType,proto3,enum=coreapi.model.MessageMeet_MeetType" json:"meet_type,omitempty"`
 	// Bot IDs extracted from `amassed_persons`.
+	//
+	// +kubebuilder:example=["sample"]
 	BotIds        []string `protobuf:"bytes,15,rep,name=bot_ids,json=botIds,proto3" json:"bot_ids,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1641,6 +1724,8 @@ type MessageAlf struct {
 	AlfSessionId string `protobuf:"bytes,2,opt,name=alf_session_id,json=alfSessionId,proto3" json:"alf_session_id,omitempty"`
 	// Source documents or articles cited by ALF in its response.
 	// Each entry contains reference metadata such as title, URL, and relevance score.
+	//
+	// +kubebuilder:example=[]
 	References []*structpb.Struct `protobuf:"bytes,3,rep,name=references,proto3" json:"references,omitempty"`
 	// Whether this message is ALF's reply to a direct @mention.
 	// Defaults to false.
@@ -1780,16 +1865,28 @@ type MessageEmail struct {
 	// +kubebuilder:example="email-001"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Whether this email was sent to or received from an external party.
+	//
+	// +kubebuilder:example="outbound"
 	Direction MessageEmail_EmailDirection `protobuf:"varint,2,opt,name=direction,proto3,enum=coreapi.model.MessageEmail_EmailDirection" json:"direction,omitempty"`
 	// Sender email address with optional display name.
+	//
+	// +kubebuilder:example={}
 	From *structpb.Struct `protobuf:"bytes,3,opt,name=from,proto3" json:"from,omitempty"`
 	// Primary recipient email addresses.
+	//
+	// +kubebuilder:example=[]
 	To []*structpb.Struct `protobuf:"bytes,4,rep,name=to,proto3" json:"to,omitempty"`
 	// Carbon copy (CC) recipient email addresses.
+	//
+	// +kubebuilder:example=[]
 	Cc []*structpb.Struct `protobuf:"bytes,5,rep,name=cc,proto3" json:"cc,omitempty"`
 	// Blind carbon copy (BCC) recipient email addresses.
+	//
+	// +kubebuilder:example=[]
 	Bcc []*structpb.Struct `protobuf:"bytes,6,rep,name=bcc,proto3" json:"bcc,omitempty"`
 	// Designated reply-to address, if different from the sender.
+	//
+	// +kubebuilder:example={}
 	ReplyTo *structpb.Struct `protobuf:"bytes,7,opt,name=reply_to,json=replyTo,proto3" json:"reply_to,omitempty"`
 	// Email subject line.
 	//
@@ -1810,6 +1907,8 @@ type MessageEmail struct {
 	// +kubebuilder:example="support@channel.io"
 	ReceivedFor string `protobuf:"bytes,11,opt,name=received_for,json=receivedFor,proto3" json:"received_for,omitempty"`
 	// Email creation timestamp.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1934,6 +2033,8 @@ func (x *MessageEmail) GetCreatedAt() *timestamppb.Timestamp {
 type MessageIvr struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Audio recording captured during the IVR session (e.g. voice mail).
+	//
+	// +kubebuilder:example={}
 	AudioFile *MessageFile `protobuf:"bytes,1,opt,name=audio_file,json=audioFile,proto3" json:"audio_file,omitempty"`
 	// DTMF keypad input entered by the caller (e.g. "1" for menu selection).
 	//
@@ -2012,6 +2113,8 @@ type MessageMarketing struct {
 	// +kubebuilder:example="false"
 	SendToOfflineEmail bool `protobuf:"varint,5,opt,name=send_to_offline_email,json=sendToOfflineEmail,proto3" json:"send_to_offline_email,omitempty"`
 	// In-app display mode for the marketing message.
+	//
+	// +kubebuilder:example="fullScreen"
 	ExposureType MessageMarketing_ExposureType `protobuf:"varint,6,opt,name=exposure_type,json=exposureType,proto3,enum=coreapi.model.MessageMarketing_ExposureType" json:"exposure_type,omitempty"`
 	// Clickthrough URL for the marketing image.
 	// Present only when the message includes an in-app image with a link.
@@ -2123,6 +2226,8 @@ type MessageSupportBot struct {
 	StepIndex int32 `protobuf:"varint,4,opt,name=step_index,json=stepIndex,proto3" json:"step_index,omitempty"`
 	// Route selection buttons presented to the user at the end of a route section.
 	// Set to null after the user makes a selection.
+	//
+	// +kubebuilder:example=[]
 	Buttons []*structpb.Struct `protobuf:"bytes,5,rep,name=buttons,proto3" json:"buttons,omitempty"`
 	// Zero-based index of the button the user selected.
 	// Present only on messages recording the user's route selection.
@@ -2317,9 +2422,13 @@ func (x *MessageWorkflow) GetButtonBotMessage() bool {
 type MessageCustomPayload struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Arbitrary JSON payload conforming to the external messenger's message schema.
+	//
+	// +kubebuilder:example={}
 	Data *structpb.Struct `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
 	// Key-value mapping for template variable substitution within the custom payload.
 	// Keys are placeholder names and values are the replacement strings.
+	//
+	// +kubebuilder:example={"sample":"sample"}
 	ParamMapper   map[string]string `protobuf:"bytes,2,rep,name=param_mapper,json=paramMapper,proto3" json:"param_mapper,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

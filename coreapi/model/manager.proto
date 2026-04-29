@@ -11,6 +11,7 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
+// +kubebuilder:example="all"
 // Notification level for chat sessions.
 enum SessionWatch {
   SESSION_WATCH_UNSPECIFIED = 0;
@@ -19,6 +20,7 @@ enum SessionWatch {
   SESSION_WATCH_NONE = 3;
 }
 
+// +kubebuilder:example="none"
 // Sound played for incoming chat notifications.
 enum ChatAlertSound {
   CHAT_ALERT_SOUND_UNSPECIFIED = 0;
@@ -33,6 +35,7 @@ enum ChatAlertSound {
   CHAT_ALERT_SOUND_SHINE = 9;
 }
 
+// +kubebuilder:example="cute"
 // Sound played for incoming meet (call) notifications.
 enum MeetAlertSound {
   MEET_ALERT_SOUND_UNSPECIFIED = 0;
@@ -60,7 +63,7 @@ message Manager {
   // Unique per channel among non-removed managers.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="a-xyz789"
+  // +kubebuilder:example="1471"
   string account_id = 3 [(buf.validate.field).required = true];
 
   // Manager display name shown to end users and teammates.
@@ -104,10 +107,12 @@ message Manager {
 
   // Internationalized name and description overrides keyed by locale (e.g., en, ko).
   //
+  // +kubebuilder:example={}
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 7;
 
   // Custom profile data as key-value pairs for additional manager information.
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct profile = 8;
 
   // Manager email address.
@@ -147,16 +152,19 @@ message Manager {
   // Manager creation timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-04-21T07:12:21.773038Z"
   google.protobuf.Timestamp created_at = 15 [(buf.validate.field).required = true];
 
   // Manager last update timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-04-28T09:35:00Z"
   google.protobuf.Timestamp updated_at = 16 [(buf.validate.field).required = true];
 
   // Timestamp when the manager was soft-deleted.
   // Present only when removed is true.
   //
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp removed_at = 17;
 
   // Whether this manager appears as the channel identity instead of their personal profile.
@@ -168,26 +176,31 @@ message Manager {
   // Default notification level for group chat sessions.
   // See SessionWatch for possible values.
   //
+  // +kubebuilder:example="all"
   SessionWatch default_group_watch = 19;
 
   // Default notification level for direct message sessions.
   // See SessionWatch for possible values.
   //
+  // +kubebuilder:example="all"
   SessionWatch default_direct_chat_watch = 20;
 
   // Default notification level for user (customer) chat sessions.
   // See SessionWatch for possible values.
   //
+  // +kubebuilder:example="all"
   SessionWatch default_user_chat_watch = 21;
 
   // Sound effect for incoming chat message notifications.
   // See ChatAlertSound for possible values.
   //
+  // +kubebuilder:example="drop"
   ChatAlertSound chat_alert_sound = 22;
 
   // Sound effect for incoming meet (call) notifications.
   // See MeetAlertSound for possible values.
   //
+  // +kubebuilder:example="cute"
   MeetAlertSound meet_alert_sound = 23;
 
   // Whether to receive mobile push notifications even while the manager is online on desktop.
@@ -269,6 +282,7 @@ message Manager {
 
   // User chat types this manager can be auto-assigned to (e.g., sync, async).
   //
+  // +kubebuilder:example=["sample"]
   repeated string assignable_user_chat_types = 37;
 
   // Maximum number of concurrent user chats that can be auto-assigned to this manager.
@@ -307,6 +321,7 @@ message Manager {
 
   // Timestamp when the custom status (emoji + text) automatically clears.
   //
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp status_clear_at = 42;
 
   // Whether do-not-disturb mode is active, suppressing all notifications for this manager.
@@ -317,6 +332,7 @@ message Manager {
 
   // Timestamp when do-not-disturb mode automatically deactivates.
   //
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp do_not_disturb_clear_at = 44;
 
   // Whether account-level do-not-disturb mode is active across all channels.
@@ -327,10 +343,12 @@ message Manager {
 
   // Timestamp when account-level do-not-disturb mode automatically deactivates.
   //
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp account_do_not_disturb_clear_at = 46;
 
   // Timestamp when the operator status was last toggled on or off.
   //
+  // +kubebuilder:example="2026-04-28T09:35:00Z"
   google.protobuf.Timestamp operator_updated_at = 47;
 
   // Manager avatar image URL.

@@ -19,6 +19,7 @@ message Block {
   // Content block type that determines how the block is rendered and which fields are applicable.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="text"
   BlockType type = 1 [(buf.validate.field).required = true];
 
   // Programming language identifier for syntax highlighting.
@@ -36,8 +37,10 @@ message Block {
   // Nested child blocks that form a hierarchical list structure.
   // Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
   //
+  // +kubebuilder:example=[]
   repeated Block blocks = 4;
 
+  // +kubebuilder:example="bullets"
   // Type of content block.
   // TEXT and CODE are leaf types that hold text in `value`.
   // BULLETS is a container type that holds child blocks in `blocks`.
@@ -82,14 +85,17 @@ message MessageButton {
   // Visual color theme applied to the button.
   // Defaults to the channel's primary color when not specified.
   //
+  // +kubebuilder:example="green"
   ColorVariant color_variant = 2;
 
   // Action payload executed when the button is clicked.
   // Contains the action type and its attributes (e.g. URL to open, WAM to launch).
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example={}
   google.protobuf.Struct action = 3 [(buf.validate.field).required = true];
 
+  // +kubebuilder:example="cobalt"
   // Visual color theme for a button.
   enum ColorVariant {
     COLOR_VARIANT_UNSPECIFIED = 0;
@@ -209,6 +215,7 @@ message MessageFile {
   // Access scope that determines who can view this private file.
   // Derived from the storage key pattern.
   //
+  // +kubebuilder:example="chat"
   PrivateFileScope private_file_scope = 14;
 
   // Domain identifier for channel-scoped private files.
@@ -241,6 +248,7 @@ message MessageFile {
   // +kubebuilder:example="uc-abc123"
   string chat_id = 19;
 
+  // +kubebuilder:example="chat"
   // Access scope for private file visibility.
   enum PrivateFileScope {
     PRIVATE_FILE_SCOPE_UNSPECIFIED = 0;
@@ -345,6 +353,7 @@ message MessageWebPage {
 // MessageContent (service-level message payload)
 // =====================================================
 
+// +kubebuilder:example="actAsManager"
 // Message option flags that modify message delivery and display behavior.
 enum MessageOption {
   MESSAGE_OPTION_UNSPECIFIED = 0;
@@ -378,6 +387,7 @@ enum MessageOption {
 message MessageContent {
   // Structured content blocks of the message.
   //
+  // +kubebuilder:example=[]
   repeated Block blocks = 1;
 
   // Plain text representation of the message.
@@ -388,24 +398,30 @@ message MessageContent {
   // Interactive buttons attached to the message.
   //
   // +kubebuilder:validation:MaxItems=2
+  // +kubebuilder:example=[]
   repeated MessageButton buttons = 3 [(buf.validate.field).repeated = {max_items: 2}];
 
   // File attachments included in the message.
   //
   // +kubebuilder:validation:MaxItems=10
+  // +kubebuilder:example=[]
   repeated MessageFile files = 4 [(buf.validate.field).repeated = {max_items: 10}];
 
   // Web page link preview attached to the message.
   //
+  // +kubebuilder:example={}
   MessageWebPage web_page = 5;
 
   // Interactive form attached to the message.
   // The structure depends on the form type (custom, followUp, call).
   //
+  // +kubebuilder:example={}
   google.protobuf.Struct form = 6;
 
   // Option flags that modify message delivery and display behavior.
   //
+  // no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
+  // +kubebuilder:example=["actAsManager"]
   repeated MessageOption options = 7;
 
   // Client-generated request identifier for idempotency.

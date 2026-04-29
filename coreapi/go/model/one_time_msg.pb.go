@@ -25,6 +25,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// +kubebuilder:example="draft"
 // One-time message lifecycle state.
 type OneTimeMsgState int32
 
@@ -84,6 +85,7 @@ func (OneTimeMsgState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_one_time_msg_proto_rawDescGZIP(), []int{0}
 }
 
+// +kubebuilder:example="immediately"
 // Send mode for one-time messages.
 type OneTimeMsgSendMode int32
 
@@ -160,9 +162,12 @@ type OneTimeMsg struct {
 	// Current lifecycle state of the one-time message.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="draft"
 	State OneTimeMsgState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.OneTimeMsgState" json:"state,omitempty"`
 	// Controls when the message is delivered.
 	// Automatically inferred from start_at and local_start_at if not explicitly set.
+	//
+	// +kubebuilder:example="immediately"
 	SendMode OneTimeMsgSendMode `protobuf:"varint,5,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.OneTimeMsgSendMode" json:"send_mode,omitempty"`
 	// Channel operation schedule referenced for delivery timing.
 	//
@@ -172,6 +177,7 @@ type OneTimeMsg struct {
 	// Cannot be changed after creation.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="appAlert"
 	MediumType MediumType `protobuf:"varint,7,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
 	//
@@ -182,17 +188,27 @@ type OneTimeMsg struct {
 	// +kubebuilder:example="topic-001"
 	MediumTopicBuildKey string `protobuf:"bytes,9,opt,name=medium_topic_build_key,json=mediumTopicBuildKey,proto3" json:"medium_topic_build_key,omitempty"`
 	// Labels for categorizing the message topic within the medium.
+	//
+	// +kubebuilder:example=["sample"]
 	MediumTopicBuildLabels []string `protobuf:"bytes,10,rep,name=medium_topic_build_labels,json=mediumTopicBuildLabels,proto3" json:"medium_topic_build_labels,omitempty"`
 	// Message content and medium-specific delivery configuration.
 	// Structure varies by medium_type.
+	//
+	// +kubebuilder:example={}
 	Settings *structpb.Struct `protobuf:"bytes,11,opt,name=settings,proto3" json:"settings,omitempty"`
 	// Query expression that defines the target user segment.
 	// Represented as a structured filter object.
+	//
+	// +kubebuilder:example={}
 	UserQuery *structpb.Struct `protobuf:"bytes,12,opt,name=user_query,json=userQuery,proto3" json:"user_query,omitempty"`
 	// App-defined user segments used alongside user_query for targeting.
+	//
+	// +kubebuilder:example=[]
 	AppSegments []*AppSegment `protobuf:"bytes,13,rep,name=app_segments,json=appSegments,proto3" json:"app_segments,omitempty"`
 	// Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
 	// Defines how long after delivery each conversion event is counted.
+	//
+	// +kubebuilder:example={"sample":"PT1H30M"}
 	ConversionWindows map[string]*durationpb.Duration `protobuf:"bytes,14,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Name of the event that counts as a goal completion.
 	//
@@ -200,11 +216,13 @@ type OneTimeMsg struct {
 	GoalEventName string `protobuf:"bytes,15,opt,name=goal_event_name,json=goalEventName,proto3" json:"goal_event_name,omitempty"`
 	// Query expression to filter goal events by their properties.
 	// Represented as a structured filter object. Applicable when goal_event_name is set.
+	//
+	// +kubebuilder:example={}
 	GoalEventQuery *structpb.Struct `protobuf:"bytes,16,opt,name=goal_event_query,json=goalEventQuery,proto3" json:"goal_event_query,omitempty"`
 	// Time window for attributing goal events after delivery, in ISO 8601 duration format.
 	// Between 1 and 30 days. Defaults to 7 days.
 	//
-	// +kubebuilder:example="PT23H50M"
+	// +kubebuilder:example="PT1H30M"
 	GoalEventDuration *durationpb.Duration `protobuf:"bytes,17,opt,name=goal_event_duration,json=goalEventDuration,proto3" json:"goal_event_duration,omitempty"`
 	// Whether the message contains advertising content subject to opt-out regulations.
 	//
@@ -221,6 +239,8 @@ type OneTimeMsg struct {
 	SendToOfflineEmail bool `protobuf:"varint,20,opt,name=send_to_offline_email,json=sendToOfflineEmail,proto3" json:"send_to_offline_email,omitempty"`
 	// Scheduled send timestamp in UTC.
 	// Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	StartAt *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=start_at,json=startAt,proto3" json:"start_at,omitempty"`
 	// Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
 	// Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
@@ -229,14 +249,18 @@ type OneTimeMsg struct {
 	LocalStartAt string `protobuf:"bytes,22,opt,name=local_start_at,json=localStartAt,proto3" json:"local_start_at,omitempty"`
 	// Snapshot of the message configuration captured before sending.
 	// Represented as a free-form JSON object.
+	//
+	// +kubebuilder:example={}
 	Draft *structpb.Struct `protobuf:"bytes,23,opt,name=draft,proto3" json:"draft,omitempty"`
 	// One-time message creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-22T02:17:56.008491Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,24,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// One-time message last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:35:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Cumulative count of messages delivered.
 	//
@@ -257,7 +281,7 @@ type OneTimeMsg struct {
 	// Duration before the user chat created by this message expires, in ISO 8601 format.
 	// Defaults to 31 days.
 	//
-	// +kubebuilder:example="PT23H50M"
+	// +kubebuilder:example="PT1H30M"
 	UserChatExpireDuration *durationpb.Duration `protobuf:"bytes,30,opt,name=user_chat_expire_duration,json=userChatExpireDuration,proto3" json:"user_chat_expire_duration,omitempty"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache

@@ -23,6 +23,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// +kubebuilder:example="sent"
 // Filter state for querying campaign user delivery results.
 type CampaignUserState int32
 
@@ -103,12 +104,20 @@ type CampaignUser struct {
 	// +kubebuilder:example="uc-abc123"
 	UserChatId string `protobuf:"bytes,4,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
 	// Timestamp when the campaign message was delivered to the user.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	Sent *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=sent,proto3" json:"sent,omitempty"`
 	// Timestamp when the user first viewed the delivered message.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	View *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=view,proto3" json:"view,omitempty"`
 	// Timestamp when the user first clicked a link in the message.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	Click *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=click,proto3" json:"click,omitempty"`
 	// Timestamp when the user completed the campaign goal event.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	Goal *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=goal,proto3" json:"goal,omitempty"`
 	// Cumulative revenue attributed to this user from the campaign.
 	//
