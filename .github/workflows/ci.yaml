@@ -83,9 +83,16 @@ jobs:
         with:
           setup_only: true
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
       - name: Install ch-protoc-gen-openapi
         run: |
-          go install github.com/channel-io/ch-protoc-gen-openapi@v0.1.8
+          go install github.com/channel-io/ch-protoc-gen-openapi@v0.1.10
           ln -sf "$(go env GOPATH)/bin/ch-protoc-gen-openapi" "$(go env GOPATH)/bin/protoc-gen-openapi"
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
 
@@ -105,3 +112,6 @@ jobs:
                 - enum_skip_unspecified=true
           EOF
           buf generate --template /tmp/buf.gen.openapi.yaml --path coreapi/model --path coreapi/common
+
+      - name: Verify example coverage on generated yaml (strict, R1-R9)
+        run: python3 scripts/validate-example-output.py --strict .openapi-out
