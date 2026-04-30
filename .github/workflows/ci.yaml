@@ -83,24 +83,25 @@ jobs:
         with:
           setup_only: true
 
-      - name: Install protoc
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends protobuf-compiler
-
       - name: Install ch-protoc-gen-openapi
         run: |
           go install github.com/channel-io/ch-protoc-gen-openapi@v0.1.8
           ln -sf "$(go env GOPATH)/bin/ch-protoc-gen-openapi" "$(go env GOPATH)/bin/protoc-gen-openapi"
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
 
-      - name: Export proto deps
-        run: |
-          mkdir -p .proto-deps
-          buf export . -o .proto-deps
-
       - name: Generate OpenAPI schemas (smoke — rejects invalid kubebuilder:example literals)
         run: |
           mkdir -p .openapi-out
-          protoc -I .proto-deps -I /usr/include \
-            --openapi_out=yaml=true,split_schemas=true,include_description=true,enum_strip_prefix=true,enum_skip_unspecified=true:.openapi-out \
-            .proto-deps/coreapi/model/*.proto \
-            .proto-deps/coreapi/common/*.proto
+          cat > /tmp/buf.gen.openapi.yaml <<'EOF'
+          version: v2
+          plugins:
+            - local: protoc-gen-openapi
+              out: .openapi-out
+              opt:
+                - yaml=true
+                - split_schemas=true
+                - include_description=true
+                - enum_strip_prefix=true
+                - enum_skip_unspecified=true
+          EOF
+          buf generate --template /tmp/buf.gen.openapi.yaml --path coreapi/model --path coreapi/common
