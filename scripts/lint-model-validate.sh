@@ -129,3 +129,7 @@ if [[ $errors -gt 0 ]]; then
 fi
 
 echo "lint-model-validate: ok"
+
+echo ""
+echo "=== example policy (report-only) ==="
+python3 scripts/validate-example-policy.py
