@@ -100,7 +100,7 @@ jobs:
       - name: Generate OpenAPI schemas (smoke — rejects invalid kubebuilder:example literals)
         run: |
           mkdir -p .openapi-out
-          protoc -I .proto-deps \
+          protoc -I .proto-deps -I /usr/include \
             --openapi_out=yaml=true,split_schemas=true,include_description=true,enum_strip_prefix=true,enum_skip_unspecified=true:.openapi-out \
             .proto-deps/coreapi/model/*.proto \
             .proto-deps/coreapi/common/*.proto
