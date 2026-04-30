@@ -24,7 +24,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// +kubebuilder:example="closed"
 // State of a user chat conversation.
 type UserChatState int32
 
@@ -89,7 +88,6 @@ func (UserChatState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{0}
 }
 
-// +kubebuilder:example="notInOperation"
 // Reason why an inbound call or chat was missed.
 type MissedReason int32
 
@@ -186,7 +184,6 @@ func (MissedReason) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{1}
 }
 
-// +kubebuilder:example="low"
 // Priority level for auto-assignment routing.
 type AutoAssignPriority int32
 
@@ -243,7 +240,6 @@ func (AutoAssignPriority) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{2}
 }
 
-// +kubebuilder:example="achieved"
 // Goal achievement state of a user chat.
 type UserChatGoalState int32
 
@@ -304,7 +300,6 @@ func (UserChatGoalState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{3}
 }
 
-// +kubebuilder:example="description"
 // Type of subtext displayed below the chat title.
 type UserChatSubtextType int32
 

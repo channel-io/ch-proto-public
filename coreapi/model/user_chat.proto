@@ -10,7 +10,6 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// +kubebuilder:example="closed"
 // State of a user chat conversation.
 enum UserChatState {
   USER_CHAT_STATE_UNSPECIFIED = 0;
@@ -26,7 +25,6 @@ enum UserChatState {
   USER_CHAT_STATE_INITIAL = 5;
 }
 
-// +kubebuilder:example="notInOperation"
 // Reason why an inbound call or chat was missed.
 enum MissedReason {
   MISSED_REASON_UNSPECIFIED = 0;
@@ -58,7 +56,6 @@ enum MissedReason {
   MISSED_REASON_BLOCKED_USER = 13;
 }
 
-// +kubebuilder:example="low"
 // Priority level for auto-assignment routing.
 enum AutoAssignPriority {
   AUTO_ASSIGN_PRIORITY_UNSPECIFIED = 0;
@@ -70,7 +67,6 @@ enum AutoAssignPriority {
   AUTO_ASSIGN_PRIORITY_HIGH = 3;
 }
 
-// +kubebuilder:example="achieved"
 // Goal achievement state of a user chat.
 enum UserChatGoalState {
   USER_CHAT_GOAL_STATE_UNSPECIFIED = 0;
@@ -84,7 +80,6 @@ enum UserChatGoalState {
   USER_CHAT_GOAL_STATE_NONE = 4;
 }
 
-// +kubebuilder:example="description"
 // Type of subtext displayed below the chat title.
 enum UserChatSubtextType {
   USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED = 0;

@@ -24,7 +24,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// +kubebuilder:example="member"
 // Type of user identity.
 type UserType int32
 
@@ -259,12 +258,8 @@ type User struct {
 	// +kubebuilder:example="127.0276"
 	Longitude float64 `protobuf:"fixed64,37,opt,name=longitude,proto3" json:"longitude,omitempty"`
 	// Web browser and page tracking information from the user's latest session.
-	//
-	// +kubebuilder:example={"browserName":"Chrome","browser":"120.0.0","os":"macOS","osName":"macOS","device":"desktop","sessionsCount":5,"lastSeenAt":"2025-07-15T09:30:00Z"}
 	Web *WebInfo `protobuf:"bytes,38,opt,name=web,proto3" json:"web,omitempty"`
 	// Mobile device information from the user's latest session.
-	//
-	// +kubebuilder:example={"deviceModel":"iPhone 15","osName":"iOS","os":"17.0","sessionsCount":3,"lastSeenAt":"2025-07-15T09:30:00Z"}
 	Mobile *MobileInfo `protobuf:"bytes,39,opt,name=mobile,proto3" json:"mobile,omitempty"`
 	// Total number of chat sessions the user has initiated in this channel.
 	//

@@ -11,7 +11,6 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// +kubebuilder:example="all"
 // Notification level for chat sessions.
 enum SessionWatch {
   SESSION_WATCH_UNSPECIFIED = 0;
@@ -20,7 +19,6 @@ enum SessionWatch {
   SESSION_WATCH_NONE = 3;
 }
 
-// +kubebuilder:example="none"
 // Sound played for incoming chat notifications.
 enum ChatAlertSound {
   CHAT_ALERT_SOUND_UNSPECIFIED = 0;
@@ -35,7 +33,6 @@ enum ChatAlertSound {
   CHAT_ALERT_SOUND_SHINE = 9;
 }
 
-// +kubebuilder:example="cute"
 // Sound played for incoming meet (call) notifications.
 enum MeetAlertSound {
   MEET_ALERT_SOUND_UNSPECIFIED = 0;

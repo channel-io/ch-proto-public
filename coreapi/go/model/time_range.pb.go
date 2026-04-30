@@ -22,7 +22,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// +kubebuilder:example="mon"
 // Day of the week.
 type TimeRange_DayOfWeek int32
 

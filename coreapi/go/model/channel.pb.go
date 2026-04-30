@@ -25,7 +25,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// +kubebuilder:example="waiting"
 // Lifecycle state of a channel.
 type ChannelState int32
 
@@ -91,7 +90,6 @@ func (ChannelState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_channel_proto_rawDescGZIP(), []int{0}
 }
 
-// +kubebuilder:example="active"
 // Away behavior when the channel is outside of operating hours.
 type ChannelAwayOption int32
 
@@ -145,7 +143,6 @@ func (ChannelAwayOption) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_channel_proto_rawDescGZIP(), []int{1}
 }
 
-// +kubebuilder:example="instant"
 // Expected response speed indicator shown to end users.
 type ResponseDelayType int32
 
@@ -442,8 +439,6 @@ type Channel struct {
 	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	NextAwayTime *timestamppb.Timestamp `protobuf:"bytes,49,opt,name=next_away_time,json=nextAwayTime,proto3" json:"next_away_time,omitempty"`
 	// Recurring weekly time ranges that define the channel operating hours.
-	//
-	// +kubebuilder:example=[]
 	OperationTimeRanges []*TimeRange `protobuf:"bytes,50,rep,name=operation_time_ranges,json=operationTimeRanges,proto3" json:"operation_time_ranges,omitempty"`
 	// Messenger behavior when the channel is outside of operating hours.
 	// See ChannelAwayOption for possible values.

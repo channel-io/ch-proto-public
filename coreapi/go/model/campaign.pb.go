@@ -25,7 +25,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// +kubebuilder:example="draft"
 // Campaign lifecycle state.
 type CampaignState int32
 
@@ -82,7 +81,6 @@ func (CampaignState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{0}
 }
 
-// +kubebuilder:example="positive"
 // Messaging medium type for marketing delivery.
 // Additional event filter matching strategy.
 type CampaignFilterMatch int32
@@ -134,7 +132,6 @@ func (CampaignFilterMatch) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{1}
 }
 
-// +kubebuilder:example="always"
 // Campaign send mode controlling delivery timing.
 type CampaignSendMode int32
 
@@ -197,7 +194,6 @@ func (CampaignSendMode) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{2}
 }
 
-// +kubebuilder:example="triggerEvent"
 // Source event type from which the property value is captured.
 type CampaignBaseEventType int32
 
@@ -289,8 +285,6 @@ type Campaign struct {
 	// +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
 	UserQuery *structpb.Struct `protobuf:"bytes,7,opt,name=user_query,json=userQuery,proto3" json:"user_query,omitempty"`
 	// App-defined user segments used alongside user_query for targeting.
-	//
-	// +kubebuilder:example=[]
 	AppSegments []*AppSegment `protobuf:"bytes,8,rep,name=app_segments,json=appSegments,proto3" json:"app_segments,omitempty"`
 	// Name of the user event that triggers this campaign.
 	//
@@ -325,8 +319,6 @@ type Campaign struct {
 	FilterMatch CampaignFilterMatch `protobuf:"varint,14,opt,name=filter_match,json=filterMatch,proto3,enum=coreapi.model.CampaignFilterMatch" json:"filter_match,omitempty"`
 	// Holds a property value from the trigger event constant for consistent additional event filtering.
 	// Applicable when filter_event_name is set.
-	//
-	// +kubebuilder:example={"eventQuery":{},"operator":"$in","values":["premium"]}
 	FilterHpc *HoldingPropertyConstant `protobuf:"bytes,15,opt,name=filter_hpc,json=filterHpc,proto3" json:"filter_hpc,omitempty"`
 	// Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
 	// Defines how long after delivery each conversion event is counted.
@@ -349,8 +341,6 @@ type Campaign struct {
 	GoalEventDuration *durationpb.Duration `protobuf:"bytes,19,opt,name=goal_event_duration,json=goalEventDuration,proto3" json:"goal_event_duration,omitempty"`
 	// Holds a property value from the trigger or filter event constant for consistent goal checking.
 	// Applicable when goal_event_name is set.
-	//
-	// +kubebuilder:example={"eventQuery":{},"operator":"$eq","values":["purchase"]}
 	GoalHpc *HoldingPropertyConstant `protobuf:"bytes,20,opt,name=goal_hpc,json=goalHpc,proto3" json:"goal_hpc,omitempty"`
 	// Whether the campaign message contains advertising content subject to opt-out regulations.
 	//
@@ -382,8 +372,6 @@ type Campaign struct {
 	ChannelOperationId string `protobuf:"bytes,26,opt,name=channel_operation_id,json=channelOperationId,proto3" json:"channel_operation_id,omitempty"`
 	// Custom time windows for delivery scheduling.
 	// Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
-	//
-	// +kubebuilder:example=[]
 	SendTimeRanges []*TimeRange `protobuf:"bytes,27,rep,name=send_time_ranges,json=sendTimeRanges,proto3" json:"send_time_ranges,omitempty"`
 	// Timestamp when the campaign becomes eligible to trigger.
 	//

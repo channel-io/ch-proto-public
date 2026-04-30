@@ -23,7 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// +kubebuilder:example="red"
 // Color variant for visual labeling of chat tags.
 type ChatTagColorVariant int32
 

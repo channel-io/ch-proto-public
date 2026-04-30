@@ -9,7 +9,6 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// +kubebuilder:example="all"
 // Visibility scope of a group.
 enum GroupScope {
   GROUP_SCOPE_UNSPECIFIED = 0;

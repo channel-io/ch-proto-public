@@ -11,7 +11,6 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// +kubebuilder:example="inbound"
 // Direction of a phone call relative to the channel.
 // - INBOUND: Call received from an external caller.
 // - OUTBOUND: Call initiated by a manager to an external number.
@@ -21,7 +20,6 @@ enum CallDirection {
   CALL_DIRECTION_OUTBOUND = 2;
 }
 
-// +kubebuilder:example="waiting"
 // Current state of a phone call in its lifecycle.
 // - WAITING: The call is ringing or queued, not yet answered.
 // - ENGAGED: The call is actively connected between participants.
@@ -141,7 +139,6 @@ message MeetMessage {
 
   // Structured content blocks of the message.
   //
-  // +kubebuilder:example=[]
   repeated coreapi.model.Block blocks = 7;
 
   // Plain text representation of the message.

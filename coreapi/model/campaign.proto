@@ -14,7 +14,6 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// +kubebuilder:example="draft"
 // Campaign lifecycle state.
 enum CampaignState {
   CAMPAIGN_STATE_UNSPECIFIED = 0;
@@ -24,7 +23,6 @@ enum CampaignState {
   CAMPAIGN_STATE_REMOVED = 4;
 }
 
-// +kubebuilder:example="positive"
 // Messaging medium type for marketing delivery.
 // Additional event filter matching strategy.
 enum CampaignFilterMatch {
@@ -33,7 +31,6 @@ enum CampaignFilterMatch {
   CAMPAIGN_FILTER_MATCH_NEGATIVE = 2;
 }
 
-// +kubebuilder:example="always"
 // Campaign send mode controlling delivery timing.
 enum CampaignSendMode {
   CAMPAIGN_SEND_MODE_UNSPECIFIED = 0;
@@ -105,7 +102,6 @@ message Campaign {
 
   // App-defined user segments used alongside user_query for targeting.
   //
-  // +kubebuilder:example=[]
   repeated coreapi.model.AppSegment app_segments = 8;
 
   // Name of the user event that triggers this campaign.
@@ -148,7 +144,6 @@ message Campaign {
   // Holds a property value from the trigger event constant for consistent additional event filtering.
   // Applicable when filter_event_name is set.
   //
-  // +kubebuilder:example={"eventQuery":{},"operator":"$in","values":["premium"]}
   coreapi.model.HoldingPropertyConstant filter_hpc = 15;
 
   // Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
@@ -177,7 +172,6 @@ message Campaign {
   // Holds a property value from the trigger or filter event constant for consistent goal checking.
   // Applicable when goal_event_name is set.
   //
-  // +kubebuilder:example={"eventQuery":{},"operator":"$eq","values":["purchase"]}
   coreapi.model.HoldingPropertyConstant goal_hpc = 20;
 
   // Whether the campaign message contains advertising content subject to opt-out regulations.
@@ -217,7 +211,6 @@ message Campaign {
   // Custom time windows for delivery scheduling.
   // Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
   //
-  // +kubebuilder:example=[]
   repeated coreapi.model.TimeRange send_time_ranges = 27;
 
   // Timestamp when the campaign becomes eligible to trigger.
@@ -284,7 +277,6 @@ message Campaign {
 // HoldingPropertyConstant
 // =====================================================
 
-// +kubebuilder:example="triggerEvent"
 // Source event type from which the property value is captured.
 enum CampaignBaseEventType {
   CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED = 0;

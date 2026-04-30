@@ -23,7 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// +kubebuilder:example="waiting"
 // Plugin state in the activation lifecycle.
 type PluginState int32
 
@@ -74,7 +73,6 @@ func (PluginState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{0}
 }
 
-// +kubebuilder:example="light"
 // Visual appearance mode for the plugin widget.
 type PluginAppearance int32
 
@@ -128,7 +126,6 @@ func (PluginAppearance) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{1}
 }
 
-// +kubebuilder:example="legacy"
 // Button rendering type for the plugin launcher.
 type PluginButtonType int32
 
@@ -182,7 +179,6 @@ func (PluginButtonType) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{2}
 }
 
-// +kubebuilder:example="channel"
 // Predefined icon for the plugin launcher button.
 type PluginIconButton int32
 
@@ -284,7 +280,6 @@ func (PluginIconButton) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{3}
 }
 
-// +kubebuilder:example="left"
 // Horizontal position of the plugin widget on screen.
 type PluginPosition int32
 
@@ -335,7 +330,6 @@ func (PluginPosition) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_plugin_proto_rawDescGZIP(), []int{4}
 }
 
-// +kubebuilder:example="top"
 // Vertical position of the mobile chat bubble.
 type PluginBubblePosition int32
 
@@ -459,13 +453,9 @@ type Plugin struct {
 	IconButton PluginIconButton `protobuf:"varint,12,opt,name=icon_button,json=iconButton,proto3,enum=coreapi.model.PluginIconButton" json:"icon_button,omitempty"`
 	// Uploaded image for the launcher button.
 	// Applicable when button_type is CUSTOM_IMAGE.
-	//
-	// +kubebuilder:example={"bucket":"bin.channel.io","key":"pub-file/plugin/custom-image.png","width":64,"height":64,"contentType":"image/png"}
 	CustomImage *ImageFile `protobuf:"bytes,13,opt,name=custom_image,json=customImage,proto3" json:"custom_image,omitempty"`
 	// Uploaded desktop launcher image.
 	// Applicable when button_type is LEGACY.
-	//
-	// +kubebuilder:example={"bucket":"bin.channel.io","key":"pub-file/plugin/desk-image.png","width":128,"height":128}
 	DeskImage *TinyFile `protobuf:"bytes,14,opt,name=desk_image,json=deskImage,proto3" json:"desk_image,omitempty"`
 	// Horizontal offset of the desktop widget from its anchored edge, in pixels.
 	//
@@ -485,8 +475,6 @@ type Plugin struct {
 	DeskPosition PluginPosition `protobuf:"varint,18,opt,name=desk_position,json=deskPosition,proto3,enum=coreapi.model.PluginPosition" json:"desk_position,omitempty"`
 	// Uploaded mobile launcher image.
 	// Applicable when button_type is LEGACY.
-	//
-	// +kubebuilder:example={"bucket":"bin.channel.io","key":"pub-file/plugin/mobile-image.png","width":64,"height":64}
 	MobileImage *TinyFile `protobuf:"bytes,19,opt,name=mobile_image,json=mobileImage,proto3" json:"mobile_image,omitempty"`
 	// Horizontal offset of the mobile widget from its anchored edge, in pixels.
 	//

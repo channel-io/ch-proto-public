@@ -21,7 +21,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// +kubebuilder:example="entityNotFound"
 // Error codes shared across all Core API operations.
 //
 // Every error response carries exactly one of:
@@ -128,7 +127,6 @@ type ErrorResponse struct {
 	Message string `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`
 	// For validation errors, one entry per violated field.
 	// For not-found errors, one entry identifying the missing entity.
-	// +kubebuilder:example=[]
 	Details       []*ErrorDetail `protobuf:"bytes,5,rep,name=details,proto3" json:"details,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

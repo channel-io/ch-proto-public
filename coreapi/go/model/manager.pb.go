@@ -24,7 +24,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// +kubebuilder:example="all"
 // Notification level for chat sessions.
 type SessionWatch int32
 
@@ -78,7 +77,6 @@ func (SessionWatch) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_manager_proto_rawDescGZIP(), []int{0}
 }
 
-// +kubebuilder:example="none"
 // Sound played for incoming chat notifications.
 type ChatAlertSound int32
 
@@ -150,7 +148,6 @@ func (ChatAlertSound) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_manager_proto_rawDescGZIP(), []int{1}
 }
 
-// +kubebuilder:example="cute"
 // Sound played for incoming meet (call) notifications.
 type MeetAlertSound int32
 

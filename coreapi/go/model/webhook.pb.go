@@ -23,7 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// +kubebuilder:example="userChatOpened"
 // Webhook event scope determining which events trigger the webhook.
 type WebhookScope int32
 

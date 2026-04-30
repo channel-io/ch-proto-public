@@ -10,7 +10,6 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// +kubebuilder:example="member"
 // Type of user identity.
 enum UserType {
   USER_TYPE_UNSPECIFIED = 0;
@@ -237,12 +236,10 @@ message User {
 
   // Web browser and page tracking information from the user's latest session.
   //
-  // +kubebuilder:example={"browserName":"Chrome","browser":"120.0.0","os":"macOS","osName":"macOS","device":"desktop","sessionsCount":5,"lastSeenAt":"2025-07-15T09:30:00Z"}
   coreapi.model.WebInfo web = 38;
 
   // Mobile device information from the user's latest session.
   //
-  // +kubebuilder:example={"deviceModel":"iPhone 15","osName":"iOS","os":"17.0","sessionsCount":3,"lastSeenAt":"2025-07-15T09:30:00Z"}
   coreapi.model.MobileInfo mobile = 39;
 
   // Total number of chat sessions the user has initiated in this channel.

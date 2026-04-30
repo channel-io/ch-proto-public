@@ -64,7 +64,6 @@ message TimeRange {
     (buf.validate.field).required = true
   ];
 
-  // +kubebuilder:example="mon"
   // Day of the week.
   enum DayOfWeek {
     DAY_OF_WEEK_UNSPECIFIED = 0;

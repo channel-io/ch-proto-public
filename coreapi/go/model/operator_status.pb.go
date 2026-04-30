@@ -23,7 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// +kubebuilder:example="waiting"
 // Activity state of a manager for operational tracking and chat routing.
 // States are grouped into "active" (eligible for chat assignment) and "inactive".
 type OperatorStatusType int32

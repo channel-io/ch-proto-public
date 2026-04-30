@@ -131,5 +131,5 @@ fi
 echo "lint-model-validate: ok"
 
 echo ""
-echo "=== example policy (report-only) ==="
-python3 scripts/validate-example-policy.py
+echo "=== example policy (strict) ==="
+python3 scripts/validate-example-policy.py --strict

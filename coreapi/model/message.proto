@@ -11,7 +11,6 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// +kubebuilder:example="sending"
 // State of a message in its lifecycle.
 // - SENDING: The message is being transmitted to the server.
 // - SENT: The message has been successfully delivered.
@@ -25,7 +24,6 @@ enum MessageState {
   MESSAGE_STATE_REMOVED = 4;
 }
 
-// +kubebuilder:example="alert"
 // Alert level controlling how the client displays notifications for a message.
 // - ALERT: Triggers a push notification and visual alert.
 // - UNREAD: Increments the unread badge without a push notification.
@@ -37,7 +35,6 @@ enum AlertLevel {
   ALERT_LEVEL_NONE = 3;
 }
 
-// +kubebuilder:example="standard"
 // Determines how the message was composed and how clients should render it.
 // - STANDARD: Regular text message composed via the chat input.
 // - CUSTOM: Message rendered using a third-party custom payload.
@@ -157,7 +154,6 @@ message Message {
   // Structured content blocks composing the message body.
   // Contains rich text, images, code snippets, and other block-level elements.
   //
-  // +kubebuilder:example=[]
   repeated coreapi.model.Block blocks = 17;
 
   // Plain text representation of the message body.
@@ -174,7 +170,6 @@ message Message {
   // Thread metadata present only on thread root messages.
   // Contains reply count, last reply timestamp, and participant summary.
   //
-  // +kubebuilder:example={"replyCount":3,"lastRepliedAt":"2025-07-15T09:30:00Z"}
   coreapi.model.MessageThread thread = 20;
 
   // Meet session metadata for messages associated with a video/voice meet.
@@ -206,30 +201,25 @@ message Message {
   //
   // +kubebuilder:validation:MinItems=1
   // +kubebuilder:validation:MaxItems=2
-  // +kubebuilder:example=[]
   repeated coreapi.model.MessageButton buttons = 25;
 
   // File attachments included in the message.
   //
   // +kubebuilder:validation:MinItems=1
   // +kubebuilder:validation:MaxItems=30
-  // +kubebuilder:example=[]
   repeated coreapi.model.MessageFile files = 26;
 
   // Link preview extracted from the first URL found in the message content.
   //
-  // +kubebuilder:example={"url":"https://channel.io","title":"Channel.io","description":"Customer messaging platform"}
   coreapi.model.MessageWebPage web_page = 27;
 
   // System log entry for automated events (e.g., chat opened, assigned, closed).
   // Present only on system-generated messages.
   //
-  // +kubebuilder:example={"action":"changeName","oldValue":"John","newValue":"Jane"}
   coreapi.model.MessageLog log = 28;
 
   // Emoji reactions added to this message by participants.
   //
-  // +kubebuilder:example=[]
   repeated coreapi.model.MessageReaction reactions = 29;
 
   // Progress indicator for an ALF AI response being streamed.
@@ -254,7 +244,7 @@ message Message {
   // Some options are only applicable in user chats.
   //
   // +kubebuilder:validation:MinItems=1
-  // +kubebuilder:example=["actAsManager"]
+  // +kubebuilder:example=["doNotSearch","immutable","private"]
   repeated string options = 33;
 
   // Marketing campaign metadata for outbound promotional messages.
@@ -357,7 +347,7 @@ message MessageThread {
 
   // Manager IDs who have posted replies in this thread, ordered by first reply time.
   //
-  // +kubebuilder:example=["1234"]
+  // +kubebuilder:example=["1234","5678"]
   repeated string replied_manager_ids = 3;
 
   // Total number of replies in this thread.
@@ -412,7 +402,6 @@ message MessageLog {
   // +kubebuilder:example="wf-001"
   string trigger_id = 4;
 
-  // +kubebuilder:example="changeName"
   // Action types recorded in system log messages.
   enum MessageLogAction {
     MESSAGE_LOG_ACTION_UNSPECIFIED = 0;
@@ -571,10 +560,9 @@ message MessageMeet {
 
   // Bot IDs extracted from `amassed_persons`.
   //
-  // +kubebuilder:example=["bot-001"]
+  // +kubebuilder:example=["231306","231307"]
   repeated string bot_ids = 15;
 
-  // +kubebuilder:example="live"
   // Lifecycle state of a meet session.
   enum MeetState {
     MEET_STATE_UNSPECIFIED = 0;
@@ -590,7 +578,6 @@ message MessageMeet {
     MEET_STATE_TRANSCRIBE_FAILED = 5;
   }
 
-  // +kubebuilder:example="audio"
   // Media mode for a meet session.
   enum MeetMode {
     MEET_MODE_UNSPECIFIED = 0;
@@ -600,7 +587,6 @@ message MessageMeet {
     MEET_MODE_VIDEO = 2;
   }
 
-  // +kubebuilder:example="front"
   // Category of a meet session, determined by the session type.
   enum MeetType {
     MEET_TYPE_UNSPECIFIED = 0;
@@ -732,7 +718,6 @@ message MessageEmail {
   // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp created_at = 12;
 
-  // +kubebuilder:example="inbound"
   // Direction of an email relative to the channel.
   enum EmailDirection {
     EMAIL_DIRECTION_UNSPECIFIED = 0;
@@ -752,7 +737,6 @@ message MessageEmail {
 message MessageIvr {
   // Audio recording captured during the IVR session (e.g. voice mail).
   //
-  // +kubebuilder:example={"bucket":"bin.channel.io","key":"pub-file/ivr/audio-001.mp3","size":204800,"contentType":"audio/mpeg"}
   coreapi.model.MessageFile audio_file = 1;
 
   // DTMF keypad input entered by the caller (e.g. "1" for menu selection).
@@ -804,7 +788,6 @@ message MessageMarketing {
   // +kubebuilder:example="https://example.com/image.jpg"
   string image_link_url = 7;
 
-  // +kubebuilder:example="fullScreen"
   // In-app display mode for marketing messages.
   enum ExposureType {
     EXPOSURE_TYPE_UNSPECIFIED = 0;

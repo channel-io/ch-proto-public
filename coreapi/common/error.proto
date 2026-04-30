@@ -6,7 +6,6 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/common";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.common";
 
-// +kubebuilder:example="entityNotFound"
 // Error codes shared across all Core API operations.
 //
 // Every error response carries exactly one of:
@@ -70,7 +69,6 @@ message ErrorResponse {
 
   // For validation errors, one entry per violated field.
   // For not-found errors, one entry identifying the missing entity.
-  // +kubebuilder:example=[]
   repeated ErrorDetail details = 5;
 }
 

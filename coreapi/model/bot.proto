@@ -85,6 +85,5 @@ message Bot {
 
   // Uploaded bot avatar image.
   //
-  // +kubebuilder:example={"bucket":"bin.channel.io","key":"pub-file/channel/bot-avatar","width":200,"height":200}
   coreapi.model.TinyFile avatar = 9;
 }

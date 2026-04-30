@@ -13,7 +13,6 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// +kubebuilder:example="waiting"
 // Lifecycle state of a channel.
 enum ChannelState {
   CHANNEL_STATE_UNSPECIFIED = 0;
@@ -26,7 +25,6 @@ enum ChannelState {
   CHANNEL_STATE_REMOVED = 7;
 }
 
-// +kubebuilder:example="active"
 // Away behavior when the channel is outside of operating hours.
 enum ChannelAwayOption {
   CHANNEL_AWAY_OPTION_UNSPECIFIED = 0;
@@ -35,7 +33,6 @@ enum ChannelAwayOption {
   CHANNEL_AWAY_OPTION_HIDDEN = 3;
 }
 
-// +kubebuilder:example="instant"
 // Expected response speed indicator shown to end users.
 enum ResponseDelayType {
   RESPONSE_DELAY_TYPE_UNSPECIFIED = 0;
@@ -352,7 +349,6 @@ message Channel {
 
   // Recurring weekly time ranges that define the channel operating hours.
   //
-  // +kubebuilder:example=[]
   repeated coreapi.model.TimeRange operation_time_ranges = 50;
 
   // Messenger behavior when the channel is outside of operating hours.

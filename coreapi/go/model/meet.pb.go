@@ -23,7 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// +kubebuilder:example="inbound"
 // Direction of a phone call relative to the channel.
 // - INBOUND: Call received from an external caller.
 // - OUTBOUND: Call initiated by a manager to an external number.
@@ -76,7 +75,6 @@ func (CallDirection) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_meet_proto_rawDescGZIP(), []int{0}
 }
 
-// +kubebuilder:example="waiting"
 // Current state of a phone call in its lifecycle.
 // - WAITING: The call is ringing or queued, not yet answered.
 // - ENGAGED: The call is actively connected between participants.
@@ -339,8 +337,6 @@ type MeetMessage struct {
 	// +kubebuilder:example="m-001"
 	PersonId string `protobuf:"bytes,6,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
 	// Structured content blocks of the message.
-	//
-	// +kubebuilder:example=[]
 	Blocks []*Block `protobuf:"bytes,7,rep,name=blocks,proto3" json:"blocks,omitempty"`
 	// Plain text representation of the message.
 	//

@@ -9,7 +9,6 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// +kubebuilder:example="red"
 // Color variant for visual labeling of chat tags.
 enum ChatTagColorVariant {
   CHAT_TAG_COLOR_VARIANT_UNSPECIFIED = 0;

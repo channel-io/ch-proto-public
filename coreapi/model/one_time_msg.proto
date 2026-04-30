@@ -13,7 +13,6 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// +kubebuilder:example="draft"
 // One-time message lifecycle state.
 enum OneTimeMsgState {
   ONE_TIME_MSG_STATE_UNSPECIFIED = 0;
@@ -24,7 +23,6 @@ enum OneTimeMsgState {
   ONE_TIME_MSG_STATE_REMOVED = 5;
 }
 
-// +kubebuilder:example="immediately"
 // Send mode for one-time messages.
 enum OneTimeMsgSendMode {
   ONE_TIME_MSG_SEND_MODE_UNSPECIFIED = 0;
@@ -120,7 +118,6 @@ message OneTimeMsg {
 
   // App-defined user segments used alongside user_query for targeting.
   //
-  // +kubebuilder:example=[]
   repeated coreapi.model.AppSegment app_segments = 13;
 
   // Attribution windows keyed by event feature name, each value in ISO 8601 duration format.

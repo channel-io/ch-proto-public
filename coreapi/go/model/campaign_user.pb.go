@@ -23,7 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// +kubebuilder:example="sent"
 // Filter state for querying campaign user delivery results.
 type CampaignUserState int32
 

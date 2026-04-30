@@ -25,7 +25,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// +kubebuilder:example="draft"
 // One-time message lifecycle state.
 type OneTimeMsgState int32
 
@@ -85,7 +84,6 @@ func (OneTimeMsgState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_one_time_msg_proto_rawDescGZIP(), []int{0}
 }
 
-// +kubebuilder:example="immediately"
 // Send mode for one-time messages.
 type OneTimeMsgSendMode int32
 
@@ -202,8 +200,6 @@ type OneTimeMsg struct {
 	// +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
 	UserQuery *structpb.Struct `protobuf:"bytes,12,opt,name=user_query,json=userQuery,proto3" json:"user_query,omitempty"`
 	// App-defined user segments used alongside user_query for targeting.
-	//
-	// +kubebuilder:example=[]
 	AppSegments []*AppSegment `protobuf:"bytes,13,rep,name=app_segments,json=appSegments,proto3" json:"app_segments,omitempty"`
 	// Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
 	// Defines how long after delivery each conversion event is counted.
