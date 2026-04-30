@@ -247,11 +247,11 @@ type Manager struct {
 	ShowDescriptionToFront bool `protobuf:"varint,6,opt,name=show_description_to_front,json=showDescriptionToFront,proto3" json:"show_description_to_front,omitempty"`
 	// Internationalized name and description overrides keyed by locale (e.g., en, ko).
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,7,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Custom profile data as key-value pairs for additional manager information.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"slackId":"customer-success","department":"Customer Success"}
 	Profile *structpb.Struct `protobuf:"bytes,8,opt,name=profile,proto3" json:"profile,omitempty"`
 	// Manager email address.
 	// Unique per channel among non-removed managers.
@@ -392,7 +392,7 @@ type Manager struct {
 	UserMessageImportant bool `protobuf:"varint,36,opt,name=user_message_important,json=userMessageImportant,proto3" json:"user_message_important,omitempty"`
 	// User chat types this manager can be auto-assigned to (e.g., sync, async).
 	//
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["sync","async"]
 	AssignableUserChatTypes []string `protobuf:"bytes,37,rep,name=assignable_user_chat_types,json=assignableUserChatTypes,proto3" json:"assignable_user_chat_types,omitempty"`
 	// Maximum number of concurrent user chats that can be auto-assigned to this manager.
 	//

@@ -107,12 +107,12 @@ message Manager {
 
   // Internationalized name and description overrides keyed by locale (e.g., en, ko).
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 7;
 
   // Custom profile data as key-value pairs for additional manager information.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"slackId":"customer-success","department":"Customer Success"}
   google.protobuf.Struct profile = 8;
 
   // Manager email address.
@@ -282,7 +282,7 @@ message Manager {
 
   // User chat types this manager can be auto-assigned to (e.g., sync, async).
   //
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["sync","async"]
   repeated string assignable_user_chat_types = 37;
 
   // Maximum number of concurrent user chats that can be auto-assigned to this manager.

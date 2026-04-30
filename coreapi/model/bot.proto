@@ -62,7 +62,7 @@ message Bot {
   // Internationalized name and description map.
   // Keyed by locale.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"ko":{"name":"주문봇","description":"주문 조회를 도와드립니다."},"en":{"name":"Order Bot","description":"Handles order inquiries."}}
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 5;
 
   // Bot color in hex format.
@@ -85,6 +85,6 @@ message Bot {
 
   // Uploaded bot avatar image.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"bucket":"bin.channel.io","key":"pub-file/channel/bot-avatar","width":200,"height":200}
   coreapi.model.TinyFile avatar = 9;
 }

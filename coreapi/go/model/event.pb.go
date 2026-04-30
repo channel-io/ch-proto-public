@@ -52,7 +52,7 @@ type Event struct {
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
 	Property *structpb.Struct `protobuf:"bytes,5,opt,name=property,proto3" json:"property,omitempty"`
 	// Event creation timestamp.
 	//
@@ -71,7 +71,7 @@ type Event struct {
 	// Internationalized event name map keyed by locale (e.g., en, ko).
 	// Populated only for system-defined events; custom events return no entries.
 	//
-	// +kubebuilder:example={"sample":"sample"}
+	// +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
 	NameI18NMap   map[string]string `protobuf:"bytes,9,rep,name=name_i18n_map,json=nameI18nMap,proto3" json:"name_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

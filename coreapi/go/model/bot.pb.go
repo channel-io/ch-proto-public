@@ -54,7 +54,7 @@ type Bot struct {
 	// Internationalized name and description map.
 	// Keyed by locale.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"ko":{"name":"주문봇","description":"주문 조회를 도와드립니다."},"en":{"name":"Order Bot","description":"Handles order inquiries."}}
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,5,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Bot color in hex format.
 	// Randomly assigned if not specified on creation.
@@ -73,7 +73,7 @@ type Bot struct {
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Uploaded bot avatar image.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"bucket":"bin.channel.io","key":"pub-file/channel/bot-avatar","width":200,"height":200}
 	Avatar        *TinyFile `protobuf:"bytes,9,opt,name=avatar,proto3" json:"avatar,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

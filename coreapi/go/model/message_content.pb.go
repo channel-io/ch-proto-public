@@ -404,7 +404,7 @@ type MessageButton struct {
 	// Contains the action type and its attributes (e.g. URL to open, WAM to launch).
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"type":"web","attributes":{"url":"https://channel.io"}}
 	Action        *structpb.Struct `protobuf:"bytes,3,opt,name=action,proto3" json:"action,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -942,12 +942,12 @@ type MessageContent struct {
 	Files []*MessageFile `protobuf:"bytes,4,rep,name=files,proto3" json:"files,omitempty"`
 	// Web page link preview attached to the message.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"url":"https://channel.io","title":"Channel.io","description":"Customer messaging platform"}
 	WebPage *MessageWebPage `protobuf:"bytes,5,opt,name=web_page,json=webPage,proto3" json:"web_page,omitempty"`
 	// Interactive form attached to the message.
 	// The structure depends on the form type (custom, followUp, call).
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
 	Form *structpb.Struct `protobuf:"bytes,6,opt,name=form,proto3" json:"form,omitempty"`
 	// Option flags that modify message delivery and display behavior.
 	//

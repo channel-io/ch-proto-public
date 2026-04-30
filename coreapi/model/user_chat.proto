@@ -183,19 +183,19 @@ message UserChat {
   // Current handling state that controls the chat's input behavior
   // (e.g., workflow step, follow-up collection).
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"step":"input","followUp":{"fields":[]}}
   google.protobuf.Struct handling = 15;
 
   // Origin information describing how this chat was created
   // (e.g., user-initiated, workflow-triggered, support bot).
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"type":"userInitiated","origin":"web"}
   google.protobuf.Struct source = 16;
 
   // IDs of managers currently participating in this chat.
   //
   // +kubebuilder:validation:MinItems=1
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["1234","5678"]
   repeated string manager_ids = 17;
 
   // ID of the manager currently assigned as the primary responder.
@@ -212,12 +212,12 @@ message UserChat {
   //
   // +kubebuilder:validation:MinItems=1
   // +kubebuilder:validation:MaxItems=8
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["premium","order-inquiry"]
   repeated string tags = 20;
 
   // Custom key-value profile data associated with this chat.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"orderId":"ORD-123","membershipLevel":"premium"}
   google.protobuf.Struct profile = 21;
 
   // Name of the goal event being tracked for conversion measurement.
@@ -227,7 +227,7 @@ message UserChat {
 
   // Query expression defining the conditions for the goal event to match.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["purchase"]}]}]}
   google.protobuf.Struct goal_event_query = 23;
 
   // Timestamp when the goal achievement was last evaluated.

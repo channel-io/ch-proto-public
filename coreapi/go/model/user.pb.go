@@ -114,7 +114,7 @@ type User struct {
 	Type UserType `protobuf:"varint,6,opt,name=type,proto3,enum=coreapi.model.UserType" json:"type,omitempty"`
 	// Tags that were automatically applied during a user import operation.
 	//
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["imported-2025Q1","csv-batch-001"]
 	UserImportTags []string `protobuf:"bytes,7,rep,name=user_import_tags,json=userImportTags,proto3" json:"user_import_tags,omitempty"`
 	// Number of chats with unread messages that have alert notifications enabled.
 	//
@@ -161,13 +161,13 @@ type User struct {
 	// Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
 	// arbitrary keys are also supported.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"name":"Jane Doe","email":"jane@example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/avatars/jane.png"}
 	Profile *structpb.Struct `protobuf:"bytes,17,opt,name=profile,proto3" json:"profile,omitempty"`
 	// Classification tags attached to the user for segmentation and filtering.
 	// Supports hierarchical tags using "/" as a depth separator.
 	//
 	// +kubebuilder:validation:MaxItems=20
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["premium-subscriber","vip"]
 	Tags []string `protobuf:"bytes,18,rep,name=tags,proto3" json:"tags,omitempty"`
 	// Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
 	//
@@ -260,11 +260,11 @@ type User struct {
 	Longitude float64 `protobuf:"fixed64,37,opt,name=longitude,proto3" json:"longitude,omitempty"`
 	// Web browser and page tracking information from the user's latest session.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"browserName":"Chrome","browser":"120.0.0","os":"macOS","osName":"macOS","device":"desktop","sessionsCount":5,"lastSeenAt":"2025-07-15T09:30:00Z"}
 	Web *WebInfo `protobuf:"bytes,38,opt,name=web,proto3" json:"web,omitempty"`
 	// Mobile device information from the user's latest session.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"deviceModel":"iPhone 15","osName":"iOS","os":"17.0","sessionsCount":3,"lastSeenAt":"2025-07-15T09:30:00Z"}
 	Mobile *MobileInfo `protobuf:"bytes,39,opt,name=mobile,proto3" json:"mobile,omitempty"`
 	// Total number of chat sessions the user has initiated in this channel.
 	//

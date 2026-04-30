@@ -174,26 +174,26 @@ message Message {
   // Thread metadata present only on thread root messages.
   // Contains reply count, last reply timestamp, and participant summary.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"replyCount":3,"lastRepliedAt":"2025-07-15T09:30:00Z"}
   coreapi.model.MessageThread thread = 20;
 
   // Meet session metadata for messages associated with a video/voice meet.
   // Contains session ID, participants, and call state.
   // Present only on meet-related messages.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"sessionId":"meet-abc123","participants":["user-0001","manager-1234"]}
   google.protobuf.Struct meet = 21;
 
   // Email metadata for messages sent or received via email integration.
   // Contains email subject, recipients, and direction (inbound/outbound).
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"subject":"Order Inquiry","from":"customer@example.com"}
   google.protobuf.Struct email = 22;
 
   // ALF (AI agent) thread metadata for AI-assisted conversation threads.
   // Contains ALF session state and context.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"sessionId":"alf-abc123","state":"active"}
   google.protobuf.Struct alf_thread = 23;
 
   // Timestamp when the message content was last edited by a person.
@@ -218,13 +218,13 @@ message Message {
 
   // Link preview extracted from the first URL found in the message content.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"url":"https://channel.io","title":"Channel.io","description":"Customer messaging platform"}
   coreapi.model.MessageWebPage web_page = 27;
 
   // System log entry for automated events (e.g., chat opened, assigned, closed).
   // Present only on system-generated messages.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"action":"changeName","oldValue":"John","newValue":"Jane"}
   coreapi.model.MessageLog log = 28;
 
   // Emoji reactions added to this message by participants.
@@ -236,12 +236,12 @@ message Message {
   // Contains the partial content generated so far.
   // Transient; replaced by the final message content when streaming completes.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"content":"Analyzing your request...","complete":false}
   google.protobuf.Struct alf_progress = 30;
 
   // Interactive form (e.g., input fields, dropdowns) attached to the message.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
   google.protobuf.Struct form = 31;
 
   // Current lifecycle state of this message.
@@ -254,25 +254,25 @@ message Message {
   // Some options are only applicable in user chats.
   //
   // +kubebuilder:validation:MinItems=1
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["actAsManager"]
   repeated string options = 33;
 
   // Marketing campaign metadata for outbound promotional messages.
   // Contains campaign type and tracking attributes.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"campaignId":"camp-123","campaignType":"promotion","trackingId":"mkt-001"}
   google.protobuf.Struct marketing = 34;
 
   // Legacy support bot metadata.
   // Retained for backward compatibility with older workflow implementations.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"botId":"bot-legacy-001","workflowId":"wf-legacy"}
   google.protobuf.Struct support_bot = 35;
 
   // Workflow automation metadata linking this message to a workflow step.
   // Contains workflow ID, step ID, and button submission context.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
   google.protobuf.Struct workflow = 36;
 
   // Notification priority level controlling client-side popup behavior.
@@ -283,13 +283,13 @@ message Message {
   // IVR (Interactive Voice Response) call metadata for phone-based messages.
   // Contains DTMF input, call routing state, and voice prompt context.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
   google.protobuf.Struct ivr = 38;
 
   // Custom rendering payload for third-party integrations.
   // Structure and content are defined by the integration provider.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order Confirmation","orderId":"ORD-123"}}
   google.protobuf.Struct custom_payload = 39;
 
   // Composition method that determines how clients render this message.
@@ -352,12 +352,12 @@ message MessageThread {
   // Manager IDs assigned to handle this thread.
   //
   // +kubebuilder:validation:MinItems=1
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["1234","5678"]
   repeated string manager_ids = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Manager IDs who have posted replies in this thread, ordered by first reply time.
   //
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["1234"]
   repeated string replied_manager_ids = 3;
 
   // Total number of replies in this thread.
@@ -399,7 +399,7 @@ message MessageLog {
   // Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
   // Interpretation depends on the `action` type.
   //
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["vip","premium"]
   repeated string values = 2;
 
   // Entity type that triggered this action (e.g. "workflow", "rule", "alf").
@@ -485,7 +485,7 @@ message MessageReaction {
   // Person keys of everyone who reacted with this emoji,
   // in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
   //
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["user-abcd1234","manager-5678"]
   repeated string person_keys = 2;
 }
 
@@ -523,7 +523,7 @@ message MessageMeet {
   // Person keys of all participants who have ever joined this meet,
   // in the format "{personType}-{personId}" (e.g. "manager-abc123").
   //
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
   repeated string amassed_persons = 6;
 
   // Timestamp when the meet room was first opened.
@@ -534,19 +534,19 @@ message MessageMeet {
   // Phone call session details.
   // Present only when `meet_type` is CALL.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"callId":"call-abc123","duration":"PT2M30S"}
   google.protobuf.Struct call = 8;
 
   // Video/audio front session details.
   // Present only when `meet_type` is FRONT.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"sessionId":"front-abc123","videoEnabled":true}
   google.protobuf.Struct front = 9;
 
   // Recording details for the meet session.
   // Present only when the session was recorded.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"url":"https://storage.channel.io/recordings/rec-abc123.mp4","duration":"PT2M30S"}
   google.protobuf.Struct recording = 10;
 
   // ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
@@ -561,7 +561,7 @@ message MessageMeet {
 
   // Manager IDs extracted from `amassed_persons`.
   //
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["1234","5678"]
   repeated string manager_ids = 13;
 
   // Computed meet category determined by the presence of `call` or `front` data.
@@ -571,7 +571,7 @@ message MessageMeet {
 
   // Bot IDs extracted from `amassed_persons`.
   //
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["bot-001"]
   repeated string bot_ids = 15;
 
   // +kubebuilder:example="live"
@@ -682,7 +682,7 @@ message MessageEmail {
 
   // Sender email address with optional display name.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"email":"support@channel.io","name":"Support"}
   google.protobuf.Struct from = 3;
 
   // Primary recipient email addresses.
@@ -702,7 +702,7 @@ message MessageEmail {
 
   // Designated reply-to address, if different from the sender.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"email":"noreply@channel.io","name":"No Reply"}
   google.protobuf.Struct reply_to = 7;
 
   // Email subject line.
@@ -752,7 +752,7 @@ message MessageEmail {
 message MessageIvr {
   // Audio recording captured during the IVR session (e.g. voice mail).
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"bucket":"bin.channel.io","key":"pub-file/ivr/audio-001.mp3","size":204800,"contentType":"audio/mpeg"}
   coreapi.model.MessageFile audio_file = 1;
 
   // DTMF keypad input entered by the caller (e.g. "1" for menu selection).
@@ -903,12 +903,12 @@ message MessageWorkflow {
 message MessageCustomPayload {
   // Arbitrary JSON payload conforming to the external messenger's message schema.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"type":"customCard","title":"Order Update","body":"Your order has shipped."}
   google.protobuf.Struct data = 1;
 
   // Key-value mapping for template variable substitution within the custom payload.
   // Keys are placeholder names and values are the replacement strings.
   //
-  // +kubebuilder:example={"sample":"sample"}
+  // +kubebuilder:example={"customer_name":"{{user.profile.name}}","order_id":"{{event.orderId}}"}
   map<string, string> param_mapper = 2;
 }

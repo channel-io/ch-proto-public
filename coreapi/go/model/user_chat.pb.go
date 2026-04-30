@@ -429,17 +429,17 @@ type UserChat struct {
 	// Current handling state that controls the chat's input behavior
 	// (e.g., workflow step, follow-up collection).
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"step":"input","followUp":{"fields":[]}}
 	Handling *structpb.Struct `protobuf:"bytes,15,opt,name=handling,proto3" json:"handling,omitempty"`
 	// Origin information describing how this chat was created
 	// (e.g., user-initiated, workflow-triggered, support bot).
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"type":"userInitiated","origin":"web"}
 	Source *structpb.Struct `protobuf:"bytes,16,opt,name=source,proto3" json:"source,omitempty"`
 	// IDs of managers currently participating in this chat.
 	//
 	// +kubebuilder:validation:MinItems=1
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["1234","5678"]
 	ManagerIds []string `protobuf:"bytes,17,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	// ID of the manager currently assigned as the primary responder.
 	//
@@ -453,11 +453,11 @@ type UserChat struct {
 	//
 	// +kubebuilder:validation:MinItems=1
 	// +kubebuilder:validation:MaxItems=8
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["premium","order-inquiry"]
 	Tags []string `protobuf:"bytes,20,rep,name=tags,proto3" json:"tags,omitempty"`
 	// Custom key-value profile data associated with this chat.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"orderId":"ORD-123","membershipLevel":"premium"}
 	Profile *structpb.Struct `protobuf:"bytes,21,opt,name=profile,proto3" json:"profile,omitempty"`
 	// Name of the goal event being tracked for conversion measurement.
 	//
@@ -465,7 +465,7 @@ type UserChat struct {
 	GoalEventName string `protobuf:"bytes,22,opt,name=goal_event_name,json=goalEventName,proto3" json:"goal_event_name,omitempty"`
 	// Query expression defining the conditions for the goal event to match.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["purchase"]}]}]}
 	GoalEventQuery *structpb.Struct `protobuf:"bytes,23,opt,name=goal_event_query,json=goalEventQuery,proto3" json:"goal_event_query,omitempty"`
 	// Timestamp when the goal achievement was last evaluated.
 	//

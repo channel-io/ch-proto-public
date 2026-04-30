@@ -97,7 +97,7 @@ message CallLog {
 
   // List of manager IDs who participated in or handled the call.
   //
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["1234","5678"]
   repeated string manager_ids = 12;
 }
 

@@ -443,7 +443,7 @@ type Plugin struct {
 	// Localized label button text, keyed by locale code (e.g., "en", "ko").
 	// Overrides label_button_text for matching locales.
 	//
-	// +kubebuilder:example={"sample":"sample"}
+	// +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
 	LabelButtonTextI18NMap map[string]string `protobuf:"bytes,10,rep,name=label_button_text_i18n_map,json=labelButtonTextI18nMap,proto3" json:"label_button_text_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Determines how the launcher button is rendered.
 	// Defaults to ICON_BUTTON. When set to CUSTOM_IMAGE, the custom_image field must be provided.
@@ -460,12 +460,12 @@ type Plugin struct {
 	// Uploaded image for the launcher button.
 	// Applicable when button_type is CUSTOM_IMAGE.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"bucket":"bin.channel.io","key":"pub-file/plugin/custom-image.png","width":64,"height":64,"contentType":"image/png"}
 	CustomImage *ImageFile `protobuf:"bytes,13,opt,name=custom_image,json=customImage,proto3" json:"custom_image,omitempty"`
 	// Uploaded desktop launcher image.
 	// Applicable when button_type is LEGACY.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"bucket":"bin.channel.io","key":"pub-file/plugin/desk-image.png","width":128,"height":128}
 	DeskImage *TinyFile `protobuf:"bytes,14,opt,name=desk_image,json=deskImage,proto3" json:"desk_image,omitempty"`
 	// Horizontal offset of the desktop widget from its anchored edge, in pixels.
 	//
@@ -486,7 +486,7 @@ type Plugin struct {
 	// Uploaded mobile launcher image.
 	// Applicable when button_type is LEGACY.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"bucket":"bin.channel.io","key":"pub-file/plugin/mobile-image.png","width":64,"height":64}
 	MobileImage *TinyFile `protobuf:"bytes,19,opt,name=mobile_image,json=mobileImage,proto3" json:"mobile_image,omitempty"`
 	// Horizontal offset of the mobile widget from its anchored edge, in pixels.
 	//
@@ -512,7 +512,7 @@ type Plugin struct {
 	// When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
 	//
 	// +kubebuilder:validation:MaxItems=5
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["https://channel.io","https://*.channel.io"]
 	UrlWhitelist []string `protobuf:"bytes,25,rep,name=url_whitelist,json=urlWhitelist,proto3" json:"url_whitelist,omitempty"`
 	// Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
 	//

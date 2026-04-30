@@ -185,7 +185,7 @@ type CallLog struct {
 	UserChatId string `protobuf:"bytes,11,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
 	// List of manager IDs who participated in or handled the call.
 	//
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["1234","5678"]
 	ManagerIds    []string `protobuf:"bytes,12,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

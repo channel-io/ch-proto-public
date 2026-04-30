@@ -100,7 +100,7 @@ message Campaign {
   // Query expression that defines the target user segment.
   // Represented as a structured filter object.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
   google.protobuf.Struct user_query = 7;
 
   // App-defined user segments used alongside user_query for targeting.
@@ -117,7 +117,7 @@ message Campaign {
   // Query expression to further filter matching trigger events by their properties.
   // Represented as a structured filter object.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"and":[{"or":[{"key":"event.property.url","type":"string","operator":"$in","values":["/signup"]}]}]}
   google.protobuf.Struct trigger_event_query = 10;
 
   // Delay between the trigger event and message delivery, in ISO 8601 duration format.
@@ -136,7 +136,7 @@ message Campaign {
   // Query expression to filter the additional filter events by their properties.
   // Represented as a structured filter object. Applicable when filter_event_name is set.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$in","values":["product"]}]}]}
   google.protobuf.Struct filter_event_query = 13;
 
   // Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
@@ -148,13 +148,13 @@ message Campaign {
   // Holds a property value from the trigger event constant for consistent additional event filtering.
   // Applicable when filter_event_name is set.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"eventQuery":{},"operator":"$in","values":["premium"]}
   coreapi.model.HoldingPropertyConstant filter_hpc = 15;
 
   // Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
   // Defines how long after delivery each conversion event is counted.
   //
-  // +kubebuilder:example={"sample":"PT1H30M"}
+  // +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
   map<string, google.protobuf.Duration> conversion_windows = 16;
 
   // Name of the event that counts as a goal completion.
@@ -165,7 +165,7 @@ message Campaign {
   // Query expression to filter goal events by their properties.
   // Represented as a structured filter object. Applicable when goal_event_name is set.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"and":[{"or":[{"key":"event.property.totalPrice","type":"number","operator":"$gte","values":[50000]}]}]}
   google.protobuf.Struct goal_event_query = 18;
 
   // Time window for attributing goal events after delivery, in ISO 8601 duration format.
@@ -177,7 +177,7 @@ message Campaign {
   // Holds a property value from the trigger or filter event constant for consistent goal checking.
   // Applicable when goal_event_name is set.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"eventQuery":{},"operator":"$eq","values":["purchase"]}
   coreapi.model.HoldingPropertyConstant goal_hpc = 20;
 
   // Whether the campaign message contains advertising content subject to opt-out regulations.
@@ -233,7 +233,7 @@ message Campaign {
   // Snapshot of the campaign configuration captured before activation.
   // Represented as a free-form JSON object.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"campaign":{"name":"Welcome Campaign","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
   google.protobuf.Struct draft = 30;
 
   // Campaign creation timestamp.
@@ -326,7 +326,7 @@ message HoldingPropertyConstant {
   // Query expression applied to the held property value for matching.
   // Represented as a structured filter object.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
   google.protobuf.Struct event_query = 3;
 
   // Indicates whether the property is captured from the trigger event or the additional filter event.
@@ -338,12 +338,12 @@ message HoldingPropertyConstant {
   // Comparison operator schema used to evaluate the held property value.
   // Represented as a structured object describing the operator type and configuration.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"operator":"$in"}
   google.protobuf.Struct operator = 5;
 
   // Property values captured from the base event at trigger time.
   // Represented as a structured object holding the snapshot values.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"category":"product","sku":"ABC-123"}
   google.protobuf.Struct values = 6;
 }

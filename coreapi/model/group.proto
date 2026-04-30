@@ -69,7 +69,7 @@ message Group {
   // IDs of managers who are members of this group.
   //
   // +kubebuilder:validation:MinItems=1
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["1234","5678"]
   repeated string manager_ids = 5;
 
   // Icon identifier or emoji representing the group visually.

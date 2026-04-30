@@ -92,7 +92,7 @@ message MessageButton {
   // Contains the action type and its attributes (e.g. URL to open, WAM to launch).
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"type":"web","attributes":{"url":"https://channel.io"}}
   google.protobuf.Struct action = 3 [(buf.validate.field).required = true];
 
   // +kubebuilder:example="cobalt"
@@ -409,13 +409,13 @@ message MessageContent {
 
   // Web page link preview attached to the message.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"url":"https://channel.io","title":"Channel.io","description":"Customer messaging platform"}
   MessageWebPage web_page = 5;
 
   // Interactive form attached to the message.
   // The structure depends on the form type (custom, followUp, call).
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
   google.protobuf.Struct form = 6;
 
   // Option flags that modify message delivery and display behavior.

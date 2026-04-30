@@ -189,17 +189,17 @@ type OneTimeMsg struct {
 	MediumTopicBuildKey string `protobuf:"bytes,9,opt,name=medium_topic_build_key,json=mediumTopicBuildKey,proto3" json:"medium_topic_build_key,omitempty"`
 	// Labels for categorizing the message topic within the medium.
 	//
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["welcome","onboarding"]
 	MediumTopicBuildLabels []string `protobuf:"bytes,10,rep,name=medium_topic_build_labels,json=mediumTopicBuildLabels,proto3" json:"medium_topic_build_labels,omitempty"`
 	// Message content and medium-specific delivery configuration.
 	// Structure varies by medium_type.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
 	Settings *structpb.Struct `protobuf:"bytes,11,opt,name=settings,proto3" json:"settings,omitempty"`
 	// Query expression that defines the target user segment.
 	// Represented as a structured filter object.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
 	UserQuery *structpb.Struct `protobuf:"bytes,12,opt,name=user_query,json=userQuery,proto3" json:"user_query,omitempty"`
 	// App-defined user segments used alongside user_query for targeting.
 	//
@@ -208,7 +208,7 @@ type OneTimeMsg struct {
 	// Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
 	// Defines how long after delivery each conversion event is counted.
 	//
-	// +kubebuilder:example={"sample":"PT1H30M"}
+	// +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
 	ConversionWindows map[string]*durationpb.Duration `protobuf:"bytes,14,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Name of the event that counts as a goal completion.
 	//
@@ -217,7 +217,7 @@ type OneTimeMsg struct {
 	// Query expression to filter goal events by their properties.
 	// Represented as a structured filter object. Applicable when goal_event_name is set.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
 	GoalEventQuery *structpb.Struct `protobuf:"bytes,16,opt,name=goal_event_query,json=goalEventQuery,proto3" json:"goal_event_query,omitempty"`
 	// Time window for attributing goal events after delivery, in ISO 8601 duration format.
 	// Between 1 and 30 days. Defaults to 7 days.
@@ -250,7 +250,7 @@ type OneTimeMsg struct {
 	// Snapshot of the message configuration captured before sending.
 	// Represented as a free-form JSON object.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
 	Draft *structpb.Struct `protobuf:"bytes,23,opt,name=draft,proto3" json:"draft,omitempty"`
 	// One-time message creation timestamp.
 	//

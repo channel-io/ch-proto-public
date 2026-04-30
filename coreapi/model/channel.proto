@@ -55,12 +55,12 @@ message Channel {
   // Default welcome message shown to end users when a new conversation starts.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
   google.protobuf.Struct welcome_message = 2 [(buf.validate.field).required = true];
 
   // Internationalized welcome message overrides keyed by locale (e.g., en, ko).
   //
-  // +kubebuilder:example={"sample":{}}
+  // +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
   map<string, google.protobuf.Struct> welcome_message_i18n_map = 3;
 
   // Channel creation timestamp.
@@ -102,7 +102,7 @@ message Channel {
 
   // Internationalized name and description overrides keyed by locale (e.g., en, ko).
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"ko":{"name":"Channel Guide","description":"고객 문의 응대 채널"},"en":{"name":"Channel Guide","description":"Customer support channel"}}
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 8;
 
   // Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
@@ -289,7 +289,7 @@ message Channel {
   // Countries where the channel has obtained business certification.
   // Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
   //
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["KR","JP"]
   repeated string biz_certificated_countries = 40;
 
   // Whether the front-end ALF v2 AI assistant is enabled for end users.

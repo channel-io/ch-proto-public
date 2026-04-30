@@ -112,7 +112,7 @@ type Group struct {
 	// IDs of managers who are members of this group.
 	//
 	// +kubebuilder:validation:MinItems=1
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["1234","5678"]
 	ManagerIds []string `protobuf:"bytes,5,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	// Icon identifier or emoji representing the group visually.
 	// Must not contain whitespace.

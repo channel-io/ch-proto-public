@@ -210,11 +210,11 @@ type Channel struct {
 	// Default welcome message shown to end users when a new conversation starts.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
 	WelcomeMessage *structpb.Struct `protobuf:"bytes,2,opt,name=welcome_message,json=welcomeMessage,proto3" json:"welcome_message,omitempty"`
 	// Internationalized welcome message overrides keyed by locale (e.g., en, ko).
 	//
-	// +kubebuilder:example={"sample":{}}
+	// +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
 	WelcomeMessageI18NMap map[string]*structpb.Struct `protobuf:"bytes,3,rep,name=welcome_message_i18n_map,json=welcomeMessageI18nMap,proto3" json:"welcome_message_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Channel creation timestamp.
 	//
@@ -239,7 +239,7 @@ type Channel struct {
 	Name string `protobuf:"bytes,7,opt,name=name,proto3" json:"name,omitempty"`
 	// Internationalized name and description overrides keyed by locale (e.g., en, ko).
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"ko":{"name":"Channel Guide","description":"고객 문의 응대 채널"},"en":{"name":"Channel Guide","description":"Customer support channel"}}
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,8,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
 	//
@@ -390,7 +390,7 @@ type Channel struct {
 	// Countries where the channel has obtained business certification.
 	// Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
 	//
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["KR","JP"]
 	BizCertificatedCountries []string `protobuf:"bytes,40,rep,name=biz_certificated_countries,json=bizCertificatedCountries,proto3" json:"biz_certificated_countries,omitempty"`
 	// Whether the front-end ALF v2 AI assistant is enabled for end users.
 	//

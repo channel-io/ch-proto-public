@@ -53,7 +53,7 @@ message Event {
 
   // Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
   google.protobuf.Struct property = 5;
 
   // Event creation timestamp.
@@ -76,6 +76,6 @@ message Event {
   // Internationalized event name map keyed by locale (e.g., en, ko).
   // Populated only for system-defined events; custom events return no entries.
   //
-  // +kubebuilder:example={"sample":"sample"}
+  // +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
   map<string, string> name_i18n_map = 9;
 }

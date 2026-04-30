@@ -754,23 +754,23 @@ type Message struct {
 	// Thread metadata present only on thread root messages.
 	// Contains reply count, last reply timestamp, and participant summary.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"replyCount":3,"lastRepliedAt":"2025-07-15T09:30:00Z"}
 	Thread *MessageThread `protobuf:"bytes,20,opt,name=thread,proto3" json:"thread,omitempty"`
 	// Meet session metadata for messages associated with a video/voice meet.
 	// Contains session ID, participants, and call state.
 	// Present only on meet-related messages.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"sessionId":"meet-abc123","participants":["user-0001","manager-1234"]}
 	Meet *structpb.Struct `protobuf:"bytes,21,opt,name=meet,proto3" json:"meet,omitempty"`
 	// Email metadata for messages sent or received via email integration.
 	// Contains email subject, recipients, and direction (inbound/outbound).
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"subject":"Order Inquiry","from":"customer@example.com"}
 	Email *structpb.Struct `protobuf:"bytes,22,opt,name=email,proto3" json:"email,omitempty"`
 	// ALF (AI agent) thread metadata for AI-assisted conversation threads.
 	// Contains ALF session state and context.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"sessionId":"alf-abc123","state":"active"}
 	AlfThread *structpb.Struct `protobuf:"bytes,23,opt,name=alf_thread,json=alfThread,proto3" json:"alf_thread,omitempty"`
 	// Timestamp when the message content was last edited by a person.
 	// Absent if the message has never been edited.
@@ -791,12 +791,12 @@ type Message struct {
 	Files []*MessageFile `protobuf:"bytes,26,rep,name=files,proto3" json:"files,omitempty"`
 	// Link preview extracted from the first URL found in the message content.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"url":"https://channel.io","title":"Channel.io","description":"Customer messaging platform"}
 	WebPage *MessageWebPage `protobuf:"bytes,27,opt,name=web_page,json=webPage,proto3" json:"web_page,omitempty"`
 	// System log entry for automated events (e.g., chat opened, assigned, closed).
 	// Present only on system-generated messages.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"action":"changeName","oldValue":"John","newValue":"Jane"}
 	Log *MessageLog `protobuf:"bytes,28,opt,name=log,proto3" json:"log,omitempty"`
 	// Emoji reactions added to this message by participants.
 	//
@@ -806,11 +806,11 @@ type Message struct {
 	// Contains the partial content generated so far.
 	// Transient; replaced by the final message content when streaming completes.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"content":"Analyzing your request...","complete":false}
 	AlfProgress *structpb.Struct `protobuf:"bytes,30,opt,name=alf_progress,json=alfProgress,proto3" json:"alf_progress,omitempty"`
 	// Interactive form (e.g., input fields, dropdowns) attached to the message.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
 	Form *structpb.Struct `protobuf:"bytes,31,opt,name=form,proto3" json:"form,omitempty"`
 	// Current lifecycle state of this message.
 	//
@@ -821,22 +821,22 @@ type Message struct {
 	// Some options are only applicable in user chats.
 	//
 	// +kubebuilder:validation:MinItems=1
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["actAsManager"]
 	Options []string `protobuf:"bytes,33,rep,name=options,proto3" json:"options,omitempty"`
 	// Marketing campaign metadata for outbound promotional messages.
 	// Contains campaign type and tracking attributes.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"campaignId":"camp-123","campaignType":"promotion","trackingId":"mkt-001"}
 	Marketing *structpb.Struct `protobuf:"bytes,34,opt,name=marketing,proto3" json:"marketing,omitempty"`
 	// Legacy support bot metadata.
 	// Retained for backward compatibility with older workflow implementations.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"botId":"bot-legacy-001","workflowId":"wf-legacy"}
 	SupportBot *structpb.Struct `protobuf:"bytes,35,opt,name=support_bot,json=supportBot,proto3" json:"support_bot,omitempty"`
 	// Workflow automation metadata linking this message to a workflow step.
 	// Contains workflow ID, step ID, and button submission context.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
 	Workflow *structpb.Struct `protobuf:"bytes,36,opt,name=workflow,proto3" json:"workflow,omitempty"`
 	// Notification priority level controlling client-side popup behavior.
 	//
@@ -845,12 +845,12 @@ type Message struct {
 	// IVR (Interactive Voice Response) call metadata for phone-based messages.
 	// Contains DTMF input, call routing state, and voice prompt context.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
 	Ivr *structpb.Struct `protobuf:"bytes,38,opt,name=ivr,proto3" json:"ivr,omitempty"`
 	// Custom rendering payload for third-party integrations.
 	// Structure and content are defined by the integration provider.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order Confirmation","orderId":"ORD-123"}}
 	CustomPayload *structpb.Struct `protobuf:"bytes,39,opt,name=custom_payload,json=customPayload,proto3" json:"custom_payload,omitempty"`
 	// Composition method that determines how clients render this message.
 	// Automatically derived from the message content when not explicitly set:
@@ -1250,11 +1250,11 @@ type MessageThread struct {
 	// Manager IDs assigned to handle this thread.
 	//
 	// +kubebuilder:validation:MinItems=1
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["1234","5678"]
 	ManagerIds []string `protobuf:"bytes,2,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	// Manager IDs who have posted replies in this thread, ordered by first reply time.
 	//
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["1234"]
 	RepliedManagerIds []string `protobuf:"bytes,3,rep,name=replied_manager_ids,json=repliedManagerIds,proto3" json:"replied_manager_ids,omitempty"`
 	// Total number of replies in this thread.
 	// Defaults to 0.
@@ -1369,7 +1369,7 @@ type MessageLog struct {
 	// Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
 	// Interpretation depends on the `action` type.
 	//
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["vip","premium"]
 	Values []string `protobuf:"bytes,2,rep,name=values,proto3" json:"values,omitempty"`
 	// Entity type that triggered this action (e.g. "workflow", "rule", "alf").
 	//
@@ -1454,7 +1454,7 @@ type MessageReaction struct {
 	// Person keys of everyone who reacted with this emoji,
 	// in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
 	//
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["user-abcd1234","manager-5678"]
 	PersonKeys    []string `protobuf:"bytes,2,rep,name=person_keys,json=personKeys,proto3" json:"person_keys,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1530,7 +1530,7 @@ type MessageMeet struct {
 	// Person keys of all participants who have ever joined this meet,
 	// in the format "{personType}-{personId}" (e.g. "manager-abc123").
 	//
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
 	AmassedPersons []string `protobuf:"bytes,6,rep,name=amassed_persons,json=amassedPersons,proto3" json:"amassed_persons,omitempty"`
 	// Timestamp when the meet room was first opened.
 	//
@@ -1539,17 +1539,17 @@ type MessageMeet struct {
 	// Phone call session details.
 	// Present only when `meet_type` is CALL.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"callId":"call-abc123","duration":"PT2M30S"}
 	Call *structpb.Struct `protobuf:"bytes,8,opt,name=call,proto3" json:"call,omitempty"`
 	// Video/audio front session details.
 	// Present only when `meet_type` is FRONT.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"sessionId":"front-abc123","videoEnabled":true}
 	Front *structpb.Struct `protobuf:"bytes,9,opt,name=front,proto3" json:"front,omitempty"`
 	// Recording details for the meet session.
 	// Present only when the session was recorded.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"url":"https://storage.channel.io/recordings/rec-abc123.mp4","duration":"PT2M30S"}
 	Recording *structpb.Struct `protobuf:"bytes,10,opt,name=recording,proto3" json:"recording,omitempty"`
 	// ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
 	//
@@ -1561,7 +1561,7 @@ type MessageMeet struct {
 	MeetEndedAt *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=meet_ended_at,json=meetEndedAt,proto3" json:"meet_ended_at,omitempty"`
 	// Manager IDs extracted from `amassed_persons`.
 	//
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["1234","5678"]
 	ManagerIds []string `protobuf:"bytes,13,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	// Computed meet category determined by the presence of `call` or `front` data.
 	//
@@ -1569,7 +1569,7 @@ type MessageMeet struct {
 	MeetType MessageMeet_MeetType `protobuf:"varint,14,opt,name=meet_type,json=meetType,proto3,enum=coreapi.model.MessageMeet_MeetType" json:"meet_type,omitempty"`
 	// Bot IDs extracted from `amassed_persons`.
 	//
-	// +kubebuilder:example=["sample"]
+	// +kubebuilder:example=["bot-001"]
 	BotIds        []string `protobuf:"bytes,15,rep,name=bot_ids,json=botIds,proto3" json:"bot_ids,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1870,7 +1870,7 @@ type MessageEmail struct {
 	Direction MessageEmail_EmailDirection `protobuf:"varint,2,opt,name=direction,proto3,enum=coreapi.model.MessageEmail_EmailDirection" json:"direction,omitempty"`
 	// Sender email address with optional display name.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"email":"support@channel.io","name":"Support"}
 	From *structpb.Struct `protobuf:"bytes,3,opt,name=from,proto3" json:"from,omitempty"`
 	// Primary recipient email addresses.
 	//
@@ -1886,7 +1886,7 @@ type MessageEmail struct {
 	Bcc []*structpb.Struct `protobuf:"bytes,6,rep,name=bcc,proto3" json:"bcc,omitempty"`
 	// Designated reply-to address, if different from the sender.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"email":"noreply@channel.io","name":"No Reply"}
 	ReplyTo *structpb.Struct `protobuf:"bytes,7,opt,name=reply_to,json=replyTo,proto3" json:"reply_to,omitempty"`
 	// Email subject line.
 	//
@@ -2034,7 +2034,7 @@ type MessageIvr struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Audio recording captured during the IVR session (e.g. voice mail).
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"bucket":"bin.channel.io","key":"pub-file/ivr/audio-001.mp3","size":204800,"contentType":"audio/mpeg"}
 	AudioFile *MessageFile `protobuf:"bytes,1,opt,name=audio_file,json=audioFile,proto3" json:"audio_file,omitempty"`
 	// DTMF keypad input entered by the caller (e.g. "1" for menu selection).
 	//
@@ -2423,12 +2423,12 @@ type MessageCustomPayload struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Arbitrary JSON payload conforming to the external messenger's message schema.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"type":"customCard","title":"Order Update","body":"Your order has shipped."}
 	Data *structpb.Struct `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
 	// Key-value mapping for template variable substitution within the custom payload.
 	// Keys are placeholder names and values are the replacement strings.
 	//
-	// +kubebuilder:example={"sample":"sample"}
+	// +kubebuilder:example={"customer_name":"{{user.profile.name}}","order_id":"{{event.orderId}}"}
 	ParamMapper   map[string]string `protobuf:"bytes,2,rep,name=param_mapper,json=paramMapper,proto3" json:"param_mapper,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

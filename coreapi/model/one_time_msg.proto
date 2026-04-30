@@ -103,19 +103,19 @@ message OneTimeMsg {
 
   // Labels for categorizing the message topic within the medium.
   //
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["welcome","onboarding"]
   repeated string medium_topic_build_labels = 10;
 
   // Message content and medium-specific delivery configuration.
   // Structure varies by medium_type.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
   google.protobuf.Struct settings = 11;
 
   // Query expression that defines the target user segment.
   // Represented as a structured filter object.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
   google.protobuf.Struct user_query = 12;
 
   // App-defined user segments used alongside user_query for targeting.
@@ -126,7 +126,7 @@ message OneTimeMsg {
   // Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
   // Defines how long after delivery each conversion event is counted.
   //
-  // +kubebuilder:example={"sample":"PT1H30M"}
+  // +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
   map<string, google.protobuf.Duration> conversion_windows = 14;
 
   // Name of the event that counts as a goal completion.
@@ -137,7 +137,7 @@ message OneTimeMsg {
   // Query expression to filter goal events by their properties.
   // Represented as a structured filter object. Applicable when goal_event_name is set.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
   google.protobuf.Struct goal_event_query = 16;
 
   // Time window for attributing goal events after delivery, in ISO 8601 duration format.
@@ -177,7 +177,7 @@ message OneTimeMsg {
   // Snapshot of the message configuration captured before sending.
   // Represented as a free-form JSON object.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
   google.protobuf.Struct draft = 23;
 
   // One-time message creation timestamp.

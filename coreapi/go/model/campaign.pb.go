@@ -286,7 +286,7 @@ type Campaign struct {
 	// Query expression that defines the target user segment.
 	// Represented as a structured filter object.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
 	UserQuery *structpb.Struct `protobuf:"bytes,7,opt,name=user_query,json=userQuery,proto3" json:"user_query,omitempty"`
 	// App-defined user segments used alongside user_query for targeting.
 	//
@@ -300,7 +300,7 @@ type Campaign struct {
 	// Query expression to further filter matching trigger events by their properties.
 	// Represented as a structured filter object.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"and":[{"or":[{"key":"event.property.url","type":"string","operator":"$in","values":["/signup"]}]}]}
 	TriggerEventQuery *structpb.Struct `protobuf:"bytes,10,opt,name=trigger_event_query,json=triggerEventQuery,proto3" json:"trigger_event_query,omitempty"`
 	// Delay between the trigger event and message delivery, in ISO 8601 duration format.
 	// Maximum 90 days.
@@ -316,7 +316,7 @@ type Campaign struct {
 	// Query expression to filter the additional filter events by their properties.
 	// Represented as a structured filter object. Applicable when filter_event_name is set.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$in","values":["product"]}]}]}
 	FilterEventQuery *structpb.Struct `protobuf:"bytes,13,opt,name=filter_event_query,json=filterEventQuery,proto3" json:"filter_event_query,omitempty"`
 	// Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
 	// Applicable when filter_event_name is set.
@@ -326,12 +326,12 @@ type Campaign struct {
 	// Holds a property value from the trigger event constant for consistent additional event filtering.
 	// Applicable when filter_event_name is set.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"eventQuery":{},"operator":"$in","values":["premium"]}
 	FilterHpc *HoldingPropertyConstant `protobuf:"bytes,15,opt,name=filter_hpc,json=filterHpc,proto3" json:"filter_hpc,omitempty"`
 	// Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
 	// Defines how long after delivery each conversion event is counted.
 	//
-	// +kubebuilder:example={"sample":"PT1H30M"}
+	// +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
 	ConversionWindows map[string]*durationpb.Duration `protobuf:"bytes,16,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Name of the event that counts as a goal completion.
 	//
@@ -340,7 +340,7 @@ type Campaign struct {
 	// Query expression to filter goal events by their properties.
 	// Represented as a structured filter object. Applicable when goal_event_name is set.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"and":[{"or":[{"key":"event.property.totalPrice","type":"number","operator":"$gte","values":[50000]}]}]}
 	GoalEventQuery *structpb.Struct `protobuf:"bytes,18,opt,name=goal_event_query,json=goalEventQuery,proto3" json:"goal_event_query,omitempty"`
 	// Time window for attributing goal events after delivery, in ISO 8601 duration format.
 	// Between 1 and 30 days. Defaults to 7 days.
@@ -350,7 +350,7 @@ type Campaign struct {
 	// Holds a property value from the trigger or filter event constant for consistent goal checking.
 	// Applicable when goal_event_name is set.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"eventQuery":{},"operator":"$eq","values":["purchase"]}
 	GoalHpc *HoldingPropertyConstant `protobuf:"bytes,20,opt,name=goal_hpc,json=goalHpc,proto3" json:"goal_hpc,omitempty"`
 	// Whether the campaign message contains advertising content subject to opt-out regulations.
 	//
@@ -396,7 +396,7 @@ type Campaign struct {
 	// Snapshot of the campaign configuration captured before activation.
 	// Represented as a free-form JSON object.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"campaign":{"name":"Welcome Campaign","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
 	Draft *structpb.Struct `protobuf:"bytes,30,opt,name=draft,proto3" json:"draft,omitempty"`
 	// Campaign creation timestamp.
 	//
@@ -752,7 +752,7 @@ type HoldingPropertyConstant struct {
 	// Query expression applied to the held property value for matching.
 	// Represented as a structured filter object.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
 	EventQuery *structpb.Struct `protobuf:"bytes,3,opt,name=event_query,json=eventQuery,proto3" json:"event_query,omitempty"`
 	// Indicates whether the property is captured from the trigger event or the additional filter event.
 	//
@@ -762,12 +762,12 @@ type HoldingPropertyConstant struct {
 	// Comparison operator schema used to evaluate the held property value.
 	// Represented as a structured object describing the operator type and configuration.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"operator":"$in"}
 	Operator *structpb.Struct `protobuf:"bytes,5,opt,name=operator,proto3" json:"operator,omitempty"`
 	// Property values captured from the base event at trigger time.
 	// Represented as a structured object holding the snapshot values.
 	//
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"category":"product","sku":"ABC-123"}
 	Values        *structpb.Struct `protobuf:"bytes,6,opt,name=values,proto3" json:"values,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

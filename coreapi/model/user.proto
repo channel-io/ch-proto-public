@@ -60,7 +60,7 @@ message User {
 
   // Tags that were automatically applied during a user import operation.
   //
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["imported-2025Q1","csv-batch-001"]
   repeated string user_import_tags = 7;
 
   // Number of chats with unread messages that have alert notifications enabled.
@@ -117,14 +117,14 @@ message User {
   // Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
   // arbitrary keys are also supported.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"name":"Jane Doe","email":"jane@example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/avatars/jane.png"}
   google.protobuf.Struct profile = 17;
 
   // Classification tags attached to the user for segmentation and filtering.
   // Supports hierarchical tags using "/" as a depth separator.
   //
   // +kubebuilder:validation:MaxItems=20
-  // +kubebuilder:example=["sample"]
+  // +kubebuilder:example=["premium-subscriber","vip"]
   repeated string tags = 18;
 
   // Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
@@ -237,12 +237,12 @@ message User {
 
   // Web browser and page tracking information from the user's latest session.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"browserName":"Chrome","browser":"120.0.0","os":"macOS","osName":"macOS","device":"desktop","sessionsCount":5,"lastSeenAt":"2025-07-15T09:30:00Z"}
   coreapi.model.WebInfo web = 38;
 
   // Mobile device information from the user's latest session.
   //
-  // +kubebuilder:example={}
+  // +kubebuilder:example={"deviceModel":"iPhone 15","osName":"iOS","os":"17.0","sessionsCount":3,"lastSeenAt":"2025-07-15T09:30:00Z"}
   coreapi.model.MobileInfo mobile = 39;
 
   // Total number of chat sessions the user has initiated in this channel.

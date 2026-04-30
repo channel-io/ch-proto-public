@@ -65,7 +65,7 @@ type CampaignMsg struct {
 	// Structure varies by medium_type.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example={}
+	// +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
 	Settings *structpb.Struct `protobuf:"bytes,7,opt,name=settings,proto3" json:"settings,omitempty"`
 	// Campaign message creation timestamp.
 	//
