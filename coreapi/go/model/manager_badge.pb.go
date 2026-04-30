@@ -64,6 +64,8 @@ type ManagerBadge struct {
 	// +kubebuilder:example="2"
 	TeamChatThreadUnread int32 `protobuf:"varint,7,opt,name=team_chat_thread_unread,json=teamChatThreadUnread,proto3" json:"team_chat_thread_unread,omitempty"`
 	// Badge last update timestamp.
+	//
+	// +kubebuilder:example="2026-04-28T09:35:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Optimistic locking version.
 	// Incremented on every update.

@@ -137,10 +137,16 @@ type CallLog struct {
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Reason the call was missed.
 	// Only present when the call ended without being answered.
+	//
+	// +kubebuilder:example="userLeft"
 	MissedReason MissedReason `protobuf:"varint,2,opt,name=missed_reason,json=missedReason,proto3,enum=coreapi.model.MissedReason" json:"missed_reason,omitempty"`
 	// Whether the call was inbound (received) or outbound (initiated).
+	//
+	// +kubebuilder:example="inbound"
 	Direction CallDirection `protobuf:"varint,3,opt,name=direction,proto3,enum=coreapi.model.CallDirection" json:"direction,omitempty"`
 	// Current lifecycle state indicating whether the call is waiting or connected.
+	//
+	// +kubebuilder:example="engaged"
 	State CallState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.CallState" json:"state,omitempty"`
 	// Originating phone number or caller identifier.
 	//
@@ -153,16 +159,22 @@ type CallLog struct {
 	// Call creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Call last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:35:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Timestamp when the call was answered and the conversation began.
 	// Absent if the call was never answered.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	EngagedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=engaged_at,json=engagedAt,proto3" json:"engaged_at,omitempty"`
 	// Timestamp when the call ended and the connection was terminated.
 	// Absent if the call is still active or was never connected.
+	//
+	// +kubebuilder:example="2026-04-28T10:30:00Z"
 	ClosedAt *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=closed_at,json=closedAt,proto3" json:"closed_at,omitempty"`
 	// User chat ID linked to this call.
 	// Present when the call is associated with a user chat conversation.
@@ -170,6 +182,8 @@ type CallLog struct {
 	// +kubebuilder:example="uc-abc123"
 	UserChatId string `protobuf:"bytes,11,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
 	// List of manager IDs who participated in or handled the call.
+	//
+	// +kubebuilder:example=["1234","5678"]
 	ManagerIds    []string `protobuf:"bytes,12,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -331,10 +345,12 @@ type MeetMessage struct {
 	// Message creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Message last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:35:00Z"
 	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

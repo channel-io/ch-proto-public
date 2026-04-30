@@ -101,15 +101,17 @@ type Group struct {
 	// +kubebuilder:validation:MinLength=2
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:validation:Pattern="[\p{L}\p{N}\-_()]+"
-	// +kubebuilder:example="General"
+	// +kubebuilder:example="고객피드백"
 	Title string `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
 	// Visibility scope determining who can discover and access the group.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="public"
 	Scope GroupScope `protobuf:"varint,4,opt,name=scope,proto3,enum=coreapi.model.GroupScope" json:"scope,omitempty"`
 	// IDs of managers who are members of this group.
 	//
 	// +kubebuilder:validation:MinItems=1
+	// +kubebuilder:example=["1234","5678"]
 	ManagerIds []string `protobuf:"bytes,5,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	// Icon identifier or emoji representing the group visually.
 	// Must not contain whitespace.
@@ -129,10 +131,12 @@ type Group struct {
 	// Group creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-21T07:12:21.773038Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Group last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-22T06:51:15.752436Z"
 	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

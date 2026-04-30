@@ -54,10 +54,12 @@ message User {
 
   // Identity type of this user.
   //
+  // +kubebuilder:example="member"
   UserType type = 6;
 
   // Tags that were automatically applied during a user import operation.
   //
+  // +kubebuilder:example=["imported-2025Q1","csv-batch-001"]
   repeated string user_import_tags = 7;
 
   // Number of chats with unread messages that have alert notifications enabled.
@@ -95,11 +97,13 @@ message User {
   // User creation timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp created_at = 14 [(buf.validate.field).required = true];
 
   // User last update timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-04-28T09:35:00Z"
   google.protobuf.Timestamp updated_at = 15 [(buf.validate.field).required = true];
 
   // Optimistic locking version incremented on every update.
@@ -112,12 +116,14 @@ message User {
   // Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
   // arbitrary keys are also supported.
   //
+  // +kubebuilder:example={"name":"Jane Doe","email":"jane@example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/avatars/jane.png"}
   google.protobuf.Struct profile = 17;
 
   // Classification tags attached to the user for segmentation and filtering.
   // Supports hierarchical tags using "/" as a depth separator.
   //
   // +kubebuilder:validation:MaxItems=20
+  // +kubebuilder:example=["premium-subscriber","vip"]
   repeated string tags = 18;
 
   // Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
@@ -133,6 +139,7 @@ message User {
 
   // Timestamp when the email opt-out preference was last changed.
   //
+  // +kubebuilder:example="2026-04-28T09:35:00Z"
   google.protobuf.Timestamp unsubscribe_email_updated_at = 21;
 
   // Whether the user has opted out of SMS/text notifications.
@@ -143,6 +150,7 @@ message User {
 
   // Timestamp when the SMS/text opt-out preference was last changed.
   //
+  // +kubebuilder:example="2026-04-28T09:35:00Z"
   google.protobuf.Timestamp unsubscribe_texting_updated_at = 23;
 
   // Whether the user has opted out of mobile app push notifications.
@@ -152,6 +160,7 @@ message User {
 
   // Timestamp when the app push opt-out preference was last changed.
   //
+  // +kubebuilder:example="2026-04-28T09:35:00Z"
   google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25;
 
   // URL of the user's avatar image.
@@ -240,6 +249,7 @@ message User {
 
   // Timestamp when the user was last seen online in the channel.
   //
+  // +kubebuilder:example="2026-04-28T09:40:00Z"
   google.protobuf.Timestamp last_seen_at = 41;
 
   // Whether the user is blocked from initiating new chats.
@@ -322,6 +332,7 @@ message WebInfo {
 
   // Timestamp of the user's most recent web session start.
   //
+  // +kubebuilder:example="2026-04-28T09:40:00Z"
   google.protobuf.Timestamp last_seen_at = 7;
 }
 
@@ -375,5 +386,6 @@ message MobileInfo {
 
   // Timestamp of the user's most recent mobile session start.
   //
+  // +kubebuilder:example="2026-04-28T09:40:00Z"
   google.protobuf.Timestamp last_seen_at = 9;
 }

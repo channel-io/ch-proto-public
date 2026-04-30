@@ -51,16 +51,20 @@ enum CommonErrorCode {
 // - operation_error_code is set for errors specific to a particular operation.
 //   Valid values are documented in each service proto's request message comments.
 message ErrorResponse {
+  // +kubebuilder:example="404"
   int32 status = 1;
 
   // Set when the error falls into a cross-cutting category.
+  // +kubebuilder:example="entityNotFound"
   CommonErrorCode common_error_code = 2;
 
   // Set when the error is unique to a particular operation.
   // Defined as a string to allow each service to declare its own codes
   // without a global enum.
+  // +kubebuilder:example="RESOURCE_NOT_FOUND"
   string operation_error_code = 3;
 
+  // +kubebuilder:example="The requested resource does not exist"
   string message = 4;
 
   // For validation errors, one entry per violated field.
@@ -71,23 +75,30 @@ message ErrorResponse {
 // Detailed information about a single error cause.
 message ErrorDetail {
   // e.g., "Bot", "Channel", "Webhook"
+  // +kubebuilder:example="Channel"
   string model = 1;
 
   // e.g., "name", "scopes[0]"
+  // +kubebuilder:example="default_domain"
   string field = 2;
 
+  // +kubebuilder:example="invalid-domain!"
   string value = 3;
 
+  // +kubebuilder:example="must match pattern ^[a-z0-9-]+$"
   string message = 4;
 
   // Set only for proto validation (buf.validate) errors.
   // e.g., "coreapi.service.UpsertBotRequest"
+  // +kubebuilder:example="coreapi.model.Channel"
   string proto_package_path = 5;
 
   // Set only for proto validation (buf.validate) errors.
   // e.g., "string.minLen"
+  // +kubebuilder:example="string.pattern"
   string proto_constraint = 6;
 
   // Index within a repeated field, if applicable.
+  // +kubebuilder:example="0"
   optional int32 index = 7;
 }

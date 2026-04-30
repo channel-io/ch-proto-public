@@ -68,3 +68,50 @@ jobs:
             echo "Run 'make generate' and commit the result."
             exit 1
           fi
+
+  openapi-gen-smoke:
+    name: OpenAPI generation smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - uses: bufbuild/buf-action@v1
+        with:
+          setup_only: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Install ch-protoc-gen-openapi
+        run: |
+          go install github.com/channel-io/ch-protoc-gen-openapi@v0.1.10
+          ln -sf "$(go env GOPATH)/bin/ch-protoc-gen-openapi" "$(go env GOPATH)/bin/protoc-gen-openapi"
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+
+      - name: Generate OpenAPI schemas (smoke — rejects invalid kubebuilder:example literals)
+        run: |
+          mkdir -p .openapi-out
+          cat > /tmp/buf.gen.openapi.yaml <<'EOF'
+          version: v2
+          plugins:
+            - local: protoc-gen-openapi
+              out: .openapi-out
+              opt:
+                - yaml=true
+                - split_schemas=true
+                - include_description=true
+                - enum_strip_prefix=true
+                - enum_skip_unspecified=true
+          EOF
+          buf generate --template /tmp/buf.gen.openapi.yaml --path coreapi/model --path coreapi/common
+
+      - name: Verify example coverage on generated yaml (strict, R1-R9)
+        run: python3 scripts/validate-example-output.py --strict .openapi-out

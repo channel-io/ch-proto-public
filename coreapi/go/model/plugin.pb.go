@@ -400,6 +400,7 @@ type Plugin struct {
 	// Current activation lifecycle state.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="waiting"
 	State PluginState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.PluginState" json:"state,omitempty"`
 	// Widget display name shown to end users.
 	// Defaults to the channel name on creation.
@@ -412,11 +413,13 @@ type Plugin struct {
 	// Plugin creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-21T07:12:21.773038Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Color theme of the widget.
 	// Defaults to LIGHT.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="light"
 	Appearance PluginAppearance `protobuf:"varint,7,opt,name=appearance,proto3,enum=coreapi.model.PluginAppearance" json:"appearance,omitempty"`
 	// Whether the text label is displayed alongside the launcher button.
 	// Defaults to true.
@@ -433,16 +436,20 @@ type Plugin struct {
 	LabelButtonText string `protobuf:"bytes,9,opt,name=label_button_text,json=labelButtonText,proto3" json:"label_button_text,omitempty"`
 	// Localized label button text, keyed by locale code (e.g., "en", "ko").
 	// Overrides label_button_text for matching locales.
+	//
+	// +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
 	LabelButtonTextI18NMap map[string]string `protobuf:"bytes,10,rep,name=label_button_text_i18n_map,json=labelButtonTextI18nMap,proto3" json:"label_button_text_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Determines how the launcher button is rendered.
 	// Defaults to ICON_BUTTON. When set to CUSTOM_IMAGE, the custom_image field must be provided.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="iconButton"
 	ButtonType PluginButtonType `protobuf:"varint,11,opt,name=button_type,json=buttonType,proto3,enum=coreapi.model.PluginButtonType" json:"button_type,omitempty"`
 	// Predefined icon used for the launcher button.
 	// Applicable when button_type is ICON_BUTTON. Defaults to CHANNEL_FILLED.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="channelFilled"
 	IconButton PluginIconButton `protobuf:"varint,12,opt,name=icon_button,json=iconButton,proto3,enum=coreapi.model.PluginIconButton" json:"icon_button,omitempty"`
 	// Uploaded image for the launcher button.
 	// Applicable when button_type is CUSTOM_IMAGE.
@@ -463,6 +470,8 @@ type Plugin struct {
 	// +kubebuilder:example="false"
 	DeskHideButton bool `protobuf:"varint,17,opt,name=desk_hide_button,json=deskHideButton,proto3" json:"desk_hide_button,omitempty"`
 	// Horizontal anchor position of the desktop widget.
+	//
+	// +kubebuilder:example="right"
 	DeskPosition PluginPosition `protobuf:"varint,18,opt,name=desk_position,json=deskPosition,proto3,enum=coreapi.model.PluginPosition" json:"desk_position,omitempty"`
 	// Uploaded mobile launcher image.
 	// Applicable when button_type is LEGACY.
@@ -476,17 +485,22 @@ type Plugin struct {
 	// +kubebuilder:example="16"
 	MobileMarginY int32 `protobuf:"varint,21,opt,name=mobile_margin_y,json=mobileMarginY,proto3" json:"mobile_margin_y,omitempty"`
 	// Horizontal anchor position of the mobile widget.
+	//
+	// +kubebuilder:example="right"
 	MobilePosition PluginPosition `protobuf:"varint,22,opt,name=mobile_position,json=mobilePosition,proto3,enum=coreapi.model.PluginPosition" json:"mobile_position,omitempty"`
 	// Whether the mobile launcher button is hidden while the widget remains accessible.
 	//
 	// +kubebuilder:example="false"
 	MobileHideButton bool `protobuf:"varint,23,opt,name=mobile_hide_button,json=mobileHideButton,proto3" json:"mobile_hide_button,omitempty"`
 	// Vertical position of the chat bubble on mobile devices.
+	//
+	// +kubebuilder:example="bottom"
 	MobileBubblePosition PluginBubblePosition `protobuf:"varint,24,opt,name=mobile_bubble_position,json=mobileBubblePosition,proto3,enum=coreapi.model.PluginBubblePosition" json:"mobile_bubble_position,omitempty"`
 	// URL patterns that restrict where the plugin is displayed.
 	// When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
 	//
 	// +kubebuilder:validation:MaxItems=5
+	// +kubebuilder:example=["https://channel.io","https://*.channel.io"]
 	UrlWhitelist []string `protobuf:"bytes,25,rep,name=url_whitelist,json=urlWhitelist,proto3" json:"url_whitelist,omitempty"`
 	// Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
 	//

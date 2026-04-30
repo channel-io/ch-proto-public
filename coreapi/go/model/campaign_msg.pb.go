@@ -55,6 +55,7 @@ type CampaignMsg struct {
 	// Cannot be changed after creation.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="appAlert"
 	MediumType MediumType `protobuf:"varint,5,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
 	//
@@ -64,14 +65,17 @@ type CampaignMsg struct {
 	// Structure varies by medium_type.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
 	Settings *structpb.Struct `protobuf:"bytes,7,opt,name=settings,proto3" json:"settings,omitempty"`
 	// Campaign message creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Campaign message last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:35:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Cumulative count of messages delivered for this variant.
 	//

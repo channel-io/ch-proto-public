@@ -41,6 +41,7 @@ type Redirection struct {
 	// Redirection expiration timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	ExpireAt      *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=expire_at,json=expireAt,proto3" json:"expire_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

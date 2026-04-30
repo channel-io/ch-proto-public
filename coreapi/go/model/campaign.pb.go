@@ -267,11 +267,13 @@ type Campaign struct {
 	// Current lifecycle state of the campaign.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="draft"
 	State CampaignState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.CampaignState" json:"state,omitempty"`
 	// Channel through which the campaign message is delivered.
 	// Cannot be changed after creation.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="appAlert"
 	MediumType MediumType `protobuf:"varint,5,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
 	//
@@ -279,6 +281,8 @@ type Campaign struct {
 	MediumId string `protobuf:"bytes,6,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	// Query expression that defines the target user segment.
 	// Represented as a structured filter object.
+	//
+	// +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
 	UserQuery *structpb.Struct `protobuf:"bytes,7,opt,name=user_query,json=userQuery,proto3" json:"user_query,omitempty"`
 	// App-defined user segments used alongside user_query for targeting.
 	AppSegments []*AppSegment `protobuf:"bytes,8,rep,name=app_segments,json=appSegments,proto3" json:"app_segments,omitempty"`
@@ -289,12 +293,14 @@ type Campaign struct {
 	TriggerEventName string `protobuf:"bytes,9,opt,name=trigger_event_name,json=triggerEventName,proto3" json:"trigger_event_name,omitempty"`
 	// Query expression to further filter matching trigger events by their properties.
 	// Represented as a structured filter object.
+	//
+	// +kubebuilder:example={"and":[{"or":[{"key":"event.property.url","type":"string","operator":"$in","values":["/signup"]}]}]}
 	TriggerEventQuery *structpb.Struct `protobuf:"bytes,10,opt,name=trigger_event_query,json=triggerEventQuery,proto3" json:"trigger_event_query,omitempty"`
 	// Delay between the trigger event and message delivery, in ISO 8601 duration format.
 	// Maximum 90 days.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="PT23H50M"
+	// +kubebuilder:example="PT1H30M"
 	WaitingTime *durationpb.Duration `protobuf:"bytes,11,opt,name=waiting_time,json=waitingTime,proto3" json:"waiting_time,omitempty"`
 	// Name of an additional event used to filter users before delivery.
 	// When set, filter_match determines whether the event must occur or must not occur.
@@ -303,15 +309,21 @@ type Campaign struct {
 	FilterEventName string `protobuf:"bytes,12,opt,name=filter_event_name,json=filterEventName,proto3" json:"filter_event_name,omitempty"`
 	// Query expression to filter the additional filter events by their properties.
 	// Represented as a structured filter object. Applicable when filter_event_name is set.
+	//
+	// +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$in","values":["product"]}]}]}
 	FilterEventQuery *structpb.Struct `protobuf:"bytes,13,opt,name=filter_event_query,json=filterEventQuery,proto3" json:"filter_event_query,omitempty"`
 	// Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
 	// Applicable when filter_event_name is set.
+	//
+	// +kubebuilder:example="positive"
 	FilterMatch CampaignFilterMatch `protobuf:"varint,14,opt,name=filter_match,json=filterMatch,proto3,enum=coreapi.model.CampaignFilterMatch" json:"filter_match,omitempty"`
 	// Holds a property value from the trigger event constant for consistent additional event filtering.
 	// Applicable when filter_event_name is set.
 	FilterHpc *HoldingPropertyConstant `protobuf:"bytes,15,opt,name=filter_hpc,json=filterHpc,proto3" json:"filter_hpc,omitempty"`
 	// Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
 	// Defines how long after delivery each conversion event is counted.
+	//
+	// +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
 	ConversionWindows map[string]*durationpb.Duration `protobuf:"bytes,16,rep,name=conversion_windows,json=conversionWindows,proto3" json:"conversion_windows,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Name of the event that counts as a goal completion.
 	//
@@ -319,11 +331,13 @@ type Campaign struct {
 	GoalEventName string `protobuf:"bytes,17,opt,name=goal_event_name,json=goalEventName,proto3" json:"goal_event_name,omitempty"`
 	// Query expression to filter goal events by their properties.
 	// Represented as a structured filter object. Applicable when goal_event_name is set.
+	//
+	// +kubebuilder:example={"and":[{"or":[{"key":"event.property.totalPrice","type":"number","operator":"$gte","values":[50000]}]}]}
 	GoalEventQuery *structpb.Struct `protobuf:"bytes,18,opt,name=goal_event_query,json=goalEventQuery,proto3" json:"goal_event_query,omitempty"`
 	// Time window for attributing goal events after delivery, in ISO 8601 duration format.
 	// Between 1 and 30 days. Defaults to 7 days.
 	//
-	// +kubebuilder:example="PT23H50M"
+	// +kubebuilder:example="PT1H30M"
 	GoalEventDuration *durationpb.Duration `protobuf:"bytes,19,opt,name=goal_event_duration,json=goalEventDuration,proto3" json:"goal_event_duration,omitempty"`
 	// Holds a property value from the trigger or filter event constant for consistent goal checking.
 	// Applicable when goal_event_name is set.
@@ -344,11 +358,12 @@ type Campaign struct {
 	// Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
 	// Between 0 seconds and 30 days.
 	//
-	// +kubebuilder:example="PT23H50M"
+	// +kubebuilder:example="PT1H30M"
 	Cooldown *durationpb.Duration `protobuf:"bytes,24,opt,name=cooldown,proto3" json:"cooldown,omitempty"`
 	// Controls when messages are delivered relative to operation hours or custom time ranges.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="always"
 	SendMode CampaignSendMode `protobuf:"varint,25,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.CampaignSendMode" json:"send_mode,omitempty"`
 	// Channel operation schedule used to determine delivery timing.
 	// Applicable when send_mode is IN_OPERATION or AWAY.
@@ -359,19 +374,27 @@ type Campaign struct {
 	// Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
 	SendTimeRanges []*TimeRange `protobuf:"bytes,27,rep,name=send_time_ranges,json=sendTimeRanges,proto3" json:"send_time_ranges,omitempty"`
 	// Timestamp when the campaign becomes eligible to trigger.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	StartAt *timestamppb.Timestamp `protobuf:"bytes,28,opt,name=start_at,json=startAt,proto3" json:"start_at,omitempty"`
 	// Timestamp when the campaign automatically stops.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	EndAt *timestamppb.Timestamp `protobuf:"bytes,29,opt,name=end_at,json=endAt,proto3" json:"end_at,omitempty"`
 	// Snapshot of the campaign configuration captured before activation.
 	// Represented as a free-form JSON object.
+	//
+	// +kubebuilder:example={"campaign":{"name":"Welcome Campaign","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
 	Draft *structpb.Struct `protobuf:"bytes,30,opt,name=draft,proto3" json:"draft,omitempty"`
 	// Campaign creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-22T02:16:44.306092Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,31,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Campaign last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:35:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,32,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Cumulative count of messages delivered.
 	//
@@ -392,7 +415,7 @@ type Campaign struct {
 	// Duration before the user chat created by this campaign expires, in ISO 8601 format.
 	// Defaults to 31 days.
 	//
-	// +kubebuilder:example="PT23H50M"
+	// +kubebuilder:example="PT1H30M"
 	UserChatExpireDuration *durationpb.Duration `protobuf:"bytes,37,opt,name=user_chat_expire_duration,json=userChatExpireDuration,proto3" json:"user_chat_expire_duration,omitempty"`
 	// Manager assigned to handle user responses from this campaign.
 	//
@@ -716,16 +739,23 @@ type HoldingPropertyConstant struct {
 	BaseEventKey string `protobuf:"bytes,2,opt,name=base_event_key,json=baseEventKey,proto3" json:"base_event_key,omitempty"`
 	// Query expression applied to the held property value for matching.
 	// Represented as a structured filter object.
+	//
+	// +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
 	EventQuery *structpb.Struct `protobuf:"bytes,3,opt,name=event_query,json=eventQuery,proto3" json:"event_query,omitempty"`
 	// Indicates whether the property is captured from the trigger event or the additional filter event.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="triggerEvent"
 	BaseEventType CampaignBaseEventType `protobuf:"varint,4,opt,name=base_event_type,json=baseEventType,proto3,enum=coreapi.model.CampaignBaseEventType" json:"base_event_type,omitempty"`
 	// Comparison operator schema used to evaluate the held property value.
 	// Represented as a structured object describing the operator type and configuration.
+	//
+	// +kubebuilder:example={"operator":"$in"}
 	Operator *structpb.Struct `protobuf:"bytes,5,opt,name=operator,proto3" json:"operator,omitempty"`
 	// Property values captured from the base event at trigger time.
 	// Represented as a structured object holding the snapshot values.
+	//
+	// +kubebuilder:example={"category":"product","sku":"ABC-123"}
 	Values        *structpb.Struct `protobuf:"bytes,6,opt,name=values,proto3" json:"values,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

@@ -83,12 +83,15 @@ message Webhook {
   // Webhook creation timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp created_at = 6 [(buf.validate.field).required = true];
 
   // Event scopes that trigger this webhook.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinItems=1
+  // no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
+  // +kubebuilder:example=["userChatOpened","messageCreatedUserChat"]
   repeated WebhookScope scopes = 7 [(buf.validate.field).required = true];
 
   // API version for webhook payloads.
@@ -100,6 +103,7 @@ message Webhook {
 
   // Timestamp when the webhook was last blocked due to consecutive failures.
   //
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp last_blocked_at = 9;
 
   // Whether the webhook is currently blocked due to excessive delivery failures.

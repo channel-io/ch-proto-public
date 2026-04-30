@@ -79,12 +79,14 @@ message Campaign {
   // Current lifecycle state of the campaign.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="draft"
   CampaignState state = 4 [(buf.validate.field).required = true];
 
   // Channel through which the campaign message is delivered.
   // Cannot be changed after creation.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="appAlert"
   MediumType medium_type = 5 [(buf.validate.field).required = true];
 
   // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
@@ -95,6 +97,7 @@ message Campaign {
   // Query expression that defines the target user segment.
   // Represented as a structured filter object.
   //
+  // +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
   google.protobuf.Struct user_query = 7;
 
   // App-defined user segments used alongside user_query for targeting.
@@ -110,13 +113,14 @@ message Campaign {
   // Query expression to further filter matching trigger events by their properties.
   // Represented as a structured filter object.
   //
+  // +kubebuilder:example={"and":[{"or":[{"key":"event.property.url","type":"string","operator":"$in","values":["/signup"]}]}]}
   google.protobuf.Struct trigger_event_query = 10;
 
   // Delay between the trigger event and message delivery, in ISO 8601 duration format.
   // Maximum 90 days.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="PT23H50M"
+  // +kubebuilder:example="PT1H30M"
   google.protobuf.Duration waiting_time = 11 [(buf.validate.field).required = true];
 
   // Name of an additional event used to filter users before delivery.
@@ -128,11 +132,13 @@ message Campaign {
   // Query expression to filter the additional filter events by their properties.
   // Represented as a structured filter object. Applicable when filter_event_name is set.
   //
+  // +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$in","values":["product"]}]}]}
   google.protobuf.Struct filter_event_query = 13;
 
   // Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
   // Applicable when filter_event_name is set.
   //
+  // +kubebuilder:example="positive"
   CampaignFilterMatch filter_match = 14;
 
   // Holds a property value from the trigger event constant for consistent additional event filtering.
@@ -143,6 +149,7 @@ message Campaign {
   // Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
   // Defines how long after delivery each conversion event is counted.
   //
+  // +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
   map<string, google.protobuf.Duration> conversion_windows = 16;
 
   // Name of the event that counts as a goal completion.
@@ -153,12 +160,13 @@ message Campaign {
   // Query expression to filter goal events by their properties.
   // Represented as a structured filter object. Applicable when goal_event_name is set.
   //
+  // +kubebuilder:example={"and":[{"or":[{"key":"event.property.totalPrice","type":"number","operator":"$gte","values":[50000]}]}]}
   google.protobuf.Struct goal_event_query = 18;
 
   // Time window for attributing goal events after delivery, in ISO 8601 duration format.
   // Between 1 and 30 days. Defaults to 7 days.
   //
-  // +kubebuilder:example="PT23H50M"
+  // +kubebuilder:example="PT1H30M"
   google.protobuf.Duration goal_event_duration = 19;
 
   // Holds a property value from the trigger or filter event constant for consistent goal checking.
@@ -185,12 +193,13 @@ message Campaign {
   // Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
   // Between 0 seconds and 30 days.
   //
-  // +kubebuilder:example="PT23H50M"
+  // +kubebuilder:example="PT1H30M"
   google.protobuf.Duration cooldown = 24;
 
   // Controls when messages are delivered relative to operation hours or custom time ranges.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="always"
   CampaignSendMode send_mode = 25 [(buf.validate.field).required = true];
 
   // Channel operation schedule used to determine delivery timing.
@@ -206,25 +215,30 @@ message Campaign {
 
   // Timestamp when the campaign becomes eligible to trigger.
   //
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp start_at = 28;
 
   // Timestamp when the campaign automatically stops.
   //
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp end_at = 29;
 
   // Snapshot of the campaign configuration captured before activation.
   // Represented as a free-form JSON object.
   //
+  // +kubebuilder:example={"campaign":{"name":"Welcome Campaign","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
   google.protobuf.Struct draft = 30;
 
   // Campaign creation timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-04-22T02:16:44.306092Z"
   google.protobuf.Timestamp created_at = 31 [(buf.validate.field).required = true];
 
   // Campaign last update timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-04-28T09:35:00Z"
   google.protobuf.Timestamp updated_at = 32 [(buf.validate.field).required = true];
 
   // Cumulative count of messages delivered.
@@ -250,7 +264,7 @@ message Campaign {
   // Duration before the user chat created by this campaign expires, in ISO 8601 format.
   // Defaults to 31 days.
   //
-  // +kubebuilder:example="PT23H50M"
+  // +kubebuilder:example="PT1H30M"
   google.protobuf.Duration user_chat_expire_duration = 37;
 
   // Manager assigned to handle user responses from this campaign.
@@ -304,20 +318,24 @@ message HoldingPropertyConstant {
   // Query expression applied to the held property value for matching.
   // Represented as a structured filter object.
   //
+  // +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
   google.protobuf.Struct event_query = 3;
 
   // Indicates whether the property is captured from the trigger event or the additional filter event.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="triggerEvent"
   CampaignBaseEventType base_event_type = 4 [(buf.validate.field).required = true];
 
   // Comparison operator schema used to evaluate the held property value.
   // Represented as a structured object describing the operator type and configuration.
   //
+  // +kubebuilder:example={"operator":"$in"}
   google.protobuf.Struct operator = 5;
 
   // Property values captured from the base event at trigger time.
   // Represented as a structured object holding the snapshot values.
   //
+  // +kubebuilder:example={"category":"product","sku":"ABC-123"}
   google.protobuf.Struct values = 6;
 }

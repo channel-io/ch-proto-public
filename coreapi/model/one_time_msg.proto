@@ -68,11 +68,13 @@ message OneTimeMsg {
   // Current lifecycle state of the one-time message.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="draft"
   OneTimeMsgState state = 4 [(buf.validate.field).required = true];
 
   // Controls when the message is delivered.
   // Automatically inferred from start_at and local_start_at if not explicitly set.
   //
+  // +kubebuilder:example="immediately"
   OneTimeMsgSendMode send_mode = 5;
 
   // Channel operation schedule referenced for delivery timing.
@@ -84,6 +86,7 @@ message OneTimeMsg {
   // Cannot be changed after creation.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="appAlert"
   MediumType medium_type = 7 [(buf.validate.field).required = true];
 
   // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
@@ -98,16 +101,19 @@ message OneTimeMsg {
 
   // Labels for categorizing the message topic within the medium.
   //
+  // +kubebuilder:example=["welcome","onboarding"]
   repeated string medium_topic_build_labels = 10;
 
   // Message content and medium-specific delivery configuration.
   // Structure varies by medium_type.
   //
+  // +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
   google.protobuf.Struct settings = 11;
 
   // Query expression that defines the target user segment.
   // Represented as a structured filter object.
   //
+  // +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
   google.protobuf.Struct user_query = 12;
 
   // App-defined user segments used alongside user_query for targeting.
@@ -117,6 +123,7 @@ message OneTimeMsg {
   // Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
   // Defines how long after delivery each conversion event is counted.
   //
+  // +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
   map<string, google.protobuf.Duration> conversion_windows = 14;
 
   // Name of the event that counts as a goal completion.
@@ -127,12 +134,13 @@ message OneTimeMsg {
   // Query expression to filter goal events by their properties.
   // Represented as a structured filter object. Applicable when goal_event_name is set.
   //
+  // +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
   google.protobuf.Struct goal_event_query = 16;
 
   // Time window for attributing goal events after delivery, in ISO 8601 duration format.
   // Between 1 and 30 days. Defaults to 7 days.
   //
-  // +kubebuilder:example="PT23H50M"
+  // +kubebuilder:example="PT1H30M"
   google.protobuf.Duration goal_event_duration = 17;
 
   // Whether the message contains advertising content subject to opt-out regulations.
@@ -154,6 +162,7 @@ message OneTimeMsg {
   // Scheduled send timestamp in UTC.
   // Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
   //
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp start_at = 21;
 
   // Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
@@ -165,16 +174,19 @@ message OneTimeMsg {
   // Snapshot of the message configuration captured before sending.
   // Represented as a free-form JSON object.
   //
+  // +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
   google.protobuf.Struct draft = 23;
 
   // One-time message creation timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-04-22T02:17:56.008491Z"
   google.protobuf.Timestamp created_at = 24 [(buf.validate.field).required = true];
 
   // One-time message last update timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-04-28T09:35:00Z"
   google.protobuf.Timestamp updated_at = 25 [(buf.validate.field).required = true];
 
   // Cumulative count of messages delivered.
@@ -200,6 +212,6 @@ message OneTimeMsg {
   // Duration before the user chat created by this message expires, in ISO 8601 format.
   // Defaults to 31 days.
   //
-  // +kubebuilder:example="PT23H50M"
+  // +kubebuilder:example="PT1H30M"
   google.protobuf.Duration user_chat_expire_duration = 30;
 }

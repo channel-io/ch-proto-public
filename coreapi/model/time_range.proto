@@ -15,6 +15,8 @@ message TimeRange {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinItems=1
+  // no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
+  // +kubebuilder:example=["mon","tue"]
   repeated DayOfWeek day_of_weeks = 1 [
     (buf.validate.field).repeated.min_items = 1,
     (buf.validate.field).required = true

@@ -207,16 +207,21 @@ type Channel struct {
 	// Default welcome message shown to end users when a new conversation starts.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
 	WelcomeMessage *structpb.Struct `protobuf:"bytes,2,opt,name=welcome_message,json=welcomeMessage,proto3" json:"welcome_message,omitempty"`
 	// Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+	//
+	// +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
 	WelcomeMessageI18NMap map[string]*structpb.Struct `protobuf:"bytes,3,rep,name=welcome_message_i18n_map,json=welcomeMessageI18nMap,proto3" json:"welcome_message_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Channel creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-02-12T08:41:20.392099Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Channel last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-02-12T08:41:20.392099Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Webhook URL called to retrieve additional user information from your server.
 	//
@@ -230,6 +235,8 @@ type Channel struct {
 	// +kubebuilder:example="Channel Corp"
 	Name string `protobuf:"bytes,7,opt,name=name,proto3" json:"name,omitempty"`
 	// Internationalized name and description overrides keyed by locale (e.g., en, ko).
+	//
+	// +kubebuilder:example={"ko":{"name":"Channel Guide","description":"고객 문의 응대 채널"},"en":{"name":"Channel Guide","description":"Customer support channel"}}
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,8,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
 	//
@@ -315,6 +322,8 @@ type Channel struct {
 	FollowUpMandatory bool `protobuf:"varint,25,opt,name=follow_up_mandatory,json=followUpMandatory,proto3" json:"follow_up_mandatory,omitempty"`
 	// Current lifecycle state of the channel.
 	// See ChannelState for possible values.
+	//
+	// +kubebuilder:example="waiting"
 	State ChannelState `protobuf:"varint,26,opt,name=state,proto3,enum=coreapi.model.ChannelState" json:"state,omitempty"`
 	// Whether the channel is verified as an enterprise account.
 	//
@@ -377,6 +386,8 @@ type Channel struct {
 	MktAlimtalkAllowed bool `protobuf:"varint,39,opt,name=mkt_alimtalk_allowed,json=mktAlimtalkAllowed,proto3" json:"mkt_alimtalk_allowed,omitempty"`
 	// Countries where the channel has obtained business certification.
 	// Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+	//
+	// +kubebuilder:example=["KR","JP"]
 	BizCertificatedCountries []string `protobuf:"bytes,40,rep,name=biz_certificated_countries,json=bizCertificatedCountries,proto3" json:"biz_certificated_countries,omitempty"`
 	// Whether the front-end ALF v2 AI assistant is enabled for end users.
 	//
@@ -402,6 +413,8 @@ type Channel struct {
 	AvatarUrl string `protobuf:"bytes,44,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	// Expected response delay indicator shown to end users.
 	// Derived from the channel operating configuration.
+	//
+	// +kubebuilder:example="normal"
 	ExpectedResponseDelay ResponseDelayType `protobuf:"varint,45,opt,name=expected_response_delay,json=expectedResponseDelay,proto3,enum=coreapi.model.ResponseDelayType" json:"expected_response_delay,omitempty"`
 	// Whether the channel is currently within operating hours.
 	// Derived from the operating schedule configuration.
@@ -417,14 +430,20 @@ type Channel struct {
 	OperationTimeScheduling bool `protobuf:"varint,47,opt,name=operation_time_scheduling,json=operationTimeScheduling,proto3" json:"operation_time_scheduling,omitempty"`
 	// Timestamp when the next operating period starts.
 	// Present only when the channel is currently outside operating hours.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	NextWorkingTime *timestamppb.Timestamp `protobuf:"bytes,48,opt,name=next_working_time,json=nextWorkingTime,proto3" json:"next_working_time,omitempty"`
 	// Timestamp when the next away (non-operating) period starts.
 	// Present only when the channel is currently within operating hours.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	NextAwayTime *timestamppb.Timestamp `protobuf:"bytes,49,opt,name=next_away_time,json=nextAwayTime,proto3" json:"next_away_time,omitempty"`
 	// Recurring weekly time ranges that define the channel operating hours.
 	OperationTimeRanges []*TimeRange `protobuf:"bytes,50,rep,name=operation_time_ranges,json=operationTimeRanges,proto3" json:"operation_time_ranges,omitempty"`
 	// Messenger behavior when the channel is outside of operating hours.
 	// See ChannelAwayOption for possible values.
+	//
+	// +kubebuilder:example="active"
 	AwayOption ChannelAwayOption `protobuf:"varint,51,opt,name=away_option,json=awayOption,proto3,enum=coreapi.model.ChannelAwayOption" json:"away_option,omitempty"`
 	// Whether end-user replying is blocked after a conversation is closed.
 	//
@@ -433,6 +452,8 @@ type Channel struct {
 	BlockReplyingAfterClosed bool `protobuf:"varint,52,opt,name=block_replying_after_closed,json=blockReplyingAfterClosed,proto3" json:"block_replying_after_closed,omitempty"`
 	// Grace period after conversation closure during which the end user may still reply.
 	// Applicable only when block_replying_after_closed is true.
+	//
+	// +kubebuilder:example="PT1H30M"
 	BlockReplyingAfterClosedTime *durationpb.Duration `protobuf:"bytes,53,opt,name=block_replying_after_closed_time,json=blockReplyingAfterClosedTime,proto3" json:"block_replying_after_closed_time,omitempty"`
 	// Border accent color derived from the theme color, in hex format.
 	//

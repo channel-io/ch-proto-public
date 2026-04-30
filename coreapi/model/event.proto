@@ -53,15 +53,18 @@ message Event {
 
   // Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
   //
+  // +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
   google.protobuf.Struct property = 5;
 
   // Event creation timestamp.
   //
   // +kubebuilder:validation:Required
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp created_at = 6 [(buf.validate.field).required = true];
 
   // Expiration timestamp after which the event may no longer be retrievable.
   //
+  // +kubebuilder:example="2026-04-28T09:30:00Z"
   google.protobuf.Timestamp expire_at = 7;
 
   // Optimistic concurrency version counter.
@@ -73,5 +76,6 @@ message Event {
   // Internationalized event name map keyed by locale (e.g., en, ko).
   // Populated only for system-defined events; custom events return no entries.
   //
+  // +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
   map<string, string> name_i18n_map = 9;
 }

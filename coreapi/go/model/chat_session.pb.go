@@ -78,6 +78,8 @@ type ChatSession struct {
 	// +kubebuilder:example="3"
 	Unread int32 `protobuf:"varint,9,opt,name=unread,proto3" json:"unread,omitempty"`
 	// Notification preference controlling which messages trigger alerts in this session.
+	//
+	// +kubebuilder:example="all"
 	Watch SessionWatch `protobuf:"varint,10,opt,name=watch,proto3,enum=coreapi.model.SessionWatch" json:"watch,omitempty"`
 	// Whether @all mentions trigger alert-level notifications in this session.
 	// When absent, inherits from the manager-level default setting.
@@ -85,18 +87,26 @@ type ChatSession struct {
 	// +kubebuilder:example="true"
 	AllMentionImportant bool `protobuf:"varint,11,opt,name=all_mention_important,json=allMentionImportant,proto3" json:"all_mention_important,omitempty"`
 	// Timestamp when the person last read messages in this session.
+	//
+	// +kubebuilder:example="2026-04-28T09:40:00Z"
 	ReadAt *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=read_at,json=readAt,proto3" json:"read_at,omitempty"`
 	// Timestamp when the last message was received in this conversation.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	ReceivedAt *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=received_at,json=receivedAt,proto3" json:"received_at,omitempty"`
 	// Timestamp when the last message was posted in this conversation.
+	//
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	PostedAt *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=posted_at,json=postedAt,proto3" json:"posted_at,omitempty"`
 	// Session last update timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:35:00Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Session creation timestamp.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Optimistic locking version.
 	//

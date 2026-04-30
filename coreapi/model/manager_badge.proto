@@ -57,6 +57,7 @@ message ManagerBadge {
 
   // Badge last update timestamp.
   //
+  // +kubebuilder:example="2026-04-28T09:35:00Z"
   google.protobuf.Timestamp updated_at = 8;
 
   // Optimistic locking version.
