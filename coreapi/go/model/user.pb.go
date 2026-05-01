@@ -108,8 +108,6 @@ type User struct {
 	// +kubebuilder:example="u-unified-001"
 	UnifiedId string `protobuf:"bytes,5,opt,name=unified_id,json=unifiedId,proto3" json:"unified_id,omitempty"`
 	// Identity type of this user.
-	//
-	// +kubebuilder:example="member"
 	Type UserType `protobuf:"varint,6,opt,name=type,proto3,enum=coreapi.model.UserType" json:"type,omitempty"`
 	// Tags that were automatically applied during a user import operation.
 	//

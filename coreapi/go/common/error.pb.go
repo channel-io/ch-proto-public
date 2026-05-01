@@ -116,7 +116,6 @@ type ErrorResponse struct {
 	// +kubebuilder:example="404"
 	Status int32 `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
 	// Set when the error falls into a cross-cutting category.
-	// +kubebuilder:example="entityNotFound"
 	CommonErrorCode CommonErrorCode `protobuf:"varint,2,opt,name=common_error_code,json=commonErrorCode,proto3,enum=coreapi.common.CommonErrorCode" json:"common_error_code,omitempty"`
 	// Set when the error is unique to a particular operation.
 	// Defined as a string to allow each service to declare its own codes

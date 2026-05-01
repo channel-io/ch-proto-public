@@ -267,13 +267,11 @@ type Campaign struct {
 	// Current lifecycle state of the campaign.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="draft"
 	State CampaignState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.CampaignState" json:"state,omitempty"`
 	// Channel through which the campaign message is delivered.
 	// Cannot be changed after creation.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="appAlert"
 	MediumType MediumType `protobuf:"varint,5,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
 	//
@@ -314,8 +312,6 @@ type Campaign struct {
 	FilterEventQuery *structpb.Struct `protobuf:"bytes,13,opt,name=filter_event_query,json=filterEventQuery,proto3" json:"filter_event_query,omitempty"`
 	// Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
 	// Applicable when filter_event_name is set.
-	//
-	// +kubebuilder:example="positive"
 	FilterMatch CampaignFilterMatch `protobuf:"varint,14,opt,name=filter_match,json=filterMatch,proto3,enum=coreapi.model.CampaignFilterMatch" json:"filter_match,omitempty"`
 	// Holds a property value from the trigger event constant for consistent additional event filtering.
 	// Applicable when filter_event_name is set.
@@ -363,7 +359,6 @@ type Campaign struct {
 	// Controls when messages are delivered relative to operation hours or custom time ranges.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="always"
 	SendMode CampaignSendMode `protobuf:"varint,25,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.CampaignSendMode" json:"send_mode,omitempty"`
 	// Channel operation schedule used to determine delivery timing.
 	// Applicable when send_mode is IN_OPERATION or AWAY.
@@ -745,7 +740,6 @@ type HoldingPropertyConstant struct {
 	// Indicates whether the property is captured from the trigger event or the additional filter event.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="triggerEvent"
 	BaseEventType CampaignBaseEventType `protobuf:"varint,4,opt,name=base_event_type,json=baseEventType,proto3,enum=coreapi.model.CampaignBaseEventType" json:"base_event_type,omitempty"`
 	// Comparison operator schema used to evaluate the held property value.
 	// Represented as a structured object describing the operator type and configuration.

@@ -106,7 +106,6 @@ type Group struct {
 	// Visibility scope determining who can discover and access the group.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="public"
 	Scope GroupScope `protobuf:"varint,4,opt,name=scope,proto3,enum=coreapi.model.GroupScope" json:"scope,omitempty"`
 	// IDs of managers who are members of this group.
 	//

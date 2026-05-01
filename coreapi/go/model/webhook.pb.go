@@ -136,7 +136,6 @@ type Webhook struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinItems=1
 	// no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
-	// +kubebuilder:example=["userChatOpened","messageCreatedUserChat"]
 	Scopes []WebhookScope `protobuf:"varint,7,rep,packed,name=scopes,proto3,enum=coreapi.model.WebhookScope" json:"scopes,omitempty"`
 	// API version for webhook payloads.
 	//

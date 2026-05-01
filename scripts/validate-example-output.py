@@ -199,6 +199,12 @@ class Walker:
             if isinstance(target, dict):
                 resolved = target
 
+        # R3a (single our-enum): field-level example is forbidden when the
+        # field's $ref target is an enum schema. Skip coverage entirely —
+        # renderers surface enum values directly.
+        if isinstance(resolved, dict) and resolved.get("enum"):
+            return
+
         if isinstance(sc, dict) and sc.get("properties"):
             self._walk_schema(path, sc)
             return
@@ -210,6 +216,11 @@ class Walker:
                 t = self._resolve_ref(items)
                 if isinstance(t, dict):
                     items_target = t
+            # R4 (repeated our-enum): field-level example is forbidden when
+            # the array items' $ref target is an enum schema. Same reason
+            # as R3a above.
+            if isinstance(items_target, dict) and items_target.get("enum"):
+                return
             if items_target.get("properties"):
                 self._walk_schema(f"{path}[]", items_target)
                 return

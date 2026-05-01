@@ -300,28 +300,18 @@ type Manager struct {
 	DisplayAsChannel bool `protobuf:"varint,18,opt,name=display_as_channel,json=displayAsChannel,proto3" json:"display_as_channel,omitempty"`
 	// Default notification level for group chat sessions.
 	// See SessionWatch for possible values.
-	//
-	// +kubebuilder:example="all"
 	DefaultGroupWatch SessionWatch `protobuf:"varint,19,opt,name=default_group_watch,json=defaultGroupWatch,proto3,enum=coreapi.model.SessionWatch" json:"default_group_watch,omitempty"`
 	// Default notification level for direct message sessions.
 	// See SessionWatch for possible values.
-	//
-	// +kubebuilder:example="all"
 	DefaultDirectChatWatch SessionWatch `protobuf:"varint,20,opt,name=default_direct_chat_watch,json=defaultDirectChatWatch,proto3,enum=coreapi.model.SessionWatch" json:"default_direct_chat_watch,omitempty"`
 	// Default notification level for user (customer) chat sessions.
 	// See SessionWatch for possible values.
-	//
-	// +kubebuilder:example="all"
 	DefaultUserChatWatch SessionWatch `protobuf:"varint,21,opt,name=default_user_chat_watch,json=defaultUserChatWatch,proto3,enum=coreapi.model.SessionWatch" json:"default_user_chat_watch,omitempty"`
 	// Sound effect for incoming chat message notifications.
 	// See ChatAlertSound for possible values.
-	//
-	// +kubebuilder:example="drop"
 	ChatAlertSound ChatAlertSound `protobuf:"varint,22,opt,name=chat_alert_sound,json=chatAlertSound,proto3,enum=coreapi.model.ChatAlertSound" json:"chat_alert_sound,omitempty"`
 	// Sound effect for incoming meet (call) notifications.
 	// See MeetAlertSound for possible values.
-	//
-	// +kubebuilder:example="cute"
 	MeetAlertSound MeetAlertSound `protobuf:"varint,23,opt,name=meet_alert_sound,json=meetAlertSound,proto3,enum=coreapi.model.MeetAlertSound" json:"meet_alert_sound,omitempty"`
 	// Whether to receive mobile push notifications even while the manager is online on desktop.
 	//

@@ -301,7 +301,6 @@ type Block struct {
 	// Content block type that determines how the block is rendered and which fields are applicable.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="text"
 	Type Block_BlockType `protobuf:"varint,1,opt,name=type,proto3,enum=coreapi.model.Block_BlockType" json:"type,omitempty"`
 	// Programming language identifier for syntax highlighting.
 	// Only applicable when type is CODE.
@@ -391,8 +390,6 @@ type MessageButton struct {
 	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
 	// Visual color theme applied to the button.
 	// Defaults to the channel's primary color when not specified.
-	//
-	// +kubebuilder:example="green"
 	ColorVariant MessageButton_ColorVariant `protobuf:"varint,2,opt,name=color_variant,json=colorVariant,proto3,enum=coreapi.model.MessageButton_ColorVariant" json:"color_variant,omitempty"`
 	// Action payload executed when the button is clicked.
 	// Contains the action type and its attributes (e.g. URL to open, WAM to launch).
@@ -523,8 +520,6 @@ type MessageFile struct {
 	PreviewKey string `protobuf:"bytes,13,opt,name=preview_key,json=previewKey,proto3" json:"preview_key,omitempty"`
 	// Access scope that determines who can view this private file.
 	// Derived from the storage key pattern.
-	//
-	// +kubebuilder:example="chat"
 	PrivateFileScope MessageFile_PrivateFileScope `protobuf:"varint,14,opt,name=private_file_scope,json=privateFileScope,proto3,enum=coreapi.model.MessageFile_PrivateFileScope" json:"private_file_scope,omitempty"`
 	// Domain identifier for channel-scoped private files.
 	// Derived from the storage key pattern.
@@ -940,7 +935,6 @@ type MessageContent struct {
 	// Option flags that modify message delivery and display behavior.
 	//
 	// no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
-	// +kubebuilder:example=["doNotSearch","immutable","private"]
 	Options []MessageOption `protobuf:"varint,7,rep,packed,name=options,proto3,enum=coreapi.model.MessageOption" json:"options,omitempty"`
 	// Client-generated request identifier for idempotency.
 	//

@@ -160,12 +160,9 @@ type OneTimeMsg struct {
 	// Current lifecycle state of the one-time message.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="draft"
 	State OneTimeMsgState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.OneTimeMsgState" json:"state,omitempty"`
 	// Controls when the message is delivered.
 	// Automatically inferred from start_at and local_start_at if not explicitly set.
-	//
-	// +kubebuilder:example="immediately"
 	SendMode OneTimeMsgSendMode `protobuf:"varint,5,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.OneTimeMsgSendMode" json:"send_mode,omitempty"`
 	// Channel operation schedule referenced for delivery timing.
 	//
@@ -175,7 +172,6 @@ type OneTimeMsg struct {
 	// Cannot be changed after creation.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="appAlert"
 	MediumType MediumType `protobuf:"varint,7,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
 	//
