@@ -79,14 +79,12 @@ message Campaign {
   // Current lifecycle state of the campaign.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="draft"
   CampaignState state = 4 [(buf.validate.field).required = true];
 
   // Channel through which the campaign message is delivered.
   // Cannot be changed after creation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="appAlert"
   MediumType medium_type = 5 [(buf.validate.field).required = true];
 
   // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
@@ -138,7 +136,6 @@ message Campaign {
   // Whether the additional filter event must match (POSITIVE) or must not match (NEGATIVE) for delivery.
   // Applicable when filter_event_name is set.
   //
-  // +kubebuilder:example="positive"
   CampaignFilterMatch filter_match = 14;
 
   // Holds a property value from the trigger event constant for consistent additional event filtering.
@@ -199,7 +196,6 @@ message Campaign {
   // Controls when messages are delivered relative to operation hours or custom time ranges.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="always"
   CampaignSendMode send_mode = 25 [(buf.validate.field).required = true];
 
   // Channel operation schedule used to determine delivery timing.
@@ -324,7 +320,6 @@ message HoldingPropertyConstant {
   // Indicates whether the property is captured from the trigger event or the additional filter event.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="triggerEvent"
   CampaignBaseEventType base_event_type = 4 [(buf.validate.field).required = true];
 
   // Comparison operator schema used to evaluate the held property value.

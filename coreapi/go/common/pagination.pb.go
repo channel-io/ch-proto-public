@@ -23,9 +23,8 @@ const (
 )
 
 type Pagination struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// +kubebuilder:example="asc"
-	SortOrder SortOrder `protobuf:"varint,1,opt,name=sort_order,json=sortOrder,proto3,enum=coreapi.common.SortOrder" json:"sort_order,omitempty"`
+	state     protoimpl.MessageState `protogen:"open.v1"`
+	SortOrder SortOrder              `protobuf:"varint,1,opt,name=sort_order,json=sortOrder,proto3,enum=coreapi.common.SortOrder" json:"sort_order,omitempty"`
 	// +kubebuilder:example="1704067200000"
 	Since string `protobuf:"bytes,2,opt,name=since,proto3" json:"since,omitempty"`
 	// +kubebuilder:example="25"

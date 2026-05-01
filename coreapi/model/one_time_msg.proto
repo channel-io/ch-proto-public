@@ -68,13 +68,11 @@ message OneTimeMsg {
   // Current lifecycle state of the one-time message.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="draft"
   OneTimeMsgState state = 4 [(buf.validate.field).required = true];
 
   // Controls when the message is delivered.
   // Automatically inferred from start_at and local_start_at if not explicitly set.
   //
-  // +kubebuilder:example="immediately"
   OneTimeMsgSendMode send_mode = 5;
 
   // Channel operation schedule referenced for delivery timing.
@@ -86,7 +84,6 @@ message OneTimeMsg {
   // Cannot be changed after creation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="appAlert"
   MediumType medium_type = 7 [(buf.validate.field).required = true];
 
   // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).

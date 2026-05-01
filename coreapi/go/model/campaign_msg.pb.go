@@ -55,7 +55,6 @@ type CampaignMsg struct {
 	// Cannot be changed after creation.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="appAlert"
 	MediumType MediumType `protobuf:"varint,5,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
 	//

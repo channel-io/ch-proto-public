@@ -792,8 +792,6 @@ type Message struct {
 	// +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
 	Form *structpb.Struct `protobuf:"bytes,31,opt,name=form,proto3" json:"form,omitempty"`
 	// Current lifecycle state of this message.
-	//
-	// +kubebuilder:example="sent"
 	State MessageState `protobuf:"varint,32,opt,name=state,proto3,enum=coreapi.model.MessageState" json:"state,omitempty"`
 	// Delivery and visibility options applied to this message.
 	// Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
@@ -818,8 +816,6 @@ type Message struct {
 	// +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
 	Workflow *structpb.Struct `protobuf:"bytes,36,opt,name=workflow,proto3" json:"workflow,omitempty"`
 	// Notification priority level controlling client-side popup behavior.
-	//
-	// +kubebuilder:example="alert"
 	AlertLevel AlertLevel `protobuf:"varint,37,opt,name=alert_level,json=alertLevel,proto3,enum=coreapi.model.AlertLevel" json:"alert_level,omitempty"`
 	// IVR (Interactive Voice Response) call metadata for phone-based messages.
 	// Contains DTMF input, call routing state, and voice prompt context.
@@ -835,8 +831,6 @@ type Message struct {
 	// Automatically derived from the message content when not explicitly set:
 	// defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
 	// and STANDARD otherwise.
-	//
-	// +kubebuilder:example="standard"
 	WritingType WritingType `protobuf:"varint,40,opt,name=writing_type,json=writingType,proto3,enum=coreapi.model.WritingType" json:"writing_type,omitempty"`
 	// Whether this message is a reply within a thread (not the root).
 	// True when thread_key is present and the message is not a thread root.
@@ -1343,7 +1337,6 @@ type MessageLog struct {
 	// Type of action that was recorded.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="assign"
 	Action MessageLog_MessageLogAction `protobuf:"varint,1,opt,name=action,proto3,enum=coreapi.model.MessageLog_MessageLogAction" json:"action,omitempty"`
 	// Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
 	// Interpretation depends on the `action` type.
@@ -1499,12 +1492,8 @@ type MessageMeet struct {
 	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Current lifecycle state of the meet session.
-	//
-	// +kubebuilder:example="ended"
 	State MessageMeet_MeetState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.MessageMeet_MeetState" json:"state,omitempty"`
 	// Media mode indicating whether this is an audio-only or video meet.
-	//
-	// +kubebuilder:example="video"
 	Mode MessageMeet_MeetMode `protobuf:"varint,5,opt,name=mode,proto3,enum=coreapi.model.MessageMeet_MeetMode" json:"mode,omitempty"`
 	// Person keys of all participants who have ever joined this meet,
 	// in the format "{personType}-{personId}" (e.g. "manager-abc123").
@@ -1543,8 +1532,6 @@ type MessageMeet struct {
 	// +kubebuilder:example=["1234","5678"]
 	ManagerIds []string `protobuf:"bytes,13,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	// Computed meet category determined by the presence of `call` or `front` data.
-	//
-	// +kubebuilder:example="front"
 	MeetType MessageMeet_MeetType `protobuf:"varint,14,opt,name=meet_type,json=meetType,proto3,enum=coreapi.model.MessageMeet_MeetType" json:"meet_type,omitempty"`
 	// Bot IDs extracted from `amassed_persons`.
 	//
@@ -1844,8 +1831,6 @@ type MessageEmail struct {
 	// +kubebuilder:example="email-001"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Whether this email was sent to or received from an external party.
-	//
-	// +kubebuilder:example="outbound"
 	Direction MessageEmail_EmailDirection `protobuf:"varint,2,opt,name=direction,proto3,enum=coreapi.model.MessageEmail_EmailDirection" json:"direction,omitempty"`
 	// Sender email address with optional display name.
 	//
@@ -2090,8 +2075,6 @@ type MessageMarketing struct {
 	// +kubebuilder:example="false"
 	SendToOfflineEmail bool `protobuf:"varint,5,opt,name=send_to_offline_email,json=sendToOfflineEmail,proto3" json:"send_to_offline_email,omitempty"`
 	// In-app display mode for the marketing message.
-	//
-	// +kubebuilder:example="fullScreen"
 	ExposureType MessageMarketing_ExposureType `protobuf:"varint,6,opt,name=exposure_type,json=exposureType,proto3,enum=coreapi.model.MessageMarketing_ExposureType" json:"exposure_type,omitempty"`
 	// Clickthrough URL for the marketing image.
 	// Present only when the message includes an in-app image with a link.

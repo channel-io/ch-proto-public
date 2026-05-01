@@ -322,8 +322,6 @@ type Channel struct {
 	FollowUpMandatory bool `protobuf:"varint,25,opt,name=follow_up_mandatory,json=followUpMandatory,proto3" json:"follow_up_mandatory,omitempty"`
 	// Current lifecycle state of the channel.
 	// See ChannelState for possible values.
-	//
-	// +kubebuilder:example="waiting"
 	State ChannelState `protobuf:"varint,26,opt,name=state,proto3,enum=coreapi.model.ChannelState" json:"state,omitempty"`
 	// Whether the channel is verified as an enterprise account.
 	//
@@ -413,8 +411,6 @@ type Channel struct {
 	AvatarUrl string `protobuf:"bytes,44,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	// Expected response delay indicator shown to end users.
 	// Derived from the channel operating configuration.
-	//
-	// +kubebuilder:example="normal"
 	ExpectedResponseDelay ResponseDelayType `protobuf:"varint,45,opt,name=expected_response_delay,json=expectedResponseDelay,proto3,enum=coreapi.model.ResponseDelayType" json:"expected_response_delay,omitempty"`
 	// Whether the channel is currently within operating hours.
 	// Derived from the operating schedule configuration.
@@ -442,8 +438,6 @@ type Channel struct {
 	OperationTimeRanges []*TimeRange `protobuf:"bytes,50,rep,name=operation_time_ranges,json=operationTimeRanges,proto3" json:"operation_time_ranges,omitempty"`
 	// Messenger behavior when the channel is outside of operating hours.
 	// See ChannelAwayOption for possible values.
-	//
-	// +kubebuilder:example="active"
 	AwayOption ChannelAwayOption `protobuf:"varint,51,opt,name=away_option,json=awayOption,proto3,enum=coreapi.model.ChannelAwayOption" json:"away_option,omitempty"`
 	// Whether end-user replying is blocked after a conversation is closed.
 	//

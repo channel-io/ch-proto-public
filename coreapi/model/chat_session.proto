@@ -102,7 +102,6 @@ message ChatSession {
 
   // Notification preference controlling which messages trigger alerts in this session.
   //
-  // +kubebuilder:example="all"
   SessionWatch watch = 10;
 
   // Whether @all mentions trigger alert-level notifications in this session.

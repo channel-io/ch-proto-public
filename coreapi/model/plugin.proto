@@ -94,7 +94,6 @@ message Plugin {
   // Current activation lifecycle state.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="waiting"
   PluginState state = 4 [(buf.validate.field).required = true];
 
   // Widget display name shown to end users.
@@ -128,7 +127,6 @@ message Plugin {
   // Defaults to LIGHT.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="light"
   PluginAppearance appearance = 7 [(buf.validate.field).required = true];
 
   // Whether the text label is displayed alongside the launcher button.
@@ -167,14 +165,12 @@ message Plugin {
   // Defaults to ICON_BUTTON. When set to CUSTOM_IMAGE, the custom_image field must be provided.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="iconButton"
   PluginButtonType button_type = 11 [(buf.validate.field).required = true];
 
   // Predefined icon used for the launcher button.
   // Applicable when button_type is ICON_BUTTON. Defaults to CHANNEL_FILLED.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="channelFilled"
   PluginIconButton icon_button = 12 [(buf.validate.field).required = true];
 
   // Uploaded image for the launcher button.
@@ -204,7 +200,6 @@ message Plugin {
 
   // Horizontal anchor position of the desktop widget.
   //
-  // +kubebuilder:example="right"
   PluginPosition desk_position = 18;
 
   // Uploaded mobile launcher image.
@@ -224,7 +219,6 @@ message Plugin {
 
   // Horizontal anchor position of the mobile widget.
   //
-  // +kubebuilder:example="right"
   PluginPosition mobile_position = 22;
 
   // Whether the mobile launcher button is hidden while the widget remains accessible.
@@ -234,7 +228,6 @@ message Plugin {
 
   // Vertical position of the chat bubble on mobile devices.
   //
-  // +kubebuilder:example="bottom"
   PluginBubblePosition mobile_bubble_position = 24;
 
   // URL patterns that restrict where the plugin is displayed.

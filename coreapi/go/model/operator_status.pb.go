@@ -137,8 +137,6 @@ type OperatorStatus struct {
 	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Current activity state of the manager, used for chat routing and workload management.
-	//
-	// +kubebuilder:example="waiting"
 	OperatorStatusType OperatorStatusType `protobuf:"varint,4,opt,name=operator_status_type,json=operatorStatusType,proto3,enum=coreapi.model.OperatorStatusType" json:"operator_status_type,omitempty"`
 	// Whether the manager is enabled to receive and handle chats.
 	// Disabled managers are excluded from auto-assignment.

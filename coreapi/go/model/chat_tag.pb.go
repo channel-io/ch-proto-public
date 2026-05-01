@@ -108,8 +108,6 @@ type ChatTag struct {
 	// +kubebuilder:example="ch-12345"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Color theme of the chat tag.
-	//
-	// +kubebuilder:example="purple"
 	ColorVariant ChatTagColorVariant `protobuf:"varint,3,opt,name=color_variant,json=colorVariant,proto3,enum=coreapi.model.ChatTagColorVariant" json:"color_variant,omitempty"`
 	// Display name of the chat tag.
 	// Supports hierarchical naming with "/" as a depth separator (max 3 levels).

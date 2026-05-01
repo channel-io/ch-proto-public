@@ -236,7 +236,6 @@ message Message {
 
   // Current lifecycle state of this message.
   //
-  // +kubebuilder:example="sent"
   MessageState state = 32;
 
   // Delivery and visibility options applied to this message.
@@ -267,7 +266,6 @@ message Message {
 
   // Notification priority level controlling client-side popup behavior.
   //
-  // +kubebuilder:example="alert"
   AlertLevel alert_level = 37;
 
   // IVR (Interactive Voice Response) call metadata for phone-based messages.
@@ -287,7 +285,6 @@ message Message {
   // defaults to EMAIL if email metadata is present, CUSTOM if a custom payload exists,
   // and STANDARD otherwise.
   //
-  // +kubebuilder:example="standard"
   WritingType writing_type = 40;
 
   // Whether this message is a reply within a thread (not the root).
@@ -383,7 +380,6 @@ message MessageLog {
   // Type of action that was recorded.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="assign"
   MessageLogAction action = 1 [(buf.validate.field).required = true];
 
   // Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
@@ -501,12 +497,10 @@ message MessageMeet {
 
   // Current lifecycle state of the meet session.
   //
-  // +kubebuilder:example="ended"
   MeetState state = 4;
 
   // Media mode indicating whether this is an audio-only or video meet.
   //
-  // +kubebuilder:example="video"
   MeetMode mode = 5;
 
   // Person keys of all participants who have ever joined this meet,
@@ -555,7 +549,6 @@ message MessageMeet {
 
   // Computed meet category determined by the presence of `call` or `front` data.
   //
-  // +kubebuilder:example="front"
   MeetType meet_type = 14;
 
   // Bot IDs extracted from `amassed_persons`.
@@ -663,7 +656,6 @@ message MessageEmail {
 
   // Whether this email was sent to or received from an external party.
   //
-  // +kubebuilder:example="outbound"
   EmailDirection direction = 2;
 
   // Sender email address with optional display name.
@@ -779,7 +771,6 @@ message MessageMarketing {
 
   // In-app display mode for the marketing message.
   //
-  // +kubebuilder:example="fullScreen"
   ExposureType exposure_type = 6;
 
   // Clickthrough URL for the marketing image.

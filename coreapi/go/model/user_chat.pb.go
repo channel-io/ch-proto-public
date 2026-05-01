@@ -377,12 +377,9 @@ type UserChat struct {
 	// Current lifecycle state of the chat conversation.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="opened"
 	State UserChatState `protobuf:"varint,5,opt,name=state,proto3,enum=coreapi.model.UserChatState" json:"state,omitempty"`
 	// Reason the chat was missed.
 	// Only present when the chat transitioned to a missed state.
-	//
-	// +kubebuilder:example="userLeft"
 	MissedReason MissedReason `protobuf:"varint,6,opt,name=missed_reason,json=missedReason,proto3,enum=coreapi.model.MissedReason" json:"missed_reason,omitempty"`
 	// Whether the chat is managed and visible in the Desk inbox.
 	// Unmanaged chats are only visible to the user.
@@ -392,8 +389,6 @@ type UserChat struct {
 	Managed bool `protobuf:"varint,7,opt,name=managed,proto3" json:"managed,omitempty"`
 	// Priority level used by the auto-assignment system to order this chat
 	// in the queue. Defaults to medium.
-	//
-	// +kubebuilder:example="medium"
 	Priority AutoAssignPriority `protobuf:"varint,8,opt,name=priority,proto3,enum=coreapi.model.AutoAssignPriority" json:"priority,omitempty"`
 	// ID of the user who owns this chat conversation.
 	//
@@ -418,8 +413,6 @@ type UserChat struct {
 	// +kubebuilder:example="Billing inquiry"
 	Description string `protobuf:"bytes,13,opt,name=description,proto3" json:"description,omitempty"`
 	// Type of subtext shown below the chat title in the Desk inbox list.
-	//
-	// +kubebuilder:example="description"
 	SubtextType UserChatSubtextType `protobuf:"varint,14,opt,name=subtext_type,json=subtextType,proto3,enum=coreapi.model.UserChatSubtextType" json:"subtext_type,omitempty"`
 	// Current handling state that controls the chat's input behavior
 	// (e.g., workflow step, follow-up collection).
@@ -467,8 +460,6 @@ type UserChat struct {
 	// +kubebuilder:example="2026-04-28T09:30:00Z"
 	GoalCheckedAt *timestamppb.Timestamp `protobuf:"bytes,24,opt,name=goal_checked_at,json=goalCheckedAt,proto3" json:"goal_checked_at,omitempty"`
 	// Current achievement state of the tracked goal.
-	//
-	// +kubebuilder:example="waiting"
 	GoalState UserChatGoalState `protobuf:"varint,25,opt,name=goal_state,json=goalState,proto3,enum=coreapi.model.UserChatGoalState" json:"goal_state,omitempty"`
 	// Timestamp when the chat was first opened by a manager.
 	//

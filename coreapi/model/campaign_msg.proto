@@ -59,7 +59,6 @@ message CampaignMsg {
   // Cannot be changed after creation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="appAlert"
   MediumType medium_type = 5 [(buf.validate.field).required = true];
 
   // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).

@@ -78,8 +78,6 @@ type ChatSession struct {
 	// +kubebuilder:example="3"
 	Unread int32 `protobuf:"varint,9,opt,name=unread,proto3" json:"unread,omitempty"`
 	// Notification preference controlling which messages trigger alerts in this session.
-	//
-	// +kubebuilder:example="all"
 	Watch SessionWatch `protobuf:"varint,10,opt,name=watch,proto3,enum=coreapi.model.SessionWatch" json:"watch,omitempty"`
 	// Whether @all mentions trigger alert-level notifications in this session.
 	// When absent, inherits from the manager-level default setting.
