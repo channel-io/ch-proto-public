@@ -208,7 +208,6 @@ message Channel {
   // Current lifecycle state of the channel.
   // See ChannelState for possible values.
   //
-  // +kubebuilder:example="waiting"
   ChannelState state = 26;
 
   // Whether the channel is verified as an enterprise account.
@@ -318,7 +317,6 @@ message Channel {
   // Expected response delay indicator shown to end users.
   // Derived from the channel operating configuration.
   //
-  // +kubebuilder:example="normal"
   ResponseDelayType expected_response_delay = 45;
 
   // Whether the channel is currently within operating hours.
@@ -354,7 +352,6 @@ message Channel {
   // Messenger behavior when the channel is outside of operating hours.
   // See ChannelAwayOption for possible values.
   //
-  // +kubebuilder:example="active"
   ChannelAwayOption away_option = 51;
 
   // Whether end-user replying is blocked after a conversation is closed.

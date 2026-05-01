@@ -62,7 +62,6 @@ message Group {
   // Visibility scope determining who can discover and access the group.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="public"
   GroupScope scope = 4 [(buf.validate.field).required = true];
 
   // IDs of managers who are members of this group.

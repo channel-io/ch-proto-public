@@ -40,17 +40,14 @@ message CallLog {
   // Reason the call was missed.
   // Only present when the call ended without being answered.
   //
-  // +kubebuilder:example="userLeft"
   MissedReason missed_reason = 2;
 
   // Whether the call was inbound (received) or outbound (initiated).
   //
-  // +kubebuilder:example="inbound"
   CallDirection direction = 3;
 
   // Current lifecycle state indicating whether the call is waiting or connected.
   //
-  // +kubebuilder:example="engaged"
   CallState state = 4;
 
   // Originating phone number or caller identifier.

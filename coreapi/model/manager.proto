@@ -173,31 +173,26 @@ message Manager {
   // Default notification level for group chat sessions.
   // See SessionWatch for possible values.
   //
-  // +kubebuilder:example="all"
   SessionWatch default_group_watch = 19;
 
   // Default notification level for direct message sessions.
   // See SessionWatch for possible values.
   //
-  // +kubebuilder:example="all"
   SessionWatch default_direct_chat_watch = 20;
 
   // Default notification level for user (customer) chat sessions.
   // See SessionWatch for possible values.
   //
-  // +kubebuilder:example="all"
   SessionWatch default_user_chat_watch = 21;
 
   // Sound effect for incoming chat message notifications.
   // See ChatAlertSound for possible values.
   //
-  // +kubebuilder:example="drop"
   ChatAlertSound chat_alert_sound = 22;
 
   // Sound effect for incoming meet (call) notifications.
   // See MeetAlertSound for possible values.
   //
-  // +kubebuilder:example="cute"
   MeetAlertSound meet_alert_sound = 23;
 
   // Whether to receive mobile push notifications even while the manager is online on desktop.

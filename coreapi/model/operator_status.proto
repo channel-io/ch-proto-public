@@ -70,7 +70,6 @@ message OperatorStatus {
 
   // Current activity state of the manager, used for chat routing and workload management.
   //
-  // +kubebuilder:example="waiting"
   OperatorStatusType operator_status_type = 4;
 
   // Whether the manager is enabled to receive and handle chats.

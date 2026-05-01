@@ -117,13 +117,11 @@ message UserChat {
   // Current lifecycle state of the chat conversation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="opened"
   UserChatState state = 5 [(buf.validate.field).required = true];
 
   // Reason the chat was missed.
   // Only present when the chat transitioned to a missed state.
   //
-  // +kubebuilder:example="userLeft"
   MissedReason missed_reason = 6;
 
   // Whether the chat is managed and visible in the Desk inbox.
@@ -136,7 +134,6 @@ message UserChat {
   // Priority level used by the auto-assignment system to order this chat
   // in the queue. Defaults to medium.
   //
-  // +kubebuilder:example="medium"
   AutoAssignPriority priority = 8;
 
   // ID of the user who owns this chat conversation.
@@ -172,7 +169,6 @@ message UserChat {
 
   // Type of subtext shown below the chat title in the Desk inbox list.
   //
-  // +kubebuilder:example="description"
   UserChatSubtextType subtext_type = 14;
 
   // Current handling state that controls the chat's input behavior
@@ -232,7 +228,6 @@ message UserChat {
 
   // Current achievement state of the tracked goal.
   //
-  // +kubebuilder:example="waiting"
   UserChatGoalState goal_state = 25;
 
   // Timestamp when the chat was first opened by a manager.

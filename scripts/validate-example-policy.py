@@ -30,8 +30,8 @@ from typing import Optional
 FIELD_CASE_RULES = {
     "single scalar":     {"id": "R1",  "field_example": "required"},
     "repeated scalar":   {"id": "R2",  "field_example": "required", "min_array_elements": 2},
-    "single our-enum":   {"id": "R3a", "field_example": "required"},
-    "repeated our-enum": {"id": "R4",  "field_example": "required", "min_array_elements": 2},
+    "single our-enum":   {"id": "R3a", "field_example": "forbidden"},
+    "repeated our-enum": {"id": "R4",  "field_example": "forbidden"},
     "single our-msg":    {"id": "R5",  "field_example": "forbidden"},
     "repeated our-msg":  {"id": "R6",  "field_example": "forbidden"},
     "single external":   {"id": "R7",  "field_example": "required"},

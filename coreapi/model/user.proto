@@ -54,7 +54,6 @@ message User {
 
   // Identity type of this user.
   //
-  // +kubebuilder:example="member"
   UserType type = 6;
 
   // Tags that were automatically applied during a user import operation.

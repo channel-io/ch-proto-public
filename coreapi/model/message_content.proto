@@ -19,7 +19,6 @@ message Block {
   // Content block type that determines how the block is rendered and which fields are applicable.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="text"
   BlockType type = 1 [(buf.validate.field).required = true];
 
   // Programming language identifier for syntax highlighting.
@@ -83,7 +82,6 @@ message MessageButton {
   // Visual color theme applied to the button.
   // Defaults to the channel's primary color when not specified.
   //
-  // +kubebuilder:example="green"
   ColorVariant color_variant = 2;
 
   // Action payload executed when the button is clicked.
@@ -212,7 +210,6 @@ message MessageFile {
   // Access scope that determines who can view this private file.
   // Derived from the storage key pattern.
   //
-  // +kubebuilder:example="chat"
   PrivateFileScope private_file_scope = 14;
 
   // Domain identifier for channel-scoped private files.
@@ -412,7 +409,6 @@ message MessageContent {
   // Option flags that modify message delivery and display behavior.
   //
   // no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
-  // +kubebuilder:example=["doNotSearch","immutable","private"]
   repeated MessageOption options = 7;
 
   // Client-generated request identifier for idempotency.

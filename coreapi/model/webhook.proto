@@ -91,7 +91,6 @@ message Webhook {
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinItems=1
   // no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
-  // +kubebuilder:example=["userChatOpened","messageCreatedUserChat"]
   repeated WebhookScope scopes = 7 [(buf.validate.field).required = true];
 
   // API version for webhook payloads.
