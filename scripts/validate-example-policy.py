@@ -277,7 +277,7 @@ def check_enum_def(e: EnumDefinition) -> list[Violation]:
         return [Violation(
             rule_id=rule["id"], loc=e.loc, case="enum definition",
             message=f"enum '{e.name}' has definition-level example {e.example_raw!r} — MUST NOT "
-                    f"(use per-field example on each usage site instead)",
+                    f"(enum values are self-documenting; remove this marker)",
         )]
     return []
 
