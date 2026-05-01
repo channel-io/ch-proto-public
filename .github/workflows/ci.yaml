@@ -92,7 +92,7 @@ jobs:
 
       - name: Install ch-protoc-gen-openapi
         run: |
-          go install github.com/channel-io/ch-protoc-gen-openapi@v0.1.10
+          go install github.com/channel-io/ch-protoc-gen-openapi@v0.1.14
           ln -sf "$(go env GOPATH)/bin/ch-protoc-gen-openapi" "$(go env GOPATH)/bin/protoc-gen-openapi"
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
 
