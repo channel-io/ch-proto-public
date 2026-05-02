@@ -3,8 +3,8 @@
 
 package io.channel.api.proto.pub.coreapi.service;
 
-public interface UpdateGroupByNameResultOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:coreapi.service.UpdateGroupByNameResult)
+public interface PatchGroupByNameResultOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:coreapi.service.PatchGroupByNameResult)
     com.google.protobuf.MessageOrBuilder {
 
   /**
