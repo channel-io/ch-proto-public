@@ -296,6 +296,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Route selection buttons presented to the user at the end of a route section.
    * Set to null after the user makes a selection.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -308,6 +309,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Route selection buttons presented to the user at the end of a route section.
    * Set to null after the user makes a selection.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -321,6 +323,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Route selection buttons presented to the user at the end of a route section.
    * Set to null after the user makes a selection.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -333,6 +336,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Route selection buttons presented to the user at the end of a route section.
    * Set to null after the user makes a selection.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -345,6 +349,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Route selection buttons presented to the user at the end of a route section.
    * Set to null after the user makes a selection.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1169,6 +1174,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1184,6 +1190,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1199,6 +1206,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1214,6 +1222,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1236,6 +1245,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1255,6 +1265,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1276,6 +1287,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1298,6 +1310,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1317,6 +1330,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1336,6 +1350,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1356,6 +1371,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1374,6 +1390,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1392,6 +1409,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1404,6 +1422,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1419,6 +1438,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1435,6 +1455,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1447,6 +1468,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>
@@ -1460,6 +1482,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Route selection buttons presented to the user at the end of a route section.
      * Set to null after the user makes a selection.
+     * +kubebuilder:example=[]
      * </pre>
      *
      * <code>repeated .google.protobuf.Struct buttons = 5 [json_name = "buttons"];</code>

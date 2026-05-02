@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.service;
 
 /**
  * <pre>
- * Response for user update.
+ * Response for user patch.
  * </pre>
  *
  * Protobuf type {@code coreapi.service.PatchUserResult}
@@ -285,7 +285,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Response for user update.
+   * Response for user patch.
    * </pre>
    *
    * Protobuf type {@code coreapi.service.PatchUserResult}

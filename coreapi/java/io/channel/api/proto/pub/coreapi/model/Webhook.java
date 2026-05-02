@@ -449,6 +449,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Webhook creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -462,6 +463,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Webhook creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -475,6 +477,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Webhook creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -501,6 +504,7 @@ private static final long serialVersionUID = 0L;
    * Event scopes that trigger this webhook.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
+   * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -516,6 +520,7 @@ private static final long serialVersionUID = 0L;
    * Event scopes that trigger this webhook.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
+   * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -530,6 +535,7 @@ private static final long serialVersionUID = 0L;
    * Event scopes that trigger this webhook.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
+   * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -545,6 +551,7 @@ private static final long serialVersionUID = 0L;
    * Event scopes that trigger this webhook.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
+   * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -560,6 +567,7 @@ private static final long serialVersionUID = 0L;
    * Event scopes that trigger this webhook.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
+   * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -629,6 +637,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the webhook was last blocked due to consecutive failures.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -641,6 +650,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the webhook was last blocked due to consecutive failures.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -653,6 +663,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the webhook was last blocked due to consecutive failures.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -1749,6 +1760,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1761,6 +1773,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1777,6 +1790,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1798,6 +1812,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1817,6 +1832,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1840,6 +1856,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1859,6 +1876,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1872,6 +1890,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1888,6 +1907,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1919,6 +1939,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -1933,6 +1954,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -1946,6 +1968,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -1960,6 +1983,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -1982,6 +2006,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2002,6 +2027,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2022,6 +2048,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2038,6 +2065,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2052,6 +2080,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2066,6 +2095,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2085,6 +2115,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2102,6 +2133,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2235,6 +2267,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2246,6 +2279,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2261,6 +2295,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2281,6 +2316,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2299,6 +2335,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2321,6 +2358,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2339,6 +2377,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2351,6 +2390,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2366,6 +2406,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>

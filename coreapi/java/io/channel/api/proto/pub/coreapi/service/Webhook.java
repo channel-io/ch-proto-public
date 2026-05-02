@@ -50,6 +50,11 @@ public final class Webhook {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_coreapi_service_PatchWebhookRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_PatchWebhookRequest_PatchWebhookBody_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_PatchWebhookRequest_PatchWebhookBody_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_coreapi_service_PatchWebhookResult_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -75,47 +80,53 @@ public final class Webhook {
     java.lang.String[] descriptorData = {
       "\n\035coreapi/service/webhook.proto\022\017coreapi" +
       ".service\032\033buf/validate/validate.proto\032\033c" +
-      "oreapi/model/webhook.proto\"\315\001\n\025SearchWeb" +
-      "hooksRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001" +
-      "R\tchannelId\022\026\n\006cursor\030\002 \001(\tR\006cursor\022u\n\005l" +
-      "imit\030\003 \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037limit" +
-      " must be between 1 and 500\032\'this == 0 ||" +
-      " (this >= 1 && this <= 500)R\005limit\"\206\001\n\024S" +
-      "earchWebhooksResult\0222\n\010webhooks\030\001 \003(\0132\026." +
-      "coreapi.model.WebhookR\010webhooks\022\037\n\013next_" +
-      "cursor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001" +
-      "(\010R\007hasNext\"a\n\021GetWebhookRequest\022%\n\nwebh" +
-      "ook_id\030\001 \001(\tB\006\272H\003\310\001\001R\twebhookId\022%\n\nchann" +
-      "el_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"D\n\020GetWeb" +
-      "hookResult\0220\n\007webhook\030\001 \001(\0132\026.coreapi.mo" +
-      "del.WebhookR\007webhook\"\331\001\n\024CreateWebhookRe" +
-      "quest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchann" +
-      "elId\022\032\n\004name\030\002 \001(\tB\006\272H\003\310\001\001R\004name\022\030\n\003url\030" +
-      "\003 \001(\tB\006\272H\003\310\001\001R\003url\022;\n\006scopes\030\004 \003(\0162\033.cor" +
-      "eapi.model.WebhookScopeB\006\272H\003\310\001\001R\006scopes\022" +
-      "\'\n\013api_version\030\005 \001(\tB\006\272H\003\310\001\001R\napiVersion" +
-      "\"G\n\023CreateWebhookResult\0220\n\007webhook\030\001 \001(\013" +
-      "2\026.coreapi.model.WebhookR\007webhook\"\337\001\n\023Pa" +
-      "tchWebhookRequest\022%\n\nwebhook_id\030\001 \001(\tB\006\272" +
-      "H\003\310\001\001R\twebhookId\022%\n\nchannel_id\030\002 \001(\tB\006\272H" +
-      "\003\310\001\001R\tchannelId\022\022\n\004name\030\003 \001(\tR\004name\022\020\n\003u" +
-      "rl\030\004 \001(\tR\003url\0223\n\006scopes\030\005 \003(\0162\033.coreapi." +
-      "model.WebhookScopeR\006scopes\022\037\n\013api_versio" +
-      "n\030\006 \001(\tR\napiVersion\"F\n\022PatchWebhookResul" +
-      "t\0220\n\007webhook\030\001 \001(\0132\026.coreapi.model.Webho" +
-      "okR\007webhook\"d\n\024DeleteWebhookRequest\022%\n\nw" +
-      "ebhook_id\030\001 \001(\tB\006\272H\003\310\001\001R\twebhookId\022%\n\nch" +
-      "annel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"\025\n\023Del" +
-      "eteWebhookResultBf\n(io.channel.api.proto" +
-      ".pub.coreapi.serviceP\001Z8github.com/chann" +
-      "el-io/ch-proto-public/coreapi/go/service" +
-      "b\006proto3"
+      "oreapi/model/webhook.proto\032 google/proto" +
+      "buf/field_mask.proto\"\315\001\n\025SearchWebhooksR" +
+      "equest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchan" +
+      "nelId\022\026\n\006cursor\030\002 \001(\tR\006cursor\022u\n\005limit\030\003" +
+      " \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037limit must " +
+      "be between 1 and 500\032\'this == 0 || (this" +
+      " >= 1 && this <= 500)R\005limit\"\206\001\n\024SearchW" +
+      "ebhooksResult\0222\n\010webhooks\030\001 \003(\0132\026.coreap" +
+      "i.model.WebhookR\010webhooks\022\037\n\013next_cursor" +
+      "\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001(\010R\007ha" +
+      "sNext\"a\n\021GetWebhookRequest\022%\n\nwebhook_id" +
+      "\030\001 \001(\tB\006\272H\003\310\001\001R\twebhookId\022%\n\nchannel_id\030" +
+      "\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"D\n\020GetWebhookRe" +
+      "sult\0220\n\007webhook\030\001 \001(\0132\026.coreapi.model.We" +
+      "bhookR\007webhook\"\331\001\n\024CreateWebhookRequest\022" +
+      "%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\032" +
+      "\n\004name\030\002 \001(\tB\006\272H\003\310\001\001R\004name\022\030\n\003url\030\003 \001(\tB" +
+      "\006\272H\003\310\001\001R\003url\022;\n\006scopes\030\004 \003(\0162\033.coreapi.m" +
+      "odel.WebhookScopeB\006\272H\003\310\001\001R\006scopes\022\'\n\013api" +
+      "_version\030\005 \001(\tB\006\272H\003\310\001\001R\napiVersion\"G\n\023Cr" +
+      "eateWebhookResult\0220\n\007webhook\030\001 \001(\0132\026.cor" +
+      "eapi.model.WebhookR\007webhook\"\214\003\n\023PatchWeb" +
+      "hookRequest\022%\n\nwebhook_id\030\001 \001(\tB\006\272H\003\310\001\001R" +
+      "\twebhookId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\t" +
+      "channelId\022Q\n\004body\030\003 \001(\01325.coreapi.servic" +
+      "e.PatchWebhookRequest.PatchWebhookBodyB\006" +
+      "\272H\003\310\001\001R\004body\022C\n\013update_mask\030\004 \001(\0132\032.goog" +
+      "le.protobuf.FieldMaskB\006\272H\003\310\001\001R\nupdateMas" +
+      "k\032\216\001\n\020PatchWebhookBody\022\022\n\004name\030\001 \001(\tR\004na" +
+      "me\022\020\n\003url\030\002 \001(\tR\003url\0223\n\006scopes\030\003 \003(\0162\033.c" +
+      "oreapi.model.WebhookScopeR\006scopes\022\037\n\013api" +
+      "_version\030\004 \001(\tR\napiVersion\"F\n\022PatchWebho" +
+      "okResult\0220\n\007webhook\030\001 \001(\0132\026.coreapi.mode" +
+      "l.WebhookR\007webhook\"d\n\024DeleteWebhookReque" +
+      "st\022%\n\nwebhook_id\030\001 \001(\tB\006\272H\003\310\001\001R\twebhookI" +
+      "d\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId" +
+      "\"\025\n\023DeleteWebhookResultBf\n(io.channel.ap" +
+      "i.proto.pub.coreapi.serviceP\001Z8github.co" +
+      "m/channel-io/ch-proto-public/coreapi/go/" +
+      "serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
           io.channel.api.proto.pub.coreapi.model.WebhookOuterClass.getDescriptor(),
+          com.google.protobuf.FieldMaskProto.getDescriptor(),
         });
     internal_static_coreapi_service_SearchWebhooksRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -158,7 +169,13 @@ public final class Webhook {
     internal_static_coreapi_service_PatchWebhookRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_PatchWebhookRequest_descriptor,
-        new java.lang.String[] { "WebhookId", "ChannelId", "Name", "Url", "Scopes", "ApiVersion", });
+        new java.lang.String[] { "WebhookId", "ChannelId", "Body", "UpdateMask", });
+    internal_static_coreapi_service_PatchWebhookRequest_PatchWebhookBody_descriptor =
+      internal_static_coreapi_service_PatchWebhookRequest_descriptor.getNestedTypes().get(0);
+    internal_static_coreapi_service_PatchWebhookRequest_PatchWebhookBody_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_PatchWebhookRequest_PatchWebhookBody_descriptor,
+        new java.lang.String[] { "Name", "Url", "Scopes", "ApiVersion", });
     internal_static_coreapi_service_PatchWebhookResult_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_coreapi_service_PatchWebhookResult_fieldAccessorTable = new
@@ -184,6 +201,7 @@ public final class Webhook {
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
     io.channel.api.proto.pub.coreapi.model.WebhookOuterClass.getDescriptor();
+    com.google.protobuf.FieldMaskProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

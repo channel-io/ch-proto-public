@@ -566,6 +566,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Plugin creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -579,6 +580,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Plugin creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -592,6 +594,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Plugin creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -734,6 +737,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
+   * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -757,6 +761,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
+   * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -770,6 +775,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
+   * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -788,6 +794,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
+   * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -1174,6 +1181,7 @@ private static final long serialVersionUID = 0L;
    * URL patterns that restrict where the plugin is displayed.
    * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
    * +kubebuilder:validation:MaxItems=5
+   * +kubebuilder:example=["https://channel.io","https://&#42;.channel.io"]
    * </pre>
    *
    * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -1188,6 +1196,7 @@ private static final long serialVersionUID = 0L;
    * URL patterns that restrict where the plugin is displayed.
    * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
    * +kubebuilder:validation:MaxItems=5
+   * +kubebuilder:example=["https://channel.io","https://&#42;.channel.io"]
    * </pre>
    *
    * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -1201,6 +1210,7 @@ private static final long serialVersionUID = 0L;
    * URL patterns that restrict where the plugin is displayed.
    * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
    * +kubebuilder:validation:MaxItems=5
+   * +kubebuilder:example=["https://channel.io","https://&#42;.channel.io"]
    * </pre>
    *
    * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -1215,6 +1225,7 @@ private static final long serialVersionUID = 0L;
    * URL patterns that restrict where the plugin is displayed.
    * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
    * +kubebuilder:validation:MaxItems=5
+   * +kubebuilder:example=["https://channel.io","https://&#42;.channel.io"]
    * </pre>
    *
    * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -2862,6 +2873,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Plugin creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2874,6 +2886,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Plugin creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2890,6 +2903,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Plugin creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2911,6 +2925,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Plugin creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2930,6 +2945,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Plugin creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2953,6 +2969,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Plugin creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2972,6 +2989,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Plugin creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2985,6 +3003,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Plugin creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -3001,6 +3020,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Plugin creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -3301,6 +3321,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Localized label button text, keyed by locale code (e.g., "en", "ko").
      * Overrides label_button_text for matching locales.
+     * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -3324,6 +3345,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Localized label button text, keyed by locale code (e.g., "en", "ko").
      * Overrides label_button_text for matching locales.
+     * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -3337,6 +3359,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Localized label button text, keyed by locale code (e.g., "en", "ko").
      * Overrides label_button_text for matching locales.
+     * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -3355,6 +3378,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Localized label button text, keyed by locale code (e.g., "en", "ko").
      * Overrides label_button_text for matching locales.
+     * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -3381,6 +3405,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Localized label button text, keyed by locale code (e.g., "en", "ko").
      * Overrides label_button_text for matching locales.
+     * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -3405,6 +3430,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Localized label button text, keyed by locale code (e.g., "en", "ko").
      * Overrides label_button_text for matching locales.
+     * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -3425,6 +3451,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Localized label button text, keyed by locale code (e.g., "en", "ko").
      * Overrides label_button_text for matching locales.
+     * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -4607,6 +4634,7 @@ private static final long serialVersionUID = 0L;
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
      * +kubebuilder:validation:MaxItems=5
+     * +kubebuilder:example=["https://channel.io","https://&#42;.channel.io"]
      * </pre>
      *
      * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -4621,6 +4649,7 @@ private static final long serialVersionUID = 0L;
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
      * +kubebuilder:validation:MaxItems=5
+     * +kubebuilder:example=["https://channel.io","https://&#42;.channel.io"]
      * </pre>
      *
      * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -4634,6 +4663,7 @@ private static final long serialVersionUID = 0L;
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
      * +kubebuilder:validation:MaxItems=5
+     * +kubebuilder:example=["https://channel.io","https://&#42;.channel.io"]
      * </pre>
      *
      * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -4648,6 +4678,7 @@ private static final long serialVersionUID = 0L;
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
      * +kubebuilder:validation:MaxItems=5
+     * +kubebuilder:example=["https://channel.io","https://&#42;.channel.io"]
      * </pre>
      *
      * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -4663,6 +4694,7 @@ private static final long serialVersionUID = 0L;
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
      * +kubebuilder:validation:MaxItems=5
+     * +kubebuilder:example=["https://channel.io","https://&#42;.channel.io"]
      * </pre>
      *
      * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -4685,6 +4717,7 @@ private static final long serialVersionUID = 0L;
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
      * +kubebuilder:validation:MaxItems=5
+     * +kubebuilder:example=["https://channel.io","https://&#42;.channel.io"]
      * </pre>
      *
      * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -4706,6 +4739,7 @@ private static final long serialVersionUID = 0L;
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
      * +kubebuilder:validation:MaxItems=5
+     * +kubebuilder:example=["https://channel.io","https://&#42;.channel.io"]
      * </pre>
      *
      * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -4725,6 +4759,7 @@ private static final long serialVersionUID = 0L;
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
      * +kubebuilder:validation:MaxItems=5
+     * +kubebuilder:example=["https://channel.io","https://&#42;.channel.io"]
      * </pre>
      *
      * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -4741,6 +4776,7 @@ private static final long serialVersionUID = 0L;
      * URL patterns that restrict where the plugin is displayed.
      * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
      * +kubebuilder:validation:MaxItems=5
+     * +kubebuilder:example=["https://channel.io","https://&#42;.channel.io"]
      * </pre>
      *
      * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>

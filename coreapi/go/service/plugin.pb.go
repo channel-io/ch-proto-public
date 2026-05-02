@@ -11,6 +11,7 @@ import (
 	model "github.com/channel-io/ch-proto-public/coreapi/go/model"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -262,112 +263,40 @@ func (x *GetPluginResult) GetPlugin() *model.Plugin {
 	return nil
 }
 
-// Updates a plugin.
-type UpdatePluginRequest struct {
+// Patches a plugin.
+//
+// PATCH semantics per RFC 7396 / AIP-134/161:
+//   - a field listed in update_mask is applied (null = clear, value = set)
+//   - a field absent from update_mask is not modified
+type PatchPluginRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Plugin ID to update.
 	PluginId string `protobuf:"bytes,1,opt,name=plugin_id,json=pluginId,proto3" json:"plugin_id,omitempty"`
 	// Channel ID the plugin belongs to.
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Plugin display name.
-	//
-	// +kubebuilder:validation:Nullable
-	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:validation:MaxLength=30
-	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	// Visual theme of the widget.
-	//
-	// +kubebuilder:validation:Nullable
-	Appearance model.PluginAppearance `protobuf:"varint,4,opt,name=appearance,proto3,enum=coreapi.model.PluginAppearance" json:"appearance,omitempty"`
-	// Whether the label button is displayed on the widget.
-	//
-	// +kubebuilder:validation:Nullable
-	LabelButton bool `protobuf:"varint,5,opt,name=label_button,json=labelButton,proto3" json:"label_button,omitempty"`
-	// Text displayed on the label button.
-	//
-	// +kubebuilder:validation:Nullable
-	// +kubebuilder:validation:MinLength=4
-	// +kubebuilder:validation:MaxLength=30
-	LabelButtonText string `protobuf:"bytes,6,opt,name=label_button_text,json=labelButtonText,proto3" json:"label_button_text,omitempty"`
-	// Internationalized label button text keyed by locale.
-	// Each value must be between 4 and 30 characters.
-	//
-	// +kubebuilder:validation:Nullable
-	LabelButtonTextI18NMap map[string]string `protobuf:"bytes,7,rep,name=label_button_text_i18n_map,json=labelButtonTextI18nMap,proto3" json:"label_button_text_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Type of the launcher button.
-	//
-	// +kubebuilder:validation:Nullable
-	ButtonType model.PluginButtonType `protobuf:"varint,8,opt,name=button_type,json=buttonType,proto3,enum=coreapi.model.PluginButtonType" json:"button_type,omitempty"`
-	// Predefined icon for the launcher button.
-	// Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-	//
-	// +kubebuilder:validation:Nullable
-	IconButton model.PluginIconButton `protobuf:"varint,9,opt,name=icon_button,json=iconButton,proto3,enum=coreapi.model.PluginIconButton" json:"icon_button,omitempty"`
-	// Horizontal margin in pixels for the desktop widget.
-	//
-	// +kubebuilder:validation:Nullable
-	DeskMarginX int32 `protobuf:"varint,10,opt,name=desk_margin_x,json=deskMarginX,proto3" json:"desk_margin_x,omitempty"`
-	// Vertical margin in pixels for the desktop widget.
-	//
-	// +kubebuilder:validation:Nullable
-	DeskMarginY int32 `protobuf:"varint,11,opt,name=desk_margin_y,json=deskMarginY,proto3" json:"desk_margin_y,omitempty"`
-	// Whether the launcher button is hidden on desktop.
-	//
-	// +kubebuilder:validation:Nullable
-	DeskHideButton bool `protobuf:"varint,12,opt,name=desk_hide_button,json=deskHideButton,proto3" json:"desk_hide_button,omitempty"`
-	// Horizontal position of the widget on desktop.
-	//
-	// +kubebuilder:validation:Nullable
-	DeskPosition model.PluginPosition `protobuf:"varint,13,opt,name=desk_position,json=deskPosition,proto3,enum=coreapi.model.PluginPosition" json:"desk_position,omitempty"`
-	// Horizontal margin in pixels for the mobile widget.
-	//
-	// +kubebuilder:validation:Nullable
-	MobileMarginX int32 `protobuf:"varint,14,opt,name=mobile_margin_x,json=mobileMarginX,proto3" json:"mobile_margin_x,omitempty"`
-	// Vertical margin in pixels for the mobile widget.
-	//
-	// +kubebuilder:validation:Nullable
-	MobileMarginY int32 `protobuf:"varint,15,opt,name=mobile_margin_y,json=mobileMarginY,proto3" json:"mobile_margin_y,omitempty"`
-	// Horizontal position of the widget on mobile.
-	//
-	// +kubebuilder:validation:Nullable
-	MobilePosition model.PluginPosition `protobuf:"varint,16,opt,name=mobile_position,json=mobilePosition,proto3,enum=coreapi.model.PluginPosition" json:"mobile_position,omitempty"`
-	// Whether the launcher button is hidden on mobile.
-	//
-	// +kubebuilder:validation:Nullable
-	MobileHideButton bool `protobuf:"varint,17,opt,name=mobile_hide_button,json=mobileHideButton,proto3" json:"mobile_hide_button,omitempty"`
-	// Vertical position of the chat bubble on mobile.
-	//
-	// +kubebuilder:validation:Nullable
-	MobileBubblePosition model.PluginBubblePosition `protobuf:"varint,18,opt,name=mobile_bubble_position,json=mobileBubblePosition,proto3,enum=coreapi.model.PluginBubblePosition" json:"mobile_bubble_position,omitempty"`
-	// Ratio of website visitors who see the plugin widget.
-	//
-	// +kubebuilder:validation:Nullable
-	// +kubebuilder:validation:Minimum=0
-	// +kubebuilder:validation:Maximum=1
-	RunRate float32 `protobuf:"fixed32,19,opt,name=run_rate,json=runRate,proto3" json:"run_rate,omitempty"`
-	// External image URL to use as the custom launcher button image.
-	// Applicable when button_type is CUSTOM_IMAGE.
-	//
-	// +kubebuilder:validation:Nullable
-	CustomImageUrl string `protobuf:"bytes,20,opt,name=custom_image_url,json=customImageUrl,proto3" json:"custom_image_url,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	// Patch body. Only fields listed in update_mask are applied.
+	Body *PatchPluginRequest_PatchPluginBody `protobuf:"bytes,3,opt,name=body,proto3" json:"body,omitempty"`
+	// Set of field paths (relative to PatchPluginBody) to update.
+	// Unlisted fields remain unchanged.
+	UpdateMask    *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
-func (x *UpdatePluginRequest) Reset() {
-	*x = UpdatePluginRequest{}
+func (x *PatchPluginRequest) Reset() {
+	*x = PatchPluginRequest{}
 	mi := &file_coreapi_service_plugin_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UpdatePluginRequest) String() string {
+func (x *PatchPluginRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UpdatePluginRequest) ProtoMessage() {}
+func (*PatchPluginRequest) ProtoMessage() {}
 
-func (x *UpdatePluginRequest) ProtoReflect() protoreflect.Message {
+func (x *PatchPluginRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_coreapi_service_plugin_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -379,173 +308,61 @@ func (x *UpdatePluginRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UpdatePluginRequest.ProtoReflect.Descriptor instead.
-func (*UpdatePluginRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use PatchPluginRequest.ProtoReflect.Descriptor instead.
+func (*PatchPluginRequest) Descriptor() ([]byte, []int) {
 	return file_coreapi_service_plugin_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *UpdatePluginRequest) GetPluginId() string {
+func (x *PatchPluginRequest) GetPluginId() string {
 	if x != nil {
 		return x.PluginId
 	}
 	return ""
 }
 
-func (x *UpdatePluginRequest) GetChannelId() string {
+func (x *PatchPluginRequest) GetChannelId() string {
 	if x != nil {
 		return x.ChannelId
 	}
 	return ""
 }
 
-func (x *UpdatePluginRequest) GetName() string {
+func (x *PatchPluginRequest) GetBody() *PatchPluginRequest_PatchPluginBody {
 	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *UpdatePluginRequest) GetAppearance() model.PluginAppearance {
-	if x != nil {
-		return x.Appearance
-	}
-	return model.PluginAppearance(0)
-}
-
-func (x *UpdatePluginRequest) GetLabelButton() bool {
-	if x != nil {
-		return x.LabelButton
-	}
-	return false
-}
-
-func (x *UpdatePluginRequest) GetLabelButtonText() string {
-	if x != nil {
-		return x.LabelButtonText
-	}
-	return ""
-}
-
-func (x *UpdatePluginRequest) GetLabelButtonTextI18NMap() map[string]string {
-	if x != nil {
-		return x.LabelButtonTextI18NMap
+		return x.Body
 	}
 	return nil
 }
 
-func (x *UpdatePluginRequest) GetButtonType() model.PluginButtonType {
+func (x *PatchPluginRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
 	if x != nil {
-		return x.ButtonType
+		return x.UpdateMask
 	}
-	return model.PluginButtonType(0)
+	return nil
 }
 
-func (x *UpdatePluginRequest) GetIconButton() model.PluginIconButton {
-	if x != nil {
-		return x.IconButton
-	}
-	return model.PluginIconButton(0)
-}
-
-func (x *UpdatePluginRequest) GetDeskMarginX() int32 {
-	if x != nil {
-		return x.DeskMarginX
-	}
-	return 0
-}
-
-func (x *UpdatePluginRequest) GetDeskMarginY() int32 {
-	if x != nil {
-		return x.DeskMarginY
-	}
-	return 0
-}
-
-func (x *UpdatePluginRequest) GetDeskHideButton() bool {
-	if x != nil {
-		return x.DeskHideButton
-	}
-	return false
-}
-
-func (x *UpdatePluginRequest) GetDeskPosition() model.PluginPosition {
-	if x != nil {
-		return x.DeskPosition
-	}
-	return model.PluginPosition(0)
-}
-
-func (x *UpdatePluginRequest) GetMobileMarginX() int32 {
-	if x != nil {
-		return x.MobileMarginX
-	}
-	return 0
-}
-
-func (x *UpdatePluginRequest) GetMobileMarginY() int32 {
-	if x != nil {
-		return x.MobileMarginY
-	}
-	return 0
-}
-
-func (x *UpdatePluginRequest) GetMobilePosition() model.PluginPosition {
-	if x != nil {
-		return x.MobilePosition
-	}
-	return model.PluginPosition(0)
-}
-
-func (x *UpdatePluginRequest) GetMobileHideButton() bool {
-	if x != nil {
-		return x.MobileHideButton
-	}
-	return false
-}
-
-func (x *UpdatePluginRequest) GetMobileBubblePosition() model.PluginBubblePosition {
-	if x != nil {
-		return x.MobileBubblePosition
-	}
-	return model.PluginBubblePosition(0)
-}
-
-func (x *UpdatePluginRequest) GetRunRate() float32 {
-	if x != nil {
-		return x.RunRate
-	}
-	return 0
-}
-
-func (x *UpdatePluginRequest) GetCustomImageUrl() string {
-	if x != nil {
-		return x.CustomImageUrl
-	}
-	return ""
-}
-
-// Response for plugin update.
-type UpdatePluginResult struct {
+// Response for plugin patch.
+type PatchPluginResult struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Plugin        *model.Plugin          `protobuf:"bytes,1,opt,name=plugin,proto3" json:"plugin,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *UpdatePluginResult) Reset() {
-	*x = UpdatePluginResult{}
+func (x *PatchPluginResult) Reset() {
+	*x = PatchPluginResult{}
 	mi := &file_coreapi_service_plugin_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UpdatePluginResult) String() string {
+func (x *PatchPluginResult) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UpdatePluginResult) ProtoMessage() {}
+func (*PatchPluginResult) ProtoMessage() {}
 
-func (x *UpdatePluginResult) ProtoReflect() protoreflect.Message {
+func (x *PatchPluginResult) ProtoReflect() protoreflect.Message {
 	mi := &file_coreapi_service_plugin_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -557,23 +374,266 @@ func (x *UpdatePluginResult) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UpdatePluginResult.ProtoReflect.Descriptor instead.
-func (*UpdatePluginResult) Descriptor() ([]byte, []int) {
+// Deprecated: Use PatchPluginResult.ProtoReflect.Descriptor instead.
+func (*PatchPluginResult) Descriptor() ([]byte, []int) {
 	return file_coreapi_service_plugin_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *UpdatePluginResult) GetPlugin() *model.Plugin {
+func (x *PatchPluginResult) GetPlugin() *model.Plugin {
 	if x != nil {
 		return x.Plugin
 	}
 	return nil
 }
 
+type PatchPluginRequest_PatchPluginBody struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Plugin display name.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:validation:MaxLength=30
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	// Visual theme of the widget.
+	//
+	// +kubebuilder:validation:Nullable
+	Appearance model.PluginAppearance `protobuf:"varint,2,opt,name=appearance,proto3,enum=coreapi.model.PluginAppearance" json:"appearance,omitempty"`
+	// Whether the label button is displayed on the widget.
+	//
+	// +kubebuilder:validation:Nullable
+	LabelButton bool `protobuf:"varint,3,opt,name=label_button,json=labelButton,proto3" json:"label_button,omitempty"`
+	// Text displayed on the label button.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MinLength=4
+	// +kubebuilder:validation:MaxLength=30
+	LabelButtonText string `protobuf:"bytes,4,opt,name=label_button_text,json=labelButtonText,proto3" json:"label_button_text,omitempty"`
+	// Internationalized label button text keyed by locale.
+	// Each value must be between 4 and 30 characters.
+	//
+	// +kubebuilder:validation:Nullable
+	LabelButtonTextI18NMap map[string]string `protobuf:"bytes,5,rep,name=label_button_text_i18n_map,json=labelButtonTextI18nMap,proto3" json:"label_button_text_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Type of the launcher button.
+	//
+	// +kubebuilder:validation:Nullable
+	ButtonType model.PluginButtonType `protobuf:"varint,6,opt,name=button_type,json=buttonType,proto3,enum=coreapi.model.PluginButtonType" json:"button_type,omitempty"`
+	// Predefined icon for the launcher button.
+	// Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
+	//
+	// +kubebuilder:validation:Nullable
+	IconButton model.PluginIconButton `protobuf:"varint,7,opt,name=icon_button,json=iconButton,proto3,enum=coreapi.model.PluginIconButton" json:"icon_button,omitempty"`
+	// Horizontal margin in pixels for the desktop widget.
+	//
+	// +kubebuilder:validation:Nullable
+	DeskMarginX int32 `protobuf:"varint,8,opt,name=desk_margin_x,json=deskMarginX,proto3" json:"desk_margin_x,omitempty"`
+	// Vertical margin in pixels for the desktop widget.
+	//
+	// +kubebuilder:validation:Nullable
+	DeskMarginY int32 `protobuf:"varint,9,opt,name=desk_margin_y,json=deskMarginY,proto3" json:"desk_margin_y,omitempty"`
+	// Whether the launcher button is hidden on desktop.
+	//
+	// +kubebuilder:validation:Nullable
+	DeskHideButton bool `protobuf:"varint,10,opt,name=desk_hide_button,json=deskHideButton,proto3" json:"desk_hide_button,omitempty"`
+	// Horizontal position of the widget on desktop.
+	//
+	// +kubebuilder:validation:Nullable
+	DeskPosition model.PluginPosition `protobuf:"varint,11,opt,name=desk_position,json=deskPosition,proto3,enum=coreapi.model.PluginPosition" json:"desk_position,omitempty"`
+	// Horizontal margin in pixels for the mobile widget.
+	//
+	// +kubebuilder:validation:Nullable
+	MobileMarginX int32 `protobuf:"varint,12,opt,name=mobile_margin_x,json=mobileMarginX,proto3" json:"mobile_margin_x,omitempty"`
+	// Vertical margin in pixels for the mobile widget.
+	//
+	// +kubebuilder:validation:Nullable
+	MobileMarginY int32 `protobuf:"varint,13,opt,name=mobile_margin_y,json=mobileMarginY,proto3" json:"mobile_margin_y,omitempty"`
+	// Horizontal position of the widget on mobile.
+	//
+	// +kubebuilder:validation:Nullable
+	MobilePosition model.PluginPosition `protobuf:"varint,14,opt,name=mobile_position,json=mobilePosition,proto3,enum=coreapi.model.PluginPosition" json:"mobile_position,omitempty"`
+	// Whether the launcher button is hidden on mobile.
+	//
+	// +kubebuilder:validation:Nullable
+	MobileHideButton bool `protobuf:"varint,15,opt,name=mobile_hide_button,json=mobileHideButton,proto3" json:"mobile_hide_button,omitempty"`
+	// Vertical position of the chat bubble on mobile.
+	//
+	// +kubebuilder:validation:Nullable
+	MobileBubblePosition model.PluginBubblePosition `protobuf:"varint,16,opt,name=mobile_bubble_position,json=mobileBubblePosition,proto3,enum=coreapi.model.PluginBubblePosition" json:"mobile_bubble_position,omitempty"`
+	// Ratio of website visitors who see the plugin widget.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Minimum=0
+	// +kubebuilder:validation:Maximum=1
+	RunRate float32 `protobuf:"fixed32,17,opt,name=run_rate,json=runRate,proto3" json:"run_rate,omitempty"`
+	// External image URL to use as the custom launcher button image.
+	// Applicable when button_type is CUSTOM_IMAGE.
+	//
+	// +kubebuilder:validation:Nullable
+	CustomImageUrl string `protobuf:"bytes,18,opt,name=custom_image_url,json=customImageUrl,proto3" json:"custom_image_url,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) Reset() {
+	*x = PatchPluginRequest_PatchPluginBody{}
+	mi := &file_coreapi_service_plugin_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PatchPluginRequest_PatchPluginBody) ProtoMessage() {}
+
+func (x *PatchPluginRequest_PatchPluginBody) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_plugin_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PatchPluginRequest_PatchPluginBody.ProtoReflect.Descriptor instead.
+func (*PatchPluginRequest_PatchPluginBody) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_plugin_proto_rawDescGZIP(), []int{4, 0}
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetAppearance() model.PluginAppearance {
+	if x != nil {
+		return x.Appearance
+	}
+	return model.PluginAppearance(0)
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetLabelButton() bool {
+	if x != nil {
+		return x.LabelButton
+	}
+	return false
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetLabelButtonText() string {
+	if x != nil {
+		return x.LabelButtonText
+	}
+	return ""
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetLabelButtonTextI18NMap() map[string]string {
+	if x != nil {
+		return x.LabelButtonTextI18NMap
+	}
+	return nil
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetButtonType() model.PluginButtonType {
+	if x != nil {
+		return x.ButtonType
+	}
+	return model.PluginButtonType(0)
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetIconButton() model.PluginIconButton {
+	if x != nil {
+		return x.IconButton
+	}
+	return model.PluginIconButton(0)
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetDeskMarginX() int32 {
+	if x != nil {
+		return x.DeskMarginX
+	}
+	return 0
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetDeskMarginY() int32 {
+	if x != nil {
+		return x.DeskMarginY
+	}
+	return 0
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetDeskHideButton() bool {
+	if x != nil {
+		return x.DeskHideButton
+	}
+	return false
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetDeskPosition() model.PluginPosition {
+	if x != nil {
+		return x.DeskPosition
+	}
+	return model.PluginPosition(0)
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetMobileMarginX() int32 {
+	if x != nil {
+		return x.MobileMarginX
+	}
+	return 0
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetMobileMarginY() int32 {
+	if x != nil {
+		return x.MobileMarginY
+	}
+	return 0
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetMobilePosition() model.PluginPosition {
+	if x != nil {
+		return x.MobilePosition
+	}
+	return model.PluginPosition(0)
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetMobileHideButton() bool {
+	if x != nil {
+		return x.MobileHideButton
+	}
+	return false
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetMobileBubblePosition() model.PluginBubblePosition {
+	if x != nil {
+		return x.MobileBubblePosition
+	}
+	return model.PluginBubblePosition(0)
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetRunRate() float32 {
+	if x != nil {
+		return x.RunRate
+	}
+	return 0
+}
+
+func (x *PatchPluginRequest_PatchPluginBody) GetCustomImageUrl() string {
+	if x != nil {
+		return x.CustomImageUrl
+	}
+	return ""
+}
+
 var File_coreapi_service_plugin_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_plugin_proto_rawDesc = "" +
 	"\n" +
-	"\x1ccoreapi/service/plugin.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1acoreapi/model/plugin.proto\"\xcc\x01\n" +
+	"\x1ccoreapi/service/plugin.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1acoreapi/model/plugin.proto\x1a google/protobuf/field_mask.proto\"\xcc\x01\n" +
 	"\x14SearchPluginsRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x16\n" +
@@ -590,43 +650,48 @@ const file_coreapi_service_plugin_proto_rawDesc = "" +
 	"\n" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"@\n" +
 	"\x0fGetPluginResult\x12-\n" +
-	"\x06plugin\x18\x01 \x01(\v2\x15.coreapi.model.PluginR\x06plugin\"\xb3\v\n" +
-	"\x13UpdatePluginRequest\x12#\n" +
+	"\x06plugin\x18\x01 \x01(\v2\x15.coreapi.model.PluginR\x06plugin\"\xec\f\n" +
+	"\x12PatchPluginRequest\x12#\n" +
 	"\tplugin_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\bpluginId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12s\n" +
-	"\x04name\x18\x03 \x01(\tB_\xbaH\\\xba\x01Y\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12O\n" +
+	"\x04body\x18\x03 \x01(\v23.coreapi.service.PatchPluginRequest.PatchPluginBodyB\x06\xbaH\x03\xc8\x01\x01R\x04body\x12C\n" +
+	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"updateMask\x1a\xf3\n" +
+	"\n" +
+	"\x0fPatchPluginBody\x12s\n" +
+	"\x04name\x18\x01 \x01(\tB_\xbaH\\\xba\x01Y\n" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x1ethis == '' || size(this) <= 30R\x04name\x12?\n" +
 	"\n" +
-	"appearance\x18\x04 \x01(\x0e2\x1f.coreapi.model.PluginAppearanceR\n" +
+	"appearance\x18\x02 \x01(\x0e2\x1f.coreapi.model.PluginAppearanceR\n" +
 	"appearance\x12!\n" +
-	"\flabel_button\x18\x05 \x01(\bR\vlabelButton\x12\x9e\x01\n" +
-	"\x11label_button_text\x18\x06 \x01(\tBr\xbaHo\xba\x01l\n" +
+	"\flabel_button\x18\x03 \x01(\bR\vlabelButton\x12\x9e\x01\n" +
+	"\x11label_button_text\x18\x04 \x01(\tBr\xbaHo\xba\x01l\n" +
 	"\n" +
-	"string.len\x12)value must be between 4 and 30 characters\x1a3this == '' || (size(this) >= 4 && size(this) <= 30)R\x0flabelButtonText\x12|\n" +
-	"\x1alabel_button_text_i18n_map\x18\a \x03(\v2@.coreapi.service.UpdatePluginRequest.LabelButtonTextI18nMapEntryR\x16labelButtonTextI18nMap\x12@\n" +
-	"\vbutton_type\x18\b \x01(\x0e2\x1f.coreapi.model.PluginButtonTypeR\n" +
+	"string.len\x12)value must be between 4 and 30 characters\x1a3this == '' || (size(this) >= 4 && size(this) <= 30)R\x0flabelButtonText\x12\x8b\x01\n" +
+	"\x1alabel_button_text_i18n_map\x18\x05 \x03(\v2O.coreapi.service.PatchPluginRequest.PatchPluginBody.LabelButtonTextI18nMapEntryR\x16labelButtonTextI18nMap\x12@\n" +
+	"\vbutton_type\x18\x06 \x01(\x0e2\x1f.coreapi.model.PluginButtonTypeR\n" +
 	"buttonType\x12@\n" +
-	"\vicon_button\x18\t \x01(\x0e2\x1f.coreapi.model.PluginIconButtonR\n" +
+	"\vicon_button\x18\a \x01(\x0e2\x1f.coreapi.model.PluginIconButtonR\n" +
 	"iconButton\x12\"\n" +
-	"\rdesk_margin_x\x18\n" +
-	" \x01(\x05R\vdeskMarginX\x12\"\n" +
-	"\rdesk_margin_y\x18\v \x01(\x05R\vdeskMarginY\x12(\n" +
-	"\x10desk_hide_button\x18\f \x01(\bR\x0edeskHideButton\x12B\n" +
-	"\rdesk_position\x18\r \x01(\x0e2\x1d.coreapi.model.PluginPositionR\fdeskPosition\x12&\n" +
-	"\x0fmobile_margin_x\x18\x0e \x01(\x05R\rmobileMarginX\x12&\n" +
-	"\x0fmobile_margin_y\x18\x0f \x01(\x05R\rmobileMarginY\x12F\n" +
-	"\x0fmobile_position\x18\x10 \x01(\x0e2\x1d.coreapi.model.PluginPositionR\x0emobilePosition\x12,\n" +
-	"\x12mobile_hide_button\x18\x11 \x01(\bR\x10mobileHideButton\x12Y\n" +
-	"\x16mobile_bubble_position\x18\x12 \x01(\x0e2#.coreapi.model.PluginBubblePositionR\x14mobileBubblePosition\x12\x87\x01\n" +
-	"\brun_rate\x18\x13 \x01(\x02Bl\xbaHi\xba\x012\n" +
+	"\rdesk_margin_x\x18\b \x01(\x05R\vdeskMarginX\x12\"\n" +
+	"\rdesk_margin_y\x18\t \x01(\x05R\vdeskMarginY\x12(\n" +
+	"\x10desk_hide_button\x18\n" +
+	" \x01(\bR\x0edeskHideButton\x12B\n" +
+	"\rdesk_position\x18\v \x01(\x0e2\x1d.coreapi.model.PluginPositionR\fdeskPosition\x12&\n" +
+	"\x0fmobile_margin_x\x18\f \x01(\x05R\rmobileMarginX\x12&\n" +
+	"\x0fmobile_margin_y\x18\r \x01(\x05R\rmobileMarginY\x12F\n" +
+	"\x0fmobile_position\x18\x0e \x01(\x0e2\x1d.coreapi.model.PluginPositionR\x0emobilePosition\x12,\n" +
+	"\x12mobile_hide_button\x18\x0f \x01(\bR\x10mobileHideButton\x12Y\n" +
+	"\x16mobile_bubble_position\x18\x10 \x01(\x0e2#.coreapi.model.PluginBubblePositionR\x14mobileBubblePosition\x12\x87\x01\n" +
+	"\brun_rate\x18\x11 \x01(\x02Bl\xbaHi\xba\x012\n" +
 	"\tfloat.gte\x12\x18value must be at least 0\x1a\vthis >= 0.0\xba\x011\n" +
 	"\tfloat.lte\x12\x17value must be at most 1\x1a\vthis <= 1.0R\arunRate\x12(\n" +
-	"\x10custom_image_url\x18\x14 \x01(\tR\x0ecustomImageUrl\x1aI\n" +
+	"\x10custom_image_url\x18\x12 \x01(\tR\x0ecustomImageUrl\x1aI\n" +
 	"\x1bLabelButtonTextI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"C\n" +
-	"\x12UpdatePluginResult\x12-\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"B\n" +
+	"\x11PatchPluginResult\x12-\n" +
 	"\x06plugin\x18\x01 \x01(\v2\x15.coreapi.model.PluginR\x06pluginBf\n" +
 	"(io.channel.api.proto.pub.coreapi.serviceP\x01Z8github.com/channel-io/ch-proto-public/coreapi/go/serviceb\x06proto3"
 
@@ -642,38 +707,42 @@ func file_coreapi_service_plugin_proto_rawDescGZIP() []byte {
 	return file_coreapi_service_plugin_proto_rawDescData
 }
 
-var file_coreapi_service_plugin_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_coreapi_service_plugin_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_coreapi_service_plugin_proto_goTypes = []any{
-	(*SearchPluginsRequest)(nil),    // 0: coreapi.service.SearchPluginsRequest
-	(*SearchPluginsResult)(nil),     // 1: coreapi.service.SearchPluginsResult
-	(*GetPluginRequest)(nil),        // 2: coreapi.service.GetPluginRequest
-	(*GetPluginResult)(nil),         // 3: coreapi.service.GetPluginResult
-	(*UpdatePluginRequest)(nil),     // 4: coreapi.service.UpdatePluginRequest
-	(*UpdatePluginResult)(nil),      // 5: coreapi.service.UpdatePluginResult
-	nil,                             // 6: coreapi.service.UpdatePluginRequest.LabelButtonTextI18nMapEntry
-	(*model.Plugin)(nil),            // 7: coreapi.model.Plugin
-	(model.PluginAppearance)(0),     // 8: coreapi.model.PluginAppearance
-	(model.PluginButtonType)(0),     // 9: coreapi.model.PluginButtonType
-	(model.PluginIconButton)(0),     // 10: coreapi.model.PluginIconButton
-	(model.PluginPosition)(0),       // 11: coreapi.model.PluginPosition
-	(model.PluginBubblePosition)(0), // 12: coreapi.model.PluginBubblePosition
+	(*SearchPluginsRequest)(nil),               // 0: coreapi.service.SearchPluginsRequest
+	(*SearchPluginsResult)(nil),                // 1: coreapi.service.SearchPluginsResult
+	(*GetPluginRequest)(nil),                   // 2: coreapi.service.GetPluginRequest
+	(*GetPluginResult)(nil),                    // 3: coreapi.service.GetPluginResult
+	(*PatchPluginRequest)(nil),                 // 4: coreapi.service.PatchPluginRequest
+	(*PatchPluginResult)(nil),                  // 5: coreapi.service.PatchPluginResult
+	(*PatchPluginRequest_PatchPluginBody)(nil), // 6: coreapi.service.PatchPluginRequest.PatchPluginBody
+	nil,                             // 7: coreapi.service.PatchPluginRequest.PatchPluginBody.LabelButtonTextI18nMapEntry
+	(*model.Plugin)(nil),            // 8: coreapi.model.Plugin
+	(*fieldmaskpb.FieldMask)(nil),   // 9: google.protobuf.FieldMask
+	(model.PluginAppearance)(0),     // 10: coreapi.model.PluginAppearance
+	(model.PluginButtonType)(0),     // 11: coreapi.model.PluginButtonType
+	(model.PluginIconButton)(0),     // 12: coreapi.model.PluginIconButton
+	(model.PluginPosition)(0),       // 13: coreapi.model.PluginPosition
+	(model.PluginBubblePosition)(0), // 14: coreapi.model.PluginBubblePosition
 }
 var file_coreapi_service_plugin_proto_depIdxs = []int32{
-	7,  // 0: coreapi.service.SearchPluginsResult.plugins:type_name -> coreapi.model.Plugin
-	7,  // 1: coreapi.service.GetPluginResult.plugin:type_name -> coreapi.model.Plugin
-	8,  // 2: coreapi.service.UpdatePluginRequest.appearance:type_name -> coreapi.model.PluginAppearance
-	6,  // 3: coreapi.service.UpdatePluginRequest.label_button_text_i18n_map:type_name -> coreapi.service.UpdatePluginRequest.LabelButtonTextI18nMapEntry
-	9,  // 4: coreapi.service.UpdatePluginRequest.button_type:type_name -> coreapi.model.PluginButtonType
-	10, // 5: coreapi.service.UpdatePluginRequest.icon_button:type_name -> coreapi.model.PluginIconButton
-	11, // 6: coreapi.service.UpdatePluginRequest.desk_position:type_name -> coreapi.model.PluginPosition
-	11, // 7: coreapi.service.UpdatePluginRequest.mobile_position:type_name -> coreapi.model.PluginPosition
-	12, // 8: coreapi.service.UpdatePluginRequest.mobile_bubble_position:type_name -> coreapi.model.PluginBubblePosition
-	7,  // 9: coreapi.service.UpdatePluginResult.plugin:type_name -> coreapi.model.Plugin
-	10, // [10:10] is the sub-list for method output_type
-	10, // [10:10] is the sub-list for method input_type
-	10, // [10:10] is the sub-list for extension type_name
-	10, // [10:10] is the sub-list for extension extendee
-	0,  // [0:10] is the sub-list for field type_name
+	8,  // 0: coreapi.service.SearchPluginsResult.plugins:type_name -> coreapi.model.Plugin
+	8,  // 1: coreapi.service.GetPluginResult.plugin:type_name -> coreapi.model.Plugin
+	6,  // 2: coreapi.service.PatchPluginRequest.body:type_name -> coreapi.service.PatchPluginRequest.PatchPluginBody
+	9,  // 3: coreapi.service.PatchPluginRequest.update_mask:type_name -> google.protobuf.FieldMask
+	8,  // 4: coreapi.service.PatchPluginResult.plugin:type_name -> coreapi.model.Plugin
+	10, // 5: coreapi.service.PatchPluginRequest.PatchPluginBody.appearance:type_name -> coreapi.model.PluginAppearance
+	7,  // 6: coreapi.service.PatchPluginRequest.PatchPluginBody.label_button_text_i18n_map:type_name -> coreapi.service.PatchPluginRequest.PatchPluginBody.LabelButtonTextI18nMapEntry
+	11, // 7: coreapi.service.PatchPluginRequest.PatchPluginBody.button_type:type_name -> coreapi.model.PluginButtonType
+	12, // 8: coreapi.service.PatchPluginRequest.PatchPluginBody.icon_button:type_name -> coreapi.model.PluginIconButton
+	13, // 9: coreapi.service.PatchPluginRequest.PatchPluginBody.desk_position:type_name -> coreapi.model.PluginPosition
+	13, // 10: coreapi.service.PatchPluginRequest.PatchPluginBody.mobile_position:type_name -> coreapi.model.PluginPosition
+	14, // 11: coreapi.service.PatchPluginRequest.PatchPluginBody.mobile_bubble_position:type_name -> coreapi.model.PluginBubblePosition
+	12, // [12:12] is the sub-list for method output_type
+	12, // [12:12] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_plugin_proto_init() }
@@ -687,7 +756,7 @@ func file_coreapi_service_plugin_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_plugin_proto_rawDesc), len(file_coreapi_service_plugin_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

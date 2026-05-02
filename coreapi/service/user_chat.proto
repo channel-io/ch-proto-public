@@ -10,6 +10,7 @@ import "coreapi/model/message.proto";
 import "coreapi/model/message_content.proto";
 import "coreapi/model/user_chat.proto";
 import "google/protobuf/duration.proto";
+import "google/protobuf/field_mask.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
@@ -152,25 +153,42 @@ message CreateUserChatResult {
 
 // Updates a user chat.
 //
-// Only the description field can be updated.
-// Empty string clears the description.
-message UpdateUserChatRequest {
+// Patches a user chat.
+//
+// PATCH semantics per RFC 7396 / AIP-134/161:
+//   - a field listed in update_mask is applied (null = clear, value = set)
+//   - a field absent from update_mask is not modified
+//
+// Only the description field can currently be patched.
+message PatchUserChatRequest {
   // User chat ID to update.
   string user_chat_id = 1 [(buf.validate.field).required = true];
 
   // Channel ID the user chat belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
 
-  // User chat description.
-  string description = 3 [(buf.validate.field).cel = {
-    id: "string.maxLen"
-    message: "value must be no more than 1000 characters"
-    expression: "size(this) <= 1000"
-  }];
+  // Patch body. Only fields listed in update_mask are applied.
+  PatchUserChatBody body = 3 [(buf.validate.field).required = true];
+
+  // Set of field paths (relative to PatchUserChatBody) to update.
+  // Unlisted fields remain unchanged.
+  google.protobuf.FieldMask update_mask = 4 [(buf.validate.field).required = true];
+
+  message PatchUserChatBody {
+    // User chat description.
+    //
+    // +kubebuilder:validation:Nullable
+    // +kubebuilder:validation:MaxLength=1000
+    string description = 1 [(buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 1000 characters"
+      expression: "this == '' || size(this) <= 1000"
+    }];
+  }
 }
 
-// Response for user chat update.
-message UpdateUserChatResult {
+// Response for user chat patch.
+message PatchUserChatResult {
   coreapi.model.UserChat user_chat = 1;
 }
 

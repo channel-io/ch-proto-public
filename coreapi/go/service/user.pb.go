@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
+	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	structpb "google.golang.org/protobuf/types/known/structpb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
@@ -783,31 +784,22 @@ func (x *UnblockUserResult) GetUser() *model.User {
 	return nil
 }
 
-// Updates a user partially.
-// Only specified fields are modified; omitted fields remain unchanged.
+// Patches a user.
+//
+// PATCH semantics per RFC 7396 / AIP-134/161:
+//   - a field listed in update_mask is applied (null = clear, value = set)
+//   - a field absent from update_mask is not modified
 type PatchUserRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// User ID to update.
 	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	// Channel ID the user belongs to.
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Custom key-value profile data to set or merge.
-	Profile *structpb.Struct `protobuf:"bytes,3,opt,name=profile,proto3" json:"profile,omitempty"`
-	// Profile data that is set only once on first write.
-	// Subsequent updates to the same keys are ignored.
-	ProfileOnce *structpb.Struct `protobuf:"bytes,4,opt,name=profile_once,json=profileOnce,proto3" json:"profile_once,omitempty"`
-	// User classification tags to replace the current set.
-	Tags []string `protobuf:"bytes,5,rep,name=tags,proto3" json:"tags,omitempty"`
-	// Whether the user is blocked.
-	Blocked bool `protobuf:"varint,6,opt,name=blocked,proto3" json:"blocked,omitempty"`
-	// Whether the user opted out of email notifications.
-	UnsubscribeEmail bool `protobuf:"varint,7,opt,name=unsubscribe_email,json=unsubscribeEmail,proto3" json:"unsubscribe_email,omitempty"`
-	// Whether the user opted out of SMS/text notifications.
-	UnsubscribeTexting bool `protobuf:"varint,8,opt,name=unsubscribe_texting,json=unsubscribeTexting,proto3" json:"unsubscribe_texting,omitempty"`
-	// Whether the user opted out of app push notifications.
-	UnsubscribeAppPush bool `protobuf:"varint,9,opt,name=unsubscribe_app_push,json=unsubscribeAppPush,proto3" json:"unsubscribe_app_push,omitempty"`
-	// User's preferred language locale.
-	Language      string `protobuf:"bytes,10,opt,name=language,proto3" json:"language,omitempty"`
+	// Patch body. Only fields listed in update_mask are applied.
+	Body *PatchUserRequest_PatchUserBody `protobuf:"bytes,3,opt,name=body,proto3" json:"body,omitempty"`
+	// Set of field paths (relative to PatchUserBody) to update.
+	// Unlisted fields remain unchanged.
+	UpdateMask    *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -856,63 +848,21 @@ func (x *PatchUserRequest) GetChannelId() string {
 	return ""
 }
 
-func (x *PatchUserRequest) GetProfile() *structpb.Struct {
+func (x *PatchUserRequest) GetBody() *PatchUserRequest_PatchUserBody {
 	if x != nil {
-		return x.Profile
+		return x.Body
 	}
 	return nil
 }
 
-func (x *PatchUserRequest) GetProfileOnce() *structpb.Struct {
+func (x *PatchUserRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
 	if x != nil {
-		return x.ProfileOnce
+		return x.UpdateMask
 	}
 	return nil
 }
 
-func (x *PatchUserRequest) GetTags() []string {
-	if x != nil {
-		return x.Tags
-	}
-	return nil
-}
-
-func (x *PatchUserRequest) GetBlocked() bool {
-	if x != nil {
-		return x.Blocked
-	}
-	return false
-}
-
-func (x *PatchUserRequest) GetUnsubscribeEmail() bool {
-	if x != nil {
-		return x.UnsubscribeEmail
-	}
-	return false
-}
-
-func (x *PatchUserRequest) GetUnsubscribeTexting() bool {
-	if x != nil {
-		return x.UnsubscribeTexting
-	}
-	return false
-}
-
-func (x *PatchUserRequest) GetUnsubscribeAppPush() bool {
-	if x != nil {
-		return x.UnsubscribeAppPush
-	}
-	return false
-}
-
-func (x *PatchUserRequest) GetLanguage() string {
-	if x != nil {
-		return x.Language
-	}
-	return ""
-}
-
-// Response for user update.
+// Response for user patch.
 type PatchUserResult struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	User          *model.User            `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
@@ -1685,11 +1635,136 @@ func (x *TouchUserResult) GetUser() *model.User {
 	return nil
 }
 
+type PatchUserRequest_PatchUserBody struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Custom key-value profile data to set or merge.
+	//
+	// +kubebuilder:validation:Nullable
+	Profile *structpb.Struct `protobuf:"bytes,1,opt,name=profile,proto3" json:"profile,omitempty"`
+	// Profile data that is set only once on first write.
+	// Subsequent updates to the same keys are ignored.
+	//
+	// +kubebuilder:validation:Nullable
+	ProfileOnce *structpb.Struct `protobuf:"bytes,2,opt,name=profile_once,json=profileOnce,proto3" json:"profile_once,omitempty"`
+	// User classification tags to replace the current set.
+	//
+	// +kubebuilder:validation:Nullable
+	Tags []string `protobuf:"bytes,3,rep,name=tags,proto3" json:"tags,omitempty"`
+	// Whether the user is blocked.
+	//
+	// +kubebuilder:validation:Nullable
+	Blocked bool `protobuf:"varint,4,opt,name=blocked,proto3" json:"blocked,omitempty"`
+	// Whether the user opted out of email notifications.
+	//
+	// +kubebuilder:validation:Nullable
+	UnsubscribeEmail bool `protobuf:"varint,5,opt,name=unsubscribe_email,json=unsubscribeEmail,proto3" json:"unsubscribe_email,omitempty"`
+	// Whether the user opted out of SMS/text notifications.
+	//
+	// +kubebuilder:validation:Nullable
+	UnsubscribeTexting bool `protobuf:"varint,6,opt,name=unsubscribe_texting,json=unsubscribeTexting,proto3" json:"unsubscribe_texting,omitempty"`
+	// Whether the user opted out of app push notifications.
+	//
+	// +kubebuilder:validation:Nullable
+	UnsubscribeAppPush bool `protobuf:"varint,7,opt,name=unsubscribe_app_push,json=unsubscribeAppPush,proto3" json:"unsubscribe_app_push,omitempty"`
+	// User's preferred language locale.
+	//
+	// +kubebuilder:validation:Nullable
+	Language      string `protobuf:"bytes,8,opt,name=language,proto3" json:"language,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PatchUserRequest_PatchUserBody) Reset() {
+	*x = PatchUserRequest_PatchUserBody{}
+	mi := &file_coreapi_service_user_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PatchUserRequest_PatchUserBody) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PatchUserRequest_PatchUserBody) ProtoMessage() {}
+
+func (x *PatchUserRequest_PatchUserBody) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_user_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PatchUserRequest_PatchUserBody.ProtoReflect.Descriptor instead.
+func (*PatchUserRequest_PatchUserBody) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_user_proto_rawDescGZIP(), []int{14, 0}
+}
+
+func (x *PatchUserRequest_PatchUserBody) GetProfile() *structpb.Struct {
+	if x != nil {
+		return x.Profile
+	}
+	return nil
+}
+
+func (x *PatchUserRequest_PatchUserBody) GetProfileOnce() *structpb.Struct {
+	if x != nil {
+		return x.ProfileOnce
+	}
+	return nil
+}
+
+func (x *PatchUserRequest_PatchUserBody) GetTags() []string {
+	if x != nil {
+		return x.Tags
+	}
+	return nil
+}
+
+func (x *PatchUserRequest_PatchUserBody) GetBlocked() bool {
+	if x != nil {
+		return x.Blocked
+	}
+	return false
+}
+
+func (x *PatchUserRequest_PatchUserBody) GetUnsubscribeEmail() bool {
+	if x != nil {
+		return x.UnsubscribeEmail
+	}
+	return false
+}
+
+func (x *PatchUserRequest_PatchUserBody) GetUnsubscribeTexting() bool {
+	if x != nil {
+		return x.UnsubscribeTexting
+	}
+	return false
+}
+
+func (x *PatchUserRequest_PatchUserBody) GetUnsubscribeAppPush() bool {
+	if x != nil {
+		return x.UnsubscribeAppPush
+	}
+	return false
+}
+
+func (x *PatchUserRequest_PatchUserBody) GetLanguage() string {
+	if x != nil {
+		return x.Language
+	}
+	return ""
+}
+
 var File_coreapi_service_user_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_user_proto_rawDesc = "" +
 	"\n" +
-	"\x1acoreapi/service/user.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1acoreapi/model/online.proto\x1a\x18coreapi/model/user.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9f\x02\n" +
+	"\x1acoreapi/service/user.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1acoreapi/model/online.proto\x1a\x18coreapi/model/user.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9f\x02\n" +
 	"\x14BatchGetUsersRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xb8\x01\n" +
@@ -1739,20 +1814,23 @@ const file_coreapi_service_user_proto_rawDesc = "" +
 	"\n" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"<\n" +
 	"\x11UnblockUserResult\x12'\n" +
-	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"\xa3\x03\n" +
+	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"\xc7\x04\n" +
 	"\x10PatchUserRequest\x12\x1f\n" +
 	"\auser_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x121\n" +
-	"\aprofile\x18\x03 \x01(\v2\x17.google.protobuf.StructR\aprofile\x12:\n" +
-	"\fprofile_once\x18\x04 \x01(\v2\x17.google.protobuf.StructR\vprofileOnce\x12\x12\n" +
-	"\x04tags\x18\x05 \x03(\tR\x04tags\x12\x18\n" +
-	"\ablocked\x18\x06 \x01(\bR\ablocked\x12+\n" +
-	"\x11unsubscribe_email\x18\a \x01(\bR\x10unsubscribeEmail\x12/\n" +
-	"\x13unsubscribe_texting\x18\b \x01(\bR\x12unsubscribeTexting\x120\n" +
-	"\x14unsubscribe_app_push\x18\t \x01(\bR\x12unsubscribeAppPush\x12\x1a\n" +
-	"\blanguage\x18\n" +
-	" \x01(\tR\blanguage\":\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12K\n" +
+	"\x04body\x18\x03 \x01(\v2/.coreapi.service.PatchUserRequest.PatchUserBodyB\x06\xbaH\x03\xc8\x01\x01R\x04body\x12C\n" +
+	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"updateMask\x1a\xd8\x02\n" +
+	"\rPatchUserBody\x121\n" +
+	"\aprofile\x18\x01 \x01(\v2\x17.google.protobuf.StructR\aprofile\x12:\n" +
+	"\fprofile_once\x18\x02 \x01(\v2\x17.google.protobuf.StructR\vprofileOnce\x12\x12\n" +
+	"\x04tags\x18\x03 \x03(\tR\x04tags\x12\x18\n" +
+	"\ablocked\x18\x04 \x01(\bR\ablocked\x12+\n" +
+	"\x11unsubscribe_email\x18\x05 \x01(\bR\x10unsubscribeEmail\x12/\n" +
+	"\x13unsubscribe_texting\x18\x06 \x01(\bR\x12unsubscribeTexting\x120\n" +
+	"\x14unsubscribe_app_push\x18\a \x01(\bR\x12unsubscribeAppPush\x12\x1a\n" +
+	"\blanguage\x18\b \x01(\tR\blanguage\":\n" +
 	"\x0fPatchUserResult\x12'\n" +
 	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"\x89\x04\n" +
 	"\x1bUpsertUserByMemberIdRequest\x12z\n" +
@@ -1829,7 +1907,7 @@ func file_coreapi_service_user_proto_rawDescGZIP() []byte {
 	return file_coreapi_service_user_proto_rawDescData
 }
 
-var file_coreapi_service_user_proto_msgTypes = make([]protoimpl.MessageInfo, 28)
+var file_coreapi_service_user_proto_msgTypes = make([]protoimpl.MessageInfo, 29)
 var file_coreapi_service_user_proto_goTypes = []any{
 	(*BatchGetUsersRequest)(nil),            // 0: coreapi.service.BatchGetUsersRequest
 	(*BatchGetUsersResult)(nil),             // 1: coreapi.service.BatchGetUsersResult
@@ -1859,39 +1937,43 @@ var file_coreapi_service_user_proto_goTypes = []any{
 	(*IssueUserTokenByMemberIdResult)(nil),  // 25: coreapi.service.IssueUserTokenByMemberIdResult
 	(*TouchUserRequest)(nil),                // 26: coreapi.service.TouchUserRequest
 	(*TouchUserResult)(nil),                 // 27: coreapi.service.TouchUserResult
-	(*model.User)(nil),                      // 28: coreapi.model.User
-	(*model.Online)(nil),                    // 29: coreapi.model.Online
-	(*structpb.Struct)(nil),                 // 30: google.protobuf.Struct
-	(*durationpb.Duration)(nil),             // 31: google.protobuf.Duration
-	(*timestamppb.Timestamp)(nil),           // 32: google.protobuf.Timestamp
+	(*PatchUserRequest_PatchUserBody)(nil),  // 28: coreapi.service.PatchUserRequest.PatchUserBody
+	(*model.User)(nil),                      // 29: coreapi.model.User
+	(*model.Online)(nil),                    // 30: coreapi.model.Online
+	(*fieldmaskpb.FieldMask)(nil),           // 31: google.protobuf.FieldMask
+	(*structpb.Struct)(nil),                 // 32: google.protobuf.Struct
+	(*durationpb.Duration)(nil),             // 33: google.protobuf.Duration
+	(*timestamppb.Timestamp)(nil),           // 34: google.protobuf.Timestamp
 }
 var file_coreapi_service_user_proto_depIdxs = []int32{
-	28, // 0: coreapi.service.BatchGetUsersResult.users:type_name -> coreapi.model.User
-	29, // 1: coreapi.service.BatchGetUsersResult.onlines:type_name -> coreapi.model.Online
-	28, // 2: coreapi.service.GetUserResult.user:type_name -> coreapi.model.User
-	29, // 3: coreapi.service.GetUserResult.online:type_name -> coreapi.model.Online
-	28, // 4: coreapi.service.GetUserByMemberIdResult.user:type_name -> coreapi.model.User
-	29, // 5: coreapi.service.GetUserByMemberIdResult.online:type_name -> coreapi.model.Online
-	28, // 6: coreapi.service.BlockUserResult.user:type_name -> coreapi.model.User
-	28, // 7: coreapi.service.UnblockUserResult.user:type_name -> coreapi.model.User
-	30, // 8: coreapi.service.PatchUserRequest.profile:type_name -> google.protobuf.Struct
-	30, // 9: coreapi.service.PatchUserRequest.profile_once:type_name -> google.protobuf.Struct
-	28, // 10: coreapi.service.PatchUserResult.user:type_name -> coreapi.model.User
-	30, // 11: coreapi.service.UpsertUserByMemberIdRequest.profile:type_name -> google.protobuf.Struct
-	30, // 12: coreapi.service.UpsertUserByMemberIdRequest.profile_once:type_name -> google.protobuf.Struct
-	28, // 13: coreapi.service.UpsertUserByMemberIdResult.user:type_name -> coreapi.model.User
-	30, // 14: coreapi.service.CreateLeadRequest.profile:type_name -> google.protobuf.Struct
-	28, // 15: coreapi.service.CreateLeadResult.user:type_name -> coreapi.model.User
-	31, // 16: coreapi.service.IssueSessionJwtRequest.expiration:type_name -> google.protobuf.Duration
-	32, // 17: coreapi.service.IssueSessionJwtResult.expires_at:type_name -> google.protobuf.Timestamp
-	32, // 18: coreapi.service.IssueUserTokenResult.disable_at:type_name -> google.protobuf.Timestamp
-	32, // 19: coreapi.service.IssueUserTokenByMemberIdResult.disable_at:type_name -> google.protobuf.Timestamp
-	28, // 20: coreapi.service.TouchUserResult.user:type_name -> coreapi.model.User
-	21, // [21:21] is the sub-list for method output_type
-	21, // [21:21] is the sub-list for method input_type
-	21, // [21:21] is the sub-list for extension type_name
-	21, // [21:21] is the sub-list for extension extendee
-	0,  // [0:21] is the sub-list for field type_name
+	29, // 0: coreapi.service.BatchGetUsersResult.users:type_name -> coreapi.model.User
+	30, // 1: coreapi.service.BatchGetUsersResult.onlines:type_name -> coreapi.model.Online
+	29, // 2: coreapi.service.GetUserResult.user:type_name -> coreapi.model.User
+	30, // 3: coreapi.service.GetUserResult.online:type_name -> coreapi.model.Online
+	29, // 4: coreapi.service.GetUserByMemberIdResult.user:type_name -> coreapi.model.User
+	30, // 5: coreapi.service.GetUserByMemberIdResult.online:type_name -> coreapi.model.Online
+	29, // 6: coreapi.service.BlockUserResult.user:type_name -> coreapi.model.User
+	29, // 7: coreapi.service.UnblockUserResult.user:type_name -> coreapi.model.User
+	28, // 8: coreapi.service.PatchUserRequest.body:type_name -> coreapi.service.PatchUserRequest.PatchUserBody
+	31, // 9: coreapi.service.PatchUserRequest.update_mask:type_name -> google.protobuf.FieldMask
+	29, // 10: coreapi.service.PatchUserResult.user:type_name -> coreapi.model.User
+	32, // 11: coreapi.service.UpsertUserByMemberIdRequest.profile:type_name -> google.protobuf.Struct
+	32, // 12: coreapi.service.UpsertUserByMemberIdRequest.profile_once:type_name -> google.protobuf.Struct
+	29, // 13: coreapi.service.UpsertUserByMemberIdResult.user:type_name -> coreapi.model.User
+	32, // 14: coreapi.service.CreateLeadRequest.profile:type_name -> google.protobuf.Struct
+	29, // 15: coreapi.service.CreateLeadResult.user:type_name -> coreapi.model.User
+	33, // 16: coreapi.service.IssueSessionJwtRequest.expiration:type_name -> google.protobuf.Duration
+	34, // 17: coreapi.service.IssueSessionJwtResult.expires_at:type_name -> google.protobuf.Timestamp
+	34, // 18: coreapi.service.IssueUserTokenResult.disable_at:type_name -> google.protobuf.Timestamp
+	34, // 19: coreapi.service.IssueUserTokenByMemberIdResult.disable_at:type_name -> google.protobuf.Timestamp
+	29, // 20: coreapi.service.TouchUserResult.user:type_name -> coreapi.model.User
+	32, // 21: coreapi.service.PatchUserRequest.PatchUserBody.profile:type_name -> google.protobuf.Struct
+	32, // 22: coreapi.service.PatchUserRequest.PatchUserBody.profile_once:type_name -> google.protobuf.Struct
+	23, // [23:23] is the sub-list for method output_type
+	23, // [23:23] is the sub-list for method input_type
+	23, // [23:23] is the sub-list for extension type_name
+	23, // [23:23] is the sub-list for extension extendee
+	0,  // [0:23] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_user_proto_init() }
@@ -1905,7 +1987,7 @@ func file_coreapi_service_user_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_user_proto_rawDesc), len(file_coreapi_service_user_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   28,
+			NumMessages:   29,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

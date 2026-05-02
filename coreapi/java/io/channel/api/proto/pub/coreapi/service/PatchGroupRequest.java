@@ -5,38 +5,36 @@ package io.channel.api.proto.pub.coreapi.service;
 
 /**
  * <pre>
- * Updates a group by ID.
- * Only the following fields can be updated: title, scope, icon, description.
+ * Patches a group by ID.
+ * PATCH semantics per RFC 7396 / AIP-134/161:
+ *   - a field listed in update_mask is applied (null = clear, value = set)
+ *   - a field absent from update_mask is not modified
  * The bot specified by bot_name performs the action.
  * Returns 404 if the group does not exist.
  * </pre>
  *
- * Protobuf type {@code coreapi.service.UpdateGroupRequest}
+ * Protobuf type {@code coreapi.service.PatchGroupRequest}
  */
-public final class UpdateGroupRequest extends
+public final class PatchGroupRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:coreapi.service.UpdateGroupRequest)
-    UpdateGroupRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:coreapi.service.PatchGroupRequest)
+    PatchGroupRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use UpdateGroupRequest.newBuilder() to construct.
-  private UpdateGroupRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use PatchGroupRequest.newBuilder() to construct.
+  private PatchGroupRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private UpdateGroupRequest() {
+  private PatchGroupRequest() {
     channelId_ = "";
     groupId_ = "";
     botName_ = "";
-    title_ = "";
-    scope_ = 0;
-    icon_ = "";
-    description_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new UpdateGroupRequest();
+    return new PatchGroupRequest();
   }
 
   @java.lang.Override
@@ -44,7 +42,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateGroupRequest(
+  private PatchGroupRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -81,27 +79,29 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
+            io.channel.api.proto.pub.coreapi.service.PatchGroupBody.Builder subBuilder = null;
+            if (body_ != null) {
+              subBuilder = body_.toBuilder();
+            }
+            body_ = input.readMessage(io.channel.api.proto.pub.coreapi.service.PatchGroupBody.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(body_);
+              body_ = subBuilder.buildPartial();
+            }
 
-            title_ = s;
             break;
           }
-          case 40: {
-            int rawValue = input.readEnum();
+          case 42: {
+            com.google.protobuf.FieldMask.Builder subBuilder = null;
+            if (updateMask_ != null) {
+              subBuilder = updateMask_.toBuilder();
+            }
+            updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(updateMask_);
+              updateMask_ = subBuilder.buildPartial();
+            }
 
-            scope_ = rawValue;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            icon_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
             break;
           }
           default: {
@@ -125,15 +125,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.channel.api.proto.pub.coreapi.service.Group.internal_static_coreapi_service_UpdateGroupRequest_descriptor;
+    return io.channel.api.proto.pub.coreapi.service.Group.internal_static_coreapi_service_PatchGroupRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.channel.api.proto.pub.coreapi.service.Group.internal_static_coreapi_service_UpdateGroupRequest_fieldAccessorTable
+    return io.channel.api.proto.pub.coreapi.service.Group.internal_static_coreapi_service_PatchGroupRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest.class, io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest.Builder.class);
+            io.channel.api.proto.pub.coreapi.service.PatchGroupRequest.class, io.channel.api.proto.pub.coreapi.service.PatchGroupRequest.Builder.class);
   }
 
   public static final int CHANNEL_ID_FIELD_NUMBER = 1;
@@ -282,189 +282,83 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int TITLE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object title_;
+  public static final int BODY_FIELD_NUMBER = 4;
+  private io.channel.api.proto.pub.coreapi.service.PatchGroupBody body_;
   /**
    * <pre>
-   * Group display name.
-   * Unique within the channel (case-insensitive).
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MinLength=2
-   * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
+   * Patch body. Only fields listed in update_mask are applied.
    * </pre>
    *
-   * <code>string title = 4 [json_name = "title", (.buf.validate.field) = { ... }</code>
-   * @return The title.
+   * <code>.coreapi.service.PatchGroupBody body = 4 [json_name = "body", (.buf.validate.field) = { ... }</code>
+   * @return Whether the body field is set.
    */
   @java.lang.Override
-  public java.lang.String getTitle() {
-    java.lang.Object ref = title_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      title_ = s;
-      return s;
-    }
+  public boolean hasBody() {
+    return body_ != null;
   }
   /**
    * <pre>
-   * Group display name.
-   * Unique within the channel (case-insensitive).
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MinLength=2
-   * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
+   * Patch body. Only fields listed in update_mask are applied.
    * </pre>
    *
-   * <code>string title = 4 [json_name = "title", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for title.
+   * <code>.coreapi.service.PatchGroupBody body = 4 [json_name = "body", (.buf.validate.field) = { ... }</code>
+   * @return The body.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getTitleBytes() {
-    java.lang.Object ref = title_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      title_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public io.channel.api.proto.pub.coreapi.service.PatchGroupBody getBody() {
+    return body_ == null ? io.channel.api.proto.pub.coreapi.service.PatchGroupBody.getDefaultInstance() : body_;
+  }
+  /**
+   * <pre>
+   * Patch body. Only fields listed in update_mask are applied.
+   * </pre>
+   *
+   * <code>.coreapi.service.PatchGroupBody body = 4 [json_name = "body", (.buf.validate.field) = { ... }</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.service.PatchGroupBodyOrBuilder getBodyOrBuilder() {
+    return getBody();
   }
 
-  public static final int SCOPE_FIELD_NUMBER = 5;
-  private int scope_;
+  public static final int UPDATE_MASK_FIELD_NUMBER = 5;
+  private com.google.protobuf.FieldMask updateMask_;
   /**
    * <pre>
-   * Visibility scope of the group.
-   * +kubebuilder:validation:Nullable
+   * Set of field paths (relative to PatchGroupBody) to update.
+   * Unlisted fields remain unchanged.
    * </pre>
    *
-   * <code>.coreapi.model.GroupScope scope = 5 [json_name = "scope"];</code>
-   * @return The enum numeric value on the wire for scope.
-   */
-  @java.lang.Override public int getScopeValue() {
-    return scope_;
-  }
-  /**
-   * <pre>
-   * Visibility scope of the group.
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>.coreapi.model.GroupScope scope = 5 [json_name = "scope"];</code>
-   * @return The scope.
-   */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.GroupScope getScope() {
-    @SuppressWarnings("deprecation")
-    io.channel.api.proto.pub.coreapi.model.GroupScope result = io.channel.api.proto.pub.coreapi.model.GroupScope.valueOf(scope_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.GroupScope.UNRECOGNIZED : result;
-  }
-
-  public static final int ICON_FIELD_NUMBER = 6;
-  private volatile java.lang.Object icon_;
-  /**
-   * <pre>
-   * Group icon identifier.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:Pattern="&#92;&#92;S+"
-   * </pre>
-   *
-   * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
-   * @return The icon.
+   * <code>.google.protobuf.FieldMask update_mask = 5 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+   * @return Whether the updateMask field is set.
    */
   @java.lang.Override
-  public java.lang.String getIcon() {
-    java.lang.Object ref = icon_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      icon_ = s;
-      return s;
-    }
+  public boolean hasUpdateMask() {
+    return updateMask_ != null;
   }
   /**
    * <pre>
-   * Group icon identifier.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:Pattern="&#92;&#92;S+"
+   * Set of field paths (relative to PatchGroupBody) to update.
+   * Unlisted fields remain unchanged.
    * </pre>
    *
-   * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for icon.
+   * <code>.google.protobuf.FieldMask update_mask = 5 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+   * @return The updateMask.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getIconBytes() {
-    java.lang.Object ref = icon_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      icon_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int DESCRIPTION_FIELD_NUMBER = 7;
-  private volatile java.lang.Object description_;
-  /**
-   * <pre>
-   * Group description.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MaxLength=200
-   * </pre>
-   *
-   * <code>string description = 7 [json_name = "description", (.buf.validate.field) = { ... }</code>
-   * @return The description.
-   */
-  @java.lang.Override
-  public java.lang.String getDescription() {
-    java.lang.Object ref = description_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      description_ = s;
-      return s;
-    }
+  public com.google.protobuf.FieldMask getUpdateMask() {
+    return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
   }
   /**
    * <pre>
-   * Group description.
-   * +kubebuilder:validation:Nullable
-   * +kubebuilder:validation:MaxLength=200
+   * Set of field paths (relative to PatchGroupBody) to update.
+   * Unlisted fields remain unchanged.
    * </pre>
    *
-   * <code>string description = 7 [json_name = "description", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for description.
+   * <code>.google.protobuf.FieldMask update_mask = 5 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDescriptionBytes() {
-    java.lang.Object ref = description_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      description_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+    return getUpdateMask();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -490,17 +384,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(botName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, botName_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, title_);
+    if (body_ != null) {
+      output.writeMessage(4, getBody());
     }
-    if (scope_ != io.channel.api.proto.pub.coreapi.model.GroupScope.GROUP_SCOPE_UNSPECIFIED.getNumber()) {
-      output.writeEnum(5, scope_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(icon_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, icon_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, description_);
+    if (updateMask_ != null) {
+      output.writeMessage(5, getUpdateMask());
     }
     unknownFields.writeTo(output);
   }
@@ -520,18 +408,13 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(botName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, botName_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, title_);
-    }
-    if (scope_ != io.channel.api.proto.pub.coreapi.model.GroupScope.GROUP_SCOPE_UNSPECIFIED.getNumber()) {
+    if (body_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(5, scope_);
+        .computeMessageSize(4, getBody());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(icon_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, icon_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, description_);
+    if (updateMask_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getUpdateMask());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -543,10 +426,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest)) {
+    if (!(obj instanceof io.channel.api.proto.pub.coreapi.service.PatchGroupRequest)) {
       return super.equals(obj);
     }
-    io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest other = (io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest) obj;
+    io.channel.api.proto.pub.coreapi.service.PatchGroupRequest other = (io.channel.api.proto.pub.coreapi.service.PatchGroupRequest) obj;
 
     if (!getChannelId()
         .equals(other.getChannelId())) return false;
@@ -554,13 +437,16 @@ private static final long serialVersionUID = 0L;
         .equals(other.getGroupId())) return false;
     if (!getBotName()
         .equals(other.getBotName())) return false;
-    if (!getTitle()
-        .equals(other.getTitle())) return false;
-    if (scope_ != other.scope_) return false;
-    if (!getIcon()
-        .equals(other.getIcon())) return false;
-    if (!getDescription()
-        .equals(other.getDescription())) return false;
+    if (hasBody() != other.hasBody()) return false;
+    if (hasBody()) {
+      if (!getBody()
+          .equals(other.getBody())) return false;
+    }
+    if (hasUpdateMask() != other.hasUpdateMask()) return false;
+    if (hasUpdateMask()) {
+      if (!getUpdateMask()
+          .equals(other.getUpdateMask())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -578,82 +464,82 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getGroupId().hashCode();
     hash = (37 * hash) + BOT_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getBotName().hashCode();
-    hash = (37 * hash) + TITLE_FIELD_NUMBER;
-    hash = (53 * hash) + getTitle().hashCode();
-    hash = (37 * hash) + SCOPE_FIELD_NUMBER;
-    hash = (53 * hash) + scope_;
-    hash = (37 * hash) + ICON_FIELD_NUMBER;
-    hash = (53 * hash) + getIcon().hashCode();
-    hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-    hash = (53 * hash) + getDescription().hashCode();
+    if (hasBody()) {
+      hash = (37 * hash) + BODY_FIELD_NUMBER;
+      hash = (53 * hash) + getBody().hashCode();
+    }
+    if (hasUpdateMask()) {
+      hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
+      hash = (53 * hash) + getUpdateMask().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.PatchGroupRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.PatchGroupRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.PatchGroupRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.PatchGroupRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest parseFrom(byte[] data)
+  public static io.channel.api.proto.pub.coreapi.service.PatchGroupRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.PatchGroupRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest parseFrom(java.io.InputStream input)
+  public static io.channel.api.proto.pub.coreapi.service.PatchGroupRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.PatchGroupRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest parseDelimitedFrom(java.io.InputStream input)
+  public static io.channel.api.proto.pub.coreapi.service.PatchGroupRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest parseDelimitedFrom(
+  public static io.channel.api.proto.pub.coreapi.service.PatchGroupRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.PatchGroupRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.PatchGroupRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -666,7 +552,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest prototype) {
+  public static Builder newBuilder(io.channel.api.proto.pub.coreapi.service.PatchGroupRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -683,32 +569,34 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Updates a group by ID.
-   * Only the following fields can be updated: title, scope, icon, description.
+   * Patches a group by ID.
+   * PATCH semantics per RFC 7396 / AIP-134/161:
+   *   - a field listed in update_mask is applied (null = clear, value = set)
+   *   - a field absent from update_mask is not modified
    * The bot specified by bot_name performs the action.
    * Returns 404 if the group does not exist.
    * </pre>
    *
-   * Protobuf type {@code coreapi.service.UpdateGroupRequest}
+   * Protobuf type {@code coreapi.service.PatchGroupRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:coreapi.service.UpdateGroupRequest)
-      io.channel.api.proto.pub.coreapi.service.UpdateGroupRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:coreapi.service.PatchGroupRequest)
+      io.channel.api.proto.pub.coreapi.service.PatchGroupRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.channel.api.proto.pub.coreapi.service.Group.internal_static_coreapi_service_UpdateGroupRequest_descriptor;
+      return io.channel.api.proto.pub.coreapi.service.Group.internal_static_coreapi_service_PatchGroupRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.channel.api.proto.pub.coreapi.service.Group.internal_static_coreapi_service_UpdateGroupRequest_fieldAccessorTable
+      return io.channel.api.proto.pub.coreapi.service.Group.internal_static_coreapi_service_PatchGroupRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest.class, io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest.Builder.class);
+              io.channel.api.proto.pub.coreapi.service.PatchGroupRequest.class, io.channel.api.proto.pub.coreapi.service.PatchGroupRequest.Builder.class);
     }
 
-    // Construct using io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest.newBuilder()
+    // Construct using io.channel.api.proto.pub.coreapi.service.PatchGroupRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -732,31 +620,35 @@ private static final long serialVersionUID = 0L;
 
       botName_ = "";
 
-      title_ = "";
-
-      scope_ = 0;
-
-      icon_ = "";
-
-      description_ = "";
-
+      if (bodyBuilder_ == null) {
+        body_ = null;
+      } else {
+        body_ = null;
+        bodyBuilder_ = null;
+      }
+      if (updateMaskBuilder_ == null) {
+        updateMask_ = null;
+      } else {
+        updateMask_ = null;
+        updateMaskBuilder_ = null;
+      }
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.channel.api.proto.pub.coreapi.service.Group.internal_static_coreapi_service_UpdateGroupRequest_descriptor;
+      return io.channel.api.proto.pub.coreapi.service.Group.internal_static_coreapi_service_PatchGroupRequest_descriptor;
     }
 
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest getDefaultInstanceForType() {
-      return io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest.getDefaultInstance();
+    public io.channel.api.proto.pub.coreapi.service.PatchGroupRequest getDefaultInstanceForType() {
+      return io.channel.api.proto.pub.coreapi.service.PatchGroupRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest build() {
-      io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest result = buildPartial();
+    public io.channel.api.proto.pub.coreapi.service.PatchGroupRequest build() {
+      io.channel.api.proto.pub.coreapi.service.PatchGroupRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -764,15 +656,21 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest buildPartial() {
-      io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest result = new io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest(this);
+    public io.channel.api.proto.pub.coreapi.service.PatchGroupRequest buildPartial() {
+      io.channel.api.proto.pub.coreapi.service.PatchGroupRequest result = new io.channel.api.proto.pub.coreapi.service.PatchGroupRequest(this);
       result.channelId_ = channelId_;
       result.groupId_ = groupId_;
       result.botName_ = botName_;
-      result.title_ = title_;
-      result.scope_ = scope_;
-      result.icon_ = icon_;
-      result.description_ = description_;
+      if (bodyBuilder_ == null) {
+        result.body_ = body_;
+      } else {
+        result.body_ = bodyBuilder_.build();
+      }
+      if (updateMaskBuilder_ == null) {
+        result.updateMask_ = updateMask_;
+      } else {
+        result.updateMask_ = updateMaskBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -811,16 +709,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest) {
-        return mergeFrom((io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest)other);
+      if (other instanceof io.channel.api.proto.pub.coreapi.service.PatchGroupRequest) {
+        return mergeFrom((io.channel.api.proto.pub.coreapi.service.PatchGroupRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest other) {
-      if (other == io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(io.channel.api.proto.pub.coreapi.service.PatchGroupRequest other) {
+      if (other == io.channel.api.proto.pub.coreapi.service.PatchGroupRequest.getDefaultInstance()) return this;
       if (!other.getChannelId().isEmpty()) {
         channelId_ = other.channelId_;
         onChanged();
@@ -833,20 +731,11 @@ private static final long serialVersionUID = 0L;
         botName_ = other.botName_;
         onChanged();
       }
-      if (!other.getTitle().isEmpty()) {
-        title_ = other.title_;
-        onChanged();
+      if (other.hasBody()) {
+        mergeBody(other.getBody());
       }
-      if (other.scope_ != 0) {
-        setScopeValue(other.getScopeValue());
-      }
-      if (!other.getIcon().isEmpty()) {
-        icon_ = other.icon_;
-        onChanged();
-      }
-      if (!other.getDescription().isEmpty()) {
-        description_ = other.description_;
-        onChanged();
+      if (other.hasUpdateMask()) {
+        mergeUpdateMask(other.getUpdateMask());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -863,11 +752,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest parsedMessage = null;
+      io.channel.api.proto.pub.coreapi.service.PatchGroupRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest) e.getUnfinishedMessage();
+        parsedMessage = (io.channel.api.proto.pub.coreapi.service.PatchGroupRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -1185,416 +1074,323 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object title_ = "";
+    private io.channel.api.proto.pub.coreapi.service.PatchGroupBody body_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.service.PatchGroupBody, io.channel.api.proto.pub.coreapi.service.PatchGroupBody.Builder, io.channel.api.proto.pub.coreapi.service.PatchGroupBodyOrBuilder> bodyBuilder_;
     /**
      * <pre>
-     * Group display name.
-     * Unique within the channel (case-insensitive).
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MinLength=2
-     * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
+     * Patch body. Only fields listed in update_mask are applied.
      * </pre>
      *
-     * <code>string title = 4 [json_name = "title", (.buf.validate.field) = { ... }</code>
-     * @return The title.
+     * <code>.coreapi.service.PatchGroupBody body = 4 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     * @return Whether the body field is set.
      */
-    public java.lang.String getTitle() {
-      java.lang.Object ref = title_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        title_ = s;
-        return s;
+    public boolean hasBody() {
+      return bodyBuilder_ != null || body_ != null;
+    }
+    /**
+     * <pre>
+     * Patch body. Only fields listed in update_mask are applied.
+     * </pre>
+     *
+     * <code>.coreapi.service.PatchGroupBody body = 4 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     * @return The body.
+     */
+    public io.channel.api.proto.pub.coreapi.service.PatchGroupBody getBody() {
+      if (bodyBuilder_ == null) {
+        return body_ == null ? io.channel.api.proto.pub.coreapi.service.PatchGroupBody.getDefaultInstance() : body_;
       } else {
-        return (java.lang.String) ref;
+        return bodyBuilder_.getMessage();
       }
     }
     /**
      * <pre>
-     * Group display name.
-     * Unique within the channel (case-insensitive).
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MinLength=2
-     * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
+     * Patch body. Only fields listed in update_mask are applied.
      * </pre>
      *
-     * <code>string title = 4 [json_name = "title", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for title.
+     * <code>.coreapi.service.PatchGroupBody body = 4 [json_name = "body", (.buf.validate.field) = { ... }</code>
      */
-    public com.google.protobuf.ByteString
-        getTitleBytes() {
-      java.lang.Object ref = title_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        title_ = b;
-        return b;
+    public Builder setBody(io.channel.api.proto.pub.coreapi.service.PatchGroupBody value) {
+      if (bodyBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        body_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        bodyBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Patch body. Only fields listed in update_mask are applied.
+     * </pre>
+     *
+     * <code>.coreapi.service.PatchGroupBody body = 4 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder setBody(
+        io.channel.api.proto.pub.coreapi.service.PatchGroupBody.Builder builderForValue) {
+      if (bodyBuilder_ == null) {
+        body_ = builderForValue.build();
+        onChanged();
+      } else {
+        bodyBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Patch body. Only fields listed in update_mask are applied.
+     * </pre>
+     *
+     * <code>.coreapi.service.PatchGroupBody body = 4 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder mergeBody(io.channel.api.proto.pub.coreapi.service.PatchGroupBody value) {
+      if (bodyBuilder_ == null) {
+        if (body_ != null) {
+          body_ =
+            io.channel.api.proto.pub.coreapi.service.PatchGroupBody.newBuilder(body_).mergeFrom(value).buildPartial();
+        } else {
+          body_ = value;
+        }
+        onChanged();
+      } else {
+        bodyBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Patch body. Only fields listed in update_mask are applied.
+     * </pre>
+     *
+     * <code>.coreapi.service.PatchGroupBody body = 4 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder clearBody() {
+      if (bodyBuilder_ == null) {
+        body_ = null;
+        onChanged();
+      } else {
+        body_ = null;
+        bodyBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Patch body. Only fields listed in update_mask are applied.
+     * </pre>
+     *
+     * <code>.coreapi.service.PatchGroupBody body = 4 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     */
+    public io.channel.api.proto.pub.coreapi.service.PatchGroupBody.Builder getBodyBuilder() {
+      
+      onChanged();
+      return getBodyFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Patch body. Only fields listed in update_mask are applied.
+     * </pre>
+     *
+     * <code>.coreapi.service.PatchGroupBody body = 4 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     */
+    public io.channel.api.proto.pub.coreapi.service.PatchGroupBodyOrBuilder getBodyOrBuilder() {
+      if (bodyBuilder_ != null) {
+        return bodyBuilder_.getMessageOrBuilder();
+      } else {
+        return body_ == null ?
+            io.channel.api.proto.pub.coreapi.service.PatchGroupBody.getDefaultInstance() : body_;
       }
     }
     /**
      * <pre>
-     * Group display name.
-     * Unique within the channel (case-insensitive).
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MinLength=2
-     * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
+     * Patch body. Only fields listed in update_mask are applied.
      * </pre>
      *
-     * <code>string title = 4 [json_name = "title", (.buf.validate.field) = { ... }</code>
-     * @param value The title to set.
-     * @return This builder for chaining.
+     * <code>.coreapi.service.PatchGroupBody body = 4 [json_name = "body", (.buf.validate.field) = { ... }</code>
      */
-    public Builder setTitle(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      title_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Group display name.
-     * Unique within the channel (case-insensitive).
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MinLength=2
-     * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
-     * </pre>
-     *
-     * <code>string title = 4 [json_name = "title", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearTitle() {
-      
-      title_ = getDefaultInstance().getTitle();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Group display name.
-     * Unique within the channel (case-insensitive).
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MinLength=2
-     * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="[&#92;&#92;p{L}&#92;&#92;p{N}&#92;&#92;-_()]+"
-     * </pre>
-     *
-     * <code>string title = 4 [json_name = "title", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for title to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTitleBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      title_ = value;
-      onChanged();
-      return this;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.service.PatchGroupBody, io.channel.api.proto.pub.coreapi.service.PatchGroupBody.Builder, io.channel.api.proto.pub.coreapi.service.PatchGroupBodyOrBuilder> 
+        getBodyFieldBuilder() {
+      if (bodyBuilder_ == null) {
+        bodyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.service.PatchGroupBody, io.channel.api.proto.pub.coreapi.service.PatchGroupBody.Builder, io.channel.api.proto.pub.coreapi.service.PatchGroupBodyOrBuilder>(
+                getBody(),
+                getParentForChildren(),
+                isClean());
+        body_ = null;
+      }
+      return bodyBuilder_;
     }
 
-    private int scope_ = 0;
+    private com.google.protobuf.FieldMask updateMask_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> updateMaskBuilder_;
     /**
      * <pre>
-     * Visibility scope of the group.
-     * +kubebuilder:validation:Nullable
+     * Set of field paths (relative to PatchGroupBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>.coreapi.model.GroupScope scope = 5 [json_name = "scope"];</code>
-     * @return The enum numeric value on the wire for scope.
+     * <code>.google.protobuf.FieldMask update_mask = 5 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+     * @return Whether the updateMask field is set.
      */
-    @java.lang.Override public int getScopeValue() {
-      return scope_;
+    public boolean hasUpdateMask() {
+      return updateMaskBuilder_ != null || updateMask_ != null;
     }
     /**
      * <pre>
-     * Visibility scope of the group.
-     * +kubebuilder:validation:Nullable
+     * Set of field paths (relative to PatchGroupBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>.coreapi.model.GroupScope scope = 5 [json_name = "scope"];</code>
-     * @param value The enum numeric value on the wire for scope to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.FieldMask update_mask = 5 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+     * @return The updateMask.
      */
-    public Builder setScopeValue(int value) {
-      
-      scope_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Visibility scope of the group.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.GroupScope scope = 5 [json_name = "scope"];</code>
-     * @return The scope.
-     */
-    @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.GroupScope getScope() {
-      @SuppressWarnings("deprecation")
-      io.channel.api.proto.pub.coreapi.model.GroupScope result = io.channel.api.proto.pub.coreapi.model.GroupScope.valueOf(scope_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.GroupScope.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Visibility scope of the group.
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>.coreapi.model.GroupScope scope = 5 [json_name = "scope"];</code>
-     * @param value The scope to set.
-     * @return This builder for chaining.
-     */
-    public Builder setScope(io.channel.api.proto.pub.coreapi.model.GroupScope value) {
-      if (value == null) {
-        throw new NullPointerException();
+    public com.google.protobuf.FieldMask getUpdateMask() {
+      if (updateMaskBuilder_ == null) {
+        return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
+      } else {
+        return updateMaskBuilder_.getMessage();
       }
-      
-      scope_ = value.getNumber();
-      onChanged();
-      return this;
     }
     /**
      * <pre>
-     * Visibility scope of the group.
-     * +kubebuilder:validation:Nullable
+     * Set of field paths (relative to PatchGroupBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>.coreapi.model.GroupScope scope = 5 [json_name = "scope"];</code>
-     * @return This builder for chaining.
+     * <code>.google.protobuf.FieldMask update_mask = 5 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
      */
-    public Builder clearScope() {
-      
-      scope_ = 0;
-      onChanged();
-      return this;
-    }
+    public Builder setUpdateMask(com.google.protobuf.FieldMask value) {
+      if (updateMaskBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        updateMask_ = value;
+        onChanged();
+      } else {
+        updateMaskBuilder_.setMessage(value);
+      }
 
-    private java.lang.Object icon_ = "";
+      return this;
+    }
     /**
      * <pre>
-     * Group icon identifier.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:Pattern="&#92;&#92;S+"
+     * Set of field paths (relative to PatchGroupBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
-     * @return The icon.
+     * <code>.google.protobuf.FieldMask update_mask = 5 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
      */
-    public java.lang.String getIcon() {
-      java.lang.Object ref = icon_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        icon_ = s;
-        return s;
+    public Builder setUpdateMask(
+        com.google.protobuf.FieldMask.Builder builderForValue) {
+      if (updateMaskBuilder_ == null) {
+        updateMask_ = builderForValue.build();
+        onChanged();
       } else {
-        return (java.lang.String) ref;
+        updateMaskBuilder_.setMessage(builderForValue.build());
       }
-    }
-    /**
-     * <pre>
-     * Group icon identifier.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:Pattern="&#92;&#92;S+"
-     * </pre>
-     *
-     * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for icon.
-     */
-    public com.google.protobuf.ByteString
-        getIconBytes() {
-      java.lang.Object ref = icon_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        icon_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Group icon identifier.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:Pattern="&#92;&#92;S+"
-     * </pre>
-     *
-     * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
-     * @param value The icon to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIcon(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      icon_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Group icon identifier.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:Pattern="&#92;&#92;S+"
-     * </pre>
-     *
-     * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearIcon() {
-      
-      icon_ = getDefaultInstance().getIcon();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Group icon identifier.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:Pattern="&#92;&#92;S+"
-     * </pre>
-     *
-     * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for icon to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIconBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      icon_ = value;
-      onChanged();
-      return this;
-    }
 
-    private java.lang.Object description_ = "";
+      return this;
+    }
     /**
      * <pre>
-     * Group description.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MaxLength=200
+     * Set of field paths (relative to PatchGroupBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>string description = 7 [json_name = "description", (.buf.validate.field) = { ... }</code>
-     * @return The description.
+     * <code>.google.protobuf.FieldMask update_mask = 5 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
      */
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        description_ = s;
-        return s;
+    public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
+      if (updateMaskBuilder_ == null) {
+        if (updateMask_ != null) {
+          updateMask_ =
+            com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+        } else {
+          updateMask_ = value;
+        }
+        onChanged();
       } else {
-        return (java.lang.String) ref;
+        updateMaskBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Set of field paths (relative to PatchGroupBody) to update.
+     * Unlisted fields remain unchanged.
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 5 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder clearUpdateMask() {
+      if (updateMaskBuilder_ == null) {
+        updateMask_ = null;
+        onChanged();
+      } else {
+        updateMask_ = null;
+        updateMaskBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Set of field paths (relative to PatchGroupBody) to update.
+     * Unlisted fields remain unchanged.
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 5 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+     */
+    public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
+      
+      onChanged();
+      return getUpdateMaskFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Set of field paths (relative to PatchGroupBody) to update.
+     * Unlisted fields remain unchanged.
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 5 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+     */
+    public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+      if (updateMaskBuilder_ != null) {
+        return updateMaskBuilder_.getMessageOrBuilder();
+      } else {
+        return updateMask_ == null ?
+            com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
       }
     }
     /**
      * <pre>
-     * Group description.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MaxLength=200
+     * Set of field paths (relative to PatchGroupBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>string description = 7 [json_name = "description", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for description.
+     * <code>.google.protobuf.FieldMask update_mask = 5 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
      */
-    public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        description_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> 
+        getUpdateMaskFieldBuilder() {
+      if (updateMaskBuilder_ == null) {
+        updateMaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder>(
+                getUpdateMask(),
+                getParentForChildren(),
+                isClean());
+        updateMask_ = null;
       }
-    }
-    /**
-     * <pre>
-     * Group description.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MaxLength=200
-     * </pre>
-     *
-     * <code>string description = 7 [json_name = "description", (.buf.validate.field) = { ... }</code>
-     * @param value The description to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDescription(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      description_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Group description.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MaxLength=200
-     * </pre>
-     *
-     * <code>string description = 7 [json_name = "description", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDescription() {
-      
-      description_ = getDefaultInstance().getDescription();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Group description.
-     * +kubebuilder:validation:Nullable
-     * +kubebuilder:validation:MaxLength=200
-     * </pre>
-     *
-     * <code>string description = 7 [json_name = "description", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for description to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDescriptionBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      description_ = value;
-      onChanged();
-      return this;
+      return updateMaskBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1681,14 +1477,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The title to set.
+     * @param value The body to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearTitle(java.lang.String value) {
+    public Builder setOrClearBody(io.channel.api.proto.pub.coreapi.service.PatchGroupBody value) {
     	if (value == null)
-    		return clearTitle();
+    		return clearBody();
     	else
-    		return setTitle(value);
+    		return setBody(value);
     }
     	
     /**
@@ -1696,45 +1492,22 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearTitle(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearBody(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.service.PatchGroupBody> mapFunc) {
     	if (value == null)
-    		return clearTitle();
+    		return clearBody();
     	else
-    		return setTitle(mapFunc.apply(value));
+    		return setBody(mapFunc.apply(value));
     }
     	
     /**
-     * @param value The scope to set.
+     * @param value The update_mask to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearScope(io.channel.api.proto.pub.coreapi.model.GroupScope value) {
+    public Builder setOrClearUpdateMask(com.google.protobuf.FieldMask value) {
     	if (value == null)
-    		return clearScope();
+    		return clearUpdateMask();
     	else
-    		return setScope(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearScope(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.GroupScope> mapFunc) {
-    	if (value == null)
-    		return clearScope();
-    	else
-    		return setScope(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The icon to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearIcon(java.lang.String value) {
-    	if (value == null)
-    		return clearIcon();
-    	else
-    		return setIcon(value);
+    		return setUpdateMask(value);
     }
     	
     /**
@@ -1742,71 +1515,48 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearIcon(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearUpdateMask(T value, java.util.function.Function<T, com.google.protobuf.FieldMask> mapFunc) {
     	if (value == null)
-    		return clearIcon();
+    		return clearUpdateMask();
     	else
-    		return setIcon(mapFunc.apply(value));
+    		return setUpdateMask(mapFunc.apply(value));
     }
     	
-    /**
-     * @param value The description to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearDescription(java.lang.String value) {
-    	if (value == null)
-    		return clearDescription();
-    	else
-    		return setDescription(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearDescription(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearDescription();
-    	else
-    		return setDescription(mapFunc.apply(value));
-    }
-    	
-    // @@protoc_insertion_point(builder_scope:coreapi.service.UpdateGroupRequest)
+    // @@protoc_insertion_point(builder_scope:coreapi.service.PatchGroupRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:coreapi.service.UpdateGroupRequest)
-  private static final io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:coreapi.service.PatchGroupRequest)
+  private static final io.channel.api.proto.pub.coreapi.service.PatchGroupRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest();
+    DEFAULT_INSTANCE = new io.channel.api.proto.pub.coreapi.service.PatchGroupRequest();
   }
 
-  public static io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest getDefaultInstance() {
+  public static io.channel.api.proto.pub.coreapi.service.PatchGroupRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<UpdateGroupRequest>
-      PARSER = new com.google.protobuf.AbstractParser<UpdateGroupRequest>() {
+  private static final com.google.protobuf.Parser<PatchGroupRequest>
+      PARSER = new com.google.protobuf.AbstractParser<PatchGroupRequest>() {
     @java.lang.Override
-    public UpdateGroupRequest parsePartialFrom(
+    public PatchGroupRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateGroupRequest(input, extensionRegistry);
+      return new PatchGroupRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<UpdateGroupRequest> parser() {
+  public static com.google.protobuf.Parser<PatchGroupRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<UpdateGroupRequest> getParserForType() {
+  public com.google.protobuf.Parser<PatchGroupRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.service.UpdateGroupRequest getDefaultInstanceForType() {
+  public io.channel.api.proto.pub.coreapi.service.PatchGroupRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

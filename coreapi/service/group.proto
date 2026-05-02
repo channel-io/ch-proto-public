@@ -9,6 +9,7 @@ import "coreapi/model/chat_session.proto";
 import "coreapi/model/group.proto";
 import "coreapi/model/message.proto";
 import "coreapi/model/message_content.proto";
+import "google/protobuf/field_mask.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
@@ -113,13 +114,69 @@ message GetGroupByNameResult {
   coreapi.model.ChatSession session = 3;
 }
 
-// Updates a group by ID.
+// Patch body shared between PatchGroupRequest and PatchGroupByNameRequest.
+// Only fields listed in the request's update_mask are applied.
+message PatchGroupBody {
+  // Group display name.
+  // Unique within the channel (case-insensitive).
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MinLength=2
+  // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:validation:Pattern="[\\p{L}\\p{N}\\-_()]+"
+  string title = 1 [
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "this == '' || size(this) <= 30"
+    },
+    (buf.validate.field).cel = {
+      id: "string.minLen"
+      message: "value must be at least 2 characters"
+      expression: "this == '' || size(this) >= 2"
+    },
+    (buf.validate.field).cel = {
+      id: "string.pattern"
+      message: "value must contain only letters, numbers, hyphens, underscores, or parentheses"
+      expression: "this == '' || this.matches('^[\\\\p{L}\\\\p{N}\\\\-_()]+$')"
+    }
+  ];
+
+  // Visibility scope of the group.
+  //
+  // +kubebuilder:validation:Nullable
+  coreapi.model.GroupScope scope = 2;
+
+  // Group icon identifier.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:Pattern="\\S+"
+  string icon = 3 [(buf.validate.field).cel = {
+    id: "string.pattern"
+    message: "value must not contain whitespace"
+    expression: "this == '' || this.matches('^\\\\S+$')"
+  }];
+
+  // Group description.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxLength=200
+  string description = 4 [(buf.validate.field).cel = {
+    id: "string.maxLen"
+    message: "value must be no more than 200 characters"
+    expression: "size(this) <= 200"
+  }];
+}
+
+// Patches a group by ID.
 //
-// Only the following fields can be updated: title, scope, icon, description.
+// PATCH semantics per RFC 7396 / AIP-134/161:
+//   - a field listed in update_mask is applied (null = clear, value = set)
+//   - a field absent from update_mask is not modified
+//
 // The bot specified by bot_name performs the action.
-//
 // Returns 404 if the group does not exist.
-message UpdateGroupRequest {
+message PatchGroupRequest {
   // Channel ID the group belongs to.
   string channel_id = 1 [(buf.validate.field).required = true];
 
@@ -141,69 +198,28 @@ message UpdateGroupRequest {
     (buf.validate.field).string.pattern = "^[^@#$%:/]+$"
   ];
 
-  // Group display name.
-  // Unique within the channel (case-insensitive).
-  //
-  // +kubebuilder:validation:Nullable
-  // +kubebuilder:validation:MinLength=2
-  // +kubebuilder:validation:MaxLength=30
-  // +kubebuilder:validation:Pattern="[\\p{L}\\p{N}\\-_()]+"
-  string title = 4 [
-    (buf.validate.field).cel = {
-      id: "string.maxLen"
-      message: "value must be no more than 30 characters"
-      expression: "this == '' || size(this) <= 30"
-    },
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 2 characters"
-      expression: "this == '' || size(this) >= 2"
-    },
-    (buf.validate.field).cel = {
-      id: "string.pattern"
-      message: "value must contain only letters, numbers, hyphens, underscores, or parentheses"
-      expression: "this == '' || this.matches('^[\\\\p{L}\\\\p{N}\\\\-_()]+$')"
-    }
-  ];
+  // Patch body. Only fields listed in update_mask are applied.
+  PatchGroupBody body = 4 [(buf.validate.field).required = true];
 
-  // Visibility scope of the group.
-  //
-  // +kubebuilder:validation:Nullable
-  coreapi.model.GroupScope scope = 5;
-
-  // Group icon identifier.
-  //
-  // +kubebuilder:validation:Nullable
-  // +kubebuilder:validation:Pattern="\\S+"
-  string icon = 6 [(buf.validate.field).cel = {
-    id: "string.pattern"
-    message: "value must not contain whitespace"
-    expression: "this == '' || this.matches('^\\\\S+$')"
-  }];
-
-  // Group description.
-  //
-  // +kubebuilder:validation:Nullable
-  // +kubebuilder:validation:MaxLength=200
-  string description = 7 [(buf.validate.field).cel = {
-    id: "string.maxLen"
-    message: "value must be no more than 200 characters"
-    expression: "size(this) <= 200"
-  }];
+  // Set of field paths (relative to PatchGroupBody) to update.
+  // Unlisted fields remain unchanged.
+  google.protobuf.FieldMask update_mask = 5 [(buf.validate.field).required = true];
 }
 
-// Response for group update.
-message UpdateGroupResult {
+// Response for group patch.
+message PatchGroupResult {
   coreapi.model.Group group = 1;
 }
 
-// Updates a group by name.
+// Patches a group by name.
 //
-// Only the following fields can be updated: title, scope, icon, description.
+// PATCH semantics per RFC 7396 / AIP-134/161:
+//   - a field listed in update_mask is applied (null = clear, value = set)
+//   - a field absent from update_mask is not modified
+//
 // The bot specified by bot_name performs the action.
-//
 // Returns 404 if the group does not exist.
-message UpdateGroupByNameRequest {
+message PatchGroupByNameRequest {
   // Channel ID the group belongs to.
   string channel_id = 1 [(buf.validate.field).required = true];
 
@@ -225,59 +241,16 @@ message UpdateGroupByNameRequest {
     (buf.validate.field).string.pattern = "^[^@#$%:/]+$"
   ];
 
-  // Group display name.
-  // Unique within the channel (case-insensitive).
-  //
-  // +kubebuilder:validation:Nullable
-  // +kubebuilder:validation:MinLength=2
-  // +kubebuilder:validation:MaxLength=30
-  // +kubebuilder:validation:Pattern="[\\p{L}\\p{N}\\-_()]+"
-  string title = 4 [
-    (buf.validate.field).cel = {
-      id: "string.maxLen"
-      message: "value must be no more than 30 characters"
-      expression: "this == '' || size(this) <= 30"
-    },
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 2 characters"
-      expression: "this == '' || size(this) >= 2"
-    },
-    (buf.validate.field).cel = {
-      id: "string.pattern"
-      message: "value must contain only letters, numbers, hyphens, underscores, or parentheses"
-      expression: "this == '' || this.matches('^[\\\\p{L}\\\\p{N}\\\\-_()]+$')"
-    }
-  ];
+  // Patch body. Only fields listed in update_mask are applied.
+  PatchGroupBody body = 4 [(buf.validate.field).required = true];
 
-  // Visibility scope of the group.
-  //
-  // +kubebuilder:validation:Nullable
-  coreapi.model.GroupScope scope = 5;
-
-  // Group icon identifier.
-  //
-  // +kubebuilder:validation:Nullable
-  // +kubebuilder:validation:Pattern="\\S+"
-  string icon = 6 [(buf.validate.field).cel = {
-    id: "string.pattern"
-    message: "value must not contain whitespace"
-    expression: "this == '' || this.matches('^\\\\S+$')"
-  }];
-
-  // Group description.
-  //
-  // +kubebuilder:validation:Nullable
-  // +kubebuilder:validation:MaxLength=200
-  string description = 7 [(buf.validate.field).cel = {
-    id: "string.maxLen"
-    message: "value must be no more than 200 characters"
-    expression: "size(this) <= 200"
-  }];
+  // Set of field paths (relative to PatchGroupBody) to update.
+  // Unlisted fields remain unchanged.
+  google.protobuf.FieldMask update_mask = 5 [(buf.validate.field).required = true];
 }
 
-// Response for group update by name.
-message UpdateGroupByNameResult {
+// Response for group patch by name.
+message PatchGroupByNameResult {
   coreapi.model.Group group = 1;
 }
 

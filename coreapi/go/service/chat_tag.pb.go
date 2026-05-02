@@ -11,6 +11,7 @@ import (
 	model "github.com/channel-io/ch-proto-public/coreapi/go/model"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -493,40 +494,45 @@ func (x *CreateChatTagResult) GetChatTag() *model.ChatTag {
 	return nil
 }
 
-// Updates a chat tag.
+// Patches a chat tag.
 //
 // Only color_variant and description can be updated.
 // The name and key fields are immutable after creation.
 //
+// PATCH semantics per RFC 7396 / AIP-134/161:
+//   - a field listed in update_mask is applied (null = clear, value = set)
+//   - a field absent from update_mask is not modified
+//
 // Returns 404 if the chat tag does not exist.
-type UpdateChatTagRequest struct {
+type PatchChatTagRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Chat tag ID to update.
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID the chat tag belongs to.
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Color theme of the chat tag.
-	ColorVariant model.ChatTagColorVariant `protobuf:"varint,3,opt,name=color_variant,json=colorVariant,proto3,enum=coreapi.model.ChatTagColorVariant" json:"color_variant,omitempty"`
-	// Short description of the chat tag.
-	Description   string `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
+	// Patch body. Only fields listed in update_mask are applied.
+	Body *PatchChatTagRequest_PatchChatTagBody `protobuf:"bytes,3,opt,name=body,proto3" json:"body,omitempty"`
+	// Set of field paths (relative to PatchChatTagBody) to update.
+	// Unlisted fields remain unchanged.
+	UpdateMask    *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *UpdateChatTagRequest) Reset() {
-	*x = UpdateChatTagRequest{}
+func (x *PatchChatTagRequest) Reset() {
+	*x = PatchChatTagRequest{}
 	mi := &file_coreapi_service_chat_tag_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UpdateChatTagRequest) String() string {
+func (x *PatchChatTagRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UpdateChatTagRequest) ProtoMessage() {}
+func (*PatchChatTagRequest) ProtoMessage() {}
 
-func (x *UpdateChatTagRequest) ProtoReflect() protoreflect.Message {
+func (x *PatchChatTagRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_coreapi_service_chat_tag_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -538,61 +544,61 @@ func (x *UpdateChatTagRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UpdateChatTagRequest.ProtoReflect.Descriptor instead.
-func (*UpdateChatTagRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use PatchChatTagRequest.ProtoReflect.Descriptor instead.
+func (*PatchChatTagRequest) Descriptor() ([]byte, []int) {
 	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{8}
 }
 
-func (x *UpdateChatTagRequest) GetId() string {
+func (x *PatchChatTagRequest) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-func (x *UpdateChatTagRequest) GetChannelId() string {
+func (x *PatchChatTagRequest) GetChannelId() string {
 	if x != nil {
 		return x.ChannelId
 	}
 	return ""
 }
 
-func (x *UpdateChatTagRequest) GetColorVariant() model.ChatTagColorVariant {
+func (x *PatchChatTagRequest) GetBody() *PatchChatTagRequest_PatchChatTagBody {
 	if x != nil {
-		return x.ColorVariant
+		return x.Body
 	}
-	return model.ChatTagColorVariant(0)
+	return nil
 }
 
-func (x *UpdateChatTagRequest) GetDescription() string {
+func (x *PatchChatTagRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
 	if x != nil {
-		return x.Description
+		return x.UpdateMask
 	}
-	return ""
+	return nil
 }
 
-// Response for chat tag update.
-type UpdateChatTagResult struct {
+// Response for chat tag patch.
+type PatchChatTagResult struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	ChatTag       *model.ChatTag         `protobuf:"bytes,1,opt,name=chat_tag,json=chatTag,proto3" json:"chat_tag,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *UpdateChatTagResult) Reset() {
-	*x = UpdateChatTagResult{}
+func (x *PatchChatTagResult) Reset() {
+	*x = PatchChatTagResult{}
 	mi := &file_coreapi_service_chat_tag_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UpdateChatTagResult) String() string {
+func (x *PatchChatTagResult) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UpdateChatTagResult) ProtoMessage() {}
+func (*PatchChatTagResult) ProtoMessage() {}
 
-func (x *UpdateChatTagResult) ProtoReflect() protoreflect.Message {
+func (x *PatchChatTagResult) ProtoReflect() protoreflect.Message {
 	mi := &file_coreapi_service_chat_tag_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -604,12 +610,12 @@ func (x *UpdateChatTagResult) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UpdateChatTagResult.ProtoReflect.Descriptor instead.
-func (*UpdateChatTagResult) Descriptor() ([]byte, []int) {
+// Deprecated: Use PatchChatTagResult.ProtoReflect.Descriptor instead.
+func (*PatchChatTagResult) Descriptor() ([]byte, []int) {
 	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{9}
 }
 
-func (x *UpdateChatTagResult) GetChatTag() *model.ChatTag {
+func (x *PatchChatTagResult) GetChatTag() *model.ChatTag {
 	if x != nil {
 		return x.ChatTag
 	}
@@ -713,11 +719,70 @@ func (*DeleteChatTagResult) Descriptor() ([]byte, []int) {
 	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{11}
 }
 
+type PatchChatTagRequest_PatchChatTagBody struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Color theme of the chat tag.
+	//
+	// +kubebuilder:validation:Nullable
+	ColorVariant model.ChatTagColorVariant `protobuf:"varint,1,opt,name=color_variant,json=colorVariant,proto3,enum=coreapi.model.ChatTagColorVariant" json:"color_variant,omitempty"`
+	// Short description of the chat tag.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MaxLength=128
+	Description   string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PatchChatTagRequest_PatchChatTagBody) Reset() {
+	*x = PatchChatTagRequest_PatchChatTagBody{}
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PatchChatTagRequest_PatchChatTagBody) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PatchChatTagRequest_PatchChatTagBody) ProtoMessage() {}
+
+func (x *PatchChatTagRequest_PatchChatTagBody) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_chat_tag_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PatchChatTagRequest_PatchChatTagBody.ProtoReflect.Descriptor instead.
+func (*PatchChatTagRequest_PatchChatTagBody) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_chat_tag_proto_rawDescGZIP(), []int{8, 0}
+}
+
+func (x *PatchChatTagRequest_PatchChatTagBody) GetColorVariant() model.ChatTagColorVariant {
+	if x != nil {
+		return x.ColorVariant
+	}
+	return model.ChatTagColorVariant(0)
+}
+
+func (x *PatchChatTagRequest_PatchChatTagBody) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
 var File_coreapi_service_chat_tag_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_chat_tag_proto_rawDesc = "" +
 	"\n" +
-	"\x1ecoreapi/service/chat_tag.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/chat_tag.proto\"\xcd\x01\n" +
+	"\x1ecoreapi/service/chat_tag.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1ccoreapi/model/chat_tag.proto\x1a google/protobuf/field_mask.proto\"\xcd\x01\n" +
 	"\x15SearchChatTagsRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x16\n" +
@@ -753,15 +818,19 @@ const file_coreapi_service_chat_tag_proto_rawDesc = "" +
 	"\vdescription\x18\x04 \x01(\tBS\xbaHP\xba\x01M\n" +
 	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128R\vdescription\"H\n" +
 	"\x13CreateChatTagResult\x121\n" +
-	"\bchat_tag\x18\x01 \x01(\v2\x16.coreapi.model.ChatTagR\achatTag\"\x95\x02\n" +
-	"\x14UpdateChatTagRequest\x12\x16\n" +
+	"\bchat_tag\x18\x01 \x01(\v2\x16.coreapi.model.ChatTagR\achatTag\"\xd0\x03\n" +
+	"\x13PatchChatTagRequest\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12G\n" +
-	"\rcolor_variant\x18\x03 \x01(\x0e2\".coreapi.model.ChatTagColorVariantR\fcolorVariant\x12u\n" +
-	"\vdescription\x18\x04 \x01(\tBS\xbaHP\xba\x01M\n" +
-	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x11size(this) <= 128R\vdescription\"H\n" +
-	"\x13UpdateChatTagResult\x121\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12Q\n" +
+	"\x04body\x18\x03 \x01(\v25.coreapi.service.PatchChatTagRequest.PatchChatTagBodyB\x06\xbaH\x03\xc8\x01\x01R\x04body\x12C\n" +
+	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"updateMask\x1a\xe1\x01\n" +
+	"\x10PatchChatTagBody\x12G\n" +
+	"\rcolor_variant\x18\x01 \x01(\x0e2\".coreapi.model.ChatTagColorVariantR\fcolorVariant\x12\x83\x01\n" +
+	"\vdescription\x18\x02 \x01(\tBa\xbaH^\xba\x01[\n" +
+	"\rstring.maxLen\x12)value must be no more than 128 characters\x1a\x1fthis == '' || size(this) <= 128R\vdescription\"G\n" +
+	"\x12PatchChatTagResult\x121\n" +
 	"\bchat_tag\x18\x01 \x01(\v2\x16.coreapi.model.ChatTagR\achatTag\"U\n" +
 	"\x14DeleteChatTagRequest\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
@@ -782,36 +851,40 @@ func file_coreapi_service_chat_tag_proto_rawDescGZIP() []byte {
 	return file_coreapi_service_chat_tag_proto_rawDescData
 }
 
-var file_coreapi_service_chat_tag_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_coreapi_service_chat_tag_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_coreapi_service_chat_tag_proto_goTypes = []any{
-	(*SearchChatTagsRequest)(nil),         // 0: coreapi.service.SearchChatTagsRequest
-	(*SearchChatTagsResult)(nil),          // 1: coreapi.service.SearchChatTagsResult
-	(*BatchGetChatTagsByKeysRequest)(nil), // 2: coreapi.service.BatchGetChatTagsByKeysRequest
-	(*BatchGetChatTagsByKeysResult)(nil),  // 3: coreapi.service.BatchGetChatTagsByKeysResult
-	(*GetChatTagRequest)(nil),             // 4: coreapi.service.GetChatTagRequest
-	(*GetChatTagResult)(nil),              // 5: coreapi.service.GetChatTagResult
-	(*CreateChatTagRequest)(nil),          // 6: coreapi.service.CreateChatTagRequest
-	(*CreateChatTagResult)(nil),           // 7: coreapi.service.CreateChatTagResult
-	(*UpdateChatTagRequest)(nil),          // 8: coreapi.service.UpdateChatTagRequest
-	(*UpdateChatTagResult)(nil),           // 9: coreapi.service.UpdateChatTagResult
-	(*DeleteChatTagRequest)(nil),          // 10: coreapi.service.DeleteChatTagRequest
-	(*DeleteChatTagResult)(nil),           // 11: coreapi.service.DeleteChatTagResult
-	(*model.ChatTag)(nil),                 // 12: coreapi.model.ChatTag
-	(model.ChatTagColorVariant)(0),        // 13: coreapi.model.ChatTagColorVariant
+	(*SearchChatTagsRequest)(nil),                // 0: coreapi.service.SearchChatTagsRequest
+	(*SearchChatTagsResult)(nil),                 // 1: coreapi.service.SearchChatTagsResult
+	(*BatchGetChatTagsByKeysRequest)(nil),        // 2: coreapi.service.BatchGetChatTagsByKeysRequest
+	(*BatchGetChatTagsByKeysResult)(nil),         // 3: coreapi.service.BatchGetChatTagsByKeysResult
+	(*GetChatTagRequest)(nil),                    // 4: coreapi.service.GetChatTagRequest
+	(*GetChatTagResult)(nil),                     // 5: coreapi.service.GetChatTagResult
+	(*CreateChatTagRequest)(nil),                 // 6: coreapi.service.CreateChatTagRequest
+	(*CreateChatTagResult)(nil),                  // 7: coreapi.service.CreateChatTagResult
+	(*PatchChatTagRequest)(nil),                  // 8: coreapi.service.PatchChatTagRequest
+	(*PatchChatTagResult)(nil),                   // 9: coreapi.service.PatchChatTagResult
+	(*DeleteChatTagRequest)(nil),                 // 10: coreapi.service.DeleteChatTagRequest
+	(*DeleteChatTagResult)(nil),                  // 11: coreapi.service.DeleteChatTagResult
+	(*PatchChatTagRequest_PatchChatTagBody)(nil), // 12: coreapi.service.PatchChatTagRequest.PatchChatTagBody
+	(*model.ChatTag)(nil),                        // 13: coreapi.model.ChatTag
+	(model.ChatTagColorVariant)(0),               // 14: coreapi.model.ChatTagColorVariant
+	(*fieldmaskpb.FieldMask)(nil),                // 15: google.protobuf.FieldMask
 }
 var file_coreapi_service_chat_tag_proto_depIdxs = []int32{
-	12, // 0: coreapi.service.SearchChatTagsResult.chat_tags:type_name -> coreapi.model.ChatTag
-	12, // 1: coreapi.service.BatchGetChatTagsByKeysResult.chat_tags:type_name -> coreapi.model.ChatTag
-	12, // 2: coreapi.service.GetChatTagResult.chat_tag:type_name -> coreapi.model.ChatTag
-	13, // 3: coreapi.service.CreateChatTagRequest.color_variant:type_name -> coreapi.model.ChatTagColorVariant
-	12, // 4: coreapi.service.CreateChatTagResult.chat_tag:type_name -> coreapi.model.ChatTag
-	13, // 5: coreapi.service.UpdateChatTagRequest.color_variant:type_name -> coreapi.model.ChatTagColorVariant
-	12, // 6: coreapi.service.UpdateChatTagResult.chat_tag:type_name -> coreapi.model.ChatTag
-	7,  // [7:7] is the sub-list for method output_type
-	7,  // [7:7] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	13, // 0: coreapi.service.SearchChatTagsResult.chat_tags:type_name -> coreapi.model.ChatTag
+	13, // 1: coreapi.service.BatchGetChatTagsByKeysResult.chat_tags:type_name -> coreapi.model.ChatTag
+	13, // 2: coreapi.service.GetChatTagResult.chat_tag:type_name -> coreapi.model.ChatTag
+	14, // 3: coreapi.service.CreateChatTagRequest.color_variant:type_name -> coreapi.model.ChatTagColorVariant
+	13, // 4: coreapi.service.CreateChatTagResult.chat_tag:type_name -> coreapi.model.ChatTag
+	12, // 5: coreapi.service.PatchChatTagRequest.body:type_name -> coreapi.service.PatchChatTagRequest.PatchChatTagBody
+	15, // 6: coreapi.service.PatchChatTagRequest.update_mask:type_name -> google.protobuf.FieldMask
+	13, // 7: coreapi.service.PatchChatTagResult.chat_tag:type_name -> coreapi.model.ChatTag
+	14, // 8: coreapi.service.PatchChatTagRequest.PatchChatTagBody.color_variant:type_name -> coreapi.model.ChatTagColorVariant
+	9,  // [9:9] is the sub-list for method output_type
+	9,  // [9:9] is the sub-list for method input_type
+	9,  // [9:9] is the sub-list for extension type_name
+	9,  // [9:9] is the sub-list for extension extendee
+	0,  // [0:9] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_chat_tag_proto_init() }
@@ -825,7 +898,7 @@ func file_coreapi_service_chat_tag_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_chat_tag_proto_rawDesc), len(file_coreapi_service_chat_tag_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   12,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

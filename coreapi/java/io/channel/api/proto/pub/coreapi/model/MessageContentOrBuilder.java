@@ -202,6 +202,7 @@ public interface MessageContentOrBuilder extends
    * <pre>
    * Interactive form attached to the message.
    * The structure depends on the form type (custom, followUp, call).
+   * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -212,6 +213,7 @@ public interface MessageContentOrBuilder extends
    * <pre>
    * Interactive form attached to the message.
    * The structure depends on the form type (custom, followUp, call).
+   * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -222,6 +224,7 @@ public interface MessageContentOrBuilder extends
    * <pre>
    * Interactive form attached to the message.
    * The structure depends on the form type (custom, followUp, call).
+   * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -231,6 +234,7 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -240,6 +244,7 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -249,6 +254,7 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -259,6 +265,7 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -269,6 +276,7 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>

@@ -4,6 +4,7 @@ package coreapi.service;
 
 import "buf/validate/validate.proto";
 import "coreapi/model/webhook.proto";
+import "google/protobuf/field_mask.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
@@ -99,19 +100,35 @@ message PatchWebhookRequest {
   // Channel ID the webhook belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
 
-  // Webhook display name. Must be unique within the channel.
-  string name = 3;
+  // Patch body. Only fields listed in update_mask are applied.
+  PatchWebhookBody body = 3 [(buf.validate.field).required = true];
 
-  // Destination URL that receives webhook payloads.
-  string url = 4;
+  // Set of field paths (relative to PatchWebhookBody) to update.
+  // Unlisted fields remain unchanged.
+  google.protobuf.FieldMask update_mask = 4 [(buf.validate.field).required = true];
 
-  // Event scopes that trigger this webhook.
-  repeated coreapi.model.WebhookScope scopes = 5;
+  message PatchWebhookBody {
+    // Webhook display name. Must be unique within the channel.
+    //
+    // +kubebuilder:validation:Nullable
+    string name = 1;
 
-  // API version for webhook payloads.
-  //
-  // +kubebuilder:validation:Enum={"v4","v5"}
-  string api_version = 6;
+    // Destination URL that receives webhook payloads.
+    //
+    // +kubebuilder:validation:Nullable
+    string url = 2;
+
+    // Event scopes that trigger this webhook.
+    //
+    // +kubebuilder:validation:Nullable
+    repeated coreapi.model.WebhookScope scopes = 3;
+
+    // API version for webhook payloads.
+    //
+    // +kubebuilder:validation:Nullable
+    // +kubebuilder:validation:Enum={"v4","v5"}
+    string api_version = 4;
+  }
 }
 
 // Response for webhook update.

@@ -90,6 +90,11 @@ public final class User {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_coreapi_service_PatchUserRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_PatchUserRequest_PatchUserBody_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_PatchUserRequest_PatchUserBody_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_coreapi_service_PatchUserResult_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -167,115 +172,120 @@ public final class User {
       "rvice\032\033buf/validate/validate.proto\032\032core" +
       "api/model/online.proto\032\030coreapi/model/us" +
       "er.proto\032\036google/protobuf/duration.proto" +
-      "\032\034google/protobuf/struct.proto\032\037google/p" +
-      "rotobuf/timestamp.proto\"\237\002\n\024BatchGetUser" +
-      "sRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tch" +
-      "annelId\022\270\001\n\010user_ids\030\002 \003(\tB\234\001\272H\230\001\272\001F\n\021re" +
-      "peated.minItems\022 at least one user ID is" +
-      " required\032\017size(this) >= 1\272\001I\n\021repeated." +
-      "maxItems\022\"value must contain no more tha" +
-      "n 50\032\020size(this) <= 50\310\001\001R\007userIds\022%\n\016in" +
-      "clude_online\030\003 \001(\010R\rincludeOnline\"q\n\023Bat" +
-      "chGetUsersResult\022)\n\005users\030\001 \003(\0132\023.coreap" +
-      "i.model.UserR\005users\022/\n\007onlines\030\002 \003(\0132\025.c" +
-      "oreapi.model.OnlineR\007onlines\"\177\n\016GetUserR" +
-      "equest\022\037\n\007user_id\030\001 \001(\tB\006\272H\003\310\001\001R\006userId\022" +
-      "%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\022%" +
-      "\n\016include_online\030\003 \001(\010R\rincludeOnline\"g\n" +
-      "\rGetUserResult\022\'\n\004user\030\001 \001(\0132\023.coreapi.m" +
-      "odel.UserR\004user\022-\n\006online\030\002 \001(\0132\025.coreap" +
-      "i.model.OnlineR\006online\"\344\001\n\030GetUserByMemb" +
-      "erIdRequest\022z\n\tmember_id\030\001 \001(\tB]\272HZ\272\001K\n\r" +
-      "string.maxLen\022(value must be no more tha" +
-      "n 64 characters\032\020size(this) <= 64\310\001\001r\0072\005" +
-      "^\\S*$R\010memberId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003" +
-      "\310\001\001R\tchannelId\022%\n\016include_online\030\003 \001(\010R\r" +
-      "includeOnline\"q\n\027GetUserByMemberIdResult" +
-      "\022\'\n\004user\030\001 \001(\0132\023.coreapi.model.UserR\004use" +
-      "r\022-\n\006online\030\002 \001(\0132\025.coreapi.model.Online" +
-      "R\006online\"[\n\021DeleteUserRequest\022\037\n\007user_id" +
-      "\030\001 \001(\tB\006\272H\003\310\001\001R\006userId\022%\n\nchannel_id\030\002 \001" +
-      "(\tB\006\272H\003\310\001\001R\tchannelId\"\022\n\020DeleteUserResul" +
-      "t\"\300\001\n\033DeleteUserByMemberIdRequest\022z\n\tmem" +
-      "ber_id\030\001 \001(\tB]\272HZ\272\001K\n\rstring.maxLen\022(val" +
-      "ue must be no more than 64 characters\032\020s" +
-      "ize(this) <= 64\310\001\001r\0072\005^\\S*$R\010memberId\022%\n" +
-      "\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"\034\n\032" +
-      "DeleteUserByMemberIdResult\"Z\n\020BlockUserR" +
-      "equest\022\037\n\007user_id\030\001 \001(\tB\006\272H\003\310\001\001R\006userId\022" +
-      "%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\":" +
-      "\n\017BlockUserResult\022\'\n\004user\030\001 \001(\0132\023.coreap" +
-      "i.model.UserR\004user\"\\\n\022UnblockUserRequest" +
+      "\032 google/protobuf/field_mask.proto\032\034goog" +
+      "le/protobuf/struct.proto\032\037google/protobu" +
+      "f/timestamp.proto\"\237\002\n\024BatchGetUsersReque" +
+      "st\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelI" +
+      "d\022\270\001\n\010user_ids\030\002 \003(\tB\234\001\272H\230\001\272\001F\n\021repeated" +
+      ".minItems\022 at least one user ID is requi" +
+      "red\032\017size(this) >= 1\272\001I\n\021repeated.maxIte" +
+      "ms\022\"value must contain no more than 50\032\020" +
+      "size(this) <= 50\310\001\001R\007userIds\022%\n\016include_" +
+      "online\030\003 \001(\010R\rincludeOnline\"q\n\023BatchGetU" +
+      "sersResult\022)\n\005users\030\001 \003(\0132\023.coreapi.mode" +
+      "l.UserR\005users\022/\n\007onlines\030\002 \003(\0132\025.coreapi" +
+      ".model.OnlineR\007onlines\"\177\n\016GetUserRequest" +
       "\022\037\n\007user_id\030\001 \001(\tB\006\272H\003\310\001\001R\006userId\022%\n\ncha" +
-      "nnel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"<\n\021Unbl" +
-      "ockUserResult\022\'\n\004user\030\001 \001(\0132\023.coreapi.mo" +
-      "del.UserR\004user\"\243\003\n\020PatchUserRequest\022\037\n\007u" +
-      "ser_id\030\001 \001(\tB\006\272H\003\310\001\001R\006userId\022%\n\nchannel_" +
-      "id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\0221\n\007profile\030\003" +
-      " \001(\0132\027.google.protobuf.StructR\007profile\022:" +
-      "\n\014profile_once\030\004 \001(\0132\027.google.protobuf.S" +
-      "tructR\013profileOnce\022\022\n\004tags\030\005 \003(\tR\004tags\022\030" +
-      "\n\007blocked\030\006 \001(\010R\007blocked\022+\n\021unsubscribe_" +
-      "email\030\007 \001(\010R\020unsubscribeEmail\022/\n\023unsubsc" +
-      "ribe_texting\030\010 \001(\010R\022unsubscribeTexting\0220" +
-      "\n\024unsubscribe_app_push\030\t \001(\010R\022unsubscrib" +
-      "eAppPush\022\032\n\010language\030\n \001(\tR\010language\":\n\017" +
-      "PatchUserResult\022\'\n\004user\030\001 \001(\0132\023.coreapi." +
-      "model.UserR\004user\"\211\004\n\033UpsertUserByMemberI" +
-      "dRequest\022z\n\tmember_id\030\001 \001(\tB]\272HZ\272\001K\n\rstr" +
-      "ing.maxLen\022(value must be no more than 6" +
-      "4 characters\032\020size(this) <= 64\310\001\001r\0072\005^\\S" +
-      "*$R\010memberId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001" +
-      "R\tchannelId\0221\n\007profile\030\003 \001(\0132\027.google.pr" +
-      "otobuf.StructR\007profile\022:\n\014profile_once\030\004" +
-      " \001(\0132\027.google.protobuf.StructR\013profileOn" +
-      "ce\022\022\n\004tags\030\005 \003(\tR\004tags\022\030\n\007blocked\030\006 \001(\010R" +
-      "\007blocked\022+\n\021unsubscribe_email\030\007 \001(\010R\020uns" +
-      "ubscribeEmail\022/\n\023unsubscribe_texting\030\010 \001" +
-      "(\010R\022unsubscribeTexting\0220\n\024unsubscribe_ap" +
-      "p_push\030\t \001(\010R\022unsubscribeAppPush\022\032\n\010lang" +
-      "uage\030\n \001(\tR\010language\"E\n\032UpsertUserByMemb" +
-      "erIdResult\022\'\n\004user\030\001 \001(\0132\023.coreapi.model" +
-      ".UserR\004user\"u\n\021CreateLeadRequest\022%\n\nchan" +
-      "nel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\0229\n\007profi" +
-      "le\030\002 \001(\0132\027.google.protobuf.StructB\006\272H\003\310\001" +
-      "\001R\007profile\";\n\020CreateLeadResult\022\'\n\004user\030\001" +
-      " \001(\0132\023.coreapi.model.UserR\004user\"\332\003\n\026Issu" +
-      "eSessionJwtRequest\022z\n\tmember_id\030\001 \001(\tB]\272" +
-      "HZ\272\001K\n\rstring.maxLen\022(value must be no m" +
-      "ore than 64 characters\032\020size(this) <= 64" +
-      "\310\001\001r\0072\005^\\S*$R\010memberId\022%\n\nchannel_id\030\002 \001" +
-      "(\tB\006\272H\003\310\001\001R\tchannelId\022\234\002\n\nexpiration\030\003 \001" +
-      "(\0132\031.google.protobuf.DurationB\340\001\272H\334\001\272\001g\n" +
-      "\014duration.gte\022$expiration must be at lea" +
-      "st 1 minute\0321this == duration(\'0s\') || t" +
-      "his >= duration(\'60s\')\272\001o\n\014duration.lte\022" +
-      "\'expiration must be no more than 30 days" +
-      "\0326this == duration(\'0s\') || this <= dura" +
-      "tion(\'2592000s\')R\nexpiration\"s\n\025IssueSes" +
-      "sionJwtResult\022\037\n\013session_jwt\030\001 \001(\tR\nsess" +
-      "ionJwt\0229\n\nexpires_at\030\002 \001(\0132\032.google.prot" +
-      "obuf.TimestampR\texpiresAt\"_\n\025IssueUserTo" +
-      "kenRequest\022\037\n\007user_id\030\001 \001(\tB\006\272H\003\310\001\001R\006use" +
-      "rId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannel" +
-      "Id\"g\n\024IssueUserTokenResult\022\024\n\005token\030\001 \001(" +
-      "\tR\005token\0229\n\ndisable_at\030\002 \001(\0132\032.google.pr" +
-      "otobuf.TimestampR\tdisableAt\"\304\001\n\037IssueUse" +
-      "rTokenByMemberIdRequest\022z\n\tmember_id\030\001 \001" +
-      "(\tB]\272HZ\272\001K\n\rstring.maxLen\022(value must be" +
-      " no more than 64 characters\032\020size(this) " +
-      "<= 64\310\001\001r\0072\005^\\S*$R\010memberId\022%\n\nchannel_i" +
-      "d\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"q\n\036IssueUserT" +
-      "okenByMemberIdResult\022\024\n\005token\030\001 \001(\tR\005tok" +
-      "en\0229\n\ndisable_at\030\002 \001(\0132\032.google.protobuf" +
-      ".TimestampR\tdisableAt\"Z\n\020TouchUserReques" +
-      "t\022\037\n\007user_id\030\001 \001(\tB\006\272H\003\310\001\001R\006userId\022%\n\nch" +
-      "annel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\":\n\017Tou" +
-      "chUserResult\022\'\n\004user\030\001 \001(\0132\023.coreapi.mod" +
-      "el.UserR\004userBf\n(io.channel.api.proto.pu" +
-      "b.coreapi.serviceP\001Z8github.com/channel-" +
-      "io/ch-proto-public/coreapi/go/serviceb\006p" +
-      "roto3"
+      "nnel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\022%\n\016incl" +
+      "ude_online\030\003 \001(\010R\rincludeOnline\"g\n\rGetUs" +
+      "erResult\022\'\n\004user\030\001 \001(\0132\023.coreapi.model.U" +
+      "serR\004user\022-\n\006online\030\002 \001(\0132\025.coreapi.mode" +
+      "l.OnlineR\006online\"\344\001\n\030GetUserByMemberIdRe" +
+      "quest\022z\n\tmember_id\030\001 \001(\tB]\272HZ\272\001K\n\rstring" +
+      ".maxLen\022(value must be no more than 64 c" +
+      "haracters\032\020size(this) <= 64\310\001\001r\0072\005^\\S*$R" +
+      "\010memberId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tc" +
+      "hannelId\022%\n\016include_online\030\003 \001(\010R\rinclud" +
+      "eOnline\"q\n\027GetUserByMemberIdResult\022\'\n\004us" +
+      "er\030\001 \001(\0132\023.coreapi.model.UserR\004user\022-\n\006o" +
+      "nline\030\002 \001(\0132\025.coreapi.model.OnlineR\006onli" +
+      "ne\"[\n\021DeleteUserRequest\022\037\n\007user_id\030\001 \001(\t" +
+      "B\006\272H\003\310\001\001R\006userId\022%\n\nchannel_id\030\002 \001(\tB\006\272H" +
+      "\003\310\001\001R\tchannelId\"\022\n\020DeleteUserResult\"\300\001\n\033" +
+      "DeleteUserByMemberIdRequest\022z\n\tmember_id" +
+      "\030\001 \001(\tB]\272HZ\272\001K\n\rstring.maxLen\022(value mus" +
+      "t be no more than 64 characters\032\020size(th" +
+      "is) <= 64\310\001\001r\0072\005^\\S*$R\010memberId\022%\n\nchann" +
+      "el_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"\034\n\032Delete" +
+      "UserByMemberIdResult\"Z\n\020BlockUserRequest" +
+      "\022\037\n\007user_id\030\001 \001(\tB\006\272H\003\310\001\001R\006userId\022%\n\ncha" +
+      "nnel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\":\n\017Bloc" +
+      "kUserResult\022\'\n\004user\030\001 \001(\0132\023.coreapi.mode" +
+      "l.UserR\004user\"\\\n\022UnblockUserRequest\022\037\n\007us" +
+      "er_id\030\001 \001(\tB\006\272H\003\310\001\001R\006userId\022%\n\nchannel_i" +
+      "d\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"<\n\021UnblockUse" +
+      "rResult\022\'\n\004user\030\001 \001(\0132\023.coreapi.model.Us" +
+      "erR\004user\"\307\004\n\020PatchUserRequest\022\037\n\007user_id" +
+      "\030\001 \001(\tB\006\272H\003\310\001\001R\006userId\022%\n\nchannel_id\030\002 \001" +
+      "(\tB\006\272H\003\310\001\001R\tchannelId\022K\n\004body\030\003 \001(\0132/.co" +
+      "reapi.service.PatchUserRequest.PatchUser" +
+      "BodyB\006\272H\003\310\001\001R\004body\022C\n\013update_mask\030\004 \001(\0132" +
+      "\032.google.protobuf.FieldMaskB\006\272H\003\310\001\001R\nupd" +
+      "ateMask\032\330\002\n\rPatchUserBody\0221\n\007profile\030\001 \001" +
+      "(\0132\027.google.protobuf.StructR\007profile\022:\n\014" +
+      "profile_once\030\002 \001(\0132\027.google.protobuf.Str" +
+      "uctR\013profileOnce\022\022\n\004tags\030\003 \003(\tR\004tags\022\030\n\007" +
+      "blocked\030\004 \001(\010R\007blocked\022+\n\021unsubscribe_em" +
+      "ail\030\005 \001(\010R\020unsubscribeEmail\022/\n\023unsubscri" +
+      "be_texting\030\006 \001(\010R\022unsubscribeTexting\0220\n\024" +
+      "unsubscribe_app_push\030\007 \001(\010R\022unsubscribeA" +
+      "ppPush\022\032\n\010language\030\010 \001(\tR\010language\":\n\017Pa" +
+      "tchUserResult\022\'\n\004user\030\001 \001(\0132\023.coreapi.mo" +
+      "del.UserR\004user\"\211\004\n\033UpsertUserByMemberIdR" +
+      "equest\022z\n\tmember_id\030\001 \001(\tB]\272HZ\272\001K\n\rstrin" +
+      "g.maxLen\022(value must be no more than 64 " +
+      "characters\032\020size(this) <= 64\310\001\001r\0072\005^\\S*$" +
+      "R\010memberId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\t" +
+      "channelId\0221\n\007profile\030\003 \001(\0132\027.google.prot" +
+      "obuf.StructR\007profile\022:\n\014profile_once\030\004 \001" +
+      "(\0132\027.google.protobuf.StructR\013profileOnce" +
+      "\022\022\n\004tags\030\005 \003(\tR\004tags\022\030\n\007blocked\030\006 \001(\010R\007b" +
+      "locked\022+\n\021unsubscribe_email\030\007 \001(\010R\020unsub" +
+      "scribeEmail\022/\n\023unsubscribe_texting\030\010 \001(\010" +
+      "R\022unsubscribeTexting\0220\n\024unsubscribe_app_" +
+      "push\030\t \001(\010R\022unsubscribeAppPush\022\032\n\010langua" +
+      "ge\030\n \001(\tR\010language\"E\n\032UpsertUserByMember" +
+      "IdResult\022\'\n\004user\030\001 \001(\0132\023.coreapi.model.U" +
+      "serR\004user\"u\n\021CreateLeadRequest\022%\n\nchanne" +
+      "l_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\0229\n\007profile" +
+      "\030\002 \001(\0132\027.google.protobuf.StructB\006\272H\003\310\001\001R" +
+      "\007profile\";\n\020CreateLeadResult\022\'\n\004user\030\001 \001" +
+      "(\0132\023.coreapi.model.UserR\004user\"\332\003\n\026IssueS" +
+      "essionJwtRequest\022z\n\tmember_id\030\001 \001(\tB]\272HZ" +
+      "\272\001K\n\rstring.maxLen\022(value must be no mor" +
+      "e than 64 characters\032\020size(this) <= 64\310\001" +
+      "\001r\0072\005^\\S*$R\010memberId\022%\n\nchannel_id\030\002 \001(\t" +
+      "B\006\272H\003\310\001\001R\tchannelId\022\234\002\n\nexpiration\030\003 \001(\013" +
+      "2\031.google.protobuf.DurationB\340\001\272H\334\001\272\001g\n\014d" +
+      "uration.gte\022$expiration must be at least" +
+      " 1 minute\0321this == duration(\'0s\') || thi" +
+      "s >= duration(\'60s\')\272\001o\n\014duration.lte\022\'e" +
+      "xpiration must be no more than 30 days\0326" +
+      "this == duration(\'0s\') || this <= durati" +
+      "on(\'2592000s\')R\nexpiration\"s\n\025IssueSessi" +
+      "onJwtResult\022\037\n\013session_jwt\030\001 \001(\tR\nsessio" +
+      "nJwt\0229\n\nexpires_at\030\002 \001(\0132\032.google.protob" +
+      "uf.TimestampR\texpiresAt\"_\n\025IssueUserToke" +
+      "nRequest\022\037\n\007user_id\030\001 \001(\tB\006\272H\003\310\001\001R\006userI" +
+      "d\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId" +
+      "\"g\n\024IssueUserTokenResult\022\024\n\005token\030\001 \001(\tR" +
+      "\005token\0229\n\ndisable_at\030\002 \001(\0132\032.google.prot" +
+      "obuf.TimestampR\tdisableAt\"\304\001\n\037IssueUserT" +
+      "okenByMemberIdRequest\022z\n\tmember_id\030\001 \001(\t" +
+      "B]\272HZ\272\001K\n\rstring.maxLen\022(value must be n" +
+      "o more than 64 characters\032\020size(this) <=" +
+      " 64\310\001\001r\0072\005^\\S*$R\010memberId\022%\n\nchannel_id\030" +
+      "\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"q\n\036IssueUserTok" +
+      "enByMemberIdResult\022\024\n\005token\030\001 \001(\tR\005token" +
+      "\0229\n\ndisable_at\030\002 \001(\0132\032.google.protobuf.T" +
+      "imestampR\tdisableAt\"Z\n\020TouchUserRequest\022" +
+      "\037\n\007user_id\030\001 \001(\tB\006\272H\003\310\001\001R\006userId\022%\n\nchan" +
+      "nel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\":\n\017Touch" +
+      "UserResult\022\'\n\004user\030\001 \001(\0132\023.coreapi.model" +
+      ".UserR\004userBf\n(io.channel.api.proto.pub." +
+      "coreapi.serviceP\001Z8github.com/channel-io" +
+      "/ch-proto-public/coreapi/go/serviceb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -284,6 +294,7 @@ public final class User {
           io.channel.api.proto.pub.coreapi.model.OnlineOuterClass.getDescriptor(),
           io.channel.api.proto.pub.coreapi.model.UserOuterClass.getDescriptor(),
           com.google.protobuf.DurationProto.getDescriptor(),
+          com.google.protobuf.FieldMaskProto.getDescriptor(),
           com.google.protobuf.StructProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
@@ -376,7 +387,13 @@ public final class User {
     internal_static_coreapi_service_PatchUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_PatchUserRequest_descriptor,
-        new java.lang.String[] { "UserId", "ChannelId", "Profile", "ProfileOnce", "Tags", "Blocked", "UnsubscribeEmail", "UnsubscribeTexting", "UnsubscribeAppPush", "Language", });
+        new java.lang.String[] { "UserId", "ChannelId", "Body", "UpdateMask", });
+    internal_static_coreapi_service_PatchUserRequest_PatchUserBody_descriptor =
+      internal_static_coreapi_service_PatchUserRequest_descriptor.getNestedTypes().get(0);
+    internal_static_coreapi_service_PatchUserRequest_PatchUserBody_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_PatchUserRequest_PatchUserBody_descriptor,
+        new java.lang.String[] { "Profile", "ProfileOnce", "Tags", "Blocked", "UnsubscribeEmail", "UnsubscribeTexting", "UnsubscribeAppPush", "Language", });
     internal_static_coreapi_service_PatchUserResult_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_coreapi_service_PatchUserResult_fieldAccessorTable = new
@@ -464,6 +481,7 @@ public final class User {
     io.channel.api.proto.pub.coreapi.model.OnlineOuterClass.getDescriptor();
     io.channel.api.proto.pub.coreapi.model.UserOuterClass.getDescriptor();
     com.google.protobuf.DurationProto.getDescriptor();
+    com.google.protobuf.FieldMaskProto.getDescriptor();
     com.google.protobuf.StructProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }

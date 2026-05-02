@@ -4,6 +4,7 @@ package coreapi.service;
 
 import "buf/validate/validate.proto";
 import "coreapi/model/plugin.proto";
+import "google/protobuf/field_mask.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
@@ -62,134 +63,147 @@ message GetPluginResult {
   coreapi.model.Plugin plugin = 1;
 }
 
-// Updates a plugin.
-message UpdatePluginRequest {
+// Patches a plugin.
+//
+// PATCH semantics per RFC 7396 / AIP-134/161:
+//   - a field listed in update_mask is applied (null = clear, value = set)
+//   - a field absent from update_mask is not modified
+message PatchPluginRequest {
   // Plugin ID to update.
   string plugin_id = 1 [(buf.validate.field).required = true];
 
   // Channel ID the plugin belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
 
-  // Plugin display name.
-  //
-  // +kubebuilder:validation:Nullable
-  // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:validation:MaxLength=30
-  string name = 3 [(buf.validate.field).cel = {
-    id: "string.maxLen"
-    message: "value must be no more than 30 characters"
-    expression: "this == '' || size(this) <= 30"
-  }];
+  // Patch body. Only fields listed in update_mask are applied.
+  PatchPluginBody body = 3 [(buf.validate.field).required = true];
 
-  // Visual theme of the widget.
-  //
-  // +kubebuilder:validation:Nullable
-  coreapi.model.PluginAppearance appearance = 4;
+  // Set of field paths (relative to PatchPluginBody) to update.
+  // Unlisted fields remain unchanged.
+  google.protobuf.FieldMask update_mask = 4 [(buf.validate.field).required = true];
 
-  // Whether the label button is displayed on the widget.
-  //
-  // +kubebuilder:validation:Nullable
-  bool label_button = 5;
+  message PatchPluginBody {
+    // Plugin display name.
+    //
+    // +kubebuilder:validation:Nullable
+    // +kubebuilder:validation:MinLength=1
+    // +kubebuilder:validation:MaxLength=30
+    string name = 1 [(buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "this == '' || size(this) <= 30"
+    }];
 
-  // Text displayed on the label button.
-  //
-  // +kubebuilder:validation:Nullable
-  // +kubebuilder:validation:MinLength=4
-  // +kubebuilder:validation:MaxLength=30
-  string label_button_text = 6 [(buf.validate.field).cel = {
-    id: "string.len"
-    message: "value must be between 4 and 30 characters"
-    expression: "this == '' || (size(this) >= 4 && size(this) <= 30)"
-  }];
+    // Visual theme of the widget.
+    //
+    // +kubebuilder:validation:Nullable
+    coreapi.model.PluginAppearance appearance = 2;
 
-  // Internationalized label button text keyed by locale.
-  // Each value must be between 4 and 30 characters.
-  //
-  // +kubebuilder:validation:Nullable
-  map<string, string> label_button_text_i18n_map = 7;
+    // Whether the label button is displayed on the widget.
+    //
+    // +kubebuilder:validation:Nullable
+    bool label_button = 3;
 
-  // Type of the launcher button.
-  //
-  // +kubebuilder:validation:Nullable
-  coreapi.model.PluginButtonType button_type = 8;
+    // Text displayed on the label button.
+    //
+    // +kubebuilder:validation:Nullable
+    // +kubebuilder:validation:MinLength=4
+    // +kubebuilder:validation:MaxLength=30
+    string label_button_text = 4 [(buf.validate.field).cel = {
+      id: "string.len"
+      message: "value must be between 4 and 30 characters"
+      expression: "this == '' || (size(this) >= 4 && size(this) <= 30)"
+    }];
 
-  // Predefined icon for the launcher button.
-  // Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
-  //
-  // +kubebuilder:validation:Nullable
-  coreapi.model.PluginIconButton icon_button = 9;
+    // Internationalized label button text keyed by locale.
+    // Each value must be between 4 and 30 characters.
+    //
+    // +kubebuilder:validation:Nullable
+    map<string, string> label_button_text_i18n_map = 5;
 
-  // Horizontal margin in pixels for the desktop widget.
-  //
-  // +kubebuilder:validation:Nullable
-  int32 desk_margin_x = 10;
+    // Type of the launcher button.
+    //
+    // +kubebuilder:validation:Nullable
+    coreapi.model.PluginButtonType button_type = 6;
 
-  // Vertical margin in pixels for the desktop widget.
-  //
-  // +kubebuilder:validation:Nullable
-  int32 desk_margin_y = 11;
+    // Predefined icon for the launcher button.
+    // Applicable when button_type is PLUGIN_BUTTON_TYPE_ICON_BUTTON.
+    //
+    // +kubebuilder:validation:Nullable
+    coreapi.model.PluginIconButton icon_button = 7;
 
-  // Whether the launcher button is hidden on desktop.
-  //
-  // +kubebuilder:validation:Nullable
-  bool desk_hide_button = 12;
+    // Horizontal margin in pixels for the desktop widget.
+    //
+    // +kubebuilder:validation:Nullable
+    int32 desk_margin_x = 8;
 
-  // Horizontal position of the widget on desktop.
-  //
-  // +kubebuilder:validation:Nullable
-  coreapi.model.PluginPosition desk_position = 13;
+    // Vertical margin in pixels for the desktop widget.
+    //
+    // +kubebuilder:validation:Nullable
+    int32 desk_margin_y = 9;
 
-  // Horizontal margin in pixels for the mobile widget.
-  //
-  // +kubebuilder:validation:Nullable
-  int32 mobile_margin_x = 14;
+    // Whether the launcher button is hidden on desktop.
+    //
+    // +kubebuilder:validation:Nullable
+    bool desk_hide_button = 10;
 
-  // Vertical margin in pixels for the mobile widget.
-  //
-  // +kubebuilder:validation:Nullable
-  int32 mobile_margin_y = 15;
+    // Horizontal position of the widget on desktop.
+    //
+    // +kubebuilder:validation:Nullable
+    coreapi.model.PluginPosition desk_position = 11;
 
-  // Horizontal position of the widget on mobile.
-  //
-  // +kubebuilder:validation:Nullable
-  coreapi.model.PluginPosition mobile_position = 16;
+    // Horizontal margin in pixels for the mobile widget.
+    //
+    // +kubebuilder:validation:Nullable
+    int32 mobile_margin_x = 12;
 
-  // Whether the launcher button is hidden on mobile.
-  //
-  // +kubebuilder:validation:Nullable
-  bool mobile_hide_button = 17;
+    // Vertical margin in pixels for the mobile widget.
+    //
+    // +kubebuilder:validation:Nullable
+    int32 mobile_margin_y = 13;
 
-  // Vertical position of the chat bubble on mobile.
-  //
-  // +kubebuilder:validation:Nullable
-  coreapi.model.PluginBubblePosition mobile_bubble_position = 18;
+    // Horizontal position of the widget on mobile.
+    //
+    // +kubebuilder:validation:Nullable
+    coreapi.model.PluginPosition mobile_position = 14;
 
-  // Ratio of website visitors who see the plugin widget.
-  //
-  // +kubebuilder:validation:Nullable
-  // +kubebuilder:validation:Minimum=0
-  // +kubebuilder:validation:Maximum=1
-  float run_rate = 19 [
-    (buf.validate.field).cel = {
-      id: "float.gte"
-      message: "value must be at least 0"
-      expression: "this >= 0.0"
-    },
-    (buf.validate.field).cel = {
-      id: "float.lte"
-      message: "value must be at most 1"
-      expression: "this <= 1.0"
-    }
-  ];
+    // Whether the launcher button is hidden on mobile.
+    //
+    // +kubebuilder:validation:Nullable
+    bool mobile_hide_button = 15;
 
-  // External image URL to use as the custom launcher button image.
-  // Applicable when button_type is CUSTOM_IMAGE.
-  //
-  // +kubebuilder:validation:Nullable
-  string custom_image_url = 20;
+    // Vertical position of the chat bubble on mobile.
+    //
+    // +kubebuilder:validation:Nullable
+    coreapi.model.PluginBubblePosition mobile_bubble_position = 16;
+
+    // Ratio of website visitors who see the plugin widget.
+    //
+    // +kubebuilder:validation:Nullable
+    // +kubebuilder:validation:Minimum=0
+    // +kubebuilder:validation:Maximum=1
+    float run_rate = 17 [
+      (buf.validate.field).cel = {
+        id: "float.gte"
+        message: "value must be at least 0"
+        expression: "this >= 0.0"
+      },
+      (buf.validate.field).cel = {
+        id: "float.lte"
+        message: "value must be at most 1"
+        expression: "this <= 1.0"
+      }
+    ];
+
+    // External image URL to use as the custom launcher button image.
+    // Applicable when button_type is CUSTOM_IMAGE.
+    //
+    // +kubebuilder:validation:Nullable
+    string custom_image_url = 18;
+  }
 }
 
-// Response for plugin update.
-message UpdatePluginResult {
+// Response for plugin patch.
+message PatchPluginResult {
   coreapi.model.Plugin plugin = 1;
 }

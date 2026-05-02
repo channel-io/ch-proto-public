@@ -176,6 +176,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Timestamp of the user's most recent mobile session start.
+   * +kubebuilder:example="2026-04-28T09:40:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 9 [json_name = "lastSeenAt"];</code>
@@ -185,6 +186,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Timestamp of the user's most recent mobile session start.
+   * +kubebuilder:example="2026-04-28T09:40:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 9 [json_name = "lastSeenAt"];</code>
@@ -194,6 +196,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Timestamp of the user's most recent mobile session start.
+   * +kubebuilder:example="2026-04-28T09:40:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 9 [json_name = "lastSeenAt"];</code>

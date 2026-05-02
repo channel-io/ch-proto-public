@@ -4,6 +4,7 @@ package coreapi.service;
 
 import "buf/validate/validate.proto";
 import "coreapi/model/chat_tag.proto";
+import "google/protobuf/field_mask.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
@@ -138,32 +139,50 @@ message CreateChatTagResult {
   coreapi.model.ChatTag chat_tag = 1;
 }
 
-// Updates a chat tag.
+// Patches a chat tag.
 //
 // Only color_variant and description can be updated.
 // The name and key fields are immutable after creation.
 //
+// PATCH semantics per RFC 7396 / AIP-134/161:
+//   - a field listed in update_mask is applied (null = clear, value = set)
+//   - a field absent from update_mask is not modified
+//
 // Returns 404 if the chat tag does not exist.
-message UpdateChatTagRequest {
+message PatchChatTagRequest {
   // Chat tag ID to update.
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID the chat tag belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
 
-  // Color theme of the chat tag.
-  coreapi.model.ChatTagColorVariant color_variant = 3;
+  // Patch body. Only fields listed in update_mask are applied.
+  PatchChatTagBody body = 3 [(buf.validate.field).required = true];
 
-  // Short description of the chat tag.
-  string description = 4 [(buf.validate.field).cel = {
-    id: "string.maxLen"
-    message: "value must be no more than 128 characters"
-    expression: "size(this) <= 128"
-  }];
+  // Set of field paths (relative to PatchChatTagBody) to update.
+  // Unlisted fields remain unchanged.
+  google.protobuf.FieldMask update_mask = 4 [(buf.validate.field).required = true];
+
+  message PatchChatTagBody {
+    // Color theme of the chat tag.
+    //
+    // +kubebuilder:validation:Nullable
+    coreapi.model.ChatTagColorVariant color_variant = 1;
+
+    // Short description of the chat tag.
+    //
+    // +kubebuilder:validation:Nullable
+    // +kubebuilder:validation:MaxLength=128
+    string description = 2 [(buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 128 characters"
+      expression: "this == '' || size(this) <= 128"
+    }];
+  }
 }
 
-// Response for chat tag update.
-message UpdateChatTagResult {
+// Response for chat tag patch.
+message PatchChatTagResult {
   coreapi.model.ChatTag chat_tag = 1;
 }
 

@@ -138,6 +138,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * e.g., "Bot", "Channel", "Webhook"
+   * +kubebuilder:example="Channel"
    * </pre>
    *
    * <code>string model = 1 [json_name = "model"];</code>
@@ -159,6 +160,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * e.g., "Bot", "Channel", "Webhook"
+   * +kubebuilder:example="Channel"
    * </pre>
    *
    * <code>string model = 1 [json_name = "model"];</code>
@@ -184,6 +186,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * e.g., "name", "scopes[0]"
+   * +kubebuilder:example="default_domain"
    * </pre>
    *
    * <code>string field = 2 [json_name = "field"];</code>
@@ -205,6 +208,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * e.g., "name", "scopes[0]"
+   * +kubebuilder:example="default_domain"
    * </pre>
    *
    * <code>string field = 2 [json_name = "field"];</code>
@@ -228,6 +232,10 @@ private static final long serialVersionUID = 0L;
   public static final int VALUE_FIELD_NUMBER = 3;
   private volatile java.lang.Object value_;
   /**
+   * <pre>
+   * +kubebuilder:example="invalid-domain!"
+   * </pre>
+   *
    * <code>string value = 3 [json_name = "value"];</code>
    * @return The value.
    */
@@ -245,6 +253,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * +kubebuilder:example="invalid-domain!"
+   * </pre>
+   *
    * <code>string value = 3 [json_name = "value"];</code>
    * @return The bytes for value.
    */
@@ -266,6 +278,10 @@ private static final long serialVersionUID = 0L;
   public static final int MESSAGE_FIELD_NUMBER = 4;
   private volatile java.lang.Object message_;
   /**
+   * <pre>
+   * +kubebuilder:example="must match pattern ^[a-z0-9-]+$"
+   * </pre>
+   *
    * <code>string message = 4 [json_name = "message"];</code>
    * @return The message.
    */
@@ -283,6 +299,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * +kubebuilder:example="must match pattern ^[a-z0-9-]+$"
+   * </pre>
+   *
    * <code>string message = 4 [json_name = "message"];</code>
    * @return The bytes for message.
    */
@@ -307,6 +327,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Set only for proto validation (buf.validate) errors.
    * e.g., "coreapi.service.UpsertBotRequest"
+   * +kubebuilder:example="coreapi.model.Channel"
    * </pre>
    *
    * <code>string proto_package_path = 5 [json_name = "protoPackagePath"];</code>
@@ -329,6 +350,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Set only for proto validation (buf.validate) errors.
    * e.g., "coreapi.service.UpsertBotRequest"
+   * +kubebuilder:example="coreapi.model.Channel"
    * </pre>
    *
    * <code>string proto_package_path = 5 [json_name = "protoPackagePath"];</code>
@@ -355,6 +377,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Set only for proto validation (buf.validate) errors.
    * e.g., "string.minLen"
+   * +kubebuilder:example="string.pattern"
    * </pre>
    *
    * <code>string proto_constraint = 6 [json_name = "protoConstraint"];</code>
@@ -377,6 +400,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Set only for proto validation (buf.validate) errors.
    * e.g., "string.minLen"
+   * +kubebuilder:example="string.pattern"
    * </pre>
    *
    * <code>string proto_constraint = 6 [json_name = "protoConstraint"];</code>
@@ -402,6 +426,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Index within a repeated field, if applicable.
+   * +kubebuilder:example="0"
    * </pre>
    *
    * <code>optional int32 index = 7 [json_name = "index"];</code>
@@ -414,6 +439,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Index within a repeated field, if applicable.
+   * +kubebuilder:example="0"
    * </pre>
    *
    * <code>optional int32 index = 7 [json_name = "index"];</code>
@@ -848,6 +874,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * e.g., "Bot", "Channel", "Webhook"
+     * +kubebuilder:example="Channel"
      * </pre>
      *
      * <code>string model = 1 [json_name = "model"];</code>
@@ -868,6 +895,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * e.g., "Bot", "Channel", "Webhook"
+     * +kubebuilder:example="Channel"
      * </pre>
      *
      * <code>string model = 1 [json_name = "model"];</code>
@@ -889,6 +917,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * e.g., "Bot", "Channel", "Webhook"
+     * +kubebuilder:example="Channel"
      * </pre>
      *
      * <code>string model = 1 [json_name = "model"];</code>
@@ -908,6 +937,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * e.g., "Bot", "Channel", "Webhook"
+     * +kubebuilder:example="Channel"
      * </pre>
      *
      * <code>string model = 1 [json_name = "model"];</code>
@@ -922,6 +952,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * e.g., "Bot", "Channel", "Webhook"
+     * +kubebuilder:example="Channel"
      * </pre>
      *
      * <code>string model = 1 [json_name = "model"];</code>
@@ -944,6 +975,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * e.g., "name", "scopes[0]"
+     * +kubebuilder:example="default_domain"
      * </pre>
      *
      * <code>string field = 2 [json_name = "field"];</code>
@@ -964,6 +996,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * e.g., "name", "scopes[0]"
+     * +kubebuilder:example="default_domain"
      * </pre>
      *
      * <code>string field = 2 [json_name = "field"];</code>
@@ -985,6 +1018,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * e.g., "name", "scopes[0]"
+     * +kubebuilder:example="default_domain"
      * </pre>
      *
      * <code>string field = 2 [json_name = "field"];</code>
@@ -1004,6 +1038,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * e.g., "name", "scopes[0]"
+     * +kubebuilder:example="default_domain"
      * </pre>
      *
      * <code>string field = 2 [json_name = "field"];</code>
@@ -1018,6 +1053,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * e.g., "name", "scopes[0]"
+     * +kubebuilder:example="default_domain"
      * </pre>
      *
      * <code>string field = 2 [json_name = "field"];</code>
@@ -1038,6 +1074,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object value_ = "";
     /**
+     * <pre>
+     * +kubebuilder:example="invalid-domain!"
+     * </pre>
+     *
      * <code>string value = 3 [json_name = "value"];</code>
      * @return The value.
      */
@@ -1054,6 +1094,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * +kubebuilder:example="invalid-domain!"
+     * </pre>
+     *
      * <code>string value = 3 [json_name = "value"];</code>
      * @return The bytes for value.
      */
@@ -1071,6 +1115,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * +kubebuilder:example="invalid-domain!"
+     * </pre>
+     *
      * <code>string value = 3 [json_name = "value"];</code>
      * @param value The value to set.
      * @return This builder for chaining.
@@ -1086,6 +1134,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * +kubebuilder:example="invalid-domain!"
+     * </pre>
+     *
      * <code>string value = 3 [json_name = "value"];</code>
      * @return This builder for chaining.
      */
@@ -1096,6 +1148,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * +kubebuilder:example="invalid-domain!"
+     * </pre>
+     *
      * <code>string value = 3 [json_name = "value"];</code>
      * @param value The bytes for value to set.
      * @return This builder for chaining.
@@ -1114,6 +1170,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object message_ = "";
     /**
+     * <pre>
+     * +kubebuilder:example="must match pattern ^[a-z0-9-]+$"
+     * </pre>
+     *
      * <code>string message = 4 [json_name = "message"];</code>
      * @return The message.
      */
@@ -1130,6 +1190,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * +kubebuilder:example="must match pattern ^[a-z0-9-]+$"
+     * </pre>
+     *
      * <code>string message = 4 [json_name = "message"];</code>
      * @return The bytes for message.
      */
@@ -1147,6 +1211,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * +kubebuilder:example="must match pattern ^[a-z0-9-]+$"
+     * </pre>
+     *
      * <code>string message = 4 [json_name = "message"];</code>
      * @param value The message to set.
      * @return This builder for chaining.
@@ -1162,6 +1230,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * +kubebuilder:example="must match pattern ^[a-z0-9-]+$"
+     * </pre>
+     *
      * <code>string message = 4 [json_name = "message"];</code>
      * @return This builder for chaining.
      */
@@ -1172,6 +1244,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * +kubebuilder:example="must match pattern ^[a-z0-9-]+$"
+     * </pre>
+     *
      * <code>string message = 4 [json_name = "message"];</code>
      * @param value The bytes for message to set.
      * @return This builder for chaining.
@@ -1193,6 +1269,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Set only for proto validation (buf.validate) errors.
      * e.g., "coreapi.service.UpsertBotRequest"
+     * +kubebuilder:example="coreapi.model.Channel"
      * </pre>
      *
      * <code>string proto_package_path = 5 [json_name = "protoPackagePath"];</code>
@@ -1214,6 +1291,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Set only for proto validation (buf.validate) errors.
      * e.g., "coreapi.service.UpsertBotRequest"
+     * +kubebuilder:example="coreapi.model.Channel"
      * </pre>
      *
      * <code>string proto_package_path = 5 [json_name = "protoPackagePath"];</code>
@@ -1236,6 +1314,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Set only for proto validation (buf.validate) errors.
      * e.g., "coreapi.service.UpsertBotRequest"
+     * +kubebuilder:example="coreapi.model.Channel"
      * </pre>
      *
      * <code>string proto_package_path = 5 [json_name = "protoPackagePath"];</code>
@@ -1256,6 +1335,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Set only for proto validation (buf.validate) errors.
      * e.g., "coreapi.service.UpsertBotRequest"
+     * +kubebuilder:example="coreapi.model.Channel"
      * </pre>
      *
      * <code>string proto_package_path = 5 [json_name = "protoPackagePath"];</code>
@@ -1271,6 +1351,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Set only for proto validation (buf.validate) errors.
      * e.g., "coreapi.service.UpsertBotRequest"
+     * +kubebuilder:example="coreapi.model.Channel"
      * </pre>
      *
      * <code>string proto_package_path = 5 [json_name = "protoPackagePath"];</code>
@@ -1294,6 +1375,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Set only for proto validation (buf.validate) errors.
      * e.g., "string.minLen"
+     * +kubebuilder:example="string.pattern"
      * </pre>
      *
      * <code>string proto_constraint = 6 [json_name = "protoConstraint"];</code>
@@ -1315,6 +1397,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Set only for proto validation (buf.validate) errors.
      * e.g., "string.minLen"
+     * +kubebuilder:example="string.pattern"
      * </pre>
      *
      * <code>string proto_constraint = 6 [json_name = "protoConstraint"];</code>
@@ -1337,6 +1420,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Set only for proto validation (buf.validate) errors.
      * e.g., "string.minLen"
+     * +kubebuilder:example="string.pattern"
      * </pre>
      *
      * <code>string proto_constraint = 6 [json_name = "protoConstraint"];</code>
@@ -1357,6 +1441,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Set only for proto validation (buf.validate) errors.
      * e.g., "string.minLen"
+     * +kubebuilder:example="string.pattern"
      * </pre>
      *
      * <code>string proto_constraint = 6 [json_name = "protoConstraint"];</code>
@@ -1372,6 +1457,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Set only for proto validation (buf.validate) errors.
      * e.g., "string.minLen"
+     * +kubebuilder:example="string.pattern"
      * </pre>
      *
      * <code>string proto_constraint = 6 [json_name = "protoConstraint"];</code>
@@ -1394,6 +1480,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Index within a repeated field, if applicable.
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>optional int32 index = 7 [json_name = "index"];</code>
@@ -1406,6 +1493,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Index within a repeated field, if applicable.
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>optional int32 index = 7 [json_name = "index"];</code>
@@ -1418,6 +1506,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Index within a repeated field, if applicable.
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>optional int32 index = 7 [json_name = "index"];</code>
@@ -1433,6 +1522,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Index within a repeated field, if applicable.
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>optional int32 index = 7 [json_name = "index"];</code>

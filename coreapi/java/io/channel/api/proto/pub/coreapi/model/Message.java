@@ -1236,6 +1236,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1249,6 +1250,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1262,6 +1264,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1408,6 +1411,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Message last update timestamp.
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -1420,6 +1424,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Message last update timestamp.
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -1432,6 +1437,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Message last update timestamp.
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -1489,6 +1495,7 @@ private static final long serialVersionUID = 0L;
    * Meet session metadata for messages associated with a video/voice meet.
    * Contains session ID, participants, and call state.
    * Present only on meet-related messages.
+   * +kubebuilder:example={"sessionId":"meet-abc123","participants":["user-0001","manager-1234"]}
    * </pre>
    *
    * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -1503,6 +1510,7 @@ private static final long serialVersionUID = 0L;
    * Meet session metadata for messages associated with a video/voice meet.
    * Contains session ID, participants, and call state.
    * Present only on meet-related messages.
+   * +kubebuilder:example={"sessionId":"meet-abc123","participants":["user-0001","manager-1234"]}
    * </pre>
    *
    * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -1517,6 +1525,7 @@ private static final long serialVersionUID = 0L;
    * Meet session metadata for messages associated with a video/voice meet.
    * Contains session ID, participants, and call state.
    * Present only on meet-related messages.
+   * +kubebuilder:example={"sessionId":"meet-abc123","participants":["user-0001","manager-1234"]}
    * </pre>
    *
    * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -1532,6 +1541,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Email metadata for messages sent or received via email integration.
    * Contains email subject, recipients, and direction (inbound/outbound).
+   * +kubebuilder:example={"subject":"Order Inquiry","from":"customer&#64;example.com"}
    * </pre>
    *
    * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -1545,6 +1555,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Email metadata for messages sent or received via email integration.
    * Contains email subject, recipients, and direction (inbound/outbound).
+   * +kubebuilder:example={"subject":"Order Inquiry","from":"customer&#64;example.com"}
    * </pre>
    *
    * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -1558,6 +1569,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Email metadata for messages sent or received via email integration.
    * Contains email subject, recipients, and direction (inbound/outbound).
+   * +kubebuilder:example={"subject":"Order Inquiry","from":"customer&#64;example.com"}
    * </pre>
    *
    * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -1573,6 +1585,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ALF (AI agent) thread metadata for AI-assisted conversation threads.
    * Contains ALF session state and context.
+   * +kubebuilder:example={"sessionId":"alf-abc123","state":"active"}
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -1586,6 +1599,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ALF (AI agent) thread metadata for AI-assisted conversation threads.
    * Contains ALF session state and context.
+   * +kubebuilder:example={"sessionId":"alf-abc123","state":"active"}
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -1599,6 +1613,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * ALF (AI agent) thread metadata for AI-assisted conversation threads.
    * Contains ALF session state and context.
+   * +kubebuilder:example={"sessionId":"alf-abc123","state":"active"}
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -1614,6 +1629,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the message content was last edited by a person.
    * Absent if the message has never been edited.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -1627,6 +1643,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the message content was last edited by a person.
    * Absent if the message has never been edited.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -1640,6 +1657,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the message content was last edited by a person.
    * Absent if the message has never been edited.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -1935,6 +1953,7 @@ private static final long serialVersionUID = 0L;
    * Progress indicator for an ALF AI response being streamed.
    * Contains the partial content generated so far.
    * Transient; replaced by the final message content when streaming completes.
+   * +kubebuilder:example={"content":"Analyzing your request...","complete":false}
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -1949,6 +1968,7 @@ private static final long serialVersionUID = 0L;
    * Progress indicator for an ALF AI response being streamed.
    * Contains the partial content generated so far.
    * Transient; replaced by the final message content when streaming completes.
+   * +kubebuilder:example={"content":"Analyzing your request...","complete":false}
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -1963,6 +1983,7 @@ private static final long serialVersionUID = 0L;
    * Progress indicator for an ALF AI response being streamed.
    * Contains the partial content generated so far.
    * Transient; replaced by the final message content when streaming completes.
+   * +kubebuilder:example={"content":"Analyzing your request...","complete":false}
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -1977,6 +1998,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Interactive form (e.g., input fields, dropdowns) attached to the message.
+   * +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -1989,6 +2011,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Interactive form (e.g., input fields, dropdowns) attached to the message.
+   * +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -2001,6 +2024,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Interactive form (e.g., input fields, dropdowns) attached to the message.
+   * +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -2045,6 +2069,7 @@ private static final long serialVersionUID = 0L;
    * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
    * Some options are only applicable in user chats.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["doNotSearch","immutable","private"]
    * </pre>
    *
    * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -2060,6 +2085,7 @@ private static final long serialVersionUID = 0L;
    * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
    * Some options are only applicable in user chats.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["doNotSearch","immutable","private"]
    * </pre>
    *
    * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -2074,6 +2100,7 @@ private static final long serialVersionUID = 0L;
    * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
    * Some options are only applicable in user chats.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["doNotSearch","immutable","private"]
    * </pre>
    *
    * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -2089,6 +2116,7 @@ private static final long serialVersionUID = 0L;
    * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
    * Some options are only applicable in user chats.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["doNotSearch","immutable","private"]
    * </pre>
    *
    * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -2106,6 +2134,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Marketing campaign metadata for outbound promotional messages.
    * Contains campaign type and tracking attributes.
+   * +kubebuilder:example={"campaignId":"camp-123","campaignType":"promotion","trackingId":"mkt-001"}
    * </pre>
    *
    * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -2119,6 +2148,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Marketing campaign metadata for outbound promotional messages.
    * Contains campaign type and tracking attributes.
+   * +kubebuilder:example={"campaignId":"camp-123","campaignType":"promotion","trackingId":"mkt-001"}
    * </pre>
    *
    * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -2132,6 +2162,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Marketing campaign metadata for outbound promotional messages.
    * Contains campaign type and tracking attributes.
+   * +kubebuilder:example={"campaignId":"camp-123","campaignType":"promotion","trackingId":"mkt-001"}
    * </pre>
    *
    * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -2147,6 +2178,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Legacy support bot metadata.
    * Retained for backward compatibility with older workflow implementations.
+   * +kubebuilder:example={"botId":"bot-legacy-001","workflowId":"wf-legacy"}
    * </pre>
    *
    * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -2160,6 +2192,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Legacy support bot metadata.
    * Retained for backward compatibility with older workflow implementations.
+   * +kubebuilder:example={"botId":"bot-legacy-001","workflowId":"wf-legacy"}
    * </pre>
    *
    * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -2173,6 +2206,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Legacy support bot metadata.
    * Retained for backward compatibility with older workflow implementations.
+   * +kubebuilder:example={"botId":"bot-legacy-001","workflowId":"wf-legacy"}
    * </pre>
    *
    * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -2188,6 +2222,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Workflow automation metadata linking this message to a workflow step.
    * Contains workflow ID, step ID, and button submission context.
+   * +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
    * </pre>
    *
    * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -2201,6 +2236,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Workflow automation metadata linking this message to a workflow step.
    * Contains workflow ID, step ID, and button submission context.
+   * +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
    * </pre>
    *
    * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -2214,6 +2250,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Workflow automation metadata linking this message to a workflow step.
    * Contains workflow ID, step ID, and button submission context.
+   * +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
    * </pre>
    *
    * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -2256,6 +2293,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * IVR (Interactive Voice Response) call metadata for phone-based messages.
    * Contains DTMF input, call routing state, and voice prompt context.
+   * +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -2269,6 +2307,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * IVR (Interactive Voice Response) call metadata for phone-based messages.
    * Contains DTMF input, call routing state, and voice prompt context.
+   * +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -2282,6 +2321,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * IVR (Interactive Voice Response) call metadata for phone-based messages.
    * Contains DTMF input, call routing state, and voice prompt context.
+   * +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -2297,6 +2337,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Custom rendering payload for third-party integrations.
    * Structure and content are defined by the integration provider.
+   * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order Confirmation","orderId":"ORD-123"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -2310,6 +2351,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Custom rendering payload for third-party integrations.
    * Structure and content are defined by the integration provider.
+   * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order Confirmation","orderId":"ORD-123"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -2323,6 +2365,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Custom rendering payload for third-party integrations.
    * Structure and content are defined by the integration provider.
+   * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order Confirmation","orderId":"ORD-123"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -5451,6 +5494,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5463,6 +5507,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5479,6 +5524,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5500,6 +5546,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5519,6 +5566,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5542,6 +5590,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5561,6 +5610,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5574,6 +5624,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5590,6 +5641,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -6099,6 +6151,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6110,6 +6163,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6125,6 +6179,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6145,6 +6200,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6163,6 +6219,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6185,6 +6242,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6203,6 +6261,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6215,6 +6274,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6230,6 +6290,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Message last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -6420,6 +6481,7 @@ private static final long serialVersionUID = 0L;
      * Meet session metadata for messages associated with a video/voice meet.
      * Contains session ID, participants, and call state.
      * Present only on meet-related messages.
+     * +kubebuilder:example={"sessionId":"meet-abc123","participants":["user-0001","manager-1234"]}
      * </pre>
      *
      * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -6433,6 +6495,7 @@ private static final long serialVersionUID = 0L;
      * Meet session metadata for messages associated with a video/voice meet.
      * Contains session ID, participants, and call state.
      * Present only on meet-related messages.
+     * +kubebuilder:example={"sessionId":"meet-abc123","participants":["user-0001","manager-1234"]}
      * </pre>
      *
      * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -6450,6 +6513,7 @@ private static final long serialVersionUID = 0L;
      * Meet session metadata for messages associated with a video/voice meet.
      * Contains session ID, participants, and call state.
      * Present only on meet-related messages.
+     * +kubebuilder:example={"sessionId":"meet-abc123","participants":["user-0001","manager-1234"]}
      * </pre>
      *
      * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -6472,6 +6536,7 @@ private static final long serialVersionUID = 0L;
      * Meet session metadata for messages associated with a video/voice meet.
      * Contains session ID, participants, and call state.
      * Present only on meet-related messages.
+     * +kubebuilder:example={"sessionId":"meet-abc123","participants":["user-0001","manager-1234"]}
      * </pre>
      *
      * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -6492,6 +6557,7 @@ private static final long serialVersionUID = 0L;
      * Meet session metadata for messages associated with a video/voice meet.
      * Contains session ID, participants, and call state.
      * Present only on meet-related messages.
+     * +kubebuilder:example={"sessionId":"meet-abc123","participants":["user-0001","manager-1234"]}
      * </pre>
      *
      * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -6516,6 +6582,7 @@ private static final long serialVersionUID = 0L;
      * Meet session metadata for messages associated with a video/voice meet.
      * Contains session ID, participants, and call state.
      * Present only on meet-related messages.
+     * +kubebuilder:example={"sessionId":"meet-abc123","participants":["user-0001","manager-1234"]}
      * </pre>
      *
      * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -6536,6 +6603,7 @@ private static final long serialVersionUID = 0L;
      * Meet session metadata for messages associated with a video/voice meet.
      * Contains session ID, participants, and call state.
      * Present only on meet-related messages.
+     * +kubebuilder:example={"sessionId":"meet-abc123","participants":["user-0001","manager-1234"]}
      * </pre>
      *
      * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -6550,6 +6618,7 @@ private static final long serialVersionUID = 0L;
      * Meet session metadata for messages associated with a video/voice meet.
      * Contains session ID, participants, and call state.
      * Present only on meet-related messages.
+     * +kubebuilder:example={"sessionId":"meet-abc123","participants":["user-0001","manager-1234"]}
      * </pre>
      *
      * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -6567,6 +6636,7 @@ private static final long serialVersionUID = 0L;
      * Meet session metadata for messages associated with a video/voice meet.
      * Contains session ID, participants, and call state.
      * Present only on meet-related messages.
+     * +kubebuilder:example={"sessionId":"meet-abc123","participants":["user-0001","manager-1234"]}
      * </pre>
      *
      * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -6592,6 +6662,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Email metadata for messages sent or received via email integration.
      * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:example={"subject":"Order Inquiry","from":"customer&#64;example.com"}
      * </pre>
      *
      * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -6604,6 +6675,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Email metadata for messages sent or received via email integration.
      * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:example={"subject":"Order Inquiry","from":"customer&#64;example.com"}
      * </pre>
      *
      * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -6620,6 +6692,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Email metadata for messages sent or received via email integration.
      * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:example={"subject":"Order Inquiry","from":"customer&#64;example.com"}
      * </pre>
      *
      * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -6641,6 +6714,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Email metadata for messages sent or received via email integration.
      * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:example={"subject":"Order Inquiry","from":"customer&#64;example.com"}
      * </pre>
      *
      * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -6660,6 +6734,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Email metadata for messages sent or received via email integration.
      * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:example={"subject":"Order Inquiry","from":"customer&#64;example.com"}
      * </pre>
      *
      * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -6683,6 +6758,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Email metadata for messages sent or received via email integration.
      * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:example={"subject":"Order Inquiry","from":"customer&#64;example.com"}
      * </pre>
      *
      * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -6702,6 +6778,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Email metadata for messages sent or received via email integration.
      * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:example={"subject":"Order Inquiry","from":"customer&#64;example.com"}
      * </pre>
      *
      * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -6715,6 +6792,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Email metadata for messages sent or received via email integration.
      * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:example={"subject":"Order Inquiry","from":"customer&#64;example.com"}
      * </pre>
      *
      * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -6731,6 +6809,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Email metadata for messages sent or received via email integration.
      * Contains email subject, recipients, and direction (inbound/outbound).
+     * +kubebuilder:example={"subject":"Order Inquiry","from":"customer&#64;example.com"}
      * </pre>
      *
      * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -6756,6 +6835,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ALF (AI agent) thread metadata for AI-assisted conversation threads.
      * Contains ALF session state and context.
+     * +kubebuilder:example={"sessionId":"alf-abc123","state":"active"}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -6768,6 +6848,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ALF (AI agent) thread metadata for AI-assisted conversation threads.
      * Contains ALF session state and context.
+     * +kubebuilder:example={"sessionId":"alf-abc123","state":"active"}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -6784,6 +6865,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ALF (AI agent) thread metadata for AI-assisted conversation threads.
      * Contains ALF session state and context.
+     * +kubebuilder:example={"sessionId":"alf-abc123","state":"active"}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -6805,6 +6887,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ALF (AI agent) thread metadata for AI-assisted conversation threads.
      * Contains ALF session state and context.
+     * +kubebuilder:example={"sessionId":"alf-abc123","state":"active"}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -6824,6 +6907,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ALF (AI agent) thread metadata for AI-assisted conversation threads.
      * Contains ALF session state and context.
+     * +kubebuilder:example={"sessionId":"alf-abc123","state":"active"}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -6847,6 +6931,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ALF (AI agent) thread metadata for AI-assisted conversation threads.
      * Contains ALF session state and context.
+     * +kubebuilder:example={"sessionId":"alf-abc123","state":"active"}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -6866,6 +6951,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ALF (AI agent) thread metadata for AI-assisted conversation threads.
      * Contains ALF session state and context.
+     * +kubebuilder:example={"sessionId":"alf-abc123","state":"active"}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -6879,6 +6965,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ALF (AI agent) thread metadata for AI-assisted conversation threads.
      * Contains ALF session state and context.
+     * +kubebuilder:example={"sessionId":"alf-abc123","state":"active"}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -6895,6 +6982,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * ALF (AI agent) thread metadata for AI-assisted conversation threads.
      * Contains ALF session state and context.
+     * +kubebuilder:example={"sessionId":"alf-abc123","state":"active"}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -6920,6 +7008,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -6932,6 +7021,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -6948,6 +7038,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -6969,6 +7060,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -6988,6 +7080,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -7011,6 +7104,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -7030,6 +7124,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -7043,6 +7138,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -7059,6 +7155,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the message content was last edited by a person.
      * Absent if the message has never been edited.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -8412,6 +8509,7 @@ private static final long serialVersionUID = 0L;
      * Progress indicator for an ALF AI response being streamed.
      * Contains the partial content generated so far.
      * Transient; replaced by the final message content when streaming completes.
+     * +kubebuilder:example={"content":"Analyzing your request...","complete":false}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -8425,6 +8523,7 @@ private static final long serialVersionUID = 0L;
      * Progress indicator for an ALF AI response being streamed.
      * Contains the partial content generated so far.
      * Transient; replaced by the final message content when streaming completes.
+     * +kubebuilder:example={"content":"Analyzing your request...","complete":false}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -8442,6 +8541,7 @@ private static final long serialVersionUID = 0L;
      * Progress indicator for an ALF AI response being streamed.
      * Contains the partial content generated so far.
      * Transient; replaced by the final message content when streaming completes.
+     * +kubebuilder:example={"content":"Analyzing your request...","complete":false}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -8464,6 +8564,7 @@ private static final long serialVersionUID = 0L;
      * Progress indicator for an ALF AI response being streamed.
      * Contains the partial content generated so far.
      * Transient; replaced by the final message content when streaming completes.
+     * +kubebuilder:example={"content":"Analyzing your request...","complete":false}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -8484,6 +8585,7 @@ private static final long serialVersionUID = 0L;
      * Progress indicator for an ALF AI response being streamed.
      * Contains the partial content generated so far.
      * Transient; replaced by the final message content when streaming completes.
+     * +kubebuilder:example={"content":"Analyzing your request...","complete":false}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -8508,6 +8610,7 @@ private static final long serialVersionUID = 0L;
      * Progress indicator for an ALF AI response being streamed.
      * Contains the partial content generated so far.
      * Transient; replaced by the final message content when streaming completes.
+     * +kubebuilder:example={"content":"Analyzing your request...","complete":false}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -8528,6 +8631,7 @@ private static final long serialVersionUID = 0L;
      * Progress indicator for an ALF AI response being streamed.
      * Contains the partial content generated so far.
      * Transient; replaced by the final message content when streaming completes.
+     * +kubebuilder:example={"content":"Analyzing your request...","complete":false}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -8542,6 +8646,7 @@ private static final long serialVersionUID = 0L;
      * Progress indicator for an ALF AI response being streamed.
      * Contains the partial content generated so far.
      * Transient; replaced by the final message content when streaming completes.
+     * +kubebuilder:example={"content":"Analyzing your request...","complete":false}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -8559,6 +8664,7 @@ private static final long serialVersionUID = 0L;
      * Progress indicator for an ALF AI response being streamed.
      * Contains the partial content generated so far.
      * Transient; replaced by the final message content when streaming completes.
+     * +kubebuilder:example={"content":"Analyzing your request...","complete":false}
      * </pre>
      *
      * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -8583,6 +8689,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Interactive form (e.g., input fields, dropdowns) attached to the message.
+     * +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -8594,6 +8701,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Interactive form (e.g., input fields, dropdowns) attached to the message.
+     * +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -8609,6 +8717,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Interactive form (e.g., input fields, dropdowns) attached to the message.
+     * +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -8629,6 +8738,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Interactive form (e.g., input fields, dropdowns) attached to the message.
+     * +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -8647,6 +8757,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Interactive form (e.g., input fields, dropdowns) attached to the message.
+     * +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -8669,6 +8780,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Interactive form (e.g., input fields, dropdowns) attached to the message.
+     * +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -8687,6 +8799,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Interactive form (e.g., input fields, dropdowns) attached to the message.
+     * +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -8699,6 +8812,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Interactive form (e.g., input fields, dropdowns) attached to the message.
+     * +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -8714,6 +8828,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Interactive form (e.g., input fields, dropdowns) attached to the message.
+     * +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -8819,6 +8934,7 @@ private static final long serialVersionUID = 0L;
      * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
      * Some options are only applicable in user chats.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["doNotSearch","immutable","private"]
      * </pre>
      *
      * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -8834,6 +8950,7 @@ private static final long serialVersionUID = 0L;
      * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
      * Some options are only applicable in user chats.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["doNotSearch","immutable","private"]
      * </pre>
      *
      * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -8848,6 +8965,7 @@ private static final long serialVersionUID = 0L;
      * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
      * Some options are only applicable in user chats.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["doNotSearch","immutable","private"]
      * </pre>
      *
      * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -8863,6 +8981,7 @@ private static final long serialVersionUID = 0L;
      * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
      * Some options are only applicable in user chats.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["doNotSearch","immutable","private"]
      * </pre>
      *
      * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -8879,6 +8998,7 @@ private static final long serialVersionUID = 0L;
      * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
      * Some options are only applicable in user chats.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["doNotSearch","immutable","private"]
      * </pre>
      *
      * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -8902,6 +9022,7 @@ private static final long serialVersionUID = 0L;
      * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
      * Some options are only applicable in user chats.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["doNotSearch","immutable","private"]
      * </pre>
      *
      * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -8924,6 +9045,7 @@ private static final long serialVersionUID = 0L;
      * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
      * Some options are only applicable in user chats.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["doNotSearch","immutable","private"]
      * </pre>
      *
      * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -8944,6 +9066,7 @@ private static final long serialVersionUID = 0L;
      * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
      * Some options are only applicable in user chats.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["doNotSearch","immutable","private"]
      * </pre>
      *
      * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -8961,6 +9084,7 @@ private static final long serialVersionUID = 0L;
      * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
      * Some options are only applicable in user chats.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["doNotSearch","immutable","private"]
      * </pre>
      *
      * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -8986,6 +9110,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Marketing campaign metadata for outbound promotional messages.
      * Contains campaign type and tracking attributes.
+     * +kubebuilder:example={"campaignId":"camp-123","campaignType":"promotion","trackingId":"mkt-001"}
      * </pre>
      *
      * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -8998,6 +9123,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Marketing campaign metadata for outbound promotional messages.
      * Contains campaign type and tracking attributes.
+     * +kubebuilder:example={"campaignId":"camp-123","campaignType":"promotion","trackingId":"mkt-001"}
      * </pre>
      *
      * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -9014,6 +9140,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Marketing campaign metadata for outbound promotional messages.
      * Contains campaign type and tracking attributes.
+     * +kubebuilder:example={"campaignId":"camp-123","campaignType":"promotion","trackingId":"mkt-001"}
      * </pre>
      *
      * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -9035,6 +9162,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Marketing campaign metadata for outbound promotional messages.
      * Contains campaign type and tracking attributes.
+     * +kubebuilder:example={"campaignId":"camp-123","campaignType":"promotion","trackingId":"mkt-001"}
      * </pre>
      *
      * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -9054,6 +9182,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Marketing campaign metadata for outbound promotional messages.
      * Contains campaign type and tracking attributes.
+     * +kubebuilder:example={"campaignId":"camp-123","campaignType":"promotion","trackingId":"mkt-001"}
      * </pre>
      *
      * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -9077,6 +9206,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Marketing campaign metadata for outbound promotional messages.
      * Contains campaign type and tracking attributes.
+     * +kubebuilder:example={"campaignId":"camp-123","campaignType":"promotion","trackingId":"mkt-001"}
      * </pre>
      *
      * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -9096,6 +9226,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Marketing campaign metadata for outbound promotional messages.
      * Contains campaign type and tracking attributes.
+     * +kubebuilder:example={"campaignId":"camp-123","campaignType":"promotion","trackingId":"mkt-001"}
      * </pre>
      *
      * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -9109,6 +9240,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Marketing campaign metadata for outbound promotional messages.
      * Contains campaign type and tracking attributes.
+     * +kubebuilder:example={"campaignId":"camp-123","campaignType":"promotion","trackingId":"mkt-001"}
      * </pre>
      *
      * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -9125,6 +9257,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Marketing campaign metadata for outbound promotional messages.
      * Contains campaign type and tracking attributes.
+     * +kubebuilder:example={"campaignId":"camp-123","campaignType":"promotion","trackingId":"mkt-001"}
      * </pre>
      *
      * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -9150,6 +9283,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Legacy support bot metadata.
      * Retained for backward compatibility with older workflow implementations.
+     * +kubebuilder:example={"botId":"bot-legacy-001","workflowId":"wf-legacy"}
      * </pre>
      *
      * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -9162,6 +9296,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Legacy support bot metadata.
      * Retained for backward compatibility with older workflow implementations.
+     * +kubebuilder:example={"botId":"bot-legacy-001","workflowId":"wf-legacy"}
      * </pre>
      *
      * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -9178,6 +9313,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Legacy support bot metadata.
      * Retained for backward compatibility with older workflow implementations.
+     * +kubebuilder:example={"botId":"bot-legacy-001","workflowId":"wf-legacy"}
      * </pre>
      *
      * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -9199,6 +9335,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Legacy support bot metadata.
      * Retained for backward compatibility with older workflow implementations.
+     * +kubebuilder:example={"botId":"bot-legacy-001","workflowId":"wf-legacy"}
      * </pre>
      *
      * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -9218,6 +9355,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Legacy support bot metadata.
      * Retained for backward compatibility with older workflow implementations.
+     * +kubebuilder:example={"botId":"bot-legacy-001","workflowId":"wf-legacy"}
      * </pre>
      *
      * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -9241,6 +9379,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Legacy support bot metadata.
      * Retained for backward compatibility with older workflow implementations.
+     * +kubebuilder:example={"botId":"bot-legacy-001","workflowId":"wf-legacy"}
      * </pre>
      *
      * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -9260,6 +9399,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Legacy support bot metadata.
      * Retained for backward compatibility with older workflow implementations.
+     * +kubebuilder:example={"botId":"bot-legacy-001","workflowId":"wf-legacy"}
      * </pre>
      *
      * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -9273,6 +9413,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Legacy support bot metadata.
      * Retained for backward compatibility with older workflow implementations.
+     * +kubebuilder:example={"botId":"bot-legacy-001","workflowId":"wf-legacy"}
      * </pre>
      *
      * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -9289,6 +9430,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Legacy support bot metadata.
      * Retained for backward compatibility with older workflow implementations.
+     * +kubebuilder:example={"botId":"bot-legacy-001","workflowId":"wf-legacy"}
      * </pre>
      *
      * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -9314,6 +9456,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Workflow automation metadata linking this message to a workflow step.
      * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
      * </pre>
      *
      * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -9326,6 +9469,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Workflow automation metadata linking this message to a workflow step.
      * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
      * </pre>
      *
      * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -9342,6 +9486,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Workflow automation metadata linking this message to a workflow step.
      * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
      * </pre>
      *
      * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -9363,6 +9508,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Workflow automation metadata linking this message to a workflow step.
      * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
      * </pre>
      *
      * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -9382,6 +9528,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Workflow automation metadata linking this message to a workflow step.
      * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
      * </pre>
      *
      * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -9405,6 +9552,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Workflow automation metadata linking this message to a workflow step.
      * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
      * </pre>
      *
      * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -9424,6 +9572,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Workflow automation metadata linking this message to a workflow step.
      * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
      * </pre>
      *
      * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -9437,6 +9586,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Workflow automation metadata linking this message to a workflow step.
      * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
      * </pre>
      *
      * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -9453,6 +9603,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Workflow automation metadata linking this message to a workflow step.
      * Contains workflow ID, step ID, and button submission context.
+     * +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
      * </pre>
      *
      * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -9552,6 +9703,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IVR (Interactive Voice Response) call metadata for phone-based messages.
      * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -9564,6 +9716,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IVR (Interactive Voice Response) call metadata for phone-based messages.
      * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -9580,6 +9733,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IVR (Interactive Voice Response) call metadata for phone-based messages.
      * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -9601,6 +9755,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IVR (Interactive Voice Response) call metadata for phone-based messages.
      * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -9620,6 +9775,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IVR (Interactive Voice Response) call metadata for phone-based messages.
      * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -9643,6 +9799,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IVR (Interactive Voice Response) call metadata for phone-based messages.
      * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -9662,6 +9819,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IVR (Interactive Voice Response) call metadata for phone-based messages.
      * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -9675,6 +9833,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IVR (Interactive Voice Response) call metadata for phone-based messages.
      * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -9691,6 +9850,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IVR (Interactive Voice Response) call metadata for phone-based messages.
      * Contains DTMF input, call routing state, and voice prompt context.
+     * +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -9716,6 +9876,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Custom rendering payload for third-party integrations.
      * Structure and content are defined by the integration provider.
+     * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order Confirmation","orderId":"ORD-123"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -9728,6 +9889,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Custom rendering payload for third-party integrations.
      * Structure and content are defined by the integration provider.
+     * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order Confirmation","orderId":"ORD-123"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -9744,6 +9906,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Custom rendering payload for third-party integrations.
      * Structure and content are defined by the integration provider.
+     * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order Confirmation","orderId":"ORD-123"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -9765,6 +9928,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Custom rendering payload for third-party integrations.
      * Structure and content are defined by the integration provider.
+     * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order Confirmation","orderId":"ORD-123"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -9784,6 +9948,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Custom rendering payload for third-party integrations.
      * Structure and content are defined by the integration provider.
+     * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order Confirmation","orderId":"ORD-123"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -9807,6 +9972,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Custom rendering payload for third-party integrations.
      * Structure and content are defined by the integration provider.
+     * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order Confirmation","orderId":"ORD-123"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -9826,6 +9992,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Custom rendering payload for third-party integrations.
      * Structure and content are defined by the integration provider.
+     * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order Confirmation","orderId":"ORD-123"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -9839,6 +10006,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Custom rendering payload for third-party integrations.
      * Structure and content are defined by the integration provider.
+     * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order Confirmation","orderId":"ORD-123"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -9855,6 +10023,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Custom rendering payload for third-party integrations.
      * Structure and content are defined by the integration provider.
+     * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order Confirmation","orderId":"ORD-123"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>

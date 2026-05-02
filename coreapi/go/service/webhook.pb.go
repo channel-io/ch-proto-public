@@ -11,6 +11,7 @@ import (
 	model "github.com/channel-io/ch-proto-public/coreapi/go/model"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -402,16 +403,11 @@ type PatchWebhookRequest struct {
 	WebhookId string `protobuf:"bytes,1,opt,name=webhook_id,json=webhookId,proto3" json:"webhook_id,omitempty"`
 	// Channel ID the webhook belongs to.
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Webhook display name. Must be unique within the channel.
-	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	// Destination URL that receives webhook payloads.
-	Url string `protobuf:"bytes,4,opt,name=url,proto3" json:"url,omitempty"`
-	// Event scopes that trigger this webhook.
-	Scopes []model.WebhookScope `protobuf:"varint,5,rep,packed,name=scopes,proto3,enum=coreapi.model.WebhookScope" json:"scopes,omitempty"`
-	// API version for webhook payloads.
-	//
-	// +kubebuilder:validation:Enum={"v4","v5"}
-	ApiVersion    string `protobuf:"bytes,6,opt,name=api_version,json=apiVersion,proto3" json:"api_version,omitempty"`
+	// Patch body. Only fields listed in update_mask are applied.
+	Body *PatchWebhookRequest_PatchWebhookBody `protobuf:"bytes,3,opt,name=body,proto3" json:"body,omitempty"`
+	// Set of field paths (relative to PatchWebhookBody) to update.
+	// Unlisted fields remain unchanged.
+	UpdateMask    *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -460,32 +456,18 @@ func (x *PatchWebhookRequest) GetChannelId() string {
 	return ""
 }
 
-func (x *PatchWebhookRequest) GetName() string {
+func (x *PatchWebhookRequest) GetBody() *PatchWebhookRequest_PatchWebhookBody {
 	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *PatchWebhookRequest) GetUrl() string {
-	if x != nil {
-		return x.Url
-	}
-	return ""
-}
-
-func (x *PatchWebhookRequest) GetScopes() []model.WebhookScope {
-	if x != nil {
-		return x.Scopes
+		return x.Body
 	}
 	return nil
 }
 
-func (x *PatchWebhookRequest) GetApiVersion() string {
+func (x *PatchWebhookRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
 	if x != nil {
-		return x.ApiVersion
+		return x.UpdateMask
 	}
-	return ""
+	return nil
 }
 
 // Response for webhook update.
@@ -627,11 +609,92 @@ func (*DeleteWebhookResult) Descriptor() ([]byte, []int) {
 	return file_coreapi_service_webhook_proto_rawDescGZIP(), []int{9}
 }
 
+type PatchWebhookRequest_PatchWebhookBody struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Webhook display name. Must be unique within the channel.
+	//
+	// +kubebuilder:validation:Nullable
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	// Destination URL that receives webhook payloads.
+	//
+	// +kubebuilder:validation:Nullable
+	Url string `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
+	// Event scopes that trigger this webhook.
+	//
+	// +kubebuilder:validation:Nullable
+	Scopes []model.WebhookScope `protobuf:"varint,3,rep,packed,name=scopes,proto3,enum=coreapi.model.WebhookScope" json:"scopes,omitempty"`
+	// API version for webhook payloads.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:Enum={"v4","v5"}
+	ApiVersion    string `protobuf:"bytes,4,opt,name=api_version,json=apiVersion,proto3" json:"api_version,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PatchWebhookRequest_PatchWebhookBody) Reset() {
+	*x = PatchWebhookRequest_PatchWebhookBody{}
+	mi := &file_coreapi_service_webhook_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PatchWebhookRequest_PatchWebhookBody) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PatchWebhookRequest_PatchWebhookBody) ProtoMessage() {}
+
+func (x *PatchWebhookRequest_PatchWebhookBody) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_webhook_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PatchWebhookRequest_PatchWebhookBody.ProtoReflect.Descriptor instead.
+func (*PatchWebhookRequest_PatchWebhookBody) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_webhook_proto_rawDescGZIP(), []int{6, 0}
+}
+
+func (x *PatchWebhookRequest_PatchWebhookBody) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *PatchWebhookRequest_PatchWebhookBody) GetUrl() string {
+	if x != nil {
+		return x.Url
+	}
+	return ""
+}
+
+func (x *PatchWebhookRequest_PatchWebhookBody) GetScopes() []model.WebhookScope {
+	if x != nil {
+		return x.Scopes
+	}
+	return nil
+}
+
+func (x *PatchWebhookRequest_PatchWebhookBody) GetApiVersion() string {
+	if x != nil {
+		return x.ApiVersion
+	}
+	return ""
+}
+
 var File_coreapi_service_webhook_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_webhook_proto_rawDesc = "" +
 	"\n" +
-	"\x1dcoreapi/service/webhook.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1bcoreapi/model/webhook.proto\"\xcd\x01\n" +
+	"\x1dcoreapi/service/webhook.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1bcoreapi/model/webhook.proto\x1a google/protobuf/field_mask.proto\"\xcd\x01\n" +
 	"\x15SearchWebhooksRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x16\n" +
@@ -659,16 +722,20 @@ const file_coreapi_service_webhook_proto_rawDesc = "" +
 	"\vapi_version\x18\x05 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"apiVersion\"G\n" +
 	"\x13CreateWebhookResult\x120\n" +
-	"\awebhook\x18\x01 \x01(\v2\x16.coreapi.model.WebhookR\awebhook\"\xdf\x01\n" +
+	"\awebhook\x18\x01 \x01(\v2\x16.coreapi.model.WebhookR\awebhook\"\x8c\x03\n" +
 	"\x13PatchWebhookRequest\x12%\n" +
 	"\n" +
 	"webhook_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\twebhookId\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name\x12\x10\n" +
-	"\x03url\x18\x04 \x01(\tR\x03url\x123\n" +
-	"\x06scopes\x18\x05 \x03(\x0e2\x1b.coreapi.model.WebhookScopeR\x06scopes\x12\x1f\n" +
-	"\vapi_version\x18\x06 \x01(\tR\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12Q\n" +
+	"\x04body\x18\x03 \x01(\v25.coreapi.service.PatchWebhookRequest.PatchWebhookBodyB\x06\xbaH\x03\xc8\x01\x01R\x04body\x12C\n" +
+	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"updateMask\x1a\x8e\x01\n" +
+	"\x10PatchWebhookBody\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x10\n" +
+	"\x03url\x18\x02 \x01(\tR\x03url\x123\n" +
+	"\x06scopes\x18\x03 \x03(\x0e2\x1b.coreapi.model.WebhookScopeR\x06scopes\x12\x1f\n" +
+	"\vapi_version\x18\x04 \x01(\tR\n" +
 	"apiVersion\"F\n" +
 	"\x12PatchWebhookResult\x120\n" +
 	"\awebhook\x18\x01 \x01(\v2\x16.coreapi.model.WebhookR\awebhook\"d\n" +
@@ -692,33 +759,37 @@ func file_coreapi_service_webhook_proto_rawDescGZIP() []byte {
 	return file_coreapi_service_webhook_proto_rawDescData
 }
 
-var file_coreapi_service_webhook_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_coreapi_service_webhook_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_coreapi_service_webhook_proto_goTypes = []any{
-	(*SearchWebhooksRequest)(nil), // 0: coreapi.service.SearchWebhooksRequest
-	(*SearchWebhooksResult)(nil),  // 1: coreapi.service.SearchWebhooksResult
-	(*GetWebhookRequest)(nil),     // 2: coreapi.service.GetWebhookRequest
-	(*GetWebhookResult)(nil),      // 3: coreapi.service.GetWebhookResult
-	(*CreateWebhookRequest)(nil),  // 4: coreapi.service.CreateWebhookRequest
-	(*CreateWebhookResult)(nil),   // 5: coreapi.service.CreateWebhookResult
-	(*PatchWebhookRequest)(nil),   // 6: coreapi.service.PatchWebhookRequest
-	(*PatchWebhookResult)(nil),    // 7: coreapi.service.PatchWebhookResult
-	(*DeleteWebhookRequest)(nil),  // 8: coreapi.service.DeleteWebhookRequest
-	(*DeleteWebhookResult)(nil),   // 9: coreapi.service.DeleteWebhookResult
-	(*model.Webhook)(nil),         // 10: coreapi.model.Webhook
-	(model.WebhookScope)(0),       // 11: coreapi.model.WebhookScope
+	(*SearchWebhooksRequest)(nil),                // 0: coreapi.service.SearchWebhooksRequest
+	(*SearchWebhooksResult)(nil),                 // 1: coreapi.service.SearchWebhooksResult
+	(*GetWebhookRequest)(nil),                    // 2: coreapi.service.GetWebhookRequest
+	(*GetWebhookResult)(nil),                     // 3: coreapi.service.GetWebhookResult
+	(*CreateWebhookRequest)(nil),                 // 4: coreapi.service.CreateWebhookRequest
+	(*CreateWebhookResult)(nil),                  // 5: coreapi.service.CreateWebhookResult
+	(*PatchWebhookRequest)(nil),                  // 6: coreapi.service.PatchWebhookRequest
+	(*PatchWebhookResult)(nil),                   // 7: coreapi.service.PatchWebhookResult
+	(*DeleteWebhookRequest)(nil),                 // 8: coreapi.service.DeleteWebhookRequest
+	(*DeleteWebhookResult)(nil),                  // 9: coreapi.service.DeleteWebhookResult
+	(*PatchWebhookRequest_PatchWebhookBody)(nil), // 10: coreapi.service.PatchWebhookRequest.PatchWebhookBody
+	(*model.Webhook)(nil),                        // 11: coreapi.model.Webhook
+	(model.WebhookScope)(0),                      // 12: coreapi.model.WebhookScope
+	(*fieldmaskpb.FieldMask)(nil),                // 13: google.protobuf.FieldMask
 }
 var file_coreapi_service_webhook_proto_depIdxs = []int32{
-	10, // 0: coreapi.service.SearchWebhooksResult.webhooks:type_name -> coreapi.model.Webhook
-	10, // 1: coreapi.service.GetWebhookResult.webhook:type_name -> coreapi.model.Webhook
-	11, // 2: coreapi.service.CreateWebhookRequest.scopes:type_name -> coreapi.model.WebhookScope
-	10, // 3: coreapi.service.CreateWebhookResult.webhook:type_name -> coreapi.model.Webhook
-	11, // 4: coreapi.service.PatchWebhookRequest.scopes:type_name -> coreapi.model.WebhookScope
-	10, // 5: coreapi.service.PatchWebhookResult.webhook:type_name -> coreapi.model.Webhook
-	6,  // [6:6] is the sub-list for method output_type
-	6,  // [6:6] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+	11, // 0: coreapi.service.SearchWebhooksResult.webhooks:type_name -> coreapi.model.Webhook
+	11, // 1: coreapi.service.GetWebhookResult.webhook:type_name -> coreapi.model.Webhook
+	12, // 2: coreapi.service.CreateWebhookRequest.scopes:type_name -> coreapi.model.WebhookScope
+	11, // 3: coreapi.service.CreateWebhookResult.webhook:type_name -> coreapi.model.Webhook
+	10, // 4: coreapi.service.PatchWebhookRequest.body:type_name -> coreapi.service.PatchWebhookRequest.PatchWebhookBody
+	13, // 5: coreapi.service.PatchWebhookRequest.update_mask:type_name -> google.protobuf.FieldMask
+	11, // 6: coreapi.service.PatchWebhookResult.webhook:type_name -> coreapi.model.Webhook
+	12, // 7: coreapi.service.PatchWebhookRequest.PatchWebhookBody.scopes:type_name -> coreapi.model.WebhookScope
+	8,  // [8:8] is the sub-list for method output_type
+	8,  // [8:8] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_webhook_proto_init() }
@@ -732,7 +803,7 @@ func file_coreapi_service_webhook_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_webhook_proto_rawDesc), len(file_coreapi_service_webhook_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

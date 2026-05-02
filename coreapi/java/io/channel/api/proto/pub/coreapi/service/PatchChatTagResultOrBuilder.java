@@ -3,8 +3,8 @@
 
 package io.channel.api.proto.pub.coreapi.service;
 
-public interface UpdateChatTagResultOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:coreapi.service.UpdateChatTagResult)
+public interface PatchChatTagResultOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:coreapi.service.PatchChatTagResult)
     com.google.protobuf.MessageOrBuilder {
 
   /**

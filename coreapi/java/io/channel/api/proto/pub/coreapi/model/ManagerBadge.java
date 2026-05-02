@@ -316,6 +316,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Badge last update timestamp.
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -328,6 +329,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Badge last update timestamp.
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -340,6 +342,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Badge last update timestamp.
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1369,6 +1372,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1380,6 +1384,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1395,6 +1400,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1415,6 +1421,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1433,6 +1440,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1455,6 +1463,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1473,6 +1482,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1485,6 +1495,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
@@ -1500,6 +1511,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Badge last update timestamp.
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>

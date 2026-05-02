@@ -23,10 +23,6 @@ private static final long serialVersionUID = 0L;
   private PatchWebhookRequest() {
     webhookId_ = "";
     channelId_ = "";
-    name_ = "";
-    url_ = "";
-    scopes_ = java.util.Collections.emptyList();
-    apiVersion_ = "";
   }
 
   @java.lang.Override
@@ -49,7 +45,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -73,44 +68,29 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
+            io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.Builder subBuilder = null;
+            if (body_ != null) {
+              subBuilder = body_.toBuilder();
+            }
+            body_ = input.readMessage(io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(body_);
+              body_ = subBuilder.buildPartial();
+            }
 
-            name_ = s;
             break;
           }
           case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            url_ = s;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              scopes_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
+            com.google.protobuf.FieldMask.Builder subBuilder = null;
+            if (updateMask_ != null) {
+              subBuilder = updateMask_.toBuilder();
             }
-            scopes_.add(rawValue);
-            break;
-          }
-          case 42: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                scopes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              scopes_.add(rawValue);
+            updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(updateMask_);
+              updateMask_ = subBuilder.buildPartial();
             }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
 
-            apiVersion_ = s;
             break;
           }
           default: {
@@ -128,9 +108,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        scopes_ = java.util.Collections.unmodifiableList(scopes_);
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -146,6 +123,1523 @@ private static final long serialVersionUID = 0L;
     return io.channel.api.proto.pub.coreapi.service.Webhook.internal_static_coreapi_service_PatchWebhookRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.class, io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.Builder.class);
+  }
+
+  public interface PatchWebhookBodyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:coreapi.service.PatchWebhookRequest.PatchWebhookBody)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Webhook display name. Must be unique within the channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string name = 1 [json_name = "name"];</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * Webhook display name. Must be unique within the channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string name = 1 [json_name = "name"];</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * Destination URL that receives webhook payloads.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string url = 2 [json_name = "url"];</code>
+     * @return The url.
+     */
+    java.lang.String getUrl();
+    /**
+     * <pre>
+     * Destination URL that receives webhook payloads.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string url = 2 [json_name = "url"];</code>
+     * @return The bytes for url.
+     */
+    com.google.protobuf.ByteString
+        getUrlBytes();
+
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * @return A list containing the scopes.
+     */
+    java.util.List<io.channel.api.proto.pub.coreapi.model.WebhookScope> getScopesList();
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * @return The count of scopes.
+     */
+    int getScopesCount();
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * @param index The index of the element to return.
+     * @return The scopes at the given index.
+     */
+    io.channel.api.proto.pub.coreapi.model.WebhookScope getScopes(int index);
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * @return A list containing the enum numeric values on the wire for scopes.
+     */
+    java.util.List<java.lang.Integer>
+    getScopesValueList();
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of scopes at the given index.
+     */
+    int getScopesValue(int index);
+
+    /**
+     * <pre>
+     * API version for webhook payloads.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Enum={"v4","v5"}
+     * </pre>
+     *
+     * <code>string api_version = 4 [json_name = "apiVersion"];</code>
+     * @return The apiVersion.
+     */
+    java.lang.String getApiVersion();
+    /**
+     * <pre>
+     * API version for webhook payloads.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Enum={"v4","v5"}
+     * </pre>
+     *
+     * <code>string api_version = 4 [json_name = "apiVersion"];</code>
+     * @return The bytes for apiVersion.
+     */
+    com.google.protobuf.ByteString
+        getApiVersionBytes();
+  }
+  /**
+   * Protobuf type {@code coreapi.service.PatchWebhookRequest.PatchWebhookBody}
+   */
+  public static final class PatchWebhookBody extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:coreapi.service.PatchWebhookRequest.PatchWebhookBody)
+      PatchWebhookBodyOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PatchWebhookBody.newBuilder() to construct.
+    private PatchWebhookBody(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PatchWebhookBody() {
+      name_ = "";
+      url_ = "";
+      scopes_ = java.util.Collections.emptyList();
+      apiVersion_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PatchWebhookBody();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PatchWebhookBody(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              url_ = s;
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                scopes_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              scopes_.add(rawValue);
+              break;
+            }
+            case 26: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int rawValue = input.readEnum();
+                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                  scopes_ = new java.util.ArrayList<java.lang.Integer>();
+                  mutable_bitField0_ |= 0x00000001;
+                }
+                scopes_.add(rawValue);
+              }
+              input.popLimit(oldLimit);
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              apiVersion_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          scopes_ = java.util.Collections.unmodifiableList(scopes_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.channel.api.proto.pub.coreapi.service.Webhook.internal_static_coreapi_service_PatchWebhookRequest_PatchWebhookBody_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.channel.api.proto.pub.coreapi.service.Webhook.internal_static_coreapi_service_PatchWebhookRequest_PatchWebhookBody_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.class, io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.Builder.class);
+    }
+
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * Webhook display name. Must be unique within the channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string name = 1 [json_name = "name"];</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Webhook display name. Must be unique within the channel.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string name = 1 [json_name = "name"];</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int URL_FIELD_NUMBER = 2;
+    private volatile java.lang.Object url_;
+    /**
+     * <pre>
+     * Destination URL that receives webhook payloads.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string url = 2 [json_name = "url"];</code>
+     * @return The url.
+     */
+    @java.lang.Override
+    public java.lang.String getUrl() {
+      java.lang.Object ref = url_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        url_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Destination URL that receives webhook payloads.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string url = 2 [json_name = "url"];</code>
+     * @return The bytes for url.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUrlBytes() {
+      java.lang.Object ref = url_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        url_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SCOPES_FIELD_NUMBER = 3;
+    private java.util.List<java.lang.Integer> scopes_;
+    private static final com.google.protobuf.Internal.ListAdapter.Converter<
+        java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope> scopes_converter_ =
+            new com.google.protobuf.Internal.ListAdapter.Converter<
+                java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope>() {
+              public io.channel.api.proto.pub.coreapi.model.WebhookScope convert(java.lang.Integer from) {
+                @SuppressWarnings("deprecation")
+                io.channel.api.proto.pub.coreapi.model.WebhookScope result = io.channel.api.proto.pub.coreapi.model.WebhookScope.valueOf(from);
+                return result == null ? io.channel.api.proto.pub.coreapi.model.WebhookScope.UNRECOGNIZED : result;
+              }
+            };
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * @return A list containing the scopes.
+     */
+    @java.lang.Override
+    public java.util.List<io.channel.api.proto.pub.coreapi.model.WebhookScope> getScopesList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope>(scopes_, scopes_converter_);
+    }
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * @return The count of scopes.
+     */
+    @java.lang.Override
+    public int getScopesCount() {
+      return scopes_.size();
+    }
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * @param index The index of the element to return.
+     * @return The scopes at the given index.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.WebhookScope getScopes(int index) {
+      return scopes_converter_.convert(scopes_.get(index));
+    }
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * @return A list containing the enum numeric values on the wire for scopes.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Integer>
+    getScopesValueList() {
+      return scopes_;
+    }
+    /**
+     * <pre>
+     * Event scopes that trigger this webhook.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of scopes at the given index.
+     */
+    @java.lang.Override
+    public int getScopesValue(int index) {
+      return scopes_.get(index);
+    }
+    private int scopesMemoizedSerializedSize;
+
+    public static final int API_VERSION_FIELD_NUMBER = 4;
+    private volatile java.lang.Object apiVersion_;
+    /**
+     * <pre>
+     * API version for webhook payloads.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Enum={"v4","v5"}
+     * </pre>
+     *
+     * <code>string api_version = 4 [json_name = "apiVersion"];</code>
+     * @return The apiVersion.
+     */
+    @java.lang.Override
+    public java.lang.String getApiVersion() {
+      java.lang.Object ref = apiVersion_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        apiVersion_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * API version for webhook payloads.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Enum={"v4","v5"}
+     * </pre>
+     *
+     * <code>string api_version = 4 [json_name = "apiVersion"];</code>
+     * @return The bytes for apiVersion.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getApiVersionBytes() {
+      java.lang.Object ref = apiVersion_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        apiVersion_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, url_);
+      }
+      if (getScopesList().size() > 0) {
+        output.writeUInt32NoTag(26);
+        output.writeUInt32NoTag(scopesMemoizedSerializedSize);
+      }
+      for (int i = 0; i < scopes_.size(); i++) {
+        output.writeEnumNoTag(scopes_.get(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(apiVersion_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, apiVersion_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, url_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < scopes_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeEnumSizeNoTag(scopes_.get(i));
+        }
+        size += dataSize;
+        if (!getScopesList().isEmpty()) {  size += 1;
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(dataSize);
+        }scopesMemoizedSerializedSize = dataSize;
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(apiVersion_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, apiVersion_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody)) {
+        return super.equals(obj);
+      }
+      io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody other = (io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody) obj;
+
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!getUrl()
+          .equals(other.getUrl())) return false;
+      if (!scopes_.equals(other.scopes_)) return false;
+      if (!getApiVersion()
+          .equals(other.getApiVersion())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + URL_FIELD_NUMBER;
+      hash = (53 * hash) + getUrl().hashCode();
+      if (getScopesCount() > 0) {
+        hash = (37 * hash) + SCOPES_FIELD_NUMBER;
+        hash = (53 * hash) + scopes_.hashCode();
+      }
+      hash = (37 * hash) + API_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getApiVersion().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code coreapi.service.PatchWebhookRequest.PatchWebhookBody}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:coreapi.service.PatchWebhookRequest.PatchWebhookBody)
+        io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBodyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.channel.api.proto.pub.coreapi.service.Webhook.internal_static_coreapi_service_PatchWebhookRequest_PatchWebhookBody_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.channel.api.proto.pub.coreapi.service.Webhook.internal_static_coreapi_service_PatchWebhookRequest_PatchWebhookBody_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.class, io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.Builder.class);
+      }
+
+      // Construct using io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+
+        url_ = "";
+
+        scopes_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        apiVersion_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.channel.api.proto.pub.coreapi.service.Webhook.internal_static_coreapi_service_PatchWebhookRequest_PatchWebhookBody_descriptor;
+      }
+
+      @java.lang.Override
+      public io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody getDefaultInstanceForType() {
+        return io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody build() {
+        io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody buildPartial() {
+        io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody result = new io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody(this);
+        int from_bitField0_ = bitField0_;
+        result.name_ = name_;
+        result.url_ = url_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          scopes_ = java.util.Collections.unmodifiableList(scopes_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.scopes_ = scopes_;
+        result.apiVersion_ = apiVersion_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody) {
+          return mergeFrom((io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody other) {
+        if (other == io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (!other.getUrl().isEmpty()) {
+          url_ = other.url_;
+          onChanged();
+        }
+        if (!other.scopes_.isEmpty()) {
+          if (scopes_.isEmpty()) {
+            scopes_ = other.scopes_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureScopesIsMutable();
+            scopes_.addAll(other.scopes_);
+          }
+          onChanged();
+        }
+        if (!other.getApiVersion().isEmpty()) {
+          apiVersion_ = other.apiVersion_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * Webhook display name. Must be unique within the channel.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>string name = 1 [json_name = "name"];</code>
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Webhook display name. Must be unique within the channel.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>string name = 1 [json_name = "name"];</code>
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Webhook display name. Must be unique within the channel.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>string name = 1 [json_name = "name"];</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Webhook display name. Must be unique within the channel.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>string name = 1 [json_name = "name"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Webhook display name. Must be unique within the channel.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>string name = 1 [json_name = "name"];</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object url_ = "";
+      /**
+       * <pre>
+       * Destination URL that receives webhook payloads.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>string url = 2 [json_name = "url"];</code>
+       * @return The url.
+       */
+      public java.lang.String getUrl() {
+        java.lang.Object ref = url_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          url_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Destination URL that receives webhook payloads.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>string url = 2 [json_name = "url"];</code>
+       * @return The bytes for url.
+       */
+      public com.google.protobuf.ByteString
+          getUrlBytes() {
+        java.lang.Object ref = url_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          url_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Destination URL that receives webhook payloads.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>string url = 2 [json_name = "url"];</code>
+       * @param value The url to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUrl(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        url_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Destination URL that receives webhook payloads.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>string url = 2 [json_name = "url"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUrl() {
+        
+        url_ = getDefaultInstance().getUrl();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Destination URL that receives webhook payloads.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>string url = 2 [json_name = "url"];</code>
+       * @param value The bytes for url to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        url_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<java.lang.Integer> scopes_ =
+        java.util.Collections.emptyList();
+      private void ensureScopesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          scopes_ = new java.util.ArrayList<java.lang.Integer>(scopes_);
+          bitField0_ |= 0x00000001;
+        }
+      }
+      /**
+       * <pre>
+       * Event scopes that trigger this webhook.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * @return A list containing the scopes.
+       */
+      public java.util.List<io.channel.api.proto.pub.coreapi.model.WebhookScope> getScopesList() {
+        return new com.google.protobuf.Internal.ListAdapter<
+            java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope>(scopes_, scopes_converter_);
+      }
+      /**
+       * <pre>
+       * Event scopes that trigger this webhook.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * @return The count of scopes.
+       */
+      public int getScopesCount() {
+        return scopes_.size();
+      }
+      /**
+       * <pre>
+       * Event scopes that trigger this webhook.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * @param index The index of the element to return.
+       * @return The scopes at the given index.
+       */
+      public io.channel.api.proto.pub.coreapi.model.WebhookScope getScopes(int index) {
+        return scopes_converter_.convert(scopes_.get(index));
+      }
+      /**
+       * <pre>
+       * Event scopes that trigger this webhook.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * @param index The index to set the value at.
+       * @param value The scopes to set.
+       * @return This builder for chaining.
+       */
+      public Builder setScopes(
+          int index, io.channel.api.proto.pub.coreapi.model.WebhookScope value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureScopesIsMutable();
+        scopes_.set(index, value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Event scopes that trigger this webhook.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * @param value The scopes to add.
+       * @return This builder for chaining.
+       */
+      public Builder addScopes(io.channel.api.proto.pub.coreapi.model.WebhookScope value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureScopesIsMutable();
+        scopes_.add(value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Event scopes that trigger this webhook.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * @param values The scopes to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllScopes(
+          java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.WebhookScope> values) {
+        ensureScopesIsMutable();
+        for (io.channel.api.proto.pub.coreapi.model.WebhookScope value : values) {
+          scopes_.add(value.getNumber());
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Event scopes that trigger this webhook.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearScopes() {
+        scopes_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Event scopes that trigger this webhook.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * @return A list containing the enum numeric values on the wire for scopes.
+       */
+      public java.util.List<java.lang.Integer>
+      getScopesValueList() {
+        return java.util.Collections.unmodifiableList(scopes_);
+      }
+      /**
+       * <pre>
+       * Event scopes that trigger this webhook.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * @param index The index of the value to return.
+       * @return The enum numeric value on the wire of scopes at the given index.
+       */
+      public int getScopesValue(int index) {
+        return scopes_.get(index);
+      }
+      /**
+       * <pre>
+       * Event scopes that trigger this webhook.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * @param index The index of the value to return.
+       * @return The enum numeric value on the wire of scopes at the given index.
+       * @return This builder for chaining.
+       */
+      public Builder setScopesValue(
+          int index, int value) {
+        ensureScopesIsMutable();
+        scopes_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Event scopes that trigger this webhook.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * @param value The enum numeric value on the wire for scopes to add.
+       * @return This builder for chaining.
+       */
+      public Builder addScopesValue(int value) {
+        ensureScopesIsMutable();
+        scopes_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Event scopes that trigger this webhook.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * @param values The enum numeric values on the wire for scopes to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllScopesValue(
+          java.lang.Iterable<java.lang.Integer> values) {
+        ensureScopesIsMutable();
+        for (int value : values) {
+          scopes_.add(value);
+        }
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object apiVersion_ = "";
+      /**
+       * <pre>
+       * API version for webhook payloads.
+       * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:Enum={"v4","v5"}
+       * </pre>
+       *
+       * <code>string api_version = 4 [json_name = "apiVersion"];</code>
+       * @return The apiVersion.
+       */
+      public java.lang.String getApiVersion() {
+        java.lang.Object ref = apiVersion_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          apiVersion_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * API version for webhook payloads.
+       * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:Enum={"v4","v5"}
+       * </pre>
+       *
+       * <code>string api_version = 4 [json_name = "apiVersion"];</code>
+       * @return The bytes for apiVersion.
+       */
+      public com.google.protobuf.ByteString
+          getApiVersionBytes() {
+        java.lang.Object ref = apiVersion_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          apiVersion_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * API version for webhook payloads.
+       * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:Enum={"v4","v5"}
+       * </pre>
+       *
+       * <code>string api_version = 4 [json_name = "apiVersion"];</code>
+       * @param value The apiVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setApiVersion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        apiVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * API version for webhook payloads.
+       * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:Enum={"v4","v5"}
+       * </pre>
+       *
+       * <code>string api_version = 4 [json_name = "apiVersion"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearApiVersion() {
+        
+        apiVersion_ = getDefaultInstance().getApiVersion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * API version for webhook payloads.
+       * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:Enum={"v4","v5"}
+       * </pre>
+       *
+       * <code>string api_version = 4 [json_name = "apiVersion"];</code>
+       * @param value The bytes for apiVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setApiVersionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        apiVersion_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      /* Generated by protoc-gen-java-set-or-clear */
+      
+      /**
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrClearName(java.lang.String value) {
+      	if (value == null)
+      		return clearName();
+      	else
+      		return setName(value);
+      }
+      	
+      /**
+       * @param value The value to map.
+       * @param mapFunc The function to map the value into the proto message.
+       * @return This builder for chaining.
+       */
+      public <T> Builder mapOrClearName(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+      	if (value == null)
+      		return clearName();
+      	else
+      		return setName(mapFunc.apply(value));
+      }
+      	
+      /**
+       * @param value The url to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrClearUrl(java.lang.String value) {
+      	if (value == null)
+      		return clearUrl();
+      	else
+      		return setUrl(value);
+      }
+      	
+      /**
+       * @param value The value to map.
+       * @param mapFunc The function to map the value into the proto message.
+       * @return This builder for chaining.
+       */
+      public <T> Builder mapOrClearUrl(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+      	if (value == null)
+      		return clearUrl();
+      	else
+      		return setUrl(mapFunc.apply(value));
+      }
+      	
+      /**
+       * @param values The scopes to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllOrClearScopes(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.WebhookScope> values) {
+      	if (values == null)
+      		return clearScopes();
+      	else
+      		return addAllScopes(values);
+      }
+      	
+      /**
+       * @param values The values to map.
+       * @param mapFunc The function to map the values into each proto message.
+       * @return This builder for chaining.
+       */
+      public <T> Builder mapAllOrClearScopes(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.WebhookScope> mapFunc) {
+      	if (values == null)
+      		return clearScopes();
+      	else {
+      		values.forEach(value -> addScopes(mapFunc.apply(value)));
+      		return this;
+      	}
+      }
+      	
+      /**
+       * @param value The api_version to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrClearApiVersion(java.lang.String value) {
+      	if (value == null)
+      		return clearApiVersion();
+      	else
+      		return setApiVersion(value);
+      }
+      	
+      /**
+       * @param value The value to map.
+       * @param mapFunc The function to map the value into the proto message.
+       * @return This builder for chaining.
+       */
+      public <T> Builder mapOrClearApiVersion(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+      	if (value == null)
+      		return clearApiVersion();
+      	else
+      		return setApiVersion(mapFunc.apply(value));
+      }
+      	
+      // @@protoc_insertion_point(builder_scope:coreapi.service.PatchWebhookRequest.PatchWebhookBody)
+    }
+
+    // @@protoc_insertion_point(class_scope:coreapi.service.PatchWebhookRequest.PatchWebhookBody)
+    private static final io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody();
+    }
+
+    public static io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PatchWebhookBody>
+        PARSER = new com.google.protobuf.AbstractParser<PatchWebhookBody>() {
+      @java.lang.Override
+      public PatchWebhookBody parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PatchWebhookBody(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PatchWebhookBody> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PatchWebhookBody> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public static final int WEBHOOK_ID_FIELD_NUMBER = 1;
@@ -240,222 +1734,83 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object name_;
+  public static final int BODY_FIELD_NUMBER = 3;
+  private io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody body_;
   /**
    * <pre>
-   * Webhook display name. Must be unique within the channel.
+   * Patch body. Only fields listed in update_mask are applied.
    * </pre>
    *
-   * <code>string name = 3 [json_name = "name"];</code>
-   * @return The name.
+   * <code>.coreapi.service.PatchWebhookRequest.PatchWebhookBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+   * @return Whether the body field is set.
    */
   @java.lang.Override
-  public java.lang.String getName() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      name_ = s;
-      return s;
-    }
+  public boolean hasBody() {
+    return body_ != null;
   }
   /**
    * <pre>
-   * Webhook display name. Must be unique within the channel.
+   * Patch body. Only fields listed in update_mask are applied.
    * </pre>
    *
-   * <code>string name = 3 [json_name = "name"];</code>
-   * @return The bytes for name.
+   * <code>.coreapi.service.PatchWebhookRequest.PatchWebhookBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+   * @return The body.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getNameBytes() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      name_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody getBody() {
+    return body_ == null ? io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.getDefaultInstance() : body_;
+  }
+  /**
+   * <pre>
+   * Patch body. Only fields listed in update_mask are applied.
+   * </pre>
+   *
+   * <code>.coreapi.service.PatchWebhookRequest.PatchWebhookBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBodyOrBuilder getBodyOrBuilder() {
+    return getBody();
   }
 
-  public static final int URL_FIELD_NUMBER = 4;
-  private volatile java.lang.Object url_;
+  public static final int UPDATE_MASK_FIELD_NUMBER = 4;
+  private com.google.protobuf.FieldMask updateMask_;
   /**
    * <pre>
-   * Destination URL that receives webhook payloads.
+   * Set of field paths (relative to PatchWebhookBody) to update.
+   * Unlisted fields remain unchanged.
    * </pre>
    *
-   * <code>string url = 4 [json_name = "url"];</code>
-   * @return The url.
+   * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+   * @return Whether the updateMask field is set.
    */
   @java.lang.Override
-  public java.lang.String getUrl() {
-    java.lang.Object ref = url_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      url_ = s;
-      return s;
-    }
+  public boolean hasUpdateMask() {
+    return updateMask_ != null;
   }
   /**
    * <pre>
-   * Destination URL that receives webhook payloads.
+   * Set of field paths (relative to PatchWebhookBody) to update.
+   * Unlisted fields remain unchanged.
    * </pre>
    *
-   * <code>string url = 4 [json_name = "url"];</code>
-   * @return The bytes for url.
+   * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+   * @return The updateMask.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getUrlBytes() {
-    java.lang.Object ref = url_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      url_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int SCOPES_FIELD_NUMBER = 5;
-  private java.util.List<java.lang.Integer> scopes_;
-  private static final com.google.protobuf.Internal.ListAdapter.Converter<
-      java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope> scopes_converter_ =
-          new com.google.protobuf.Internal.ListAdapter.Converter<
-              java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope>() {
-            public io.channel.api.proto.pub.coreapi.model.WebhookScope convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              io.channel.api.proto.pub.coreapi.model.WebhookScope result = io.channel.api.proto.pub.coreapi.model.WebhookScope.valueOf(from);
-              return result == null ? io.channel.api.proto.pub.coreapi.model.WebhookScope.UNRECOGNIZED : result;
-            }
-          };
-  /**
-   * <pre>
-   * Event scopes that trigger this webhook.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-   * @return A list containing the scopes.
-   */
-  @java.lang.Override
-  public java.util.List<io.channel.api.proto.pub.coreapi.model.WebhookScope> getScopesList() {
-    return new com.google.protobuf.Internal.ListAdapter<
-        java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope>(scopes_, scopes_converter_);
+  public com.google.protobuf.FieldMask getUpdateMask() {
+    return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
   }
   /**
    * <pre>
-   * Event scopes that trigger this webhook.
+   * Set of field paths (relative to PatchWebhookBody) to update.
+   * Unlisted fields remain unchanged.
    * </pre>
    *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-   * @return The count of scopes.
+   * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
-  public int getScopesCount() {
-    return scopes_.size();
-  }
-  /**
-   * <pre>
-   * Event scopes that trigger this webhook.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-   * @param index The index of the element to return.
-   * @return The scopes at the given index.
-   */
-  @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.model.WebhookScope getScopes(int index) {
-    return scopes_converter_.convert(scopes_.get(index));
-  }
-  /**
-   * <pre>
-   * Event scopes that trigger this webhook.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-   * @return A list containing the enum numeric values on the wire for scopes.
-   */
-  @java.lang.Override
-  public java.util.List<java.lang.Integer>
-  getScopesValueList() {
-    return scopes_;
-  }
-  /**
-   * <pre>
-   * Event scopes that trigger this webhook.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-   * @param index The index of the value to return.
-   * @return The enum numeric value on the wire of scopes at the given index.
-   */
-  @java.lang.Override
-  public int getScopesValue(int index) {
-    return scopes_.get(index);
-  }
-  private int scopesMemoizedSerializedSize;
-
-  public static final int API_VERSION_FIELD_NUMBER = 6;
-  private volatile java.lang.Object apiVersion_;
-  /**
-   * <pre>
-   * API version for webhook payloads.
-   * +kubebuilder:validation:Enum={"v4","v5"}
-   * </pre>
-   *
-   * <code>string api_version = 6 [json_name = "apiVersion"];</code>
-   * @return The apiVersion.
-   */
-  @java.lang.Override
-  public java.lang.String getApiVersion() {
-    java.lang.Object ref = apiVersion_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      apiVersion_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * API version for webhook payloads.
-   * +kubebuilder:validation:Enum={"v4","v5"}
-   * </pre>
-   *
-   * <code>string api_version = 6 [json_name = "apiVersion"];</code>
-   * @return The bytes for apiVersion.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getApiVersionBytes() {
-    java.lang.Object ref = apiVersion_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      apiVersion_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+    return getUpdateMask();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -472,28 +1827,17 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    getSerializedSize();
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(webhookId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, webhookId_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
+    if (body_ != null) {
+      output.writeMessage(3, getBody());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, url_);
-    }
-    if (getScopesList().size() > 0) {
-      output.writeUInt32NoTag(42);
-      output.writeUInt32NoTag(scopesMemoizedSerializedSize);
-    }
-    for (int i = 0; i < scopes_.size(); i++) {
-      output.writeEnumNoTag(scopes_.get(i));
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(apiVersion_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, apiVersion_);
+    if (updateMask_ != null) {
+      output.writeMessage(4, getUpdateMask());
     }
     unknownFields.writeTo(output);
   }
@@ -510,26 +1854,13 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
+    if (body_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getBody());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, url_);
-    }
-    {
-      int dataSize = 0;
-      for (int i = 0; i < scopes_.size(); i++) {
-        dataSize += com.google.protobuf.CodedOutputStream
-          .computeEnumSizeNoTag(scopes_.get(i));
-      }
-      size += dataSize;
-      if (!getScopesList().isEmpty()) {  size += 1;
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32SizeNoTag(dataSize);
-      }scopesMemoizedSerializedSize = dataSize;
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(apiVersion_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, apiVersion_);
+    if (updateMask_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getUpdateMask());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -550,13 +1881,16 @@ private static final long serialVersionUID = 0L;
         .equals(other.getWebhookId())) return false;
     if (!getChannelId()
         .equals(other.getChannelId())) return false;
-    if (!getName()
-        .equals(other.getName())) return false;
-    if (!getUrl()
-        .equals(other.getUrl())) return false;
-    if (!scopes_.equals(other.scopes_)) return false;
-    if (!getApiVersion()
-        .equals(other.getApiVersion())) return false;
+    if (hasBody() != other.hasBody()) return false;
+    if (hasBody()) {
+      if (!getBody()
+          .equals(other.getBody())) return false;
+    }
+    if (hasUpdateMask() != other.hasUpdateMask()) return false;
+    if (hasUpdateMask()) {
+      if (!getUpdateMask()
+          .equals(other.getUpdateMask())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -572,16 +1906,14 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getWebhookId().hashCode();
     hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChannelId().hashCode();
-    hash = (37 * hash) + NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getName().hashCode();
-    hash = (37 * hash) + URL_FIELD_NUMBER;
-    hash = (53 * hash) + getUrl().hashCode();
-    if (getScopesCount() > 0) {
-      hash = (37 * hash) + SCOPES_FIELD_NUMBER;
-      hash = (53 * hash) + scopes_.hashCode();
+    if (hasBody()) {
+      hash = (37 * hash) + BODY_FIELD_NUMBER;
+      hash = (53 * hash) + getBody().hashCode();
     }
-    hash = (37 * hash) + API_VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + getApiVersion().hashCode();
+    if (hasUpdateMask()) {
+      hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
+      hash = (53 * hash) + getUpdateMask().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -724,14 +2056,18 @@ private static final long serialVersionUID = 0L;
 
       channelId_ = "";
 
-      name_ = "";
-
-      url_ = "";
-
-      scopes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      apiVersion_ = "";
-
+      if (bodyBuilder_ == null) {
+        body_ = null;
+      } else {
+        body_ = null;
+        bodyBuilder_ = null;
+      }
+      if (updateMaskBuilder_ == null) {
+        updateMask_ = null;
+      } else {
+        updateMask_ = null;
+        updateMaskBuilder_ = null;
+      }
       return this;
     }
 
@@ -758,17 +2094,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest buildPartial() {
       io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest result = new io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest(this);
-      int from_bitField0_ = bitField0_;
       result.webhookId_ = webhookId_;
       result.channelId_ = channelId_;
-      result.name_ = name_;
-      result.url_ = url_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        scopes_ = java.util.Collections.unmodifiableList(scopes_);
-        bitField0_ = (bitField0_ & ~0x00000001);
+      if (bodyBuilder_ == null) {
+        result.body_ = body_;
+      } else {
+        result.body_ = bodyBuilder_.build();
       }
-      result.scopes_ = scopes_;
-      result.apiVersion_ = apiVersion_;
+      if (updateMaskBuilder_ == null) {
+        result.updateMask_ = updateMask_;
+      } else {
+        result.updateMask_ = updateMaskBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -825,27 +2162,11 @@ private static final long serialVersionUID = 0L;
         channelId_ = other.channelId_;
         onChanged();
       }
-      if (!other.getName().isEmpty()) {
-        name_ = other.name_;
-        onChanged();
+      if (other.hasBody()) {
+        mergeBody(other.getBody());
       }
-      if (!other.getUrl().isEmpty()) {
-        url_ = other.url_;
-        onChanged();
-      }
-      if (!other.scopes_.isEmpty()) {
-        if (scopes_.isEmpty()) {
-          scopes_ = other.scopes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          ensureScopesIsMutable();
-          scopes_.addAll(other.scopes_);
-        }
-        onChanged();
-      }
-      if (!other.getApiVersion().isEmpty()) {
-        apiVersion_ = other.apiVersion_;
-        onChanged();
+      if (other.hasUpdateMask()) {
+        mergeUpdateMask(other.getUpdateMask());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -875,7 +2196,6 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
     private java.lang.Object webhookId_ = "";
     /**
@@ -1069,485 +2389,323 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object name_ = "";
+    private io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody body_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody, io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.Builder, io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBodyOrBuilder> bodyBuilder_;
     /**
      * <pre>
-     * Webhook display name. Must be unique within the channel.
+     * Patch body. Only fields listed in update_mask are applied.
      * </pre>
      *
-     * <code>string name = 3 [json_name = "name"];</code>
-     * @return The name.
+     * <code>.coreapi.service.PatchWebhookRequest.PatchWebhookBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     * @return Whether the body field is set.
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
+    public boolean hasBody() {
+      return bodyBuilder_ != null || body_ != null;
+    }
+    /**
+     * <pre>
+     * Patch body. Only fields listed in update_mask are applied.
+     * </pre>
+     *
+     * <code>.coreapi.service.PatchWebhookRequest.PatchWebhookBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     * @return The body.
+     */
+    public io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody getBody() {
+      if (bodyBuilder_ == null) {
+        return body_ == null ? io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.getDefaultInstance() : body_;
       } else {
-        return (java.lang.String) ref;
+        return bodyBuilder_.getMessage();
       }
     }
     /**
      * <pre>
-     * Webhook display name. Must be unique within the channel.
+     * Patch body. Only fields listed in update_mask are applied.
      * </pre>
      *
-     * <code>string name = 3 [json_name = "name"];</code>
-     * @return The bytes for name.
+     * <code>.coreapi.service.PatchWebhookRequest.PatchWebhookBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
      */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
+    public Builder setBody(io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody value) {
+      if (bodyBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        body_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        bodyBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Patch body. Only fields listed in update_mask are applied.
+     * </pre>
+     *
+     * <code>.coreapi.service.PatchWebhookRequest.PatchWebhookBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder setBody(
+        io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.Builder builderForValue) {
+      if (bodyBuilder_ == null) {
+        body_ = builderForValue.build();
+        onChanged();
+      } else {
+        bodyBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Patch body. Only fields listed in update_mask are applied.
+     * </pre>
+     *
+     * <code>.coreapi.service.PatchWebhookRequest.PatchWebhookBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder mergeBody(io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody value) {
+      if (bodyBuilder_ == null) {
+        if (body_ != null) {
+          body_ =
+            io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.newBuilder(body_).mergeFrom(value).buildPartial();
+        } else {
+          body_ = value;
+        }
+        onChanged();
+      } else {
+        bodyBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Patch body. Only fields listed in update_mask are applied.
+     * </pre>
+     *
+     * <code>.coreapi.service.PatchWebhookRequest.PatchWebhookBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder clearBody() {
+      if (bodyBuilder_ == null) {
+        body_ = null;
+        onChanged();
+      } else {
+        body_ = null;
+        bodyBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Patch body. Only fields listed in update_mask are applied.
+     * </pre>
+     *
+     * <code>.coreapi.service.PatchWebhookRequest.PatchWebhookBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     */
+    public io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.Builder getBodyBuilder() {
+      
+      onChanged();
+      return getBodyFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Patch body. Only fields listed in update_mask are applied.
+     * </pre>
+     *
+     * <code>.coreapi.service.PatchWebhookRequest.PatchWebhookBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     */
+    public io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBodyOrBuilder getBodyOrBuilder() {
+      if (bodyBuilder_ != null) {
+        return bodyBuilder_.getMessageOrBuilder();
+      } else {
+        return body_ == null ?
+            io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.getDefaultInstance() : body_;
       }
     }
     /**
      * <pre>
-     * Webhook display name. Must be unique within the channel.
+     * Patch body. Only fields listed in update_mask are applied.
      * </pre>
      *
-     * <code>string name = 3 [json_name = "name"];</code>
-     * @param value The name to set.
-     * @return This builder for chaining.
+     * <code>.coreapi.service.PatchWebhookRequest.PatchWebhookBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
      */
-    public Builder setName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      name_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Webhook display name. Must be unique within the channel.
-     * </pre>
-     *
-     * <code>string name = 3 [json_name = "name"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearName() {
-      
-      name_ = getDefaultInstance().getName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Webhook display name. Must be unique within the channel.
-     * </pre>
-     *
-     * <code>string name = 3 [json_name = "name"];</code>
-     * @param value The bytes for name to set.
-     * @return This builder for chaining.
-     */
-    public Builder setNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      name_ = value;
-      onChanged();
-      return this;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody, io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.Builder, io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBodyOrBuilder> 
+        getBodyFieldBuilder() {
+      if (bodyBuilder_ == null) {
+        bodyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody, io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody.Builder, io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBodyOrBuilder>(
+                getBody(),
+                getParentForChildren(),
+                isClean());
+        body_ = null;
+      }
+      return bodyBuilder_;
     }
 
-    private java.lang.Object url_ = "";
+    private com.google.protobuf.FieldMask updateMask_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> updateMaskBuilder_;
     /**
      * <pre>
-     * Destination URL that receives webhook payloads.
+     * Set of field paths (relative to PatchWebhookBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>string url = 4 [json_name = "url"];</code>
-     * @return The url.
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+     * @return Whether the updateMask field is set.
      */
-    public java.lang.String getUrl() {
-      java.lang.Object ref = url_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        url_ = s;
-        return s;
+    public boolean hasUpdateMask() {
+      return updateMaskBuilder_ != null || updateMask_ != null;
+    }
+    /**
+     * <pre>
+     * Set of field paths (relative to PatchWebhookBody) to update.
+     * Unlisted fields remain unchanged.
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+     * @return The updateMask.
+     */
+    public com.google.protobuf.FieldMask getUpdateMask() {
+      if (updateMaskBuilder_ == null) {
+        return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
       } else {
-        return (java.lang.String) ref;
+        return updateMaskBuilder_.getMessage();
       }
     }
     /**
      * <pre>
-     * Destination URL that receives webhook payloads.
+     * Set of field paths (relative to PatchWebhookBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>string url = 4 [json_name = "url"];</code>
-     * @return The bytes for url.
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
      */
-    public com.google.protobuf.ByteString
-        getUrlBytes() {
-      java.lang.Object ref = url_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        url_ = b;
-        return b;
+    public Builder setUpdateMask(com.google.protobuf.FieldMask value) {
+      if (updateMaskBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        updateMask_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        updateMaskBuilder_.setMessage(value);
       }
-    }
-    /**
-     * <pre>
-     * Destination URL that receives webhook payloads.
-     * </pre>
-     *
-     * <code>string url = 4 [json_name = "url"];</code>
-     * @param value The url to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUrl(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      url_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Destination URL that receives webhook payloads.
-     * </pre>
-     *
-     * <code>string url = 4 [json_name = "url"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearUrl() {
-      
-      url_ = getDefaultInstance().getUrl();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Destination URL that receives webhook payloads.
-     * </pre>
-     *
-     * <code>string url = 4 [json_name = "url"];</code>
-     * @param value The bytes for url to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUrlBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      url_ = value;
-      onChanged();
-      return this;
-    }
 
-    private java.util.List<java.lang.Integer> scopes_ =
-      java.util.Collections.emptyList();
-    private void ensureScopesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        scopes_ = new java.util.ArrayList<java.lang.Integer>(scopes_);
-        bitField0_ |= 0x00000001;
+      return this;
+    }
+    /**
+     * <pre>
+     * Set of field paths (relative to PatchWebhookBody) to update.
+     * Unlisted fields remain unchanged.
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder setUpdateMask(
+        com.google.protobuf.FieldMask.Builder builderForValue) {
+      if (updateMaskBuilder_ == null) {
+        updateMask_ = builderForValue.build();
+        onChanged();
+      } else {
+        updateMaskBuilder_.setMessage(builderForValue.build());
       }
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-     * @return A list containing the scopes.
-     */
-    public java.util.List<io.channel.api.proto.pub.coreapi.model.WebhookScope> getScopesList() {
-      return new com.google.protobuf.Internal.ListAdapter<
-          java.lang.Integer, io.channel.api.proto.pub.coreapi.model.WebhookScope>(scopes_, scopes_converter_);
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-     * @return The count of scopes.
-     */
-    public int getScopesCount() {
-      return scopes_.size();
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-     * @param index The index of the element to return.
-     * @return The scopes at the given index.
-     */
-    public io.channel.api.proto.pub.coreapi.model.WebhookScope getScopes(int index) {
-      return scopes_converter_.convert(scopes_.get(index));
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-     * @param index The index to set the value at.
-     * @param value The scopes to set.
-     * @return This builder for chaining.
-     */
-    public Builder setScopes(
-        int index, io.channel.api.proto.pub.coreapi.model.WebhookScope value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      ensureScopesIsMutable();
-      scopes_.set(index, value.getNumber());
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-     * @param value The scopes to add.
-     * @return This builder for chaining.
-     */
-    public Builder addScopes(io.channel.api.proto.pub.coreapi.model.WebhookScope value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      ensureScopesIsMutable();
-      scopes_.add(value.getNumber());
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-     * @param values The scopes to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllScopes(
-        java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.WebhookScope> values) {
-      ensureScopesIsMutable();
-      for (io.channel.api.proto.pub.coreapi.model.WebhookScope value : values) {
-        scopes_.add(value.getNumber());
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearScopes() {
-      scopes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-     * @return A list containing the enum numeric values on the wire for scopes.
-     */
-    public java.util.List<java.lang.Integer>
-    getScopesValueList() {
-      return java.util.Collections.unmodifiableList(scopes_);
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-     * @param index The index of the value to return.
-     * @return The enum numeric value on the wire of scopes at the given index.
-     */
-    public int getScopesValue(int index) {
-      return scopes_.get(index);
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-     * @param index The index of the value to return.
-     * @return The enum numeric value on the wire of scopes at the given index.
-     * @return This builder for chaining.
-     */
-    public Builder setScopesValue(
-        int index, int value) {
-      ensureScopesIsMutable();
-      scopes_.set(index, value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-     * @param value The enum numeric value on the wire for scopes to add.
-     * @return This builder for chaining.
-     */
-    public Builder addScopesValue(int value) {
-      ensureScopesIsMutable();
-      scopes_.add(value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Event scopes that trigger this webhook.
-     * </pre>
-     *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-     * @param values The enum numeric values on the wire for scopes to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllScopesValue(
-        java.lang.Iterable<java.lang.Integer> values) {
-      ensureScopesIsMutable();
-      for (int value : values) {
-        scopes_.add(value);
-      }
-      onChanged();
-      return this;
-    }
 
-    private java.lang.Object apiVersion_ = "";
+      return this;
+    }
     /**
      * <pre>
-     * API version for webhook payloads.
-     * +kubebuilder:validation:Enum={"v4","v5"}
+     * Set of field paths (relative to PatchWebhookBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>string api_version = 6 [json_name = "apiVersion"];</code>
-     * @return The apiVersion.
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
      */
-    public java.lang.String getApiVersion() {
-      java.lang.Object ref = apiVersion_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        apiVersion_ = s;
-        return s;
+    public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
+      if (updateMaskBuilder_ == null) {
+        if (updateMask_ != null) {
+          updateMask_ =
+            com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+        } else {
+          updateMask_ = value;
+        }
+        onChanged();
       } else {
-        return (java.lang.String) ref;
+        updateMaskBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Set of field paths (relative to PatchWebhookBody) to update.
+     * Unlisted fields remain unchanged.
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder clearUpdateMask() {
+      if (updateMaskBuilder_ == null) {
+        updateMask_ = null;
+        onChanged();
+      } else {
+        updateMask_ = null;
+        updateMaskBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * Set of field paths (relative to PatchWebhookBody) to update.
+     * Unlisted fields remain unchanged.
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+     */
+    public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
+      
+      onChanged();
+      return getUpdateMaskFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Set of field paths (relative to PatchWebhookBody) to update.
+     * Unlisted fields remain unchanged.
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+     */
+    public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+      if (updateMaskBuilder_ != null) {
+        return updateMaskBuilder_.getMessageOrBuilder();
+      } else {
+        return updateMask_ == null ?
+            com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
       }
     }
     /**
      * <pre>
-     * API version for webhook payloads.
-     * +kubebuilder:validation:Enum={"v4","v5"}
+     * Set of field paths (relative to PatchWebhookBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>string api_version = 6 [json_name = "apiVersion"];</code>
-     * @return The bytes for apiVersion.
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
      */
-    public com.google.protobuf.ByteString
-        getApiVersionBytes() {
-      java.lang.Object ref = apiVersion_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        apiVersion_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> 
+        getUpdateMaskFieldBuilder() {
+      if (updateMaskBuilder_ == null) {
+        updateMaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder>(
+                getUpdateMask(),
+                getParentForChildren(),
+                isClean());
+        updateMask_ = null;
       }
-    }
-    /**
-     * <pre>
-     * API version for webhook payloads.
-     * +kubebuilder:validation:Enum={"v4","v5"}
-     * </pre>
-     *
-     * <code>string api_version = 6 [json_name = "apiVersion"];</code>
-     * @param value The apiVersion to set.
-     * @return This builder for chaining.
-     */
-    public Builder setApiVersion(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      apiVersion_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * API version for webhook payloads.
-     * +kubebuilder:validation:Enum={"v4","v5"}
-     * </pre>
-     *
-     * <code>string api_version = 6 [json_name = "apiVersion"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearApiVersion() {
-      
-      apiVersion_ = getDefaultInstance().getApiVersion();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * API version for webhook payloads.
-     * +kubebuilder:validation:Enum={"v4","v5"}
-     * </pre>
-     *
-     * <code>string api_version = 6 [json_name = "apiVersion"];</code>
-     * @param value The bytes for apiVersion to set.
-     * @return This builder for chaining.
-     */
-    public Builder setApiVersionBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      apiVersion_ = value;
-      onChanged();
-      return this;
+      return updateMaskBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1611,14 +2769,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The name to set.
+     * @param value The body to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearName(java.lang.String value) {
+    public Builder setOrClearBody(io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody value) {
     	if (value == null)
-    		return clearName();
+    		return clearBody();
     	else
-    		return setName(value);
+    		return setBody(value);
     }
     	
     /**
@@ -1626,22 +2784,22 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearName(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearBody(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody> mapFunc) {
     	if (value == null)
-    		return clearName();
+    		return clearBody();
     	else
-    		return setName(mapFunc.apply(value));
+    		return setBody(mapFunc.apply(value));
     }
     	
     /**
-     * @param value The url to set.
+     * @param value The update_mask to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearUrl(java.lang.String value) {
+    public Builder setOrClearUpdateMask(com.google.protobuf.FieldMask value) {
     	if (value == null)
-    		return clearUrl();
+    		return clearUpdateMask();
     	else
-    		return setUrl(value);
+    		return setUpdateMask(value);
     }
     	
     /**
@@ -1649,59 +2807,11 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearUrl(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearUpdateMask(T value, java.util.function.Function<T, com.google.protobuf.FieldMask> mapFunc) {
     	if (value == null)
-    		return clearUrl();
+    		return clearUpdateMask();
     	else
-    		return setUrl(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param values The scopes to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllOrClearScopes(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.WebhookScope> values) {
-    	if (values == null)
-    		return clearScopes();
-    	else
-    		return addAllScopes(values);
-    }
-    	
-    /**
-     * @param values The values to map.
-     * @param mapFunc The function to map the values into each proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapAllOrClearScopes(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.WebhookScope> mapFunc) {
-    	if (values == null)
-    		return clearScopes();
-    	else {
-    		values.forEach(value -> addScopes(mapFunc.apply(value)));
-    		return this;
-    	}
-    }
-    	
-    /**
-     * @param value The api_version to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearApiVersion(java.lang.String value) {
-    	if (value == null)
-    		return clearApiVersion();
-    	else
-    		return setApiVersion(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearApiVersion(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearApiVersion();
-    	else
-    		return setApiVersion(mapFunc.apply(value));
+    		return setUpdateMask(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.PatchWebhookRequest)

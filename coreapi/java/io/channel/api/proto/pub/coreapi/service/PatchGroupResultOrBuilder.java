@@ -3,8 +3,8 @@
 
 package io.channel.api.proto.pub.coreapi.service;
 
-public interface UpdateGroupResultOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:coreapi.service.UpdateGroupResult)
+public interface PatchGroupResultOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:coreapi.service.PatchGroupResult)
     com.google.protobuf.MessageOrBuilder {
 
   /**

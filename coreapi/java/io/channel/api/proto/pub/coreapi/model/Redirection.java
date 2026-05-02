@@ -221,6 +221,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Redirection expiration timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -234,6 +235,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Redirection expiration timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -247,6 +249,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Redirection expiration timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -838,6 +841,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -850,6 +854,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -866,6 +871,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -887,6 +893,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -906,6 +913,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -929,6 +937,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -948,6 +957,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -961,6 +971,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -977,6 +988,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>

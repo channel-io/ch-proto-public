@@ -32,6 +32,7 @@ public interface MessageLogOrBuilder extends
    * <pre>
    * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
    * Interpretation depends on the `action` type.
+   * +kubebuilder:example=["vip","premium"]
    * </pre>
    *
    * <code>repeated string values = 2 [json_name = "values"];</code>
@@ -43,6 +44,7 @@ public interface MessageLogOrBuilder extends
    * <pre>
    * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
    * Interpretation depends on the `action` type.
+   * +kubebuilder:example=["vip","premium"]
    * </pre>
    *
    * <code>repeated string values = 2 [json_name = "values"];</code>
@@ -53,6 +55,7 @@ public interface MessageLogOrBuilder extends
    * <pre>
    * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
    * Interpretation depends on the `action` type.
+   * +kubebuilder:example=["vip","premium"]
    * </pre>
    *
    * <code>repeated string values = 2 [json_name = "values"];</code>
@@ -64,6 +67,7 @@ public interface MessageLogOrBuilder extends
    * <pre>
    * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
    * Interpretation depends on the `action` type.
+   * +kubebuilder:example=["vip","premium"]
    * </pre>
    *
    * <code>repeated string values = 2 [json_name = "values"];</code>

@@ -121,6 +121,10 @@ private static final long serialVersionUID = 0L;
   public static final int SINCE_FIELD_NUMBER = 2;
   private volatile java.lang.Object since_;
   /**
+   * <pre>
+   * +kubebuilder:example="1704067200000"
+   * </pre>
+   *
    * <code>string since = 2 [json_name = "since"];</code>
    * @return The since.
    */
@@ -138,6 +142,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * +kubebuilder:example="1704067200000"
+   * </pre>
+   *
    * <code>string since = 2 [json_name = "since"];</code>
    * @return The bytes for since.
    */
@@ -159,6 +167,10 @@ private static final long serialVersionUID = 0L;
   public static final int LIMIT_FIELD_NUMBER = 3;
   private int limit_;
   /**
+   * <pre>
+   * +kubebuilder:example="25"
+   * </pre>
+   *
    * <code>int32 limit = 3 [json_name = "limit", (.buf.validate.field) = { ... }</code>
    * @return The limit.
    */
@@ -558,6 +570,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object since_ = "";
     /**
+     * <pre>
+     * +kubebuilder:example="1704067200000"
+     * </pre>
+     *
      * <code>string since = 2 [json_name = "since"];</code>
      * @return The since.
      */
@@ -574,6 +590,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * +kubebuilder:example="1704067200000"
+     * </pre>
+     *
      * <code>string since = 2 [json_name = "since"];</code>
      * @return The bytes for since.
      */
@@ -591,6 +611,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * +kubebuilder:example="1704067200000"
+     * </pre>
+     *
      * <code>string since = 2 [json_name = "since"];</code>
      * @param value The since to set.
      * @return This builder for chaining.
@@ -606,6 +630,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * +kubebuilder:example="1704067200000"
+     * </pre>
+     *
      * <code>string since = 2 [json_name = "since"];</code>
      * @return This builder for chaining.
      */
@@ -616,6 +644,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * +kubebuilder:example="1704067200000"
+     * </pre>
+     *
      * <code>string since = 2 [json_name = "since"];</code>
      * @param value The bytes for since to set.
      * @return This builder for chaining.
@@ -634,6 +666,10 @@ private static final long serialVersionUID = 0L;
 
     private int limit_ ;
     /**
+     * <pre>
+     * +kubebuilder:example="25"
+     * </pre>
+     *
      * <code>int32 limit = 3 [json_name = "limit", (.buf.validate.field) = { ... }</code>
      * @return The limit.
      */
@@ -642,6 +678,10 @@ private static final long serialVersionUID = 0L;
       return limit_;
     }
     /**
+     * <pre>
+     * +kubebuilder:example="25"
+     * </pre>
+     *
      * <code>int32 limit = 3 [json_name = "limit", (.buf.validate.field) = { ... }</code>
      * @param value The limit to set.
      * @return This builder for chaining.
@@ -653,6 +693,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * +kubebuilder:example="25"
+     * </pre>
+     *
      * <code>int32 limit = 3 [json_name = "limit", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */

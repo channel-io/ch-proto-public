@@ -55,15 +55,20 @@ public final class ChatTag {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_coreapi_service_CreateChatTagResult_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_coreapi_service_UpdateChatTagRequest_descriptor;
+    internal_static_coreapi_service_PatchChatTagRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_coreapi_service_UpdateChatTagRequest_fieldAccessorTable;
+      internal_static_coreapi_service_PatchChatTagRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_coreapi_service_UpdateChatTagResult_descriptor;
+    internal_static_coreapi_service_PatchChatTagRequest_PatchChatTagBody_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_coreapi_service_UpdateChatTagResult_fieldAccessorTable;
+      internal_static_coreapi_service_PatchChatTagRequest_PatchChatTagBody_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_PatchChatTagResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_coreapi_service_PatchChatTagResult_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_coreapi_service_DeleteChatTagRequest_descriptor;
   static final 
@@ -85,62 +90,68 @@ public final class ChatTag {
     java.lang.String[] descriptorData = {
       "\n\036coreapi/service/chat_tag.proto\022\017coreap" +
       "i.service\032\033buf/validate/validate.proto\032\034" +
-      "coreapi/model/chat_tag.proto\"\315\001\n\025SearchC" +
-      "hatTagsRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310" +
-      "\001\001R\tchannelId\022\026\n\006cursor\030\002 \001(\tR\006cursor\022u\n" +
-      "\005limit\030\003 \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037lim" +
-      "it must be between 1 and 500\032\'this == 0 " +
-      "|| (this >= 1 && this <= 500)R\005limit\"\207\001\n" +
-      "\024SearchChatTagsResult\0223\n\tchat_tags\030\001 \003(\013" +
-      "2\026.coreapi.model.ChatTagR\010chatTags\022\037\n\013ne" +
-      "xt_cursor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030" +
-      "\003 \001(\010R\007hasNext\"\366\001\n\035BatchGetChatTagsByKey" +
+      "coreapi/model/chat_tag.proto\032 google/pro" +
+      "tobuf/field_mask.proto\"\315\001\n\025SearchChatTag" +
       "sRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tch" +
-      "annelId\022\255\001\n\004keys\030\002 \003(\tB\230\001\272H\224\001\272\001B\n\021repeat" +
-      "ed.minItems\022\034at least one key is require" +
-      "d\032\017size(this) >= 1\272\001I\n\021repeated.maxItems" +
-      "\022\"value must contain no more than 50\032\020si" +
-      "ze(this) <= 50\310\001\001R\004keys\"S\n\034BatchGetChatT" +
-      "agsByKeysResult\0223\n\tchat_tags\030\001 \003(\0132\026.cor" +
-      "eapi.model.ChatTagR\010chatTags\"R\n\021GetChatT" +
-      "agRequest\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022%\n\ncha" +
-      "nnel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"E\n\020GetC" +
-      "hatTagResult\0221\n\010chat_tag\030\001 \001(\0132\026.coreapi" +
-      ".model.ChatTagR\007chatTag\"\304\003\n\024CreateChatTa" +
-      "gRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tch" +
-      "annelId\022\304\001\n\004name\030\002 \001(\tB\257\001\272H\253\001\272\001D\n\rstring" +
-      ".minLen\022\"value must be at least 1 charac" +
-      "ter\032\017size(this) >= 1\272\001M\n\rstring.maxLen\022)" +
-      "value must be no more than 128 character" +
-      "s\032\021size(this) <= 128\310\001\001r\0172\r^[^.\\\\$%\\s]+$" +
-      "R\004name\022G\n\rcolor_variant\030\003 \001(\0162\".coreapi." +
-      "model.ChatTagColorVariantR\014colorVariant\022" +
-      "u\n\013description\030\004 \001(\tBS\272HP\272\001M\n\rstring.max" +
-      "Len\022)value must be no more than 128 char" +
-      "acters\032\021size(this) <= 128R\013description\"H" +
-      "\n\023CreateChatTagResult\0221\n\010chat_tag\030\001 \001(\0132" +
-      "\026.coreapi.model.ChatTagR\007chatTag\"\225\002\n\024Upd" +
-      "ateChatTagRequest\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002i" +
-      "d\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId" +
+      "annelId\022\026\n\006cursor\030\002 \001(\tR\006cursor\022u\n\005limit" +
+      "\030\003 \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037limit mus" +
+      "t be between 1 and 500\032\'this == 0 || (th" +
+      "is >= 1 && this <= 500)R\005limit\"\207\001\n\024Searc" +
+      "hChatTagsResult\0223\n\tchat_tags\030\001 \003(\0132\026.cor" +
+      "eapi.model.ChatTagR\010chatTags\022\037\n\013next_cur" +
+      "sor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001(\010R" +
+      "\007hasNext\"\366\001\n\035BatchGetChatTagsByKeysReque" +
+      "st\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelI" +
+      "d\022\255\001\n\004keys\030\002 \003(\tB\230\001\272H\224\001\272\001B\n\021repeated.min" +
+      "Items\022\034at least one key is required\032\017siz" +
+      "e(this) >= 1\272\001I\n\021repeated.maxItems\022\"valu" +
+      "e must contain no more than 50\032\020size(thi" +
+      "s) <= 50\310\001\001R\004keys\"S\n\034BatchGetChatTagsByK" +
+      "eysResult\0223\n\tchat_tags\030\001 \003(\0132\026.coreapi.m" +
+      "odel.ChatTagR\010chatTags\"R\n\021GetChatTagRequ" +
+      "est\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022%\n\nchannel_i" +
+      "d\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"E\n\020GetChatTag" +
+      "Result\0221\n\010chat_tag\030\001 \001(\0132\026.coreapi.model" +
+      ".ChatTagR\007chatTag\"\304\003\n\024CreateChatTagReque" +
+      "st\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelI" +
+      "d\022\304\001\n\004name\030\002 \001(\tB\257\001\272H\253\001\272\001D\n\rstring.minLe" +
+      "n\022\"value must be at least 1 character\032\017s" +
+      "ize(this) >= 1\272\001M\n\rstring.maxLen\022)value " +
+      "must be no more than 128 characters\032\021siz" +
+      "e(this) <= 128\310\001\001r\0172\r^[^.\\\\$%\\s]+$R\004name" +
       "\022G\n\rcolor_variant\030\003 \001(\0162\".coreapi.model." +
       "ChatTagColorVariantR\014colorVariant\022u\n\013des" +
       "cription\030\004 \001(\tBS\272HP\272\001M\n\rstring.maxLen\022)v" +
       "alue must be no more than 128 characters" +
-      "\032\021size(this) <= 128R\013description\"H\n\023Upda" +
+      "\032\021size(this) <= 128R\013description\"H\n\023Crea" +
       "teChatTagResult\0221\n\010chat_tag\030\001 \001(\0132\026.core" +
-      "api.model.ChatTagR\007chatTag\"U\n\024DeleteChat" +
+      "api.model.ChatTagR\007chatTag\"\320\003\n\023PatchChat" +
       "TagRequest\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022%\n\nch" +
-      "annel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"\025\n\023Del" +
-      "eteChatTagResultBf\n(io.channel.api.proto" +
-      ".pub.coreapi.serviceP\001Z8github.com/chann" +
-      "el-io/ch-proto-public/coreapi/go/service" +
-      "b\006proto3"
+      "annel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\022Q\n\004bod" +
+      "y\030\003 \001(\01325.coreapi.service.PatchChatTagRe" +
+      "quest.PatchChatTagBodyB\006\272H\003\310\001\001R\004body\022C\n\013" +
+      "update_mask\030\004 \001(\0132\032.google.protobuf.Fiel" +
+      "dMaskB\006\272H\003\310\001\001R\nupdateMask\032\341\001\n\020PatchChatT" +
+      "agBody\022G\n\rcolor_variant\030\001 \001(\0162\".coreapi." +
+      "model.ChatTagColorVariantR\014colorVariant\022" +
+      "\203\001\n\013description\030\002 \001(\tBa\272H^\272\001[\n\rstring.ma" +
+      "xLen\022)value must be no more than 128 cha" +
+      "racters\032\037this == \'\' || size(this) <= 128" +
+      "R\013description\"G\n\022PatchChatTagResult\0221\n\010c" +
+      "hat_tag\030\001 \001(\0132\026.coreapi.model.ChatTagR\007c" +
+      "hatTag\"U\n\024DeleteChatTagRequest\022\026\n\002id\030\001 \001" +
+      "(\tB\006\272H\003\310\001\001R\002id\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310" +
+      "\001\001R\tchannelId\"\025\n\023DeleteChatTagResultBf\n(" +
+      "io.channel.api.proto.pub.coreapi.service" +
+      "P\001Z8github.com/channel-io/ch-proto-publi" +
+      "c/coreapi/go/serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
           io.channel.api.proto.pub.coreapi.model.ChatTagOuterClass.getDescriptor(),
+          com.google.protobuf.FieldMaskProto.getDescriptor(),
         });
     internal_static_coreapi_service_SearchChatTagsRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -190,17 +201,23 @@ public final class ChatTag {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_CreateChatTagResult_descriptor,
         new java.lang.String[] { "ChatTag", });
-    internal_static_coreapi_service_UpdateChatTagRequest_descriptor =
+    internal_static_coreapi_service_PatchChatTagRequest_descriptor =
       getDescriptor().getMessageTypes().get(8);
-    internal_static_coreapi_service_UpdateChatTagRequest_fieldAccessorTable = new
+    internal_static_coreapi_service_PatchChatTagRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_coreapi_service_UpdateChatTagRequest_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "ColorVariant", "Description", });
-    internal_static_coreapi_service_UpdateChatTagResult_descriptor =
+        internal_static_coreapi_service_PatchChatTagRequest_descriptor,
+        new java.lang.String[] { "Id", "ChannelId", "Body", "UpdateMask", });
+    internal_static_coreapi_service_PatchChatTagRequest_PatchChatTagBody_descriptor =
+      internal_static_coreapi_service_PatchChatTagRequest_descriptor.getNestedTypes().get(0);
+    internal_static_coreapi_service_PatchChatTagRequest_PatchChatTagBody_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_coreapi_service_PatchChatTagRequest_PatchChatTagBody_descriptor,
+        new java.lang.String[] { "ColorVariant", "Description", });
+    internal_static_coreapi_service_PatchChatTagResult_descriptor =
       getDescriptor().getMessageTypes().get(9);
-    internal_static_coreapi_service_UpdateChatTagResult_fieldAccessorTable = new
+    internal_static_coreapi_service_PatchChatTagResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_coreapi_service_UpdateChatTagResult_descriptor,
+        internal_static_coreapi_service_PatchChatTagResult_descriptor,
         new java.lang.String[] { "ChatTag", });
     internal_static_coreapi_service_DeleteChatTagRequest_descriptor =
       getDescriptor().getMessageTypes().get(10);
@@ -221,6 +238,7 @@ public final class ChatTag {
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
     io.channel.api.proto.pub.coreapi.model.ChatTagOuterClass.getDescriptor();
+    com.google.protobuf.FieldMaskProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

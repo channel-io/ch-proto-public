@@ -6,6 +6,7 @@ import "buf/validate/validate.proto";
 import "coreapi/model/online.proto";
 import "coreapi/model/user.proto";
 import "google/protobuf/duration.proto";
+import "google/protobuf/field_mask.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -172,8 +173,11 @@ message UnblockUserResult {
   coreapi.model.User user = 1;
 }
 
-// Updates a user partially.
-// Only specified fields are modified; omitted fields remain unchanged.
+// Patches a user.
+//
+// PATCH semantics per RFC 7396 / AIP-134/161:
+//   - a field listed in update_mask is applied (null = clear, value = set)
+//   - a field absent from update_mask is not modified
 message PatchUserRequest {
   // User ID to update.
   string user_id = 1 [(buf.validate.field).required = true];
@@ -181,33 +185,58 @@ message PatchUserRequest {
   // Channel ID the user belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
 
-  // Custom key-value profile data to set or merge.
-  google.protobuf.Struct profile = 3;
+  // Patch body. Only fields listed in update_mask are applied.
+  PatchUserBody body = 3 [(buf.validate.field).required = true];
 
-  // Profile data that is set only once on first write.
-  // Subsequent updates to the same keys are ignored.
-  google.protobuf.Struct profile_once = 4;
+  // Set of field paths (relative to PatchUserBody) to update.
+  // Unlisted fields remain unchanged.
+  google.protobuf.FieldMask update_mask = 4 [(buf.validate.field).required = true];
 
-  // User classification tags to replace the current set.
-  repeated string tags = 5;
+  message PatchUserBody {
+    // Custom key-value profile data to set or merge.
+    //
+    // +kubebuilder:validation:Nullable
+    google.protobuf.Struct profile = 1;
 
-  // Whether the user is blocked.
-  bool blocked = 6;
+    // Profile data that is set only once on first write.
+    // Subsequent updates to the same keys are ignored.
+    //
+    // +kubebuilder:validation:Nullable
+    google.protobuf.Struct profile_once = 2;
 
-  // Whether the user opted out of email notifications.
-  bool unsubscribe_email = 7;
+    // User classification tags to replace the current set.
+    //
+    // +kubebuilder:validation:Nullable
+    repeated string tags = 3;
 
-  // Whether the user opted out of SMS/text notifications.
-  bool unsubscribe_texting = 8;
+    // Whether the user is blocked.
+    //
+    // +kubebuilder:validation:Nullable
+    bool blocked = 4;
 
-  // Whether the user opted out of app push notifications.
-  bool unsubscribe_app_push = 9;
+    // Whether the user opted out of email notifications.
+    //
+    // +kubebuilder:validation:Nullable
+    bool unsubscribe_email = 5;
 
-  // User's preferred language locale.
-  string language = 10;
+    // Whether the user opted out of SMS/text notifications.
+    //
+    // +kubebuilder:validation:Nullable
+    bool unsubscribe_texting = 6;
+
+    // Whether the user opted out of app push notifications.
+    //
+    // +kubebuilder:validation:Nullable
+    bool unsubscribe_app_push = 7;
+
+    // User's preferred language locale.
+    //
+    // +kubebuilder:validation:Nullable
+    string language = 8;
+  }
 }
 
-// Response for user update.
+// Response for user patch.
 message PatchUserResult {
   coreapi.model.User user = 1;
 }

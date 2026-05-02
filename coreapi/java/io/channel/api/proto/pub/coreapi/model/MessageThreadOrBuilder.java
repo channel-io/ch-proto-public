@@ -35,6 +35,7 @@ public interface MessageThreadOrBuilder extends
    * <pre>
    * Manager IDs assigned to handle this thread.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
@@ -46,6 +47,7 @@ public interface MessageThreadOrBuilder extends
    * <pre>
    * Manager IDs assigned to handle this thread.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
@@ -56,6 +58,7 @@ public interface MessageThreadOrBuilder extends
    * <pre>
    * Manager IDs assigned to handle this thread.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
@@ -67,6 +70,7 @@ public interface MessageThreadOrBuilder extends
    * <pre>
    * Manager IDs assigned to handle this thread.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
@@ -79,6 +83,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs who have posted replies in this thread, ordered by first reply time.
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string replied_manager_ids = 3 [json_name = "repliedManagerIds"];</code>
@@ -89,6 +94,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs who have posted replies in this thread, ordered by first reply time.
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string replied_manager_ids = 3 [json_name = "repliedManagerIds"];</code>
@@ -98,6 +104,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs who have posted replies in this thread, ordered by first reply time.
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string replied_manager_ids = 3 [json_name = "repliedManagerIds"];</code>
@@ -108,6 +115,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs who have posted replies in this thread, ordered by first reply time.
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string replied_manager_ids = 3 [json_name = "repliedManagerIds"];</code>

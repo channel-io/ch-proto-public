@@ -243,6 +243,7 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Timestamp when the person last read messages in this session.
+   * +kubebuilder:example="2026-04-28T09:40:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
@@ -252,6 +253,7 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Timestamp when the person last read messages in this session.
+   * +kubebuilder:example="2026-04-28T09:40:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
@@ -261,6 +263,7 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Timestamp when the person last read messages in this session.
+   * +kubebuilder:example="2026-04-28T09:40:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp read_at = 12 [json_name = "readAt"];</code>
@@ -270,6 +273,7 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Timestamp when the last message was received in this conversation.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
@@ -279,6 +283,7 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Timestamp when the last message was received in this conversation.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
@@ -288,6 +293,7 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Timestamp when the last message was received in this conversation.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp received_at = 13 [json_name = "receivedAt"];</code>
@@ -297,6 +303,7 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Timestamp when the last message was posted in this conversation.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
@@ -306,6 +313,7 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Timestamp when the last message was posted in this conversation.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
@@ -315,6 +323,7 @@ public interface ChatSessionOrBuilder extends
   /**
    * <pre>
    * Timestamp when the last message was posted in this conversation.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp posted_at = 14 [json_name = "postedAt"];</code>
@@ -325,6 +334,7 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Session last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -335,6 +345,7 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Session last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -345,6 +356,7 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Session last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -355,6 +367,7 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Session creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -365,6 +378,7 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Session creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -375,6 +389,7 @@ public interface ChatSessionOrBuilder extends
    * <pre>
    * Session creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 16 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>

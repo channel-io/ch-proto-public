@@ -285,7 +285,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=2
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-   * +kubebuilder:example="General"
+   * +kubebuilder:example="고객피드백"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -314,7 +314,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=2
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-   * +kubebuilder:example="General"
+   * +kubebuilder:example="고객피드백"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -370,6 +370,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * IDs of managers who are members of this group.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -383,6 +384,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * IDs of managers who are members of this group.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -395,6 +397,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * IDs of managers who are members of this group.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -408,6 +411,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * IDs of managers who are members of this group.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -575,6 +579,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Group creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -588,6 +593,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Group creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -601,6 +607,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Group creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -616,6 +623,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Group last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-22T06:51:15.752436Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -629,6 +637,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Group last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-22T06:51:15.752436Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -642,6 +651,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Group last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-22T06:51:15.752436Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -1377,7 +1387,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-     * +kubebuilder:example="General"
+     * +kubebuilder:example="고객피드백"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1405,7 +1415,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-     * +kubebuilder:example="General"
+     * +kubebuilder:example="고객피드백"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1434,7 +1444,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-     * +kubebuilder:example="General"
+     * +kubebuilder:example="고객피드백"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1461,7 +1471,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-     * +kubebuilder:example="General"
+     * +kubebuilder:example="고객피드백"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1483,7 +1493,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-     * +kubebuilder:example="General"
+     * +kubebuilder:example="고객피드백"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1592,6 +1602,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IDs of managers who are members of this group.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -1605,6 +1616,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IDs of managers who are members of this group.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -1617,6 +1629,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IDs of managers who are members of this group.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -1630,6 +1643,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IDs of managers who are members of this group.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -1644,6 +1658,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IDs of managers who are members of this group.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -1665,6 +1680,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IDs of managers who are members of this group.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -1685,6 +1701,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IDs of managers who are members of this group.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -1703,6 +1720,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IDs of managers who are members of this group.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -1718,6 +1736,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * IDs of managers who are members of this group.
      * +kubebuilder:validation:MinItems=1
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -2061,6 +2080,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2073,6 +2093,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2089,6 +2110,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2110,6 +2132,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2129,6 +2152,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2152,6 +2176,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2171,6 +2196,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2184,6 +2210,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2200,6 +2227,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2225,6 +2253,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T06:51:15.752436Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2237,6 +2266,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T06:51:15.752436Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2253,6 +2283,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T06:51:15.752436Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2274,6 +2305,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T06:51:15.752436Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2293,6 +2325,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T06:51:15.752436Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2316,6 +2349,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T06:51:15.752436Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2335,6 +2369,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T06:51:15.752436Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2348,6 +2383,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T06:51:15.752436Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2364,6 +2400,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Group last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T06:51:15.752436Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>

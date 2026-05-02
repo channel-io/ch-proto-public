@@ -49,112 +49,58 @@ public interface PatchWebhookRequestOrBuilder extends
 
   /**
    * <pre>
-   * Webhook display name. Must be unique within the channel.
+   * Patch body. Only fields listed in update_mask are applied.
    * </pre>
    *
-   * <code>string name = 3 [json_name = "name"];</code>
-   * @return The name.
+   * <code>.coreapi.service.PatchWebhookRequest.PatchWebhookBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+   * @return Whether the body field is set.
    */
-  java.lang.String getName();
+  boolean hasBody();
   /**
    * <pre>
-   * Webhook display name. Must be unique within the channel.
+   * Patch body. Only fields listed in update_mask are applied.
    * </pre>
    *
-   * <code>string name = 3 [json_name = "name"];</code>
-   * @return The bytes for name.
+   * <code>.coreapi.service.PatchWebhookRequest.PatchWebhookBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+   * @return The body.
    */
-  com.google.protobuf.ByteString
-      getNameBytes();
+  io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBody getBody();
+  /**
+   * <pre>
+   * Patch body. Only fields listed in update_mask are applied.
+   * </pre>
+   *
+   * <code>.coreapi.service.PatchWebhookRequest.PatchWebhookBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+   */
+  io.channel.api.proto.pub.coreapi.service.PatchWebhookRequest.PatchWebhookBodyOrBuilder getBodyOrBuilder();
 
   /**
    * <pre>
-   * Destination URL that receives webhook payloads.
+   * Set of field paths (relative to PatchWebhookBody) to update.
+   * Unlisted fields remain unchanged.
    * </pre>
    *
-   * <code>string url = 4 [json_name = "url"];</code>
-   * @return The url.
+   * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+   * @return Whether the updateMask field is set.
    */
-  java.lang.String getUrl();
+  boolean hasUpdateMask();
   /**
    * <pre>
-   * Destination URL that receives webhook payloads.
+   * Set of field paths (relative to PatchWebhookBody) to update.
+   * Unlisted fields remain unchanged.
    * </pre>
    *
-   * <code>string url = 4 [json_name = "url"];</code>
-   * @return The bytes for url.
+   * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+   * @return The updateMask.
    */
-  com.google.protobuf.ByteString
-      getUrlBytes();
-
+  com.google.protobuf.FieldMask getUpdateMask();
   /**
    * <pre>
-   * Event scopes that trigger this webhook.
+   * Set of field paths (relative to PatchWebhookBody) to update.
+   * Unlisted fields remain unchanged.
    * </pre>
    *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-   * @return A list containing the scopes.
+   * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
    */
-  java.util.List<io.channel.api.proto.pub.coreapi.model.WebhookScope> getScopesList();
-  /**
-   * <pre>
-   * Event scopes that trigger this webhook.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-   * @return The count of scopes.
-   */
-  int getScopesCount();
-  /**
-   * <pre>
-   * Event scopes that trigger this webhook.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-   * @param index The index of the element to return.
-   * @return The scopes at the given index.
-   */
-  io.channel.api.proto.pub.coreapi.model.WebhookScope getScopes(int index);
-  /**
-   * <pre>
-   * Event scopes that trigger this webhook.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-   * @return A list containing the enum numeric values on the wire for scopes.
-   */
-  java.util.List<java.lang.Integer>
-  getScopesValueList();
-  /**
-   * <pre>
-   * Event scopes that trigger this webhook.
-   * </pre>
-   *
-   * <code>repeated .coreapi.model.WebhookScope scopes = 5 [json_name = "scopes"];</code>
-   * @param index The index of the value to return.
-   * @return The enum numeric value on the wire of scopes at the given index.
-   */
-  int getScopesValue(int index);
-
-  /**
-   * <pre>
-   * API version for webhook payloads.
-   * +kubebuilder:validation:Enum={"v4","v5"}
-   * </pre>
-   *
-   * <code>string api_version = 6 [json_name = "apiVersion"];</code>
-   * @return The apiVersion.
-   */
-  java.lang.String getApiVersion();
-  /**
-   * <pre>
-   * API version for webhook payloads.
-   * +kubebuilder:validation:Enum={"v4","v5"}
-   * </pre>
-   *
-   * <code>string api_version = 6 [json_name = "apiVersion"];</code>
-   * @return The bytes for apiVersion.
-   */
-  com.google.protobuf.ByteString
-      getApiVersionBytes();
+  com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder();
 }

@@ -131,6 +131,10 @@ private static final long serialVersionUID = 0L;
   public static final int STATUS_FIELD_NUMBER = 1;
   private int status_;
   /**
+   * <pre>
+   * +kubebuilder:example="404"
+   * </pre>
+   *
    * <code>int32 status = 1 [json_name = "status"];</code>
    * @return The status.
    */
@@ -173,6 +177,7 @@ private static final long serialVersionUID = 0L;
    * Set when the error is unique to a particular operation.
    * Defined as a string to allow each service to declare its own codes
    * without a global enum.
+   * +kubebuilder:example="RESOURCE_NOT_FOUND"
    * </pre>
    *
    * <code>string operation_error_code = 3 [json_name = "operationErrorCode"];</code>
@@ -196,6 +201,7 @@ private static final long serialVersionUID = 0L;
    * Set when the error is unique to a particular operation.
    * Defined as a string to allow each service to declare its own codes
    * without a global enum.
+   * +kubebuilder:example="RESOURCE_NOT_FOUND"
    * </pre>
    *
    * <code>string operation_error_code = 3 [json_name = "operationErrorCode"];</code>
@@ -219,6 +225,10 @@ private static final long serialVersionUID = 0L;
   public static final int MESSAGE_FIELD_NUMBER = 4;
   private volatile java.lang.Object message_;
   /**
+   * <pre>
+   * +kubebuilder:example="The requested resource does not exist"
+   * </pre>
+   *
    * <code>string message = 4 [json_name = "message"];</code>
    * @return The message.
    */
@@ -236,6 +246,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * +kubebuilder:example="The requested resource does not exist"
+   * </pre>
+   *
    * <code>string message = 4 [json_name = "message"];</code>
    * @return The bytes for message.
    */
@@ -738,6 +752,10 @@ private static final long serialVersionUID = 0L;
 
     private int status_ ;
     /**
+     * <pre>
+     * +kubebuilder:example="404"
+     * </pre>
+     *
      * <code>int32 status = 1 [json_name = "status"];</code>
      * @return The status.
      */
@@ -746,6 +764,10 @@ private static final long serialVersionUID = 0L;
       return status_;
     }
     /**
+     * <pre>
+     * +kubebuilder:example="404"
+     * </pre>
+     *
      * <code>int32 status = 1 [json_name = "status"];</code>
      * @param value The status to set.
      * @return This builder for chaining.
@@ -757,6 +779,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * +kubebuilder:example="404"
+     * </pre>
+     *
      * <code>int32 status = 1 [json_name = "status"];</code>
      * @return This builder for chaining.
      */
@@ -847,6 +873,7 @@ private static final long serialVersionUID = 0L;
      * Set when the error is unique to a particular operation.
      * Defined as a string to allow each service to declare its own codes
      * without a global enum.
+     * +kubebuilder:example="RESOURCE_NOT_FOUND"
      * </pre>
      *
      * <code>string operation_error_code = 3 [json_name = "operationErrorCode"];</code>
@@ -869,6 +896,7 @@ private static final long serialVersionUID = 0L;
      * Set when the error is unique to a particular operation.
      * Defined as a string to allow each service to declare its own codes
      * without a global enum.
+     * +kubebuilder:example="RESOURCE_NOT_FOUND"
      * </pre>
      *
      * <code>string operation_error_code = 3 [json_name = "operationErrorCode"];</code>
@@ -892,6 +920,7 @@ private static final long serialVersionUID = 0L;
      * Set when the error is unique to a particular operation.
      * Defined as a string to allow each service to declare its own codes
      * without a global enum.
+     * +kubebuilder:example="RESOURCE_NOT_FOUND"
      * </pre>
      *
      * <code>string operation_error_code = 3 [json_name = "operationErrorCode"];</code>
@@ -913,6 +942,7 @@ private static final long serialVersionUID = 0L;
      * Set when the error is unique to a particular operation.
      * Defined as a string to allow each service to declare its own codes
      * without a global enum.
+     * +kubebuilder:example="RESOURCE_NOT_FOUND"
      * </pre>
      *
      * <code>string operation_error_code = 3 [json_name = "operationErrorCode"];</code>
@@ -929,6 +959,7 @@ private static final long serialVersionUID = 0L;
      * Set when the error is unique to a particular operation.
      * Defined as a string to allow each service to declare its own codes
      * without a global enum.
+     * +kubebuilder:example="RESOURCE_NOT_FOUND"
      * </pre>
      *
      * <code>string operation_error_code = 3 [json_name = "operationErrorCode"];</code>
@@ -949,6 +980,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object message_ = "";
     /**
+     * <pre>
+     * +kubebuilder:example="The requested resource does not exist"
+     * </pre>
+     *
      * <code>string message = 4 [json_name = "message"];</code>
      * @return The message.
      */
@@ -965,6 +1000,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * +kubebuilder:example="The requested resource does not exist"
+     * </pre>
+     *
      * <code>string message = 4 [json_name = "message"];</code>
      * @return The bytes for message.
      */
@@ -982,6 +1021,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * +kubebuilder:example="The requested resource does not exist"
+     * </pre>
+     *
      * <code>string message = 4 [json_name = "message"];</code>
      * @param value The message to set.
      * @return This builder for chaining.
@@ -997,6 +1040,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * +kubebuilder:example="The requested resource does not exist"
+     * </pre>
+     *
      * <code>string message = 4 [json_name = "message"];</code>
      * @return This builder for chaining.
      */
@@ -1007,6 +1054,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * +kubebuilder:example="The requested resource does not exist"
+     * </pre>
+     *
      * <code>string message = 4 [json_name = "message"];</code>
      * @param value The bytes for message to set.
      * @return This builder for chaining.

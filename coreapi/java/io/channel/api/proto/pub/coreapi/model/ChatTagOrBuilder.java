@@ -160,6 +160,7 @@ public interface ChatTagOrBuilder extends
    * <pre>
    * Chat tag creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -170,6 +171,7 @@ public interface ChatTagOrBuilder extends
    * <pre>
    * Chat tag creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -180,6 +182,7 @@ public interface ChatTagOrBuilder extends
    * <pre>
    * Chat tag creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-21T07:12:21.773038Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>

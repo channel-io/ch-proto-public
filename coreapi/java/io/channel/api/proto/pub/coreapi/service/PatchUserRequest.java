@@ -5,8 +5,10 @@ package io.channel.api.proto.pub.coreapi.service;
 
 /**
  * <pre>
- * Updates a user partially.
- * Only specified fields are modified; omitted fields remain unchanged.
+ * Patches a user.
+ * PATCH semantics per RFC 7396 / AIP-134/161:
+ *   - a field listed in update_mask is applied (null = clear, value = set)
+ *   - a field absent from update_mask is not modified
  * </pre>
  *
  * Protobuf type {@code coreapi.service.PatchUserRequest}
@@ -23,8 +25,6 @@ private static final long serialVersionUID = 0L;
   private PatchUserRequest() {
     userId_ = "";
     channelId_ = "";
-    tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    language_ = "";
   }
 
   @java.lang.Override
@@ -47,7 +47,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -71,64 +70,29 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 26: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (profile_ != null) {
-              subBuilder = profile_.toBuilder();
+            io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.Builder subBuilder = null;
+            if (body_ != null) {
+              subBuilder = body_.toBuilder();
             }
-            profile_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+            body_ = input.readMessage(io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(profile_);
-              profile_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(body_);
+              body_ = subBuilder.buildPartial();
             }
 
             break;
           }
           case 34: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (profileOnce_ != null) {
-              subBuilder = profileOnce_.toBuilder();
+            com.google.protobuf.FieldMask.Builder subBuilder = null;
+            if (updateMask_ != null) {
+              subBuilder = updateMask_.toBuilder();
             }
-            profileOnce_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+            updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(profileOnce_);
-              profileOnce_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(updateMask_);
+              updateMask_ = subBuilder.buildPartial();
             }
 
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              tags_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            tags_.add(s);
-            break;
-          }
-          case 48: {
-
-            blocked_ = input.readBool();
-            break;
-          }
-          case 56: {
-
-            unsubscribeEmail_ = input.readBool();
-            break;
-          }
-          case 64: {
-
-            unsubscribeTexting_ = input.readBool();
-            break;
-          }
-          case 72: {
-
-            unsubscribeAppPush_ = input.readBool();
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            language_ = s;
             break;
           }
           default: {
@@ -146,9 +110,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        tags_ = tags_.getUnmodifiableView();
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -164,6 +125,2067 @@ private static final long serialVersionUID = 0L;
     return io.channel.api.proto.pub.coreapi.service.User.internal_static_coreapi_service_PatchUserRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             io.channel.api.proto.pub.coreapi.service.PatchUserRequest.class, io.channel.api.proto.pub.coreapi.service.PatchUserRequest.Builder.class);
+  }
+
+  public interface PatchUserBodyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:coreapi.service.PatchUserRequest.PatchUserBody)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Custom key-value profile data to set or merge.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile = 1 [json_name = "profile"];</code>
+     * @return Whether the profile field is set.
+     */
+    boolean hasProfile();
+    /**
+     * <pre>
+     * Custom key-value profile data to set or merge.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile = 1 [json_name = "profile"];</code>
+     * @return The profile.
+     */
+    com.google.protobuf.Struct getProfile();
+    /**
+     * <pre>
+     * Custom key-value profile data to set or merge.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile = 1 [json_name = "profile"];</code>
+     */
+    com.google.protobuf.StructOrBuilder getProfileOrBuilder();
+
+    /**
+     * <pre>
+     * Profile data that is set only once on first write.
+     * Subsequent updates to the same keys are ignored.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile_once = 2 [json_name = "profileOnce"];</code>
+     * @return Whether the profileOnce field is set.
+     */
+    boolean hasProfileOnce();
+    /**
+     * <pre>
+     * Profile data that is set only once on first write.
+     * Subsequent updates to the same keys are ignored.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile_once = 2 [json_name = "profileOnce"];</code>
+     * @return The profileOnce.
+     */
+    com.google.protobuf.Struct getProfileOnce();
+    /**
+     * <pre>
+     * Profile data that is set only once on first write.
+     * Subsequent updates to the same keys are ignored.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile_once = 2 [json_name = "profileOnce"];</code>
+     */
+    com.google.protobuf.StructOrBuilder getProfileOnceOrBuilder();
+
+    /**
+     * <pre>
+     * User classification tags to replace the current set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * @return A list containing the tags.
+     */
+    java.util.List<java.lang.String>
+        getTagsList();
+    /**
+     * <pre>
+     * User classification tags to replace the current set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * @return The count of tags.
+     */
+    int getTagsCount();
+    /**
+     * <pre>
+     * User classification tags to replace the current set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * @param index The index of the element to return.
+     * @return The tags at the given index.
+     */
+    java.lang.String getTags(int index);
+    /**
+     * <pre>
+     * User classification tags to replace the current set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tags at the given index.
+     */
+    com.google.protobuf.ByteString
+        getTagsBytes(int index);
+
+    /**
+     * <pre>
+     * Whether the user is blocked.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool blocked = 4 [json_name = "blocked"];</code>
+     * @return The blocked.
+     */
+    boolean getBlocked();
+
+    /**
+     * <pre>
+     * Whether the user opted out of email notifications.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool unsubscribe_email = 5 [json_name = "unsubscribeEmail"];</code>
+     * @return The unsubscribeEmail.
+     */
+    boolean getUnsubscribeEmail();
+
+    /**
+     * <pre>
+     * Whether the user opted out of SMS/text notifications.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool unsubscribe_texting = 6 [json_name = "unsubscribeTexting"];</code>
+     * @return The unsubscribeTexting.
+     */
+    boolean getUnsubscribeTexting();
+
+    /**
+     * <pre>
+     * Whether the user opted out of app push notifications.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool unsubscribe_app_push = 7 [json_name = "unsubscribeAppPush"];</code>
+     * @return The unsubscribeAppPush.
+     */
+    boolean getUnsubscribeAppPush();
+
+    /**
+     * <pre>
+     * User's preferred language locale.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string language = 8 [json_name = "language"];</code>
+     * @return The language.
+     */
+    java.lang.String getLanguage();
+    /**
+     * <pre>
+     * User's preferred language locale.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string language = 8 [json_name = "language"];</code>
+     * @return The bytes for language.
+     */
+    com.google.protobuf.ByteString
+        getLanguageBytes();
+  }
+  /**
+   * Protobuf type {@code coreapi.service.PatchUserRequest.PatchUserBody}
+   */
+  public static final class PatchUserBody extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:coreapi.service.PatchUserRequest.PatchUserBody)
+      PatchUserBodyOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PatchUserBody.newBuilder() to construct.
+    private PatchUserBody(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PatchUserBody() {
+      tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      language_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PatchUserBody();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PatchUserBody(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.Struct.Builder subBuilder = null;
+              if (profile_ != null) {
+                subBuilder = profile_.toBuilder();
+              }
+              profile_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(profile_);
+                profile_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              com.google.protobuf.Struct.Builder subBuilder = null;
+              if (profileOnce_ != null) {
+                subBuilder = profileOnce_.toBuilder();
+              }
+              profileOnce_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(profileOnce_);
+                profileOnce_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                tags_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              tags_.add(s);
+              break;
+            }
+            case 32: {
+
+              blocked_ = input.readBool();
+              break;
+            }
+            case 40: {
+
+              unsubscribeEmail_ = input.readBool();
+              break;
+            }
+            case 48: {
+
+              unsubscribeTexting_ = input.readBool();
+              break;
+            }
+            case 56: {
+
+              unsubscribeAppPush_ = input.readBool();
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              language_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          tags_ = tags_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.channel.api.proto.pub.coreapi.service.User.internal_static_coreapi_service_PatchUserRequest_PatchUserBody_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.channel.api.proto.pub.coreapi.service.User.internal_static_coreapi_service_PatchUserRequest_PatchUserBody_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.class, io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.Builder.class);
+    }
+
+    public static final int PROFILE_FIELD_NUMBER = 1;
+    private com.google.protobuf.Struct profile_;
+    /**
+     * <pre>
+     * Custom key-value profile data to set or merge.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile = 1 [json_name = "profile"];</code>
+     * @return Whether the profile field is set.
+     */
+    @java.lang.Override
+    public boolean hasProfile() {
+      return profile_ != null;
+    }
+    /**
+     * <pre>
+     * Custom key-value profile data to set or merge.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile = 1 [json_name = "profile"];</code>
+     * @return The profile.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Struct getProfile() {
+      return profile_ == null ? com.google.protobuf.Struct.getDefaultInstance() : profile_;
+    }
+    /**
+     * <pre>
+     * Custom key-value profile data to set or merge.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile = 1 [json_name = "profile"];</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.StructOrBuilder getProfileOrBuilder() {
+      return getProfile();
+    }
+
+    public static final int PROFILE_ONCE_FIELD_NUMBER = 2;
+    private com.google.protobuf.Struct profileOnce_;
+    /**
+     * <pre>
+     * Profile data that is set only once on first write.
+     * Subsequent updates to the same keys are ignored.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile_once = 2 [json_name = "profileOnce"];</code>
+     * @return Whether the profileOnce field is set.
+     */
+    @java.lang.Override
+    public boolean hasProfileOnce() {
+      return profileOnce_ != null;
+    }
+    /**
+     * <pre>
+     * Profile data that is set only once on first write.
+     * Subsequent updates to the same keys are ignored.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile_once = 2 [json_name = "profileOnce"];</code>
+     * @return The profileOnce.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Struct getProfileOnce() {
+      return profileOnce_ == null ? com.google.protobuf.Struct.getDefaultInstance() : profileOnce_;
+    }
+    /**
+     * <pre>
+     * Profile data that is set only once on first write.
+     * Subsequent updates to the same keys are ignored.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct profile_once = 2 [json_name = "profileOnce"];</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.StructOrBuilder getProfileOnceOrBuilder() {
+      return getProfileOnce();
+    }
+
+    public static final int TAGS_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList tags_;
+    /**
+     * <pre>
+     * User classification tags to replace the current set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * @return A list containing the tags.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTagsList() {
+      return tags_;
+    }
+    /**
+     * <pre>
+     * User classification tags to replace the current set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * @return The count of tags.
+     */
+    public int getTagsCount() {
+      return tags_.size();
+    }
+    /**
+     * <pre>
+     * User classification tags to replace the current set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * @param index The index of the element to return.
+     * @return The tags at the given index.
+     */
+    public java.lang.String getTags(int index) {
+      return tags_.get(index);
+    }
+    /**
+     * <pre>
+     * User classification tags to replace the current set.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tags at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getTagsBytes(int index) {
+      return tags_.getByteString(index);
+    }
+
+    public static final int BLOCKED_FIELD_NUMBER = 4;
+    private boolean blocked_;
+    /**
+     * <pre>
+     * Whether the user is blocked.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool blocked = 4 [json_name = "blocked"];</code>
+     * @return The blocked.
+     */
+    @java.lang.Override
+    public boolean getBlocked() {
+      return blocked_;
+    }
+
+    public static final int UNSUBSCRIBE_EMAIL_FIELD_NUMBER = 5;
+    private boolean unsubscribeEmail_;
+    /**
+     * <pre>
+     * Whether the user opted out of email notifications.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool unsubscribe_email = 5 [json_name = "unsubscribeEmail"];</code>
+     * @return The unsubscribeEmail.
+     */
+    @java.lang.Override
+    public boolean getUnsubscribeEmail() {
+      return unsubscribeEmail_;
+    }
+
+    public static final int UNSUBSCRIBE_TEXTING_FIELD_NUMBER = 6;
+    private boolean unsubscribeTexting_;
+    /**
+     * <pre>
+     * Whether the user opted out of SMS/text notifications.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool unsubscribe_texting = 6 [json_name = "unsubscribeTexting"];</code>
+     * @return The unsubscribeTexting.
+     */
+    @java.lang.Override
+    public boolean getUnsubscribeTexting() {
+      return unsubscribeTexting_;
+    }
+
+    public static final int UNSUBSCRIBE_APP_PUSH_FIELD_NUMBER = 7;
+    private boolean unsubscribeAppPush_;
+    /**
+     * <pre>
+     * Whether the user opted out of app push notifications.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>bool unsubscribe_app_push = 7 [json_name = "unsubscribeAppPush"];</code>
+     * @return The unsubscribeAppPush.
+     */
+    @java.lang.Override
+    public boolean getUnsubscribeAppPush() {
+      return unsubscribeAppPush_;
+    }
+
+    public static final int LANGUAGE_FIELD_NUMBER = 8;
+    private volatile java.lang.Object language_;
+    /**
+     * <pre>
+     * User's preferred language locale.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string language = 8 [json_name = "language"];</code>
+     * @return The language.
+     */
+    @java.lang.Override
+    public java.lang.String getLanguage() {
+      java.lang.Object ref = language_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        language_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * User's preferred language locale.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string language = 8 [json_name = "language"];</code>
+     * @return The bytes for language.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getLanguageBytes() {
+      java.lang.Object ref = language_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        language_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (profile_ != null) {
+        output.writeMessage(1, getProfile());
+      }
+      if (profileOnce_ != null) {
+        output.writeMessage(2, getProfileOnce());
+      }
+      for (int i = 0; i < tags_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tags_.getRaw(i));
+      }
+      if (blocked_ != false) {
+        output.writeBool(4, blocked_);
+      }
+      if (unsubscribeEmail_ != false) {
+        output.writeBool(5, unsubscribeEmail_);
+      }
+      if (unsubscribeTexting_ != false) {
+        output.writeBool(6, unsubscribeTexting_);
+      }
+      if (unsubscribeAppPush_ != false) {
+        output.writeBool(7, unsubscribeAppPush_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(language_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, language_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (profile_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getProfile());
+      }
+      if (profileOnce_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getProfileOnce());
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < tags_.size(); i++) {
+          dataSize += computeStringSizeNoTag(tags_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getTagsList().size();
+      }
+      if (blocked_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, blocked_);
+      }
+      if (unsubscribeEmail_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, unsubscribeEmail_);
+      }
+      if (unsubscribeTexting_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(6, unsubscribeTexting_);
+      }
+      if (unsubscribeAppPush_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(7, unsubscribeAppPush_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(language_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, language_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody)) {
+        return super.equals(obj);
+      }
+      io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody other = (io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody) obj;
+
+      if (hasProfile() != other.hasProfile()) return false;
+      if (hasProfile()) {
+        if (!getProfile()
+            .equals(other.getProfile())) return false;
+      }
+      if (hasProfileOnce() != other.hasProfileOnce()) return false;
+      if (hasProfileOnce()) {
+        if (!getProfileOnce()
+            .equals(other.getProfileOnce())) return false;
+      }
+      if (!getTagsList()
+          .equals(other.getTagsList())) return false;
+      if (getBlocked()
+          != other.getBlocked()) return false;
+      if (getUnsubscribeEmail()
+          != other.getUnsubscribeEmail()) return false;
+      if (getUnsubscribeTexting()
+          != other.getUnsubscribeTexting()) return false;
+      if (getUnsubscribeAppPush()
+          != other.getUnsubscribeAppPush()) return false;
+      if (!getLanguage()
+          .equals(other.getLanguage())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasProfile()) {
+        hash = (37 * hash) + PROFILE_FIELD_NUMBER;
+        hash = (53 * hash) + getProfile().hashCode();
+      }
+      if (hasProfileOnce()) {
+        hash = (37 * hash) + PROFILE_ONCE_FIELD_NUMBER;
+        hash = (53 * hash) + getProfileOnce().hashCode();
+      }
+      if (getTagsCount() > 0) {
+        hash = (37 * hash) + TAGS_FIELD_NUMBER;
+        hash = (53 * hash) + getTagsList().hashCode();
+      }
+      hash = (37 * hash) + BLOCKED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getBlocked());
+      hash = (37 * hash) + UNSUBSCRIBE_EMAIL_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getUnsubscribeEmail());
+      hash = (37 * hash) + UNSUBSCRIBE_TEXTING_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getUnsubscribeTexting());
+      hash = (37 * hash) + UNSUBSCRIBE_APP_PUSH_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getUnsubscribeAppPush());
+      hash = (37 * hash) + LANGUAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getLanguage().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code coreapi.service.PatchUserRequest.PatchUserBody}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:coreapi.service.PatchUserRequest.PatchUserBody)
+        io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBodyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.channel.api.proto.pub.coreapi.service.User.internal_static_coreapi_service_PatchUserRequest_PatchUserBody_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.channel.api.proto.pub.coreapi.service.User.internal_static_coreapi_service_PatchUserRequest_PatchUserBody_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.class, io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.Builder.class);
+      }
+
+      // Construct using io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (profileBuilder_ == null) {
+          profile_ = null;
+        } else {
+          profile_ = null;
+          profileBuilder_ = null;
+        }
+        if (profileOnceBuilder_ == null) {
+          profileOnce_ = null;
+        } else {
+          profileOnce_ = null;
+          profileOnceBuilder_ = null;
+        }
+        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        blocked_ = false;
+
+        unsubscribeEmail_ = false;
+
+        unsubscribeTexting_ = false;
+
+        unsubscribeAppPush_ = false;
+
+        language_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.channel.api.proto.pub.coreapi.service.User.internal_static_coreapi_service_PatchUserRequest_PatchUserBody_descriptor;
+      }
+
+      @java.lang.Override
+      public io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody getDefaultInstanceForType() {
+        return io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody build() {
+        io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody buildPartial() {
+        io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody result = new io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody(this);
+        int from_bitField0_ = bitField0_;
+        if (profileBuilder_ == null) {
+          result.profile_ = profile_;
+        } else {
+          result.profile_ = profileBuilder_.build();
+        }
+        if (profileOnceBuilder_ == null) {
+          result.profileOnce_ = profileOnce_;
+        } else {
+          result.profileOnce_ = profileOnceBuilder_.build();
+        }
+        if (((bitField0_ & 0x00000001) != 0)) {
+          tags_ = tags_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.tags_ = tags_;
+        result.blocked_ = blocked_;
+        result.unsubscribeEmail_ = unsubscribeEmail_;
+        result.unsubscribeTexting_ = unsubscribeTexting_;
+        result.unsubscribeAppPush_ = unsubscribeAppPush_;
+        result.language_ = language_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody) {
+          return mergeFrom((io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody other) {
+        if (other == io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.getDefaultInstance()) return this;
+        if (other.hasProfile()) {
+          mergeProfile(other.getProfile());
+        }
+        if (other.hasProfileOnce()) {
+          mergeProfileOnce(other.getProfileOnce());
+        }
+        if (!other.tags_.isEmpty()) {
+          if (tags_.isEmpty()) {
+            tags_ = other.tags_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureTagsIsMutable();
+            tags_.addAll(other.tags_);
+          }
+          onChanged();
+        }
+        if (other.getBlocked() != false) {
+          setBlocked(other.getBlocked());
+        }
+        if (other.getUnsubscribeEmail() != false) {
+          setUnsubscribeEmail(other.getUnsubscribeEmail());
+        }
+        if (other.getUnsubscribeTexting() != false) {
+          setUnsubscribeTexting(other.getUnsubscribeTexting());
+        }
+        if (other.getUnsubscribeAppPush() != false) {
+          setUnsubscribeAppPush(other.getUnsubscribeAppPush());
+        }
+        if (!other.getLanguage().isEmpty()) {
+          language_ = other.language_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.Struct profile_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> profileBuilder_;
+      /**
+       * <pre>
+       * Custom key-value profile data to set or merge.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile = 1 [json_name = "profile"];</code>
+       * @return Whether the profile field is set.
+       */
+      public boolean hasProfile() {
+        return profileBuilder_ != null || profile_ != null;
+      }
+      /**
+       * <pre>
+       * Custom key-value profile data to set or merge.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile = 1 [json_name = "profile"];</code>
+       * @return The profile.
+       */
+      public com.google.protobuf.Struct getProfile() {
+        if (profileBuilder_ == null) {
+          return profile_ == null ? com.google.protobuf.Struct.getDefaultInstance() : profile_;
+        } else {
+          return profileBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Custom key-value profile data to set or merge.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile = 1 [json_name = "profile"];</code>
+       */
+      public Builder setProfile(com.google.protobuf.Struct value) {
+        if (profileBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          profile_ = value;
+          onChanged();
+        } else {
+          profileBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Custom key-value profile data to set or merge.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile = 1 [json_name = "profile"];</code>
+       */
+      public Builder setProfile(
+          com.google.protobuf.Struct.Builder builderForValue) {
+        if (profileBuilder_ == null) {
+          profile_ = builderForValue.build();
+          onChanged();
+        } else {
+          profileBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Custom key-value profile data to set or merge.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile = 1 [json_name = "profile"];</code>
+       */
+      public Builder mergeProfile(com.google.protobuf.Struct value) {
+        if (profileBuilder_ == null) {
+          if (profile_ != null) {
+            profile_ =
+              com.google.protobuf.Struct.newBuilder(profile_).mergeFrom(value).buildPartial();
+          } else {
+            profile_ = value;
+          }
+          onChanged();
+        } else {
+          profileBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Custom key-value profile data to set or merge.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile = 1 [json_name = "profile"];</code>
+       */
+      public Builder clearProfile() {
+        if (profileBuilder_ == null) {
+          profile_ = null;
+          onChanged();
+        } else {
+          profile_ = null;
+          profileBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Custom key-value profile data to set or merge.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile = 1 [json_name = "profile"];</code>
+       */
+      public com.google.protobuf.Struct.Builder getProfileBuilder() {
+        
+        onChanged();
+        return getProfileFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Custom key-value profile data to set or merge.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile = 1 [json_name = "profile"];</code>
+       */
+      public com.google.protobuf.StructOrBuilder getProfileOrBuilder() {
+        if (profileBuilder_ != null) {
+          return profileBuilder_.getMessageOrBuilder();
+        } else {
+          return profile_ == null ?
+              com.google.protobuf.Struct.getDefaultInstance() : profile_;
+        }
+      }
+      /**
+       * <pre>
+       * Custom key-value profile data to set or merge.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile = 1 [json_name = "profile"];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+          getProfileFieldBuilder() {
+        if (profileBuilder_ == null) {
+          profileBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                  getProfile(),
+                  getParentForChildren(),
+                  isClean());
+          profile_ = null;
+        }
+        return profileBuilder_;
+      }
+
+      private com.google.protobuf.Struct profileOnce_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> profileOnceBuilder_;
+      /**
+       * <pre>
+       * Profile data that is set only once on first write.
+       * Subsequent updates to the same keys are ignored.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile_once = 2 [json_name = "profileOnce"];</code>
+       * @return Whether the profileOnce field is set.
+       */
+      public boolean hasProfileOnce() {
+        return profileOnceBuilder_ != null || profileOnce_ != null;
+      }
+      /**
+       * <pre>
+       * Profile data that is set only once on first write.
+       * Subsequent updates to the same keys are ignored.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile_once = 2 [json_name = "profileOnce"];</code>
+       * @return The profileOnce.
+       */
+      public com.google.protobuf.Struct getProfileOnce() {
+        if (profileOnceBuilder_ == null) {
+          return profileOnce_ == null ? com.google.protobuf.Struct.getDefaultInstance() : profileOnce_;
+        } else {
+          return profileOnceBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Profile data that is set only once on first write.
+       * Subsequent updates to the same keys are ignored.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile_once = 2 [json_name = "profileOnce"];</code>
+       */
+      public Builder setProfileOnce(com.google.protobuf.Struct value) {
+        if (profileOnceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          profileOnce_ = value;
+          onChanged();
+        } else {
+          profileOnceBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Profile data that is set only once on first write.
+       * Subsequent updates to the same keys are ignored.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile_once = 2 [json_name = "profileOnce"];</code>
+       */
+      public Builder setProfileOnce(
+          com.google.protobuf.Struct.Builder builderForValue) {
+        if (profileOnceBuilder_ == null) {
+          profileOnce_ = builderForValue.build();
+          onChanged();
+        } else {
+          profileOnceBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Profile data that is set only once on first write.
+       * Subsequent updates to the same keys are ignored.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile_once = 2 [json_name = "profileOnce"];</code>
+       */
+      public Builder mergeProfileOnce(com.google.protobuf.Struct value) {
+        if (profileOnceBuilder_ == null) {
+          if (profileOnce_ != null) {
+            profileOnce_ =
+              com.google.protobuf.Struct.newBuilder(profileOnce_).mergeFrom(value).buildPartial();
+          } else {
+            profileOnce_ = value;
+          }
+          onChanged();
+        } else {
+          profileOnceBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Profile data that is set only once on first write.
+       * Subsequent updates to the same keys are ignored.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile_once = 2 [json_name = "profileOnce"];</code>
+       */
+      public Builder clearProfileOnce() {
+        if (profileOnceBuilder_ == null) {
+          profileOnce_ = null;
+          onChanged();
+        } else {
+          profileOnce_ = null;
+          profileOnceBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Profile data that is set only once on first write.
+       * Subsequent updates to the same keys are ignored.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile_once = 2 [json_name = "profileOnce"];</code>
+       */
+      public com.google.protobuf.Struct.Builder getProfileOnceBuilder() {
+        
+        onChanged();
+        return getProfileOnceFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Profile data that is set only once on first write.
+       * Subsequent updates to the same keys are ignored.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile_once = 2 [json_name = "profileOnce"];</code>
+       */
+      public com.google.protobuf.StructOrBuilder getProfileOnceOrBuilder() {
+        if (profileOnceBuilder_ != null) {
+          return profileOnceBuilder_.getMessageOrBuilder();
+        } else {
+          return profileOnce_ == null ?
+              com.google.protobuf.Struct.getDefaultInstance() : profileOnce_;
+        }
+      }
+      /**
+       * <pre>
+       * Profile data that is set only once on first write.
+       * Subsequent updates to the same keys are ignored.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct profile_once = 2 [json_name = "profileOnce"];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+          getProfileOnceFieldBuilder() {
+        if (profileOnceBuilder_ == null) {
+          profileOnceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                  getProfileOnce(),
+                  getParentForChildren(),
+                  isClean());
+          profileOnce_ = null;
+        }
+        return profileOnceBuilder_;
+      }
+
+      private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureTagsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <pre>
+       * User classification tags to replace the current set.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * @return A list containing the tags.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getTagsList() {
+        return tags_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * User classification tags to replace the current set.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * @return The count of tags.
+       */
+      public int getTagsCount() {
+        return tags_.size();
+      }
+      /**
+       * <pre>
+       * User classification tags to replace the current set.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * @param index The index of the element to return.
+       * @return The tags at the given index.
+       */
+      public java.lang.String getTags(int index) {
+        return tags_.get(index);
+      }
+      /**
+       * <pre>
+       * User classification tags to replace the current set.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the tags at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getTagsBytes(int index) {
+        return tags_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * User classification tags to replace the current set.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * @param index The index to set the value at.
+       * @param value The tags to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTags(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagsIsMutable();
+        tags_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * User classification tags to replace the current set.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * @param value The tags to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTags(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagsIsMutable();
+        tags_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * User classification tags to replace the current set.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * @param values The tags to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTags(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureTagsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tags_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * User classification tags to replace the current set.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTags() {
+        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * User classification tags to replace the current set.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * @param value The bytes of the tags to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTagsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureTagsIsMutable();
+        tags_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private boolean blocked_ ;
+      /**
+       * <pre>
+       * Whether the user is blocked.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>bool blocked = 4 [json_name = "blocked"];</code>
+       * @return The blocked.
+       */
+      @java.lang.Override
+      public boolean getBlocked() {
+        return blocked_;
+      }
+      /**
+       * <pre>
+       * Whether the user is blocked.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>bool blocked = 4 [json_name = "blocked"];</code>
+       * @param value The blocked to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBlocked(boolean value) {
+        
+        blocked_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Whether the user is blocked.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>bool blocked = 4 [json_name = "blocked"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBlocked() {
+        
+        blocked_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean unsubscribeEmail_ ;
+      /**
+       * <pre>
+       * Whether the user opted out of email notifications.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>bool unsubscribe_email = 5 [json_name = "unsubscribeEmail"];</code>
+       * @return The unsubscribeEmail.
+       */
+      @java.lang.Override
+      public boolean getUnsubscribeEmail() {
+        return unsubscribeEmail_;
+      }
+      /**
+       * <pre>
+       * Whether the user opted out of email notifications.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>bool unsubscribe_email = 5 [json_name = "unsubscribeEmail"];</code>
+       * @param value The unsubscribeEmail to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUnsubscribeEmail(boolean value) {
+        
+        unsubscribeEmail_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Whether the user opted out of email notifications.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>bool unsubscribe_email = 5 [json_name = "unsubscribeEmail"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUnsubscribeEmail() {
+        
+        unsubscribeEmail_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean unsubscribeTexting_ ;
+      /**
+       * <pre>
+       * Whether the user opted out of SMS/text notifications.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>bool unsubscribe_texting = 6 [json_name = "unsubscribeTexting"];</code>
+       * @return The unsubscribeTexting.
+       */
+      @java.lang.Override
+      public boolean getUnsubscribeTexting() {
+        return unsubscribeTexting_;
+      }
+      /**
+       * <pre>
+       * Whether the user opted out of SMS/text notifications.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>bool unsubscribe_texting = 6 [json_name = "unsubscribeTexting"];</code>
+       * @param value The unsubscribeTexting to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUnsubscribeTexting(boolean value) {
+        
+        unsubscribeTexting_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Whether the user opted out of SMS/text notifications.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>bool unsubscribe_texting = 6 [json_name = "unsubscribeTexting"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUnsubscribeTexting() {
+        
+        unsubscribeTexting_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean unsubscribeAppPush_ ;
+      /**
+       * <pre>
+       * Whether the user opted out of app push notifications.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>bool unsubscribe_app_push = 7 [json_name = "unsubscribeAppPush"];</code>
+       * @return The unsubscribeAppPush.
+       */
+      @java.lang.Override
+      public boolean getUnsubscribeAppPush() {
+        return unsubscribeAppPush_;
+      }
+      /**
+       * <pre>
+       * Whether the user opted out of app push notifications.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>bool unsubscribe_app_push = 7 [json_name = "unsubscribeAppPush"];</code>
+       * @param value The unsubscribeAppPush to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUnsubscribeAppPush(boolean value) {
+        
+        unsubscribeAppPush_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Whether the user opted out of app push notifications.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>bool unsubscribe_app_push = 7 [json_name = "unsubscribeAppPush"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUnsubscribeAppPush() {
+        
+        unsubscribeAppPush_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object language_ = "";
+      /**
+       * <pre>
+       * User's preferred language locale.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>string language = 8 [json_name = "language"];</code>
+       * @return The language.
+       */
+      public java.lang.String getLanguage() {
+        java.lang.Object ref = language_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          language_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * User's preferred language locale.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>string language = 8 [json_name = "language"];</code>
+       * @return The bytes for language.
+       */
+      public com.google.protobuf.ByteString
+          getLanguageBytes() {
+        java.lang.Object ref = language_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          language_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * User's preferred language locale.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>string language = 8 [json_name = "language"];</code>
+       * @param value The language to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLanguage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        language_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * User's preferred language locale.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>string language = 8 [json_name = "language"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLanguage() {
+        
+        language_ = getDefaultInstance().getLanguage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * User's preferred language locale.
+       * +kubebuilder:validation:Nullable
+       * </pre>
+       *
+       * <code>string language = 8 [json_name = "language"];</code>
+       * @param value The bytes for language to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLanguageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        language_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      /* Generated by protoc-gen-java-set-or-clear */
+      
+      /**
+       * @param value The profile to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrClearProfile(com.google.protobuf.Struct value) {
+      	if (value == null)
+      		return clearProfile();
+      	else
+      		return setProfile(value);
+      }
+      	
+      /**
+       * @param value The value to map.
+       * @param mapFunc The function to map the value into the proto message.
+       * @return This builder for chaining.
+       */
+      public <T> Builder mapOrClearProfile(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+      	if (value == null)
+      		return clearProfile();
+      	else
+      		return setProfile(mapFunc.apply(value));
+      }
+      	
+      /**
+       * @param value The profile_once to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrClearProfileOnce(com.google.protobuf.Struct value) {
+      	if (value == null)
+      		return clearProfileOnce();
+      	else
+      		return setProfileOnce(value);
+      }
+      	
+      /**
+       * @param value The value to map.
+       * @param mapFunc The function to map the value into the proto message.
+       * @return This builder for chaining.
+       */
+      public <T> Builder mapOrClearProfileOnce(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+      	if (value == null)
+      		return clearProfileOnce();
+      	else
+      		return setProfileOnce(mapFunc.apply(value));
+      }
+      	
+      /**
+       * @param values The tags to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllOrClearTags(java.lang.Iterable<java.lang.String> values) {
+      	if (values == null)
+      		return clearTags();
+      	else
+      		return addAllTags(values);
+      }
+      	
+      /**
+       * @param values The values to map.
+       * @param mapFunc The function to map the values into each proto message.
+       * @return This builder for chaining.
+       */
+      public <T> Builder mapAllOrClearTags(java.lang.Iterable<T> values, java.util.function.Function<T, java.lang.String> mapFunc) {
+      	if (values == null)
+      		return clearTags();
+      	else {
+      		values.forEach(value -> addTags(mapFunc.apply(value)));
+      		return this;
+      	}
+      }
+      	
+      /**
+       * @param value The blocked to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrClearBlocked(java.lang.Boolean value) {
+      	if (value == null)
+      		return clearBlocked();
+      	else
+      		return setBlocked(value);
+      }
+      	
+      /**
+       * @param value The value to map.
+       * @param mapFunc The function to map the value into the proto message.
+       * @return This builder for chaining.
+       */
+      public <T> Builder mapOrClearBlocked(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+      	if (value == null)
+      		return clearBlocked();
+      	else
+      		return setBlocked(mapFunc.apply(value));
+      }
+      	
+      /**
+       * @param value The unsubscribe_email to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrClearUnsubscribeEmail(java.lang.Boolean value) {
+      	if (value == null)
+      		return clearUnsubscribeEmail();
+      	else
+      		return setUnsubscribeEmail(value);
+      }
+      	
+      /**
+       * @param value The value to map.
+       * @param mapFunc The function to map the value into the proto message.
+       * @return This builder for chaining.
+       */
+      public <T> Builder mapOrClearUnsubscribeEmail(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+      	if (value == null)
+      		return clearUnsubscribeEmail();
+      	else
+      		return setUnsubscribeEmail(mapFunc.apply(value));
+      }
+      	
+      /**
+       * @param value The unsubscribe_texting to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrClearUnsubscribeTexting(java.lang.Boolean value) {
+      	if (value == null)
+      		return clearUnsubscribeTexting();
+      	else
+      		return setUnsubscribeTexting(value);
+      }
+      	
+      /**
+       * @param value The value to map.
+       * @param mapFunc The function to map the value into the proto message.
+       * @return This builder for chaining.
+       */
+      public <T> Builder mapOrClearUnsubscribeTexting(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+      	if (value == null)
+      		return clearUnsubscribeTexting();
+      	else
+      		return setUnsubscribeTexting(mapFunc.apply(value));
+      }
+      	
+      /**
+       * @param value The unsubscribe_app_push to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrClearUnsubscribeAppPush(java.lang.Boolean value) {
+      	if (value == null)
+      		return clearUnsubscribeAppPush();
+      	else
+      		return setUnsubscribeAppPush(value);
+      }
+      	
+      /**
+       * @param value The value to map.
+       * @param mapFunc The function to map the value into the proto message.
+       * @return This builder for chaining.
+       */
+      public <T> Builder mapOrClearUnsubscribeAppPush(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
+      	if (value == null)
+      		return clearUnsubscribeAppPush();
+      	else
+      		return setUnsubscribeAppPush(mapFunc.apply(value));
+      }
+      	
+      /**
+       * @param value The language to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrClearLanguage(java.lang.String value) {
+      	if (value == null)
+      		return clearLanguage();
+      	else
+      		return setLanguage(value);
+      }
+      	
+      /**
+       * @param value The value to map.
+       * @param mapFunc The function to map the value into the proto message.
+       * @return This builder for chaining.
+       */
+      public <T> Builder mapOrClearLanguage(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+      	if (value == null)
+      		return clearLanguage();
+      	else
+      		return setLanguage(mapFunc.apply(value));
+      }
+      	
+      // @@protoc_insertion_point(builder_scope:coreapi.service.PatchUserRequest.PatchUserBody)
+    }
+
+    // @@protoc_insertion_point(class_scope:coreapi.service.PatchUserRequest.PatchUserBody)
+    private static final io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody();
+    }
+
+    public static io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PatchUserBody>
+        PARSER = new com.google.protobuf.AbstractParser<PatchUserBody>() {
+      @java.lang.Override
+      public PatchUserBody parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PatchUserBody(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PatchUserBody> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PatchUserBody> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public static final int USER_ID_FIELD_NUMBER = 1;
@@ -258,240 +2280,83 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int PROFILE_FIELD_NUMBER = 3;
-  private com.google.protobuf.Struct profile_;
+  public static final int BODY_FIELD_NUMBER = 3;
+  private io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody body_;
   /**
    * <pre>
-   * Custom key-value profile data to set or merge.
+   * Patch body. Only fields listed in update_mask are applied.
    * </pre>
    *
-   * <code>.google.protobuf.Struct profile = 3 [json_name = "profile"];</code>
-   * @return Whether the profile field is set.
+   * <code>.coreapi.service.PatchUserRequest.PatchUserBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+   * @return Whether the body field is set.
    */
   @java.lang.Override
-  public boolean hasProfile() {
-    return profile_ != null;
+  public boolean hasBody() {
+    return body_ != null;
   }
   /**
    * <pre>
-   * Custom key-value profile data to set or merge.
+   * Patch body. Only fields listed in update_mask are applied.
    * </pre>
    *
-   * <code>.google.protobuf.Struct profile = 3 [json_name = "profile"];</code>
-   * @return The profile.
+   * <code>.coreapi.service.PatchUserRequest.PatchUserBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+   * @return The body.
    */
   @java.lang.Override
-  public com.google.protobuf.Struct getProfile() {
-    return profile_ == null ? com.google.protobuf.Struct.getDefaultInstance() : profile_;
+  public io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody getBody() {
+    return body_ == null ? io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.getDefaultInstance() : body_;
   }
   /**
    * <pre>
-   * Custom key-value profile data to set or merge.
+   * Patch body. Only fields listed in update_mask are applied.
    * </pre>
    *
-   * <code>.google.protobuf.Struct profile = 3 [json_name = "profile"];</code>
+   * <code>.coreapi.service.PatchUserRequest.PatchUserBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
-  public com.google.protobuf.StructOrBuilder getProfileOrBuilder() {
-    return getProfile();
+  public io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBodyOrBuilder getBodyOrBuilder() {
+    return getBody();
   }
 
-  public static final int PROFILE_ONCE_FIELD_NUMBER = 4;
-  private com.google.protobuf.Struct profileOnce_;
+  public static final int UPDATE_MASK_FIELD_NUMBER = 4;
+  private com.google.protobuf.FieldMask updateMask_;
   /**
    * <pre>
-   * Profile data that is set only once on first write.
-   * Subsequent updates to the same keys are ignored.
+   * Set of field paths (relative to PatchUserBody) to update.
+   * Unlisted fields remain unchanged.
    * </pre>
    *
-   * <code>.google.protobuf.Struct profile_once = 4 [json_name = "profileOnce"];</code>
-   * @return Whether the profileOnce field is set.
+   * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+   * @return Whether the updateMask field is set.
    */
   @java.lang.Override
-  public boolean hasProfileOnce() {
-    return profileOnce_ != null;
+  public boolean hasUpdateMask() {
+    return updateMask_ != null;
   }
   /**
    * <pre>
-   * Profile data that is set only once on first write.
-   * Subsequent updates to the same keys are ignored.
+   * Set of field paths (relative to PatchUserBody) to update.
+   * Unlisted fields remain unchanged.
    * </pre>
    *
-   * <code>.google.protobuf.Struct profile_once = 4 [json_name = "profileOnce"];</code>
-   * @return The profileOnce.
+   * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+   * @return The updateMask.
    */
   @java.lang.Override
-  public com.google.protobuf.Struct getProfileOnce() {
-    return profileOnce_ == null ? com.google.protobuf.Struct.getDefaultInstance() : profileOnce_;
+  public com.google.protobuf.FieldMask getUpdateMask() {
+    return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
   }
   /**
    * <pre>
-   * Profile data that is set only once on first write.
-   * Subsequent updates to the same keys are ignored.
+   * Set of field paths (relative to PatchUserBody) to update.
+   * Unlisted fields remain unchanged.
    * </pre>
    *
-   * <code>.google.protobuf.Struct profile_once = 4 [json_name = "profileOnce"];</code>
+   * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
-  public com.google.protobuf.StructOrBuilder getProfileOnceOrBuilder() {
-    return getProfileOnce();
-  }
-
-  public static final int TAGS_FIELD_NUMBER = 5;
-  private com.google.protobuf.LazyStringList tags_;
-  /**
-   * <pre>
-   * User classification tags to replace the current set.
-   * </pre>
-   *
-   * <code>repeated string tags = 5 [json_name = "tags"];</code>
-   * @return A list containing the tags.
-   */
-  public com.google.protobuf.ProtocolStringList
-      getTagsList() {
-    return tags_;
-  }
-  /**
-   * <pre>
-   * User classification tags to replace the current set.
-   * </pre>
-   *
-   * <code>repeated string tags = 5 [json_name = "tags"];</code>
-   * @return The count of tags.
-   */
-  public int getTagsCount() {
-    return tags_.size();
-  }
-  /**
-   * <pre>
-   * User classification tags to replace the current set.
-   * </pre>
-   *
-   * <code>repeated string tags = 5 [json_name = "tags"];</code>
-   * @param index The index of the element to return.
-   * @return The tags at the given index.
-   */
-  public java.lang.String getTags(int index) {
-    return tags_.get(index);
-  }
-  /**
-   * <pre>
-   * User classification tags to replace the current set.
-   * </pre>
-   *
-   * <code>repeated string tags = 5 [json_name = "tags"];</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the tags at the given index.
-   */
-  public com.google.protobuf.ByteString
-      getTagsBytes(int index) {
-    return tags_.getByteString(index);
-  }
-
-  public static final int BLOCKED_FIELD_NUMBER = 6;
-  private boolean blocked_;
-  /**
-   * <pre>
-   * Whether the user is blocked.
-   * </pre>
-   *
-   * <code>bool blocked = 6 [json_name = "blocked"];</code>
-   * @return The blocked.
-   */
-  @java.lang.Override
-  public boolean getBlocked() {
-    return blocked_;
-  }
-
-  public static final int UNSUBSCRIBE_EMAIL_FIELD_NUMBER = 7;
-  private boolean unsubscribeEmail_;
-  /**
-   * <pre>
-   * Whether the user opted out of email notifications.
-   * </pre>
-   *
-   * <code>bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
-   * @return The unsubscribeEmail.
-   */
-  @java.lang.Override
-  public boolean getUnsubscribeEmail() {
-    return unsubscribeEmail_;
-  }
-
-  public static final int UNSUBSCRIBE_TEXTING_FIELD_NUMBER = 8;
-  private boolean unsubscribeTexting_;
-  /**
-   * <pre>
-   * Whether the user opted out of SMS/text notifications.
-   * </pre>
-   *
-   * <code>bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
-   * @return The unsubscribeTexting.
-   */
-  @java.lang.Override
-  public boolean getUnsubscribeTexting() {
-    return unsubscribeTexting_;
-  }
-
-  public static final int UNSUBSCRIBE_APP_PUSH_FIELD_NUMBER = 9;
-  private boolean unsubscribeAppPush_;
-  /**
-   * <pre>
-   * Whether the user opted out of app push notifications.
-   * </pre>
-   *
-   * <code>bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
-   * @return The unsubscribeAppPush.
-   */
-  @java.lang.Override
-  public boolean getUnsubscribeAppPush() {
-    return unsubscribeAppPush_;
-  }
-
-  public static final int LANGUAGE_FIELD_NUMBER = 10;
-  private volatile java.lang.Object language_;
-  /**
-   * <pre>
-   * User's preferred language locale.
-   * </pre>
-   *
-   * <code>string language = 10 [json_name = "language"];</code>
-   * @return The language.
-   */
-  @java.lang.Override
-  public java.lang.String getLanguage() {
-    java.lang.Object ref = language_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      language_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * User's preferred language locale.
-   * </pre>
-   *
-   * <code>string language = 10 [json_name = "language"];</code>
-   * @return The bytes for language.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getLanguageBytes() {
-    java.lang.Object ref = language_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      language_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+    return getUpdateMask();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -514,29 +2379,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
     }
-    if (profile_ != null) {
-      output.writeMessage(3, getProfile());
+    if (body_ != null) {
+      output.writeMessage(3, getBody());
     }
-    if (profileOnce_ != null) {
-      output.writeMessage(4, getProfileOnce());
-    }
-    for (int i = 0; i < tags_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, tags_.getRaw(i));
-    }
-    if (blocked_ != false) {
-      output.writeBool(6, blocked_);
-    }
-    if (unsubscribeEmail_ != false) {
-      output.writeBool(7, unsubscribeEmail_);
-    }
-    if (unsubscribeTexting_ != false) {
-      output.writeBool(8, unsubscribeTexting_);
-    }
-    if (unsubscribeAppPush_ != false) {
-      output.writeBool(9, unsubscribeAppPush_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(language_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, language_);
+    if (updateMask_ != null) {
+      output.writeMessage(4, getUpdateMask());
     }
     unknownFields.writeTo(output);
   }
@@ -553,40 +2400,13 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
     }
-    if (profile_ != null) {
+    if (body_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getProfile());
+        .computeMessageSize(3, getBody());
     }
-    if (profileOnce_ != null) {
+    if (updateMask_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, getProfileOnce());
-    }
-    {
-      int dataSize = 0;
-      for (int i = 0; i < tags_.size(); i++) {
-        dataSize += computeStringSizeNoTag(tags_.getRaw(i));
-      }
-      size += dataSize;
-      size += 1 * getTagsList().size();
-    }
-    if (blocked_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(6, blocked_);
-    }
-    if (unsubscribeEmail_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(7, unsubscribeEmail_);
-    }
-    if (unsubscribeTexting_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(8, unsubscribeTexting_);
-    }
-    if (unsubscribeAppPush_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(9, unsubscribeAppPush_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(language_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, language_);
+        .computeMessageSize(4, getUpdateMask());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -607,28 +2427,16 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUserId())) return false;
     if (!getChannelId()
         .equals(other.getChannelId())) return false;
-    if (hasProfile() != other.hasProfile()) return false;
-    if (hasProfile()) {
-      if (!getProfile()
-          .equals(other.getProfile())) return false;
+    if (hasBody() != other.hasBody()) return false;
+    if (hasBody()) {
+      if (!getBody()
+          .equals(other.getBody())) return false;
     }
-    if (hasProfileOnce() != other.hasProfileOnce()) return false;
-    if (hasProfileOnce()) {
-      if (!getProfileOnce()
-          .equals(other.getProfileOnce())) return false;
+    if (hasUpdateMask() != other.hasUpdateMask()) return false;
+    if (hasUpdateMask()) {
+      if (!getUpdateMask()
+          .equals(other.getUpdateMask())) return false;
     }
-    if (!getTagsList()
-        .equals(other.getTagsList())) return false;
-    if (getBlocked()
-        != other.getBlocked()) return false;
-    if (getUnsubscribeEmail()
-        != other.getUnsubscribeEmail()) return false;
-    if (getUnsubscribeTexting()
-        != other.getUnsubscribeTexting()) return false;
-    if (getUnsubscribeAppPush()
-        != other.getUnsubscribeAppPush()) return false;
-    if (!getLanguage()
-        .equals(other.getLanguage())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -644,32 +2452,14 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getUserId().hashCode();
     hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChannelId().hashCode();
-    if (hasProfile()) {
-      hash = (37 * hash) + PROFILE_FIELD_NUMBER;
-      hash = (53 * hash) + getProfile().hashCode();
+    if (hasBody()) {
+      hash = (37 * hash) + BODY_FIELD_NUMBER;
+      hash = (53 * hash) + getBody().hashCode();
     }
-    if (hasProfileOnce()) {
-      hash = (37 * hash) + PROFILE_ONCE_FIELD_NUMBER;
-      hash = (53 * hash) + getProfileOnce().hashCode();
+    if (hasUpdateMask()) {
+      hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
+      hash = (53 * hash) + getUpdateMask().hashCode();
     }
-    if (getTagsCount() > 0) {
-      hash = (37 * hash) + TAGS_FIELD_NUMBER;
-      hash = (53 * hash) + getTagsList().hashCode();
-    }
-    hash = (37 * hash) + BLOCKED_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getBlocked());
-    hash = (37 * hash) + UNSUBSCRIBE_EMAIL_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getUnsubscribeEmail());
-    hash = (37 * hash) + UNSUBSCRIBE_TEXTING_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getUnsubscribeTexting());
-    hash = (37 * hash) + UNSUBSCRIBE_APP_PUSH_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getUnsubscribeAppPush());
-    hash = (37 * hash) + LANGUAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getLanguage().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -767,8 +2557,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Updates a user partially.
-   * Only specified fields are modified; omitted fields remain unchanged.
+   * Patches a user.
+   * PATCH semantics per RFC 7396 / AIP-134/161:
+   *   - a field listed in update_mask is applied (null = clear, value = set)
+   *   - a field absent from update_mask is not modified
    * </pre>
    *
    * Protobuf type {@code coreapi.service.PatchUserRequest}
@@ -812,30 +2604,18 @@ private static final long serialVersionUID = 0L;
 
       channelId_ = "";
 
-      if (profileBuilder_ == null) {
-        profile_ = null;
+      if (bodyBuilder_ == null) {
+        body_ = null;
       } else {
-        profile_ = null;
-        profileBuilder_ = null;
+        body_ = null;
+        bodyBuilder_ = null;
       }
-      if (profileOnceBuilder_ == null) {
-        profileOnce_ = null;
+      if (updateMaskBuilder_ == null) {
+        updateMask_ = null;
       } else {
-        profileOnce_ = null;
-        profileOnceBuilder_ = null;
+        updateMask_ = null;
+        updateMaskBuilder_ = null;
       }
-      tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      blocked_ = false;
-
-      unsubscribeEmail_ = false;
-
-      unsubscribeTexting_ = false;
-
-      unsubscribeAppPush_ = false;
-
-      language_ = "";
-
       return this;
     }
 
@@ -862,29 +2642,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.channel.api.proto.pub.coreapi.service.PatchUserRequest buildPartial() {
       io.channel.api.proto.pub.coreapi.service.PatchUserRequest result = new io.channel.api.proto.pub.coreapi.service.PatchUserRequest(this);
-      int from_bitField0_ = bitField0_;
       result.userId_ = userId_;
       result.channelId_ = channelId_;
-      if (profileBuilder_ == null) {
-        result.profile_ = profile_;
+      if (bodyBuilder_ == null) {
+        result.body_ = body_;
       } else {
-        result.profile_ = profileBuilder_.build();
+        result.body_ = bodyBuilder_.build();
       }
-      if (profileOnceBuilder_ == null) {
-        result.profileOnce_ = profileOnce_;
+      if (updateMaskBuilder_ == null) {
+        result.updateMask_ = updateMask_;
       } else {
-        result.profileOnce_ = profileOnceBuilder_.build();
+        result.updateMask_ = updateMaskBuilder_.build();
       }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        tags_ = tags_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.tags_ = tags_;
-      result.blocked_ = blocked_;
-      result.unsubscribeEmail_ = unsubscribeEmail_;
-      result.unsubscribeTexting_ = unsubscribeTexting_;
-      result.unsubscribeAppPush_ = unsubscribeAppPush_;
-      result.language_ = language_;
       onBuilt();
       return result;
     }
@@ -941,37 +2710,11 @@ private static final long serialVersionUID = 0L;
         channelId_ = other.channelId_;
         onChanged();
       }
-      if (other.hasProfile()) {
-        mergeProfile(other.getProfile());
+      if (other.hasBody()) {
+        mergeBody(other.getBody());
       }
-      if (other.hasProfileOnce()) {
-        mergeProfileOnce(other.getProfileOnce());
-      }
-      if (!other.tags_.isEmpty()) {
-        if (tags_.isEmpty()) {
-          tags_ = other.tags_;
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          ensureTagsIsMutable();
-          tags_.addAll(other.tags_);
-        }
-        onChanged();
-      }
-      if (other.getBlocked() != false) {
-        setBlocked(other.getBlocked());
-      }
-      if (other.getUnsubscribeEmail() != false) {
-        setUnsubscribeEmail(other.getUnsubscribeEmail());
-      }
-      if (other.getUnsubscribeTexting() != false) {
-        setUnsubscribeTexting(other.getUnsubscribeTexting());
-      }
-      if (other.getUnsubscribeAppPush() != false) {
-        setUnsubscribeAppPush(other.getUnsubscribeAppPush());
-      }
-      if (!other.getLanguage().isEmpty()) {
-        language_ = other.language_;
-        onChanged();
+      if (other.hasUpdateMask()) {
+        mergeUpdateMask(other.getUpdateMask());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1001,7 +2744,6 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
     private java.lang.Object userId_ = "";
     /**
@@ -1195,737 +2937,323 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Struct profile_;
+    private io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody body_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> profileBuilder_;
+        io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody, io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.Builder, io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBodyOrBuilder> bodyBuilder_;
     /**
      * <pre>
-     * Custom key-value profile data to set or merge.
+     * Patch body. Only fields listed in update_mask are applied.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile = 3 [json_name = "profile"];</code>
-     * @return Whether the profile field is set.
+     * <code>.coreapi.service.PatchUserRequest.PatchUserBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     * @return Whether the body field is set.
      */
-    public boolean hasProfile() {
-      return profileBuilder_ != null || profile_ != null;
+    public boolean hasBody() {
+      return bodyBuilder_ != null || body_ != null;
     }
     /**
      * <pre>
-     * Custom key-value profile data to set or merge.
+     * Patch body. Only fields listed in update_mask are applied.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile = 3 [json_name = "profile"];</code>
-     * @return The profile.
+     * <code>.coreapi.service.PatchUserRequest.PatchUserBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+     * @return The body.
      */
-    public com.google.protobuf.Struct getProfile() {
-      if (profileBuilder_ == null) {
-        return profile_ == null ? com.google.protobuf.Struct.getDefaultInstance() : profile_;
+    public io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody getBody() {
+      if (bodyBuilder_ == null) {
+        return body_ == null ? io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.getDefaultInstance() : body_;
       } else {
-        return profileBuilder_.getMessage();
+        return bodyBuilder_.getMessage();
       }
     }
     /**
      * <pre>
-     * Custom key-value profile data to set or merge.
+     * Patch body. Only fields listed in update_mask are applied.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile = 3 [json_name = "profile"];</code>
+     * <code>.coreapi.service.PatchUserRequest.PatchUserBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
      */
-    public Builder setProfile(com.google.protobuf.Struct value) {
-      if (profileBuilder_ == null) {
+    public Builder setBody(io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody value) {
+      if (bodyBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        profile_ = value;
+        body_ = value;
         onChanged();
       } else {
-        profileBuilder_.setMessage(value);
+        bodyBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
      * <pre>
-     * Custom key-value profile data to set or merge.
+     * Patch body. Only fields listed in update_mask are applied.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile = 3 [json_name = "profile"];</code>
+     * <code>.coreapi.service.PatchUserRequest.PatchUserBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
      */
-    public Builder setProfile(
-        com.google.protobuf.Struct.Builder builderForValue) {
-      if (profileBuilder_ == null) {
-        profile_ = builderForValue.build();
+    public Builder setBody(
+        io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.Builder builderForValue) {
+      if (bodyBuilder_ == null) {
+        body_ = builderForValue.build();
         onChanged();
       } else {
-        profileBuilder_.setMessage(builderForValue.build());
+        bodyBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
      * <pre>
-     * Custom key-value profile data to set or merge.
+     * Patch body. Only fields listed in update_mask are applied.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile = 3 [json_name = "profile"];</code>
+     * <code>.coreapi.service.PatchUserRequest.PatchUserBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
      */
-    public Builder mergeProfile(com.google.protobuf.Struct value) {
-      if (profileBuilder_ == null) {
-        if (profile_ != null) {
-          profile_ =
-            com.google.protobuf.Struct.newBuilder(profile_).mergeFrom(value).buildPartial();
+    public Builder mergeBody(io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody value) {
+      if (bodyBuilder_ == null) {
+        if (body_ != null) {
+          body_ =
+            io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.newBuilder(body_).mergeFrom(value).buildPartial();
         } else {
-          profile_ = value;
+          body_ = value;
         }
         onChanged();
       } else {
-        profileBuilder_.mergeFrom(value);
+        bodyBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
      * <pre>
-     * Custom key-value profile data to set or merge.
+     * Patch body. Only fields listed in update_mask are applied.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile = 3 [json_name = "profile"];</code>
+     * <code>.coreapi.service.PatchUserRequest.PatchUserBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
      */
-    public Builder clearProfile() {
-      if (profileBuilder_ == null) {
-        profile_ = null;
+    public Builder clearBody() {
+      if (bodyBuilder_ == null) {
+        body_ = null;
         onChanged();
       } else {
-        profile_ = null;
-        profileBuilder_ = null;
+        body_ = null;
+        bodyBuilder_ = null;
       }
 
       return this;
     }
     /**
      * <pre>
-     * Custom key-value profile data to set or merge.
+     * Patch body. Only fields listed in update_mask are applied.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile = 3 [json_name = "profile"];</code>
+     * <code>.coreapi.service.PatchUserRequest.PatchUserBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
      */
-    public com.google.protobuf.Struct.Builder getProfileBuilder() {
+    public io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.Builder getBodyBuilder() {
       
       onChanged();
-      return getProfileFieldBuilder().getBuilder();
+      return getBodyFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Custom key-value profile data to set or merge.
+     * Patch body. Only fields listed in update_mask are applied.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile = 3 [json_name = "profile"];</code>
+     * <code>.coreapi.service.PatchUserRequest.PatchUserBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
      */
-    public com.google.protobuf.StructOrBuilder getProfileOrBuilder() {
-      if (profileBuilder_ != null) {
-        return profileBuilder_.getMessageOrBuilder();
+    public io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBodyOrBuilder getBodyOrBuilder() {
+      if (bodyBuilder_ != null) {
+        return bodyBuilder_.getMessageOrBuilder();
       } else {
-        return profile_ == null ?
-            com.google.protobuf.Struct.getDefaultInstance() : profile_;
+        return body_ == null ?
+            io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.getDefaultInstance() : body_;
       }
     }
     /**
      * <pre>
-     * Custom key-value profile data to set or merge.
+     * Patch body. Only fields listed in update_mask are applied.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile = 3 [json_name = "profile"];</code>
+     * <code>.coreapi.service.PatchUserRequest.PatchUserBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
-        getProfileFieldBuilder() {
-      if (profileBuilder_ == null) {
-        profileBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
-                getProfile(),
+        io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody, io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.Builder, io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBodyOrBuilder> 
+        getBodyFieldBuilder() {
+      if (bodyBuilder_ == null) {
+        bodyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody, io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody.Builder, io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBodyOrBuilder>(
+                getBody(),
                 getParentForChildren(),
                 isClean());
-        profile_ = null;
+        body_ = null;
       }
-      return profileBuilder_;
+      return bodyBuilder_;
     }
 
-    private com.google.protobuf.Struct profileOnce_;
+    private com.google.protobuf.FieldMask updateMask_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> profileOnceBuilder_;
+        com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> updateMaskBuilder_;
     /**
      * <pre>
-     * Profile data that is set only once on first write.
-     * Subsequent updates to the same keys are ignored.
+     * Set of field paths (relative to PatchUserBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile_once = 4 [json_name = "profileOnce"];</code>
-     * @return Whether the profileOnce field is set.
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+     * @return Whether the updateMask field is set.
      */
-    public boolean hasProfileOnce() {
-      return profileOnceBuilder_ != null || profileOnce_ != null;
+    public boolean hasUpdateMask() {
+      return updateMaskBuilder_ != null || updateMask_ != null;
     }
     /**
      * <pre>
-     * Profile data that is set only once on first write.
-     * Subsequent updates to the same keys are ignored.
+     * Set of field paths (relative to PatchUserBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile_once = 4 [json_name = "profileOnce"];</code>
-     * @return The profileOnce.
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+     * @return The updateMask.
      */
-    public com.google.protobuf.Struct getProfileOnce() {
-      if (profileOnceBuilder_ == null) {
-        return profileOnce_ == null ? com.google.protobuf.Struct.getDefaultInstance() : profileOnce_;
+    public com.google.protobuf.FieldMask getUpdateMask() {
+      if (updateMaskBuilder_ == null) {
+        return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
       } else {
-        return profileOnceBuilder_.getMessage();
+        return updateMaskBuilder_.getMessage();
       }
     }
     /**
      * <pre>
-     * Profile data that is set only once on first write.
-     * Subsequent updates to the same keys are ignored.
+     * Set of field paths (relative to PatchUserBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile_once = 4 [json_name = "profileOnce"];</code>
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
      */
-    public Builder setProfileOnce(com.google.protobuf.Struct value) {
-      if (profileOnceBuilder_ == null) {
+    public Builder setUpdateMask(com.google.protobuf.FieldMask value) {
+      if (updateMaskBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        profileOnce_ = value;
+        updateMask_ = value;
         onChanged();
       } else {
-        profileOnceBuilder_.setMessage(value);
+        updateMaskBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
      * <pre>
-     * Profile data that is set only once on first write.
-     * Subsequent updates to the same keys are ignored.
+     * Set of field paths (relative to PatchUserBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile_once = 4 [json_name = "profileOnce"];</code>
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
      */
-    public Builder setProfileOnce(
-        com.google.protobuf.Struct.Builder builderForValue) {
-      if (profileOnceBuilder_ == null) {
-        profileOnce_ = builderForValue.build();
+    public Builder setUpdateMask(
+        com.google.protobuf.FieldMask.Builder builderForValue) {
+      if (updateMaskBuilder_ == null) {
+        updateMask_ = builderForValue.build();
         onChanged();
       } else {
-        profileOnceBuilder_.setMessage(builderForValue.build());
+        updateMaskBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
      * <pre>
-     * Profile data that is set only once on first write.
-     * Subsequent updates to the same keys are ignored.
+     * Set of field paths (relative to PatchUserBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile_once = 4 [json_name = "profileOnce"];</code>
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
      */
-    public Builder mergeProfileOnce(com.google.protobuf.Struct value) {
-      if (profileOnceBuilder_ == null) {
-        if (profileOnce_ != null) {
-          profileOnce_ =
-            com.google.protobuf.Struct.newBuilder(profileOnce_).mergeFrom(value).buildPartial();
+    public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
+      if (updateMaskBuilder_ == null) {
+        if (updateMask_ != null) {
+          updateMask_ =
+            com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
         } else {
-          profileOnce_ = value;
+          updateMask_ = value;
         }
         onChanged();
       } else {
-        profileOnceBuilder_.mergeFrom(value);
+        updateMaskBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
      * <pre>
-     * Profile data that is set only once on first write.
-     * Subsequent updates to the same keys are ignored.
+     * Set of field paths (relative to PatchUserBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile_once = 4 [json_name = "profileOnce"];</code>
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
      */
-    public Builder clearProfileOnce() {
-      if (profileOnceBuilder_ == null) {
-        profileOnce_ = null;
+    public Builder clearUpdateMask() {
+      if (updateMaskBuilder_ == null) {
+        updateMask_ = null;
         onChanged();
       } else {
-        profileOnce_ = null;
-        profileOnceBuilder_ = null;
+        updateMask_ = null;
+        updateMaskBuilder_ = null;
       }
 
       return this;
     }
     /**
      * <pre>
-     * Profile data that is set only once on first write.
-     * Subsequent updates to the same keys are ignored.
+     * Set of field paths (relative to PatchUserBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile_once = 4 [json_name = "profileOnce"];</code>
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
      */
-    public com.google.protobuf.Struct.Builder getProfileOnceBuilder() {
+    public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
       
       onChanged();
-      return getProfileOnceFieldBuilder().getBuilder();
+      return getUpdateMaskFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Profile data that is set only once on first write.
-     * Subsequent updates to the same keys are ignored.
+     * Set of field paths (relative to PatchUserBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile_once = 4 [json_name = "profileOnce"];</code>
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
      */
-    public com.google.protobuf.StructOrBuilder getProfileOnceOrBuilder() {
-      if (profileOnceBuilder_ != null) {
-        return profileOnceBuilder_.getMessageOrBuilder();
+    public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+      if (updateMaskBuilder_ != null) {
+        return updateMaskBuilder_.getMessageOrBuilder();
       } else {
-        return profileOnce_ == null ?
-            com.google.protobuf.Struct.getDefaultInstance() : profileOnce_;
+        return updateMask_ == null ?
+            com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
       }
     }
     /**
      * <pre>
-     * Profile data that is set only once on first write.
-     * Subsequent updates to the same keys are ignored.
+     * Set of field paths (relative to PatchUserBody) to update.
+     * Unlisted fields remain unchanged.
      * </pre>
      *
-     * <code>.google.protobuf.Struct profile_once = 4 [json_name = "profileOnce"];</code>
+     * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
-        getProfileOnceFieldBuilder() {
-      if (profileOnceBuilder_ == null) {
-        profileOnceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
-                getProfileOnce(),
+        com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> 
+        getUpdateMaskFieldBuilder() {
+      if (updateMaskBuilder_ == null) {
+        updateMaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder>(
+                getUpdateMask(),
                 getParentForChildren(),
                 isClean());
-        profileOnce_ = null;
+        updateMask_ = null;
       }
-      return profileOnceBuilder_;
-    }
-
-    private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    private void ensureTagsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
-        bitField0_ |= 0x00000001;
-       }
-    }
-    /**
-     * <pre>
-     * User classification tags to replace the current set.
-     * </pre>
-     *
-     * <code>repeated string tags = 5 [json_name = "tags"];</code>
-     * @return A list containing the tags.
-     */
-    public com.google.protobuf.ProtocolStringList
-        getTagsList() {
-      return tags_.getUnmodifiableView();
-    }
-    /**
-     * <pre>
-     * User classification tags to replace the current set.
-     * </pre>
-     *
-     * <code>repeated string tags = 5 [json_name = "tags"];</code>
-     * @return The count of tags.
-     */
-    public int getTagsCount() {
-      return tags_.size();
-    }
-    /**
-     * <pre>
-     * User classification tags to replace the current set.
-     * </pre>
-     *
-     * <code>repeated string tags = 5 [json_name = "tags"];</code>
-     * @param index The index of the element to return.
-     * @return The tags at the given index.
-     */
-    public java.lang.String getTags(int index) {
-      return tags_.get(index);
-    }
-    /**
-     * <pre>
-     * User classification tags to replace the current set.
-     * </pre>
-     *
-     * <code>repeated string tags = 5 [json_name = "tags"];</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the tags at the given index.
-     */
-    public com.google.protobuf.ByteString
-        getTagsBytes(int index) {
-      return tags_.getByteString(index);
-    }
-    /**
-     * <pre>
-     * User classification tags to replace the current set.
-     * </pre>
-     *
-     * <code>repeated string tags = 5 [json_name = "tags"];</code>
-     * @param index The index to set the value at.
-     * @param value The tags to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTags(
-        int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
-      tags_.set(index, value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * User classification tags to replace the current set.
-     * </pre>
-     *
-     * <code>repeated string tags = 5 [json_name = "tags"];</code>
-     * @param value The tags to add.
-     * @return This builder for chaining.
-     */
-    public Builder addTags(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
-      tags_.add(value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * User classification tags to replace the current set.
-     * </pre>
-     *
-     * <code>repeated string tags = 5 [json_name = "tags"];</code>
-     * @param values The tags to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllTags(
-        java.lang.Iterable<java.lang.String> values) {
-      ensureTagsIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, tags_);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * User classification tags to replace the current set.
-     * </pre>
-     *
-     * <code>repeated string tags = 5 [json_name = "tags"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearTags() {
-      tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * User classification tags to replace the current set.
-     * </pre>
-     *
-     * <code>repeated string tags = 5 [json_name = "tags"];</code>
-     * @param value The bytes of the tags to add.
-     * @return This builder for chaining.
-     */
-    public Builder addTagsBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      ensureTagsIsMutable();
-      tags_.add(value);
-      onChanged();
-      return this;
-    }
-
-    private boolean blocked_ ;
-    /**
-     * <pre>
-     * Whether the user is blocked.
-     * </pre>
-     *
-     * <code>bool blocked = 6 [json_name = "blocked"];</code>
-     * @return The blocked.
-     */
-    @java.lang.Override
-    public boolean getBlocked() {
-      return blocked_;
-    }
-    /**
-     * <pre>
-     * Whether the user is blocked.
-     * </pre>
-     *
-     * <code>bool blocked = 6 [json_name = "blocked"];</code>
-     * @param value The blocked to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBlocked(boolean value) {
-      
-      blocked_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether the user is blocked.
-     * </pre>
-     *
-     * <code>bool blocked = 6 [json_name = "blocked"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBlocked() {
-      
-      blocked_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean unsubscribeEmail_ ;
-    /**
-     * <pre>
-     * Whether the user opted out of email notifications.
-     * </pre>
-     *
-     * <code>bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
-     * @return The unsubscribeEmail.
-     */
-    @java.lang.Override
-    public boolean getUnsubscribeEmail() {
-      return unsubscribeEmail_;
-    }
-    /**
-     * <pre>
-     * Whether the user opted out of email notifications.
-     * </pre>
-     *
-     * <code>bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
-     * @param value The unsubscribeEmail to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUnsubscribeEmail(boolean value) {
-      
-      unsubscribeEmail_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether the user opted out of email notifications.
-     * </pre>
-     *
-     * <code>bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearUnsubscribeEmail() {
-      
-      unsubscribeEmail_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean unsubscribeTexting_ ;
-    /**
-     * <pre>
-     * Whether the user opted out of SMS/text notifications.
-     * </pre>
-     *
-     * <code>bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
-     * @return The unsubscribeTexting.
-     */
-    @java.lang.Override
-    public boolean getUnsubscribeTexting() {
-      return unsubscribeTexting_;
-    }
-    /**
-     * <pre>
-     * Whether the user opted out of SMS/text notifications.
-     * </pre>
-     *
-     * <code>bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
-     * @param value The unsubscribeTexting to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUnsubscribeTexting(boolean value) {
-      
-      unsubscribeTexting_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether the user opted out of SMS/text notifications.
-     * </pre>
-     *
-     * <code>bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearUnsubscribeTexting() {
-      
-      unsubscribeTexting_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean unsubscribeAppPush_ ;
-    /**
-     * <pre>
-     * Whether the user opted out of app push notifications.
-     * </pre>
-     *
-     * <code>bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
-     * @return The unsubscribeAppPush.
-     */
-    @java.lang.Override
-    public boolean getUnsubscribeAppPush() {
-      return unsubscribeAppPush_;
-    }
-    /**
-     * <pre>
-     * Whether the user opted out of app push notifications.
-     * </pre>
-     *
-     * <code>bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
-     * @param value The unsubscribeAppPush to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUnsubscribeAppPush(boolean value) {
-      
-      unsubscribeAppPush_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether the user opted out of app push notifications.
-     * </pre>
-     *
-     * <code>bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearUnsubscribeAppPush() {
-      
-      unsubscribeAppPush_ = false;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object language_ = "";
-    /**
-     * <pre>
-     * User's preferred language locale.
-     * </pre>
-     *
-     * <code>string language = 10 [json_name = "language"];</code>
-     * @return The language.
-     */
-    public java.lang.String getLanguage() {
-      java.lang.Object ref = language_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        language_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * User's preferred language locale.
-     * </pre>
-     *
-     * <code>string language = 10 [json_name = "language"];</code>
-     * @return The bytes for language.
-     */
-    public com.google.protobuf.ByteString
-        getLanguageBytes() {
-      java.lang.Object ref = language_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        language_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * User's preferred language locale.
-     * </pre>
-     *
-     * <code>string language = 10 [json_name = "language"];</code>
-     * @param value The language to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLanguage(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      language_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * User's preferred language locale.
-     * </pre>
-     *
-     * <code>string language = 10 [json_name = "language"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearLanguage() {
-      
-      language_ = getDefaultInstance().getLanguage();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * User's preferred language locale.
-     * </pre>
-     *
-     * <code>string language = 10 [json_name = "language"];</code>
-     * @param value The bytes for language to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLanguageBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      language_ = value;
-      onChanged();
-      return this;
+      return updateMaskBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1989,14 +3317,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The profile to set.
+     * @param value The body to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearProfile(com.google.protobuf.Struct value) {
+    public Builder setOrClearBody(io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody value) {
     	if (value == null)
-    		return clearProfile();
+    		return clearBody();
     	else
-    		return setProfile(value);
+    		return setBody(value);
     }
     	
     /**
@@ -2004,22 +3332,22 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearProfile(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+    public <T> Builder mapOrClearBody(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody> mapFunc) {
     	if (value == null)
-    		return clearProfile();
+    		return clearBody();
     	else
-    		return setProfile(mapFunc.apply(value));
+    		return setBody(mapFunc.apply(value));
     }
     	
     /**
-     * @param value The profile_once to set.
+     * @param value The update_mask to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearProfileOnce(com.google.protobuf.Struct value) {
+    public Builder setOrClearUpdateMask(com.google.protobuf.FieldMask value) {
     	if (value == null)
-    		return clearProfileOnce();
+    		return clearUpdateMask();
     	else
-    		return setProfileOnce(value);
+    		return setUpdateMask(value);
     }
     	
     /**
@@ -2027,151 +3355,11 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearProfileOnce(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+    public <T> Builder mapOrClearUpdateMask(T value, java.util.function.Function<T, com.google.protobuf.FieldMask> mapFunc) {
     	if (value == null)
-    		return clearProfileOnce();
+    		return clearUpdateMask();
     	else
-    		return setProfileOnce(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param values The tags to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllOrClearTags(java.lang.Iterable<java.lang.String> values) {
-    	if (values == null)
-    		return clearTags();
-    	else
-    		return addAllTags(values);
-    }
-    	
-    /**
-     * @param values The values to map.
-     * @param mapFunc The function to map the values into each proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapAllOrClearTags(java.lang.Iterable<T> values, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (values == null)
-    		return clearTags();
-    	else {
-    		values.forEach(value -> addTags(mapFunc.apply(value)));
-    		return this;
-    	}
-    }
-    	
-    /**
-     * @param value The blocked to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearBlocked(java.lang.Boolean value) {
-    	if (value == null)
-    		return clearBlocked();
-    	else
-    		return setBlocked(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearBlocked(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
-    	if (value == null)
-    		return clearBlocked();
-    	else
-    		return setBlocked(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The unsubscribe_email to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearUnsubscribeEmail(java.lang.Boolean value) {
-    	if (value == null)
-    		return clearUnsubscribeEmail();
-    	else
-    		return setUnsubscribeEmail(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearUnsubscribeEmail(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
-    	if (value == null)
-    		return clearUnsubscribeEmail();
-    	else
-    		return setUnsubscribeEmail(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The unsubscribe_texting to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearUnsubscribeTexting(java.lang.Boolean value) {
-    	if (value == null)
-    		return clearUnsubscribeTexting();
-    	else
-    		return setUnsubscribeTexting(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearUnsubscribeTexting(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
-    	if (value == null)
-    		return clearUnsubscribeTexting();
-    	else
-    		return setUnsubscribeTexting(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The unsubscribe_app_push to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearUnsubscribeAppPush(java.lang.Boolean value) {
-    	if (value == null)
-    		return clearUnsubscribeAppPush();
-    	else
-    		return setUnsubscribeAppPush(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearUnsubscribeAppPush(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
-    	if (value == null)
-    		return clearUnsubscribeAppPush();
-    	else
-    		return setUnsubscribeAppPush(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The language to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearLanguage(java.lang.String value) {
-    	if (value == null)
-    		return clearLanguage();
-    	else
-    		return setLanguage(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearLanguage(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearLanguage();
-    	else
-    		return setLanguage(mapFunc.apply(value));
+    		return setUpdateMask(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.PatchUserRequest)
