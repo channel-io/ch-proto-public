@@ -37,6 +37,7 @@ public interface MessageReactionOrBuilder extends
    * <pre>
    * Person keys of everyone who reacted with this emoji,
    * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+   * +kubebuilder:example=["user-abcd1234","manager-5678"]
    * </pre>
    *
    * <code>repeated string person_keys = 2 [json_name = "personKeys"];</code>
@@ -48,6 +49,7 @@ public interface MessageReactionOrBuilder extends
    * <pre>
    * Person keys of everyone who reacted with this emoji,
    * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+   * +kubebuilder:example=["user-abcd1234","manager-5678"]
    * </pre>
    *
    * <code>repeated string person_keys = 2 [json_name = "personKeys"];</code>
@@ -58,6 +60,7 @@ public interface MessageReactionOrBuilder extends
    * <pre>
    * Person keys of everyone who reacted with this emoji,
    * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+   * +kubebuilder:example=["user-abcd1234","manager-5678"]
    * </pre>
    *
    * <code>repeated string person_keys = 2 [json_name = "personKeys"];</code>
@@ -69,6 +72,7 @@ public interface MessageReactionOrBuilder extends
    * <pre>
    * Person keys of everyone who reacted with this emoji,
    * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+   * +kubebuilder:example=["user-abcd1234","manager-5678"]
    * </pre>
    *
    * <code>repeated string person_keys = 2 [json_name = "personKeys"];</code>

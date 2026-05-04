@@ -221,6 +221,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -231,6 +232,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -241,6 +243,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -251,6 +254,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -261,6 +265,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -271,6 +276,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>

@@ -8,6 +8,10 @@ public interface ErrorResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * +kubebuilder:example="404"
+   * </pre>
+   *
    * <code>int32 status = 1 [json_name = "status"];</code>
    * @return The status.
    */
@@ -37,6 +41,7 @@ public interface ErrorResponseOrBuilder extends
    * Set when the error is unique to a particular operation.
    * Defined as a string to allow each service to declare its own codes
    * without a global enum.
+   * +kubebuilder:example="RESOURCE_NOT_FOUND"
    * </pre>
    *
    * <code>string operation_error_code = 3 [json_name = "operationErrorCode"];</code>
@@ -48,6 +53,7 @@ public interface ErrorResponseOrBuilder extends
    * Set when the error is unique to a particular operation.
    * Defined as a string to allow each service to declare its own codes
    * without a global enum.
+   * +kubebuilder:example="RESOURCE_NOT_FOUND"
    * </pre>
    *
    * <code>string operation_error_code = 3 [json_name = "operationErrorCode"];</code>
@@ -57,11 +63,19 @@ public interface ErrorResponseOrBuilder extends
       getOperationErrorCodeBytes();
 
   /**
+   * <pre>
+   * +kubebuilder:example="The requested resource does not exist"
+   * </pre>
+   *
    * <code>string message = 4 [json_name = "message"];</code>
    * @return The message.
    */
   java.lang.String getMessage();
   /**
+   * <pre>
+   * +kubebuilder:example="The requested resource does not exist"
+   * </pre>
+   *
    * <code>string message = 4 [json_name = "message"];</code>
    * @return The bytes for message.
    */

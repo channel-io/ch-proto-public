@@ -125,15 +125,15 @@ public final class UserChat {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_coreapi_service_AssignManagerToUserChatResult_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_coreapi_service_SearchUserChatSessionsRequest_descriptor;
+    internal_static_coreapi_service_SearchChatSessionsRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_coreapi_service_SearchUserChatSessionsRequest_fieldAccessorTable;
+      internal_static_coreapi_service_SearchChatSessionsRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_coreapi_service_SearchUserChatSessionsResult_descriptor;
+    internal_static_coreapi_service_SearchChatSessionsResult_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_coreapi_service_SearchUserChatSessionsResult_fieldAccessorTable;
+      internal_static_coreapi_service_SearchChatSessionsResult_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_coreapi_service_SearchUserChatMessagesRequest_descriptor;
   static final 
@@ -285,42 +285,41 @@ public final class UserChat {
       "e\022%\n\nmanager_id\030\004 \001(\tB\006\272H\003\310\001\001R\tmanagerId" +
       "\"U\n\035AssignManagerToUserChatResult\0224\n\tuse" +
       "r_chat\030\001 \001(\0132\027.coreapi.model.UserChatR\010u" +
-      "serChat\"p\n\035SearchUserChatSessionsRequest" +
-      "\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022" +
-      "(\n\014user_chat_id\030\002 \001(\tB\006\272H\003\310\001\001R\nuserChatI" +
-      "d\"_\n\034SearchUserChatSessionsResult\022?\n\rcha" +
-      "t_sessions\030\001 \003(\0132\032.coreapi.model.ChatSes" +
-      "sionR\014chatSessions\"\271\002\n\035SearchUserChatMes" +
-      "sagesRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001" +
-      "R\tchannelId\022(\n\014user_chat_id\030\002 \001(\tB\006\272H\003\310\001" +
-      "\001R\nuserChatId\0228\n\nsort_order\030\003 \001(\0162\031.core" +
-      "api.common.SortOrderR\tsortOrder\022\026\n\006curso" +
-      "r\030\004 \001(\tR\006cursor\022u\n\005limit\030\005 \001(\005B_\272H\\\272\001Y\n\r" +
-      "int32.between\022\037limit must be between 1 a" +
-      "nd 500\032\'this == 0 || (this >= 1 && this " +
-      "<= 500)R\005limit\"\216\001\n\034SearchUserChatMessage" +
-      "sResult\0222\n\010messages\030\001 \003(\0132\026.coreapi.mode" +
-      "l.MessageR\010messages\022\037\n\013next_cursor\030\002 \001(\t" +
-      "R\nnextCursor\022\031\n\010has_next\030\003 \001(\010R\007hasNext\"" +
-      "\334\002\n\034CreateUserChatMessageRequest\022%\n\nchan" +
-      "nel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022(\n\014user_" +
-      "chat_id\030\002 \001(\tB\006\272H\003\310\001\001R\nuserChatId\022?\n\007con" +
-      "tent\030\003 \001(\0132\035.coreapi.model.MessageConten" +
-      "tB\006\272H\003\310\001\001R\007content\022\212\001\n\010bot_name\030\004 \001(\tBo\272" +
-      "Hl\272\001Y\n\rstring.maxLen\022(value must be no m" +
-      "ore than 30 characters\032\036this == \'\' || si" +
-      "ze(this) <= 30r\0162\014^[^@#$%:/]+$R\007botName\022" +
-      "\035\n\nrequest_id\030\005 \001(\tR\trequestId\"O\n\033Create" +
-      "UserChatMessageResult\0220\n\007message\030\001 \001(\0132\026" +
-      ".coreapi.model.MessageR\007message\"\206\001\n\031GetU" +
-      "serChatFileUrlRequest\022%\n\nchannel_id\030\001 \001(" +
-      "\tB\006\272H\003\310\001\001R\tchannelId\022(\n\014user_chat_id\030\002 \001" +
-      "(\tB\006\272H\003\310\001\001R\nuserChatId\022\030\n\003key\030\003 \001(\tB\006\272H\003" +
-      "\310\001\001R\003key\",\n\030GetUserChatFileUrlResult\022\020\n\003" +
-      "url\030\001 \001(\tR\003urlBf\n(io.channel.api.proto.p" +
-      "ub.coreapi.serviceP\001Z8github.com/channel" +
-      "-io/ch-proto-public/coreapi/go/serviceb\006" +
-      "proto3"
+      "serChat\"l\n\031SearchChatSessionsRequest\022%\n\n" +
+      "channel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022(\n\014u" +
+      "ser_chat_id\030\002 \001(\tB\006\272H\003\310\001\001R\nuserChatId\"[\n" +
+      "\030SearchChatSessionsResult\022?\n\rchat_sessio" +
+      "ns\030\001 \003(\0132\032.coreapi.model.ChatSessionR\014ch" +
+      "atSessions\"\271\002\n\035SearchUserChatMessagesReq" +
+      "uest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchanne" +
+      "lId\022(\n\014user_chat_id\030\002 \001(\tB\006\272H\003\310\001\001R\nuserC" +
+      "hatId\0228\n\nsort_order\030\003 \001(\0162\031.coreapi.comm" +
+      "on.SortOrderR\tsortOrder\022\026\n\006cursor\030\004 \001(\tR" +
+      "\006cursor\022u\n\005limit\030\005 \001(\005B_\272H\\\272\001Y\n\rint32.be" +
+      "tween\022\037limit must be between 1 and 500\032\'" +
+      "this == 0 || (this >= 1 && this <= 500)R" +
+      "\005limit\"\216\001\n\034SearchUserChatMessagesResult\022" +
+      "2\n\010messages\030\001 \003(\0132\026.coreapi.model.Messag" +
+      "eR\010messages\022\037\n\013next_cursor\030\002 \001(\tR\nnextCu" +
+      "rsor\022\031\n\010has_next\030\003 \001(\010R\007hasNext\"\334\002\n\034Crea" +
+      "teUserChatMessageRequest\022%\n\nchannel_id\030\001" +
+      " \001(\tB\006\272H\003\310\001\001R\tchannelId\022(\n\014user_chat_id\030" +
+      "\002 \001(\tB\006\272H\003\310\001\001R\nuserChatId\022?\n\007content\030\003 \001" +
+      "(\0132\035.coreapi.model.MessageContentB\006\272H\003\310\001" +
+      "\001R\007content\022\212\001\n\010bot_name\030\004 \001(\tBo\272Hl\272\001Y\n\rs" +
+      "tring.maxLen\022(value must be no more than" +
+      " 30 characters\032\036this == \'\' || size(this)" +
+      " <= 30r\0162\014^[^@#$%:/]+$R\007botName\022\035\n\nreque" +
+      "st_id\030\005 \001(\tR\trequestId\"O\n\033CreateUserChat" +
+      "MessageResult\0220\n\007message\030\001 \001(\0132\026.coreapi" +
+      ".model.MessageR\007message\"\206\001\n\031GetUserChatF" +
+      "ileUrlRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001" +
+      "\001R\tchannelId\022(\n\014user_chat_id\030\002 \001(\tB\006\272H\003\310" +
+      "\001\001R\nuserChatId\022\030\n\003key\030\003 \001(\tB\006\272H\003\310\001\001R\003key" +
+      "\",\n\030GetUserChatFileUrlResult\022\020\n\003url\030\001 \001(" +
+      "\tR\003urlBf\n(io.channel.api.proto.pub.corea" +
+      "pi.serviceP\001Z8github.com/channel-io/ch-p" +
+      "roto-public/coreapi/go/serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -466,17 +465,17 @@ public final class UserChat {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_service_AssignManagerToUserChatResult_descriptor,
         new java.lang.String[] { "UserChat", });
-    internal_static_coreapi_service_SearchUserChatSessionsRequest_descriptor =
+    internal_static_coreapi_service_SearchChatSessionsRequest_descriptor =
       getDescriptor().getMessageTypes().get(22);
-    internal_static_coreapi_service_SearchUserChatSessionsRequest_fieldAccessorTable = new
+    internal_static_coreapi_service_SearchChatSessionsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_coreapi_service_SearchUserChatSessionsRequest_descriptor,
+        internal_static_coreapi_service_SearchChatSessionsRequest_descriptor,
         new java.lang.String[] { "ChannelId", "UserChatId", });
-    internal_static_coreapi_service_SearchUserChatSessionsResult_descriptor =
+    internal_static_coreapi_service_SearchChatSessionsResult_descriptor =
       getDescriptor().getMessageTypes().get(23);
-    internal_static_coreapi_service_SearchUserChatSessionsResult_fieldAccessorTable = new
+    internal_static_coreapi_service_SearchChatSessionsResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_coreapi_service_SearchUserChatSessionsResult_descriptor,
+        internal_static_coreapi_service_SearchChatSessionsResult_descriptor,
         new java.lang.String[] { "ChatSessions", });
     internal_static_coreapi_service_SearchUserChatMessagesRequest_descriptor =
       getDescriptor().getMessageTypes().get(24);

@@ -89,7 +89,7 @@ message UpdatePluginRequest {
   // Whether the label button is displayed on the widget.
   //
   // +kubebuilder:validation:Nullable
-  bool label_button = 5;
+  optional bool label_button = 5;
 
   // Text displayed on the label button.
   //
@@ -122,17 +122,17 @@ message UpdatePluginRequest {
   // Horizontal margin in pixels for the desktop widget.
   //
   // +kubebuilder:validation:Nullable
-  int32 desk_margin_x = 10;
+  optional int32 desk_margin_x = 10;
 
   // Vertical margin in pixels for the desktop widget.
   //
   // +kubebuilder:validation:Nullable
-  int32 desk_margin_y = 11;
+  optional int32 desk_margin_y = 11;
 
   // Whether the launcher button is hidden on desktop.
   //
   // +kubebuilder:validation:Nullable
-  bool desk_hide_button = 12;
+  optional bool desk_hide_button = 12;
 
   // Horizontal position of the widget on desktop.
   //
@@ -142,12 +142,12 @@ message UpdatePluginRequest {
   // Horizontal margin in pixels for the mobile widget.
   //
   // +kubebuilder:validation:Nullable
-  int32 mobile_margin_x = 14;
+  optional int32 mobile_margin_x = 14;
 
   // Vertical margin in pixels for the mobile widget.
   //
   // +kubebuilder:validation:Nullable
-  int32 mobile_margin_y = 15;
+  optional int32 mobile_margin_y = 15;
 
   // Horizontal position of the widget on mobile.
   //
@@ -157,7 +157,7 @@ message UpdatePluginRequest {
   // Whether the launcher button is hidden on mobile.
   //
   // +kubebuilder:validation:Nullable
-  bool mobile_hide_button = 17;
+  optional bool mobile_hide_button = 17;
 
   // Vertical position of the chat bubble on mobile.
   //
@@ -169,7 +169,7 @@ message UpdatePluginRequest {
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:Minimum=0
   // +kubebuilder:validation:Maximum=1
-  float run_rate = 19 [
+  optional float run_rate = 19 [
     (buf.validate.field).cel = {
       id: "float.gte"
       message: "value must be at least 0"

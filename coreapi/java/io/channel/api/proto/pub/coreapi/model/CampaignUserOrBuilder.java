@@ -106,6 +106,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the campaign message was delivered to the user.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp sent = 5 [json_name = "sent"];</code>
@@ -115,6 +116,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the campaign message was delivered to the user.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp sent = 5 [json_name = "sent"];</code>
@@ -124,6 +126,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the campaign message was delivered to the user.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp sent = 5 [json_name = "sent"];</code>
@@ -133,6 +136,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user first viewed the delivered message.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp view = 6 [json_name = "view"];</code>
@@ -142,6 +146,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user first viewed the delivered message.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp view = 6 [json_name = "view"];</code>
@@ -151,6 +156,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user first viewed the delivered message.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp view = 6 [json_name = "view"];</code>
@@ -160,6 +166,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user first clicked a link in the message.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp click = 7 [json_name = "click"];</code>
@@ -169,6 +176,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user first clicked a link in the message.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp click = 7 [json_name = "click"];</code>
@@ -178,6 +186,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user first clicked a link in the message.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp click = 7 [json_name = "click"];</code>
@@ -187,6 +196,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user completed the campaign goal event.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal = 8 [json_name = "goal"];</code>
@@ -196,6 +206,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user completed the campaign goal event.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal = 8 [json_name = "goal"];</code>
@@ -205,6 +216,7 @@ public interface CampaignUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user completed the campaign goal event.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal = 8 [json_name = "goal"];</code>

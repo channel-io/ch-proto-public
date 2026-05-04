@@ -757,6 +757,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Labels for categorizing the message topic within the medium.
+   * +kubebuilder:example=["welcome","onboarding"]
    * </pre>
    *
    * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -769,6 +770,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Labels for categorizing the message topic within the medium.
+   * +kubebuilder:example=["welcome","onboarding"]
    * </pre>
    *
    * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -780,6 +782,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Labels for categorizing the message topic within the medium.
+   * +kubebuilder:example=["welcome","onboarding"]
    * </pre>
    *
    * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -792,6 +795,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Labels for categorizing the message topic within the medium.
+   * +kubebuilder:example=["welcome","onboarding"]
    * </pre>
    *
    * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -809,6 +813,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
+   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -822,6 +827,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
+   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -835,6 +841,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
+   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -850,6 +857,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Query expression that defines the target user segment.
    * Represented as a structured filter object.
+   * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -863,6 +871,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Query expression that defines the target user segment.
    * Represented as a structured filter object.
+   * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -876,6 +885,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Query expression that defines the target user segment.
    * Represented as a structured filter object.
+   * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -975,6 +985,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -998,6 +1009,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -1011,6 +1023,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -1029,6 +1042,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -1100,6 +1114,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Query expression to filter goal events by their properties.
    * Represented as a structured filter object. Applicable when goal_event_name is set.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -1113,6 +1128,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Query expression to filter goal events by their properties.
    * Represented as a structured filter object. Applicable when goal_event_name is set.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -1126,6 +1142,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Query expression to filter goal events by their properties.
    * Represented as a structured filter object. Applicable when goal_event_name is set.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -1141,7 +1158,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
    * Between 1 and 30 days. Defaults to 7 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
@@ -1155,7 +1172,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
    * Between 1 and 30 days. Defaults to 7 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
@@ -1169,7 +1186,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
    * Between 1 and 30 days. Defaults to 7 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
@@ -1234,6 +1251,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Scheduled send timestamp in UTC.
    * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -1247,6 +1265,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Scheduled send timestamp in UTC.
    * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -1260,6 +1279,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Scheduled send timestamp in UTC.
    * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -1325,6 +1345,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Snapshot of the message configuration captured before sending.
    * Represented as a free-form JSON object.
+   * +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -1338,6 +1359,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Snapshot of the message configuration captured before sending.
    * Represented as a free-form JSON object.
+   * +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -1351,6 +1373,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Snapshot of the message configuration captured before sending.
    * Represented as a free-form JSON object.
+   * +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -1366,6 +1389,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * One-time message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-22T02:17:56.008491Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 24 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1379,6 +1403,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * One-time message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-22T02:17:56.008491Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 24 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1392,6 +1417,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * One-time message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-22T02:17:56.008491Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 24 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1407,6 +1433,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * One-time message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 25 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -1420,6 +1447,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * One-time message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 25 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -1433,6 +1461,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * One-time message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 25 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -1512,7 +1541,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Duration before the user chat created by this message expires, in ISO 8601 format.
    * Defaults to 31 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
@@ -1526,7 +1555,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Duration before the user chat created by this message expires, in ISO 8601 format.
    * Defaults to 31 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
@@ -1540,7 +1569,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Duration before the user chat created by this message expires, in ISO 8601 format.
    * Defaults to 31 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
@@ -3438,6 +3467,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Labels for categorizing the message topic within the medium.
+     * +kubebuilder:example=["welcome","onboarding"]
      * </pre>
      *
      * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -3450,6 +3480,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Labels for categorizing the message topic within the medium.
+     * +kubebuilder:example=["welcome","onboarding"]
      * </pre>
      *
      * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -3461,6 +3492,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Labels for categorizing the message topic within the medium.
+     * +kubebuilder:example=["welcome","onboarding"]
      * </pre>
      *
      * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -3473,6 +3505,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Labels for categorizing the message topic within the medium.
+     * +kubebuilder:example=["welcome","onboarding"]
      * </pre>
      *
      * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -3486,6 +3519,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Labels for categorizing the message topic within the medium.
+     * +kubebuilder:example=["welcome","onboarding"]
      * </pre>
      *
      * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -3506,6 +3540,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Labels for categorizing the message topic within the medium.
+     * +kubebuilder:example=["welcome","onboarding"]
      * </pre>
      *
      * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -3525,6 +3560,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Labels for categorizing the message topic within the medium.
+     * +kubebuilder:example=["welcome","onboarding"]
      * </pre>
      *
      * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -3542,6 +3578,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Labels for categorizing the message topic within the medium.
+     * +kubebuilder:example=["welcome","onboarding"]
      * </pre>
      *
      * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -3556,6 +3593,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Labels for categorizing the message topic within the medium.
+     * +kubebuilder:example=["welcome","onboarding"]
      * </pre>
      *
      * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -3581,6 +3619,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3593,6 +3632,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3609,6 +3649,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3630,6 +3671,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3649,6 +3691,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3672,6 +3715,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3691,6 +3735,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3704,6 +3749,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3720,6 +3766,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3745,6 +3792,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression that defines the target user segment.
      * Represented as a structured filter object.
+     * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -3757,6 +3805,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression that defines the target user segment.
      * Represented as a structured filter object.
+     * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -3773,6 +3822,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression that defines the target user segment.
      * Represented as a structured filter object.
+     * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -3794,6 +3844,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression that defines the target user segment.
      * Represented as a structured filter object.
+     * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -3813,6 +3864,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression that defines the target user segment.
      * Represented as a structured filter object.
+     * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -3836,6 +3888,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression that defines the target user segment.
      * Represented as a structured filter object.
+     * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -3855,6 +3908,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression that defines the target user segment.
      * Represented as a structured filter object.
+     * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -3868,6 +3922,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression that defines the target user segment.
      * Represented as a structured filter object.
+     * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -3884,6 +3939,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression that defines the target user segment.
      * Represented as a structured filter object.
+     * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -4244,6 +4300,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
      * Defines how long after delivery each conversion event is counted.
+     * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
      * </pre>
      *
      * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -4267,6 +4324,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
      * Defines how long after delivery each conversion event is counted.
+     * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
      * </pre>
      *
      * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -4280,6 +4338,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
      * Defines how long after delivery each conversion event is counted.
+     * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
      * </pre>
      *
      * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -4298,6 +4357,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
      * Defines how long after delivery each conversion event is counted.
+     * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
      * </pre>
      *
      * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -4324,6 +4384,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
      * Defines how long after delivery each conversion event is counted.
+     * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
      * </pre>
      *
      * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -4348,6 +4409,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
      * Defines how long after delivery each conversion event is counted.
+     * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
      * </pre>
      *
      * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -4368,6 +4430,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
      * Defines how long after delivery each conversion event is counted.
+     * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
      * </pre>
      *
      * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -4488,6 +4551,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression to filter goal events by their properties.
      * Represented as a structured filter object. Applicable when goal_event_name is set.
+     * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -4500,6 +4564,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression to filter goal events by their properties.
      * Represented as a structured filter object. Applicable when goal_event_name is set.
+     * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -4516,6 +4581,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression to filter goal events by their properties.
      * Represented as a structured filter object. Applicable when goal_event_name is set.
+     * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -4537,6 +4603,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression to filter goal events by their properties.
      * Represented as a structured filter object. Applicable when goal_event_name is set.
+     * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -4556,6 +4623,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression to filter goal events by their properties.
      * Represented as a structured filter object. Applicable when goal_event_name is set.
+     * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -4579,6 +4647,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression to filter goal events by their properties.
      * Represented as a structured filter object. Applicable when goal_event_name is set.
+     * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -4598,6 +4667,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression to filter goal events by their properties.
      * Represented as a structured filter object. Applicable when goal_event_name is set.
+     * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -4611,6 +4681,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression to filter goal events by their properties.
      * Represented as a structured filter object. Applicable when goal_event_name is set.
+     * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -4627,6 +4698,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Query expression to filter goal events by their properties.
      * Represented as a structured filter object. Applicable when goal_event_name is set.
+     * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -4652,7 +4724,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Time window for attributing goal events after delivery, in ISO 8601 duration format.
      * Between 1 and 30 days. Defaults to 7 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
@@ -4665,7 +4737,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Time window for attributing goal events after delivery, in ISO 8601 duration format.
      * Between 1 and 30 days. Defaults to 7 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
@@ -4682,7 +4754,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Time window for attributing goal events after delivery, in ISO 8601 duration format.
      * Between 1 and 30 days. Defaults to 7 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
@@ -4704,7 +4776,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Time window for attributing goal events after delivery, in ISO 8601 duration format.
      * Between 1 and 30 days. Defaults to 7 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
@@ -4724,7 +4796,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Time window for attributing goal events after delivery, in ISO 8601 duration format.
      * Between 1 and 30 days. Defaults to 7 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
@@ -4748,7 +4820,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Time window for attributing goal events after delivery, in ISO 8601 duration format.
      * Between 1 and 30 days. Defaults to 7 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
@@ -4768,7 +4840,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Time window for attributing goal events after delivery, in ISO 8601 duration format.
      * Between 1 and 30 days. Defaults to 7 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
@@ -4782,7 +4854,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Time window for attributing goal events after delivery, in ISO 8601 duration format.
      * Between 1 and 30 days. Defaults to 7 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
@@ -4799,7 +4871,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Time window for attributing goal events after delivery, in ISO 8601 duration format.
      * Between 1 and 30 days. Defaults to 7 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
@@ -4966,6 +5038,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Scheduled send timestamp in UTC.
      * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -4978,6 +5051,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Scheduled send timestamp in UTC.
      * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -4994,6 +5068,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Scheduled send timestamp in UTC.
      * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -5015,6 +5090,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Scheduled send timestamp in UTC.
      * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -5034,6 +5110,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Scheduled send timestamp in UTC.
      * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -5057,6 +5134,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Scheduled send timestamp in UTC.
      * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -5076,6 +5154,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Scheduled send timestamp in UTC.
      * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -5089,6 +5168,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Scheduled send timestamp in UTC.
      * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -5105,6 +5185,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Scheduled send timestamp in UTC.
      * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -5236,6 +5317,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
+     * +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5248,6 +5330,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
+     * +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5264,6 +5347,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
+     * +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5285,6 +5369,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
+     * +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5304,6 +5389,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
+     * +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5327,6 +5413,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
+     * +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5346,6 +5433,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
+     * +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5359,6 +5447,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
+     * +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5375,6 +5464,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
+     * +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5400,6 +5490,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T02:17:56.008491Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 24 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5412,6 +5503,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T02:17:56.008491Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 24 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5428,6 +5520,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T02:17:56.008491Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 24 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5449,6 +5542,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T02:17:56.008491Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 24 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5468,6 +5562,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T02:17:56.008491Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 24 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5491,6 +5586,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T02:17:56.008491Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 24 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5510,6 +5606,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T02:17:56.008491Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 24 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5523,6 +5620,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T02:17:56.008491Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 24 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5539,6 +5637,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-22T02:17:56.008491Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 24 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5564,6 +5663,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 25 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5576,6 +5676,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 25 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5592,6 +5693,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 25 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5613,6 +5715,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 25 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5632,6 +5735,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 25 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5655,6 +5759,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 25 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5674,6 +5779,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 25 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5687,6 +5793,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 25 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5703,6 +5810,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * One-time message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 25 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5912,7 +6020,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Duration before the user chat created by this message expires, in ISO 8601 format.
      * Defaults to 31 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
@@ -5925,7 +6033,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Duration before the user chat created by this message expires, in ISO 8601 format.
      * Defaults to 31 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
@@ -5942,7 +6050,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Duration before the user chat created by this message expires, in ISO 8601 format.
      * Defaults to 31 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
@@ -5964,7 +6072,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Duration before the user chat created by this message expires, in ISO 8601 format.
      * Defaults to 31 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
@@ -5984,7 +6092,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Duration before the user chat created by this message expires, in ISO 8601 format.
      * Defaults to 31 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
@@ -6008,7 +6116,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Duration before the user chat created by this message expires, in ISO 8601 format.
      * Defaults to 31 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
@@ -6028,7 +6136,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Duration before the user chat created by this message expires, in ISO 8601 format.
      * Defaults to 31 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
@@ -6042,7 +6150,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Duration before the user chat created by this message expires, in ISO 8601 format.
      * Defaults to 31 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
@@ -6059,7 +6167,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Duration before the user chat created by this message expires, in ISO 8601 format.
      * Defaults to 31 days.
-     * +kubebuilder:example="PT23H50M"
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>

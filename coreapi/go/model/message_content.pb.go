@@ -912,6 +912,8 @@ func (x *MessageWebPage) GetName() string {
 type MessageContent struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Structured content blocks of the message.
+	//
+	// +kubebuilder:validation:MinItems=1
 	Blocks []*Block `protobuf:"bytes,1,rep,name=blocks,proto3" json:"blocks,omitempty"`
 	// Plain text representation of the message.
 	//
@@ -1034,7 +1036,7 @@ var File_coreapi_model_message_content_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_message_content_proto_rawDesc = "" +
 	"\n" +
-	"#coreapi/model/message_content.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x8e\x02\n" +
+	"#coreapi/model/message_content.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xb2\x03\n" +
 	"\x05Block\x12:\n" +
 	"\x04type\x18\x01 \x01(\x0e2\x1e.coreapi.model.Block.BlockTypeB\x06\xbaH\x03\xc8\x01\x01R\x04type\x12\x1a\n" +
 	"\blanguage\x18\x02 \x01(\tR\blanguage\x12\x14\n" +
@@ -1044,7 +1046,8 @@ const file_coreapi_model_message_content_proto_rawDesc = "" +
 	"\x16BLOCK_TYPE_UNSPECIFIED\x10\x00\x12\x16\n" +
 	"\x12BLOCK_TYPE_BULLETS\x10\x01\x12\x13\n" +
 	"\x0fBLOCK_TYPE_CODE\x10\x02\x12\x13\n" +
-	"\x0fBLOCK_TYPE_TEXT\x10\x03\"\xad\x04\n" +
+	"\x0fBLOCK_TYPE_TEXT\x10\x03:\xa1\x01\xbaH\x9d\x01\x1a\x9a\x01\n" +
+	"#block.value_required_for_leaf_types\x121value must be non-empty when type is TEXT or CODE\x1a@(this.type == 2 || this.type == 3) ? size(this.value) > 0 : true\"\xad\x04\n" +
 	"\rMessageButton\x12\xb3\x01\n" +
 	"\x05title\x18\x01 \x01(\tB\x9c\x01\xbaH\x98\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01K\n" +
@@ -1109,9 +1112,9 @@ const file_coreapi_model_message_content_proto_rawDesc = "" +
 	"\vpreview_key\x18\f \x01(\tR\n" +
 	"previewKey\x12\x12\n" +
 	"\x04logo\x18\r \x01(\tR\x04logo\x12\x12\n" +
-	"\x04name\x18\x0e \x01(\tR\x04name\"\x99\x03\n" +
-	"\x0eMessageContent\x12,\n" +
-	"\x06blocks\x18\x01 \x03(\v2\x14.coreapi.model.BlockR\x06blocks\x12\x1d\n" +
+	"\x04name\x18\x0e \x01(\tR\x04name\"\xa3\x03\n" +
+	"\x0eMessageContent\x126\n" +
+	"\x06blocks\x18\x01 \x03(\v2\x14.coreapi.model.BlockB\b\xbaH\x05\x92\x01\x02\b\x01R\x06blocks\x12\x1d\n" +
 	"\n" +
 	"plain_text\x18\x02 \x01(\tR\tplainText\x12@\n" +
 	"\abuttons\x18\x03 \x03(\v2\x1c.coreapi.model.MessageButtonB\b\xbaH\x05\x92\x01\x02\x10\x02R\abuttons\x12:\n" +

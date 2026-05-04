@@ -607,6 +607,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Default welcome message shown to end users when a new conversation starts.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
@@ -620,6 +621,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Default welcome message shown to end users when a new conversation starts.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
@@ -633,6 +635,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Default welcome message shown to end users when a new conversation starts.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
@@ -671,6 +674,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -693,6 +697,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -705,6 +710,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -722,6 +728,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -745,6 +752,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -758,6 +766,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -771,6 +780,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -786,6 +796,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -799,6 +810,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -812,6 +824,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -952,6 +965,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:example={"ko":{"name":"Channel Guide","description":"고객 문의 응대 채널"},"en":{"name":"Channel Guide","description":"Customer support channel"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -974,6 +988,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:example={"ko":{"name":"Channel Guide","description":"고객 문의 응대 채널"},"en":{"name":"Channel Guide","description":"Customer support channel"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -986,6 +1001,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:example={"ko":{"name":"Channel Guide","description":"고객 문의 응대 채널"},"en":{"name":"Channel Guide","description":"Customer support channel"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -1003,6 +1019,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:example={"ko":{"name":"Channel Guide","description":"고객 문의 응대 채널"},"en":{"name":"Channel Guide","description":"Customer support channel"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -2108,6 +2125,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Countries where the channel has obtained business certification.
    * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * +kubebuilder:example=["KR","JP"]
    * </pre>
    *
    * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -2121,6 +2139,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Countries where the channel has obtained business certification.
    * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * +kubebuilder:example=["KR","JP"]
    * </pre>
    *
    * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -2133,6 +2152,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Countries where the channel has obtained business certification.
    * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * +kubebuilder:example=["KR","JP"]
    * </pre>
    *
    * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -2146,6 +2166,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Countries where the channel has obtained business certification.
    * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * +kubebuilder:example=["KR","JP"]
    * </pre>
    *
    * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -2331,6 +2352,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the next operating period starts.
    * Present only when the channel is currently outside operating hours.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -2344,6 +2366,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the next operating period starts.
    * Present only when the channel is currently outside operating hours.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -2357,6 +2380,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the next operating period starts.
    * Present only when the channel is currently outside operating hours.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -2372,6 +2396,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the next away (non-operating) period starts.
    * Present only when the channel is currently within operating hours.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -2385,6 +2410,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the next away (non-operating) period starts.
    * Present only when the channel is currently within operating hours.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -2398,6 +2424,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the next away (non-operating) period starts.
    * Present only when the channel is currently within operating hours.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -2519,6 +2546,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Grace period after conversation closure during which the end user may still reply.
    * Applicable only when block_replying_after_closed is true.
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -2532,6 +2560,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Grace period after conversation closure during which the end user may still reply.
    * Applicable only when block_replying_after_closed is true.
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -2545,6 +2574,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Grace period after conversation closure during which the end user may still reply.
    * Applicable only when block_replying_after_closed is true.
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -4581,6 +4611,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Default welcome message shown to end users when a new conversation starts.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
@@ -4593,6 +4624,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Default welcome message shown to end users when a new conversation starts.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
@@ -4609,6 +4641,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Default welcome message shown to end users when a new conversation starts.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
@@ -4630,6 +4663,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Default welcome message shown to end users when a new conversation starts.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
@@ -4649,6 +4683,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Default welcome message shown to end users when a new conversation starts.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
@@ -4672,6 +4707,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Default welcome message shown to end users when a new conversation starts.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
@@ -4691,6 +4727,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Default welcome message shown to end users when a new conversation starts.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
@@ -4704,6 +4741,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Default welcome message shown to end users when a new conversation starts.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
@@ -4720,6 +4758,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Default welcome message shown to end users when a new conversation starts.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
@@ -4767,6 +4806,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
      * </pre>
      *
      * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -4789,6 +4829,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
      * </pre>
      *
      * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -4801,6 +4842,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
      * </pre>
      *
      * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -4818,6 +4860,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
      * </pre>
      *
      * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -4843,6 +4886,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
      * </pre>
      *
      * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -4866,6 +4910,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
      * </pre>
      *
      * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -4885,6 +4930,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
      * </pre>
      *
      * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -4904,6 +4950,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4916,6 +4963,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4932,6 +4980,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4953,6 +5002,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4972,6 +5022,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4995,6 +5046,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5014,6 +5066,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5027,6 +5080,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5043,6 +5097,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 4 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -5068,6 +5123,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5080,6 +5136,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5096,6 +5153,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5117,6 +5175,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5136,6 +5195,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5159,6 +5219,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5178,6 +5239,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5191,6 +5253,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5207,6 +5270,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-02-12T08:41:20.392099Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 5 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5471,6 +5535,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"name":"Channel Guide","description":"고객 문의 응대 채널"},"en":{"name":"Channel Guide","description":"Customer support channel"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -5493,6 +5558,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"name":"Channel Guide","description":"고객 문의 응대 채널"},"en":{"name":"Channel Guide","description":"Customer support channel"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -5505,6 +5571,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"name":"Channel Guide","description":"고객 문의 응대 채널"},"en":{"name":"Channel Guide","description":"Customer support channel"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -5522,6 +5589,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"name":"Channel Guide","description":"고객 문의 응대 채널"},"en":{"name":"Channel Guide","description":"Customer support channel"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -5547,6 +5615,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"name":"Channel Guide","description":"고객 문의 응대 채널"},"en":{"name":"Channel Guide","description":"Customer support channel"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -5570,6 +5639,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"name":"Channel Guide","description":"고객 문의 응대 채널"},"en":{"name":"Channel Guide","description":"Customer support channel"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -5589,6 +5659,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"name":"Channel Guide","description":"고객 문의 응대 채널"},"en":{"name":"Channel Guide","description":"Customer support channel"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 8 [json_name = "nameDescI18nMap"];</code>
@@ -8085,6 +8156,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Countries where the channel has obtained business certification.
      * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:example=["KR","JP"]
      * </pre>
      *
      * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -8098,6 +8170,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Countries where the channel has obtained business certification.
      * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:example=["KR","JP"]
      * </pre>
      *
      * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -8110,6 +8183,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Countries where the channel has obtained business certification.
      * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:example=["KR","JP"]
      * </pre>
      *
      * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -8123,6 +8197,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Countries where the channel has obtained business certification.
      * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:example=["KR","JP"]
      * </pre>
      *
      * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -8137,6 +8212,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Countries where the channel has obtained business certification.
      * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:example=["KR","JP"]
      * </pre>
      *
      * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -8158,6 +8234,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Countries where the channel has obtained business certification.
      * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:example=["KR","JP"]
      * </pre>
      *
      * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -8178,6 +8255,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Countries where the channel has obtained business certification.
      * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:example=["KR","JP"]
      * </pre>
      *
      * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -8196,6 +8274,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Countries where the channel has obtained business certification.
      * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:example=["KR","JP"]
      * </pre>
      *
      * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -8211,6 +8290,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Countries where the channel has obtained business certification.
      * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+     * +kubebuilder:example=["KR","JP"]
      * </pre>
      *
      * <code>repeated string biz_certificated_countries = 40 [json_name = "bizCertificatedCountries"];</code>
@@ -8678,6 +8758,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next operating period starts.
      * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -8690,6 +8771,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next operating period starts.
      * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -8706,6 +8788,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next operating period starts.
      * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -8727,6 +8810,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next operating period starts.
      * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -8746,6 +8830,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next operating period starts.
      * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -8769,6 +8854,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next operating period starts.
      * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -8788,6 +8874,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next operating period starts.
      * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -8801,6 +8888,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next operating period starts.
      * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -8817,6 +8905,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next operating period starts.
      * Present only when the channel is currently outside operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_working_time = 48 [json_name = "nextWorkingTime"];</code>
@@ -8842,6 +8931,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next away (non-operating) period starts.
      * Present only when the channel is currently within operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -8854,6 +8944,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next away (non-operating) period starts.
      * Present only when the channel is currently within operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -8870,6 +8961,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next away (non-operating) period starts.
      * Present only when the channel is currently within operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -8891,6 +8983,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next away (non-operating) period starts.
      * Present only when the channel is currently within operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -8910,6 +9003,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next away (non-operating) period starts.
      * Present only when the channel is currently within operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -8933,6 +9027,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next away (non-operating) period starts.
      * Present only when the channel is currently within operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -8952,6 +9047,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next away (non-operating) period starts.
      * Present only when the channel is currently within operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -8965,6 +9061,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next away (non-operating) period starts.
      * Present only when the channel is currently within operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -8981,6 +9078,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the next away (non-operating) period starts.
      * Present only when the channel is currently within operating hours.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_away_time = 49 [json_name = "nextAwayTime"];</code>
@@ -9446,6 +9544,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Grace period after conversation closure during which the end user may still reply.
      * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -9458,6 +9557,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Grace period after conversation closure during which the end user may still reply.
      * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -9474,6 +9574,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Grace period after conversation closure during which the end user may still reply.
      * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -9495,6 +9596,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Grace period after conversation closure during which the end user may still reply.
      * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -9514,6 +9616,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Grace period after conversation closure during which the end user may still reply.
      * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -9537,6 +9640,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Grace period after conversation closure during which the end user may still reply.
      * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -9556,6 +9660,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Grace period after conversation closure during which the end user may still reply.
      * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -9569,6 +9674,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Grace period after conversation closure during which the end user may still reply.
      * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>
@@ -9585,6 +9691,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Grace period after conversation closure during which the end user may still reply.
      * Applicable only when block_replying_after_closed is true.
+     * +kubebuilder:example="PT1H30M"
      * </pre>
      *
      * <code>.google.protobuf.Duration block_replying_after_closed_time = 53 [json_name = "blockReplyingAfterClosedTime"];</code>

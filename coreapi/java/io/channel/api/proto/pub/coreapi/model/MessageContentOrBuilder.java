@@ -10,43 +10,48 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Structured content blocks of the message.
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
    */
   java.util.List<io.channel.api.proto.pub.coreapi.model.Block> 
       getBlocksList();
   /**
    * <pre>
    * Structured content blocks of the message.
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
    */
   io.channel.api.proto.pub.coreapi.model.Block getBlocks(int index);
   /**
    * <pre>
    * Structured content blocks of the message.
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
    */
   int getBlocksCount();
   /**
    * <pre>
    * Structured content blocks of the message.
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
    */
   java.util.List<? extends io.channel.api.proto.pub.coreapi.model.BlockOrBuilder> 
       getBlocksOrBuilderList();
   /**
    * <pre>
    * Structured content blocks of the message.
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
    */
   io.channel.api.proto.pub.coreapi.model.BlockOrBuilder getBlocksOrBuilder(
       int index);
@@ -202,6 +207,7 @@ public interface MessageContentOrBuilder extends
    * <pre>
    * Interactive form attached to the message.
    * The structure depends on the form type (custom, followUp, call).
+   * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -212,6 +218,7 @@ public interface MessageContentOrBuilder extends
    * <pre>
    * Interactive form attached to the message.
    * The structure depends on the form type (custom, followUp, call).
+   * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -222,6 +229,7 @@ public interface MessageContentOrBuilder extends
    * <pre>
    * Interactive form attached to the message.
    * The structure depends on the form type (custom, followUp, call).
+   * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -231,6 +239,7 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -240,6 +249,7 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -249,6 +259,7 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -259,6 +270,7 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -269,6 +281,7 @@ public interface MessageContentOrBuilder extends
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>

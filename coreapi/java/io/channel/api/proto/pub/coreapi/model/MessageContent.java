@@ -196,9 +196,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Structured content blocks of the message.
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public java.util.List<io.channel.api.proto.pub.coreapi.model.Block> getBlocksList() {
@@ -207,9 +208,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Structured content blocks of the message.
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.BlockOrBuilder> 
@@ -219,9 +221,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Structured content blocks of the message.
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public int getBlocksCount() {
@@ -230,9 +233,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Structured content blocks of the message.
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public io.channel.api.proto.pub.coreapi.model.Block getBlocks(int index) {
@@ -241,9 +245,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Structured content blocks of the message.
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
-   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+   * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public io.channel.api.proto.pub.coreapi.model.BlockOrBuilder getBlocksOrBuilder(
@@ -473,6 +478,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Interactive form attached to the message.
    * The structure depends on the form type (custom, followUp, call).
+   * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -486,6 +492,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Interactive form attached to the message.
    * The structure depends on the form type (custom, followUp, call).
+   * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -499,6 +506,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Interactive form attached to the message.
    * The structure depends on the form type (custom, followUp, call).
+   * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -523,6 +531,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -536,6 +545,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -548,6 +558,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -561,6 +572,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -574,6 +586,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Option flags that modify message delivery and display behavior.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -1241,9 +1254,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public java.util.List<io.channel.api.proto.pub.coreapi.model.Block> getBlocksList() {
       if (blocksBuilder_ == null) {
@@ -1255,9 +1269,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public int getBlocksCount() {
       if (blocksBuilder_ == null) {
@@ -1269,9 +1284,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public io.channel.api.proto.pub.coreapi.model.Block getBlocks(int index) {
       if (blocksBuilder_ == null) {
@@ -1283,9 +1299,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public Builder setBlocks(
         int index, io.channel.api.proto.pub.coreapi.model.Block value) {
@@ -1304,9 +1321,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public Builder setBlocks(
         int index, io.channel.api.proto.pub.coreapi.model.Block.Builder builderForValue) {
@@ -1322,9 +1340,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public Builder addBlocks(io.channel.api.proto.pub.coreapi.model.Block value) {
       if (blocksBuilder_ == null) {
@@ -1342,9 +1361,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public Builder addBlocks(
         int index, io.channel.api.proto.pub.coreapi.model.Block value) {
@@ -1363,9 +1383,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public Builder addBlocks(
         io.channel.api.proto.pub.coreapi.model.Block.Builder builderForValue) {
@@ -1381,9 +1402,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public Builder addBlocks(
         int index, io.channel.api.proto.pub.coreapi.model.Block.Builder builderForValue) {
@@ -1399,9 +1421,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public Builder addAllBlocks(
         java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.Block> values) {
@@ -1418,9 +1441,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearBlocks() {
       if (blocksBuilder_ == null) {
@@ -1435,9 +1459,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public Builder removeBlocks(int index) {
       if (blocksBuilder_ == null) {
@@ -1452,9 +1477,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public io.channel.api.proto.pub.coreapi.model.Block.Builder getBlocksBuilder(
         int index) {
@@ -1463,9 +1489,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public io.channel.api.proto.pub.coreapi.model.BlockOrBuilder getBlocksOrBuilder(
         int index) {
@@ -1477,9 +1504,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public java.util.List<? extends io.channel.api.proto.pub.coreapi.model.BlockOrBuilder> 
          getBlocksOrBuilderList() {
@@ -1492,9 +1520,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public io.channel.api.proto.pub.coreapi.model.Block.Builder addBlocksBuilder() {
       return getBlocksFieldBuilder().addBuilder(
@@ -1503,9 +1532,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public io.channel.api.proto.pub.coreapi.model.Block.Builder addBlocksBuilder(
         int index) {
@@ -1515,9 +1545,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Structured content blocks of the message.
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks"];</code>
+     * <code>repeated .coreapi.model.Block blocks = 1 [json_name = "blocks", (.buf.validate.field) = { ... }</code>
      */
     public java.util.List<io.channel.api.proto.pub.coreapi.model.Block.Builder> 
          getBlocksBuilderList() {
@@ -2461,6 +2492,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Interactive form attached to the message.
      * The structure depends on the form type (custom, followUp, call).
+     * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -2473,6 +2505,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Interactive form attached to the message.
      * The structure depends on the form type (custom, followUp, call).
+     * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -2489,6 +2522,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Interactive form attached to the message.
      * The structure depends on the form type (custom, followUp, call).
+     * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -2510,6 +2544,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Interactive form attached to the message.
      * The structure depends on the form type (custom, followUp, call).
+     * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -2529,6 +2564,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Interactive form attached to the message.
      * The structure depends on the form type (custom, followUp, call).
+     * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -2552,6 +2588,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Interactive form attached to the message.
      * The structure depends on the form type (custom, followUp, call).
+     * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -2571,6 +2608,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Interactive form attached to the message.
      * The structure depends on the form type (custom, followUp, call).
+     * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -2584,6 +2622,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Interactive form attached to the message.
      * The structure depends on the form type (custom, followUp, call).
+     * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -2600,6 +2639,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Interactive form attached to the message.
      * The structure depends on the form type (custom, followUp, call).
+     * +kubebuilder:example={"formType":"custom","fields":[{"id":"name","type":"text"}]}
      * </pre>
      *
      * <code>.google.protobuf.Struct form = 6 [json_name = "form"];</code>
@@ -2629,6 +2669,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Option flags that modify message delivery and display behavior.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -2641,6 +2682,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Option flags that modify message delivery and display behavior.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -2652,6 +2694,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Option flags that modify message delivery and display behavior.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -2664,6 +2707,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Option flags that modify message delivery and display behavior.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -2684,6 +2728,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Option flags that modify message delivery and display behavior.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -2702,6 +2747,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Option flags that modify message delivery and display behavior.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -2720,6 +2766,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Option flags that modify message delivery and display behavior.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -2734,6 +2781,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Option flags that modify message delivery and display behavior.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -2746,6 +2794,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Option flags that modify message delivery and display behavior.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -2758,6 +2807,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Option flags that modify message delivery and display behavior.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -2775,6 +2825,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Option flags that modify message delivery and display behavior.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>
@@ -2790,6 +2841,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Option flags that modify message delivery and display behavior.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.MessageOption options = 7 [json_name = "options"];</code>

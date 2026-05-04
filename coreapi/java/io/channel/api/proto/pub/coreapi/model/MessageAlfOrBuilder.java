@@ -55,6 +55,7 @@ public interface MessageAlfOrBuilder extends
    * <pre>
    * Source documents or articles cited by ALF in its response.
    * Each entry contains reference metadata such as title, URL, and relevance score.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -65,6 +66,7 @@ public interface MessageAlfOrBuilder extends
    * <pre>
    * Source documents or articles cited by ALF in its response.
    * Each entry contains reference metadata such as title, URL, and relevance score.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -74,6 +76,7 @@ public interface MessageAlfOrBuilder extends
    * <pre>
    * Source documents or articles cited by ALF in its response.
    * Each entry contains reference metadata such as title, URL, and relevance score.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -83,6 +86,7 @@ public interface MessageAlfOrBuilder extends
    * <pre>
    * Source documents or articles cited by ALF in its response.
    * Each entry contains reference metadata such as title, URL, and relevance score.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>
@@ -93,6 +97,7 @@ public interface MessageAlfOrBuilder extends
    * <pre>
    * Source documents or articles cited by ALF in its response.
    * Each entry contains reference metadata such as title, URL, and relevance score.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct references = 3 [json_name = "references"];</code>

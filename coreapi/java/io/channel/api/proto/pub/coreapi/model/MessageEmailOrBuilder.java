@@ -51,6 +51,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Sender email address with optional display name.
+   * +kubebuilder:example={"email":"support&#64;channel.io","name":"Support"}
    * </pre>
    *
    * <code>.google.protobuf.Struct from = 3 [json_name = "from"];</code>
@@ -60,6 +61,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Sender email address with optional display name.
+   * +kubebuilder:example={"email":"support&#64;channel.io","name":"Support"}
    * </pre>
    *
    * <code>.google.protobuf.Struct from = 3 [json_name = "from"];</code>
@@ -69,6 +71,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Sender email address with optional display name.
+   * +kubebuilder:example={"email":"support&#64;channel.io","name":"Support"}
    * </pre>
    *
    * <code>.google.protobuf.Struct from = 3 [json_name = "from"];</code>
@@ -78,6 +81,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Primary recipient email addresses.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct to = 4 [json_name = "to"];</code>
@@ -87,6 +91,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Primary recipient email addresses.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct to = 4 [json_name = "to"];</code>
@@ -95,6 +100,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Primary recipient email addresses.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct to = 4 [json_name = "to"];</code>
@@ -103,6 +109,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Primary recipient email addresses.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct to = 4 [json_name = "to"];</code>
@@ -112,6 +119,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Primary recipient email addresses.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct to = 4 [json_name = "to"];</code>
@@ -122,6 +130,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Carbon copy (CC) recipient email addresses.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct cc = 5 [json_name = "cc"];</code>
@@ -131,6 +140,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Carbon copy (CC) recipient email addresses.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct cc = 5 [json_name = "cc"];</code>
@@ -139,6 +149,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Carbon copy (CC) recipient email addresses.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct cc = 5 [json_name = "cc"];</code>
@@ -147,6 +158,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Carbon copy (CC) recipient email addresses.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct cc = 5 [json_name = "cc"];</code>
@@ -156,6 +168,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Carbon copy (CC) recipient email addresses.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct cc = 5 [json_name = "cc"];</code>
@@ -166,6 +179,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Blind carbon copy (BCC) recipient email addresses.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct bcc = 6 [json_name = "bcc"];</code>
@@ -175,6 +189,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Blind carbon copy (BCC) recipient email addresses.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct bcc = 6 [json_name = "bcc"];</code>
@@ -183,6 +198,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Blind carbon copy (BCC) recipient email addresses.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct bcc = 6 [json_name = "bcc"];</code>
@@ -191,6 +207,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Blind carbon copy (BCC) recipient email addresses.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct bcc = 6 [json_name = "bcc"];</code>
@@ -200,6 +217,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Blind carbon copy (BCC) recipient email addresses.
+   * +kubebuilder:example=[]
    * </pre>
    *
    * <code>repeated .google.protobuf.Struct bcc = 6 [json_name = "bcc"];</code>
@@ -210,6 +228,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Designated reply-to address, if different from the sender.
+   * +kubebuilder:example={"email":"noreply&#64;channel.io","name":"No Reply"}
    * </pre>
    *
    * <code>.google.protobuf.Struct reply_to = 7 [json_name = "replyTo"];</code>
@@ -219,6 +238,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Designated reply-to address, if different from the sender.
+   * +kubebuilder:example={"email":"noreply&#64;channel.io","name":"No Reply"}
    * </pre>
    *
    * <code>.google.protobuf.Struct reply_to = 7 [json_name = "replyTo"];</code>
@@ -228,6 +248,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Designated reply-to address, if different from the sender.
+   * +kubebuilder:example={"email":"noreply&#64;channel.io","name":"No Reply"}
    * </pre>
    *
    * <code>.google.protobuf.Struct reply_to = 7 [json_name = "replyTo"];</code>
@@ -317,6 +338,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Email creation timestamp.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 12 [json_name = "createdAt"];</code>
@@ -326,6 +348,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Email creation timestamp.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 12 [json_name = "createdAt"];</code>
@@ -335,6 +358,7 @@ public interface MessageEmailOrBuilder extends
   /**
    * <pre>
    * Email creation timestamp.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 12 [json_name = "createdAt"];</code>

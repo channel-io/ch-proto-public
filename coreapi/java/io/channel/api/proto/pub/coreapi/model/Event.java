@@ -392,6 +392,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+   * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
    * </pre>
    *
    * <code>.google.protobuf.Struct property = 5 [json_name = "property"];</code>
@@ -404,6 +405,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+   * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
    * </pre>
    *
    * <code>.google.protobuf.Struct property = 5 [json_name = "property"];</code>
@@ -416,6 +418,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+   * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
    * </pre>
    *
    * <code>.google.protobuf.Struct property = 5 [json_name = "property"];</code>
@@ -431,6 +434,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Event creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -444,6 +448,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Event creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -457,6 +462,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Event creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -471,6 +477,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expiration timestamp after which the event may no longer be retrievable.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -483,6 +490,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expiration timestamp after which the event may no longer be retrievable.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -495,6 +503,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expiration timestamp after which the event may no longer be retrievable.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -551,6 +560,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Internationalized event name map keyed by locale (e.g., en, ko).
    * Populated only for system-defined events; custom events return no entries.
+   * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -574,6 +584,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Internationalized event name map keyed by locale (e.g., en, ko).
    * Populated only for system-defined events; custom events return no entries.
+   * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -587,6 +598,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Internationalized event name map keyed by locale (e.g., en, ko).
    * Populated only for system-defined events; custom events return no entries.
+   * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -605,6 +617,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Internationalized event name map keyed by locale (e.g., en, ko).
    * Populated only for system-defined events; custom events return no entries.
+   * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -1579,6 +1592,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
      * <code>.google.protobuf.Struct property = 5 [json_name = "property"];</code>
@@ -1590,6 +1604,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
      * <code>.google.protobuf.Struct property = 5 [json_name = "property"];</code>
@@ -1605,6 +1620,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
      * <code>.google.protobuf.Struct property = 5 [json_name = "property"];</code>
@@ -1625,6 +1641,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
      * <code>.google.protobuf.Struct property = 5 [json_name = "property"];</code>
@@ -1643,6 +1660,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
      * <code>.google.protobuf.Struct property = 5 [json_name = "property"];</code>
@@ -1665,6 +1683,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
      * <code>.google.protobuf.Struct property = 5 [json_name = "property"];</code>
@@ -1683,6 +1702,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
      * <code>.google.protobuf.Struct property = 5 [json_name = "property"];</code>
@@ -1695,6 +1715,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
      * <code>.google.protobuf.Struct property = 5 [json_name = "property"];</code>
@@ -1710,6 +1731,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
      * <code>.google.protobuf.Struct property = 5 [json_name = "property"];</code>
@@ -1735,6 +1757,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1747,6 +1770,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1763,6 +1787,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1784,6 +1809,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1803,6 +1829,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1826,6 +1853,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1845,6 +1873,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1858,6 +1887,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1874,6 +1904,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1898,6 +1929,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -1909,6 +1941,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -1924,6 +1957,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -1944,6 +1978,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -1962,6 +1997,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -1984,6 +2020,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -2002,6 +2039,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -2014,6 +2052,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -2029,6 +2068,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expiration timestamp after which the event may no longer be retrievable.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 7 [json_name = "expireAt"];</code>
@@ -2126,6 +2166,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized event name map keyed by locale (e.g., en, ko).
      * Populated only for system-defined events; custom events return no entries.
+     * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -2149,6 +2190,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized event name map keyed by locale (e.g., en, ko).
      * Populated only for system-defined events; custom events return no entries.
+     * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -2162,6 +2204,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized event name map keyed by locale (e.g., en, ko).
      * Populated only for system-defined events; custom events return no entries.
+     * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -2180,6 +2223,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized event name map keyed by locale (e.g., en, ko).
      * Populated only for system-defined events; custom events return no entries.
+     * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -2206,6 +2250,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized event name map keyed by locale (e.g., en, ko).
      * Populated only for system-defined events; custom events return no entries.
+     * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -2230,6 +2275,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized event name map keyed by locale (e.g., en, ko).
      * Populated only for system-defined events; custom events return no entries.
+     * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -2250,6 +2296,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized event name map keyed by locale (e.g., en, ko).
      * Populated only for system-defined events; custom events return no entries.
+     * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>

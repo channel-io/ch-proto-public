@@ -100,7 +100,17 @@ public interface UpdatePluginRequestOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>bool label_button = 5 [json_name = "labelButton"];</code>
+   * <code>optional bool label_button = 5 [json_name = "labelButton"];</code>
+   * @return Whether the labelButton field is set.
+   */
+  boolean hasLabelButton();
+  /**
+   * <pre>
+   * Whether the label button is displayed on the widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>optional bool label_button = 5 [json_name = "labelButton"];</code>
    * @return The labelButton.
    */
   boolean getLabelButton();
@@ -245,7 +255,17 @@ public interface UpdatePluginRequestOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>int32 desk_margin_x = 10 [json_name = "deskMarginX"];</code>
+   * <code>optional int32 desk_margin_x = 10 [json_name = "deskMarginX"];</code>
+   * @return Whether the deskMarginX field is set.
+   */
+  boolean hasDeskMarginX();
+  /**
+   * <pre>
+   * Horizontal margin in pixels for the desktop widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>optional int32 desk_margin_x = 10 [json_name = "deskMarginX"];</code>
    * @return The deskMarginX.
    */
   int getDeskMarginX();
@@ -256,7 +276,17 @@ public interface UpdatePluginRequestOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>int32 desk_margin_y = 11 [json_name = "deskMarginY"];</code>
+   * <code>optional int32 desk_margin_y = 11 [json_name = "deskMarginY"];</code>
+   * @return Whether the deskMarginY field is set.
+   */
+  boolean hasDeskMarginY();
+  /**
+   * <pre>
+   * Vertical margin in pixels for the desktop widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>optional int32 desk_margin_y = 11 [json_name = "deskMarginY"];</code>
    * @return The deskMarginY.
    */
   int getDeskMarginY();
@@ -267,7 +297,17 @@ public interface UpdatePluginRequestOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>bool desk_hide_button = 12 [json_name = "deskHideButton"];</code>
+   * <code>optional bool desk_hide_button = 12 [json_name = "deskHideButton"];</code>
+   * @return Whether the deskHideButton field is set.
+   */
+  boolean hasDeskHideButton();
+  /**
+   * <pre>
+   * Whether the launcher button is hidden on desktop.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>optional bool desk_hide_button = 12 [json_name = "deskHideButton"];</code>
    * @return The deskHideButton.
    */
   boolean getDeskHideButton();
@@ -299,7 +339,17 @@ public interface UpdatePluginRequestOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>int32 mobile_margin_x = 14 [json_name = "mobileMarginX"];</code>
+   * <code>optional int32 mobile_margin_x = 14 [json_name = "mobileMarginX"];</code>
+   * @return Whether the mobileMarginX field is set.
+   */
+  boolean hasMobileMarginX();
+  /**
+   * <pre>
+   * Horizontal margin in pixels for the mobile widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>optional int32 mobile_margin_x = 14 [json_name = "mobileMarginX"];</code>
    * @return The mobileMarginX.
    */
   int getMobileMarginX();
@@ -310,7 +360,17 @@ public interface UpdatePluginRequestOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>int32 mobile_margin_y = 15 [json_name = "mobileMarginY"];</code>
+   * <code>optional int32 mobile_margin_y = 15 [json_name = "mobileMarginY"];</code>
+   * @return Whether the mobileMarginY field is set.
+   */
+  boolean hasMobileMarginY();
+  /**
+   * <pre>
+   * Vertical margin in pixels for the mobile widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>optional int32 mobile_margin_y = 15 [json_name = "mobileMarginY"];</code>
    * @return The mobileMarginY.
    */
   int getMobileMarginY();
@@ -342,7 +402,17 @@ public interface UpdatePluginRequestOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>bool mobile_hide_button = 17 [json_name = "mobileHideButton"];</code>
+   * <code>optional bool mobile_hide_button = 17 [json_name = "mobileHideButton"];</code>
+   * @return Whether the mobileHideButton field is set.
+   */
+  boolean hasMobileHideButton();
+  /**
+   * <pre>
+   * Whether the launcher button is hidden on mobile.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>optional bool mobile_hide_button = 17 [json_name = "mobileHideButton"];</code>
    * @return The mobileHideButton.
    */
   boolean getMobileHideButton();
@@ -376,7 +446,19 @@ public interface UpdatePluginRequestOrBuilder extends
    * +kubebuilder:validation:Maximum=1
    * </pre>
    *
-   * <code>float run_rate = 19 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
+   * <code>optional float run_rate = 19 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
+   * @return Whether the runRate field is set.
+   */
+  boolean hasRunRate();
+  /**
+   * <pre>
+   * Ratio of website visitors who see the plugin widget.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Minimum=0
+   * +kubebuilder:validation:Maximum=1
+   * </pre>
+   *
+   * <code>optional float run_rate = 19 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
    * @return The runRate.
    */
   float getRunRate();

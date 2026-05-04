@@ -89,7 +89,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 40: {
-
+            bitField0_ |= 0x00000001;
             labelButton_ = input.readBool();
             break;
           }
@@ -100,10 +100,10 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 58: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
               labelButtonTextI18NMap_ = com.google.protobuf.MapField.newMapField(
                   LabelButtonTextI18NMapDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
+              mutable_bitField0_ |= 0x00000002;
             }
             com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
             labelButtonTextI18NMap__ = input.readMessage(
@@ -125,17 +125,17 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 80: {
-
+            bitField0_ |= 0x00000002;
             deskMarginX_ = input.readInt32();
             break;
           }
           case 88: {
-
+            bitField0_ |= 0x00000004;
             deskMarginY_ = input.readInt32();
             break;
           }
           case 96: {
-
+            bitField0_ |= 0x00000008;
             deskHideButton_ = input.readBool();
             break;
           }
@@ -146,12 +146,12 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 112: {
-
+            bitField0_ |= 0x00000010;
             mobileMarginX_ = input.readInt32();
             break;
           }
           case 120: {
-
+            bitField0_ |= 0x00000020;
             mobileMarginY_ = input.readInt32();
             break;
           }
@@ -162,7 +162,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 136: {
-
+            bitField0_ |= 0x00000040;
             mobileHideButton_ = input.readBool();
             break;
           }
@@ -173,7 +173,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 157: {
-
+            bitField0_ |= 0x00000080;
             runRate_ = input.readFloat();
             break;
           }
@@ -227,6 +227,7 @@ private static final long serialVersionUID = 0L;
             io.channel.api.proto.pub.coreapi.service.UpdatePluginRequest.class, io.channel.api.proto.pub.coreapi.service.UpdatePluginRequest.Builder.class);
   }
 
+  private int bitField0_;
   public static final int PLUGIN_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object pluginId_;
   /**
@@ -408,7 +409,20 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>bool label_button = 5 [json_name = "labelButton"];</code>
+   * <code>optional bool label_button = 5 [json_name = "labelButton"];</code>
+   * @return Whether the labelButton field is set.
+   */
+  @java.lang.Override
+  public boolean hasLabelButton() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * Whether the label button is displayed on the widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>optional bool label_button = 5 [json_name = "labelButton"];</code>
    * @return The labelButton.
    */
   @java.lang.Override
@@ -641,7 +655,20 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>int32 desk_margin_x = 10 [json_name = "deskMarginX"];</code>
+   * <code>optional int32 desk_margin_x = 10 [json_name = "deskMarginX"];</code>
+   * @return Whether the deskMarginX field is set.
+   */
+  @java.lang.Override
+  public boolean hasDeskMarginX() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <pre>
+   * Horizontal margin in pixels for the desktop widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>optional int32 desk_margin_x = 10 [json_name = "deskMarginX"];</code>
    * @return The deskMarginX.
    */
   @java.lang.Override
@@ -657,7 +684,20 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>int32 desk_margin_y = 11 [json_name = "deskMarginY"];</code>
+   * <code>optional int32 desk_margin_y = 11 [json_name = "deskMarginY"];</code>
+   * @return Whether the deskMarginY field is set.
+   */
+  @java.lang.Override
+  public boolean hasDeskMarginY() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <pre>
+   * Vertical margin in pixels for the desktop widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>optional int32 desk_margin_y = 11 [json_name = "deskMarginY"];</code>
    * @return The deskMarginY.
    */
   @java.lang.Override
@@ -673,7 +713,20 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>bool desk_hide_button = 12 [json_name = "deskHideButton"];</code>
+   * <code>optional bool desk_hide_button = 12 [json_name = "deskHideButton"];</code>
+   * @return Whether the deskHideButton field is set.
+   */
+  @java.lang.Override
+  public boolean hasDeskHideButton() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <pre>
+   * Whether the launcher button is hidden on desktop.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>optional bool desk_hide_button = 12 [json_name = "deskHideButton"];</code>
    * @return The deskHideButton.
    */
   @java.lang.Override
@@ -718,7 +771,20 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>int32 mobile_margin_x = 14 [json_name = "mobileMarginX"];</code>
+   * <code>optional int32 mobile_margin_x = 14 [json_name = "mobileMarginX"];</code>
+   * @return Whether the mobileMarginX field is set.
+   */
+  @java.lang.Override
+  public boolean hasMobileMarginX() {
+    return ((bitField0_ & 0x00000010) != 0);
+  }
+  /**
+   * <pre>
+   * Horizontal margin in pixels for the mobile widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>optional int32 mobile_margin_x = 14 [json_name = "mobileMarginX"];</code>
    * @return The mobileMarginX.
    */
   @java.lang.Override
@@ -734,7 +800,20 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>int32 mobile_margin_y = 15 [json_name = "mobileMarginY"];</code>
+   * <code>optional int32 mobile_margin_y = 15 [json_name = "mobileMarginY"];</code>
+   * @return Whether the mobileMarginY field is set.
+   */
+  @java.lang.Override
+  public boolean hasMobileMarginY() {
+    return ((bitField0_ & 0x00000020) != 0);
+  }
+  /**
+   * <pre>
+   * Vertical margin in pixels for the mobile widget.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>optional int32 mobile_margin_y = 15 [json_name = "mobileMarginY"];</code>
    * @return The mobileMarginY.
    */
   @java.lang.Override
@@ -779,7 +858,20 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>bool mobile_hide_button = 17 [json_name = "mobileHideButton"];</code>
+   * <code>optional bool mobile_hide_button = 17 [json_name = "mobileHideButton"];</code>
+   * @return Whether the mobileHideButton field is set.
+   */
+  @java.lang.Override
+  public boolean hasMobileHideButton() {
+    return ((bitField0_ & 0x00000040) != 0);
+  }
+  /**
+   * <pre>
+   * Whether the launcher button is hidden on mobile.
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>optional bool mobile_hide_button = 17 [json_name = "mobileHideButton"];</code>
    * @return The mobileHideButton.
    */
   @java.lang.Override
@@ -826,7 +918,22 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Maximum=1
    * </pre>
    *
-   * <code>float run_rate = 19 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
+   * <code>optional float run_rate = 19 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
+   * @return Whether the runRate field is set.
+   */
+  @java.lang.Override
+  public boolean hasRunRate() {
+    return ((bitField0_ & 0x00000080) != 0);
+  }
+  /**
+   * <pre>
+   * Ratio of website visitors who see the plugin widget.
+   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Minimum=0
+   * +kubebuilder:validation:Maximum=1
+   * </pre>
+   *
+   * <code>optional float run_rate = 19 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
    * @return The runRate.
    */
   @java.lang.Override
@@ -910,7 +1017,7 @@ private static final long serialVersionUID = 0L;
     if (appearance_ != io.channel.api.proto.pub.coreapi.model.PluginAppearance.PLUGIN_APPEARANCE_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, appearance_);
     }
-    if (labelButton_ != false) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       output.writeBool(5, labelButton_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(labelButtonText_)) {
@@ -928,34 +1035,34 @@ private static final long serialVersionUID = 0L;
     if (iconButton_ != io.channel.api.proto.pub.coreapi.model.PluginIconButton.PLUGIN_ICON_BUTTON_UNSPECIFIED.getNumber()) {
       output.writeEnum(9, iconButton_);
     }
-    if (deskMarginX_ != 0) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       output.writeInt32(10, deskMarginX_);
     }
-    if (deskMarginY_ != 0) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       output.writeInt32(11, deskMarginY_);
     }
-    if (deskHideButton_ != false) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       output.writeBool(12, deskHideButton_);
     }
     if (deskPosition_ != io.channel.api.proto.pub.coreapi.model.PluginPosition.PLUGIN_POSITION_UNSPECIFIED.getNumber()) {
       output.writeEnum(13, deskPosition_);
     }
-    if (mobileMarginX_ != 0) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       output.writeInt32(14, mobileMarginX_);
     }
-    if (mobileMarginY_ != 0) {
+    if (((bitField0_ & 0x00000020) != 0)) {
       output.writeInt32(15, mobileMarginY_);
     }
     if (mobilePosition_ != io.channel.api.proto.pub.coreapi.model.PluginPosition.PLUGIN_POSITION_UNSPECIFIED.getNumber()) {
       output.writeEnum(16, mobilePosition_);
     }
-    if (mobileHideButton_ != false) {
+    if (((bitField0_ & 0x00000040) != 0)) {
       output.writeBool(17, mobileHideButton_);
     }
     if (mobileBubblePosition_ != io.channel.api.proto.pub.coreapi.model.PluginBubblePosition.PLUGIN_BUBBLE_POSITION_UNSPECIFIED.getNumber()) {
       output.writeEnum(18, mobileBubblePosition_);
     }
-    if (java.lang.Float.floatToRawIntBits(runRate_) != 0) {
+    if (((bitField0_ & 0x00000080) != 0)) {
       output.writeFloat(19, runRate_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(customImageUrl_)) {
@@ -983,7 +1090,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, appearance_);
     }
-    if (labelButton_ != false) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, labelButton_);
     }
@@ -1008,15 +1115,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(9, iconButton_);
     }
-    if (deskMarginX_ != 0) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(10, deskMarginX_);
     }
-    if (deskMarginY_ != 0) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(11, deskMarginY_);
     }
-    if (deskHideButton_ != false) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(12, deskHideButton_);
     }
@@ -1024,11 +1131,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(13, deskPosition_);
     }
-    if (mobileMarginX_ != 0) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(14, mobileMarginX_);
     }
-    if (mobileMarginY_ != 0) {
+    if (((bitField0_ & 0x00000020) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(15, mobileMarginY_);
     }
@@ -1036,7 +1143,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(16, mobilePosition_);
     }
-    if (mobileHideButton_ != false) {
+    if (((bitField0_ & 0x00000040) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(17, mobileHideButton_);
     }
@@ -1044,7 +1151,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(18, mobileBubblePosition_);
     }
-    if (java.lang.Float.floatToRawIntBits(runRate_) != 0) {
+    if (((bitField0_ & 0x00000080) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(19, runRate_);
     }
@@ -1073,32 +1180,56 @@ private static final long serialVersionUID = 0L;
     if (!getName()
         .equals(other.getName())) return false;
     if (appearance_ != other.appearance_) return false;
-    if (getLabelButton()
-        != other.getLabelButton()) return false;
+    if (hasLabelButton() != other.hasLabelButton()) return false;
+    if (hasLabelButton()) {
+      if (getLabelButton()
+          != other.getLabelButton()) return false;
+    }
     if (!getLabelButtonText()
         .equals(other.getLabelButtonText())) return false;
     if (!internalGetLabelButtonTextI18NMap().equals(
         other.internalGetLabelButtonTextI18NMap())) return false;
     if (buttonType_ != other.buttonType_) return false;
     if (iconButton_ != other.iconButton_) return false;
-    if (getDeskMarginX()
-        != other.getDeskMarginX()) return false;
-    if (getDeskMarginY()
-        != other.getDeskMarginY()) return false;
-    if (getDeskHideButton()
-        != other.getDeskHideButton()) return false;
+    if (hasDeskMarginX() != other.hasDeskMarginX()) return false;
+    if (hasDeskMarginX()) {
+      if (getDeskMarginX()
+          != other.getDeskMarginX()) return false;
+    }
+    if (hasDeskMarginY() != other.hasDeskMarginY()) return false;
+    if (hasDeskMarginY()) {
+      if (getDeskMarginY()
+          != other.getDeskMarginY()) return false;
+    }
+    if (hasDeskHideButton() != other.hasDeskHideButton()) return false;
+    if (hasDeskHideButton()) {
+      if (getDeskHideButton()
+          != other.getDeskHideButton()) return false;
+    }
     if (deskPosition_ != other.deskPosition_) return false;
-    if (getMobileMarginX()
-        != other.getMobileMarginX()) return false;
-    if (getMobileMarginY()
-        != other.getMobileMarginY()) return false;
+    if (hasMobileMarginX() != other.hasMobileMarginX()) return false;
+    if (hasMobileMarginX()) {
+      if (getMobileMarginX()
+          != other.getMobileMarginX()) return false;
+    }
+    if (hasMobileMarginY() != other.hasMobileMarginY()) return false;
+    if (hasMobileMarginY()) {
+      if (getMobileMarginY()
+          != other.getMobileMarginY()) return false;
+    }
     if (mobilePosition_ != other.mobilePosition_) return false;
-    if (getMobileHideButton()
-        != other.getMobileHideButton()) return false;
+    if (hasMobileHideButton() != other.hasMobileHideButton()) return false;
+    if (hasMobileHideButton()) {
+      if (getMobileHideButton()
+          != other.getMobileHideButton()) return false;
+    }
     if (mobileBubblePosition_ != other.mobileBubblePosition_) return false;
-    if (java.lang.Float.floatToIntBits(getRunRate())
-        != java.lang.Float.floatToIntBits(
-            other.getRunRate())) return false;
+    if (hasRunRate() != other.hasRunRate()) return false;
+    if (hasRunRate()) {
+      if (java.lang.Float.floatToIntBits(getRunRate())
+          != java.lang.Float.floatToIntBits(
+              other.getRunRate())) return false;
+    }
     if (!getCustomImageUrl()
         .equals(other.getCustomImageUrl())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -1120,9 +1251,11 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + APPEARANCE_FIELD_NUMBER;
     hash = (53 * hash) + appearance_;
-    hash = (37 * hash) + LABEL_BUTTON_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getLabelButton());
+    if (hasLabelButton()) {
+      hash = (37 * hash) + LABEL_BUTTON_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getLabelButton());
+    }
     hash = (37 * hash) + LABEL_BUTTON_TEXT_FIELD_NUMBER;
     hash = (53 * hash) + getLabelButtonText().hashCode();
     if (!internalGetLabelButtonTextI18NMap().getMap().isEmpty()) {
@@ -1133,29 +1266,43 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + buttonType_;
     hash = (37 * hash) + ICON_BUTTON_FIELD_NUMBER;
     hash = (53 * hash) + iconButton_;
-    hash = (37 * hash) + DESK_MARGIN_X_FIELD_NUMBER;
-    hash = (53 * hash) + getDeskMarginX();
-    hash = (37 * hash) + DESK_MARGIN_Y_FIELD_NUMBER;
-    hash = (53 * hash) + getDeskMarginY();
-    hash = (37 * hash) + DESK_HIDE_BUTTON_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getDeskHideButton());
+    if (hasDeskMarginX()) {
+      hash = (37 * hash) + DESK_MARGIN_X_FIELD_NUMBER;
+      hash = (53 * hash) + getDeskMarginX();
+    }
+    if (hasDeskMarginY()) {
+      hash = (37 * hash) + DESK_MARGIN_Y_FIELD_NUMBER;
+      hash = (53 * hash) + getDeskMarginY();
+    }
+    if (hasDeskHideButton()) {
+      hash = (37 * hash) + DESK_HIDE_BUTTON_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getDeskHideButton());
+    }
     hash = (37 * hash) + DESK_POSITION_FIELD_NUMBER;
     hash = (53 * hash) + deskPosition_;
-    hash = (37 * hash) + MOBILE_MARGIN_X_FIELD_NUMBER;
-    hash = (53 * hash) + getMobileMarginX();
-    hash = (37 * hash) + MOBILE_MARGIN_Y_FIELD_NUMBER;
-    hash = (53 * hash) + getMobileMarginY();
+    if (hasMobileMarginX()) {
+      hash = (37 * hash) + MOBILE_MARGIN_X_FIELD_NUMBER;
+      hash = (53 * hash) + getMobileMarginX();
+    }
+    if (hasMobileMarginY()) {
+      hash = (37 * hash) + MOBILE_MARGIN_Y_FIELD_NUMBER;
+      hash = (53 * hash) + getMobileMarginY();
+    }
     hash = (37 * hash) + MOBILE_POSITION_FIELD_NUMBER;
     hash = (53 * hash) + mobilePosition_;
-    hash = (37 * hash) + MOBILE_HIDE_BUTTON_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getMobileHideButton());
+    if (hasMobileHideButton()) {
+      hash = (37 * hash) + MOBILE_HIDE_BUTTON_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getMobileHideButton());
+    }
     hash = (37 * hash) + MOBILE_BUBBLE_POSITION_FIELD_NUMBER;
     hash = (53 * hash) + mobileBubblePosition_;
-    hash = (37 * hash) + RUN_RATE_FIELD_NUMBER;
-    hash = (53 * hash) + java.lang.Float.floatToIntBits(
-        getRunRate());
+    if (hasRunRate()) {
+      hash = (37 * hash) + RUN_RATE_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getRunRate());
+    }
     hash = (37 * hash) + CUSTOM_IMAGE_URL_FIELD_NUMBER;
     hash = (53 * hash) + getCustomImageUrl().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -1326,7 +1473,7 @@ private static final long serialVersionUID = 0L;
       appearance_ = 0;
 
       labelButton_ = false;
-
+      bitField0_ = (bitField0_ & ~0x00000001);
       labelButtonText_ = "";
 
       internalGetMutableLabelButtonTextI18NMap().clear();
@@ -1335,25 +1482,25 @@ private static final long serialVersionUID = 0L;
       iconButton_ = 0;
 
       deskMarginX_ = 0;
-
+      bitField0_ = (bitField0_ & ~0x00000004);
       deskMarginY_ = 0;
-
+      bitField0_ = (bitField0_ & ~0x00000008);
       deskHideButton_ = false;
-
+      bitField0_ = (bitField0_ & ~0x00000010);
       deskPosition_ = 0;
 
       mobileMarginX_ = 0;
-
+      bitField0_ = (bitField0_ & ~0x00000020);
       mobileMarginY_ = 0;
-
+      bitField0_ = (bitField0_ & ~0x00000040);
       mobilePosition_ = 0;
 
       mobileHideButton_ = false;
-
+      bitField0_ = (bitField0_ & ~0x00000080);
       mobileBubblePosition_ = 0;
 
       runRate_ = 0F;
-
+      bitField0_ = (bitField0_ & ~0x00000100);
       customImageUrl_ = "";
 
       return this;
@@ -1383,27 +1530,53 @@ private static final long serialVersionUID = 0L;
     public io.channel.api.proto.pub.coreapi.service.UpdatePluginRequest buildPartial() {
       io.channel.api.proto.pub.coreapi.service.UpdatePluginRequest result = new io.channel.api.proto.pub.coreapi.service.UpdatePluginRequest(this);
       int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       result.pluginId_ = pluginId_;
       result.channelId_ = channelId_;
       result.name_ = name_;
       result.appearance_ = appearance_;
-      result.labelButton_ = labelButton_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.labelButton_ = labelButton_;
+        to_bitField0_ |= 0x00000001;
+      }
       result.labelButtonText_ = labelButtonText_;
       result.labelButtonTextI18NMap_ = internalGetLabelButtonTextI18NMap();
       result.labelButtonTextI18NMap_.makeImmutable();
       result.buttonType_ = buttonType_;
       result.iconButton_ = iconButton_;
-      result.deskMarginX_ = deskMarginX_;
-      result.deskMarginY_ = deskMarginY_;
-      result.deskHideButton_ = deskHideButton_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.deskMarginX_ = deskMarginX_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.deskMarginY_ = deskMarginY_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.deskHideButton_ = deskHideButton_;
+        to_bitField0_ |= 0x00000008;
+      }
       result.deskPosition_ = deskPosition_;
-      result.mobileMarginX_ = mobileMarginX_;
-      result.mobileMarginY_ = mobileMarginY_;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.mobileMarginX_ = mobileMarginX_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.mobileMarginY_ = mobileMarginY_;
+        to_bitField0_ |= 0x00000020;
+      }
       result.mobilePosition_ = mobilePosition_;
-      result.mobileHideButton_ = mobileHideButton_;
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.mobileHideButton_ = mobileHideButton_;
+        to_bitField0_ |= 0x00000040;
+      }
       result.mobileBubblePosition_ = mobileBubblePosition_;
-      result.runRate_ = runRate_;
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.runRate_ = runRate_;
+        to_bitField0_ |= 0x00000080;
+      }
       result.customImageUrl_ = customImageUrl_;
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -1467,7 +1640,7 @@ private static final long serialVersionUID = 0L;
       if (other.appearance_ != 0) {
         setAppearanceValue(other.getAppearanceValue());
       }
-      if (other.getLabelButton() != false) {
+      if (other.hasLabelButton()) {
         setLabelButton(other.getLabelButton());
       }
       if (!other.getLabelButtonText().isEmpty()) {
@@ -1482,34 +1655,34 @@ private static final long serialVersionUID = 0L;
       if (other.iconButton_ != 0) {
         setIconButtonValue(other.getIconButtonValue());
       }
-      if (other.getDeskMarginX() != 0) {
+      if (other.hasDeskMarginX()) {
         setDeskMarginX(other.getDeskMarginX());
       }
-      if (other.getDeskMarginY() != 0) {
+      if (other.hasDeskMarginY()) {
         setDeskMarginY(other.getDeskMarginY());
       }
-      if (other.getDeskHideButton() != false) {
+      if (other.hasDeskHideButton()) {
         setDeskHideButton(other.getDeskHideButton());
       }
       if (other.deskPosition_ != 0) {
         setDeskPositionValue(other.getDeskPositionValue());
       }
-      if (other.getMobileMarginX() != 0) {
+      if (other.hasMobileMarginX()) {
         setMobileMarginX(other.getMobileMarginX());
       }
-      if (other.getMobileMarginY() != 0) {
+      if (other.hasMobileMarginY()) {
         setMobileMarginY(other.getMobileMarginY());
       }
       if (other.mobilePosition_ != 0) {
         setMobilePositionValue(other.getMobilePositionValue());
       }
-      if (other.getMobileHideButton() != false) {
+      if (other.hasMobileHideButton()) {
         setMobileHideButton(other.getMobileHideButton());
       }
       if (other.mobileBubblePosition_ != 0) {
         setMobileBubblePositionValue(other.getMobileBubblePositionValue());
       }
-      if (other.getRunRate() != 0F) {
+      if (other.hasRunRate()) {
         setRunRate(other.getRunRate());
       }
       if (!other.getCustomImageUrl().isEmpty()) {
@@ -1935,7 +2108,20 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>bool label_button = 5 [json_name = "labelButton"];</code>
+     * <code>optional bool label_button = 5 [json_name = "labelButton"];</code>
+     * @return Whether the labelButton field is set.
+     */
+    @java.lang.Override
+    public boolean hasLabelButton() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * Whether the label button is displayed on the widget.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>optional bool label_button = 5 [json_name = "labelButton"];</code>
      * @return The labelButton.
      */
     @java.lang.Override
@@ -1948,12 +2134,12 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>bool label_button = 5 [json_name = "labelButton"];</code>
+     * <code>optional bool label_button = 5 [json_name = "labelButton"];</code>
      * @param value The labelButton to set.
      * @return This builder for chaining.
      */
     public Builder setLabelButton(boolean value) {
-      
+      bitField0_ |= 0x00000001;
       labelButton_ = value;
       onChanged();
       return this;
@@ -1964,11 +2150,11 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>bool label_button = 5 [json_name = "labelButton"];</code>
+     * <code>optional bool label_button = 5 [json_name = "labelButton"];</code>
      * @return This builder for chaining.
      */
     public Builder clearLabelButton() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       labelButton_ = false;
       onChanged();
       return this;
@@ -2428,7 +2614,20 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 desk_margin_x = 10 [json_name = "deskMarginX"];</code>
+     * <code>optional int32 desk_margin_x = 10 [json_name = "deskMarginX"];</code>
+     * @return Whether the deskMarginX field is set.
+     */
+    @java.lang.Override
+    public boolean hasDeskMarginX() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * Horizontal margin in pixels for the desktop widget.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>optional int32 desk_margin_x = 10 [json_name = "deskMarginX"];</code>
      * @return The deskMarginX.
      */
     @java.lang.Override
@@ -2441,12 +2640,12 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 desk_margin_x = 10 [json_name = "deskMarginX"];</code>
+     * <code>optional int32 desk_margin_x = 10 [json_name = "deskMarginX"];</code>
      * @param value The deskMarginX to set.
      * @return This builder for chaining.
      */
     public Builder setDeskMarginX(int value) {
-      
+      bitField0_ |= 0x00000004;
       deskMarginX_ = value;
       onChanged();
       return this;
@@ -2457,11 +2656,11 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 desk_margin_x = 10 [json_name = "deskMarginX"];</code>
+     * <code>optional int32 desk_margin_x = 10 [json_name = "deskMarginX"];</code>
      * @return This builder for chaining.
      */
     public Builder clearDeskMarginX() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       deskMarginX_ = 0;
       onChanged();
       return this;
@@ -2474,7 +2673,20 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 desk_margin_y = 11 [json_name = "deskMarginY"];</code>
+     * <code>optional int32 desk_margin_y = 11 [json_name = "deskMarginY"];</code>
+     * @return Whether the deskMarginY field is set.
+     */
+    @java.lang.Override
+    public boolean hasDeskMarginY() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * Vertical margin in pixels for the desktop widget.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>optional int32 desk_margin_y = 11 [json_name = "deskMarginY"];</code>
      * @return The deskMarginY.
      */
     @java.lang.Override
@@ -2487,12 +2699,12 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 desk_margin_y = 11 [json_name = "deskMarginY"];</code>
+     * <code>optional int32 desk_margin_y = 11 [json_name = "deskMarginY"];</code>
      * @param value The deskMarginY to set.
      * @return This builder for chaining.
      */
     public Builder setDeskMarginY(int value) {
-      
+      bitField0_ |= 0x00000008;
       deskMarginY_ = value;
       onChanged();
       return this;
@@ -2503,11 +2715,11 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 desk_margin_y = 11 [json_name = "deskMarginY"];</code>
+     * <code>optional int32 desk_margin_y = 11 [json_name = "deskMarginY"];</code>
      * @return This builder for chaining.
      */
     public Builder clearDeskMarginY() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       deskMarginY_ = 0;
       onChanged();
       return this;
@@ -2520,7 +2732,20 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>bool desk_hide_button = 12 [json_name = "deskHideButton"];</code>
+     * <code>optional bool desk_hide_button = 12 [json_name = "deskHideButton"];</code>
+     * @return Whether the deskHideButton field is set.
+     */
+    @java.lang.Override
+    public boolean hasDeskHideButton() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <pre>
+     * Whether the launcher button is hidden on desktop.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>optional bool desk_hide_button = 12 [json_name = "deskHideButton"];</code>
      * @return The deskHideButton.
      */
     @java.lang.Override
@@ -2533,12 +2758,12 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>bool desk_hide_button = 12 [json_name = "deskHideButton"];</code>
+     * <code>optional bool desk_hide_button = 12 [json_name = "deskHideButton"];</code>
      * @param value The deskHideButton to set.
      * @return This builder for chaining.
      */
     public Builder setDeskHideButton(boolean value) {
-      
+      bitField0_ |= 0x00000010;
       deskHideButton_ = value;
       onChanged();
       return this;
@@ -2549,11 +2774,11 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>bool desk_hide_button = 12 [json_name = "deskHideButton"];</code>
+     * <code>optional bool desk_hide_button = 12 [json_name = "deskHideButton"];</code>
      * @return This builder for chaining.
      */
     public Builder clearDeskHideButton() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       deskHideButton_ = false;
       onChanged();
       return this;
@@ -2645,7 +2870,20 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 mobile_margin_x = 14 [json_name = "mobileMarginX"];</code>
+     * <code>optional int32 mobile_margin_x = 14 [json_name = "mobileMarginX"];</code>
+     * @return Whether the mobileMarginX field is set.
+     */
+    @java.lang.Override
+    public boolean hasMobileMarginX() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <pre>
+     * Horizontal margin in pixels for the mobile widget.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>optional int32 mobile_margin_x = 14 [json_name = "mobileMarginX"];</code>
      * @return The mobileMarginX.
      */
     @java.lang.Override
@@ -2658,12 +2896,12 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 mobile_margin_x = 14 [json_name = "mobileMarginX"];</code>
+     * <code>optional int32 mobile_margin_x = 14 [json_name = "mobileMarginX"];</code>
      * @param value The mobileMarginX to set.
      * @return This builder for chaining.
      */
     public Builder setMobileMarginX(int value) {
-      
+      bitField0_ |= 0x00000020;
       mobileMarginX_ = value;
       onChanged();
       return this;
@@ -2674,11 +2912,11 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 mobile_margin_x = 14 [json_name = "mobileMarginX"];</code>
+     * <code>optional int32 mobile_margin_x = 14 [json_name = "mobileMarginX"];</code>
      * @return This builder for chaining.
      */
     public Builder clearMobileMarginX() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       mobileMarginX_ = 0;
       onChanged();
       return this;
@@ -2691,7 +2929,20 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 mobile_margin_y = 15 [json_name = "mobileMarginY"];</code>
+     * <code>optional int32 mobile_margin_y = 15 [json_name = "mobileMarginY"];</code>
+     * @return Whether the mobileMarginY field is set.
+     */
+    @java.lang.Override
+    public boolean hasMobileMarginY() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <pre>
+     * Vertical margin in pixels for the mobile widget.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>optional int32 mobile_margin_y = 15 [json_name = "mobileMarginY"];</code>
      * @return The mobileMarginY.
      */
     @java.lang.Override
@@ -2704,12 +2955,12 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 mobile_margin_y = 15 [json_name = "mobileMarginY"];</code>
+     * <code>optional int32 mobile_margin_y = 15 [json_name = "mobileMarginY"];</code>
      * @param value The mobileMarginY to set.
      * @return This builder for chaining.
      */
     public Builder setMobileMarginY(int value) {
-      
+      bitField0_ |= 0x00000040;
       mobileMarginY_ = value;
       onChanged();
       return this;
@@ -2720,11 +2971,11 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>int32 mobile_margin_y = 15 [json_name = "mobileMarginY"];</code>
+     * <code>optional int32 mobile_margin_y = 15 [json_name = "mobileMarginY"];</code>
      * @return This builder for chaining.
      */
     public Builder clearMobileMarginY() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       mobileMarginY_ = 0;
       onChanged();
       return this;
@@ -2816,7 +3067,20 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>bool mobile_hide_button = 17 [json_name = "mobileHideButton"];</code>
+     * <code>optional bool mobile_hide_button = 17 [json_name = "mobileHideButton"];</code>
+     * @return Whether the mobileHideButton field is set.
+     */
+    @java.lang.Override
+    public boolean hasMobileHideButton() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <pre>
+     * Whether the launcher button is hidden on mobile.
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>optional bool mobile_hide_button = 17 [json_name = "mobileHideButton"];</code>
      * @return The mobileHideButton.
      */
     @java.lang.Override
@@ -2829,12 +3093,12 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>bool mobile_hide_button = 17 [json_name = "mobileHideButton"];</code>
+     * <code>optional bool mobile_hide_button = 17 [json_name = "mobileHideButton"];</code>
      * @param value The mobileHideButton to set.
      * @return This builder for chaining.
      */
     public Builder setMobileHideButton(boolean value) {
-      
+      bitField0_ |= 0x00000080;
       mobileHideButton_ = value;
       onChanged();
       return this;
@@ -2845,11 +3109,11 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>bool mobile_hide_button = 17 [json_name = "mobileHideButton"];</code>
+     * <code>optional bool mobile_hide_button = 17 [json_name = "mobileHideButton"];</code>
      * @return This builder for chaining.
      */
     public Builder clearMobileHideButton() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       mobileHideButton_ = false;
       onChanged();
       return this;
@@ -2943,7 +3207,22 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Maximum=1
      * </pre>
      *
-     * <code>float run_rate = 19 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
+     * <code>optional float run_rate = 19 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
+     * @return Whether the runRate field is set.
+     */
+    @java.lang.Override
+    public boolean hasRunRate() {
+      return ((bitField0_ & 0x00000100) != 0);
+    }
+    /**
+     * <pre>
+     * Ratio of website visitors who see the plugin widget.
+     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Minimum=0
+     * +kubebuilder:validation:Maximum=1
+     * </pre>
+     *
+     * <code>optional float run_rate = 19 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
      * @return The runRate.
      */
     @java.lang.Override
@@ -2958,12 +3237,12 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Maximum=1
      * </pre>
      *
-     * <code>float run_rate = 19 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
+     * <code>optional float run_rate = 19 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
      * @param value The runRate to set.
      * @return This builder for chaining.
      */
     public Builder setRunRate(float value) {
-      
+      bitField0_ |= 0x00000100;
       runRate_ = value;
       onChanged();
       return this;
@@ -2976,11 +3255,11 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Maximum=1
      * </pre>
      *
-     * <code>float run_rate = 19 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
+     * <code>optional float run_rate = 19 [json_name = "runRate", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearRunRate() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       runRate_ = 0F;
       onChanged();
       return this;

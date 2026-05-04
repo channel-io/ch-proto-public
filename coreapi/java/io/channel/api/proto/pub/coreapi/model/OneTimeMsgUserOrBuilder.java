@@ -62,6 +62,7 @@ public interface OneTimeMsgUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the message was delivered to the user.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp sent = 3 [json_name = "sent"];</code>
@@ -71,6 +72,7 @@ public interface OneTimeMsgUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the message was delivered to the user.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp sent = 3 [json_name = "sent"];</code>
@@ -80,6 +82,7 @@ public interface OneTimeMsgUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the message was delivered to the user.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp sent = 3 [json_name = "sent"];</code>
@@ -89,6 +92,7 @@ public interface OneTimeMsgUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user first viewed the delivered message.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp view = 4 [json_name = "view"];</code>
@@ -98,6 +102,7 @@ public interface OneTimeMsgUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user first viewed the delivered message.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp view = 4 [json_name = "view"];</code>
@@ -107,6 +112,7 @@ public interface OneTimeMsgUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user first viewed the delivered message.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp view = 4 [json_name = "view"];</code>
@@ -116,6 +122,7 @@ public interface OneTimeMsgUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user completed the goal event.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
@@ -125,6 +132,7 @@ public interface OneTimeMsgUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user completed the goal event.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
@@ -134,6 +142,7 @@ public interface OneTimeMsgUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user completed the goal event.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp goal = 5 [json_name = "goal"];</code>
@@ -143,6 +152,7 @@ public interface OneTimeMsgUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user first clicked a link in the message.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
@@ -152,6 +162,7 @@ public interface OneTimeMsgUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user first clicked a link in the message.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>
@@ -161,6 +172,7 @@ public interface OneTimeMsgUserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user first clicked a link in the message.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp click = 6 [json_name = "click"];</code>

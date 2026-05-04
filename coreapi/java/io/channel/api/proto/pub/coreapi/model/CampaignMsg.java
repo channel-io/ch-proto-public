@@ -478,6 +478,7 @@ private static final long serialVersionUID = 0L;
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -492,6 +493,7 @@ private static final long serialVersionUID = 0L;
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -506,6 +508,7 @@ private static final long serialVersionUID = 0L;
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -521,6 +524,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Campaign message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -534,6 +538,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Campaign message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -547,6 +552,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Campaign message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -562,6 +568,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Campaign message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -575,6 +582,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Campaign message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -588,6 +596,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Campaign message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -1842,6 +1851,7 @@ private static final long serialVersionUID = 0L;
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -1855,6 +1865,7 @@ private static final long serialVersionUID = 0L;
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -1872,6 +1883,7 @@ private static final long serialVersionUID = 0L;
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -1894,6 +1906,7 @@ private static final long serialVersionUID = 0L;
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -1914,6 +1927,7 @@ private static final long serialVersionUID = 0L;
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -1938,6 +1952,7 @@ private static final long serialVersionUID = 0L;
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -1958,6 +1973,7 @@ private static final long serialVersionUID = 0L;
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -1972,6 +1988,7 @@ private static final long serialVersionUID = 0L;
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -1989,6 +2006,7 @@ private static final long serialVersionUID = 0L;
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -2014,6 +2032,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2026,6 +2045,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2042,6 +2062,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2063,6 +2084,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2082,6 +2104,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2105,6 +2128,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2124,6 +2148,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2137,6 +2162,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2153,6 +2179,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -2178,6 +2205,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2190,6 +2218,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2206,6 +2235,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2227,6 +2257,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2246,6 +2277,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2269,6 +2301,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2288,6 +2321,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2301,6 +2335,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -2317,6 +2352,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Campaign message last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2026-04-28T09:35:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>

@@ -921,6 +921,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Person keys of all participants who have ever joined this meet,
    * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+   * +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
    * </pre>
    *
    * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -934,6 +935,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Person keys of all participants who have ever joined this meet,
    * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+   * +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
    * </pre>
    *
    * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -946,6 +948,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Person keys of all participants who have ever joined this meet,
    * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+   * +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
    * </pre>
    *
    * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -959,6 +962,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Person keys of all participants who have ever joined this meet,
    * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+   * +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
    * </pre>
    *
    * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -975,6 +979,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the meet room was first opened.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -987,6 +992,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the meet room was first opened.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -999,6 +1005,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the meet room was first opened.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -1014,6 +1021,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Phone call session details.
    * Present only when `meet_type` is CALL.
+   * +kubebuilder:example={"callId":"call-abc123","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -1027,6 +1035,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Phone call session details.
    * Present only when `meet_type` is CALL.
+   * +kubebuilder:example={"callId":"call-abc123","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -1040,6 +1049,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Phone call session details.
    * Present only when `meet_type` is CALL.
+   * +kubebuilder:example={"callId":"call-abc123","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -1055,6 +1065,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Video/audio front session details.
    * Present only when `meet_type` is FRONT.
+   * +kubebuilder:example={"sessionId":"front-abc123","videoEnabled":true}
    * </pre>
    *
    * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -1068,6 +1079,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Video/audio front session details.
    * Present only when `meet_type` is FRONT.
+   * +kubebuilder:example={"sessionId":"front-abc123","videoEnabled":true}
    * </pre>
    *
    * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -1081,6 +1093,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Video/audio front session details.
    * Present only when `meet_type` is FRONT.
+   * +kubebuilder:example={"sessionId":"front-abc123","videoEnabled":true}
    * </pre>
    *
    * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -1096,6 +1109,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Recording details for the meet session.
    * Present only when the session was recorded.
+   * +kubebuilder:example={"url":"https://storage.channel.io/recordings/rec-abc123.mp4","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -1109,6 +1123,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Recording details for the meet session.
    * Present only when the session was recorded.
+   * +kubebuilder:example={"url":"https://storage.channel.io/recordings/rec-abc123.mp4","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -1122,6 +1137,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Recording details for the meet session.
    * Present only when the session was recorded.
+   * +kubebuilder:example={"url":"https://storage.channel.io/recordings/rec-abc123.mp4","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -1184,6 +1200,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the meet session ended.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -1196,6 +1213,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the meet session ended.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -1208,6 +1226,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the meet session ended.
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -1222,6 +1241,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Manager IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -1234,6 +1254,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Manager IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -1245,6 +1266,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Manager IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -1257,6 +1279,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Manager IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["1234","5678"]
    * </pre>
    *
    * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -1300,6 +1323,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["231306","231307"]
    * </pre>
    *
    * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -1312,6 +1336,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["231306","231307"]
    * </pre>
    *
    * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -1323,6 +1348,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["231306","231307"]
    * </pre>
    *
    * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -1335,6 +1361,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Bot IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["231306","231307"]
    * </pre>
    *
    * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -2467,6 +2494,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+     * +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2480,6 +2508,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+     * +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2492,6 +2521,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+     * +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2505,6 +2535,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+     * +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2519,6 +2550,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+     * +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2540,6 +2572,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+     * +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2560,6 +2593,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+     * +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2578,6 +2612,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+     * +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2593,6 +2628,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Person keys of all participants who have ever joined this meet,
      * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+     * +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
      * </pre>
      *
      * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -2617,6 +2653,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2628,6 +2665,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2643,6 +2681,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2663,6 +2702,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2681,6 +2721,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2703,6 +2744,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2721,6 +2763,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2733,6 +2776,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2748,6 +2792,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet room was first opened.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -2773,6 +2818,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
+     * +kubebuilder:example={"callId":"call-abc123","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2785,6 +2831,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
+     * +kubebuilder:example={"callId":"call-abc123","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2801,6 +2848,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
+     * +kubebuilder:example={"callId":"call-abc123","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2822,6 +2870,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
+     * +kubebuilder:example={"callId":"call-abc123","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2841,6 +2890,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
+     * +kubebuilder:example={"callId":"call-abc123","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2864,6 +2914,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
+     * +kubebuilder:example={"callId":"call-abc123","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2883,6 +2934,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
+     * +kubebuilder:example={"callId":"call-abc123","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2896,6 +2948,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
+     * +kubebuilder:example={"callId":"call-abc123","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2912,6 +2965,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone call session details.
      * Present only when `meet_type` is CALL.
+     * +kubebuilder:example={"callId":"call-abc123","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -2937,6 +2991,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
+     * +kubebuilder:example={"sessionId":"front-abc123","videoEnabled":true}
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -2949,6 +3004,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
+     * +kubebuilder:example={"sessionId":"front-abc123","videoEnabled":true}
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -2965,6 +3021,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
+     * +kubebuilder:example={"sessionId":"front-abc123","videoEnabled":true}
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -2986,6 +3043,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
+     * +kubebuilder:example={"sessionId":"front-abc123","videoEnabled":true}
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -3005,6 +3063,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
+     * +kubebuilder:example={"sessionId":"front-abc123","videoEnabled":true}
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -3028,6 +3087,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
+     * +kubebuilder:example={"sessionId":"front-abc123","videoEnabled":true}
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -3047,6 +3107,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
+     * +kubebuilder:example={"sessionId":"front-abc123","videoEnabled":true}
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -3060,6 +3121,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
+     * +kubebuilder:example={"sessionId":"front-abc123","videoEnabled":true}
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -3076,6 +3138,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Video/audio front session details.
      * Present only when `meet_type` is FRONT.
+     * +kubebuilder:example={"sessionId":"front-abc123","videoEnabled":true}
      * </pre>
      *
      * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -3101,6 +3164,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
+     * +kubebuilder:example={"url":"https://storage.channel.io/recordings/rec-abc123.mp4","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3113,6 +3177,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
+     * +kubebuilder:example={"url":"https://storage.channel.io/recordings/rec-abc123.mp4","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3129,6 +3194,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
+     * +kubebuilder:example={"url":"https://storage.channel.io/recordings/rec-abc123.mp4","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3150,6 +3216,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
+     * +kubebuilder:example={"url":"https://storage.channel.io/recordings/rec-abc123.mp4","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3169,6 +3236,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
+     * +kubebuilder:example={"url":"https://storage.channel.io/recordings/rec-abc123.mp4","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3192,6 +3260,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
+     * +kubebuilder:example={"url":"https://storage.channel.io/recordings/rec-abc123.mp4","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3211,6 +3280,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
+     * +kubebuilder:example={"url":"https://storage.channel.io/recordings/rec-abc123.mp4","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3224,6 +3294,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
+     * +kubebuilder:example={"url":"https://storage.channel.io/recordings/rec-abc123.mp4","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3240,6 +3311,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Recording details for the meet session.
      * Present only when the session was recorded.
+     * +kubebuilder:example={"url":"https://storage.channel.io/recordings/rec-abc123.mp4","duration":"PT2M30S"}
      * </pre>
      *
      * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -3365,6 +3437,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3376,6 +3449,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3391,6 +3465,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3411,6 +3486,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3429,6 +3505,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3451,6 +3528,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3469,6 +3547,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3481,6 +3560,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3496,6 +3576,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the meet session ended.
+     * +kubebuilder:example="2026-04-28T09:30:00Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -3524,6 +3605,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3536,6 +3618,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3547,6 +3630,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3559,6 +3643,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3572,6 +3657,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3592,6 +3678,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3611,6 +3698,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3628,6 +3716,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3642,6 +3731,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["1234","5678"]
      * </pre>
      *
      * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -3744,6 +3834,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["231306","231307"]
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3756,6 +3847,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["231306","231307"]
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3767,6 +3859,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["231306","231307"]
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3779,6 +3872,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["231306","231307"]
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3792,6 +3886,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["231306","231307"]
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3812,6 +3907,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["231306","231307"]
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3831,6 +3927,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["231306","231307"]
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3848,6 +3945,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["231306","231307"]
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -3862,6 +3960,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Bot IDs extracted from `amassed_persons`.
+     * +kubebuilder:example=["231306","231307"]
      * </pre>
      *
      * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>

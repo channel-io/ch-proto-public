@@ -8,18 +8,18 @@ package io.channel.api.proto.pub.coreapi.service;
  * Retrieves a list of chat sessions for a user chat.
  * </pre>
  *
- * Protobuf type {@code coreapi.service.SearchUserChatSessionsRequest}
+ * Protobuf type {@code coreapi.service.SearchChatSessionsRequest}
  */
-public final class SearchUserChatSessionsRequest extends
+public final class SearchChatSessionsRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:coreapi.service.SearchUserChatSessionsRequest)
-    SearchUserChatSessionsRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:coreapi.service.SearchChatSessionsRequest)
+    SearchChatSessionsRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use SearchUserChatSessionsRequest.newBuilder() to construct.
-  private SearchUserChatSessionsRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use SearchChatSessionsRequest.newBuilder() to construct.
+  private SearchChatSessionsRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private SearchUserChatSessionsRequest() {
+  private SearchChatSessionsRequest() {
     channelId_ = "";
     userChatId_ = "";
   }
@@ -28,7 +28,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new SearchUserChatSessionsRequest();
+    return new SearchChatSessionsRequest();
   }
 
   @java.lang.Override
@@ -36,7 +36,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SearchUserChatSessionsRequest(
+  private SearchChatSessionsRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -87,15 +87,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.channel.api.proto.pub.coreapi.service.UserChat.internal_static_coreapi_service_SearchUserChatSessionsRequest_descriptor;
+    return io.channel.api.proto.pub.coreapi.service.UserChat.internal_static_coreapi_service_SearchChatSessionsRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.channel.api.proto.pub.coreapi.service.UserChat.internal_static_coreapi_service_SearchUserChatSessionsRequest_fieldAccessorTable
+    return io.channel.api.proto.pub.coreapi.service.UserChat.internal_static_coreapi_service_SearchChatSessionsRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest.class, io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest.Builder.class);
+            io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest.class, io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest.Builder.class);
   }
 
   public static final int CHANNEL_ID_FIELD_NUMBER = 1;
@@ -219,10 +219,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest)) {
+    if (!(obj instanceof io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest)) {
       return super.equals(obj);
     }
-    io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest other = (io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest) obj;
+    io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest other = (io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest) obj;
 
     if (!getChannelId()
         .equals(other.getChannelId())) return false;
@@ -248,69 +248,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest parseFrom(byte[] data)
+  public static io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest parseFrom(java.io.InputStream input)
+  public static io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest parseDelimitedFrom(java.io.InputStream input)
+  public static io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest parseDelimitedFrom(
+  public static io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest parseFrom(
+  public static io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -323,7 +323,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest prototype) {
+  public static Builder newBuilder(io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -343,26 +343,26 @@ private static final long serialVersionUID = 0L;
    * Retrieves a list of chat sessions for a user chat.
    * </pre>
    *
-   * Protobuf type {@code coreapi.service.SearchUserChatSessionsRequest}
+   * Protobuf type {@code coreapi.service.SearchChatSessionsRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:coreapi.service.SearchUserChatSessionsRequest)
-      io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:coreapi.service.SearchChatSessionsRequest)
+      io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.channel.api.proto.pub.coreapi.service.UserChat.internal_static_coreapi_service_SearchUserChatSessionsRequest_descriptor;
+      return io.channel.api.proto.pub.coreapi.service.UserChat.internal_static_coreapi_service_SearchChatSessionsRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.channel.api.proto.pub.coreapi.service.UserChat.internal_static_coreapi_service_SearchUserChatSessionsRequest_fieldAccessorTable
+      return io.channel.api.proto.pub.coreapi.service.UserChat.internal_static_coreapi_service_SearchChatSessionsRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest.class, io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest.Builder.class);
+              io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest.class, io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest.Builder.class);
     }
 
-    // Construct using io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest.newBuilder()
+    // Construct using io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -390,17 +390,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.channel.api.proto.pub.coreapi.service.UserChat.internal_static_coreapi_service_SearchUserChatSessionsRequest_descriptor;
+      return io.channel.api.proto.pub.coreapi.service.UserChat.internal_static_coreapi_service_SearchChatSessionsRequest_descriptor;
     }
 
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest getDefaultInstanceForType() {
-      return io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest.getDefaultInstance();
+    public io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest getDefaultInstanceForType() {
+      return io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest build() {
-      io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest result = buildPartial();
+    public io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest build() {
+      io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -408,8 +408,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest buildPartial() {
-      io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest result = new io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest(this);
+    public io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest buildPartial() {
+      io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest result = new io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest(this);
       result.channelId_ = channelId_;
       result.userChatId_ = userChatId_;
       onBuilt();
@@ -450,16 +450,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest) {
-        return mergeFrom((io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest)other);
+      if (other instanceof io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest) {
+        return mergeFrom((io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest other) {
-      if (other == io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest other) {
+      if (other == io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest.getDefaultInstance()) return this;
       if (!other.getChannelId().isEmpty()) {
         channelId_ = other.channelId_;
         onChanged();
@@ -483,11 +483,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest parsedMessage = null;
+      io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest) e.getUnfinishedMessage();
+        parsedMessage = (io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -709,41 +709,41 @@ private static final long serialVersionUID = 0L;
     		return setUserChatId(mapFunc.apply(value));
     }
     	
-    // @@protoc_insertion_point(builder_scope:coreapi.service.SearchUserChatSessionsRequest)
+    // @@protoc_insertion_point(builder_scope:coreapi.service.SearchChatSessionsRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:coreapi.service.SearchUserChatSessionsRequest)
-  private static final io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:coreapi.service.SearchChatSessionsRequest)
+  private static final io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest();
+    DEFAULT_INSTANCE = new io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest();
   }
 
-  public static io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest getDefaultInstance() {
+  public static io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<SearchUserChatSessionsRequest>
-      PARSER = new com.google.protobuf.AbstractParser<SearchUserChatSessionsRequest>() {
+  private static final com.google.protobuf.Parser<SearchChatSessionsRequest>
+      PARSER = new com.google.protobuf.AbstractParser<SearchChatSessionsRequest>() {
     @java.lang.Override
-    public SearchUserChatSessionsRequest parsePartialFrom(
+    public SearchChatSessionsRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SearchUserChatSessionsRequest(input, extensionRegistry);
+      return new SearchChatSessionsRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<SearchUserChatSessionsRequest> parser() {
+  public static com.google.protobuf.Parser<SearchChatSessionsRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<SearchUserChatSessionsRequest> getParserForType() {
+  public com.google.protobuf.Parser<SearchChatSessionsRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public io.channel.api.proto.pub.coreapi.service.SearchUserChatSessionsRequest getDefaultInstanceForType() {
+  public io.channel.api.proto.pub.coreapi.service.SearchChatSessionsRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

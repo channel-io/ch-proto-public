@@ -147,6 +147,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Tags that were automatically applied during a user import operation.
+   * +kubebuilder:example=["imported-2025Q1","csv-batch-001"]
    * </pre>
    *
    * <code>repeated string user_import_tags = 7 [json_name = "userImportTags"];</code>
@@ -157,6 +158,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Tags that were automatically applied during a user import operation.
+   * +kubebuilder:example=["imported-2025Q1","csv-batch-001"]
    * </pre>
    *
    * <code>repeated string user_import_tags = 7 [json_name = "userImportTags"];</code>
@@ -166,6 +168,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Tags that were automatically applied during a user import operation.
+   * +kubebuilder:example=["imported-2025Q1","csv-batch-001"]
    * </pre>
    *
    * <code>repeated string user_import_tags = 7 [json_name = "userImportTags"];</code>
@@ -176,6 +179,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Tags that were automatically applied during a user import operation.
+   * +kubebuilder:example=["imported-2025Q1","csv-batch-001"]
    * </pre>
    *
    * <code>repeated string user_import_tags = 7 [json_name = "userImportTags"];</code>
@@ -303,6 +307,7 @@ public interface UserOrBuilder extends
    * <pre>
    * User creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -313,6 +318,7 @@ public interface UserOrBuilder extends
    * <pre>
    * User creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -323,6 +329,7 @@ public interface UserOrBuilder extends
    * <pre>
    * User creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 14 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -333,6 +340,7 @@ public interface UserOrBuilder extends
    * <pre>
    * User last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -343,6 +351,7 @@ public interface UserOrBuilder extends
    * <pre>
    * User last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -353,6 +362,7 @@ public interface UserOrBuilder extends
    * <pre>
    * User last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 15 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -376,6 +386,7 @@ public interface UserOrBuilder extends
    * Custom key-value profile data.
    * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
    * arbitrary keys are also supported.
+   * +kubebuilder:example={"name":"Jane Doe","email":"jane&#64;example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/avatars/jane.png"}
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -387,6 +398,7 @@ public interface UserOrBuilder extends
    * Custom key-value profile data.
    * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
    * arbitrary keys are also supported.
+   * +kubebuilder:example={"name":"Jane Doe","email":"jane&#64;example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/avatars/jane.png"}
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -398,6 +410,7 @@ public interface UserOrBuilder extends
    * Custom key-value profile data.
    * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
    * arbitrary keys are also supported.
+   * +kubebuilder:example={"name":"Jane Doe","email":"jane&#64;example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/avatars/jane.png"}
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -409,6 +422,7 @@ public interface UserOrBuilder extends
    * Classification tags attached to the user for segmentation and filtering.
    * Supports hierarchical tags using "/" as a depth separator.
    * +kubebuilder:validation:MaxItems=20
+   * +kubebuilder:example=["premium-subscriber","vip"]
    * </pre>
    *
    * <code>repeated string tags = 18 [json_name = "tags"];</code>
@@ -421,6 +435,7 @@ public interface UserOrBuilder extends
    * Classification tags attached to the user for segmentation and filtering.
    * Supports hierarchical tags using "/" as a depth separator.
    * +kubebuilder:validation:MaxItems=20
+   * +kubebuilder:example=["premium-subscriber","vip"]
    * </pre>
    *
    * <code>repeated string tags = 18 [json_name = "tags"];</code>
@@ -432,6 +447,7 @@ public interface UserOrBuilder extends
    * Classification tags attached to the user for segmentation and filtering.
    * Supports hierarchical tags using "/" as a depth separator.
    * +kubebuilder:validation:MaxItems=20
+   * +kubebuilder:example=["premium-subscriber","vip"]
    * </pre>
    *
    * <code>repeated string tags = 18 [json_name = "tags"];</code>
@@ -444,6 +460,7 @@ public interface UserOrBuilder extends
    * Classification tags attached to the user for segmentation and filtering.
    * Supports hierarchical tags using "/" as a depth separator.
    * +kubebuilder:validation:MaxItems=20
+   * +kubebuilder:example=["premium-subscriber","vip"]
    * </pre>
    *
    * <code>repeated string tags = 18 [json_name = "tags"];</code>
@@ -490,6 +507,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the email opt-out preference was last changed.
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -499,6 +517,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the email opt-out preference was last changed.
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -508,6 +527,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the email opt-out preference was last changed.
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_email_updated_at = 21 [json_name = "unsubscribeEmailUpdatedAt"];</code>
@@ -529,6 +549,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the SMS/text opt-out preference was last changed.
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -538,6 +559,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the SMS/text opt-out preference was last changed.
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -547,6 +569,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the SMS/text opt-out preference was last changed.
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_texting_updated_at = 23 [json_name = "unsubscribeTextingUpdatedAt"];</code>
@@ -567,6 +590,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the app push opt-out preference was last changed.
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -576,6 +600,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the app push opt-out preference was last changed.
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -585,6 +610,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the app push opt-out preference was last changed.
+   * +kubebuilder:example="2026-04-28T09:35:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25 [json_name = "unsubscribeAppPushUpdatedAt"];</code>
@@ -860,6 +886,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user was last seen online in the channel.
+   * +kubebuilder:example="2026-04-28T09:40:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -869,6 +896,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user was last seen online in the channel.
+   * +kubebuilder:example="2026-04-28T09:40:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
@@ -878,6 +906,7 @@ public interface UserOrBuilder extends
   /**
    * <pre>
    * Timestamp when the user was last seen online in the channel.
+   * +kubebuilder:example="2026-04-28T09:40:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 41 [json_name = "lastSeenAt"];</code>
